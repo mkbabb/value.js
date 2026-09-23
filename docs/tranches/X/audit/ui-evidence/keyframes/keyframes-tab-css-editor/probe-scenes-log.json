@@ -1,0 +1,130 @@
+{
+  "kf": "60477b06+7",
+  "scenes": {
+    "amiga": {
+      "hasTab": 1,
+      "options": [
+        "Controls",
+        "Keyframes",
+        "Timeline"
+      ],
+      "m": {
+        "editors": [
+          {
+            "box": [
+              73,
+              64,
+              403,
+              450
+            ],
+            "inPane": true
+          }
+        ],
+        "ribbon": [
+          "Copy",
+          "Format",
+          "Export CSS",
+          "Apply CSS"
+        ],
+        "codeOutsidePane": []
+      }
+    },
+    "square": {
+      "hasTab": 1,
+      "options": [
+        "Controls",
+        "Keyframes",
+        "Timeline"
+      ],
+      "m": {
+        "editors": [
+          {
+            "box": [
+              73,
+              64,
+              403,
+              450
+            ],
+            "inPane": true
+          }
+        ],
+        "ribbon": [
+          "Copy",
+          "Format",
+          "Export CSS",
+          "Apply CSS"
+        ],
+        "codeOutsidePane": []
+      }
+    },
+    "easing": {
+      "hasTab": 1,
+      "options": [
+        "Controls",
+        "Keyframes",
+        "Timeline",
+        "Curve"
+      ],
+      "m": {
+        "editors": [
+          {
+            "box": [
+              73,
+              64,
+              403,
+              450
+            ],
+            "inPane": true
+          }
+        ],
+        "ribbon": [
+          "Copy",
+          "Format",
+          "Export CSS",
+          "Apply CSS"
+        ],
+        "codeOutsidePane": [
+          {
+            "tag": "CODE",
+            "box": [
+              617,
+              164,
+              354,
+              23
+            ],
+            "t": "cubic-bezier(0.25, 0.10, 0.25, 1.00)"
+          }
+        ]
+      }
+    },
+    "spring": {
+      "hasTab": 1,
+      "options": [
+        "Controls",
+        "Keyframes",
+        "Timeline",
+        "Physics"
+      ],
+      "m": {
+        "editors": [
+          {
+            "box": [
+              73,
+              64,
+              403,
+              450
+            ],
+            "inPane": true
+          }
+        ],
+        "ribbon": [
+          "Copy",
+          "Format",
+          "Export CSS",
+          "Apply CSS"
+        ],
+        "codeOutsidePane": []
+      }
+    }
+  }
+}

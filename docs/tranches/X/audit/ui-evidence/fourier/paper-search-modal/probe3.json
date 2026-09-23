@@ -1,0 +1,46 @@
+[
+ {
+  "q": "parseval",
+  "row": "Thm2.10.2Parseval's Identity",
+  "active": "4.Lens II: Complex Analysis",
+  "pg": "pg 63/110",
+  "nearestHit": null
+ },
+ {
+  "q": "fourier",
+  "row": "Def2.7.1.1Fourier Series",
+  "active": "2.Lens I: Linear Algebra",
+  "pg": "pg 39/110",
+  "nearestHit": {
+   "y": 0,
+   "t": "The Discrete Fourier Transform"
+  }
+ },
+ {
+  "q": "gibbs",
+  "row": "SecThe Gibbs Phenomenon",
+  "active": "2.Lens I: Linear Algebra",
+  "pg": "pg 42/110",
+  "nearestHit": {
+   "y": 167,
+   "t": "At jump discontinuities, the partial sum"
+  }
+ },
+ {
+  "q": "residue theorem",
+  "row": "Thm4.2.1Residue Theorem",
+  "active": "6.The Discrete Fourier Transform",
+  "pg": "pg 76/110",
+  "nearestHit": null
+ },
+ {
+  "q": "wronskian",
+  "row": "Def1.2.2.1Wronskian",
+  "active": "1.Origin and Derivation",
+  "pg": "pg 11/110",
+  "nearestHit": {
+   "y": 232,
+   "t": "eigenvalue be multidimensional? The Wron"
+  }
+ }
+]

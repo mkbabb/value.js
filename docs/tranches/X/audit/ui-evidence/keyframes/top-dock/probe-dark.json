@@ -1,0 +1,146 @@
+{
+ "light": [
+  {
+   "n": "Scene",
+   "cls": "dock-trigger dock-select-trigger dock-label",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "border": "0px none color(srgb 0 0 0 / 0.8)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset color(srgb 0 0 0 / 0.8)",
+   "after": "none"
+  },
+  {
+   "n": "Controls tab",
+   "cls": "dock-trigger dock-select-trigger dock-label",
+   "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+   "bgi": "none",
+   "border": "0px none rgb(28, 25, 23)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset rgb(28, 25, 23)",
+   "after": "none"
+  },
+  {
+   "n": "Controls panel",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsule",
+   "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+   "bgi": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset rgb(0, 0, 0)",
+   "after": "none"
+  },
+  {
+   "n": "@mbabb menu",
+   "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "border": "0px none color(srgb 0 0 0 / 0.8)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset color(srgb 0 0 0 / 0.8)",
+   "after": "none"
+  },
+  {
+   "n": "Pause animation",
+   "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-vivid",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "linear-gradient(to right, rgb(240, 66, 66), rgb(244, 140, 37), rgb(244, 226, 37)",
+   "border": "0px none rgb(255, 255, 255)",
+   "shadow": "none",
+   "before": "none",
+   "after": "none"
+  },
+  {
+   "n": "Select animation",
+   "cls": "dock-trigger dock-select-trigger dock-label",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "border": "0px none color(srgb 0 0 0 / 0.8)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset color(srgb 0 0 0 / 0.8)",
+   "after": "none"
+  },
+  {
+   "n": "Reset animation",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "border": "0px none color(srgb 0 0 0 / 0.8)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset color(srgb 0 0 0 / 0.8)",
+   "after": "none"
+  }
+ ],
+ "dark": [
+  {
+   "n": "Scene",
+   "cls": "dock-trigger dock-select-trigger dock-label",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "border": "0px none color(srgb 1 1 1 / 0.8)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset color(srgb 1 1 1 / 0.8)",
+   "after": "none"
+  },
+  {
+   "n": "Controls tab",
+   "cls": "dock-trigger dock-select-trigger dock-label",
+   "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+   "bgi": "none",
+   "border": "0px none rgb(233, 230, 226)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset rgb(233, 230, 226)",
+   "after": "none"
+  },
+  {
+   "n": "Controls panel",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsule",
+   "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+   "bgi": "none",
+   "border": "0px none rgb(255, 255, 255)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset rgb(255, 255, 255)",
+   "after": "none"
+  },
+  {
+   "n": "@mbabb menu",
+   "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "border": "0px none color(srgb 1 1 1 / 0.8)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset color(srgb 1 1 1 / 0.8)",
+   "after": "none"
+  },
+  {
+   "n": "Pause animation",
+   "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-vivid",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "linear-gradient(to right, rgb(240, 66, 66), rgb(244, 140, 37), rgb(244, 226, 37)",
+   "border": "0px none rgb(255, 255, 255)",
+   "shadow": "none",
+   "before": "none",
+   "after": "none"
+  },
+  {
+   "n": "Select animation",
+   "cls": "dock-trigger dock-select-trigger dock-label",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "border": "0px none color(srgb 1 1 1 / 0.8)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset color(srgb 1 1 1 / 0.8)",
+   "after": "none"
+  },
+  {
+   "n": "Reset animation",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "border": "0px none color(srgb 1 1 1 / 0.8)",
+   "shadow": "none",
+   "before": "rgba(0, 0, 0, 0) color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset color(srgb 1 1 1 / 0.8)",
+   "after": "none"
+  }
+ ]
+}

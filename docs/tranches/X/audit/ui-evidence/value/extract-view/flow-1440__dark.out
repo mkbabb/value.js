@@ -1,0 +1,13 @@
+FAIL loaded 1440__dark TimeoutError: locator.waitFor: Timeout 90000ms exceeded.
+Call log:
+[2m  - waiting for getByText('% of the image').first() to be visible[22m
+
+OK zonehover__1440__dark hover loaded zone
+OK k12__1440__dark k -> 12 via kbd (slider keeps focus)
+OK eyedropper__1440__dark eyedropper open
+OK loupe__1440__dark hover loupe
+OK pinned__1440__dark tap -> pinned
+OK swatchpop__1440__dark add-to-palette -> swatch-pop mid-animation
+OK afteradd__1440__dark after add (any confirmation?)
+OK zoom__1440__dark Escape unpin, wheel zoom x6
+OK closed__1440__dark Escape closes eyedropper

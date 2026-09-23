@@ -1,0 +1,727 @@
+{
+ "sha": "60477b06",
+ "dirty": 2,
+ "when": "2026-09-23T17:02:18.810Z",
+ "runs": [
+  {
+   "tag": "cube-1440-light",
+   "frames": [
+    "10-open-kbd-cube-1440-light.png",
+    "11-wheel-end-cube-1440-light.png"
+   ],
+   "onOpen": {
+    "open": true,
+    "rect": [
+     496,
+     104,
+     448,
+     691
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 0,
+     "sh": 1220,
+     "ch": 689
+    },
+    "port": {
+     "top": 0,
+     "sh": 1119,
+     "ch": 540,
+     "position": "static",
+     "outline": "rgb(0, 95, 204) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(112, 89, 66)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(112, 89, 66)"
+     }
+    ],
+    "dt": {
+     "font": "16.4px/400",
+     "color": "rgb(28, 25, 23)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 1440
+   },
+   "behindScrim": {
+    "play0": "Pause",
+    "playAfterSpace": "",
+    "tab0": "durationdelayite|durationdelayite|durationdelayite",
+    "tabAfter3": "",
+    "stillOpen": true
+   },
+   "afterWheel": {
+    "open": true,
+    "rect": [
+     496,
+     104,
+     448,
+     691
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 530.5,
+     "sh": 1220,
+     "ch": 689
+    },
+    "port": {
+     "top": 578.5,
+     "sh": 1119,
+     "ch": 540,
+     "position": "static",
+     "outline": "rgb(0, 95, 204) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(112, 89, 66)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(112, 89, 66)"
+     }
+    ],
+    "dt": {
+     "font": "16.4px/400",
+     "color": "rgb(28, 25, 23)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 1440
+   },
+   "afterEsc": {
+    "open": false,
+    "play": ""
+   },
+   "onOpenMenu": {
+    "open": true,
+    "rect": [
+     496,
+     104,
+     448,
+     691
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 0,
+     "sh": 1220,
+     "ch": 689
+    },
+    "port": {
+     "top": 0,
+     "sh": 1119,
+     "ch": 540,
+     "position": "static",
+     "outline": "rgb(0, 95, 204) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(112, 89, 66)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(112, 89, 66)"
+     }
+    ],
+    "dt": {
+     "font": "16.4px/400",
+     "color": "rgb(28, 25, 23)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 1440
+   }
+  },
+  {
+   "tag": "cube-1440-dark",
+   "frames": [
+    "10-open-kbd-cube-1440-dark.png",
+    "11-wheel-end-cube-1440-dark.png"
+   ],
+   "onOpen": {
+    "open": true,
+    "rect": [
+     496,
+     104,
+     448,
+     691
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 0,
+     "sh": 1220,
+     "ch": 689
+    },
+    "port": {
+     "top": 0,
+     "sh": 1119,
+     "ch": 540,
+     "position": "static",
+     "outline": "rgb(153, 200, 255) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(195, 185, 172)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(195, 185, 172)"
+     }
+    ],
+    "dt": {
+     "font": "16.4px/400",
+     "color": "rgb(233, 230, 226)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 1440
+   },
+   "behindScrim": {
+    "play0": "Pause",
+    "playAfterSpace": "",
+    "tab0": "durationdelayite|durationdelayite|durationdelayite",
+    "tabAfter3": "",
+    "stillOpen": true
+   },
+   "afterWheel": {
+    "open": true,
+    "rect": [
+     496,
+     104,
+     448,
+     691
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 530.5,
+     "sh": 1220,
+     "ch": 689
+    },
+    "port": {
+     "top": 578.5,
+     "sh": 1119,
+     "ch": 540,
+     "position": "static",
+     "outline": "rgb(153, 200, 255) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(195, 185, 172)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(195, 185, 172)"
+     }
+    ],
+    "dt": {
+     "font": "16.4px/400",
+     "color": "rgb(233, 230, 226)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 1440
+   },
+   "afterEsc": {
+    "open": false,
+    "play": ""
+   },
+   "onOpenMenu": {
+    "open": true,
+    "rect": [
+     496,
+     104,
+     448,
+     691
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 0,
+     "sh": 1220,
+     "ch": 689
+    },
+    "port": {
+     "top": 0,
+     "sh": 1119,
+     "ch": 540,
+     "position": "static",
+     "outline": "rgb(153, 200, 255) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(195, 185, 172)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "16.4px/600",
+      "color": "rgb(195, 185, 172)"
+     }
+    ],
+    "dt": {
+     "font": "16.4px/400",
+     "color": "rgb(233, 230, 226)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 1440
+   }
+  },
+  {
+   "tag": "cube-390-light",
+   "frames": [
+    "10-open-kbd-cube-390-light.png",
+    "11-wheel-end-cube-390-light.png"
+   ],
+   "onOpen": {
+    "open": true,
+    "rect": [
+     0,
+     97,
+     390,
+     651
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 0,
+     "sh": 1197,
+     "ch": 649
+    },
+    "port": {
+     "top": 0,
+     "sh": 1102,
+     "ch": 506,
+     "position": "static",
+     "outline": "rgb(0, 95, 204) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(112, 89, 66)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(112, 89, 66)"
+     }
+    ],
+    "dt": {
+     "font": "14px/400",
+     "color": "rgb(28, 25, 23)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 390
+   },
+   "behindScrim": {
+    "play0": "Pause",
+    "playAfterSpace": "",
+    "tab0": "durationdelayite|durationdelayite|durationdelayite",
+    "tabAfter3": "",
+    "stillOpen": true
+   },
+   "afterWheel": {
+    "open": true,
+    "rect": [
+     0,
+     97,
+     390,
+     651
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 547.5,
+     "sh": 1197,
+     "ch": 649
+    },
+    "port": {
+     "top": 595.5,
+     "sh": 1102,
+     "ch": 506,
+     "position": "static",
+     "outline": "rgb(0, 95, 204) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(112, 89, 66)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(112, 89, 66)"
+     }
+    ],
+    "dt": {
+     "font": "14px/400",
+     "color": "rgb(28, 25, 23)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 390
+   },
+   "afterEsc": {
+    "open": false,
+    "play": ""
+   },
+   "onOpenMenu": {
+    "open": true,
+    "rect": [
+     0,
+     97,
+     390,
+     651
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 0,
+     "sh": 1197,
+     "ch": 649
+    },
+    "port": {
+     "top": 0,
+     "sh": 1102,
+     "ch": 506,
+     "position": "static",
+     "outline": "rgb(0, 95, 204) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(112, 89, 66)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(253, 245, 236)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(112, 89, 66)"
+     }
+    ],
+    "dt": {
+     "font": "14px/400",
+     "color": "rgb(28, 25, 23)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 390
+   }
+  },
+  {
+   "tag": "cube-390-dark",
+   "frames": [
+    "10-open-kbd-cube-390-dark.png",
+    "11-wheel-end-cube-390-dark.png"
+   ],
+   "onOpen": {
+    "open": true,
+    "rect": [
+     0,
+     97,
+     390,
+     651
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 0,
+     "sh": 1197,
+     "ch": 649
+    },
+    "port": {
+     "top": 0,
+     "sh": 1102,
+     "ch": 506,
+     "position": "static",
+     "outline": "rgb(153, 200, 255) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(195, 185, 172)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(195, 185, 172)"
+     }
+    ],
+    "dt": {
+     "font": "14px/400",
+     "color": "rgb(233, 230, 226)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 390
+   },
+   "behindScrim": {
+    "play0": "Pause",
+    "playAfterSpace": "",
+    "tab0": "durationdelayite|durationdelayite|durationdelayite",
+    "tabAfter3": "",
+    "stillOpen": true
+   },
+   "afterWheel": {
+    "open": true,
+    "rect": [
+     0,
+     97,
+     390,
+     651
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 547.5,
+     "sh": 1197,
+     "ch": 649
+    },
+    "port": {
+     "top": 595.5,
+     "sh": 1102,
+     "ch": 506,
+     "position": "static",
+     "outline": "rgb(153, 200, 255) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(195, 185, 172)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(195, 185, 172)"
+     }
+    ],
+    "dt": {
+     "font": "14px/400",
+     "color": "rgb(233, 230, 226)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 390
+   },
+   "afterEsc": {
+    "open": false,
+    "play": ""
+   },
+   "onOpenMenu": {
+    "open": true,
+    "rect": [
+     0,
+     97,
+     390,
+     651
+    ],
+    "radius": "16px",
+    "dlgScroll": {
+     "top": 0,
+     "sh": 1197,
+     "ch": 649
+    },
+    "port": {
+     "top": 0,
+     "sh": 1102,
+     "ch": 506,
+     "position": "static",
+     "outline": "rgb(153, 200, 255) auto 1px",
+     "focusVisible": true,
+     "focused": true
+    },
+    "srOffsetParent": "dialog.fixed left-1/2 top-1/2 z-modal grid w-fu",
+    "plates": [
+     {
+      "t": "General",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(195, 185, 172)"
+     },
+     {
+      "t": "Playback",
+      "bg": "rgb(53, 42, 34)",
+      "radius": "0px",
+      "font": "14px/600",
+      "color": "rgb(195, 185, 172)"
+     }
+    ],
+    "dt": {
+     "font": "14px/400",
+     "color": "rgb(233, 230, 226)"
+    },
+    "kbdFont": "11px",
+    "close": {
+     "w": 16,
+     "h": 16,
+     "domFirst": true
+    },
+    "active": "DIV[region]Keyboard shortcuts",
+    "rowCount": 22,
+    "docW": 390
+   }
+  }
+ ]
+}

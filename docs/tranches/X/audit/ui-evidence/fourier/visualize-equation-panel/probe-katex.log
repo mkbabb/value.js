@@ -1,0 +1,5 @@
+resp /equations/simplify latexLen=84 terms~6 tail=2} +41\cos(t) -55\sin(t) -36\cos(3t) -2.1e+02\sin(3t) \cdots
+chain@6: ["katex-html sw=496 cw=430 ox=visible maxw=none","katex sw=496 cw=430 ox=visible maxw=none","katex-display sw=496 cw=430 ox=auto maxw=none","eq-katex sw=430 cw=430 ox=visible maxw=none","max-h-32 overflow-x-auto overflow-y-auto sw=430 cw=430 ox=auto maxw=none","card-content flex flex-col gap-2 sw=446 cw=446 ox=visible maxw=none"]
+resp /equations/simplify latexLen=78 terms~5 tail={-23}{2} +95\cos(t) -73\sin(t) +6\cos(2t) +90\sin(2t) \cdots
+chain@20: ["katex-html sw=438 cw=430 ox=visible maxw=none","katex sw=438 cw=430 ox=visible maxw=none","katex-display sw=438 cw=430 ox=auto maxw=none","eq-katex sw=430 cw=430 ox=visible maxw=none","max-h-32 overflow-x-auto overflow-y-auto sw=430 cw=430 ox=auto maxw=none","card-content flex flex-col gap-2 sw=446 cw=446 ox=visible maxw=none"]
+scrollLeft after wheel ["katex-display:8.5"]

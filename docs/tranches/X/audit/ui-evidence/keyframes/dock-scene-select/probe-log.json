@@ -1,0 +1,120 @@
+{
+  "390": {
+    "contentShadow": "none",
+    "border": "0px solid rgb(198, 180, 159)",
+    "shadows": [
+      {
+        "tag": "DIV",
+        "cls": "relative z-popover overflow-hidden rounded-panel border text",
+        "sh": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "interactive-item glass-menu-row relative flex w-full cursor-",
+        "sh": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / 0.15) 0px 0px 8px 0px"
+      }
+    ],
+    "triggerGlyphs": [
+      [
+        "lucide lucide-house-icon lucide-house dock-glyph",
+        20,
+        20
+      ],
+      [
+        "lucide lucide-chevron-down-icon lucide-chevron-down dock-select-trigger__chevron",
+        12,
+        12
+      ]
+    ],
+    "chevron": [
+      12,
+      12
+    ],
+    "overlapDockPx": 12,
+    "dock": [
+      188,
+      56
+    ],
+    "rowRadius": "8px",
+    "hl": {
+      "text": "Sequence",
+      "border": "0px solid rgb(198, 180, 159)",
+      "outline": "rgb(28, 25, 23) none 3px",
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "radius": "8px"
+    },
+    "checkedLabelWeight": "700",
+    "focus": "Sequence",
+    "mbabbUnderListbox": {
+      "mb": [
+        219,
+        44,
+        60,
+        26
+      ],
+      "topmost": "BUTTON.dropdown-menu__trigger dock-tr"
+    },
+    "kbdWarm": [],
+    "bad": []
+  },
+  "1440": {
+    "contentShadow": "none",
+    "border": "0px solid rgb(198, 180, 159)",
+    "shadows": [
+      {
+        "tag": "DIV",
+        "cls": "relative z-popover overflow-hidden rounded-panel border text",
+        "sh": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "interactive-item glass-menu-row relative flex w-full cursor-",
+        "sh": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / 0.15) 0px 0px 8px 0px"
+      }
+    ],
+    "triggerGlyphs": [
+      [
+        "lucide lucide-house-icon lucide-house dock-glyph",
+        20,
+        20
+      ],
+      [
+        "lucide lucide-chevron-down-icon lucide-chevron-down dock-select-trigger__chevron",
+        12,
+        12
+      ]
+    ],
+    "chevron": [
+      12,
+      12
+    ],
+    "overlapDockPx": 9,
+    "dock": [
+      216,
+      56
+    ],
+    "rowRadius": "8px",
+    "hl": {
+      "text": "Sequence",
+      "border": "0px solid rgb(198, 180, 159)",
+      "outline": "rgb(28, 25, 23) none 3px",
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "radius": "8px"
+    },
+    "checkedLabelWeight": "700",
+    "focus": "Sequence",
+    "mbabbUnderListbox": {
+      "mb": [
+        743,
+        56,
+        75,
+        31
+      ],
+      "topmost": "BUTTON.dropdown-menu__trigger dock-tr"
+    },
+    "kbdWarm": [],
+    "bad": [
+      "404 http://localhost:5173/assets/icons/favicon.svg"
+    ]
+  }
+}

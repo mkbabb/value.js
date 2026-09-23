@@ -1,0 +1,324 @@
+[
+ {
+  "frame": "1440-light-01-default.png",
+  "tree": "5ac82779 dirty=5",
+  "t": "2026-09-23T16:01:12.820Z"
+ },
+ {
+  "frame": "1440-light-02-pane.png",
+  "tree": "5ac82779 dirty=5",
+  "t": "2026-09-23T16:01:13.617Z"
+ },
+ {
+  "frame": "1440-light-03-pane-scrolled-bottom.png",
+  "tree": "5ac82779 dirty=5",
+  "t": "2026-09-23T16:01:16.584Z"
+ },
+ {
+  "frame": "1440-light-04-slider-hover.png",
+  "tree": "5ac82779 dirty=5",
+  "t": "2026-09-23T16:01:24.453Z"
+ },
+ {
+  "frame": "1440-light-05-slider-focus.png",
+  "tree": "5ac82779 dirty=6",
+  "t": "2026-09-23T16:01:28.218Z"
+ },
+ {
+  "frame": "1440-light-06-tuned-live.png",
+  "tree": "5ac82779 dirty=6",
+  "t": "2026-09-23T16:01:31.894Z"
+ },
+ {
+  "frame": "1440-light-06-tuned-live.png",
+  "note": "bodyRadius 0.22 -> 0.45"
+ },
+ {
+  "frame": "1440-light-07-dragging.png",
+  "tree": "5ac82779 dirty=6",
+  "t": "2026-09-23T16:01:34.682Z"
+ },
+ {
+  "frame": "1440-light-08-blob-motion-0.png",
+  "tree": "5ac82779 dirty=6",
+  "t": "2026-09-23T16:01:36.818Z"
+ },
+ {
+  "frame": "1440-light-08-blob-motion-1.png",
+  "tree": "5ac82779 dirty=6",
+  "t": "2026-09-23T16:01:38.624Z"
+ },
+ {
+  "frame": "1440-light-08-blob-motion-2.png",
+  "tree": "5ac82779 dirty=6",
+  "t": "2026-09-23T16:01:40.448Z"
+ },
+ {
+  "frame": "1440-light-09-copy-hover.png",
+  "tree": "5ac82779 dirty=6",
+  "t": "2026-09-23T16:01:41.231Z"
+ },
+ {
+  "frame": "1440-light-10-after-copy.png",
+  "tree": "7fdd0c9f dirty=4",
+  "t": "2026-09-23T16:01:43.062Z"
+ },
+ {
+  "frame": "1440-light-11-after-reset.png",
+  "tree": "7fdd0c9f dirty=5",
+  "t": "2026-09-23T16:01:45.026Z"
+ },
+ {
+  "frame": "1440-light-12-home.png",
+  "tree": "7fdd0c9f dirty=5",
+  "t": "2026-09-23T16:01:49.838Z"
+ },
+ {
+  "frame": "1440-light-12-home.png",
+  "note": "route=#/blob?space=lab&color=lab(2.665734663179%25+2.51361475133+0.151493779501+/+82.7%25)"
+ },
+ {
+  "frame": "390-light-01-default.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:19.678Z"
+ },
+ {
+  "frame": "390-light-01b-fullpage.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:20.443Z"
+ },
+ {
+  "frame": "390-light-02-pane.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:20.969Z"
+ },
+ {
+  "frame": "390-light-03-pane-scrolled-bottom.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:22.045Z"
+ },
+ {
+  "frame": "390-light-04-slider-hover.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:23.436Z"
+ },
+ {
+  "frame": "390-light-05-slider-focus.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:24.392Z"
+ },
+ {
+  "frame": "390-light-06-tuned-live.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:26.915Z"
+ },
+ {
+  "frame": "390-light-06-tuned-live.png",
+  "note": "bodyRadius 0.22 -> 0.45"
+ },
+ {
+  "frame": "390-light-07-dragging.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:27.750Z"
+ },
+ {
+  "frame": "390-light-08-blob-motion-0.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:28.885Z"
+ },
+ {
+  "frame": "390-light-08-blob-motion-1.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:30.088Z"
+ },
+ {
+  "frame": "390-light-08-blob-motion-2.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:31.136Z"
+ },
+ {
+  "frame": "390-light-09-copy-hover.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:31.898Z"
+ },
+ {
+  "frame": "390-light-10-after-copy.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:32.895Z"
+ },
+ {
+  "frame": "390-light-11-after-reset.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:34.376Z"
+ },
+ {
+  "frame": "390-light-12-home.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:02:36.762Z"
+ },
+ {
+  "frame": "390-light-12-home.png",
+  "note": "route=#/blob"
+ },
+ {
+  "frame": "1440-dark-01-default.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:03:42.530Z"
+ },
+ {
+  "frame": "1440-dark-02-pane.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:03:43.727Z"
+ },
+ {
+  "frame": "1440-dark-03-pane-scrolled-bottom.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:03:46.434Z"
+ },
+ {
+  "frame": "1440-dark-04-slider-hover.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:03:48.535Z"
+ },
+ {
+  "frame": "1440-dark-05-slider-focus.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:03:49.642Z"
+ },
+ {
+  "frame": "1440-dark-06-tuned-live.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:03:53.183Z"
+ },
+ {
+  "frame": "1440-dark-06-tuned-live.png",
+  "note": "bodyRadius 0.22 -> 0.45"
+ },
+ {
+  "frame": "1440-dark-07-dragging.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:03:56.216Z"
+ },
+ {
+  "frame": "1440-dark-08-blob-motion-0.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:03:58.354Z"
+ },
+ {
+  "frame": "1440-dark-08-blob-motion-1.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:04:00.234Z"
+ },
+ {
+  "frame": "1440-dark-08-blob-motion-2.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:04:02.085Z"
+ },
+ {
+  "frame": "1440-dark-09-copy-hover.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:04:03.099Z"
+ },
+ {
+  "frame": "1440-dark-10-after-copy.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:04:06.392Z"
+ },
+ {
+  "frame": "1440-dark-11-after-reset.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:04:09.946Z"
+ },
+ {
+  "frame": "1440-dark-12-home.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:04:13.967Z"
+ },
+ {
+  "frame": "1440-dark-12-home.png",
+  "note": "route=#/blob?space=lab&color=lab(2.667420071775%25+2.515720230526+0.151815722719+/+82.7%25)"
+ },
+ {
+  "frame": "390-dark-01-default.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:05:19.702Z"
+ },
+ {
+  "frame": "390-dark-01b-fullpage.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:05:30.363Z"
+ },
+ {
+  "frame": "390-dark-02-pane.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:05:42.877Z"
+ },
+ {
+  "frame": "390-dark-03-pane-scrolled-bottom.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:05:51.603Z"
+ },
+ {
+  "frame": "390-dark-04-slider-hover.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:05:59.868Z"
+ },
+ {
+  "frame": "390-dark-05-slider-focus.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:06:02.895Z"
+ },
+ {
+  "frame": "390-dark-06-tuned-live.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:06:06.267Z"
+ },
+ {
+  "frame": "390-dark-06-tuned-live.png",
+  "note": "bodyRadius 0.22 -> 0.45"
+ },
+ {
+  "frame": "390-dark-07-dragging.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:06:07.535Z"
+ },
+ {
+  "frame": "390-dark-08-blob-motion-0.png",
+  "tree": "7fdd0c9f dirty=6",
+  "t": "2026-09-23T16:06:09.120Z"
+ },
+ {
+  "frame": "390-dark-08-blob-motion-1.png",
+  "tree": "7fdd0c9f dirty=7",
+  "t": "2026-09-23T16:06:10.636Z"
+ },
+ {
+  "frame": "390-dark-08-blob-motion-2.png",
+  "tree": "7fdd0c9f dirty=7",
+  "t": "2026-09-23T16:06:12.917Z"
+ },
+ {
+  "frame": "390-dark-09-copy-hover.png",
+  "tree": "7fdd0c9f dirty=7",
+  "t": "2026-09-23T16:06:14.664Z"
+ },
+ {
+  "frame": "390-dark-10-after-copy.png",
+  "tree": "7fdd0c9f dirty=7",
+  "t": "2026-09-23T16:06:17.315Z"
+ },
+ {
+  "frame": "390-dark-11-after-reset.png",
+  "tree": "7fdd0c9f dirty=7",
+  "t": "2026-09-23T16:06:19.969Z"
+ },
+ {
+  "frame": "390-dark-12-home.png",
+  "tree": "7fdd0c9f dirty=7",
+  "t": "2026-09-23T16:06:25.502Z"
+ },
+ {
+  "frame": "390-dark-12-home.png",
+  "note": "route=#/blob"
+ }
+]

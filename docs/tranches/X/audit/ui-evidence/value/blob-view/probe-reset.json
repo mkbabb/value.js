@@ -1,0 +1,27 @@
+{
+ "tree": "7fdd0c9f dirty=7",
+ "A_roundtrip": {
+  "scrollY": 0,
+  "blobCanvas": [
+   360,
+   360,
+   "1",
+   "1"
+  ],
+  "condensed": false,
+  "dockBox": 424.53125
+ },
+ "D_reset": {
+  "scrollY": 0,
+  "blobCanvas": [
+   360,
+   360,
+   "1",
+   "1"
+  ],
+  "condensed": false,
+  "dockBox": 56
+ },
+ "D_bodyAfterReset": "0.22",
+ "F_hit": "direct-load near-black"
+}

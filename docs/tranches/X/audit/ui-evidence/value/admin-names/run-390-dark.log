@@ -1,0 +1,21 @@
+captured 390-dark-01-empty-pending.png
+captured 390-dark-02-empty-approved.png
+ERR 390-dark propose TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Tools/ }).first()[22m
+
+captured 390-dark-14-error.png
+captured 390-dark-15-loading.png
+captured 390-dark-05-pending-populated.png
+captured 390-dark-06-approve-hover.png
+captured 390-dark-06b-reject-hover.png
+captured 390-dark-07-reject-keyboard-focus.png
+captured 390-dark-08-reject-confirm.png
+captured 390-dark-09-reject-notice.png
+captured 390-dark-10-approve-notice.png
+captured 390-dark-10b-notice-after-4s.png
+captured 390-dark-11-approved-populated.png
+captured 390-dark-12-delete-confirm.png
+captured 390-dark-13-filtered-empty.png
+captured 390-dark-00-signed-out.png
+CONTEXT-CLOSED 390-dark 2026-09-23T18:14:28.752Z

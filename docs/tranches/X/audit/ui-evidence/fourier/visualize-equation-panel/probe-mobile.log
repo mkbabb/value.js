@@ -1,0 +1,8 @@
+canvas tabs 1
+after-canvas-tab {"dock":[265,138,112,66],"expanded":null,"controls":["View options@265,147,47x47","Publish to Gallery@339,147,47x47","Equation@392,147,47x47","Fullscreen@466,147,47x47","Expand dock@274,147,47x47","Edit contour@321,147,47x47"],"editing":true,"eq":false}
+expand-dock count 1
+summary bb {"x":274.046875,"y":147.3984375,"width":46.796875,"height":46.796875}
+after-tap-dock-left-edge {"dock":[100,138,190,66],"expanded":null,"controls":["View options@114,147,47x47","Publish to Gallery@188,147,47x47","Equation@242,147,47x47","Fullscreen@316,147,47x47","Edit contour@229,147,47x47"],"editing":true,"eq":false}
+eq count 1
+eq bb {"x":241.6796875,"y":147.3984375,"width":46.796875,"height":46.796875}
+after-tap-eq {"dock":[134,138,122,66],"expanded":null,"controls":["Fullscreen@148,147,47x47","Edit contour@195,147,47x47"],"editing":true,"eq":false}

@@ -1,0 +1,330 @@
+{
+  "1440-light": {
+    "console": [
+      "error: Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+      "error: [value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+    ],
+    "triggerCount": 1,
+    "triggerBox": {
+      "x": 220.4765625,
+      "y": 172.4921875,
+      "width": 111.5390625,
+      "height": 84.9765625
+    },
+    "trigger": {
+      "text": "Lab",
+      "fontSize": "53.28px",
+      "fontWeight": "400",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "color": "color(srgb 0.665504 0.000101413 0.261748 / 0.86)",
+      "radius": "9999px",
+      "pad": "0px 0px 5.0616px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 85,
+      "w": 112
+    },
+    "focusIsTrigger": true,
+    "listbox": {
+      "contentRadius": "12px",
+      "contentBg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+      "backdrop": "blur(11px) saturate(1.6)",
+      "rect": {
+        "x": 220.5,
+        "y": 261.5,
+        "w": 475.0703125,
+        "h": 384
+      },
+      "scrollH": 382,
+      "clientH": 382,
+      "items": 18,
+      "itemRadius": "8px",
+      "itemH": 81,
+      "itemPad": "8px 16px 8px 12px",
+      "selected": "lab",
+      "selectedBg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "names": [
+        "rgb",
+        "hsl",
+        "hsv",
+        "hwb",
+        "lab",
+        "lch",
+        "oklab",
+        "oklch",
+        "xyz",
+        "kelvin",
+        "srgb-linear",
+        "display-p3",
+        "a98-rgb",
+        "prophoto-rgb",
+        "rec2020",
+        "ictcp",
+        "jzazbz",
+        "hex"
+      ],
+      "captionsTruncated": 0,
+      "overflowX": false
+    },
+    "hoverItemBg": {
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "radius": "8px",
+      "hl": ""
+    },
+    "after": {
+      "target": "oklch",
+      "text": "OKLCh",
+      "listboxGone": true
+    },
+    "reopenSel": [
+      "oklch"
+    ],
+    "escClosed": true,
+    "focusAfterEsc": true
+  },
+  "1440-dark": {
+    "console": [
+      "error: Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+      "error: [value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+    ],
+    "triggerCount": 1,
+    "triggerBox": {
+      "x": 220.4765625,
+      "y": 172.4921875,
+      "width": 111.5390625,
+      "height": 84.9765625
+    },
+    "trigger": {
+      "text": "Lab",
+      "fontSize": "53.28px",
+      "fontWeight": "400",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "color": "color(srgb 0.999884 0.924705 0.933067 / 0.86)",
+      "radius": "9999px",
+      "pad": "0px 0px 5.0616px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 85,
+      "w": 112
+    },
+    "focusIsTrigger": true,
+    "listbox": {
+      "contentRadius": "12px",
+      "contentBg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+      "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+      "rect": {
+        "x": 220.5,
+        "y": 261.5,
+        "w": 475.0703125,
+        "h": 384
+      },
+      "scrollH": 382,
+      "clientH": 382,
+      "items": 18,
+      "itemRadius": "8px",
+      "itemH": 81,
+      "itemPad": "8px 16px 8px 12px",
+      "selected": "lab",
+      "selectedBg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+      "names": [
+        "rgb",
+        "hsl",
+        "hsv",
+        "hwb",
+        "lab",
+        "lch",
+        "oklab",
+        "oklch",
+        "xyz",
+        "kelvin",
+        "srgb-linear",
+        "display-p3",
+        "a98-rgb",
+        "prophoto-rgb",
+        "rec2020",
+        "ictcp",
+        "jzazbz",
+        "hex"
+      ],
+      "captionsTruncated": 0,
+      "overflowX": false
+    },
+    "hoverItemBg": {
+      "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+      "radius": "8px",
+      "hl": ""
+    },
+    "after": {
+      "target": "oklch",
+      "text": "OKLCh",
+      "listboxGone": true
+    },
+    "reopenSel": [
+      "oklch"
+    ],
+    "escClosed": true,
+    "focusAfterEsc": true
+  },
+  "390-light": {
+    "console": [
+      "error: Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+      "error: [value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+    ],
+    "triggerCount": 1,
+    "triggerBox": {
+      "x": 31.3125,
+      "y": -38.9921875,
+      "width": 70.046875,
+      "height": 52.515625
+    },
+    "trigger": {
+      "text": "Lab",
+      "fontSize": "32.928px",
+      "fontWeight": "400",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "color": "color(srgb 0.665504 0.000101413 0.261748 / 0.86)",
+      "radius": "9999px",
+      "pad": "0px 0px 3.12816px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 53,
+      "w": 70
+    },
+    "focusIsTrigger": true,
+    "listbox": {
+      "contentRadius": "12px",
+      "contentBg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+      "backdrop": "blur(11px) saturate(1.6)",
+      "rect": {
+        "x": 16,
+        "y": 197,
+        "w": 412.6484375,
+        "h": 384
+      },
+      "scrollH": 382,
+      "clientH": 382,
+      "items": 18,
+      "itemRadius": "8px",
+      "itemH": 77,
+      "itemPad": "8px 16px 8px 12px",
+      "selected": "lab",
+      "selectedBg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "names": [
+        "rgb",
+        "hsl",
+        "hsv",
+        "hwb",
+        "lab",
+        "lch",
+        "oklab",
+        "oklch",
+        "xyz",
+        "kelvin",
+        "srgb-linear",
+        "display-p3",
+        "a98-rgb",
+        "prophoto-rgb",
+        "rec2020",
+        "ictcp",
+        "jzazbz",
+        "hex"
+      ],
+      "captionsTruncated": 0,
+      "overflowX": false
+    },
+    "hoverItemBg": {
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "radius": "8px",
+      "hl": ""
+    },
+    "after": {
+      "target": "oklch",
+      "text": "OKLCh",
+      "listboxGone": true
+    },
+    "reopenSel": [
+      "oklch"
+    ],
+    "escClosed": true,
+    "focusAfterEsc": true
+  },
+  "390-dark": {
+    "console": [
+      "error: Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+      "error: [value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+    ],
+    "triggerCount": 1,
+    "triggerBox": {
+      "x": 31.3125,
+      "y": -39,
+      "width": 70.046875,
+      "height": 52.515625
+    },
+    "trigger": {
+      "text": "Lab",
+      "fontSize": "32.928px",
+      "fontWeight": "400",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "color": "color(srgb 0.999884 0.924705 0.933067 / 0.86)",
+      "radius": "9999px",
+      "pad": "0px 0px 3.12816px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 53,
+      "w": 70
+    },
+    "focusIsTrigger": true,
+    "listbox": {
+      "contentRadius": "12px",
+      "contentBg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+      "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+      "rect": {
+        "x": 16,
+        "y": 197,
+        "w": 412.6484375,
+        "h": 384
+      },
+      "scrollH": 382,
+      "clientH": 382,
+      "items": 18,
+      "itemRadius": "8px",
+      "itemH": 77,
+      "itemPad": "8px 16px 8px 12px",
+      "selected": "lab",
+      "selectedBg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+      "names": [
+        "rgb",
+        "hsl",
+        "hsv",
+        "hwb",
+        "lab",
+        "lch",
+        "oklab",
+        "oklch",
+        "xyz",
+        "kelvin",
+        "srgb-linear",
+        "display-p3",
+        "a98-rgb",
+        "prophoto-rgb",
+        "rec2020",
+        "ictcp",
+        "jzazbz",
+        "hex"
+      ],
+      "captionsTruncated": 0,
+      "overflowX": false
+    },
+    "hoverItemBg": {
+      "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+      "radius": "8px",
+      "hl": ""
+    },
+    "after": {
+      "target": "oklch",
+      "text": "OKLCh",
+      "listboxGone": true
+    },
+    "reopenSel": [
+      "oklch"
+    ],
+    "escClosed": true,
+    "focusAfterEsc": true
+  }
+}

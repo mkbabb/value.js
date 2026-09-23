@@ -1,0 +1,542 @@
+[
+ {
+  "s": "cube",
+  "rest": {
+   "dock": {
+    "x": 66,
+    "y": 729,
+    "w": 259,
+    "h": 56,
+    "b": 785
+   },
+   "host": {
+    "x": 0,
+    "y": 723,
+    "w": 390,
+    "h": 72,
+    "b": 795
+   },
+   "menubarH": "72px",
+   "reserve": "max(\n        calc(\n            2.75rem + 0.5rem +\n                0px\n        ),\n        72px\n    )",
+   "cands": [
+    {
+     "cls": "glass-drawer glass-overlay controls-drawer-content",
+     "x": 0,
+     "y": 679,
+     "w": 390,
+     "h": 772,
+     "b": 1451
+    },
+    {
+     "cls": "controls-pane group/controls min-w-0 overflow-hidden",
+     "x": 1,
+     "y": 724,
+     "w": 388,
+     "h": 727,
+     "b": 1451
+    }
+   ],
+   "fields": [
+    {
+     "lab": "Scene",
+     "x": 146,
+     "y": 30,
+     "w": 98,
+     "h": 32,
+     "b": 62
+    },
+    {
+     "lab": "Controls tab",
+     "x": 134,
+     "y": 66,
+     "w": 122,
+     "h": 32,
+     "b": 98
+    },
+    {
+     "lab": "5s",
+     "x": 147,
+     "y": 746,
+     "w": 180,
+     "h": 40,
+     "b": 786
+    },
+    {
+     "lab": "0ms",
+     "x": 147,
+     "y": 790,
+     "w": 180,
+     "h": 40,
+     "b": 830
+    },
+    {
+     "lab": "∞",
+     "x": 147,
+     "y": 834,
+     "w": 180,
+     "h": 40,
+     "b": 874
+    },
+    {
+     "lab": "",
+     "x": 147,
+     "y": 878,
+     "w": 180,
+     "h": 40,
+     "b": 918
+    }
+   ],
+   "hitAtDockLeft": "dock-plate"
+  }
+ },
+ {
+  "s": "cube-hover",
+  "rest": {
+   "dock": {
+    "x": 66,
+    "y": 729,
+    "w": 259,
+    "h": 56,
+    "b": 785
+   },
+   "host": {
+    "x": 0,
+    "y": 723,
+    "w": 390,
+    "h": 72,
+    "b": 795
+   },
+   "menubarH": "72px",
+   "reserve": "max(\n        calc(\n            2.75rem + 0.5rem +\n                0px\n        ),\n        72px\n    )",
+   "cands": [
+    {
+     "cls": "glass-drawer glass-overlay controls-drawer-content",
+     "x": 0,
+     "y": 679,
+     "w": 390,
+     "h": 772,
+     "b": 1451
+    },
+    {
+     "cls": "controls-pane group/controls min-w-0 overflow-hidden",
+     "x": 1,
+     "y": 724,
+     "w": 388,
+     "h": 727,
+     "b": 1451
+    }
+   ],
+   "fields": [
+    {
+     "lab": "Scene",
+     "x": 146,
+     "y": 30,
+     "w": 98,
+     "h": 32,
+     "b": 62
+    },
+    {
+     "lab": "Controls tab",
+     "x": 134,
+     "y": 66,
+     "w": 122,
+     "h": 32,
+     "b": 98
+    },
+    {
+     "lab": "5s",
+     "x": 147,
+     "y": 746,
+     "w": 180,
+     "h": 40,
+     "b": 786
+    },
+    {
+     "lab": "0ms",
+     "x": 147,
+     "y": 790,
+     "w": 180,
+     "h": 40,
+     "b": 830
+    },
+    {
+     "lab": "∞",
+     "x": 147,
+     "y": 834,
+     "w": 180,
+     "h": 40,
+     "b": 874
+    },
+    {
+     "lab": "",
+     "x": 147,
+     "y": 878,
+     "w": 180,
+     "h": 40,
+     "b": 918
+    }
+   ],
+   "hitAtDockLeft": "dock-plate"
+  }
+ },
+ {
+  "s": "square",
+  "rest": {
+   "dock": {
+    "x": 131,
+    "y": 729,
+    "w": 129,
+    "h": 56,
+    "b": 785
+   },
+   "host": {
+    "x": 0,
+    "y": 723,
+    "w": 390,
+    "h": 72,
+    "b": 795
+   },
+   "menubarH": "72px",
+   "reserve": "max(\n        calc(\n            2.75rem + 0.5rem +\n                0px\n        ),\n        72px\n    )",
+   "cands": [
+    {
+     "cls": "glass-drawer glass-overlay controls-drawer-content",
+     "x": 0,
+     "y": 679,
+     "w": 390,
+     "h": 772,
+     "b": 1451
+    },
+    {
+     "cls": "controls-pane group/controls min-w-0 overflow-hidden",
+     "x": 1,
+     "y": 724,
+     "w": 388,
+     "h": 727,
+     "b": 1451
+    }
+   ],
+   "fields": [
+    {
+     "lab": "Scene",
+     "x": 140,
+     "y": 30,
+     "w": 111,
+     "h": 32,
+     "b": 62
+    },
+    {
+     "lab": "Controls tab",
+     "x": 134,
+     "y": 66,
+     "w": 122,
+     "h": 32,
+     "b": 98
+    },
+    {
+     "lab": "5s",
+     "x": 147,
+     "y": 746,
+     "w": 180,
+     "h": 40,
+     "b": 786
+    },
+    {
+     "lab": "0ms",
+     "x": 147,
+     "y": 790,
+     "w": 180,
+     "h": 40,
+     "b": 830
+    },
+    {
+     "lab": "∞",
+     "x": 147,
+     "y": 834,
+     "w": 180,
+     "h": 40,
+     "b": 874
+    },
+    {
+     "lab": "",
+     "x": 147,
+     "y": 878,
+     "w": 180,
+     "h": 40,
+     "b": 918
+    }
+   ],
+   "hitAtDockLeft": "dock-plate"
+  }
+ },
+ {
+  "s": "square-hover",
+  "rest": {
+   "dock": {
+    "x": 131,
+    "y": 729,
+    "w": 129,
+    "h": 56,
+    "b": 785
+   },
+   "host": {
+    "x": 0,
+    "y": 723,
+    "w": 390,
+    "h": 72,
+    "b": 795
+   },
+   "menubarH": "72px",
+   "reserve": "max(\n        calc(\n            2.75rem + 0.5rem +\n                0px\n        ),\n        72px\n    )",
+   "cands": [
+    {
+     "cls": "glass-drawer glass-overlay controls-drawer-content",
+     "x": 0,
+     "y": 679,
+     "w": 390,
+     "h": 772,
+     "b": 1451
+    },
+    {
+     "cls": "controls-pane group/controls min-w-0 overflow-hidden",
+     "x": 1,
+     "y": 724,
+     "w": 388,
+     "h": 727,
+     "b": 1451
+    }
+   ],
+   "fields": [
+    {
+     "lab": "Scene",
+     "x": 140,
+     "y": 30,
+     "w": 111,
+     "h": 32,
+     "b": 62
+    },
+    {
+     "lab": "Controls tab",
+     "x": 134,
+     "y": 66,
+     "w": 122,
+     "h": 32,
+     "b": 98
+    },
+    {
+     "lab": "5s",
+     "x": 147,
+     "y": 746,
+     "w": 180,
+     "h": 40,
+     "b": 786
+    },
+    {
+     "lab": "0ms",
+     "x": 147,
+     "y": 790,
+     "w": 180,
+     "h": 40,
+     "b": 830
+    },
+    {
+     "lab": "∞",
+     "x": 147,
+     "y": 834,
+     "w": 180,
+     "h": 40,
+     "b": 874
+    },
+    {
+     "lab": "",
+     "x": 147,
+     "y": 878,
+     "w": 180,
+     "h": 40,
+     "b": 918
+    }
+   ],
+   "hitAtDockLeft": "dock-plate"
+  }
+ },
+ {
+  "s": "spring",
+  "rest": {
+   "dock": {
+    "x": 75,
+    "y": 729,
+    "w": 239,
+    "h": 56,
+    "b": 785
+   },
+   "host": {
+    "x": 0,
+    "y": 723,
+    "w": 390,
+    "h": 72,
+    "b": 795
+   },
+   "menubarH": "72px",
+   "reserve": "max(\n        calc(\n            2.75rem + 0.5rem +\n                0px\n        ),\n        72px\n    )",
+   "cands": [
+    {
+     "cls": "glass-drawer glass-overlay controls-drawer-content",
+     "x": 0,
+     "y": 679,
+     "w": 390,
+     "h": 772,
+     "b": 1451
+    },
+    {
+     "cls": "controls-pane group/controls min-w-0 overflow-hidden scroll-fade-bottom",
+     "x": 1,
+     "y": 724,
+     "w": 388,
+     "h": 727,
+     "b": 1451
+    }
+   ],
+   "fields": [
+    {
+     "lab": "Scene",
+     "x": 142,
+     "y": 30,
+     "w": 106,
+     "h": 32,
+     "b": 62
+    },
+    {
+     "lab": "Controls tab",
+     "x": 138,
+     "y": 66,
+     "w": 113,
+     "h": 32,
+     "b": 98
+    },
+    {
+     "lab": "Offset",
+     "x": 55,
+     "y": 1398,
+     "w": 64,
+     "h": 40,
+     "b": 1438
+    },
+    {
+     "lab": "Offset",
+     "x": 55,
+     "y": 1583,
+     "w": 64,
+     "h": 40,
+     "b": 1623
+    },
+    {
+     "lab": "Offset",
+     "x": 55,
+     "y": 1768,
+     "w": 64,
+     "h": 40,
+     "b": 1808
+    },
+    {
+     "lab": "Offset",
+     "x": 55,
+     "y": 1953,
+     "w": 64,
+     "h": 40,
+     "b": 1993
+    }
+   ],
+   "hitAtDockLeft": "dock-plate"
+  }
+ },
+ {
+  "s": "spring-hover",
+  "rest": {
+   "dock": {
+    "x": 75,
+    "y": 729,
+    "w": 239,
+    "h": 56,
+    "b": 785
+   },
+   "host": {
+    "x": 0,
+    "y": 723,
+    "w": 390,
+    "h": 72,
+    "b": 795
+   },
+   "menubarH": "72px",
+   "reserve": "max(\n        calc(\n            2.75rem + 0.5rem +\n                0px\n        ),\n        72px\n    )",
+   "cands": [
+    {
+     "cls": "glass-drawer glass-overlay controls-drawer-content",
+     "x": 0,
+     "y": 679,
+     "w": 390,
+     "h": 772,
+     "b": 1451
+    },
+    {
+     "cls": "controls-pane group/controls min-w-0 overflow-hidden scroll-fade-bottom",
+     "x": 1,
+     "y": 724,
+     "w": 388,
+     "h": 727,
+     "b": 1451
+    }
+   ],
+   "fields": [
+    {
+     "lab": "Scene",
+     "x": 142,
+     "y": 30,
+     "w": 106,
+     "h": 32,
+     "b": 62
+    },
+    {
+     "lab": "Controls tab",
+     "x": 138,
+     "y": 66,
+     "w": 113,
+     "h": 32,
+     "b": 98
+    },
+    {
+     "lab": "Offset",
+     "x": 55,
+     "y": 1398,
+     "w": 64,
+     "h": 40,
+     "b": 1438
+    },
+    {
+     "lab": "Offset",
+     "x": 55,
+     "y": 1583,
+     "w": 64,
+     "h": 40,
+     "b": 1623
+    },
+    {
+     "lab": "Offset",
+     "x": 55,
+     "y": 1768,
+     "w": 64,
+     "h": 40,
+     "b": 1808
+    },
+    {
+     "lab": "Offset",
+     "x": 55,
+     "y": 1953,
+     "w": 64,
+     "h": 40,
+     "b": 1993
+    }
+   ],
+   "hitAtDockLeft": "dock-plate"
+  }
+ }
+]

@@ -1,0 +1,40 @@
+// mix-view: verify the WatercolorDot add-slot + "From palettes" swatches are interactive (read-only probe).
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import { writeFileSync } from "node:fs";
+import { execSync } from "node:child_process";
+const OUT = new URL(".", import.meta.url).pathname;
+const sha = execSync("git -C /Users/mkbabb/Programming/value.js rev-parse --short HEAD").toString().trim();
+const dirty = execSync("git -C /Users/mkbabb/Programming/value.js status --porcelain | wc -l").toString().trim();
+const b = await chromium.launch({ headless: false });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
+await ctx.addInitScript(`if(!sessionStorage.getItem('s')){sessionStorage.setItem('s','1');localStorage.setItem('color-palettes', JSON.stringify({version:1,palettes:[{id:'p1',name:'Sunset Coast',slug:'sunset-coast',colors:[{css:'#ff6b35',position:0},{css:'#004e89',position:1}],createdAt:'2026-09-20T12:00:00.000Z',updatedAt:'2026-09-20T12:00:00.000Z',isLocal:true,visibility:'private',tags:[]}]}))}`);
+const p = await ctx.newPage();
+p.setDefaultTimeout(30000);
+await p.goto("http://localhost:9000/#/mix", { waitUntil: "domcontentloaded", timeout: 600000 });
+await p.getByText("Mix colors and palettes together.").waitFor({ timeout: 600000 });
+await p.waitForTimeout(2000);
+const pane = p.locator(".pane-scroll-fade").filter({ hasText: "Mix colors and palettes" });
+const dom = async () => p.evaluate(() => {
+  const pane = [...document.querySelectorAll(".pane-scroll-fade")].find(e => e.textContent.includes("Mix colors"));
+  const g = pane.querySelector(".add-slot-ghost");
+  const sw = pane.querySelector("[data-state=open] [data-testid=watercolor-swatch]");
+  const d = (e) => e && { tag: e.tagName, attrs: [...e.attributes].map(a => `${a.name}=${a.value.slice(0, 60)}`), pe: getComputedStyle(e).pointerEvents, kids: e.children.length, svgPlus: !!e.querySelector("svg.lucide, svg[class*=lucide]") };
+  return { ghost: d(g), swatch: d(sw), chips: pane.querySelectorAll(".dashed-well [data-mix-source]").length, mixDisabled: [...pane.querySelectorAll("button")].find(x => x.textContent.trim() === "Mix")?.disabled };
+});
+const before = await dom();
+// click the add slot (force: ignore pointer-events actionability)
+await pane.locator(".add-slot-ghost").click({ force: true }).catch(e => console.log("ghost click err", String(e).slice(0, 120)));
+await p.waitForTimeout(600);
+const afterGhost = await dom();
+await pane.getByText("From palettes").click(); await p.waitForTimeout(800);
+const sw = pane.locator("[data-state=open] [data-testid=watercolor-swatch]").first();
+const bb = await sw.boundingBox();
+await p.mouse.click(bb.x + bb.width / 2, bb.y + bb.height / 2); await p.waitForTimeout(600);
+const bb2 = await pane.locator("[data-state=open] [data-testid=watercolor-swatch]").nth(1).boundingBox(); await p.mouse.click(bb2.x + bb2.width / 2, bb2.y + bb2.height / 2); await p.waitForTimeout(600);
+const hit = await p.evaluate(([x, y]) => { const e = document.elementFromPoint(x, y); return e && `${e.tagName}.${(e.className?.baseVal ?? e.className).toString().slice(0, 80)}`; }, [bb2.x + bb2.width / 2, bb2.y + bb2.height / 2]);
+const afterSwatch = await dom();
+await p.screenshot({ path: OUT + "1440-light-probe-inert-after-clicks.png" });
+const res = { sha, dirty, before, afterGhost, afterSwatch, hitUnderSwatch: hit };
+writeFileSync(OUT + "probe-inert.json", JSON.stringify(res, null, 1));
+console.log(JSON.stringify(res, null, 1));
+await b.close();

@@ -1,0 +1,588 @@
+{
+ "head": "e97c8afc",
+ "dirty": 22,
+ "at": "2026-09-23T15:49:43.480Z",
+ "log": [
+  {
+   "frame": "light-1440-01-palettes-unselected.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-02-tools-deselected.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-03-selected-dock-label.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-04-palette-verbs-saved.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-05-seat-hover-publish.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-05b-seat-focus-kbd.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-06a-publish-1s.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-06-publish-failed-api-down.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-07-export-json.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-08-rename-from-dock.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-09-deselected-label.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-09b-deselected-tools-set.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-10a-delete-armed.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-10b-after-delete.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-11a-browse-loaded.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-11-browse-remote-owned-verbs.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-12-vote-failed-500.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-13-visibility-failed-500.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-14-tags-from-dock.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-15-versions-from-dock.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-ERR-16-remix-failed.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-ERR-17-save-remote.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-18-browse-api-down.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "frame": "light-1440-18b-browse-api-down-tools.png",
+   "head": "e97c8afc",
+   "dirty": 22
+  },
+  {
+   "tag": "light-1440",
+   "steps": [
+    {
+     "name": "01-palettes-unselected",
+     "ok": true,
+     "r": {
+      "dock": {
+       "x": 467.125,
+       "y": 9.7890625,
+       "w": 505.7421875,
+       "h": 62
+      },
+      "toggleText": "Tools",
+      "toggleW": 104.5078125,
+      "scrollW": 1440
+     }
+    },
+    {
+     "name": "02-tools-deselected",
+     "ok": true,
+     "r": {
+      "seats": [
+       {
+        "tok": "color.reset",
+        "state": null,
+        "label": "Reset color"
+       },
+       {
+        "tok": "color.copy",
+        "state": null,
+        "label": "Copy color"
+       },
+       {
+        "tok": "color.random",
+        "state": null,
+        "label": "Random color"
+       },
+       {
+        "tok": "color.palettes",
+        "state": null,
+        "label": "Palettes"
+       },
+       {
+        "tok": "color.extract",
+        "state": null,
+        "label": "Extract palette"
+       }
+      ],
+      "dock": {
+       "dock": {
+        "x": 557,
+        "y": 9.7890625,
+        "w": 326,
+        "h": 62
+       },
+       "toggleText": "Tools",
+       "toggleW": 104.5078125,
+       "scrollW": 1440
+      }
+     }
+    },
+    {
+     "name": "02b-back",
+     "ok": true
+    },
+    {
+     "name": "03-selected",
+     "ok": true,
+     "r": {
+      "dock": {
+       "x": 432.1171875,
+       "y": 9.7890625,
+       "w": 575.7578125,
+       "h": 62
+      },
+      "toggleText": "Sunset Harbor",
+      "toggleW": 191.975830078125,
+      "scrollW": 1440
+     }
+    },
+    {
+     "name": "04-palette-verbs",
+     "ok": true,
+     "r": {
+      "seats": [
+       {
+        "tok": "palette.rename",
+        "state": null,
+        "label": "Rename palette"
+       },
+       {
+        "tok": "palette.publish",
+        "state": null,
+        "label": "Publish palette"
+       },
+       {
+        "tok": "palette.export",
+        "state": null,
+        "label": "Export JSON"
+       },
+       {
+        "tok": "palette.delete",
+        "state": null,
+        "label": "Delete palette"
+       }
+      ],
+      "dock": {
+       "dock": {
+        "x": 602.5,
+        "y": 9.7890625,
+        "w": 235,
+        "h": 62
+       },
+       "toggleText": "Sunset Harbor",
+       "toggleW": 174.5234375,
+       "scrollW": 1440
+      }
+     }
+    },
+    {
+     "name": "05-seat-hover",
+     "ok": true
+    },
+    {
+     "name": "05b-seat-focus",
+     "ok": true,
+     "r": "Back"
+    },
+    {
+     "name": "06-publish-api-down",
+     "ok": true,
+     "r": {
+      "seats": [
+       {
+        "tok": "palette.rename",
+        "state": null,
+        "label": "Rename palette"
+       },
+       {
+        "tok": "palette.publish",
+        "state": null,
+        "label": "Publish palette"
+       },
+       {
+        "tok": "palette.export",
+        "state": null,
+        "label": "Export JSON"
+       },
+       {
+        "tok": "palette.delete",
+        "state": null,
+        "label": "Delete palette"
+       }
+      ],
+      "status": [
+       "backend offline — saved locally",
+       "Palettes view"
+      ],
+      "alert": []
+     }
+    },
+    {
+     "name": "07-export",
+     "ok": true,
+     "r": {
+      "download": "palette-draft--saved-1.json",
+      "status": [
+       "backend offline — saved locally",
+       "Palettes view",
+       "Exported palette-draft--saved-1.json"
+      ]
+     }
+    },
+    {
+     "name": "08-rename",
+     "ok": true,
+     "r": {
+      "tag": "INPUT",
+      "ph": "Palette name..."
+     }
+    },
+    {
+     "name": "09-deselect",
+     "ok": true,
+     "r": {
+      "dock": {
+       "x": 467.125,
+       "y": 9.7890625,
+       "w": 505.7421875,
+       "h": 62
+      },
+      "toggleText": "Tools",
+      "toggleW": 114.9586181640625,
+      "scrollW": 1440
+     }
+    },
+    {
+     "name": "09b-deselected-tools",
+     "ok": true,
+     "r": {
+      "seats": [
+       {
+        "tok": "color.reset",
+        "state": null,
+        "label": "Reset color"
+       },
+       {
+        "tok": "color.copy",
+        "state": null,
+        "label": "Copy color"
+       },
+       {
+        "tok": "color.random",
+        "state": null,
+        "label": "Random color"
+       },
+       {
+        "tok": "color.palettes",
+        "state": null,
+        "label": "Palettes"
+       },
+       {
+        "tok": "color.extract",
+        "state": null,
+        "label": "Extract palette"
+       }
+      ]
+     }
+    },
+    {
+     "name": "09c-back",
+     "ok": true
+    },
+    {
+     "name": "10-delete-no-confirm",
+     "ok": true,
+     "r": {
+      "remaining": 1,
+      "dialog": 0,
+      "alertdialog": 0,
+      "dock": {
+       "dock": {
+        "x": 557,
+        "y": 9.7890625,
+        "w": 326,
+        "h": 62
+       },
+       "toggleText": "Tools",
+       "toggleW": 104.5078125,
+       "scrollW": 1440
+      },
+      "seats": [
+       {
+        "tok": "color.reset",
+        "state": null,
+        "label": "Reset color"
+       },
+       {
+        "tok": "color.copy",
+        "state": null,
+        "label": "Copy color"
+       },
+       {
+        "tok": "color.random",
+        "state": null,
+        "label": "Random color"
+       },
+       {
+        "tok": "color.palettes",
+        "state": null,
+        "label": "Palettes"
+       },
+       {
+        "tok": "color.extract",
+        "state": null,
+        "label": "Extract palette"
+       }
+      ]
+     }
+    },
+    {
+     "name": "11-browse-verbs",
+     "ok": true,
+     "r": {
+      "seats": [
+       {
+        "tok": "palette.save",
+        "state": null,
+        "label": "Save palette"
+       },
+       {
+        "tok": "palette.rename",
+        "state": null,
+        "label": "Rename palette"
+       },
+       {
+        "tok": "palette.tags",
+        "state": null,
+        "label": "Edit tags"
+       },
+       {
+        "tok": "palette.versions",
+        "state": null,
+        "label": "Version history"
+       },
+       {
+        "tok": "palette.visibility",
+        "state": null,
+        "label": "Make private"
+       },
+       {
+        "tok": "palette.fork",
+        "state": null,
+        "label": "Remix palette"
+       },
+       {
+        "tok": "palette.vote",
+        "state": null,
+        "label": "Vote"
+       },
+       {
+        "tok": "palette.export",
+        "state": null,
+        "label": "Export JSON"
+       },
+       {
+        "tok": "palette.delete",
+        "state": null,
+        "label": "Delete palette"
+       }
+      ],
+      "dock": {
+       "dock": {
+        "x": 507.5,
+        "y": 12.7890625,
+        "w": 425,
+        "h": 56
+       },
+       "toggleText": "Owned One",
+       "toggleW": 152.671875,
+       "scrollW": 1440
+      }
+     }
+    },
+    {
+     "name": "12-vote-failed",
+     "ok": true,
+     "r": {
+      "status": [
+       "Browse view",
+       "Vote failed: Server exploded"
+      ],
+      "alert": [],
+      "seats": [
+       {
+        "tok": "palette.save",
+        "state": null,
+        "label": "Save palette"
+       },
+       {
+        "tok": "palette.rename",
+        "state": null,
+        "label": "Rename palette"
+       },
+       {
+        "tok": "palette.tags",
+        "state": null,
+        "label": "Edit tags"
+       },
+       {
+        "tok": "palette.versions",
+        "state": null,
+        "label": "Version history"
+       },
+       {
+        "tok": "palette.visibility",
+        "state": null,
+        "label": "Make private"
+       },
+       {
+        "tok": "palette.fork",
+        "state": null,
+        "label": "Remix palette"
+       },
+       {
+        "tok": "palette.vote",
+        "state": null,
+        "label": "Vote"
+       },
+       {
+        "tok": "palette.export",
+        "state": null,
+        "label": "Export JSON"
+       },
+       {
+        "tok": "palette.delete",
+        "state": null,
+        "label": "Delete palette"
+       }
+      ]
+     }
+    },
+    {
+     "name": "13-visibility-failed",
+     "ok": true,
+     "r": {
+      "status": [
+       "Browse view",
+       "Unpublish failed: Server exploded"
+      ]
+     }
+    },
+    {
+     "name": "14-tags",
+     "ok": true,
+     "r": {
+      "dialogs": 1
+     }
+    },
+    {
+     "name": "15-versions",
+     "ok": true,
+     "r": {
+      "dialogs": 1
+     }
+    },
+    {
+     "name": "16-remix-failed",
+     "ok": false,
+     "err": "TimeoutError: locator.click: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-scene-action=\"palette.fork\"] button')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-v-29f59cb1=\"\" data-state=\"closed\" data-grace-area-trigger=\"\" aria-label=\"Remix palette\" class=\"action"
+    },
+    {
+     "name": "17-save-remote",
+     "ok": false,
+     "err": "TimeoutError: locator.click: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-scene-action=\"palette.save\"] button')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-v-29f59cb1=\"\" data-state=\"closed\" aria-label=\"Save palette\" data-grace-area-trigger=\"\" class=\"action-"
+    },
+    {
+     "name": "18-browse-api-down",
+     "ok": true,
+     "r": {
+      "seats": [],
+      "dock": {
+       "dock": {
+        "x": 531.796875,
+        "y": 12.7890625,
+        "w": 376.3984375,
+        "h": 56
+       },
+       "toggleText": "Tools",
+       "toggleW": 104.5078125,
+       "scrollW": 1440
+      }
+     }
+    }
+   ],
+   "console": [
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,92 @@
+{
+ "d": {
+  "afterOpen": {
+   "inDialog": false,
+   "active": "Open img-amber-fox-spiral-one-2"
+  },
+  "tabs": [
+   {
+    "inDialog": false,
+    "label": "11"
+   },
+   {
+    "inDialog": false,
+    "label": "Open img-amber-fox-spiral-one-3"
+   },
+   {
+    "inDialog": false,
+    "label": "15"
+   },
+   {
+    "inDialog": true,
+    "label": "Close"
+   },
+   {
+    "inDialog": true,
+    "label": "Like"
+   },
+   {
+    "inDialog": true,
+    "label": "ℱOpen Visualizer"
+   }
+  ],
+  "closeHit": {
+   "closeBox": [
+    878,
+    152,
+    44
+   ],
+   "topIsClose": false,
+   "top": "<img data-v-64bc7942=\"\" src=\"/api/images/img-amber-fox-spiral-one-2/overlay?resize=1024\" alt=\"img-am",
+   "closeZ": "auto",
+   "dialogPadEnd": "20px",
+   "dialogPadStart": "20px"
+  },
+  "dialogOpenAfterClickingClose": 1
+ },
+ "m": {
+  "afterOpen": {
+   "inDialog": false,
+   "active": "Open img-amber-fox-spiral-one-2"
+  },
+  "tabs": [
+   {
+    "inDialog": false,
+    "label": "11"
+   },
+   {
+    "inDialog": false,
+    "label": "Open img-amber-fox-spiral-one-3"
+   },
+   {
+    "inDialog": false,
+    "label": "15"
+   },
+   {
+    "inDialog": true,
+    "label": "Close"
+   },
+   {
+    "inDialog": true,
+    "label": "Like"
+   },
+   {
+    "inDialog": true,
+    "label": "ℱOpen Visualizer"
+   }
+  ],
+  "closeHit": {
+   "closeBox": [
+    312,
+    158,
+    44
+   ],
+   "topIsClose": false,
+   "top": "<img data-v-64bc7942=\"\" src=\"/api/images/img-amber-fox-spiral-one-2/overlay?resize=1024\" alt=\"img-am",
+   "closeZ": "auto",
+   "dialogPadEnd": "12px",
+   "dialogPadStart": "12px"
+  },
+  "dialogOpenAfterClickingClose": 1
+ }
+}

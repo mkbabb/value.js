@@ -1,0 +1,595 @@
+{
+ "tree": "7fdd0c9f dirty=7",
+ "at": "2026-09-23T16:15:55.432Z",
+ "res": {
+  "1440-light": {
+   "errs": [],
+   "net": [],
+   "fatal": "page.goto: Timeout 120000ms exceeded. | Call log: | "
+  },
+  "390-light": {
+   "errs": [],
+   "net": [],
+   "triggerCount": 2,
+   "frames": [
+    {
+     "f": "390-light-07-preset-open.png",
+     "tree": "f82daf4a dirty=5"
+    },
+    {
+     "f": "390-light-07b-preset-kbd.png",
+     "tree": "f82daf4a dirty=5"
+    },
+    {
+     "f": "390-light-07c-after-enter.png",
+     "tree": "f82daf4a dirty=5"
+    },
+    {
+     "f": "390-light-08-harmony-open.png",
+     "tree": "f82daf4a dirty=5"
+    },
+    {
+     "f": "390-light-11-renamed-saved-twice.png",
+     "tree": "f82daf4a dirty=5"
+    },
+    {
+     "f": "390-light-11b-renamed-saved-twice-full.png",
+     "tree": "f82daf4a dirty=5"
+    }
+   ],
+   "presetList": {
+    "box": [
+     33,
+     94,
+     272,
+     384
+    ],
+    "trigBox": [
+     33,
+     482,
+     156,
+     54
+    ],
+    "rad": "12px",
+    "opts": [
+     {
+      "t": "VibrantHigh chroma, bold tones",
+      "sel": "true",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "PastelSoft, light, airy",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "WarmReds, oranges, golds",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "CoolBlues, cyans, purples",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "EarthMuted clay and soil",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "NeonMaximum saturation glow",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "MutedQuiet, understated",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "DarkDeep, moody tones",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "JewelRich sapphire and ruby",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "RandomUnconstrained chaos",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     }
+    ],
+    "scrollBtns": 0
+   },
+   "afterPick": {
+    "preset": "Pastel",
+    "seed": "seed: 847063a9"
+   },
+   "listboxStillOpen": 0,
+   "focusTour": [
+    {
+     "tag": "BUTTON",
+     "aria": "Regenerate",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Save palette",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Copy all colors",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Pastel",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Golden",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--"
+    },
+    {
+     "tag": "SPAN",
+     "aria": "Color count",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "tag": "INPUT",
+     "aria": "Search your palettes",
+     "outline": "none 3px",
+     "ring": "none",
+     "cls": "input-bar-field"
+    },
+    {
+     "tag": "BODY",
+     "aria": "→ Login  @mbabb Gene",
+     "outline": "none 1.5px",
+     "ring": "none",
+     "cls": "relative"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Select view",
+     "outline": "none 3px",
+     "ring": "none",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm"
+    }
+   ],
+   "swatchCopy": {
+    "clip": "SENTINEL",
+    "live": [
+     "Generate view",
+     "No saved palettes yet.Add colors, then save."
+    ]
+   },
+   "saved": [
+    "Generated Palette"
+   ],
+   "cards": [
+    "Palette: Generated Palette"
+   ],
+   "countEnds": {
+    "badge": "1",
+    "swatches": 1
+   }
+  },
+  "1440-dark": {
+   "errs": [],
+   "net": [],
+   "triggerCount": 2,
+   "frames": [
+    {
+     "f": "1440-dark-07-preset-open.png",
+     "tree": "f82daf4a dirty=6"
+    },
+    {
+     "f": "1440-dark-07b-preset-kbd.png",
+     "tree": "f82daf4a dirty=6"
+    },
+    {
+     "f": "1440-dark-07c-after-enter.png",
+     "tree": "f82daf4a dirty=6"
+    },
+    {
+     "f": "1440-dark-08-harmony-open.png",
+     "tree": "f82daf4a dirty=6"
+    },
+    {
+     "f": "1440-dark-11-renamed-saved-twice.png",
+     "tree": "f82daf4a dirty=6"
+    }
+   ],
+   "presetList": {
+    "box": [
+     224,
+     230,
+     272,
+     384
+    ],
+    "trigBox": [
+     224,
+     618,
+     225,
+     36
+    ],
+    "rad": "12px",
+    "opts": [
+     {
+      "t": "VibrantHigh chroma, bold tones",
+      "sel": "true",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "PastelSoft, light, airy",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "WarmReds, oranges, golds",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "CoolBlues, cyans, purples",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "EarthMuted clay and soil",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "NeonMaximum saturation glow",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "MutedQuiet, understated",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "DarkDeep, moody tones",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "JewelRich sapphire and ruby",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "RandomUnconstrained chaos",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     }
+    ],
+    "scrollBtns": 0
+   },
+   "afterPick": {
+    "preset": "Pastel",
+    "seed": "seed: 1fc02c7c"
+   },
+   "listboxStillOpen": 0,
+   "focusTour": [
+    {
+     "tag": "BUTTON",
+     "aria": "Regenerate",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Save palette",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Copy all colors",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Pastel",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Golden",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--"
+    },
+    {
+     "tag": "SPAN",
+     "aria": "Color count",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "tag": "INPUT",
+     "aria": "Search your palettes",
+     "outline": "none 3px",
+     "ring": "none",
+     "cls": "input-bar-field"
+    },
+    {
+     "tag": "BODY",
+     "aria": "→GenerateTools Login",
+     "outline": "none 1.5px",
+     "ring": "none",
+     "cls": "relative"
+    },
+    {
+     "tag": "INPUT",
+     "aria": "Palette name",
+     "outline": "none 1px",
+     "ring": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rg",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display fon"
+    }
+   ],
+   "swatchCopy": {
+    "clip": "SENTINEL",
+    "live": [
+     "Generate view",
+     "No saved palettes yet.Add colors, then save."
+    ]
+   },
+   "saved": [
+    "Generated Palette"
+   ],
+   "cards": [
+    "Palette: Generated Palette"
+   ],
+   "countEnds": {
+    "badge": "1",
+    "swatches": 1
+   }
+  },
+  "390-dark": {
+   "errs": [],
+   "net": [],
+   "triggerCount": 2,
+   "frames": [
+    {
+     "f": "390-dark-07-preset-open.png",
+     "tree": "f82daf4a dirty=7"
+    },
+    {
+     "f": "390-dark-07b-preset-kbd.png",
+     "tree": "f82daf4a dirty=7"
+    },
+    {
+     "f": "390-dark-07c-after-enter.png",
+     "tree": "f82daf4a dirty=8"
+    },
+    {
+     "f": "390-dark-08-harmony-open.png",
+     "tree": "f82daf4a dirty=8"
+    },
+    {
+     "f": "390-dark-11-renamed-saved-twice.png",
+     "tree": "f82daf4a dirty=8"
+    },
+    {
+     "f": "390-dark-11b-renamed-saved-twice-full.png",
+     "tree": "f82daf4a dirty=8"
+    }
+   ],
+   "presetList": {
+    "box": [
+     33,
+     94,
+     272,
+     384
+    ],
+    "trigBox": [
+     33,
+     482,
+     156,
+     54
+    ],
+    "rad": "12px",
+    "opts": [
+     {
+      "t": "VibrantHigh chroma, bold tones",
+      "sel": "true",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "PastelSoft, light, airy",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "WarmReds, oranges, golds",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "CoolBlues, cyans, purples",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "EarthMuted clay and soil",
+      "sel": "false",
+      "inView": true,
+      "rad": "8px"
+     },
+     {
+      "t": "NeonMaximum saturation glow",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "MutedQuiet, understated",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "DarkDeep, moody tones",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "JewelRich sapphire and ruby",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     },
+     {
+      "t": "RandomUnconstrained chaos",
+      "sel": "false",
+      "inView": false,
+      "rad": "8px"
+     }
+    ],
+    "scrollBtns": 0
+   },
+   "afterPick": {
+    "preset": "Pastel",
+    "seed": "seed: 433a900d"
+   },
+   "listboxStillOpen": 0,
+   "focusTour": [
+    {
+     "tag": "BUTTON",
+     "aria": "Regenerate",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Save palette",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Copy all colors",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Pastel",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Golden",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--"
+    },
+    {
+     "tag": "SPAN",
+     "aria": "Color count",
+     "outline": "none 3px",
+     "ring": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "tag": "INPUT",
+     "aria": "Search your palettes",
+     "outline": "none 3px",
+     "ring": "none",
+     "cls": "input-bar-field"
+    },
+    {
+     "tag": "BODY",
+     "aria": "→ Login  @mbabb Gene",
+     "outline": "none 1.5px",
+     "ring": "none",
+     "cls": "relative"
+    },
+    {
+     "tag": "BUTTON",
+     "aria": "Select view",
+     "outline": "none 3px",
+     "ring": "none",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm"
+    }
+   ],
+   "swatchCopy": {
+    "clip": "SENTINEL",
+    "live": [
+     "Generate view",
+     "No saved palettes yet.Add colors, then save."
+    ]
+   },
+   "saved": [
+    "Generated Palette"
+   ],
+   "cards": [
+    "Palette: Generated Palette"
+   ],
+   "countEnds": {
+    "badge": "1",
+    "swatches": 1
+   }
+  }
+ }
+}

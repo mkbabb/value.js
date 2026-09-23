@@ -1,0 +1,20 @@
+// Remove-stop probe — READ-ONLY on the app; screenshot after removing the 50% stop in the visible inline editor.
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import { execSync } from "node:child_process"; import { writeFileSync } from "node:fs";
+const OUT = new URL(".", import.meta.url).pathname; const TREE = "/Users/mkbabb/Programming/keyframes.js";
+const b = await chromium.launch({ headless: false });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
+const page = await ctx.newPage(); const errs = []; page.on("console", m => { if (m.type() === "error" || m.type() === "warning") errs.push(m.type() + " " + m.text().slice(0, 400)); }); page.on("pageerror", e => errs.push("pageerror " + String(e.stack || e).slice(0, 600)));
+await page.goto("http://localhost:5173/#/spring", { waitUntil: "networkidle" }); await page.waitForTimeout(3500);
+const sec = page.locator(".keyframes-section").first();
+const rm = sec.getByRole("button", { name: "Remove the keyframe at 50%" });
+await rm.scrollIntoViewIfNeeded(); await rm.hover(); await page.waitForTimeout(900);
+await page.screenshot({ path: OUT + "13a-remove-hover-tooltip-1440-light.png" });
+await rm.click(); await page.waitForTimeout(2500);
+await page.evaluate(() => document.querySelector(".keyframes-section")?.scrollIntoView({ block: "start" })); await page.waitForTimeout(400);
+await page.screenshot({ path: OUT + "13b-after-remove-50-1440-light.png" });
+const dom = await page.evaluate(() => ({ appLen: document.querySelector("#app")?.innerHTML.length, bodyLen: document.body.innerHTML.length, kf: !!document.querySelector(".keyframes-section"), hash: location.hash }));
+const cards = await page.evaluate(() => [...(document.querySelector(".keyframes-section") ?? document).querySelectorAll("[aria-label^='Keyframe at']")].map(c => c.getAttribute("aria-label") + " | " + c.querySelector("input")?.value + " | " + Math.round(c.getBoundingClientRect().height) + "h op=" + getComputedStyle(c).opacity + " cls=" + c.className.toString().slice(0, 60)));
+const out = { sha: execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length, dom, cards, errs };
+writeFileSync(OUT + "remove-probe.json", JSON.stringify(out, null, 1)); console.log(JSON.stringify(out, null, 1));
+await b.close();

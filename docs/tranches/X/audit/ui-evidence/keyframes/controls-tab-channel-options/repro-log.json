@@ -1,0 +1,43 @@
+{
+  "sha": "60477b06",
+  "dirty": 2,
+  "when": "2026-09-23T17:07:49.435Z",
+  "escape": {
+    "before": "Pause|Reverse",
+    "open": "Pause|Reverse",
+    "afterEscape": "Play|Reverse",
+    "listboxOpen": 0,
+    "before2": "Pause|Reverse",
+    "afterEscape2": "Play|Reverse",
+    "before3": "Pause|Reverse",
+    "afterEscapeInInput": "Pause|Reverse"
+  },
+  "invalid": {
+    "afterAbc": [
+      "abc"
+    ],
+    "afterRestoreSame": [
+      "5s"
+    ],
+    "afterDifferent4s": [],
+    "abcBlur": [
+      "abc"
+    ],
+    "abcBlurValue": "abc"
+  },
+  "pencil": {
+    "before": "ease-in-out",
+    "afterPeekBack": "cubic-bezier",
+    "selectedItem": {
+      "t": "cubic-beziercustom curve",
+      "bg": "rgba(0, 0, 0, 0)",
+      "fw": "400",
+      "state": "checked",
+      "kids": [
+        "DIV.flex flex-col gap-0.5 min-w-0",
+        "svg.curve-glyph"
+      ],
+      "html": "<div data-v-c7cbfb22=\"\" aria-describedby=\"v-101-desc-cubic-bezier\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropdown outline-none data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled pl-7 pr-2 pe-2\" data-reka-collection-item=\"\" role=\"option\" aria-labelledby=\"reka-select-item-text-v-355\" aria-selected=\"true\" data-state=\"checked\" tabindex=\"-1\"><span aria-hidden=\"true\" class=\"absolute left-2 flex h-3.5 w-3.5 items-center justify-center\"><span aria-hidden=\"true\"><span class=\"in"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+ "row": {
+  "outline": "oklab(0.216128 0.00350075 0.00518669 / 0.48) solid 2px",
+  "shadow": "none",
+  "border": "0px solid rgb(28, 25, 23)",
+  "fv": true,
+  "f": true,
+  "hl": true
+ },
+ "dockParked": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+ "dockAway": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+ "menuOpenAfterAway": 1
+}

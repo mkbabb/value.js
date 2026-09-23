@@ -1,0 +1,74 @@
+{
+  "sha": "531aa3f1",
+  "dirty": 14,
+  "theme": "dark",
+  "steps": [],
+  "box": {
+    "x": 202.4375,
+    "y": 1177.6256103515625,
+    "width": 91.515625,
+    "height": 36
+  },
+  "hit": {
+    "btn": [
+      202,
+      1178,
+      92,
+      36
+    ],
+    "top": null,
+    "inside": false
+  },
+  "boxBefore": {
+    "x": 202.4375,
+    "y": 1177.6256103515625,
+    "width": 91.515625,
+    "height": 36
+  },
+  "realClick": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Import', exact: true }).filter({ visible: true }).first()\n    - locator resolved to <button type=\"button\" data-size=\"sm\" data-v-793046d8=\"\" data-slot=\"button\" data-tone=\"neutral\" data-press-armed=\"\" data-emphasis=\"secondary\" class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover\">…</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 100ms\n    9 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - element is outside of the viewport\n    - retrying click action\n      - waiting 500ms\n",
+  "handle": {
+    "x": 195,
+    "y": 702.3599853515625,
+    "tag": "DIV.glass-drawer-handle Drawer position"
+  },
+  "handle2": {
+    "x": 195,
+    "y": 517.0799713134766
+  },
+  "boxAfter2": {
+    "x": 202.4375,
+    "y": 992.3455810546875,
+    "width": 91.515625,
+    "height": 36
+  },
+  "boxAfterWheel": {
+    "x": 202.4375,
+    "y": 992.3455810546875,
+    "width": 91.515625,
+    "height": 36
+  },
+  "scrollers": [],
+  "boxExpanded": {
+    "x": 202.4375,
+    "y": 992.3455810546875,
+    "width": 91.515625,
+    "height": 36
+  },
+  "clickAfterExpand": "    - retrying click action |       - waiting 500ms | ",
+  "keyboardOpen": 1,
+  "taFont": "14px",
+  "dlg": {
+    "box": [
+      0,
+      176,
+      390,
+      492
+    ],
+    "err": {
+      "t": "Invalid animation CSS: css_syntax at 0-5: expected scalar, got calc(",
+      "h": 20,
+      "fs": "10px"
+    }
+  },
+  "dialogAfterReal": 1
+}

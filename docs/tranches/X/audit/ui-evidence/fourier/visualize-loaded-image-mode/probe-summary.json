@@ -1,0 +1,92 @@
+{
+ "dock": [
+  469,
+  102
+ ],
+ "summaryHTML": "<div id=\"glass-dock-v-13-summary\" class=\"dock-layer dock-layer--summary is-active\" role=\"button\" tabindex=\"0\" aria-label=\"Expand dock\" aria-expanded=\"false\" aria-controls=\"glass-dock-v-13-full\"><div data-v-3c550e2c=\"\" class=\"mini-progress\"><div class=\"mini-fill\" style=\"width: 33.2835%;\"></div></div><span data-v-3c550e2c=\"\" class=\"metric summary-speed\" data-posture=\"inline\" data-size=\"sm\"><!----><span class=\"metric__reading\"><span class=\"metric__value\">1</span><span class=\"metric__unit\">×</span><!----></span><!----></span></div>",
+ "nodes": [
+  {
+   "tag": "DIV",
+   "cls": "mini-progress",
+   "attrs": "data-v-3c550e2c",
+   "x": 516,
+   "w": 48,
+   "h": 4,
+   "display": "block",
+   "bg": "color(srgb 0.11 0.098 0.09 / 0.08)",
+   "width": "48px",
+   "color": "rgb(28, 25, 23)",
+   "text": ""
+  },
+  {
+   "tag": "DIV",
+   "cls": "mini-fill",
+   "attrs": "",
+   "x": 516,
+   "w": 16,
+   "h": 0,
+   "display": "block",
+   "bg": "rgba(0, 0, 0, 0)",
+   "width": "15.9688px",
+   "color": "rgb(28, 25, 23)",
+   "text": ""
+  },
+  {
+   "tag": "SPAN",
+   "cls": "metric summary-speed",
+   "attrs": "data-v-3c550e2c",
+   "x": 570,
+   "w": 0,
+   "h": 16,
+   "display": "grid",
+   "bg": "rgba(0, 0, 0, 0)",
+   "width": "0px",
+   "color": "color(srgb 0.11 0.098 0.09 / 0.35)",
+   "text": ""
+  },
+  {
+   "tag": "SPAN",
+   "cls": "metric__reading",
+   "attrs": "",
+   "x": 570,
+   "w": 0,
+   "h": 16,
+   "display": "flex",
+   "bg": "rgba(0, 0, 0, 0)",
+   "width": "0px",
+   "color": "color(srgb 0.11 0.098 0.09 / 0.35)",
+   "text": ""
+  },
+  {
+   "tag": "SPAN",
+   "cls": "metric__value",
+   "attrs": "",
+   "x": 570,
+   "w": 30,
+   "h": 16,
+   "display": "block",
+   "bg": "rgba(0, 0, 0, 0)",
+   "width": "29.5156px",
+   "color": "color(srgb 0.11 0.098 0.09 / 0.35)",
+   "text": "1"
+  },
+  {
+   "tag": "SPAN",
+   "cls": "metric__unit",
+   "attrs": "",
+   "x": 604,
+   "w": 9,
+   "h": 14,
+   "display": "block",
+   "bg": "rgba(0, 0, 0, 0)",
+   "width": "8.63281px",
+   "color": "rgb(0, 0, 0)",
+   "text": "×"
+  }
+ ],
+ "timelineCaret": {
+  "r": "4px",
+  "pr": "0px",
+  "cls": "caret-value fira-code"
+ }
+}

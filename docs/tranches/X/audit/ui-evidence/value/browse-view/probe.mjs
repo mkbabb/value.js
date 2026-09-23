@@ -1,0 +1,10 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const b = await chromium.launch({ headless: false });
+const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+p.on("request", (r) => { if (/palettes|tags|colors|3000/.test(r.url()) && !/\.(ts|vue|js|css)(\?|$)/.test(r.url())) console.log("REQ", r.method(), r.url()); });
+p.on("response", async (r) => { if (/\/palettes\?/.test(r.url())) console.log("RESP", r.status(), (await r.text()).slice(0, 400)); });
+await p.goto("http://localhost:9000/#/browse");
+await p.waitForTimeout(8000);
+console.log(await p.evaluate(() => document.body.innerText.slice(0, 800)));
+await p.screenshot({ path: "probe.png" });
+await b.close();

@@ -1,0 +1,16 @@
+FAIL 390-dark-palettes Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+
+FAIL 390-light-palettes-empty Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+
+FAIL 1440-light-dock Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+
+FAIL 390-dark-dock Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+

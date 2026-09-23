@@ -1,0 +1,4072 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 2,
+ "when": "2026-09-23T17:36:56.766Z",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-rest-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "01-rail-hover-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-rail-tap-tracking-140ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "0.77",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-rail-tap-settled-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "0.772",
+     "railNow": "0.77",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03a-derby-active-450ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "derby",
+     "x": "0.237",
+     "railNow": "1",
+     "derbyLanes": 4,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03b-derby-active-950ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "derby",
+     "x": "1.003",
+     "railNow": "1",
+     "derbyLanes": 4,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03c-derby-exit-rest-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "0.228",
+     "railNow": "0.23",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "04-kbd-focus-rail-end-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "05-panel-presets-smooth-selected-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      -46,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1088,186,40 r=9999px",
+      "Reverse 279,1088,186,40 r=9999px",
+      "Re-seat 85,1208,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -119,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-preset-bouncy-hover-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      -46,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1088,186,40 r=9999px",
+      "Reverse 279,1088,186,40 r=9999px",
+      "Re-seat 85,1208,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -119,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-preset-bouncy-selected-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      -46,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1088,186,40 r=9999px",
+      "Reverse 279,1088,186,40 r=9999px",
+      "Re-seat 85,1208,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -119,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07-inline-keyframes-editor-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      -360,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      227,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,774,186,40 r=9999px",
+      "Reverse 279,774,186,40 r=9999px",
+      "Re-seat 85,894,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -433,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "08-ribbon-transport-reseat-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      -393,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      193,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,740,186,40 r=9999px",
+      "Reverse 279,740,186,40 r=9999px",
+      "Re-seat 85,860,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -466,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "09-ribbon-playing-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      -393,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      193,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Pause 84,739,188,41 r=9999px",
+      "Reverse 279,740,186,40 r=9999px",
+      "Re-seat 85,860,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -466,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "10a-reseat-hover-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      -393,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      193,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,740,186,40 r=9999px",
+      "Reverse 279,740,186,40 r=9999px",
+      "Re-seat 82,859,385,41 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -466,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "10b-reseat-clicked-160ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      -393,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "tracking",
+     "x": "1.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      193,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,740,186,40 r=9999px",
+      "Reverse 279,740,186,40 r=9999px",
+      "Re-seat 82,859,385,41 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -466,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "10c-after-reset-scroll-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "0.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "12-dock-play-sweeping-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "0.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "12b-top-dock-hover-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "0.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "13-panel-closed-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      75,
+      127,
+      1290,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "0.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       0,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "ribbonFound": true
+   },
+   "errors": [
+    "404 http://localhost:5173/assets/icons/favicon.svg",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  },
+  {
+   "tag": "1440-dark",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-rest-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "01-rail-hover-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-rail-tap-tracking-140ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "0.77",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-rail-tap-settled-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "0.772",
+     "railNow": "0.77",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03a-derby-active-450ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "derby",
+     "x": "0.237",
+     "railNow": "1",
+     "derbyLanes": 4,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03b-derby-active-950ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "derby",
+     "x": "1.003",
+     "railNow": "1",
+     "derbyLanes": 4,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03c-derby-exit-rest-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "0.228",
+     "railNow": "0.23",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "04-kbd-focus-rail-end-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "05-panel-presets-smooth-selected-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      -46,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1088,186,40 r=9999px",
+      "Reverse 279,1088,186,40 r=9999px",
+      "Re-seat 85,1208,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -119,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-preset-bouncy-hover-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      -46,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=on",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=off",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1088,186,40 r=9999px",
+      "Reverse 279,1088,186,40 r=9999px",
+      "Re-seat 85,1208,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -119,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-preset-bouncy-selected-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      -46,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1088,186,40 r=9999px",
+      "Reverse 279,1088,186,40 r=9999px",
+      "Re-seat 85,1208,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -119,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07-inline-keyframes-editor-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      -360,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      227,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,774,186,40 r=9999px",
+      "Reverse 279,774,186,40 r=9999px",
+      "Re-seat 85,894,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -433,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "08-ribbon-transport-reseat-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      -393,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      193,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,740,186,40 r=9999px",
+      "Reverse 279,740,186,40 r=9999px",
+      "Re-seat 85,860,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -466,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "09-ribbon-playing-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      -393,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      193,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Pause 84,739,188,41 r=9999px",
+      "Reverse 279,740,186,40 r=9999px",
+      "Re-seat 85,860,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -466,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "10a-reseat-hover-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      -393,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      193,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,740,186,40 r=9999px",
+      "Reverse 279,740,186,40 r=9999px",
+      "Re-seat 82,859,385,41 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -466,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "10b-reseat-clicked-160ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      -393,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "tracking",
+     "x": "1.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      193,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,740,186,40 r=9999px",
+      "Reverse 279,740,186,40 r=9999px",
+      "Re-seat 82,859,385,41 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       -466,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "10c-after-reset-scroll-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "0.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "12-dock-play-sweeping-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "0.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "12b-top-dock-hover-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "0.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       475,
+       1401
+      ],
+      1401
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "13-panel-closed-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      75,
+      127,
+      1290,
+      646
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "0.000",
+     "railNow": "0",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h75 r=9999px st=off",
+      "snappy0.35 / 0.65 h75 r=9999px st=off",
+      "bouncy0.5 / 0.45 h75 r=9999px st=on",
+      "gentle0.7 / 1 h52 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169
+     ],
+     "ribbonBtns": [
+      "Play 85,1261,186,40 r=9999px",
+      "Reverse 279,1261,186,40 r=9999px",
+      "Re-seat 85,1381,379,40 r=9999px"
+     ],
+     "pane": [
+      [
+       43,
+       54,
+       0,
+       1401
+      ],
+      1401
+     ],
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "ribbonFound": true
+   },
+   "errors": []
+  },
+  {
+   "tag": "390-light",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 3,
+   "frames": [
+    {
+     "frame": "00-load-rest-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "01-rail-hover-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-rail-tap-tracking-140ms-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "0.77",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-rail-tap-settled-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "0.772",
+     "railNow": "0.77",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03a-derby-active-450ms-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "derby",
+     "x": "0.233",
+     "railNow": "1",
+     "derbyLanes": 4,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03b-derby-active-950ms-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "derby",
+     "x": "1.003",
+     "railNow": "1",
+     "derbyLanes": 4,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03c-derby-exit-rest-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "0.228",
+     "railNow": "0.23",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "04-kbd-focus-rail-end-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "05-panel-presets-smooth-selected-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1172,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1716,142,40 r=9999px",
+      "Reverse 193,1716,142,40 r=9999px",
+      "Re-seat 43,1836,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV glass-drawer glass-overlay controls-draw",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-preset-bouncy-hover-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      804,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1348,142,40 r=9999px",
+      "Reverse 193,1348,142,40 r=9999px",
+      "Re-seat 43,1468,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV glass-drawer glass-overlay controls-draw",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-preset-bouncy-selected-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=off",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=on",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      804,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1348,142,40 r=9999px",
+      "Reverse 193,1348,142,40 r=9999px",
+      "Re-seat 43,1468,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07-inline-keyframes-editor-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=off",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=on",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      866,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1410,142,40 r=9999px",
+      "Reverse 193,1410,142,40 r=9999px",
+      "Re-seat 43,1530,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "08-ribbon-transport-reseat-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=off",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=on",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      748,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1292,142,40 r=9999px",
+      "Reverse 193,1292,142,40 r=9999px",
+      "Re-seat 43,1412,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "09-ribbon-playing-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=off",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=on",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      726,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1270,142,40 r=9999px",
+      "Reverse 193,1270,142,40 r=9999px",
+      "Re-seat 43,1390,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "ribbonFound": true,
+    "playErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.btn-playback').filter({ hasText: /^\\s*Play/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"b"
+   },
+   "fatal": "TimeoutError: locator.hover: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.btn-playback').filter({ hasText: 'Re-seat' }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-size=\"md\" data-slot=\"button\" data-tone=\"neutral\" data-press-armed=\"\" data-emphasis=\"secondary\" class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback w-full gap-2\">…</button>\u001b[22m\n\u001b[2m  - attempting hover action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m      - element is visible and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying hover action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m      - element is visible and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying hover action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m       - element is visible and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying hover action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+  },
+  {
+   "tag": "390-dark",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 9,
+   "frames": [
+    {
+     "frame": "00-load-rest-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "01-rail-hover-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-rail-tap-tracking-140ms-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "tracking",
+     "x": "0.000",
+     "railNow": "0.77",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-rail-tap-settled-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "0.772",
+     "railNow": "0.77",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03a-derby-active-450ms-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "derby",
+     "x": "0.236",
+     "railNow": "1",
+     "derbyLanes": 4,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03b-derby-active-950ms-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "derby",
+     "x": "1.002",
+     "railNow": "1",
+     "derbyLanes": 4,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "03c-derby-exit-rest-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "0.228",
+     "railNow": "0.23",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "04-kbd-focus-rail-end-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1906,142,40 r=9999px",
+      "Reverse 193,1906,142,40 r=9999px",
+      "Re-seat 43,2026,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV Spring target",
+     "hscroll": false
+    },
+    {
+     "frame": "05-panel-presets-smooth-selected-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      1172,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1716,142,40 r=9999px",
+      "Reverse 193,1716,142,40 r=9999px",
+      "Re-seat 43,1836,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV glass-drawer glass-overlay controls-draw",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-preset-bouncy-hover-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=on",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=off",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=on",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=off",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      804,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1348,142,40 r=9999px",
+      "Reverse 193,1348,142,40 r=9999px",
+      "Re-seat 43,1468,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "DIV glass-drawer glass-overlay controls-draw",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-preset-bouncy-selected-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=off",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=on",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      804,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1348,142,40 r=9999px",
+      "Reverse 193,1348,142,40 r=9999px",
+      "Re-seat 43,1468,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07-inline-keyframes-editor-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=off",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=on",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      866,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1410,142,40 r=9999px",
+      "Reverse 193,1410,142,40 r=9999px",
+      "Re-seat 43,1530,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "08-ribbon-transport-reseat-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=off",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=on",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      748,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1292,142,40 r=9999px",
+      "Reverse 193,1292,142,40 r=9999px",
+      "Re-seat 43,1412,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "09-ribbon-playing-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "stage": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageRadius": {
+      "borderRadius": "16px",
+      "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)"
+     },
+     "state": "settled",
+     "x": "1.000",
+     "railNow": "1",
+     "derbyLanes": 0,
+     "presetCells": [
+      "smooth0.5 / 0.86 h68 r=9999px st=off",
+      "snappy0.35 / 0.65 h68 r=9999px st=off",
+      "bouncy0.5 / 0.45 h68 r=9999px st=on",
+      "gentle0.7 / 1 h68 r=9999px st=off",
+      "smooth0.5 / 0.86 h0 r=9999px st=off",
+      "snappy0.35 / 0.65 h0 r=9999px st=off",
+      "bouncy0.5 / 0.45 h0 r=9999px st=on",
+      "gentle0.7 / 1 h0 r=9999px st=off"
+     ],
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "uppercase"
+     ],
+     "kfSection": [
+      47,
+      726,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159
+     ],
+     "ribbonBtns": [
+      "Play 43,1270,142,40 r=9999px",
+      "Reverse 193,1270,142,40 r=9999px",
+      "Re-seat 43,1390,292,40 r=9999px"
+     ],
+     "pane": [
+      [
+       1,
+       724,
+       388,
+       727
+      ],
+      1364
+     ],
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "ribbonFound": true,
+    "playErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.btn-playback').filter({ hasText: /^\\s*Play/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"b"
+   },
+   "fatal": "TimeoutError: locator.hover: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.btn-playback').filter({ hasText: 'Re-seat' }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-size=\"md\" data-slot=\"button\" data-tone=\"neutral\" data-press-armed=\"\" data-emphasis=\"secondary\" class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback w-full gap-2\">…</button>\u001b[22m\n\u001b[2m  - attempting hover action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m      - element is visible and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying hover action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m      - element is visible and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - element is outside of the viewport\u001b[22m\n\u001b[2m    - retrying hover action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible and stable\u001b[22m\n\u001b[2m       - element is visible and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - element is outside of the viewport\u001b[22m\n\u001b[2m     - retrying hover action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+  }
+ ]
+}

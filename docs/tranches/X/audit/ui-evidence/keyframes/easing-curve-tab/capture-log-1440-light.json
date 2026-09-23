@@ -1,0 +1,3866 @@
+{
+  "kf": {
+    "sha": "531aa3f1",
+    "dirty": 2
+  },
+  "glass": {
+    "sha": "6433284a",
+    "dirty": 1
+  },
+  "glassConsumed": "7.0.0 (keyframes.js node_modules pin)",
+  "when": "2026-09-23T17:31:57.414Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "frames": [
+        {
+          "frame": "01-curve-rest-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": {
+            "box": [
+              71,
+              62,
+              407,
+              313
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0p"
+          },
+          "cardContent": {
+            "box": [
+              73,
+              64,
+              403,
+              309
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "pickerGrid": {
+            "cols": "67.1953px 288px",
+            "box": [
+              89,
+              76,
+              371,
+              226
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "plotCard": {
+            "box": [
+              89,
+              76,
+              67,
+              226
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+          },
+          "plotSvg": {
+            "box": [
+              102,
+              89,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "presetTrigger": {
+            "box": [
+              172,
+              106,
+              288,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+          },
+          "presetValue": "ease",
+          "headings": [
+            {
+              "t": "Left and Right change x from 0 to 1. Up ",
+              "box": [
+                101,
+                88,
+                1,
+                1
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Preset",
+              "box": [
+                172,
+                76,
+                288,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            },
+            {
+              "t": "ease",
+              "box": [
+                185,
+                113,
+                38,
+                25
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            }
+          ],
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                173,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                162,
+                288,
+                50
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+            "code": {
+              "box": [
+                185,
+                171,
+                226,
+                32
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                978,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "cubic-bezier(0.25, 0.10, 0.25, 1.00)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@668,773,40,40",
+            "Play animation@624,765,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "BODY fv=false outline=none/none",
+          "crop": "01-curve-rest-1440-light-crop.png"
+        },
+        {
+          "frame": "02-preset-hover-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": {
+            "box": [
+              71,
+              62,
+              407,
+              313
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0p"
+          },
+          "cardContent": {
+            "box": [
+              73,
+              64,
+              403,
+              309
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "pickerGrid": {
+            "cols": "67.1953px 288px",
+            "box": [
+              89,
+              76,
+              371,
+              226
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "plotCard": {
+            "box": [
+              89,
+              76,
+              67,
+              226
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+          },
+          "plotSvg": {
+            "box": [
+              102,
+              89,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "presetTrigger": {
+            "box": [
+              170,
+              105,
+              292,
+              41
+            ],
+            "radius": "9999px",
+            "bg": "oklab(0.973918 0.0056791 0.0137255 / 0.5525)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+          },
+          "presetValue": "ease",
+          "headings": [
+            {
+              "t": "Left and Right change x from 0 to 1. Up ",
+              "box": [
+                101,
+                88,
+                1,
+                1
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Preset",
+              "box": [
+                172,
+                76,
+                288,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            },
+            {
+              "t": "ease",
+              "box": [
+                183,
+                113,
+                38,
+                25
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            }
+          ],
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                173,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                162,
+                288,
+                50
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+            "code": {
+              "box": [
+                185,
+                171,
+                226,
+                32
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                978,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "cubic-bezier(0.25, 0.10, 0.25, 1.00)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@668,773,40,40",
+            "Play animation@624,765,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "BODY fv=false outline=none/none",
+          "crop": "02-preset-hover-1440-light-crop.png"
+        },
+        {
+          "frame": "03-preset-open-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": {
+            "box": [
+              71,
+              62,
+              407,
+              313
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0p"
+          },
+          "cardContent": {
+            "box": [
+              73,
+              64,
+              403,
+              309
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "pickerGrid": {
+            "cols": "67.1953px 288px",
+            "box": [
+              89,
+              76,
+              371,
+              226
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "plotCard": {
+            "box": [
+              89,
+              76,
+              67,
+              226
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+          },
+          "plotSvg": {
+            "box": [
+              102,
+              89,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "presetTrigger": {
+            "box": [
+              170,
+              105,
+              292,
+              41
+            ],
+            "radius": "9999px",
+            "bg": "oklab(0.973918 0.0056791 0.0137255 / 0.5525)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px,"
+          },
+          "presetValue": "ease",
+          "headings": [
+            {
+              "t": "Left and Right change x from 0 to 1. Up ",
+              "box": [
+                101,
+                88,
+                1,
+                1
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Preset",
+              "box": [
+                172,
+                76,
+                288,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            },
+            {
+              "t": "ease",
+              "box": [
+                183,
+                113,
+                38,
+                25
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            }
+          ],
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                173,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                162,
+                288,
+                50
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+            "code": {
+              "box": [
+                185,
+                171,
+                226,
+                32
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                978,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "cubic-bezier(0.25, 0.10, 0.25, 1.00)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@700,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "Easing preset fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srg"
+        },
+        {
+          "frame": "04-preset-picked-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": {
+            "box": [
+              71,
+              62,
+              407,
+              313
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0p"
+          },
+          "cardContent": {
+            "box": [
+              73,
+              64,
+              403,
+              309
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "pickerGrid": {
+            "cols": "67.1953px 288px",
+            "box": [
+              89,
+              76,
+              371,
+              226
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "plotCard": {
+            "box": [
+              89,
+              76,
+              67,
+              226
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+          },
+          "plotSvg": {
+            "box": [
+              102,
+              89,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "presetTrigger": {
+            "box": [
+              172,
+              106,
+              288,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px,"
+          },
+          "presetValue": "ease-in-out",
+          "headings": [
+            {
+              "t": "Left and Right change x from 0 to 1. Up ",
+              "box": [
+                101,
+                88,
+                1,
+                1
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Preset",
+              "box": [
+                172,
+                76,
+                288,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            },
+            {
+              "t": "ease-in-out",
+              "box": [
+                185,
+                113,
+                94,
+                25
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            }
+          ],
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                171,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                162,
+                288,
+                46
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "cubic-bezier(0.42, 0, 0.58, 1)",
+            "code": {
+              "box": [
+                185,
+                177,
+                226,
+                16
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                1090,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "cubic-bezier(0.42, 0.00, 0.58, 1.00)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@692,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "Easing preset fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srg",
+          "crop": "04-preset-picked-1440-light-crop.png"
+        },
+        {
+          "frame": "05-copy-hover-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": {
+            "box": [
+              71,
+              62,
+              407,
+              313
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0p"
+          },
+          "cardContent": {
+            "box": [
+              73,
+              64,
+              403,
+              309
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "pickerGrid": {
+            "cols": "67.1953px 288px",
+            "box": [
+              89,
+              76,
+              371,
+              226
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "plotCard": {
+            "box": [
+              89,
+              76,
+              67,
+              226
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+          },
+          "plotSvg": {
+            "box": [
+              102,
+              89,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "presetTrigger": {
+            "box": [
+              172,
+              106,
+              288,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px,"
+          },
+          "presetValue": "ease-in-out",
+          "headings": [
+            {
+              "t": "Left and Right change x from 0 to 1. Up ",
+              "box": [
+                101,
+                88,
+                1,
+                1
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Preset",
+              "box": [
+                172,
+                76,
+                288,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            },
+            {
+              "t": "ease-in-out",
+              "box": [
+                185,
+                113,
+                94,
+                25
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            }
+          ],
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                171,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.11 0.098 0.09 / 0.08)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                162,
+                288,
+                46
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "cubic-bezier(0.42, 0, 0.58, 1)",
+            "code": {
+              "box": [
+                185,
+                177,
+                226,
+                16
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                1090,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "cubic-bezier(0.42, 0.00, 0.58, 1.00)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@692,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "Easing preset fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srg",
+          "crop": "05-copy-hover-1440-light-crop.png"
+        },
+        {
+          "frame": "06-copy-clicked-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": {
+            "box": [
+              71,
+              62,
+              407,
+              313
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0p"
+          },
+          "cardContent": {
+            "box": [
+              73,
+              64,
+              403,
+              309
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "pickerGrid": {
+            "cols": "67.1953px 288px",
+            "box": [
+              89,
+              76,
+              371,
+              226
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "plotCard": {
+            "box": [
+              89,
+              76,
+              67,
+              226
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+          },
+          "plotSvg": {
+            "box": [
+              102,
+              89,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "presetTrigger": {
+            "box": [
+              172,
+              106,
+              288,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+          },
+          "presetValue": "ease-in-out",
+          "headings": [
+            {
+              "t": "Left and Right change x from 0 to 1. Up ",
+              "box": [
+                101,
+                88,
+                1,
+                1
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Preset",
+              "box": [
+                172,
+                76,
+                288,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            },
+            {
+              "t": "ease-in-out",
+              "box": [
+                185,
+                113,
+                94,
+                25
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Copied curve literal.",
+              "box": [
+                185,
+                207,
+                211,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            }
+          ],
+          "literal": null,
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                1090,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "cubic-bezier(0.42, 0.00, 0.58, 1.00)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@692,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "Copied fv=false outline=none/none",
+          "crop": "06-copy-clicked-1440-light-crop.png"
+        },
+        {
+          "frame": "07-handle-drag-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": {
+            "box": [
+              71,
+              62,
+              407,
+              313
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0p"
+          },
+          "cardContent": {
+            "box": [
+              73,
+              64,
+              403,
+              309
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "pickerGrid": {
+            "cols": "67.1953px 288px",
+            "box": [
+              89,
+              76,
+              371,
+              226
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "plotCard": {
+            "box": [
+              89,
+              76,
+              67,
+              226
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+          },
+          "plotSvg": {
+            "box": [
+              102,
+              89,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "presetTrigger": {
+            "box": [
+              172,
+              106,
+              288,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+          },
+          "presetValue": "Pick a curve",
+          "headings": [
+            {
+              "t": "Left and Right change x from 0 to 1. Up ",
+              "box": [
+                101,
+                88,
+                1,
+                1
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Preset",
+              "box": [
+                172,
+                76,
+                288,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            },
+            {
+              "t": "Pick a curve",
+              "box": [
+                185,
+                113,
+                91,
+                25
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Copied curve literal.",
+              "box": [
+                185,
+                211,
+                211,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            }
+          ],
+          "literal": null,
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                1098,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "cubic-bezier(0.42, 0.00, 0.34, 1.60)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@692,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "Copied fv=false outline=none/none",
+          "crop": "07-handle-drag-1440-light-crop.png"
+        },
+        {
+          "frame": "08-catalogue-gap-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            651
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": {
+            "box": [
+              71,
+              62,
+              407,
+              411
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0p"
+          },
+          "cardContent": {
+            "box": [
+              73,
+              64,
+              403,
+              407
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "pickerGrid": {
+            "cols": "67.1953px 288px",
+            "box": [
+              89,
+              76,
+              371,
+              226
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "plotCard": {
+            "box": [
+              89,
+              76,
+              67,
+              226
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+          },
+          "plotSvg": {
+            "box": [
+              102,
+              89,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none"
+          },
+          "presetTrigger": {
+            "box": [
+              172,
+              106,
+              288,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+          },
+          "presetValue": "Pick a curve",
+          "headings": [
+            {
+              "t": "Left and Right change x from 0 to 1. Up ",
+              "box": [
+                101,
+                88,
+                1,
+                1
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            },
+            {
+              "t": "Preset",
+              "box": [
+                172,
+                76,
+                288,
+                22
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "14.384px/400 \"Fira Code\"",
+              "shadow": "none",
+              "tt": "uppercase",
+              "ls": "1.4384px"
+            },
+            {
+              "t": "Pick a curve",
+              "box": [
+                185,
+                113,
+                91,
+                25
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none",
+              "tt": "none",
+              "ls": "normal"
+            }
+          ],
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                171,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                162,
+                288,
+                46
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "cubic-bezier(0, 0, 1, 1)",
+            "code": {
+              "box": [
+                185,
+                177,
+                226,
+                16
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                930,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "ease-in-bounce"
+          },
+          "gap": {
+            "t": "ease-in-bounce is engine-native — no cubic-bezier reproduces it, so editing here departs into a custom curve",
+            "box": [
+              89,
+              314,
+              371,
+              86
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "14.384px/400 \"Fira Code\"",
+            "shadow": "none"
+          },
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                412,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                412,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                439,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                439,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                439,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  559,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  559,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                621,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                511,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                499,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,559,186,40",
+            "Play animation@692,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            651,
+            651
+          ],
+          "focus": "BUTTON fv=false outline=none/color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+          "crop": "08-catalogue-gap-1440-light-crop.png"
+        },
+        {
+          "frame": "09-steps-mode-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": null,
+          "cardContent": null,
+          "pickerGrid": null,
+          "plotCard": null,
+          "plotSvg": null,
+          "presetTrigger": null,
+          "headings": null,
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                236,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                227,
+                288,
+                46
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "steps(4, jump-end)",
+            "code": {
+              "box": [
+                185,
+                242,
+                226,
+                16
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                812,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "steps(4, jump-end)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@692,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "BUTTON fv=false outline=none/color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+          "crop": "09-steps-mode-1440-light-crop.png"
+        },
+        {
+          "frame": "11-playing-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": null,
+          "cardContent": null,
+          "pickerGrid": null,
+          "plotCard": null,
+          "plotSvg": null,
+          "presetTrigger": null,
+          "headings": null,
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                236,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                227,
+                288,
+                46
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "steps(4, jump-end)",
+            "code": {
+              "box": [
+                185,
+                242,
+                226,
+                16
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                812,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "steps(4, jump-end)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Pause",
+                "pressed": null,
+                "box": [
+                  84,
+                  460,
+                  188,
+                  41
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.49 0.19 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "color(srgb 0.493698 0.351392 0.798991 / 0.35) 0px "
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Pause@84,460,188,41",
+            "Pause animation@692,773,40,40",
+            "Pause animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "BUTTON fv=false outline=none/color(srgb 0.493698 0.351392 0.798991 / 0.35) 0px 0px 0px 1p",
+          "crop": "11-playing-1440-light-crop.png"
+        },
+        {
+          "frame": "12-eye-hover-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            553
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": null,
+          "cardContent": null,
+          "pickerGrid": null,
+          "plotCard": null,
+          "plotSvg": null,
+          "presetTrigger": null,
+          "headings": null,
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                236,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                227,
+                288,
+                46
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "steps(4, jump-end)",
+            "code": {
+              "box": [
+                185,
+                242,
+                226,
+                16
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                812,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "steps(4, jump-end)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "false",
+              "box": [
+                428,
+                523,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                184
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@692,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            553,
+            553
+          ],
+          "focus": "BUTTON fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+          "crop": "12-eye-hover-1440-light-crop.png"
+        },
+        {
+          "frame": "13-preview-hidden-1440-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/easing",
+          "dark": false,
+          "pane": [
+            43,
+            54,
+            475,
+            525
+          ],
+          "controlsTab": [
+            "Curve"
+          ],
+          "sidebarCard": null,
+          "cardContent": null,
+          "pickerGrid": null,
+          "plotCard": null,
+          "plotSvg": null,
+          "presetTrigger": null,
+          "headings": null,
+          "literal": {
+            "btn": {
+              "box": [
+                419,
+                236,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "box": {
+              "box": [
+                172,
+                227,
+                288,
+                46
+              ],
+              "radius": "16px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "text": "steps(4, jump-end)",
+            "code": {
+              "box": [
+                185,
+                242,
+                226,
+                16
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "shadow": "none"
+            }
+          },
+          "headerLiteral": {
+            "btn": {
+              "box": [
+                812,
+                157,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "text": "steps(4, jump-end)"
+          },
+          "gap": null,
+          "duration": {
+            "field": {
+              "box": [
+                89,
+                314,
+                371,
+                47
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "label": {
+              "box": [
+                89,
+                314,
+                371,
+                23
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "labelT": "duration",
+            "thumb": {
+              "box": [
+                184,
+                341,
+                0,
+                20
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "thumbVal": "1500",
+            "track": {
+              "box": [
+                89,
+                341,
+                371,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "range": {
+              "box": [
+                89,
+                341,
+                95,
+                20
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0p"
+            },
+            "readout": []
+          },
+          "ribbon": {
+            "btns": [
+              {
+                "t": "Play",
+                "pressed": null,
+                "box": [
+                  85,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklch(0.56 0.17 295)",
+                "color": "oklch(0.985 0.005 296)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              },
+              {
+                "t": "Reverse",
+                "pressed": "false",
+                "box": [
+                  279,
+                  461,
+                  186,
+                  40
+                ],
+                "radius": "9999px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "16.4px/500 \"Plus Jakarta Sans\"",
+                "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rg"
+              }
+            ],
+            "eye": {
+              "pressed": "true",
+              "box": [
+                428,
+                509,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "rail": {
+              "box": [
+                85,
+                413,
+                379,
+                40
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            },
+            "ribbonCard": {
+              "box": [
+                73,
+                401,
+                403,
+                156
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "shadow": "none"
+            }
+          },
+          "playButtons": [
+            "Play@85,461,186,40",
+            "Play animation@692,773,40,40",
+            "Play animation@669,773,32,40"
+          ],
+          "overflow": [
+            475,
+            475,
+            525,
+            525
+          ],
+          "focus": "Hide ball preview fv=false outline=none/none",
+          "crop": "13-preview-hidden-1440-light-crop.png"
+        }
+      ],
+      "notes": {
+        "ct": "no Controls tab control",
+        "clipboard": "cubic-bezier(0.42, 0, 0.58, 1)",
+        "handles": 4,
+        "duration": "no duration thumb"
+      },
+      "errs": [
+        "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5890 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 12,
+ "when": "2026-09-23T17:40:12.731Z",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 12,
+   "frames": [
+    {
+     "frame": "00-solver-before-flip-1440-light.png",
+     "dark": false,
+     "view": "solver",
+     "card": null,
+     "cardStyle": null,
+     "stageCard": null,
+     "artifact": null,
+     "copy": null,
+     "accentBtns": [
+      "Play 85,1261,186,40 r=9999px vis=false exp=null"
+     ],
+     "chip": null,
+     "dock": [
+      670,
+      773,
+      100,
+      39
+     ],
+     "combo": "Sweep",
+     "pane": [
+      43,
+      54,
+      475,
+      1401
+     ],
+     "kfEditor": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "01-select-open-1440-light.png",
+     "dark": false,
+     "view": "solver",
+     "card": null,
+     "cardStyle": null,
+     "stageCard": null,
+     "artifact": null,
+     "copy": null,
+     "accentBtns": [
+      "Play 85,1261,186,40 r=9999px vis=false exp=null"
+     ],
+     "chip": null,
+     "dock": [
+      670,
+      773,
+      100,
+      39
+     ],
+     "combo": "Sweep",
+     "pane": [
+      43,
+      54,
+      475,
+      1401
+     ],
+     "kfEditor": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "02-entry-visible-rest-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,348,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      679,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03-dismiss-hover-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 578,347,760,41 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      679,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-dismissing-140ms-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      812,
+      241,
+      292,
+      103
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "0",
+      "transform": "matrix(0.89972, 0, 0, 0.89972, 0, 20.056)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Reveal 85,1213,379,40 r=9999px vis=false exp=null",
+      "Reveal 578,347,760,41 r=9999px vis=true exp=false"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      765,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-dismissed-settled-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "cardStyle": {
+      "display": "none",
+      "opacity": "0",
+      "transform": "none",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Reveal 85,1213,379,40 r=9999px vis=false exp=null",
+      "Reveal 583,348,748,40 r=9999px vis=true exp=false"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-revealing-140ms-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      325,
+      115
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1.00042, 0, 0, 1.00042, 0, -0.0843217)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 578,347,760,41 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-revealed-settled-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,348,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-kbd-focus-toggle-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       55,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-kbd-focus-next-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       55,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copy the @starting-style artifact",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-kbd-focus-next2-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       55,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "CODE artifact text-mono-small tabular-nums te",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-copy-hover-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       55,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "CODE artifact text-mono-small tabular-nums te",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-copy-clicked-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "08-artifact-scrolled-end-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      92,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      4,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       322,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 85,1090,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,225,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       602,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -69,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-preset-bouncy-in-entry-view-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,348,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10a-ribbon-twin-in-pane-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      -172,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -259,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       59,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 85,826,379,40 r=9999px vis=true exp=null",
+      "Dismiss 583,-38,748,40 r=9999px vis=false exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       339,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -332,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10b-ribbon-twin-hover-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      -172,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -259,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       59,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 82,825,385,41 r=9999px vis=true exp=null",
+      "Dismiss 583,-38,748,40 r=9999px vis=false exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       339,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -332,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10c-ribbon-twin-clicked-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "cardStyle": {
+      "display": "none",
+      "opacity": "0",
+      "transform": "none",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -259,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       59,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Reveal 82,825,385,41 r=9999px vis=true exp=null",
+      "Reveal 583,-38,748,40 r=9999px vis=false exp=false"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       339,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -332,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "11-pane-inline-keyframes-in-entry-view-1440-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      795,
+      -172,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -259,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       59,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 82,825,385,41 r=9999px vis=true exp=null",
+      "Dismiss 583,-38,748,40 r=9999px vis=false exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       339,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -332,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "clipboardLen": 2190,
+    "bouncyErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.preset-cell').filter({ ha",
+    "ribbonTwin": true,
+    "kfEditorText": "@keyframes (editable)re-samplef 0s 0%transform: translateX(0%);f 1s 25%transform: translateX(100.5%);f 2s 50%transform: translateX(100%);f 3s 75%transform: translateX(100%);f 4s 100%transform: transla"
+   },
+   "errors": [
+    "404 http://localhost:5173/assets/icons/favicon.svg",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  },
+  {
+   "tag": "1440-dark",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 15,
+   "frames": [
+    {
+     "frame": "00-solver-before-flip-1440-dark.png",
+     "dark": true,
+     "view": "solver",
+     "card": null,
+     "cardStyle": null,
+     "stageCard": null,
+     "artifact": null,
+     "copy": null,
+     "accentBtns": [
+      "Play 85,1261,186,40 r=9999px vis=false exp=null"
+     ],
+     "chip": null,
+     "dock": [
+      670,
+      773,
+      100,
+      39
+     ],
+     "combo": "Sweep",
+     "pane": [
+      43,
+      54,
+      475,
+      1401
+     ],
+     "kfEditor": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "01-select-open-1440-dark.png",
+     "dark": true,
+     "view": "solver",
+     "card": null,
+     "cardStyle": null,
+     "stageCard": null,
+     "artifact": null,
+     "copy": null,
+     "accentBtns": [
+      "Play 85,1261,186,40 r=9999px vis=false exp=null"
+     ],
+     "chip": null,
+     "dock": [
+      670,
+      773,
+      100,
+      39
+     ],
+     "combo": "Sweep",
+     "pane": [
+      43,
+      54,
+      475,
+      1401
+     ],
+     "kfEditor": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "02-entry-visible-rest-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      812,
+      241,
+      292,
+      103
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "0",
+      "transform": "matrix(0.9, 0, 0, 0.9, 0, 20)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,348,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      679,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "03-dismiss-hover-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 578,347,760,41 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      679,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-dismissing-140ms-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      812,
+      241,
+      292,
+      103
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "0",
+      "transform": "matrix(0.899704, 0, 0, 0.899704, 0, 20.0592)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Reveal 85,1213,379,40 r=9999px vis=false exp=null",
+      "Reveal 578,347,760,41 r=9999px vis=true exp=false"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      765,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-dismissed-settled-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "cardStyle": {
+      "display": "none",
+      "opacity": "0",
+      "transform": "none",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Reveal 85,1213,379,40 r=9999px vis=false exp=null",
+      "Reveal 583,348,748,40 r=9999px vis=true exp=false"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-revealing-140ms-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      325,
+      115
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1.00042, 0, 0, 1.00042, 0, -0.0835693)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 578,347,760,41 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-revealed-settled-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       403,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,348,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-kbd-focus-toggle-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       55,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-kbd-focus-next-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       55,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copy the @starting-style artifact",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-kbd-focus-next2-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       55,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "CODE artifact text-mono-small tabular-nums te",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-copy-hover-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       1296,
+       55,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "CODE artifact text-mono-small tabular-nums te",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-copy-clicked-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      -133,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -221,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       97,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 85,865,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,0,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       377,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -294,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "08-artifact-scrolled-end-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      92,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      4,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       322,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 85,1090,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,225,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       602,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -69,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-preset-bouncy-in-entry-view-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      215,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      127,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       445,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 85,1213,379,40 r=9999px vis=false exp=null",
+      "Dismiss 583,348,748,40 r=9999px vis=true exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       725,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      54,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10a-ribbon-twin-in-pane-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      -172,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -259,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       59,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 85,826,379,40 r=9999px vis=true exp=null",
+      "Dismiss 583,-38,748,40 r=9999px vis=false exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       339,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -332,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10b-ribbon-twin-hover-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      -172,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -259,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       59,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 82,825,385,41 r=9999px vis=true exp=null",
+      "Dismiss 583,-38,748,40 r=9999px vis=false exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       339,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -332,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10c-ribbon-twin-clicked-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "cardStyle": {
+      "display": "none",
+      "opacity": "0",
+      "transform": "none",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -259,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       59,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Reveal 82,825,385,41 r=9999px vis=true exp=null",
+      "Reveal 583,-38,748,40 r=9999px vis=false exp=false"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       339,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -332,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "11-pane-inline-keyframes-in-entry-view-1440-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      795,
+      -172,
+      324,
+      114
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      550,
+      -259,
+      814,
+      646
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       583,
+       59,
+       748,
+       256
+      ],
+      256,
+      1069,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 82,825,385,41 r=9999px vis=true exp=null",
+      "Dismiss 583,-38,748,40 r=9999px vis=false exp=true"
+     ],
+     "chip": [
+      "smooth",
+      [
+       737,
+       339,
+       75,
+       27
+      ],
+      "9999px"
+     ],
+     "dock": [
+      757,
+      773,
+      82,
+      39
+     ],
+     "combo": "Entry",
+     "pane": [
+      43,
+      -332,
+      475,
+      1233
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "clipboardLen": 2190,
+    "bouncyErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.preset-cell').filter({ ha",
+    "ribbonTwin": true,
+    "kfEditorText": "@keyframes (editable)re-samplef 0s 0%transform: translateX(0%);f 1s 25%transform: translateX(100.5%);f 2s 50%transform: translateX(100%);f 3s 75%transform: translateX(100%);f 4s 100%transform: transla"
+   },
+   "errors": []
+  },
+  {
+   "tag": "390-light",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 19,
+   "frames": [
+    {
+     "frame": "00-solver-before-flip-390-light.png",
+     "dark": false,
+     "view": "solver",
+     "card": null,
+     "cardStyle": null,
+     "stageCard": null,
+     "artifact": null,
+     "copy": null,
+     "accentBtns": [
+      "Play 43,1906,142,40 r=9999px vis=false exp=null"
+     ],
+     "chip": null,
+     "dock": [
+      152,
+      741,
+      85,
+      32
+     ],
+     "combo": "Sweep",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "01-select-open-390-light.png",
+     "dark": false,
+     "view": "solver",
+     "card": null,
+     "cardStyle": null,
+     "stageCard": null,
+     "artifact": null,
+     "copy": null,
+     "accentBtns": [
+      "Play 43,1906,142,40 r=9999px vis=false exp=null"
+     ],
+     "chip": null,
+     "dock": [
+      152,
+      741,
+      85,
+      32
+     ],
+     "combo": "Sweep",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "02-entry-visible-rest-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03-dismiss-hover-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 47,322,296,41 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-dismissing-140ms-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      65,
+      217,
+      260,
+      100
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "0",
+      "transform": "matrix(0.899578, 0, 0, 0.899578, 0, 20.0844)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Reveal 47,322,296,41 r=9999px vis=true exp=false",
+      "Reveal 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      240,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-dismissed-settled-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "cardStyle": {
+      "display": "none",
+      "opacity": "0",
+      "transform": "none",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Reveal 49,323,292,40 r=9999px vis=true exp=false",
+      "Reveal 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-revealing-140ms-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1.00042, 0, 0, 1.00042, 0, -0.0844733)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 47,322,296,41 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-revealed-settled-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-kbd-focus-toggle-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-kbd-focus-next-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-kbd-focus-next2-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON @mbabb menu",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-copy-hover-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON @mbabb menu",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-copy-clicked-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "08-artifact-scrolled-end-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-preset-bouncy-in-entry-view-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "10a-ribbon-twin-in-pane-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1390,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "10b-ribbon-twin-hover-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1390,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "10c-ribbon-twin-clicked-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1390,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "11-pane-inline-keyframes-in-entry-view-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1390,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "12a-dock-play-in-entry-250ms-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "12b-dock-play-in-entry-1150ms-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "12c-dock-reset-in-entry-390-light.png",
+     "dark": false,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Reset animation",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "clipboardLen": 2190,
+    "bouncyErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.preset-cell').filter({ ha",
+    "ribbonTwin": true,
+    "kfEditorText": "@keyframes (editable)re-samplef 0s 0%transform: translateX(0%);f 1s 25%transform: translateX(100.5%);f 2s 50%transform: translateX(100%);f 3s 75%transform: translateX(100%);f 4s 100%transform: transla"
+   },
+   "errors": []
+  },
+  {
+   "tag": "390-dark",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 24,
+   "frames": [
+    {
+     "frame": "00-solver-before-flip-390-dark.png",
+     "dark": true,
+     "view": "solver",
+     "card": null,
+     "cardStyle": null,
+     "stageCard": null,
+     "artifact": null,
+     "copy": null,
+     "accentBtns": [
+      "Play 43,1906,142,40 r=9999px vis=false exp=null"
+     ],
+     "chip": null,
+     "dock": [
+      152,
+      741,
+      85,
+      32
+     ],
+     "combo": "Sweep",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "01-select-open-390-dark.png",
+     "dark": true,
+     "view": "solver",
+     "card": null,
+     "cardStyle": null,
+     "stageCard": null,
+     "artifact": null,
+     "copy": null,
+     "accentBtns": [
+      "Play 43,1906,142,40 r=9999px vis=false exp=null"
+     ],
+     "chip": null,
+     "dock": [
+      152,
+      741,
+      85,
+      32
+     ],
+     "combo": "Sweep",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "02-entry-visible-rest-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03-dismiss-hover-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 47,322,296,41 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      159,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-dismissing-140ms-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      65,
+      217,
+      260,
+      100
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "0",
+      "transform": "matrix(0.899581, 0, 0, 0.899581, 0, 20.0838)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Reveal 47,322,296,41 r=9999px vis=true exp=false",
+      "Reveal 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      240,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-dismissed-settled-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "cardStyle": {
+      "display": "none",
+      "opacity": "0",
+      "transform": "none",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Reveal 49,323,292,40 r=9999px vis=true exp=false",
+      "Reveal 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-revealing-140ms-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1.00042, 0, 0, 1.00042, 0, -0.0843422)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 47,322,296,41 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-revealed-settled-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON button tap-squish focus-ring glass-wash ",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-kbd-focus-toggle-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-kbd-focus-next-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-kbd-focus-next2-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON @mbabb menu",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-copy-hover-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": [
+      [
+       305,
+       341,
+       36,
+       36
+      ],
+      "9999px"
+     ],
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON @mbabb menu",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-copy-clicked-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "08-artifact-scrolled-end-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-preset-bouncy-in-entry-view-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1858,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10a-ribbon-twin-in-pane-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1390,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10b-ribbon-twin-hover-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1390,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "10c-ribbon-twin-clicked-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1390,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    },
+    {
+     "frame": "11-pane-inline-keyframes-in-entry-view-390-dark.png",
+     "dark": true,
+     "view": "discrete",
+     "card": [
+      51,
+      191,
+      289,
+      111
+     ],
+     "cardStyle": {
+      "display": "flex",
+      "opacity": "1",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "borderRadius": "8px"
+     },
+     "stageCard": [
+      24,
+      102,
+      342,
+      641
+     ],
+     "stageCardRadius": "16px",
+     "artifact": [
+      [
+       49,
+       383,
+       292,
+       256
+      ],
+      256,
+      1835,
+      false,
+      2190
+     ],
+     "copy": null,
+     "accentBtns": [
+      "Dismiss 49,323,292,40 r=9999px vis=true exp=true",
+      "Dismiss 43,1390,292,40 r=9999px vis=false exp=null"
+     ],
+     "chip": [
+      "smooth",
+      [
+       93,
+       680,
+       66,
+       24
+      ],
+      "9999px"
+     ],
+     "dock": [
+      232,
+      741,
+      71,
+      32
+     ],
+     "combo": "Entry",
+     "pane": [
+      1,
+      724,
+      388,
+      727
+     ],
+     "kfEditor": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "active": "BUTTON Copied to clipboard",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "clipboardLen": 2190,
+    "bouncyErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.preset-cell').filter({ ha",
+    "ribbonTwin": true,
+    "kfEditorText": "@keyframes (editable)re-samplef 0s 0%transform: translateX(0%);f 1s 25%transform: translateX(100.5%);f 2s 50%transform: translateX(100%);f 3s 75%transform: translateX(100%);f 4s 100%transform: transla"
+   },
+   "errors": []
+  },
+  {
+   "tag": "notready-1440-light",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 24,
+   "frames": [],
+   "notes": {
+    "instrumented": "page.route abort of src/animation/compile/emit/entry.ts"
+   },
+   "fatal": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('combobox', { name: 'Select animation' }).first()\u001b[22m\n"
+  },
+  {
+   "tag": "notready-1440-dark",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 24,
+   "frames": [],
+   "notes": {
+    "instrumented": "page.route abort of src/animation/compile/emit/entry.ts"
+   },
+   "fatal": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('combobox', { name: 'Select animation' }).first()\u001b[22m\n"
+  },
+  {
+   "tag": "notready-390-light",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 24,
+   "frames": [],
+   "notes": {
+    "instrumented": "page.route abort of src/animation/compile/emit/entry.ts"
+   },
+   "fatal": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('combobox', { name: 'Select animation' }).first()\u001b[22m\n"
+  },
+  {
+   "tag": "notready-390-dark",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 24,
+   "frames": [],
+   "notes": {
+    "instrumented": "page.route abort of src/animation/compile/emit/entry.ts"
+   },
+   "fatal": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('combobox', { name: 'Select animation' }).first()\u001b[22m\n"
+  }
+ ]
+}

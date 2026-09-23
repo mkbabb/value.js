@@ -1,0 +1,55 @@
+{
+ "stack": {
+  "x": [
+   943,
+   117,
+   44,
+   44
+  ],
+  "clear": [
+   941.4453125,
+   109,
+   51.5546875,
+   36
+  ],
+  "atXcenter": "Clear",
+  "atClearCenter": "Clear",
+  "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+  "clearColor": "rgb(112, 89, 66)",
+  "hintColor": "rgb(91, 70, 51)",
+  "emptyColor": "rgb(112, 89, 66)",
+  "under": [
+   ".fixed inset-0 z-overlay bg-overlay-scrim",
+   "."
+  ]
+ },
+ "esc": {
+  "dialog": false,
+  "sidebarInput": "theorem"
+ },
+ "clear": {
+  "dialogStillOpen": false,
+  "sidebarInput": ""
+ },
+ "xByMouse": {
+  "dialogStillOpen": false,
+  "sidebarInput": ""
+ },
+ "tabbableOptions": 30,
+ "enterRows": [
+  "Thm2.10.2Parseval's Identity",
+  "FigParseval's identity: the squared magnitudes $|c_n|^2$ of the Fourier coefficients sum to the energy of $f$ in the time domain.",
+  "Sec2.6.5The Transform Pipeline: Fourier $\\leftrightarrow$ Chebyshev $\\leftrightarrow$ Legendre",
+  "FigThe Gibbs phenomenon: partial sums of a square wave for $N = 5, 10, 25, 100$. The $\\approx 9\\%$ overshoot at each discontinuity persists regardless of $N$."
+ ],
+ "enterLanding": {
+  "parsevalEls": [],
+  "visible": [
+   {
+    "t": "4.6.3.The Green's Function Resolvent",
+    "y": 294
+   }
+  ],
+  "pg": "pg 63/110"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "overflow390": [
+  {
+   "cls": "dock-layer dock-layer--full is-active",
+   "sw": 305,
+   "cw": 294,
+   "ox": "auto"
+  }
+ ],
+ "lastCtl390": {
+  "dockRight": 351,
+  "ctlRight": 353
+ },
+ "adminPill": {
+  "tag": "SPAN",
+  "role": null,
+  "tabindex": null,
+  "text": "admin"
+ },
+ "lamp390Aria": "- status"
+}

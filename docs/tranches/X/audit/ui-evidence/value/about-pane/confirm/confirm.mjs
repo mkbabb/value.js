@@ -1,0 +1,18 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const out = {};
+const b = await chromium.launch({ headless: false });
+const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+await p.goto("http://localhost:9000/#/", { waitUntil: "networkidle" });
+await p.waitForTimeout(2500);
+out.fonts = await p.evaluate(() => [...document.fonts].map(f => `${f.family}|${f.weight}|${f.status}`));
+out.jakartaCheck = await p.evaluate(() => document.fonts.check('700 16px "Plus Jakarta Sans"'));
+out.bodyFont = await p.evaluate(() => getComputedStyle(document.body).fontFamily);
+out.sheetsWithJakarta = await p.evaluate(() => { let n=0; for (const s of document.styleSheets) { try { for (const r of s.cssRules) if (r.cssText.includes("font-face") && r.cssText.includes("Jakarta")) n++; } catch {} } return n; });
+out.dock0 = await p.evaluate(() => { const n = document.querySelector("nav"); const r = n?.getBoundingClientRect(); return r && { w: r.width, h: r.height }; });
+const trig = p.locator('[data-slot="select-trigger"]').nth(1);
+await trig.click(); await p.waitForTimeout(900);
+out.dockOpen = await p.evaluate(() => { const n = document.querySelector("nav"); const r = n?.getBoundingClientRect(); return r && { w: r.width, h: r.height }; });
+out.content = await p.evaluate(() => { const c = document.querySelector('[data-slot="select-content"]'); if (!c) return null; const w = c.closest('[data-reka-popper-content-wrapper]'); return { popper: !!w, cls: c.className.slice(0,200), avail: w && getComputedStyle(w).getPropertyValue('--reka-popper-available-width'), maxW: getComputedStyle(c).maxWidth, bodyStyle: document.body.getAttribute('style') }; });
+await p.screenshot({ path: "/Users/mkbabb/Programming/value.js/docs/tranches/X/audit/ui-evidence/value/about-pane/confirm/1440-light-selector-open-reconfirm.png" });
+console.log(JSON.stringify(out, null, 1));
+await b.close();

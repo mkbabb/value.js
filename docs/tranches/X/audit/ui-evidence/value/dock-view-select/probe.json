@@ -1,0 +1,3138 @@
+[
+ {
+  "tag": "user-1440-light",
+  "step": "open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "32px",
+   "font-size": "16.4px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4px 8px",
+   "background-color": "color(srgb 0.994 0.96 0.926 / 0.65)",
+   "box-shadow": "none",
+   "rect": [
+    496,
+    25,
+    107,
+    32
+   ]
+  },
+  "triggerText": "Home",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+   "backdrop-filter": "blur(11px) saturate(1.6)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    497,
+    61,
+    192,
+    328
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    497,
+    61,
+    192,
+    328
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     71,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     115,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     159,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     203,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     247,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     291,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     335,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": null,
+  "sepRole": null,
+  "route": "/#/",
+  "vw": 1440,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+   "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+  ]
+ },
+ {
+  "tag": "user-1440-light",
+  "step": "mix-open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "32px",
+   "font-size": "16.4px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4px 8px",
+   "background-color": "color(srgb 0.994 0.96 0.926 / 0.65)",
+   "box-shadow": "none",
+   "rect": [
+    506,
+    25,
+    88,
+    32
+   ]
+  },
+  "triggerText": "Mix",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+   "backdrop-filter": "blur(11px) saturate(1.6)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    506,
+    61,
+    192,
+    328
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    506,
+    61,
+    192,
+    328
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     71,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     115,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     159,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     203,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     247,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     291,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     335,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": null,
+  "sepRole": null,
+  "route": "/#/mix",
+  "vw": 1440,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+   "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+  ]
+ },
+ {
+  "tag": "user-1440-dark",
+  "step": "open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "32px",
+   "font-size": "16.4px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4px 8px",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+   "box-shadow": "none",
+   "rect": [
+    496,
+    25,
+    107,
+    32
+   ]
+  },
+  "triggerText": "Home",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+   "backdrop-filter": "blur(11px) saturate(1.28) brightness(1.1)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset, oklab(0.34 0.0115033 0.0277069 / 0.46) -4px 4px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -7px 7px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    497,
+    61,
+    192,
+    328
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    497,
+    61,
+    192,
+    328
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     71,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     115,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     159,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     203,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     247,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     291,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     506,
+     335,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": null,
+  "sepRole": null,
+  "route": "/#/",
+  "vw": 1440,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+   "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+  ]
+ },
+ {
+  "tag": "user-1440-dark",
+  "step": "mix-open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "32px",
+   "font-size": "16.4px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4px 8px",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+   "box-shadow": "none",
+   "rect": [
+    506,
+    25,
+    88,
+    32
+   ]
+  },
+  "triggerText": "Mix",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+   "backdrop-filter": "blur(11px) saturate(1.28) brightness(1.1)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset, oklab(0.34 0.0115033 0.0277069 / 0.46) -4px 4px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -7px 7px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    506,
+    61,
+    192,
+    328
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    506,
+    61,
+    192,
+    328
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     71,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     115,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     159,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     203,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     247,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     291,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     335,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": null,
+  "sepRole": null,
+  "route": "/#/mix",
+  "vw": 1440,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+   "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+  ]
+ },
+ {
+  "tag": "user-390-light",
+  "step": "open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "33.3594px",
+   "font-size": "14px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4.68px 9.36px",
+   "background-color": "color(srgb 0.994 0.96 0.926 / 0.65)",
+   "box-shadow": "none",
+   "rect": [
+    117,
+    33,
+    59,
+    33
+   ]
+  },
+  "triggerText": "",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+   "backdrop-filter": "blur(11px) saturate(1.6)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    117,
+    70,
+    192,
+    328
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    117,
+    70,
+    192,
+    328
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     80,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     124,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     168,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     212,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     256,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     300,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     344,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": null,
+  "sepRole": null,
+  "route": "/#/",
+  "vw": 390,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+   "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+  ]
+ },
+ {
+  "tag": "user-390-light",
+  "step": "mix-open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "33.3594px",
+   "font-size": "14px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4.68px 9.36px",
+   "background-color": "color(srgb 0.994 0.96 0.926 / 0.65)",
+   "box-shadow": "none",
+   "rect": [
+    117,
+    33,
+    59,
+    33
+   ]
+  },
+  "triggerText": "",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+   "backdrop-filter": "blur(11px) saturate(1.6)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    117,
+    70,
+    192,
+    328
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    117,
+    70,
+    192,
+    328
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     80,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     124,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     168,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     212,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     256,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     300,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     344,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": null,
+  "sepRole": null,
+  "route": "/#/mix",
+  "vw": 390,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+   "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+  ]
+ },
+ {
+  "tag": "user-390-dark",
+  "step": "open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "33.3594px",
+   "font-size": "14px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4.68px 9.36px",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+   "box-shadow": "none",
+   "rect": [
+    117,
+    33,
+    59,
+    33
+   ]
+  },
+  "triggerText": "",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+   "backdrop-filter": "blur(11px) saturate(1.28) brightness(1.1)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset, oklab(0.34 0.0115033 0.0277069 / 0.46) -4px 4px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -7px 7px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    117,
+    70,
+    192,
+    328
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    117,
+    70,
+    192,
+    328
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     80,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     124,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     168,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     212,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     256,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     300,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     344,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": null,
+  "sepRole": null,
+  "route": "/#/",
+  "vw": 390,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+   "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+  ]
+ },
+ {
+  "tag": "user-390-dark",
+  "step": "mix-open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "33.3594px",
+   "font-size": "14px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4.68px 9.36px",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+   "box-shadow": "none",
+   "rect": [
+    117,
+    33,
+    59,
+    33
+   ]
+  },
+  "triggerText": "",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+   "backdrop-filter": "blur(11px) saturate(1.28) brightness(1.1)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset, oklab(0.34 0.0115033 0.0277069 / 0.46) -4px 4px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -7px 7px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    117,
+    70,
+    192,
+    328
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    117,
+    70,
+    192,
+    328
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     80,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     124,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     168,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     212,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     256,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     300,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     344,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": null,
+  "sepRole": null,
+  "route": "/#/mix",
+  "vw": 390,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+   "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+  ]
+ },
+ {
+  "tag": "admin-1440-light",
+  "step": "open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "32px",
+   "font-size": "16.4px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4px 8px",
+   "background-color": "color(srgb 0.994 0.96 0.926 / 0.65)",
+   "box-shadow": "none",
+   "rect": [
+    505,
+    25,
+    107,
+    32
+   ]
+  },
+  "triggerText": "Home",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+   "backdrop-filter": "blur(11px) saturate(1.6)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    506,
+    61,
+    192,
+    381
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    506,
+    61,
+    192,
+    381
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     71,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     115,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     159,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     203,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     247,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     291,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     335,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Admin",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     388,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": {
+   "border-top-color": "rgb(198, 180, 159)",
+   "margin": "4px 0px",
+   "height": "1px",
+   "rect": [
+    515,
+    383,
+    174,
+    1
+   ]
+  },
+  "sepRole": null,
+  "route": "/#/",
+  "vw": 1440,
+  "errs": []
+ },
+ {
+  "tag": "admin-1440-light",
+  "step": "admin-open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "32px",
+   "font-size": "16.4px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4px 8px",
+   "background-color": "color(srgb 0.994 0.96 0.926 / 0.8)",
+   "box-shadow": "none",
+   "rect": [
+    570,
+    25,
+    103,
+    32
+   ]
+  },
+  "triggerText": "Users",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+   "backdrop-filter": "blur(11px) saturate(1.6)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    570,
+    61,
+    192,
+    381
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    570,
+    61,
+    192,
+    381
+   ]
+  },
+  "items": [
+   {
+    "text": "Users",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     71,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Names",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     115,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Audit Log",
+    "sel": "false",
+    "hl": true,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+    "rect": [
+     579,
+     158,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Flagged",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     203,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Tags",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     247,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Atmosphere",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     291,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Blob",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     335,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Back to app",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     388,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": {
+   "border-top-color": "rgb(198, 180, 159)",
+   "margin": "4px 0px",
+   "height": "1px",
+   "rect": [
+    579,
+    383,
+    174,
+    1
+   ]
+  },
+  "sepRole": null,
+  "route": "/#/admin/users",
+  "vw": 1440,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+  ]
+ },
+ {
+  "tag": "admin-1440-light",
+  "step": "after-back",
+  "route": "/",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+  ]
+ },
+ {
+  "tag": "admin-1440-dark",
+  "step": "open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "32px",
+   "font-size": "16.4px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4px 8px",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+   "box-shadow": "none",
+   "rect": [
+    505,
+    25,
+    107,
+    32
+   ]
+  },
+  "triggerText": "Home",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+   "backdrop-filter": "blur(11px) saturate(1.28) brightness(1.1)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset, oklab(0.34 0.0115033 0.0277069 / 0.46) -4px 4px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -7px 7px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    506,
+    61,
+    192,
+    381
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    506,
+    61,
+    192,
+    381
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     71,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     115,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     159,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     203,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     247,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     291,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     335,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Admin",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     515,
+     388,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": {
+   "border-top-color": "rgb(101, 87, 73)",
+   "margin": "4px 0px",
+   "height": "1px",
+   "rect": [
+    515,
+    383,
+    174,
+    1
+   ]
+  },
+  "sepRole": null,
+  "route": "/#/",
+  "vw": 1440,
+  "errs": []
+ },
+ {
+  "tag": "admin-1440-dark",
+  "step": "admin-open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "32px",
+   "font-size": "16.4px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4px 8px",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+   "box-shadow": "none",
+   "rect": [
+    570,
+    25,
+    103,
+    32
+   ]
+  },
+  "triggerText": "Users",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+   "backdrop-filter": "blur(11px) saturate(1.28) brightness(1.1)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset, oklab(0.34 0.0115033 0.0277069 / 0.46) -4px 4px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -7px 7px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    570,
+    61,
+    192,
+    381
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    570,
+    61,
+    192,
+    381
+   ]
+  },
+  "items": [
+   {
+    "text": "Users",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     71,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Names",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     115,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Audit Log",
+    "sel": "false",
+    "hl": true,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "rect": [
+     579,
+     158,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Flagged",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     203,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Tags",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     247,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Atmosphere",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     291,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Blob",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     335,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Back to app",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     579,
+     388,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": {
+   "border-top-color": "rgb(101, 87, 73)",
+   "margin": "4px 0px",
+   "height": "1px",
+   "rect": [
+    579,
+    383,
+    174,
+    1
+   ]
+  },
+  "sepRole": null,
+  "route": "/#/admin/users",
+  "vw": 1440,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+  ]
+ },
+ {
+  "tag": "admin-1440-dark",
+  "step": "after-back",
+  "route": "/",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+  ]
+ },
+ {
+  "tag": "admin-390-light",
+  "step": "open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "33.3594px",
+   "font-size": "14px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4.68px 9.36px",
+   "background-color": "color(srgb 0.994 0.96 0.926 / 0.65)",
+   "box-shadow": "none",
+   "rect": [
+    117,
+    33,
+    59,
+    33
+   ]
+  },
+  "triggerText": "",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+   "backdrop-filter": "blur(11px) saturate(1.6)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    117,
+    70,
+    192,
+    381
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    117,
+    70,
+    192,
+    381
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     80,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     124,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     168,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     212,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     256,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     300,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     344,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Admin",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     397,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": {
+   "border-top-color": "rgb(198, 180, 159)",
+   "margin": "4px 0px",
+   "height": "1px",
+   "rect": [
+    126,
+    392,
+    174,
+    1
+   ]
+  },
+  "sepRole": null,
+  "route": "/#/",
+  "vw": 390,
+  "errs": []
+ },
+ {
+  "tag": "admin-390-light",
+  "step": "admin-open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "33.3594px",
+   "font-size": "14px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4.68px 9.36px",
+   "background-color": "color(srgb 0.994 0.96 0.926 / 0.8)",
+   "box-shadow": "none",
+   "rect": [
+    137,
+    33,
+    59,
+    33
+   ]
+  },
+  "triggerText": "",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+   "backdrop-filter": "blur(11px) saturate(1.6)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset, oklab(0.28 0.0167833 0.0248661 / 0.32) -4px 4px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -7px 7px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    138,
+    70,
+    192,
+    381
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    138,
+    70,
+    192,
+    381
+   ]
+  },
+  "items": [
+   {
+    "text": "Users",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     80,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Names",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     124,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Audit Log",
+    "sel": "false",
+    "hl": true,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+    "rect": [
+     147,
+     167,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Flagged",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     212,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Tags",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     256,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Atmosphere",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     300,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Blob",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     344,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Back to app",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(28, 25, 23)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     397,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": {
+   "border-top-color": "rgb(198, 180, 159)",
+   "margin": "4px 0px",
+   "height": "1px",
+   "rect": [
+    147,
+    392,
+    174,
+    1
+   ]
+  },
+  "sepRole": null,
+  "route": "/#/admin/users",
+  "vw": 390,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+  ]
+ },
+ {
+  "tag": "admin-390-light",
+  "step": "after-back",
+  "route": "/",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+  ]
+ },
+ {
+  "tag": "admin-390-dark",
+  "step": "open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "33.3594px",
+   "font-size": "14px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4.68px 9.36px",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+   "box-shadow": "none",
+   "rect": [
+    117,
+    33,
+    59,
+    33
+   ]
+  },
+  "triggerText": "",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+   "backdrop-filter": "blur(11px) saturate(1.28) brightness(1.1)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset, oklab(0.34 0.0115033 0.0277069 / 0.46) -4px 4px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -7px 7px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    117,
+    70,
+    192,
+    381
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    117,
+    70,
+    192,
+    381
+   ]
+  },
+  "items": [
+   {
+    "text": "Home",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     80,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Palettes",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     124,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Browse",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     168,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Extract",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     212,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Mix",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     256,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Generate",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     300,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Gradient",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     344,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Admin",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     126,
+     397,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": {
+   "border-top-color": "rgb(101, 87, 73)",
+   "margin": "4px 0px",
+   "height": "1px",
+   "rect": [
+    126,
+    392,
+    174,
+    1
+   ]
+  },
+  "sepRole": null,
+  "route": "/#/",
+  "vw": 390,
+  "errs": []
+ },
+ {
+  "tag": "admin-390-dark",
+  "step": "admin-open",
+  "trigger": {
+   "border-radius": "9999px",
+   "height": "33.3594px",
+   "font-size": "14px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "padding": "4.68px 9.36px",
+   "background-color": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+   "box-shadow": "none",
+   "rect": [
+    137,
+    33,
+    59,
+    33
+   ]
+  },
+  "triggerText": "",
+  "popover": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "background-color": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+   "backdrop-filter": "blur(11px) saturate(1.28) brightness(1.1)",
+   "box-shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset, oklab(0.34 0.0115033 0.0277069 / 0.46) -4px 4px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -7px 7px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -11px 11px 0px 0px",
+   "max-height": "384px",
+   "overflow": "hidden",
+   "rect": [
+    138,
+    70,
+    192,
+    381
+   ]
+  },
+  "listbox": {
+   "border-radius": "12px",
+   "padding": "0px",
+   "rect": [
+    138,
+    70,
+    192,
+    381
+   ]
+  },
+  "items": [
+   {
+    "text": "Users",
+    "sel": "true",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     80,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Names",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     124,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Audit Log",
+    "sel": "false",
+    "hl": true,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "rect": [
+     147,
+     167,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Flagged",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     212,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Tags",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     256,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Atmosphere",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     300,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Blob",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     344,
+     174,
+     44
+    ]
+   },
+   {
+    "text": "Back to app",
+    "sel": "false",
+    "hl": false,
+    "border-radius": "8px",
+    "height": "44px",
+    "padding": "6px 10px",
+    "font-size": "21px",
+    "font-weight": "400",
+    "color": "rgb(233, 230, 226)",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "rect": [
+     147,
+     397,
+     174,
+     44
+    ]
+   }
+  ],
+  "sep": {
+   "border-top-color": "rgb(101, 87, 73)",
+   "margin": "4px 0px",
+   "height": "1px",
+   "rect": [
+    147,
+    392,
+    174,
+    1
+   ]
+  },
+  "sepRole": null,
+  "route": "/#/admin/users",
+  "vw": 390,
+  "errs": [
+   "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+  ]
+ },
+ {
+  "tag": "admin-390-dark",
+  "step": "after-back",
+  "route": "/",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+  ]
+ }
+]

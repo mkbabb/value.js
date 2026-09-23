@@ -1,0 +1,454 @@
+{
+ "d-light-firstvisit-root": {
+  "path": "/",
+  "seedTab": null,
+  "ms": 2363,
+  "url": "/paper",
+  "title": "Paper — Fourier Analysis",
+  "desc": "The full typeset treatise: deriving the Fourier transform th",
+  "savedTab": "/paper",
+  "mainChildren": 1,
+  "mainText": "CONTENTS\n\n0.1.Introduction\n1.Origin and Derivation\n2.Lens I: Linear Algebra\n3.Ei",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": []
+ },
+ "d-light-returning-gallery": {
+  "path": "/",
+  "seedTab": "/gallery",
+  "ms": 2233,
+  "url": "/gallery",
+  "title": "Gallery — Fourier Analysis",
+  "desc": "A curated gallery of community epicycle visualizations — sav",
+  "savedTab": "/gallery",
+  "mainChildren": 1,
+  "mainText": "Gallery\nDrafts\nSearch gallery by slug\n\n6 loaded\n\ncosmic-edging-nutmeg-horse\n3m a",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Gallery",
+  "dark": false,
+  "logs": []
+ },
+ "d-light-unknown-nope": {
+  "path": "/nope",
+  "seedTab": null,
+  "ms": 2181,
+  "url": "/nope",
+  "title": "Fourier Analysis",
+  "desc": "An interactive treatise on Fourier analysis and orthogonal d",
+  "savedTab": null,
+  "mainChildren": 0,
+  "mainText": "",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": [
+   "warning: [Vue Router warn]: No match found for location with path \"/nope\""
+  ]
+ },
+ "d-light-returning-morph": {
+  "path": "/",
+  "seedTab": "/morph",
+  "ms": 2321,
+  "url": "/morph",
+  "title": "Morph — Fourier Analysis",
+  "desc": "Morph one shape into another through their shared Fourier ha",
+  "savedTab": "/morph",
+  "mainChildren": 1,
+  "mainText": "Fourier Morph\n\nTune the morph transition between sun and moon shapes.\n\nidle\nN\n50",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Morph",
+  "dark": false,
+  "logs": []
+ },
+ "d-light-returning-invalid": {
+  "path": "/",
+  "seedTab": "/nope",
+  "ms": 2379,
+  "url": "/paper",
+  "title": "Paper — Fourier Analysis",
+  "desc": "The full typeset treatise: deriving the Fourier transform th",
+  "savedTab": "/paper",
+  "mainChildren": 1,
+  "mainText": "CONTENTS\n\n0.1.Introduction\n1.Origin and Derivation\n2.Lens I: Linear Algebra\n3.Ei",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": []
+ },
+ "d-light-unknown-deep": {
+  "path": "/gallery/does-not-exist",
+  "seedTab": null,
+  "ms": 2234,
+  "url": "/gallery/does-not-exist",
+  "title": "Fourier Analysis",
+  "desc": "An interactive treatise on Fourier analysis and orthogonal d",
+  "savedTab": null,
+  "mainChildren": 0,
+  "mainText": "",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": [
+   "warning: [Vue Router warn]: No match found for location with path \"/gallery/does-not-exist\""
+  ]
+ },
+ "d-light-unknown-saved-viz-missing": {
+  "path": "/v/no-such-slug",
+  "seedTab": null,
+  "ms": 2082,
+  "url": "/v/no-such-slug",
+  "title": "Visualize — Fourier Analysis",
+  "desc": "Decompose any image's contour into a chain of rotating epicy",
+  "savedTab": null,
+  "mainChildren": 1,
+  "mainText": "Drop or click to upload\n\nPNG/JPG/SVG ≤ 10 MB",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": []
+ },
+ "d-light-trailing-visualize": {
+  "path": "/visualize/",
+  "seedTab": null,
+  "ms": 2123,
+  "url": "/visualize/",
+  "title": "Visualize — Fourier Analysis",
+  "desc": "Decompose any image's contour into a chain of rotating epicy",
+  "savedTab": null,
+  "mainChildren": 1,
+  "mainText": "Drop or click to upload\n\nPNG/JPG/SVG ≤ 10 MB",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": []
+ },
+ "d-dark-firstvisit-root": {
+  "path": "/",
+  "seedTab": null,
+  "ms": 2414,
+  "url": "/paper",
+  "title": "Paper — Fourier Analysis",
+  "desc": "The full typeset treatise: deriving the Fourier transform th",
+  "savedTab": "/paper",
+  "mainChildren": 1,
+  "mainText": "CONTENTS\n\n0.1.Introduction\n1.Origin and Derivation\n2.Lens I: Linear Algebra\n3.Ei",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Paper",
+  "dark": true,
+  "logs": []
+ },
+ "d-dark-returning-gallery": {
+  "path": "/",
+  "seedTab": "/gallery",
+  "ms": 2349,
+  "url": "/gallery",
+  "title": "Gallery — Fourier Analysis",
+  "desc": "A curated gallery of community epicycle visualizations — sav",
+  "savedTab": "/gallery",
+  "mainChildren": 1,
+  "mainText": "Gallery\nDrafts\nSearch gallery by slug\n\n6 loaded\n\ncosmic-edging-nutmeg-horse\n3m a",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Gallery",
+  "dark": true,
+  "logs": []
+ },
+ "d-dark-unknown-nope": {
+  "path": "/nope",
+  "seedTab": null,
+  "ms": 2353,
+  "url": "/nope",
+  "title": "Fourier Analysis",
+  "desc": "An interactive treatise on Fourier analysis and orthogonal d",
+  "savedTab": null,
+  "mainChildren": 0,
+  "mainText": "",
+  "mainBox": [
+   0,
+   68,
+   1440,
+   832
+  ],
+  "navLabel": "Paper",
+  "dark": true,
+  "logs": [
+   "warning: [Vue Router warn]: No match found for location with path \"/nope\""
+  ]
+ },
+ "m-light-firstvisit-root": {
+  "path": "/",
+  "seedTab": null,
+  "ms": 2234,
+  "url": "/paper",
+  "title": "Paper — Fourier Analysis",
+  "desc": "The full typeset treatise: deriving the Fourier transform th",
+  "savedTab": "/paper",
+  "mainChildren": 1,
+  "mainText": "An Introduction to\nℱourier Analysis\n0.1.\nIntroduction\n1.\nOrigin and Derivation\n2",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": []
+ },
+ "m-light-returning-gallery": {
+  "path": "/",
+  "seedTab": "/gallery",
+  "ms": 2333,
+  "url": "/gallery",
+  "title": "Gallery — Fourier Analysis",
+  "desc": "A curated gallery of community epicycle visualizations — sav",
+  "savedTab": "/gallery",
+  "mainChildren": 1,
+  "mainText": "Gallery\nDrafts\nSearch gallery by slug\n\n6 loaded\n\ncosmic-edging-nutmeg-horse\n3m a",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Gallery",
+  "dark": false,
+  "logs": []
+ },
+ "m-light-unknown-nope": {
+  "path": "/nope",
+  "seedTab": null,
+  "ms": 2242,
+  "url": "/nope",
+  "title": "Fourier Analysis",
+  "desc": "An interactive treatise on Fourier analysis and orthogonal d",
+  "savedTab": null,
+  "mainChildren": 0,
+  "mainText": "",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": [
+   "warning: [Vue Router warn]: No match found for location with path \"/nope\""
+  ]
+ },
+ "m-light-returning-morph": {
+  "path": "/",
+  "seedTab": "/morph",
+  "ms": 2138,
+  "url": "/morph",
+  "title": "Morph — Fourier Analysis",
+  "desc": "Morph one shape into another through their shared Fourier ha",
+  "savedTab": "/morph",
+  "mainChildren": 1,
+  "mainText": "Fourier Morph\n\nTune the morph transition between sun and moon shapes.\n\nidle\nN\n50",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Morph",
+  "dark": false,
+  "logs": []
+ },
+ "m-light-returning-invalid": {
+  "path": "/",
+  "seedTab": "/nope",
+  "ms": 2891,
+  "url": "/paper",
+  "title": "Paper — Fourier Analysis",
+  "desc": "The full typeset treatise: deriving the Fourier transform th",
+  "savedTab": "/paper",
+  "mainChildren": 1,
+  "mainText": "An Introduction to\nℱourier Analysis\n0.1.\nIntroduction\n1.\nOrigin and Derivation\n2",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": []
+ },
+ "m-light-unknown-deep": {
+  "path": "/gallery/does-not-exist",
+  "seedTab": null,
+  "ms": 2401,
+  "url": "/gallery/does-not-exist",
+  "title": "Fourier Analysis",
+  "desc": "An interactive treatise on Fourier analysis and orthogonal d",
+  "savedTab": null,
+  "mainChildren": 0,
+  "mainText": "",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": [
+   "warning: [Vue Router warn]: No match found for location with path \"/gallery/does-not-exist\""
+  ]
+ },
+ "m-light-unknown-saved-viz-missing": {
+  "path": "/v/no-such-slug",
+  "seedTab": null,
+  "ms": 2364,
+  "url": "/v/no-such-slug",
+  "title": "Visualize — Fourier Analysis",
+  "desc": "Decompose any image's contour into a chain of rotating epicy",
+  "savedTab": null,
+  "mainChildren": 1,
+  "mainText": "Drop or click to upload\n\nPNG/JPG/SVG ≤ 10 MB",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": []
+ },
+ "m-light-trailing-visualize": {
+  "path": "/visualize/",
+  "seedTab": null,
+  "ms": 2051,
+  "url": "/visualize/",
+  "title": "Visualize — Fourier Analysis",
+  "desc": "Decompose any image's contour into a chain of rotating epicy",
+  "savedTab": null,
+  "mainChildren": 1,
+  "mainText": "Drop or click to upload\n\nPNG/JPG/SVG ≤ 10 MB",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Paper",
+  "dark": false,
+  "logs": []
+ },
+ "m-dark-firstvisit-root": {
+  "path": "/",
+  "seedTab": null,
+  "ms": 2275,
+  "url": "/paper",
+  "title": "Paper — Fourier Analysis",
+  "desc": "The full typeset treatise: deriving the Fourier transform th",
+  "savedTab": "/paper",
+  "mainChildren": 1,
+  "mainText": "An Introduction to\nℱourier Analysis\n0.1.\nIntroduction\n1.\nOrigin and Derivation\n2",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Paper",
+  "dark": true,
+  "logs": []
+ },
+ "m-dark-returning-gallery": {
+  "path": "/",
+  "seedTab": "/gallery",
+  "ms": 2204,
+  "url": "/gallery",
+  "title": "Gallery — Fourier Analysis",
+  "desc": "A curated gallery of community epicycle visualizations — sav",
+  "savedTab": "/gallery",
+  "mainChildren": 1,
+  "mainText": "Gallery\nDrafts\nSearch gallery by slug\n\n6 loaded\n\ncosmic-edging-nutmeg-horse\n4m a",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Gallery",
+  "dark": true,
+  "logs": []
+ },
+ "m-dark-unknown-nope": {
+  "path": "/nope",
+  "seedTab": null,
+  "ms": 2166,
+  "url": "/nope",
+  "title": "Fourier Analysis",
+  "desc": "An interactive treatise on Fourier analysis and orthogonal d",
+  "savedTab": null,
+  "mainChildren": 0,
+  "mainText": "",
+  "mainBox": [
+   0,
+   74,
+   390,
+   770
+  ],
+  "navLabel": "Paper",
+  "dark": true,
+  "logs": [
+   "warning: [Vue Router warn]: No match found for location with path \"/nope\""
+  ]
+ }
+}

@@ -1,0 +1,316 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 2,
+ "runs": [
+  {
+   "theme": "light",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "notes": {
+    "g0": {
+     "drawer": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "snap": "true",
+     "cp": [
+      [
+       true,
+       [
+        175,
+        102,
+        40,
+        40
+       ],
+       null,
+       null
+      ]
+     ],
+     "handle": [
+      1,
+      680,
+      388,
+      44
+     ],
+     "handleCls": "glass-drawer-handle",
+     "transport": [
+      143,
+      737,
+      40,
+      40
+     ],
+     "picker": [
+      31,
+      734,
+      316,
+      454
+     ],
+     "ribbon": [
+      299,
+      1338,
+      36,
+      36
+     ]
+    },
+    "via": "drag-handle",
+    "g1": {
+     "drawer": [
+      0,
+      293,
+      390,
+      772
+     ],
+     "snap": "true",
+     "cp": [
+      [
+       true,
+       [
+        175,
+        102,
+        40,
+        40
+       ],
+       null,
+       "true"
+      ]
+     ],
+     "handle": [
+      1,
+      294,
+      388,
+      44
+     ],
+     "handleCls": "glass-drawer-handle",
+     "transport": [
+      167,
+      737,
+      40,
+      40
+     ],
+     "picker": [
+      31,
+      348,
+      316,
+      454
+     ],
+     "ribbon": [
+      299,
+      952,
+      36,
+      36
+     ]
+    },
+    "inner": null,
+    "hideErr": "TimeoutError: locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Hide ball preview' }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" ",
+    "g2": {
+     "drawer": [
+      0,
+      293,
+      390,
+      772
+     ],
+     "snap": "true",
+     "cp": [
+      [
+       true,
+       [
+        175,
+        102,
+        40,
+        40
+       ],
+       null,
+       "true"
+      ]
+     ],
+     "handle": [
+      1,
+      294,
+      388,
+      44
+     ],
+     "handleCls": "glass-drawer-handle",
+     "transport": [
+      167,
+      737,
+      40,
+      40
+     ],
+     "picker": [
+      31,
+      348,
+      316,
+      454
+     ],
+     "ribbon": [
+      299,
+      952,
+      36,
+      36
+     ]
+    }
+   },
+   "frames": [
+    "08-390-editor-drawer-expanded-390-light"
+   ],
+   "errs": []
+  },
+  {
+   "theme": "dark",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "notes": {
+    "g0": {
+     "drawer": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "snap": "true",
+     "cp": [
+      [
+       true,
+       [
+        175,
+        102,
+        40,
+        40
+       ],
+       null,
+       null
+      ]
+     ],
+     "handle": [
+      1,
+      680,
+      388,
+      44
+     ],
+     "handleCls": "glass-drawer-handle",
+     "transport": [
+      143,
+      737,
+      40,
+      40
+     ],
+     "picker": [
+      31,
+      734,
+      316,
+      454
+     ],
+     "ribbon": [
+      299,
+      1338,
+      36,
+      36
+     ]
+    },
+    "via": "drag-handle",
+    "g1": {
+     "drawer": [
+      0,
+      293,
+      390,
+      772
+     ],
+     "snap": "true",
+     "cp": [
+      [
+       true,
+       [
+        175,
+        102,
+        40,
+        40
+       ],
+       null,
+       "true"
+      ]
+     ],
+     "handle": [
+      1,
+      294,
+      388,
+      44
+     ],
+     "handleCls": "glass-drawer-handle",
+     "transport": [
+      167,
+      737,
+      40,
+      40
+     ],
+     "picker": [
+      31,
+      348,
+      316,
+      454
+     ],
+     "ribbon": [
+      299,
+      952,
+      36,
+      36
+     ]
+    },
+    "inner": null,
+    "hideErr": "TimeoutError: locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Hide ball preview' }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" ",
+    "g2": {
+     "drawer": [
+      0,
+      293,
+      390,
+      772
+     ],
+     "snap": "true",
+     "cp": [
+      [
+       true,
+       [
+        175,
+        102,
+        40,
+        40
+       ],
+       null,
+       "true"
+      ]
+     ],
+     "handle": [
+      1,
+      294,
+      388,
+      44
+     ],
+     "handleCls": "glass-drawer-handle",
+     "transport": [
+      167,
+      737,
+      40,
+      40
+     ],
+     "picker": [
+      31,
+      348,
+      316,
+      454
+     ],
+     "ribbon": [
+      299,
+      952,
+      36,
+      36
+     ]
+    }
+   },
+   "frames": [
+    "08-390-editor-drawer-expanded-390-dark"
+   ],
+   "errs": []
+  }
+ ]
+}

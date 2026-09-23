@@ -1,0 +1,11 @@
+{
+ "sha": "60477b06",
+ "dirty": 7,
+ "autoplay_before": "none",
+ "autoplay_afterDrag": "none",
+ "paused": true,
+ "pausedOrb": "matrix3d(0.999598, 0, -0.0283672, 0, 0, 1, 0, 0, 0.0283672, ",
+ "played": true,
+ "replay_before": "matrix3d(0.999598, 0, -0.0283672, 0, 0, 1, 0, 0, 0.0283672, ",
+ "replay_afterDrag": "matrix3d(-0.0430251, 0, -0.999074, 0, 0, 1, 0, 0, 0.999074, "
+}

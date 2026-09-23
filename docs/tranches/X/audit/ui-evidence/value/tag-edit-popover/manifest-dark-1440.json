@@ -1,0 +1,92 @@
+{
+ "seat": "tag-edit-popover",
+ "base": "http://localhost:9000/",
+ "head": "f95a2f77",
+ "dirty": 9,
+ "frames": [
+  {
+   "file": "1440-dark-00-browse-rest.png",
+   "state": "browse loaded, before open",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-01-card-menu-edit-tags-item.png",
+   "state": "card menu open (the reach)",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-02-open.png",
+   "state": "open (current tag: warm)",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-03-row-hover.png",
+   "state": "open, row hover",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-04-tag-added.png",
+   "state": "tag added (cool)",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-05-tag-removed.png",
+   "state": "tag removed (warm)",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-06-keyboard-focus.png",
+   "state": "keyboard focus in list",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-07-list-scrolled.png",
+   "state": "catalog scrolled to end",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-08-closed-card-reflects.png",
+   "state": "closed; card reflects new tags",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-09-save-failed-open.png",
+   "state": "tag added, PATCH 500 (popover open)",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-10-save-failed-closed.png",
+   "state": "after failed save, popover closed",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-11-catalog-loading.png",
+   "state": "catalog loading (4s delay)",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-12-catalog-unreachable.png",
+   "state": "catalog GET refused",
+   "head": "f95a2f77",
+   "dirty": 9
+  },
+  {
+   "file": "1440-dark-13-catalog-empty.png",
+   "state": "catalog empty",
+   "head": "f95a2f77",
+   "dirty": 9
+  }
+ ]
+}

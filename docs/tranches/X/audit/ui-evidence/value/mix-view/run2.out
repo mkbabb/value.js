@@ -1,0 +1,49 @@
+FAIL 1440-light-colors TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).locator('[aria-label*="from Sunset Coast"]').first()[22m
+
+FAIL 1440-dark-colors TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).locator('[aria-label*="from Sunset Coast"]').first()[22m
+
+FAIL 390-light-colors TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).locator('[aria-label*="from Sunset Coast"]').first()[22m
+
+FAIL 390-dark-colors TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).locator('[aria-label*="from Sunset Coast"]').first()[22m
+
+OK 1440-dark-palettes 8  
+FAIL 390-dark-palettes TimeoutError: locator.waitFor: Timeout 240000ms exceeded.
+Call log:
+[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }) to be visible[22m
+
+FAIL 1440-dark-palettes-empty TimeoutError: locator.waitFor: Timeout 240000ms exceeded.
+Call log:
+[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }) to be visible[22m
+
+FAIL 390-light-palettes-empty Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+
+FAIL 390-dark-palettes-empty Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+
+FAIL 1440-light-dock Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+
+FAIL 1440-dark-dock Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+
+FAIL 390-light-dock Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+
+FAIL 390-dark-dock Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix
+Call log:
+[2m  - navigating to "http://localhost:9000/#/mix", waiting until "domcontentloaded"[22m
+

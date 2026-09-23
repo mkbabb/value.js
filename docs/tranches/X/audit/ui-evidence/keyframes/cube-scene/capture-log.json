@@ -1,0 +1,6701 @@
+{
+ "sha": "60477b06",
+ "dirty": 2,
+ "when": "2026-09-23T17:10:12.156Z",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "vp": "1440",
+   "sha": "60477b06",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-autoplay-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      846,
+      337,
+      225,
+      225
+     ],
+     "cubeTf": "matrix3d(0.999882, -0.0107261, 0.0109607, 0, 0.0108437, 0.999884, -0.0",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.03497)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "01-idle-paused-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      855,
+      348,
+      222,
+      227
+     ],
+     "cubeTf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.881488, -0.080",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 2.89713)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "02-idle-hover-cube-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      855,
+      348,
+      222,
+      227
+     ],
+     "cubeTf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.881488, -0.080",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 2.89713)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03-channel-select-open-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      855,
+      348,
+      222,
+      227
+     ],
+     "cubeTf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.881488, -0.080",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 2.89713)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-playing-rotations-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      901,
+      321,
+      125,
+      293
+     ],
+     "cubeTf": "matrix3d(0.0159636, 0.00100442, 0.999872, 0, -0.125334, 0.992114, 0.00",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.18572)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-playing-matrix-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      910,
+      337,
+      103,
+      264
+     ],
+     "cubeTf": "matrix3d(0.00919295, -0.190437, 0.981656, 0, 0.0954381, -0.977049, -0.",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.14613)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-controls-tab-open-matrix-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      845,
+      338,
+      225,
+      224
+     ],
+     "cubeTf": "matrix3d(0.999821, 0.0135732, -0.0132132, 0, -0.0133938, 0.999818, 0.0",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.0432534)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-matrix-controls-surface-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "SxyzPwxSyzPwxySzPwTxTyTzw",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Matrix Controls",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05b2-matrix-cell-focus-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "SxyzPwxSyzPwxySzPwTxTyTzw",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Matrix Controls",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "INPUT ",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-keyframes-surface-matrix-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "1.",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Keyframes",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-timeline-surface-matrix-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "cubeTf": "none",
+     "bobTf": "none",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Timeline",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "04c-playing-hover-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      901,
+      321,
+      125,
+      293
+     ],
+     "cubeTf": "matrix3d(0.0156382, 0.000973949, 0.999877, 0, -0.124071, 0.992273, 0.0",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.18406)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Hover"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-orbit-drag-mid-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      880,
+      325,
+      165,
+      284
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.794967, -0.598322, -0.100189, 0, -0.598322, 0.800559, -0.0",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-orbit-inertia-80ms-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      815,
+      318,
+      289,
+      281
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.232276, -0.422332, 0.876175, 0, -0.397045, 0.863512, 0.310",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-orbit-settled-1580ms-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      883,
+      341,
+      134,
+      242
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.609166, -0.54021, -0.580595, 0, -0.533556, 0.820816, -0.20",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "06d-wheel-up-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      877,
+      331,
+      147,
+      258
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.614151, -0.641298, -0.459952, 0, -0.535306, 0.766758, -0.3",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-axis-x-armed-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      877,
+      331,
+      147,
+      258
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.614151, -0.641298, -0.459952, 0, -0.535306, 0.766758, -0.3",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-axis-x-drag-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      887,
+      347,
+      153,
+      226
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.771474, 0.616026, 0.159184, 0, -0.635023, -0.729885, -0.25",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-axis-y-armed-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      843,
+      394,
+      264,
+      129
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.41286, 0.889222, -0.197056, 0, 0.89532, 0.435945, 0.091396",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-axis-z-armed-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      832,
+      388,
+      281,
+      138
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.449879, 0.86102, -0.237176, 0, 0.893088, 0.434245, -0.1175",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z axis-line--locked",
+       "op": "1"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "08a-roll-mid-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      857,
+      371,
+      232,
+      182
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0.988804, 0.0440346, 0.142575, 0, 0, 0.955467, -0.295098, 0, ",
+     "orbTf": "matrix3d(-0.460182, 0.853172, -0.245623, 0, 0.886959, 0.429577, -0.169",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "08b-roll-settled-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      830,
+      387,
+      284,
+      139
+     ],
+     "cubeTf": "matrix3d(0.0785861, 0.0107897, 0.996849, 0, -0.269092, 0.963054, 0.010",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.37103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "orbTf": "matrix3d(-0.460318, 0.853068, -0.245728, 0, 0.886865, 0.429505, -0.170",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-ppmycota-on-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON @mbabb menu",
+     "hscroll": false
+    },
+    {
+     "frame": "09b-ppmycota-playing-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      881,
+      343,
+      160,
+      242
+     ],
+     "cubeTf": "matrix3d(0.0648348, 0.484352, 0.872467, 0, -0.246234, -0.839507, 0.484",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.59897)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "orbTf": "matrix3d(-0.460318, 0.853068, -0.245728, 0, 0.886865, 0.429505, -0.170",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "10-panel-closed-fullbleed-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      583,
+      422,
+      304,
+      67
+     ],
+     "cubeTf": "matrix3d(0.536629, 0.159214, 0.828661, 0, -0.498656, 0.852052, 0.15921",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.80389)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "orbTf": "matrix3d(-0.460318, 0.853068, -0.245728, 0, 0.886865, 0.429505, -0.170",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    },
+    {
+     "frame": "11-kbd-tab4-1440-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      583,
+      422,
+      304,
+      67
+     ],
+     "cubeTf": "matrix3d(0.536629, 0.159214, 0.828661, 0, -0.498656, 0.852052, 0.15921",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.80389)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "orbTf": "matrix3d(-0.460318, 0.853068, -0.245728, 0, 0.886865, 0.429505, -0.170",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      -160,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "INPUT ",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "autoplayMotion": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "pausedMotion": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "hoverIdleMotion": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motion-Rotations": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "motion-Matrix": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "tabsWithMatrix": [
+     "Controls",
+     "Keyframes",
+     "Timeline",
+     "Matrix Controls"
+    ],
+    "motionOnMatrixControls": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "cellHit": {
+     "grids": 3,
+     "visibleGrids": 1,
+     "hitTag": "INPUT",
+     "hitCls": "field-control glass-defined text-small absolute top-0 left-0 z-10 h-full w-full bg-transpa",
+     "isInput": true,
+     "inputRect": [
+      56,
+      56
+     ],
+     "inputRadius": "9999px",
+     "inputFont": "16.4px",
+     "labelPE": "auto",
+     "labelFont": "25.888px",
+     "cellRadius": "8px"
+    },
+    "cellFocus": {
+     "tag": "INPUT",
+     "inGrid": true
+    },
+    "motionOnKeyframes": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motionOnTimeline": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motion-Hover": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "inertiaMoved": true
+   },
+   "errors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found) @http://localhost:5173/assets/icons/favicon.svg"
+   ]
+  },
+  {
+   "tag": "1440-dark",
+   "vp": "1440",
+   "sha": "60477b06",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-autoplay-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      846,
+      337,
+      224,
+      226
+     ],
+     "cubeTf": "matrix3d(0.999303, -0.0256924, 0.0270767, 0, 0.026389, 0.999322, -0.02",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.0856886)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "01-idle-paused-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      830,
+      348,
+      261,
+      194
+     ],
+     "cubeTf": "matrix3d(0.87109, -0.214786, 0.441666, 0, 0.3351, 0.917374, -0.214786,",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 1.20543)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "02-idle-hover-cube-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      830,
+      348,
+      261,
+      194
+     ],
+     "cubeTf": "matrix3d(0.87109, -0.214786, 0.441666, 0, 0.3351, 0.917374, -0.214786,",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 1.20543)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03-channel-select-open-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      830,
+      348,
+      261,
+      194
+     ],
+     "cubeTf": "matrix3d(0.87109, -0.214786, 0.441666, 0, 0.3351, 0.917374, -0.214786,",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 1.20543)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-playing-rotations-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      890,
+      322,
+      149,
+      292
+     ],
+     "cubeTf": "matrix3d(0.0472816, 0.00507829, 0.998869, 0, -0.212241, 0.977204, 0.00",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.29817)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-playing-matrix-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      907,
+      341,
+      108,
+      247
+     ],
+     "cubeTf": "matrix3d(0.0246213, -0.308016, 0.951062, 0, 0.154968, -0.938675, -0.30",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.22441)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-controls-tab-open-matrix-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix3d(0.999999, 0.00115136, -0.00114872, 0, -0.00115004, 0.999999, ",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.0036767)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-matrix-controls-surface-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "SxyzPwxSyzPwxySzPwTxTyTzw",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Matrix Controls",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05b2-matrix-cell-focus-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "SxyzPwxSyzPwxySzPwTxTyTzw",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Matrix Controls",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "INPUT ",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-keyframes-surface-matrix-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "1.",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Keyframes",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-timeline-surface-matrix-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "cubeTf": "none",
+     "bobTf": "none",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Timeline",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "04c-playing-hover-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      907,
+      321,
+      110,
+      293
+     ],
+     "cubeTf": "matrix3d(0.00434417, 0.000143007, 0.999991, 0, -0.065767, 0.997835, 0.",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.10614)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Hover"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-orbit-drag-mid-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      879,
+      326,
+      167,
+      281
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.794967, -0.598322, -0.100189, 0, -0.598322, 0.800559, -0.0",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-orbit-inertia-80ms-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      815,
+      318,
+      288,
+      283
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.234494, -0.423026, 0.87525, 0, -0.397832, 0.863266, 0.3106",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-orbit-settled-1580ms-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      876,
+      344,
+      148,
+      235
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.594555, -0.53564, -0.599661, 0, -0.528424, 0.822421, -0.21",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "06d-wheel-up-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      870,
+      335,
+      160,
+      250
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.600688, -0.640586, -0.478355, 0, -0.530578, 0.766992, -0.3",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-axis-x-armed-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      870,
+      335,
+      160,
+      250
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.600688, -0.640586, -0.478355, 0, -0.530578, 0.766992, -0.3",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-axis-x-drag-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      882,
+      350,
+      165,
+      218
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.7728, 0.608668, 0.17973, 0, -0.634312, -0.731538, -0.25000",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-axis-y-armed-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      848,
+      390,
+      254,
+      139
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.400146, 0.89256, -0.207895, 0, 0.892105, 0.431302, 0.13463",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-axis-z-armed-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      835,
+      383,
+      275,
+      150
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.445557, 0.857965, -0.255685, 0, 0.895012, 0.433516, -0.104",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z axis-line--locked",
+       "op": "1"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "08a-roll-mid-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      891,
+      319,
+      148,
+      284
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(-0.930205, -0.05497, -0.362902, 0, 0, 0.988722, -0.149765, 0,",
+     "orbTf": "matrix3d(-0.45932, 0.84748, -0.266087, 0, 0.887778, 0.428005, -0.16929",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "08b-roll-settled-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      859,
+      342,
+      218,
+      234
+     ],
+     "cubeTf": "matrix3d(0.0627463, 0.00773142, 0.998, 0, -0.242506, 0.970119, 0.00773",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33692)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.45956, 0.847297, -0.266255, 0, 0.887625, 0.427889, -0.1703",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 53.28px \"Instrument Serif\"",
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabbdu",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-ppmycota-on-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      845,
+      338,
+      225,
+      225
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON @mbabb menu",
+     "hscroll": false
+    },
+    {
+     "frame": "09b-ppmycota-playing-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      820,
+      367,
+      289,
+      192
+     ],
+     "cubeTf": "matrix3d(0.051475, 0.436167, 0.898392, 0, -0.220965, -0.872315, 0.4361",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.64978)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.45956, 0.847297, -0.266255, 0, 0.887625, 0.427889, -0.1703",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "10-panel-closed-fullbleed-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      593,
+      362,
+      281,
+      171
+     ],
+     "cubeTf": "matrix3d(0.706616, 0.208693, 0.676122, 0, -0.455313, 0.865527, 0.20869",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.88799)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.45956, 0.847297, -0.266255, 0, 0.887625, 0.427889, -0.1703",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    },
+    {
+     "frame": "11-kbd-tab4-1440-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      593,
+      362,
+      281,
+      171
+     ],
+     "cubeTf": "matrix3d(0.706616, 0.208693, 0.676122, 0, -0.455313, 0.865527, 0.20869",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.88799)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.45956, 0.847297, -0.266255, 0, 0.887625, 0.427889, -0.1703",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      -160,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "Select animation:Rotations"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "INPUT ",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "autoplayMotion": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "pausedMotion": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "hoverIdleMotion": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motion-Rotations": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "motion-Matrix": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "tabsWithMatrix": [
+     "Controls",
+     "Keyframes",
+     "Timeline",
+     "Matrix Controls"
+    ],
+    "motionOnMatrixControls": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "cellHit": {
+     "grids": 3,
+     "visibleGrids": 1,
+     "hitTag": "INPUT",
+     "hitCls": "field-control glass-defined text-small absolute top-0 left-0 z-10 h-full w-full bg-transpa",
+     "isInput": true,
+     "inputRect": [
+      56,
+      56
+     ],
+     "inputRadius": "9999px",
+     "inputFont": "16.4px",
+     "labelPE": "auto",
+     "labelFont": "25.888px",
+     "cellRadius": "8px"
+    },
+    "cellFocus": {
+     "tag": "INPUT",
+     "inGrid": true
+    },
+    "motionOnKeyframes": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motionOnTimeline": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motion-Hover": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "inertiaMoved": true
+   },
+   "errors": []
+  },
+  {
+   "tag": "390-light",
+   "vp": "390",
+   "sha": "60477b06",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-autoplay-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      99,
+      324,
+      193,
+      196
+     ],
+     "cubeTf": "matrix3d(0.998078, -0.0418793, 0.0456795, 0, 0.0437995, 0.998162, -0.0",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.143007)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "01-idle-paused-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      130,
+      319,
+      140,
+      230
+     ],
+     "cubeTf": "matrix3d(0.128603, -0.0222662, 0.991446, 0, 0.33476, 0.94204, -0.02226",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.39333)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "02-idle-hover-cube-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      130,
+      319,
+      140,
+      230
+     ],
+     "cubeTf": "matrix3d(0.128603, -0.0222662, 0.991446, 0, 0.33476, 0.94204, -0.02226",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.39333)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03-channel-select-open-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      130,
+      319,
+      140,
+      230
+     ],
+     "cubeTf": "matrix3d(0.128603, -0.0222662, 0.991446, 0, 0.33476, 0.94204, -0.02226",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.39333)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-playing-rotations-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      159,
+      310,
+      78,
+      253
+     ],
+     "cubeTf": "matrix3d(0.000674249, -8.7524e-06, 1, 0, 0.0259576, 0.999663, -8.7524e",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.97662)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-playing-matrix-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      154,
+      314,
+      81,
+      220
+     ],
+     "cubeTf": "matrix3d(0.187029, 0.741519, 0.644337, 0, -0.389935, -0.545986, 0.7415",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.23024)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Matrix",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-controls-tab-open-matrix-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      95,
+      318,
+      193,
+      212
+     ],
+     "cubeTf": "matrix3d(0.9602, 0.234488, -0.151759, 0, -0.195488, 0.95226, 0.234488,",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.663512)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Matrix",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-matrix-controls-surface-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      98,
+      325,
+      195,
+      195
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "SxyzPwxSyzPwxySzPwTxTyTzw",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Matrix Controls",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05b2-matrix-cell-focus-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      98,
+      325,
+      195,
+      195
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "SxyzPwxSyzPwxySzPwTxTyTzw",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Matrix Controls",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "INPUT ",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-keyframes-surface-matrix-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      98,
+      325,
+      195,
+      195
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "1.",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Keyframes",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-timeline-surface-matrix-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      98,
+      325,
+      195,
+      195
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Timeline",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "04c-playing-hover-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      101,
+      337,
+      201,
+      188
+     ],
+     "cubeTf": "matrix3d(0.361767, -0.0966335, 0.927247, 0, 0.480512, 0.871648, -0.096",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 2.78472)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Hover",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-orbit-drag-mid-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      148,
+      298,
+      88,
+      256
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.794967, -0.598322, -0.100189, 0, -0.598322, 0.800559, -0.0",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-orbit-inertia-80ms-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      70,
+      299,
+      262,
+      255
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.237257, -0.42389, 0.874086, 0, -0.398813, 0.862959, 0.3102",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-orbit-settled-1580ms-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      120,
+      299,
+      136,
+      253
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.518898, -0.511978, -0.684561, 0, -0.501818, 0.830743, -0.2",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "06d-wheel-up-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      122,
+      307,
+      131,
+      233
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.527612, -0.634179, -0.565192, 0, -0.504884, 0.769174, -0.3",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-axis-x-armed-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      122,
+      307,
+      131,
+      233
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.527612, -0.634179, -0.565192, 0, -0.504884, 0.769174, -0.3",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-axis-x-drag-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      125,
+      297,
+      149,
+      253
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.767804, 0.572297, 0.288017, 0, -0.633593, -0.744956, -0.20",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-axis-y-armed-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      68,
+      336,
+      269,
+      195
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.384131, 0.864583, -0.323945, 0, 0.902677, 0.425389, 0.0649",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-axis-z-armed-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      72,
+      323,
+      253,
+      221
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.452242, 0.812695, -0.367429, 0, 0.891828, 0.417124, -0.175",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z axis-line--locked",
+       "op": "1"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "08a-roll-mid-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      101,
+      345,
+      198,
+      159
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(-0.17094, 0.0615073, 0.98336, 0, 0, 0.99805, -0.0624262, 0, -",
+     "orbTf": "matrix3d(-0.463409, 0.804188, -0.372202, 0, 0.885992, 0.412678, -0.211",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "08b-roll-settled-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      95,
+      344,
+      209,
+      150
+     ],
+     "cubeTf": "matrix3d(0.139805, -0.668417, 0.73053, 0, 0.346785, -0.657997, -0.6684",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.47294)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.463409, 0.804188, -0.372202, 0, 0.885992, 0.412678, -0.211",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-ppmycota-on-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      157,
+      306,
+      83,
+      253
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON @mbabb menu",
+     "hscroll": false
+    },
+    {
+     "frame": "09b-ppmycota-playing-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      79,
+      333,
+      232,
+      170
+     ],
+     "cubeTf": "matrix3d(0.0396074, 0.386168, 0.921578, 0, -0.195035, -0.901574, 0.386",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.69927)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.463409, 0.804188, -0.372202, 0, 0.885992, 0.412678, -0.211",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "10-panel-closed-fullbleed-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      67,
+      299,
+      270,
+      251
+     ],
+     "cubeTf": "matrix3d(0.241467, 0.055235, 0.968836, 0, -0.427973, 0.902102, 0.05523",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.59103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.463409, 0.804188, -0.372202, 0, 0.885992, 0.412678, -0.211",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      29,
+      547,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    },
+    {
+     "frame": "11-kbd-tab4-390-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      67,
+      299,
+      270,
+      251
+     ],
+     "cubeTf": "matrix3d(0.241467, 0.055235, 0.968836, 0, -0.427973, 0.902102, 0.05523",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.59103)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.463409, 0.804188, -0.372202, 0, 0.885992, 0.412678, -0.211",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      29,
+      547,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "DIV durationdelayiterati",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "autoplayMotion": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "pausedMotion": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "hoverIdleMotion": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motion-Rotations": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "motion-Matrix": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "tabsWithMatrix": [
+     "Controls",
+     "Keyframes",
+     "Timeline",
+     "Matrix Controls"
+    ],
+    "motionOnMatrixControls": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "cellHit": {
+     "grids": 3,
+     "visibleGrids": 1,
+     "hitTag": "INPUT",
+     "hitCls": "field-control glass-defined text-small absolute top-0 left-0 z-10 h-full w-full bg-transpa",
+     "isInput": true,
+     "inputRect": [
+      56,
+      56
+     ],
+     "inputRadius": "9999px",
+     "inputFont": "14px",
+     "labelPE": "auto",
+     "labelFont": "25.888px",
+     "cellRadius": "8px"
+    },
+    "cellFocus": {
+     "tag": "INPUT",
+     "inGrid": true
+    },
+    "motionOnKeyframes": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motionOnTimeline": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motion-Hover": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "inertiaMoved": true
+   },
+   "errors": []
+  },
+  {
+   "tag": "390-dark",
+   "vp": "390",
+   "sha": "60477b06",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-autoplay-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      92,
+      327,
+      208,
+      186
+     ],
+     "cubeTf": "matrix3d(0.95106, -0.168016, 0.259338, 0, 0.215743, 0.961887, -0.16801",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.736906)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "01-idle-paused-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      132,
+      310,
+      137,
+      252
+     ],
+     "cubeTf": "matrix3d(0.0624677, 0.00768058, 0.998017, 0, -0.242003, 0.970245, 0.00",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33627)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "02-idle-hover-cube-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      132,
+      310,
+      137,
+      252
+     ],
+     "cubeTf": "matrix3d(0.0624677, 0.00768058, 0.998017, 0, -0.242003, 0.970245, 0.00",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33627)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03-channel-select-open-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      132,
+      310,
+      137,
+      252
+     ],
+     "cubeTf": "matrix3d(0.0624677, 0.00768058, 0.998017, 0, -0.242003, 0.970245, 0.00",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.33627)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-playing-rotations-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      154,
+      309,
+      89,
+      254
+     ],
+     "cubeTf": "matrix3d(0.00120013, 2.07819e-05, 0.999999, 0, -0.0346222, 0.9994, 2.0",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.06327)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-playing-matrix-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      152,
+      318,
+      84,
+      211
+     ],
+     "cubeTf": "matrix3d(0.207246, 0.766229, 0.608229, 0, -0.405333, -0.498597, 0.7662",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.17659)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Matrix",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-controls-tab-open-matrix-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      95,
+      321,
+      194,
+      205
+     ],
+     "cubeTf": "matrix3d(0.971423, 0.19478, -0.135639, 0, -0.166614, 0.966592, 0.19478",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.560877)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Matrix",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-matrix-controls-surface-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      98,
+      325,
+      195,
+      195
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "SxyzPwxSyzPwxySzPwTxTyTzw",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Matrix Controls",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05b2-matrix-cell-focus-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      98,
+      325,
+      195,
+      195
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "SxyzPwxSyzPwxySzPwTxTyTzw",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Matrix Controls",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "INPUT ",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-keyframes-surface-matrix-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      98,
+      325,
+      195,
+      195
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "1.",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Keyframes",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-timeline-surface-matrix-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      98,
+      325,
+      195,
+      195
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Timeline",
+      "Select animation:Matrix"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "04c-playing-hover-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      161,
+      310,
+      73,
+      252
+     ],
+     "cubeTf": "matrix3d(0.00309359, -8.59661e-05, 0.999995, 0, 0.0555339, 0.998457, -",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.9324)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Hover",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BUTTON Select animation",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-orbit-drag-mid-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      113,
+      304,
+      173,
+      259
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.794967, -0.598322, -0.100189, 0, -0.598322, 0.800559, -0.0",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-orbit-inertia-80ms-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      71,
+      329,
+      246,
+      189
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.23778, -0.424054, 0.873864, 0, -0.398999, 0.862901, 0.3101",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-orbit-settled-1580ms-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      163,
+      310,
+      63,
+      251
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.583297, -0.532119, -0.613689, 0, -0.524467, 0.823659, -0.2",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "06d-wheel-up-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      158,
+      300,
+      75,
+      268
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.589917, -0.639897, -0.492473, 0, -0.526794, 0.767222, -0.3",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-axis-x-armed-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      158,
+      300,
+      75,
+      268
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.589917, -0.639897, -0.492473, 0, -0.526794, 0.767222, -0.3",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-axis-x-drag-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      180,
+      302,
+      22,
+      254
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.742402, 0.626481, 0.237405, 0, -0.65678, -0.750505, -0.073",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-axis-y-armed-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      89,
+      408,
+      239,
+      29
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.398829, 0.888218, -0.228045, 0, 0.894705, 0.43143, 0.11563",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y axis-line--locked",
+       "op": "1"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-axis-z-armed-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      78,
+      396,
+      259,
+      61
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "matrix3d(-0.445433, 0.852715, -0.272887, 0, 0.895039, 0.431685, -0.112",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z axis-line--locked",
+       "op": "1"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "08a-roll-mid-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      72,
+      291,
+      271,
+      275
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(-0.407287, 0.274325, 0.871128, 0, 0, 0.953824, -0.300367, 0, ",
+     "orbTf": "matrix3d(-0.459349, 0.842113, -0.282567, 0, 0.887895, 0.426243, -0.173",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "08b-roll-settled-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      71,
+      299,
+      258,
+      262
+     ],
+     "cubeTf": "matrix3d(0.501666, 0.147035, 0.852474, 0, -0.499997, 0.853454, 0.14703",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.78409)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.45957, 0.841945, -0.282709, 0, 0.887759, 0.42614, -0.17403",
+     "faceRadius": "8px",
+     "numeral": "rgb(233, 230, 226) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "BODY CubeControls@mbabb12",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-ppmycota-on-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      157,
+      306,
+      83,
+      253
+     ],
+     "cubeTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON @mbabb menu",
+     "hscroll": false
+    },
+    {
+     "frame": "09b-ppmycota-playing-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      96,
+      329,
+      195,
+      180
+     ],
+     "cubeTf": "matrix3d(0.0945166, 0.570924, 0.815544, 0, -0.292546, -0.767113, 0.570",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.49772)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.45957, 0.841945, -0.282709, 0, 0.887759, 0.42614, -0.17403",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "10-panel-closed-fullbleed-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      107,
+      328,
+      186,
+      206
+     ],
+     "cubeTf": "matrix3d(0.937695, 0.181376, 0.296363, 0, -0.241709, 0.953247, 0.18137",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.97902)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.45957, 0.841945, -0.282709, 0, 0.887759, 0.42614, -0.17403",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      29,
+      547,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    },
+    {
+     "frame": "11-kbd-tab4-390-dark.png",
+     "theme": "dark",
+     "dataTheme": null,
+     "bodyBg": "rgb(11, 10, 9)",
+     "cube": [
+      107,
+      328,
+      186,
+      206
+     ],
+     "cubeTf": "matrix3d(0.937695, 0.181376, 0.296363, 0, -0.241709, 0.953247, 0.18137",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.97902)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1)",
+     "orbTf": "matrix3d(-0.45957, 0.841945, -0.282709, 0, 0.887759, 0.42614, -0.17403",
+     "faceRadius": "8px",
+     "numeral": null,
+     "panel": [
+      29,
+      547,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": true,
+     "active": "DIV durationdelayiterati",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "autoplayMotion": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "pausedMotion": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "hoverIdleMotion": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motion-Rotations": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "motion-Matrix": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "tabsWithMatrix": [
+     "Controls",
+     "Keyframes",
+     "Timeline",
+     "Matrix Controls"
+    ],
+    "motionOnMatrixControls": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "cellHit": {
+     "grids": 3,
+     "visibleGrids": 1,
+     "hitTag": "INPUT",
+     "hitCls": "field-control glass-defined text-small absolute top-0 left-0 z-10 h-full w-full bg-transpa",
+     "isInput": true,
+     "inputRect": [
+      56,
+      56
+     ],
+     "inputRadius": "9999px",
+     "inputFont": "14px",
+     "labelPE": "auto",
+     "labelFont": "25.888px",
+     "cellRadius": "8px"
+    },
+    "cellFocus": {
+     "tag": "INPUT",
+     "inGrid": true
+    },
+    "motionOnKeyframes": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motionOnTimeline": {
+     "cube": false,
+     "bob": false,
+     "pose": false
+    },
+    "motion-Hover": {
+     "cube": true,
+     "bob": true,
+     "pose": false
+    },
+    "inertiaMoved": true
+   },
+   "errors": []
+  },
+  {
+   "tag": "390touch-light",
+   "vp": "390",
+   "sha": "60477b06",
+   "dirty": 7,
+   "frames": [
+    {
+     "frame": "12a-touch-load-390touch-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      98,
+      324,
+      194,
+      195
+     ],
+     "cubeTf": "matrix3d(0.999623, -0.0190341, 0.0197842, 0, 0.0194109, 0.99963, -0.01",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.0628599)",
+     "poseTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      712,
+      320,
+      513
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "12b-touch-orbit-mid-390touch-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      107,
+      292,
+      195,
+      274
+     ],
+     "cubeTf": "matrix3d(0.577204, -0.140932, -0.804347, 0, -0.140932, 0.953023, -0.26",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 0.23644)",
+     "poseTf": "matrix3d(0.673448, -0.108851, -0.72603, 0, -0.108851, 0.963717, -0.242",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      712,
+      320,
+      513
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "12c-touch-orbit-settled-390touch-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      162,
+      329,
+      68,
+      200
+     ],
+     "cubeTf": "matrix3d(0.301853, 0.075492, 0.950361, 0, -0.459062, 0.885191, 0.07549",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.64566)",
+     "poseTf": "matrix3d(-0.176466, -0.373675, -0.152229, 0, -0.375984, 0.8805, -0.038",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      712,
+      320,
+      513
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "12d-touch-pinch-out-mid-390touch-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      142,
+      299,
+      106,
+      255
+     ],
+     "cubeTf": "matrix3d(0.85228, -0.491196, -0.179848, 0, 0.354823, 0.795504, -0.4911",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 4.94791)",
+     "poseTf": "matrix3d(0.172673, -0.280551, -0.111023, 0, -0.282238, 0.96626, -0.027",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      712,
+      320,
+      513
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "12e-touch-pinch-settled-390touch-light.png",
+     "theme": "",
+     "dataTheme": null,
+     "bodyBg": "rgb(251, 250, 248)",
+     "cube": [
+      179,
+      331,
+      34,
+      184
+     ],
+     "cubeTf": "matrix3d(0.247877, 0.806241, 0.537152, 0, -0.43178, -0.404403, 0.80624",
+     "bobTf": "matrix(1, 0, 0, 1, 0, 3.07137)",
+     "poseTf": "matrix3d(0.68366, -0.107267, -0.0414552, 0, -0.107897, 0.987091, -0.01",
+     "rollTf": "none",
+     "orbTf": "none",
+     "faceRadius": "8px",
+     "numeral": "rgb(28, 25, 23) 32.928px \"Instrument Serif\"",
+     "panel": [
+      29,
+      712,
+      320,
+      513
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvan",
+     "tabs": [
+      "Scene:Cube",
+      "Controls tab:Controls",
+      "Select animation:Rotations",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "lines": [
+      {
+       "cls": "axis-line x",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line y",
+       "op": "0.45"
+      },
+      {
+       "cls": "axis-line z",
+       "op": "0.45"
+      }
+     ],
+     "pp": false,
+     "active": "DIV Drawer position",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "pinchChanged": false
+   },
+   "errors": []
+  }
+ ]
+}

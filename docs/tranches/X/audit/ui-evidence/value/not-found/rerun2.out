@@ -1,0 +1,16 @@
+{
+ "sha": "26836da6",
+ "dirty": 15,
+ "errs": {
+  "390-dark": [
+   "open #/nope attempt 0: Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/nope\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/nop",
+   "open #/nope attempt 1: Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/nope\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/nop",
+   "open #/foo/bar/baz?color=oklch(0.7,0.15,180) attempt 0: Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/foo/bar/baz?color=oklch(0.7,0.15,180)\nCall log:\n\u001b[2m  - navigatin",
+   "open #/foo/bar/baz?color=oklch(0.7,0.15,180) attempt 1: Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/foo/bar/baz?color=oklch(0.7,0.15,180)\nCall log:\n\u001b[2m  - navigatin",
+   "open #/admin/users attempt 0: Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/admin/users\nCall log:\n\u001b[2m  - navigating to \"http://localhost:900",
+   "open #/admin/users attempt 1: Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/admin/users\nCall log:\n\u001b[2m  - navigating to \"http://localhost:900",
+   "open #/admin/nonsense attempt 0: Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/admin/nonsense\nCall log:\n\u001b[2m  - navigating to \"http://localhost:",
+   "open #/admin/nonsense attempt 1: Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/admin/nonsense\nCall log:\n\u001b[2m  - navigating to \"http://localhost:"
+  ]
+ }
+}

@@ -1,0 +1,1470 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 25,
+ "runs": {
+  "light": [
+   {
+    "scrollTop": 319,
+    "max": 637,
+    "paneBottom": 1065,
+    "vh": 844,
+    "presets": [
+     {
+      "t": "smooth0.5 / 0.86",
+      "y": 502,
+      "b": 570,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "snappy0.35 / 0.65",
+      "y": 502,
+      "b": 570,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "bouncy0.5 / 0.45",
+      "y": 578,
+      "b": 646,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "gentle0.7 / 1",
+      "y": 578,
+      "b": 646,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "smooth0.5 / 0.86",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "snappy0.35 / 0.65",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "bouncy0.5 / 0.45",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "gentle0.7 / 1",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     }
+    ],
+    "sliders": [
+     {
+      "t": "",
+      "y": 42,
+      "b": 62,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 66,
+      "b": 86,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 1 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 2 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 3 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 4 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 5 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 1 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 2 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 3 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 4 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 5 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Scrub animation timeline",
+      "y": 1154,
+      "b": 1194,
+      "w": 12,
+      "h": 40,
+      "r": "6.4px",
+      "cls": "slider-thumb glass-specular-track"
+     }
+    ],
+    "lastVisible": [
+     {
+      "t": "Copy to clipboard",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Apply the keyframes as a CSS animation",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     }
+    ],
+    "offscreen": [
+     {
+      "t": "Offset",
+      "y": 879,
+      "b": 919,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 25%",
+      "y": 927,
+      "b": 963,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 927,
+      "b": 963,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Offset",
+      "y": 1064,
+      "b": 1104,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 50%",
+      "y": 1112,
+      "b": 1148,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1112,
+      "b": 1148,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Offset",
+      "y": 1249,
+      "b": 1289,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 75%",
+      "y": 1297,
+      "b": 1333,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1297,
+      "b": 1333,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Offset",
+      "y": 1434,
+      "b": 1474,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 100%",
+      "y": 1482,
+      "b": 1518,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1482,
+      "b": 1518,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Add keyframes",
+      "y": 1024,
+      "b": 1060,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1024,
+      "b": 1060,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Apply the keyframes as a CSS animation",
+      "y": 1024,
+      "b": 1060,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Scrub animation timeline",
+      "y": 1154,
+      "b": 1194,
+      "w": 12,
+      "h": 40,
+      "r": "6.4px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Play",
+      "y": 1202,
+      "b": 1242,
+      "w": 142,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn"
+     },
+     {
+      "t": "Reverse",
+      "y": 1202,
+      "b": 1242,
+      "w": 142,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback rou"
+     },
+     {
+      "t": "Re-seat",
+      "y": 1322,
+      "b": 1362,
+      "w": 292,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback w-f"
+     }
+    ]
+   },
+   {
+    "scrollTop": 637,
+    "max": 637,
+    "paneBottom": 1065,
+    "vh": 844,
+    "presets": [
+     {
+      "t": "smooth0.5 / 0.86",
+      "y": 184,
+      "b": 252,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "snappy0.35 / 0.65",
+      "y": 184,
+      "b": 252,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "bouncy0.5 / 0.45",
+      "y": 260,
+      "b": 328,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "gentle0.7 / 1",
+      "y": 260,
+      "b": 328,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "smooth0.5 / 0.86",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "snappy0.35 / 0.65",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "bouncy0.5 / 0.45",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "gentle0.7 / 1",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     }
+    ],
+    "sliders": [
+     {
+      "t": "",
+      "y": -276,
+      "b": -256,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": -252,
+      "b": -232,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 1 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 2 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 3 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 4 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 5 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 1 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 2 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 3 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 4 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 5 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Scrub animation timeline",
+      "y": 836,
+      "b": 876,
+      "w": 12,
+      "h": 40,
+      "r": "6.4px",
+      "cls": "slider-thumb glass-specular-track"
+     }
+    ],
+    "lastVisible": [
+     {
+      "t": "Copy to clipboard",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Apply the keyframes as a CSS animation",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     }
+    ],
+    "offscreen": [
+     {
+      "t": "Offset",
+      "y": 931,
+      "b": 971,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 75%",
+      "y": 979,
+      "b": 1015,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 979,
+      "b": 1015,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Offset",
+      "y": 1116,
+      "b": 1156,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 100%",
+      "y": 1164,
+      "b": 1200,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1164,
+      "b": 1200,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Play",
+      "y": 884,
+      "b": 924,
+      "w": 142,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn"
+     },
+     {
+      "t": "Reverse",
+      "y": 884,
+      "b": 924,
+      "w": 142,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback rou"
+     },
+     {
+      "t": "Re-seat",
+      "y": 1004,
+      "b": 1044,
+      "w": 292,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback w-f"
+     }
+    ]
+   }
+  ],
+  "dark": [
+   {
+    "scrollTop": 319,
+    "max": 637,
+    "paneBottom": 1065,
+    "vh": 844,
+    "presets": [
+     {
+      "t": "smooth0.5 / 0.86",
+      "y": 502,
+      "b": 570,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "snappy0.35 / 0.65",
+      "y": 502,
+      "b": 570,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "bouncy0.5 / 0.45",
+      "y": 578,
+      "b": 646,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "gentle0.7 / 1",
+      "y": 578,
+      "b": 646,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "smooth0.5 / 0.86",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "snappy0.35 / 0.65",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "bouncy0.5 / 0.45",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "gentle0.7 / 1",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     }
+    ],
+    "sliders": [
+     {
+      "t": "",
+      "y": 42,
+      "b": 62,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 66,
+      "b": 86,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 1 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 2 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 3 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 4 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 5 of 5",
+      "y": 986,
+      "b": 1006,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 1 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 2 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 3 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 4 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 5 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Scrub animation timeline",
+      "y": 1154,
+      "b": 1194,
+      "w": 12,
+      "h": 40,
+      "r": "6.4px",
+      "cls": "slider-thumb glass-specular-track"
+     }
+    ],
+    "lastVisible": [
+     {
+      "t": "Copy to clipboard",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Apply the keyframes as a CSS animation",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     }
+    ],
+    "offscreen": [
+     {
+      "t": "Offset",
+      "y": 879,
+      "b": 919,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 25%",
+      "y": 927,
+      "b": 963,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 927,
+      "b": 963,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Offset",
+      "y": 1064,
+      "b": 1104,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 50%",
+      "y": 1112,
+      "b": 1148,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1112,
+      "b": 1148,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Offset",
+      "y": 1249,
+      "b": 1289,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 75%",
+      "y": 1297,
+      "b": 1333,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1297,
+      "b": 1333,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Offset",
+      "y": 1434,
+      "b": 1474,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 100%",
+      "y": 1482,
+      "b": 1518,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1482,
+      "b": 1518,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Add keyframes",
+      "y": 1024,
+      "b": 1060,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1024,
+      "b": 1060,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Apply the keyframes as a CSS animation",
+      "y": 1024,
+      "b": 1060,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Scrub animation timeline",
+      "y": 1154,
+      "b": 1194,
+      "w": 12,
+      "h": 40,
+      "r": "6.4px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Play",
+      "y": 1202,
+      "b": 1242,
+      "w": 142,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn"
+     },
+     {
+      "t": "Reverse",
+      "y": 1202,
+      "b": 1242,
+      "w": 142,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback rou"
+     },
+     {
+      "t": "Re-seat",
+      "y": 1322,
+      "b": 1362,
+      "w": 292,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback w-f"
+     }
+    ]
+   },
+   {
+    "scrollTop": 637,
+    "max": 637,
+    "paneBottom": 1065,
+    "vh": 844,
+    "presets": [
+     {
+      "t": "smooth0.5 / 0.86",
+      "y": 184,
+      "b": 252,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "snappy0.35 / 0.65",
+      "y": 184,
+      "b": 252,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "bouncy0.5 / 0.45",
+      "y": 260,
+      "b": 328,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "gentle0.7 / 1",
+      "y": 260,
+      "b": 328,
+      "w": 138,
+      "h": 68,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "smooth0.5 / 0.86",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "snappy0.35 / 0.65",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "bouncy0.5 / 0.45",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     },
+     {
+      "t": "gentle0.7 / 1",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "toggle-group__item tap-squish focus-ring preset-cell w-full flex-col items-start gap-1 rou"
+     }
+    ],
+    "sliders": [
+     {
+      "t": "",
+      "y": -276,
+      "b": -256,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": -252,
+      "b": -232,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 1 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 2 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 3 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 4 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 5 of 5",
+      "y": 668,
+      "b": 688,
+      "w": 0,
+      "h": 20,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 1 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 2 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 3 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 4 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Value 5 of 5",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "0px",
+      "cls": "slider-thumb glass-specular-track"
+     },
+     {
+      "t": "Scrub animation timeline",
+      "y": 836,
+      "b": 876,
+      "w": 12,
+      "h": 40,
+      "r": "6.4px",
+      "cls": "slider-thumb glass-specular-track"
+     }
+    ],
+    "lastVisible": [
+     {
+      "t": "Copy to clipboard",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Apply the keyframes as a CSS animation",
+      "y": 0,
+      "b": 0,
+      "w": 0,
+      "h": 0,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     }
+    ],
+    "offscreen": [
+     {
+      "t": "Offset",
+      "y": 931,
+      "b": 971,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 75%",
+      "y": 979,
+      "b": 1015,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 979,
+      "b": 1015,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Offset",
+      "y": 1116,
+      "b": 1156,
+      "w": 64,
+      "h": 40,
+      "r": "9999px",
+      "cls": "field-control glass-defined text-subheading w-16 text-ellipsis aspect-square font-semibold"
+     },
+     {
+      "t": "Remove the keyframe at 100%",
+      "y": 1164,
+      "b": 1200,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Copy to clipboard",
+      "y": 1164,
+      "b": 1200,
+      "w": 36,
+      "h": 36,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring"
+     },
+     {
+      "t": "Play",
+      "y": 884,
+      "b": 924,
+      "w": 142,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn"
+     },
+     {
+      "t": "Reverse",
+      "y": 884,
+      "b": 924,
+      "w": 142,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback rou"
+     },
+     {
+      "t": "Re-seat",
+      "y": 1004,
+      "b": 1044,
+      "w": 292,
+      "h": 40,
+      "r": "9999px",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback w-f"
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,24 @@
+// Probe: GitHub row activation by keyboard (Enter) and by clicking the row's padding outside the <a>.
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const OUT = new URL(".", import.meta.url).pathname;
+const b = await chromium.launch({ headless: false });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
+const page = await ctx.newPage();
+const popups = []; ctx.on("page", p => popups.push(p.url()));
+await page.goto("http://localhost:9000/", { waitUntil: "load" }); await page.waitForTimeout(3000);
+const trig = page.getByRole("button", { name: "@mbabb", exact: true });
+const res = {};
+await trig.click(); await page.waitForTimeout(600);
+const row = page.locator('[role="menu"] [role="menuitem"]', { hasText: "GitHub" });
+res.rowTag = await row.evaluate(e => e.tagName + " > " + [...e.children].map(c => c.tagName + "(" + getComputedStyle(c).display + ")").join(","));
+res.rowInner = await row.evaluate(e => { const a = e.querySelector("a"); const s = a.querySelector("svg"); return { aDisplay: getComputedStyle(a).display, svgDisplay: getComputedStyle(s).display, aRect: a.getBoundingClientRect().toJSON(), rowRect: e.getBoundingClientRect().toJSON() }; });
+await row.focus(); await page.keyboard.press("Enter"); await page.waitForTimeout(1200);
+res.afterEnter = { popups: [...popups], menuOpen: await page.locator('[role="menu"]').count() };
+await trig.click(); await page.waitForTimeout(600);
+const box = await row.boundingBox();
+await page.mouse.click(box.x + box.width - 12, box.y + box.height / 2); await page.waitForTimeout(1200);
+res.afterPaddingClick = { popups: [...popups], menuOpen: await page.locator('[role="menu"]').count() };
+await page.screenshot({ path: `${OUT}1440-light-7-github-padding-click.png` });
+console.log(JSON.stringify(res, null, 1));
+for (const p of ctx.pages()) if (p !== page) await p.close();
+await b.close();

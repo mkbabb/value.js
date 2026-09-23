@@ -1,0 +1,7337 @@
+{
+ "base": "http://localhost:9000",
+ "sha": "d5b8ed76",
+ "dirty": 5,
+ "at": "2026-09-23T17:43:38.500Z",
+ "runs": {
+  "1440-light": {
+   "key": "1440-light",
+   "errors": [
+    "[loading-hop] TimeoutError: page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n",
+    "[chunk-error-deeplink] TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/gradient\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "[boundary] TimeoutError: page.waitForSelector: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.vj-error-boundary') to be visible\u001b[22m\n",
+    "[loading-hop] TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "[chunk-error-deeplink] TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/gradient\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "[boundary] Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+   ],
+   "console": [
+    "[chunk-error-hop] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-hop] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue",
+    "[chunk-error-deeplink] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-deeplink] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-deeplink] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/Gradie",
+    "[chunk-error-deeplink] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/PalettesPane.vue?t",
+    "[boundary] [value.js] unhandled failure (boundary · setup function) Error: audit: induced render throw (MixPane setup)\n    at setup (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue?t=179"
+   ],
+   "frames": {
+    "04-loading-deeplink-gradient": {
+     "file": "1440-light-04-loading-deeplink-gradient.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 199,
+         "y": 425,
+         "w": 512,
+         "h": 154
+        },
+        "plate": {
+         "rect": {
+          "x": 199,
+          "y": 425,
+          "w": 512,
+          "h": 154
+         },
+         "card": {
+          "rect": {
+           "x": 199,
+           "y": 425,
+           "w": 512,
+           "h": 154
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 224,
+           "y": 450,
+           "w": 185,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 224,
+           "y": 494,
+           "w": 347,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "27.912px",
+          "rect": {
+           "x": 224,
+           "y": 526,
+           "w": 462,
+           "h": 28
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 729,
+         "y": 425,
+         "w": 512,
+         "h": 154
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 425,
+          "w": 512,
+          "h": 154
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 425,
+           "w": 512,
+           "h": 154
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 754,
+           "y": 450,
+           "w": 185,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 754,
+           "y": 494,
+           "w": 347,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "27.912px",
+          "rect": {
+           "x": 754,
+           "y": 526,
+           "w": 462,
+           "h": 28
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "05-chunk-error-hop-mix": {
+     "file": "1440-light-05-chunk-error-hop-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 789,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 763,
+           "y": 470,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 902,
+           "y": 576,
+           "w": 166,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 914,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "06-chunk-error-reload-hover": {
+     "file": "1440-light-06-chunk-error-reload-hover.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 789,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 763,
+           "y": 470,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 901,
+           "y": 576,
+           "w": 168,
+           "h": 37
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 913,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "07-chunk-error-reload-focus": {
+     "file": "1440-light-07-chunk-error-reload-focus.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BUTTON",
+       "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-",
+       "text": "Reload the app",
+       "focusVisible": true,
+       "outline": "rgb(28, 25, 23) none 3px",
+       "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 789,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 763,
+           "y": 470,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 902,
+           "y": 576,
+           "w": 166,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 914,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "00-home-before-hop": {
+     "file": "1440-light-00-home-before-hop.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→lab(92% 88.8 20 / 82.7%)HomeTools Login  @mbabb HomeHome vi",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "About",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 754,
+           "y": 184,
+           "w": 185,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 754,
+           "y": 228,
+           "w": 347,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "27.912px",
+          "rect": {
+           "x": 754,
+           "y": 260,
+           "w": 462,
+           "h": 28
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "01-loading-hop-mix": {
+     "file": "1440-light-01-loading-hop-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 754,
+           "y": 184,
+           "w": 185,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 754,
+           "y": 228,
+           "w": 347,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "27.912px",
+          "rect": {
+           "x": 754,
+           "y": 260,
+           "w": 462,
+           "h": 28
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "02-loading-release-t120": {
+     "file": "1440-light-02-loading-release-t120.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 754,
+           "y": 184,
+           "w": 185,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 754,
+           "y": 228,
+           "w": 347,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "27.912px",
+          "rect": {
+           "x": 754,
+           "y": 260,
+           "w": 462,
+           "h": 28
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "03-resolved-mix": {
+     "file": "1440-light-03-resolved-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→MixTools Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "08-chunk-error-deeplink-gradient": {
+     "file": "1440-light-08-chunk-error-deeplink-gradient.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 199,
+         "y": 358,
+         "w": 512,
+         "h": 287
+        },
+        "plate": {
+         "rect": {
+          "x": 199,
+          "y": 358,
+          "w": 512,
+          "h": 287
+         },
+         "card": {
+          "rect": {
+           "x": 199,
+           "y": 358,
+           "w": 512,
+           "h": 287
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 259,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 233,
+           "y": 471,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 372,
+           "y": 576,
+           "w": 166,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 443,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 384,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 729,
+         "y": 358,
+         "w": 512,
+         "h": 287
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 358,
+          "w": 512,
+          "h": 287
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 358,
+           "w": 512,
+           "h": 287
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 789,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 763,
+           "y": 471,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 902,
+           "y": 576,
+           "w": 166,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 914,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "09-boundary-caught-mix": {
+     "file": "1440-light-09-boundary-caught-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "DIV",
+       "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center vj-error-boundary h-ful",
+       "text": "This panel hit an unexpected error.audit: induced render thr",
+       "focusVisible": true,
+       "outline": "rgb(0, 95, 204) auto 1px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(0, 95, 204) auto 1px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 763,
+           "y": 459,
+           "w": 445,
+           "h": 36
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 768,
+           "y": 505,
+           "w": 434,
+           "h": 23
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 923,
+           "y": 542,
+           "w": 124,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 425,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 935,
+           "y": 553,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "10-boundary-tryagain-hover": {
+     "file": "1440-light-10-boundary-tryagain-hover.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "DIV",
+       "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center vj-error-boundary h-ful",
+       "text": "This panel hit an unexpected error.audit: induced render thr",
+       "focusVisible": true,
+       "outline": "rgb(0, 95, 204) auto 1px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(0, 95, 204) auto 1px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 763,
+           "y": 459,
+           "w": 445,
+           "h": 36
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 768,
+           "y": 505,
+           "w": 434,
+           "h": 23
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 922,
+           "y": 541,
+           "w": 126,
+           "h": 37
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 425,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 934,
+           "y": 553,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "11-boundary-tab-from-plate": {
+     "file": "1440-light-11-boundary-tab-from-plate.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BUTTON",
+       "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-",
+       "text": "Try again",
+       "focusVisible": true,
+       "outline": "rgb(28, 25, 23) none 3px",
+       "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(28, 25, 23) none 1.5px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 763,
+           "y": 459,
+           "w": 445,
+           "h": 36
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 768,
+           "y": 505,
+           "w": 434,
+           "h": 23
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 923,
+           "y": 542,
+           "w": 124,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 425,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 935,
+           "y": 553,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "12-boundary-after-reset": {
+     "file": "1440-light-12-boundary-after-reset.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→MixTools Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    }
+   },
+   "passes": [
+    {
+     "sha": "307791a4",
+     "dirty": 15,
+     "at": "2026-09-23T16:43:06.321Z",
+     "scen": [
+      "boundary",
+      "loading-hop",
+      "chunk-error-deeplink"
+     ]
+    },
+    {
+     "sha": "d5b8ed76",
+     "dirty": 5,
+     "at": "2026-09-23T17:41:52.985Z",
+     "scen": [
+      "loading-hop",
+      "chunk-error-deeplink",
+      "boundary"
+     ]
+    }
+   ],
+   "boundaryRewrite": "gICA6cmVzdWx0PVwibWl4UmVzdWx0XCJcbiAgICAgICAgICAgICAgICAgICAgICAgIDpnaG9zdD1cImFuaW1hdGlvblBoYXNlID09PSAnbWl4aW5nJ1wiXG4gICAgICAgICAgICAgICAgICAgICAgICBAc2F2ZT1cIm9uU2F2ZVwiXG4gICAgICAgICAgICAgICAgICAgICAgICBAcmVzZXQ9XCJyZXNldFwiXG4gICAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgPC9UcmFuc2l0aW9uPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvQ2FyZD5cbiAgICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG4iXX0=\nexport default { ...__auditReal, setup(p, c) { if (!window.__auditThrew) { window.__auditThrew = true; throw new Error(\"audit: induced render throw (MixPane setup)\"); } return __auditReal.setup(p, c); } };\n"
+  },
+  "1440-dark": {
+   "key": "1440-dark",
+   "errors": [
+    "[loading-hop] TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "[chunk-error-hop] TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+   ],
+   "console": [
+    "[chunk-error-deeplink] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-deeplink] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/Gradie",
+    "[chunk-error-deeplink] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-deeplink] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/PalettesPane.vue?t",
+    "[boundary] [value.js] unhandled failure (boundary · setup function) Error: audit: induced render throw (MixPane setup)\n    at setup (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue?t=179",
+    "[chunk-error-hop] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-hop] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue"
+   ],
+   "frames": {
+    "04-loading-deeplink-gradient": {
+     "file": "1440-dark-04-loading-deeplink-gradient.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 199,
+         "y": 425,
+         "w": 512,
+         "h": 154
+        },
+        "plate": {
+         "rect": {
+          "x": 199,
+          "y": 425,
+          "w": 512,
+          "h": 154
+         },
+         "card": {
+          "rect": {
+           "x": 199,
+           "y": 425,
+           "w": 512,
+           "h": 154
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 224,
+           "y": 450,
+           "w": 185,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 224,
+           "y": 494,
+           "w": 347,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "27.912px",
+          "rect": {
+           "x": 224,
+           "y": 526,
+           "w": 462,
+           "h": 28
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 729,
+         "y": 425,
+         "w": 512,
+         "h": 154
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 425,
+          "w": 512,
+          "h": 154
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 425,
+           "w": 512,
+           "h": 154
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 754,
+           "y": 450,
+           "w": 185,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 754,
+           "y": 494,
+           "w": 347,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "27.912px",
+          "rect": {
+           "x": 754,
+           "y": 526,
+           "w": 462,
+           "h": 28
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "08-chunk-error-deeplink-gradient": {
+     "file": "1440-dark-08-chunk-error-deeplink-gradient.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 199,
+         "y": 358,
+         "w": 512,
+         "h": 287
+        },
+        "plate": {
+         "rect": {
+          "x": 199,
+          "y": 358,
+          "w": 512,
+          "h": 287
+         },
+         "card": {
+          "rect": {
+           "x": 199,
+           "y": 358,
+           "w": 512,
+           "h": 287
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 259,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 233,
+           "y": 471,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 372,
+           "y": 576,
+           "w": 166,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 443,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 384,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 729,
+         "y": 358,
+         "w": 512,
+         "h": 287
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 358,
+          "w": 512,
+          "h": 287
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 358,
+           "w": 512,
+           "h": 287
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 789,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 763,
+           "y": 471,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 902,
+           "y": 576,
+           "w": 166,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 914,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "09-boundary-caught-mix": {
+     "file": "1440-dark-09-boundary-caught-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "DIV",
+       "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center vj-error-boundary h-ful",
+       "text": "This panel hit an unexpected error.audit: induced render thr",
+       "focusVisible": true,
+       "outline": "rgb(153, 200, 255) auto 1px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(153, 200, 255) auto 1px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 763,
+           "y": 459,
+           "w": 445,
+           "h": 36
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 768,
+           "y": 505,
+           "w": 434,
+           "h": 23
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 923,
+           "y": 542,
+           "w": 124,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 425,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 935,
+           "y": 553,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "10-boundary-tryagain-hover": {
+     "file": "1440-dark-10-boundary-tryagain-hover.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "DIV",
+       "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center vj-error-boundary h-ful",
+       "text": "This panel hit an unexpected error.audit: induced render thr",
+       "focusVisible": true,
+       "outline": "rgb(153, 200, 255) auto 1px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(153, 200, 255) auto 1px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 763,
+           "y": 459,
+           "w": 445,
+           "h": 36
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 768,
+           "y": 505,
+           "w": 434,
+           "h": 23
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 922,
+           "y": 541,
+           "w": 126,
+           "h": 37
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 425,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 934,
+           "y": 553,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "11-boundary-tab-from-plate": {
+     "file": "1440-dark-11-boundary-tab-from-plate.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BUTTON",
+       "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-",
+       "text": "Try again",
+       "focusVisible": true,
+       "outline": "rgb(233, 230, 226) none 3px",
+       "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px "
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(233, 230, 226) none 1.5px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 763,
+           "y": 459,
+           "w": 445,
+           "h": 36
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 768,
+           "y": 505,
+           "w": 434,
+           "h": 23
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 923,
+           "y": 542,
+           "w": 124,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 425,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 935,
+           "y": 553,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "12-boundary-after-reset": {
+     "file": "1440-dark-12-boundary-after-reset.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→MixTools Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "00-home-before-hop": {
+     "file": "1440-dark-00-home-before-hop.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 7585
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→lab(92% 88.8 20 / 82.7%)HomeTools Login  @mbabb HomeHome vi",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 112,
+         "w": 512,
+         "h": 7459
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "About",
+        "rect": {
+         "x": 729,
+         "y": 112,
+         "w": 512,
+         "h": 7459
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "01-loading-hop-mix": {
+     "file": "1440-dark-01-loading-hop-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 754,
+           "y": 184,
+           "w": 185,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 754,
+           "y": 228,
+           "w": 347,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "27.912px",
+          "rect": {
+           "x": 754,
+           "y": 260,
+           "w": 462,
+           "h": 28
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "02-loading-release-t120": {
+     "file": "1440-dark-02-loading-release-t120.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→MixTools Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "03-resolved-mix": {
+     "file": "1440-dark-03-resolved-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→MixTools Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "05-chunk-error-hop-mix": {
+     "file": "1440-dark-05-chunk-error-hop-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 789,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 763,
+           "y": 470,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 902,
+           "y": 576,
+           "w": 166,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 914,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "06-chunk-error-reload-hover": {
+     "file": "1440-dark-06-chunk-error-reload-hover.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 789,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 763,
+           "y": 470,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 901,
+           "y": 576,
+           "w": 168,
+           "h": 37
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 913,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "07-chunk-error-reload-focus": {
+     "file": "1440-dark-07-chunk-error-reload-focus.png",
+     "m": {
+      "doc": {
+       "scrollW": 1440,
+       "clientW": 1440,
+       "scrollH": 900
+      },
+      "active": {
+       "tag": "BUTTON",
+       "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-",
+       "text": "Reload the app",
+       "focusVisible": true,
+       "outline": "rgb(233, 230, 226) none 3px",
+       "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px "
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 199,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 729,
+         "y": 159,
+         "w": 512,
+         "h": 685
+        },
+        "plate": {
+         "rect": {
+          "x": 729,
+          "y": 159,
+          "w": 512,
+          "h": 685
+         },
+         "card": {
+          "rect": {
+           "x": 729,
+           "y": 159,
+           "w": 512,
+           "h": 685
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 789,
+           "y": 425,
+           "w": 393,
+           "h": 36
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "16.4px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "22.96px",
+          "rect": {
+           "x": 763,
+           "y": 470,
+           "w": 444,
+           "h": 92
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 902,
+           "y": 576,
+           "w": 166,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 973,
+           "y": 391,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 914,
+           "y": 587,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   },
+   "passes": [
+    {
+     "sha": "988a2617",
+     "dirty": 19,
+     "at": "2026-09-23T17:24:28.063Z",
+     "scen": null
+    },
+    {
+     "sha": "d5b8ed76",
+     "dirty": 5,
+     "at": "2026-09-23T17:43:38.943Z",
+     "scen": [
+      "loading-hop",
+      "chunk-error-hop"
+     ]
+    }
+   ],
+   "boundaryRewrite": "gICA6cmVzdWx0PVwibWl4UmVzdWx0XCJcbiAgICAgICAgICAgICAgICAgICAgICAgIDpnaG9zdD1cImFuaW1hdGlvblBoYXNlID09PSAnbWl4aW5nJ1wiXG4gICAgICAgICAgICAgICAgICAgICAgICBAc2F2ZT1cIm9uU2F2ZVwiXG4gICAgICAgICAgICAgICAgICAgICAgICBAcmVzZXQ9XCJyZXNldFwiXG4gICAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgPC9UcmFuc2l0aW9uPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvQ2FyZD5cbiAgICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG4iXX0=\nexport default { ...__auditReal, setup(p, c) { if (!window.__auditThrew) { window.__auditThrew = true; throw new Error(\"audit: induced render throw (MixPane setup)\"); } return __auditReal.setup(p, c); } };\n"
+  },
+  "390-light": {
+   "key": "390-light",
+   "errors": [],
+   "console": [
+    "[chunk-error-hop] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-hop] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue",
+    "[chunk-error-deeplink] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-deeplink] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-deeplink] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/Gradie",
+    "[chunk-error-deeplink] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/PalettesPane.vue?t",
+    "[boundary] [value.js] unhandled failure (boundary · setup function) Error: audit: induced render throw (MixPane setup)\n    at setup (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue?t=179"
+   ],
+   "frames": {
+    "00-home-before-hop": {
+     "file": "390-light-00-home-before-hop.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 899
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→lab(92% 88.8 20 / 82.7%) Login  @mbabb HomeHome viewLab92.0",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": 128,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "About",
+        "rect": {
+         "x": 16,
+         "y": 736,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 736,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 736,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 761,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 805,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 837,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "01-loading-hop-mix": {
+     "file": "390-light-01-loading-hop-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 899
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": 86,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 694,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 694,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 694,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 719,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 763,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 795,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "02-loading-release-t120": {
+     "file": "390-light-02-loading-release-t120.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 899
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": 86,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 694,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 694,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 694,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 719,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 763,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 795,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "03-resolved-mix": {
+     "file": "390-light-03-resolved-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1126
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→ Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.0%88.820",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": 86,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 694,
+         "w": 358,
+         "h": 377
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "04-loading-deeplink-gradient": {
+     "file": "390-light-04-loading-deeplink-gradient.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 844
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 16,
+         "y": 324,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 324,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 324,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 349,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 393,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 425,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 16,
+         "y": 490,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 490,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 490,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 515,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 559,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 591,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "04b-loading-deeplink-gradient-scrolled": {
+     "file": "390-light-04b-loading-deeplink-gradient-scrolled.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 844
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 16,
+         "y": 324,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 324,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 324,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 349,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 393,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 425,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 16,
+         "y": 490,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 490,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 490,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 515,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 559,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(246, 243, 239)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(112, 89, 66)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 591,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "05-chunk-error-hop-mix": {
+     "file": "390-light-05-chunk-error-hop-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1059
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -73,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 535,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 535,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 535,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 602,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 683,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 775,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 568,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 786,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "06-chunk-error-reload-hover": {
+     "file": "390-light-06-chunk-error-reload-hover.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1059
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -73,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 535,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 535,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 535,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 602,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 683,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 119,
+           "y": 775,
+           "w": 151,
+           "h": 37
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 568,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 131,
+           "y": 786,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "07-chunk-error-reload-focus": {
+     "file": "390-light-07-chunk-error-reload-focus.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1059
+      },
+      "active": {
+       "tag": "BUTTON",
+       "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-",
+       "text": "Reload the app",
+       "focusVisible": true,
+       "outline": "rgb(28, 25, 23) none 3px",
+       "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -87,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 521,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 521,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 521,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 588,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 669,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 761,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 554,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 772,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "08-chunk-error-deeplink-gradient": {
+     "file": "390-light-08-chunk-error-deeplink-gradient.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 844
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 16,
+         "y": 164,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 164,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 164,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 231,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 312,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 405,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 197,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 416,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 16,
+         "y": 490,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 490,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 490,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 557,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 638,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 731,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 523,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 742,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "08b-chunk-error-deeplink-gradient-scrolled": {
+     "file": "390-light-08b-chunk-error-deeplink-gradient-scrolled.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 844
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 16,
+         "y": 164,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 164,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 164,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 231,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 312,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 405,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 197,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 416,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 16,
+         "y": 490,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 490,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 490,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 557,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 638,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 731,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 523,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 742,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "09-boundary-caught-mix": {
+     "file": "390-light-09-boundary-caught-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1012
+      },
+      "active": {
+       "tag": "DIV",
+       "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center vj-error-boundary h-ful",
+       "text": "This panel hit an unexpected error.audit: induced render thr",
+       "focusVisible": true,
+       "outline": "rgb(0, 95, 204) auto 1px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -32,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 576,
+         "w": 358,
+         "h": 268
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 16,
+          "y": 576,
+          "w": 358,
+          "h": 268
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(0, 95, 204) auto 1px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 16,
+           "y": 642,
+           "w": 358,
+           "h": 71
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 16,
+           "y": 723,
+           "w": 358,
+           "h": 39
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 138,
+           "y": 776,
+           "w": 113,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 608,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 150,
+           "y": 787,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "10-boundary-tryagain-hover": {
+     "file": "390-light-10-boundary-tryagain-hover.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1012
+      },
+      "active": {
+       "tag": "DIV",
+       "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center vj-error-boundary h-ful",
+       "text": "This panel hit an unexpected error.audit: induced render thr",
+       "focusVisible": true,
+       "outline": "rgb(0, 95, 204) auto 1px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -32,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 576,
+         "w": 358,
+         "h": 268
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 16,
+          "y": 576,
+          "w": 358,
+          "h": 268
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(0, 95, 204) auto 1px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 16,
+           "y": 642,
+           "w": 358,
+           "h": 71
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 16,
+           "y": 723,
+           "w": 358,
+           "h": 39
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 138,
+           "y": 776,
+           "w": 115,
+           "h": 37
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 608,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 150,
+           "y": 787,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "11-boundary-tab-from-plate": {
+     "file": "390-light-11-boundary-tab-from-plate.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1012
+      },
+      "active": {
+       "tag": "BUTTON",
+       "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-",
+       "text": "Try again",
+       "focusVisible": true,
+       "outline": "rgb(28, 25, 23) none 3px",
+       "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -32,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 576,
+         "w": 358,
+         "h": 268
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 16,
+          "y": 576,
+          "w": 358,
+          "h": 268
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(28, 25, 23) none 1.5px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(28, 25, 23)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 16,
+           "y": 642,
+           "w": 358,
+           "h": 71
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 16,
+           "y": 723,
+           "w": 358,
+           "h": 39
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 138,
+           "y": 776,
+           "w": 113,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 608,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.574284 0.191676 0.099719 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 150,
+           "y": 787,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(28, 25, 23)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "12-boundary-after-reset": {
+     "file": "390-light-12-boundary-after-reset.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1126
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→ Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.0%88.820",
+       "focusVisible": false,
+       "outline": "rgb(28, 25, 23) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -32,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 576,
+         "w": 358,
+         "h": 377
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    }
+   },
+   "passes": [
+    {
+     "sha": "d5b8ed76",
+     "dirty": 5,
+     "at": "2026-09-23T17:38:37.533Z",
+     "scen": null
+    }
+   ],
+   "boundaryRewrite": "gICA6cmVzdWx0PVwibWl4UmVzdWx0XCJcbiAgICAgICAgICAgICAgICAgICAgICAgIDpnaG9zdD1cImFuaW1hdGlvblBoYXNlID09PSAnbWl4aW5nJ1wiXG4gICAgICAgICAgICAgICAgICAgICAgICBAc2F2ZT1cIm9uU2F2ZVwiXG4gICAgICAgICAgICAgICAgICAgICAgICBAcmVzZXQ9XCJyZXNldFwiXG4gICAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgPC9UcmFuc2l0aW9uPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvQ2FyZD5cbiAgICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG4iXX0=\nexport default { ...__auditReal, setup(p, c) { if (!window.__auditThrew) { window.__auditThrew = true; throw new Error(\"audit: induced render throw (MixPane setup)\"); } return __auditReal.setup(p, c); } };\n"
+  },
+  "390-dark": {
+   "key": "390-dark",
+   "errors": [],
+   "console": [
+    "[chunk-error-hop] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-hop] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue",
+    "[chunk-error-deeplink] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-deeplink] Failed to load resource: net::ERR_FAILED",
+    "[chunk-error-deeplink] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/Gradie",
+    "[chunk-error-deeplink] [value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/PalettesPane.vue?t",
+    "[boundary] [value.js] unhandled failure (boundary · setup function) Error: audit: induced render throw (MixPane setup)\n    at setup (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/mix/MixPane.vue?t=179"
+   ],
+   "frames": {
+    "00-home-before-hop": {
+     "file": "390-dark-00-home-before-hop.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 899
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→lab(92% 88.8 20 / 82.7%) Login  @mbabb HomeHome viewLab92.0",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": 128,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "About",
+        "rect": {
+         "x": 16,
+         "y": 736,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 736,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 736,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 761,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 805,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 837,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "01-loading-hop-mix": {
+     "file": "390-dark-01-loading-hop-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 899
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": 86,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 694,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 694,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 694,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 719,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 763,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 795,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "02-loading-release-t120": {
+     "file": "390-dark-02-loading-release-t120.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 899
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": 86,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 694,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 694,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 694,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 719,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 763,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 795,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "03-resolved-mix": {
+     "file": "390-dark-03-resolved-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1126
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→ Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.0%88.820",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": 86,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 694,
+         "w": 358,
+         "h": 377
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "04-loading-deeplink-gradient": {
+     "file": "390-dark-04-loading-deeplink-gradient.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 844
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 16,
+         "y": 324,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 324,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 324,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 349,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 393,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 425,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 16,
+         "y": 490,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 490,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 490,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 515,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 559,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 591,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "04b-loading-deeplink-gradient-scrolled": {
+     "file": "390-dark-04b-loading-deeplink-gradient-scrolled.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 844
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 16,
+         "y": 324,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 324,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 324,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 349,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 393,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 425,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 16,
+         "y": 490,
+         "w": 358,
+         "h": 150
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 490,
+          "w": 358,
+          "h": 150
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 490,
+           "w": 358,
+           "h": 150
+          },
+          "role": "status",
+          "busy": "true",
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "24px",
+          "paddingLeft": "16px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [
+         {
+          "rect": {
+           "x": 33,
+           "y": 515,
+           "w": 130,
+           "h": 28
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         },
+         {
+          "rect": {
+           "x": 33,
+           "y": 559,
+           "w": 243,
+           "h": 16
+          },
+          "borderRadius": "4px",
+          "backgroundColor": "rgb(31, 28, 25)",
+          "animationName": "none"
+         }
+        ],
+        "texts": [
+         {
+          "text": "Loading the scene…",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(195, 185, 172)",
+          "lineHeight": "24px",
+          "rect": {
+           "x": 33,
+           "y": 591,
+           "w": 324,
+           "h": 24
+          }
+         }
+        ],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    },
+    "05-chunk-error-hop-mix": {
+     "file": "390-dark-05-chunk-error-hop-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1059
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -73,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 535,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 535,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 535,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 602,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 683,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 775,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 568,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 786,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "06-chunk-error-reload-hover": {
+     "file": "390-dark-06-chunk-error-reload-hover.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1059
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Clear, Mix, Copy result) — ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -73,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 535,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 535,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 535,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 602,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 683,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 119,
+           "y": 775,
+           "w": 151,
+           "h": 37
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 568,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 131,
+           "y": 786,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "07-chunk-error-reload-focus": {
+     "file": "390-dark-07-chunk-error-reload-focus.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1059
+      },
+      "active": {
+       "tag": "BUTTON",
+       "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-",
+       "text": "Reload the app",
+       "focusVisible": true,
+       "outline": "rgb(233, 230, 226) none 3px",
+       "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px "
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -87,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 521,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 521,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 521,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 588,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 669,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 761,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 554,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 772,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "08-chunk-error-deeplink-gradient": {
+     "file": "390-dark-08-chunk-error-deeplink-gradient.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 844
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 16,
+         "y": 164,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 164,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 164,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 231,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 312,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 405,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 197,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 416,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 16,
+         "y": 490,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 490,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 490,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 557,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 638,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 731,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 523,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 742,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "08b-chunk-error-deeplink-gradient-scrolled": {
+     "file": "390-dark-08b-chunk-error-deeplink-gradient-scrolled.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 844
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→3 of 3 actions are unavailable (Reset, Copy CSS, Seed from ",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Gradient",
+        "rect": {
+         "x": 16,
+         "y": 164,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 164,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 164,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 231,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 312,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 405,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 197,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 416,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       },
+       {
+        "label": "Palettes",
+        "rect": {
+         "x": 16,
+         "y": 490,
+         "w": 358,
+         "h": 310
+        },
+        "plate": {
+         "rect": {
+          "x": 16,
+          "y": 490,
+          "w": 358,
+          "h": 310
+         },
+         "card": {
+          "rect": {
+           "x": 16,
+           "y": 490,
+           "w": 358,
+           "h": 310
+          },
+          "role": null,
+          "busy": null,
+          "tier": "resting",
+          "borderRadius": "16px",
+          "backgroundColor": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "paddingTop": "0px",
+          "paddingLeft": "24px",
+          "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+          "backdropFilter": "none"
+         }
+        },
+        "boundary": null,
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This scene could not be loaded.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 41,
+           "y": 557,
+           "w": 308,
+           "h": 71
+          }
+         },
+         {
+          "text": "Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkb",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 5,
+           "y": 638,
+           "w": 379,
+           "h": 78
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Reload the app",
+          "rect": {
+           "x": 120,
+           "y": 731,
+           "w": 149,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 523,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 132,
+           "y": 742,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "09-boundary-caught-mix": {
+     "file": "390-dark-09-boundary-caught-mix.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1012
+      },
+      "active": {
+       "tag": "DIV",
+       "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center vj-error-boundary h-ful",
+       "text": "This panel hit an unexpected error.audit: induced render thr",
+       "focusVisible": true,
+       "outline": "rgb(153, 200, 255) auto 1px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -32,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 576,
+         "w": 358,
+         "h": 268
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 16,
+          "y": 576,
+          "w": 358,
+          "h": 268
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(153, 200, 255) auto 1px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 16,
+           "y": 642,
+           "w": 358,
+           "h": 71
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 16,
+           "y": 723,
+           "w": 358,
+           "h": 39
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 138,
+           "y": 776,
+           "w": 113,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 608,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 150,
+           "y": 787,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "10-boundary-tryagain-hover": {
+     "file": "390-dark-10-boundary-tryagain-hover.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1012
+      },
+      "active": {
+       "tag": "DIV",
+       "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center vj-error-boundary h-ful",
+       "text": "This panel hit an unexpected error.audit: induced render thr",
+       "focusVisible": true,
+       "outline": "rgb(153, 200, 255) auto 1px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -32,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 576,
+         "w": 358,
+         "h": 268
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 16,
+          "y": 576,
+          "w": 358,
+          "h": 268
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(153, 200, 255) auto 1px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 16,
+           "y": 642,
+           "w": 358,
+           "h": 71
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 16,
+           "y": 723,
+           "w": 358,
+           "h": 39
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 138,
+           "y": 776,
+           "w": 115,
+           "h": 37
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 608,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 150,
+           "y": 787,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "11-boundary-tab-from-plate": {
+     "file": "390-dark-11-boundary-tab-from-plate.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1012
+      },
+      "active": {
+       "tag": "BUTTON",
+       "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-",
+       "text": "Try again",
+       "focusVisible": true,
+       "outline": "rgb(233, 230, 226) none 3px",
+       "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px "
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -32,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 576,
+         "w": 358,
+         "h": 268
+        },
+        "plate": null,
+        "boundary": {
+         "rect": {
+          "x": 16,
+          "y": 576,
+          "w": 358,
+          "h": 268
+         },
+         "role": "alert",
+         "live": "assertive",
+         "tabindex": "-1",
+         "backgroundColor": "rgba(0, 0, 0, 0)",
+         "borderRadius": "0px",
+         "outline": "rgb(233, 230, 226) none 1.5px"
+        },
+        "skeletons": [],
+        "texts": [
+         {
+          "text": "This panel hit an unexpected error.",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "25.888px",
+          "fontWeight": "700",
+          "color": "rgb(233, 230, 226)",
+          "lineHeight": "35.596px",
+          "rect": {
+           "x": 16,
+           "y": 642,
+           "w": 358,
+           "h": 71
+          }
+         },
+         {
+          "text": "audit: induced render throw (MixPane setup)",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "oklch(0.729311 0.00382185 41.8684)",
+          "lineHeight": "19.6px",
+          "rect": {
+           "x": 16,
+           "y": 723,
+           "w": 358,
+           "h": 39
+          }
+         }
+        ],
+        "buttons": [
+         {
+          "text": "Try again",
+          "rect": {
+           "x": 138,
+           "y": 776,
+           "w": 113,
+           "h": 36
+          },
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "14px",
+          "slot": "button",
+          "variant": null
+         }
+        ],
+        "icons": [
+         {
+          "rect": {
+           "x": 183,
+           "y": 608,
+           "w": 24,
+           "h": 24
+          },
+          "color": "oklab(0.633298 0.181499 0.0843767 / 0.8)"
+         },
+         {
+          "rect": {
+           "x": 150,
+           "y": 787,
+           "w": 14,
+           "h": 14
+          },
+          "color": "rgb(233, 230, 226)"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "12-boundary-after-reset": {
+     "file": "390-dark-12-boundary-after-reset.png",
+     "m": {
+      "doc": {
+       "scrollW": 390,
+       "clientW": 390,
+       "scrollH": 1126
+      },
+      "active": {
+       "tag": "BODY",
+       "cls": "relative",
+       "text": "→ Login  @mbabb MixMix viewLab92.0%,88.8,20.0Labα92.0%88.820",
+       "focusVisible": false,
+       "outline": "rgb(233, 230, 226) none 1.5px",
+       "boxShadow": "none"
+      },
+      "regions": [
+       {
+        "label": "Picker",
+        "rect": {
+         "x": 16,
+         "y": -32,
+         "w": 358,
+         "h": 592
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       },
+       {
+        "label": "Mix",
+        "rect": {
+         "x": 16,
+         "y": 576,
+         "w": 358,
+         "h": 377
+        },
+        "plate": null,
+        "boundary": null,
+        "skeletons": [],
+        "texts": [],
+        "buttons": [],
+        "icons": []
+       }
+      ]
+     }
+    }
+   },
+   "passes": [
+    {
+     "sha": "d5b8ed76",
+     "dirty": 5,
+     "at": "2026-09-23T17:39:57.060Z",
+     "scen": null
+    }
+   ],
+   "boundaryRewrite": "gICA6cmVzdWx0PVwibWl4UmVzdWx0XCJcbiAgICAgICAgICAgICAgICAgICAgICAgIDpnaG9zdD1cImFuaW1hdGlvblBoYXNlID09PSAnbWl4aW5nJ1wiXG4gICAgICAgICAgICAgICAgICAgICAgICBAc2F2ZT1cIm9uU2F2ZVwiXG4gICAgICAgICAgICAgICAgICAgICAgICBAcmVzZXQ9XCJyZXNldFwiXG4gICAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgPC9UcmFuc2l0aW9uPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvQ2FyZD5cbiAgICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG4iXX0=\nexport default { ...__auditReal, setup(p, c) { if (!window.__auditThrew) { window.__auditThrew = true; throw new Error(\"audit: induced render throw (MixPane setup)\"); } return __auditReal.setup(p, c); } };\n"
+  }
+ }
+}

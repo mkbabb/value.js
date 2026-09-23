@@ -1,0 +1,1026 @@
+{
+ "base": "http://localhost:9000",
+ "sha": "f82daf4a",
+ "dirty": 4,
+ "at": "2026-09-23T16:23:15.045Z",
+ "runs": {
+  "1440-light": {
+   "errors": [
+    "open #/nope attempt 0: TimeoutError: page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/nope\", waiting until \"load\"\u001b[22m"
+   ],
+   "unknown": {
+    "url": "http://localhost:9000/#/nope",
+    "title": "Not Found — Color Picker",
+    "h1": [
+     {
+      "text": "Not Found",
+      "vis": true
+     }
+    ],
+    "live": [
+     {
+      "live": "polite",
+      "text": "Not Found. /nope could not be opened — showing the Not Found scene."
+     }
+    ],
+    "card": {
+     "x": 199,
+     "y": 387,
+     "w": 1042,
+     "h": 231,
+     "radius": "16px",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+    },
+    "cardScrollH": 229,
+    "cardClientH": 229,
+    "header": {
+     "x": 224,
+     "y": 404,
+     "w": 992,
+     "h": 44,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "41.888px",
+     "fw": "400",
+     "ff": "Fraunces, \"Fraunces Fallback\", serif",
+     "cls": "pane-header-title font-display"
+    },
+    "desc": {
+     "x": 224,
+     "y": 449,
+     "w": 992,
+     "h": 19,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.447121 0.00386159 34.63)",
+     "fs": "14.384px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "pane-header-desc text-caption"
+    },
+    "body": {
+     "x": 224,
+     "y": 484,
+     "w": 706,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(112, 89, 66)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "text-body text-muted-foreground max-w-prose"
+    },
+    "btn": {
+     "x": 224,
+     "y": 556,
+     "w": 183,
+     "h": 36,
+     "radius": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "16.4px",
+     "fw": "500",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+    },
+    "contentBottom": 592,
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 900
+    },
+    "dockBtns": [
+     {
+      "label": "Save edit",
+      "pressed": null
+     },
+     {
+      "label": "Cancel edit",
+      "pressed": null
+     },
+     {
+      "label": "Switch to slug",
+      "pressed": null
+     },
+     {
+      "label": "Generate new slug",
+      "pressed": null
+     },
+     {
+      "label": "Cancel",
+      "pressed": null
+     },
+     {
+      "label": "Select view",
+      "pressed": "closed"
+     },
+     {
+      "label": "Toggle action bar",
+      "pressed": "false"
+     },
+     {
+      "label": "Menu",
+      "pressed": "closed"
+     },
+     {
+      "label": "Login",
+      "pressed": null
+     },
+     {
+      "label": "@mbabb",
+      "pressed": "closed"
+     }
+    ]
+   },
+   "hover": {
+    "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+    "radius": "9999px",
+    "h": 36.5400390625
+   },
+   "focus": {
+    "tag": "BUTTON",
+    "text": "Back to the picker",
+    "outline": "rgb(28, 25, 23) none 3px",
+    "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px"
+   },
+   "afterHome": {
+    "url": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "h1": [
+     "Home"
+    ],
+    "notFoundLeft": false
+   },
+   "afterBack": {
+    "url": "http://localhost:9000/#/nope",
+    "title": "Not Found — Color Picker"
+   },
+   "deep": {
+    "url": "http://localhost:9000/#/foo/bar/baz?color=oklch(70%25+0.15+180deg)&space=oklch",
+    "title": "oklch(70% 0.15 180deg) · Not Found — Color Picker",
+    "h1": [
+     {
+      "text": "Not Found",
+      "vis": true
+     }
+    ],
+    "live": [
+     {
+      "live": "polite",
+      "text": "Not Found. /foo/bar/baz?color=oklch(70%25+0.15+180deg)&space=oklch could not be opened — showing the Not Found scene."
+     }
+    ],
+    "card": {
+     "x": 199,
+     "y": 387,
+     "w": 1042,
+     "h": 231,
+     "radius": "16px",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+    },
+    "cardScrollH": 229,
+    "cardClientH": 229,
+    "header": {
+     "x": 224,
+     "y": 404,
+     "w": 992,
+     "h": 44,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "41.888px",
+     "fw": "400",
+     "ff": "Fraunces, \"Fraunces Fallback\", serif",
+     "cls": "pane-header-title font-display"
+    },
+    "desc": {
+     "x": 224,
+     "y": 449,
+     "w": 992,
+     "h": 19,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.43918 0.00386159 34.63)",
+     "fs": "14.384px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "pane-header-desc text-caption"
+    },
+    "body": {
+     "x": 224,
+     "y": 484,
+     "w": 706,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(112, 89, 66)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "text-body text-muted-foreground max-w-prose"
+    },
+    "btn": {
+     "x": 223,
+     "y": 556,
+     "w": 186,
+     "h": 37,
+     "radius": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "16.4px",
+     "fw": "500",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+    },
+    "contentBottom": 592,
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 900
+    },
+    "dockBtns": [
+     {
+      "label": "Save edit",
+      "pressed": null
+     },
+     {
+      "label": "Cancel edit",
+      "pressed": null
+     },
+     {
+      "label": "Switch to slug",
+      "pressed": null
+     },
+     {
+      "label": "Generate new slug",
+      "pressed": null
+     },
+     {
+      "label": "Cancel",
+      "pressed": null
+     },
+     {
+      "label": "Select view",
+      "pressed": "closed"
+     },
+     {
+      "label": "Toggle action bar",
+      "pressed": "false"
+     },
+     {
+      "label": "Menu",
+      "pressed": "closed"
+     },
+     {
+      "label": "Login",
+      "pressed": null
+     },
+     {
+      "label": "@mbabb",
+      "pressed": "closed"
+     }
+    ]
+   },
+   "admin": {
+    "url": "http://localhost:9000/#/admin/users",
+    "title": "Not Found — Color Picker",
+    "h1": [
+     {
+      "text": "Not Found",
+      "vis": true
+     }
+    ],
+    "live": [
+     {
+      "live": "polite",
+      "text": "Not Found. /admin/users could not be opened — showing the Not Found scene."
+     }
+    ],
+    "card": {
+     "x": 199,
+     "y": 387,
+     "w": 1042,
+     "h": 231,
+     "radius": "16px",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+    },
+    "cardScrollH": 229,
+    "cardClientH": 229,
+    "header": {
+     "x": 224,
+     "y": 404,
+     "w": 992,
+     "h": 44,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "41.888px",
+     "fw": "400",
+     "ff": "Fraunces, \"Fraunces Fallback\", serif",
+     "cls": "pane-header-title font-display"
+    },
+    "desc": {
+     "x": 224,
+     "y": 449,
+     "w": 992,
+     "h": 19,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.43918 0.00386159 34.63)",
+     "fs": "14.384px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "pane-header-desc text-caption"
+    },
+    "body": {
+     "x": 224,
+     "y": 484,
+     "w": 706,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(112, 89, 66)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "text-body text-muted-foreground max-w-prose"
+    },
+    "btn": {
+     "x": 223,
+     "y": 556,
+     "w": 186,
+     "h": 37,
+     "radius": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "16.4px",
+     "fw": "500",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+    },
+    "contentBottom": 592,
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 900
+    },
+    "dockBtns": [
+     {
+      "label": "Save edit",
+      "pressed": null
+     },
+     {
+      "label": "Cancel edit",
+      "pressed": null
+     },
+     {
+      "label": "Switch to slug",
+      "pressed": null
+     },
+     {
+      "label": "Generate new slug",
+      "pressed": null
+     },
+     {
+      "label": "Cancel",
+      "pressed": null
+     },
+     {
+      "label": "Select view",
+      "pressed": "closed"
+     },
+     {
+      "label": "Toggle action bar",
+      "pressed": "false"
+     },
+     {
+      "label": "Menu",
+      "pressed": "closed"
+     },
+     {
+      "label": "Login",
+      "pressed": null
+     },
+     {
+      "label": "@mbabb",
+      "pressed": "closed"
+     }
+    ]
+   },
+   "adminNonsense": {
+    "url": "http://localhost:9000/#/admin/nonsense",
+    "title": "Not Found — Color Picker",
+    "h1": [
+     {
+      "text": "Not Found",
+      "vis": true
+     }
+    ],
+    "live": [
+     {
+      "live": "polite",
+      "text": "Not Found. /admin/nonsense could not be opened — showing the Not Found scene."
+     }
+    ],
+    "card": {
+     "x": 199,
+     "y": 387,
+     "w": 1042,
+     "h": 231,
+     "radius": "16px",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+    },
+    "cardScrollH": 229,
+    "cardClientH": 229,
+    "header": {
+     "x": 224,
+     "y": 404,
+     "w": 992,
+     "h": 44,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "41.888px",
+     "fw": "400",
+     "ff": "Fraunces, \"Fraunces Fallback\", serif",
+     "cls": "pane-header-title font-display"
+    },
+    "desc": {
+     "x": 224,
+     "y": 449,
+     "w": 992,
+     "h": 19,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.43918 0.00386159 34.63)",
+     "fs": "14.384px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "pane-header-desc text-caption"
+    },
+    "body": {
+     "x": 224,
+     "y": 484,
+     "w": 706,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(112, 89, 66)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "text-body text-muted-foreground max-w-prose"
+    },
+    "btn": {
+     "x": 223,
+     "y": 556,
+     "w": 186,
+     "h": 37,
+     "radius": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "16.4px",
+     "fw": "500",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+    },
+    "contentBottom": 592,
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 900
+    },
+    "dockBtns": [
+     {
+      "label": "Save edit",
+      "pressed": null
+     },
+     {
+      "label": "Cancel edit",
+      "pressed": null
+     },
+     {
+      "label": "Switch to slug",
+      "pressed": null
+     },
+     {
+      "label": "Generate new slug",
+      "pressed": null
+     },
+     {
+      "label": "Cancel",
+      "pressed": null
+     },
+     {
+      "label": "Select view",
+      "pressed": "closed"
+     },
+     {
+      "label": "Toggle action bar",
+      "pressed": "false"
+     },
+     {
+      "label": "Menu",
+      "pressed": "closed"
+     },
+     {
+      "label": "Login",
+      "pressed": null
+     },
+     {
+      "label": "@mbabb",
+      "pressed": "closed"
+     }
+    ]
+   }
+  },
+  "1440-dark": {
+   "errors": [
+    "open #/nope attempt 0: TimeoutError: page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/nope\", waiting until \"load\"\u001b[22m",
+    "FATAL TimeoutError: page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n"
+   ],
+   "unknown": {
+    "url": "http://localhost:9000/#/nope",
+    "title": "Not Found — Color Picker",
+    "h1": [
+     {
+      "text": "Not Found",
+      "vis": true
+     }
+    ],
+    "live": [
+     {
+      "live": "polite",
+      "text": "Not Found. /nope could not be opened — showing the Not Found scene."
+     }
+    ],
+    "card": {
+     "x": 199,
+     "y": 387,
+     "w": 1042,
+     "h": 231,
+     "radius": "16px",
+     "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "color": "rgb(233, 230, 226)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+    },
+    "cardScrollH": 229,
+    "cardClientH": 229,
+    "header": {
+     "x": 224,
+     "y": 404,
+     "w": 992,
+     "h": 44,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(233, 230, 226)",
+     "fs": "41.888px",
+     "fw": "400",
+     "ff": "Fraunces, \"Fraunces Fallback\", serif",
+     "cls": "pane-header-title font-display"
+    },
+    "desc": {
+     "x": 224,
+     "y": 449,
+     "w": 992,
+     "h": 19,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.729311 0.00382185 41.8684)",
+     "fs": "14.384px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "pane-header-desc text-caption"
+    },
+    "body": {
+     "x": 224,
+     "y": 484,
+     "w": 706,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(195, 185, 172)",
+     "fs": "18.608px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "text-body text-muted-foreground max-w-prose"
+    },
+    "btn": {
+     "x": 224,
+     "y": 556,
+     "w": 183,
+     "h": 36,
+     "radius": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "color": "rgb(233, 230, 226)",
+     "fs": "16.4px",
+     "fw": "500",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+    },
+    "contentBottom": 592,
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 900
+    },
+    "dockBtns": [
+     {
+      "label": "Save edit",
+      "pressed": null
+     },
+     {
+      "label": "Cancel edit",
+      "pressed": null
+     },
+     {
+      "label": "Switch to slug",
+      "pressed": null
+     },
+     {
+      "label": "Generate new slug",
+      "pressed": null
+     },
+     {
+      "label": "Cancel",
+      "pressed": null
+     },
+     {
+      "label": "Select view",
+      "pressed": "closed"
+     },
+     {
+      "label": "Toggle action bar",
+      "pressed": "false"
+     },
+     {
+      "label": "Menu",
+      "pressed": "closed"
+     },
+     {
+      "label": "Login",
+      "pressed": null
+     },
+     {
+      "label": "@mbabb",
+      "pressed": "closed"
+     }
+    ]
+   },
+   "hover": {
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "radius": "9999px",
+    "h": 36.5400390625
+   },
+   "focus": {
+    "tag": "BUTTON",
+    "text": "Back to the picker",
+    "outline": "rgb(233, 230, 226) none 3px",
+    "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px"
+   },
+   "afterHome": {
+    "url": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "h1": [
+     "Home"
+    ],
+    "notFoundLeft": false
+   }
+  },
+  "390-light": {
+   "errors": [
+    "FATAL TimeoutError: page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n"
+   ],
+   "unknown": {
+    "url": "http://localhost:9000/#/nope",
+    "title": "Not Found — Color Picker",
+    "h1": [
+     {
+      "text": "Not Found",
+      "vis": true
+     }
+    ],
+    "live": [
+     {
+      "live": "polite",
+      "text": "Not Found. /nope could not be opened — showing the Not Found scene."
+     }
+    ],
+    "card": {
+     "x": 16,
+     "y": 348,
+     "w": 358,
+     "h": 269,
+     "radius": "16px",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "16px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+    },
+    "cardScrollH": 267,
+    "cardClientH": 267,
+    "header": {
+     "x": 33,
+     "y": 365,
+     "w": 324,
+     "h": 27,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "25.888px",
+     "fw": "400",
+     "ff": "Fraunces, \"Fraunces Fallback\", serif",
+     "cls": "pane-header-title font-display"
+    },
+    "desc": {
+     "x": 33,
+     "y": 394,
+     "w": 324,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.447121 0.00386159 34.63)",
+     "fs": "12.179px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "pane-header-desc text-caption"
+    },
+    "body": {
+     "x": 33,
+     "y": 426,
+     "w": 324,
+     "h": 96,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(112, 89, 66)",
+     "fs": "16px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "text-body text-muted-foreground max-w-prose"
+    },
+    "btn": {
+     "x": 33,
+     "y": 538,
+     "w": 236,
+     "h": 54,
+     "radius": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "color": "rgb(28, 25, 23)",
+     "fs": "21px",
+     "fw": "500",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+    },
+    "contentBottom": 592,
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 844
+    },
+    "dockBtns": [
+     {
+      "label": "Save edit",
+      "pressed": null
+     },
+     {
+      "label": "Cancel edit",
+      "pressed": null
+     },
+     {
+      "label": "Switch to slug",
+      "pressed": null
+     },
+     {
+      "label": "Generate new slug",
+      "pressed": null
+     },
+     {
+      "label": "Cancel",
+      "pressed": null
+     },
+     {
+      "label": "Select view",
+      "pressed": "closed"
+     },
+     {
+      "label": "Toggle action bar",
+      "pressed": "false"
+     },
+     {
+      "label": "Menu",
+      "pressed": "closed"
+     },
+     {
+      "label": "Login",
+      "pressed": null
+     },
+     {
+      "label": "@mbabb",
+      "pressed": "closed"
+     }
+    ]
+   },
+   "hover": {
+    "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+    "radius": "9999px",
+    "h": 54.81005859375
+   },
+   "focus": {
+    "tag": "BUTTON",
+    "text": "Back to the picker",
+    "outline": "rgb(28, 25, 23) none 3px",
+    "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px"
+   },
+   "afterHome": {
+    "url": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "h1": [
+     "Home"
+    ],
+    "notFoundLeft": false
+   }
+  },
+  "390-dark": {
+   "errors": [
+    "FATAL TimeoutError: page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n"
+   ],
+   "unknown": {
+    "url": "http://localhost:9000/#/nope",
+    "title": "Not Found — Color Picker",
+    "h1": [
+     {
+      "text": "Not Found",
+      "vis": true
+     }
+    ],
+    "live": [
+     {
+      "live": "polite",
+      "text": "Not Found. /nope could not be opened — showing the Not Found scene."
+     }
+    ],
+    "card": {
+     "x": 16,
+     "y": 348,
+     "w": 358,
+     "h": 269,
+     "radius": "16px",
+     "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "color": "rgb(233, 230, 226)",
+     "fs": "16px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+    },
+    "cardScrollH": 267,
+    "cardClientH": 267,
+    "header": {
+     "x": 33,
+     "y": 365,
+     "w": 324,
+     "h": 27,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(233, 230, 226)",
+     "fs": "25.888px",
+     "fw": "400",
+     "ff": "Fraunces, \"Fraunces Fallback\", serif",
+     "cls": "pane-header-title font-display"
+    },
+    "desc": {
+     "x": 33,
+     "y": 394,
+     "w": 324,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.729311 0.00382185 41.8684)",
+     "fs": "12.179px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "pane-header-desc text-caption"
+    },
+    "body": {
+     "x": 33,
+     "y": 426,
+     "w": 324,
+     "h": 96,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(195, 185, 172)",
+     "fs": "16px",
+     "fw": "400",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "text-body text-muted-foreground max-w-prose"
+    },
+    "btn": {
+     "x": 33,
+     "y": 538,
+     "w": 236,
+     "h": 54,
+     "radius": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "color": "rgb(233, 230, 226)",
+     "fs": "21px",
+     "fw": "500",
+     "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+    },
+    "contentBottom": 592,
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 844
+    },
+    "dockBtns": [
+     {
+      "label": "Save edit",
+      "pressed": null
+     },
+     {
+      "label": "Cancel edit",
+      "pressed": null
+     },
+     {
+      "label": "Switch to slug",
+      "pressed": null
+     },
+     {
+      "label": "Generate new slug",
+      "pressed": null
+     },
+     {
+      "label": "Cancel",
+      "pressed": null
+     },
+     {
+      "label": "Select view",
+      "pressed": "closed"
+     },
+     {
+      "label": "Toggle action bar",
+      "pressed": "false"
+     },
+     {
+      "label": "Menu",
+      "pressed": "closed"
+     },
+     {
+      "label": "Login",
+      "pressed": null
+     },
+     {
+      "label": "@mbabb",
+      "pressed": "closed"
+     }
+    ]
+   },
+   "hover": {
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "radius": "9999px",
+    "h": 54.81005859375
+   },
+   "focus": {
+    "tag": "BUTTON",
+    "text": "Back to the picker",
+    "outline": "rgb(233, 230, 226) none 3px",
+    "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px"
+   },
+   "afterHome": {
+    "url": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "h1": [
+     "Home"
+    ],
+    "notFoundLeft": false
+   }
+  }
+ }
+}

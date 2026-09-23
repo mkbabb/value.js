@@ -1,0 +1,325 @@
+{
+  "sha": "60477b06",
+  "dirty": 2,
+  "when": "2026-09-23T16:36:29.741Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "bad": [
+        "404 http://localhost:5173/assets/icons/favicon.svg"
+      ],
+      "list": [
+        {
+          "t": 100,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 400,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 1000,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 2000,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        }
+      ],
+      "box": {
+        "x": 720,
+        "y": 450,
+        "cls": "relative grid h-full w-full max-w-full items-center justify-"
+      },
+      "midDrag": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "drag600": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "drag3600": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "transport": [
+        "Play animation 692,773 40x40",
+        "Select animation 757,777 60x32",
+        "Reset animation 842,773 40x40",
+        "Play animation 704,773 32x40"
+      ]
+    },
+    {
+      "tag": "390-light",
+      "bad": [],
+      "list": [
+        {
+          "t": 100,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 400,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 1000,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 2000,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        }
+      ],
+      "box": {
+        "x": 195,
+        "y": 422,
+        "cls": "grid h-full w-full max-w-full items-center justify-center ju"
+      },
+      "midDrag": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "drag600": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "drag3600": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "transport": [
+        "Play animation 167,737 40x40",
+        "Select animation 232,741 60x32",
+        "Reset animation 317,737 40x40",
+        "Play animation 179,737 32x40"
+      ]
+    },
+    {
+      "tag": "1440-dark",
+      "bad": [],
+      "list": [
+        {
+          "t": 100,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 400,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 1000,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 2000,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        }
+      ],
+      "box": {
+        "x": 720,
+        "y": 450,
+        "cls": "relative grid h-full w-full max-w-full items-center justify-"
+      },
+      "midDrag": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "drag600": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "drag3600": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "transport": [
+        "Play animation 692,773 40x40",
+        "Select animation 757,777 60x32",
+        "Reset animation 842,773 40x40",
+        "Play animation 704,773 32x40"
+      ]
+    },
+    {
+      "tag": "390-dark",
+      "bad": [],
+      "list": [
+        {
+          "t": 100,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 400,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 1000,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        },
+        {
+          "t": 2000,
+          "url": "#/",
+          "hero": true,
+          "lb": true,
+          "opts": [
+            "Rotations",
+            "Matrix",
+            "Hover"
+          ]
+        }
+      ],
+      "box": {
+        "x": 195,
+        "y": 422,
+        "cls": "grid h-full w-full max-w-full items-center justify-center ju"
+      },
+      "midDrag": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "drag600": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "drag3600": {
+        "url": "#/",
+        "hero": true,
+        "lb": false,
+        "opts": []
+      },
+      "transport": [
+        "Play animation 167,737 40x40",
+        "Select animation 232,741 60x32",
+        "Reset animation 317,737 40x40",
+        "Play animation 179,737 32x40"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+ {
+  "tag": "swatchhover__1440__light",
+  "sha": "7fdd0c9f",
+  "dirty": "7",
+  "fail": "Error: locator.hover: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('.dashed-well .swatch-row button').nth(2)\u001b[22m\n",
+  "errs": []
+ },
+ {
+  "tag": "swatchhover__1440__dark",
+  "sha": "7fdd0c9f",
+  "dirty": "7",
+  "fail": "Error: page.goto: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": []
+ }
+]

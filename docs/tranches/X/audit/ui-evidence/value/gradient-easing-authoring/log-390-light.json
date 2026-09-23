@@ -1,0 +1,498 @@
+[
+ {
+  "tag": "390-light",
+  "sha": "0354d1ff",
+  "dirty": "6",
+  "shots": [
+   "390-light-01-row-open.png",
+   "390-light-01-row-open-el.png",
+   "390-light-02-tile-hover-el.png",
+   "390-light-03-tile-focus-el.png",
+   "390-light-04-tile-selected-back-el.png",
+   "390-light-05-rows-closed.png",
+   "390-light-05-rows-closed-el.png",
+   "390-light-06-authoring-bezier.png",
+   "390-light-06-authoring-bezier-el.png",
+   "390-light-07-authoring-bezier-canvas.png"
+  ],
+  "errs": [
+   "SCRIPT Error: page.waitForTimeout: Target page, context or browser has been closed"
+  ],
+  "mets": {
+   "open": {
+    "items": [
+     {
+      "tag": "pane",
+      "w": 358,
+      "h": 1089,
+      "x": 16,
+      "r": "16px",
+      "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+      "bf": "none",
+      "bs": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "panel",
+      "w": 324,
+      "h": 235,
+      "x": 33,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "row0",
+      "w": 324,
+      "h": 189,
+      "x": 33,
+      "r": "16px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "row1",
+      "w": 324,
+      "h": 38,
+      "x": 33,
+      "r": "16px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "ramp",
+      "w": 302,
+      "h": 20,
+      "x": 44,
+      "r": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "readout-rail",
+      "w": 302,
+      "h": 32,
+      "x": 44,
+      "r": "6px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "rail-btn",
+      "w": 24,
+      "h": 24,
+      "x": 284,
+      "r": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "tile0",
+      "w": 44,
+      "h": 44,
+      "x": 46,
+      "r": "9999px",
+      "bg": "oklab(0.925644 0.0094459 0.0291917 / 0.83872)",
+      "bf": "none",
+      "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+      "font": "14px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "eyebrow",
+      "w": 236,
+      "h": 9,
+      "x": 46,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "9px \"Fira Code\""
+     },
+     {
+      "tag": "tile-label",
+      "w": 33,
+      "h": 11,
+      "x": 51,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "9px \"Fira Code\""
+     },
+     {
+      "tag": "strip-port",
+      "w": 302,
+      "h": 70,
+      "x": 44,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "picker",
+      "missing": true
+     },
+     {
+      "tag": "picker-svg",
+      "w": 0,
+      "h": 0,
+      "x": 0,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "picker-tabs",
+      "missing": true
+     },
+     {
+      "tag": "picker-tab",
+      "missing": true
+     },
+     {
+      "tag": "preset-trigger",
+      "missing": true
+     },
+     {
+      "tag": "picker-readout",
+      "missing": true
+     },
+     {
+      "tag": "picker-playback",
+      "missing": true
+     }
+    ],
+    "dark": false,
+    "stripScroll": {
+     "sw": 1471,
+     "cw": 302
+    },
+    "docOverflowX": 0,
+    "pickerText": null
+   },
+   "closed": {
+    "items": [
+     {
+      "tag": "pane",
+      "w": 358,
+      "h": 937,
+      "x": 16,
+      "r": "16px",
+      "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+      "bf": "none",
+      "bs": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "panel",
+      "w": 324,
+      "h": 83,
+      "x": 33,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "row0",
+      "w": 324,
+      "h": 38,
+      "x": 33,
+      "r": "16px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "row1",
+      "w": 324,
+      "h": 38,
+      "x": 33,
+      "r": "16px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "ramp",
+      "missing": true
+     },
+     {
+      "tag": "readout-rail",
+      "missing": true
+     },
+     {
+      "tag": "rail-btn",
+      "missing": true
+     },
+     {
+      "tag": "tile0",
+      "missing": true
+     },
+     {
+      "tag": "eyebrow",
+      "missing": true
+     },
+     {
+      "tag": "tile-label",
+      "missing": true
+     },
+     {
+      "tag": "strip-port",
+      "missing": true
+     },
+     {
+      "tag": "picker",
+      "missing": true
+     },
+     {
+      "tag": "picker-svg",
+      "w": 0,
+      "h": 0,
+      "x": 0,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "picker-tabs",
+      "missing": true
+     },
+     {
+      "tag": "picker-tab",
+      "missing": true
+     },
+     {
+      "tag": "preset-trigger",
+      "missing": true
+     },
+     {
+      "tag": "picker-readout",
+      "missing": true
+     },
+     {
+      "tag": "picker-playback",
+      "missing": true
+     }
+    ],
+    "dark": false,
+    "stripScroll": null,
+    "docOverflowX": 0,
+    "pickerText": null
+   },
+   "authoring": {
+    "items": [
+     {
+      "tag": "pane",
+      "w": 358,
+      "h": 1636,
+      "x": 16,
+      "r": "16px",
+      "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+      "bf": "none",
+      "bs": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "panel",
+      "w": 324,
+      "h": 782,
+      "x": 33,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "row0",
+      "w": 324,
+      "h": 736,
+      "x": 33,
+      "r": "16px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "row1",
+      "w": 324,
+      "h": 38,
+      "x": 33,
+      "r": "16px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "ramp",
+      "w": 302,
+      "h": 20,
+      "x": 44,
+      "r": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "readout-rail",
+      "w": 302,
+      "h": 32,
+      "x": 44,
+      "r": "6px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "rail-btn",
+      "w": 24,
+      "h": 24,
+      "x": 284,
+      "r": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "tile0",
+      "w": 44,
+      "h": 44,
+      "x": -985,
+      "r": "9999px",
+      "bg": "oklab(0.925644 0.0094459 0.0291917 / 0.83872)",
+      "bf": "none",
+      "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+      "font": "14px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "eyebrow",
+      "w": 236,
+      "h": 9,
+      "x": -985,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "9px \"Fira Code\""
+     },
+     {
+      "tag": "tile-label",
+      "w": 33,
+      "h": 11,
+      "x": -980,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "9px \"Fira Code\""
+     },
+     {
+      "tag": "strip-port",
+      "w": 302,
+      "h": 70,
+      "x": 44,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "picker",
+      "w": 302,
+      "h": 537,
+      "x": 44,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "picker-card0",
+      "w": 302,
+      "h": 434,
+      "x": 44,
+      "r": "6px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "picker-svg",
+      "w": 276,
+      "h": 408,
+      "x": 57,
+      "r": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "none",
+      "font": "16px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "picker-tabs",
+      "missing": true
+     },
+     {
+      "tag": "picker-tab",
+      "missing": true
+     },
+     {
+      "tag": "preset-trigger",
+      "w": 302,
+      "h": 60,
+      "x": 44,
+      "r": "9999px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+      "font": "21px \"Plus Jakarta Sans\""
+     },
+     {
+      "tag": "picker-readout",
+      "missing": true
+     },
+     {
+      "tag": "picker-playback",
+      "missing": true
+     }
+    ],
+    "dark": false,
+    "stripScroll": {
+     "sw": 1471,
+     "cw": 302
+    },
+    "docOverflowX": 0,
+    "pickerText": "Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps. 0 1 PRESET Pick a curve"
+   }
+  }
+ }
+]

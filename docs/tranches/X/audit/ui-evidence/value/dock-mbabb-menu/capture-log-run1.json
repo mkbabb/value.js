@@ -1,0 +1,3738 @@
+{
+  "url": "http://localhost:9000/",
+  "sha": "de278769",
+  "dirty": 22,
+  "at": "2026-09-23T15:40:53.531Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "shots": [
+        "1440-light-0-closed.png",
+        "1440-light-1-trigger-hover.png",
+        "1440-light-2-open.png",
+        "1440-light-2b-open-zoom.png",
+        "1440-light-3-hover-share.png",
+        "1440-light-4-kbd-focus.png",
+        "1440-light-5-copied.png",
+        "1440-light-6-toggled.png",
+        "1440-light-6b-toggled-zoom.png"
+      ],
+      "probes": {
+        "closed": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": null,
+          "items": [],
+          "seps": [],
+          "header": null,
+          "avatar": null,
+          "headerLink": null,
+          "headerTag": null,
+          "icons": []
+        },
+        "triggerHover": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              78,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(0, 0, 0)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "underline"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": null,
+          "items": [],
+          "seps": [],
+          "header": null,
+          "avatar": null,
+          "headerLink": null,
+          "headerTag": null,
+          "icons": []
+        },
+        "open": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              78,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(0, 0, 0)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "underline"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                129,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "hoverShare": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                128,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "kbd": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                128,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "copied": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Copied!",
+              "rect": [
+                737,
+                128,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "afterReset": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                128,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "toggled": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                129,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                230,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(233, 230, 226)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(195, 185, 172)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        }
+      },
+      "errs": [
+        "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+        "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+      ],
+      "clipboard": "http://localhost:9000/#/",
+      "focusAfterEsc": "BUTTON @mbabb",
+      "menuAfterEsc": 0
+    },
+    {
+      "tag": "1440-dark",
+      "shots": [
+        "1440-dark-0-closed.png",
+        "1440-dark-1-trigger-hover.png",
+        "1440-dark-2-open.png",
+        "1440-dark-2b-open-zoom.png",
+        "1440-dark-3-hover-share.png",
+        "1440-dark-4-kbd-focus.png",
+        "1440-dark-5-copied.png",
+        "1440-dark-6-toggled.png",
+        "1440-dark-6b-toggled-zoom.png"
+      ],
+      "probes": {
+        "closed": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": null,
+          "items": [],
+          "seps": [],
+          "header": null,
+          "avatar": null,
+          "headerLink": null,
+          "headerTag": null,
+          "icons": []
+        },
+        "triggerHover": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              78,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "underline"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": null,
+          "items": [],
+          "seps": [],
+          "header": null,
+          "avatar": null,
+          "headerLink": null,
+          "headerTag": null,
+          "icons": []
+        },
+        "open": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              78,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "underline"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                129,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(233, 230, 226)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(195, 185, 172)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "hoverShare": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                128,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(233, 230, 226)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(195, 185, 172)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "kbd": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                128,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(233, 230, 226)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(195, 185, 172)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "copied": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Copied!",
+              "rect": [
+                737,
+                128,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(233, 230, 226)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(195, 185, 172)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "afterReset": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                128,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                231,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(233, 230, 226)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(195, 185, 172)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "toggled": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              867,
+              27,
+              77,
+              28
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "28px",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "true",
+          "menu": {
+            "rect": [
+              730,
+              59,
+              215,
+              223
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Share color",
+              "rect": [
+                737,
+                129,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                737,
+                173,
+                201,
+                49
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "48.9531px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                737,
+                230,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "16.4px",
+              "lineHeight": "22.96px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                733,
+                124,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                733,
+                226,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              737,
+              66,
+              201,
+              54
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              745,
+              79,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              781,
+              77,
+              61,
+              20
+            ],
+            "fontSize": "16.4px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              781,
+              100,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        }
+      },
+      "errs": [
+        "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+        "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+      ],
+      "clipboard": "http://localhost:9000/#/",
+      "focusAfterEsc": "BUTTON @mbabb",
+      "menuAfterEsc": 0
+    },
+    {
+      "tag": "390-light",
+      "shots": [
+        "390-light-0-closed.png",
+        "390-light-1-trigger-hover.png",
+        "390-light-2-open.png",
+        "390-light-2b-open-zoom.png",
+        "390-light-3-hover-share.png",
+        "390-light-4-kbd-focus.png",
+        "390-light-5-copied.png",
+        "390-light-6-toggled.png",
+        "390-light-6b-toggled-zoom.png"
+      ],
+      "probes": {
+        "closed": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "auto",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": null,
+          "items": [],
+          "seps": [],
+          "header": null,
+          "avatar": null,
+          "headerLink": null,
+          "headerTag": null,
+          "icons": []
+        },
+        "triggerHover": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "auto",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": null,
+          "items": [],
+          "seps": [],
+          "header": null,
+          "avatar": null,
+          "headerLink": null,
+          "headerTag": null,
+          "icons": []
+        },
+        "open": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "auto",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": {
+            "rect": [
+              55,
+              70,
+              215,
+              259
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Login",
+              "rect": [
+                62,
+                77,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Share color",
+              "rect": [
+                62,
+                179,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                62,
+                223,
+                201,
+                46
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "45.5938px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                62,
+                278,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                58,
+                125,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                58,
+                273,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              62,
+              130,
+              201,
+              50
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              70,
+              140,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              106,
+              140,
+              52,
+              18
+            ],
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              106,
+              160,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "hoverShare": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "auto",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": {
+            "rect": [
+              55,
+              70,
+              215,
+              259
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Login",
+              "rect": [
+                62,
+                77,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Share color",
+              "rect": [
+                62,
+                178,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                62,
+                223,
+                201,
+                46
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "45.5938px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                62,
+                278,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                58,
+                125,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                58,
+                273,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              62,
+              130,
+              201,
+              50
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              70,
+              140,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              106,
+              140,
+              52,
+              18
+            ],
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              106,
+              160,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "kbd": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "auto",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": {
+            "rect": [
+              55,
+              70,
+              215,
+              259
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Login",
+              "rect": [
+                62,
+                77,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Share color",
+              "rect": [
+                62,
+                178,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                62,
+                223,
+                201,
+                46
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "45.5938px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                62,
+                278,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                58,
+                125,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                58,
+                273,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              62,
+              130,
+              201,
+              50
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              70,
+              140,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              106,
+              140,
+              52,
+              18
+            ],
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              106,
+              160,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "copied": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "auto",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": {
+            "rect": [
+              55,
+              70,
+              215,
+              259
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Login",
+              "rect": [
+                62,
+                77,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Copied!",
+              "rect": [
+                62,
+                178,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                62,
+                223,
+                201,
+                46
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "45.5938px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                62,
+                278,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                58,
+                125,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                58,
+                273,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              62,
+              130,
+              201,
+              50
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              70,
+              140,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              106,
+              140,
+              52,
+              18
+            ],
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              106,
+              160,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "afterReset": {
+          "html": "",
+          "trigger": {
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0 0 0 / 0.7)",
+            "backgroundColor": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+            "paddingLeft": "8px",
+            "height": "auto",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": {
+            "rect": [
+              55,
+              70,
+              215,
+              259
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+            "backdropFilter": "blur(11px) saturate(1.6)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Login",
+              "rect": [
+                62,
+                77,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Share color",
+              "rect": [
+                62,
+                178,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                62,
+                223,
+                201,
+                46
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "45.5938px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                62,
+                278,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(28, 25, 23)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                58,
+                125,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                58,
+                273,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.778 0.7052 0.622 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              62,
+              130,
+              201,
+              50
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              70,
+              140,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              106,
+              140,
+              52,
+              18
+            ],
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(28, 25, 23)"
+          },
+          "headerTag": {
+            "rect": [
+              106,
+              160,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(112, 89, 66)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        },
+        "toggled": {
+          "html": "dark",
+          "trigger": {
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderRadius": "9999px",
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.7)",
+            "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "paddingLeft": "8px",
+            "height": "auto",
+            "textDecorationLine": "none"
+          },
+          "triggerCls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+          "triggerExpanded": "false",
+          "menu": {
+            "rect": [
+              55,
+              70,
+              215,
+              259
+            ],
+            "borderRadius": "12px",
+            "padding": "6px",
+            "backgroundColor": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+            "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+            "minWidth": "128px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+          },
+          "menuCls": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display",
+          "items": [
+            {
+              "text": "Login",
+              "rect": [
+                62,
+                77,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Share color",
+              "rect": [
+                62,
+                179,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "GitHub",
+              "rect": [
+                62,
+                223,
+                201,
+                46
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "45.5938px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": false,
+              "tag": "DIV"
+            },
+            {
+              "text": "Dark mode",
+              "rect": [
+                62,
+                277,
+                201,
+                44
+              ],
+              "borderRadius": "8px",
+              "fontSize": "14px",
+              "lineHeight": "19.6px",
+              "paddingLeft": "8px",
+              "paddingTop": "6px",
+              "height": "44px",
+              "color": "rgb(233, 230, 226)",
+              "backgroundColor": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+              "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+              "gap": "8px",
+              "highlighted": true,
+              "tag": "DIV"
+            }
+          ],
+          "seps": [
+            {
+              "rect": [
+                58,
+                125,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            },
+            {
+              "rect": [
+                58,
+                273,
+                209,
+                1
+              ],
+              "marginTop": "4px",
+              "marginLeft": "-4px",
+              "backgroundColor": "color(srgb 0.3944 0.34 0.2856 / 0.7)",
+              "height": "1px"
+            }
+          ],
+          "header": {
+            "rect": [
+              62,
+              130,
+              201,
+              50
+            ],
+            "paddingLeft": "8px",
+            "paddingTop": "6px"
+          },
+          "avatar": {
+            "rect": [
+              70,
+              140,
+              28,
+              28
+            ],
+            "borderRadius": "0px",
+            "width": "28px"
+          },
+          "headerLink": {
+            "rect": [
+              106,
+              140,
+              52,
+              18
+            ],
+            "fontSize": "14px",
+            "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "color": "rgb(233, 230, 226)"
+          },
+          "headerTag": {
+            "rect": [
+              106,
+              160,
+              149,
+              14
+            ],
+            "fontSize": "11px",
+            "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+            "fontStyle": "italic",
+            "color": "rgb(195, 185, 172)"
+          },
+          "icons": [
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              16,
+              24
+            ]
+          ]
+        }
+      },
+      "errs": [
+        "Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)",
+        "[value.js] unhandled failure (boundary · mounted hook) TypeError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/assets/docs/lab.md?import"
+      ],
+      "clipboard": "http://localhost:9000/#/",
+      "focusAfterEsc": "BUTTON Menu",
+      "menuAfterEsc": 0
+    },
+    {
+      "tag": "390-dark",
+      "shots": [],
+      "probes": {},
+      "errs": [],
+      "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/\", waiting until \"networkidle\"\u001b[22m\n"
+    }
+  ]
+}

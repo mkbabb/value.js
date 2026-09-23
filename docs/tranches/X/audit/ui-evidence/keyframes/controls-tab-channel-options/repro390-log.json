@@ -1,0 +1,94 @@
+{
+  "sha": "60477b06",
+  "dirty": 2,
+  "steps": [
+    {
+      "label": "peek",
+      "drawerY": 679,
+      "drawerH": 772,
+      "fillMode": "offscreen(y=942)",
+      "pencil": "offscreen(y=986)",
+      "easing": "offscreen(y=1030)",
+      "play": "offscreen(y=1227)",
+      "scrollers": [],
+      "docks": [
+        [
+          30,
+          56,
+          null
+        ],
+        [
+          729,
+          56,
+          null
+        ]
+      ]
+    },
+    {
+      "label": "expanded-via-toggle",
+      "drawerY": 494,
+      "drawerH": 772,
+      "fillMode": "covered-by:dock-label text-foreground whitespace-no",
+      "pencil": "hit",
+      "easing": "offscreen(y=845)",
+      "play": "offscreen(y=1042)",
+      "scrollers": [],
+      "docks": [
+        [
+          30,
+          86,
+          null
+        ],
+        [
+          729,
+          56,
+          null
+        ]
+      ]
+    },
+    {
+      "label": "after-wheel-600",
+      "drawerY": 494,
+      "drawerH": 772,
+      "fillMode": "covered-by:dock-label text-foreground whitespace-no",
+      "pencil": "hit",
+      "easing": "offscreen(y=845)",
+      "play": "offscreen(y=1042)",
+      "scrollers": [],
+      "docks": [
+        [
+          30,
+          86,
+          null
+        ],
+        [
+          729,
+          56,
+          null
+        ]
+      ]
+    },
+    {
+      "label": "after-handle-drag-up-420",
+      "drawerY": 494,
+      "drawerH": 772,
+      "fillMode": "covered-by:dock-label text-foreground whitespace-no",
+      "pencil": "hit",
+      "easing": "offscreen(y=845)",
+      "play": "offscreen(y=1042)",
+      "scrollers": [],
+      "docks": [
+        [
+          30,
+          56,
+          null
+        ],
+        [
+          729,
+          56,
+          null
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+ "sha": "f82daf4a",
+ "dirty": "6",
+ "before": {
+  "ghost": {
+   "tag": "SPAN",
+   "attrs": [
+    "data-v-292b9032=",
+    "data-v-a3e86846=",
+    "aria-hidden=true",
+    "class=add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-poi",
+    "data-testid=watercolor-swatch",
+    "data-variant=ghost",
+    "style=border-radius: 76.8317% 21.2696% 56.3219% 54.5403% / 69.7219"
+   ],
+   "pe": "none",
+   "kids": 2,
+   "svgPlus": false
+  },
+  "swatch": {
+   "tag": "SPAN",
+   "attrs": [
+    "data-v-292b9032=",
+    "data-v-a3e86846=",
+    "aria-hidden=true",
+    "class=add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-poi",
+    "data-testid=watercolor-swatch",
+    "data-variant=ghost",
+    "style=border-radius: 76.8317% 21.2696% 56.3219% 54.5403% / 69.7219"
+   ],
+   "pe": "none",
+   "kids": 2,
+   "svgPlus": false
+  },
+  "chips": 0,
+  "mixDisabled": true
+ },
+ "afterGhost": {
+  "ghost": {
+   "tag": "SPAN",
+   "attrs": [
+    "data-v-292b9032=",
+    "data-v-a3e86846=",
+    "aria-hidden=true",
+    "class=add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-poi",
+    "data-testid=watercolor-swatch",
+    "data-variant=ghost",
+    "style=border-radius: 76.8317% 21.2696% 56.3219% 54.5403% / 69.7219"
+   ],
+   "pe": "none",
+   "kids": 2,
+   "svgPlus": false
+  },
+  "swatch": {
+   "tag": "SPAN",
+   "attrs": [
+    "data-v-292b9032=",
+    "data-v-a3e86846=",
+    "aria-hidden=true",
+    "class=add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-poi",
+    "data-testid=watercolor-swatch",
+    "data-variant=ghost",
+    "style=border-radius: 76.8317% 21.2696% 56.3219% 54.5403% / 69.7219"
+   ],
+   "pe": "none",
+   "kids": 2,
+   "svgPlus": false
+  },
+  "chips": 0,
+  "mixDisabled": true
+ },
+ "afterSwatch": {
+  "ghost": {
+   "tag": "SPAN",
+   "attrs": [
+    "data-v-292b9032=",
+    "data-v-a3e86846=",
+    "aria-hidden=true",
+    "class=add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-poi",
+    "data-testid=watercolor-swatch",
+    "data-variant=ghost",
+    "style=border-radius: 76.8317% 21.2696% 56.3219% 54.5403% / 69.7219"
+   ],
+   "pe": "none",
+   "kids": 2,
+   "svgPlus": false
+  },
+  "swatch": {
+   "tag": "SPAN",
+   "attrs": [
+    "data-v-292b9032=",
+    "data-v-a3e86846=",
+    "aria-hidden=true",
+    "class=add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-poi",
+    "data-testid=watercolor-swatch",
+    "data-variant=ghost",
+    "style=border-radius: 76.8317% 21.2696% 56.3219% 54.5403% / 69.7219"
+   ],
+   "pe": "none",
+   "kids": 2,
+   "svgPlus": false
+  },
+  "chips": 0,
+  "mixDisabled": true
+ }
+}

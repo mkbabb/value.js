@@ -1,0 +1,26 @@
+{
+ "idle": {
+  "t": "idle",
+  "style": null,
+  "bg": "oklab(0.588483 0.019123 0.0656416 / 0.3112)",
+  "color": "rgb(91, 70, 51)",
+  "border": "rgb(91, 70, 51)"
+ },
+ "mid": {
+  "t": "settle-out",
+  "style": "--tone: var(--accent-red); --glass-fill-tint: var(--accent-red); --glass-fill-strength: var(--chip-glass-strength, 12%);",
+  "bg": "oklab(0.588483 0.019123 0.0656416 / 0.3112)",
+  "color": "rgb(91, 70, 51)",
+  "border": "rgb(91, 70, 51)"
+ },
+ "scrollers": [
+  {
+   "tag": "DIV",
+   "cls": "demo-page",
+   "x": 240,
+   "w": 960,
+   "sh": 1008,
+   "ch": 832
+  }
+ ]
+}

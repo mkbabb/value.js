@@ -1,0 +1,45 @@
+[
+ {
+  "load": 15276
+ },
+ {
+  "tag": "swatchhover__1440__dark",
+  "fail": "TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.dashed-well .swatch-row [aria-label^=\"Color swatch\"]').nth(2)\u001b[22m\n"
+ },
+ {
+  "tag": "menucolor__1440__dark",
+  "tree": "d5b8ed76 dirty=5",
+  "note": "delete=rgb(233, 230, 226) rename=rgb(233, 230, 226) text-destructive=rgb(235, 71, 71)",
+  "errs": []
+ },
+ {
+  "tag": "cardhover__1440__dark",
+  "tree": "d5b8ed76 dirty=5",
+  "note": "hover",
+  "errs": []
+ },
+ {
+  "tag": "focus__1440__dark",
+  "tree": "d5b8ed76 dirty=5",
+  "note": "tab order: input[] > button[] > button[Delete all saved palettes] > button[Palette menu] > button[Palette menu] > button[Palette menu] > button[Palette menu] > body[→oklch(65% 0.2 3] > button[Select color space] > span[l component value]",
+  "errs": []
+ },
+ {
+  "tag": "dragmid__1440__dark",
+  "tree": "d5b8ed76 dirty=5",
+  "note": "order after drop=[\"Sunset Coast\",\"Quiet Greys\",\"Forest Floor\",\"Neon Arcade\"]",
+  "errs": []
+ },
+ {
+  "tag": "dock__1440__dark",
+  "tree": "d5b8ed76 dirty=5",
+  "note": "collapsedAfterSelect=1 dockControls=[\"Save edit\",\"Cancel edit\",\"Switch to slug\",\"Generate new slug\",\"Cancel\",\"Back\",\"Rename palette\",\"Publish palette\",\"Export JSON\",\"Delete palette\",\"Select view\",\"Toggle action bar\",\"Login\",\"@mbabb\"]",
+  "errs": []
+ },
+ {
+  "tag": "dupe__1440__dark",
+  "tree": "d5b8ed76 dirty=5",
+  "note": "save duplicate name",
+  "errs": []
+ }
+]

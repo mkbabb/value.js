@@ -1,0 +1,1468 @@
+{
+ "tree": "d5b8ed76 dirty=5",
+ "at": "2026-09-23T17:42:16.598Z",
+ "frames": [
+  {
+   "frame": "390-light-01-default.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-01b-card-top.png",
+   "tree": "d5b8ed76 dirty=5"
+  },
+  {
+   "frame": "390-light-01c-card-bottom.png",
+   "tree": "d5b8ed76 dirty=5"
+  },
+  {
+   "frame": "390-light-01d-fullpage.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-02-select-type-open.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-02b-select-kbd.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-02c-select-space-open.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-02d-type-radial.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-03b-stop-added.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-03c-stop-dragging.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-03d-stop-dragged.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-03e-handle-focus.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-04a-easing-row-open.png",
+   "tree": "d5b8ed76 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-04b-easing-author-open.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-05a-code-invalid.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-05b-code-valid-focused.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-05c-code-valid-blurred.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-06a-tools-open.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-06b-after-seed.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-06c-after-copy.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-06d-after-reset.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  },
+  {
+   "frame": "390-light-06e-after-reset-full.png",
+   "tree": "aac22c24 dirty=5",
+   "hash": "#/gradient"
+  }
+ ],
+ "metrics": {
+  "390-light-default": {
+   "hash": "#/gradient",
+   "html": "",
+   "bodyBg": "rgb(200, 70, 215)",
+   "overflowX": 0,
+   "card": {
+    "box": [
+     16,
+     -1,
+     358,
+     1021
+    ],
+    "rad": "16px",
+    "scrollH": 1019,
+    "clientH": 1019,
+    "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+   },
+   "paneHeader": [
+    {
+     "sel": "[data-slot=pane-header], .pane-header, header h2, h2",
+     "box": [
+      17,
+      0,
+      356,
+      69
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-slot=pane-header], .pane-header, header h2, h2",
+     "box": [
+      33,
+      16,
+      324,
+      27
+     ],
+     "rad": "0px",
+     "font": "25.888px/400 Fraunces, \"Fraunces Fall",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-slot=pane-header], .pane-header, header h2, h2",
+     "box": [
+      17,
+      1037,
+      356,
+      74
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    }
+   ],
+   "h3": [
+    {
+     "sel": "h3",
+     "box": [
+      33,
+      77,
+      324,
+      31
+     ],
+     "rad": "0px",
+     "font": "20.352px/600 Fraunces, \"Fraunces Fall",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "font-display text-subheading text-muted-foreground"
+    },
+    {
+     "sel": "h3",
+     "box": [
+      33,
+      316,
+      324,
+      31
+     ],
+     "rad": "0px",
+     "font": "20.352px/600 Fraunces, \"Fraunces Fall",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "font-display text-subheading text-muted-foreground"
+    },
+    {
+     "sel": "h3",
+     "box": [
+      33,
+      577,
+      324,
+      31
+     ],
+     "rad": "0px",
+     "font": "20.352px/600 Fraunces, \"Fraunces Fall",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "font-display text-subheading text-muted-foreground"
+    },
+    {
+     "sel": "h3",
+     "box": [
+      33,
+      858,
+      39,
+      31
+     ],
+     "rad": "0px",
+     "font": "20.352px/600 Fraunces, \"Fraunces Fall",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "font-display text-subheading text-muted-foreground"
+    }
+   ],
+   "h3text": [
+    "Stops",
+    "Interpolation",
+    "Easing",
+    "CSS"
+   ],
+   "sectionLabels": [
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      140,
+      212,
+      104,
+      44
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "stop-inspector-field flex items-center gap-1.5 text-caption"
+    },
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      33,
+      367,
+      69,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      114,
+      367,
+      69,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      196,
+      367,
+      69,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      33,
+      469,
+      78,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Code ",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "section-label"
+    }
+   ],
+   "bar": [
+    {
+     "sel": "[data-testid=gradient-stop-bar]",
+     "box": [
+      33,
+      116,
+      324,
+      40
+     ],
+     "rad": "9999px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "oklab(0.216128 0.00350075 0.00518669 / 0.12) 0px 0px 0px 1px inset, color(srgb 0",
+     "cls": "gradient-rail relative select-none touch-none cursor-copy"
+    }
+   ],
+   "handles": [
+    {
+     "box": [
+      33,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "0"
+    },
+    {
+     "box": [
+      333,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "100"
+    }
+   ],
+   "inspector": [
+    {
+     "sel": "[data-testid=gradient-stop-inspector]",
+     "box": [
+      33,
+      208,
+      324,
+      68
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1"
+    }
+   ],
+   "inspectorInput": [
+    {
+     "sel": ".stop-inspector-input",
+     "box": [
+      192,
+      212,
+      36,
+      44
+     ],
+     "rad": "4px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "none",
+     "cls": "stop-inspector-input"
+    }
+   ],
+   "inspectorRemove": [
+    {
+     "sel": ".stop-inspector-remove",
+     "box": [
+      257,
+      212,
+      84,
+      44
+     ],
+     "rad": "4px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "none",
+     "cls": "stop-inspector-remove flex items-center gap-1 text-caption"
+    }
+   ],
+   "triggers": [
+    {
+     "box": [
+      33,
+      394,
+      103,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "box": [
+      114,
+      394,
+      114,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "box": [
+      196,
+      394,
+      114,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "box": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "rad": "9999px",
+     "font": "21px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider][aria-label='Gradient direction'], [data-slot=slider-thumb]",
+     "box": [
+      91,
+      504,
+      0,
+      20
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px none rgb(28, 25, 23)",
+     "shadow": "none",
+     "cls": "slider-thumb glass-specular-track"
+    }
+   ],
+   "sliderTrack": [],
+   "tile": [
+    {
+     "sel": "[data-testid=gradient-render-tile]",
+     "box": [
+      277,
+      367,
+      80,
+      169
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "cls": "gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"
+    }
+   ],
+   "easingRows": [
+    {
+     "sel": ".easing-row",
+     "box": [
+      33,
+      628,
+      324,
+      189
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "none",
+     "cls": "easing-row border border-card-edge overflow-hidden"
+    }
+   ],
+   "copyBtn": [
+    {
+     "box": [
+      229,
+      -95,
+      32,
+      32
+     ],
+     "rad": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 rounded-sm"
+    },
+    {
+     "box": [
+      329,
+      859,
+      28,
+      28
+     ],
+     "rad": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact"
+    }
+   ],
+   "codeEditor": [
+    {
+     "sel": "[aria-label='Gradient CSS']",
+     "box": [
+      33,
+      908,
+      324,
+      94
+     ],
+     "rad": "8px",
+     "font": "14px/400 \"Fira Code\", \"Fira Code ",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.779404 0.0118501 0.0342689 / 0.4)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+     "cls": "code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-"
+    }
+   ],
+   "codeText": "linear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(65% 0.18 265deg) 100%)",
+   "verdict": null,
+   "listbox": [],
+   "options": [],
+   "toasts": [
+    "Gradient view"
+   ],
+   "panes": []
+  },
+  "390-light-selectOpen": {
+   "hash": "#/gradient",
+   "html": "",
+   "bodyBg": "rgb(200, 70, 215)",
+   "overflowX": 0,
+   "card": {
+    "box": [
+     16,
+     -1,
+     358,
+     1021
+    ],
+    "rad": "16px",
+    "scrollH": 1019,
+    "clientH": 1019,
+    "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)"
+   },
+   "paneHeader": [
+    {
+     "sel": "[data-slot=pane-header], .pane-header, header h2, h2",
+     "box": [
+      17,
+      0,
+      356,
+      69
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-slot=pane-header], .pane-header, header h2, h2",
+     "box": [
+      33,
+      16,
+      324,
+      27
+     ],
+     "rad": "0px",
+     "font": "25.888px/400 Fraunces, \"Fraunces Fall",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-slot=pane-header], .pane-header, header h2, h2",
+     "box": [
+      17,
+      1037,
+      356,
+      74
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    }
+   ],
+   "h3": [
+    {
+     "sel": "h3",
+     "box": [
+      33,
+      77,
+      324,
+      31
+     ],
+     "rad": "0px",
+     "font": "20.352px/600 Fraunces, \"Fraunces Fall",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "font-display text-subheading text-muted-foreground"
+    },
+    {
+     "sel": "h3",
+     "box": [
+      33,
+      316,
+      324,
+      31
+     ],
+     "rad": "0px",
+     "font": "20.352px/600 Fraunces, \"Fraunces Fall",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "font-display text-subheading text-muted-foreground"
+    },
+    {
+     "sel": "h3",
+     "box": [
+      33,
+      577,
+      324,
+      31
+     ],
+     "rad": "0px",
+     "font": "20.352px/600 Fraunces, \"Fraunces Fall",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "font-display text-subheading text-muted-foreground"
+    },
+    {
+     "sel": "h3",
+     "box": [
+      33,
+      858,
+      39,
+      31
+     ],
+     "rad": "0px",
+     "font": "20.352px/600 Fraunces, \"Fraunces Fall",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "font-display text-subheading text-muted-foreground"
+    }
+   ],
+   "h3text": [
+    "Stops",
+    "Interpolation",
+    "Easing",
+    "CSS"
+   ],
+   "sectionLabels": [
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      140,
+      212,
+      104,
+      44
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "stop-inspector-field flex items-center gap-1.5 text-caption"
+    },
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      33,
+      367,
+      69,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      114,
+      367,
+      69,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      196,
+      367,
+      69,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".section-label, [data-slot=labeled-field] label, label",
+     "box": [
+      33,
+      469,
+      78,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Code ",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "section-label"
+    }
+   ],
+   "bar": [
+    {
+     "sel": "[data-testid=gradient-stop-bar]",
+     "box": [
+      33,
+      116,
+      324,
+      40
+     ],
+     "rad": "9999px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "oklab(0.216128 0.00350075 0.00518669 / 0.12) 0px 0px 0px 1px inset, color(srgb 0",
+     "cls": "gradient-rail relative select-none touch-none cursor-copy"
+    }
+   ],
+   "handles": [
+    {
+     "box": [
+      33,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "0"
+    },
+    {
+     "box": [
+      333,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "100"
+    }
+   ],
+   "inspector": [
+    {
+     "sel": "[data-testid=gradient-stop-inspector]",
+     "box": [
+      33,
+      208,
+      324,
+      68
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1"
+    }
+   ],
+   "inspectorInput": [
+    {
+     "sel": ".stop-inspector-input",
+     "box": [
+      192,
+      212,
+      36,
+      44
+     ],
+     "rad": "4px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "none",
+     "cls": "stop-inspector-input"
+    }
+   ],
+   "inspectorRemove": [
+    {
+     "sel": ".stop-inspector-remove",
+     "box": [
+      257,
+      212,
+      84,
+      44
+     ],
+     "rad": "4px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "none",
+     "cls": "stop-inspector-remove flex items-center gap-1 text-caption"
+    }
+   ],
+   "triggers": [
+    {
+     "box": [
+      33,
+      394,
+      103,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "box": [
+      114,
+      394,
+      114,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "box": [
+      196,
+      394,
+      114,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "box": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "rad": "9999px",
+     "font": "21px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider][aria-label='Gradient direction'], [data-slot=slider-thumb]",
+     "box": [
+      91,
+      504,
+      0,
+      20
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px none rgb(28, 25, 23)",
+     "shadow": "none",
+     "cls": "slider-thumb glass-specular-track"
+    }
+   ],
+   "sliderTrack": [],
+   "tile": [
+    {
+     "sel": "[data-testid=gradient-render-tile]",
+     "box": [
+      277,
+      367,
+      80,
+      169
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "cls": "gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"
+    }
+   ],
+   "easingRows": [
+    {
+     "sel": ".easing-row",
+     "box": [
+      33,
+      628,
+      324,
+      189
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "none",
+     "cls": "easing-row border border-card-edge overflow-hidden"
+    }
+   ],
+   "copyBtn": [
+    {
+     "box": [
+      229,
+      -95,
+      32,
+      32
+     ],
+     "rad": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 rounded-sm"
+    },
+    {
+     "box": [
+      329,
+      859,
+      28,
+      28
+     ],
+     "rad": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact"
+    }
+   ],
+   "codeEditor": [
+    {
+     "sel": "[aria-label='Gradient CSS']",
+     "box": [
+      33,
+      908,
+      324,
+      94
+     ],
+     "rad": "8px",
+     "font": "14px/400 \"Fira Code\", \"Fira Code ",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.779404 0.0118501 0.0342689 / 0.4)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+     "cls": "code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-"
+    }
+   ],
+   "codeText": "linear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(65% 0.18 265deg) 100%)",
+   "verdict": null,
+   "listbox": [
+    {
+     "sel": "[role=listbox], [data-slot=select-content]",
+     "box": [
+      33,
+      453,
+      156,
+      190
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+     "cls": "relative z-popover min-w-(--overlay-min-width) overflow-hidden rounded-panel border text-popover-foreground glass-reveal"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      38,
+      459,
+      146,
+      59
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropdown outlin"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      38,
+      518,
+      146,
+      59
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropdown outlin"
+    }
+   ],
+   "toasts": [
+    "Gradient view"
+   ],
+   "panes": []
+  },
+  "390-light-radial": {
+   "railCount": 1,
+   "selected": "Radial ",
+   "tile": "--tile-render: radial-gradient(in oklch, oklch(75% 0.15 145deg) 0.00%, oklch(74.69% 0.15094 148.75deg) 3.13%, oklch(74.37% 0.15188 152.5deg) 6.25%, oklch(74.06% 0.15281 156.25deg) 9.38%, oklch(73.75% "
+  },
+  "390-light-add": {
+   "before": 2,
+   "after": 3,
+   "handles": [
+    {
+     "box": [
+      33,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "0"
+    },
+    {
+     "box": [
+      118,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "28.4"
+    },
+    {
+     "box": [
+      333,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "100"
+    }
+   ],
+   "inspector": [
+    {
+     "sel": "[data-testid=gradient-stop-inspector]",
+     "box": [
+      33,
+      208,
+      324,
+      68
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px solid rgb(198, 180, 159)",
+     "shadow": "none",
+     "cls": "stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1"
+    }
+   ],
+   "code": "radial-gradient(oklch(75% 0.15 145deg) 0%, oklch(72.16% 0.15852 179.08deg) 28.4%, oklch(65% 0.18 265deg) 100%)"
+  },
+  "390-light-drag": {
+   "handles": [
+    {
+     "box": [
+      33,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "0"
+    },
+    {
+     "box": [
+      118,
+      170,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "28.4"
+    },
+    {
+     "box": [
+      252,
+      167,
+      30,
+      30
+     ],
+     "sel": true,
+     "pos": "74.1"
+    }
+   ],
+   "code": "radial-gradient(oklch(75% 0.15 145deg) 0%, oklch(72.16% 0.15852 179.08deg) 28.4%, oklch(65% 0.18 265deg) 74.1%)"
+  },
+  "390-light-focus": {
+   "aria": "Gradient stop 1 of 3",
+   "shadow": "rgba(0, 0, 0, 0.85) 0px 0px 0px 2px inset, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "outline": "rgb(28, 25, 23) none 3px"
+  },
+  "390-light-easing": [
+   {
+    "sel": ".easing-row",
+    "box": [
+     33,
+     608,
+     324,
+     38
+    ],
+    "rad": "16px",
+    "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "shadow": "none",
+    "cls": "easing-row border border-card-edge overflow-hidden"
+   },
+   {
+    "sel": ".easing-row",
+    "box": [
+     33,
+     653,
+     324,
+     38
+    ],
+    "rad": "16px",
+    "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "shadow": "none",
+    "cls": "easing-row border border-card-edge overflow-hidden"
+   }
+  ],
+  "390-light-invalid": {
+   "verdict": "unparseable color \"nope\"",
+   "editor": [
+    {
+     "sel": "[aria-label='Gradient CSS']",
+     "box": [
+      33,
+      364,
+      324,
+      80
+     ],
+     "rad": "8px",
+     "font": "14px/400 \"Fira Code\", \"Fira Code ",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid rgb(219, 36, 36)",
+     "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+     "cls": "code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-"
+    }
+   ],
+   "handles": 3
+  },
+  "390-light-valid": {
+   "verdict": null,
+   "handles": [
+    {
+     "box": [
+      33,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "0"
+    },
+    {
+     "box": [
+      183,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "50"
+    },
+    {
+     "box": [
+      333,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "100"
+    }
+   ],
+   "code": "linear-gradient(45deg, #ff0080 0%, #7928ca 50%, #2afadf 100%)",
+   "tile": [
+    {
+     "sel": "[data-testid=gradient-render-tile]",
+     "box": [
+      277,
+      495,
+      80,
+      169
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Pl",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "cls": "gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"
+    }
+   ]
+  },
+  "390-light-tools": [
+   {
+    "token": "gradient.reset",
+    "state": "ready",
+    "label": "",
+    "rad": "4px"
+   },
+   {
+    "token": "gradient.copyCSS",
+    "state": "ready",
+    "label": "",
+    "rad": "4px"
+   },
+   {
+    "token": "gradient.seedFromPalette",
+    "state": "ready",
+    "label": "",
+    "rad": "4px"
+   }
+  ],
+  "390-light-seed": {
+   "handles": [
+    {
+     "box": [
+      33,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "0"
+    },
+    {
+     "box": [
+      108,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "25"
+    },
+    {
+     "box": [
+      183,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "50"
+    },
+    {
+     "box": [
+      258,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "75"
+    },
+    {
+     "box": [
+      333,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "100"
+    }
+   ],
+   "code": "linear-gradient(45deg, #ff6b35 0%, #f7c59f 25%, #efefd0 50%, #004e89 75%, #1a659e 100%)",
+   "verdict": null,
+   "toasts": [
+    "Gradient view"
+   ]
+  },
+  "390-light-copy": {
+   "clip": "linear-gradient(45deg in oklch, oklch(70.45% 0.19259 39.23deg) 0.00%, oklch(72.38% 0.17805 41.67deg) 3.13%, oklch(74.3% 0.16351 44.11deg) 6.25%, oklch(76.22% 0.14896 46.55deg) 9.38%, oklch(78.15% 0.13442 48.99deg) 12.50%, oklch(80.07% 0.11988 51.43deg) 15.63%, oklch(82% 0.10533 53.87deg) 18.75%, oklch(83.92% 0.09079 56.31deg) 21.88%, oklch(85.85% 0.07624 58.75deg) 25.00%, oklch(86.92% 0.0718 64.8deg) 28.13%, oklch(87.99% 0.06736 70.85deg) 31.25%, oklch(89.06% 0.06291 76.9deg) 34.38%, oklch(90.13% 0.05847 82.95deg) 37.50%, oklch(91.2% 0.05403 89deg) 40.63%, oklch(92.27% 0.04959 95.05deg) 43.75%, oklch(93.34% 0.04514 101.1deg) 46.88%, oklch(94.41% 0.0407 107.15deg) 50.00%, oklch(87.82% 0.05033 124.99deg) 53.13%, oklch(81.24% 0.05995 142.83deg) 56.25%, oklch(74.65% 0.06958 160.68deg) 59.38%, oklch(68.07% 0.07921 178.52deg) 62.50%, oklch(61.48% 0.08884 196.36deg) 65.63%, oklch(54.9% 0.09847 214.2deg) 68.75%, oklch(48.31% 0.1081 232.04deg) 71.88%, oklch(41.73% 0.11772 249.88deg) 75.00%, oklch(42.66% 0.11741 249.48deg) 78.13%, oklch(43.59% 0.11709 249.08deg) 81.25%, oklch(44.52% 0.11677 248.69deg) 84.38%, oklch(45.45% 0.11645 248.29deg) 87.50%, oklch(46.38% 0.11614 247.89deg) 90.63%, oklch(47.31% 0.11582 247.5deg) 93.75%, oklch(48.24% 0.1155 247.1deg) 96.88%, oklch(49.17% 0.11518 246.71deg) 100.00%)",
+   "toasts": [
+    "Gradient view"
+   ]
+  },
+  "390-light-reset": {
+   "handles": [
+    {
+     "box": [
+      33,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "0"
+    },
+    {
+     "box": [
+      333,
+      298,
+      24,
+      24
+     ],
+     "sel": false,
+     "pos": "100"
+    }
+   ],
+   "code": "linear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(65% 0.18 265deg) 100%)",
+   "triggers": [
+    [
+     33,
+     523,
+     103,
+     54
+    ],
+    [
+     114,
+     523,
+     114,
+     54
+    ],
+    [
+     196,
+     523,
+     114,
+     54
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "errs": {
+  "390-light": []
+ },
+ "net": {
+  "390-light": []
+ }
+}

@@ -1,0 +1,96 @@
+[
+ {
+  "k": "click-open",
+  "active": "Select animation:Rotations",
+  "open": true,
+  "hl": [],
+  "trig": "Rotations",
+  "dock": "EXP"
+ },
+ {
+  "k": "ArrowDown",
+  "active": "Select animation:Rotations",
+  "open": true,
+  "hl": [],
+  "trig": "Rotations",
+  "dock": "EXP"
+ },
+ {
+  "k": "ArrowDown2",
+  "active": "Select animation:Rotations",
+  "open": true,
+  "hl": [],
+  "trig": "Rotations",
+  "dock": "EXP"
+ },
+ {
+  "k": "Enter",
+  "active": "Select animation:Rotations",
+  "open": true,
+  "hl": [],
+  "trig": "Rotations",
+  "dock": "EXP"
+ },
+ {
+  "k": "Escape",
+  "active": "Select animation:Rotations",
+  "open": false,
+  "hl": null,
+  "trig": "Rotations",
+  "dock": "EXP"
+ },
+ {
+  "k": "focused-trigger",
+  "active": "Select animation:Rotations",
+  "open": false,
+  "hl": null,
+  "trig": "Rotations",
+  "dock": "EXP"
+ },
+ {
+  "k": "Enter-open",
+  "active": "option:Rotations",
+  "open": true,
+  "hl": [
+   "Rotations"
+  ],
+  "trig": "Rotations",
+  "dock": "EXP"
+ },
+ {
+  "k": "ArrowDown",
+  "active": "option:Matrix",
+  "open": true,
+  "hl": [
+   "Matrix"
+  ],
+  "trig": "Rotations",
+  "dock": "EXP"
+ },
+ {
+  "k": "Enter-pick",
+  "active": "Select animation:Matrix",
+  "open": false,
+  "hl": null,
+  "trig": "Matrix",
+  "dock": "EXP"
+ },
+ {
+  "k": "mouse-hover-Hover",
+  "active": "option:Hover",
+  "open": true,
+  "hl": [
+   "Hover"
+  ],
+  "trig": "Matrix",
+  "dock": "EXP"
+ },
+ {
+  "k": "mouse-pick-Hover",
+  "active": "Select animation:Hover",
+  "open": false,
+  "hl": null,
+  "trig": "Hover",
+  "dock": "EXP"
+ }
+]

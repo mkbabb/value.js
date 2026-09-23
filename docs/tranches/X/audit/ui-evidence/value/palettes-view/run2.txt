@@ -1,0 +1,7 @@
+FAIL swatchhover__1440__light Error: locator.hover: Target page, context or browser has been closed
+FAIL swatchhover__1440__dark Error: page.goto: Target page, context or browser has been closed
+FAIL swatchhover__390__light TimeoutError: locator.tap: Timeout 30000ms exceeded.
+FAIL swatchhover__390__dark TimeoutError: page.goto: Timeout 90000ms exceeded.
+OK offline__1440__light load 9244 abort :3000 + /api errs=1
+OK offline__1440__dark load 3429 abort :3000 + /api errs=1
+FAIL offline__390__light Error: page.goto: net::ERR_ABORTED; maybe frame was detached?

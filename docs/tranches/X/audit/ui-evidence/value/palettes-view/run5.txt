@@ -1,0 +1,12 @@
+server 200 at 13:11:42
+LOAD-FAIL TimeoutError: locator.waitFor: Timeout 300000ms exceeded.
+--- 1440 light exit
+FAIL swatchhover__390 light__light TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.
+OK menucolor__390 light__light delete=rgb(28, 25, 23) rename=rgb(28, 25, 23) text-destructive=rgb(219, 36, 36)
+OK cardhover__390 light__light hover
+OK focus__390 light__light tab order: input[] > button[] > button[Delete all saved palettes] > button[Palette menu] > button[Palette menu] > button[Palette menu] > button[Palette menu] > body[→oklch(65% 0.2 3] > button[Select color space] > span[l component value]
+OK dragmid__390 light__light order after drop=["Sunset Coast","Quiet Greys","Forest Floor","Neon Arcade"]
+OK dock__390 light__light collapsedAfterSelect=1 dockControls=["Save edit","Cancel edit","Switch to slug","Generate new slug","Cancel","Back","Rename palette","Publish palette","Export JSON","Delete palette","Select view","Toggle action bar","Login","@mbabb"]
+OK dupe__390 light__light save duplicate name
+--- 390 light exit
+GOTO-WARN Error: page.goto: Target page, context or browser has been closed

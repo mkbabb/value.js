@@ -1,0 +1,1648 @@
+{
+  "tree": "/Users/mkbabb/Programming/keyframes.js",
+  "sha": "62ecc324",
+  "dirty": 3,
+  "when": "2026-09-23T16:30:23.906Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "frames": {
+        "firstLoad": "01-firstload-1440-light.png",
+        "hoverPlay": "02-hover-play-1440-light.png",
+        "focus": "03-focus-2tabs-1440-light.png",
+        "afterDrag": "04-after-drag-1440-light.png",
+        "afterPlay": "05-after-play-1440-light.png",
+        "channels": "06-channel-select-1440-light.png"
+      },
+      "notes": [],
+      "probeFirst": {
+        "dark": false,
+        "startScreen": true,
+        "heroH1": {
+          "tag": "H1",
+          "cls": "hero-display text-display-mega",
+          "label": null,
+          "radius": "0px",
+          "h": 186,
+          "w": 1354,
+          "x": 43,
+          "y": 398,
+          "font": "177.424px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "heroDeck": {
+          "tag": "H2",
+          "cls": "start-screen-prose hero-deck",
+          "label": null,
+          "radius": "0px",
+          "h": 38,
+          "w": 1354,
+          "x": 43,
+          "y": 596,
+          "font": "32.928px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "heroHint": {
+          "tag": "H2",
+          "cls": "start-screen-prose hero-hint",
+          "label": null,
+          "radius": "0px",
+          "h": 38,
+          "w": 1354,
+          "x": 43,
+          "y": 639,
+          "font": "32.928px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "aurora": {
+          "tag": "DIV",
+          "cls": "aurora-root block h-full w-full overflow-hidden hero-aurora pointer-events-none fixed inset-0",
+          "label": null,
+          "radius": "0px",
+          "h": 900,
+          "w": 1440,
+          "x": 0,
+          "y": 0,
+          "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+        },
+        "auroraCanvas": true,
+        "buttons": [
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 39,
+            "w": 115,
+            "x": 662,
+            "y": 43,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+            "label": "@mbabb menu",
+            "radius": "9999px",
+            "h": 31,
+            "w": 75,
+            "x": 682,
+            "y": 86,
+            "font": "16.4px \"Fira Code\", monospace"
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 36,
+            "w": 36,
+            "x": 702,
+            "y": 53,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-pastel",
+            "label": "Play animation",
+            "radius": "1.67772e+07px",
+            "h": 40,
+            "w": 40,
+            "x": 625,
+            "y": 773,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Select animation",
+            "radius": "9999px",
+            "h": 32,
+            "w": 60,
+            "x": 690,
+            "y": 777,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Reset animation",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 775,
+            "y": 773,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-pastel",
+            "label": "Play animation",
+            "radius": "1.67772e+07px",
+            "h": 40,
+            "w": 32,
+            "x": 617,
+            "y": 765,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          }
+        ],
+        "h1count": 1,
+        "h2": [
+          "from the list  below, then press Play.",
+          "or drag M. cubert 🙂‍↔️"
+        ],
+        "docW": 1440,
+        "docH": 900
+      },
+      "playVisible": true,
+      "focusAfter2Tabs": "@mbabb menu <BUTTON>",
+      "startAfterDrag": true,
+      "errsA": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "startAfterPlay": false,
+      "probePlay": {
+        "dark": false,
+        "startScreen": false,
+        "heroH1": null,
+        "heroDeck": null,
+        "heroHint": null,
+        "aurora": null,
+        "auroraCanvas": false,
+        "buttons": [
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 39,
+            "w": 110,
+            "x": 665,
+            "y": 43,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Controls tab",
+            "radius": "9999px",
+            "h": 39,
+            "w": 140,
+            "x": 650,
+            "y": 86,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsule",
+            "label": "Controls panel",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 700,
+            "y": 128,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+            "label": "@mbabb menu",
+            "radius": "9999px",
+            "h": 31,
+            "w": 75,
+            "x": 682,
+            "y": 172,
+            "font": "16.4px \"Fira Code\", monospace"
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 36,
+            "w": 36,
+            "x": 702,
+            "y": 53,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 259,
+            "x": 197,
+            "y": 208,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 259,
+            "x": 197,
+            "y": 252,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring h-auto p-1 text-muted-foreground hover:text-foreground transition-colors",
+            "label": "Edit easing curve",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 147,
+            "y": 296,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 367,
+            "x": 89,
+            "y": 340,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "kf-focus-ring hover:text-foreground text-muted-foreground flex w-full cursor-pointer items-center justify-between gap-1.",
+            "label": null,
+            "radius": "0px",
+            "h": 35,
+            "w": 367,
+            "x": 89,
+            "y": 405,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring h-auto p-1 text-muted-foreground hover:text-foreground transition-colors",
+            "label": "Back to controls",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 89,
+            "y": 446,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 294,
+            "x": 162,
+            "y": 500,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring number-field__step number-field__step--decrement",
+            "label": "Decrease",
+            "radius": "9999px",
+            "h": 44,
+            "w": 44,
+            "x": 162,
+            "y": 544,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring number-field__step number-field__step--increment",
+            "label": "Increase",
+            "radius": "9999px",
+            "h": 44,
+            "w": 44,
+            "x": 412,
+            "y": 544,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "switch tap-squish",
+            "label": "enabled",
+            "radius": "9999px",
+            "h": 44,
+            "w": 44,
+            "x": 162,
+            "y": 592,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 186,
+            "x": 85,
+            "y": 540,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback rounded-full gap-2",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 186,
+            "x": 279,
+            "y": 540,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-vivid",
+            "label": "Pause animation",
+            "radius": "1.67772e+07px",
+            "h": 40,
+            "w": 40,
+            "x": 593,
+            "y": 773,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Select animation",
+            "radius": "9999px",
+            "h": 39,
+            "w": 125,
+            "x": 658,
+            "y": 773,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Reset animation",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 807,
+            "y": 773,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-vivid",
+            "label": "Pause animation",
+            "radius": "1.67772e+07px",
+            "h": 40,
+            "w": 32,
+            "x": 535,
+            "y": 765,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          }
+        ],
+        "h1count": 0,
+        "h2": [],
+        "docW": 1440,
+        "docH": 900
+      },
+      "channelOptions": [
+        "Rotations r=8px",
+        "Matrix r=8px",
+        "Hover r=8px"
+      ],
+      "listbox": {
+        "radius": "0px",
+        "cls": ""
+      },
+      "errsC": []
+    },
+    {
+      "tag": "390-light",
+      "frames": {
+        "firstLoad": "01-firstload-390-light.png",
+        "focus": "03-focus-2tabs-390-light.png",
+        "afterDrag": "04-after-drag-390-light.png",
+        "afterPlay": "05-after-play-390-light.png",
+        "channels": "06-channel-select-390-light.png"
+      },
+      "notes": [],
+      "probeFirst": {
+        "dark": false,
+        "startScreen": true,
+        "heroH1": {
+          "tag": "H1",
+          "cls": "hero-display text-display-mega",
+          "label": null,
+          "radius": "0px",
+          "h": 117,
+          "w": 326,
+          "x": 32,
+          "y": 426,
+          "font": "55.6px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "heroDeck": {
+          "tag": "H2",
+          "cls": "start-screen-prose hero-deck",
+          "label": null,
+          "radius": "0px",
+          "h": 28,
+          "w": 326,
+          "x": 32,
+          "y": 555,
+          "font": "24px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "heroHint": {
+          "tag": "H2",
+          "cls": "start-screen-prose hero-hint",
+          "label": null,
+          "radius": "0px",
+          "h": 28,
+          "w": 326,
+          "x": 32,
+          "y": 588,
+          "font": "24px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "aurora": {
+          "tag": "DIV",
+          "cls": "aurora-root block h-full w-full overflow-hidden hero-aurora pointer-events-none fixed inset-0",
+          "label": null,
+          "radius": "0px",
+          "h": 844,
+          "w": 390,
+          "x": 0,
+          "y": 0,
+          "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+        },
+        "auroraCanvas": true,
+        "buttons": [
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 33,
+            "w": 109,
+            "x": 141,
+            "y": 40,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+            "label": "@mbabb menu",
+            "radius": "9999px",
+            "h": 28,
+            "w": 63,
+            "x": 164,
+            "y": 81,
+            "font": "12.179px \"Fira Code\", monospace"
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 54,
+            "w": 54,
+            "x": 168,
+            "y": 48,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-pastel",
+            "label": "Play animation",
+            "radius": "1.67772e+07px",
+            "h": 60,
+            "w": 40,
+            "x": 93,
+            "y": 701,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Select animation",
+            "radius": "9999px",
+            "h": 33,
+            "w": 63,
+            "x": 160,
+            "y": 715,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Reset animation",
+            "radius": "9999px",
+            "h": 47,
+            "w": 47,
+            "x": 250,
+            "y": 708,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-pastel",
+            "label": "Play animation",
+            "radius": "1.67772e+07px",
+            "h": 60,
+            "w": 32,
+            "x": 87,
+            "y": 686,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          }
+        ],
+        "h1count": 1,
+        "h2": [
+          "from the list  below, then press Play.",
+          "or drag M. cubert 🙂‍↔️"
+        ],
+        "docW": 390,
+        "docH": 844
+      },
+      "playVisible": true,
+      "focusAfter2Tabs": "@mbabb menu <BUTTON>",
+      "startAfterDrag": true,
+      "errsA": [],
+      "startAfterPlay": false,
+      "probePlay": {
+        "dark": false,
+        "startScreen": false,
+        "heroH1": null,
+        "heroDeck": null,
+        "heroHint": null,
+        "aurora": null,
+        "auroraCanvas": false,
+        "buttons": [
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 33,
+            "w": 104,
+            "x": 143,
+            "y": 38,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Controls tab",
+            "radius": "9999px",
+            "h": 33,
+            "w": 128,
+            "x": 131,
+            "y": 76,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Controls panel",
+            "radius": "9999px",
+            "h": 47,
+            "w": 47,
+            "x": 172,
+            "y": 113,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+            "label": "@mbabb menu",
+            "radius": "9999px",
+            "h": 28,
+            "w": 63,
+            "x": 164,
+            "y": 164,
+            "font": "12.179px \"Fira Code\", monospace"
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 54,
+            "w": 54,
+            "x": 168,
+            "y": 48,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-vivid",
+            "label": "Pause animation",
+            "radius": "1.67772e+07px",
+            "h": 60,
+            "w": 40,
+            "x": 71,
+            "y": 701,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Select animation",
+            "radius": "9999px",
+            "h": 33,
+            "w": 108,
+            "x": 138,
+            "y": 715,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Reset animation",
+            "radius": "9999px",
+            "h": 47,
+            "w": 47,
+            "x": 272,
+            "y": 708,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-vivid",
+            "label": "Pause animation",
+            "radius": "1.67772e+07px",
+            "h": 60,
+            "w": 32,
+            "x": 24,
+            "y": 686,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 160,
+            "x": 167,
+            "y": 918,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 160,
+            "x": 167,
+            "y": 982,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring h-auto p-1 text-muted-foreground hover:text-foreground transition-colors",
+            "label": "Edit easing curve",
+            "radius": "9999px",
+            "h": 44,
+            "w": 60,
+            "x": 97,
+            "y": 1046,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 280,
+            "x": 47,
+            "y": 1094,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "kf-focus-ring hover:text-foreground text-muted-foreground flex w-full cursor-pointer items-center justify-between gap-1.",
+            "label": null,
+            "radius": "0px",
+            "h": 32,
+            "w": 280,
+            "x": 47,
+            "y": 1179,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring h-auto p-1 text-muted-foreground hover:text-foreground transition-colors",
+            "label": "Back to controls",
+            "radius": "9999px",
+            "h": 44,
+            "w": 60,
+            "x": 47,
+            "y": 1217,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 217,
+            "x": 110,
+            "y": 1275,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring number-field__step number-field__step--decrement",
+            "label": "Decrease",
+            "radius": "9999px",
+            "h": 66,
+            "w": 66,
+            "x": 110,
+            "y": 1339,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring number-field__step number-field__step--increment",
+            "label": "Increase",
+            "radius": "9999px",
+            "h": 66,
+            "w": 66,
+            "x": 261,
+            "y": 1339,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "switch tap-squish",
+            "label": "enabled",
+            "radius": "9999px",
+            "h": 44,
+            "w": 44,
+            "x": 110,
+            "y": 1409,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 142,
+            "x": 43,
+            "y": 1315,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback rounded-full gap-2",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 142,
+            "x": 193,
+            "y": 1315,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          }
+        ],
+        "h1count": 0,
+        "h2": [
+          "Animation controls"
+        ],
+        "docW": 390,
+        "docH": 844
+      },
+      "channelOptions": [
+        "Rotations r=8px",
+        "Matrix r=8px",
+        "Hover r=8px"
+      ],
+      "listbox": {
+        "radius": "0px",
+        "cls": ""
+      },
+      "errsC": [
+        "warning: Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+      ]
+    },
+    {
+      "tag": "1440-dark",
+      "frames": {
+        "firstLoad": "01-firstload-1440-dark.png",
+        "hoverPlay": "02-hover-play-1440-dark.png",
+        "focus": "03-focus-2tabs-1440-dark.png",
+        "afterDrag": "04-after-drag-1440-dark.png",
+        "afterPlay": "05-after-play-1440-dark.png",
+        "channels": "06-channel-select-1440-dark.png"
+      },
+      "notes": [],
+      "probeFirst": {
+        "dark": true,
+        "startScreen": true,
+        "heroH1": {
+          "tag": "H1",
+          "cls": "hero-display text-display-mega",
+          "label": null,
+          "radius": "0px",
+          "h": 186,
+          "w": 1354,
+          "x": 43,
+          "y": 398,
+          "font": "177.424px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "heroDeck": {
+          "tag": "H2",
+          "cls": "start-screen-prose hero-deck",
+          "label": null,
+          "radius": "0px",
+          "h": 38,
+          "w": 1354,
+          "x": 43,
+          "y": 596,
+          "font": "32.928px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "heroHint": {
+          "tag": "H2",
+          "cls": "start-screen-prose hero-hint",
+          "label": null,
+          "radius": "0px",
+          "h": 38,
+          "w": 1354,
+          "x": 43,
+          "y": 639,
+          "font": "32.928px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "aurora": {
+          "tag": "DIV",
+          "cls": "aurora-root block h-full w-full overflow-hidden hero-aurora pointer-events-none fixed inset-0",
+          "label": null,
+          "radius": "0px",
+          "h": 900,
+          "w": 1440,
+          "x": 0,
+          "y": 0,
+          "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+        },
+        "auroraCanvas": true,
+        "buttons": [
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 39,
+            "w": 115,
+            "x": 662,
+            "y": 43,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+            "label": "@mbabb menu",
+            "radius": "9999px",
+            "h": 31,
+            "w": 75,
+            "x": 682,
+            "y": 86,
+            "font": "16.4px \"Fira Code\", monospace"
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 36,
+            "w": 36,
+            "x": 702,
+            "y": 53,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-pastel",
+            "label": "Play animation",
+            "radius": "1.67772e+07px",
+            "h": 40,
+            "w": 40,
+            "x": 625,
+            "y": 773,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Select animation",
+            "radius": "9999px",
+            "h": 32,
+            "w": 60,
+            "x": 690,
+            "y": 777,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Reset animation",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 775,
+            "y": 773,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-pastel",
+            "label": "Play animation",
+            "radius": "1.67772e+07px",
+            "h": 40,
+            "w": 32,
+            "x": 617,
+            "y": 765,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          }
+        ],
+        "h1count": 1,
+        "h2": [
+          "from the list  below, then press Play.",
+          "or drag M. cubert 🙂‍↔️"
+        ],
+        "docW": 1440,
+        "docH": 900
+      },
+      "playVisible": true,
+      "focusAfter2Tabs": "@mbabb menu <BUTTON>",
+      "startAfterDrag": true,
+      "errsA": [],
+      "startAfterPlay": false,
+      "probePlay": {
+        "dark": true,
+        "startScreen": false,
+        "heroH1": null,
+        "heroDeck": null,
+        "heroHint": null,
+        "aurora": null,
+        "auroraCanvas": false,
+        "buttons": [
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 39,
+            "w": 110,
+            "x": 665,
+            "y": 43,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Controls tab",
+            "radius": "9999px",
+            "h": 39,
+            "w": 140,
+            "x": 650,
+            "y": 86,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover glass-capsule",
+            "label": "Controls panel",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 700,
+            "y": 128,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+            "label": "@mbabb menu",
+            "radius": "9999px",
+            "h": 31,
+            "w": 75,
+            "x": 682,
+            "y": 172,
+            "font": "16.4px \"Fira Code\", monospace"
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 36,
+            "w": 36,
+            "x": 702,
+            "y": 53,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 259,
+            "x": 197,
+            "y": 208,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 259,
+            "x": 197,
+            "y": 252,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring h-auto p-1 text-muted-foreground hover:text-foreground transition-colors",
+            "label": "Edit easing curve",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 147,
+            "y": 296,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 367,
+            "x": 89,
+            "y": 340,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "kf-focus-ring hover:text-foreground text-muted-foreground flex w-full cursor-pointer items-center justify-between gap-1.",
+            "label": null,
+            "radius": "0px",
+            "h": 35,
+            "w": 367,
+            "x": 89,
+            "y": 405,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring h-auto p-1 text-muted-foreground hover:text-foreground transition-colors",
+            "label": "Back to controls",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 89,
+            "y": 446,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 294,
+            "x": 162,
+            "y": 500,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring number-field__step number-field__step--decrement",
+            "label": "Decrease",
+            "radius": "9999px",
+            "h": 44,
+            "w": 44,
+            "x": 162,
+            "y": 544,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring number-field__step number-field__step--increment",
+            "label": "Increase",
+            "radius": "9999px",
+            "h": 44,
+            "w": 44,
+            "x": 412,
+            "y": 544,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "switch tap-squish",
+            "label": "enabled",
+            "radius": "9999px",
+            "h": 44,
+            "w": 44,
+            "x": 162,
+            "y": 592,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 186,
+            "x": 85,
+            "y": 540,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback rounded-full gap-2",
+            "label": null,
+            "radius": "9999px",
+            "h": 40,
+            "w": 186,
+            "x": 279,
+            "y": 540,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-vivid",
+            "label": "Pause animation",
+            "radius": "1.67772e+07px",
+            "h": 40,
+            "w": 40,
+            "x": 593,
+            "y": 773,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Select animation",
+            "radius": "9999px",
+            "h": 39,
+            "w": 125,
+            "x": 658,
+            "y": 773,
+            "font": "20.352px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Reset animation",
+            "radius": "9999px",
+            "h": 40,
+            "w": 40,
+            "x": 807,
+            "y": 773,
+            "font": "18.608px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-vivid",
+            "label": "Pause animation",
+            "radius": "1.67772e+07px",
+            "h": 40,
+            "w": 32,
+            "x": 535,
+            "y": 765,
+            "font": "16.4px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          }
+        ],
+        "h1count": 0,
+        "h2": [],
+        "docW": 1440,
+        "docH": 900
+      },
+      "channelOptions": [
+        "Rotations r=8px",
+        "Matrix r=8px",
+        "Hover r=8px"
+      ],
+      "listbox": {
+        "radius": "0px",
+        "cls": ""
+      },
+      "errsC": []
+    },
+    {
+      "tag": "390-dark",
+      "frames": {
+        "firstLoad": "01-firstload-390-dark.png",
+        "focus": "03-focus-2tabs-390-dark.png",
+        "afterDrag": "04-after-drag-390-dark.png",
+        "afterPlay": "05-after-play-390-dark.png",
+        "channels": "06-channel-select-390-dark.png"
+      },
+      "notes": [],
+      "probeFirst": {
+        "dark": true,
+        "startScreen": true,
+        "heroH1": {
+          "tag": "H1",
+          "cls": "hero-display text-display-mega",
+          "label": null,
+          "radius": "0px",
+          "h": 117,
+          "w": 326,
+          "x": 32,
+          "y": 426,
+          "font": "55.6px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "heroDeck": {
+          "tag": "H2",
+          "cls": "start-screen-prose hero-deck",
+          "label": null,
+          "radius": "0px",
+          "h": 28,
+          "w": 326,
+          "x": 32,
+          "y": 555,
+          "font": "24px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "heroHint": {
+          "tag": "H2",
+          "cls": "start-screen-prose hero-hint",
+          "label": null,
+          "radius": "0px",
+          "h": 28,
+          "w": 326,
+          "x": 32,
+          "y": 588,
+          "font": "24px \"Instrument Serif\", \"Instrument Serif Fa"
+        },
+        "aurora": {
+          "tag": "DIV",
+          "cls": "aurora-root block h-full w-full overflow-hidden hero-aurora pointer-events-none fixed inset-0",
+          "label": null,
+          "radius": "0px",
+          "h": 844,
+          "w": 390,
+          "x": 0,
+          "y": 0,
+          "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+        },
+        "auroraCanvas": true,
+        "buttons": [
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 33,
+            "w": 109,
+            "x": 141,
+            "y": 40,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+            "label": "@mbabb menu",
+            "radius": "9999px",
+            "h": 28,
+            "w": 63,
+            "x": 164,
+            "y": 81,
+            "font": "12.179px \"Fira Code\", monospace"
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 54,
+            "w": 54,
+            "x": 168,
+            "y": 48,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-pastel",
+            "label": "Play animation",
+            "radius": "1.67772e+07px",
+            "h": 60,
+            "w": 40,
+            "x": 93,
+            "y": 701,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Select animation",
+            "radius": "9999px",
+            "h": 33,
+            "w": 63,
+            "x": 160,
+            "y": 715,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Reset animation",
+            "radius": "9999px",
+            "h": 47,
+            "w": 47,
+            "x": 250,
+            "y": 708,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-pastel",
+            "label": "Play animation",
+            "radius": "1.67772e+07px",
+            "h": 60,
+            "w": 32,
+            "x": 87,
+            "y": 686,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          }
+        ],
+        "h1count": 1,
+        "h2": [
+          "from the list  below, then press Play.",
+          "or drag M. cubert 🙂‍↔️"
+        ],
+        "docW": 390,
+        "docH": 844
+      },
+      "playVisible": true,
+      "focusAfter2Tabs": "@mbabb menu <BUTTON>",
+      "startAfterDrag": true,
+      "errsA": [],
+      "startAfterPlay": false,
+      "probePlay": {
+        "dark": true,
+        "startScreen": false,
+        "heroH1": null,
+        "heroDeck": null,
+        "heroHint": null,
+        "aurora": null,
+        "auroraCanvas": false,
+        "buttons": [
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 33,
+            "w": 104,
+            "x": 143,
+            "y": 38,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Controls tab",
+            "radius": "9999px",
+            "h": 33,
+            "w": 128,
+            "x": 131,
+            "y": 76,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Controls panel",
+            "radius": "9999px",
+            "h": 47,
+            "w": 47,
+            "x": 172,
+            "y": 113,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-caption normal-case tracking-normal lg:text-mono-sma",
+            "label": "@mbabb menu",
+            "radius": "9999px",
+            "h": 28,
+            "w": 63,
+            "x": 164,
+            "y": 164,
+            "font": "12.179px \"Fira Code\", monospace"
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring",
+            "label": "Scene",
+            "radius": "9999px",
+            "h": 54,
+            "w": 54,
+            "x": 168,
+            "y": 48,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 rainbow-vivid",
+            "label": "Pause animation",
+            "radius": "1.67772e+07px",
+            "h": 60,
+            "w": 40,
+            "x": 71,
+            "y": 701,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-trigger dock-select-trigger dock-label",
+            "label": "Select animation",
+            "radius": "9999px",
+            "h": 33,
+            "w": 108,
+            "x": 138,
+            "y": 715,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+            "label": "Reset animation",
+            "radius": "9999px",
+            "h": 47,
+            "w": 47,
+            "x": 272,
+            "y": 708,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-vivid",
+            "label": "Pause animation",
+            "radius": "1.67772e+07px",
+            "h": 60,
+            "w": 32,
+            "x": 24,
+            "y": 686,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 160,
+            "x": 167,
+            "y": 918,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 160,
+            "x": 167,
+            "y": 982,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring h-auto p-1 text-muted-foreground hover:text-foreground transition-colors",
+            "label": "Edit easing curve",
+            "radius": "9999px",
+            "h": 44,
+            "w": 60,
+            "x": 97,
+            "y": 1046,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 280,
+            "x": 47,
+            "y": 1094,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "kf-focus-ring hover:text-foreground text-muted-foreground flex w-full cursor-pointer items-center justify-between gap-1.",
+            "label": null,
+            "radius": "0px",
+            "h": 32,
+            "w": 280,
+            "x": 47,
+            "y": 1179,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring h-auto p-1 text-muted-foreground hover:text-foreground transition-colors",
+            "label": "Back to controls",
+            "radius": "9999px",
+            "h": 44,
+            "w": 60,
+            "x": 47,
+            "y": 1217,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full items-center",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 217,
+            "x": 110,
+            "y": 1275,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring number-field__step number-field__step--decrement",
+            "label": "Decrease",
+            "radius": "9999px",
+            "h": 66,
+            "w": 66,
+            "x": 110,
+            "y": 1339,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring number-field__step number-field__step--increment",
+            "label": "Increase",
+            "radius": "9999px",
+            "h": 66,
+            "w": 66,
+            "x": 261,
+            "y": 1339,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "switch tap-squish",
+            "label": "enabled",
+            "radius": "9999px",
+            "h": 44,
+            "w": 44,
+            "x": 110,
+            "y": 1409,
+            "font": "16px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 142,
+            "x": 43,
+            "y": 1315,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback rounded-full gap-2",
+            "label": null,
+            "radius": "9999px",
+            "h": 60,
+            "w": 142,
+            "x": 193,
+            "y": 1315,
+            "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+          }
+        ],
+        "h1count": 0,
+        "h2": [
+          "Animation controls"
+        ],
+        "docW": 390,
+        "docH": 844
+      },
+      "channelOptions": [
+        "Rotations r=8px",
+        "Matrix r=8px",
+        "Hover r=8px"
+      ],
+      "listbox": {
+        "radius": "0px",
+        "cls": ""
+      },
+      "errsC": [
+        "warning: Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+      ]
+    }
+  ]
+}

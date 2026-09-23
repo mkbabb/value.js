@@ -1,0 +1,7 @@
+FAILED 1440 dark A page.waitForTimeout: Target page, context or browser has been closed
+FAILED 1440 dark B browserContext.newPage: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /Users/mkbabb/Library
+FAILED 1440 dark C browser.newContext: Target page, context or browser has been closed
+done 3 frames {"head":"aaae783b","dirty":5}

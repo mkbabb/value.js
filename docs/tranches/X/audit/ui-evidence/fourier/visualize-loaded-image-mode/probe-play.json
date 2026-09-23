@@ -1,0 +1,138 @@
+[
+ [
+  "initial",
+  {
+   "pressed": "true",
+   "label": "Pause animation",
+   "box": [
+    477,
+    827,
+    40,
+    40
+   ],
+   "hit": "",
+   "hitIsCtl": true,
+   "dock": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline",
+   "readout": "t = 0.261×1×"
+  }
+ ],
+ [
+  "after locator.click",
+  {
+   "pressed": "true",
+   "label": "Pause animation",
+   "box": [
+    52,
+    827,
+    40,
+    40
+   ],
+   "hit": "",
+   "hitIsCtl": true,
+   "dock": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+   "readout": "t = 0.291×1×"
+  }
+ ],
+ [
+  "+1.5s",
+  {
+   "pressed": "true",
+   "label": "Pause animation",
+   "box": [
+    52,
+    827,
+    40,
+    40
+   ],
+   "hit": "",
+   "hitIsCtl": true,
+   "dock": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+   "readout": "t = 0.371×1×"
+  }
+ ],
+ [
+  "after 2nd click",
+  {
+   "pressed": "false",
+   "label": "Play animation",
+   "box": [
+    50,
+    825,
+    44,
+    44
+   ],
+   "hit": "",
+   "hitIsCtl": true,
+   "dock": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+   "readout": "t = 0.371×1×"
+  }
+ ],
+ [
+  "after Space",
+  {
+   "pressed": "true",
+   "label": "Pause animation",
+   "box": [
+    50,
+    825,
+    44,
+    44
+   ],
+   "hit": "",
+   "hitIsCtl": true,
+   "dock": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+   "readout": "t = 0.401×1×"
+  }
+ ],
+ [
+  "after Space 2",
+  {
+   "pressed": "false",
+   "label": "Play animation",
+   "box": [
+    50,
+    825,
+    44,
+    44
+   ],
+   "hit": "",
+   "hitIsCtl": true,
+   "dock": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+   "readout": "t = 0.401×1×"
+  }
+ ],
+ [
+  "hovered 1.2s",
+  {
+   "pressed": "false",
+   "label": "Play animation",
+   "box": [
+    50,
+    825,
+    44,
+    44
+   ],
+   "hit": "",
+   "hitIsCtl": true,
+   "dock": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+   "readout": "t = 0.401×1×"
+  }
+ ],
+ [
+  "after hovered mouse click",
+  {
+   "pressed": "true",
+   "label": "Pause animation",
+   "box": [
+    50,
+    825,
+    44,
+    44
+   ],
+   "hit": "",
+   "hitIsCtl": true,
+   "dock": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline",
+   "readout": "t = 0.431×1×"
+  }
+ ]
+]

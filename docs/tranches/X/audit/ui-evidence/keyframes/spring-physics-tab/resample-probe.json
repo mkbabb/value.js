@@ -1,0 +1,69 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 17,
+ "initial_smooth": [
+  "0% :: transform: translateX(0%);",
+  "25% :: transform: translateX(100.5%);",
+  "50% :: transform: translateX(100%);",
+  "75% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);"
+ ],
+ "after_bouncy_no_resample": [
+  "0% :: transform: translateX(0%);",
+  "25% :: transform: translateX(100.5%);",
+  "50% :: transform: translateX(100%);",
+  "75% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);"
+ ],
+ "after_bouncy_resample": [
+  "0% :: transform: translateX(0%);",
+  "25% :: transform: translateX(100.5%);",
+  "50% :: transform: translateX(100%);",
+  "75% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);"
+ ],
+ "after_retime_50_arrows": [
+  "0% :: transform: translateX(0%);",
+  "25.1% :: transform: translateX(0%);",
+  "50% :: transform: translateX(100.5%);",
+  "75% :: transform: translateX(97.23%);",
+  "100% :: transform: translateX(100%);",
+  "50% :: transform: translateX(100.09%);",
+  "75% :: transform: translateX(100%);",
+  "75% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);"
+ ],
+ "after_retime_then_resample": [
+  "0% :: transform: translateX(0%);",
+  "25.1% :: transform: translateX(0%);",
+  "50% :: transform: translateX(100.09%);",
+  "75% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);"
+ ],
+ "after_pageup": "26% :: transform: translateX(0%);",
+ "after_remove50": [
+  "0% :: transform: translateX(0%);",
+  "26% :: transform: translateX(0%);",
+  "50% :: transform: translateX(100.09%);",
+  "75% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);"
+ ],
+ "after_remove_then_resample": [
+  "0% :: transform: translateX(0%);",
+  "0% :: transform: translateX(0%);",
+  "25% :: transform: translateX(97.23%);",
+  "26% :: transform: translateX(0%);",
+  "50% :: transform: translateX(100.09%);",
+  "50% :: transform: translateX(100.09%);",
+  "75% :: transform: translateX(100%);",
+  "75% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);",
+  "100% :: transform: translateX(100%);"
+ ],
+ "monaco": ".\nkeyframes-style-spring-Spring-Keyfram\nes {\n  animation-name: \n  keyframes-style-spring-Spring-Keyfr\n  ames;\n  animation-duration: 1400ms;\n  animation-timing-function: linear;\n  animation-iteration-count: \n  infinite;\n  animation-direction: alternate;\n  animation-fill-mode: forwards;\n}\n\n@keyframes \nkeyframes-style-spring-Spring-Keyfram\nes {\n  0% {\n    transform: translateX(0%);\n  }\n  25% {",
+ "errs": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "BrowserScalarResolutionError: Could not resolve \"translateX(0%) rotate(0deg)\" for \"transform\" to a numeric CSS scalar (computed: \"matrix(1, 0, 0, 1, 0, 0)\")."
+ ]
+}

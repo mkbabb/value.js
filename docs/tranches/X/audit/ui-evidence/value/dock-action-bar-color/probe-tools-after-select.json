@@ -1,0 +1,70 @@
+[
+ {
+  "target": "Generate",
+  "before": {
+   "pressed": "false",
+   "dockW": 495,
+   "backVisible": true,
+   "activeLayers": "",
+   "openPoppers": 0
+  },
+  "click1": {
+   "pressed": "true",
+   "dockW": 197,
+   "backVisible": true,
+   "activeLayers": "",
+   "openPoppers": 0
+  }
+ },
+ {
+  "target": "Gradient",
+  "before": {
+   "pressed": "false",
+   "dockW": 493,
+   "backVisible": true,
+   "activeLayers": "",
+   "openPoppers": 0
+  },
+  "click1": {
+   "pressed": "true",
+   "dockW": 197,
+   "backVisible": true,
+   "activeLayers": "",
+   "openPoppers": 0
+  }
+ },
+ {
+  "target": "Mix",
+  "before": {
+   "pressed": "false",
+   "dockW": 453,
+   "backVisible": true,
+   "activeLayers": "",
+   "openPoppers": 0
+  },
+  "click1": {
+   "pressed": "true",
+   "dockW": 197,
+   "backVisible": true,
+   "activeLayers": "",
+   "openPoppers": 0
+  }
+ },
+ {
+  "target": "Palettes",
+  "before": {
+   "pressed": "false",
+   "dockW": 486,
+   "backVisible": true,
+   "activeLayers": "",
+   "openPoppers": 0
+  },
+  "click1": {
+   "pressed": "true",
+   "dockW": 326,
+   "backVisible": true,
+   "activeLayers": "",
+   "openPoppers": 1
+  }
+ }
+]

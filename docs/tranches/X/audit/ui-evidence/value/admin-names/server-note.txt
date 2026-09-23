@@ -1,0 +1,6 @@
+server outage: 127.0.0.1:9000 refused/timeout 12:57-13:12 (SYN backlog full); captures relaunched 13:13
+13:24:14 9000=000
+13:24:52 9000=000
+13:12-13:44 intermittent: 9000 refused again ~13:22-13:25; page.screenshot fonts-gate hangs -> CDP fallback added (frames note "[via CDP]").
+Captures complete 13:44 (1440-light) / 13:56 (1440-dark) / 14:03 (390-light) / 14:14 (390-dark).
+Dock propose mode NOT exercised (the dock's "Open color input"/"Tools" toggle was not reachable by role name within 15s from the admin-mode dock); proposals were seeded in the page-level API stub instead (no write reached the dev DB).

@@ -1,0 +1,389 @@
+[
+ {
+  "tag": "1440-light-colors",
+  "sha": "f82daf4a",
+  "dirty": "4",
+  "fail": "TimeoutError: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).locator('[aria-label*=\"from Sunset Coast\"]').first()\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-light-colors-01-colors-empty.png",
+   "1440-light-colors-02-tab-focus.png",
+   "1440-light-colors-03-from-palettes-open.png",
+   "1440-light-colors-FAIL.png"
+  ],
+  "dom": [
+   "BUTTON|||",
+   "BUTTON|||",
+   "BUTTON|||",
+   "BUTTON|combobox||",
+   "BUTTON|combobox||",
+   "BUTTON|||"
+  ]
+ },
+ {
+  "tag": "1440-dark-colors",
+  "sha": "f82daf4a",
+  "dirty": "4",
+  "fail": "TimeoutError: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).locator('[aria-label*=\"from Sunset Coast\"]').first()\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-dark-colors-01-colors-empty.png",
+   "1440-dark-colors-02-tab-focus.png",
+   "1440-dark-colors-03-from-palettes-open.png",
+   "1440-dark-colors-FAIL.png"
+  ],
+  "dom": null
+ },
+ {
+  "tag": "390-light-colors",
+  "sha": "f82daf4a",
+  "dirty": "5",
+  "fail": "TimeoutError: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).locator('[aria-label*=\"from Sunset Coast\"]').first()\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-light-colors-00-fullpage.png",
+   "390-light-colors-01-colors-empty.png",
+   "390-light-colors-02-tab-focus.png",
+   "390-light-colors-03-from-palettes-open.png",
+   "390-light-colors-FAIL.png"
+  ],
+  "dom": [
+   "BUTTON|||",
+   "BUTTON|||",
+   "BUTTON|||",
+   "BUTTON|combobox||",
+   "BUTTON|combobox||",
+   "BUTTON|||"
+  ]
+ },
+ {
+  "tag": "390-dark-colors",
+  "sha": "f82daf4a",
+  "dirty": "6",
+  "fail": "TimeoutError: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).locator('[aria-label*=\"from Sunset Coast\"]').first()\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-dark-colors-00-fullpage.png",
+   "390-dark-colors-01-colors-empty.png",
+   "390-dark-colors-02-tab-focus.png",
+   "390-dark-colors-03-from-palettes-open.png",
+   "390-dark-colors-FAIL.png"
+  ],
+  "dom": [
+   "BUTTON|||",
+   "BUTTON|||",
+   "BUTTON|||",
+   "BUTTON|combobox||",
+   "BUTTON|combobox||",
+   "BUTTON|||"
+  ]
+ },
+ {
+  "tag": "1440-dark-palettes",
+  "sha": "f82daf4a",
+  "dirty": "8",
+  "url": "http://localhost:9000/#/mix",
+  "notes": "",
+  "errs": [],
+  "shots": [
+   "1440-dark-palettes-11-tab-swap-110ms.png",
+   "1440-dark-palettes-12-palettes.png",
+   "1440-dark-palettes-13-palettes-selected.png",
+   "1440-dark-palettes-14-tab-swap-back-110ms.png",
+   "1440-dark-palettes-15-palettes-config.png",
+   "1440-dark-palettes-16-anim-200ms.png",
+   "1440-dark-palettes-16-anim-600ms.png",
+   "1440-dark-palettes-17-result-palette.png"
+  ],
+  "m": {
+   "pane": {
+    "w": 512,
+    "h": 837,
+    "r": "16px",
+    "contentBottom": 836,
+    "deadSpace": 1
+   },
+   "items": [
+    {
+     "sel": "[role=group], [role=tablist]",
+     "w": 162,
+     "h": 39,
+     "r": "10003px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.58)",
+     "bs": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "solid 0px",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track"
+    },
+    {
+     "sel": "[role=group] button, [role=tablist] [role=tab]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "sel": "[role=group] button, [role=tablist] [role=tab]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab"
+    },
+    {
+     "sel": "[class*=indicator], [data-slot*=indicator]",
+     "w": 77,
+     "h": 31,
+     "r": "9999px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "oklab(0.467324 0.0127196 0.0308567 / 0.911296)",
+     "bs": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "solid 0px",
+     "cls": "segmented-indicator segmented-indicator--js glass-capsule glass-lens glass-drag-grabbable"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 227,
+     "h": 36,
+     "r": "9999px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 227,
+     "h": 36,
+     "r": "9999px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 462,
+     "h": 36,
+     "r": "9999px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 227,
+     "h": 23,
+     "r": "0px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 227,
+     "h": 23,
+     "r": "0px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 462,
+     "h": 23,
+     "r": "0px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".mix-plate",
+     "w": 462,
+     "h": 171,
+     "r": "12px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "oklab(0.345295 0.0103877 0.0175526)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well"
+    },
+    {
+     "sel": ".mix-plate .h-4",
+     "w": 430,
+     "h": 16,
+     "r": "1.67772e+07px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "h-4 rounded-full overflow-hidden"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 462,
+     "h": 81,
+     "r": "16px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(11, 10, 9) 0px 0px",
+     "border": "solid 0px",
+     "cls": "cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 ring-"
+    },
+    {
+     "sel": "canvas",
+     "w": 510,
+     "h": 835,
+     "r": "0px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "absolute inset-0 w-full h-full pointer-events-none z-controls"
+    },
+    {
+     "sel": "h1, h2, h3",
+     "w": 462,
+     "h": 44,
+     "r": "0px",
+     "font": "41.888px/Fraunces",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "pane-header-title font-display"
+    }
+   ],
+   "mixBtn": []
+  }
+ },
+ {
+  "tag": "390-dark-palettes",
+  "sha": "e518a7a0",
+  "dirty": "8",
+  "fail": "TimeoutError: locator.waitFor: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }) to be visible\u001b[22m\n",
+  "errs": [
+   "Failed to load resource: the server responded with a status of 408 (Request Timeout)",
+   "[value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: Failed to fetch dynamically imported module: http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workben"
+  ],
+  "shots": [
+   "390-dark-palettes-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "1440-dark-palettes-empty",
+  "sha": "307791a4",
+  "dirty": "16",
+  "fail": "TimeoutError: locator.waitFor: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }) to be visible\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-dark-palettes-empty-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "390-light-palettes-empty",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-light-palettes-empty-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "390-dark-palettes-empty",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-dark-palettes-empty-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "1440-light-dock",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-light-dock-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "1440-dark-dock",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-dark-dock-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "390-light-dock",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-light-dock-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "390-dark-dock",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-dark-dock-FAIL.png"
+  ],
+  "dom": []
+ }
+]

@@ -1,0 +1,3598 @@
+{
+ "seat": "admin-names",
+ "base": "http://localhost:9000",
+ "head": "d5b8ed76",
+ "dirty": 4,
+ "glassUiInstalled": "7.0.0",
+ "captured": "2026-09-23T17:35:27.769Z",
+ "frames": [
+  {
+   "file": "1440-light-01-empty-pending.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "REAL API (GET passthrough, token dev) · Pending · empty queue",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 400,
+     "x": 199,
+     "y": 302,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 319,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 338,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 420,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 424,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 424,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 477,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [],
+    "empty": [
+     {
+      "t": "No pending proposals.",
+      "w": 992,
+      "h": 154,
+      "x": 224,
+      "y": 519,
+      "radius": "0px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames 0Re",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-02-empty-approved.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "REAL API · Approved · empty",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 400,
+     "x": 199,
+     "y": 302,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 319,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 338,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 420,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 424,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 424,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 477,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [],
+    "empty": [
+     {
+      "t": "No approved color names.",
+      "w": 992,
+      "h": 154,
+      "x": 224,
+      "y": 519,
+      "radius": "0px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BUTTON",
+     "t": "Approved · 0",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-14-error.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · GET /admin/queue 500 on view entry — pending error register",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 459,
+     "x": 199,
+     "y": 272,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 289,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 308,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 391,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 395,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 395,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 447,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [],
+    "empty": [
+     {
+      "t": "Couldn't load proposals.audit stub: forced failure Retry",
+      "w": 992,
+      "h": 213,
+      "x": 224,
+      "y": 490,
+      "radius": "0px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center",
+      "attrs": {
+       "role": "alert"
+      }
+     }
+    ],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames 0Re",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-15-loading.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Retry clicked, /admin/queue delayed 7s — loading skeletons",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 424,
+     "x": 199,
+     "y": 290,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 44,
+     "x": 224,
+     "y": 307,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": null,
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 408,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 412,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 412,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 464,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "",
+      "w": 992,
+      "h": 54,
+      "x": 224,
+      "y": 507,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "skeleton-ink-register flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge",
+      "attrs": {
+       "data-slot": "admin-list-skeleton",
+       "role": "status",
+       "aria-label": "Loading"
+      },
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 518,
+       "radius": "4px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(246, 243, 239)",
+       "color": "rgb(28, 25, 23)",
+       "border": "0px rgb(198, 180, 159)",
+       "backdrop": "none",
+       "cls": "skeleton w-8 h-8 rounded-full shrink-0",
+       "attrs": {
+        "variant": "breath",
+        "data-slot": "skeleton"
+       }
+      },
+      "buttons": []
+     },
+     {
+      "t": "",
+      "w": 992,
+      "h": 54,
+      "x": 224,
+      "y": 569,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "skeleton-ink-register flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge",
+      "attrs": {
+       "data-slot": "admin-list-skeleton",
+       "role": "status",
+       "aria-label": "Loading"
+      },
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 580,
+       "radius": "4px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(246, 243, 239)",
+       "color": "rgb(28, 25, 23)",
+       "border": "0px rgb(198, 180, 159)",
+       "backdrop": "none",
+       "cls": "skeleton w-8 h-8 rounded-full shrink-0",
+       "attrs": {
+        "variant": "breath",
+        "data-slot": "skeleton"
+       }
+      },
+      "buttons": []
+     },
+     {
+      "t": "",
+      "w": 992,
+      "h": 54,
+      "x": 224,
+      "y": 631,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "skeleton-ink-register flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge",
+      "attrs": {
+       "data-slot": "admin-list-skeleton",
+       "role": "status",
+       "aria-label": "Loading"
+      },
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 642,
+       "radius": "4px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(246, 243, 239)",
+       "color": "rgb(28, 25, 23)",
+       "border": "0px rgb(198, 180, 159)",
+       "backdrop": "none",
+       "cls": "skeleton w-8 h-8 rounded-full shrink-0",
+       "attrs": {
+        "variant": "breath",
+        "data-slot": "skeleton"
+       }
+      },
+      "buttons": []
+     }
+    ],
+    "empty": [
+     {
+      "t": "",
+      "w": 992,
+      "h": 54,
+      "x": 224,
+      "y": 507,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "skeleton-ink-register flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge",
+      "attrs": {
+       "data-slot": "admin-list-skeleton",
+       "role": "status",
+       "aria-label": "Loading"
+      }
+     },
+     {
+      "t": "",
+      "w": 992,
+      "h": 54,
+      "x": 224,
+      "y": 569,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "skeleton-ink-register flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge",
+      "attrs": {
+       "data-slot": "admin-list-skeleton",
+       "role": "status",
+       "aria-label": "Loading"
+      }
+     },
+     {
+      "t": "",
+      "w": 992,
+      "h": 54,
+      "x": 224,
+      "y": 631,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "skeleton-ink-register flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge",
+      "attrs": {
+       "data-slot": "admin-list-skeleton",
+       "role": "status",
+       "aria-label": "Loading"
+      }
+     }
+    ],
+    "notice": [],
+    "skeletons": 12,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames Rev",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-05-pending-populated.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Pending populated (3 proposals incl. long name)",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 395,
+     "x": 199,
+     "y": 305,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 322,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 341,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 423,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 2",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 480,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "harbour duskoklch(42% 0.08 240deg)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 522,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 541,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "oklch(0.42 0.08 240)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name harbour dusk"
+        }
+       },
+       {
+        "t": "Reject color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name harbour dusk"
+        }
+       }
+      ]
+     },
+     {
+      "t": "an exceedingly long proposed colour name that must truncate at phone widthrgb(214 120 64)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 600,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 619,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(214, 120, 64)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       },
+       {
+        "t": "Reject color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       }
+      ]
+     }
+    ],
+    "empty": [],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames 2Re",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-06-approve-hover.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Approve hovered (row 1)",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 395,
+     "x": 199,
+     "y": 305,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 322,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 341,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 423,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 2",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 480,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "harbour duskoklch(42% 0.08 240deg)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 522,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 541,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "oklch(0.42 0.08 240)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name harbour dusk"
+        }
+       },
+       {
+        "t": "Reject color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name harbour dusk"
+        }
+       }
+      ]
+     },
+     {
+      "t": "an exceedingly long proposed colour name that must truncate at phone widthrgb(214 120 64)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 600,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 619,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(214, 120, 64)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       },
+       {
+        "t": "Reject color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       }
+      ]
+     }
+    ],
+    "empty": [],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames 2Re",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-06b-reject-hover.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Reject hovered (row 1)",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 395,
+     "x": 199,
+     "y": 305,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 322,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 341,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 423,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 2",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 480,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "harbour duskoklch(42% 0.08 240deg)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 522,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 541,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "oklch(0.42 0.08 240)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name harbour dusk"
+        }
+       },
+       {
+        "t": "Reject color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.574284 0.191676 0.099719 / 0.1)",
+        "color": "rgb(219, 36, 36)",
+        "border": "0px rgb(219, 36, 36)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name harbour dusk"
+        }
+       }
+      ]
+     },
+     {
+      "t": "an exceedingly long proposed colour name that must truncate at phone widthrgb(214 120 64)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 600,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 619,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(214, 120, 64)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       },
+       {
+        "t": "Reject color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       }
+      ]
+     }
+    ],
+    "empty": [],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames 2Re",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-07-reject-keyboard-focus.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Reject focused via keyboard (Tab from Approve)",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 395,
+     "x": 199,
+     "y": 305,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 322,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 341,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 423,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 2",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 480,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "harbour duskoklch(42% 0.08 240deg)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 522,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 541,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "oklch(0.42 0.08 240)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name harbour dusk"
+        }
+       },
+       {
+        "t": "Reject color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(219, 36, 36)",
+        "border": "0px rgb(219, 36, 36)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name harbour dusk"
+        }
+       }
+      ]
+     },
+     {
+      "t": "an exceedingly long proposed colour name that must truncate at phone widthrgb(214 120 64)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 600,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 619,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(214, 120, 64)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       },
+       {
+        "t": "Reject color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       }
+      ]
+     }
+    ],
+    "empty": [],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BUTTON",
+     "t": "Reject color name harbour dusk",
+     "outline": "none 3px rgb(219, 36, 36)",
+     "ring": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+    }
+   }
+  },
+  {
+   "file": "1440-light-08-reject-confirm.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Reject confirm Dialog open",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 395,
+     "x": 199,
+     "y": 305,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 322,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 341,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 423,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 2",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 427,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 480,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "harbour duskoklch(42% 0.08 240deg)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 522,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 541,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "oklch(0.42 0.08 240)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name harbour dusk"
+        }
+       },
+       {
+        "t": "Reject color name harbour dusk",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 543,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name harbour dusk"
+        }
+       }
+      ]
+     },
+     {
+      "t": "an exceedingly long proposed colour name that must truncate at phone widthrgb(214 120 64)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 600,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 619,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(214, 120, 64)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       },
+       {
+        "t": "Reject color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 621,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       }
+      ]
+     }
+    ],
+    "empty": [],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": {
+     "w": 512,
+     "h": 187,
+     "x": 464,
+     "y": 357,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.903549 0.0153586 0.0142464 / 0.705088)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "backdrop": "blur(11px) saturate(1.6)",
+     "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--",
+     "attrs": {
+      "data-surface": "glass",
+      "data-slot": "dialog-content",
+      "role": "dialog"
+     },
+     "title": "Reject color name?",
+     "desc": "This will permanently reject the proposed name harbour dusk. This cannot be undone.",
+     "buttons": [
+      {
+       "t": "Cancel",
+       "w": 62,
+       "h": 40,
+       "x": 731,
+       "y": 472,
+       "radius": "9999px",
+       "font": "16.4px/18.04px \"Plus Jakarta Sans\" 500",
+       "bg": "rgba(0, 0, 0, 0)",
+       "color": "oklch(0.471189 0.188448 9.83402)",
+       "border": "0px oklch(0.471189 0.188448 9.83402)",
+       "backdrop": "none",
+       "cls": "button tap-squish focus-ring",
+       "attrs": {
+        "data-slot": "button",
+        "data-emphasis": "text",
+        "data-tone": "neutral",
+        "data-size": "md"
+       }
+      },
+      {
+       "t": "Reject name",
+       "w": 151,
+       "h": 40,
+       "x": 800,
+       "y": 472,
+       "radius": "9999px",
+       "font": "16.4px/18.04px \"Plus Jakarta Sans\" 500",
+       "bg": "rgb(219, 36, 36)",
+       "color": "rgb(251, 250, 248)",
+       "border": "1px oklab(0.474 0.138987 0.07325)",
+       "backdrop": "none",
+       "cls": "button tap-squish focus-ring",
+       "attrs": {
+        "data-slot": "button",
+        "data-emphasis": "secondary",
+        "data-tone": "destructive",
+        "data-size": "md"
+       }
+      }
+     ]
+    },
+    "overlay": null,
+    "focused": {
+     "tag": "BUTTON",
+     "t": "Cancel",
+     "outline": "none 3px oklch(0.471189 0.188448 9.83402)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-09-reject-notice.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · after Reject confirmed — names notice",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 345,
+     "x": 199,
+     "y": 329,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 346,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 365,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 476,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 1",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 480,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 480,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 533,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "an exceedingly long proposed colour name that must truncate at phone widthrgb(214 120 64)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 575,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 594,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(214, 120, 64)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Approve color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1137,
+        "y": 596,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "border": "0px rgb(28, 25, 23)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "outline",
+         "aria-label": "Approve color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       },
+       {
+        "t": "Reject color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 596,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Reject color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       }
+      ]
+     }
+    ],
+    "empty": [],
+    "notice": [
+     {
+      "t": "Rejected “harbour dusk”",
+      "w": 992,
+      "h": 28,
+      "x": 224,
+      "y": 436,
+      "radius": "12px",
+      "font": "12px/16px \"Fira Code\" 400",
+      "bg": "oklab(0.723 -0.18885 0.110891 / 0.1)",
+      "color": "oklch(0.627 0.194 149.214)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs fira-code bg-green-500/10 text-green-600 dark:text-green-400",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames 1Re",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-10-approve-notice.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Approve clicked (NO confirm) — names notice",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 428,
+     "x": 199,
+     "y": 288,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 305,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 324,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 434,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 438,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 1",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 438,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 491,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [],
+    "empty": [
+     {
+      "t": "No pending proposals.",
+      "w": 992,
+      "h": 154,
+      "x": 224,
+      "y": 533,
+      "radius": "0px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "notice": [
+     {
+      "t": "Approved “an exceedingly long proposed colour name that must truncate at phone width”",
+      "w": 992,
+      "h": 28,
+      "x": 224,
+      "y": 394,
+      "radius": "12px",
+      "font": "12px/16px \"Fira Code\" 400",
+      "bg": "oklab(0.723 -0.18885 0.110891 / 0.1)",
+      "color": "oklch(0.627 0.194 149.214)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs fira-code bg-green-500/10 text-green-600 dark:text-green-400",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames 0Re",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-10b-notice-after-4s.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · +4.3s after approve",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 428,
+     "x": 199,
+     "y": 288,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 305,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 324,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 434,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 438,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     },
+     {
+      "t": "Approved · 1",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 438,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 491,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [],
+    "empty": [
+     {
+      "t": "No pending proposals.",
+      "w": 992,
+      "h": 154,
+      "x": 224,
+      "y": 533,
+      "radius": "0px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "notice": [
+     {
+      "t": "Approved “an exceedingly long proposed colour name that must truncate at phone width”",
+      "w": 992,
+      "h": 28,
+      "x": 224,
+      "y": 394,
+      "radius": "12px",
+      "font": "12px/16px \"Fira Code\" 400",
+      "bg": "oklab(0.723 -0.18885 0.110891 / 0.1)",
+      "color": "oklch(0.627 0.194 149.214)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs fira-code bg-green-500/10 text-green-600 dark:text-green-400",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→NamesTools admin  @mbabb NamesNames viewNames 0Re",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-11-approved-populated.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Approved tab (the just-approved row)",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 345,
+     "x": 199,
+     "y": 329,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 346,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 365,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 476,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 480,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     },
+     {
+      "t": "Approved · 1",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 480,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 533,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "an exceedingly long proposed colour name that must truncate at phone widthrgb(214 120 64)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 575,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 594,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(214, 120, 64)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Delete color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 596,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Delete color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       }
+      ]
+     }
+    ],
+    "empty": [],
+    "notice": [
+     {
+      "t": "Approved “an exceedingly long proposed colour name that must truncate at phone width”",
+      "w": 992,
+      "h": 28,
+      "x": 224,
+      "y": 436,
+      "radius": "12px",
+      "font": "12px/16px \"Fira Code\" 400",
+      "bg": "oklab(0.723 -0.18885 0.110891 / 0.1)",
+      "color": "oklch(0.627 0.194 149.214)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs fira-code bg-green-500/10 text-green-600 dark:text-green-400",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BUTTON",
+     "t": "Approved · 1",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-12-delete-confirm.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Delete confirm Dialog open",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 345,
+     "x": 199,
+     "y": 329,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 346,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 365,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 476,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 480,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     },
+     {
+      "t": "Approved · 1",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 480,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 533,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [
+     {
+      "t": "an exceedingly long proposed colour name that must truncate at phone widthrgb(214 120 64)",
+      "w": 992,
+      "h": 70,
+      "x": 224,
+      "y": 575,
+      "radius": "6px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "backdrop": "none",
+      "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0",
+      "attrs": {},
+      "overflowX": false,
+      "swatch": {
+       "w": 32,
+       "h": 32,
+       "x": 237,
+       "y": 594,
+       "radius": "1.67772e+07px",
+       "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+       "bg": "rgb(214, 120, 64)",
+       "color": "rgb(28, 25, 23)",
+       "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+       "backdrop": "none",
+       "cls": "w-8 h-8 rounded-full border border-card-edge",
+       "attrs": {}
+      },
+      "buttons": [
+       {
+        "t": "Delete color name an exceedingly long proposed colour name that must truncate at phone width",
+        "w": 30,
+        "h": 28,
+        "x": 1173,
+        "y": 596,
+        "radius": "9999px",
+        "font": "14.384px/15.8224px \"Plus Jakarta Sans\" 500",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(91, 70, 51)",
+        "border": "0px rgb(91, 70, 51)",
+        "backdrop": "none",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-de",
+        "attrs": {
+         "data-slot": "button",
+         "data-emphasis": "secondary",
+         "data-tone": "neutral",
+         "data-size": "xs",
+         "variant": "ghost",
+         "aria-label": "Delete color name an exceedingly long proposed colour name that must truncate at phone width"
+        }
+       }
+      ]
+     }
+    ],
+    "empty": [],
+    "notice": [
+     {
+      "t": "Approved “an exceedingly long proposed colour name that must truncate at phone width”",
+      "w": 992,
+      "h": 28,
+      "x": 224,
+      "y": 436,
+      "radius": "12px",
+      "font": "12px/16px \"Fira Code\" 400",
+      "bg": "oklab(0.723 -0.18885 0.110891 / 0.1)",
+      "color": "oklch(0.627 0.194 149.214)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs fira-code bg-green-500/10 text-green-600 dark:text-green-400",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "skeletons": 0,
+    "dialog": {
+     "w": 512,
+     "h": 210,
+     "x": 464,
+     "y": 345,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.903549 0.0153586 0.0142464 / 0.705088)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "backdrop": "blur(11px) saturate(1.6)",
+     "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--",
+     "attrs": {
+      "data-surface": "glass",
+      "data-slot": "dialog-content",
+      "role": "dialog"
+     },
+     "title": "Delete color name?",
+     "desc": "This will permanently delete the approved name an exceedingly long proposed colour name that must truncate at phone width. This cannot be undone.",
+     "buttons": [
+      {
+       "t": "Cancel",
+       "w": 62,
+       "h": 40,
+       "x": 730,
+       "y": 483,
+       "radius": "9999px",
+       "font": "16.4px/18.04px \"Plus Jakarta Sans\" 500",
+       "bg": "rgba(0, 0, 0, 0)",
+       "color": "oklch(0.471189 0.188448 9.83402)",
+       "border": "0px oklch(0.471189 0.188448 9.83402)",
+       "backdrop": "none",
+       "cls": "button tap-squish focus-ring",
+       "attrs": {
+        "data-slot": "button",
+        "data-emphasis": "text",
+        "data-tone": "neutral",
+        "data-size": "md"
+       }
+      },
+      {
+       "t": "Delete name",
+       "w": 152,
+       "h": 40,
+       "x": 799,
+       "y": 483,
+       "radius": "9999px",
+       "font": "16.4px/18.04px \"Plus Jakarta Sans\" 500",
+       "bg": "rgb(219, 36, 36)",
+       "color": "rgb(251, 250, 248)",
+       "border": "1px oklab(0.474 0.138987 0.07325)",
+       "backdrop": "none",
+       "cls": "button tap-squish focus-ring",
+       "attrs": {
+        "data-slot": "button",
+        "data-emphasis": "secondary",
+        "data-tone": "destructive",
+        "data-size": "md"
+       }
+      }
+     ]
+    },
+    "overlay": null,
+    "focused": {
+     "tag": "BUTTON",
+     "t": "Cancel",
+     "outline": "none 1.5px oklch(0.471189 0.188448 9.83402)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-13-filtered-empty.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · Approved, search 'zzzz' — filtered zero",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": {
+     "w": 1042,
+     "h": 464,
+     "x": 199,
+     "y": 270,
+     "radius": "16px",
+     "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+     "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "color": "rgb(28, 25, 23)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+     "backdrop": "none",
+     "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full",
+     "attrs": {
+      "data-slot": "card",
+      "data-size": "md",
+      "data-surface": "glass"
+     }
+    },
+    "header": {
+     "w": 992,
+     "h": 45,
+     "x": 224,
+     "y": 287,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": {
+     "w": 29,
+     "h": 26,
+     "x": 369,
+     "y": 306,
+     "radius": "9999px",
+     "font": "16.4px/18.04px \"Fira Code\" 600",
+     "bg": "rgb(237, 230, 222)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:",
+     "attrs": {
+      "data-slot": "badge"
+     }
+    },
+    "strip": {
+     "w": 992,
+     "h": 39,
+     "x": 224,
+     "y": 417,
+     "radius": "10003px",
+     "font": "18.608px/27.912px Fraunces 400",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track w-full font-display",
+     "attrs": {
+      "role": "group"
+     }
+    },
+    "stripBtns": [
+     {
+      "t": "Pending · 0",
+      "w": 492,
+      "h": 31,
+      "x": 228,
+      "y": 421,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(112, 89, 66)",
+      "border": "0px rgb(112, 89, 66)",
+      "backdrop": "none",
+      "cls": "segmented-tab glass-capsule-hover",
+      "attrs": {
+       "aria-pressed": "false"
+      }
+     },
+     {
+      "t": "Approved · 0",
+      "w": 492,
+      "h": 31,
+      "x": 720,
+      "y": 421,
+      "radius": "5px",
+      "font": "14px/21px Fraunces 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(28, 25, 23)",
+      "backdrop": "none",
+      "cls": "segmented-tab",
+      "attrs": {
+       "aria-pressed": "true"
+      }
+     }
+    ],
+    "search": {
+     "w": 943,
+     "h": 25,
+     "x": 260,
+     "y": 473,
+     "radius": "0px",
+     "font": "16.4px/24.6px \"Plus Jakarta Sans\" 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(28, 25, 23)",
+     "backdrop": "none",
+     "cls": "input-bar-field",
+     "attrs": {
+      "aria-label": "Search color names"
+     }
+    },
+    "rows": [],
+    "empty": [
+     {
+      "t": "No approved names match this search.",
+      "w": 992,
+      "h": 189,
+      "x": 224,
+      "y": 516,
+      "radius": "0px",
+      "font": "18.608px/27.912px \"Plus Jakarta Sans\" 400",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "flex flex-col items-center justify-center gap-2.5 py-8 text-center",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "notice": [
+     {
+      "t": "Approved “an exceedingly long proposed colour name that must truncate at phone width”",
+      "w": 992,
+      "h": 28,
+      "x": 224,
+      "y": 377,
+      "radius": "12px",
+      "font": "12px/16px \"Fira Code\" 400",
+      "bg": "oklab(0.723 -0.18885 0.110891 / 0.1)",
+      "color": "oklch(0.627 0.194 149.214)",
+      "border": "0px rgb(198, 180, 159)",
+      "backdrop": "none",
+      "cls": "feedback-chip flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs fira-code bg-green-500/10 text-green-600 dark:text-green-400",
+      "attrs": {
+       "role": "status"
+      }
+     }
+    ],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "INPUT",
+     "t": "Search color names",
+     "outline": "none 3px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "file": "1440-light-00-signed-out.png",
+   "head": "d5b8ed76",
+   "dirty": 4,
+   "state": "stub · new tab without admin token · route=/#/admin/names",
+   "metrics": {
+    "route": "#/admin/names",
+    "docScrollW": 1440,
+    "vw": 1440,
+    "pane": null,
+    "header": {
+     "w": 992,
+     "h": 44,
+     "x": 224,
+     "y": 404,
+     "radius": "0px",
+     "font": "41.888px/43.9824px Fraunces 400",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "rgb(28, 25, 23)",
+     "border": "0px rgb(198, 180, 159)",
+     "backdrop": "none",
+     "cls": "pane-header-title font-display",
+     "attrs": {}
+    },
+    "headerBadge": null,
+    "strip": null,
+    "stripBtns": [],
+    "search": null,
+    "rows": [],
+    "empty": [],
+    "notice": [],
+    "skeletons": 0,
+    "dialog": null,
+    "overlay": null,
+    "focused": {
+     "tag": "BODY",
+     "t": "→Tools Login  @mbabb Not FoundNot Found. /admin/na",
+     "outline": "none 1.5px rgb(28, 25, 23)",
+     "ring": "none"
+    }
+   }
+  },
+  {
+   "ctx": "1440-light",
+   "errors": [
+    "STEP-FAIL propose: TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /Tools/ }).first()\u001b[22m\n",
+    "error: Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+   ],
+   "stubCalls": [
+    "GET /admin/queue",
+    "GET /admin/queue",
+    "POST /admin/colors/stub-1/reject",
+    "POST /admin/colors/stub-2/approve"
+   ]
+  }
+ ]
+}

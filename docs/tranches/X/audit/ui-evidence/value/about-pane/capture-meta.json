@@ -1,0 +1,3916 @@
+{
+ "base": "http://localhost:9000",
+ "sha": "f95a2f77",
+ "dirty": 4,
+ "at": "2026-09-23T15:49:53.184Z",
+ "runs": {
+  "1440-light": {
+   "errors": [],
+   "oklch": {
+    "card": {
+     "x": 729,
+     "y": 112,
+     "w": 512,
+     "h": 7505,
+     "scrollH": 7503,
+     "clientH": 7503,
+     "scrollW": 510,
+     "clientW": 510,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 7631
+    },
+    "space": "oklch",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 73,
+      "w": 462
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 20,
+      "w": 428
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 213
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 299
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 379
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 80
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 77
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 80
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 48,
+      "w": 152
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 1265,
+      "text": "a=Ccos⁡(2πh),b=Csin⁡(2πh)a = C \\cos(2\\pi h), \\quad"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1265,
+      "text": "a=Ccos⁡(2πh),b=Csin⁡(2πh)"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1247,
+      "text": "π"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1258,
+      "text": "h"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 1265,
+      "text": ")"
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 1268,
+      "text": "C=a2+b2,h=atan2⁡(b, a)2πC = \\sqrt{a^2 + b^2}, \\qua"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1268,
+      "text": "C=a2+b2,h=atan2⁡(b, a)2π"
+     },
+     {
+      "tag": "mfrac",
+      "cls": "",
+      "right": 1268,
+      "text": "atan2⁡(b, a)2π"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1268,
+      "text": "atan2⁡(b, a)"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1243,
+      "text": "b"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 1248,
+      "text": ","
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1262,
+      "text": "a"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, OKLCh",
+      "fs": "41.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Advantages",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Disadvantages",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 0
+   },
+   "oklchSegs": {
+    "mode": "window",
+    "shots": [
+     "1440-light-03-oklch-seg0.png",
+     "1440-light-03-oklch-seg1.png",
+     "1440-light-03-oklch-seg2.png",
+     "1440-light-03-oklch-seg3.png",
+     "1440-light-03-oklch-seg4.png",
+     "1440-light-03-oklch-seg5.png",
+     "1440-light-03-oklch-seg6.png",
+     "1440-light-03-oklch-seg7.png"
+    ]
+   },
+   "tooltip": [
+    {
+     "w": 0,
+     "h": 0,
+     "text": "",
+     "cls": ""
+    },
+    {
+     "w": 1,
+     "h": 1,
+     "text": "",
+     "cls": ""
+    }
+   ],
+   "defTooltip": 0,
+   "rgb": {
+    "card": {
+     "x": 729,
+     "y": 112,
+     "w": 512,
+     "h": 7253,
+     "scrollH": 7251,
+     "clientH": 7251,
+     "scrollW": 510,
+     "clientW": 510,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 7379
+    },
+    "space": "rgb",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 93,
+      "w": 462
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 428
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 168
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 184
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 168
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 58
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 54
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 58
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 48,
+      "w": 105
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 1272,
+      "text": "γ−1(c)={c/12.92c≤0.04045(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1272,
+      "text": "γ−1(c)={c/12.92c≤0.04045(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1272,
+      "text": "{c/12.92c≤0.04045(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mtable",
+      "cls": "",
+      "right": 1272,
+      "text": "c/12.92c≤0.04045(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mtr",
+      "cls": "",
+      "right": 1272,
+      "text": "c/12.92c≤0.04045"
+     },
+     {
+      "tag": "mtd",
+      "cls": "",
+      "right": 1272,
+      "text": "c≤0.04045"
+     },
+     {
+      "tag": "mstyle",
+      "cls": "",
+      "right": 1272,
+      "text": "c≤0.04045"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1272,
+      "text": "c≤0.04045"
+     },
+     {
+      "tag": "mn",
+      "cls": "",
+      "right": 1272,
+      "text": "0.04045"
+     },
+     {
+      "tag": "mtr",
+      "cls": "",
+      "right": 1272,
+      "text": "(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mtd",
+      "cls": "",
+      "right": 1272,
+      "text": "otherwise"
+     },
+     {
+      "tag": "mstyle",
+      "cls": "",
+      "right": 1264,
+      "text": "otherwise"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, RGB",
+      "fs": "41.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Advantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Disadvantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 0
+   },
+   "rgbSegs": {
+    "mode": "window",
+    "shots": [
+     "1440-light-08-rgb-seg0.png",
+     "1440-light-08-rgb-seg1.png",
+     "1440-light-08-rgb-seg2.png",
+     "1440-light-08-rgb-seg3.png"
+    ]
+   },
+   "lab": {
+    "card": {
+     "x": 729,
+     "y": 112,
+     "w": 512,
+     "h": 7439,
+     "scrollH": 7437,
+     "clientH": 7437,
+     "scrollW": 510,
+     "clientW": 510,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 7564
+    },
+    "space": "lab",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 93,
+      "w": 462
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 428
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 159
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 156
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 267
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 49
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 54
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 49
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 48,
+      "w": 89
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "path",
+      "cls": "",
+      "right": 8721,
+      "text": ""
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 1681,
+      "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=20"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1681,
+      "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=20"
+     },
+     {
+      "tag": "mn",
+      "cls": "",
+      "right": 1268,
+      "text": "500"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1425,
+      "text": "[f ⁣(XXn)−f ⁣(YYn)]"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 1279,
+      "text": "["
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1290,
+      "text": "f"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1336,
+      "text": "(XXn)"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 1303,
+      "text": "("
+     },
+     {
+      "tag": "mfrac",
+      "cls": "",
+      "right": 1323,
+      "text": "XXn"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1319,
+      "text": "X"
+     },
+     {
+      "tag": "msub",
+      "cls": "",
+      "right": 1323,
+      "text": "Xn"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Lab",
+      "fs": "41.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Advantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Disadvantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 2
+   },
+   "labSegs": {
+    "mode": "window",
+    "shots": [
+     "1440-light-08-lab-seg0.png",
+     "1440-light-08-lab-seg1.png",
+     "1440-light-08-lab-seg2.png",
+     "1440-light-08-lab-seg3.png",
+     "1440-light-08-lab-seg4.png",
+     "1440-light-08-lab-seg5.png",
+     "1440-light-08-lab-seg6.png",
+     "1440-light-08-lab-seg7.png",
+     "1440-light-08-lab-seg8.png",
+     "1440-light-08-lab-seg9.png"
+    ]
+   },
+   "display-p3": {
+    "card": {
+     "x": 729,
+     "y": 112,
+     "w": 512,
+     "h": 1466,
+     "scrollH": 1464,
+     "clientH": 1464,
+     "scrollW": 510,
+     "clientW": 510,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 1591
+    },
+    "space": "display-p3",
+    "guide": "none-authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 93,
+      "w": 462
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 428
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 219
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 310
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 60,
+      "w": 328
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 109
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 54
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 109
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 48,
+      "w": 208
+     }
+    ],
+    "overflowers": [],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Display P3",
+      "fs": "41.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 0
+   }
+  },
+  "1440-dark": {
+   "errors": [],
+   "oklch": {
+    "card": {
+     "x": 729,
+     "y": 112,
+     "w": 512,
+     "h": 7505,
+     "scrollH": 7503,
+     "clientH": 7503,
+     "scrollW": 510,
+     "clientW": 510,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 7631
+    },
+    "space": "oklch",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 73,
+      "w": 462
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 20,
+      "w": 428
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 213
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 299
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 379
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 80
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 77
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 80
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 48,
+      "w": 152
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 1265,
+      "text": "a=Ccos⁡(2πh),b=Csin⁡(2πh)a = C \\cos(2\\pi h), \\quad"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1265,
+      "text": "a=Ccos⁡(2πh),b=Csin⁡(2πh)"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1247,
+      "text": "π"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1258,
+      "text": "h"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 1265,
+      "text": ")"
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 1268,
+      "text": "C=a2+b2,h=atan2⁡(b, a)2πC = \\sqrt{a^2 + b^2}, \\qua"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1268,
+      "text": "C=a2+b2,h=atan2⁡(b, a)2π"
+     },
+     {
+      "tag": "mfrac",
+      "cls": "",
+      "right": 1268,
+      "text": "atan2⁡(b, a)2π"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1268,
+      "text": "atan2⁡(b, a)"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1243,
+      "text": "b"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 1248,
+      "text": ","
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1262,
+      "text": "a"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, OKLCh",
+      "fs": "41.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Advantages",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Disadvantages",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 0
+   },
+   "oklchSegs": {
+    "mode": "window",
+    "shots": [
+     "1440-dark-03-oklch-seg0.png",
+     "1440-dark-03-oklch-seg1.png",
+     "1440-dark-03-oklch-seg2.png",
+     "1440-dark-03-oklch-seg3.png",
+     "1440-dark-03-oklch-seg4.png",
+     "1440-dark-03-oklch-seg5.png",
+     "1440-dark-03-oklch-seg6.png",
+     "1440-dark-03-oklch-seg7.png"
+    ]
+   },
+   "tooltip": [
+    {
+     "w": 0,
+     "h": 0,
+     "text": "",
+     "cls": ""
+    },
+    {
+     "w": 1,
+     "h": 1,
+     "text": "",
+     "cls": ""
+    }
+   ],
+   "defTooltip": 0,
+   "rgb": {
+    "card": {
+     "x": 729,
+     "y": 112,
+     "w": 512,
+     "h": 7253,
+     "scrollH": 7251,
+     "clientH": 7251,
+     "scrollW": 510,
+     "clientW": 510,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 7379
+    },
+    "space": "rgb",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 93,
+      "w": 462
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 428
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 168
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 184
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 168
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 58
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 54
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 58
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 48,
+      "w": 105
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 1272,
+      "text": "γ−1(c)={c/12.92c≤0.04045(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1272,
+      "text": "γ−1(c)={c/12.92c≤0.04045(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1272,
+      "text": "{c/12.92c≤0.04045(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mtable",
+      "cls": "",
+      "right": 1272,
+      "text": "c/12.92c≤0.04045(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mtr",
+      "cls": "",
+      "right": 1272,
+      "text": "c/12.92c≤0.04045"
+     },
+     {
+      "tag": "mtd",
+      "cls": "",
+      "right": 1272,
+      "text": "c≤0.04045"
+     },
+     {
+      "tag": "mstyle",
+      "cls": "",
+      "right": 1272,
+      "text": "c≤0.04045"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1272,
+      "text": "c≤0.04045"
+     },
+     {
+      "tag": "mn",
+      "cls": "",
+      "right": 1272,
+      "text": "0.04045"
+     },
+     {
+      "tag": "mtr",
+      "cls": "",
+      "right": 1272,
+      "text": "(c+0.0551.055)2.4otherwise"
+     },
+     {
+      "tag": "mtd",
+      "cls": "",
+      "right": 1272,
+      "text": "otherwise"
+     },
+     {
+      "tag": "mstyle",
+      "cls": "",
+      "right": 1264,
+      "text": "otherwise"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, RGB",
+      "fs": "41.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Advantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Disadvantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 0
+   },
+   "rgbSegs": {
+    "mode": "window",
+    "shots": [
+     "1440-dark-08-rgb-seg0.png",
+     "1440-dark-08-rgb-seg1.png",
+     "1440-dark-08-rgb-seg2.png",
+     "1440-dark-08-rgb-seg3.png"
+    ]
+   },
+   "lab": {
+    "card": {
+     "x": 729,
+     "y": 112,
+     "w": 512,
+     "h": 7439,
+     "scrollH": 7437,
+     "clientH": 7437,
+     "scrollW": 510,
+     "clientW": 510,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 7564
+    },
+    "space": "lab",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 93,
+      "w": 462
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 428
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 159
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 156
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 267
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 49
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 54
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 49
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 48,
+      "w": 89
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "path",
+      "cls": "",
+      "right": 8721,
+      "text": ""
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 1681,
+      "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=20"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1681,
+      "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=20"
+     },
+     {
+      "tag": "mn",
+      "cls": "",
+      "right": 1268,
+      "text": "500"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1425,
+      "text": "[f ⁣(XXn)−f ⁣(YYn)]"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 1279,
+      "text": "["
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1290,
+      "text": "f"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 1336,
+      "text": "(XXn)"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 1303,
+      "text": "("
+     },
+     {
+      "tag": "mfrac",
+      "cls": "",
+      "right": 1323,
+      "text": "XXn"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 1319,
+      "text": "X"
+     },
+     {
+      "tag": "msub",
+      "cls": "",
+      "right": 1323,
+      "text": "Xn"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Lab",
+      "fs": "41.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Advantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Disadvantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 2
+   },
+   "labSegs": {
+    "mode": "window",
+    "shots": [
+     "1440-dark-08-lab-seg0.png",
+     "1440-dark-08-lab-seg1.png",
+     "1440-dark-08-lab-seg2.png",
+     "1440-dark-08-lab-seg3.png",
+     "1440-dark-08-lab-seg4.png",
+     "1440-dark-08-lab-seg5.png",
+     "1440-dark-08-lab-seg6.png",
+     "1440-dark-08-lab-seg7.png",
+     "1440-dark-08-lab-seg8.png",
+     "1440-dark-08-lab-seg9.png"
+    ]
+   },
+   "display-p3": {
+    "card": {
+     "x": 729,
+     "y": 112,
+     "w": 512,
+     "h": 1466,
+     "scrollH": 1464,
+     "clientH": 1464,
+     "scrollW": 510,
+     "clientW": 510,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 1440,
+     "clientW": 1440,
+     "scrollH": 1591
+    },
+    "space": "display-p3",
+    "guide": "none-authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 93,
+      "w": 462
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 428
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 219
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 310
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 60,
+      "w": 328
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 109
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 54
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 36,
+      "w": 109
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 48,
+      "w": 208
+     }
+    ],
+    "overflowers": [],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Display P3",
+      "fs": "41.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 0
+   }
+  },
+  "390-light": {
+   "errors": [],
+   "oklch": {
+    "card": {
+     "x": 16,
+     "y": 736,
+     "w": 358,
+     "h": 7961,
+     "scrollH": 7959,
+     "clientH": 7959,
+     "scrollW": 356,
+     "clientW": 356,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 8710
+    },
+    "space": "oklch",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 89,
+      "w": 332
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 298
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 195
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 276
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 88,
+      "w": 332
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 71
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 68
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 71
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 30,
+      "w": 95
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 475,
+      "text": "a=Ccos⁡(2πh),b=Csin⁡(2πh)a = C \\cos(2\\pi h), \\quad"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 475,
+      "text": "a=Ccos⁡(2πh),b=Csin⁡(2πh)"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 386,
+      "text": "="
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 404,
+      "text": "C"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 428,
+      "text": "sin"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 435,
+      "text": "("
+     },
+     {
+      "tag": "mn",
+      "cls": "",
+      "right": 445,
+      "text": "2"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 457,
+      "text": "π"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 468,
+      "text": "h"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 475,
+      "text": ")"
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 478,
+      "text": "C=a2+b2,h=atan2⁡(b, a)2πC = \\sqrt{a^2 + b^2}, \\qua"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 478,
+      "text": "C=a2+b2,h=atan2⁡(b, a)2π"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, OKLCh",
+      "fs": "25.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Advantages",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Disadvantages",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 1
+   },
+   "oklchSegs": {
+    "mode": "window",
+    "shots": [
+     "390-light-03-oklch-seg0.png",
+     "390-light-03-oklch-seg1.png",
+     "390-light-03-oklch-seg2.png",
+     "390-light-03-oklch-seg3.png",
+     "390-light-03-oklch-seg4.png",
+     "390-light-03-oklch-seg5.png",
+     "390-light-03-oklch-seg6.png",
+     "390-light-03-oklch-seg7.png"
+    ]
+   },
+   "tooltip": [
+    {
+     "w": 0,
+     "h": 0,
+     "text": "",
+     "cls": ""
+    },
+    {
+     "w": 1,
+     "h": 1,
+     "text": "",
+     "cls": ""
+    }
+   ],
+   "defTooltip": 0,
+   "rgb": {
+    "card": {
+     "x": 16,
+     "y": 316,
+     "w": 358,
+     "h": 7628,
+     "scrollH": 7626,
+     "clientH": 7626,
+     "scrollW": 356,
+     "clientW": 356,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 8331
+    },
+    "space": "rgb",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 89,
+      "w": 332
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 298
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 157
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 170
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 157
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 52
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 49
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 52
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 30,
+      "w": 65
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "math",
+      "cls": "",
+      "right": 380,
+      "text": "R=0 (no red) to 1 (full red intensity)R = 0 \\text{"
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 380,
+      "text": "R=0 (no red) to 1 (full red intensity)R = 0 \\text{"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 380,
+      "text": "R=0 (no red) to 1 (full red intensity)"
+     },
+     {
+      "tag": "mtext",
+      "cls": "",
+      "right": 380,
+      "text": "(full red intensity)"
+     },
+     {
+      "tag": "DIV",
+      "cls": "inline-block",
+      "right": 388,
+      "text": "G=0 (no green) to 1 (full green intensity)G = 0 \\t"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "katex",
+      "right": 388,
+      "text": "G=0 (no green) to 1 (full green intensity)G = 0 \\t"
+     },
+     {
+      "tag": "math",
+      "cls": "",
+      "right": 420,
+      "text": "G=0 (no green) to 1 (full green intensity)G = 0 \\t"
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 420,
+      "text": "G=0 (no green) to 1 (full green intensity)G = 0 \\t"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 420,
+      "text": "G=0 (no green) to 1 (full green intensity)"
+     },
+     {
+      "tag": "mtext",
+      "cls": "",
+      "right": 420,
+      "text": "(full green intensity)"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "katex-html",
+      "right": 388,
+      "text": "G=0 (no green) to 1 (full green intensity)"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "base",
+      "right": 388,
+      "text": "0 (no green) to 1 (full green intensity)"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, RGB",
+      "fs": "25.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Advantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Disadvantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 1
+   },
+   "rgbSegs": {
+    "mode": "window",
+    "shots": [
+     "390-light-08-rgb-seg0.png",
+     "390-light-08-rgb-seg1.png",
+     "390-light-08-rgb-seg2.png",
+     "390-light-08-rgb-seg3.png"
+    ]
+   },
+   "lab": {
+    "card": {
+     "x": 16,
+     "y": 410,
+     "w": 358,
+     "h": 7827,
+     "scrollH": 7825,
+     "clientH": 7825,
+     "scrollW": 356,
+     "clientW": 356,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 8576
+    },
+    "space": "lab",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 109,
+      "w": 332
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 60,
+      "w": 298
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 149
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 147
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 249
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 44
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 49
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 44
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 30,
+      "w": 55
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 397,
+      "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases} "
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 397,
+      "text": "f(t)={t3t>ϵκ t+16116otherwise"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 397,
+      "text": "{t3t>ϵκ t+16116otherwise"
+     },
+     {
+      "tag": "mtable",
+      "cls": "",
+      "right": 397,
+      "text": "t3t>ϵκ t+16116otherwise"
+     },
+     {
+      "tag": "mtr",
+      "cls": "",
+      "right": 397,
+      "text": "t3t>ϵ"
+     },
+     {
+      "tag": "mtd",
+      "cls": "",
+      "right": 397,
+      "text": "t>ϵ"
+     },
+     {
+      "tag": "mstyle",
+      "cls": "",
+      "right": 376,
+      "text": "t>ϵ"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 376,
+      "text": "t>ϵ"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 376,
+      "text": "ϵ"
+     },
+     {
+      "tag": "mtr",
+      "cls": "",
+      "right": 397,
+      "text": "κ t+16116otherwise"
+     },
+     {
+      "tag": "mtd",
+      "cls": "",
+      "right": 397,
+      "text": "otherwise"
+     },
+     {
+      "tag": "mstyle",
+      "cls": "",
+      "right": 397,
+      "text": "otherwise"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Lab",
+      "fs": "25.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Advantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Disadvantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 3
+   },
+   "labSegs": {
+    "mode": "window",
+    "shots": [
+     "390-light-08-lab-seg0.png",
+     "390-light-08-lab-seg1.png",
+     "390-light-08-lab-seg2.png",
+     "390-light-08-lab-seg3.png",
+     "390-light-08-lab-seg4.png",
+     "390-light-08-lab-seg5.png",
+     "390-light-08-lab-seg6.png",
+     "390-light-08-lab-seg7.png",
+     "390-light-08-lab-seg8.png",
+     "390-light-08-lab-seg9.png"
+    ]
+   },
+   "display-p3": {
+    "card": {
+     "x": 16,
+     "y": 316,
+     "w": 358,
+     "h": 1407,
+     "scrollH": 1405,
+     "clientH": 1405,
+     "scrollW": 356,
+     "clientW": 356,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 2109
+    },
+    "space": "display-p3",
+    "guide": "none-authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 109,
+      "w": 332
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 60,
+      "w": 298
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 201
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 285
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "h": 56,
+      "w": 301
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 96
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 49
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 96
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 30,
+      "w": 130
+     }
+    ],
+    "overflowers": [],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Display P3",
+      "fs": "25.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 0
+   }
+  },
+  "390-dark": {
+   "errors": [],
+   "oklch": {
+    "card": {
+     "x": 16,
+     "y": 736,
+     "w": 358,
+     "h": 7961,
+     "scrollH": 7959,
+     "clientH": 7959,
+     "scrollW": 356,
+     "clientW": 356,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 8710
+    },
+    "space": "oklch",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 89,
+      "w": 332
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 298
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 195
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 276
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 88,
+      "w": 332
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 71
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 68
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 71
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 15
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 30,
+      "w": 95
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 475,
+      "text": "a=Ccos⁡(2πh),b=Csin⁡(2πh)a = C \\cos(2\\pi h), \\quad"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 475,
+      "text": "a=Ccos⁡(2πh),b=Csin⁡(2πh)"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 386,
+      "text": "="
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 404,
+      "text": "C"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 428,
+      "text": "sin"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 435,
+      "text": "("
+     },
+     {
+      "tag": "mn",
+      "cls": "",
+      "right": 445,
+      "text": "2"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 457,
+      "text": "π"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 468,
+      "text": "h"
+     },
+     {
+      "tag": "mo",
+      "cls": "",
+      "right": 475,
+      "text": ")"
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 478,
+      "text": "C=a2+b2,h=atan2⁡(b, a)2πC = \\sqrt{a^2 + b^2}, \\qua"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 478,
+      "text": "C=a2+b2,h=atan2⁡(b, a)2π"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, OKLCh",
+      "fs": "25.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Advantages",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Disadvantages",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 1
+   },
+   "oklchSegs": {
+    "mode": "window",
+    "shots": [
+     "390-dark-03-oklch-seg0.png",
+     "390-dark-03-oklch-seg1.png",
+     "390-dark-03-oklch-seg2.png",
+     "390-dark-03-oklch-seg3.png",
+     "390-dark-03-oklch-seg4.png",
+     "390-dark-03-oklch-seg5.png",
+     "390-dark-03-oklch-seg6.png",
+     "390-dark-03-oklch-seg7.png"
+    ]
+   },
+   "tooltip": [
+    {
+     "w": 0,
+     "h": 0,
+     "text": "",
+     "cls": ""
+    },
+    {
+     "w": 1,
+     "h": 1,
+     "text": "",
+     "cls": ""
+    }
+   ],
+   "defTooltip": 0,
+   "rgb": {
+    "card": {
+     "x": 16,
+     "y": 316,
+     "w": 358,
+     "h": 7628,
+     "scrollH": 7626,
+     "clientH": 7626,
+     "scrollW": 356,
+     "clientW": 356,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 8331
+    },
+    "space": "rgb",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 89,
+      "w": 332
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 40,
+      "w": 298
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 157
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 170
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 157
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 52
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 49
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 52
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 30,
+      "w": 65
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "math",
+      "cls": "",
+      "right": 380,
+      "text": "R=0 (no red) to 1 (full red intensity)R = 0 \\text{"
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 380,
+      "text": "R=0 (no red) to 1 (full red intensity)R = 0 \\text{"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 380,
+      "text": "R=0 (no red) to 1 (full red intensity)"
+     },
+     {
+      "tag": "mtext",
+      "cls": "",
+      "right": 380,
+      "text": "(full red intensity)"
+     },
+     {
+      "tag": "DIV",
+      "cls": "inline-block",
+      "right": 388,
+      "text": "G=0 (no green) to 1 (full green intensity)G = 0 \\t"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "katex",
+      "right": 388,
+      "text": "G=0 (no green) to 1 (full green intensity)G = 0 \\t"
+     },
+     {
+      "tag": "math",
+      "cls": "",
+      "right": 420,
+      "text": "G=0 (no green) to 1 (full green intensity)G = 0 \\t"
+     },
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 420,
+      "text": "G=0 (no green) to 1 (full green intensity)G = 0 \\t"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 420,
+      "text": "G=0 (no green) to 1 (full green intensity)"
+     },
+     {
+      "tag": "mtext",
+      "cls": "",
+      "right": 420,
+      "text": "(full green intensity)"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "katex-html",
+      "right": 388,
+      "text": "G=0 (no green) to 1 (full green intensity)"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "base",
+      "right": 388,
+      "text": "0 (no green) to 1 (full green intensity)"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, RGB",
+      "fs": "25.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Advantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Disadvantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 1
+   },
+   "rgbSegs": {
+    "mode": "window",
+    "shots": [
+     "390-dark-08-rgb-seg0.png",
+     "390-dark-08-rgb-seg1.png",
+     "390-dark-08-rgb-seg2.png",
+     "390-dark-08-rgb-seg3.png"
+    ]
+   },
+   "lab": {
+    "card": {
+     "x": 16,
+     "y": 410,
+     "w": 358,
+     "h": 7827,
+     "scrollH": 7825,
+     "clientH": 7825,
+     "scrollW": 356,
+     "clientW": 356,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 8576
+    },
+    "space": "lab",
+    "guide": "authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 109,
+      "w": 332
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 60,
+      "w": 298
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 149
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 147
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 249
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 44
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 49
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 44
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "p > code",
+      "radius": "4px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 19,
+      "w": 23
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 30,
+      "w": 55
+     }
+    ],
+    "overflowers": [
+     {
+      "tag": "semantics",
+      "cls": "",
+      "right": 397,
+      "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases} "
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 397,
+      "text": "f(t)={t3t>ϵκ t+16116otherwise"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 397,
+      "text": "{t3t>ϵκ t+16116otherwise"
+     },
+     {
+      "tag": "mtable",
+      "cls": "",
+      "right": 397,
+      "text": "t3t>ϵκ t+16116otherwise"
+     },
+     {
+      "tag": "mtr",
+      "cls": "",
+      "right": 397,
+      "text": "t3t>ϵ"
+     },
+     {
+      "tag": "mtd",
+      "cls": "",
+      "right": 397,
+      "text": "t>ϵ"
+     },
+     {
+      "tag": "mstyle",
+      "cls": "",
+      "right": 376,
+      "text": "t>ϵ"
+     },
+     {
+      "tag": "mrow",
+      "cls": "",
+      "right": 376,
+      "text": "t>ϵ"
+     },
+     {
+      "tag": "mi",
+      "cls": "",
+      "right": 376,
+      "text": "ϵ"
+     },
+     {
+      "tag": "mtr",
+      "cls": "",
+      "right": 397,
+      "text": "κ t+16116otherwise"
+     },
+     {
+      "tag": "mtd",
+      "cls": "",
+      "right": 397,
+      "text": "otherwise"
+     },
+     {
+      "tag": "mstyle",
+      "cls": "",
+      "right": 397,
+      "text": "otherwise"
+     }
+    ],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Lab",
+      "fs": "25.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Attributes",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Historical Context",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fs": "30px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Advantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H3",
+      "text": "Disadvantages",
+      "fs": "24px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 3
+   },
+   "labSegs": {
+    "mode": "window",
+    "shots": [
+     "390-dark-08-lab-seg0.png",
+     "390-dark-08-lab-seg1.png",
+     "390-dark-08-lab-seg2.png",
+     "390-dark-08-lab-seg3.png",
+     "390-dark-08-lab-seg4.png",
+     "390-dark-08-lab-seg5.png",
+     "390-dark-08-lab-seg6.png",
+     "390-dark-08-lab-seg7.png",
+     "390-dark-08-lab-seg8.png",
+     "390-dark-08-lab-seg9.png"
+    ]
+   },
+   "display-p3": {
+    "card": {
+     "x": 16,
+     "y": 316,
+     "w": 358,
+     "h": 1407,
+     "scrollH": 1405,
+     "clientH": 1405,
+     "scrollW": 356,
+     "clientW": 356,
+     "radius": "16px",
+     "overflowY": "auto"
+    },
+    "doc": {
+     "scrollW": 390,
+     "clientW": 390,
+     "scrollH": 2109
+    },
+    "space": "display-p3",
+    "guide": "none-authored",
+    "radii": [
+     {
+      "sel": "[data-slot=alert]",
+      "radius": "8px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 109,
+      "w": 332
+     },
+     {
+      "sel": "[data-fact=definition]",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 60,
+      "w": 298
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 201
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 285
+     },
+     {
+      "sel": ".bg-well.rounded-panel",
+      "radius": "12px",
+      "bg": "oklab(0.345295 0.0103877 0.0175526)",
+      "h": 56,
+      "w": 301
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 96
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 49
+     },
+     {
+      "sel": "[data-o18=graph-node]",
+      "radius": "4px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 32,
+      "w": 96
+     },
+     {
+      "sel": "[aria-label='Select color space']",
+      "radius": "6px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "h": 30,
+      "w": 130
+     }
+    ],
+    "overflowers": [],
+    "headings": [
+     {
+      "tag": "H2",
+      "text": "About the color spaces, Display P3",
+      "fs": "25.888px",
+      "fw": "400",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Basic Information",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Components",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Key Properties",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Conversion Graph",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Usage",
+      "fs": "20.352px",
+      "fw": "600",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     },
+     {
+      "tag": "H2",
+      "text": "Detailed Guide",
+      "fs": "32.928px",
+      "fw": "700",
+      "ff": "Fraunces, \"Fraunces Fallback\","
+     }
+    ],
+    "katexDisplays": 0
+   }
+  }
+ }
+}

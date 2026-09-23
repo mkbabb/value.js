@@ -1,0 +1,21 @@
+captured 1440-light-01-empty-pending.png
+captured 1440-light-02-empty-approved.png
+ERR 1440-light propose TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: /Tools/ }).first()[22m
+
+captured 1440-light-14-error.png
+captured 1440-light-15-loading.png
+captured 1440-light-05-pending-populated.png
+captured 1440-light-06-approve-hover.png
+captured 1440-light-06b-reject-hover.png
+captured 1440-light-07-reject-keyboard-focus.png
+captured 1440-light-08-reject-confirm.png
+captured 1440-light-09-reject-notice.png
+captured 1440-light-10-approve-notice.png
+captured 1440-light-10b-notice-after-4s.png
+captured 1440-light-11-approved-populated.png
+captured 1440-light-12-delete-confirm.png
+captured 1440-light-13-filtered-empty.png
+captured 1440-light-00-signed-out.png
+CONTEXT-CLOSED 1440-light 2026-09-23T17:44:26.993Z

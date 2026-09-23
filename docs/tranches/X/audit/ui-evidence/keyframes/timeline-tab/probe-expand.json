@@ -1,0 +1,486 @@
+{
+  "1440-300ms": {
+    "stages": [
+      {
+        "box": [
+          60,
+          387,
+          441,
+          160
+        ],
+        "inCell": true
+      },
+      {
+        "box": [
+          60,
+          820,
+          441,
+          160
+        ],
+        "inCell": true
+      },
+      {
+        "box": [
+          60,
+          1339,
+          441,
+          160
+        ],
+        "inCell": true
+      }
+    ],
+    "toolbars": [
+      {
+        "l": "Collapse timeline",
+        "box": [
+          465,
+          339,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          465,
+          772,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          465,
+          1291,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          953,
+          773,
+          40,
+          40
+        ],
+        "inCell": false
+      }
+    ],
+    "cell": {
+      "box": [
+        43,
+        318,
+        475,
+        528
+      ],
+      "radius": "0px",
+      "overflow": [
+        1495,
+        526
+      ]
+    },
+    "ribbon": [
+      [
+        107,
+        303,
+        121,
+        36
+      ]
+    ],
+    "vh": 900,
+    "placeholder": [
+      [
+        175,
+        146,
+        200,
+        23
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "transport": [
+      692,
+      773,
+      386,
+      40
+    ]
+  },
+  "1440-3300ms": {
+    "stages": [
+      {
+        "box": [
+          60,
+          375,
+          441,
+          160
+        ],
+        "inCell": true
+      },
+      {
+        "box": [
+          60,
+          809,
+          441,
+          160
+        ],
+        "inCell": true
+      },
+      {
+        "box": [
+          60,
+          1327,
+          441,
+          160
+        ],
+        "inCell": true
+      }
+    ],
+    "toolbars": [
+      {
+        "l": "Collapse timeline",
+        "box": [
+          465,
+          327,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          465,
+          761,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          465,
+          1279,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          953,
+          773,
+          40,
+          40
+        ],
+        "inCell": false
+      }
+    ],
+    "cell": {
+      "box": [
+        43,
+        306,
+        475,
+        540
+      ],
+      "radius": "0px",
+      "overflow": [
+        1495,
+        538
+      ]
+    },
+    "ribbon": [
+      [
+        107,
+        303,
+        121,
+        36
+      ]
+    ],
+    "vh": 900,
+    "placeholder": [
+      [
+        175,
+        146,
+        200,
+        23
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "transport": [
+      692,
+      773,
+      386,
+      40
+    ]
+  },
+  "390-300ms": {
+    "stages": [
+      {
+        "box": [
+          17,
+          316,
+          356,
+          160
+        ],
+        "inCell": true
+      },
+      {
+        "box": [
+          17,
+          823,
+          356,
+          160
+        ],
+        "inCell": true
+      },
+      {
+        "box": [
+          17,
+          1330,
+          356,
+          160
+        ],
+        "inCell": true
+      }
+    ],
+    "toolbars": [
+      {
+        "l": "Collapse timeline",
+        "box": [
+          337,
+          268,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          337,
+          775,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          337,
+          1282,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          408,
+          737,
+          40,
+          40
+        ],
+        "inCell": false
+      }
+    ],
+    "cell": {
+      "box": [
+        0,
+        247,
+        390,
+        476
+      ],
+      "radius": "0px",
+      "overflow": [
+        1546,
+        474
+      ]
+    },
+    "ribbon": [
+      [
+        84,
+        785,
+        110,
+        36
+      ]
+    ],
+    "vh": 844,
+    "placeholder": [
+      [
+        104,
+        631,
+        170,
+        20
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "transport": [
+      167,
+      737,
+      349,
+      40
+    ]
+  },
+  "390-3300ms": {
+    "stages": [
+      {
+        "box": [
+          17,
+          285,
+          356,
+          160
+        ],
+        "inCell": true
+      },
+      {
+        "box": [
+          17,
+          792,
+          356,
+          160
+        ],
+        "inCell": true
+      },
+      {
+        "box": [
+          17,
+          1300,
+          356,
+          160
+        ],
+        "inCell": true
+      }
+    ],
+    "toolbars": [
+      {
+        "l": "Collapse timeline",
+        "box": [
+          337,
+          237,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          337,
+          744,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          337,
+          1252,
+          36,
+          36
+        ],
+        "inCell": true
+      },
+      {
+        "l": "Collapse timeline",
+        "box": [
+          408,
+          737,
+          40,
+          40
+        ],
+        "inCell": false
+      }
+    ],
+    "cell": {
+      "box": [
+        0,
+        216,
+        390,
+        506
+      ],
+      "radius": "0px",
+      "overflow": [
+        1546,
+        504
+      ]
+    },
+    "ribbon": [
+      [
+        84,
+        785,
+        110,
+        36
+      ]
+    ],
+    "vh": 844,
+    "placeholder": [
+      [
+        104,
+        631,
+        170,
+        20
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "transport": [
+      167,
+      737,
+      349,
+      40
+    ]
+  }
+}

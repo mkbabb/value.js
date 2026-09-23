@@ -1,0 +1,14 @@
+{
+ "seat": "admin-flagged",
+ "base": "http://localhost:9000",
+ "head": "e518a7a0",
+ "dirty": 8,
+ "captured": "2026-09-23T16:38:15.794Z",
+ "frames": [
+  {
+   "ctx": "1440-dark",
+   "errors": []
+  }
+ ],
+ "adminCalls": []
+}

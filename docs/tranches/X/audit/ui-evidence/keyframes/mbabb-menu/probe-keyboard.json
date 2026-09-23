@@ -1,0 +1,38 @@
+{
+  "openedByEnter": {
+    "theme": "",
+    "menu": true,
+    "popover": [],
+    "focus": "menuitem:ShareCopy link or lo"
+  },
+  "afterDown1": {
+    "theme": "",
+    "menu": true,
+    "popover": [],
+    "focus": "menuitem:Dark modeLight or da"
+  },
+  "darkEnter": {
+    "theme": "",
+    "menu": true,
+    "popover": [],
+    "focus": "menuitem:Dark modeLight or da"
+  },
+  "darkSpace": {
+    "theme": "",
+    "menu": true,
+    "popover": [],
+    "focus": "menuitem:Dark modeLight or da"
+  },
+  "shareEnter": {
+    "theme": "",
+    "menu": true,
+    "popover": [],
+    "focus": "menuitem:ShareCopy link or lo"
+  },
+  "tabInMenu": {
+    "theme": "",
+    "menu": true,
+    "popover": [],
+    "focus": "menuitem:ShareCopy link or lo"
+  }
+}

@@ -1,0 +1,22 @@
+// type into the readout contenteditable; capture result (read-only on the app tree; state is in-page only)
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const OUT = "/Users/mkbabb/Programming/value.js/docs/tranches/X/audit/ui-evidence/value/home-picker";
+const b = await chromium.launch({ headless: false });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
+const p = await ctx.newPage();
+await p.goto("http://localhost:9000/#/", { waitUntil: "load", timeout: 60000 });
+await p.waitForTimeout(4000);
+const fig = p.locator(".readout-fig").nth(1);
+await fig.click();
+await p.keyboard.press("Meta+A");
+await p.keyboard.type("-40", { delay: 120 });
+await p.waitForTimeout(900);
+const s = await p.evaluate(() => ({ cells: [...document.querySelectorAll(".readout-fig")].map(e => e.innerText), meters: [...document.querySelectorAll(".channel-meter")].map(e => e.textContent.trim()), sel: String(getSelection()) , active: document.activeElement?.getAttribute("aria-label") }));
+console.log("after type -40", JSON.stringify(s));
+await p.locator(".pane-shell").first().screenshot({ path: `${OUT}/1440-light-13-typed-value.png` });
+await p.keyboard.press("Escape"); await p.waitForTimeout(500);
+const s2 = await p.evaluate(() => ({ cells: [...document.querySelectorAll(".readout-fig")].map(e => e.innerText), active: document.activeElement?.getAttribute("aria-label") }));
+console.log("after Escape", JSON.stringify(s2));
+await p.keyboard.press("Tab"); await p.waitForTimeout(500);
+console.log("after Tab", await p.evaluate(() => document.activeElement?.getAttribute("aria-label") || document.activeElement?.tagName));
+await b.close();

@@ -1,0 +1,1856 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 12,
+ "when": "2026-09-23T17:40:33.601Z",
+ "runs": [
+  {
+   "tag": "1440-dark",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 12,
+   "frames": [
+    {
+     "frame": "00-physics-tab-rest-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=on",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       469,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      89,
+      638,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-14,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,62,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,638,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "01-dock-controls-tab-select-open-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=on",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       469,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      89,
+      638,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-14,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,62,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,638,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-response-slider-hover-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=on",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       469,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      89,
+      638,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-14,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,62,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,638,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-response-slider-kbd-focus-none-preset-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       469,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.53 s / ζ 0.86",
+      "0.53 s / ζ 0.86"
+     ],
+     "kfSection": [
+      89,
+      638,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-14,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,62,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,638,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN slider",
+     "hscroll": false
+    },
+    {
+     "frame": "03-no-preset-active-crop-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       372,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.53 s / ζ 0.86",
+      "0.53 s / ζ 0.86"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-111,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-35,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,541,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN slider",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-heatmap-hover-cell-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       545,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.53 s / ζ 0.86",
+      "0.53 s / ζ 0.86"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,62,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,138,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,714,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN slider",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-heatmap-kbd-focus-arrow-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       545,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.48 s / ζ 0.91",
+      "0.48 s / ζ 0.91"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,62,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,138,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,714,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "DIV Spring parameter field — response 0.1 to 1.2 s across, damping ζ 1.5 at the top to 0.2 at the bottom. Click, sweep or use the arrow keys to move by 0.05; the sliders above set exact values.",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-preset-smooth-selected-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=on",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       372,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-111,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-35,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,541,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-preset-bouncy-hover-crop-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=on",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=off",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       372,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-111,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-35,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,541,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-preset-bouncy-selected-crop-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       372,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-111,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-35,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,541,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-preset-kbd-arrow-focus-crop-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       372,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      541,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-111,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-35,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,541,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-inline-editor-top-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-inline-editor-scrolled-footer-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       284,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      453,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      753,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-198,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-123,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,453,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-keyframe-card-hover-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07-invalid-offset-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1189,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "abc 64w r=9999px inv=true",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [
+      "Invalid keyframe selector \"abc\": keyframe_selector_invalid at 0-3."
+     ],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "INPUT Offset",
+     "hscroll": false
+    },
+    {
+     "frame": "08a-toolbar-kbd-focus-add-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Add keyframes",
+     "hscroll": false
+    },
+    {
+     "frame": "08b-add-keyframes-dialog-open-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Add keyframesAppend @keyframes stops to the current animationAdd keyframesClose 384,198,672,504 r=16px"
+     ],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "TEXTAREA Add keyframes",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-apply-hover-tooltip-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Add keyframes",
+     "hscroll": false
+    },
+    {
+     "frame": "09b-apply-clicked-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Apply the keyframes as a CSS animation",
+     "hscroll": false
+    },
+    {
+     "frame": "09c-offsets-slider-kbd-retime-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN Value 2 of 5",
+     "hscroll": false
+    },
+    {
+     "frame": "10a-resample-hover-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN Value 2 of 5",
+     "hscroll": false
+    },
+    {
+     "frame": "10b-resample-clicked-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       -10,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      159,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,-492,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,-417,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,159,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON reseed-btn shrink-0 inline-flex items-ce",
+     "hscroll": false
+    },
+    {
+     "frame": "11a-tab-keyframes-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       999,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      1168,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane 71,62,407,454 vis=visible",
+      "spring-heatmap-section grid gap-2 89,592,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,1168,371,447 vis=visible",
+      "monaco-pane 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Keyframes",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "11b-tab-controls-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       937,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      1106,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      " 71,62,407,392 vis=visible",
+      "monaco-pane inactive 71,454,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,530,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,1106,371,447 vis=visible",
+      " 0,0,0,0 vis=false",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Controls",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "11c-tab-timeline-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       545,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,62,407,0 vis=false",
+      " 71,62,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,138,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,714,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      " 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Timeline",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "11d-tab-physics-1440-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 12,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 182x75 r=9999px st=off",
+      "snappy0.35 / 0.65 182x75 r=9999px st=off",
+      "bouncy0.5 / 0.45 182x75 r=9999px st=on",
+      "gentle0.7 / 1 182x52 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       89,
+       545,
+       371,
+       157
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      89,
+      714,
+      371,
+      447
+     ],
+     "kfScroll": [
+      416,
+      1169,
+      193,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [],
+     "panes": [
+      "monaco-pane inactive 71,62,407,0 vis=false",
+      "spring-heatmap-section grid gap-2 89,138,371,395 vis=visible",
+      "keyframes-section grid gap-2 89,714,371,447 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "heatBox": {
+     "x": 119.203125,
+     "y": 191.8125,
+     "width": 341.1953125,
+     "height": 256
+    },
+    "heatFocus": "<div data-v-167efa80=\"\" class=\"spring-heatmap kf-focus-ring relative select-none cursor-crosshair rounded-md\" role=\"application\" aria-label=\"Spring parameter field — response 0.1 to 1.2 s across, damp"
+   },
+   "errors": [
+    "404 http://localhost:5173/assets/icons/favicon.svg",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  }
+ ]
+}

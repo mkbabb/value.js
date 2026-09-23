@@ -1,0 +1,4 @@
+{"pre":"390-light","seg":"open","attempt":0,"failed":"TimeoutError: locator.waitFor: Timeout 300000ms exceeded.","externallyClosed":false}
+{"pre":"390-light","seg":"open","attempt":1,"failed":"TimeoutError: page.goto: Timeout 240000ms exceeded.","externallyClosed":false}
+{"pre":"390-light","seg":"open","attempt":2,"failed":"TimeoutError: locator.waitFor: Timeout 300000ms exceeded.","externallyClosed":false}
+{"pre":"390-light","seg":"invalid","attempt":0,"failed":"Error: page.goto: Target page, context or browser has been closed","externallyClosed":true}

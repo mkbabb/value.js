@@ -1,0 +1,442 @@
+{
+ "head": "f95a2f77",
+ "dirty": 20,
+ "at": "2026-09-23T15:57:24.985Z",
+ "rec": {
+  "tag": "390-dark",
+  "steps": [
+   {
+    "name": "00-browse",
+    "ok": true,
+    "r": "Owned One 3 +1 3"
+   },
+   {
+    "name": "01-menu",
+    "ok": true
+   },
+   {
+    "name": "02-open",
+    "ok": true,
+    "r": {
+     "box": {
+      "x": 0,
+      "y": 4,
+      "w": 208,
+      "h": 244.96875
+     },
+     "radius": "12px",
+     "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+     "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+     "cls": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-52 p-",
+     "ariaLabel": null,
+     "labelledby": "reka-popover-trigger-v-33",
+     "label": {
+      "font": "12.179px / 18.2685px \"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "txt": "Tags"
+     },
+     "rows": [
+      {
+       "h": 27.59375,
+       "radius": "6px",
+       "font": "14px"
+      },
+      {
+       "h": 27.59375,
+       "radius": "6px",
+       "font": "14px"
+      },
+      {
+       "h": 27.59375,
+       "radius": "6px",
+       "font": "14px"
+      }
+     ],
+     "nRows": 10,
+     "cb": [
+      {
+       "state": "checked",
+       "radius": "9999px",
+       "w": 16,
+       "h": 16
+      },
+      {
+       "state": "unchecked",
+       "radius": "9999px",
+       "w": 16,
+       "h": 16
+      },
+      {
+       "state": "unchecked",
+       "radius": "9999px",
+       "w": 16,
+       "h": 16
+      },
+      {
+       "state": "unchecked",
+       "radius": "9999px",
+       "w": 16,
+       "h": 16
+      }
+     ],
+     "scroll": {
+      "sh": 302,
+      "ch": 160
+     },
+     "errText": null,
+     "text": "TAGS\nwarm\nMOOD\ncool\nMOOD\npastel\nSTYLE\nneon\nSTYLE\nearthy\nTHEME\nocean\nTHEME\nretro\nERA\nminimal\nSTYLE\nautumn\nSEASON\nvibrant\nMOOD",
+     "focus": "<button data-slot=\"checkbox\" class=\"checkbox control-surface glass-control-edge focus-ring tap-squish shrink-0\" role=\"checkbox\" type=\"button"
+    }
+   },
+   {
+    "name": "03-hover",
+    "ok": true
+   },
+   {
+    "name": "04-add",
+    "ok": true,
+    "r": {
+     "pop": {
+      "box": {
+       "x": 0,
+       "y": 4,
+       "w": 208,
+       "h": 244.96875
+      },
+      "radius": "12px",
+      "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+      "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+      "cls": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-52 p-",
+      "ariaLabel": null,
+      "labelledby": "reka-popover-trigger-v-33",
+      "label": {
+       "font": "12.179px / 18.2685px \"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+       "txt": "Tags"
+      },
+      "rows": [
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       },
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       },
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       }
+      ],
+      "nRows": 10,
+      "cb": [
+       {
+        "state": "checked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "checked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "unchecked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "unchecked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       }
+      ],
+      "scroll": {
+       "sh": 302,
+       "ch": 160
+      },
+      "errText": null,
+      "text": "TAGS\nwarm\nMOOD\ncool\nMOOD\npastel\nSTYLE\nneon\nSTYLE\nearthy\nTHEME\nocean\nTHEME\nretro\nERA\nminimal\nSTYLE\nautumn\nSEASON\nvibrant\nMOOD",
+      "focus": "<button data-slot=\"checkbox\" class=\"checkbox control-surface glass-control-edge focus-ring tap-squish shrink-0\" role=\"checkbox\" type=\"button"
+     },
+     "patches": [
+      {
+       "mode": "ok",
+       "body": {
+        "tags": [
+         "warm",
+         "cool"
+        ]
+       },
+       "ifMatch": "\"h2\""
+      }
+     ]
+    }
+   },
+   {
+    "name": "05-remove",
+    "ok": true,
+    "r": {
+     "pop": {
+      "box": {
+       "x": 0,
+       "y": 4,
+       "w": 208,
+       "h": 244.96875
+      },
+      "radius": "12px",
+      "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+      "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+      "cls": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-52 p-",
+      "ariaLabel": null,
+      "labelledby": "reka-popover-trigger-v-33",
+      "label": {
+       "font": "12.179px / 18.2685px \"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+       "txt": "Tags"
+      },
+      "rows": [
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       },
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       },
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       }
+      ],
+      "nRows": 10,
+      "cb": [
+       {
+        "state": "unchecked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "checked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "unchecked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "unchecked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       }
+      ],
+      "scroll": {
+       "sh": 302,
+       "ch": 160
+      },
+      "errText": null,
+      "text": "TAGS\nwarm\nMOOD\ncool\nMOOD\npastel\nSTYLE\nneon\nSTYLE\nearthy\nTHEME\nocean\nTHEME\nretro\nERA\nminimal\nSTYLE\nautumn\nSEASON\nvibrant\nMOOD",
+      "focus": "<button data-slot=\"checkbox\" class=\"checkbox control-surface glass-control-edge focus-ring tap-squish shrink-0\" role=\"checkbox\" type=\"button"
+     },
+     "patches": [
+      {
+       "mode": "ok",
+       "body": {
+        "tags": [
+         "cool"
+        ]
+       },
+       "ifMatch": "\"h2\""
+      }
+     ]
+    }
+   },
+   {
+    "name": "06-kbd",
+    "ok": true,
+    "r": "<button data-slot=\"checkbox\" class=\"checkbox control-surface glass-control-edge focus-ring tap-squish shrink-0\" role=\"checkbox\" type=\"button\" aria-checked=\"fals"
+   },
+   {
+    "name": "07-scrolled",
+    "ok": true
+   },
+   {
+    "name": "08-closed-card",
+    "ok": true,
+    "r": "Owned One 3 +1 3"
+   },
+   {
+    "name": "09-save-fail",
+    "ok": true,
+    "r": {
+     "pop": {
+      "box": {
+       "x": 0,
+       "y": 4,
+       "w": 208,
+       "h": 244.96875
+      },
+      "radius": "12px",
+      "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+      "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+      "cls": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-52 p-",
+      "ariaLabel": null,
+      "labelledby": "reka-popover-trigger-v-33",
+      "label": {
+       "font": "12.179px / 18.2685px \"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+       "txt": "Tags"
+      },
+      "rows": [
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       },
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       },
+       {
+        "h": 27.59375,
+        "radius": "6px",
+        "font": "14px"
+       }
+      ],
+      "nRows": 10,
+      "cb": [
+       {
+        "state": "unchecked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "checked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "checked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       },
+       {
+        "state": "unchecked",
+        "radius": "9999px",
+        "w": 16,
+        "h": 16
+       }
+      ],
+      "scroll": {
+       "sh": 302,
+       "ch": 160
+      },
+      "errText": null,
+      "text": "TAGS\nwarm\nMOOD\ncool\nMOOD\npastel\nSTYLE\nneon\nSTYLE\nearthy\nTHEME\nocean\nTHEME\nretro\nERA\nminimal\nSTYLE\nautumn\nSEASON\nvibrant\nMOOD",
+      "focus": "<button data-slot=\"checkbox\" class=\"checkbox control-surface glass-control-edge focus-ring tap-squish shrink-0\" role=\"checkbox\" type=\"button"
+     },
+     "card": "Owned One 3 +2 3",
+     "alerts": [
+      "Browse view",
+      "No saved palettes yet.Add colors, then save."
+     ]
+    }
+   },
+   {
+    "name": "11-loading",
+    "ok": true
+   },
+   {
+    "name": "12-catalog-down",
+    "ok": true,
+    "r": {
+     "pop": {
+      "box": {
+       "x": 0,
+       "y": 4,
+       "w": 208,
+       "h": 116.796875
+      },
+      "radius": "12px",
+      "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+      "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+      "cls": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-52 p-",
+      "ariaLabel": null,
+      "labelledby": "reka-popover-trigger-v-31",
+      "label": {
+       "font": "12.179px / 18.2685px \"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+       "txt": "Tags"
+      },
+      "rows": [],
+      "nRows": 0,
+      "cb": [],
+      "scroll": null,
+      "errText": null,
+      "text": "TAGS\nNo tags available.",
+      "focus": "<button data-v-3624da25=\"\" data-slot=\"dropdown-menu-trigger\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"sm\" data-icon-only=\"tr"
+     },
+     "alerts": [
+      "backend offline — saved locally",
+      "Browse view",
+      "No saved palettes yet.Add colors, then save."
+     ]
+    }
+   },
+   {
+    "name": "13-catalog-empty",
+    "ok": true
+   }
+  ],
+  "patches": [
+   {
+    "mode": "ok",
+    "body": {
+     "tags": [
+      "warm",
+      "cool"
+     ]
+    },
+    "ifMatch": "\"h2\""
+   },
+   {
+    "mode": "ok",
+    "body": {
+     "tags": [
+      "cool"
+     ]
+    },
+    "ifMatch": "\"h2\""
+   },
+   {
+    "mode": "fail",
+    "body": {
+     "tags": [
+      "cool",
+      "pastel"
+     ]
+    },
+    "ifMatch": "\"h2\""
+   }
+  ],
+  "console": [
+   "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+   "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+  ]
+ }
+}

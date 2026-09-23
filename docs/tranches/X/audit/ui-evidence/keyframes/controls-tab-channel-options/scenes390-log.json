@@ -1,0 +1,126 @@
+{
+  "sha": "60477b06",
+  "dirty": 7,
+  "frames": [
+    {
+      "frame": "12-amiga-controls-default-390-light.png",
+      "sha": "60477b06",
+      "dirty": 7,
+      "drawer": {
+        "x": 0,
+        "y": 494.0799865722656,
+        "width": 390,
+        "height": 772,
+        "top": 494.0799865722656,
+        "right": 390,
+        "bottom": 1266.0799865722656,
+        "left": 0
+      }
+    },
+    {
+      "frame": "12-square-controls-default-390-light.png",
+      "sha": "60477b06",
+      "dirty": 7,
+      "drawer": {
+        "x": 0,
+        "y": 494.0799865722656,
+        "width": 390,
+        "height": 772,
+        "top": 494.0799865722656,
+        "right": 390,
+        "bottom": 1266.0799865722656,
+        "left": 0
+      }
+    },
+    {
+      "frame": "12-easing-controls-default-390-light.png",
+      "sha": "60477b06",
+      "dirty": 7,
+      "drawer": {
+        "x": 0,
+        "y": 293.3599853515625,
+        "width": 390,
+        "height": 772,
+        "top": 293.3599853515625,
+        "right": 390,
+        "bottom": 1065.3599853515625,
+        "left": 0
+      }
+    },
+    {
+      "frame": "12-spring-controls-default-390-light.png",
+      "sha": "60477b06",
+      "dirty": 7,
+      "drawer": {
+        "x": 0,
+        "y": 293.3599853515625,
+        "width": 390,
+        "height": 772,
+        "top": 293.3599853515625,
+        "right": 390,
+        "bottom": 1065.3599853515625,
+        "left": 0
+      }
+    },
+    {
+      "frame": "12-amiga-controls-default-390-dark.png",
+      "sha": "60477b06",
+      "dirty": 7,
+      "drawer": {
+        "x": 0,
+        "y": 494.0799865722656,
+        "width": 390,
+        "height": 772,
+        "top": 494.0799865722656,
+        "right": 390,
+        "bottom": 1266.0799865722656,
+        "left": 0
+      }
+    },
+    {
+      "frame": "12-square-controls-default-390-dark.png",
+      "sha": "60477b06",
+      "dirty": 7,
+      "drawer": {
+        "x": 0,
+        "y": 494.0799865722656,
+        "width": 390,
+        "height": 772,
+        "top": 494.0799865722656,
+        "right": 390,
+        "bottom": 1266.0799865722656,
+        "left": 0
+      }
+    },
+    {
+      "frame": "12-easing-controls-default-390-dark.png",
+      "sha": "60477b06",
+      "dirty": 7,
+      "drawer": {
+        "x": 0,
+        "y": 293.3599853515625,
+        "width": 390,
+        "height": 772,
+        "top": 293.3599853515625,
+        "right": 390,
+        "bottom": 1065.3599853515625,
+        "left": 0
+      }
+    },
+    {
+      "frame": "12-spring-controls-default-390-dark.png",
+      "sha": "60477b06",
+      "dirty": 7,
+      "drawer": {
+        "x": 0,
+        "y": 293.3599853515625,
+        "width": 390,
+        "height": 772,
+        "top": 293.3599853515625,
+        "right": 390,
+        "bottom": 1065.3599853515625,
+        "left": 0
+      }
+    }
+  ]
+}

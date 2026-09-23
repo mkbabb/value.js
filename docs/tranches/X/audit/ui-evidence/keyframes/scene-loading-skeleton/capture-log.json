@@ -1,0 +1,1980 @@
+{
+  "tree": "/Users/mkbabb/Programming/keyframes.js",
+  "sha": "60477b06",
+  "dirty": 2,
+  "when": "2026-09-23T16:44:42.583Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "frames": {
+        "hardLoadFallback": "01-hardload-fallback-1440-light.png",
+        "hardLoadFallback2": "02-hardload-fallback-t2-1440-light.png",
+        "swap0": "03-hardload-swap-t0-1440-light.png",
+        "swap150": "04-hardload-swap-t150-1440-light.png",
+        "resolved": "05-hardload-resolved-1440-light.png",
+        "before": "06-route-before-cube-1440-light.png",
+        "routeT120": "07-route-t120-1440-light.png",
+        "routeFallback": "08-route-fallback-1440-light.png",
+        "routeSwap0": "09-route-swap-t0-1440-light.png",
+        "routeResolved": "10-route-resolved-1440-light.png"
+      },
+      "notes": [],
+      "probeFallback": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 43,
+          "y": 106,
+          "w": 1354,
+          "h": 688,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "plate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 91,
+          "y": 154,
+          "w": 1258,
+          "h": 592,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheen": {
+          "cls": "skeleton scene-skeleton__sheen",
+          "radius": "16px",
+          "bg": "rgb(246, 243, 239)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 92,
+          "y": 155,
+          "w": 1256,
+          "h": 590,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheenAfter": {
+          "content": "\"\"",
+          "anim": "skeleton-scan-cd03d0b0 5s",
+          "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.216128 0.00350075 0.00518669 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+        },
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 43,
+          "y": 106,
+          "w": 1354,
+          "h": 688,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 43,
+          "y": 106,
+          "w": 1354,
+          "h": 688,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 91,
+          "y": 154,
+          "w": 1258,
+          "h": 592,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Loading scene",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "resolveMs": 477,
+      "probeSwap0": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "probeResolved": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "hitsA": 2,
+      "probeRouteFallback": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "plate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 566,
+          "y": 175,
+          "w": 782,
+          "h": 550,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheen": {
+          "cls": "skeleton scene-skeleton__sheen",
+          "radius": "16px",
+          "bg": "rgb(246, 243, 239)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 567,
+          "y": 176,
+          "w": 780,
+          "h": 548,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheenAfter": {
+          "content": "\"\"",
+          "anim": "skeleton-scan-cd03d0b0 5s",
+          "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.216128 0.00350075 0.00518669 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+        },
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 566,
+          "y": 175,
+          "w": 782,
+          "h": 550,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Loading scene",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "trace": {
+        "flipIdx": 5,
+        "around": [
+          [
+            42,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            58,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            74,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            278,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            330,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            342,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            361,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            376,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            391,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            408,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            424,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            441,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            458,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            474,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            491,
+            "1",
+            false,
+            "scale(1)"
+          ]
+        ]
+      },
+      "probeRouteResolved": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "errs": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    {
+      "tag": "390-light",
+      "frames": {
+        "hardLoadFallback": "01-hardload-fallback-390-light.png",
+        "hardLoadFallback2": "02-hardload-fallback-t2-390-light.png",
+        "swap0": "03-hardload-swap-t0-390-light.png",
+        "swap150": "04-hardload-swap-t150-390-light.png",
+        "resolved": "05-hardload-resolved-390-light.png",
+        "before": "06-route-before-cube-390-light.png",
+        "routeT120": "07-route-t120-390-light.png",
+        "routeFallback": "08-route-fallback-390-light.png",
+        "routeSwap0": "09-route-swap-t0-390-light.png",
+        "routeResolved": "10-route-resolved-390-light.png"
+      },
+      "notes": [],
+      "probeFallback": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 74,
+          "w": 390,
+          "h": 696,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "plate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 16,
+          "y": 90,
+          "w": 358,
+          "h": 664,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheen": {
+          "cls": "skeleton scene-skeleton__sheen",
+          "radius": "16px",
+          "bg": "rgb(246, 243, 239)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 17,
+          "y": 91,
+          "w": 356,
+          "h": 662,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheenAfter": {
+          "content": "\"\"",
+          "anim": "skeleton-scan-cd03d0b0 5s",
+          "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.216128 0.00350075 0.00518669 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+        },
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 74,
+          "w": 390,
+          "h": 696,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 74,
+          "w": 390,
+          "h": 696,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 16,
+          "y": 90,
+          "w": 358,
+          "h": 664,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Loading scene",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "resolveMs": 459,
+      "probeSwap0": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "probeResolved": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "hitsA": 2,
+      "probeRouteFallback": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "plate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 16,
+          "y": 149,
+          "w": 358,
+          "h": 545,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheen": {
+          "cls": "skeleton scene-skeleton__sheen",
+          "radius": "16px",
+          "bg": "rgb(246, 243, 239)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 17,
+          "y": 150,
+          "w": 356,
+          "h": 543,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheenAfter": {
+          "content": "\"\"",
+          "anim": "skeleton-scan-cd03d0b0 5s",
+          "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.216128 0.00350075 0.00518669 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+        },
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 16,
+          "y": 149,
+          "w": 358,
+          "h": 545,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Loading scene",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "trace": {
+        "flipIdx": 4,
+        "around": [
+          [
+            25,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            42,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            60,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            276,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            321,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            330,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            344,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            360,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            387,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            396,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            410,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            429,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            451,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            488,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            504,
+            "1",
+            false,
+            "scale(1)"
+          ]
+        ]
+      },
+      "probeRouteResolved": {
+        "dark": false,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(198, 180, 159)",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(251, 250, 248)"
+      },
+      "errs": []
+    },
+    {
+      "tag": "1440-dark",
+      "frames": {
+        "hardLoadFallback": "01-hardload-fallback-1440-dark.png",
+        "hardLoadFallback2": "02-hardload-fallback-t2-1440-dark.png",
+        "swap0": "03-hardload-swap-t0-1440-dark.png",
+        "swap150": "04-hardload-swap-t150-1440-dark.png",
+        "resolved": "05-hardload-resolved-1440-dark.png",
+        "before": "06-route-before-cube-1440-dark.png",
+        "routeT120": "07-route-t120-1440-dark.png",
+        "routeFallback": "08-route-fallback-1440-dark.png",
+        "routeSwap0": "09-route-swap-t0-1440-dark.png",
+        "routeResolved": "10-route-resolved-1440-dark.png"
+      },
+      "notes": [],
+      "probeFallback": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 43,
+          "y": 106,
+          "w": 1354,
+          "h": 688,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "plate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 91,
+          "y": 154,
+          "w": 1258,
+          "h": 592,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheen": {
+          "cls": "skeleton scene-skeleton__sheen",
+          "radius": "16px",
+          "bg": "rgb(31, 28, 25)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 92,
+          "y": 155,
+          "w": 1256,
+          "h": 590,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheenAfter": {
+          "content": "\"\"",
+          "anim": "skeleton-scan-cd03d0b0 5s",
+          "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.925196 0.00238398 0.00574207 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+        },
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 43,
+          "y": 106,
+          "w": 1354,
+          "h": 688,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 43,
+          "y": 106,
+          "w": 1354,
+          "h": 688,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 91,
+          "y": 154,
+          "w": 1258,
+          "h": 592,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Loading scene",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "resolveMs": 366,
+      "probeSwap0": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 505,
+          "y": 127,
+          "w": 891,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 505,
+          "y": 127,
+          "w": 891,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+          "x": 505,
+          "y": 127,
+          "w": 891,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "probeResolved": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "hitsA": 2,
+      "probeRouteFallback": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "plate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 566,
+          "y": 175,
+          "w": 782,
+          "h": 550,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheen": {
+          "cls": "skeleton scene-skeleton__sheen",
+          "radius": "16px",
+          "bg": "rgb(31, 28, 25)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 567,
+          "y": 176,
+          "w": 780,
+          "h": 548,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheenAfter": {
+          "content": "\"\"",
+          "anim": "skeleton-scan-cd03d0b0 5s",
+          "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.925196 0.00238398 0.00574207 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+        },
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 566,
+          "y": 175,
+          "w": 782,
+          "h": 550,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Loading scene",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "trace": {
+        "flipIdx": 3,
+        "around": [
+          [
+            2,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            20,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            36,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            219,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            250,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            255,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            273,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            289,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            303,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            320,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            336,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            353,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            370,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            387,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            403,
+            "1",
+            false,
+            "scale(1)"
+          ]
+        ]
+      },
+      "probeRouteResolved": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+          "x": 518,
+          "y": 127,
+          "w": 878,
+          "h": 646,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "errs": []
+    },
+    {
+      "tag": "390-dark",
+      "frames": {
+        "hardLoadFallback": "01-hardload-fallback-390-dark.png",
+        "hardLoadFallback2": "02-hardload-fallback-t2-390-dark.png",
+        "swap0": "03-hardload-swap-t0-390-dark.png",
+        "swap150": "04-hardload-swap-t150-390-dark.png",
+        "resolved": "05-hardload-resolved-390-dark.png",
+        "before": "06-route-before-cube-390-dark.png",
+        "routeT120": "07-route-t120-390-dark.png",
+        "routeFallback": "08-route-fallback-390-dark.png",
+        "routeSwap0": "09-route-swap-t0-390-dark.png",
+        "routeResolved": "10-route-resolved-390-dark.png"
+      },
+      "notes": [],
+      "probeFallback": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 74,
+          "w": 390,
+          "h": 696,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "plate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 16,
+          "y": 90,
+          "w": 358,
+          "h": 664,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheen": {
+          "cls": "skeleton scene-skeleton__sheen",
+          "radius": "16px",
+          "bg": "rgb(31, 28, 25)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 17,
+          "y": 91,
+          "w": 356,
+          "h": 662,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheenAfter": {
+          "content": "\"\"",
+          "anim": "skeleton-scan-cd03d0b0 5s",
+          "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.925196 0.00238398 0.00574207 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+        },
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 74,
+          "w": 390,
+          "h": 696,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 74,
+          "w": 390,
+          "h": 696,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 16,
+          "y": 90,
+          "w": 358,
+          "h": 664,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Loading scene",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "resolveMs": 317,
+      "probeSwap0": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "probeResolved": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "hitsA": 2,
+      "probeRouteFallback": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "plate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 16,
+          "y": 149,
+          "w": 358,
+          "h": 545,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheen": {
+          "cls": "skeleton scene-skeleton__sheen",
+          "radius": "16px",
+          "bg": "rgb(31, 28, 25)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 17,
+          "y": 150,
+          "w": 356,
+          "h": 543,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "sheenAfter": {
+          "content": "\"\"",
+          "anim": "skeleton-scan-cd03d0b0 5s",
+          "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.925196 0.00238398 0.00574207 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+        },
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-skeleton",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+          "radius": "16px",
+          "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+          "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+          "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+          "x": 16,
+          "y": 149,
+          "w": 358,
+          "h": 545,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Loading scene",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "trace": {
+        "flipIdx": 2,
+        "around": [
+          [
+            7,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            25,
+            "1",
+            true,
+            "scale(1)"
+          ],
+          [
+            188,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            222,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            231,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            241,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            259,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            278,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            293,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            320,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            330,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            342,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            358,
+            "1",
+            false,
+            "scale(1)"
+          ],
+          [
+            375,
+            "1",
+            false,
+            "scale(1)"
+          ]
+        ]
+      },
+      "probeRouteResolved": {
+        "dark": true,
+        "hash": "#/amiga",
+        "skeleton": null,
+        "plate": null,
+        "sheen": null,
+        "sheenAfter": null,
+        "host": {
+          "cls": "scene-host h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "hostChild": {
+          "cls": "scene-root relative h-full w-full",
+          "radius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "none",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "resolvedPlate": {
+          "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+          "radius": "16px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "border": "0px rgb(101, 87, 73)",
+          "shadow": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+          "x": 0,
+          "y": 133,
+          "w": 390,
+          "h": 577,
+          "opacity": "1",
+          "anim": "none 0s"
+        },
+        "live": [
+          "polite:Scene ready",
+          "polite:",
+          "polite:",
+          "polite:"
+        ],
+        "vt": true,
+        "startScreen": false,
+        "bodyBg": "rgb(11, 10, 9)"
+      },
+      "errs": []
+    }
+  ],
+  "prm": {
+    "dark": false,
+    "hash": "#/amiga",
+    "skeleton": {
+      "cls": "scene-skeleton",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px rgb(198, 180, 159)",
+      "shadow": "none",
+      "x": 43,
+      "y": 106,
+      "w": 1354,
+      "h": 688,
+      "opacity": "1",
+      "anim": "none 1e-05s"
+    },
+    "plate": {
+      "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+      "radius": "16px",
+      "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+      "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+      "x": 91,
+      "y": 154,
+      "w": 1258,
+      "h": 592,
+      "opacity": "1",
+      "anim": "none 1e-05s"
+    },
+    "sheen": {
+      "cls": "skeleton scene-skeleton__sheen",
+      "radius": "16px",
+      "bg": "rgb(246, 243, 239)",
+      "border": "0px rgb(198, 180, 159)",
+      "shadow": "none",
+      "x": 92,
+      "y": 155,
+      "w": 1256,
+      "h": 590,
+      "opacity": "1",
+      "anim": "none 1e-05s"
+    },
+    "sheenAfter": {
+      "content": "\"\"",
+      "anim": "none 0s",
+      "bg": "linear-gradient(105deg, rgba(0, 0, 0, 0) 24%, oklab(0.216128 0.00350075 0.00518669 / 0.1) 48%, rgba(0, 0, 0, 0) 72%)"
+    },
+    "host": {
+      "cls": "scene-host h-full w-full",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px rgb(198, 180, 159)",
+      "shadow": "none",
+      "x": 43,
+      "y": 106,
+      "w": 1354,
+      "h": 688,
+      "opacity": "1",
+      "anim": "none 1e-05s"
+    },
+    "hostChild": {
+      "cls": "scene-skeleton",
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px rgb(198, 180, 159)",
+      "shadow": "none",
+      "x": 43,
+      "y": 106,
+      "w": 1354,
+      "h": 688,
+      "opacity": "1",
+      "anim": "none 1e-05s"
+    },
+    "resolvedPlate": {
+      "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden scene-skeleton__plate h-full w-full",
+      "radius": "16px",
+      "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+      "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+      "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+      "x": 91,
+      "y": 154,
+      "w": 1258,
+      "h": 592,
+      "opacity": "1",
+      "anim": "none 1e-05s"
+    },
+    "live": [
+      "polite:Loading scene",
+      "polite:"
+    ],
+    "vt": true,
+    "startScreen": false,
+    "bodyBg": "rgb(251, 250, 248)"
+  }
+}

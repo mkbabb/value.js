@@ -1,0 +1,83 @@
+{
+ "tree": "aac22c24 dirty=5",
+ "theme": "light",
+ "card": [
+  {
+   "cls": "gradient-rail relative select-none touch-none cursor-copy",
+   "shadow": "oklab(0.216128 0.00350075 0.00518669 / 0.12) 0px 0px 0px 1px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "rad": "9999px",
+   "r": [
+    686,
+    288
+   ]
+  },
+  {
+   "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overfl",
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+   "rad": "16px",
+   "r": [
+    711,
+    1072
+   ]
+  },
+  {
+   "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage",
+   "shadow": "none",
+   "rad": "0px",
+   "r": [
+    711,
+    1072
+   ]
+  },
+  {
+   "cls": "pane-container",
+   "shadow": "none",
+   "rad": "0px",
+   "r": [
+    1241,
+    1072
+   ]
+  },
+  {
+   "cls": "pane-main",
+   "shadow": "none",
+   "rad": "0px",
+   "r": [
+    1424,
+    1072
+   ]
+  }
+ ],
+ "rowOpen": "true",
+ "stage": {
+  "box": [
+   235,
+   882,
+   440,
+   476
+  ],
+  "inner": [
+   "group",
+   "slider",
+   "slider",
+   "select-trigger"
+  ],
+  "rad": [
+   "0px",
+   "0px",
+   "6px",
+   "0px",
+   "0px"
+  ]
+ },
+ "inspector": {
+  "text": "Stop 2 of 2\n\nPosition\n%\nRemove\n\nA gradient needs at least two stops, so this one cannot be removed.",
+  "removeDisabled": true
+ },
+ "code": {
+  "wordBreak": "break-all",
+  "overflowWrap": "break-word",
+  "ws": "pre-wrap",
+  "rad": "8px"
+ }
+}

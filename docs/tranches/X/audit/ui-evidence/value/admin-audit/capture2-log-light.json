@@ -1,0 +1,3004 @@
+{
+  "reqs": [
+    "live ?limit=20&offset=0",
+    "live ?limit=20&offset=0",
+    "entries ?limit=20&offset=0",
+    "entries ?limit=20&offset=20",
+    "entries ?limit=20&offset=40",
+    "entries ?limit=20&offset=20",
+    "entries ?limit=20&offset=0",
+    "entries ?limit=20&offset=0&action=zzz",
+    "entries ?limit=20&offset=0",
+    "loading ?limit=20&offset=0",
+    "error ?limit=20&offset=0",
+    "entries ?limit=20&offset=0",
+    "live ?limit=20&offset=0",
+    "entries ?limit=20&offset=0",
+    "entries ?limit=20&offset=20",
+    "entries ?limit=20&offset=40",
+    "entries ?limit=20&offset=20",
+    "entries ?limit=20&offset=0",
+    "entries ?limit=20&offset=0&action=zzz",
+    "entries ?limit=20&offset=0",
+    "loading ?limit=20&offset=0",
+    "error ?limit=20&offset=0",
+    "entries ?limit=20&offset=0"
+  ],
+  "log": [
+    {
+      "theme": "light",
+      "mountMs": 331035
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "empty",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              224,
+              439,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              360,
+              439,
+              374,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            1188,
+            443,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "count": "0 entries",
+        "plates": [
+          "Audit Log view",
+          "No audit entries found."
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            396,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            334,
+            1042,
+            336
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          334,
+          334
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "entries",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              224,
+              217,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              360,
+              217,
+              369,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            1188,
+            221,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 20,
+        "rows": [
+          {
+            "box": [
+              224,
+              265,
+              992,
+              73
+            ],
+            "r": "6px",
+            "fs": "18.608px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          },
+          {
+            "box": [
+              224,
+              350,
+              992,
+              73
+            ],
+            "r": "6px",
+            "fs": "18.608px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          }
+        ],
+        "badge": {
+          "box": [
+            237,
+            276,
+            173,
+            26
+          ],
+          "r": "9999px",
+          "fs": "16.4px",
+          "ff": "\"Fira Code\"",
+          "fw": "600",
+          "bg": "rgb(237, 230, 222)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "uppercase",
+          "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:"
+        },
+        "time": {
+          "box": [
+            418,
+            278,
+            137,
+            23
+          ],
+          "r": "0px",
+          "fs": "16.4px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-small text-muted-foreground tabular-nums shrink-0"
+        },
+        "target": {
+          "box": [
+            237,
+            304,
+            966,
+            23
+          ],
+          "r": "0px",
+          "fs": "16.4px",
+          "ff": "\"Fira Code\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-mono-small text-muted-foreground truncate"
+        },
+        "pager": [
+          {
+            "box": [
+              625,
+              1977,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "16.4px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule",
+            "disabled": true
+          },
+          {
+            "box": [
+              775,
+              1977,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "16.4px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          }
+        ],
+        "pageText": [
+          "Page 1 of 3"
+        ],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            174,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            112,
+            1042,
+            1942
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          1940,
+          1940
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "entries-bottom",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              224,
+              217,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              360,
+              217,
+              369,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            1188,
+            221,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 20,
+        "rows": [
+          {
+            "box": [
+              224,
+              265,
+              992,
+              73
+            ],
+            "r": "6px",
+            "fs": "18.608px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "oklab(0.871135 0.0072692 0.0236415 / 0.5)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          },
+          {
+            "box": [
+              224,
+              350,
+              992,
+              73
+            ],
+            "r": "6px",
+            "fs": "18.608px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          }
+        ],
+        "badge": {
+          "box": [
+            237,
+            276,
+            173,
+            26
+          ],
+          "r": "9999px",
+          "fs": "16.4px",
+          "ff": "\"Fira Code\"",
+          "fw": "600",
+          "bg": "rgb(237, 230, 222)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "uppercase",
+          "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:"
+        },
+        "time": {
+          "box": [
+            418,
+            278,
+            137,
+            23
+          ],
+          "r": "0px",
+          "fs": "16.4px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-small text-muted-foreground tabular-nums shrink-0"
+        },
+        "target": {
+          "box": [
+            237,
+            304,
+            966,
+            23
+          ],
+          "r": "0px",
+          "fs": "16.4px",
+          "ff": "\"Fira Code\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-mono-small text-muted-foreground truncate"
+        },
+        "pager": [
+          {
+            "box": [
+              625,
+              1977,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "16.4px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule",
+            "disabled": true
+          },
+          {
+            "box": [
+              775,
+              1977,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "16.4px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          }
+        ],
+        "pageText": [
+          "Page 1 of 3"
+        ],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            174,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            112,
+            1042,
+            1942
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          1940,
+          1940
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "entries-p2",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              224,
+              217,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              360,
+              217,
+              369,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            1188,
+            221,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 20,
+        "rows": [
+          {
+            "box": [
+              224,
+              265,
+              992,
+              73
+            ],
+            "r": "6px",
+            "fs": "18.608px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          },
+          {
+            "box": [
+              224,
+              350,
+              992,
+              73
+            ],
+            "r": "6px",
+            "fs": "18.608px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          }
+        ],
+        "badge": {
+          "box": [
+            237,
+            276,
+            149,
+            26
+          ],
+          "r": "9999px",
+          "fs": "16.4px",
+          "ff": "\"Fira Code\"",
+          "fw": "600",
+          "bg": "rgb(237, 230, 222)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "uppercase",
+          "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:"
+        },
+        "time": {
+          "box": [
+            394,
+            278,
+            138,
+            23
+          ],
+          "r": "0px",
+          "fs": "16.4px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-small text-muted-foreground tabular-nums shrink-0"
+        },
+        "target": {
+          "box": [
+            237,
+            304,
+            966,
+            23
+          ],
+          "r": "0px",
+          "fs": "16.4px",
+          "ff": "\"Fira Code\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-mono-small text-muted-foreground truncate"
+        },
+        "pager": [
+          {
+            "box": [
+              625,
+              1977,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "16.4px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          },
+          {
+            "box": [
+              775,
+              1977,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "16.4px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          }
+        ],
+        "pageText": [
+          "Page 2 of 3"
+        ],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            174,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            112,
+            1042,
+            1942
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          1940,
+          1940
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "BODY"
+      },
+      "scrollAfterNext": 0
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "entries-p3-last",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              224,
+              217,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              360,
+              217,
+              369,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            1188,
+            221,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 7,
+        "rows": [
+          {
+            "box": [
+              224,
+              265,
+              992,
+              73
+            ],
+            "r": "6px",
+            "fs": "18.608px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          },
+          {
+            "box": [
+              224,
+              350,
+              992,
+              73
+            ],
+            "r": "6px",
+            "fs": "18.608px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          }
+        ],
+        "badge": {
+          "box": [
+            237,
+            276,
+            149,
+            26
+          ],
+          "r": "9999px",
+          "fs": "16.4px",
+          "ff": "\"Fira Code\"",
+          "fw": "600",
+          "bg": "rgb(237, 230, 222)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "uppercase",
+          "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:"
+        },
+        "time": {
+          "box": [
+            394,
+            278,
+            138,
+            23
+          ],
+          "r": "0px",
+          "fs": "16.4px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-small text-muted-foreground tabular-nums shrink-0"
+        },
+        "target": {
+          "box": [
+            237,
+            304,
+            966,
+            23
+          ],
+          "r": "0px",
+          "fs": "16.4px",
+          "ff": "\"Fira Code\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-mono-small text-muted-foreground truncate"
+        },
+        "pager": [
+          {
+            "box": [
+              625,
+              872,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "16.4px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          },
+          {
+            "box": [
+              775,
+              872,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "16.4px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule",
+            "disabled": true
+          }
+        ],
+        "pageText": [
+          "Page 3 of 3"
+        ],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            174,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            112,
+            1042,
+            838
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          836,
+          836
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "BODY"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "tab-order",
+      "order": [
+        "Filter by target",
+        "Refresh audit log",
+        "Next page"
+      ]
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "filtered-empty",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              224,
+              439,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px oklch(0.471189 0.188448 9.83402)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              360,
+              439,
+              374,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            1188,
+            443,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "count": "0 entries",
+        "plates": [
+          "Audit Log view",
+          "No audit entries match these filters."
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            396,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            334,
+            1042,
+            336
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          334,
+          334
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "Filter by action"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "loading",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              224,
+              427,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              360,
+              427,
+              424,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            1188,
+            431,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            384,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            321,
+            1042,
+            361
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          359,
+          359
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "error",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              224,
+              410,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              360,
+              410,
+              369,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14.384px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            1188,
+            414,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view",
+          "Couldn't load the audit log.audit store unavailable Retry"
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            367,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            304,
+            1042,
+            395
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          393,
+          393
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "empty",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              33,
+              392,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              169,
+              392,
+              108,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            119,
+            436,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "count": "0 entries",
+        "plates": [
+          "Audit Log view",
+          "No audit entries found."
+        ],
+        "headerDesc": {
+          "box": [
+            33,
+            352,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            306,
+            358,
+            353
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          351,
+          351
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "entries",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              33,
+              214,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              169,
+              214,
+              156,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            557,
+            218,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 20,
+        "rows": [
+          {
+            "box": [
+              33,
+              262,
+              552,
+              67
+            ],
+            "r": "6px",
+            "fs": "16px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          },
+          {
+            "box": [
+              33,
+              341,
+              552,
+              67
+            ],
+            "r": "6px",
+            "fs": "16px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          }
+        ],
+        "badge": {
+          "box": [
+            46,
+            273,
+            150,
+            23
+          ],
+          "r": "9999px",
+          "fs": "14px",
+          "ff": "\"Fira Code\"",
+          "fw": "600",
+          "bg": "rgb(237, 230, 222)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "uppercase",
+          "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:"
+        },
+        "time": {
+          "box": [
+            204,
+            274,
+            117,
+            20
+          ],
+          "r": "0px",
+          "fs": "14px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-small text-muted-foreground tabular-nums shrink-0"
+        },
+        "target": {
+          "box": [
+            46,
+            298,
+            526,
+            20
+          ],
+          "r": "0px",
+          "fs": "14px",
+          "ff": "\"Fira Code\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-mono-small text-muted-foreground truncate"
+        },
+        "pager": [
+          {
+            "box": [
+              220,
+              1853,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule",
+            "disabled": true
+          },
+          {
+            "box": [
+              357,
+              1853,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          }
+        ],
+        "pageText": [
+          "Page 1 of 3"
+        ],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            33,
+            174,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            128,
+            358,
+            1803
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          1801,
+          1801
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "entries-bottom",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              17,
+              214,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              153,
+              214,
+              156,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            541,
+            218,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 20,
+        "rows": [
+          {
+            "box": [
+              17,
+              262,
+              552,
+              67
+            ],
+            "r": "6px",
+            "fs": "16px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "oklab(0.871135 0.0072692 0.0236415 / 0.5)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          },
+          {
+            "box": [
+              17,
+              341,
+              552,
+              67
+            ],
+            "r": "6px",
+            "fs": "16px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          }
+        ],
+        "badge": {
+          "box": [
+            30,
+            273,
+            150,
+            23
+          ],
+          "r": "9999px",
+          "fs": "14px",
+          "ff": "\"Fira Code\"",
+          "fw": "600",
+          "bg": "rgb(237, 230, 222)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "uppercase",
+          "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:"
+        },
+        "time": {
+          "box": [
+            188,
+            274,
+            117,
+            20
+          ],
+          "r": "0px",
+          "fs": "14px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-small text-muted-foreground tabular-nums shrink-0"
+        },
+        "target": {
+          "box": [
+            30,
+            298,
+            526,
+            20
+          ],
+          "r": "0px",
+          "fs": "14px",
+          "ff": "\"Fira Code\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-mono-small text-muted-foreground truncate"
+        },
+        "pager": [
+          {
+            "box": [
+              204,
+              1853,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule",
+            "disabled": true
+          },
+          {
+            "box": [
+              341,
+              1853,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          }
+        ],
+        "pageText": [
+          "Page 1 of 3"
+        ],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            17,
+            174,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            128,
+            358,
+            1803
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          1801,
+          1801
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "entries-p2",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              33,
+              214,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              169,
+              214,
+              156,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            557,
+            218,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 20,
+        "rows": [
+          {
+            "box": [
+              33,
+              262,
+              552,
+              67
+            ],
+            "r": "6px",
+            "fs": "16px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          },
+          {
+            "box": [
+              33,
+              341,
+              552,
+              67
+            ],
+            "r": "6px",
+            "fs": "16px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          }
+        ],
+        "badge": {
+          "box": [
+            46,
+            273,
+            130,
+            23
+          ],
+          "r": "9999px",
+          "fs": "14px",
+          "ff": "\"Fira Code\"",
+          "fw": "600",
+          "bg": "rgb(237, 230, 222)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "uppercase",
+          "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:"
+        },
+        "time": {
+          "box": [
+            184,
+            274,
+            118,
+            20
+          ],
+          "r": "0px",
+          "fs": "14px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-small text-muted-foreground tabular-nums shrink-0"
+        },
+        "target": {
+          "box": [
+            46,
+            298,
+            526,
+            20
+          ],
+          "r": "0px",
+          "fs": "14px",
+          "ff": "\"Fira Code\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-mono-small text-muted-foreground truncate"
+        },
+        "pager": [
+          {
+            "box": [
+              220,
+              1853,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          },
+          {
+            "box": [
+              357,
+              1853,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          }
+        ],
+        "pageText": [
+          "Page 2 of 3"
+        ],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            33,
+            174,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            128,
+            358,
+            1803
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          1801,
+          1801
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "BODY"
+      },
+      "scrollAfterNext": 0
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "entries-p3-last",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              33,
+              214,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              169,
+              214,
+              156,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            557,
+            218,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 7,
+        "rows": [
+          {
+            "box": [
+              33,
+              262,
+              552,
+              67
+            ],
+            "r": "6px",
+            "fs": "16px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          },
+          {
+            "box": [
+              33,
+              341,
+              552,
+              67
+            ],
+            "r": "6px",
+            "fs": "16px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "400",
+            "bg": "rgba(0, 0, 0, 0)",
+            "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+          }
+        ],
+        "badge": {
+          "box": [
+            46,
+            273,
+            130,
+            23
+          ],
+          "r": "9999px",
+          "fs": "14px",
+          "ff": "\"Fira Code\"",
+          "fw": "600",
+          "bg": "rgb(237, 230, 222)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "uppercase",
+          "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_svg]:shrink-0 [&_svg]:"
+        },
+        "time": {
+          "box": [
+            184,
+            274,
+            118,
+            20
+          ],
+          "r": "0px",
+          "fs": "14px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-small text-muted-foreground tabular-nums shrink-0"
+        },
+        "target": {
+          "box": [
+            46,
+            298,
+            526,
+            20
+          ],
+          "r": "0px",
+          "fs": "14px",
+          "ff": "\"Fira Code\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "rgb(112, 89, 66)",
+          "tf": "none",
+          "cls": "text-mono-small text-muted-foreground truncate"
+        },
+        "pager": [
+          {
+            "box": [
+              220,
+              826,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+            "disabled": false
+          },
+          {
+            "box": [
+              357,
+              826,
+              40,
+              36
+            ],
+            "r": "9999px",
+            "fs": "14px",
+            "ff": "\"Plus Jakarta Sans\"",
+            "fw": "500",
+            "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+            "bd": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "button tap-squish focus-ring glass-wash glass-capsule",
+            "disabled": true
+          }
+        ],
+        "pageText": [
+          "Page 3 of 3"
+        ],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            33,
+            174,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            128,
+            358,
+            776
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          774,
+          774
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "BODY"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "tab-order",
+      "order": [
+        "Filter by target",
+        "Refresh audit log",
+        "Next page"
+      ]
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "filtered-empty",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              33,
+              374,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px oklch(0.471189 0.188448 9.83402)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              169,
+              374,
+              108,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            119,
+            418,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "count": "0 entries",
+        "plates": [
+          "Audit Log view",
+          "No audit entries match these filters."
+        ],
+        "headerDesc": {
+          "box": [
+            33,
+            334,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            288,
+            358,
+            388
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          386,
+          386
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "Filter by action"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "loading",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              33,
+              398,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              169,
+              398,
+              96,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            329,
+            402,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "plates": [
+          "Audit Log view"
+        ],
+        "headerDesc": {
+          "box": [
+            33,
+            358,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            311,
+            358,
+            341
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          339,
+          339
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "error",
+      "m": {
+        "inputs": [
+          {
+            "box": [
+              33,
+              346,
+              128,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined w-32 font-mono"
+          },
+          {
+            "box": [
+              169,
+              346,
+              108,
+              36
+            ],
+            "r": "9999px",
+            "fs": "12.179px",
+            "ff": "\"Fira Code\"",
+            "fw": "400",
+            "bg": "rgb(243, 236, 226)",
+            "bd": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "tf": "none",
+            "cls": "field-control glass-defined flex-1 min-w-[6rem] font-mono"
+          }
+        ],
+        "refresh": {
+          "box": [
+            127,
+            390,
+            28,
+            28
+          ],
+          "r": "9999px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "500",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "bd": "0px rgb(28, 25, 23)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover px-2"
+        },
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "count": "47 entries",
+        "plates": [
+          "Audit Log view",
+          "Couldn't load the audit log.audit store unavailable Retry"
+        ],
+        "headerDesc": {
+          "box": [
+            33,
+            306,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            260,
+            358,
+            444
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          442,
+          442
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "Refresh audit log"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "1440",
+      "state": "signed-out",
+      "m": {
+        "inputs": [],
+        "refresh": null,
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "plates": [
+          "Not Found. /admin/audit could not be opened — showing the Not Found scene."
+        ],
+        "headerDesc": {
+          "box": [
+            224,
+            449,
+            992,
+            19
+          ],
+          "r": "0px",
+          "fs": "14.384px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            199,
+            387,
+            1042,
+            231
+          ],
+          "r": "16px",
+          "fs": "18.608px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          229,
+          229
+        ],
+        "doc": [
+          1440,
+          1440
+        ],
+        "active": "BODY"
+      }
+    },
+    {
+      "theme": "light",
+      "vp": "390",
+      "state": "signed-out",
+      "m": {
+        "inputs": [],
+        "refresh": null,
+        "rowCount": 0,
+        "rows": [],
+        "badge": null,
+        "time": null,
+        "target": null,
+        "pager": [],
+        "pageText": [],
+        "plates": [
+          "Not Found. /admin/audit could not be opened — showing the Not Found scene."
+        ],
+        "headerDesc": {
+          "box": [
+            33,
+            403,
+            324,
+            16
+          ],
+          "r": "0px",
+          "fs": "12.179px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bd": "0px rgb(198, 180, 159)",
+          "color": "oklch(0.447121 0.00386159 34.63)",
+          "tf": "none",
+          "cls": "pane-header-desc text-caption"
+        },
+        "pane": {
+          "box": [
+            16,
+            357,
+            358,
+            251
+          ],
+          "r": "16px",
+          "fs": "16px",
+          "ff": "\"Plus Jakarta Sans\"",
+          "fw": "400",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "bd": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+          "color": "rgb(28, 25, 23)",
+          "tf": "none",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        },
+        "paneScroll": [
+          249,
+          249
+        ],
+        "doc": [
+          390,
+          390
+        ],
+        "active": "BODY"
+      }
+    },
+    {
+      "theme": "light",
+      "errors": [
+        "goto page.goto: Timeout 180000ms exceeded.",
+        "nav http://localhost:9000/#/admin/audit @322524",
+        "nav http://localhost:9000/#/admin/audit @325963",
+        "nav http://localhost:9000/#/admin/audit @325963",
+        "shot pager-hover-crop: Error: page.screenshot: Clipped area is either empty or outside the resulting image\nCall log:\n\u001b[2m  - taking page screen",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "shot pager-hover-crop: Error: page.screenshot: Clipped area is either empty or outside the resulting image\nCall log:\n\u001b[2m  - taking page screen",
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+        "nav http://localhost:9000/#/admin/audit @391207",
+        "nav http://localhost:9000/#/admin/audit @391208",
+        "nav http://localhost:9000/#/admin/audit @396638",
+        "signed-out toolbar never mounted",
+        "nav http://localhost:9000/#/admin/audit @699412",
+        "nav http://localhost:9000/#/admin/audit @699413",
+        "nav http://localhost:9000/#/admin/audit @699688",
+        "signed-out toolbar never mounted"
+      ]
+    }
+  ]
+}

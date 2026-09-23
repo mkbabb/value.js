@@ -1,0 +1,13 @@
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+const OUT = new URL(".", import.meta.url).pathname;
+const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
+const p = await ctx.newPage();
+const errs = []; p.on("pageerror", e => errs.push(String(e))); p.on("console", m => m.type()==="error" && errs.push(m.text().slice(0,200)));
+await p.goto("http://localhost:9000/#/gradient", { waitUntil: "domcontentloaded", timeout: 120000 });
+await p.waitForTimeout(8000);
+await p.screenshot({ path: OUT + "probe.png" });
+console.log(p.url(), errs);
+const txt = await p.evaluate(() => [...document.querySelectorAll("button[aria-expanded], .easing-panel, .pane-scroll-fade")].map(e => e.tagName+" "+(e.getAttribute("aria-label")||e.textContent||"").trim().replace(/\s+/g," ").slice(0,60)));
+console.log(JSON.stringify(txt, null, 1));
+await b.close();

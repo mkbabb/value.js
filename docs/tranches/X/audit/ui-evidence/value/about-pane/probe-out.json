@@ -1,0 +1,122 @@
+{
+ "sha": "f95a2f77",
+ "dirty": 5,
+ "strong": [
+  {
+   "t": "perceptually uniform",
+   "fw": "700",
+   "color": "rgb(28, 25, 23)",
+   "parentFw": "400",
+   "parentColor": "rgb(28, 25, 23)",
+   "ts": "none",
+   "filter": "none",
+   "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "Perceptual uniformity",
+   "fw": "700",
+   "color": "rgb(28, 25, 23)",
+   "parentFw": "400",
+   "parentColor": "rgb(28, 25, 23)",
+   "ts": "none",
+   "filter": "none",
+   "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "Device independence",
+   "fw": "700",
+   "color": "rgb(28, 25, 23)",
+   "parentFw": "400",
+   "parentColor": "rgb(28, 25, 23)",
+   "ts": "none",
+   "filter": "none",
+   "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  }
+ ],
+ "layout": {
+  "chain": [
+   {
+    "tag": "DIV",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+    "h": 7459,
+    "maxH": "none",
+    "ovY": "auto",
+    "pos": "relative"
+   },
+   {
+    "tag": "DIV",
+    "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--inspector",
+    "h": 7459,
+    "maxH": "none",
+    "ovY": "visible",
+    "pos": "relative"
+   },
+   {
+    "tag": "DIV",
+    "cls": "pane-container",
+    "h": 7459,
+    "maxH": "none",
+    "ovY": "visible",
+    "pos": "relative"
+   },
+   {
+    "tag": "MAIN",
+    "cls": "pane-main",
+    "h": 7483,
+    "maxH": "none",
+    "ovY": "visible",
+    "pos": "static"
+   },
+   {
+    "tag": "DIV",
+    "cls": "app-layout",
+    "h": 7579,
+    "maxH": "none",
+    "ovY": "visible",
+    "pos": "relative"
+   },
+   {
+    "tag": "DIV",
+    "cls": "",
+    "h": 7579,
+    "maxH": "none",
+    "ovY": "visible",
+    "pos": "static"
+   }
+  ],
+  "pickerH": 685,
+  "docH": 7585,
+  "cardBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+  "cardCls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden about-card pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+ },
+ "afterPick": {
+  "active": "Select color space",
+  "fv": true,
+  "outline": "none 3px",
+  "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+  "border": "none 0px rgb(198, 180, 159)",
+  "radius": "6px"
+ },
+ "tooltip": [
+  {
+   "slot": null,
+   "role": "tooltip",
+   "text": "",
+   "rect": {
+    "width": 1,
+    "height": 1
+   },
+   "display": "block"
+  }
+ ],
+ "chip": {
+  "cursor": "pointer",
+  "tabindex": null,
+  "role": null,
+  "onclick": "object"
+ },
+ "palettes": {
+  "docH": 900,
+  "vh": 900
+ }
+}

@@ -1,0 +1,4760 @@
+{
+ "tree": "/Users/mkbabb/Programming/keyframes.js",
+ "sha": "531aa3f1",
+ "dirty": 24,
+ "when": "2026-09-23T17:47:44.538Z",
+ "runs": [
+  {
+   "tag": "390-dark",
+   "frames": [
+    {
+     "frame": "01-cube-peek-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 679,
+      "w": 390,
+      "h": 772,
+      "b": 1451,
+      "visibleTop": 679,
+      "sheetBottom": 1451,
+      "ty": 679,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.36449 0.0101227 0.0171617 / 0.933064)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.12"
+     },
+     "handle": {
+      "x": 1,
+      "y": 680,
+      "w": 388,
+      "h": 44,
+      "b": 724,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 724,
+      "w": 388,
+      "h": 727,
+      "b": 1451,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1145,
+      "w": 364,
+      "h": 196,
+      "b": 1341,
+      "card": {
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Pause",
+       "x": 43,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 732,
+      "w": 320,
+      "h": 389,
+      "b": 1121,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 679,
+      "bottom": 844,
+      "h": 165
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 389,
+       "b": 1121,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 1121,
+       "w": 320,
+       "h": 454,
+       "b": 1575,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 746,
+       "w": 180,
+       "h": 40,
+       "b": 786,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 790,
+       "w": 180,
+       "h": 40,
+       "b": 830,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 834,
+       "w": 180,
+       "h": 40,
+       "b": 874,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 66,
+       "y": 729,
+       "w": 259,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded "
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1451,
+      "sheetTop": 679,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position [fv]"
+    },
+    {
+     "frame": "02-cube-expanded-tap-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 679,
+      "w": 390,
+      "h": 772,
+      "b": 1451,
+      "visibleTop": 679,
+      "sheetBottom": 1451,
+      "ty": 679,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.36449 0.0101227 0.0171617 / 0.933064)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.12"
+     },
+     "handle": {
+      "x": 1,
+      "y": 680,
+      "w": 388,
+      "h": 44,
+      "b": 724,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 724,
+      "w": 388,
+      "h": 727,
+      "b": 1451,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1145,
+      "w": 364,
+      "h": 196,
+      "b": 1341,
+      "card": {
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Pause",
+       "x": 43,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 732,
+      "w": 320,
+      "h": 389,
+      "b": 1121,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 679,
+      "bottom": 844,
+      "h": 165
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 389,
+       "b": 1121,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 1121,
+       "w": 320,
+       "h": 454,
+       "b": 1575,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 746,
+       "w": 180,
+       "h": 40,
+       "b": 786,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 790,
+       "w": 180,
+       "h": 40,
+       "b": 830,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 834,
+       "w": 180,
+       "h": 40,
+       "b": 874,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1451,
+      "sheetTop": 679,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position [fv]"
+    },
+    {
+     "frame": "02b-cube-expanded-toggle-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 960,
+      "w": 364,
+      "h": 196,
+      "b": 1156,
+      "card": {
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Pause",
+       "x": 43,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 547,
+      "w": 320,
+      "h": 389,
+      "b": 936,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 389,
+       "b": 936,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 936,
+       "w": 320,
+       "h": 454,
+       "b": 1390,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 561,
+       "w": 180,
+       "h": 40,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 605,
+       "w": 180,
+       "h": 40,
+       "b": 645,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 649,
+       "w": 180,
+       "h": 40,
+       "b": 689,
+       "r": "9999px"
+      },
+      {
+       "t": "alternate",
+       "x": 147,
+       "y": 693,
+       "w": 180,
+       "h": 40,
+       "b": 733,
+       "r": "9999px"
+      },
+      {
+       "t": "forwards",
+       "x": 147,
+       "y": 737,
+       "w": 180,
+       "h": 40,
+       "b": 777,
+       "r": "9999px"
+      },
+      {
+       "t": "Edit easing curve",
+       "x": 97,
+       "y": 781,
+       "w": 40,
+       "h": 40,
+       "b": 821,
+       "r": "9999px"
+      },
+      {
+       "t": "ease-in-out",
+       "x": 47,
+       "y": 825,
+       "w": 280,
+       "h": 40,
+       "b": 865,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls panel"
+    },
+    {
+     "frame": "03-cube-expanded-scrolled-bottom-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 960,
+      "w": 364,
+      "h": 196,
+      "b": 1156,
+      "card": {
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Pause",
+       "x": 43,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 547,
+      "w": 320,
+      "h": 389,
+      "b": 936,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 389,
+       "b": 936,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 936,
+       "w": 320,
+       "h": 454,
+       "b": 1390,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 561,
+       "w": 180,
+       "h": 40,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 605,
+       "w": 180,
+       "h": 40,
+       "b": 645,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 649,
+       "w": 180,
+       "h": 40,
+       "b": 689,
+       "r": "9999px"
+      },
+      {
+       "t": "alternate",
+       "x": 147,
+       "y": 693,
+       "w": 180,
+       "h": 40,
+       "b": 733,
+       "r": "9999px"
+      },
+      {
+       "t": "forwards",
+       "x": 147,
+       "y": 737,
+       "w": 180,
+       "h": 40,
+       "b": 777,
+       "r": "9999px"
+      },
+      {
+       "t": "Edit easing curve",
+       "x": 97,
+       "y": 781,
+       "w": 40,
+       "h": 40,
+       "b": 821,
+       "r": "9999px"
+      },
+      {
+       "t": "ease-in-out",
+       "x": 47,
+       "y": 825,
+       "w": 280,
+       "h": 40,
+       "b": 865,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls panel"
+    },
+    {
+     "frame": "04-cube-controls-tab-select-open-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 960,
+      "w": 364,
+      "h": 196,
+      "b": 1156,
+      "card": {
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Pause",
+       "x": 43,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 547,
+      "w": 320,
+      "h": 389,
+      "b": 936,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 389,
+       "b": 936,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 936,
+       "w": 320,
+       "h": 454,
+       "b": 1390,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 561,
+       "w": 180,
+       "h": 40,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 605,
+       "w": 180,
+       "h": 40,
+       "b": 645,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 649,
+       "w": 180,
+       "h": 40,
+       "b": 689,
+       "r": "9999px"
+      },
+      {
+       "t": "alternate",
+       "x": 147,
+       "y": 693,
+       "w": 180,
+       "h": 40,
+       "b": 733,
+       "r": "9999px"
+      },
+      {
+       "t": "forwards",
+       "x": 147,
+       "y": 737,
+       "w": 180,
+       "h": 40,
+       "b": 777,
+       "r": "9999px"
+      },
+      {
+       "t": "Edit easing curve",
+       "x": 97,
+       "y": 781,
+       "w": 40,
+       "h": 40,
+       "b": 821,
+       "r": "9999px"
+      },
+      {
+       "t": "ease-in-out",
+       "x": 47,
+       "y": 825,
+       "w": 280,
+       "h": 40,
+       "b": 865,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "listbox": {
+      "x": 163,
+      "y": 78,
+      "w": 192,
+      "h": 152,
+      "b": 230,
+      "items": [
+       "Controls",
+       "Keyframes",
+       "Timeline"
+      ]
+     },
+     "focus": "Controls tab"
+    },
+    {
+     "frame": "05-cube-tab-keyframes-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1025,
+      "w": 364,
+      "h": 116,
+      "b": 1141,
+      "card": {
+       "x": 29,
+       "y": 1025,
+       "w": 320,
+       "h": 108,
+       "b": 1133,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Copy",
+       "x": 96,
+       "y": 1039,
+       "w": 83,
+       "h": 36,
+       "b": 1075,
+       "r": "9999px"
+      },
+      {
+       "t": "Format",
+       "x": 187,
+       "y": 1039,
+       "w": 94,
+       "h": 36,
+       "b": 1075,
+       "r": "9999px"
+      },
+      {
+       "t": "Export CSS",
+       "x": 66,
+       "y": 1083,
+       "w": 122,
+       "h": 36,
+       "b": 1119,
+       "r": "9999px"
+      },
+      {
+       "t": "Apply CSS",
+       "x": 196,
+       "y": 1083,
+       "w": 117,
+       "h": 36,
+       "b": 1119,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 547,
+      "w": 320,
+      "h": 454,
+      "b": 1001,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 454,
+       "b": 1001,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1025,
+       "w": 320,
+       "h": 108,
+       "b": 1133,
+       "r": "16px"
+      }
+     ],
+     "pills": [],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "05b-cube-tab-keyframes-scrolled-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1025,
+      "w": 364,
+      "h": 116,
+      "b": 1141,
+      "card": {
+       "x": 29,
+       "y": 1025,
+       "w": 320,
+       "h": 108,
+       "b": 1133,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Copy",
+       "x": 96,
+       "y": 1039,
+       "w": 83,
+       "h": 36,
+       "b": 1075,
+       "r": "9999px"
+      },
+      {
+       "t": "Format",
+       "x": 187,
+       "y": 1039,
+       "w": 94,
+       "h": 36,
+       "b": 1075,
+       "r": "9999px"
+      },
+      {
+       "t": "Export CSS",
+       "x": 66,
+       "y": 1083,
+       "w": 122,
+       "h": 36,
+       "b": 1119,
+       "r": "9999px"
+      },
+      {
+       "t": "Apply CSS",
+       "x": 196,
+       "y": 1083,
+       "w": 117,
+       "h": 36,
+       "b": 1119,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 547,
+      "w": 320,
+      "h": 454,
+      "b": 1001,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 454,
+       "b": 1001,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1025,
+       "w": 320,
+       "h": 108,
+       "b": 1133,
+       "r": "16px"
+      }
+     ],
+     "pills": [],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "06-cube-tab-timeline-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 978,
+      "w": 364,
+      "h": 116,
+      "b": 1094,
+      "card": {
+       "x": 29,
+       "y": 978,
+       "w": 320,
+       "h": 108,
+       "b": 1086,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Snapshot",
+       "x": 84,
+       "y": 992,
+       "w": 110,
+       "h": 36,
+       "b": 1028,
+       "r": "9999px"
+      },
+      {
+       "t": "Import",
+       "x": 202,
+       "y": 992,
+       "w": 92,
+       "h": 36,
+       "b": 1028,
+       "r": "9999px"
+      },
+      {
+       "t": "Export",
+       "x": 87,
+       "y": 1036,
+       "w": 91,
+       "h": 36,
+       "b": 1072,
+       "r": "9999px"
+      },
+      {
+       "t": "Add CSS",
+       "x": 186,
+       "y": 1036,
+       "w": 105,
+       "h": 36,
+       "b": 1072,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 454,
+       "b": 1001,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 407,
+       "b": 954,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 978,
+       "w": 320,
+       "h": 108,
+       "b": 1086,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "Undo",
+       "x": 175,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Redo",
+       "x": 215,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Clear all keyframes",
+       "x": 255,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Expand timeline",
+       "x": 295,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "06b-cube-tab-timeline-scrolled-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 978,
+      "w": 364,
+      "h": 116,
+      "b": 1094,
+      "card": {
+       "x": 29,
+       "y": 978,
+       "w": 320,
+       "h": 108,
+       "b": 1086,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Snapshot",
+       "x": 84,
+       "y": 992,
+       "w": 110,
+       "h": 36,
+       "b": 1028,
+       "r": "9999px"
+      },
+      {
+       "t": "Import",
+       "x": 202,
+       "y": 992,
+       "w": 92,
+       "h": 36,
+       "b": 1028,
+       "r": "9999px"
+      },
+      {
+       "t": "Export",
+       "x": 87,
+       "y": 1036,
+       "w": 91,
+       "h": 36,
+       "b": 1072,
+       "r": "9999px"
+      },
+      {
+       "t": "Add CSS",
+       "x": 186,
+       "y": 1036,
+       "w": 105,
+       "h": 36,
+       "b": 1072,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 454,
+       "b": 1001,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 407,
+       "b": 954,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 978,
+       "w": 320,
+       "h": 108,
+       "b": 1086,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "Undo",
+       "x": 175,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Redo",
+       "x": 215,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Clear all keyframes",
+       "x": 255,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Expand timeline",
+       "x": 295,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "07-cube-tab-matrix-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 978,
+      "w": 364,
+      "h": 116,
+      "b": 1094,
+      "card": {
+       "x": 29,
+       "y": 978,
+       "w": 320,
+       "h": 108,
+       "b": 1086,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Snapshot",
+       "x": 84,
+       "y": 992,
+       "w": 110,
+       "h": 36,
+       "b": 1028,
+       "r": "9999px"
+      },
+      {
+       "t": "Import",
+       "x": 202,
+       "y": 992,
+       "w": 92,
+       "h": 36,
+       "b": 1028,
+       "r": "9999px"
+      },
+      {
+       "t": "Export",
+       "x": 87,
+       "y": 1036,
+       "w": 91,
+       "h": 36,
+       "b": 1072,
+       "r": "9999px"
+      },
+      {
+       "t": "Add CSS",
+       "x": 186,
+       "y": 1036,
+       "w": 105,
+       "h": 36,
+       "b": 1072,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 454,
+       "b": 1001,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 407,
+       "b": 954,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 978,
+       "w": 320,
+       "h": 108,
+       "b": 1086,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "Undo",
+       "x": 175,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Redo",
+       "x": 215,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Clear all keyframes",
+       "x": 255,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "Expand timeline",
+       "x": 295,
+       "y": 565,
+       "w": 36,
+       "h": 36,
+       "b": 601,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "listbox": {
+      "x": 165,
+      "y": 78,
+      "w": 192,
+      "h": 152,
+      "b": 230,
+      "items": [
+       "Controls",
+       "Keyframes",
+       "Timeline"
+      ]
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "08-cube-tab-controls-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 960,
+      "w": 364,
+      "h": 196,
+      "b": 1156,
+      "card": {
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 547,
+      "w": 320,
+      "h": 389,
+      "b": 936,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 389,
+       "b": 936,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 936,
+       "w": 320,
+       "h": 454,
+       "b": 1390,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 561,
+       "w": 180,
+       "h": 40,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 605,
+       "w": 180,
+       "h": 40,
+       "b": 645,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 649,
+       "w": 180,
+       "h": 40,
+       "b": 689,
+       "r": "9999px"
+      },
+      {
+       "t": "alternate",
+       "x": 147,
+       "y": 693,
+       "w": 180,
+       "h": 40,
+       "b": 733,
+       "r": "9999px"
+      },
+      {
+       "t": "forwards",
+       "x": 147,
+       "y": 737,
+       "w": 180,
+       "h": 40,
+       "b": 777,
+       "r": "9999px"
+      },
+      {
+       "t": "Edit easing curve",
+       "x": 97,
+       "y": 781,
+       "w": 40,
+       "h": 40,
+       "b": 821,
+       "r": "9999px"
+      },
+      {
+       "t": "ease-in-out",
+       "x": 47,
+       "y": 825,
+       "w": 280,
+       "h": 40,
+       "b": 865,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "09-cube-peek-after-drag-down-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 679,
+      "w": 390,
+      "h": 772,
+      "b": 1451,
+      "visibleTop": 679,
+      "sheetBottom": 1451,
+      "ty": 679,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.36449 0.0101227 0.0171617 / 0.933064)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.12"
+     },
+     "handle": {
+      "x": 1,
+      "y": 680,
+      "w": 388,
+      "h": 44,
+      "b": 724,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 724,
+      "w": 388,
+      "h": 727,
+      "b": 1451,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1145,
+      "w": 364,
+      "h": 196,
+      "b": 1341,
+      "card": {
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 732,
+      "w": 320,
+      "h": 389,
+      "b": 1121,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 679,
+      "bottom": 844,
+      "h": 165
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 389,
+       "b": 1121,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 1121,
+       "w": 320,
+       "h": 454,
+       "b": 1575,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 746,
+       "w": 180,
+       "h": 40,
+       "b": 786,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 790,
+       "w": 180,
+       "h": 40,
+       "b": 830,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 834,
+       "w": 180,
+       "h": 40,
+       "b": 874,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 66,
+       "y": 729,
+       "w": 259,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded "
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1451,
+      "sheetTop": 679,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position"
+    },
+    {
+     "frame": "10-cube-drag-mid-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 559,
+      "w": 390,
+      "h": 772,
+      "b": 1331,
+      "visibleTop": 559,
+      "sheetBottom": 1331,
+      "ty": 559,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.352191 0.0102924 0.0174122 / 0.891954)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.275440414507772"
+     },
+     "handle": {
+      "x": 1,
+      "y": 560,
+      "w": 388,
+      "h": 44,
+      "b": 604,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 604,
+      "w": 388,
+      "h": 727,
+      "b": 1331,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1025,
+      "w": 364,
+      "h": 196,
+      "b": 1221,
+      "card": {
+       "x": 29,
+       "y": 1025,
+       "w": 320,
+       "h": 188,
+       "b": 1213,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1087,
+       "w": 142,
+       "h": 40,
+       "b": 1127,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1087,
+       "w": 142,
+       "h": 40,
+       "b": 1127,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 612,
+      "w": 320,
+      "h": 389,
+      "b": 1001,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 559,
+      "bottom": 844,
+      "h": 285
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 612,
+       "w": 320,
+       "h": 389,
+       "b": 1001,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 1001,
+       "w": 320,
+       "h": 454,
+       "b": 1455,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1025,
+       "w": 320,
+       "h": 188,
+       "b": 1213,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 626,
+       "w": 180,
+       "h": 40,
+       "b": 666,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 670,
+       "w": 180,
+       "h": 40,
+       "b": 710,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 714,
+       "w": 180,
+       "h": 40,
+       "b": 754,
+       "r": "9999px"
+      },
+      {
+       "t": "alternate",
+       "x": 147,
+       "y": 758,
+       "w": 180,
+       "h": 40,
+       "b": 798,
+       "r": "9999px"
+      },
+      {
+       "t": "forwards",
+       "x": 147,
+       "y": 802,
+       "w": 180,
+       "h": 40,
+       "b": 842,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1331,
+      "sheetTop": 559,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position"
+    },
+    {
+     "frame": "11-cube-after-drag-up-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 960,
+      "w": 364,
+      "h": 196,
+      "b": 1156,
+      "card": {
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 547,
+      "w": 320,
+      "h": 389,
+      "b": 936,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 389,
+       "b": 936,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 936,
+       "w": 320,
+       "h": 454,
+       "b": 1390,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 561,
+       "w": 180,
+       "h": 40,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 605,
+       "w": 180,
+       "h": 40,
+       "b": 645,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 649,
+       "w": 180,
+       "h": 40,
+       "b": 689,
+       "r": "9999px"
+      },
+      {
+       "t": "alternate",
+       "x": 147,
+       "y": 693,
+       "w": 180,
+       "h": 40,
+       "b": 733,
+       "r": "9999px"
+      },
+      {
+       "t": "forwards",
+       "x": 147,
+       "y": 737,
+       "w": 180,
+       "h": 40,
+       "b": 777,
+       "r": "9999px"
+      },
+      {
+       "t": "Edit easing curve",
+       "x": 97,
+       "y": 781,
+       "w": 40,
+       "h": 40,
+       "b": 821,
+       "r": "9999px"
+      },
+      {
+       "t": "ease-in-out",
+       "x": 47,
+       "y": 825,
+       "w": 280,
+       "h": 40,
+       "b": 865,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position"
+    },
+    {
+     "frame": "12-cube-handle-kbd-focus-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 679,
+      "w": 390,
+      "h": 772,
+      "b": 1451,
+      "visibleTop": 679,
+      "sheetBottom": 1451,
+      "ty": 679,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.36449 0.0101227 0.0171617 / 0.933064)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.12"
+     },
+     "handle": {
+      "x": 1,
+      "y": 680,
+      "w": 388,
+      "h": 44,
+      "b": 724,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 724,
+      "w": 388,
+      "h": 727,
+      "b": 1451,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1145,
+      "w": 364,
+      "h": 196,
+      "b": 1341,
+      "card": {
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 732,
+      "w": 320,
+      "h": 389,
+      "b": 1121,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 679,
+      "bottom": 844,
+      "h": 165
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 389,
+       "b": 1121,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 1121,
+       "w": 320,
+       "h": 454,
+       "b": 1575,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 746,
+       "w": 180,
+       "h": 40,
+       "b": 786,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 790,
+       "w": 180,
+       "h": 40,
+       "b": 830,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 834,
+       "w": 180,
+       "h": 40,
+       "b": 874,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1451,
+      "sheetTop": 679,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position [fv]"
+    },
+    {
+     "frame": "13-cube-peek-transport-hover-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 679,
+      "w": 390,
+      "h": 772,
+      "b": 1451,
+      "visibleTop": 679,
+      "sheetBottom": 1451,
+      "ty": 679,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.36449 0.0101227 0.0171617 / 0.933064)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.12"
+     },
+     "handle": {
+      "x": 1,
+      "y": 680,
+      "w": 388,
+      "h": 44,
+      "b": 724,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 724,
+      "w": 388,
+      "h": 727,
+      "b": 1451,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1145,
+      "w": 364,
+      "h": 196,
+      "b": 1341,
+      "card": {
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 732,
+      "w": 320,
+      "h": 389,
+      "b": 1121,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 679,
+      "bottom": 844,
+      "h": 165
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 389,
+       "b": 1121,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 1121,
+       "w": 320,
+       "h": 454,
+       "b": 1575,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 746,
+       "w": 180,
+       "h": 40,
+       "b": 786,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 790,
+       "w": 180,
+       "h": 40,
+       "b": 830,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 834,
+       "w": 180,
+       "h": 40,
+       "b": 874,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 66,
+       "y": 729,
+       "w": 259,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded "
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1451,
+      "sheetTop": 679,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "BODY"
+    },
+    {
+     "frame": "20-spring-peek-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 679,
+      "w": 390,
+      "h": 772,
+      "b": 1451,
+      "visibleTop": 679,
+      "sheetBottom": 1451,
+      "ty": 679,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.36449 0.0101227 0.0171617 / 0.933064)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.12"
+     },
+     "handle": {
+      "x": 1,
+      "y": 680,
+      "w": 388,
+      "h": 44,
+      "b": 724,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 724,
+      "w": 388,
+      "h": 727,
+      "b": 1451,
+      "scrollH": 1364,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden scroll-fade-bottom"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1844,
+      "w": 364,
+      "h": 244,
+      "b": 2088,
+      "card": {
+       "x": 29,
+       "y": 1844,
+       "w": 320,
+       "h": 236,
+       "b": 2080,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1906,
+       "w": 142,
+       "h": 40,
+       "b": 1946,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1906,
+       "w": 142,
+       "h": 40,
+       "b": 1946,
+       "r": "9999px"
+      },
+      {
+       "t": "Re-seat",
+       "x": 43,
+       "y": 2026,
+       "w": 292,
+       "h": 40,
+       "b": 2066,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 679,
+      "bottom": 844,
+      "h": 165
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 454,
+       "b": 1186,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 1088,
+       "b": 1820,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1844,
+       "w": 320,
+       "h": 236,
+       "b": 2080,
+       "r": "16px"
+      }
+     ],
+     "pills": [],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 75,
+       "y": 729,
+       "w": 239,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded "
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1451,
+      "sheetTop": 679,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position [fv]"
+    },
+    {
+     "frame": "20b-spring-peek-tabselect-pre-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 679,
+      "w": 390,
+      "h": 772,
+      "b": 1451,
+      "visibleTop": 679,
+      "sheetBottom": 1451,
+      "ty": 679,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.36449 0.0101227 0.0171617 / 0.933064)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.12"
+     },
+     "handle": {
+      "x": 1,
+      "y": 680,
+      "w": 388,
+      "h": 44,
+      "b": 724,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 724,
+      "w": 388,
+      "h": 727,
+      "b": 1451,
+      "scrollH": 1364,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden scroll-fade-bottom"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1844,
+      "w": 364,
+      "h": 244,
+      "b": 2088,
+      "card": {
+       "x": 29,
+       "y": 1844,
+       "w": 320,
+       "h": 236,
+       "b": 2080,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1906,
+       "w": 142,
+       "h": 40,
+       "b": 1946,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1906,
+       "w": 142,
+       "h": 40,
+       "b": 1946,
+       "r": "9999px"
+      },
+      {
+       "t": "Re-seat",
+       "x": 43,
+       "y": 2026,
+       "w": 292,
+       "h": 40,
+       "b": 2066,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 679,
+      "bottom": 844,
+      "h": 165
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 454,
+       "b": 1186,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 1088,
+       "b": 1820,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1844,
+       "w": 320,
+       "h": 236,
+       "b": 2080,
+       "r": "16px"
+      }
+     ],
+     "pills": [],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 75,
+       "y": 729,
+       "w": 239,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded "
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1451,
+      "sheetTop": 679,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position [fv]"
+    },
+    {
+     "frame": "21-spring-expanded-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 293,
+      "w": 390,
+      "h": 772,
+      "b": 1065,
+      "visibleTop": 293,
+      "sheetBottom": 1065,
+      "ty": 293,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.320426 0.0107309 0.0180591 / 0.800828)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.62"
+     },
+     "handle": {
+      "x": 1,
+      "y": 294,
+      "w": 388,
+      "h": 44,
+      "b": 338,
+      "now": "0.62",
+      "text": "62%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 338,
+      "w": 388,
+      "h": 727,
+      "b": 1065,
+      "scrollH": 1364,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-fade-bottom"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1458,
+      "w": 364,
+      "h": 244,
+      "b": 1702,
+      "card": {
+       "x": 29,
+       "y": 1458,
+       "w": 320,
+       "h": 236,
+       "b": 1694,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1520,
+       "w": 142,
+       "h": 40,
+       "b": 1560,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1520,
+       "w": 142,
+       "h": 40,
+       "b": 1560,
+       "r": "9999px"
+      },
+      {
+       "t": "Re-seat",
+       "x": 43,
+       "y": 1640,
+       "w": 292,
+       "h": 40,
+       "b": 1680,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 293,
+      "bottom": 844,
+      "h": 551
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 454,
+       "b": 800,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 1088,
+       "b": 1434,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1458,
+       "w": 320,
+       "h": 236,
+       "b": 1694,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "smooth0.5 / 0.86",
+       "x": 47,
+       "y": 821,
+       "w": 138,
+       "h": 68,
+       "b": 889,
+       "r": "9999px"
+      },
+      {
+       "t": "snappy0.35 / 0.65",
+       "x": 193,
+       "y": 821,
+       "w": 138,
+       "h": 68,
+       "b": 889,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1065,
+      "sheetTop": 293,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls panel"
+    },
+    {
+     "frame": "22-spring-tab-select-open-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 293,
+      "w": 390,
+      "h": 772,
+      "b": 1065,
+      "visibleTop": 293,
+      "sheetBottom": 1065,
+      "ty": 293,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.320426 0.0107309 0.0180591 / 0.800828)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.62"
+     },
+     "handle": {
+      "x": 1,
+      "y": 294,
+      "w": 388,
+      "h": 44,
+      "b": 338,
+      "now": "0.62",
+      "text": "62%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 338,
+      "w": 388,
+      "h": 727,
+      "b": 1065,
+      "scrollH": 1364,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-fade-bottom"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1458,
+      "w": 364,
+      "h": 244,
+      "b": 1702,
+      "card": {
+       "x": 29,
+       "y": 1458,
+       "w": 320,
+       "h": 236,
+       "b": 1694,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1520,
+       "w": 142,
+       "h": 40,
+       "b": 1560,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1520,
+       "w": 142,
+       "h": 40,
+       "b": 1560,
+       "r": "9999px"
+      },
+      {
+       "t": "Re-seat",
+       "x": 43,
+       "y": 1640,
+       "w": 292,
+       "h": 40,
+       "b": 1680,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 293,
+      "bottom": 844,
+      "h": 551
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 454,
+       "b": 800,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 1088,
+       "b": 1434,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1458,
+       "w": 320,
+       "h": 236,
+       "b": 1694,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "smooth0.5 / 0.86",
+       "x": 47,
+       "y": 821,
+       "w": 138,
+       "h": 68,
+       "b": 889,
+       "r": "9999px"
+      },
+      {
+       "t": "snappy0.35 / 0.65",
+       "x": 193,
+       "y": 821,
+       "w": 138,
+       "h": 68,
+       "b": 889,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1065,
+      "sheetTop": 293,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "listbox": {
+      "x": 171,
+      "y": 78,
+      "w": 192,
+      "h": 196,
+      "b": 274,
+      "items": [
+       "Controls",
+       "Keyframes",
+       "Timeline",
+       "Physics"
+      ]
+     },
+     "focus": "Controls tab"
+    },
+    {
+     "frame": "23-spring-tab-keyframes-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 293,
+      "w": 390,
+      "h": 772,
+      "b": 1065,
+      "visibleTop": 293,
+      "sheetBottom": 1065,
+      "ty": 293,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.320426 0.0107309 0.0180591 / 0.800828)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.62"
+     },
+     "handle": {
+      "x": 1,
+      "y": 294,
+      "w": 388,
+      "h": 44,
+      "b": 338,
+      "now": "0.62",
+      "text": "62%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 338,
+      "w": 388,
+      "h": 727,
+      "b": 1065,
+      "scrollH": 1690,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-fade-bottom"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1912,
+      "w": 364,
+      "h": 116,
+      "b": 2028,
+      "card": {
+       "x": 29,
+       "y": 1912,
+       "w": 320,
+       "h": 108,
+       "b": 2020,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Copy",
+       "x": 96,
+       "y": 1926,
+       "w": 83,
+       "h": 36,
+       "b": 1962,
+       "r": "9999px"
+      },
+      {
+       "t": "Format",
+       "x": 187,
+       "y": 1926,
+       "w": 94,
+       "h": 36,
+       "b": 1962,
+       "r": "9999px"
+      },
+      {
+       "t": "Export CSS",
+       "x": 66,
+       "y": 1970,
+       "w": 122,
+       "h": 36,
+       "b": 2006,
+       "r": "9999px"
+      },
+      {
+       "t": "Apply CSS",
+       "x": 196,
+       "y": 1970,
+       "w": 117,
+       "h": 36,
+       "b": 2006,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 346,
+      "w": 320,
+      "h": 454,
+      "b": 800,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 293,
+      "bottom": 844,
+      "h": 551
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 454,
+       "b": 800,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 800,
+       "w": 320,
+       "h": 1088,
+       "b": 1888,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1912,
+       "w": 320,
+       "h": 108,
+       "b": 2020,
+       "r": "16px"
+      }
+     ],
+     "pills": [],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 92,
+       "b": 122,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1065,
+      "sheetTop": 293,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "24-spring-tab-timeline-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 293,
+      "w": 390,
+      "h": 772,
+      "b": 1065,
+      "visibleTop": 293,
+      "sheetBottom": 1065,
+      "ty": 293,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.320426 0.0107309 0.0180591 / 0.800828)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.62"
+     },
+     "handle": {
+      "x": 1,
+      "y": 294,
+      "w": 388,
+      "h": 44,
+      "b": 338,
+      "now": "0.62",
+      "text": "62%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 338,
+      "w": 388,
+      "h": 727,
+      "b": 1065,
+      "scrollH": 1643,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-fade-bottom"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1865,
+      "w": 364,
+      "h": 116,
+      "b": 1981,
+      "card": {
+       "x": 29,
+       "y": 1865,
+       "w": 320,
+       "h": 108,
+       "b": 1973,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Snapshot",
+       "x": 84,
+       "y": 1879,
+       "w": 110,
+       "h": 36,
+       "b": 1915,
+       "r": "9999px"
+      },
+      {
+       "t": "Import",
+       "x": 202,
+       "y": 1879,
+       "w": 92,
+       "h": 36,
+       "b": 1915,
+       "r": "9999px"
+      },
+      {
+       "t": "Export",
+       "x": 87,
+       "y": 1923,
+       "w": 91,
+       "h": 36,
+       "b": 1959,
+       "r": "9999px"
+      },
+      {
+       "t": "Add CSS",
+       "x": 186,
+       "y": 1923,
+       "w": 105,
+       "h": 36,
+       "b": 1959,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 293,
+      "bottom": 844,
+      "h": 551
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 454,
+       "b": 800,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 1088,
+       "b": 1434,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1434,
+       "w": 320,
+       "h": 407,
+       "b": 1841,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1865,
+       "w": 320,
+       "h": 108,
+       "b": 1973,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "smooth0.5 / 0.86",
+       "x": 47,
+       "y": 821,
+       "w": 138,
+       "h": 68,
+       "b": 889,
+       "r": "9999px"
+      },
+      {
+       "t": "snappy0.35 / 0.65",
+       "x": 193,
+       "y": 821,
+       "w": 138,
+       "h": 68,
+       "b": 889,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1065,
+      "sheetTop": 293,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "25-spring-tab-physics-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 293,
+      "w": 390,
+      "h": 772,
+      "b": 1065,
+      "visibleTop": 293,
+      "sheetBottom": 1065,
+      "ty": 293,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.320426 0.0107309 0.0180591 / 0.800828)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.62"
+     },
+     "handle": {
+      "x": 1,
+      "y": 294,
+      "w": 388,
+      "h": 44,
+      "b": 338,
+      "now": "0.62",
+      "text": "62%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 338,
+      "w": 388,
+      "h": 727,
+      "b": 1065,
+      "scrollH": 1364,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-fade-bottom"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1458,
+      "w": 364,
+      "h": 244,
+      "b": 1702,
+      "card": {
+       "x": 29,
+       "y": 1458,
+       "w": 320,
+       "h": 236,
+       "b": 1694,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1520,
+       "w": 142,
+       "h": 40,
+       "b": 1560,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1520,
+       "w": 142,
+       "h": 40,
+       "b": 1560,
+       "r": "9999px"
+      },
+      {
+       "t": "Re-seat",
+       "x": 43,
+       "y": 1640,
+       "w": 292,
+       "h": 40,
+       "b": 1680,
+       "r": "9999px"
+      }
+     ],
+     "sheetBand": {
+      "top": 293,
+      "bottom": 844,
+      "h": 551
+     },
+     "cards": [
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 454,
+       "b": 800,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 346,
+       "w": 320,
+       "h": 1088,
+       "b": 1434,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1458,
+       "w": 320,
+       "h": 236,
+       "b": 1694,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "smooth0.5 / 0.86",
+       "x": 47,
+       "y": 821,
+       "w": 138,
+       "h": 68,
+       "b": 889,
+       "r": "9999px"
+      },
+      {
+       "t": "snappy0.35 / 0.65",
+       "x": 193,
+       "y": 821,
+       "w": 138,
+       "h": 68,
+       "b": 889,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1065,
+      "sheetTop": 293,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "30-amiga-peek-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 679,
+      "w": 390,
+      "h": 772,
+      "b": 1451,
+      "visibleTop": 679,
+      "sheetBottom": 1451,
+      "ty": 679,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.36449 0.0101227 0.0171617 / 0.933064)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.12"
+     },
+     "handle": {
+      "x": 1,
+      "y": 680,
+      "w": 388,
+      "h": 44,
+      "b": 724,
+      "now": "0.12",
+      "text": "12%, position 1 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 724,
+      "w": 388,
+      "h": 727,
+      "b": 1451,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 1145,
+      "w": 364,
+      "h": 196,
+      "b": 1341,
+      "card": {
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1207,
+       "w": 142,
+       "h": 40,
+       "b": 1247,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 732,
+      "w": 320,
+      "h": 389,
+      "b": 1121,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 679,
+      "bottom": 844,
+      "h": 165
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 732,
+       "w": 320,
+       "h": 389,
+       "b": 1121,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 1121,
+       "w": 320,
+       "h": 454,
+       "b": 1575,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 1145,
+       "w": 320,
+       "h": 188,
+       "b": 1333,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 746,
+       "w": 180,
+       "h": 40,
+       "b": 786,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 790,
+       "w": 180,
+       "h": 40,
+       "b": 830,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 834,
+       "w": 180,
+       "h": 40,
+       "b": 874,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 165,
+       "y": 30,
+       "w": 60,
+       "h": 56,
+       "b": 86,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 85,
+       "y": 729,
+       "w": 220,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded "
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1451,
+      "sheetTop": 679,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Drawer position [fv]"
+    },
+    {
+     "frame": "31-amiga-expanded-390-dark.png",
+     "vw": 390,
+     "vh": 844,
+     "dark": true,
+     "drawer": {
+      "x": 0,
+      "y": 494,
+      "w": 390,
+      "h": 772,
+      "b": 1266,
+      "visibleTop": 494,
+      "sheetBottom": 1266,
+      "ty": 494,
+      "borderTopLeftRadius": "12px",
+      "backgroundColor": "oklab(0.345012 0.0103915 0.0175584 / 0.869591)",
+      "zIndex": "39",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.25) 0px 25px 50px -12px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "t": "0.36"
+     },
+     "handle": {
+      "x": 1,
+      "y": 495,
+      "w": 388,
+      "h": 44,
+      "b": 539,
+      "now": "0.36",
+      "text": "36%, position 2 of 2"
+     },
+     "pane": {
+      "x": 1,
+      "y": 539,
+      "w": 388,
+      "h": 727,
+      "b": 1266,
+      "scrollH": 727,
+      "clientH": 727,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "maskImage": "none",
+      "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+     },
+     "ribbon": {
+      "x": 13,
+      "y": 960,
+      "w": 364,
+      "h": 196,
+      "b": 1156,
+      "card": {
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "borderTopLeftRadius": "16px",
+       "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+      },
+      "onscreen": false
+     },
+     "ribbonButtons": [
+      {
+       "t": "Play",
+       "x": 43,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      },
+      {
+       "t": "Reverse",
+       "x": 193,
+       "y": 1022,
+       "w": 142,
+       "h": 40,
+       "b": 1062,
+       "r": "9999px"
+      }
+     ],
+     "panel": {
+      "x": 29,
+      "y": 547,
+      "w": 320,
+      "h": 389,
+      "b": 936,
+      "id": "",
+      "label": null
+     },
+     "sheetBand": {
+      "top": 494,
+      "bottom": 844,
+      "h": 350
+     },
+     "cards": [
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 547,
+       "w": 320,
+       "h": 389,
+       "b": 936,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+       "x": 29,
+       "y": 936,
+       "w": 320,
+       "h": 454,
+       "b": 1390,
+       "r": "16px"
+      },
+      {
+       "cls": "glass-quiet card rounded-card text-card-foreground scrollbar",
+       "x": 29,
+       "y": 960,
+       "w": 320,
+       "h": 188,
+       "b": 1148,
+       "r": "16px"
+      }
+     ],
+     "pills": [
+      {
+       "t": "5s",
+       "x": 147,
+       "y": 561,
+       "w": 180,
+       "h": 40,
+       "b": 601,
+       "r": "9999px"
+      },
+      {
+       "t": "0ms",
+       "x": 147,
+       "y": 605,
+       "w": 180,
+       "h": 40,
+       "b": 645,
+       "r": "9999px"
+      },
+      {
+       "t": "∞",
+       "x": 147,
+       "y": 649,
+       "w": 180,
+       "h": 40,
+       "b": 689,
+       "r": "9999px"
+      },
+      {
+       "t": "alternate",
+       "x": 147,
+       "y": 693,
+       "w": 180,
+       "h": 40,
+       "b": 733,
+       "r": "9999px"
+      },
+      {
+       "t": "forwards",
+       "x": 147,
+       "y": 737,
+       "w": 180,
+       "h": 40,
+       "b": 777,
+       "r": "9999px"
+      },
+      {
+       "t": "Edit easing curve",
+       "x": 97,
+       "y": 781,
+       "w": 40,
+       "h": 40,
+       "b": 821,
+       "r": "9999px"
+      },
+      {
+       "t": "ease-in-out",
+       "x": 47,
+       "y": 825,
+       "w": 280,
+       "h": 40,
+       "b": 865,
+       "r": "9999px"
+      }
+     ],
+     "docks": [
+      {
+       "x": 39,
+       "y": 30,
+       "w": 312,
+       "h": 86,
+       "b": 116,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 167,
+       "y": 729,
+       "w": 56,
+       "h": 56,
+       "b": 785,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "dockOverlap": {
+      "dockTop": 729,
+      "dockBottom": 785,
+      "sheetBottom": 1266,
+      "sheetTop": 494,
+      "overlapPx": 56,
+      "dockAboveSheet": false
+     },
+     "focus": "Controls panel"
+    }
+   ],
+   "notes": [
+    "tap-handle: tap → now 0.12",
+    "controls-panel toggle: true → now 0.36",
+    "pick Keyframes: ok:Controls|Keyframes|Timeline → now 0.36",
+    "pick Timeline: ok:Controls|Keyframes|Timeline → now 0.36",
+    "pick Matrix: no-option:Controls|Keyframes|Timeline → now 0.36",
+    "pick Controls: ok:Controls|Keyframes|Timeline → now 0.36",
+    "drag-down → now 0.12",
+    "drag-up release → now 0.36",
+    "spring expand via toggle → 0.62",
+    "spring tabs: Controls|Keyframes|Timeline|Physics",
+    "spring pick Keyframes: ok:Controls|Keyframes|Timeline|Physics",
+    "spring pick Timeline: ok:Controls|Keyframes|Timeline|Physics",
+    "spring pick Physics: ok:Controls|Keyframes|Timeline|Physics",
+    "amiga expand via toggle → 0.36"
+   ],
+   "errs": [
+    "cube: Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  }
+ ]
+}

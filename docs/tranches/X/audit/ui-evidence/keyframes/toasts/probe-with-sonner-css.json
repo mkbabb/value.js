@@ -1,0 +1,737 @@
+{
+ "tree": "531aa3f1+27dirty",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "frames": [
+    {
+     "frame": "sim-01-success-link-copied-1440-light.png",
+     "toasts": [
+      {
+       "type": "success",
+       "text": "Link copied to clipboard!",
+       "rect": [
+        1096,
+        800,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-02-error-invalid-1440-light.png",
+     "toasts": [
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        1096,
+        800,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-03-stacked-collapsed-1440-light.png",
+     "toasts": [
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        1096,
+        800,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        1104,
+        788,
+        304,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        1112,
+        776,
+        288,
+        68
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-04-stacked-expanded-1440-light.png",
+     "toasts": [
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        1096,
+        800,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        1096,
+        710,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        1096,
+        620,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-05-info-1440-light.png",
+     "toasts": [
+      {
+       "type": "info",
+       "text": "URL updated — copy from address bar",
+       "rect": [
+        1096,
+        772,
+        320,
+        104
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "1440-dark",
+   "frames": [
+    {
+     "frame": "sim-01-success-link-copied-1440-dark.png",
+     "toasts": [
+      {
+       "type": "success",
+       "text": "Link copied to clipboard!",
+       "rect": [
+        1096,
+        800,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-02-error-invalid-1440-dark.png",
+     "toasts": [
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        1096,
+        800,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-03-stacked-collapsed-1440-dark.png",
+     "toasts": [
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        1096,
+        800,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        1104,
+        788,
+        304,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        1112,
+        776,
+        288,
+        68
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-04-stacked-expanded-1440-dark.png",
+     "toasts": [
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        1096,
+        800,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        1096,
+        710,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        1096,
+        620,
+        320,
+        76
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-05-info-1440-dark.png",
+     "toasts": [
+      {
+       "type": "info",
+       "text": "URL updated — copy from address bar",
+       "rect": [
+        1096,
+        772,
+        320,
+        104
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "390-light",
+   "frames": [
+    {
+     "frame": "sim-01-success-link-copied-390-light.png",
+     "toasts": [
+      {
+       "type": "success",
+       "text": "Link copied to clipboard!",
+       "rect": [
+        16,
+        756,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-02-error-invalid-390-light.png",
+     "toasts": [
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        16,
+        756,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-03-stacked-collapsed-390-light.png",
+     "toasts": [
+      {
+       "type": "success",
+       "text": "State restored!Animation state loaded from shared URL.",
+       "rect": [
+        16,
+        736,
+        351,
+        92
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        25,
+        725,
+        333,
+        87
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        34,
+        713,
+        316,
+        82
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-04-stacked-expanded-390-light.png",
+     "toasts": [
+      {
+       "type": "success",
+       "text": "State restored!Animation state loaded from shared URL.",
+       "rect": [
+        16,
+        736,
+        351,
+        92
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        16,
+        650,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        16,
+        564,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-05-info-390-light.png",
+     "toasts": [
+      {
+       "type": "info",
+       "text": "URL updated — copy from address bar",
+       "rect": [
+        16,
+        756,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(28, 25, 23)",
+       "fg": "rgb(251, 250, 248)",
+       "backdrop": "none",
+       "iconColor": "rgb(251, 250, 248)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "390-dark",
+   "frames": [
+    {
+     "frame": "sim-01-success-link-copied-390-dark.png",
+     "toasts": [
+      {
+       "type": "success",
+       "text": "Link copied to clipboard!",
+       "rect": [
+        16,
+        756,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-02-error-invalid-390-dark.png",
+     "toasts": [
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        16,
+        756,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-03-stacked-collapsed-390-dark.png",
+     "toasts": [
+      {
+       "type": "success",
+       "text": "State restored!Animation state loaded from shared URL.",
+       "rect": [
+        16,
+        736,
+        351,
+        92
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        25,
+        725,
+        333,
+        87
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        34,
+        713,
+        316,
+        82
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-04-stacked-expanded-390-dark.png",
+     "toasts": [
+      {
+       "type": "success",
+       "text": "State restored!Animation state loaded from shared URL.",
+       "rect": [
+        16,
+        736,
+        351,
+        92
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "No shared state found in URL",
+       "rect": [
+        16,
+        650,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      },
+      {
+       "type": "error",
+       "text": "Invalid shared state",
+       "rect": [
+        16,
+        564,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    },
+    {
+     "frame": "sim-05-info-390-dark.png",
+     "toasts": [
+      {
+       "type": "info",
+       "text": "URL updated — copy from address bar",
+       "rect": [
+        16,
+        756,
+        351,
+        72
+       ],
+       "radius": "12px",
+       "bg": "rgb(233, 230, 226)",
+       "fg": "rgb(11, 10, 9)",
+       "backdrop": "none",
+       "iconColor": "rgb(11, 10, 9)",
+       "overlapsDock": false,
+       "inViewport": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1562 @@
+[
+ {
+  "tag": "loaded__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "cube.png loaded",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BODY ",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     137,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     135,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "32% of the image"
+   }
+  ]
+ },
+ {
+  "tag": "k12__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "k -> 12 via kbd (slider keeps focus)",
+  "errs": [],
+  "overflowX": 0,
+  "active": "SPAN Number of colors",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     269,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 3px",
+    "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     136,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   }
+  ]
+ },
+ {
+  "tag": "eyedropper__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "eyedropper open",
+  "errs": [],
+  "overflowX": 0,
+  "active": "DIV Sample colors",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     269,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     136,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     17,
+     198,
+     356,
+     724
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "Tap to sample"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     30,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   }
+  ]
+ },
+ {
+  "tag": "loupe__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "hover loupe",
+  "errs": [],
+  "overflowX": 0,
+  "active": "DIV Sample colors",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     269,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     136,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     17,
+     198,
+     356,
+     724
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(78.23% 0.0833 160.1deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     30,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     140,
+     568,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.15) 0px 4px 16px 0px, color(srgb 0.11 0.098 0.09 ",
+    "cls": "loupe",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "pinned__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "tap -> pinned",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BODY ",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     269,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     136,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     17,
+     198,
+     356,
+     724
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(78.23% 0.0833 160.1deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     30,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     264,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Add to palette"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     316,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Apply as current color"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     140,
+     568,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.261964 0.408119 0.0000345338 / 0.4) 0px 0px 0px 2px, color(srgb 0.1",
+    "cls": "loupe loupe-pinned",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "swatchpop__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "add-to-palette -> swatch-pop mid-animation",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BUTTON Add to palette",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     269,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     136,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     17,
+     198,
+     356,
+     724
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(78.23% 0.0833 160.1deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     30,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     262,
+     205,
+     48,
+     48
+    ],
+    "radius": "9999px",
+    "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+    "outline": "rgb(28, 25, 23) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Add to palette"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     316,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Apply as current color"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     140,
+     568,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.261964 0.408119 0.0000345338 / 0.4) 0px 0px 0px 2px, color(srgb 0.1",
+    "cls": "loupe loupe-pinned",
+    "label": ""
+   },
+   {
+    "s": ".swatch-pulse",
+    "box": [
+     103,
+     215,
+     28,
+     28
+    ],
+    "radius": "26.1369% 23.1918% 28.5968% 32.6082% / 76.7512% 48.9548% 65.5396% 51.6095%",
+    "bg": "rgb(136, 201, 166)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.09",
+    "cls": "shrink-0 transition-transform swatch-pulse watercolor-swatch",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "afteradd__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "after add (any confirmation?)",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BUTTON Add to palette",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     269,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     136,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     17,
+     198,
+     356,
+     724
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(78.23% 0.0833 160.1deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     30,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     262,
+     205,
+     48,
+     48
+    ],
+    "radius": "9999px",
+    "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+    "outline": "rgb(28, 25, 23) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Add to palette"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     316,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Apply as current color"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     140,
+     568,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.261964 0.408119 0.0000345338 / 0.4) 0px 0px 0px 2px, color(srgb 0.1",
+    "cls": "loupe loupe-pinned",
+    "label": ""
+   },
+   {
+    "s": ".swatch-pulse",
+    "box": [
+     103,
+     215,
+     28,
+     28
+    ],
+    "radius": "26.1369% 23.1918% 28.5968% 32.6082% / 76.7512% 48.9548% 65.5396% 51.6095%",
+    "bg": "rgb(136, 201, 166)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.09",
+    "cls": "shrink-0 transition-transform swatch-pulse watercolor-swatch",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "zoom__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "Escape unpin, wheel zoom x6",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BODY ",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     269,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     136,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     17,
+     198,
+     356,
+     724
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(85.36% 0.1359 109deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     30,
+     207,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     140,
+     535,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.15) 0px 4px 16px 0px, color(srgb 0.11 0.098 0.09 ",
+    "cls": "loupe",
+    "label": ""
+   },
+   {
+    "s": ".swatch-pulse",
+    "box": [
+     103,
+     215,
+     28,
+     28
+    ],
+    "radius": "47.3092% 45.434% 55.0724% 32.0714% / 34.2954% 20.7077% 22.5086% 38.5624%",
+    "bg": "rgb(214, 214, 101)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.09",
+    "cls": "shrink-0 transition-transform swatch-pulse watercolor-swatch",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "closed__390__light",
+  "tree": "f82daf4a dirty=8",
+  "note": "Escape closes eyedropper",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BODY ",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     33,
+     206,
+     324,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     61,
+     542,
+     296,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.545406 0.21813 9.83402)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "oklch(0.545406 0.21813 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     269,
+     532,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     200,
+     578,
+     12,
+     44
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.08) 0px 0px 0px 4px, color(srgb 0.11 0.098 0.09 /",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     33,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     85,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     313,
+     578,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.11 0.098 0.09 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     37,
+     634,
+     136,
+     28
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   }
+  ]
+ }
+]

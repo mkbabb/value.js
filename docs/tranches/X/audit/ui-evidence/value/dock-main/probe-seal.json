@@ -1,0 +1,75 @@
+{
+ "focus": {
+  "label": "Select view",
+  "fv": true,
+  "outline": "none 3px color(srgb 0 0 0 / 0.8)",
+  "shadow": "none",
+  "dockRing": "oklch(0.471189 0.188448 9.83402)"
+ },
+ "focus2": {
+  "label": "Toggle action bar",
+  "fv": true,
+  "outline": "none 3px color(srgb 0 0 0 / 0.8)",
+  "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px"
+ },
+ "seal": {
+  "seal": {
+   "r": [
+    700,
+    21,
+    40,
+    40
+   ],
+   "op": "1",
+   "vis": "visible",
+   "disp": "grid",
+   "color": "rgb(28, 25, 23)",
+   "radius": "9999px",
+   "filter": "none",
+   "z": "auto",
+   "pos": "static"
+  },
+  "wax": {
+   "r": [
+    700,
+    21,
+    40,
+    40
+   ],
+   "op": "1",
+   "vis": "visible",
+   "disp": "block",
+   "color": "oklch(0 0 0)",
+   "radius": "79.5047% 38.7155%",
+   "filter": "url(\"#watercolor-filter-v-5\")",
+   "z": "auto",
+   "pos": "relative"
+  },
+  "ink": null,
+  "summary": {
+   "r": [
+    700,
+    21,
+    40,
+    40
+   ],
+   "op": "1",
+   "vis": "visible",
+   "disp": "flex",
+   "color": "rgb(28, 25, 23)",
+   "radius": "0px",
+   "filter": "none",
+   "z": "auto",
+   "pos": "relative"
+  },
+  "sealInk": "oklch(0 0 0)",
+  "waxChildren": [
+   "svg.watercolor-filter-host"
+  ]
+ },
+ "logs": [
+  "warning: [aurora] init failed: Error: [object GPUValidationError]\n    at Ht.b.onInitError (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/@mkbabb_glass-ui_aurora.js?v=e577aa9a:2365:80)\n    at Object.onInitError (",
+  "warning: Texture size ([Extent3D width:2160, height:11368, depthOrArrayLayers:1]) exceeded maximum texture size ([Extent3D width:8192, height:8192, depthOrArrayLayers:256]). This adapter supports a higher maxTextureDimension2D of 16384, which can be",
+  "warning: [aurora] init failed: Error: [object GPUValidationError]\n    at Ht.b.onInitError (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/@mkbabb_glass-ui_aurora.js?v=e577aa9a:2365:80)\n    at Object.onInitError ("
+ ]
+}

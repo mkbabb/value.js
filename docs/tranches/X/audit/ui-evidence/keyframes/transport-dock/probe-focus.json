@@ -1,0 +1,254 @@
+[
+ {
+  "k": "idle",
+  "t": 1955,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "idle",
+  "t": 2959,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "idle",
+  "t": 3962,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "idle",
+  "t": 4964,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "idle",
+  "t": 5975,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "idle",
+  "t": 6978,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "idle",
+  "t": 7989,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "idle",
+  "t": 8995,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "hovered",
+  "t": 10856,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "left+1s",
+  "t": 11872,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "left+2s",
+  "t": 12876,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "left+3s",
+  "t": 13878,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "left+4s",
+  "t": 14881,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 64,
+  "active": "BODY"
+ },
+ {
+  "k": "left+5s",
+  "t": 15890,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "BODY"
+ },
+ {
+  "k": "left+6s",
+  "t": 16892,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "BODY"
+ },
+ {
+  "k": "tab0",
+  "t": 17079,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "DIV[fv]"
+ },
+ {
+  "k": "tab1",
+  "t": 17091,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "INPUT[fv]"
+ },
+ {
+  "k": "tab2",
+  "t": 17094,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "INPUT[fv]"
+ },
+ {
+  "k": "tab3",
+  "t": 17096,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "INPUT[fv]"
+ },
+ {
+  "k": "tab4",
+  "t": 17107,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "BUTTON[fv]"
+ },
+ {
+  "k": "tab5",
+  "t": 17110,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "BUTTON[fv]"
+ },
+ {
+  "k": "tab6",
+  "t": 17112,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "Edit easing curve[fv]"
+ },
+ {
+  "k": "tab7",
+  "t": 17122,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "BUTTON[fv]"
+ },
+ {
+  "k": "tab8",
+  "t": 17125,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "BUTTON[fv]"
+ },
+ {
+  "k": "tab9",
+  "t": 17128,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "Scrub animation timeline[fv]"
+ },
+ {
+  "k": "tab10",
+  "t": 17131,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "BUTTON[fv]"
+ },
+ {
+  "k": "tab11",
+  "t": 17141,
+  "cls": "dock-scroll-x collapsed fit-content dock-inline",
+  "w": 56,
+  "active": "BUTTON[fv]"
+ },
+ {
+  "k": "tab12",
+  "t": 17146,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 56,
+  "active": "Pause animation[fv]@bottom[INERT]"
+ },
+ {
+  "k": "tab12+200ms",
+  "t": 17357,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "tab12+400ms",
+  "t": 17579,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "tab12+600ms",
+  "t": 17789,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "tab12+800ms",
+  "t": 18007,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "tab12+1000ms",
+  "t": 18210,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "tab12+1200ms",
+  "t": 18413,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "BODY"
+ },
+ {
+  "k": "tab-next",
+  "t": 18626,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "Scene[fv]"
+ },
+ {
+  "k": "tab-next+400",
+  "t": 19029,
+  "cls": "dock-scroll-x expanded fit-content dock-inline",
+  "w": 279,
+  "active": "Scene[fv]"
+ }
+]
