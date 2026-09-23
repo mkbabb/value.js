@@ -150,3 +150,92 @@ Seat `claude-opus-5-5`, 2026-09-23 ~15:30–16:15 EDT. Spec: W6.md §The law + �
 **Escalations.** None.
 
 Commits (value.js, pathspec, not pushed): `c02179fa` · `e046fe43` · `812daa4b`. This receipt is the next commit.
+
+### X.P.W6.x
+
+Seat `claude-opus-5-5`, 2026-09-23 ~15:45–16:45 EDT (load 285 → 30 on 18 cores; a shared host). Spec: W6.md §The law + §Units `.x` + the RC-P line (read whole). COHESION §0by and later read to the file end (§0cc–§0ce carry nothing for this unit). Consumed: RES-b-1 (the stylesheet layer is still hand-scanned), RES-b-4, R-h-1 (`parseStylesheet` has no BBNF peer) and R-h-4.
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ showed no path inside `.x`'s writable set dirty at open, so nothing was inherited. The foreign dirty rows were left untouched and never staged: Track A's `demo/**`, `package.json`/`package-lock.json`, `CARRY-LEDGER.md`, `KF-W13U.md`, `scripts/dev/dev.sh` and `docs/tranches/X/keyframes/evidence/W13U/`.
+
+**Reading of "value.js parses CSS only through the BBNF grammar".** RES-b-1 asked for a ruling: grant `.x` the path or mint `.b2`. No ruling landed (⟨`grep -n 'RES-b-1' COHESION.md LEDGER.md`⟩ → 0). `.x`'s writable set as dispatched is `src/css/**` (the importers of the hand parser). `stylesheet.ts`, `rules.ts`, `timeline.ts` and `syntax.ts` are those importers, and each read CSS text with the hand parser's `splitTopLevel` and with scanners of its own. `.x` therefore carried the spec sentence whole: the importers were routed through a fifth grammar module, `src/css/grammar/stylesheet.bbnf`, so no hand scanner survives in `src/css/`. The parse entries' own actions still classify tokens the grammar has already matched (`bbnf/math.ts:48` a unit, `bbnf/value.ts:67-68` a function name, `bbnf/color.ts:224` a hue keyword). Those are `.b`'s accepted posture, not scanners (RES-x-3).
+
+**Acts, in order.**
+1. **Bench authored BEFORE the delete (F-W6-open-1)** → value.js **`c01171b5`**.
+   - `bench/retired.ts` supplies the INCUMBENT. It reads the retired parser back from git, `git archive 2155142b src` into `$TMPDIR`, and never copies it into the tree. The blob is pinned: ⟨`git rev-parse 2155142b:src/css/grammar.ts`⟩ → `320b47af…`, asserted at every load.
+   - `bench/css-parse.bench.ts` runs the six entries, BBNF vs the retired parser, over the differential corpus: 29,944 distinct sources, the assay 27,021 plus real 3,049, deduplicated. `parseStylesheet` was added at the reading below.
+   - `bench/vitest.config.ts` is standalone. It does not import the root config, because that config fails to type-check once it is pulled into the program: TS2769 is a vite-version plugin type mismatch.
+   - **The `.h` differential moved** with `git mv test/css/equivalence → bench/css-equivalence` (12 renames). Its incumbent was the file `.x` deletes, so it is now passed in (`runEntry(entry, sources, incumbent, candidate?)`). `equivalence.test.ts` became `equivalence.measure.test.ts`, and `build-corpus.mjs` points at its new home.
+   - `tsconfig.test.json` include gains `bench/**/*.ts`, so the moved harness stays in a typed program (adjacent edit, below).
+   - Re-read on the moved harness: ⟨`npx vitest run -c bench/vitest.config.ts`⟩ → `Tests 15 passed (15)`. The census is byte-identical to `.h`'s: MIRROR-DEFECTS 0 on all 12 cells, and assay colour AGREE 24,437 · DECLARED 2,584 as `.h` read it.
+2. **keyframes.js suite, linked to local value.js: BEFORE (G-x4).** keyframes.js is READ-ONLY, so it was not modified. A scratch vitest config merges keyframes' own `vitest.config.ts` and adds one alias, `^@mkbabb/value.js/(color|value|css|easing|math|transform|quantize)$` → `$VALUE_DIST/subpaths/$1.js`. That alias points at a snapshot of value.js's `dist/`, built from HEAD by ⟨`npm run build`⟩.
+   - keyframes HEAD `9bdcdad5`. It pins value.js `4.0.0`, and the linked build is `4.1.0`.
+   - ⟨`VALUE_DIST=…/dist-before npx vitest run --config …/vitest.linked.mts`⟩ ×2 → `Tests 6 failed | 1774 passed | 2 expected fail | 14 skipped (1796)` on both runs. The failing set was saved: 4 in `test/demo/instrument/timeline-hover-preview.test.ts`, plus `test/compile/easing-identity.test.ts` K1 and `test/compile/grammar-fuzz.test.ts` G-W2-5.
+   - **The link is real.** The same two library files run UNLINKED against keyframes' installed 4.0.0 give `Tests 54 passed (54)`, and they fail only when linked.
+3. **The swap** → value.js **`7e60d700`** (`feat(css)!`, 18 files, +251/−603).
+   - `src/css/grammar.ts` is DELETED (544 lines), with no shim. `src/css/index.ts` re-exports the six parse entries from `./bbnf/index` under the frozen `/css` names.
+   - The code that was not the parser moved unchanged. The result law (`success`/`failure`/`deepFreeze`) went to the new `src/css/result.ts`. `serializeCssColor` and `serializeKeyframeSelector`, with their format helpers and `CSS_COLOR_SPACES`, went to `src/css/serialize.ts`. The `steps()` alias table is now ONE table, `bbnf/value.ts` `JUMP_ALIASES`, and `rules.ts`' declaration-level twin reads it.
+   - The hand scanner `splitTopLevel` → `stylesheet.bbnf` `commaItems` · `semiItems` · `spaceItems`, read by `bbnf/index.ts` `splitTopLevel`. It returns `null` on an unclosed block or string, and every caller answers that with its own named diagnostic.
+   - One measured cure rode the swap. With the BBNF path public, `test/v4-css-emerging.test.ts:100` went RED: `calc(1px @ 2px)` must name the offending component, `actual: "@"`, and BBNF answered the whole input. `value.bbnf` gains `badTerm`, the last `valueTerm` alternative. It matches a component no production reads, only to REFUSE it (`css_syntax`, `scalar`), and its `span` comes from `mapState` offsets. This yields absolute offsets, where the hand parser gave ones relative to its sub-part.
+   - Two list actions first read sequence positions, and parse-that drops an `undefined` from a sequence (TypeError on `scroll()`: `v4-c1`, `v4-css-emerging`, `v4-css-public`). They became TAGGED: each run's action tags its text and the list collects the tags.
+   - **adjacent edits:** `test/v4-c1.test.ts:9` (the `serializeKeyframeSelector` import follows its function to `../src/css/serialize`). `src/color/index.ts:11-13` is a comment citing `src/css/grammar.ts:326`, re-pointed to `serialize.ts`. `src/css/named-colors.ts:4-6`, `src/css/rules.ts:137-142` and `src/css/types.ts:1` are comments citing the deleted file. `tsconfig.test.json` include (+`bench/**/*.ts`, in `c01171b5`) keeps the moved harness in the typed program. Each is the deleted file's own citation or the moved harness's program, the same concern, and a few lines.
+4. **The stylesheet layer onto the grammar (RES-b-1)** → value.js **`dff875e8`**.
+   - `stylesheet.bbnf` grows five groups of rules:
+     - rule lists (`ruleList`), with exactly three named faults: `closing comment` (`openComment`, and `ruleBlock - openComment` so that a rule never starts inside a comment), `closing brace` (`openBlock`) and `rule` (`openRule`);
+     - at-rule preludes (`atPrelude`: keyframes · property · function · scope · starting-style · scroll-/view-timeline · other);
+     - `propertyName`, `syntaxText`, `syntaxAlts`, `scopePrelude`, `functionHead`/`functionParam`/`paramHead`;
+     - declarations (`declaration` with `!important`, and `commaSpans` for the empty animation-list comma);
+     - timelines (`scrollFn`/`viewFn` arguments, `timelineLead`, `timelineLength`).
+   - The readers live in the new `src/css/bbnf/sheet.ts`. Each is one whole-input run of one rule.
+   - The retired pieces: `blocks`, `parseScopePrelude`'s loop, `topLevelColon`, `parseFunctionPrelude`'s regex, `emptyComma`, `parseDeclarations`' `indexOf(":")` and `!important` regex, and the regexes `LENGTH_PERCENTAGE`, `^scroll\((.*)\)$`, `^view\(…`, `^--[-\w]+$` and the trigger-lead regex. So did `syntax.split("|")`, and the reserved-ident regex became a `Set`.
+   - Measured: ⟨`git grep -cE "charAt|indexOf\(|\.match\(|\.test\(|\.replace\(|\.split\(" -- 'src/css/*.ts'`⟩ → `serialize.ts:1` only. That one is a serializer's output `replace`, which WRITES CSS.
+5. **The stylesheet differential (R-h-1 re-opened)** → value.js **`1e5132cf`**. `bench/css-equivalence/stylesheet.measure.test.ts`.
+   - The corpus is 32,021 sheets. It takes every CSS file and SFC `<style>` block of value.js `demo/` (@`ddfdb9dc`) and of keyframes.js (@`9bdcdad5`), whole and cut at 16 points so that real text breaks, plus both value corpora read as sheets.
+   - **THE ISOLATION:** a HYBRID is the retired sheet layer with its six value entries swapped for HEAD's BBNF entries, by `vi.doMock` of the retired `grammar.ts`. It differs from HEAD by the sheet grammar alone.
+   - Convention carried from `differential.ts`: a double refusal agrees, because a refusal's span and label are not compared.
+   - One class is rowed as a mechanism, **SH-1 UNMATCHED DELIMITER** (css-syntax-3 §5.4.8). The retired signed paren-depth read `a { backgrou(d-color: red }` as a declaration NAMED `backgrou(d-color`, and the grammar refuses it. SH-1 governs only when HEAD refuses and removing exactly the unmatched `(`/`)` makes the two layers agree.
+   - The first run found 1,336 disagreements, then 43 once isolated, and two were real grammar defects. They were cured before the commit: `openBlock` read `blockBody`, which stops at a nested unclosed `{`, so `ruleList` was not total (my own invariant threw); it now reads `restText`. An unclosed comment at a rule boundary was swallowed into a prelude; `ruleBlock - openComment` fixes it.
+6. **The bench reading of record (G-x3)** → value.js **`58bbd617`** (`bench/records/2026-09-23-x-p-w6-x.json`; `parseStylesheet` joined the bench).
+   - The host is 18 cores and shared, and it was never idle. Each reading of record was opened when the 1-min load fell below 18 (⟨`sysctl -n vm.loadavg`⟩ → `17.20 29.49 37.48` at 16:47:12, and `25.48 29.28 36.87` at 16:48:08). The two loaded readings (1-min load 51 → 32) are kept beside them for context.
+   - Mean ms per pass over 29,944 sources, BBNF / retired (ratio), reading 1 → reading 2:
+
+     | entry | reading 1 | reading 2 |
+     |---|---|---|
+     | `parseCssColor` | 55.9 / 27.8 (2.01×) | 41.5 / 24.2 (1.71×) |
+     | `parseCssScalar` | 43.0 / 32.0 (1.34×) | 44.2 / 29.9 (1.48×) |
+     | `parseCssValue` | 269.1 / 96.3 (2.79×) | 196.6 / 89.9 (2.19×) |
+     | `parseCssValues` | 211.8 / 135.0 (1.57×) | 218.9 / 110.6 (1.98×) |
+     | `parseKeyframeSelector` | 15.4 / 5.9 (2.63×) | 10.0 / 4.7 (2.14×) |
+     | `parseTimingFunction` | 20.2 / 18.3 (1.11×) | 10.9 / 7.7 (1.42×) |
+     | `parseStylesheet` | 774.9 / 52.4 (14.78×) | 263.1 / 46.9 (5.61×) |
+
+   - **The BBNF grammar is slower than the retired hand parser on every entry**: ≈1.1–2.8× on the six value entries and ≈5.6–14.8× on `parseStylesheet` (whose variance is high). This is recorded, not judged. The D-23 bar is the owner's OC-1 ruling, and this seat invents none (RES-x-1).
+7. **RC-P re-read** → value.js **`0eb6732e`** (RELEASE-CONDITION, dated addendum appended, E-3).
+   - The seam is value.js's BBNF grammar, and conjunct 4 `ADMITTED` retires. `EQUIVALENCE` reads `bench/css-equivalence` (MIRROR-DEFECTS 0 · STYLESHEET DEFECTS 0). `BAR-DISCHARGED` reads `bench/records` under OC-1.
+   - KF.W3 stays gate-keyed on the re-read predicate at X-W11's coordinate.
+
+**Gates (BEFORE → AFTER, double-run on the settled bytes).**
+- **G-x1 hand parser absent, no shim — GREEN.** BEFORE ⟨`wc -l src/css/grammar.ts`⟩ → `544`. AFTER ⟨`ls src/css/grammar.ts`⟩ → `No such file or directory`.
+  - ⟨`git grep -nE 'from "\./grammar"|css/grammar"|splitValueTokens' -- src test bench demo`⟩ → 0, apart from one corpus DATA row (`real-corpus.json:1740`, a string literal).
+  - No hand scanner survives in `src/css/*.ts` (act 4's grep → the serializer's one output `replace`).
+- **G-x2 `npm test` — GREEN (only the two foreign REDs, F-W6-open-4).** BEFORE `Tests 2 failed | 874 passed (876)`. AFTER ⟨`npm test`⟩ ×2 (after `dff875e8`, and at final HEAD `0eb6732e`) → `Test Files 2 failed | 65 passed (67)` · `Tests 2 failed | 908 passed (910)` both times.
+  - The two failures are `test/spectrum-luma.test.ts` C-5 BORN-RED and `demo/test/shell/reka-binding-idiom.test.ts` NG-6. Both are foreign and unmoved.
+  - The count moved from 876 at open: `.b` and `.h` added tests, and `.x` moved `.h`'s 15 out of `npm test` into the bench program.
+  - Holds: ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit`⟩ → 0 `error TS`. ⟨`npx vue-tsc -p tsconfig.test.json --noEmit`⟩ → 0 (with `bench/**` in the program), read against a fresh `npm run build` `dist/`. A concurrent `build:watch` (dev.sh) rewrites `dist/` without `.d.ts`, and a reading taken during that window shows 109 TS7016, all "no declaration file" (environmental). ⟨`npx eslint --max-warnings=0 src/css bench`⟩ → exit 0.
+- **G-x3 bench recorded at quiesced load — GREEN as a RECORD** (act 6, `58bbd617`). Whether the D-23 perf bar passes is not this gate's to read (OC-1). Equivalence on the same bytes: ⟨`npx vitest run -c bench/vitest.config.ts`⟩ ×2 → `Tests 19 passed (19)` both.
+  - The six-entry differential: MIRROR-DEFECTS 0 on 12/12 cells, census identical to `.h`'s.
+  - `parseStylesheet × 32,021`: `AGREE 30,252 · VALUE_GRAMMAR 1,726 · BOTH_REFUSE 30 · SH-1 13 · STYLESHEET DEFECTS 0`.
+  - `parseAnimationTimeline` and `parseAnimationRange` × 32,021: AGREE 32,021 · 0 each.
+  - Both falsifiers read RED 3/3.
+- **G-x4 keyframes.js suite linked against local value.js unchanged — GREEN.** BEFORE (HEAD `2155142b` build) ×2 → `Tests 6 failed | 1774 passed | 2 expected fail | 14 skipped (1796)`. AFTER the swap (`7e60d700` build) ×2 and after the stylesheet grammar (`dff875e8` build) ×2 → the same counts on all four runs. ⟨`diff <(grep '^ FAIL' after-*.log | sort -u) before-fails.txt`⟩ → IDENTICAL on all four, the same 6 named failures.
+
+**Residuals (named; not escalations).**
+- RES-x-1: PERF. BBNF is ≈1.1–2.8× slower than the retired hand parser per value entry and ≈5.6–14.8× on `parseStylesheet` (act 6). This matches the gate verdict recorded at `apotheosis/parser-proof`, where the live regex was measured fastest. Whether that clears the bar is the owner's OC-1 ruling. The obvious producer-side levers are parse-that/bbnf-lang rows, not value.js hacks: RES-b-3's `regexFirstChars` flag defect, which blocks the dispatch tables case-insensitive rules need, and the per-call `reset()`.
+- RES-x-2: DIAGNOSTIC SPANS on refusals. The carried convention compares verdict and value, never a refusal's span or label, so both differentials count a double refusal as agreement (30 sheets). Where the grammar refuses at a different point than the hand scanner did, for example an unbalanced prelude, `ParseIssue.start` and `expected` can differ. The one pinned diagnostic, `calc(1px @ 2px)` → `actual: "@"`, is honoured by `badTerm`. The rest are unpinned and rowed here.
+- RES-x-3: token classification inside `.b`'s actions (`bbnf/math.ts:48` `RELATIVE_LENGTH.test(unit)`, `bbnf/value.ts:67-68` the function-name regexes, `bbnf/color.ts:224` `split(/\s+/)` on a matched hue-method token). These read tokens the grammar has already delimited, and they are `.b`'s posture (its receipt act 2). They were left as found.
+- RES-x-4: the DIVERGENCE-LEDGER §15 rows cite `test/css/equivalence/…`. The harness now lives at `bench/css-equivalence/…`. The ledger is not in `.x`'s writable set, so this receipt is the path-change record, and a §15 addendum is owed to the wave close. SH-1 likewise wants a §15 row beside its mechanism test.
+- RES-x-5: the committed `real-corpus.json` keeps its generation note naming `test/css/equivalence/build-corpus.mjs` (evidence of `.h`). A regeneration would write the new path and re-pin the rows (R-h-4).
+- RES-x-6: KFA-14 now ships in value.js HEAD, because the swap made `rgba(255, 0, 0, 0.5)` parse. keyframes' timeline cure still rides a value.js RELEASE (RES-b-2). No publish happened here.
+
+**Escalations.** None.
+
+**Commits (value.js, pathspec, not pushed):** `c01171b5` (bench + the harness move + the tsconfig include) · `7e60d700` (the swap) · `dff875e8` (the stylesheet layer onto `stylesheet.bbnf`) · `1e5132cf` (the stylesheet differential) · `58bbd617` (the bench reading of record) · `0eb6732e` (RC-P addendum). This receipt is the next commit.
