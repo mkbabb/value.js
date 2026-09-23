@@ -347,3 +347,55 @@ KF.W13V is **lawfully BLOCKED**.
 - kf shas audited: 5. The claimed GREENs re-run: 9. Seven of them were re-run ×2 (4 served-page gates as 5 probe families, plus check and test:demo); eslint ran ×1.
 - e2e runs: roster ×1 at HEAD, `live-session-mobile` ×1 more at HEAD, and `live-session-mobile` + `subject-animates` ×1 at baseline.
 - Defects: 7 (3 HIGH · 3 MEDIUM · 1 INFO). LEDGER status cell left unchanged (NOT-CONFORMANT); one event line appended.
+
+## Repair 1 — REPAIR SEAT (round 1, against Check 1)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23. Spec read whole (`KF-W13.md`, incl. the KF.W13U addendum and OA-31..OA-34 follow-ons); record read header→Unit plan, the `.d` receipt and `## Check 1`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `VALUEJS-INBOUND-2026-07-{24,27}` letters only (outside every W13U row; untouched); value.js dirty paths `CARRY-LEDGER.md` · `scripts/dev/dev.sh` · `docs/tranches/X/audit/` · `chassis/ui-audit.js` — sibling seats', untouched. **0 inherited paths.** kf HEAD at open `62ecc324` = origin.
+
+**Bounds reading.** The addendum declares no §File Bounds; this record's Unit plan is the wave's writable set. A defect is cured here only when its cure lies inside the row of the unit that owns the gate; a cure the Check itself prices as "a COHESION grant" is returned as an escalation (the §0bk grant idiom is the orchestrator's, never a repair seat's). `demo/app/App.vue` sits in `.d`'s row ("dock consumer end"); the ESC-d-1 lines are the feed of the dock's surface set (the machine writer the dock's Controls tab and panel toggle read), so the cure is read as inside `.d`'s row — the `.d` seat's narrower reading is superseded here, with the reason stated.
+
+### Defect → cure → commit → gate re-reading
+
+| # | Check-1 defect | disposition | commit | gate re-reading |
+|---|---|---|---|---|
+| 6 | MEDIUM · ESC-d-1 scene-switch dock + pane flicker | **CURED** at `App.vue`'s surface feed: `setActiveSurfaces` is fed only once `sceneRef` is bound to THE CURRENT scene (`isHome \|\| sceneRef.superKey === currentSuperKey`, the shell binding's own targets-attached predicate) — pending no longer reads as empty; home still feeds `[]` | kf **`60477b06`** (1 path, pushed) | see table below |
+| 4 | MEDIUM · e2e "2/6 ×2" figure does not reproduce | **CURED** by the addendum-beside below (RES-close-1 is not amended, E-3) | this record's commit | measured again at `60477b06` |
+| 5 | MEDIUM · intermittent HARD `var(--rotationX)` pageerror (mobile M4) | **NOT REPRODUCED → ESCALATED**: 0 of 9 runs at this seat | — | see below |
+| 1 | HIGH · OA-32 living dock icons unimplemented | **ESCALATED** (cure = a COHESION grant, per the Check's own cure) | — | RED, unchanged |
+| 2 | HIGH · kf e2e close clause RED | **ESCALATED** (oracle re-seat = `scripts/observe/**`, in no Unit-plan row; four pre-existing reds need cures in rows outside W13U or a named COHESION relief) | — | RED, measured |
+| 3 | HIGH · OA-33 keyboard reach regressed | **ESCALATED** (`SharePopover` = `demo/components/instrument/shell/`, in no row; theme = producer `DarkModeToggle` menu-item form, O-56) | — | RED, unchanged |
+| 7 | INFO · `DOCK-MORPH-ROOT` / `DOCK-SCROLL-MORPH` honest-RED | no cure owed (producer) | — | unchanged |
+
+### ESC-d-1 — the gate, BEFORE → AFTER (served page, headed, real GPU)
+
+Probe `evidence/W13U/repair1/probe-switch.mjs` (reuses `d/sampler.js`; 1440×900; hover-expand, then the dock Scene select through cube→amiga→square→spring→easing→cube; per frame: `.dock-layer.is-active > *` count, dock width, whether a Controls control is in the dock). BEFORE = HEAD `62ecc324`'s `App.vue` bytes seated on the dev server for the run (⟨`git show HEAD:demo/app/App.vue > demo/app/App.vue`⟩, cured bytes restored after; no other path touched). Reports `repair1/report-switch-{before1,after-dev1,after-dev2,after-gh1,after-gh2}.json`; gh-pages = a fresh `npm run gh-pages` of the cured tree served on `:4188`.
+
+| switch | BEFORE dev (kids · controls-tab · width min–max) | AFTER dev ×2 | AFTER gh-pages ×2 |
+|---|---|---|---|
+| cube→amiga | `8>5>8` · `1>0>1` · 218.6–410.4 | `8` · `1` · 402.5–410.4 ×2 | `8` · `1` · 402.5–410.4 / 395.7–405.2 |
+| amiga→square | `8>5>8` · `1>0>1` · 226.5–418.3 | `8` · `1` · 410.4–418.3 ×2 | `8` · `1` ×2 |
+| square→spring | `8>5>8` · `1>0>1` · 220.4–418.3 | `8` · `1` · 401.5–418.3 ×2 | `8` · `1` ×2 |
+| spring→easing | `8>5>8` · `1>0>1` · 221.3–401.5 | `8` · `1` · 386.6–413.1 ×2 | `8` · `1` ×2 |
+| easing→cube | `8` · `1` · 386.6–402.5 | `8` · `1` ×2 | `8` · `1` ×2 |
+| pageerrors | 0 | 0 ×2 | 0 ×2 |
+
+**Reading: GREEN ×4** — the dock and the pane change once per swap, at resolve (the remaining 8–30 px width range is the destination's own label width, a single change). Gates the cure could move, at `60477b06`: ⟨`npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'`⟩ → `0` · ⟨`npx eslint demo/app/App.vue`⟩ → exit 0 · ⟨`npm run check`⟩ → `EXIT 0` ×2 · ⟨`npm run test:demo`⟩ → `64 passed (64)` · `507 passed (507)` ×2.
+
+### Check-1 #4 — ADDENDUM beside RES-close-1 (E-3: the close's bytes stand)
+
+⟨`KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness`⟩ at kf `60477b06` (fresh `npm run gh-pages` of that tree) → `passed: 2/6` · `✗ failed: usability, subject-animates, live-session, live-session-mobile` · `EXIT 1`. Check 1 measured `3/6` at `62ecc324` with `subject-animates` PASS (`[real-cube] playhead advanced 0 → 25`); this seat measured it FAIL (`[real-cube] … the playhead stayed 441.1 → 608.3 (advanced=false, engineWrote=true)`). So the roster's published figure is **2/6 or 3/6 depending on one limb**: `subject-animates [real-cube]` races the cube's spec-mandated autoplay (`.w`, `autoPlays: true`) — when the oracle's first read lands after the autoplay has already advanced the clock, its "advanced from 0" premise fails; when it lands first, it passes. **RES-close-1's "2/6 ×2" is therefore corrected to "2/6–3/6; the subject-animates limb is timing-dependent (autoplay vs the oracle's `sliderBefore` read), not a deterministic RED."** The remaining limbs at `60477b06`: `usability` (throws: `EditorStartScreen.vue declares no \`title:\` default`) · `live-session` `FAIL (4)` with `S5` (`spring: INTERACT red — only 1 distinct spring-ball positions after the rail scrub`) and `S4` (`{"focusRing":{"matchesFV":true,"ringPainted":false},"enterToggled":false,"spaceToggled":false}`) · `live-session-mobile` `M1 sheet SCROLL` (`scrollTop=0; 765px content in a 704px body`); live-session ERROR BUDGET = 0.
+
+### Check-1 #5 — the `var(--rotationX)` pageerror: not reproduced (0 of 9)
+
+⟨`node scripts/run-demo-roster.mjs --only=live-session-mobile`⟩ ×3 at `60477b06` (the full roster's leg + two solo runs) → `✓ ERROR BUDGET = 0 across the mobile battery` ×3. ⟨`node evidence/W13U/repair1/probe-rotx.mjs http://localhost:5173/ 6`⟩ (390×844 touch context, `#/cube` load + re-hash + autoplay + a forced transport tap, stacks captured) → `runs with a pageerror: 0 of 6`. Reading at the bytes: the resolver throws only when the target's computed `--rotationX` is empty (`src/animation/resolve/browser.ts:206-211`), i.e. the rotation channel rendered against a `.cube` that is DETACHED (a stale scene instance) — `.cube` declares the variable (`CubeTarget.css:86`) and `useCubeDemo.setTargets` seats `rotationAnim` on it in `onMounted`. Without a reproduction the stale-instance writer cannot be named at the bytes, and any guard in the resolver or the scene would be the masking fallback the law forbids. **ESCALATED**, owner per the Check's own cure: KF.W13V `.k` (KFA-1/-2 cube writers) — carry: an instrumented M4 run that captures the pageerror's stack on a dev build.
+
+### Escalations (returned; nothing written outside the Unit-plan rows)
+
+- **ESC-R1-1 = Check-1 #1 (OA-32, HIGH).** The icon binding is the scene descriptor's `icon` (`demo/app/scene/scenes.ts`) and the motion must derive from each scene's own animation data (`demo/scenes/*/`); OA-32's gate belongs to `.d`, whose row holds neither. A dock-local icon registry would be a second binding beside the descriptor (the H.W5 D8 drift, `ChromeDock.vue:77-83`). The Check prices the cure as a COHESION grant to a supplement unit (the §0bk idiom). RED, unrelieved.
+- **ESC-R1-2 = Check-1 #2 (e2e close clause, HIGH).** The autoplay-premise re-seat lives in `scripts/observe/demo/{subject-animates,live-session}.mjs` — in no Unit-plan row. The four pre-existing reds live outside W13U's rows: `usability` (`EditorStartScreen.vue` = `demo/components/instrument/shell/`) · S4 `ringPainted:false` (the focus affordance, G-KFW13-6's subject) · S5 spring INTERACT (`demo/scenes/spring/**` — `.w`'s row, but the limb is a rail-scrub oracle premise not measured on the served page by any W13U unit) · M1 touch scroll (glass Drawer, the Glass-5 overlap family). Needs a grant of the two oracle files plus either cures or a COHESION relief naming usability · S4 · S5 · M1 by id.
+- **ESC-R1-3 = Check-1 #3 (OA-33 keyboard reach, HIGH).** Share's open state is local to `SharePopover` (`useShareState()` → `sharePopoverOpen`, `demo/components/instrument/shell/`), so the menu row cannot open it without that file exposing its open model; the theme row needs a menu-item form of glass `DarkModeToggle` (producer, O-56 family). A row-level `useGlobalDark` toggle is the second actuation EH-4 ruled out, and a synthesized `.click()` forward to the nested control would double-fire on pointer activation — both workarounds, not cures. RED, unrelieved.
+- **ESC-R1-4 = Check-1 #5 (`var(--rotationX)`, MEDIUM).** Not reproduced in 9 runs (above); owner KF.W13V `.k` per the Check.
+
+### Self-count
+
+kf commits **1** (`60477b06`, 1 path `demo/app/App.vue`, pushed). Defects dispositioned **7**: cured **2** (#6 ESC-d-1 · #4 figure addendum) · escalated **4** (#1 · #2 · #3 · #5) · INFO **1** (#7, no cure owed). value.js: this section + one LEDGER event line + `evidence/W13U/repair1/` (2 probes + 5 reports), in one pathspec commit.
