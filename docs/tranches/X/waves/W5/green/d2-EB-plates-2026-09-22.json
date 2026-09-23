@@ -1,0 +1,112 @@
+{
+ "servedModel": "claude-opus-5-5[1m]",
+ "unit": "X.W5.d2",
+ "gate": "P-3 / EB-2 falsifier: slow chunk -> loading plate; failed chunk -> error plate, boundary not latched, reported; route-away renders the next pane",
+ "probe": "green/d2-eb-probe.mjs",
+ "runs": [
+  {
+   "slow": {
+    "mid": {
+     "loadingPlate": 1,
+     "errorPlate": [],
+     "boundaryLatched": 0
+    },
+    "settled": {
+     "loadingPlate": 0,
+     "errorPlate": 0,
+     "boundaryLatched": 0,
+     "stageKids": 1,
+     "h1": "Gradient"
+    },
+    "after": {
+     "h1": "Extract",
+     "errorPlate": 0,
+     "stageRoot": "relative w-full mx-auto h-full min-w-0"
+    },
+    "reported": 0,
+    "errors": [
+     "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8131 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ]
+   },
+   "fail": {
+    "mid": {
+     "loadingPlate": 0,
+     "errorPlate": [
+      "This scene could not be loaded. Failed to fetch dynamically "
+     ],
+     "boundaryLatched": 0
+    },
+    "settled": {
+     "loadingPlate": 0,
+     "errorPlate": 1,
+     "boundaryLatched": 0,
+     "stageKids": 1,
+     "h1": "Gradient"
+    },
+    "after": {
+     "h1": "Extract",
+     "errorPlate": 0,
+     "stageRoot": "relative w-full mx-auto h-full min-w-0"
+    },
+    "reported": 1,
+    "errors": [
+     "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8131 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+     "Failed to load resource: net::ERR_FAILED",
+     "[value.js] unhandled failure (pane-chunk · https://vuejs.org/error-reference/#runtime-13) PaneChunkError: Failed to fetch dynamically imported module: http://12"
+    ]
+   }
+  },
+  {
+   "slow": {
+    "mid": {
+     "loadingPlate": 1,
+     "errorPlate": [],
+     "boundaryLatched": 0
+    },
+    "settled": {
+     "loadingPlate": 0,
+     "errorPlate": 0,
+     "boundaryLatched": 0,
+     "stageKids": 1,
+     "h1": "Gradient"
+    },
+    "after": {
+     "h1": "Extract",
+     "errorPlate": 0,
+     "stageRoot": "relative w-full mx-auto h-full min-w-0"
+    },
+    "reported": 0,
+    "errors": [
+     "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8131 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ]
+   },
+   "fail": {
+    "mid": {
+     "loadingPlate": 0,
+     "errorPlate": [
+      "This scene could not be loaded. Failed to fetch dynamically "
+     ],
+     "boundaryLatched": 0
+    },
+    "settled": {
+     "loadingPlate": 0,
+     "errorPlate": 1,
+     "boundaryLatched": 0,
+     "stageKids": 1,
+     "h1": "Gradient"
+    },
+    "after": {
+     "h1": "Extract",
+     "errorPlate": 0,
+     "stageRoot": "relative w-full mx-auto h-full min-w-0"
+    },
+    "reported": 1,
+    "errors": [
+     "[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8131 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+     "Failed to load resource: net::ERR_FAILED",
+     "[value.js] unhandled failure (pane-chunk · https://vuejs.org/error-reference/#runtime-13) PaneChunkError: Failed to fetch dynamically imported module: http://12"
+    ]
+   }
+  }
+ ]
+}
