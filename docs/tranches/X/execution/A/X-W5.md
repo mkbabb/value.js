@@ -3025,3 +3025,40 @@ One sweep line was appended to the INBOX.
 X-W11 release close, §9 c6). The line does not move.
 
 **Successors:** X-W6, X-W7, X-W8 and X-W10 stay lawfully BLOCKED-ON the X-W5 close.
+
+## Check 1 — RESUME ROUND 4, L-20 fresh adversarial pass 1, 2026-09-22 (VERIFY-ONLY)
+
+SERVED MODEL: claude-opus-5-5[1m] · seat: X-W5 CHECK 1 (over the RESUME 4 close) · HEAD at open `06295e5a` · wall 20:2x EDT · date of record 2026-09-17.
+Cured nothing. Wrote this section, one LEDGER event line. Inputs: `W5.md` whole (incl. ADDENDUM 2026-09-22), `## RESUME OPEN 4`, `## Close — RESUME ROUND 4`, the 7 commits it names.
+
+**Verdict: NOT-CONFORMANT.** The close's own reading (PARTIAL) is correct and reproduces; the row is NOT promoted.
+
+### K4.0 Crash-recovery
+⟨cmd⟩ `git status --porcelain` → ` M …/CARRY-LEDGER.md` · ` M scripts/dev/dev.sh` — neither in this seat's set; no inherited partial.
+
+### K4.1 Gates reproduced at this seat's clock (static arms, spec §6 commands)
+⟨cmd⟩ one shell batch → A1 `0`·`0` · A4 bindPane 10 · A5 `<h1` 4 · A7 status 3 · B4 `0 · 3 · 0` · C3 23 · C4 0 · C8 0 · D2 0 · D3 0 · D4 Mix 1 · **Admin 0** ·
+E1 `0 0 0 0` · E2 P122 `9 3 18 10` · `uptime` → load **14.68** / 14.83 / 17.16. **Every GREEN the close claims at a static command reproduces (15 gates);**
+the banked Playwright GREENs (A2, C1, D5) were not re-probed (§5.2; no surface byte moved — `043a783c` is comment-only, confirmed by the close's diff read).
+
+### K4.2 Axes
+- (2) bounds: `git show --stat` of `91d0e0c7 1a6432f9 fbb6cea0 043a783c 3ec79fa6 51de649a 06295e5a` — every path inside R4.4's writable sets; `dev.sh` last touched `85cfea2c` (pre-X). CLEAN.
+- (3) masking: none (the only product delta is comment-only).
+- (4) families: §9 c1–c5 unsplit; c6 correctly not landed.
+- (5) E-3: ⟨cmd⟩ `git log c9e39745..HEAD -- W5.md registry/adjudicated/` → empty. CLEAN.
+- (6) mail: the only UNREAD-status row is I-40 (Track C) — 0 in scope.
+- (7) four-verb: unmoved (IMPLEMENTED NO) — lawful.
+
+### K4.3 Register
+
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| HIGH | D4 (sub-pane swaps animate) is RED: `AdminNamesPanel.vue` — one of the 2 `SegmentedTabs` consumer files — has 0 `<Transition `. No later-wave relief; §0aq grants it to `X.W5.c2`, which never sat. | ⟨cmd⟩ `grep -c '<Transition ' demo/palettes/browser/admin/AdminNamesPanel.vue` → 0; `git log --all --grep=W5.c2` → empty | dispatch `X.W5.c2` |
+| HIGH | D1 (scene-swap frame budget) is RED/untakeable. It is this wave's own §6 gate; the spec routes it to no later wave and names it as no honest-RED. An owner-ruling escalation (ESC-W5t-1 / ESC-W5d2-2) is a request, not a relief. | load 14.68 at this clock; banked gradient .294/.371 · mix .333/.346 | owner ruling on ESC-W5t-1 + ESC-W5d2-2, then a `.d2` re-measure |
+| HIGH | N14 / N15 and the ESC-W5c-3 oracle re-points are RED; §0aq grants them to `.c2` inside this wave. | close CL4.2; `.c2` never sat | dispatch `X.W5.c2` |
+| MEDIUM | W5F-04 out-in co-mount (ESC-W5t-2 `ColorPicker.vue:2-4`) is open and needs out-of-set grants. | close CL4.5 | COHESION grant |
+| INFO | C7 (→ X-W8 `.h`) and C3 (→ X-W8 `.i`/`.h`) are RED-by-route under §0aq; A3/B3/A5-OUTLINE are relieved (→ X-W8/X-W6/X-W10). These are lawful. | close CL4.2/CL4.5 | none |
+
+**Honest-RED set (relieved, owner-named):** C7 · C3 · A3 · B3. **Unrelieved:** D1 · D4-Admin · N14 · N15 · ESC-W5c-3.
+
+**Successors:** W6/W8/W10 `Opens after` carry X-W5 → **not GREEN**; X-W6, X-W7, X-W8 and X-W10 stay lawfully BLOCKED-ON X-W5. LEDGER row unchanged (PARTIAL).
