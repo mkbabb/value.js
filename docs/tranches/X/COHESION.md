@@ -3170,3 +3170,14 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - The differential leaving CI, RES-x-4, and parse-that's R-r-1/R-r-2 become **X.P.W6R** (`.c`, `.l`, `.p`).
 - **To the owner: BBNF-TS-TOOLCHAIN.** The published TypeScript BBNF compiler has no maintained source and sits on parse-that 0.8.2. Its three defects, F-b-1..3, are worked around and documented at value.js's call sites. The owner's "NO workarounds" needs a root, and choosing the toolchain's home is the owner's decision. The id stays honest-RED until then. No live bbnf-lang session exists to relay to.
 - **Release:** the BBNF parser reaches keyframes and consumers at value.js's next publish. That publish is walled by npm E401, which is the standing owner act (`npm login`).
+
+## §0ch ADDENDUM 2026-09-23 — OA-53: BBNF parsing faster than baseline; research workflow launched
+- **Owner, verbatim:** *"We need to likely uplift and begin fixing both parse-that and bbnf--look into both of those repos and their megatranches thereof in another workflow to get the parsing speed to be FASTER than baseline"*.
+- **Baseline:** the retired hand parser (`grammar.ts` at `2155142b`). The bench of record reads BBNF 1.11–2.79× slower (§0cg RES-x-1). OA-53 therefore also answers OC-1's speed half: the target is faster than the baseline, not a recalibrated bar.
+- **Run `wf_aabc0842-0cc`** (script copy in `execution/chassis/bbnf-speed-uplift.js`). Stages:
+  - Four survey seats: parse-that's megatranche and TS core; bbnf-lang's megatranche and compiler; where the published 0.1.4 toolchain came from; a CPU profile of value.js's BBNF path.
+  - Three blind route seats, each with a measured prototype: a TS compiler revived onto parse-that 2.x; an ahead-of-time BBNF→TS codegen; grammar-driven regex fusion, with Wasm as a comparator only.
+  - An arbiter that re-measures on numbers, and a completeness critic.
+  - An author, who writes `parse-that/waves/W7.md` (X.P.W7, BBNF SPEED UPLIFT) and `evidence/W7-research/BRIEF.md`.
+- **Law:** parse-that and bbnf-lang are read-only for this run. Their programs are surveyed, not written. Prototypes live under `evidence/W7-research/`.
+- **Cap:** Track D (X.P.W6R) was stopped at `.c` to free the fourth slot. It resumes from `wf_41f62d34-81d` when this run completes, then X.P.W7 follows. The stopped seat's `ci.yml` line is its inherited path.
