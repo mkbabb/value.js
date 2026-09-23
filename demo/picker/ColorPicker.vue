@@ -1,10 +1,10 @@
 <template>
-    <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
-         clamp via the .pane-container min() formula; the mobile slot wrapper
-         owns the sub-lg width). -->
     <div
         class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full"
     >
+        <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
+             clamp via the .pane-container min() formula; the mobile slot wrapper
+             owns the sub-lg width). -->
         <Card
             tier="resting"
             class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible"

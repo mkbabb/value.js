@@ -30,6 +30,8 @@ import { ColorPicker } from "../picker";
 import NotFoundPane from "../scenes/notfound/NotFoundPane.vue";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { VIEW_MAP } from "./viewSchema";
+import PaneLoadingPlate from "./PaneLoadingPlate.vue";
+import PaneErrorPlate, { PaneChunkError } from "./PaneErrorPlate.vue";
 import type {
     PaneId,
     RegionRole,
@@ -184,24 +186,59 @@ export const PANE_CACHE_MAX: Record<RegionRole, number> = (() => {
 
 // ── Component registry — one table, was duplicated across the two routers ──
 
-const AboutPane = defineAsyncComponent(() => import("../scenes/about/AboutPane.vue"));
-const PalettesPane = defineAsyncComponent(() => import("../palettes/PalettesPane.vue"));
-const BrowsePane = defineAsyncComponent(() => import("../palettes/BrowsePane.vue"));
-const ExtractPane = defineAsyncComponent(
-    () => import("../workbenches/extract/ExtractPane.vue"),
-);
-const GeneratePane = defineAsyncComponent(
+// X.W5.d2 · P-3 (fold W5F-07 ≡ EB-4 · GEN-33): the ten lazy panes were bare
+// `defineAsyncComponent(() => import(…))` — zero `loadingComponent`,
+// `errorComponent`, `delay`, `onError`. Under the slot's `mode="out-in"` the
+// region is EMPTY while a chunk is in flight, and a failed chunk ("Importing a
+// module script failed." — the stale-chunk class) had no reload affordance and
+// latched the region's boundary for the session. Every lazy pane now loads
+// through ONE factory:
+//   · `loadingComponent` + `delay` — the empty frame gets an honest occupant,
+//     but only once the chunk is slow enough to be SEEN missing (a warm or
+//     cached chunk never flashes a plate);
+//   · `errorComponent` — the failed chunk's plate, with the reload that is
+//     the only cure for a stale chunk;
+//   · the loader's rejection is re-raised as a typed `PaneChunkError` naming
+//     its pane, which is how the region's `<ErrorBoundary>` tells this
+//     environment failure (the plate owns it) from a render throw (the
+//     boundary owns it) — EB R-1: loader options alone do not stop the
+//     error's propagation into the boundary, so EB-4 and EB-2 land together.
+// No `timeout`: a slow network is not a failure, and a timed-out chunk that
+// arrives later would be shown an error plate it had already outrun — the
+// loading plate stays until the browser itself resolves or rejects the import.
+const PANE_LOAD_DELAY_MS = 200;
+
+function lazyPane<T extends Component>(
+    pane: string,
+    load: () => Promise<{ default: T }>,
+): Component {
+    return defineAsyncComponent({
+        loader: () =>
+            load().catch((cause: unknown) =>
+                Promise.reject(new PaneChunkError(pane, { cause })),
+            ),
+        loadingComponent: PaneLoadingPlate,
+        errorComponent: PaneErrorPlate,
+        delay: PANE_LOAD_DELAY_MS,
+    });
+}
+
+const AboutPane = lazyPane("about", () => import("../scenes/about/AboutPane.vue"));
+const PalettesPane = lazyPane("palettes", () => import("../palettes/PalettesPane.vue"));
+const BrowsePane = lazyPane("browse", () => import("../palettes/BrowsePane.vue"));
+const ExtractPane = lazyPane("extract", () => import("../workbenches/extract/ExtractPane.vue"));
+const GeneratePane = lazyPane(
+    "generate",
     () => import("../workbenches/generate/GeneratePane.vue"),
 );
-const GradientPane = defineAsyncComponent(
+const GradientPane = lazyPane(
+    "gradient",
     () => import("../workbenches/gradient/GradientPane.vue"),
 );
-const MixPane = defineAsyncComponent(() => import("../workbenches/mix/MixPane.vue"));
-const AdminPane = defineAsyncComponent(() => import("../palettes/admin/AdminPane.vue"));
-const AuroraPane = defineAsyncComponent(
-    () => import("../scenes/atmosphere/AuroraPane.vue"),
-);
-const BlobPane = defineAsyncComponent(() => import("../scenes/blob/BlobPane.vue"));
+const MixPane = lazyPane("mix", () => import("../workbenches/mix/MixPane.vue"));
+const AdminPane = lazyPane("admin", () => import("../palettes/admin/AdminPane.vue"));
+const AuroraPane = lazyPane("aurora", () => import("../scenes/atmosphere/AuroraPane.vue"));
+const BlobPane = lazyPane("blob", () => import("../scenes/blob/BlobPane.vue"));
 
 /**
  * The one name→component map this module's header promises — now TOTAL over the

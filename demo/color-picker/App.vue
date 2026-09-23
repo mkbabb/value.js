@@ -120,8 +120,12 @@
                          plate paints inside `.pane-container`'s positioned box
                          instead of under the atmosphere canvas — the EB-1 ink
                          loss cured by the transposition, never by the banned
-                         `position:relative` patch. -->
-                    <ErrorBoundary>
+                         `position:relative` patch. X.W5.d2 · EB-2's route-reset
+                         arm: the boundary is keyed on the region's pane by a
+                         WATCH (`reset-key`), never by `:key` — a caught plate
+                         clears when the user moves to another pane, and the
+                         slot's cache beneath it is never remounted. -->
+                    <ErrorBoundary :reset-key="region.key">
                         <PaneSlot
                             :component="region.component"
                             :component-key="region.key"

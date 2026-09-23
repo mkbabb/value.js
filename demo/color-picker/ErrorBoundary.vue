@@ -35,19 +35,47 @@
     <slot v-else />
 </template>
 
+<script lang="ts">
+import type { InjectionKey } from "vue";
+
+/**
+ * X.W5.d2 · EB-2 (fold W5F-53) — the reporting half of the containment
+ * transposition. An owning boundary stops propagation (it must: the failure is
+ * contained here, not white-screened), which also stopped it reaching the
+ * composition root's reporting floor — a caught failure was contained AND
+ * unreported. `main.ts` provides its reporter under this key; every boundary
+ * reports what it catches through it, then stops the throw.
+ */
+export type FailureReporter = (channel: string, thrown: unknown, info?: string) => void;
+export const FAILURE_REPORTER_KEY: InjectionKey<FailureReporter> = Symbol("failure-reporter");
+</script>
+
 <script setup lang="ts">
-import { ref, nextTick, onErrorCaptured, useTemplateRef } from "vue";
+import { ref, nextTick, onErrorCaptured, useTemplateRef, inject, watch } from "vue";
 import { CircleAlert, RotateCcw } from "@lucide/vue";
 import { Button } from "../ui/button";
+import { PaneChunkError } from "../shell/PaneErrorPlate.vue";
 
 const {
     message = "This panel hit an unexpected error.",
     retryLabel = "Try again",
+    resetKey,
 } = defineProps<{
     /** The Fraunces statement of failure (plain register — no second invitation). */
     message?: string;
     /** The recovery affordance label. */
     retryLabel?: string;
+    /**
+     * X.W5.d2 · EB-2's ROUTE-RESET arm (fold W5F-07: "per-slot boundary keyed
+     * on `componentKey`"). The key of the pane this boundary currently guards.
+     * When it changes, a caught plate belongs to a pane the user has left, so
+     * the latch clears and the region renders the pane they navigated to.
+     * This is a WATCH, never a `:key` on the boundary: keying would remount the
+     * slot beneath it and destroy its `<KeepAlive>` cache and WebGL contexts on
+     * every navigation, and the only other shape — a boundary cached INSIDE
+     * `<KeepAlive>` — is KILLED by ⟨ErrorBoundary R-7⟩.
+     */
+    resetKey?: string;
 }>();
 
 const emit = defineEmits<{ reset: [] }>();
@@ -55,8 +83,15 @@ const emit = defineEmits<{ reset: [] }>();
 const caught = ref(false);
 const detail = ref<string | null>(null);
 const alertRef = useTemplateRef<HTMLElement>("alertRef");
+const report = inject(FAILURE_REPORTER_KEY, null);
 
-onErrorCaptured((err) => {
+onErrorCaptured((err, _instance, info) => {
+    report?.(err instanceof PaneChunkError ? "pane-chunk" : "boundary", err, info);
+    // A pane CHUNK that failed to load is an environment failure its own
+    // error plate owns (`PaneErrorPlate`, rendered in place by the async
+    // wrapper, with the reload that is its only cure). Latching here too would
+    // replace that plate with a retry that cannot succeed — EB R-1's latch.
+    if (err instanceof PaneChunkError) return false;
     caught.value = true;
     detail.value = err instanceof Error ? err.message : String(err);
     // Focus-manage: move focus INTO the announced boundary AFTER the fallback
@@ -64,7 +99,7 @@ onErrorCaptured((err) => {
     nextTick(() => alertRef.value?.focus());
     // This boundary OWNS the failure — stop the throw propagating to the app
     // root (the white-screen). Returning false halts further onErrorCaptured /
-    // app.config.errorHandler propagation.
+    // app.config.errorHandler propagation; the report above already went out.
     return false;
 });
 
@@ -73,6 +108,13 @@ function reset() {
     detail.value = null;
     emit("reset");
 }
+
+watch(
+    () => resetKey,
+    () => {
+        if (caught.value) reset();
+    },
+);
 </script>
 
 <style scoped>

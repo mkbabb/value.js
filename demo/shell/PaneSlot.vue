@@ -32,41 +32,39 @@
 // measured 1275 ms window (fold W5F-02). Reporting the key with the instance
 // makes that cross-wiring unrepresentable.
 //
-// ── TRANSITION MODE — the measured truth (fold W5F-04/W5F-05; X.W5.d2) ──────
+// ── TRANSITION MODE — `out-in`, and why (fold W5F-04/W5F-05/W5F-07; X.W5.d2) ─
 //
-// The <Transition> below runs in the DEFAULT (simultaneous) mode. What that
-// mode does, measured on this file by the out-in co-mount re-probe
+// The <Transition> below runs `mode="out-in"`: the leaving pane travels out
+// (`--duration-fast`), THEN the incoming pane mounts and travels in
+// (`--spring-snappy`). Measured on this file by the out-in co-mount re-probe
 // (`docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs`, RESULTS
 // under `docs/tranches/X/waves/W5/triumvirate/`):
-//   · The incoming pane mounts at once and BOTH panes TRAVEL (the `vj-enter`
-//     pane family in `animations.css` pins opacity at 1 — travel, never a
-//     fade). For the whole overlap the slot holds TWO in-flow panes in one
-//     ordinary box: the region's block size is the SUM of the two (7974 px =
-//     7459 + 515 on a `/` → `/gradient` hop at 1440). Nothing caps the slot's
-//     block axis — the shell stopped capping it at X.W5.b — so the layout
-//     does move during the overlap. That is the fold's W5F-04 defect, open.
-//   · `mode="out-in"` cures the co-mount on the BUILT bundle (0/5 co-mounted
-//     hops, 0/5 stranded, also at +1000 ms RTT). It is NOT set here for two
-//     measured reasons:
-//       (1) under the DEV runtime it strands the slot (5/5): the Picker's
-//           root-level comment (`demo/picker/ColorPicker.vue:2-4`) makes its
-//           subtree a dev-root fragment, `setTransitionHooks` stamps out-in's
-//           `afterLeave` continuation on the fragment, and the leaving
-//           element departs with stale hooks, so the incoming pane never
-//           mounts. Moving that comment inside the root element is the cure,
-//           and it lies outside this file (ESC-W5t-2);
-//       (2) the mode, the rAF mirror below and per-pane loading/error states
-//           move TOGETHER or not at all (the D-1 coupled-architecture lock),
-//           and the loading/error states must land with the per-slot error
-//           boundary (fold W5F-07 ≡ EB-4, CURE-LOCKed to EB-2 / W5F-53) —
-//           under out-in the slot is EMPTY while a chunk loads, and that
-//           empty frame needs an honest occupant first.
+//   · The default (simultaneous) mode held TWO in-flow panes in one ordinary
+//     box for the whole overlap — the region's block size was the SUM of the
+//     two (7974 px = 7459 + 515 on a `/` → `/gradient` hop at 1440), and with
+//     the block axis uncapped (X.W5.b) the layout moved for the overlap. That
+//     was W5F-04. `out-in` holds one pane at a time: 0/5 co-mounted hops,
+//     0/5 stranded, on the built bundle and at +1000 ms RTT.
+//   · Under the DEV runtime `out-in` stranded the slot 5/5 while the Picker's
+//     template carried a root-level comment beside its root element: Vue's
+//     dev compiler keeps comments, the subtree became a dev-root fragment,
+//     `setTransitionHooks` stamped out-in's `afterLeave` continuation on the
+//     fragment instead of the leaving element, and the incoming pane never
+//     mounted. The comment now sits INSIDE the root element
+//     (`demo/picker/ColorPicker.vue`), and the re-probe's dev arm is this
+//     class's regression gate. A pane root must be ONE element with no
+//     sibling comment — every pane in `usePaneRouter`'s table is.
+//   · The mode, the rAF mirror below and the per-pane loading/error plates
+//     moved TOGETHER (the D-1 coupled-architecture lock): under `out-in` the
+//     region is EMPTY while an incoming chunk is in flight, and that empty
+//     frame has an honest occupant — `PaneLoadingPlate`, after
+//     `usePaneRouter`'s load delay — and a failed chunk its reload plate
+//     (`PaneErrorPlate`), which the region's boundary does not latch over
+//     (fold W5F-07 ≡ EB-4, CURE-LOCKed to EB-2 / W5F-53).
 //   · Appear hooks run only while the <Transition> is not yet mounted, so
 //     `@after-appear` can never fire for an async chunk that resolves later.
 //     Settlement is therefore ALSO state-checked (gate A2's b3 arm), never
 //     inferred from the appear hook alone.
-// The paragraph this block replaces (the R.W3 "dev-only defect" record and
-// its four corrections) is retired: the re-probe it waited on is committed.
 
 import {
     nextTick,
@@ -121,14 +119,16 @@ const {
 }>();
 
 // W3-4 (S.W3 · pane-swap payload): the rendered triplet TRAILS the incoming
-// props by one animation frame on a KEY change (a real pane swap), so the first
-// post-click frame paints only the cheap container slide — the incoming pane's
-// synchronous mount (the P1 long task, perf-transitions P1-1) lands on the NEXT
-// frame, under cover of the enter transition instead of on the click frame.
+// props by one animation frame on a KEY change (a real pane swap), so the
+// click frame paints nothing but the input's own feedback. X.W5.d2 (P-2, kept
+// by decision, not by reflex): under `out-in` the incoming pane's synchronous
+// mount (the P1 long task, perf-transitions P1-1) is already deferred behind
+// the leave, so the mirror's remaining work is the one it always also did:
+// rapid A→B→C swaps COALESCE into one leave and one mount (only the latest
+// pane is committed), instead of queueing a leave per intermediate key.
 // Same-key prop updates flow through LIVE (the active pane never lags its
-// colour). The initial render and any swap with no enter animation mount
-// immediately (no blank frame). Rapid A→B→C swaps coalesce — only the latest
-// pane mounts. KEEP simultaneous mode (the fceed47 cure stands).
+// colour). The initial render and any swap with no enter animation commit
+// immediately (no blank frame).
 const liveComponent = shallowRef(component);
 const liveKey = ref(componentKey);
 const liveProps = shallowRef(componentProps);
@@ -209,13 +209,12 @@ function reportMount(instance: TInstance | null) {
 
 // ── The atomic-commit contract (gate N6) ───────────────────────────────────
 //
-// Under the simultaneous mode the outgoing and incoming panes co-exist for the
-// whole overlap, so without this the accessibility tree carries TWO live pane
-// subtrees and sequential focus can land inside the one that is leaving.
-// `inert` + `aria-hidden` on the leaving element makes the overlap
-// single-voiced: an observer or a microtask sees exactly one ACTIVE subtree at
-// every instant. The stamps are cleared on enter because a cancelled leave
-// re-enters the same element.
+// For the leave's whole duration the outgoing pane is still in the DOM, so
+// without this sequential focus can land inside a pane the user has already
+// left. `inert` + `aria-hidden` on the leaving element keeps the swap
+// single-voiced: an observer or a microtask never sees the departing subtree
+// as ACTIVE. The stamps are cleared on enter because a cancelled leave
+// re-enters the same element (and a KeepAlive-cached pane re-enters later).
 function hideLeaving(el: Element) {
     el.toggleAttribute("inert", true);
     el.setAttribute("aria-hidden", "true");
@@ -261,6 +260,7 @@ onBeforeUnmount(() => cancelAnimationFrame(raf));
 <template>
     <Transition
         :name="transitionName"
+        mode="out-in"
         :appear="appear"
         appear-from-class="overture-appear-from"
         appear-active-class="overture-appear-active"

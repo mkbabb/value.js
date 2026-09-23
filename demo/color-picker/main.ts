@@ -26,6 +26,7 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { API_CLIENT_KEY, createApiClient } from "../platform/transport/useApiClient";
 import { initApiEnvironment } from "../platform/transport/availability";
 import { BASE_URL } from "../platform/transport/client";
+import { FAILURE_REPORTER_KEY } from "./ErrorBoundary.vue";
 
 import "../styles/utils.css";
 import "../styles/foundation.css";
@@ -70,6 +71,14 @@ function reportFailure(channel: string, thrown: unknown, info?: string): void {
 
 app.config.errorHandler = (thrown, _instance, info) =>
     reportFailure("vue", thrown, info);
+
+// X.W5.d2 · EB-2 (fold W5F-53) — the SAME floor, handed to the boundaries. An
+// owning `<ErrorBoundary>` must stop propagation (containment), which is
+// exactly what kept its failures from ever reaching `errorHandler` above: a
+// caught pane throw or a failed pane chunk was contained and never reported.
+// Every boundary now reports through this one function before it stops the
+// throw — containment in the seat, reporting at the root.
+app.provide(FAILURE_REPORTER_KEY, reportFailure);
 
 if (typeof window !== "undefined") {
     window.addEventListener("error", (event) =>
