@@ -354,3 +354,114 @@ inspector when export moves there) and adds the mounted rendered-message asserti
 `demo/palettes/export/{capture,file,download,serializers}.ts` · `demo/palettes/browser/dateFormat.ts` ·
 `demo/test/export/byte-exact.test.ts` · `demo/test/palettes/palette-export.test.ts` ·
 `docs/tranches/X/waves/{W7-failure-dispositions,W7-gate-log}.md` · this record. **Not written**: the panes (d's), `dev.sh`.
+
+### c
+
+**Seat**: X.W7.c, `claude-opus-5-5[1m]` · 2026-09-23 · opened at HEAD `8bd15c1b`.
+**Read**: W7.md whole · record header → Unit plan + a/b receipts · X-W7-FOLD §Rows X.W7.c (`:112-183`), §Gates
+S-8..S-12, N-5, N-7, §R1.36 N-11..N-13 (grep-located bands).
+
+**Crash-recovery** ⟨cmd⟩ `git status --porcelain` → ` M docs/tranches/V/reformation/CARRY-LEDGER.md` ·
+` M scripts/dev/dev.sh` — **0 paths inside unit c's writable set; no inherited hunk.** Neither touched.
+
+**Anchors at the true bytes (drift recorded)**: `PaletteCardMeta.vue:37` `slice(0, 3)` ✓ · `:39` chips
+`shrink-0` ✓ · `PaletteCard.vue:43-44` row ✓, but the left group **already** carried `min-w-0` at `:44`
+(drift: min-w-0 alone never held — the chips were `shrink-0` and the card had no inline-size containment) ·
+`PaletteColorStrip.vue:70` floor ✓ · `PaletteCard.vue:8-11,30` cast ✓ — **and `.cartoon-cast` /
+`.cartoon-surface` match no served rule** (glass 7 ships the cast only in `dist/styles/glass/glass-atom.css`,
+unreachable from `./styles` and the exports map); `useHeightTransition.ts:35-39/:66-70` ✓ ·
+`useSwatchActions.ts:45-53` ✓.
+
+**Acts, in order**
+
+1. **G9 pre-cure capture** — authored the real-layout seat first (`demo/test/palettes/n-fixtures/harness/` +
+   `browser.ts`: every case a real `PaletteCard` in one shipped `PaletteCardGrid`, served through the repo's own
+   `vite.config.ts`, measured in Playwright Chromium at 390×844), then ran it against the HEAD card bytes
+   (restored from `git show HEAD:` for the capture, current bytes put back) ⟨cmd⟩ `PRE {…}` ×2 →
+   `scrollWidth 941 · clientWidth 354 · name 0 · heights {100,125}` → **587 px** → `W7-gate-log.md` §G9.
+2. **N-13** `8e023125` — `settleHeight()` resolves `done` from the engine's own `height` CSSTransition
+   (`finished`, settled either way) or at once when none started; `data-palette-swatches` hook.
+3. **N-5** `94e06196` — `useSwatchActions` keys by identity (value-matched, in order); exposes `swatches`
+   entries; editor `:key="key"` (no index fallback). Test 3/3; on prior bytes 3/3 RED.
+4. **N-11** `e7b4d894` — card copy verbs → `copyWithVerdict()` → `ActionFeedback`; slug copy emitted up
+   (`copySlug`); `useSwatchActions.copyFeedback` rendered by the editor through `ActionFeedback`; `role=status`;
+   timer cleared on unmount. Test 5/5.
+5. **#5** `9250dd19` — `PaletteSpecimen.vue` (props-only, `display: contents`, head = inline-size container with
+   declared priority) exported from `index.ts`; `PaletteCard.vue` = grid host + `palette-card` container;
+   `PaletteCardMeta.vue` = 9ch chips by declared width band + `+N` popover revealing every tag;
+   `PaletteColorStrip.vue` = flex shares, real 8% floor (n ≤ 12), summary gradient at N ≥ 100;
+   G12 test + `n-fixtures/fixtures.ts`.
+6. **#7** `877710a2` — root `.shadow-cartoon-md` (cast = the root's own rounded box-shadow), dead cast span and
+   orphan `pressVar` retired, strip inner radius (`--specimen-radius`), hover = translate 0 −2px +
+   `--shadow-cartoon-lg` (hover-capable, PRM drops travel).
+7. **#6** `76a4d1cf` — the battery: `n-fixtures.test.ts` (21) + `palette-card-layout.test.ts` (6, browser).
+8. Gate log `124a5cf1`.
+
+**Gate readings BEFORE → AFTER** (every AFTER double-run)
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G8 | `slice(0, 3)`; tags 4–10 unreachable | every tag reachable at N_tags 0,1,2,3,10,11 (popover set == fixture) — **GREEN** |
+| G9 | 941 vs 354 (**587 px**), name 0 | 354 ≤ 354, card 358 ≤ grid 358, doc 390 ≤ 390, name **93 px** — **GREEN** |
+| G10 | dir ABSENT | 21/21 + layout 6/6; one height {95} — **GREEN** |
+| G11 | no served cast, no hover | root half **GREEN**; golden half **ESC-W7c-G11** |
+| G12 | ABSENT | 4/4, falsifiers demonstrated — **GREEN** |
+| N-5 | 7 | 5 (unit c's 2 cured; MixSourceSelector = f) — **GREEN at site** |
+| N-7 | ABSENT | **RED — handed to d** (ESC-W7c-N7) |
+| N-11 | card sites 4 discarded | 0 at card sites; repo `void` = 7 outside c — **GREEN at sites** |
+| N-13 | PRM collapse never completes | completes; animated completes — **GREEN** |
+| G18 | 0 | ⟨cmd⟩ `git diff --numstat 8bd15c1b..HEAD -- src/ \| wc -l` → **0** |
+
+**Cadence (§7)** ⟨cmd⟩ `npx vitest run` ×2 → **2 failed / 699 passed (701)**, 46 files — the same two
+pre-existing fails (C-5 `spectrum-luma`, NG-6 case 2 / F-4); `npm run lint` → 55 (baseline, all docs) and
+`eslint demo` EXIT 0; `vue-tsc` lib EXIT 0 · demo EXIT 0 · test leg 11 × TS2307 (F-2, unchanged).
+Strict-probe (F-1 instrument) on unit c's files: 0 new TS2322 and 0 new component-prop TS2353; the only new
+rows are native `data-*` hooks (the instrument flags `data-*` repo-wide — 46 of 306 — a `dataAttributes`
+concern for ESC-W7a-G3's flag flip, not glass drift).
+Re-measured after the last cure ⟨cmd⟩ strict-probe → 304 rows repo-wide; unit c's touched files carry **0**
+non-`data-*` rows — the one pre-existing row (`PaletteCard.vue:54` inert `variant="ghost"`, S-3 family) cured
+at `609dcacf` (deleted, as unit a did at `3084e1fa`).
+
+**Commits (unit c)**: `8e023125` (N-13) · `94e06196` (N-5) · `e7b4d894` (N-11) · `9250dd19` (#5) ·
+`877710a2` (#7) · `76a4d1cf` (#6) · `609dcacf` (inert variant) · `124a5cf1` (gate log) · this receipt.
+#5, #6, #7 separate per the lock; landed #5 → #7 → #6 so the battery's G11 root-half case is GREEN at the
+commit that introduces it.
+
+**Escalations (the orchestrator rules; none presumed)**
+- **ESC-W7c-G11 (F-3)** — the golden half of G11 needs PaletteCard rest+hover cells (3 viewports × light/dark)
+  enrolled in X-W1's `e2e/visual/` harness; `e2e/visual/**` is Do-NOT-touch. Root cure landed; the golden cell
+  is X-W1's act.
+- **ESC-W7c-N7** — N-7's cure seat is `PalettesPane.vue:193-206` + `usePaletteStore.ts:153-167` (X.W7.d's set).
+  The first-drag RED and the filtered-drag named-addition rider travel with d; no red test committed.
+- **ESC-W7c-O10D** — `e2e/smoke/oracles/o10d-display-voice-census.spec.ts:423` clicks the card TITLE to open
+  rename. G12 makes the specimen name non-interactive (rename stays on the card menu), so o10d's case 5 premise
+  inverts; the oracle is outside unit c's bounds (re-route it via the menu's "Rename" item, as
+  `flows/palette-edit.spec.ts:49` already does). Consumers still pass the now-undeclared `editable-name`
+  (`PalettesPane.vue:99` → d, `ExtractWorkbench.vue:151` → g): delete at those seats.
+- **ESC-W7c-CI** — `palette-card-layout.test.ts` runs in `npm test` and launches Playwright's Chromium; CI's
+  unit job (`.github/workflows/ci.yml:48-58`) installs no browser (only the e2e jobs run
+  `npx playwright install`). Add `npx playwright install --with-deps chromium` before `npm test` there
+  (outside W7 bounds) — no skip, no fallback was authored.
+- **Producer relay (glass, mail)** — `.cartoon-cast` / `.cartoon-surface` are unreachable in glass 7's served
+  cascade (`glass-atom.css` is imported by no entry and not exported); the consumer now composes
+  `.shadow-cartoon-md/lg` instead. A BK-inbox relay row is owed (feedback-glassui-bhbi-relay); not written here.
+
+**Residuals (named, not absorbed)**
+- G8 sibling: `AdminFlaggedPanel.vue:54` `slice(0, 5)` over colours (d/e's panel).
+- N-5: `MixSourceSelector.vue:96,106` (f, two-site lock + MSS-16); `ColorNutritionLabel.vue` ×2,
+  `GradientEasingEditor.vue:121` (outside W7). `PaletteCardSwatches.vue:27` still keys `${css}-${i}` (not
+  matched by the N-5 command; `PaletteColor` has no identity field — d's DTO row).
+- N-11 repo residue: `void writeClipboard` ×7 (`usePaletteActions` → d; `PaletteSlugBar`, `SlugEditLayer`,
+  `ColorInput`, `ColorPicker`) + four bare awaits in workbenches/scenes.
+- N-12 card limbs left: `focus-visible:ring-ring/40` on the vote/swatch/rename buttons reaches no `--ring`
+  (PS-9) — the focus-ring recipe is X-W10's; the composable still writes its default press var (producer design).
+- The rename unfurl now shows beneath a still-visible specimen name (S.W5-7's "never twice" held by hiding the
+  editable title) — d's inspector move retires the inline rename.
+- G17 compaction (unit f) lands on the meta row's vote count and the specimen's fork/version counts, which moved
+  from `PaletteCardMeta.vue` into `PaletteSpecimen.vue` (f: anchors drifted, intent at the new bytes).
+
+**Files written**: `demo/palettes/browser/card/{PaletteSpecimen.vue (new), PaletteColorStrip.vue, index.ts,
+CurrentPaletteEditor.vue}` · `…/card/PaletteCard/{PaletteCard,PaletteCardMeta,PaletteCardSwatches,ActionFeedback}.vue`
+· `…/card/composables/{useHeightTransition,useSwatchActions}.ts` · `demo/test/palettes/{n-fixtures/**,
+palette-card-layout,palette-specimen,swatch-identity-keys,copy-verdict}.test.ts` · `docs/tranches/X/waves/W7-gate-log.md`
+· this record. **Not written**: `e2e/**`, `ShadowPalette.vue`/`PaletteCardSkeleton.vue` (g's), `dev.sh`.
