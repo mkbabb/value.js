@@ -1,5 +1,6 @@
 // SERVED MODEL: claude-opus-5[1m]
 import { test, expect, type Page } from "@playwright/test";
+import { regionSettled } from "../fixtures/settle";
 
 /**
  * X.W6.g · gate **g2** — COMPANION PANES SHARE ONE TRACK START (CC-062 · MT-F035).
@@ -84,6 +85,11 @@ async function readRow(page: Page, label: string): Promise<TrackRow> {
 async function readRowOnce(page: Page, label: string): Promise<TrackRow> {
     const region = page.getByRole("region", { name: label, exact: true });
     await expect(region, `the ${label} region is mounted`).toBeVisible();
+    // X.W6.s (§0ba): `moving` below sees only a STARTED transition. A pane
+    // parked in its `vj-enter-enter-from` pose (the SwiftShader first-context
+    // frame gap) has no Animation yet and read 6.50 px off its track; the
+    // shared settle also waits out the pre-start transition class.
+    await regionSettled(region);
     return region.evaluate((el, name) => {
         const cs = getComputedStyle(el);
         const r = el.getBoundingClientRect();

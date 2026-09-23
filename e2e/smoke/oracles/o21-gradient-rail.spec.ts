@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
 import { openView, paneSettled } from "../fixtures/dock";
+import { regionSettled } from "../fixtures/settle";
 import { meanRGB, rgbDistance, screenshotPixels } from "./gradient-pixels";
 
 /**
@@ -43,6 +44,10 @@ async function openGradient(page: Page): Promise<Locator> {
     // enter transition otherwise screenshots the rail mid-flight (see
     // paneSettled).
     await paneSettled(page);
+    // X.W6.s (§0ba) — `paneSettled` reads transforms at one instant; the
+    // shared settle also refuses a pane still carrying its enter/leave class
+    // (the pre-start pose the SwiftShader frame gap parks it in).
+    await regionSettled(bar(main));
     return main;
 }
 
@@ -212,6 +217,7 @@ test("the forward and inverse maps are inverse: a press at a handle's own pixel 
         // listbox that never closes times this out and fails loudly.
         await expect(page.getByRole("listbox")).toHaveCount(0);
         const live = bar(page.getByRole("main", { name: "Gradient" }));
+        await regionSettled(live);
         const ids = () =>
             live
                 .locator("[data-stop-id]")

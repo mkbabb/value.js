@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
 import { openView, paneSettled } from "../fixtures/dock";
+import { regionSettled } from "../fixtures/settle";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
@@ -252,6 +253,12 @@ test("stop add (bar click mints the ramp color), drag, and touch-true remove", a
     //    locator.click = actionability-checked (auto-scroll; an intercepting
     //    overlay fails loudly instead of silently swallowing the click). ──
     await bar(main).scrollIntoViewIfNeeded();
+    // X.W6.s (§0ba) — the drag below targets `box`, so `box` must be read off
+    // a pane at rest. Bisected: a stage pane parked in `vj-enter-enter-from`
+    // (`translateX(-110%)`, 0 running Animations) measures the rail at x = −430,
+    // the drag aims left of the rail and the handle lands at left 12 — the
+    // "Received 12" reading exactly.
+    await regionSettled(bar(main));
     const box = await bar(main).boundingBox();
     if (!box) throw new Error("stop bar not visible");
     await bar(main).click({ position: { x: box.width * 0.5, y: box.height / 2 } });
@@ -402,9 +409,12 @@ test("no pane subtree rests on a permanent compositing transform (W5-10)", async
     page,
 }) => {
     const consoleErrors = setupEnvNoise(page);
-    await openGradient(page);
-    // Let the view-switch spring fully settle.
-    await page.waitForTimeout(1200);
+    const main = await openGradient(page);
+    // Let the view-switch spring fully settle — every region of the scene,
+    // read by the shared settle (X.W6.s, §0ba), which also sees a pane parked
+    // in its pre-start enter pose, instead of a fixed 1.2 s sleep.
+    for (const region of await main.locator('.pane-wrapper[role="region"]').all())
+        await regionSettled(region);
 
     const transforms = await page.evaluate(() => {
         const out: { sel: string; transform: string }[] = [];
