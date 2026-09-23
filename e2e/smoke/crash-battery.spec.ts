@@ -66,7 +66,7 @@ test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async 
     await page.goto("/#/browse");
     await expect(mainPane(page)).toBeVisible();
 
-    const errorPlate = page.getByText(/The commons is unreachable/);
+    const errorPlate = page.getByText(/Couldn't load palettes/);
     await expect(errorPlate, "the error plate paints at all").toBeVisible({
         timeout: 15_000,
     });

@@ -62,7 +62,7 @@
                     v-else-if="pm.browseError.value && displayedBrowse.length === 0"
                     key="error"
                     variant="error"
-                    message="The commons is unreachable."
+                    message="Couldn't load palettes."
                     :detail="pm.browseError.value"
                 >
                     <template #action>
@@ -136,7 +136,7 @@
                         class="font-display"
                         @click="onLoadMore()"
                     >
-                        More from the commons
+                        Load more
                     </Button>
                     <p
                         v-if="loadMoreFailure"

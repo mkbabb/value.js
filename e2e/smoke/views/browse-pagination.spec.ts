@@ -59,7 +59,7 @@ test("browse wall pages past the 50-cap through the load-more affordance", async
     await expect(cards).toHaveCount(PAGE1_COUNT);
 
     const more = main
-        .getByRole("button", { name: "More from the commons" })
+        .getByRole("button", { name: "Load more" })
         .filter({ visible: true });
     await expect(more).toBeVisible();
     await more.click();
