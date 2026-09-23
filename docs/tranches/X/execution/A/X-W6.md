@@ -6919,3 +6919,52 @@ own `.j` conjunct (X-W5 CLOSED) is RED (LEDGER X-W5 `PARTIAL`, Check 3 `7a4c98e1
 write outside §4, no masking, E-3 held, mail clean, families unsplit. But **12 gates stay RED or unstable with no relief at the spec
 bytes** (C2-1..C2-4) and the §2a goal is unmet. Honest-RED (relieved, owner-named): g1 · b1 · j1 · j2 · j3 · H2 · H4. The LEDGER row
 **stays PARTIAL**; this seat makes no status edit and appends one event line.
+
+---
+
+## Repair 2 — RESUME 2026-09-22 (REPAIR SEAT, round 2, over the Check 2 — fifth sitting register)
+
+SERVED MODEL: claude-opus-5-5[1m]
+
+**Append-only beside** every block above (E-3). This seat read `W6.md` whole once (486 lines, both 2026-09-22 ADDENDA). From this
+record it read only the fifth sitting's Open → Unit plan (`:6003-6130`), the `.i` receipt (`:6329-6399`), Repair 1 (`:6688-6817`) and
+Check 2 (`:6819-6921`). Writable set: §0ax's repair-seat grant (`o21-gradient-rail.spec.ts`, settle/scroll only; `ColorSpaceSelector.vue`
+only for f3, which is not in this register), `W6-evidence/**`, this record, and the LEDGER (append only).
+
+### Axis 0 — crash-recovery
+
+⟨cmd⟩ `git status --porcelain` → ` M …/V/reformation/CARRY-LEDGER.md` · ` M …/W6-evidence/catalog/after-catalog-open.png` ·
+` M …/W6-evidence/catalog/after-specimen-dots.png` · ` M scripts/dev/dev.sh`. The two PNGs are the o22/o24 capture side effects that
+Repair 1 and Check 2 already named. They are not a cure, and this seat leaves them as found. The other two paths are outside this set.
+**Nothing inherited.**
+
+### What moved since Check 2 (measured ×2, same result both runs)
+
+| ⟨cmd⟩ | run 1 · run 2 |
+|---|---|
+| `git log --oneline 9c5aaec2..HEAD -- demo e2e \| wc -l` | `0` · `0` (no product or spec byte has moved since Check 2) |
+| `grep -c 'ESC-W6i-i3-1\|ESC-W6close5-1' docs/tranches/X/COHESION.md` | `0` · `0` (both escalations still unruled) |
+| `grep -rn armRuntime demo/ \| wc -l` | `0` · `0` |
+| `grep -ln vj-enter demo/shell/PaneSlot.vue demo/styles/animations.css \| wc -l` | `2` · `2` (the stuck enter state is defined in X-W5 shell bytes, not in any W6 §4 path) |
+| `grep "^\| X-W5 " LEDGER.md` | `PARTIAL — RESUME 5 close 2026-09-22` (X-W5 has not cured ESC-W6close5-1) |
+
+### Defect → disposition
+
+| # | severity | disposition | reason, measured | commit | gate after |
+|---|---|---|---|---|---|
+| C2-1 | HIGH | **ESCALATED** (ESC-W6close5-1) | The cause is the pane swap's `vj-enter` enter state resting with no running animation. That state lives in `demo/shell/PaneSlot.vue` · `usePaneRouter.ts` · `demo/color-picker/App.vue` · `demo/styles/animations.css`, which are X-W5 `.d2` bytes (`52dc0a5b`/`b36df565`). All of them sit outside W6 §4, and `App.vue` is named in §4's Do-NOT-touch list. Check 2 forbids a W6 wait or settle, and the masking ban forbids it too. | — | a5–a11 · a12 unchanged from Check 2 (no byte moved; not re-run) |
+| C2-2 | HIGH | **ESCALATED** (ESC-W6close5-1) | Same mechanism. Repair 1 measured the About pane resting in `vj-enter-enter-from vj-enter-enter-active` with `anims: []`. The fault is not W6 `.g`'s, so `.g` does not re-sit. | — | g2 RED 6.50 (Check 2's reading stands) |
+| C2-3 | HIGH | **ESCALATED** (ESC-W6i-i3-1) | §0ax sends i3 to `.i` on the `index.html` grant. `.i` measured that a classic pre-module script can reach a URL-carried pick's first paint only by hand-copying value.js's parser and glass's `deriveAurora`/`resolveAtoms`. That is the copied-producer class the standing law bans. The three lawful routes each need a write outside W6's set, or a spec act: (a) `plugins/vite-ground-tokens.ts` with X-W2 sign-off, (b) `index.html:205` `blocking="render"` with X-W2 sign-off, or (c) an E-3 re-point of o28. COHESION has no ruling (0 hits ×2). A repair seat can author neither the ruling nor the `.i` re-sit. | — | i3 RED 0.1595 / 0.2933 / 0.2433 (Check 2's reading stands) |
+| C2-4 | MEDIUM | **ESCALATED** under ESC-W6close5-1 | a13 (`gradient.spec.ts:243` drag) and e1 fail in the same stuck-enter species. The cure is the X-W5 cure, followed by re-reading ×2. No W6 byte is owed. | — | a13 · e1 flaky (Check 2's reading stands) |
+| C2-5 | INFO | none owed | Repair 1's a4 cure `df290a72` was confirmed lawful. | — | a4 GREEN |
+| C2-6 | INFO | not acted on | This defect has no one-command cure. It stays under the R-d1 erratum, which `.d` owns. | — | d1 GREEN |
+
+**Re-run set**: empty. No cure landed, so no gate could move, and every figure above is Check 2's reading cited by its date. The
+only fresh measurements are the five commands in the table above, each run twice.
+
+### Tally
+
+**Cured 0 · escalated 4 (C2-1 · C2-2 · C2-3 · C2-4) · 2 INFO left alone.** Self-count: the HIGH rows C2-1, C2-2 and C2-3 plus the
+MEDIUM row C2-4 make **4** escalated. No product byte moved, and `dev.sh` was not staged. **Re-sit triggers**: (1) X-W5 cures
+ESC-W6close5-1 at its own bytes, then W6 re-reads a5–a12, a13, e1 and g2 ×2. (2) COHESION rules ESC-W6i-i3-1 (a), (b) or (c), then `.i` re-sits.
+Unrelieved RED set: **12**, unchanged. **The LEDGER row stays PARTIAL.**
