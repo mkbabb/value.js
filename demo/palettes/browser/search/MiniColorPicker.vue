@@ -11,7 +11,9 @@
                 :style="{ '--hue': hue }"
                 @pointerdown="onCanvasPointer"
                 @pointermove="onCanvasMove"
-                @pointerup="onCanvasUp"
+                @pointerup="endDrag"
+                @pointercancel="endDrag"
+                @lostpointercapture="endDrag"
             >
                 <!-- Thumb -->
                 <div
@@ -27,7 +29,9 @@
                 style="background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00)"
                 @pointerdown="onHuePointer"
                 @pointermove="onHueMove"
-                @pointerup="onHueUp"
+                @pointerup="endDrag"
+                @pointercancel="endDrag"
+                @lostpointercapture="endDrag"
             >
                 <div
                     class="absolute w-3 h-3 rounded-full border-2 border-white shadow-sm pointer-events-none -translate-x-1/2"
@@ -57,7 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, useTemplateRef } from "vue";
+import { ref, computed, watch, useTemplateRef, onScopeDispose } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import { Button } from "../../../ui/button";
 
@@ -75,8 +79,47 @@ const emit = defineEmits<{
 const hue = ref(210);
 const sat = ref(0.6);
 const val = ref(0.8);
-let canvasDragging = false;
-let hueDragging = false;
+
+// N-10 (fold MCP-3 / MCP-42): a drag exists ONLY while its pointer capture is
+// actually held. The record is written after `setPointerCapture` succeeds —
+// a stale pointerId throws `NotFoundError`, and latching a flag before that
+// throw left a drag with no capture that no cancel/lost event could ever end,
+// so bare hover went on mutating the colour. Every exit — pointerup,
+// pointercancel, lostpointercapture, the popover closing (its content
+// unmounts under a root that outlives it, so an element-bound listener never
+// hears the release) and scope disposal — funnels through `endDrag`.
+type DragSurface = "canvas" | "hue";
+let drag: { surface: DragSurface; el: HTMLElement; pointerId: number } | null = null;
+
+function beginDrag(e: PointerEvent, surface: DragSurface): boolean {
+    endDrag();
+    const el = e.currentTarget as HTMLElement;
+    try {
+        el.setPointerCapture(e.pointerId);
+    } catch {
+        // NotFoundError: the pointerId is no longer active — no capture was
+        // taken, so no drag begins.
+        return false;
+    }
+    drag = { surface, el, pointerId: e.pointerId };
+    return true;
+}
+
+function dragging(e: PointerEvent, surface: DragSurface): boolean {
+    return drag !== null && drag.surface === surface && drag.pointerId === e.pointerId;
+}
+
+function endDrag() {
+    if (drag === null) return;
+    const { el, pointerId } = drag;
+    drag = null;
+    if (el.hasPointerCapture(pointerId)) el.releasePointerCapture(pointerId);
+}
+
+watch(() => open, (isOpen) => {
+    if (!isOpen) endDrag();
+});
+onScopeDispose(endDrag);
 
 const canvasRef = useTemplateRef<HTMLElement>("canvasRef");
 const hueRef = useTemplateRef<HTMLElement>("hueRef");
@@ -124,12 +167,9 @@ watch(() => hex, (incomingHex) => {
 }, { immediate: true });
 
 function onCanvasPointer(e: PointerEvent) {
-    canvasDragging = true;
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
-    updateCanvas(e);
+    if (beginDrag(e, "canvas")) updateCanvas(e);
 }
-function onCanvasMove(e: PointerEvent) { if (canvasDragging) updateCanvas(e); }
-function onCanvasUp() { canvasDragging = false; }
+function onCanvasMove(e: PointerEvent) { if (dragging(e, "canvas")) updateCanvas(e); }
 function updateCanvas(e: PointerEvent) {
     const el = canvasRef.value;
     if (!el) return;
@@ -139,12 +179,9 @@ function updateCanvas(e: PointerEvent) {
 }
 
 function onHuePointer(e: PointerEvent) {
-    hueDragging = true;
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
-    updateHue(e);
+    if (beginDrag(e, "hue")) updateHue(e);
 }
-function onHueMove(e: PointerEvent) { if (hueDragging) updateHue(e); }
-function onHueUp() { hueDragging = false; }
+function onHueMove(e: PointerEvent) { if (dragging(e, "hue")) updateHue(e); }
 function updateHue(e: PointerEvent) {
     const el = hueRef.value;
     if (!el) return;
