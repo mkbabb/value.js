@@ -1336,3 +1336,22 @@ or diagnostic journal. But the census family `a{c;×n}` (inside one body) names
 So both journals **are** reachable under Θ.input, just not by the declared family. The emitter's
 witness choice (`bounds.mjs` `witnessAtCapacity`) belongs to whoever next re-emits §7. It is not
 re-emitted here (E-3).
+
+## §14 — X.P.W5.g: full Color 4/5 coverage in the seam, the rows its cures open (SERVED MODEL: claude-opus-5-5 · 2026-09-23) — DATED, BESIDE (E-3)
+
+Nothing above this heading is edited. Authority: `waves/W5.md` ADDENDUM 2026-09-23 (COHESION §0bx) — F-W5c-1 re-ruled to the spec; SC-1 / SC-2 / R-c-2 / R-b-2 / R-b-1 ordered to `.g`. Each row below lands in the same act as the parse-that commit that makes it true, and names that commit. The engines AGREE on every row below at 4.0.0's side of the seam (both refuse, or the incumbent refuses a form the candidate now reads per spec in a way no SEAM-CONTRACT disposition binds), so — like §13 — each sits one level down (`####`), outside `seam-contract-check.mjs`'s `### <id> — ` row grammar; SEAM-CONTRACT.md is not this unit's to edit.
+
+#### F-W5c-1 — the LEGACY `rgb()/rgba()/hsl()/hsla()` forms refuse a `none` alpha (supersedes PB-01/02 for the legacy arms)
+
+| field | value |
+|---|---|
+| **rulingId** | `F-W5c-1` (COHESION §0bx; W5.md ADDENDUM :25) — **supersedes PB-01 / PB-02's `none` face for the legacy arms only**; their numeric four-argument form (`rgba(1, 2, 3, 0.5)`, `hsla(120, 50%, 50%, 0.5)`) stands |
+| **entry** | `parseCssColor` (and every entry that reads a colour through `P:color`) |
+| **subject** | css-color-4 (ED) §4.2 `<alpha-value> = <number> \| <percentage>`; its changelog: "Made explicit that legacy forms do not support none". `none` stays lawful in the MODERN grammar behind `/` |
+| **input** | `rgb(255, 255, 255, none)` · `hsla(120, 100%, 50%, none)` (WPT `color-invalid-rgb.html` / `color-invalid-hsl.html`) |
+| **incumbent (4.0.0, MEASURED)** | `ok:false` — the incumbent refuses every four-argument legacy form (PB-01/02's premise), so it refuses these too |
+| **candidate (both lowerings, MEASURED)** | before: `ok:true … alpha:"none"` (PB-01/02 as ruled) · after: `ok:false css_syntax`, js ≡ wasm; `rgb(255 255 255 / none)` still `ok:true alpha:"none"` |
+| **disposition** | **ruling superseded, candidate correct**: the cure is one alpha edit per legacy arm (`legacyAlpha()` = `CLAMP(0,1, <percentage> \| <number>)` in `algebra/grammar.mjs`'s two `rgb` arms and its `hsl` arm); the PB-01/02 repair (`legacyAlphaEdits`, `test/css-totality/lib/adjudications.mjs`) no longer claims a `none` fourth argument, so the 17 corpus cells it used to repair are read at their raw verdict — both engines refuse, the harness counts nothing |
+| **consumer direction** | **NARROWS** against the candidate's own prior (2.0.0-pre) reading and **NO CHANGE** against 4.0.0: a consumer who wrote `rgba(r, g, b, none)` was refused by 4.0.0 and is refused again; `rgb(r g b / none)` is the spec spelling and parses |
+| **cure commit** | parse-that `98fbe48` (grammar + `ac1.wasm` + `css-color5.test.ts` + `adjudications.mjs`), landed with this row as one pair — two repositories cannot share one commit object |
+| **cells re-read** | the 17 corpus cells PB-01/02 repaired through a `none` alpha, at each of the five colour-reading entries × 2 lowerings (`equivalence.test.ts` "every adjudicated conflict is HONOURED": 17 per entry before the adjudication edit, 0 after); `run-full-surface.mjs` MIRROR-DEFECTS 0 |
