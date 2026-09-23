@@ -31,6 +31,10 @@ sitting of record 2026-09-17). Baselines are the open seat's (`execution/A/X-W7.
 | e | `73fd8ccf` | `test(palettes/reorder)` — N-7 fixtures satisfy `Palette` (demo-leg TS2352 ×2 → 0) |
 | e | `4cb3d486` | #9 `fix(palettes/admin)` — deliberate dismissal ×5 seats; N-6 take-before-run; S-14(b); G15 · S-15 naming |
 | e | `4060ce38` | G14 · N-6 · S-14 browser oracle `w7-destructive-seats` + G13 rows re-ruled onto the confirms |
+| g | `8fe6a2db` | #12 `fix(extract/plate)` — ShadowPalette + PaletteCardSkeleton mass; caption deleted; o9 re-ruled (G20 · N-17 · S-20) |
+| g | `41002df5` | #11 `refactor(demo/copy)` — OM-15 abrogation; `eyebrow` prop, default and element deleted (G19) |
+| g | `07be9cf3` | N-9 `refactor(demo/failure)` — ErrorBoundary composes EmptyState's error plate (S-7) |
+| g | `528ed4ed` | W7.106 / R14 `fix(demo/plates)` — single-root templates; Retry no longer blanks the Browse wall |
 
 ---
 
@@ -486,3 +490,110 @@ Commits: `ae9a3a48` (N-5, MixSourceSelector site) · `b970fe96` (#10, the facili
 - `eslint --max-warnings=0` on the 8 touched files → exit 0; `git diff --check` → clean.
 - `vue-tsc -p tsconfig.demo.json` → 2 × TS18048 in `admin-destructive.test.ts:261,262` (unit e's file, not touched here);
   strict-probe: 0 new TS2353/TS2322 in f's files (the one new `data-count` attribute was withdrawn before commit).
+
+---
+
+## X.W7.g — gate sections (seat `claude-opus-5-5[1m]`, 2026-09-23, opened at HEAD `e9b8ad4e`)
+
+### G20 — The ShadowPalette plate — **GREEN**
+
+⟨cmd⟩ `npx vitest run demo/test/palettes/plate-mass.test.ts` — both components mounted in Playwright Chromium inside the
+n-fixture harness page (the shipped stylesheet cascade; host width = the shipped card list's column), at 390×844 and
+1440×900. Budget stated in the test: **≤ 100 px at k = 16, and height(k = 16) = height(k = 1)**.
+
+- **RED — pre-cure (measured before any edit, HEAD `e9b8ad4e` bytes)**, `height` in px:
+
+  | component | k=1 @390 | k=5 @390 | **k=16 @390** | k=16 @1440 |
+  |---|---:|---:|---:|---:|
+  | `ShadowPalette.vue` | 142 | 142 | **254** | 150 |
+  | `PaletteCardSkeleton.vue` (shadow) | 142 | 142 | **254** | 150 |
+  | `PaletteCardSkeleton.vue` (developing) | 142 | 142 | **254** | 150 |
+
+  (The spec's 276 px figure is the 56 px `sm:` disc in the Extract split column; at the 358 px list column the 48 px
+  disc wraps 6/6/4 → 254. Same arithmetic: 2 + 40 + 40 + 3×48 + 2×8 + 12.)
+- **GREEN (after `8fe6a2db`, re-run after `528ed4ed`)**: every component at every k and both widths → **92.5 px**
+  (2 + 40 strip + 50.5 meta row whose blocks take `text-subheading` · `1lh`); suite double-run 4/4 · 4/4.
+- **Falsifier (run, restored)**: the pre-cure bytes of both files → 4/4 RED: `ShadowPalette.vue: expected 254 to be
+  less than or equal to 100` (390) · `expected 150 …` (1440).
+- **Caption**: `ExtractWorkbench.vue:163-166` deleted in the same commit (`grep -rn "undeveloped plate" demo/` → 0).
+- **o9 re-ruled in the same commit** (S-20 — one re-ruling closes ES-4 · ES-19 · SP-7/SP-25 · SP-34): the live-k leg
+  now asserts the plate re-segments WITHOUT growing (`boundingBox().height` at k = 16 equals k = 5) and that no caption
+  rides it; all legs read published `data-slot` seams (`shadow-palette-cell` minted on the component; glass-ui's
+  `[data-variant="ghost"]` / `.watercolor-ghost-stroke` and the scoped `.shadow-seg` dropped); copy left the oracle;
+  EmptyState's never-set `dots` axis deleted (ES-4). ⟨cmd⟩ `npx playwright test e2e/smoke/oracles/o9-shadow-palette.spec.ts
+  --project=smoke` → **5 passed** (run three times across the unit). Falsifier: the pre-cure ShadowPalette → the Extract
+  leg RED (`expected > 0, received 0` — no published cell seam).
+- **SP-31 rider honoured**: the cure moves geometry only (the swatch row deleted, the meta line box matched); the
+  plate's register — ink ladder, edge width (1 px vs the card's 2 px, SP-15), cast rung, the pulse (SP-1/SP-2/SP-22) —
+  is untouched and stays sequenced behind X-W10.
+
+### N-17 — The skeleton is the silhouette of its settled state — **GREEN (the card fixture)**
+
+Same test file, same seat. Fixture: the harness's `colors-5` collapsed `PaletteCard` (settled) vs `PaletteCardSkeleton`
+(`count = 5`, both registers). Tolerance stated in the test: **|Δheight| ≤ 4 px**.
+
+- **RED — pre-cure**: loading 142 vs settled 94.53 → **|Δ| 47.5 px (+50.2 %)** at 390 and 1440 (PCS-4's +50.4 %).
+- **GREEN**: loading 92.52 vs settled 94.53 → **|Δ| 2.0 px** at 390 and 1440 (the residual is the 1 px hairline vs the
+  card's 2 px stamp — SP-31's register, not geometry). Double-run identical.
+- **Not covered here (residual, recorded)**: N-17's other witnesses — `AdminListSkeleton.vue` (M-DU8, out of bounds),
+  `TagEditPopover` loading→ready jump (TEP-15, unit a's file), `AdminTagsPanel` skeleton groups (ATP-16). And the Extract
+  morph seat now morphs a 92.5 px skeleton into the EXPANDED card (swatch row shown) — the skeleton is the collapsed
+  silhouette by N-17's fixture; the Extract seat's settled state differs by design of that seat.
+
+### G19 — Text abrogation, with the structural precondition — **RED (ESC-W7g-G19-BOUNDS); in-bounds GREEN**
+
+⟨cmd⟩ `grep -rn "eyebrow" demo/ | grep -v node_modules | wc -l` → **31 (open) → 14** (double-run 14 · 14); **0 inside
+this seat's writable set**. The prop, its default and its element are deleted (`41002df5`) — the structural precondition
+holds at the atom: no consumer can be born with the caption.
+
+- Per-row receipt: `docs/tranches/X/waves/W7-om15-receipt.md` — **69 rows (68 + drift 22′): 45 DONE · 2 HELD-ORACLE ·
+  5 PRE-CURED · 16 OUT · 1 KEEP**.
+- The 14 survivors are all OUT of bounds: 2 functional (`PaletteCardGrid.vue:25` forwards `:eyebrow` to a prop that no
+  longer exists; `MixSourceSelector.vue:272` `eyebrow="· nothing to mix ·"` now lands as a DOM attribute on the plate
+  root) + 12 prose/other-idiom (`DESIGN.md`, `ColorSpaceSelector` ×2, `ParseEchoReadout`, `ProfileSection` ×2,
+  `GradientCodeEditor`, `EasingSpecimenStrip` ×4 — a `family-eyebrow` class, `easingCatalogue.ts`).
+- 14 uncoupled labels: 9 associated in the tree (4 by this seat — AuroraPane; 5 pre-cured — MixConfigBar ×3,
+  GenerateControls ×2); 5 OUT (ConfigSliderPane ×1, GradientVisualizer ×4).
+- Dialects on `.section-label` (producer recipe, cited — `foundation.css` untouched, CE-4): 5 of 11 sites closed
+  (2 deleted with their strings, 3 consolidated); 5 OUT; the dev overlays KEEP.
+- HELD-ORACLE: `BrowsePane.vue:65` / `:142` — `crash-battery.spec.ts:60` and `browse-pagination.spec.ts:62` assert the
+  metaphor strings (out of bounds).
+- Falsifier: re-add `eyebrow?: string` + the element to `EmptyState.vue` → the grep regrows at the atom (+2 lines) and
+  every consumer may pass it again; the grep is the spec's falsifier and it moves.
+
+### N-9 — The failure register has a home — **RED (one out-of-bounds fork); in-bounds GREEN**
+
+⟨cmd⟩ `grep -rl '<magnitude>' demo --include='*.vue'` over the fork's drifted set {`gap-3 py-10 px-6`,
+`w-7 h-7 text-destructive/80`, `max-w-[28ch]`, `max-w-[46ch]`}:
+
+- **RED (open)**: **2 sites each** — `demo/color-picker/ErrorBoundary.vue` + `demo/shell/PaneErrorPlate.vue`.
+- **After `07be9cf3`**: **1 site each** — `PaneErrorPlate.vue` only. `ErrorBoundary.vue` renders `EmptyState
+  variant="error"` and adds only its own semantics (assertive live region, `tabindex=-1` focus target via EmptyState's
+  exposed `focus()`, full-region fill, Retry in the action slot); its `.plate-ink` clone is deleted.
+  ⟨cmd⟩ `npx vitest run demo/test/shell/error-boundary*.test.ts` → 13/13; focus probe C-D: activeElement after catch =
+  `DIV role=alert` (identical to the pre-cure bytes — the first attempt via `$el` regressed it to BODY, measured and
+  corrected before commit).
+- **Why RED**: GREEN reads "one implementation, cited not forked"; `PaneErrorPlate.vue` (X-W5 `.d2`) is a second
+  re-authoring of the same plate and is outside this seat's writable set → **ESC-W7g-N9-PANEPLATE**.
+
+### W7.106 · ES-2 (crash-battery R14, routed X-W7.g) — cured at the atom; the oracle cannot witness it
+
+- Mechanism measured: a leading `<template>` comment makes `EmptyState` (and `ShadowPalette`, `PaletteCardSkeleton`)
+  multi-root under the dev compiler; inside `<Transition mode="out-in">` the leave never completes.
+- Cure `528ed4ed`: each note moved into `<script setup>`; each template opens on its element.
+- Probe (dev server, the o9 API-only route filter, `/palettes` aborted, Retry ×3): **after cure** plate visible 3/3;
+  **pre-cure EmptyState bytes** → `TimeoutError` waiting for Retry after the first press (the wall blanked).
+- ⟨cmd⟩ `npx playwright test e2e/smoke/crash-battery.spec.ts -g R14 --project=smoke` → still RED at `:58`
+  (`mainPane` not visible): its `page.route("**/palettes*")` also aborts Vite's `demo/palettes/*` source modules, so the
+  app never boots. The oracle is X-W1's → **ESC-W7g-R14-GLOB**. Fold note: W7.106's homing lock ("a cure in
+  `EmptyState.vue` cannot reach this defect") is contradicted by this measured falsifier — recorded, not silently
+  overruled.
+
+### Cadence (§7) after unit g
+
+| instrument | result | note |
+|---|---|---|
+| `npx vitest run` ×2 | 2 failed / 803 passed (805), 54 files — identical | the two open fails are the baseline's (`spectrum-luma` C-5 · NG-6 case 2 / F-4) |
+| `npm run lint` | 55 problems (23 errors, 32 warnings) | = baseline, all under `docs/tranches/{V,X}`; changed files lint 0 |
+| `vue-tsc -p tsconfig.demo.json` | 2 × TS18048 in `demo/test/palettes/admin-destructive.test.ts:261-262` | unit e's file, present before this unit's first edit; not this seat's |
+| `playwright` smoke | o9 5/5 · browse-loading 1/1 · browse-pagination green · walk.spec RED at its Generate leg (`name: "Generation preset"`, GenerateControls untouched by this seat) · crash-battery R14 (above), R18 (NO-WAVE-OWNER extract flow) RED | |
