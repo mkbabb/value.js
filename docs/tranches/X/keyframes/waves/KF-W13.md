@@ -438,3 +438,6 @@ Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d
 - **`.m` and `.v` measure the light-theme `.dock-plate` composite** (and every `.glass-*` surface in view) on the served page, before and after the 10.0.1 repin. Glass 10.x's light veil is a dark smoke (O-62), so after the repin the plates will likely read grey. The owner has twice objected to grey chrome.
 - If a plate turns grey, record honest-RED **GLASS-VEIL-GREY** (O-62) with the before and after composites. Never override the plate locally.
 - The repin still proceeds, because it carries the QUIET-FOCUS-RING and Sheet cures.
+
+## KF.W13R — ADDENDUM 2026-09-23 (b) (COHESION §0cj): DOCK-TRIGGER-CLIP limb
+- `.v` reads on the served page whether dock trigger hover, selected and focus capsules are clipped. If they are, record honest-RED DOCK-TRIGGER-CLIP (O-63), with no local override. A keyframes consumer clip in the ancestor chain is cured here.

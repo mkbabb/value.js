@@ -3208,3 +3208,12 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - **fourier** keeps 10.0.1 and carries the same id.
 - **R-6, the remaining operator items** (certbot, docker/nginx and the `-linux` baselines) belong to the deploy waves X-W10 and X-W11, which hold the deploy authority from the begin-word. They are not owner acts.
 - **OA-54 (owner, verbatim):** *"too gray, and the large dropdowns should not be so rounded. Perhaps for these, the large color space dropdowns, it should just be text, too."* Frame: `audit/owner-2026-09-23-colorspace-dropdown.png`, value.js's "Lab" colour-space trigger. Routed to X-W12 as unit `.t`, with the addendum in W12.md.
+
+## §0cj ADDENDUM 2026-09-23 — OA-55: dock buttons clipped on hover and select = DOCK-TRIGGER-CLIP (O-63)
+- **Owner, verbatim:** *"buttons in the dock are clipped on hover and select like this."* The frame is value.js's dock Home trigger.
+- **Measured on fourier's dock at glass 10.0.1.** The dock row `.dock-layer--full` computes `overflow: auto hidden` with 4 px of block padding. Its horizontal scroll forces a block-axis clip, so any capsule, ring or outline that extends more than 4 px past the 40 px trigger is cut. It is a producer defect in the dock family, and value.js's glass 7.0.0 dock shows the same cut.
+- **Relayed as O-63** (`relay/X-ALL-BK-DOCK-TRIGGER-CLIP.md`, mirrored), and sent live.
+- **Routing:**
+  - honest-RED **DOCK-TRIGGER-CLIP** in X-W12, in KF.W13R `.v` and in F.W14 `.r`.
+  - Each re-reads it on the served page at its landing repin, X-W7L for value.js.
+  - No local override.
