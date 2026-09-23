@@ -3077,3 +3077,7 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   3. **`.z3`**: ESC-W7c2-LINT — `eslint.config.*` ignores `docs/**` (documentation and banked tooling, not product code; `docs/tranches/C/**` and `docs/precepts/**` are already ignored); `npm run lint` exit 0 locally; push; the CI producer job GREEN on the pushed branch read with `gh run`.
 - Honest-RED at close: `G3-FALLTHROUGH-TYPES` (O-57), G11 goldens (→ X-W10), G14 dismiss grep (discharged at X-W7R). The vitest hook timeouts under load stay the X-W1 readiness watch.
 - Order on relaunch: X-W7 [`.z1`] → [`.z2`] → [`.z3`] → close/check → **X-W7R** (glass 10.0.1) → X-W12 → X-W8 → X-W10 → X-W11.
+
+## §0bu ADDENDUM 2026-09-23 — OA-42 (fourier admin audit-log table malformed) → F.W14 MINTED (repin to glass 10.0.1 + the admin table + the UIA-F register + F.W13's residuals)
+- **Owner, verbatim**: *"these UI elements are malformed in fourier, mark"* (frame `fourier/evidence/W14/owner-2026-09-23-malformed.png`: action badges of fixed width overflowed by long names, a wrapping timestamp column, doubled row rules) → **OA-42**.
+- **F.W14** (`fourier/waves/F-W14.md`): `.m` glass `^8` → 10.0.1 (§0bs pattern) → `.t` OA-42 with overflow/one-line/one-rule gates → `.u` every UIA-F row → `.r` F.W13's residuals. Opens once the UI audit's fourier register lands; Track C launches at the next free slot.

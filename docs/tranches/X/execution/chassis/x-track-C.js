@@ -120,6 +120,13 @@ const TRACK = {
       ],
       "note": "AUTHORITY: the owner's 2026-09-22 fourier docket (COHESION §0ao, verbatim there: rounded, glass-ui idiomatic, a dock, the grid) executed under the 2026-09-17 begin-word — this tail wave (COHESION §0as) spends F.W11's residuals: [F.W12.a] (opus: the five numeric fields onto glass-ui NumberField so keyboard stepping returns; the two stale contrast-pairs rows and two style.css comments retired; the search-cancel glyph relayed to BK by mail; the e2e networkidle wait replaced by the app's own readiness signal) → [F.W12.b] (opus, verify-only close); glass-ui READ-ONLY; push m/w1-bump-migration at every unit close. A later owner message about keyframes.js is Track B's docket and does not narrow this one — RESUME 2026-09-22 on COHESION §0au + F-W12.md's ADDENDUM 2026-09-22: F.W12.a is alreadyDone (never re-dispatched); still owed: [F.W12.a2] (opus: prove the visualization-ux serial block's tests independent, give any dependent one its own bootstrap, then drop test.describe.serial — no timeout, no slow(), no loosened wait) → [F.W12.b2] (opus, verify-only close) — RESUME 2 (2026-09-22) on COHESION §0av + F-W12.md's second addendum: F.W12.a and F.W12.a2 are alreadyDone (never re-dispatched); the one unit owed is [F.W12.b3] (opus, verify-only close: wait for a quiesced host in bounded background polling ≤ 20 min — load < 20, no sibling headless Chromium — then two full nine-worker runs; never a timeout change)"
     },
+    "F.W14": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W14.md",
+      "after": [
+        "F.W13"
+      ],
+      "note": "AUTHORITY: COHESION §0bu + F-W14.md (READ whole, and the frame docs/tranches/X/fourier/evidence/W14/owner-2026-09-23-malformed.png). The owner, verbatim: \"these UI elements are malformed in fourier, mark\". PRECONDITION: docs/tranches/X/audit/UI-AUDIT-fourier.md exists, else return blocked naming it. Strictly serial: [F.W14.m] (repin glass ^8 -> 10.0.1 exact at the root, no shims; e2e --workers=1 with load) → [F.W14.t] (admin audit-log badges fit their content, one-line timestamps, one rule per row; sweep every admin table) → [F.W14.u] (every UIA-F row) → [F.W14.r] (F.W13 residuals). Served-page instrument rule; every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "F.W13": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W13.md",
       "after": [
@@ -157,7 +164,8 @@ const TRACK = {
     ["F.W10S"],
     ["F.W11"],
     ["F.W12"],
-    ["F.W13"]
+    ["F.W13"],
+    ["F.W14"]
   ]
 }
 
