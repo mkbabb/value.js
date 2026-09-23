@@ -393,3 +393,25 @@ Units, serial:
 - **13 rows are still live in the producer:** KFA-7, 8, 13, 23, 50, 53, 74, 110, 115, 132, 133, 163 and 168. KFA-23 and KFA-74 are one defect. These stay relay-only.
 - **12 are cured at glass HEAD:** KFA-11, 27, 37, 51, 52, 78, 109, 111, 202, 221 and 222, and KFA-188 in part. They verify after the landing repin.
 - **3 did not reproduce or were reframed:** KFA-112, 164 in part, and 189. Each is re-read on keyframes' served page before it closes.
+
+## KF.W13U — SEVENTH ADDENDUM 2026-09-23 (COHESION §0cd): the close's two unrelieved reds, ruled
+Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d4` are DONE. `.d3` and `.x` ESCALATED. The check named two gaps: C6-1 had no relief, and C6-2 had no grant. Both are ruled below.
+
+**1. `.x`'s producer reds become honest-RED ids owned by KF.W13R.** This relief is issued now and dated, which breaks the circular routing.
+- **QUIET-FOCUS-RING (S4 ringPainted).** In glass 7.0.0, `.button[data-emphasis="quiet"]{box-shadow:none}` wins over `.focus-ring:focus-visible`. The `.x` seat reports this cured in glass 10.0.1, where `base.css` paints the ring as an outline. **Owner:** KF.W13R `.m` repins, and `.v` re-reads S4 on the served page.
+- **DRAWER-DETENT-REACH (M1).** Glass 7.0.0's snap-point Drawer is a full-height sheet translated to the detent, so about 384 px of controls never enter an 844 px viewport. Glass `336dacf9` replaces it with a Sheet whose detent is a size, and 10.0.1 descends from it. **Owner:** KF.W13R `.m` migrates the Drawer to the Sheet at the root, and `.v` re-reads M1 at a point on the pane, unmoved.
+- These masks stay forbidden: changing Play's emphasis, a local `:focus-visible` copy, and moving M1's touch point.
+- KF.W13U's close clause "kf e2e GREEN" reads GREEN-WITH-HONEST-RED for exactly these two cases. Every other case must pass at `--workers=1` with the load recorded. The `[real-cube]` intermittent (C6-3) stays owned by KF.W13V `.k` (KFA-17).
+
+**2. `.d3`'s change-once limbs are cured in this wave by the new unit `KF.W13U.d5`, with a whole-file grant.**
+- **Grant, whole files, in keyframes.js:**
+  - `demo/app/App.vue`
+  - `demo/shell/ChromeDock.vue`
+  - the module that defines `warmScene` and the scene menu rows that can call it
+  - `docs/tranches/X/keyframes/evidence/W13U/d5/**` in value.js
+  - The ADJACENT-LINE RULE applies.
+- **Ruling: one commit point.** Every scene-derived dock and pane read flips once, at resolve, on the `sceneBoundToCurrent` predicate. This covers the Controls selection (`dockSelectedControl`), EditorShell's `channels` and `#tabs-content`, and the **Scene trigger label**. Until resolve, the dock and pane keep projecting the source scene whole. The destination's pick is never projected against the held source set. The pane is never unmounted and remounted by a route super-key while pending.
+- **Additive: warm on intent.** Hovering or focusing a scene row in the scene menu calls `warmScene`, so most picks have no pending window. This is only a latency measure, and the gate is read cold as well.
+- **Gate, unchanged in wording:** dock width changes once per switch, with no reversal, and the controls surface set changes once per switch. Run `probe-switch10.mjs` over 10 switches, first visits included, headed, twice on dev and twice on gh-pages, with the load recorded.
+- **Still forbidden:** changing `selectedSurfaceFrom`'s fallback, and a static per-scene surface table.
+- **Owed, strictly serial:** `[KF.W13U.d5]`, then close, under this addendum. alreadyDone: `.w .t .e .d .t2 .d2 .d4`. `.d3` and `.x` are closed as escalations ruled here, and are never re-dispatched.

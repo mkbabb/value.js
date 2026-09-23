@@ -3136,3 +3136,9 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 ## §0cc ADDENDUM 2026-09-23 — OA-50: fourier's admin panels
 - **Owner, verbatim:** *"ui for the admin panels in fourier is awful, not glass-ui idiomatic, and has very poor spacing and design hierarchy--and is inconsistent."* Then: *"On most admin pages thereof"*.
 - Routed to F.W14 `.h`, the design seat, as one admin idiom across every admin page. `.h` also re-reads what `.t` landed. `F-W14.md` has the addendum with the frame's defects. It was routed to `.h` rather than `.t` because `.t` was already in flight when the frame arrived.
+
+## §0cd ADDENDUM 2026-09-23 — KF.W13U: the two unrelieved reds ruled; `.d5` minted
+- Track B's run `wf_82af6dba-aba` ended with KF.W13U NOT-CONFORMANT after 2 repairs. The check's two HIGH defects are ruled in KF-W13.md's KF.W13U seventh addendum:
+  - **C6-1 is relieved.** QUIET-FOCUS-RING and DRAWER-DETENT-REACH are honest-RED ids owned by KF.W13R. Glass 7.0.0 is the cause, and 10.0.1 carries the ring cure and the Sheet. `.m` migrates and `.v` re-reads on the served page. The relief is dated before the re-close, so the routing is no longer circular.
+  - **C6-2 is granted.** `KF.W13U.d5` holds every scene-derived dock and pane read, the Scene label included, to one commit point at resolve, and adds warm-on-intent. App.vue and ChromeDock.vue are granted as whole files, with the ADJACENT-LINE RULE.
+- Track B resumes from `wf_82af6dba-aba`. The closed waves' open seats replay from cache.
