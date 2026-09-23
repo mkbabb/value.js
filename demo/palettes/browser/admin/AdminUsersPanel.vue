@@ -68,7 +68,7 @@
         <EmptyState
             v-else-if="loadError"
             variant="error"
-            message="The roster is unreachable."
+            message="Couldn't load users."
             :detail="loadError"
         >
             <template #action>
@@ -77,7 +77,7 @@
                 </Button>
             </template>
         </EmptyState>
-        <EmptyState v-else-if="users.length === 0" eyebrow="· roster clear ·" message="No users found." />
+        <EmptyState v-else-if="users.length === 0" message="No users found." />
         <div v-else class="grid gap-3">
             <div
                 v-for="user in users"
@@ -163,10 +163,10 @@
                     <EmptyState
                         v-else-if="userPalettesError"
                         variant="error"
-                        message="This user's palettes are unreachable."
+                        message="Couldn't load this user's palettes."
                         :detail="userPalettesError"
                     />
-                    <EmptyState v-else-if="userPalettes.length === 0" eyebrow="· none pinned ·" message="No palettes." />
+                    <EmptyState v-else-if="userPalettes.length === 0" message="No palettes." />
                     <!-- X.W7.d (DAG §2.3 row 6): the Admin scene owns exactly its own
                          verbs. The palette renders as the props-only specimen and
                          the row's action seat carries Feature and Delete — the user

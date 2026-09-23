@@ -115,7 +115,7 @@
                         class="flex flex-col gap-1.5"
                     >
                         <!-- T19 folded as the card's label line (F7): the
-                             display-voice stat + eyebrow + Fira readout on
+                             display-voice stat + caption + Fira readout on
                              one baseline, seated on the plate it describes.
                              The duplicate dominant dot died — the card's
                              first swatch IS the dominant specimen. -->
@@ -132,7 +132,7 @@
                             </span>
                             <span class="flex items-baseline gap-2 min-w-0 ml-auto">
                                 <span
-                                    class="text-mono-caption uppercase tracking-[0.18em] plate-ink shrink-0"
+                                    class="section-label plate-ink shrink-0"
                                     >dominant</span
                                 >
                                 <!-- truncate may trim trailing digits at narrow

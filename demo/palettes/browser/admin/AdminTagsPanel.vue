@@ -105,7 +105,7 @@
         <EmptyState
             v-else-if="tagsApi.loadError.value"
             variant="error"
-            message="The tag ledger is unreachable."
+            message="Couldn't load tags."
             :detail="tagsApi.loadError.value"
         >
             <template #action>
@@ -116,7 +116,7 @@
         </EmptyState>
 
         <!-- Empty (TRUE empty — the specimen annotation survives, Q6) -->
-        <EmptyState v-else-if="tagsApi.tags.value.length === 0" eyebrow="· no tags minted ·" message="No tags yet." />
+        <EmptyState v-else-if="tagsApi.tags.value.length === 0" message="No tags yet." />
 
         <!-- Tag list grouped by category -->
         <div v-else class="flex flex-col gap-4">

@@ -3,12 +3,14 @@
          empty, error ≠ empty).
 
          · empty (default) — the R.W4 specimen-plate invitation: seeded
-           WatercolorDot ghosts reading the LIVE accent, a Fira eyebrow (the
-           plate label — Q6 RATIFIED-NARROWED: this annotation class survives
-           ONLY here, on TRUE EMPTY), a Fraunces display line, optional hint
-           + CTA slot.
+           WatercolorDot ghosts reading the LIVE accent, a Fraunces display
+           line, optional hint + CTA slot. X.W7.g (OM-15 §1.A #2/#13 · G19):
+           the Fira caps caption prop — a DEFAULT that birthed a contrived
+           caption restating the message at every consumer, and an announced
+           string inside this polite region (ES-11) — is deleted as prop,
+           default AND element, so the idiom cannot regrow.
          · error — the PLAIN register (Q6: error surfaces DROP the
-           annotations; no eyebrow, no ghosts, never a second invitation): a
+           annotations; no ghosts, never a second invitation): a
            quiet destructive glyph, the Fraunces statement of failure, the
            machine truth in Fira, and a real Retry in the action slot. -->
     <div
@@ -47,15 +49,11 @@
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-b" class="w-11 h-11" />
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-c" class="w-6 h-6 opacity-60" />
         </div>
-        <!-- P4-R2 (T.W8 remediation_1): the eyebrow/hint thread the certified
+        <!-- P4-R2 (T.W8 remediation_1): the hint threads the certified
              de-emphasis rung `--ink-muted` (boot-stamped, floor-clamped against
              the live resting plate; D6) — the STATIC `text-muted-foreground`
              composited 3.84:1 over the My Palettes plate in light (< the 4.5:1
-             small-text floor). The earlier /70 double-attenuation was already
-             dead; this thread the rung the console's captions ride. -->
-        <p class="text-mono-caption uppercase tracking-[0.18em] plate-ink">
-            {{ eyebrow }}
-        </p>
+             small-text floor). -->
         <p class="font-display text-heading text-foreground max-w-[26ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
@@ -75,20 +73,18 @@ withDefaults(
         message?: string | undefined;
         /** The two plate species — `empty` invitation vs `error` statement. */
         variant?: "empty" | "error" | undefined;
-        /** Fira caps caption above the display line — TRUE-EMPTY only (Q6). */
-        eyebrow?: string | undefined;
         /** Optional mono how-to line under the display line (empty variant). */
         hint?: string | undefined;
         /** The machine truth (error variant) — the caught message, in Fira. */
         detail?: string | undefined;
     }>(),
-    { variant: "empty", eyebrow: "· empty plate ·" },
+    { variant: "empty" },
 );
 </script>
 
 <style scoped>
 /* P4-R2 + P11-R3 (T.W8 remediation_1): the shared empty/error plate's captions
- * — the eyebrow, the hint, the error detail line — thread the certified
+ * — the hint, the error detail line — thread the certified
  * de-emphasis rung (`--ink-muted` — boot-stamped, floor-clamped against the
  * live resting plate; D6). This is the ONE shared empty atom (8 consumers incl.
  * the admin walls), so every consumer inherits the cure. The primary display

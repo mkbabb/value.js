@@ -105,7 +105,7 @@ describe("N-2 · auth ≠ empty — five panels, five signed-out plates", () => 
         const { wrapper } = mountAdmin("admin-audit");
         await flushPromises();
         expect(wrapper.find('[data-admin-access="signed-out"]').exists()).toBe(true);
-        expect(wrapper.text()).not.toContain("unreachable");
+        expect(wrapper.text()).not.toContain("Couldn't load");
     });
 });
 

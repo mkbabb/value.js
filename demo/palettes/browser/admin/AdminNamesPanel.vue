@@ -49,7 +49,7 @@
                 <EmptyState
                     v-else-if="pendingError"
                     variant="error"
-                    message="The proposal queue is unreachable."
+                    message="Couldn't load proposals."
                     :detail="pendingError"
                 >
                     <template #action>
@@ -60,7 +60,7 @@
                 </EmptyState>
                 <!-- W7.83 (D-5): a FILTERED zero is not a clear queue. -->
                 <EmptyState v-else-if="pendingItems.length === 0 && filtered" message="No pending proposals match this search." />
-                <EmptyState v-else-if="pendingItems.length === 0" eyebrow="· queue clear ·" message="No pending proposals." />
+                <EmptyState v-else-if="pendingItems.length === 0" message="No pending proposals." />
                 <div v-else class="grid gap-2 min-w-0">
                     <AdminListItem v-for="item in pendingItems" :key="item.id">
                         <template #swatch>
@@ -101,7 +101,7 @@
                 <EmptyState
                     v-else-if="approvedError"
                     variant="error"
-                    message="The approved list is unreachable."
+                    message="Couldn't load approved names."
                     :detail="approvedError"
                 >
                     <template #action>
@@ -111,7 +111,7 @@
                     </template>
                 </EmptyState>
                 <EmptyState v-else-if="approvedItems.length === 0 && filtered" message="No approved names match this search." />
-                <EmptyState v-else-if="approvedItems.length === 0" eyebrow="· none approved yet ·" message="No approved color names." />
+                <EmptyState v-else-if="approvedItems.length === 0" message="No approved color names." />
                 <div v-else class="grid gap-2 min-w-0">
                     <AdminListItem v-for="item in approvedItems" :key="item.id">
                         <template #swatch>

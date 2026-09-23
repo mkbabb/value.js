@@ -10,7 +10,7 @@
             <SearchBar
                 v-model="pm.searchQuery.value"
                 class="search-seated"
-                placeholder="Search the commons..."
+                placeholder="Search palettes..."
             >
                 <SearchFilterBar
                     :sort="pm.sortMode.value"
@@ -81,9 +81,7 @@
                     v-else
                     key="wall"
                     :empty="displayedBrowse.length === 0"
-                    empty-eyebrow="· the commons ·"
-                    empty-text="No published palettes here yet."
-                    empty-hint="Publish one from My Palettes and start the wall."
+                    empty-text="No palettes published yet."
                     :grid-class="
                         'transition-opacity duration-fast ' +
                         (pm.sortLoading.value ? 'opacity-50' : '')

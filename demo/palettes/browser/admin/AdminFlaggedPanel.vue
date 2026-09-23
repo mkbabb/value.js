@@ -48,7 +48,7 @@
         <EmptyState
             v-else-if="flagged.loadError.value"
             variant="error"
-            message="The flag queue is unreachable."
+            message="Couldn't load flagged palettes."
             :detail="flagged.loadError.value"
         >
             <template #action>
@@ -62,7 +62,6 @@
              empty grammar (a grey italic apology) joins the register. -->
         <EmptyState
             v-else-if="flagged.items.value.length === 0"
-            eyebrow="· nothing flagged ·"
             message="No flagged palettes."
         />
 

@@ -54,7 +54,7 @@
         <EmptyState
             v-else-if="audit.loadError.value"
             variant="error"
-            message="The ledger is unreachable."
+            message="Couldn't load the audit log."
             :detail="audit.loadError.value"
         >
             <template #action>
@@ -71,7 +71,7 @@
         />
 
         <!-- Empty (TRUE empty — the specimen annotation survives, Q6) -->
-        <EmptyState v-else-if="audit.entries.value.length === 0" eyebrow="· ledger clear ·" message="No audit entries found." />
+        <EmptyState v-else-if="audit.entries.value.length === 0" message="No audit entries found." />
 
         <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy.
              X.W7.d (W7.425 · AAP-2): the rows and the pager belong to the

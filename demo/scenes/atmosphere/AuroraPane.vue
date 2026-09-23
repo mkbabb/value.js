@@ -14,7 +14,7 @@
 // Select rows in the default slot — ConfigSliderPane renders that slot above
 // its slider sections (it exists for exactly this "extra controls" case).
 
-import { inject } from "vue";
+import { inject, useId } from "vue";
 import {
     Select,
     SelectContent,
@@ -40,6 +40,12 @@ import { PreviewStrip } from "../../color-session/color-chips";
 import { auroraHarmonyStops } from "./aurora-harmony-stops";
 
 const atoms = inject(AURORA_ATOMS_KEY)!;
+
+// X.W7.g (OM-15 §1.B.3 #23–#26): each visible row label NAMES its select
+// (`aria-labelledby`), so the drifting second name each trigger carried
+// ("Palette harmony", "Painterly medium", "Motion register" …) evaporates.
+// `useId` — the pane can mount twice (a dual layout's hidden twin).
+const labelId = useId();
 
 // --- Enum vocabularies (each option = a real glass-ui atom value) ---
 const HARMONIES: AuroraHarmony[] = [
@@ -112,14 +118,14 @@ const SECTIONS: SliderSection[] = [
         :sections="SECTIONS"
         :defaults="(DEFAULT_AURORA_ATOMS as unknown) as Record<string, unknown>"
         title="Atmosphere"
-        description="The background aurora derives its palette from the picked colour. Tune the field's shape — colour energy, zones, noise, medium, and motion."
+        description="Aurora palette follows the picked color."
     >
         <!-- Enum atoms — Select rows above the numeric sliders -->
         <div class="flex flex-col gap-3 px-4 sm:px-6 pt-2 pb-1">
             <div class="aurora-row">
-                <span class="aurora-row-label">Harmony</span>
+                <span :id="`${labelId}-harmony`" class="section-label">Harmony</span>
                 <Select :model-value="harmony()" @update:model-value="setHarmony">
-                    <SelectTrigger aria-label="Palette harmony" class="h-9 text-caption min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-harmony`" class="h-9 text-caption min-w-menu">
                         <SelectValue>{{ label(harmony()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
@@ -137,9 +143,9 @@ const SECTIONS: SliderSection[] = [
             </div>
 
             <div class="aurora-row">
-                <span class="aurora-row-label">Arrangement</span>
+                <span :id="`${labelId}-arrangement`" class="section-label">Arrangement</span>
                 <Select :model-value="arrangement()" @update:model-value="setArrangement">
-                    <SelectTrigger aria-label="Zone arrangement" class="h-9 text-caption min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-arrangement`" class="h-9 text-caption min-w-menu">
                         <SelectValue>{{ label(arrangement()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
@@ -151,9 +157,9 @@ const SECTIONS: SliderSection[] = [
             </div>
 
             <div class="aurora-row">
-                <span class="aurora-row-label">Medium</span>
+                <span :id="`${labelId}-medium`" class="section-label">Medium</span>
                 <Select :model-value="medium()" @update:model-value="setMedium">
-                    <SelectTrigger aria-label="Painterly medium" class="h-9 text-caption min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-medium`" class="h-9 text-caption min-w-menu">
                         <SelectValue>{{ label(medium()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
@@ -165,9 +171,9 @@ const SECTIONS: SliderSection[] = [
             </div>
 
             <div class="aurora-row">
-                <span class="aurora-row-label">Motion</span>
+                <span :id="`${labelId}-motion`" class="section-label">Motion</span>
                 <Select :model-value="motion()" @update:model-value="setMotion">
-                    <SelectTrigger aria-label="Motion register" class="h-9 text-caption min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-motion`" class="h-9 text-caption min-w-menu">
                         <SelectValue>{{ label(motion()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
@@ -189,13 +195,5 @@ const SECTIONS: SliderSection[] = [
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-}
-
-.aurora-row-label {
-    font-family: var(--font-mono);
-    font-size: var(--type-small);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-caps);
-    color: var(--muted-foreground);
 }
 </style>

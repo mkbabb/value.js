@@ -17,7 +17,7 @@
         :style="{ transitionDuration: 'var(--duration-normal)', transitionTimingFunction: 'var(--ease-standard)' }"
         role="button"
         :tabindex="disableClick ? -1 : 0"
-        :aria-label="preview ? (disableClick ? 'Image preview area, tap to sample colors' : 'Replace image, click or drop a new image') : 'Upload image, click to browse or drop an image here'"
+        :aria-label="preview ? (disableClick ? 'Sample colors' : 'Replace image') : 'Upload image'"
         @click="!disableClick && openFilePicker()"
         @keydown.enter.space.prevent="!disableClick && openFilePicker()"
         @dragover.prevent="dragging = true"
@@ -45,9 +45,7 @@
                  muted token is already the de-emphasis rung. -->
             <div v-else class="flex flex-col items-center gap-2 py-6 plate-ink">
                 <ImagePlus class="w-7 h-7" />
-                <span class="text-mono-small text-center px-4">
-                    Drop an image or click to browse
-                </span>
+                <span class="text-mono-small text-center px-4">Upload image</span>
             </div>
         </Transition>
 
@@ -55,7 +53,7 @@
              specimen): a tiny chip that inks in on hover/focus. -->
         <span
             v-if="preview"
-            class="absolute bottom-1.5 right-1.5 rounded-sm bg-background/85 px-1.5 py-0.5 text-mono-caption uppercase tracking-[0.18em] plate-ink opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+            class="absolute bottom-1.5 right-1.5 rounded-sm bg-background/85 px-1.5 py-0.5 section-label plate-ink opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
             :style="{ transitionDuration: 'var(--duration-fast)' }"
             aria-hidden="true"
         >{{ disableClick ? 'sample' : 'replace' }}</span>
