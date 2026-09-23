@@ -835,3 +835,69 @@ A read-only sweep of the four paths against 13:00 (⟨`find … -newermt "2026-0
 - New residuals: **3** (R-close-1..3). Escalations carried: **3** (ESC-d3-1 · ESC-x-1 · ESC-x-2).
 - LEDGER: the KF.W13U status and commit cells were replaced in place, and one event line was appended.
 - **LEDGER commit provenance (recorded, not repaired).** This seat's two LEDGER edits, the KF.W13U status and commit cells and the `CLOSE 2 (RESUME 2)` event line, were written to the shared working file. Before this seat could commit them, Track C's `cce4628c` (`docs(X·exec): F.W14 OPEN`, 15:17:03) committed the whole of `LEDGER.md` and so carried both edits. ⟨`git show HEAD:…/LEDGER.md | grep -c 'X.KF.W13U CLOSE 2 (RESUME 2)'`⟩ → `1`. The bytes are the ones this seat wrote. Nothing is rewritten, and no reset or amend is made to a sibling's sha. This record's commit carries the record alone.
+
+## Check 4 — FRESH ADVERSARIAL CHECK (L-20, pass 1 on Close 2 / RESUME 2)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · Track B · VERIFY-ONLY (0 kf / glass / product bytes). Named "Check 4" because `## Check 1..3` already stand above (E-3); this is the first adversarial pass against `## Close 2`. Read: the spec whole (KF.W13U addenda `:315-337`, the §0br supplement `:357-363`, KF.W13R/V "Opens after"), the record header through `## Unit plan`, the RESUME 2 plan, `## Close 2`, COHESION §0br..§0cb (grep). Crash-recovery: value.js dirty paths (`CARRY-LEDGER.md`, `X-W7.md`, `package*.json`, `scripts/dev/dev.sh`, `src/css/{bbnf,grammar}/`) all belong to sibling seats — none in this seat's set (record + LEDGER); kf clean but the two untracked inbound letters. **0 inherited paths.** Instrument: served dev `http://localhost:5173/` (HTTP 200), headed Chromium `--ignore-gpu-blocklist`, the banked probes copied to scratch; load ⟨`uptime`⟩ 10.97 / 29.89 / 31.39 at open.
+
+### Axis 1 — claimed GREENs re-run by this seat (kf `3b1dbd8f` = `origin/master`, dev served page)
+
+| gate | ⟨cmd⟩ | this seat ×2 | reproduces |
+|---|---|---|---|
+| `.t2` | ⟨`grep -rn isAnimStarted demo test \| wc -l`⟩ | `0` | YES |
+| `npm run check` | ⟨`npm run check`⟩ | `proof:structure — PASS`, EXIT 0 · EXIT 0 | YES |
+| vitest demo | ⟨`npm run test:demo -- --no-file-parallelism`⟩ | 66/66 files · 517/517 tests · EXIT 0, ×2 (56.7 s · 71.7 s) | YES |
+| G-KFW13U-w | ⟨`node probe-w1.mjs`⟩ | rest `rotateX(255.5°)→(341.4°)` · `(278.2°)→(349.7°)`, `autoPlaying:true`; paused frozen `345.174=345.174` · `352.405=352.405`; play moves | YES |
+| G-KFW13U-e (+OA-31) | ⟨`node probe-e1.mjs`⟩ | trigger text `ease-in-out` + `curve-glyph` (truth m 5e-4); rows 29/withPath 29/distinct 29; descSeparated 29; exactAccName 29; afterPick `ease-out-back`; pageerrors 0 — identical ×2 | YES |
+| OA-32 (`.d2`) | ⟨`node probe-icon.mjs`⟩ | 12 reads each: in-box diff 23..257 · 26..249 px; outside 0 · 0; bboxΔ 0; layers `bob,pose,cube` · `grid,shadow,ball` · `field,box` · `curve,rail,ball` · `lanes,balls` · `rails,travellers`; pageerrors 0. PRM (`reduce`) ×1: 12/12 reads diff 0 | YES |
+| OA-33 Share row (`.d4`) | ⟨`node probe-kbd.mjs`⟩ | `enterOnShareRowOpens:1` ×2 · `enterOnDarkRowFlips:false` ×2 (honest-RED `DARK-MENU-ITEM`) | YES |
+| G-KFW13U-t drag limb | ⟨`node probe-t1.mjs`⟩ (banked, unchanged) | `afterUp now 5000 / max 5000`, cube `rotateX(360deg)` late + afterUp, ×2 | **RED reproduces** (R-close-1) — the record left it RED; not a claimed GREEN |
+
+Not re-run by this seat (cited, not claimed): vitest all-projects 1779 ×2, eslint ×2, `d/probe-sharp.mjs` (R-close-3), `d3/probe-switch10.mjs` (ESC-d3-1 RED), gh-pages legs of the probes. Claimed GREENs re-run: **7 of 7 reproduce**; 0 claimed GREEN fails.
+
+### Axes 2-9
+
+- **(2) Bounds.** ⟨`git -C keyframes.js show --stat` ×7⟩ — `531aa3f1` (5: ribbon + 3 mounts + contract test) · `6d5b4288` (25: `ChromeDock.vue`, `scenes.ts`, `demo/scenes/*/**`, 4 `test/demo/**`) · `9aa93cae` (`MbabbMenu.vue`, `SharePopover.vue`, 1 test) · `c1ce06e8` (`EditorStartScreen.vue`, the usability cause owner under `.x`'s "at their causes") · `68c80e79` / `d2bc0f76` / `3b1dbd8f` (the two granted oracles). value.js receipts `d5b8ed76 4e6e1942 7e12c674 7bc63234 c061b112 24cb8523 fba5cc78` touch only this record, the LEDGER and `evidence/W13U/{d2,d3,d4,x}/**`. `scripts/dev/dev.sh`: 0 commits. **In bounds.** (`.d2`'s scope note on the shared motion modules, recorded by Close 2, is inside the granted directories — INFO.)
+- **(3) Masking.** ⟨`git diff 60477b06..3b1dbd8f | grep -nE '^\+.*(\.skip|fixme|catch *\(|try *\{|allowlist|node_modules|\.only\()'`⟩ → 2 hits, both in `subject-animates.mjs`: `.catch(() => false)` / `.catch(() => {})` on `waitForFunction` for the autoplay's Pause face; rest is then PROVEN by a separate held-playhead + one-transform-per-node sample, and the bite is stronger (≥3 distinct transforms on an engine node). A wait with an explicit follow-on assertion, not a swallowed defect. The S4 oracle's toggle read keeps every listed property and leaves `ringPainted` RED (escalated, not narrowed). **0 masking.**
+- **(4) Families.** `.t2` one sha (decl + 3 mounts + test); `.d2` one sha; `.d4` one sha; `.x` four shas, one meaning each. **Unsplit.**
+- **(5) E-3.** ⟨`git diff --stat 8868e3d8..HEAD -- KF-W13.md registry/adjudicated/ CONFORMANCE-2026-08-03.md`⟩ → `KF-W13.md | 17 +` only, from orchestrator addenda commits (`15409ece` §0cb, `df281b84` §0ca, `55dc67ea` §0bz, `f0f7218d` §0by — append-only, 0 deletions), none a KF.W13U sha. Registry / conformance: empty. **Held.**
+- **(6) Mail.** INBOX rows I-40..I-44: I-40 Track C (out of scope), I-41/I-42/I-44 READ, I-43 FOLDED. Latest sweep line 15:1x (F.W14 OPEN): 0 unrowed. **0 UNREAD in scope.**
+- **(7) Four-verb.** Close 2 holds IMPLEMENTED = PARTIAL, VERIFIED = NO — lawful (gates RED); it did not self-stamp. **Lawful.**
+- **(8) Goal at the bytes.** Owner's docket (OA-26..34): cube animates (w YES), timeline live at boot (YES) **but drag at a paused near-end playhead lands at 5000** (R-close-1), easing label (YES), living icons (YES), mbabb collapse + Share keyboard (YES; theme row producer), scene-switch dock/pane change-once **NOT met** (ESC-d3-1), dock blur producer (honest-RED). **Goal NOT met in two consumer limbs.**
+- **(9) Published figures.** check EXIT 0 ×2, 66/66 · 517/517 ×2, e1/w/icon/kbd figures reproduce within run variance (icon in-box 23..257 vs record 22..257). **Reproduce.**
+
+### Axis 10 — honest-RED adjudication (every gate Close 2 left RED)
+
+kf e2e re-read by this seat: ⟨`npm run gh-pages && KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness -- --workers=1`⟩ (load 43.0 → 58.3) → **4/6**, EXIT 1: smoke · occlusion · usability · subject-animates PASS (`[real-cube]` PASS this run); ✗ live-session S4 `ringPainted:false` only (`enterToggled:true`, `spaceToggled:true`, S5 PASS); ✗ live-session-mobile M1 `scrollTop=0; 765px content in a 704px body`. Reproduces Close 2's runs 2/3.
+
+| RED gate | relief at the spec bytes? | owner named in the residual register? | reading |
+|---|---|---|---|
+| G-KFW13U-d two-owners / morph blur | YES — `:327` names `DOCK-MORPH-ROOT` (O-56) / `DOCK-SCROLL-MORPH` (O-55) | glass BL → KF.W13R `.d` | **HONEST-RED** |
+| OA-33 theme row keyboard | YES — `:361` names `DARK-MENU-ITEM` (O-61 R-3) | glass BL → KF.W13R `.v` | **HONEST-RED** |
+| `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` | YES — `:363` carries both ids | glass BL → KF.W13R `.v` | **HONEST-RED** |
+| close clause "kf e2e GREEN" — S4 `ringPainted` (ESC-x-1 `QUIET-FOCUS-RING`) · M1 (ESC-x-2 `DRAWER-DETENT-REACH`) | **NO by id.** `:362` grants `.x` to "cure usability · S4 · S5 · M1 at their causes"; the honest-RED list `:363` does not name either id, and no COHESION addendum through §0cb relieves them. Axis-10's producer-owned category is plausible (glass 7.0.0 quiet emphasis `box-shadow:none`; the drawer detent), but it rests on the record's own causal reading (`evidence/W13U/x/causes.md`), not on a spec/COHESION ruling, and the named owner KF.W13R is sequenced AFTER this wave's close (`:367`) — a circular relief the spec does not grant. Close 2 itself returns it as "needs relief or re-sequence". | KF.W13R `.m`/`.v` (proposed by the record, not ruled) | **UNRELIEVED — HIGH** (the addendum's own close clause, `:328`) |
+| `.d3` ESC-d-1 change-once (width `1122111111`, reversal spring>easing, surface-set `2222111110`) | **NO.** `:360` is a consumer gate; the causes (`App.vue` `:248-250`/`:309-315`/template `:38-65`, ChromeDock Scene label) are consumer bytes outside the grant; no producer, no successor routing, no id. | "grant owed" — no owner wave named | **UNRELIEVED — HIGH** |
+| G-KFW13U-t drag limb (R-close-1) — this seat ×2: `afterUp now 5000/5000`, cube `rotateX(360deg)` | **NO.** `:325`'s gate "drag moves the playhead and the cube ×2" is consumer, GREEN at Check 3 (`60477b06`) and RED now on the unchanged banked probe; a press-then-drag is a real gesture, so a 150 ms-settle probe variant is not a relief. | "the orchestrator's next repair round", fallback KF.W13V `.k` — not a spec routing | **UNRELIEVED — HIGH** (regression of a landed owner-docket gate, OA-29) |
+| R-close-2 intermittent `[real-cube]` (1/3 in Close 2; PASS here) | NO — an assertion, not the §0br load family | KF.W13V `.k` (record) | **MINOR** (did not reproduce this seat; mitigated by 3/4 PASS reads) |
+| R-close-3 `d/probe-sharp.mjs` pixel limb confounded by OA-32 | the sharpness property is GREEN on the masked variant; the confound is an instrument artefact of `.d2`'s own cure | KF.W13R `.v` | **LOW** (instrument re-seat owed) |
+
+### Successor "Opens after" conjuncts
+
+- **KF.W13R** (`:367`): "KF.W13U CLOSED" — **RED**. Lawfully blocked.
+- **KF.W13V** (`:340` + `:365`): "KF.W13R CLOSED" — RED; "KF.W13U CLOSED" — RED; the two registers `keyframes/audit/KF-ANIMATION-AUDIT.md` (222,675 B) and `audit/UI-AUDIT-keyframes.md` (387,606 B, `372b4d41`) — **GREEN**. Lawfully blocked.
+- Note: ESC-x-1/-2's only named cure lives in KF.W13R, which cannot open until this wave closes. The deadlock is the orchestrator's to break (a dated relief naming S4-ring + M1 with owner KF.W13R, or re-sequencing the repin ahead) — a check seat cannot relieve it.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C4-1 | HIGH | Close clause "kf e2e GREEN" (`:328`) RED 4/6: S4 `ringPainted:false`, M1 touch scroll 0 — no spec/COHESION relief names `QUIET-FOCUS-RING` / `DRAWER-DETENT-REACH` | this seat's roster run above, EXIT 1; `:363` honest-RED list lacks both ids | orchestrator: a dated COHESION relief naming S4-ring + M1 with owner KF.W13R (producer glass 7.0.0 → 10.0.1), or re-sequence KF.W13R `.m` ahead of this close; never a consumer ring/drawer copy |
+| C4-2 | HIGH | `.d3` ESC-d-1 change-once limbs RED (width + surface set change 2× on first visits; spring>easing width reversal) | Close 2 `d3/probe-switch10.mjs` ×2 dev + `.d3` ×4; record's own ESC-d3-1 "Unrelieved" | orchestrator grant over `App.vue` `:248-250`/`:309-315`/template `:38-65` + a ruling on ChromeDock's route-bound Scene label; cure at the route-keyed reads |
+| C4-3 | HIGH | `.t` drag limb regressed: press-then-drag with the paused playhead near its end lands the scrub at 5000 and pins the cube at 360° | ⟨`node probe-t1.mjs`⟩ ×2 this seat: `afterUp now 5000`, `cubeLate rotateX(360deg)`; GREEN `2300→3800` at Check 3 | a repair unit on `demo/components/playback/**` (+ `useDragScrub.ts`): bisect `60477b06..3b1dbd8f` for the pointer-down seek, cure the press/drag race at its cause; the banked probe unchanged is the gate |
+| C4-4 | MINOR | R-close-2 intermittent `subject-animates [real-cube]` (1/3 at Close 2) | PASS in this seat's run | KF.W13V `.k` (record owner) — mitigated |
+| C4-5 | LOW | R-close-3 `probe-sharp` confounded by the living glyphs | Close 2 masked variant 0 px dev ×2 | KF.W13R `.v` re-seats the probe (mask `[data-layer]`/glyph boxes) |
+| C4-6 | INFO | `.d2`'s shared motion modules exceed "one seam per scene" but stay in granted dirs | ⟨`git show --stat 6d5b4288`⟩ 25 files | none |
+
+**Verdict: NOT-CONFORMANT.** Claimed GREENs reproduce 7/7; bounds, masking, families, E-3 and mail are clean; honest-RED (relieved by the spec): `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `DARK-MENU-ITEM` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL`. Three HIGH reds stand without relief (C4-1..3). LEDGER status cell unchanged (not CLOSED); one event line appended.
+
+**Self-count.** Gates re-run by this seat: check ×2 · test:demo ×2 · grep ×1 · w ×2 · e ×2 · t ×2 · icon ×2 + PRM ×1 · kbd ×2 · e2e roster ×1 = 17 runs over 9 gates; claimed GREENs reproduced **7**; failed **0**; register rows **6** (3 HIGH · 1 MINOR · 1 LOW · 1 INFO).
