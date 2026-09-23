@@ -3081,3 +3081,6 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 ## §0bu ADDENDUM 2026-09-23 — OA-42 (fourier admin audit-log table malformed) → F.W14 MINTED (repin to glass 10.0.1 + the admin table + the UIA-F register + F.W13's residuals)
 - **Owner, verbatim**: *"these UI elements are malformed in fourier, mark"* (frame `fourier/evidence/W14/owner-2026-09-23-malformed.png`: action badges of fixed width overflowed by long names, a wrapping timestamp column, doubled row rules) → **OA-42**.
 - **F.W14** (`fourier/waves/F-W14.md`): `.m` glass `^8` → 10.0.1 (§0bs pattern) → `.t` OA-42 with overflow/one-line/one-rule gates → `.u` every UIA-F row → `.r` F.W13's residuals. Opens once the UI audit's fourier register lands; Track C launches at the next free slot.
+
+## §0bv ADDENDUM 2026-09-23 — OA-43 (fourier sidebars and controls look greyed out) → F.W14 `.g`
+- **Owner, verbatim**: *"mark, too, why is the controls items, these sidebars and elements, so gray and grayed out?"* (frame `fourier/evidence/W14/owner-2026-09-23-grayed.png`) → **OA-43**, F.W14 unit `.g` (cause at the bytes; opacity/filter/inert/surface-token gates in both themes; glass-owned tone → BL).

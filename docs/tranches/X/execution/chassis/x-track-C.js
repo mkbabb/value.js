@@ -125,7 +125,7 @@ const TRACK = {
       "after": [
         "F.W13"
       ],
-      "note": "AUTHORITY: COHESION §0bu + F-W14.md (READ whole, and the frame docs/tranches/X/fourier/evidence/W14/owner-2026-09-23-malformed.png). The owner, verbatim: \"these UI elements are malformed in fourier, mark\". PRECONDITION: docs/tranches/X/audit/UI-AUDIT-fourier.md exists, else return blocked naming it. Strictly serial: [F.W14.m] (repin glass ^8 -> 10.0.1 exact at the root, no shims; e2e --workers=1 with load) → [F.W14.t] (admin audit-log badges fit their content, one-line timestamps, one rule per row; sweep every admin table) → [F.W14.u] (every UIA-F row) → [F.W14.r] (F.W13 residuals). Served-page instrument rule; every seat Opus 5.5; ESCALATED units do not halt the wave"
+      "note": "AUTHORITY: COHESION §0bu + F-W14.md (READ whole, and the frame docs/tranches/X/fourier/evidence/W14/owner-2026-09-23-malformed.png). The owner, verbatim: \"these UI elements are malformed in fourier, mark\". PRECONDITION: docs/tranches/X/audit/UI-AUDIT-fourier.md exists, else return blocked naming it. Strictly serial: [F.W14.m] (repin glass ^8 -> 10.0.1 exact at the root, no shims; e2e --workers=1 with load) → [F.W14.t] (admin audit-log badges fit their content, one-line timestamps, one rule per row; sweep every admin table) → [F.W14.g] (OA-43: the sidebar/controls grey veil — cause at the bytes, opacity 1 / no filter / surface = glass light token, both themes; frame fourier/evidence/W14/owner-2026-09-23-grayed.png) → [F.W14.u] (every UIA-F row) → [F.W14.r] (F.W13 residuals). Served-page instrument rule; every seat Opus 5.5; ESCALATED units do not halt the wave"
     },
     "F.W13": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W13.md",
