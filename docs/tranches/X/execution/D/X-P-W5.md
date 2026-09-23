@@ -568,3 +568,73 @@ Fresh adversarial check (L-20 pass 3), `claude-opus-5-5`, 2026-09-23 ~14:30–14
 
 ### Tally (counted from the register)
 0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 2 MINOR. Gates reproduced GREEN: 6 (a1 a2 b1 c1 c2 d3). RED: 6 (a3-perf d1 d2 e1 e2 close). **LEDGER status not moved** (PARTIAL stands). Next: owner act ESC-W5d-1 + F-W5d-1 ruling → `.d` re-dispatch (perf read) → `.e` → Check 4. A repair seat cannot move this wave until then.
+
+## Open (RESUME, COHESION §0bx)
+
+Seat 0 (OPEN, RESUME mode), `claude-opus-5-5`, 2026-09-23 ~15:0x EDT. Read: W5.md whole (30 lines, its §0bx ADDENDUM is the resume spec), COHESION §0bx whole, RUNBOOK §1.4/§3.4, this record's header through §Unit plan and §Check 3 (the last section). Trees: value.js `tranche-u` @ `1602340e` · parse-that `master` @ `661b47c` (`## master...origin/master` after `git fetch`).
+
+### Preconditions (resume)
+
+| condition | at the bytes | ledger | verdict |
+|---|---|---|---|
+| X.P.W4S CLOSED | banked at the first Open (row 92 CLOSED) | unchanged | MET |
+| `.a` landed | ⟨`git -C parse-that log --oneline`⟩ → `4eac70c merge: w2/harness …` on `origin/master` | row 96 roster | alreadyDone |
+| `.b` landed | → `902172d fix(css-equivalence) …`; b1 `MIRROR-DEFECTS 0` ×2 (Check 3, same `661b47c`) | row 96 | alreadyDone |
+| `.c` landed | → `ec18f4b feat(css/color) …`; vitest 148/148 (re-read below) | row 96 | alreadyDone |
+| `.d` release commit pushed, NOT published | ⟨`git branch -r --contains 488523c`⟩ → `origin/master` · ⟨`npm whoami`⟩ → `E401 Unauthorized` · ⟨`npm view @mkbabb/parse-that dist-tags --json`⟩ → `{"latest":"1.0.0"}` · ⟨`git tag -l 'v2*'`⟩ → none | PARTIAL | re-dispatched (W5.md addendum order) |
+| RELEASE-CONDITION §2.4 addendum (b) written (F-W5d-1) | `RELEASE-CONDITION.md:412` "ADDENDUM 2026-09-23 (§2.4 … F-W5d-1 (b))", landed in `e919164d` | — | MET |
+| ESC-c1 granted → `.f`; F-W5c-1 / SC-1 / SC-2 / R-c-2 / R-b-2 / R-b-1 → `.g` | W5.md :24–:30 + COHESION §0bx | — | RULED (cited, not re-opened) |
+| Track A `src/css` lock (for `.e`) | ⟨`git log --since="2 hours ago" --oneline -- src/css`⟩ → empty; X-W12 row 37 `planned` | X-W12 planned | clear at open; `.e` re-checks at its own open |
+
+### Crash-recovery scan (own writable set only)
+- value.js: this record, `LEDGER.md`, `INBOX.md` — clean. Other dirt (`CARRY-LEDGER.md`, `scripts/dev/dev.sh`, untracked `docs/tranches/X/audit/`, `execution/chassis/ui-audit.js`) belongs to others — untouched.
+- parse-that: the July `rust/**` · `.cargo/config.toml` · `README.md` set only (not W5-inherited; outside every owed unit's writable set — `.d`'s README note must NOT stage the dirty `README.md` hunks: it lands release notes in `typescript/` or `CHANGELOG`, or escalates) · `?? .worktrees/`. No partial `.f`/`.g` work in `typescript/src/parse/packrat.ts` or `typescript/src/css/**`.
+
+### E13 Step-0 mail sweep (2026-09-23 ~15:0x EDT)
+Four paths + glass `BL` (newest tranche dir: ⟨`ls -td glass-ui/docs/tranches/*/`⟩ → BL, BK, BJ). Commits since the 14:4x sweep: glass BL/BK none new (`6433284a`/`b7099ea6` D1 research, `fe5df357` = I-42 rowed); keyframes V coordination and atlas P coordination: none in 6 h. INBOX last rows I-42 / O-61; ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. **0 unrowed, 0 new UNREAD.** Sweep line appended.
+
+## Baseline (RESUME)
+
+Only the gates the owed units (`.f` `.g` `.d` `.e`) turn were re-run; the rest cite Check 3 (same parse-that `661b47c`, no input moved). Load ⟨`sysctl -n vm.loadavg`⟩ → `{ 23.13 41.08 48.95 }`. Scratch: session scratchpad `w5r/`.
+
+| gate | unit | command | BEFORE | reading |
+|---|---|---|---|---|
+| **G-W5-f1** latch ×2 | `.f` | ⟨`cd parse-that/typescript && npx vitest run -c test/css-recovery/vitest.config.ts test/css-recovery/boundary/latch.test.ts`⟩ | `Tests 2 failed \| 5 passed (7)` — `× L-3 RESETTABLE — resetPackrat() must DISARM, not merely clear the memo store` · `× the whole reading, published as one record` | **RED** |
+| **G-W5-f2** css-recovery 475/475 | `.f` | ⟨`npx vitest run -c test/css-recovery/vitest.config.ts`⟩ | `Test Files 1 failed \| 11 passed (12)` · `Tests 2 failed \| 473 passed (475)` EXIT=1 | **RED** (= ESC-c1 exactly) |
+| **G-W5-g1** F-W5c-1 legacy `none` refused | `.g` | ⟨tsx probe `parseCssColor` over `src/css/entry.mjs`⟩ | `rgb(255, 255, 255, none)` → `{"ok":true,…"alpha":"none"}` · `hsla(120, 100%, 50%, none)` → `{"ok":true,…}`; `css-color5.test.ts:217` pins them as `RULED_PB_01_02` | **RED** |
+| **G-W5-g2** SC-1 `calc()` in channels | `.g` | same probe | `rgb(calc(255) 0 0)` → `css_syntax` expected `<number>`; `oklch(calc(0.5 + 0.1) 0.1 120)` → `css_syntax` | **RED** |
+| **G-W5-g3** SC-2 `display-p3-linear` | `.g` | same probe | `color(display-p3-linear 1 0 0)` → `css_syntax` expected `<color-space> (srgb, …, xyz-d65)` | **RED** |
+| **G-W5-g4** R-c-2 `light-dark()` via the context path | `.g` | same probe | `light-dark(white, black)` → `color_context_required` (no scheme field to resolve through) | **RED** |
+| **G-W5-g5** R-b-2 `var()` in `animation` | `.g` | ⟨tsx probe `parseStylesheet`⟩ | `a{animation: var(--a) 1s}` · `a{animation: fade 1s var(--e)}` → `animation_option_invalid`; control `a{animation: fade 1s ease}` → ok | **RED** |
+| G-W5-g6 R-b-1 corpus counts re-pinned w/ dated note | `.g` | Repair 1 `661b47c` re-pinned css-equivalence 28/28 | held; `.g` re-pins again if `.g`'s cures move the corpus | hold |
+| G-W5-g7 JS ≡ Wasm | `.g` | `.c`'s 1,776-input WPT differential (in `npm test`) | ⟨`npm test`⟩ → `Test Files 15 passed (15)` · `Tests 148 passed (148)` EXIT=0 | hold (GREEN) |
+| G-W5-b1 MIRROR-DEFECTS 0 ×2 | `.g` | `run-full-surface.mjs --pinned-value-commit 6aca8602…` | Check 3 banked `0` ×2 at `661b47c` (no commit since) | hold (GREEN) |
+| **G-W5-d1** 2.0.0 published | `.d` | ⟨`npm view @mkbabb/parse-that dist-tags.latest`⟩ ×2 · ⟨`npm whoami`⟩ | `1.0.0` ×2 · `E401` | **RED** (owner act ESC-W5d-1) |
+| **G-W5-d2** ADMITTED (dependency closure, §2.4 addendum (b)) | `.d` | RC-P conjunct 4 | Check 3 FALSE ×2 (no `.wasm` in V's closure: V does not depend on parse-that) | **RED** |
+| G-W5-d3 ROUTED | `.d` | RC-P conjunct 6 | Check 3 TRUE ×2 | GREEN (banked F-open-2) |
+| G-W5-d4 tag `v2.0.0` | `.d` | ⟨`git -C parse-that tag -l 'v2*' \| wc -l`⟩ ×2 | `0` ×2 | **RED** |
+| **G-W5-e1** value.js depends on parse-that | `.e` | ⟨`grep -c parse-that package.json`⟩ ×2 | `0` ×2 | **RED** |
+| **G-W5-e2** hand grammar deleted | `.e` | ⟨`wc -l src/css/grammar.ts src/css/syntax.ts`⟩ ×2 | `544 · 101` ×2 | **RED** |
+| **G-W5-close** RC-P six conjuncts ×2 | Close | `rc-p-evaluate.mjs` | Check 3: `FALSE — 3 of 6: 1 PUBLISHED · 3 EQUIVALENCE · 4 ADMITTED` ×2 | **RED** |
+| a3-perf | — | `proof:perf` | `PT-PERF-LOAD` honest-RED by instrument (W5.md :29); the orchestrator reads it quiesced | not a gate on publish |
+
+GREEN-BEFORE-CURE: none (every cure gate reads RED; g6/g7/b1/d3 are holds).
+
+## Unit plan (RESUME)
+
+alreadyDone: `X.P.W5.a` · `X.P.W5.b` · `X.P.W5.c` (commits on parse-that `origin/master`; never re-dispatched). Strictly serial per W5.md :30: `[.f] → [.g] → [.d] → [.e]`, one at a time, every seat Opus 5.5. An ESCALATED unit does not halt the wave, but `.e` runs only if 2.0.0 is on the registry. W5.md still has no §File Bounds block, so each writable set is taken from the addendum's text and is the whole grant. Adjacent-line rule (§0bt) applies.
+
+| unit | model | W5.md lines | writable | gates | locks |
+|---|---|---|---|---|---|
+| X.P.W5.f | opus | addendum ESC-c1 (:27) | parse-that `typescript/src/parse/packrat.ts` (+ its Wasm/lowering twin only if the latch is mirrored there, as an adjacent edit) · this record | G-W5-f1 ×2 · G-W5-f2 475/475 · `npm test` 148/148 and `proof:packrat-*` hold | tests unedited (the latch test is the oracle) · push parse-that master, no force |
+| X.P.W5.g | opus (high) | addendum F-W5c-1 (:25) + Coverage (:28) | parse-that `typescript/src/css/**` (grammar, algebra, lowering-js, lowering-wasm, color-mix, `build/*.d.ts`) · `typescript/test/**` (WPT-derived cases, css-color5, corpus-count re-pins) · value.js `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` (dated rows appended, E-3) · this record | G-W5-g1..g5 · g6 (re-pinned w/ dated note) · g7 JS ≡ Wasm · b1 MIRROR-DEFECTS 0 ×2 · `npm test` + css-recovery GREEN | F-W5c-1 cure + its divergence row in ONE commit; R-b-2 cure + its row in ONE commit; no 53rd export (R-c-2 widens the existing context type); SC-2 widens `CssColorSpace` (2.0.0 is a major) |
+| X.P.W5.d | opus | §Units `.d` (:20) + addendum order (:30) | parse-that `typescript/package.json` version · lockfile · `CHANGELOG` / typescript release notes (NOT the July-dirty root `README.md`) · built artefacts (`ac1.wasm`) · tag `v2.0.0` · this record | G-W5-d1 · d2 · d3 · d4 | publish + tag ONLY if ⟨`npm whoami`⟩ succeeds, else ESCALATE ESC-W5d-1 (owner `npm login`) with no tag; never force-push; the 2.0.0 cut sits at the final commit (after `.f`/`.g`) |
+| X.P.W5.e | opus (high) | §Units `.e` (:21) + Close (:22) | value.js `package.json` · `package-lock.json` · `src/css/**` · `src/parsing/**` (only where it imports the deleted grammar) · `test/**` · this record | G-W5-e1 · e2 · G-W5-close RC-P ×2; value.js vitest + BBNF equivalence GREEN | runs only if 2.0.0 is on the registry; Track A lock: `git log --since="1 hour ago" -- src/css` empty and X-W12 not writing `src/css`, else ESCALATE; no shim, no dual path; keyframes.js untouched |
+
+### Briefs
+- **.f** — In `typescript/src/parse/packrat.ts` make `resetPackrat()` (:273 area) set `PACKRAT_ARMED = false` as well as clearing the memo store, so the epoch latch (:139–:158, armed at :297) is re-armed only by its own arming path. Mirror in the Wasm lowering only if it keeps its own latch. `latch.test.ts` ×2 and css-recovery 475/475 GREEN, `npm test` + `proof:packrat-*` hold. Commit, push.
+- **.g** — Full Color 4/5 coverage in the seam, each limb with WPT-derived cases, JS ≡ Wasm. (1) F-W5c-1: legacy `rgb()/rgba()/hsl()/hsla()` refuse `none` (one alpha edit per legacy arm) plus a dated DIVERGENCE-LEDGER row superseding PB-01/02 for the legacy arms; re-read the 17 corpus cells. (2) SC-1: `calc()` in colour channels, resolved at parse when the operands are absolute, else a context verdict. (3) SC-2: `color(display-p3-linear …)`, widening `CssColorSpace`. (4) R-c-2: `light-dark()` resolves through the existing relative-colour context type, which gains a colour-scheme field (no new export). (5) R-b-2: `var()` in `animation`, with its row. (6) R-b-1: re-pin the corpus counts with a dated note. MIRROR-DEFECTS 0 ×2.
+- **.d** — Run `npm whoami` first. If it succeeds: re-cut 2.0.0 at the final commit (version and CHANGELOG naming `.f`/`.g`), build, `npm publish`, tag `v2.0.0` there, push the tag. Read d1..d4 ×2, and read RC-P ×2 per the §2.4 addendum (b). If it fails: ESCALATE ESC-W5d-1 with no tag and no publish.
+- **.e** — Only if `npm view @mkbabb/parse-that@2.0.0` resolves, and only if the Track A lock is clear. Depend on `@mkbabb/parse-that@^2.0.0`. `src/css/*` parses through its `./css` surface. Delete `src/css/grammar.ts` + `syntax.ts` with no shim. vitest + BBNF equivalence GREEN. Close: RC-P ×2, all six conjuncts.
+
+## Unit receipts (RESUME)
