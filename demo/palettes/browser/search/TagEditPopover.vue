@@ -25,8 +25,8 @@
                         class="flex items-center gap-2 rounded-md px-2 py-1 text-small cursor-pointer hover:bg-accent/50 transition-colors"
                     >
                         <Checkbox
-                            :checked="currentTags.includes(tag.name)"
-                            @update:checked="(checked: boolean) => onToggle(tag.name, checked)"
+                            :model-value="currentTags.includes(tag.name)"
+                            @update:model-value="(v) => onToggle(tag.name, v === true)"
                             class="shrink-0"
                         />
                         <span class="truncate">{{ tag.name }}</span>

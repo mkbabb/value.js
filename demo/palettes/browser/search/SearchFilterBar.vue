@@ -49,8 +49,8 @@
                         <div class="max-h-28 overflow-y-auto scrollbar-thin flex flex-col gap-0.5">
                             <label v-for="tag in availableTags" :key="tag.name" class="filter-option">
                                 <Checkbox
-                                    :checked="selectedTags.includes(tag.name)"
-                                    @update:checked="toggleTag(tag.name)"
+                                    :model-value="selectedTags.includes(tag.name)"
+                                    @update:model-value="toggleTag(tag.name)"
                                     class="shrink-0"
                                 />
                                 <span>{{ tag.name }}</span>
