@@ -328,3 +328,50 @@ Four paths re-swept ~13:55 EDT: value.js `V/coordination/` (newest = 2026-09-18 
 
 ### State
 W5.md §State designates no four-verb move; none is made. **Wave status: PARTIAL** — `.a`–`.c` landed and gated GREEN (a3 perf limb excepted, environmental); `.d` landed short of the registry PUT; `.e` and the Close RC-P are **BLOCKED-ON ESC-W5d-1 (owner npm auth + publish) + the F-W5d-1 ruling**. Re-dispatch `.d` (PUT + tag + perf re-read) → `.e` → this Close's RC-P ×2 once both clear.
+
+## Check 1
+
+Fresh adversarial check (L-20 pass 1), `claude-opus-5-5`, 2026-09-23 ~14:00 EDT. Read: W5.md whole (22 lines), this record's header through §Unit plan, the `.b`/`.c`/`.d` receipt ranges by grep, and §Close. Crash-recovery: my writable set (this record, `LEDGER.md`) was clean. parse-that dirt = July (`stat` → `2026-07-20` on every `rust/**`/`.cargo`/`README.md` path). Not W5's, and I did not touch it. Load 70–86 during the reads. Scratch: session scratchpad `chk1/`.
+
+**Verdict: NOT-CONFORMANT.** Everything that landed conforms: bounds, E-3, mail and every claimed GREEN reproduce. But six gates are RED, and W5.md grants none of them relief. The goal criterion is not met at the bytes.
+
+### Axes
+1. **Claimed GREENs reproduce: 6 of 6.**
+   - a1: ⟨`git fetch ../parse-that-css-totality-p2 w2/harness; git rev-list --count master..FETCH_HEAD`⟩ → `0`, and ⟨`merge-base --is-ancestor 31999135 master`⟩ → exit 0.
+   - a2: ⟨`ls typescript/scripts/proof-no-css-surface.mjs`⟩ → `No such file`, and ⟨`grep -c no-css-surface typescript/package.json`⟩ → `0`.
+   - b1: ⟨`node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602…`⟩ ×2 → `MIRROR-DEFECTS 0` `EXIT=0` both times. The outputs are identical after line 1.
+   - c1/c2: ⟨`npx vitest run`⟩ → `✓ test/css-color5.test.ts (14 tests)` · `Test Files 15 passed (15) · Tests 148 passed (148)` EXIT 0.
+   - d3: ⟨`node scripts/rc-p-evaluate.mjs --version 4.0.0`⟩ → `6 ROUTED(V) yes TRUE TRUE`.
+2. **Bounds: clean.** ⟨`git show --stat`/`--name-status`⟩ on parse-that `4eac70c` (vs `3199913`: 3 paths), `902172d` (3 paths, `test/css-equivalence/**`), `ec18f4b` (21 paths, all `typescript/src/css/**` or `typescript/test/**`) and `488523c` (3 paths). The eight value.js commits touch only this record, `DIVERGENCE-LEDGER.md` (append only, 0 removed lines) and `INBOX.md`. ⟨`git log 42a82e3e..HEAD -- scripts/dev/dev.sh`⟩ → 0 commits.
+3. **Masking: none found.** css-color5 has no `skip`/`todo`/`only` (grep → 0). `ruled.mjs` is not an allowlist. It is keyed to ADJUDICATION-W4 §2's per-cell rulings and to COHESION §0ab's F-w4f-1 class. It is consulted only for a cell that already reads RED, and it fails closed: an unhonoured ruling stays RED. `.b` ran negative controls (9 negatives, 2 positives), and DIVERGENCE-LEDGER §12 rows every cell. The out-of-scope WPT classes are named and tallied in the test (the tally is exact), so no assertion was narrowed silently. See D-3 for the goal-level consequence.
+4. **Commit families:** one commit per meaning. The `.a` premise retirement sits inside the merge commit, as W5.md requires.
+5. **E-3:** ⟨`git diff --stat 42a82e3e..HEAD -- parse-that/waves/ V/megatranche/registry/adjudicated/ parse-that/RELEASE-CONDITION.md parse-that/ADJUDICATION-W4.md`⟩ → empty.
+6. **Mail:** INBOX has no UNREAD row in scope. The last rows are O-61 / I-42, and the close seat's sweep line is present. Glass BL is newest, and its commits since I-42 are formation-internal.
+7. **Four-verb:** W5.md designates no move, and none was made. Lawful.
+8. **Goal criterion: NOT MET.** parse-that 2.0.0 is not published (⟨`npm view @mkbabb/parse-that dist-tags --json`⟩ → `{"latest": "1.0.0"}`, and ⟨`npm whoami`⟩ → `E401`). value.js is not on the seam, the hand grammar still stands, and RC-P is FALSE.
+9. **Published figures reproduce.** `MIRROR-DEFECTS 0`, `148/148`, and RC-P `3 of 6 FALSE: 1 · 3 · 4` with arm V `20962`. The css-equivalence suite reads `2 failed` (`expected 27021 to be 26604`, `expected +0 to be 172`), which matches R-b-1.
+10. **Honest-RED adjudication:** see the register below. W5.md has no honest-RED id, no producer-owned row and no successor routing for any unit gate. Its State says only that `.d`/`.e` are "owner-authorized".
+
+The RC-P ×2 readings are identical: `6 ROUTED(V) yes TRUE TRUE` and `RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)`. My `--out` pointed at a directory, so both runs exited 1 on the report write (`EISDIR`), after they had printed their verdicts. This is my own invocation error and does not bear on the verdicts.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| D-1 | **HIGH** | RED with no relief in W5.md: **G-W5-d1 · d2 · e1 · e2 · close**. The spec's core limbs are unmet: publish, value.js on the seam, the hand grammar deleted, and RC-P TRUE. W5.md has no honest-RED id, no producer-owned row and no successor routing for any of them. The escalations are named (ESC-W5d-1 as an OWNER ACT, ESC-W5e-1, and the F-W5d-1 ruling), but naming a blocker does not relieve it. No seat misconduct: the blocker is the owner's npm token. | ⟨`npm view … dist-tags`⟩ → `latest 1.0.0` · ⟨`npm whoami`⟩ → `E401` · RC-P ×2 FALSE 3/6 · the Close gate table rows d1/d2/e1/e2/close | Owner `npm login` → PUT 2.0.0 + tag `v2.0.0` at `488523c` · orchestrator rules F-W5d-1 · re-dispatch `.e` → RC-P ×2 → Check 2 |
+| D-2 | MEDIUM | **G-W5-a3 is RED.** `proof:perf` fails (276 %/445 % regression), and "environmental" is asserted but not yet shown by a low-load read. The merge also brought two suites onto master that are not green: css-equivalence (2 stale pins) and css-recovery (15 stale). The `.a` limb ("parse-that's own test suite + proofs GREEN") is therefore not met in full. The Close's "suite GREEN" covers `npm test` (`test/*.test.ts`) only. | ⟨`npx vitest run -c test/css-equivalence/vitest.config.ts`⟩ → `Test Files 1 failed` (`27021≠26604`, `+0≠172`) · the Close a3 row · the `.c` receipt R-c-1 | R-close-1: a perf re-read at load < ~4 before the PUT, where a real regression goes to root cause. Re-pin R-b-1/R-c-1 with a measured justification. The owners are named ("Track D X·P next wave"), so this is non-blocking once D-1 clears |
+| D-3 | MEDIUM | The goal criterion's "CSS Color 4/5 value syntax is covered" is only partly met. `calc()` in colour channels (css-color-4 admits it) and `color(display-p3-linear …)` are out of scope (R-c-3: 71 computed WPT cases excluded, plus the valid/legacy cases). `light-dark()` evaluates only to `color_context_required` (R-c-2). R-c-3 has **no named owner**. | `test/css-color5.test.ts:34-40,76` (tally `in 887 · p3-linear 45 · xyz-d50-none 16 · calc 10`) · the `.c` receipt R-c-2/R-c-3 | Name an owner for R-c-3, and either cure (css-values-4 §10 in the colour grammar, and the p3-linear space) or row it as a dated divergence. The orchestrator rules R-c-2's API widening |
+| D-4 | MINOR | The seam accepts `rgb(255, 255, 255, none)` and `hsla(120, 100%, 50%, none)`, which WPT and the css-color-4 ED refuse. They are asserted "as ruled" under PB-01/02, and the ruling request F-W5c-1 is open. | `test/css-color5.test.ts:210-222` | Orchestrator ruling F-W5c-1 |
+| D-5 | INFO | The 111 F-w4f-1 cells are dispositioned by the §0ab class ruling plus a repair test, not one ledger row per cell. That is lawful under §0ab and DIVERGENCE-LEDGER §11.2/§12, and fail-closed. | `lib/ruled.mjs` · `differential.mjs` `applyRuling` | none |
+| D-6 | INFO | R-close-2: a stale `proof:no-css-surface` comment at `test/dist-surface.test.ts:82`. The record path is spelled `X-P-W5.md` where the spec's §State names `X.P.W5.md` (noted at the Open). | the Close R-close-2 | next Track D seat with `test/**` |
+
+### Honest-RED set
+**Empty.** No RED gate is relieved by W5.md's own bytes.
+- d1, d2, e1, e2 and close are blocked by an owner act and a ruling. Neither is a producer row or successor routing that the spec names.
+- a3 is an unproven environmental claim.
+
+### Successor "Opens after"
+⟨`grep -rn 'X\.P\.W5' docs/tranches/X`, excluding `execution/`⟩ finds only COHESION §0bl, §0bn, §0bp, DIVERGENCE-LEDGER and W5.md itself, and no wave declares `X.P.W5 CLOSED` as an "Opens after" conjunct. KF.W3 stays gate-keyed on RC-P(V) (COHESION :2764), which reads FALSE ×2, so KF.W3 is **lawfully blocked**. The X-W11 coordinate requires W5's RC-P TRUE, which is not yet met. No successor is blocked unlawfully.
+
+### Tally (counted from the register)
+0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 1 MINOR · 2 INFO. Gates reproduced GREEN 6 (a1 a2 b1 c1 c2 d3). RED 6 (a3 d1 d2 e1 e2 close). **The LEDGER status is not moved** (PARTIAL stands). Next: owner act ESC-W5d-1 + F-W5d-1 → `.e` → Check 2.
