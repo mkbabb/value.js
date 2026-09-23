@@ -2999,3 +2999,6 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 
 ## §0bh ADDENDUM 2026-09-23 — OA-32 (living dock icons) → KF.W13U `.d`
 - **Owner, verbatim**: *"And mark that the small dock icons for the chosen animations should animate in a small way, reflective of the ACTUAL animation thereof (and the stacking, too) whilst being bounded and small. Mark."* → **OA-32**: each scene's dock icon animates as a bounded miniature DERIVED from that scene's real animation data through the keyframes.js library (never a look-alike loop), with its layer stacking, PRM-static. Written into KF-W13.md's KF.W13U addendum (third) so `.d` reads it at dispatch; the OA-30 audit's findings on the scenes feed the same unit.
+
+## §0bi ADDENDUM 2026-09-23 — OA-33 (keyframes dock: one mbabb control with a dropdown) → KF.W13U `.d`
+- **Owner, verbatim**: *"mark that this should likely be one icon in the dock, just the mbabb logo, and then have a dropdown like before--it takes up too much space"* (frame banked `keyframes/evidence/W13U/owner-2026-09-23-dock-mbabb.png`) → **OA-33**: Share · Keyboard shortcuts · theme collapse into the mbabb logo trigger + dropdown on glass primitives (the `MbabbMenu` family), all three actions intact. Written into KF.W13U's fourth addendum for `.d`.
