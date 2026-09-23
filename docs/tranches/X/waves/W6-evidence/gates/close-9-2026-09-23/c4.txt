@@ -1,0 +1,12 @@
+⟨npx vitest run test/interpolation-subset.test.ts⟩
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/interpolation-subset.test.ts (5 tests) 2ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  05:50:43
+   Duration  416ms (transform 46ms, setup 28ms, collect 49ms, tests 2ms, environment 120ms, prepare 43ms)
+
+EXIT=0

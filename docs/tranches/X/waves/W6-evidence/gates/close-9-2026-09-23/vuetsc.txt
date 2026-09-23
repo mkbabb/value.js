@@ -1,0 +1,2 @@
+⟨npx vue-tsc --noEmit -p tsconfig.demo.json⟩
+EXIT=0

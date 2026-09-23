@@ -1,0 +1,10 @@
+⟨npx vitest run⟩
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 36 passed (38)
+      Tests  2 failed | 639 passed (641)
+   Start at  06:08:23
+   Duration  4.30s (transform 1.23s, setup 1.50s, collect 4.32s, tests 4.36s, environment 11.45s, prepare 1.75s)
+
+EXIT=

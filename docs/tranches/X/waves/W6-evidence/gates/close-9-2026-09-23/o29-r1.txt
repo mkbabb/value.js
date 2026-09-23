@@ -1,0 +1,26 @@
+⟨VJS_E2E_PORT=8821 VJS_E2E_PERF_PORT=8871 npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke --reporter=line⟩
+(node:16357) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:16396) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 6 tests using 1 worker
+
+[1A[2K(node:16400) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions
+[1A[2K[2/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:233:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene
+[1A[2K[3/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:379:5 › preview survives — blob: the preview repaints after a forced WebGL context loss
+[1A[2K[4/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:379:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss
+[1A[2K[5/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[1A[2K[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[j4] blob preview@rest=0.879 last="Reset" inViewport=true hit=true rect={"x":383.4375,"y":378.953125,"w":84.03125,"h":36} preview@last=0.000
+
+[1A[2K[6/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[1A[2K[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[j4] atmosphere preview@rest=0.164 last="Reset" inViewport=true hit=true rect={"x":383.4375,"y":378.96875,"w":84.03125,"h":36} preview@last=0.079
+
+[1A[2K  6 passed (37.9s)
+EXIT=0

@@ -1,0 +1,2 @@
+⟨npx tsc -p tsconfig.e2e.json⟩
+EXIT=0

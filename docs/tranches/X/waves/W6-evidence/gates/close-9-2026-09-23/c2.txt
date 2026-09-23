@@ -1,0 +1,12 @@
+⟨npx vitest run test/gradient-order-invariant.test.ts -t 'one sampling law'⟩
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/gradient-order-invariant.test.ts (17 tests | 13 skipped) 5ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed | 13 skipped (17)
+   Start at  05:50:41
+   Duration  427ms (transform 58ms, setup 28ms, collect 62ms, tests 5ms, environment 114ms, prepare 42ms)
+
+EXIT=0

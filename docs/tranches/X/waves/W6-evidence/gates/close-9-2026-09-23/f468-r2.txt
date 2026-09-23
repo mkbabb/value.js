@@ -1,0 +1,87 @@
+⟨VJS_E2E_PORT=8842 VJS_E2E_PERF_PORT=8892 npx playwright test e2e/smoke/oracles/o22-specimen-legibility.spec.ts e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts --project=smoke --reporter=line⟩
+(node:20996) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:21028) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 3 tests using 1 worker
+
+[1A[2K(node:21041) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/3] [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box
+[1A[2K[smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box
+X.W6.f f4 CENSUS — 0/18 captions overflow
+  box (narrowest clientWidth): 78px
+  worst scrollWidth: 397px (46 chars, "color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)")
+  per-character advance: 8.630px
+  caption type: font-size 14.048px letter-spacing normal
+  fits  259/259 px  30ch  rgb(385.3 143.4 199.6 / 82.7%)
+  fits  285/285 px  33ch  hsl(346deg -1295% 103.7% / 82.7%)
+  fits  225/225 px  26ch  hsv · 346 · 0.6279 · 1.511
+  fits  285/285 px  33ch  hwb(346deg 56.23% -51.1% / 82.7%)
+  fits  207/207 px  24ch  lab(92% 88.8 20 / 82.7%)
+  fits  268/268 px  31ch  lch(92% 91.02 12.69deg / 82.7%)
+  fits  302/302 px  35ch  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  fits  320/320 px  37ch  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  fits  328/328 px  38ch  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  fits  112/112 px  13ch  kelvin · 5309
+  fits  389/389 px  45ch  color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  fits  389/389 px  45ch  color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  fits  363/363 px  42ch  color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  fits  397/397 px  46ch  color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  fits  354/354 px  41ch  color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  fits  276/276 px  32ch  ictcp · 0.5591 · 0.0437 · 0.1739
+  fits  285/285 px  33ch  jzazbz · 0.2215 · 0.1177 · 0.0428
+  fits   78/78 px   9ch  #ff8fc8d3
+
+[1A[2K[2/3] [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected
+[1A[2K[smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected
+X.W6.f f6 CENSUS — seed lab(92% 88.8 20 / 82.70%)
+  rgb           css       MARKED    rgb(385.3 143.4 199.6 / 82.7%)
+  hsl           css       MARKED    hsl(346deg -1295% 103.7% / 82.7%)
+  hsv           channels  MARKED    hsv · 346 · 0.6279 · 1.511
+  hwb           css       MARKED    hwb(346deg 56.23% -51.1% / 82.7%)
+  lab           css       in-gamut  lab(92% 88.8 20 / 82.7%)
+  lch           css       in-gamut  lch(92% 91.02 12.69deg / 82.7%)
+  oklab         css       in-gamut  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  oklch         css       in-gamut  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  xyz           css       in-gamut  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  kelvin        channels  in-gamut  kelvin · 5309
+  srgb-linear   css       MARKED    color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  display-p3    css       MARKED    color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  a98-rgb       css       MARKED    color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  prophoto-rgb  css       MARKED    color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  rec2020       css       MARKED    color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  ictcp         channels  in-gamut  ictcp · 0.5591 · 0.0437 · 0.1739
+  jzazbz        channels  in-gamut  jzazbz · 0.2215 · 0.1177 · 0.0428
+  hex           css       MARKED    #ff8fc8d3
+
+[1A[2KX.W6.f f6(ii) — worst un-projected Lab recovery 7.517e-1 (hsl); bound 1; clipped control (hex) 4.061e+1
+
+[1A[2K[3/3] [smoke] › e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts:73:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url
+[1A[2K[smoke] › e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts:73:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url
+X.W6.f f8 CENSUS — distinctVisualSignatures = 18 of 18
+  (url-keyed would report 18 — the recorded false-GREEN trap, excluded)
+  rgb           seed=139 bg=lab(92 88.8 20 / 0.827) radius=23.4211% 70.4608% 75.3555% 45.2175% / 43.6606% 24.8166% 51.9599% 50.8219%
+  hsl           seed=151 bg=lab(92 88.8 20 / 0.827) radius=38.62% 42.1289% 41.8862% 78.9748% / 76.6361% 26.1014% 23.3427% 61.5578%
+  hsv           seed=161 bg=lab(92 88.8 20 / 0.827) radius=63.356% 24.9525% 74.3151% 61.3301% / 24.3797% 75.4923% 49.3263% 58.6792%
+  hwb           seed= 17 bg=lab(92 88.8 20 / 0.827) radius=35.3019% 71.9359% 60.0809% 47.318% / 50.8487% 28.0749% 61.6113% 71.0058%
+  lab           seed= 63 bg=lab(92 88.8 20 / 0.827) radius=58.1404% 72.6354% 69.7% 61.9799% / 23.0273% 35.3412% 37.9846% 76.2753%
+  lch           seed=135 bg=lab(92 88.8 20 / 0.827) radius=75.9955% 55.4428% 56.1283% 40.4491% / 47.7428% 23.8725% 31.0119% 39.9504%
+  oklab         seed=185 bg=lab(92 88.8 20 / 0.827) radius=34.5921% 25.4806% 29.5453% 53.2048% / 65.5605% 39.9849% 58.6353% 24.6319%
+  oklch         seed=  1 bg=lab(92 88.8 20 / 0.827) radius=64.9889% 30.2963% 66.2162% 63.1166% / 34.8126% 63.9556% 67.884% 75.654%
+  xyz           seed=123 bg=lab(92 88.8 20 / 0.827) radius=77.9535% 32.3528% 62.8153% 24.5566% / 76.1964% 22.2908% 31.2272% 46.3252%
+  kelvin        seed=249 bg=lab(92 88.8 20 / 0.827) radius=32.7486% 68.2008% 73.2236% 42.5248% / 53.2509% 74.7796% 31.0369% 68.0678%
+  srgb-linear   seed=102 bg=lab(92 88.8 20 / 0.827) radius=24.4176% 49.9775% 34.8167% 61.1069% / 63.0184% 25.6046% 69.8946% 53.9848%
+  display-p3    seed=118 bg=lab(92 88.8 20 / 0.827) radius=52.2055% 67.0283% 49.9445% 55.1341% / 72.2384% 25.2067% 42.9991% 37.827%
+  a98-rgb       seed=202 bg=lab(92 88.8 20 / 0.827) radius=58.0477% 29.6316% 57.1131% 59.5696% / 72.4616% 33.2626% 38.2899% 44.2414%
+  prophoto-rgb  seed=179 bg=lab(92 88.8 20 / 0.827) radius=30.7185% 62.8157% 22.9077% 68.3142% / 42.2426% 21.2406% 69.0458% 35.6567%
+  rec2020       seed= 14 bg=lab(92 88.8 20 / 0.827) radius=66.624% 30.9382% 43.441% 60.978% / 58.1172% 57.2564% 67.4878% 28.8015%
+  ictcp         seed=  3 bg=lab(92 88.8 20 / 0.827) radius=33.267% 72.0988% 57.0025% 62.8495% / 26.7332% 57.697% 63.8372% 65.6862%
+  jzazbz        seed=235 bg=lab(92 88.8 20 / 0.827) radius=42.5542% 59.1851% 37.6087% 28.2555% / 70.6899% 20.5531% 61.1712% 51.1076%
+  hex           seed=213 bg=lab(92 88.8 20 / 0.827) radius=33.6998% 50.5583% 70.2832% 45.9203% / 65.4062% 70.224% 66.447% 44.4037%
+
+[1A[2K  3 passed (15.8s)
+EXIT=0

@@ -1,0 +1,49 @@
+⟨node docs/tranches/X/gates/gate-no-chassis.mjs ��
+POSITIVE CONTROL — detector fires on a synthetic chassis: dead-name ✓  stage+inspector+action ✓
+
+WAVE DIFF — 29 demo/ files over 20 commits
+  M  demo/DESIGN.md   limbs: [stage]
+  M  demo/color-session/ColorSpaceSelector.vue
+  M  demo/color-session/color-model.ts
+  M  demo/color-session/color-space-meta.ts
+  A  demo/color-session/space-catalog.ts
+  A  demo/color-session/specimen-format.ts
+  M  demo/picker/ColorPicker.vue
+  M  demo/scenes/about/AboutPane.vue
+  M  demo/scenes/about/ColorNutritionLabel.vue
+  M  demo/styles/foundation.css
+  M  demo/styles/shell.css
+  M  demo/workbenches/gradient/GradientPane.vue
+  M  demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue
+  M  demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue
+  M  demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue
+  M  demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue
+  M  demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue
+  M  demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue
+  M  demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts
+  M  demo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts
+  M  demo/workbenches/gradient/composables/gradientParse.ts
+  M  demo/workbenches/gradient/composables/useGradientCSS.ts
+  M  demo/workbenches/gradient/composables/useGradientInterpolation.ts
+  M  demo/workbenches/gradient/composables/useGradientModel.ts
+  A  demo/workbenches/gradient/model/sample.ts
+  A  demo/workbenches/gradient/model/types.ts
+  M  demo/workbenches/mix/MixAnimationCanvas/composables/useMixingAnimation.ts   limbs: [stage]
+  M  demo/workbenches/mix/MixPane.vue
+  M  demo/workbenches/mix/MixSourceSelector.vue
+
+NEW MODULES — 4
+  demo/color-session/space-catalog.ts
+      importers 4, instrument roots 2 (color-session, scenes/about)
+  demo/color-session/specimen-format.ts
+      importers 1, instrument roots 1 (color-session)
+  demo/workbenches/gradient/model/sample.ts
+      importers 7, instrument roots 2 (color-session, workbenches/gradient)
+  demo/workbenches/gradient/model/types.ts
+      importers 57, instrument roots 4 (workbenches/extract, workbenches/generate, workbenches/gradient, workbenches/mix)
+
+GATE H1 (no copied chassis) — GREEN
+  no added construct parameterises stage + inspector + action;
+  no added module is both housing-shaped and shared across instrument roots;
+  the dead name is not revived.
+EXIT=0
