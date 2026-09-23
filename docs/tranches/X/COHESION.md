@@ -3132,3 +3132,7 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - KFA-61, 95, 134, 136 and 228 are keyframes-side. Routed to KF.W13V `.u`.
   - Each has a dated spec addendum.
 - **R-5: pinning 10.0.1 cures no docket row, and the likely landing is glass 11.0.0.** The 10.0.1 repins (X-W7R, KF.W13R, F.W14 `.m`) still stand, because each retires stale pin surface and shrinks the landing repin. They are not credited as curing any glass row. A landing repin wave for all three apps is minted when BL's reply names the version. fourier's `^8` moves explicitly, never by range drift.
+
+## §0cc ADDENDUM 2026-09-23 — OA-50: fourier's admin panels
+- **Owner, verbatim:** *"ui for the admin panels in fourier is awful, not glass-ui idiomatic, and has very poor spacing and design hierarchy--and is inconsistent."* Then: *"On most admin pages thereof"*.
+- Routed to F.W14 `.h`, the design seat, as one admin idiom across every admin page. `.h` also re-reads what `.t` landed. `F-W14.md` has the addendum with the frame's defects. It was routed to `.h` rather than `.t` because `.t` was already in flight when the frame arrived.
