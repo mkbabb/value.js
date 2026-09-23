@@ -203,3 +203,5 @@ SERVED MODEL: claude-opus-5-5 (effort high). Spec: KF-W13.md ADDENDUM 2026-09-23
 **Residuals.** R-d-1: the producer's in-flight blur/scale/double-owner and the content-size snap are banked for BL as an INBOX addendum beside O-56 (appended this seat; new facts, no new letter). R-d-2: probes ran at 1440×900 only (the owner's frames are desktop).
 
 **Self-count.** kf commits 1 (`62ecc324`; 3 files). value.js: this record + `INBOX.md` addendum + `evidence/W13U/d/**` (6 probes + sampler, 5 reports, 5 logs, 3 WebM sets × 6 = 18 WebMs, 23 PNGs) + LEDGER cell, in one pathspec commit. Escalations 3 (ESC-d-1 · ESC-d-2 · ESC-d-3).
+
+*Self-count erratum (same seat, WRITE-THEN-MEASURE on the settled commit `1389e4c4`):* the record commit carries 32 paths — this record, the LEDGER line, 6 probes + sampler, 5 reports, 18 WebMs. The 23 PNGs and 5 run logs stay local under `evidence/W13U/d/` (repo `.gitignore:34` `*.png`, as for `.e`'s frames). The INBOX addendum landed in the orchestrator's concurrent commit `3d004e7c` (the shared index swept the appended line); its text is this seat's, byte-for-byte.
