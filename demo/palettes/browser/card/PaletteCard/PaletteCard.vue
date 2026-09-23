@@ -51,7 +51,6 @@
                          ~24px touch target. -->
                     <Button
                         icon-only
-                        variant="ghost"
                         size="sm"
                         aria-label="Palette menu"
                         class="shrink-0"
