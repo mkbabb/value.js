@@ -1,8 +1,9 @@
 /**
  * X.W7.d — the ONE admin call seam (fold W7.61 ≡ N-2 · W7.86 · W7.73 ≡ N-16).
  *
- * Before this module, five composables each spelled `if (!token) return` —
- * twenty-one times — BEFORE touching their loading/error state, so a signed-out
+ * Before this module, five composables spelled `if (!token` twenty-two times
+ * (measured at `23e7fcb0`: users 10 · names 5 · flagged 3 · tags 3 · audit 1)
+ * BEFORE touching their loading/error state, so a signed-out
  * visitor and a loaded-empty collection were the same triple `(false, null, [])`
  * and every panel painted its TRUE-EMPTY plate ("roster clear", "queue clear",
  * "0 tags") as a fact. The mutation arms swallowed failure into `console.warn`.

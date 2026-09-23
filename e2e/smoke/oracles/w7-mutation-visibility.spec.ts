@@ -158,6 +158,15 @@ userTest.describe("G13 · library rows", () => {
         expect(posted).toBe(0);
     });
 
+    userTest("export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST)", async ({ page }) => {
+        await seedLibrary(page, 0);
+        await page.goto("/#/palettes");
+        await page.getByRole("button", { name: "Palette menu" }).first().click();
+        await page.getByRole("menuitem", { name: /Export/ }).click();
+        await page.getByRole("menuitem", { name: /JSON/ }).click();
+        await expect(page.getByRole("status").filter({ hasText: "This palette has no colors to export." })).toBeVisible();
+    });
+
     userTest("rename — the new name is what the card shows", async ({ page }) => {
         await seedLibrary(page, 3);
         await page.goto("/#/palettes");
