@@ -69,7 +69,7 @@ const TRACK = {
       "after": [
         "X-W0"
       ],
-      "note": "RESUME 2026-09-22 (fifth sitting; runs AFTER X-W5 in this stage) on COHESION §0z + §0an + §0aq + §0ax and W6.md's two ADDENDA of 2026-09-22 (read all; they ARE the resume spec): X.W6.a · .b · .c · .f · .g are alreadyDone (never re-dispatched; b1 = B1-G3D honest-RED-by-instrument with .c's probe as witness); still owed, strictly serial: [X.W6.d] → [X.W6.e] → [X.W6.h] (H1-P3 by physics; the blob boot latency named) → [X.W6.i] (index.html pre-module boot seed) → [X.W6.j] (only if X-W5 reads CLOSED; else return BLOCKED-ON X-W5 for .j alone and let the close run); the nine landmark REDs re-run after X-W5.c2's migration; the repair seat owns a4/o21:188 and f3's bisect; ESCALATED units no longer halt the wave"
+      "note": "RESUME 2026-09-22 (sixth sitting; runs AFTER X-W5) on COHESION §0z + §0an + §0aq + §0ax + §0ay and W6.md's three ADDENDA of 2026-09-22 (read all; they ARE the resume spec): X.W6.a · .b · .c · .d · .e · .f · .g · .h are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W6.a2] (opus — o21-gradient-rail.spec.ts settle/scroll only; a4/a13 GREEN ×2) → [X.W6.i2] (opus — plugins/vite-ground-tokens.ts injects the first-paint derive IIFE from the same modules; i3 GREEN ×2 under the ≤12 KB gzip / LCP-within-50 ms gate, else I3-SEED-SIZE) → [X.W6.j] (only if X-W5 reads CLOSED; else return BLOCKED-ON X-W5 for .j alone); b1 = B1-G3D, g1 → X-W10, H1-P3 by physics; ESCALATED units do not halt the wave"
     },
     "X-W7": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W7.md",
@@ -84,7 +84,7 @@ const TRACK = {
       "after": [
         "X-W2"
       ],
-      "note": "RESUME 2026-09-22 (fifth sitting) on COHESION §0aq + §0ax and W5.md's two ADDENDA of 2026-09-22 (read all; they ARE the resume spec): X.W5.a · .b · .c · .d · .e · .t are alreadyDone (never re-dispatched); still owed, strictly serial: [X.W5.c2] (opus — the landmark migration through the fixture across the 61 stale e2e files, census.ts not-found row, router route-name declaration, D4 AdminNamesPanel Transition, N15 AdminPane, N14 AdminTagsPanel sites, the o12/o16/census-parity oracles) → [X.W5.d2] (opus — the coupled family P-1..P-4 with the ColorPicker.vue:2-4 / ErrorBoundary.vue / main.ts / loading-error plate grants; the containment cure, NO P-5a/P-5b; D1 in both instruments at the lowest attainable load, headed real-GPU reading of record); ESCALATED units no longer halt the wave"
+      "note": "RESUME 2026-09-22 (sixth sitting) on COHESION §0aq + §0ax + §0ay and W5.md's three ADDENDA of 2026-09-22 (read all; they ARE the resume spec): X.W5.a · .b · .c · .d · .e · .t · .c2 · .d2 are alreadyDone (never re-dispatched; D1 of record is GREEN on the real GPU); still owed, strictly serial: [X.W5.c3] (opus — o16 :218/:266 equality with the resolved --spring-snappy-duration; o12 O-12·3 read headed on the real GPU, floor unchanged) → [X.W5.d3] (opus — ESC-W6close5-1: the stuck vj-enter state on cold first navigation cured at its root in PaneSlot/App/animations.css with a 5-fresh-context witness; W6's a5–a12/e1/g2 re-read by W6's commands); ESCALATED units do not halt the wave"
     },
     "X-W8": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W8.md",

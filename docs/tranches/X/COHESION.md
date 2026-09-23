@@ -2878,3 +2878,39 @@ waits on X-W5 CLOSED anyway.
   the §0aq route, with the boot latency named. **i3** → `.i` on the §0aq `index.html` grant (a duty).
 - **Order (RESUME, after X-W5 CLOSED)**: [`.d`] → [`.e`] → [`.h`] → [`.i`] → [`.j`]; the nine
   landmark REDs re-run after `.c2`.
+
+## §0ay ADDENDUM 2026-09-22 — X-W5's `.c2`/`.d2` LANDED (D1 GREEN OF RECORD ON THE REAL GPU); THE SWAP'S ONE REAL DEFECT (ESC-W6close5-1, a stuck enter state on cold first navigation) RULED TO X-W5 `.d3`; ESC-W5c2-1 · ESC-W5c2-2 · ESC-W6i-i3-1 RULED; X-W6 `.a2` · `.i2` · `.j`
+
+X-W5: `.c2` migrated the landmark (61 files through one fixture export, 0 stale), added the
+`not-found` census row and the typed route names; `.d2` landed the coupled family (out-in · rAF
+mirror · plates · EB-2) in one commit with the dev-root-fragment cure, containment during the swap,
+and **D1 of record GREEN 14/14 headed on the real GPU** (all four hops over32 ≤ 0.012, median 10 ms);
+headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated. Ruled:
+
+- **ESC-W5c2-1 — GRANTED to `.c3`**: `o16-computed-cascade.spec.ts:218` and `:266` assert equality
+  with the RESOLVED `--spring-snappy-duration` token (`getComputedStyle` on the rule's own element),
+  which is R2/R8's stated intent — the literal `"0.4s"` predates glass 7.0.0's `0.44s`. Not a loosening.
+- **ESC-W5c2-2 — RULED like D1**: o12 O-12·3's hover frame-diff is read HEADED on the real GPU as
+  the reading of record; the 6/255 floor is unchanged; `.c3` runs it. Below the floor on the GPU →
+  a blob-mood defect → X-W8 `.i` by id.
+- **ESC-W6close5-1 — X-W5's OWN DEFECT, unit `.d3`** (Opus): on a cold first navigation 1 of 5 fresh
+  browsers leaves the pane in `vj-enter-enter-from/-active` and the gradient rail at x = −351;
+  a5–a12, e1 and g2 (About pane 6.5 px off its track start) regress on `52dc0a5b`/`b36df565`. Find
+  the root — the transition name flipping on `viewManager.ready` (`App.vue:134`) during an in-flight
+  enter, an enter hook that never fires when out-in has nothing to leave, or the `*-active`
+  containment rule — and cure it there; witness: 5 fresh contexts × cold navigation → 0 stuck ×2;
+  g2 bisected and re-read ×2. Never a settle, never a forced class removal.
+- **ESC-W6i-i3-1 — RULED (a), with a perf gate, to `.i2`**: a hand-copied derive in HTML is the
+  copied-producer class and (b) `blocking="render"` trades the wrong first paint for a late one.
+  `plugins/vite-ground-tokens.ts` is GRANTED to inject, at build and serve, an IIFE bundled from the
+  SAME modules (`useAtmosphere.ts:285-293`'s derive over glass `color.js` + value.js `/color`) that
+  seeds the first-painted ground from the URL-hash pick when no persisted ground exists; single
+  source preserved by construction. Perf gate (X-W2 is CLOSED; the orchestrator signs): the
+  injected IIFE ≤ 12 KB gzip and LCP on `/` within 50 ms of `HEAD~` on a bounded probe ×2 — if the
+  bundle cannot meet it, `.i2` returns the size and the wave closes i3 honest-RED by id `I3-SEED-SIZE`
+  with (c) recorded as the fallback for the owner.
+- **a4 / a13 (`o21:188`) — unit `.a2`** (Opus): `e2e/smoke/oracles/o21-gradient-rail.spec.ts` gains
+  the settle/scroll its reload → openView → press sequence lacks; the mint and ordinal assertions
+  untouched; suite GREEN ×2.
+- **Order**: X-W5 [`.c3`] → [`.d3`]; then X-W6 [`.a2`] → [`.i2`] → [`.j` if X-W5 reads CLOSED].
+  b1 = `B1-G3D`, g1 → X-W10, H1-P3 by physics stand.
