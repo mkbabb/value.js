@@ -1,0 +1,26 @@
+{
+  "servedModel": "claude-opus-5-5[1m]",
+  "unit": "X.W5.c4",
+  "ruling": "COHESION §0az ESC-W5c3-1 (resolved-token pattern)",
+  "date": "2026-09-23",
+  "specCommit": "e2efb30a",
+  "command": "VJS_E2E_PORT=<distinct> npx playwright test e2e/smoke/oracles/o16-computed-cascade.spec.ts --project=<smoke|oracles-safari> --reporter=line",
+  "before": {"source": "record R7.3 at 7ab5a3f1", "smoke": "RED x2 (1 passed / 1 failed; R4 translate duration Expected 0.3s Received undefined)", "oracles-safari": "RED x2 (same)"},
+  "after": [
+    {"run": 1, "project": "smoke", "loadStart": 13.65, "result": "2 passed", "exit": 0},
+    {"run": 1, "project": "oracles-safari", "loadStart": 13.20, "result": "2 passed", "exit": 0},
+    {"run": 2, "project": "smoke", "loadStart": 12.01, "result": "2 passed", "exit": 0},
+    {"run": 2, "project": "oracles-safari", "loadStart": 11.25, "result": "2 passed", "exit": 0}
+  ],
+  "rows": {
+    "R2": {"rule": "demo/styles/animations.css:340-345", "token": "--spring-snappy-duration", "resolved": "0.44s", "state": "GREEN (c3 byte 8ddafa23)"},
+    "R3": {"rule": "demo/styles/animations.css:346-352", "tokens": ["--duration-fast", "--ease-out"], "resolved": {"duration": "0.2s", "timing": "cubic-bezier(0, 0, 0.2, 1)"}, "state": "GREEN, now resolved-token equality"},
+    "R4": {"register": "producer cartoon-surface", "computed": {"all": {"duration": "0s", "timing": "ease"}}, "producer": "glass 7.0.0 components/card/styles.css: @utility cartoon-surface { position; border-width; box-shadow } — no transition", "state": "RETIRED 2026-09-23"},
+    "R5-atom": {"register": "producer btn-interactive", "computed": {"all": {"duration": "0s", "timing": "ease"}}, "producer": "0 hits for btn-interactive in glass 7.0.0 dist", "state": "RETIRED 2026-09-23"},
+    "R5-send-btn": {"rule": "demo/shell/dock/ColorInput.vue .send-btn (no transition declared; its scale leg was the atom)", "state": "RETIRED 2026-09-23 with the atom"},
+    "R5-rail": {"rule": "demo/picker/controls/ComponentSliders/ConsoleRail.vue:272", "tokens": ["--spring-press-duration", "--spring-press"], "resolved": {"duration": "0.12s", "timing": "linear(...)"}, "state": "GREEN, resolved-token equality"},
+    "R8": {"token": "--spring-snappy-duration", "resolved": "0.44s", "state": "GREEN (c3 byte)"},
+    "R11": {"rule": "demo/picker/ColorPicker.vue:418", "tokens": ["--spring-smooth-duration", "--transition-liquid-spatial"], "resolved": {"duration": "0.35s", "timing": "linear(...)"}, "state": "GREEN, resolved-token equality"}
+  },
+  "demoComponentsTouched": []
+}

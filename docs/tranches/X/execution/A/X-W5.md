@@ -4250,3 +4250,37 @@ Groups (serial, at most 1 concurrent; §0az orders them; the two share no modify
 Post-units: the verify-only close + L-20 checks; L-18 quartet passes precede ACCEPTED; then X-W6 [`.a2`] → [`.i2`] (→ [`.j`] once X-W5 reads CLOSED) per §0az.
 
 ## Unit receipts — RESUME 7
+
+### X.W5.c4
+
+SERVED MODEL: claude-opus-5-5[1m] · unit X.W5.c4 (Opus) · executes W5.md ADDENDUM 4 (`:400`) · COHESION §0az ESC-W5c3-1 · this record's R7.3–R7.4 · HEAD at open `12cff396`.
+
+**c4.0 Crash-recovery.** ⟨cmd⟩ `git status --porcelain` → the four standing rows (`CARRY-LEDGER.md`, the two W6-evidence PNGs, `scripts/dev/dev.sh`); none in this unit's writable set. **No inherited partial.** `dev.sh` untouched.
+
+**c4.1 Anchors at true bytes (measure before edit).** Every demo rule the rows expose ALREADY reads a token; the "literals" were in the assertions, left stale when glass 7.0.0 retuned the spring settles:
+- R5 rail — ⟨cmd⟩ `grep -n 'transform var(--spring-press-duration)' ConsoleRail.vue` → `:272 transform var(--spring-press-duration) var(--spring-press);` (resolves `0.12s`; the assertion said `0.16s`).
+- R11 — ⟨cmd⟩ `grep -n 'transition: transform var(--spring-smooth-duration)' ColorPicker.vue` → `:418 … var(--transition-liquid-spatial);` (resolves `0.35s`; assertion `0.45s`).
+- R3 — ⟨cmd⟩ `grep -n 'transform var(--duration-fast) var(--ease-out)' animations.css` → `:352` (resolves `0.2s`; the assertion was a literal `"0.2s"` that happened to match).
+- send-btn — ⟨cmd⟩ `sed -n '/^\.send-btn {/,/^}/p' ColorInput.vue | grep -c transition` → **0**: the rule declares no transition; its scale leg was the producer `btn-interactive` atom (`ColorInput.vue:330` comment).
+- Producer — ⟨cmd⟩ `grep -rc btn-interactive node_modules/@mkbabb/glass-ui/dist | awk …sum` → **0** (glass 7.0.0; removed from glass `src` at `490cc46e`, the Glass 7 cut); ⟨cmd⟩ `grep -c transition …/dist/components/card/styles.css` → **0** (`@utility cartoon-surface { position; border-width; box-shadow }`).
+- Drift recorded: §0az's "send-btn `0s` → its register's token" names a register that, at true bytes, IS the producer-removed atom — the same fact as R4. INTENT at true bytes: §0az's producer-removed clause governs; adding a scale transition to `.send-btn` would either be vacuous (no scale state change remains) or require copying the atom's hover/press scales into the consumer (LOCKED). Retired with the atom, dated line beside. The prose anchors `:215`/`:264` are pre-`8ddafa23` lines; post-c3 they read `:215` (R2) and `:279` (R8). The header row map (`:95-104`) carried the same literals and was updated with them.
+
+**c4.2 The byte: `e2efb30a`** `test(e2e/o16): the W5 census on the resolved-token pattern; R4 + the btn-interactive atom retired (COHESION §0az ESC-W5c3-1)` — pathspec exactly `e2e/smoke/oracles/o16-computed-cascade.spec.ts`. A `resolve(el, durationToken, curveToken)` helper inside the census reads each token on the rule's OWN element by parking it in `animation-duration`/`animation-timing-function` (c3's instrument, both engines; prior inline values restored; no animation-name so nothing runs). R3 (on the live pane under `vj-enter-leave-active`), R5 rail and R11 assert duration AND curve equality with the resolved tokens (the family regex kept beside). R4 and the R5 atom + send-btn: `expect`s removed, readings still logged under `(RETIRED 2026-09-23, §0az)`, dated comment beside each naming the producer fact and the BK-relay route. ⟨cmd⟩ `grep -nE '"0\.[0-9]+s"' o16…spec.ts` → **0**. ⟨cmd⟩ `npx eslint o16…spec.ts` → EXIT 0. **Demo components touched: NONE** — every demo rule already reads its token (c4.1), so the cure lives wholly in the oracle; no literal swap to an observed value, no consumer copy, glass-ui read-only.
+
+**c4.3 Gate: o16 ×2 in both projects.** ⟨cmd⟩ `sh scratchpad/c4run.sh` → per run and project `VJS_E2E_PORT=<distinct> npx playwright test e2e/smoke/oracles/o16-computed-cascade.spec.ts --project=<p> --reporter=line`
+
+| gate | BEFORE (R7.3, `7ab5a3f1`) | run 1 (load) | run 2 (load) | AFTER |
+|---|---|---|---|---|
+| o16 W5-census `smoke` | RED ×2 (R4 `Received undefined`) | 2 passed, EXIT 0 (13.65) | 2 passed, EXIT 0 (12.01) | **GREEN ×2** |
+| o16 W5-census `oracles-safari` | RED ×2 (same) | 2 passed, EXIT 0 (13.20) | 2 passed, EXIT 0 (11.25) | **GREEN ×2** |
+
+Resolved readings (identical in both engines, both schemes): R3 `0.2s` / `cubic-bezier(0, 0, 0.2, 1)` · R5 rail `0.12s` / `linear(…)` · R11 `0.35s` / `linear(…)` · R2/R8 `0.44s`. Retired rows recorded: R4 `cartoon-surface` `{all: 0s ease}` · R5 atom `{all: 0s ease}` · send-btn present (logged both schemes).
+
+**c4.4 Evidence.** `docs/tranches/X/waves/W5/green/c4-o16-2026-09-23.json` — the four runs, the per-row rule/token/resolved table, the producer facts; committed with this receipt.
+
+**c4.5 Gates, residuals, escalations.**
+- o16 W5-census GREEN ×2 `smoke`: **GREEN**. o16 W5-census GREEN ×2 `oracles-safari`: **GREEN**.
+- Every demo-rule row asserts equality with the RESOLVED token AND the rule reads it: **GREEN** — R3 (`animations.css:352`), R5 rail (`ConsoleRail.vue:272`), R11 (`ColorPicker.vue:418`), R2/R8 (c3). Producer rows: none left with a live producer register (both producer registers measured are removed at 7.0.0).
+- R4 retired with a dated line beside; prose `:215`/`:264` (now `:279`) + the header row map updated: **GREEN**.
+- Residual (named owner, not this unit's bounds): the dead template class `btn-interactive` still rides `ColorInput.vue:69,78` and `CurrentPaletteEditor.vue:75,78,100` — a consumer class naming a producer utility that no longer exists (no computed effect). If the press/hover scale is wanted back, that is ONE BK relay row (orchestrator/mail seat; glass-ui read-only here); otherwise the class token is X-W8 subtraction. Same route for `cartoon-surface`'s lost 0.3s transition.
+- Escalations: none.
