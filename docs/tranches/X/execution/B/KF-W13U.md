@@ -901,3 +901,88 @@ kf e2e re-read by this seat: ⟨`npm run gh-pages && KF_PLAYWRIGHT_DIR=<value.js
 **Verdict: NOT-CONFORMANT.** Claimed GREENs reproduce 7/7; bounds, masking, families, E-3 and mail are clean; honest-RED (relieved by the spec): `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `DARK-MENU-ITEM` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL`. Three HIGH reds stand without relief (C4-1..3). LEDGER status cell unchanged (not CLOSED); one event line appended.
 
 **Self-count.** Gates re-run by this seat: check ×2 · test:demo ×2 · grep ×1 · w ×2 · e ×2 · t ×2 · icon ×2 + PRM ×1 · kbd ×2 · e2e roster ×1 = 17 runs over 9 gates; claimed GREENs reproduced **7**; failed **0**; register rows **6** (3 HIGH · 1 MINOR · 1 LOW · 1 INFO).
+
+## Repair 3 — REPAIR SEAT (RESUME 2, round 1, against Check 4)
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-23 · Track B. The orchestrator's register is headed "Check 1"; its six rows are Check 4's C4-1..C4-6 verbatim (`:839` on). This section is named "Repair 3" because `## Repair 1` and `## Repair 2` already stand above (E-3; the precedent is Check 4's own naming). Read: the spec whole (`KF-W13.md`, 395 L), the record header through `## Unit plan`, the RESUME 2 plan (`:566-578`), `## Close 2` from its residuals on, and `## Check 4` whole. COHESION grep through `§0cb`: no ruling after `§0cb` relieves `QUIET-FOCUS-RING`, `DRAWER-DETENT-REACH` or ESC-d3-1.
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked `docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-{24,27}-*.md` only (in no writable set; untouched). value.js dirty = `CARRY-LEDGER.md` · `X-W7.md` · `package*.json` · `scripts/dev/dev.sh` · `src/css/rules.ts` · `src/css/{bbnf,grammar}/` · `test/css/`. All belong to sibling seats, none is in this seat's set, and none was touched. **0 inherited paths.** Seat slip, recorded: one scratch copy of `probe-t1.mjs` and its screenshot landed in the value.js root because a `cd` failed. They were created by this seat and deleted at once, and neither was staged.
+
+**Writable set used.** This is `.t`'s row of the Unit plan: `demo/components/playback/**` and `test/demo/**`. It also covers this record and `evidence/W13U/**`. Check 4's own cure for C4-3 names the same set.
+
+### C4-3 (HIGH) → CURED: R-close-1, the scrub press-then-drag lands at the end
+
+**Reproduction.** The banked probe, unchanged, read GREEN ×4 at this seat on the pre-cure bytes (`3b1dbd8f`). Its paused playhead sat at 4767 / 4916 / 5000 / 4867 ms, and every run read `2300 → 3800`. The RED is a timing race, and this seat's clock did not hit it. So the seat forced it. The scratch variant, now banked as `evidence/W13U/repair-c4/probe-t1-burst.mjs`, sends the press and the first 4 px move in ONE CDP burst so that no frame falls between them. The path and the reads are otherwise the same. Pre-cure dev ×2: `paused 5000 · mid 5000 · late 5000 · afterUp 5000`, cube `rotateX(360deg)`. That is Close 2's and Check 4's RED exactly.
+
+**Cause, at the bytes.**
+- `PlaybackRibbon.vue` bound the Slider as `:model-value="[currentT]"`.
+- `currentT` is the mount's rAF-polled read-back. `useAnimationSync.ts` has a ticker that idles after 30 stable frames while the animation is paused and wakes on `scrubbed`. The seat therefore reaches the thumb a frame or more late.
+- The producer Slider sets `thumbAlignment: "contain"` (glass `dist/slider-DzqeQmMu.js:78`, read-only). reka's `SliderHorizontal.js:49` measures `offsetPosition = clientX − thumb.left` ONCE, on the gesture's first move, from the thumb's rendered rect.
+- A first move that arrives before the read-back frame measures the thumb where the playhead WAS. With a press at 20 % and the playhead parked at about 96 %, the stored offset is about −76 %. Every later move lands at `clientX − left + 0.76·W` and clamps to `:max`, which is the 5000 plateau.
+- This is why the RED needs a playhead parked near the end, and why a 150 ms settle hides it.
+- No sha introduced it: the race is latent in the controlled binding. Check 3's GREEN at `60477b06` was a favourable clock, not a different product, so no bisect was needed once the forced repro located the cause.
+
+**Cure** (kf **`9bdcdad5`**, pushed; ⟨`git show --stat 9bdcdad5`⟩ → `PlaybackRibbon.vue` +26/−4 · `playback-ribbon-contract.test.ts` +36; both paths are in `.t`'s set).
+- During a pointer gesture the rail's model is the value the gesture last seated. `gestureT` is set in `onSliderInput` (the seam's `isDragging` gate is unchanged) and cleared in the drag seam's `onEnd`.
+- The binding becomes `railT = gestureT ?? currentT`. The thumb now re-renders in the same Vue flush as the press, before any move task, so reka measures a true offset.
+- At release the rail returns to the read-back, which stays the one authority.
+- `currentT` joins the props destructure (Vue 3.5 reactive destructure).
+- The cure adds no settle, no producer byte, no reka/glass reach, no try/catch and no allowlist.
+
+**Witness.** The new case `R-close-1 (KF.W13U repair)` in `test/demo/instrument/playback-ribbon-contract.test.ts` mounts the ribbon at `currentT 4800`, arms the seam, and has the Slider emit `[1000]` and then `[2300]` with no read-back. The thumb must read 1000 and then 2300 in the same flush. After release it must read 4800 again, and 2300 once the read-back arrives. **RED on the pre-cure bytes**: HEAD's ribbon was swapped in for one run, then restored from a scratch copy. That run gave ⟨`npx vitest run --project demo …playback-ribbon-contract.test.ts`⟩ → `AssertionError: expected '4800' to be '1000'`, `1 failed | 18 passed`. **GREEN post-cure**: `19 passed`.
+
+| gate (post-cure `9bdcdad5`) | ⟨cmd⟩ | read ×n |
+|---|---|---|
+| banked `t/probe-t1.mjs` (screenshot write dropped, nothing else) — dev `:5173` | `node probe-t1n.mjs` | `paused 4900 / 4681 → mid 2300 → late 3800 → afterUp 3800`, cube `rotateX(317.237deg)`, stillPaused 2, pageerrors 0 — ×2 |
+| same — gh-pages (`npm run gh-pages` EXIT 0 → `dist/gh-pages/` on `:4187`) | `node probe-t1n.mjs http://127.0.0.1:4187/ gh` | paused 4633 / 4650 → `2300 → 3800 → 3800`, cube 317.2°, errs 0 — ×2 |
+| forced race `repair-c4/probe-t1-burst.mjs` — dev | `node probe-t1-burst.mjs` | pre-cure `5000·5000·5000` ×2 → post-cure `2400 → 3950 → 3950`, cube `rotateX(327.499deg)` — ×3 (paused 4883 / 4883 / 4682) |
+| same — gh-pages | `… http://127.0.0.1:4187/ gh` | `2400 → 3950 → 3950`, cube 327.5°, errs 0 — ×2 (paused 4618 / 4633) |
+| vue-tsc | `npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'` | `0` (the first edit read `1`: `currentT` not destructured; fixed before commit) |
+| `npm run check` | | EXIT 0 · EXIT 0 (`proof:structure — PASS`) |
+| `npm run test:demo -- --no-file-parallelism` | | `66 passed (66)` · `518 passed (518)`, EXIT 0 — ×2 (517 → 518: the witness) |
+| eslint · diff-check | `npx eslint demo/components/playback test/demo/instrument/playback-ribbon-contract.test.ts` · `git diff --check` | exit 0 · exit 0 |
+| kf e2e roster (a cure in the ribbon could move S5 or subject-animates) | `npm run gh-pages && KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness -- --workers=1` | **4/6, EXIT 1 — ×2** (load 18.6 → 42.6 · 44.9 → 29.4). Unchanged from Check 4: smoke · occlusion · usability · subject-animates PASS (`[real-cube]` PASS ×2), S5 PASS ×2 · ✗ S4 `ringPainted:false` only (`enterToggled`/`spaceToggled` true) · ✗ M1 `scrollTop=0; 765px content in a 704px body`. The cure moved no e2e limb. |
+
+### C4-1 (HIGH) → ESCALATED (outside this seat's power: it needs a ruling, and the cause is producer-side)
+
+The close clause "kf e2e GREEN" (`:328`) reads 4/6 ×2 at this seat (table above).
+- S4's `ringPainted:false` traces to glass 7.0.0: quiet-emphasis `box-shadow:none` erases the `.focus-ring` shadow ring (`evidence/W13U/x/causes.md`, ESC-x-1 `QUIET-FOCUS-RING`).
+- M1's touch scroll traces to the drawer detent (ESC-x-2 `DRAWER-DETENT-REACH`).
+- Both causes are producer bytes (glass READ-ONLY; no consumer ring or drawer copy is lawful). Neither id appears in the honest-RED list at `:363`, and ⟨`grep -n 'QUIET-FOCUS-RING\|DRAWER-DETENT-REACH' COHESION.md`⟩ → 0 hits.
+- The named owner, KF.W13R (`:365-373`, the 7.0.0 → 10.0.1 repin), opens only after this wave CLOSES (`:367`).
+
+A repair seat cannot grant that relief or re-sequence the waves. **Returned to the orchestrator:** issue a dated COHESION relief naming S4-ring and M1 with owner KF.W13R, or move KF.W13R `.m` ahead of this close.
+
+### C4-2 (HIGH) → ESCALATED (the cure lies outside every KF.W13U grant, and it needs a ruling)
+
+ESC-d3-1's change-once limbs (width `1122111111`, a spring>easing reversal, surface set `2222111110`) trace to the route-keyed reads at `App.vue` script `:248-250` / `:309-315` and template `:38-65`, plus ChromeDock's route-bound Scene label (Close 2; `.d3`'s receipt).
+- `.d3`'s grant is `App.vue` `:266-276` + `controlSurfaces.ts` only (the §0br addendum `:360`).
+- The original `.d` row's "App.vue (dock consumer end)" is a different unit's carve and was spent at `.d`.
+- The Scene label needs a design ruling (route-bound vs machine-bound), which Check 4 names as the orchestrator's.
+
+This seat did not self-widen a grant. **Returned:** a dated grant over those regions plus the ruling. The gate is then re-read headed ×2 on dev and on gh-pages.
+
+### C4-4 (MINOR) → CARRIED (no one-command cure), owner KF.W13V `.k` (KFA-17)
+
+`subject-animates [real-cube]` PASSED in both of this seat's roster runs (2/2). With Check 4's run that makes 3/3 PASS since Close 2's 1-in-3 failure. It is an intermittent assertion with no reproduction at this clock, and no one-command cure exists. The record's owner stands.
+
+### C4-5 (LOW) · C4-6 (INFO) → not in the repair mandate (below MINOR)
+
+R-close-3 stays with KF.W13R `.v` (re-seat `d/probe-sharp.mjs` to mask the living glyph boxes). C4-6 needs no cure.
+
+### E13
+
+No new mail was read at this seat. Check 4's sweep (latest INBOX line 15:1x) stands, and this seat touched no coordination path. Nothing in scope is UNREAD.
+
+### Self-count
+
+- Defects in the register: **6**. Cured: **1** (C4-3; HIGH). Escalated: **2** (C4-1, C4-2; both HIGH). Carried: **1** (C4-4; MINOR, no one-command cure). Out of mandate: **2** (C4-5 LOW, C4-6 INFO).
+- kf commits: **1** (`9bdcdad5`, 2 paths, pushed; ⟨`git -C keyframes.js rev-parse --short origin/master`⟩ → `9bdcdad5`).
+- value.js: this section and `evidence/W13U/repair-c4/probe-t1-burst.mjs` (1 file) go in one receipt commit, plus one appended LEDGER event line.
+- Runs:
+  - banked probe: pre-cure ×4 GREEN (race not hit) · post-cure dev ×2 and gh ×2
+  - burst probe: pre-cure dev ×2 RED · post-cure dev ×3 and gh ×2
+  - contract test: pre-cure ×1 RED · post-cure ×1
+  - check ×2 · test:demo ×2 · vue-tsc ×2 (1 → 0) · eslint ×1 · diff-check ×1 · gh-pages build ×1 · e2e roster ×2
+
+**Verdict: PARTIAL.** The one in-bounds HIGH (C4-3, the drag limb) is cured at its cause and reads GREEN on dev ×2 and gh-pages ×2. The two remaining HIGHs (C4-1, C4-2) wait on orchestrator rulings or grants. The wave does not close on this seat.
