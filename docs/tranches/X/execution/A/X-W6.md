@@ -7976,3 +7976,25 @@ uses; the new helper is added beside it, never replacing it).
 **Verdict: X.W6.s DONE** — g2 GREEN ×3 · gradient+o21 22/22 ×3 · gate-a-gesture-paint GREEN ×3 · `:243` bisected (enter pose, cured).
 Locks held: 0 `demo/**` bytes (⟨`git show --stat 201f737a -- demo`⟩ → empty); no per-pane nudge (OM-10 control intact); 0 assertions
 changed; one `test(e2e)` commit.
+
+### X.W6.f2
+
+SERVED MODEL: claude-opus-5-5[1m] · unit X.W6.f2 (Opus) · W6.md fifth ADDENDUM (L492) · COHESION §0ba `.f2` bullet.
+
+**Crash-recovery.** ⟨`git status --porcelain e2e/smoke/oracles docs/tranches/X/execution/A/X-W6.md`⟩ → empty. Nothing inherited.
+
+**Anchors (measured, true bytes).** ⟨`grep -n screenshot …o21/o22/o24`⟩ → `o21-space-catalog-truth.spec.ts:181` (`card.screenshot`, path at :182) · `o22-specimen-legibility.spec.ts:83` (path :84) · `o24-specimen-dot-identity.spec.ts:51` (path :52). All three matched the brief's lines.
+
+**Acts.**
+1. Re-pointed the three `screenshot({ path })` writes from `docs/tranches/X/waves/W6-evidence/catalog/after-*.png` to `testInfo.outputPath("after-*.png")` (Playwright outputDir, `test-results/<test>/`). Each test body now takes `testInfo` as its second argument. In o24 the capture sits inside the `openCatalog` helper, so the helper gains a `testInfo: TestInfo` parameter (type-only import) and its single call site passes it through. 0 assertions changed: ⟨`git show 15f9ee8e`⟩ touches only signatures and `path:` lines (9+/9−).
+2. Commit **`15f9ee8e`** `test(e2e): catalog oracles write their after-frames to testInfo.outputPath, never docs/ (X.W6.f2, §0ba)`, pathspec = the three specs.
+
+**Gates (BEFORE → AFTER).**
+- f3 · f4 · f8: before the edit, all three oracles wrote into `docs/**` (the §0ba finding). After: ⟨`npx playwright test --project=smoke o21-space-catalog-truth.spec.ts o22-specimen-legibility.spec.ts o24-specimen-dot-identity.spec.ts`⟩ → `3 passed (1.5m)` (run 1, on the working tree) and `3 passed (1.3m)` (run 2, after the commit). **GREEN ×2.**
+- `git status --porcelain docs/` after the oracles ran: ⟨cmd⟩ → ` M docs/tranches/V/reformation/CARRY-LEDGER.md`, the same single line captured BEFORE the runs (the tranche-start dirty row, outside this unit and owned by no seat here). So the runs add **0** entries under `docs/`. ⟨`git diff --quiet -- docs/tranches/X/waves/W6-evidence && echo EVIDENCE-UNCHANGED`⟩ → `EVIDENCE-UNCHANGED`. The frames now land at `test-results/oracles-o2{1,2,4}-…-smoke/after-{display-p3-about,catalog-open,specimen-dots}.png`, confirmed with ⟨`find test-results -name "after-*.png"`⟩ → 3 files.
+
+**Residuals.** The literal "empty" reading is held back only by `CARRY-LEDGER.md`, which was dirty before this seat and at session start (it is not an oracle output, so the delta reading is exact). `o25-atmosphere-response.spec.ts:39` still writes to `docs/…/W6-evidence/atmosphere` by design as the §8 evidence harness. It is outside `.f2`'s writable set and §0ba's scope, and is recorded here but not touched.
+
+**Escalations.** None.
+
+**Verdict: X.W6.f2 DONE.** f3/f4/f8 GREEN ×2 · 0 new `docs/` entries · committed evidence PNGs unchanged · one `test(e2e)` commit.
