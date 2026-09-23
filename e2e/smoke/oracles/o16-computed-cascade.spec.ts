@@ -215,7 +215,22 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         // R2 — enter transform: snappy spring @ its OWN 0.4s clock.
         expect(census.enter, "R2: no pane wrapper child found").toBeTruthy();
         log("R2 enter", census.enter);
-        expect(census.enter!["transform"]?.duration).toBe("0.4s");
+        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-snappy-duration`,
+        // read by getComputedStyle on the rule's own element (the live pane under
+        // `vj-enter-enter-active`) — never a literal of the producer's clock.
+        expect(census.enter!["transform"]?.duration).toBe(
+            await page.evaluate(() => {
+                const el = document.querySelector(".pane-wrapper--stage")!
+                    .firstElementChild as HTMLElement;
+                const prev = el.style.getPropertyValue("animation-duration");
+                el.classList.add("vj-enter-enter-active");
+                el.style.setProperty("animation-duration", "var(--spring-snappy-duration)");
+                const resolved = getComputedStyle(el).animationDuration;
+                el.style.setProperty("animation-duration", prev);
+                el.classList.remove("vj-enter-enter-active");
+                return resolved;
+            }),
+        );
         expect(census.enter!["transform"]?.timing).toMatch(/^linear\(/);
 
         // R3 — leave: 0.2s bezier on BOTH legs; never a spring on an exit.
@@ -263,7 +278,20 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
 
         // R8 — the settle family: vj-morph enter transform snappy @ 0.4s.
         log("R8 vj-morph enter", census.morph);
-        expect(census.morph["transform"]?.duration).toBe("0.4s");
+        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-snappy-duration`,
+        // read by getComputedStyle on the rule's own element (the census's
+        // `vj-morph-enter-active` probe, through the real cascade).
+        expect(census.morph["transform"]?.duration).toBe(
+            await page.evaluate(() => {
+                const el = document.createElement("div");
+                el.className = "vj-morph-enter-active";
+                document.body.appendChild(el);
+                el.style.setProperty("animation-duration", "var(--spring-snappy-duration)");
+                const resolved = getComputedStyle(el).animationDuration;
+                el.remove();
+                return resolved;
+            }),
+        );
         expect(census.morph["transform"]?.timing).toMatch(/^linear\(/);
 
         // R11 — the shell nudge: liquid-spatial @ the smooth clock.
