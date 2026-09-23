@@ -649,3 +649,49 @@ worktree at HEAD `cad16786`, port 8195): `palette-save` · o10d `:216` · o10d `
 Generate/Gradient (Mix too at baseline) — and this unit's tag row, since cured. o10d case 5's own navigation
 (`openView "Palettes"`) is RED at baseline; its re-routed rename leg passes when the view is reached by URL (probe,
 not committed).
+
+## X.W7.f2 — gate sections (seat `claude-opus-5-5`, 2026-09-23, COHESION §0bk.2; code commits `6283637a` · `a7a1cea4`)
+
+### G16 — The formatting facility owns display precision — **GREEN (29/29 sites, 0 dead APIs)**
+
+- BEFORE (RESUME baseline): ⟨cmd⟩ `grep -rln format-color demo --include='*.vue' --include='*.ts' | grep -v '^demo/test'`
+  → **4** importers (3 of the 29 sites routed: A1 · A16 · B11); ⟨cmd⟩ `grep -rn toCSSColorString demo … | wc -l` → **6**;
+  `const DIGITS = 2` at `useColorPipeline.ts:28` and `useSliderGradients.ts:14`.
+- AFTER: the same importer grep ×2 → **14 · 14** (the 12 site files + the 2 G17 count files). The census in
+  `format-color.test.ts` names every OM-14 site by id with the routed expression and its occurrence count; its first case
+  asserts the denominator ⟨17 text + 11 ARIA + 1 write-back⟩ = **29**. ⟨cmd⟩ `npx vitest run
+  demo/test/color-session/format-color.test.ts` ×2 → **67/67 · 67/67** (BEFORE 42 cases; +25: the per-site census, the
+  dead-API absence, the G17 importers). Dead APIs ⟨cmd⟩ `grep -rn toCSSColorString demo --include='*.ts' --include='*.vue'
+  | grep -v '^demo/test' | wc -l` → **0**; ⟨cmd⟩ `grep -rnw DIGITS demo/color-session/useColorPipeline.ts
+  demo/color-session/useSliderGradients.ts | wc -l` → **0**.
+- Registers: every §2.A/§2.B site and the write-back take `caption` (OM-14 §4.5). The five ColorInput repaints are safe to
+  round (OM-14 §4.6: programmatic `innerText` dispatches no `input`). The write-back is `formatCssCaption(formattedCurrentColor)`
+  — it keeps hex / custom-name spellings and the colour's own space, so the `inputColor` watcher re-parses in the same space
+  (an `interchange` write-back would have flipped the user's space to OKLCh). The two fidelity callers of the deleted
+  `toCSSColorString` (palette `commitColorEdit`, the add-colour duplicate check) moved to `serializePickerColor`, the same
+  bytes they produced before.
+- Falsifiers ⟨cmd⟩ (a) `SwatchHoverMenu.vue` B8 reverted to `${color}` → **2 failed** (the B8·B9 count + the raw-interpolation
+  sweep); (b) `const DIGITS = 2;` re-appended to `useSliderGradients.ts` → **1 failed**; each `cp` back, `cmp` → RESTORED.
+
+### G18 — `src/` containment — **GREEN**
+
+⟨cmd⟩ `git diff --numstat e24361c6..HEAD -- src/ | wc -l` ×2 → **0 · 0**; `47f222d6..HEAD -- src/ api/` → **0**.
+
+### MSS-16 / MR-35 — the `.swatch-row` leave recipe — **CURED at the recipe (once)**
+
+`demo/styles/utils.css` — the `.swatch-row > .vj-enter-leave-active { position: absolute }` limb dropped; the leaver scales
+out in its own slot. MR-35's two ruled options were "record the leaving element's offsets" (JS in each consumer —
+per-consumer, forbidden, and MixSourceSelector is outside this grant) or "drop the abspos limb"; MSS-16's `position:
+relative` does not move a flex child's static position (Flexbox L1 §4.1), so it was not taken. **Not measured live**:
+MR-35's pre-cure jump measurement (R-11) was owed before the MSS-3 identity cure, which landed at `ae9a3a48`; no browser
+probe was run at this seat (Playwright/DevTools MCP unavailable). Residual: the row closes when the scaled-out dot is
+removed (the `vj-enter-move` FLIP runs on a list render, not on a leave's removal) — a motion-canon row for X-W10.
+
+### Cadence (§7) at X.W7.f2
+
+⟨cmd⟩ `npx vitest run` ×2 → **3 failed / 834 passed (837)** and **2 failed / 835 passed (837)**: C-5 `spectrum-luma` and
+NG-6 `reka-binding-idiom` both runs (pre-existing); run 1's third, `admin-destructive › color-name delete` (the trigger
+lookup before mount, the flake d2 recorded), passes alone ×2 (10/10 · 10/10). ⟨cmd⟩ `npx vue-tsc -p tsconfig.demo.json
+--noEmit` ×2 → EXIT **0 · 0**; lib → EXIT **0**. ⟨cmd⟩ `npx eslint --max-warnings=0 <the 14 touched ts/vue files>` → EXIT
+0; `git diff --check` → clean. e2e not run (§7 schedules it after c, e and close); the smoke specs that read these
+strings match by prefix/regex (`/Add current color/`, `^="Color swatch "`), unchanged by the caption spelling.
