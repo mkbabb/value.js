@@ -41,8 +41,10 @@ const APP_TITLE = "Color Picker";
  * redundant with the app name, so it is elided to avoid "Home — Color Picker".
  */
 export function composeTitle(name: unknown, color: unknown): string {
+    // UIA-V-659: the dead end carries no colour voice — whether the missed
+    // address happened to hold a `color` query is not the page's subject.
     const colorVoice =
-        typeof color === "string" && color.trim() ? color.trim() : null;
+        name !== "not-found" && typeof color === "string" && color.trim() ? color.trim() : null;
 
     // The pane voice — omitted on the picker (home) view (redundant with the
     // app name below). Any unknown route name contributes no pane segment.

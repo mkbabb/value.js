@@ -13,8 +13,9 @@ import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { useAdminAuth } from "../../platform/auth/useAdminAuth";
 import { markApiReachable } from "../../platform/transport/availability";
 import type { ViewId } from "../../shell/useViewManager";
+import { composeTitle } from "../../color-picker/router/useDocumentTitle";
 
-type AdminView = "admin-users" | "admin-flagged" | "admin-audit" | "admin-names";
+type AdminView = "admin-users" | "admin-flagged" | "admin-audit" | "admin-names" | "admin-tags";
 
 const mounted: VueWrapper[] = [];
 let fetchMock: ReturnType<typeof vi.fn>;
@@ -245,5 +246,41 @@ describe("UIA-V-432 · a success notice does not stand beside the flagged error 
         await flushPromises();
         expect(wrapper.text()).toContain("Couldn't load");
         expect(ports.admin.flagged.notice.value).toBeNull();
+    });
+});
+
+describe("UIA-V-651/653 · admin tags: 'uncategorized' sorts last; no success notice over the error plate", () => {
+    it("groups real categories alphabetically, then uncategorized; a failed re-read clears the notice", async () => {
+        useAdminAuth().login("t");
+        let fail = false;
+        const TAGS = [
+            { id: "1", name: "moody", category: "mood" },
+            { id: "2", name: "loose", category: "" },
+            { id: "3", name: "warm", category: "zeal" },
+        ];
+        fetchMock.mockImplementation(async (input: unknown, init?: RequestInit) => {
+            if (fail) return fail500();
+            if (init?.method === "DELETE") return new Response(null, { status: 204 });
+            return urlOf(input).includes("/admin/tags") ? json(TAGS) : json({ data: [], total: 0, limit: 20, offset: 0 });
+        });
+        const { wrapper, ports } = mountAdmin("admin-tags");
+        await flushPromises();
+        const tagsApi = ports.admin.tags;
+        expect(tagsApi.groupedTags.value.map(([c]) => c)).toEqual(["mood", "zeal", "uncategorized"]);
+        await tagsApi.deleteTag("moody");
+        await flushPromises();
+        expect(tagsApi.notice.value).not.toBeNull();
+        fail = true;
+        await tagsApi.loadTags();
+        await flushPromises();
+        expect(wrapper.text()).toContain("Couldn't load");
+        expect(tagsApi.notice.value).toBeNull();
+    });
+});
+
+describe("UIA-V-659 · the dead end carries no colour voice in the document title", () => {
+    it("composeTitle omits the colour on not-found and keeps it elsewhere", () => {
+        expect(composeTitle("not-found", "red")).not.toContain("red");
+        expect(composeTitle("gradient", "red")).toContain("red");
     });
 });
