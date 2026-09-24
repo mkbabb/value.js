@@ -3268,3 +3268,14 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - For the dev and e2e gates, a fresh standalone `mongod` now serves :27017 from `~/.mongo-dev/fourier`, which is outside every repo. fourier uses no transactions and Homebrew had no replica set, so standalone matches.
   - The fourier API held a stale replica-set topology from the dead server and was restarted with its own command. `POST /api/sessions` then returned 200.
 - Track C resumes: F.W14 (`.h2`, `.p2`, close), then F.W14U.
+
+## §0cm ADDENDUM 2026-09-24 — F.W14 ESC-C2-1 ruled: the e2e suite owns its data and its instruments
+- **F.W14 resume 1 landed:**
+  - `.h2`: the golden `a8aa0a1` is ratified, and `:164` reads GREEN twice.
+  - `.p2`: fourier `2b86203`, one `backingSize()` rule. G-p reads GREEN headed twice at DPR 1 and 2.
+  - The close read 14 REDs outside the named set, and all have one of two causes:
+    - `f-w14-uia` ×12 needs a saved visualization that a fresh database lacks.
+    - vc `:145`'s admin banner differs by 593 px.
+    - `f-w14-dpr :228` fails only headless.
+- **Ruled:** the new unit `F.W14.s` seeds through the public API, idempotently and namespaced, in Playwright setup. It makes seeded goldens deterministic, re-baselining only a seed-confined diff. It gives the GPU spec a headed Chromium project, per §0be, so it is never skipped. Spec: `F-W14.md` addendum (f).
+- The resumed `.p2` seat restarted the fourier API with `scripts/e2e.sh`'s environment: `BLOB_DIR=/tmp/fourier-e2e-blobs` and raised rate limits. That is the lawful e2e instrument.
