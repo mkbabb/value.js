@@ -72,11 +72,14 @@
                     </div>
 
                     <!-- Revert button (hidden for current version) -->
+                    <!-- X.W12.u1 (UIA-V-37): Revert is revealed on hover only where a
+                         fine pointer can hover; on touch it is always shown, so it is
+                         never an invisible hit target. Keyboard focus reveals it too. -->
                     <Button
                         v-if="!isCurrent(version)"
                         emphasis="secondary"
                         size="xs"
-                        class="mt-2 opacity-0 transition-opacity group-hover:opacity-100"
+                        class="mt-2 transition-opacity pointer-fine:opacity-0 pointer-fine:group-hover:opacity-100 focus-visible:opacity-100"
                         @click="$emit('revert', version.hash)"
                     >
                         <RotateCcw class="mr-1 h-3 w-3" />
