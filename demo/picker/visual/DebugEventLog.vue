@@ -1,5 +1,5 @@
 <template>
-    <!-- Event log: pointer-events: none so the visual feed can't steal touches. -->
+    <!-- Event log: read-only rows; the overlay's scroll region owns wheel and pan. -->
     <div class="debug-section debug-log-section">
         <div class="debug-section-title">
             Events ({{ events.length }})
@@ -11,11 +11,11 @@
                 class="debug-event"
                 :class="eventClass(evt)"
             >
-                <span class="debug-ts">{{ (evt.ts / 1000).toFixed(2) }}</span>
+                <span class="debug-ts">{{ formatAge(evt.ts) }}</span>
                 <span class="debug-etype">{{ evt.type }}</span>
-                <span class="debug-pid">p{{ evt.pointerId }}</span>
+                <span v-if="evt.pointerId >= 0" class="debug-pid">p{{ evt.pointerId }}</span>
                 <span v-if="evt.hasCapture" class="debug-cap">CAP</span>
-                <span class="debug-tgt">{{ evt.target }}</span>
+                <span v-if="evt.target" class="debug-tgt">{{ evt.target }}</span>
                 <span v-if="evt.extra" class="debug-extra">{{ evt.extra }}</span>
             </div>
         </div>
@@ -31,6 +31,14 @@ const { events } = defineProps<{
 }>();
 
 const reversedEvents = computed(() => [...events].reverse());
+
+/** UIA-V-674: each row's time reads as its offset from the newest event
+ *  (−Δ s), never the absolute page clock. */
+const newestTs = computed(() => events.at(-1)?.ts ?? 0);
+function formatAge(ts: number): string {
+    const delta = ((newestTs.value - ts) / 1000).toFixed(2);
+    return delta === "0.00" ? delta : `−${delta}`;
+}
 
 function eventClass(evt: PointerDebugEvent): string {
     if (evt.type.includes("FREEZE")) return "debug-event-freeze";
@@ -55,15 +63,6 @@ function eventClass(evt: PointerDebugEvent): string {
     font-size: 9px;
     letter-spacing: 0.5px;
     margin-bottom: 2px;
-}
-
-/* Log area is NOT touchable — visual only, prevents overlay from stealing touches. */
-.debug-log-section {
-    pointer-events: none;
-}
-
-.debug-log {
-    pointer-events: none;
 }
 
 .debug-event {

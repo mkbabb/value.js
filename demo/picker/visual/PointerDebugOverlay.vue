@@ -16,7 +16,11 @@
                 <span class="debug-title">Debug</span>
                 <span v-if="debug.state.frozen" class="debug-frozen">FROZEN?</span>
                 <span v-if="copied" class="debug-copied">copied!</span>
-                <span class="debug-toggle">{{ collapsed ? "+" : "−" }}</span>
+                <ChevronDown
+                    class="debug-toggle"
+                    :class="{ 'debug-toggle-open': !collapsed }"
+                    aria-hidden="true"
+                />
             </button>
 
             <template v-if="!collapsed">
@@ -37,7 +41,7 @@
                                     'debug-val-true': value === true,
                                     'debug-val-false': value === false,
                                 }"
-                            >{{ formatGauge(value) }}</span>
+                            >{{ formatGauge(key, value) }}</span>
                         </div>
                     </div>
 
@@ -66,16 +70,24 @@
 
 <script setup lang="ts">
 import { ref, inject } from "vue";
-import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
+import { ChevronDown } from "@lucide/vue";
+import { POINTER_DEBUG_KEY, TIMESTAMP_GAUGES } from "../composables/usePointerDebug";
 import DebugEventLog from "./DebugEventLog.vue";
 
 const debug = inject(POINTER_DEBUG_KEY)!;
 const collapsed = ref(true); // start collapsed so it doesn't interfere
 const copied = ref(false);
 
-function formatGauge(v: string | number | boolean): string {
+/** Format by gauge kind (UIA-V-671): a stamp reads as its age, an integer
+ *  count reads without a decimal, a measure keeps one. */
+function formatGauge(key: string, v: string | number | boolean): string {
     if (typeof v === "boolean") return v ? "YES" : "no";
-    if (typeof v === "number") return v.toFixed(1);
+    if (typeof v === "number") {
+        if (TIMESTAMP_GAUGES.has(key)) {
+            return `${((performance.now() - v) / 1000).toFixed(1)}s ago`;
+        }
+        return Number.isInteger(v) ? String(v) : v.toFixed(1);
+    }
     return String(v);
 }
 
@@ -133,17 +145,23 @@ async function copyJSON() {
     position: fixed;
     bottom: 8px;
     left: 8px;
-    z-index: var(--z-debug);
+    /* UIA-V-54: `--z-debug` is shipped by neither glass nor the demo, so the
+     * declaration resolved to `auto` and the picker card painted over the
+     * overlay. `--z-max` (9999) is the top rung glass ships, above
+     * `--z-toggle` 999 and every teleported glass overlay (UIA-V-676); the
+     * missing `--z-debug` rung is glass's (O-59, UIA-V-457). */
+    z-index: var(--z-max);
     width: 280px;
     max-height: 35dvh;
     display: flex;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.92);
     color: #e0e0e0;
-    font-family: "SF Mono", "Fira Code", monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
     line-height: 1.3;
-    border-radius: var(--radius-xl);
+    /* UIA-V-460: the panel role token (was the raw --radius-xl scale step). */
+    border-radius: var(--radius-panel);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
@@ -166,11 +184,24 @@ async function copyJSON() {
     user-select: none;
     pointer-events: auto;
     touch-action: manipulation;
+    /* reset the UA button box so the header reads as the panel's own row */
+    width: 100%;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    text-align: start;
+}
+
+/* UIA-V-673: the disclosure shows keyboard focus on glass's ring token. */
+.debug-header:focus-visible {
+    outline: none;
+    box-shadow: inset var(--focus-ring-shadow);
 }
 
 .debug-title {
     font-weight: 700;
     flex: 1;
+    text-align: start;
 }
 
 .debug-frozen {
@@ -189,8 +220,14 @@ async function copyJSON() {
 }
 
 .debug-toggle {
-    font-size: 14px;
-    font-weight: 700;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.debug-toggle-open {
+    transform: rotate(180deg);
 }
 
 .debug-section {
@@ -209,16 +246,24 @@ async function copyJSON() {
 .debug-gauge {
     display: flex;
     justify-content: space-between;
+    gap: 8px;
     padding: 1px 0;
 }
 
 .debug-key {
     color: #aaa;
+    flex-shrink: 0;
 }
 
+/* UIA-V-671: a long value truncates beside its key, never wraps into it. */
 .debug-val {
     color: #fff;
     font-weight: 600;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: end;
 }
 
 .debug-val-true {
@@ -229,11 +274,16 @@ async function copyJSON() {
     color: #666;
 }
 
+/* UIA-V-458: the gauges + log region scrolls. It takes its own wheel and
+ * vertical pan (contained, so the page under it never scrolls), and passes
+ * no taps: it holds no control. */
 .debug-scroll {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
-    pointer-events: none;
+    pointer-events: auto;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
 }
 
 .debug-actions {
@@ -248,12 +298,15 @@ async function copyJSON() {
 
 .debug-btn {
     flex: 1;
-    padding: 6px 6px;
+    /* UIA-V-460: a touch-sized control on the control radius (this is the
+     * iOS pointer-debugging tool; 27px at 10px type was under target). */
+    min-height: 36px;
+    padding: 6px 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-button);
     background: rgba(255, 255, 255, 0.08);
     color: #e0e0e0;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     cursor: pointer;
     touch-action: manipulation;

@@ -18,10 +18,19 @@ export interface PointerDebugState {
 }
 
 const MAX_EVENTS = 80;
+
+/** Gauges whose value is a `performance.now()` stamp: the overlay reads them
+ *  as an age ("3.2s ago"), never as the raw page clock (UIA-V-671). */
+export const TIMESTAMP_GAUGES: ReadonlySet<string> = new Set([
+    "lastForceRelease",
+    "lastForceReset",
+]);
 const FREEZE_THRESHOLD_MS = 2500;
 
 function describeElement(el: EventTarget | null): string {
-    if (!el || !(el instanceof HTMLElement)) return "??";
+    // A synthetic event (FORCE_RELEASE, FREEZE_DETECTED, …) has no target: it
+    // describes as empty so the log prints no column for it (UIA-V-672).
+    if (!el || !(el instanceof HTMLElement)) return "";
     const tag = el.tagName.toLowerCase();
     const cls = el.className
         ? typeof el.className === "string"
