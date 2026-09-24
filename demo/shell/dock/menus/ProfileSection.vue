@@ -3,12 +3,11 @@ import { computed, inject } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Moon, Sun,
 } from "@lucide/vue";
-import { DockSeparator } from "@mkbabb/glass-ui/dock";
-import { Button } from "../../../ui/button";
+import { DockControl, DockSeparator, DockTrigger } from "@mkbabb/glass-ui/dock";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
-    DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuLabel,
+    DropdownMenuSeparator, DropdownMenuLabel,
 } from "../../../ui/dropdown-menu";
 import { Avatar, AvatarImage } from "../../../ui/avatar";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
@@ -51,21 +50,22 @@ const { isDark, toggleDark } = useGlobalDark();
         <!-- Logged in: "Account" button with dropdown -->
         <template v-if="pm.userSlug.value">
             <DropdownMenu v-model:open="profileMenuOpen">
-                <DropdownMenuTrigger as-child>
-                    <!-- S.W5-4: hand-rolled pill → glass-ui Button (buttons
-                         only — W7-6 owns this section's casing later). The
-                         live-color identity stays via :style — CERTIFIED
-                         against the floating rung (D6, T.W3-5). -->
-                    <Button
-                        size="xs"
-                        class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
-                        :style="{ color: triggerInk, borderColor: triggerInk }"
-                        data-o18="profile-trigger"
-                    >
-                        <UserCircle class="w-3.5 h-3.5" />
-                        Profile
-                    </Button>
-                </DropdownMenuTrigger>
+                <!-- X.W12.e (OA-22): the trigger IS glass's dock dropdown
+                     trigger — its plate (transparent at rest, the
+                     --dock-control-hover/active-bg tiers) and its stadium
+                     radius (--dock-control-radius) are the dock control's, never
+                     a generic Button's filled, squared plate. The live-color
+                     identity stays on the INK channel only — CERTIFIED against
+                     the chrome rung (D6, T.W3-5). -->
+                <DockTrigger
+                    for="dropdown"
+                    class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
+                    :style="{ color: triggerInk }"
+                    data-o18="profile-trigger"
+                >
+                    <UserCircle class="w-3.5 h-3.5" />
+                    Profile
+                </DockTrigger>
                 <DropdownMenuContent align="end" class="min-w-menu font-display">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
@@ -126,15 +126,18 @@ const { isDark, toggleDark } = useGlobalDark();
                  (text + icon), the exact idiom the logged-in Profile trigger
                  already wears — so "Tools/Login CHROME keeps the live accent"
                  is live at Login too, never decorative dead code. -->
-            <Button
-                size="xs"
-                class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
-                :style="{ color: triggerInk, borderColor: triggerInk }"
+            <!-- X.W12.e (OA-22): Login is a glass dock TAB control — the
+                 dock's own plate + stadium, no local background, no squared
+                 corners; the accent rides the ink channel alone. -->
+            <DockControl
+                shape="tab"
+                class="gap-1.5 text-mono-small font-bold"
+                :style="{ color: triggerInk }"
                 @click="emit('startSlugEdit')"
             >
                 <LogIn class="w-3.5 h-3.5" />
                 Login
-            </Button>
+            </DockControl>
         </template>
 
         <DockSeparator />
@@ -143,19 +146,17 @@ const { isDark, toggleDark } = useGlobalDark();
     <!-- @mbabb menu -->
     <div class="hidden lg:flex items-center">
         <DropdownMenu v-model:open="mbabbMenuOpen">
-            <DropdownMenuTrigger as-child>
-                <!-- S.W7-6 (design-dock-shell P1-8): the @mbabb WORDMARK, not a
-                     section caption — text-mono-small is the non-transforming
-                     mono rung (the former text-mono-caption is glass-ui's
-                     caption utility: mono·caption·UPPERCASE, which shouted
-                     "@MBABB" as generic labelware). Lowercase is the mark. -->
-                <Button
-                    size="xs"
-                    class="text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
-                >
-                    @mbabb
-                </Button>
-            </DropdownMenuTrigger>
+            <!-- S.W7-6 (design-dock-shell P1-8): the @mbabb WORDMARK, not a
+                 section caption — text-mono-small is the non-transforming
+                 mono rung. Lowercase is the mark. X.W12.e (OA-22): it sits on
+                 glass's dock dropdown trigger (the dock control's plate and
+                 stadium), never a generic Button's squared plate. -->
+            <DockTrigger
+                for="dropdown"
+                class="text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
+            >
+                @mbabb
+            </DockTrigger>
             <DropdownMenuContent align="end" class="min-w-menu font-display">
                 <div class="flex items-center gap-2 px-2 py-1.5">
                     <Avatar decorative class="w-7 h-7">
