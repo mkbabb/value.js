@@ -1,17 +1,21 @@
 <template>
-    <!-- X.W12.c (OA-5 / OA-21) — THE ABOUT PANE FOLLOWS THE ROW. The card is
-         the Picker pane's height: `pane-row-follow` is the shell's row
-         contract (shell.css), under which this pane never sizes the row it
-         shares. The body scrolls INSIDE the card on glass's scroll primitive
-         (`FadingScroll`, the scroll port), and the card's `overflow-hidden`
-         with its radius clips that port. The start-edge feather is off: the
-         sticky PaneHeader's veil is this port's start edge, and a mask there
-         would fade the title. The `pane-scroll-fade` host (the `--pane-scroll`
-         timeline PaneHeader reads) moves with the scroll to the port. -->
     <Card
         tier="resting"
         class="about-card pane-row-follow flex flex-col w-full mx-auto overflow-hidden min-w-0 h-full"
     >
+        <!-- X.W12.c (OA-5 / OA-21) — THE ABOUT PANE FOLLOWS THE ROW. The card is
+             the Picker pane's height: `pane-row-follow` is the shell's row
+             contract (shell.css), under which this pane never sizes the row it
+             shares. The body scrolls INSIDE the card on glass's scroll primitive
+             (`FadingScroll`, the scroll port), and the card's `overflow-hidden`
+             with its radius clips that port. The start-edge feather is off: the
+             sticky PaneHeader's veil is this port's start edge, and a mask there
+             would fade the title. The `pane-scroll-fade` host (the `--pane-scroll`
+             timeline PaneHeader reads) moves with the scroll to the port.
+             This comment sits INSIDE the root: a comment beside the root makes
+             a dev-mode root fragment, which loses the pane swap's out-in
+             continuation (§0ay ESC-W5t-2; measured again here — the next
+             inspector pane never mounted). -->
         <FadingScroll
             axis="y"
             :fade-start="false"

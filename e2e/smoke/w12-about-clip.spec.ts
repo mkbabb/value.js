@@ -92,6 +92,9 @@ async function readOnce(page: Page): Promise<Reading> {
 }
 
 async function readSettled(page: Page): Promise<Reading> {
+    // The About region mounts its loading plate first; wait for the pane
+    // itself, or a settled plate is read as the pane (seen at a cold start).
+    await expect(page.locator(".about-card")).toBeVisible({ timeout: 60_000 });
     await regionSettled(page.getByRole("region", { name: "Picker", exact: true }));
     await regionSettled(page.getByRole("region", { name: "About", exact: true }));
     let previous: Reading | null = null;
