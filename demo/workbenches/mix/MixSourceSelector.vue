@@ -305,7 +305,7 @@ const swatchKeys = computed(() => {
                         'cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40',
                         isPaletteSelected(palette.slug)
                             ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
-                            : 'opacity-75 hover:opacity-100',
+                            : 'mix-palette--rest',
                     ]"
                     @click="togglePalette(palette)"
                 >
@@ -328,8 +328,11 @@ const swatchKeys = computed(() => {
                         <span
                             class="px-3 py-2 flex items-center justify-between gap-2 min-w-0"
                         >
+                            <!-- X.W12.u2 (UIA-V-351): an unselected palette never
+                                 dims its strip (opacity falsified the colors in a
+                                 color tool); only its name rests at the muted rung. -->
                             <span
-                                class="text-small font-display font-semibold truncate"
+                                class="mix-palette-name text-small font-display font-semibold truncate"
                                 >{{ palette.name }}</span
                             >
                             <span
@@ -363,6 +366,14 @@ const swatchKeys = computed(() => {
 [data-mix-direction="back"] > .vj-morph-leave-to {
     --vj-morph-x: -1.5rem;
     --vj-morph-y: 0px;
+}
+
+/* X.W12.u2 (UIA-V-351): the rest state speaks through the name's ink only. */
+.mix-palette--rest .mix-palette-name {
+    color: var(--muted-foreground);
+}
+.mix-palette--rest:hover .mix-palette-name {
+    color: var(--foreground);
 }
 
 /* R.W4 Lane A / A3 — the add-slot ghost hosts a centred Plus glyph.
