@@ -12,7 +12,10 @@
          (never a blanket 2). -->
     <CardTitle
         class="readout flex h-fit w-fit max-w-full m-0 p-0 flex-wrap items-baseline font-display focus-visible:outline-none"
-        :style="{ '--readout-lines': lineCount, '--readout-fit': fit }"
+        :style="{
+            '--readout-lines': lineCount,
+            '--readout-measure': READOUT_MEASURE_EM,
+        }"
     >
         <template
             v-for="([component], ix) in colorComponents"
@@ -53,8 +56,8 @@
 import { computed } from "vue";
 import { CardTitle } from "../../../ui/card";
 import {
+    READOUT_MEASURE_EM,
     readoutDecimals,
-    readoutFit,
     readoutLineCount,
 } from "./readoutReservation";
 
@@ -75,15 +78,6 @@ const { formatted, colorComponents, space } = defineProps<{
  *  static derivation, bound as `--readout-lines` for the min-height calc. */
 const lineCount = computed(() =>
     readoutLineCount(
-        space,
-        colorComponents.map(([component]) => component),
-    ),
-);
-
-/** Q11b lever 2 — the per-space fit coefficient (≤3% shave holding the
- *  one-line lock for the ictcp-class overhang; 1 everywhere else). */
-const fit = computed(() =>
-    readoutFit(
         space,
         colorComponents.map(([component]) => component),
     ),
@@ -116,53 +110,42 @@ function figParts(component: string): { int: string; frac: string } {
 </script>
 
 <style scoped>
-/* The hero-number register: the display ramp, Fraunces voice, VERIFIED
- * tabular figures (the minted tnum face — O-10c asserts the rendered
- * digit-advance, never the declaration; the F5 declared-but-dead class is
- * dead), and the per-space line lock so wrap count is a constant of the
- * space, never of the value.
+/* The hero-number register: Fraunces voice, VERIFIED tabular figures (the
+ * minted tnum face — O-10c asserts the rendered digit-advance, never the
+ * declaration), and the line lock so wrap count is a constant of the space,
+ * never of the value.
  *
- * The ×φ `cqi` display rung (T.W4-2 · Q11a — every bound exactly ×φ of the
- * S rung: display-2→display-4 · 7.2→11.65cqi · 1.618→2.618rem): the hero
- * rides the pane-slot container, not the viewport — font ∝ container width
- * means the line's capacity IN CH is a near-constant of the composition
- * (~11.7 tabular-ch; full derivation in readoutReservation.ts), so each
- * space's line lock is a structural guarantee across the whole band, not a
- * lucky viewport. `--readout-fit` is Q11b lever 2 — the derived ≤3% shave
- * that holds the ictcp-class one-line lock (1 everywhere else). This
- * narrows the "display rungs are viewport-fluid" exception (style.css
- * §pane-wrapper) for the one display surface that must MEASURE: an
- * instrument readout broken-lined mid-figure is a hierarchy defect. */
+ * X.W12.d (OA-24 · owner frame 4 — "maybe the dropdown title should be
+ * larger? … the color number components larger with less padding? why so
+ * much blank space") — THE CARD'S HIERARCHY:
+ *   · the TITLE is the card's display step: `--type-display-2` on the space
+ *     trigger, the largest type in the card at every viewport;
+ *   · the NUMERALS take the space: the rung is fitted to THE MEASURE — the
+ *     catalog's widest worst-case tuple (readoutReservation.ts
+ *     `READOUT_MEASURE_EM`, lab `100.0, -125.0, -125.0`) — so the widest
+ *     space fills the header's line, and it is capped one ladder step below
+ *     the title (`--type-display-1`) so the hierarchy never inverts. The
+ *     retired ×φ display-4 rung (11.65cqi) sat ABOVE the title and forced
+ *     lab/oklab/oklch onto a reserved second line, which at every one-line
+ *     value painted as the 61px dead band of frame 4 (g1 RESIDUE 61.22px);
+ *   · no empty interval: every shown space is ONE line by construction, so
+ *     `min-height` (the lock) is the painted line and nothing is reserved
+ *     that does not ink — the title row, the 7px header rhythm and the
+ *     numerals stack with no band between them. */
 .readout {
-    font-size: calc(
-        min(var(--type-display-4), max(11.65cqi, 2.618rem)) *
-            var(--readout-fit, 1)
+    font-size: min(
+        var(--type-display-1),
+        calc(100cqi / var(--readout-measure))
     );
     line-height: 1.12;
-    /* THE CONTIGUOUS GAP (T.W4-2): 0.75ch — the SAME quantity the line-lock
-     * packing arithmetic reserves (READOUT_GAP_CH), so paint and derivation
-     * can never disagree. Replaces the retired gap-x-3 + per-cell slack (the
-     * "spread apart" dead air, R4). */
+    /* THE CONTIGUOUS GAP (T.W4-2): 0.75ch — the SAME quantity the packing
+     * arithmetic reserves (READOUT_GAP_CH), so paint and derivation can
+     * never disagree. */
     column-gap: 0.75ch;
     font-variant-numeric: tabular-nums lining-nums;
-    /* The per-space lock (S.W4-2): `--readout-lines` is the space's own
-     * worst-case line count from the static reservation table — never a
-     * blanket 2 (the blank second line under hex was P1-1's pathology). */
+    /* The per-space lock (S.W4-2): `--readout-lines` is the space's derived
+     * line count — 1 for every shown space since the measure law. */
     min-height: calc(var(--readout-lines, 1) * 1.12em);
-    /* T.W6.5-P (T-33b · t33-audit-01 "too large of a gap between the numbers
-     * and the gradient selector") — THE SEAM ABSORBS THE RESERVATION AS
-     * DESIGNED AIR: the tuple BOTTOM-ANCHORS inside its locked box, so a
-     * one-line tuple in a two-line lock (lab's honest worst case) renders
-     * its reserved line as display air ABOVE the numbers — the title band's
-     * breathing room — and the numbers sit flush on the field below. The
-     * §6.1-measured 61px dead band between the figures and the spectrum
-     * rail DIES while the lock holds bit-for-bit: min-height is unchanged
-     * (O-10b's min-height ≡ lock × line-height row), the card rect never
-     * moves, and on a 1↔2-line digit-count crossing the tuple grows UPWARD
-     * into its own reservation — nothing below the header ever shifts
-     * mid-drag (the lock's reason to exist). The W8 bracket (research §6.1,
-     * both arms) rides only the TASTE residual of where the air reads best;
-     * the functional gap cure lands here. */
     align-content: flex-end;
     font-weight: 400;
 }

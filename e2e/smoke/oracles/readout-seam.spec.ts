@@ -29,6 +29,12 @@ import { mainPane } from "../fixtures/dock";
  *        absorption is by construction;
  *   (iii) a one-line-locked space (rgb): reserved ≡ painted (the anchor is
  *        a no-op — no air is minted where none was reserved).
+ *
+ * ADDENDUM 2026-09-24 (X.W12.d, OA-24 · owner frame 4 · g1): legs (i) and (ii)
+ * are re-stated under the MEASURE law — the readout rung is fitted to the
+ * catalog's widest worst-case tuple (lab), so lab locks ONE line and no
+ * reserved air paints above or below the numbers. The bottom-anchor survives
+ * as a no-op.
  */
 
 interface SeamRow {
@@ -83,7 +89,7 @@ const EPS = 8;
 test.describe("T-33b — the reserved-line band is designed air, never a dead band", () => {
     test.use({ viewport: { width: 1440, height: 900 } });
 
-    test("lab @ one-line tuple: the numbers sit flush at the box bottom; the air rides above", async ({
+    test("lab @ the reference color: one locked line, no reserved air either side (X.W12.d)", async ({
         page,
     }) => {
         await page.goto(
@@ -92,8 +98,9 @@ test.describe("T-33b — the reserved-line band is designed air, never a dead ba
         await expect(mainPane(page)).toBeVisible();
         const row = await measureSeam(page);
 
-        // The lock itself is untouched (O-10b's row, re-asserted at the seam).
-        expect(row.lock, "lab keeps its honest 2-line lock").toBe(2);
+        // X.W12.d: the rung is fitted to the catalog measure, so lab is a
+        // one-line space (O-10b.s row, re-asserted at the seam).
+        expect(row.lock, "lab is a one-line space under the measure law").toBe(1);
         expect(
             Math.abs(row.minHeightPx - row.lock * row.lineHeightPx),
         ).toBeLessThanOrEqual(1);
@@ -104,39 +111,38 @@ test.describe("T-33b — the reserved-line band is designed air, never a dead ba
         );
         expect(paintedLines, "one painted line at the reference color").toBe(1);
 
-        // THE CURE: dead band below the figures DIES; the reservation's
-        // delta renders ABOVE the numbers as designed air.
+        // THE CURE: no band on EITHER side — the reservation that painted as
+        // air above the numbers (owner frame 4, g1 RESIDUE 61.22px) is gone.
         expect(
             row.deadBandBelow,
             `dead band below the figures (${row.deadBandBelow}px) — the t33-audit-01 gap`,
         ).toBeLessThanOrEqual(EPS);
-        const reservedDelta = row.boxHeight - (row.paintedBottom - row.paintedTop);
         expect(
             row.airAbove,
-            "the reserved-minus-painted delta rides ABOVE the tuple",
-        ).toBeGreaterThanOrEqual(reservedDelta - EPS);
+            `air above the figures (${row.airAbove}px) — the frame-4 dead band`,
+        ).toBeLessThanOrEqual(EPS);
     });
 
-    test("lab @ two-line tuple: growth is UPWARD into the reservation — same box, no air left", async ({
+    test("lab @ its worst-case tuple: still one line — the measure holds the widest value (X.W12.d)", async ({
         page,
     }) => {
-        // In-domain worst-case extremes (T-33a keeps them honest): the tuple
-        // wraps to its locked 2 lines and fills the reservation.
+        // In-domain worst-case extremes (T-33a keeps them honest): the measure
+        // IS this tuple, so it inks exactly its one locked line.
         await page.goto(
             "/#/?space=lab&color=" + encodeURIComponent("lab(100% -125 -125)"),
         );
         await expect(mainPane(page)).toBeVisible();
         const row = await measureSeam(page);
 
-        expect(row.lock).toBe(2);
+        expect(row.lock).toBe(1);
         const paintedLines = Math.round(
             (row.paintedBottom - row.paintedTop) / row.lineHeightPx,
         );
-        expect(paintedLines, "the worst-case tuple inks its locked 2 lines").toBe(2);
+        expect(paintedLines, "the worst-case tuple inks its locked 1 line").toBe(1);
         expect(row.deadBandBelow).toBeLessThanOrEqual(EPS);
         expect(row.airAbove).toBeLessThanOrEqual(EPS);
-        // The box geometry is the SAME lock as the one-line case — the card
-        // never moved; only the ink grew upward into its own reservation.
+        // The box geometry is the SAME lock as the reference case — the card
+        // never moves between the reference and the worst-case value.
         // Tolerance: real line boxes stretch a few px past the computed
         // line-height (the Fraunces baseline metrics — the same trait the
         // O-10 mobile row counts RENDERED lines instead of dividing heights);

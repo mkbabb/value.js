@@ -27,8 +27,9 @@ import {
     readoutLineCount,
 } from "../demo/picker/display/ColorComponentDisplay/readoutReservation";
 
-/** The one-line `ch` budget the header guarantees (module-internal constant). */
-const CAPACITY_CH = 11.7;
+/** The one-line `ch` budget the header guarantees (module-internal constant;
+ *  X.W12.d: the budget IS the catalog measure, lab's worst case 16.15ch). */
+const CAPACITY_CH = 16.15;
 /** Q11b lever 2's floor: a shave deeper than 3% is refused. */
 const FIT_FLOOR = 0.97;
 /** The tnum mint's non-digit advances (module-internal constants). */

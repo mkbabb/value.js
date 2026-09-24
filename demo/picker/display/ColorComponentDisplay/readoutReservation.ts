@@ -35,8 +35,8 @@
  * 0–255; the hue/percent channels of hsl/hsv/hwb/lch; xyz's 0–100 axes) ink
  * integers — still value-independent (never a stripped `.0`; the format is
  * a constant of the space). Everything else keeps the 1-decimal instrument
- * format (lab stays 1-decimal and takes its HONEST 2-line lock — Q11b
- * lever 3; ictcp/jzazbz are 2-line at <sm).
+ * format (lab stays 1-decimal; since X.W12.d its worst case sets THE MEASURE
+ * the rung is fitted to, so it holds one line — no reserved second line).
  */
 
 import { PICKER_CHANNELS, type PickerSpace } from "../../../color-session/picker-color";
@@ -44,8 +44,8 @@ import { PICKER_CHANNELS, type PickerSpace } from "../../../color-session/picker
 /**
  * The Q11b lever-1 set (t-title-typography F6 + t-mobile F-4.3, the named
  * spaces whose canonical notation is integer): every shown channel of these
- * spaces inks 0 decimals. lab is DELIBERATELY absent (1-decimal + the
- * honest 2-line lock — the ruled lever-3 arm).
+ * spaces inks 0 decimals. lab is DELIBERATELY absent (1-decimal; its
+ * worst case is the catalog measure — X.W12.d).
  */
 const INTEGER_LEAST_COUNT: ReadonlySet<string> = new Set([
     "rgb",
@@ -119,47 +119,43 @@ export function readoutCh(space: string, component: string): number {
     return READOUT_CH[space]?.[component] ?? HEX_CH;
 }
 
-/* ── The line-count derivation (S.W4-2 → T.W4-2 · Q11b) ──────────────────
+/* ── The line-count derivation (S.W4-2 → T.W4-2 · Q11b → X.W12.d) ────────
  *
  * The readout's `min-height` locks the SPACE'S own worst-case line count,
- * derived here from the same static table — never a blanket 2 (the blanket
- * lock left a permanent blank second line under every one-line space).
+ * derived here from the same static table — never a blanket 2.
  *
- * Both constants below are DERIVED from the composition, not measured at
- * runtime and not nudged to fit:
+ * X.W12.d (OA-24, owner frame 4 — "why so much blank space"; g1's largest
+ * interval): the direction of the derivation is REVERSED. The retired arm
+ * picked the rung first (the ×φ `cqi` display-4 rung, 11.65cqi) and let the
+ * catalog's wider spaces take an "honest" second line — which, at every
+ * one-line value, painted as a 61px empty band between the title and the
+ * numbers (lab's 2-line lock; g1 RESIDUE 61.22px + inflation 55.41px, and
+ * the owner's frame 4). A reservation that paints nothing is the dead band
+ * wherever it is anchored (below the tuple at T.W4-2, above it at T.W6.5-P).
  *
- * `READOUT_LINE_CAPACITY_CH` — the one-line `ch` budget the header
- * guarantees, at the ×φ rung ON THE MINTED FACE. The readout spans the full
- * header: width = 100cqi − 2·clamp(0.75rem, 4cqi, 1.5rem); its type rides
- * the ×φ `cqi` display rung, `min(--type-display-4, max(11.65cqi,
- * 2.618rem))` (ColorComponentDisplay — every bound exactly ×φ of the S
- * rung). Because font ∝ container width across the cqi band, the width IN
- * CH is a near-constant of the composition. Under `tabular-nums` the CSS
- * `ch` = the MINTED tabular cell (1340/2000 upm = 0.67em — wider than the
- * retired proportional face's 0.635em, so the naive 20/φ = 12.36 carried a
- * stale ch):
- *   · cqi band (pane 400–512): (C − 2·0.04C) / (0.67 × 0.1165C) ≈ 11.79ch
- *   · 390 phone (pane 358, font floored 41.89px, ch 28.07px):
- *     (358 − 28.6) / 28.07 ≈ 11.73ch
- * 11.7 is the band floor — ONE constant, no <sm arm (the tabular-cell
- * arithmetic made the phone band converge with the cqi band; t-mobile
- * F-4.3's 2%-tighter floor priced the old ch). Sub-390 viewports fall
- * outside the gate matrix (O-10b judges 32rem + 390).
+ * THE MEASURE now comes first: `READOUT_MEASURE_CH` is the widest SHOWN
+ * tuple in the catalog at its worst case (lab: `100.0, -125.0, -125.0` =
+ * 16.15ch), and the rung is sized so that measure is ONE line of the header
+ * (ColorComponentDisplay: `font-size: min(--type-display-1, 100cqi /
+ * --readout-measure)`, the measure bound in em through the tnum cell). Every
+ * shown space is therefore a one-line space BY CONSTRUCTION — the line lock
+ * is the painted line, the card rect still never moves on a value change,
+ * and nothing is reserved that does not ink.
  *
- * `READOUT_GAP_CH` — the inter-cell gap in `ch`. The tuple paints its gap
- * AS `0.75ch` (the contiguous-tuple composition), so the packing arithmetic
- * and the rendered gap are the SAME quantity by construction.
+ * `READOUT_GAP_CH` — the inter-cell gap in `ch`, painted as `0.75ch`, so the
+ * packing arithmetic and the rendered gap are the SAME quantity.
  *
- * `READOUT_FIT_FLOOR` — Q11b LEVER 2 (RULED): a space within ~3% of the
- * one-line budget holds one line through a derived fit-down coefficient
- * (`font-size: calc(rung × fit)` — module-scope arithmetic, no runtime
- * measurement); a space needing more than the shave takes its HONEST extra
- * line (lever 3 — lab-class), never a deeper squeeze (rejecting the owner's
- * size intent is the REJECTED arm).
+ * `TNUM_CELL_EM` — the minted tabular cell (1340/2000 upm = 0.67em —
+ * scripts/fonts/build-fraunces-tnum.py): the em extent of one digit, the
+ * factor that turns the `ch` measure into the rung's em divisor.
+ *
+ * `READOUT_FIT_FLOOR` — Q11b lever 2: kept for the unshown (alpha-bearing)
+ * sets the packer still answers; with capacity = the measure no shown set
+ * needs it.
  */
-const READOUT_LINE_CAPACITY_CH = 11.7;
 const READOUT_GAP_CH = 0.75;
 const READOUT_FIT_FLOOR = 0.97;
+const TNUM_CELL_EM = 0.67;
 
 /** Σch of the shown cells at worst case, gaps included. */
 function packWidth(space: string, components: string[]): number {
@@ -169,6 +165,25 @@ function packWidth(space: string, components: string[]): number {
     });
     return w;
 }
+
+/** THE MEASURE — the widest shown tuple in the catalog at worst case, in
+ *  `ch` (hex's single cell included). The header's one-line budget IS this
+ *  measure, so no shown space derives a second line. */
+export const READOUT_MEASURE_CH: number = Math.max(
+    HEX_CH,
+    ...(Object.keys(PICKER_CHANNELS) as PickerSpace[]).map((space) =>
+        packWidth(
+            space,
+            PICKER_CHANNELS[space].map((meta) => meta.key),
+        ),
+    ),
+);
+
+/** The measure in em of the readout's own font — the rung's divisor
+ *  (bound as `--readout-measure`; `100cqi / measure` fits it to one line). */
+export const READOUT_MEASURE_EM: number = READOUT_MEASURE_CH * TNUM_CELL_EM;
+
+const READOUT_LINE_CAPACITY_CH = READOUT_MEASURE_CH;
 
 /**
  * Q11b lever 2 — the per-space fit coefficient: 1 when the tuple packs (or

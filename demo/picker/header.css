@@ -101,23 +101,11 @@
     font-size: var(--type-display-1);
 }
 
-/* the readout condenses to a compact single-line register — the value stays
- * legible while scrolled (the picker's data never leaves the strip), and the
- * 2-line lock's reserved air collapses so the strip is SHORT (the block-size
- * contraction that makes BR-9 measurable at the readout too). Card-lock in the
- * scrolled state is moot — a scroll gesture is not a value change. */
-/* the readout SNAPS on condense (no transition on its font-size or line-lock
- * min-height): that reservation IS the card-lock — it re-sizes only on a SPACE
- * change (--readout-lines / --readout-fit), and the O-10b line-lock census
- * measures both discretely — so animating them would both violate the lock and
- * be caught mid-transition. The dominant contraction feel rides the title +
- * padding + veil transitions; the compact readout resolves in one step under
- * them. */
-.picker-header.is-condensed .readout {
-    font-size: var(--type-display-1);
-    min-height: 1.12em;
-    align-content: start;
-}
+/* X.W12.d — the readout does NOT re-key on condense: it is already the
+ * compact one-line register at rest (ColorComponentDisplay: the measure-fitted
+ * rung, capped at `--type-display-1`, one line for every shown space — no
+ * reserved air left to collapse). The strip shortens through the title step,
+ * the padding band and the title-row release below. */
 
 /* the strip is TIGHT: the blob's at-rest vertical reservation on the title row
  * (seat.css `--blob-fp`-derived min-height, which seats the at-rest readout
@@ -136,7 +124,6 @@
 @media (prefers-reduced-motion: reduce) {
     .picker-header,
     .picker-header .space-trigger,
-    .picker-header .readout,
     .picker-header::before {
         transition-duration: 0.01ms;
     }
