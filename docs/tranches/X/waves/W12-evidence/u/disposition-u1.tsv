@@ -1,0 +1,185 @@
+# SERVED MODEL: claude-opus-5-5 — X.W12.u1 disposition of the UIA-V rows on palettes/browse/tag/version/flag/migrate pages (10 pages). Columns: id sev page owner disposition. RESIDUE-U1 = honest-RED id: consumer row not cured by .u1, routed to .u3's supplement.
+UIA-V-24	BROKEN	palettes-view	GLASS+CONSUMER	bed4ce3a+67c4f29a (consumer) · O-59 (glass: WatercolorDot no passthrough contract)
+UIA-V-25	BROKEN	palettes-view	CONSUMER	67c4f29a
+UIA-V-26	BROKEN	palettes-view	CONSUMER	2ff95e51
+UIA-V-27	BROKEN	palettes-view	CONSUMER	67c4f29a
+UIA-V-28	BROKEN	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-29	BROKEN	palette-card-menu	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-30	BROKEN	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-31	BROKEN	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-32	BROKEN	browse-search-filter	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-33	BROKEN	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-34	BROKEN	tag-edit-popover	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-35	BROKEN	tag-edit-popover	CONSUMER	2753482a
+UIA-V-36	BROKEN	version-history-drawer	CONSUMER	c8c5a4aa
+UIA-V-37	BROKEN	version-history-drawer	CONSUMER	a658d2c4
+UIA-V-38	BROKEN	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-39	BROKEN	flag-report-dialog	CONSUMER	360bd254
+UIA-V-96	HIGH	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-97	HIGH	palettes-view	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-98	HIGH	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-99	HIGH	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-100	HIGH	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-101	HIGH	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-102	HIGH	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-103	HIGH	palettes-view	CONSUMER	bed4ce3a+67c4f29a
+UIA-V-104	HIGH	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-105	HIGH	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-106	HIGH	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-107	HIGH	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-108	HIGH	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-109	HIGH	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-110	HIGH	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-111	HIGH	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-112	HIGH	palette-card-menu	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-113	HIGH	palette-card-menu	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-114	HIGH	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-115	HIGH	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-116	HIGH	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-117	HIGH	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-118	HIGH	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-119	HIGH	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-120	HIGH	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-121	HIGH	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-122	HIGH	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-123	HIGH	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-124	HIGH	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-125	HIGH	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-126	HIGH	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-127	HIGH	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-128	HIGH	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-129	HIGH	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-130	HIGH	flag-report-dialog	CONSUMER	5e0be623
+UIA-V-131	HIGH	flag-report-dialog	CONSUMER	RESIDUE-U1
+UIA-V-132	HIGH	migrate-palettes-dialog	CONSUMER	5e0be623
+UIA-V-133	HIGH	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-273	MEDIUM	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-274	MEDIUM	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-275	MEDIUM	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-276	MEDIUM	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-277	MEDIUM	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-278	MEDIUM	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-279	MEDIUM	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-280	MEDIUM	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-281	MEDIUM	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-282	MEDIUM	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-283	MEDIUM	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-284	MEDIUM	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-285	MEDIUM	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-286	MEDIUM	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-287	MEDIUM	palette-card-menu	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-288	MEDIUM	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-289	MEDIUM	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-290	MEDIUM	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-291	MEDIUM	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-292	MEDIUM	palette-card-menu	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-293	MEDIUM	palette-card-menu	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-294	MEDIUM	palettes-delete-all-dialog	CONSUMER	RESIDUE-U1
+UIA-V-295	MEDIUM	palettes-delete-all-dialog	CONSUMER	RESIDUE-U1
+UIA-V-296	MEDIUM	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-297	MEDIUM	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-298	MEDIUM	palettes-delete-all-dialog	CONSUMER	RESIDUE-U1
+UIA-V-299	MEDIUM	browse-view	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-300	MEDIUM	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-301	MEDIUM	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-302	MEDIUM	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-303	MEDIUM	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-304	MEDIUM	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-305	MEDIUM	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-306	MEDIUM	browse-view	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-307	MEDIUM	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-308	MEDIUM	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-309	MEDIUM	browse-search-filter	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-310	MEDIUM	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-311	MEDIUM	browse-search-filter	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-312	MEDIUM	browse-search-filter	GLASS	O-59
+UIA-V-313	MEDIUM	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-314	MEDIUM	browse-search-filter	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-315	MEDIUM	tag-edit-popover	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-316	MEDIUM	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-317	MEDIUM	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-318	MEDIUM	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-319	MEDIUM	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-320	MEDIUM	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-321	MEDIUM	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-322	MEDIUM	version-history-drawer	CONSUMER	5e0be623 (italic caption: glass repin)
+UIA-V-323	MEDIUM	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-324	MEDIUM	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-325	MEDIUM	version-history-drawer	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-326	MEDIUM	version-history-drawer	GLASS	O-59
+UIA-V-327	MEDIUM	flag-report-dialog	CONSUMER	RESIDUE-U1
+UIA-V-328	MEDIUM	flag-report-dialog	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-329	MEDIUM	flag-report-dialog	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-330	MEDIUM	flag-report-dialog	CONSUMER	RESIDUE-U1
+UIA-V-331	MEDIUM	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-332	MEDIUM	migrate-palettes-dialog	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-333	MEDIUM	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-334	MEDIUM	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-335	MEDIUM	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-336	MEDIUM	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-337	MEDIUM	migrate-palettes-dialog	GLASS	O-59
+UIA-V-338	MEDIUM	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-339	MEDIUM	migrate-palettes-dialog	CONSUMER	5e0be623
+UIA-V-524	LOW	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-525	LOW	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-526	LOW	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-527	LOW	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-528	LOW	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-529	LOW	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-530	LOW	palettes-view	CONSUMER	RESIDUE-U1
+UIA-V-531	LOW	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-532	LOW	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-533	LOW	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-534	LOW	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-535	LOW	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-536	LOW	palette-scene-actions	CONSUMER	RESIDUE-U1
+UIA-V-537	LOW	palette-scene-actions	UNRESOLVED	VERDICT GLASS → O-59 (Dialog placement=right surface; consumer class carries width/flex only)
+UIA-V-538	LOW	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-539	LOW	palette-card-menu	GLASS	O-59
+UIA-V-540	LOW	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-541	LOW	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-542	LOW	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-543	LOW	palette-card-menu	CONSUMER	RESIDUE-U1
+UIA-V-544	LOW	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-545	LOW	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-546	LOW	palettes-delete-all-dialog	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-547	LOW	palettes-delete-all-dialog	CONSUMER	RESIDUE-U1
+UIA-V-548	LOW	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-549	LOW	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-550	LOW	palettes-delete-all-dialog	GLASS	O-59
+UIA-V-551	LOW	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-552	LOW	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-553	LOW	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-554	LOW	browse-view	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-555	LOW	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-556	LOW	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-557	LOW	browse-view	CONSUMER	RESIDUE-U1
+UIA-V-558	LOW	browse-search-filter	GLASS	O-59
+UIA-V-559	LOW	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-560	LOW	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-561	LOW	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-562	LOW	browse-search-filter	GLASS+CONSUMER	O-59 + RESIDUE-U1
+UIA-V-563	LOW	browse-search-filter	CONSUMER	RESIDUE-U1
+UIA-V-564	LOW	tag-edit-popover	GLASS	O-59
+UIA-V-565	LOW	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-566	LOW	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-567	LOW	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-568	LOW	tag-edit-popover	GLASS	O-59
+UIA-V-569	LOW	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-570	LOW	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-571	LOW	tag-edit-popover	CONSUMER	RESIDUE-U1
+UIA-V-572	LOW	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-573	LOW	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-574	LOW	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-575	LOW	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-576	LOW	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-577	LOW	version-history-drawer	CONSUMER	RESIDUE-U1
+UIA-V-578	LOW	flag-report-dialog	CONSUMER	RESIDUE-U1
+UIA-V-579	LOW	flag-report-dialog	CONSUMER	RESIDUE-U1
+UIA-V-580	LOW	flag-report-dialog	CONSUMER	RESIDUE-U1
+UIA-V-581	LOW	flag-report-dialog	GLASS	O-59
+UIA-V-582	LOW	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-583	LOW	migrate-palettes-dialog	GLASS	O-59
+UIA-V-584	LOW	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-585	LOW	migrate-palettes-dialog	CONSUMER	RESIDUE-U1
+UIA-V-586	LOW	migrate-palettes-dialog	CONSUMER	RESIDUE-U1

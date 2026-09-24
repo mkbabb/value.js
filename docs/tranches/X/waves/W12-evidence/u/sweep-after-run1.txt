@@ -1,0 +1,6 @@
+demo/shell/dock/menus/MobileMenuDropdown.vue:111	<DropdownMenuItem> (@mkbabb/glass-ui#DropdownMenuItem)	as-child
+demo/shell/dock/menus/ProfileSection.vue:175	<DropdownMenuItem> (@mkbabb/glass-ui#DropdownMenuItem)	as-child
+demo/workbenches/mix/MixSourceSelector.vue:179	<WatercolorDot> (@mkbabb/glass-ui/watercolor-dot#WatercolorDot)	tag
+demo/workbenches/mix/MixSourceSelector.vue:199	<WatercolorDot> (@mkbabb/glass-ui/watercolor-dot#WatercolorDot)	tag
+demo/workbenches/mix/MixSourceSelector.vue:246	<WatercolorDot> (@mkbabb/glass-ui/watercolor-dot#WatercolorDot)	tag
+TOTAL 5

@@ -1,0 +1,422 @@
+[
+ {
+  "tag": "searchnone__1440__light",
+  "sha": "c8e39cab",
+  "dirty": "3278",
+  "url": "http://localhost:9000/#/palettes",
+  "loadMs": 130,
+  "note": "q=zzzz",
+  "errs": [],
+  "m": [
+   {
+    "sel": ".dashed-well",
+    "w": 462,
+    "h": 164,
+    "radius": "16px",
+    "font": "18.608px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "dashed-well"
+   },
+   {
+    "sel": "input.input-bar-field",
+    "w": 413,
+    "h": 25,
+    "radius": "0px",
+    "font": "16.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "input-bar-field"
+   },
+   {
+    "sel": ".search-seated",
+    "w": 462,
+    "h": 36,
+    "radius": "16px",
+    "font": "18.608px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "input-bar search-seated"
+   },
+   {
+    "sel": ".dashed-well input",
+    "w": 395,
+    "h": 36,
+    "radius": "9999px",
+    "font": "14.384px",
+    "bg": "rgb(243, 236, 226)",
+    "cls": "field-control glass-defined flex-1"
+   },
+   {
+    "sel": ".dashed-well button.rounded-full",
+    "w": 32,
+    "h": 40,
+    "radius": "1.67772e+07px",
+    "font": "16.4px",
+    "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-bor"
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 48,
+    "h": 26,
+    "radius": "9999px",
+    "font": "16.4px",
+    "bg": "rgb(237, 230, 222)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[role=list].palette-card-grid",
+    "w": 462,
+    "h": 260,
+    "radius": "0px",
+    "font": "18.608px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px]"
+   },
+   {
+    "sel": "h1, h2",
+    "w": 1408,
+    "h": 16,
+    "radius": "0px",
+    "font": "13px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "route-title font-display"
+   },
+   {
+    "sel": "h1, h2",
+    "w": 462,
+    "h": 45,
+    "radius": "0px",
+    "font": "41.888px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "pane-header-title font-display"
+   }
+  ]
+ },
+ {
+  "tag": "swatchhover__1440__dark",
+  "sha": "c8e39cab",
+  "dirty": "3278",
+  "url": "http://localhost:9000/#/palettes",
+  "loadMs": 824,
+  "note": "hover/tap current swatch #a8dadc",
+  "errs": [],
+  "m": [
+   {
+    "sel": ".palette-card",
+    "w": 462,
+    "h": 95,
+    "radius": "16px",
+    "font": "18.608px",
+    "bg": "oklab(0.345295 0.0103877 0.0175526)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".palette-card",
+    "w": 462,
+    "h": 95,
+    "radius": "16px",
+    "font": "18.608px",
+    "bg": "oklab(0.345295 0.0103877 0.0175526)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".palette-card",
+    "w": 462,
+    "h": 95,
+    "radius": "16px",
+    "font": "18.608px",
+    "bg": "oklab(0.345295 0.0103877 0.0175526)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".dashed-well",
+    "w": 462,
+    "h": 164,
+    "radius": "16px",
+    "font": "18.608px",
+    "bg": "oklab(0.345295 0.0103877 0.0175526)",
+    "cls": "dashed-well"
+   },
+   {
+    "sel": "input.input-bar-field",
+    "w": 413,
+    "h": 25,
+    "radius": "0px",
+    "font": "16.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "input-bar-field"
+   },
+   {
+    "sel": ".search-seated",
+    "w": 462,
+    "h": 36,
+    "radius": "16px",
+    "font": "18.608px",
+    "bg": "oklab(0.345295 0.0103877 0.0175526)",
+    "cls": "input-bar search-seated"
+   },
+   {
+    "sel": ".dashed-well input",
+    "w": 395,
+    "h": 36,
+    "radius": "9999px",
+    "font": "14.384px",
+    "bg": "rgb(63, 55, 49)",
+    "cls": "field-control glass-defined flex-1"
+   },
+   {
+    "sel": ".dashed-well button.rounded-full",
+    "w": 32,
+    "h": 40,
+    "radius": "1.67772e+07px",
+    "font": "16.4px",
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-bor"
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 29,
+    "h": 26,
+    "radius": "9999px",
+    "font": "16.4px",
+    "bg": "rgb(47, 40, 35)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 30,
+    "h": 26,
+    "radius": "9999px",
+    "font": "16.4px",
+    "bg": "rgb(47, 40, 35)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 30,
+    "h": 26,
+    "radius": "9999px",
+    "font": "16.4px",
+    "bg": "rgb(47, 40, 35)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[role=list].palette-card-grid",
+    "w": 462,
+    "h": 414,
+    "radius": "0px",
+    "font": "18.608px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px]"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "18.608px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "18.608px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "18.608px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": "h1, h2",
+    "w": 1408,
+    "h": 16,
+    "radius": "0px",
+    "font": "13px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "route-title font-display"
+   },
+   {
+    "sel": "h1, h2",
+    "w": 462,
+    "h": 45,
+    "radius": "0px",
+    "font": "41.888px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "pane-header-title font-display"
+   }
+  ]
+ },
+ {
+  "tag": "swatchhover__390__light",
+  "sha": "c8e39cab",
+  "dirty": "3278",
+  "url": "http://localhost:9000/#/palettes",
+  "loadMs": 813,
+  "note": "hover/tap current swatch #a8dadc",
+  "errs": [],
+  "m": [
+   {
+    "sel": ".palette-card",
+    "w": 324,
+    "h": 98,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".palette-card",
+    "w": 324,
+    "h": 98,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".palette-card",
+    "w": 324,
+    "h": 98,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".dashed-well",
+    "w": 324,
+    "h": 170,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "dashed-well"
+   },
+   {
+    "sel": "input.input-bar-field",
+    "w": 268,
+    "h": 32,
+    "radius": "0px",
+    "font": "21px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "input-bar-field"
+   },
+   {
+    "sel": ".search-seated",
+    "w": 324,
+    "h": 54,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "input-bar search-seated"
+   },
+   {
+    "sel": ".dashed-well input",
+    "w": 245,
+    "h": 54,
+    "radius": "9999px",
+    "font": "18.2685px",
+    "bg": "rgb(243, 236, 226)",
+    "cls": "field-control glass-defined flex-1"
+   },
+   {
+    "sel": ".dashed-well button.rounded-full",
+    "w": 44,
+    "h": 44,
+    "radius": "1.67772e+07px",
+    "font": "21px",
+    "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-bor"
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 33,
+    "h": 31,
+    "radius": "9999px",
+    "font": "21px",
+    "bg": "rgb(237, 230, 222)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 33,
+    "h": 31,
+    "radius": "9999px",
+    "font": "21px",
+    "bg": "rgb(237, 230, 222)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 33,
+    "h": 31,
+    "radius": "9999px",
+    "font": "21px",
+    "bg": "rgb(237, 230, 222)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[role=list].palette-card-grid",
+    "w": 324,
+    "h": 428,
+    "radius": "0px",
+    "font": "16px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px]"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "16px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "16px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "16px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": "h1, h2",
+    "w": 358,
+    "h": 16,
+    "radius": "0px",
+    "font": "13px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "route-title font-display"
+   },
+   {
+    "sel": "h1, h2",
+    "w": 324,
+    "h": 32,
+    "radius": "0px",
+    "font": "25.888px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "pane-header-title font-display"
+   }
+  ]
+ }
+]
