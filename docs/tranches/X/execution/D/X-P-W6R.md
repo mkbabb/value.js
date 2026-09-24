@@ -239,3 +239,42 @@ Gates `.l` (L-1..3) and `.p` (P-1..6) touch no path this cure moved, so they sta
 - The live CI step still reads `skipped` until the foreign born-RED C-5/NG-6 in `npm test` are cured (not W6R's). With this cure, the step can pass on the producer checkout once it runs.
 
 **Result: D-1 CURED (`73d344a2`); Check 2 owed.**
+
+## Check 2
+
+SERVED MODEL: claude-opus-5-5 — FRESH ADVERSARIAL CHECK (L-20, pass 2), 2026-09-23 ~20:35–21:00 EDT; 1-min load ~54. Verify-only: this seat cured nothing.
+
+- **Crash-recovery.** ⟨git status --porcelain -- bench .github package.json docs/tranches/X/execution/D docs/tranches/X/parse-that⟩ → empty. parse-that's dirty `.cargo/config.toml`, `README.md`, `rust/**` and value.js's sibling rows (incl. `scripts/dev/dev.sh`) untouched.
+- **Read.** Spec `W6R.md` whole (36 lines); this record's header through Unit plan, receipts, Close, Check 1, Repair 1; `git show` of `73d344a2` (whole diff) and `a13c1229`, and `--stat`/`--name-only` of every other named commit.
+
+### Axes
+| Axis | Reading (this seat) | Result |
+|---|---|---|
+| (1) claimed GREENs reproduce | **D-1 gate (CI recipe, no sibling)**: ⟨`git clone --depth 1 --branch tranche-u file://…/value.js vj` (HEAD `a13c122`) → `git fetch --unshallow` → `is-shallow` `false` → symlink node_modules → `test -e ../keyframes.js` → `NO-SIBLING`; fresh `TMPDIR` per run → `npm run test:css-equivalence`⟩ x2 → run 1 `exit 0 · Test Files 2 passed (2) · Tests 19 passed (19)` · `parseStylesheet × 32021 … classes {"SH-1":13} · STYLESHEET DEFECTS 0` · MIRROR-DEFECTS 0 all assay rows; run 2 identical; each fresh TMPDIR ends holding `value-js-retired-2155142bad8b`. Freshness ⟨`node bench/css-equivalence/freeze-keyframes-sheets.mjs --check`⟩ x2 → `matches (65 sheets @ 9bdcdad5…)` both. C-1 ⟨grep -n "css-equivalence\|fetch-depth" ci.yml package.json⟩ → `ci.yml:49 fetch-depth: 0` · `ci.yml:76 - run: npm run test:css-equivalence` · `package.json:69`. L-1 `10` · L-3 `4` · L-2 `:1461 ### §15-A.2 SH-1 · UNMATCHED DELIMITER … 13 cases`. E-3 ⟨git diff --numstat 812daa4b HEAD -- DIVERGENCE-LEDGER.md⟩ → `49 0`. P-1 `0`. P-2 parse-that `0` tracked; value.js evidence `62` + MANIFEST. P-3 `CHANGELOG.md:5 ## Unreleased … 2026-09-23`. P-4 seam regex `0`; `CLAUDE.md:18 Domain parsers (JSON, CSV)`. P-5 ⟨npm test⟩ x2 → `14 passed (14) · 134 passed (134)`, exit 0 both. P-6 ⟨npm run proof:all⟩ x2 → proofs 1–9 GREEN both (`manifest-gate` · `subpath` · 6× PASS · `no-css-surface GREEN — 31 runtime exports`); `proof:perf` FAIL `+70.9%` (2979 ns, load 54.98) and `+63.2%` (2844 ns, load 53.70) vs 1742 ns, exit 1. | 13/13 claimed GREENs reproduce; P-6 perf RED as stated |
+| (2) writes inside §File Bounds | `73d344a2` → `ci.yml` (+6, producer job only) · `bench/css-equivalence/{freeze-keyframes-sheets.mjs (new), keyframes-sheets.json (new), stylesheet.measure.test.ts (+8 −5)}`: the bench paths are §0bt ADJACENT-LINE edits (same concern: `.c`'s instrument runs in CI), named by Check 1's cure and listed in Repair 1's "Adjacent edits". `a13c1229` → this record + LEDGER (+1 line). Earlier commits as Check 1 read them. ⟨git log 1d970c7c~1..HEAD -- scripts/dev/dev.sh⟩ → 0 commits. | GREEN |
+| (3) no masking fallback | `73d344a2` read whole. No `continue-on-error`, skip or allowlist. The provenance guard **throws** on drift, so it fails closed. `freeze-keyframes-sheets.mjs` mirrors the test's `sheetsAt` byte-for-logic (same `STYLE` regex, `ls-tree -r --name-only <sha> -- .`, `.css`/`.vue` filter, blank-drop). The census still reads 32021 sheets, `SH-1:13`, DEFECT 0, the same as the sibling read, so the assertion was not narrowed. | GREEN |
+| (4) commit families | Repair 1 has one meaning per commit: `73d344a2` (the CI checkout depth and the frozen corpus together, since both are needed for the step to run on CI) and `a13c1229` (record + ledger). The `.c`, `.l` and `.p` families hold as Check 1 read them. | GREEN |
+| (5) E-3 | ⟨git diff --stat 1d970c7c~1..HEAD -- docs/tranches/X/parse-that/waves docs/tranches/V/megatranche/registry/adjudicated scripts/dev/dev.sh docs/tranches/X/COHESION.md⟩ → empty. §15.x has 0 deletions. | GREEN |
+| (6) mail | ⟨find <path> -type f -newer INBOX.md⟩ (INBOX mtime 20:19): value `V/` 0 · glass `BK/coordination` 0 · glass `BL` 4 (`design/dock/harness/*.mjs`, glass-internal tooling, not mail) · keyframes `V/coordination` 0 · atlas `P/coordination` 0. | 0 UNREAD |
+| (7) four-verb line | The spec has no §State line. The Close moved the row to IMPLEMENTED. This check moves it to CLOSED on the bar below. | lawful |
+| (8) the spec's goal at the bytes | `.c`, "the equivalence proof returns to CI": the producer job now checks out full history, the corpus is tracked, and a depth-1 clone that follows the CI recipe with no sibling reads 19/19 x2. The goals of `.l` (the ledger follows the files) and `.p` (the instruments leave, no `.claude/jobs`, CHANGELOG entry, CLAUDE.md seam-free) are met at the bytes. **Live CI** has not yet run the cure: value.js is `ahead 10` of origin, and the only run carrying the step (`35937388529` at `3690d0b9`) predates `73d344a2`. The step runs after `npm test`, which is RED on the foreign born-RED C-5/NG-6 (X.P.W6's honest-RED G-x2), so the live step reads `skipped` until that cure lands. The spec prescribes no push, and the order the spec writes ("alongside `npm test`") is honoured. | MET (live CI conditional on foreign C-5/NG-6; INFO C2-1) |
+| (9) published figures | 19/19 x2, 65 sheets, 32021/`SH-1:13`, `49 0`, `10`, `4`, `62`, 134/134 x2 all reproduce. The perf percentages drift with load, as every prior seat reported. | GREEN |
+| (10) honest-RED | **P-6 `proof:perf`**: the spec names it by id (W6R.md "PT-PERF-LOAD and RES-x-1 … stay under OC-1, the bench bar, which is an owner item"). ⟨git diff --stat 92d8ea7 cb9c0d4 -- typescript/src rust⟩ → empty, so W6R moved no measured byte. The Close's Residuals register names the OWNER (OC-1). **Relieved.** BBNF-TS-TOOLCHAIN (F-b-1..3) has no W6R gate; the spec carries it to the owner by name. **Relieved (carried, not a gate).** No other gate is RED. D-1 (Check 1) is CURED and re-measured above. | set = {P-6 proof:perf = PT-PERF-LOAD} |
+
+### Register
+| # | Severity | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| D-1 | (was HIGH) **CURED** | `.c`'s step could not pass on a CI checkout. | Axis (1): the CI-recipe clone with no sibling reads 19/19 x2; the negative control (depth 1, no unshallow) was banked by Repair 1. | `73d344a2`. Closed. |
+| C2-1 | INFO | The live CI has not yet exercised the cure. It is local (`ahead 10`), and the live step reads `skipped` behind `npm test`'s foreign born-RED C-5/NG-6. | ⟨gh run list --branch tranche-u⟩ → the newest run `35937388529` at `3690d0b9` (pre-cure), `in_progress`. | None owed by W6R. The next push, plus the C-5/NG-6 owner's cure, turns the live step. W7 G-suite reads it there. |
+| C2-2 | INFO | `freeze-keyframes-sheets.mjs --check` needs the `../keyframes.js` sibling, so it is an authoring-time tool, not a CI gate. | Script header: "Generated … from the sibling at authoring time only". The test's own provenance guard is what CI enforces. | None. |
+| D-2, D-3 | INFO | These stand as Check 1 registered them: evidence carries the absolute strings (E-3), and RES-p-1 is routed to W7's opener or the orchestrator. | Check 1 · Repair 1. | None inside W6R. |
+
+### Successor conjuncts
+- **X.P.W7** (W7.md:3 "follows its close"; :7 "cut from master **after X.P.W6R `.p` lands**"; :103 "after X.P.W6R `.c` has landed its `test:css-equivalence` step").
+  - `.p` landed and pushed: parse-that ⟨git status -sb⟩ → `master...origin/master`, level at `cb9c0d4`. **GREEN.**
+  - `.c` step landed: `ci.yml:76`, made CI-runnable by `73d344a2`. **GREEN.**
+  - The close conjunct turns **GREEN with this check's CLOSED stamp**.
+  - W7 is **not blocked** by W6R. W7's G-suite (:185) inherits the live-CI conditional in C2-1 (the foreign C-5/NG-6).
+
+### Verdict
+**CONFORMANT-HONEST-RED.** No BLOCKER, CRITICAL or HIGH remains. All 13 claimed GREENs reproduce. The honest-RED set is {P-6 `proof:perf` = PT-PERF-LOAD, OC-1, owner}. The LEDGER row is set to `CLOSED 2026-09-17 (honest-RED: P-6 proof:perf = PT-PERF-LOAD)` and an event line is appended.
