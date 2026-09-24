@@ -21,3 +21,18 @@ The owner ordered a full UI audit of every page (OA-37). The fourier register, `
 - All 256 UIA-F rows are dispositioned. Each is either CURED with its falsifier ×2, or routed by id: GLASS to O-59/O-63, SERVER to its api cure.
 - Full e2e at `--workers=1`, twice, with the load recorded. REDs stay within the named baseline set plus the honest-RED ids.
 - `vue-tsc -b` 0. `vitest` GREEN.
+
+## ADDENDUM 2026-09-24 (COHESION §0cq): OA-57/59/60 join F.W14U
+- **Owner, verbatim (2026-09-24):** *"the dock when collapsed is not correct--same with keyframes.js and the docks in the other apps; … the easing curve picker is not organized well with proper design hierarchy and dividing … the side controls pane in fourier should be seperated, not totally attached, like it is now. The table of contents should be hideable in the paper view, it should slide under the paper and become a drawer that expands out to where it is now. The hide/show animation ball preview in keyframes.js should have a eye icon in every view, and it should not impact the fow, it should float in the top right corner and it should animate the hide and show--ensure that we're not duplicating any component in any view, too: KISS, DRY. Audit our component structure for cogency in every project. All issues should be fixed at the glass-ui root, too. The mobile view for the controls and panes in keyframes.js are wrong and not centreed and aligned properly. Audit every mobile view for every mobile app view for all projects, too. Keep ttrack of the projects, too, and hold them in your plans and mind, like parse-that, bbnf, keyframes.js, etc."*
+- **Frames:** `fourier/evidence/W14/owner-2026-09-24-side-pane.png` (the controls pane fused to the viewport edge) and `audit/owner-2026-09-24-collapsed-dock.png`.
+- **New units, run before the family units:**
+  - **`F.W14U.s` the side controls pane is separated, OA-59.** The Configurator's controls pane becomes a detached glass card: an inset gutter from the viewport edge and from the stage, all four corners at `--radius-card`, and its own shadow. It is never flush with or attached to the edge or the stage. This holds at 1440, 1024 and 390, where the mobile sheet keeps its own form. It uses glass's Configurator tokens, and if glass lacks a detached mode, the gap goes to O-65.
+  - **`F.W14U.t` the paper's table of contents becomes a hideable drawer, OA-60.**
+    - A toggle hides the ToC. Hiding it slides the ToC **under** the paper, animated. It collapses to a drawer tab at the paper's edge.
+    - Expanding the tab slides it back out to exactly where it sits now.
+    - The state persists per viewer, with try/catch around storage.
+    - Keyboard: the toggle is a button with `aria-expanded`, and focus returns to the toggle.
+    - Reduced motion is instant.
+    - `PaperSidebar` and `MobileFloatingToc` become one component with two presentations, and no duplicate stays (DRY).
+    - Use glass's drawer or sheet primitive, and relay any gap to O-65.
+  - **`F.W14U.d` the collapsed dock, OA-57, fourier's consumer half.** Read and cure consumer causes. The producer half is O-65, honest-RED **DOCK-COLLAPSED-FORM**.

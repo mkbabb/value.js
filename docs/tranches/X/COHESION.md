@@ -3317,3 +3317,24 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - **`.k2`:** the leaf hands `tokenQuantity` its split, and results are frozen at construction, not walked again.
   - **`.g`:** W7.md (g)'s emitter levers, each admitted only on paired numbers with no regression on any engine, plus the R-v-3 warm-up fix for the retired arm.
   - **LEDGER hygiene:** a seat stages only its own hunk. That cures C3-3, where repair 2 swept in Track C's LEDGER cells.
+
+## §0cq ADDENDUM 2026-09-24 — the owner's 2026-09-24 docket: OA-57..OA-65
+- **Owner, verbatim:** *"the dock when collapsed is not correct--same with keyframes.js and the docks in the other apps; … the easing curve picker is not organized well with proper design hierarchy and dividing … the side controls pane in fourier should be seperated, not totally attached, like it is now. The table of contents should be hideable in the paper view, it should slide under the paper and become a drawer that expands out to where it is now. The hide/show animation ball preview in keyframes.js should have a eye icon in every view, and it should not impact the fow, it should float in the top right corner and it should animate the hide and show--ensure that we're not duplicating any component in any view, too: KISS, DRY. Audit our component structure for cogency in every project. All issues should be fixed at the glass-ui root, too. The mobile view for the controls and panes in keyframes.js are wrong and not centreed and aligned properly. Audit every mobile view for every mobile app view for all projects, too. Keep ttrack of the projects, too, and hold them in your plans and mind, like parse-that, bbnf, keyframes.js, etc."*
+- **Routing:**
+  - **OA-57, the collapsed dock in every app.**
+    - Producer: **O-65** (`relay/X-ALL-BK-DOCK-COLLAPSED-FORM.md`, mirrored, sent live), honest-RED **DOCK-COLLAPSED-FORM**.
+    - Consumer halves: X-W12 (e), KF.W13W `.d` and F.W14U `.d`.
+  - **OA-58, the easing picker's hierarchy:** KF.W13W `.p`.
+  - **OA-59, fourier's side pane detached:** F.W14U `.s`.
+  - **OA-60, the paper table of contents as a hideable drawer:** F.W14U `.t`. PaperSidebar and MobileFloatingToc become one component.
+  - **OA-61, one floating eye toggle in every keyframes view:** KF.W13W `.e`, retiring duplicates.
+  - **OA-62, component cogency, every project,** and **OA-64, mobile views, every project:** **AUDIT-2** (`audit/AUDIT-2.md`). It launches at the next free workflow slot; all four are busy under the cap. keyframes mobile gets its own unit now, KF.W13W `.m`.
+  - **OA-63, fixed at the glass root:** every glass half is relayed (O-65 plus the standing O-53..O-64), and no local copies are made.
+  - **OA-65, keep track of the projects:** the project roster is held in the orchestrator's memory and in this file's §0cq.
+- **The roster:**
+  - **value.js:** Track A.
+  - **keyframes.js:** Track B.
+  - **fourier-analysis:** Track C.
+  - **parse-that and bbnf-lang:** Track D, via X.P.W7 and X.P.W7P.
+  - **glass-ui:** relay only, live session glass-ui-9d, BL.
+  - **latex-paper:** consumed by fourier's paper view, and reached only through F.W14U `.t` if its drawer needs a producer change.

@@ -467,3 +467,33 @@ Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d
     - Record before frames and after frames.
     - The falsifier reads RED at the pre-cure bytes on every census site.
 - **Bounds:** keyframes `demo/**`, and `test/demo/**` additive, plus the value.js receipt. The ADJACENT-LINE RULE applies. A glass half, such as a glass chart primitive, goes by relay only.
+
+## KF.W13W — ADDENDUM 2026-09-24 (COHESION §0cq): OA-57/58/61/64 join the wave
+- **Owner, verbatim (2026-09-24):** *"the dock when collapsed is not correct--same with keyframes.js and the docks in the other apps; … the easing curve picker is not organized well with proper design hierarchy and dividing … the side controls pane in fourier should be seperated, not totally attached, like it is now. The table of contents should be hideable in the paper view, it should slide under the paper and become a drawer that expands out to where it is now. The hide/show animation ball preview in keyframes.js should have a eye icon in every view, and it should not impact the fow, it should float in the top right corner and it should animate the hide and show--ensure that we're not duplicating any component in any view, too: KISS, DRY. Audit our component structure for cogency in every project. All issues should be fixed at the glass-ui root, too. The mobile view for the controls and panes in keyframes.js are wrong and not centreed and aligned properly. Audit every mobile view for every mobile app view for all projects, too. Keep ttrack of the projects, too, and hold them in your plans and mind, like parse-that, bbnf, keyframes.js, etc."*
+- **Frames:**
+  - `audit/owner-2026-09-24-collapsed-dock.png`: the collapsed dock. The progress track and the count "1" spill outside the plate, and the × floats loose beside it.
+  - `keyframes/evidence/W13U/owner-2026-09-24-easing-picker.png`: the easing gallery.
+- **New units, which run after `.v` and serially:**
+  - **`[KF.W13W.p]` the easing picker, OA-58.** It gets one hierarchy:
+    - a family filter as one glass segmented or tabs control, never a row of loose stadium pills
+    - a divider between the filter and the grid
+    - family sections, each with a header on the type scale, when the filter is "All"
+    - one tile idiom on `--radius-field`: the curve with its ball on the curve (`.b`), and the name beneath, never truncated
+    - the selected tile marked by ink and ring, not by a grey plate
+    Census every easing picker: the gallery, the dropdown and the Controls-pane picker. All of them use one component.
+  - **`[KF.W13W.e]` the preview eye toggle, OA-61.**
+    - Build **one** shared toggle component, with an eye and eye-off icon. It shows or hides the animation-ball preview in **every** view.
+    - It floats in the view's top-right corner, overlaid and absolutely positioned, so it never takes part in the layout's flow.
+    - The show and hide are animated, with a cross-fade and scale on the keyframes engine's own easing. Reduced motion toggles instantly.
+    - Census first: every existing hide/show control is **retired** onto this one component. No duplicate survives (KISS, DRY).
+    - Gate: toggling moves no other element's box by more than 0 px, headed, at 1440 and 390.
+  - **`[KF.W13W.m]` keyframes mobile, OA-64.** The controls and panes at 390 and 430 wide, in portrait and landscape, are centred and aligned.
+    - Their inline centre sits within 1 px of the viewport's centre.
+    - Their edges sit on the page gutter.
+    - Nothing overflows horizontally.
+    - The Sheet or Drawer detents from KF.W13R hold.
+    Every scene, both themes.
+  - **`[KF.W13W.d]` the collapsed dock, OA-57, keyframes' consumer half.**
+    - Read the collapsed state on the served page and cure any consumer cause.
+    - The producer half (the plate not wrapping its collapsed content) is O-65, relay only. Record honest-RED **DOCK-COLLAPSED-FORM** until the pinned glass cures it.
+- **Every glass half goes to glass** (OA-63, "fixed at the glass-ui root"). Cite O-65 or O-59. No local copy of a glass surface.
