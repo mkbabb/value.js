@@ -5,20 +5,25 @@
             tier="resting"
             class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
         >
-            <PaneHeader description="That address does not name a view of this app.">
-                Not Found
-            </PaneHeader>
-            <div class="px-4 sm:px-6 pb-6 pt-2 flex flex-col items-start gap-4">
-                <p class="text-body text-muted-foreground max-w-prose">
-                    The demo resolves every address to a named view. This one resolves
-                    to none of them — either it was mistyped, or it names a surface this
-                    build does not carry.
-                </p>
-                <Button size="sm" @click="goHome">
-                    <Home class="w-4 h-4 shrink-0" />
-                    Back to the picker
-                </Button>
-            </div>
+            <PaneHeader>Not Found</PaneHeader>
+            <!-- X.W12.u3 — the dead end speaks the app's EmptyState register
+                 (UIA-V-447): one statement, the address that missed as the
+                 plate's machine-truth line in Fira on the certified ink
+                 (UIA-V-446/449; it replaces the two developer-voice sentences
+                 and the static muted ink), and the way home on glass's quiet
+                 emphasis, which paints its own hover (UIA-V-183/656). -->
+            <EmptyState
+                variant="error"
+                message="This address names no view of this app."
+                :detail="missedAddress"
+            >
+                <template #action>
+                    <Button size="sm" emphasis="quiet" @click="goHome">
+                        <Home class="w-4 h-4 shrink-0" aria-hidden="true" />
+                        Back to the picker
+                    </Button>
+                </template>
+            </EmptyState>
         </Card>
     </div>
 </template>
@@ -41,18 +46,29 @@
  * an admin URL: resolving to not-found rather than to the picker keeps the guard
  * from confirming that `/admin/users` is a real route.
  */
-import { inject } from "vue";
+import { computed, inject } from "vue";
+import { useRoute } from "vue-router";
 import { Home } from "@lucide/vue";
 
 import { Card } from "../../ui/card";
 import { Button } from "../../ui/button";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import EmptyState from "../../shared/ui/EmptyState.vue";
 import { VIEW_MANAGER_KEY } from "../../shell/useViewManager";
 
 // The shell's own navigation seam (App.vue provides it) — not a raw
 // `router.push`, so the return trip carries the query the rest of the app
 // carries and records `previousView` like every other view switch.
 const viewManager = inject(VIEW_MANAGER_KEY)!;
+const route = useRoute();
+
+// The address that missed, as the visitor reads it: the catch-all's decoded
+// `pathMatch` segments (the guard's fail-close carries the same param), never
+// the percent-encoded `route.path`.
+const missedAddress = computed(() => {
+    const match = route.params.pathMatch;
+    return match === undefined ? route.path : `/${[match].flat().join("/")}`;
+});
 
 function goHome(): void {
     viewManager.switchView("picker");
