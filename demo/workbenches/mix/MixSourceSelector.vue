@@ -148,7 +148,7 @@ const swatchKeys = computed(() => {
                 <div class="dashed-well">
                     <!-- W5-7: the "N colors" counter died — it restated the
                          visible chips (and read "1 colors" at one). -->
-                    <span class="text-small font-display font-semibold text-muted-foreground">Selected</span>
+                    <span class="section-label">Selected</span>
                     <TransitionGroup
                         name="vj-enter"
                         tag="div"

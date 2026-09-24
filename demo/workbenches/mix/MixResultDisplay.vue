@@ -56,7 +56,8 @@ async function onCopy() {
         class="mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well"
         :class="{ 'mix-plate--ghost': ghost }"
     >
-        <span class="font-display text-caption font-bold text-muted-foreground uppercase tracking-wide">Result</span>
+        <!-- X.W12.u2 (UIA-V-137): every Mix section head (Selected · From palettes · Result) speaks the one .section-label voice. -->
+        <span class="section-label">Result</span>
 
         <Transition name="vj-morph" mode="out-in">
             <!-- The awaiting well: the convergence target, announced before
