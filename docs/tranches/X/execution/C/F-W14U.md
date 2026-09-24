@@ -807,3 +807,157 @@ All pass 3:1. The chips' text inks are c1's table.
 - (R-5) The vedit equation-panel cases need `--workers=1` on the shared API (load, see above).
 
 **Status: CURED** (5 tool hues and the ℱ glyph restored; falsifier RED ×2 → GREEN ×2; contrast ≥ 3:1 in both themes), with CHIP-PRESSED-TINT honest-RED at glass (O-76).
+
+### F.W14U.eq
+
+SEAT `.eq`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` read whole (78 lines, Units :8-18 + addenda (a)–(g)); this record's header through the Unit plan, `.srv`'s consumer contract (:362-374), `.vedit`'s dispositions and escalations; COHESION §0cl–§0cn and §0da (no ruling on `.vedit` E-1/E-2 found: ⟨`grep -n 'F-85\|W14U.eq' COHESION.md`⟩ → 0). Register rows read at `audit/UI-AUDIT-fourier.md:104,186-188,282-288,339`.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → nothing under this unit's set (`web/src/components/equation/`, `ui/{SliderControl,CollapsibleSection}.vue`, `e2e/f-w14u-eq.spec.ts`, `screenshots/f-w14u/eq/`); the dirty paths (`BasisSelector.vue`, `ContourSettings.vue`, `style.css`, `f-w14u-vstage.spec.ts`, tracked `screenshots/f-w14/*.png`) are sibling seats' — read, never touched or staged. **Nothing inherited.**
+
+**Anchors at the true bytes (drift recorded).**
+- The brief names F-113 "sum curve" and F-114 "popover clipping". The register (governing) says F-113 = a failed compute invisible from the 390 Controls pane and F-114 = three disclosure sections in two registers. The rows were executed as the register writes them.
+- F-35's consumer anchors `FunctionInput.vue:86-90` (now `:94`, `displayTermsMax`) and `EqCoefficientsPanel.vue:78` (`:sub`) hold. The server half landed at `.srv` `798c98f`. ⟨`curl POST /api/equations/compute {"expression":"sin((x",…}`⟩ → `422 urn:contract:validation-failed "Cannot parse expression: …"`, so the API on :8000 serves the cured code.
+- F-203's `EquationView.vue:612-619` is now the `.coeff-popover` block (`:668-677` at HEAD).
+- The glass surfaces measured at the installed 10.0.1:
+  - `ToggleGroup` type=single renders a radiogroup of radios.
+  - `LabeledField` has `invalid` plus an `#error` slot, and its slot props carry `describedBy` and `errorId`.
+  - `Progress` takes `modelValue: null` for an indeterminate bar.
+  - `Badge` has `tone` (neutral, destructive, success, warning, info) and `data-slot="badge"`.
+  - `.popover-content` has `border-radius: var(--radius-panel)`, which is 12px.
+  - `ConfiguratorLayer`'s region child is `min-h-0 overflow-hidden`.
+  - Popover and Tooltip export no virtual-anchor or `reference` prop (⟨`grep -n reference popover/PopoverContent.vue.d.ts`⟩ → 0).
+
+**Acts, in order.**
+1. **Falsifier first**, `web/e2e/f-w14u-eq.spec.ts`, 13 cases: q35 q112 q113 q114 q201 q202 q203 q204 q205, q206 (1440 and 390), and q253 ×2. It was run against the pre-cure bytes, which were only the new spec file (the one cure written early, `NotationPills.vue`, was parked in the scratchpad and ⟨`git checkout HEAD -- …NotationPills.vue`⟩ restored HEAD before any run).
+   - ⟨`FW14U_PHASE=before BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-eq.spec.ts --project=chromium --headed --workers=3 --reporter=line`⟩ ×2 → **13 failed** ×2 (load 56–74). A preliminary run on an earlier text of the spec also read 13 failed and is not counted.
+   - Two assertions were then amended on the same pre-cure bytes: q202 filters the busy status by its progressbar, and q253 adds the "Approximate" tier label. ⟨`… -g "q202|q253"`⟩ ×2 → **3 failed** ×2.
+   - Cause per case, from the RED logs:
+     - q35: no "Displayed harmonics" control.
+     - q112 and q113: no `aria-invalid`.
+     - q114: `.configurator-layer` count is 1, not 3.
+     - q201: the legend reads `f(x)` beside `f(t)`.
+     - q202: no progressbar, and the plot moves.
+     - q203: radius 10px, where the canon is 12px.
+     - q204: 0 radios.
+     - q205: 2362 saturated pixels under the plot box.
+     - q206 at 1440: 21 off-rung texts (`f(x)@11px`, `a + b@11px`, legend `@13px`, `N=0/8@12px`, …).
+     - q253: no lucide svg; the tab strip's alpha is 1.
+   - BEFORE frames: none are banked. Every RED case failed before its frame line, so the before state is the RED log plus the orientation frames under the scratchpad.
+2. **Cures** (fourier, one family commit):
+   - **F-35 (consumer).**
+     - "Display terms" is now **Displayed harmonics**, with the subtitle "in the a + b view · DC counts as one".
+     - The control's max is N + 1 (`FunctionInput.vue` `displayTermsMax`), and the budget cap watch in `EquationView.vue` is `v + 1`. This matches `.srv`'s budget, which counts harmonics.
+     - The Coefficients layer counts |n| groups: "all 21 harmonics", where it said "41 terms". The reconcile note compares like with like.
+   - **F-112 + F-113 (consumer).**
+     - `isInputRejection` (422 `urn:contract:validation-failed`) routes the server's `detail` to `expressionError`. It is shown under the Expression field through glass `LabeledField` (`invalid`, `#error`, and `describedBy` on the Input), with no Retry.
+     - An edit clears the error. The field sits in the Controls pane, so the error is visible at 390.
+     - `failureMessage` reads `problemMessage` (detail first).
+   - **F-114 + F-207.** Function and Controls are glass `ConfiguratorLayer`s, adjacent siblings of the Coefficients layer inside one gapless `.eq-layers` stack, so they form one group in one register. **`web/src/components/ui/CollapsibleSection.vue` is deleted** (⟨`grep -rln "import.*CollapsibleSection" web/src`⟩ → 0).
+   - **F-201.**
+     - The plot, legend and tooltip speak the series' variable (`seriesVariable`, read from the rendered TeX: `f(t)`).
+     - The Sum tooltip is `S_N(t)`. It was "f(x) = <expression>", which is wrong for a partial sum.
+     - The legend, timeline and Harmonics field agree on N.
+   - **F-202.**
+     - Status is out of flow: one plate on the equation card's seam (absolute, `translateY(50%)`, glass `glass-floating glass-opaque`, fade only).
+     - Busy shows glass indeterminate `Progress`. A transient failure shows `role=alert` with Retry. An input rejection shows a status note.
+     - The result is marked `data-stale` and dimmed.
+     - The two cold states (F-71's carried ring sites `EquationView.vue:401,:429`) are glass `Progress` and a glass `Card`.
+   - **F-203.** The plot tooltip and the coefficient popover both sit on glass's `glass-floating` plate at `--radius-panel` (the `.popover-content` canon). The tooltip's own hand-rolled background, border and shadow are gone.
+   - **F-204.** `NotationPills` is `ToggleGroup type="single"`, keeping its notation hues on `data-state="on"` per addendum (g). Presets are `ToggleGroup type="single"` too, keeping the Fourier hue.
+     - The per-preset hover Tooltip was removed: its TooltipTrigger stamps its own `data-state` over the item's, measured in the first after-frame as no pressed tint. The chosen preset's description is the group's caption (`aria-describedby`).
+     - This also cures the ToggleGroup limb that `.vedit` E-1 names for F-85, in the same file.
+   - **F-205.**
+     - The y-range covers every harmonic curve.
+     - The legend is the plot's second cell (a flex gutter) and no longer an absolute overlay.
+     - The legend and tooltip ink are on `--type-caption`.
+   - **F-206.**
+     - The mode toggle's `a + b` 11px and Σ 16px literals are now the caption and small rungs.
+     - The timeline count's 12px literal is now caption, and so is the reconcile note (13px).
+     - The Harmonics row wraps (`.harmonics-row`) instead of pushing the Parseval button out.
+   - **F-253**, the cured limbs:
+     - A sweep-front rule marks the entering harmonic while mid-sweep.
+     - The tier is glass `Badge` on a tone (symbolic success · identified warning · spline info). The hand-rolled stadium is gone.
+     - Play and Pause are lucide. The two Font Awesome paths and the `.play-btn` repaint of glass's Button are deleted, and the `icon-swap` animation is kept.
+     - The 390 tab strip lost `bg-background`, matching `/w`'s strip.
+   - **R-2 from `.vedit`** (F-178's twin, `EquationView.vue:85`): the energy Metric keeps glass's ink (`energyColor` import dropped). **CURED.**
+3. **Iteration on the cured bytes, recorded rather than smoothed.**
+   - The first after-run ⟨`FW14U_PHASE=after …`⟩ read **4 failed · 9 passed**. Each failure had its own cause:
+     - q114: glass's `ConfiguratorLayer` region (`min-h-0 overflow-hidden`) clips the 24 px blur of glass Button's `0 8px 24px` shadow by 4 px at a 20 px layer pad. That is a producer clip, so the case now measures only consumer clippers (see R-1).
+     - q202: the new notation's series is 2 px taller, so the layout is re-read after the recompute settles, before the failure phase.
+     - q206: at 390, glass scales its own coarse-pointer controls to 18.27 px, so the rung census reads at the fine pointer (1440). The 390 case keeps the Parseval-row limb.
+     - The notation glyph's 1.15em literal was dropped.
+   - The status plate first sat over the equation's last line. It now straddles the card seam, is opaque, and fades only.
+   - The q112 read of `aria-describedby` now waits for the attribute (one GREEN run read it one render early).
+   - Every amendment kept the case RED on the pre-cure bytes: q114 still fails its layer count, q202 its progressbar, and q206 at 1440 its 21 off-rung texts.
+4. **GREEN ×2 on the settled bytes.** ⟨`FW14U_PHASE=after BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-eq.spec.ts --project=chromium --headed --workers=3 --reporter=line`⟩ ×2 → **13 passed** · **13 passed** (loads 83 / 84). The two runs before the q112 wait read 12+1 failed (q112) and 13 passed; they are not counted.
+5. **Neighbours**, ×2 on the final source bytes. ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/equation-interaction.spec.ts e2e/f-w14-uia.spec.ts -g "UIA-F-3|equation|interaction|four-step|reload" --project=chromium --workers=3`⟩ ×2 → **12 passed** ×2 (loads 60 / 54).
+   - That covers equation-interaction S2 (the four-step flow, with the adjacent locators), UIA-F-32, and UIA-F-33/34 at 1440 and 390.
+   - No `UIA-F-31` case exists in e2e (⟨`grep -rn 'UIA-F-31' web/e2e`⟩ → 0). The sum-curve edge rides `vitest` (`harmonics.test.ts`), which is GREEN.
+6. **Gates.** ⟨`npx vue-tsc -b`⟩ exit 0 · ⟨`npx vitest run`⟩ `Test Files 14 passed (14) · Tests 86 passed (86)`.
+7. **Commit.** fourier **`fcc5617`** is one family commit of 11 paths: 8 equation files, the deletion of `ui/CollapsibleSection.vue`, the falsifier, and one adjacent file (⟨`git show --stat HEAD`⟩ → `11 files changed, 925 insertions(+), 552 deletions(-)`). Pushed: ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `fcc561712de3`. The AFTER frames are on disk under `web/e2e/screenshots/f-w14u/eq/` (gitignored, not force-added; ⟨`ls | wc -l`⟩ → 15).
+
+**Adjacent edits (§0bt).** `web/e2e/equation-interaction.spec.ts:116-123,147,216-221`. These are the oracle's locators for the copy and roles this unit changed: the Notation `group`/`button`/`aria-pressed` becomes `radiogroup`/`radio`/`aria-checked`, and `/display terms/` becomes `/displayed harmonics/`. The assertions are unchanged.
+
+**Row dispositions (12).**
+| row | disposition | falsifier |
+|---|---|---|
+| F-35 (consumer) | **CURED** (the server half is `.srv` `798c98f`) | q35 RED ×2 (no Displayed harmonics control) → GREEN ×2 (a4 `0.0625`, never `0.031`; max N+1; "21 harmonics") |
+| F-112 (consumer) | **CURED** | q112 RED ×2 (no `aria-invalid`) → GREEN ×2 |
+| F-113 | **CURED** | q113 RED ×2 → GREEN ×2 |
+| F-114 | **CURED** (INTENT at the bytes, below) | q114 RED ×2 (1 layer) → GREEN ×2 |
+| F-201 | **PARTIAL**. The variable, the legend, the timeline and the field's N are CURED. The Σ upper bound is **ESCALATED (E-2)** | q201 RED ×2 (`f(x)` beside `f(t)`) → GREEN ×2 |
+| F-202 | **CURED** | q202 RED ×2 → GREEN ×2 |
+| F-203 | **PARTIAL**. One surface canon (the plate and the radius) is CURED. Hosting both on the glass primitive is **ESCALATED (E-3)** | q203 RED ×2 (10 px vs 12 px) → GREEN ×2 |
+| F-204 | **CURED** (it also cures the ToggleGroup limb `.vedit` E-1 names for F-85) | q204 RED ×2 (0 radios) → GREEN ×2 |
+| F-205 | **CURED** | q205 RED ×2 (2362 px under the box; legend on the curves) → GREEN ×2 |
+| F-206 | **CURED**. The type limb is CURED (1440). The Parseval-row limb read GREEN before the cure at HEAD 390 (the row fitted; `.harmonics-row` wraps it now) | q206 1440 RED ×2 → GREEN ×2; q206 390 GREEN-before (RED ×2 before only through its type limb, since withdrawn to 1440) |
+| F-207 | **CURED** for the consumer clip (CollapsibleSection deleted). The glass layer region's clip of a 24 px shadow blur is relayed as GLASS (R-1) | q114 clip limb |
+| F-253 | **PARTIAL**. See the limb list below | q253 ×2 RED ×2 → GREEN ×2 |
+
+F-253, limb by limb:
+- CURED:
+  - the sweep-front mark (drawn mid-sweep; seen in the frames);
+  - the glass Badge;
+  - the lucide Play glyph and the Button repaint;
+  - the opaque 390 tab strip.
+- Held by F-34 (`.u`): the `.eq-card`'s vertical clip at 390 (UIA-F-33/34 GREEN ×2).
+- Routed SERVER, **ESCALATED (E-2)**: "coefficient hover only in Σ mode". The hover hooks (`.eq-coeff eq-an…`) exist only in the server's sigma TeX, and the expanded TeX carries none.
+- **ESCALATED (E-4)**: "a polynomial labelled 'Conjectured'". The tier comes from `api/routers/equations.py` and its label from `web/src/lib/equation/notation.ts:55-60`, and both files are outside this unit's set.
+- **DESIGN-RULING**, not cured, per the §0da lesson ("an audit row that removes an app's identity colour … needs an owner ruling"): "red as the active ink". The Trig pill and the x(π−x) preset wear the Fourier red that addendum (g) restored.
+- **DESIGN-RULING**: "Compute duplicates Enter". The Enter key and the button are both lawful affordances; no defect was measured.
+- **Not reproduced, carried (R-3)**: "Coefficients slices its last row". It is `shared/CoefficientsSpectrum.vue` (not this set), and it was not framed open here.
+
+Tally ⟨count of the table's rows⟩ → 12:
+- CURED 9: F-35, F-112, F-113, F-114, F-202, F-204, F-205, F-206, F-207 (consumer).
+- PARTIAL 3: F-201, F-203, F-253.
+
+**F-114, INTENT at the bytes.** The register's fix line reads "One `<Configurator>` with three ConfiguratorLayers". The defect it names is "three stacked disclosure sections in two registers", and its mechanism is the layer's register. The cure gives the three siblings the ONE register (glass ConfiguratorLayers, joined by glass's adjacent-layer rule) and deletes the local wrapper.
+- The page is **not** re-hosted in `<Configurator>`'s stage and aside chassis. That chassis's detached-pane half is open at glass (O-75 CONFIGURATOR-DETACHED, F.W14V `.s2`), and moving the route onto it now would import the band the owner rejected on `/w`.
+- If the orchestrator reads the `<Configurator>` shell as owed, it belongs with F.W14V `.s2`'s adoption.
+
+**Escalations.** Each asks for a ruling on bounds or on a producer export. None is a substitute cure.
+- **E-1 (carried from `.vedit`), F-85 and F-241.** The ToggleGroup limb is now cured by F-204, in `NotationPills.vue`. What stays open is the glyph and ink limbs in `web/src/lib/equation/notation.ts:14-17`: the `eⁱ` Unicode glyph and the hsl literal inks. That file is not in this unit's set (`web/src/components/equation/**`). **Ask:** grant `lib/equation/notation.ts` to the unit that closes F-85/F-241.
+- **E-2, SERVER limbs of F-201 and F-253.**
+  - The Σ form's upper bound is the requested `n_harmonics` (20), while the plot, legend and timeline draw N_eff (8 under Parseval auto). `render_latex_sigma` takes no bound.
+  - The expanded TeX carries no `.eq-coeff` hover hooks.
+  - Both are `api/**` (`.srv`'s bounds, closed). **Ask:** a server addendum. `/compute` and `/simplify` should render the sigma bound at the displayed N and emit the coefficient hooks in the expanded form. The consumer then reads them with no further change.
+- **E-3, F-203's primitive limb** (joins `.vedit` E-2). Glass 10.0.1 exports no Popover or Tooltip virtual anchor (`PopoverContent` props: placement, `portal`, `ariaLabel`, and no `reference`). The two surfaces now share glass's plate and canon radius. **Ask:** add an O-59 addendum for a virtual-anchor export (a point anchor for cursor-following surfaces), to be adopted at the landing repin.
+- **E-4, F-253's "Conjectured" limb.** The tier label lives at `lib/equation/notation.ts:55-60` and the tier at `api/routers/equations.py`, and both are outside the set. **Ask:** re-home it with E-1 and E-2.
+
+**Residuals.**
+- (R-1) **GLASS, a new half for O-59.** `ConfiguratorLayer`'s collapse region (`.configurator-layer-region > .min-h-0.overflow-hidden`) clips any child shadow within its 20 px layer pad. glass Button's `0 8px 24px` shadow loses 4 px of blur at the Compute button (measured: button left 29, region left 9). The register's own fix, `overflow: clip` with `overflow-clip-margin`, is the producer's. Relay owed, and no consumer override was made.
+- (R-2) The preset hover Tooltips are retired (a TooltipTrigger's `data-state` overwrites the ToggleGroupItem's). The active preset's description is shown as the group's caption.
+- (R-3) F-253's "Coefficients slices its last row" is carried (`shared/CoefficientsSpectrum.vue`).
+- (R-4) Frames: the AFTER frames are banked (15). No BEFORE frames were banked, because every RED case failed before its frame line. The before state is the RED logs plus the seat's orientation frames (scratchpad, not banked).
+- (R-5) Tracked frames under `web/e2e/screenshots/f-w14/` are dirty from sibling runs. They are not this seat's and were not touched.
+
+**Gates BEFORE → AFTER.**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-u (this unit's 12) | 12 owed | 9 cured · 3 partial (E-2, E-3, and F-253's routed limbs) → **RED for the unit** |
+| falsifier `f-w14u-eq` | 13 failed ×2 (loads 56–74) | **13/13 ×2** (loads 83 / 84) |
+| equation-interaction + f-w14-uia F-32/33/34 | GREEN (banked) | **12/12 ×2** |
+| `vue-tsc -b` | 0 (banked) | exit 0 |
+| `vitest` | 86/86 (banked) | 86/86 |
+
+**Status: PARTIAL**, escalations E-1 (carried) through E-4, and the R-1 relay.
