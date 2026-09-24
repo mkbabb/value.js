@@ -743,3 +743,67 @@ All pass AA. The row labels, numbers and subtitles keep `--foreground` or `--mut
 - (R-4) The in-flight `f-w14u-vedit.spec.ts` read 6 failed / 9 passed on the shared tree mid-flight. That was before `dd123a9` landed, and the failures were element-not-found and timeouts, none about colour. `.vedit`'s own record carries its 13/13 ×2.
 
 **Status: CURED** (census 10 control hues restored + 1 token deleted; falsifier RED ×2 → GREEN ×2; contrast AA in both themes).
+
+## F.W14U.c2
+
+**Ruling:** COHESION §0db. The owner's "and the like" (addendum (g)) covers `dd123a9`'s removals. One Opus seat, same laws as c1. Before editing, `EditorControlsDock.vue` and `BasisSelector.vue` were confirmed clean: `.vedit` had landed as `dd123a9`, and no seat held them dirty.
+
+**Restored** (fourier **`aef636f`**, 4 paths):
+
+| control | hue (one palette) | route (glass as published) |
+|---|---|---|
+| Smooth contour (a menu row since `dd123a9`) | `--viz-amber` | the row tint through glass's `--menu-row-bg` (hue 15 %); the glyph inked on `:hover`/`[data-highlighted]` |
+| Simplify contour (menu row) | `--viz-chebyshev` | as Smooth |
+| Delete point (DockControl) | `--accent-pink` (`.is-rose`, as before) | DockControl's `--btn-hover-color` |
+| Save contour (DockControl) | `--viz-fourier` | `--btn-hover-color`, plus the pre-`dd123a9` 15 % hover plate |
+| Magnet glyph | `--viz-fourier` while radius > 0, `--muted-foreground` while off | the lucide `Magnet` returns beside the radius row in the More-tools menu. The popover toggle stays gone, as `dd123a9`'s structure. |
+| Fourier-mode chips | the `ℱ` glyph (`basisDisplay.fourier.icon`) on Epicycles and Series | inside ToggleGroupItem's default slot, `aria-hidden`, with the pre-`.vstage` compact sizing (1.75em). Tₙ and Pₙ were never lost. Off wears none. |
+
+A **tint** is the bare hue. An **ink** is the hue carried a quarter toward `--foreground` in OKLab, the chip recipe of X.F.W14.g (OA-43). On the first after-read, the bare inks measured 2.50 (amber), 2.84 (pink) and 2.68 (the Magnet red) against the light plates. That fails 3:1, so the inks carry. The rest of `dd123a9` stands: the menu, the Metric count, the Ellipsis face, and the amber Magnet track.
+
+**Falsifier.** Headed Chromium, :3100/:8000.
+- `e2e/f-w14u-vedit.spec.ts` v242. `dd123a9`'s `expect(tints.length …).toBeLessThanOrEqual(1)` ("one hover tint") is **INVERTED**: `toBeGreaterThan(1)`. New limbs:
+  - Delete's and Save's `--btn-hover-color` equal their carried inks, and a hovered Save paints its glyph in the Fourier ink.
+  - The Magnet glyph is in the menu and wears the Fourier ink at radius 4.
+  - Smooth's and Simplify's hovered glyphs wear their inks. Their rows are tinted (chroma ≥ 6, hue within 25° of the token).
+- The "no red-glyph Magnet toggle" line is split. Its structural half stays: the `Magnet options` toggle count is 0. Its colour half is inverted into the glyph limb above.
+- `e2e/f-w14u-vstage.spec.ts` e170 now asserts each chip's glyph. Adjacent change (§0bt): e170's three mode lookups move from `getByText(name, {exact})` to `getByRole("radio", {name, exact})`. The glyph is `aria-hidden`, so the accessible names are unchanged, but the text is not.
+- **RED ×2 on `dd123a9`'s bytes** (the two src paths reverted to HEAD, the spec edits kept). Each run: 3 failed (v242 once; e170 at 1440 and at 390), 12 soft limbs. The glyph limb reads `"Epicycles": null, "Series": null`, and the tint read is `[""]`. Log: `red-dd123a9-run.txt`.
+- **GREEN ×2 after:** vedit **13/13 ×2** at `--workers=1`, vstage **18/18 ×2**.
+  - vedit's four equation-panel cases and the two frame cases time out on `.eq-katex` under parallel workers on the shared API. That happens on either bytes: v177 alone passes on `dd123a9`'s bytes and on c2's.
+  - One vstage run also flaked e70's 3.5 s loading-status window under that load.
+  - Both are load, not colour.
+- Also: `vue-tsc --noEmit` exit 0 · `vitest` 86/86 · `f-w14-control-row` + `slider-scrub-contrast` + `f-w14-veil` + `contrast` **8/8**.
+
+**Contrast.** Hover glyph inks, painted pixels, headed, 1440. The ink is the computed colour (an `oklab()` value is converted by hand, because the 2D canvas left it unparsed). The surface is the hovered plate's or row's painted pixel. Non-text, so the need is 3:1. Data: `after-probes.json` and `before-probes.json`; script: `capture.mjs`.
+
+| theme | probe | ink | surface | ratio |
+|---|---|---|---|---|
+| light | Delete, hovered | 164,58,108 | 221,212,204 | **4.22** |
+| light | Save, hovered | 165,51,36 | 244,213,204 | **4.92** |
+| light | Smooth row, highlighted | 122,81,29 | 206,182,152 | **3.56** |
+| light | Simplify row, highlighted | 45,71,141 | 208,186,159 | **4.67** |
+| light | Magnet glyph (on), menu | 165,51,36 | 211,192,167 | **3.83** |
+| dark | Delete, hovered | 222,146,174 | 47,37,29 | **6.29** |
+| dark | Save, hovered | 238,145,133 | 80,53,44 | **4.78** |
+| dark | Smooth row, highlighted | 233,197,141 | 88,66,38 | **5.78** |
+| dark | Simplify row, highlighted | 159,179,231 | 76,54,29 | **5.44** |
+| dark | Magnet glyph (on), menu | 238,145,133 | 69,49,27 | **5.28** |
+
+All pass 3:1. The chips' text inks are c1's table.
+
+**Frames** (headed, 1440, light + dark; before = `b7607f8` HEAD with `dd123a9`'s dock, after = `aef636f`), in `fourier/evidence/W14U/c2/`: `{before,after}-chips-…` (ℱ on the modes), `-hover-delete-`, `-hover-save-`, `-hover-smooth-` and `-hover-simplify-` (the menu with the Magnet at 4).
+- The frames were taken on the shared served tree. Late in the unit that tree carried `.eq`'s uncommitted `components/equation/**` edits, which are outside these views.
+- The visualization minted for the frames (`noble-sliding-wheat-perch`) was soft-deleted with its own session.
+- The probe retries a pointer move until reka highlights the row. The first after-reads caught un-highlighted rows and mid-transition inks, and those reads were discarded.
+
+**Commits.** fourier **`aef636f`**: pathspec-only (the 4 files), pushed without force (`b7607f8..aef636f`).
+
+**Residuals (honest).**
+- **CHIP-PRESSED-TINT — honest-RED.** The pressed basis chip's 40 % basis border (pre-`.vstage`) is not restored. ToggleGroupItem's edge is glass's `glass-control-edge`, and there is no pressed-state tint token, so it is asked as **O-76**. The chip carries its hue as background and ink only.
+- (R-2) The Magnet's at-a-glance state: before `dd123a9`, the red Magnet sat in the dock row. It now sits inside the More-tools menu (dd123a9's structure, kept). The closed dock no longer shows that the magnet is on. That is a structural question, not a colour one; it is recorded for the orchestrator.
+- (R-3) The Smooth, Simplify and Reset menu rows set their glyph flush against the label, with no gap. That is `dd123a9`'s markup (seen in the frames), outside colour, and it is carried to `.vedit`'s owner.
+- (R-4) The test runs regenerated tracked frames under `web/e2e/screenshots/f-w14/`: `f-w14-veil` rewrote `after-veil-*`, and other seats' runs had already modified the `after-page-*` frames. They are left dirty and uncommitted, not reverted, for the frames' owners to decide.
+- (R-5) The vedit equation-panel cases need `--workers=1` on the shared API (load, see above).
+
+**Status: CURED** (5 tool hues and the ℱ glyph restored; falsifier RED ×2 → GREEN ×2; contrast ≥ 3:1 in both themes), with CHIP-PRESSED-TINT honest-RED at glass (O-76).

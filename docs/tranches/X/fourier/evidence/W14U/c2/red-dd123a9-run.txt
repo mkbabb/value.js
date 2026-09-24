@@ -1,0 +1,248 @@
+
+Running 3 tests using 1 worker
+
+[1/3] [chromium] › e2e/f-w14u-vedit.spec.ts:320:5 › X.F.W14U.vedit — the contour editor › v242 · UIA-F-242 ⊕ F-172 — dock micro-issues
+  1) [chromium] › e2e/f-w14u-vedit.spec.ts:320:5 › X.F.W14U.vedit — the contour editor › v242 · UIA-F-242 ⊕ F-172 — dock micro-issues 
+
+    Error: the tools do not share one hover tint (read [""])
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 1
+    Received:   1
+
+      346 |         // hue from the one palette through DockControl's published
+      347 |         // `--btn-hover-color`: Delete the accent pink, Save the Fourier red.
+    > 348 |         expect.soft(tints.length, `the tools do not share one hover tint (read ${JSON.stringify(tints)})`).toBeGreaterThan(1);
+          |                                                                                                            ^
+      349 |         const toolHues = await dock.evaluate((root) => {
+      350 |             const resolve = (v: string) => {
+      351 |                 const s = document.createElement("span");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:348:108
+
+    Error: Delete's hover ink is the accent pink
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "oklch(0.613 0.197 353.8)"
+    Received: "rgba(0, 0, 0, 0)"
+
+      365 |             };
+      366 |         });
+    > 367 |         expect.soft(toolHues.del, "Delete's hover ink is the accent pink").toBe(toolHues.pink);
+          |                                                                            ^
+      368 |         expect.soft(toolHues.save, "Save's hover ink is the Fourier red").toBe(toolHues.fourier);
+      369 |         // Save's hover, as glass paints it: the glyph takes the tint.
+      370 |         const save = dock.getByRole("button", { name: "Save contour" }).first();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:367:76
+
+    Error: Save's hover ink is the Fourier red
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "oklch(0.579 0.201 30.4)"
+    Received: "rgba(0, 0, 0, 0)"
+
+      366 |         });
+      367 |         expect.soft(toolHues.del, "Delete's hover ink is the accent pink").toBe(toolHues.pink);
+    > 368 |         expect.soft(toolHues.save, "Save's hover ink is the Fourier red").toBe(toolHues.fourier);
+          |                                                                           ^
+      369 |         // Save's hover, as glass paints it: the glyph takes the tint.
+      370 |         const save = dock.getByRole("button", { name: "Save contour" }).first();
+      371 |         await save.hover();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:368:75
+
+    Error: hovered Save wears the Fourier red
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "oklch(0.579 0.201 30.4)"
+    Received: "rgb(28, 25, 23)"
+
+      371 |         await save.hover();
+      372 |         await page.waitForTimeout(400);
+    > 373 |         expect.soft(await save.evaluate((b) => getComputedStyle(b).color), "hovered Save wears the Fourier red").toBe(toolHues.fourier);
+          |                                                                                                                  ^
+      374 |         // The Magnet radius stays a menu row (no popover toggle, dd123a9's
+      375 |         // structure); INVERTED colour limb: its Magnet glyph is back and wears the
+      376 |         // Fourier red while the magnet is on.
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:373:114
+
+    Error: the Magnet glyph is in the menu
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      392 |             return g ? { color: getComputedStyle(g).color, fourier } : null;
+      393 |         });
+    > 394 |         expect.soft(glyph, "the Magnet glyph is in the menu").not.toBeNull();
+          |                                                                   ^
+      395 |         expect.soft(glyph?.color, "the Magnet glyph wears the Fourier red while on").toBe(glyph?.fourier);
+      396 |         // Smooth and Simplify (menu rows since dd123a9) keep their hover hues:
+      397 |         // the glyph takes the hue and glass's `--menu-row-bg` carries its tint.
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:394:67
+
+    Error: hovered Smooth contour's glyph wears --viz-amber
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "rgb(157, 101, 21)"
+    Received: "rgb(28, 25, 23)"
+
+      427 |                 };
+      428 |             }, token);
+    > 429 |             expect.soft(read.glyph, `hovered ${name}'s glyph wears ${token}`).toBe(read.want);
+          |                                                                               ^
+      430 |             expect.soft(read.chroma, `hovered ${name}'s row is tinted (chroma ${read.chroma})`).toBeGreaterThanOrEqual(6);
+      431 |             expect.soft(read.dHue, `hovered ${name}'s row tint carries ${token}`).toBeLessThanOrEqual(25);
+      432 |         }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:429:79
+
+    Error: hovered Smooth contour's row is tinted (chroma 3)
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 6
+    Received:    3
+
+      428 |             }, token);
+      429 |             expect.soft(read.glyph, `hovered ${name}'s glyph wears ${token}`).toBe(read.want);
+    > 430 |             expect.soft(read.chroma, `hovered ${name}'s row is tinted (chroma ${read.chroma})`).toBeGreaterThanOrEqual(6);
+          |                                                                                                 ^
+      431 |             expect.soft(read.dHue, `hovered ${name}'s row tint carries ${token}`).toBeLessThanOrEqual(25);
+      432 |         }
+      433 |         await page.mouse.move(2, 2);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:430:97
+
+    Error: hovered Simplify contour's glyph wears --viz-chebyshev
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "oklch(0.484 0.163 265.5)"
+    Received: "rgb(28, 25, 23)"
+
+      427 |                 };
+      428 |             }, token);
+    > 429 |             expect.soft(read.glyph, `hovered ${name}'s glyph wears ${token}`).toBe(read.want);
+          |                                                                               ^
+      430 |             expect.soft(read.chroma, `hovered ${name}'s row is tinted (chroma ${read.chroma})`).toBeGreaterThanOrEqual(6);
+      431 |             expect.soft(read.dHue, `hovered ${name}'s row tint carries ${token}`).toBeLessThanOrEqual(25);
+      432 |         }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:429:79
+
+    Error: hovered Simplify contour's row is tinted (chroma 3)
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 6
+    Received:    3
+
+      428 |             }, token);
+      429 |             expect.soft(read.glyph, `hovered ${name}'s glyph wears ${token}`).toBe(read.want);
+    > 430 |             expect.soft(read.chroma, `hovered ${name}'s row is tinted (chroma ${read.chroma})`).toBeGreaterThanOrEqual(6);
+          |                                                                                                 ^
+      431 |             expect.soft(read.dHue, `hovered ${name}'s row tint carries ${token}`).toBeLessThanOrEqual(25);
+      432 |         }
+      433 |         await page.mouse.move(2, 2);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:430:97
+
+    Error: hovered Simplify contour's row tint carries --viz-chebyshev
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 25
+    Received:    176.32352941176464
+
+      429 |             expect.soft(read.glyph, `hovered ${name}'s glyph wears ${token}`).toBe(read.want);
+      430 |             expect.soft(read.chroma, `hovered ${name}'s row is tinted (chroma ${read.chroma})`).toBeGreaterThanOrEqual(6);
+    > 431 |             expect.soft(read.dHue, `hovered ${name}'s row tint carries ${token}`).toBeLessThanOrEqual(25);
+          |                                                                                   ^
+      432 |         }
+      433 |         await page.mouse.move(2, 2);
+      434 |         const magnet = await page.getByRole("menu").evaluate((menu) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vedit.spec.ts:431:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vedit-X-F-W14U-vedi-7d288-⊕-F-172-—-dock-micro-issues-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vedit-X-F-W14U-vedi-7d288-⊕-F-172-—-dock-micro-issues-chromium/error-context.md
+
+
+[2/3] [chromium] › e2e/f-w14u-vstage.spec.ts:340:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+  2) [chromium] › e2e/f-w14u-vstage.spec.ts:340:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan 
+
+    Error: each basis chip wears its glyph
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    +   "Epicycles": null,
+        "Off": null,
+        "Pₙ Legendre": "Pₙ",
+    +   "Series": null,
+        "Tₙ Chebyshev": "Tₙ",
+    -   "ℱ Epicycles": "ℱ",
+    -   "ℱ Series": "ℱ",
+      }
+
+      362 |                 els.map((e) => [e.textContent!.replace(/\s+/g, " ").trim(), e.querySelector(".basis-icon")?.textContent?.trim() ?? null]),
+      363 |             );
+    > 364 |             expect.soft(Object.fromEntries(glyphs), "each basis chip wears its glyph").toEqual({
+          |                                                                                        ^
+      365 |                 "ℱ Epicycles": "ℱ", "ℱ Series": "ℱ", Off: null, "Tₙ Chebyshev": "Tₙ", "Pₙ Legendre": "Pₙ",
+      366 |             });
+      367 |             await fourier.getByRole("radio", { name: "Series", exact: true }).click();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:364:88
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-8c1c2-ption-chooser-no-2-1-orphan-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-8c1c2-ption-chooser-no-2-1-orphan-chromium/error-context.md
+
+
+[3/3] [chromium] › e2e/f-w14u-vstage.spec.ts:340:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+  3) [chromium] › e2e/f-w14u-vstage.spec.ts:340:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan 
+
+    Error: each basis chip wears its glyph
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    +   "Epicycles": null,
+        "Off": null,
+        "Pₙ Legendre": "Pₙ",
+    +   "Series": null,
+        "Tₙ Chebyshev": "Tₙ",
+    -   "ℱ Epicycles": "ℱ",
+    -   "ℱ Series": "ℱ",
+      }
+
+      362 |                 els.map((e) => [e.textContent!.replace(/\s+/g, " ").trim(), e.querySelector(".basis-icon")?.textContent?.trim() ?? null]),
+      363 |             );
+    > 364 |             expect.soft(Object.fromEntries(glyphs), "each basis chip wears its glyph").toEqual({
+          |                                                                                        ^
+      365 |                 "ℱ Epicycles": "ℱ", "ℱ Series": "ℱ", Off: null, "Tₙ Chebyshev": "Tₙ", "Pₙ Legendre": "Pₙ",
+      366 |             });
+      367 |             await fourier.getByRole("radio", { name: "Series", exact: true }).click();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:364:88
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-71adb-ption-chooser-no-2-1-orphan-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-71adb-ption-chooser-no-2-1-orphan-chromium/error-context.md
+
+
+  3 failed
+    [chromium] › e2e/f-w14u-vedit.spec.ts:320:5 › X.F.W14U.vedit — the contour editor › v242 · UIA-F-242 ⊕ F-172 — dock micro-issues 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:340:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:340:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan 
