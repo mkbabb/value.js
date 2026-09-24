@@ -9,7 +9,11 @@
         <p class="font-display text-heading text-foreground max-w-[26ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
-        <p v-if="detail" class="text-mono-small plate-ink max-w-[44ch] break-words">
+        <!-- UIA-V-53: machine truth wraps inside the plate at every width —
+             the item is the column's width capped at 44ch (a centred flex item
+             otherwise sizes to its 44ch max and overflows both card edges at
+             390), and `wrap-anywhere` lets an unbroken URL break too. -->
+        <p v-if="detail" class="text-mono-small plate-ink w-full min-w-0 max-w-[min(44ch,100%)] wrap-anywhere">
             {{ detail }}
         </p>
         <slot name="action" />
