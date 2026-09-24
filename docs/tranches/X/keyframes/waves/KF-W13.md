@@ -497,3 +497,6 @@ Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d
     - Read the collapsed state on the served page and cure any consumer cause.
     - The producer half (the plate not wrapping its collapsed content) is O-65, relay only. Record honest-RED **DOCK-COLLAPSED-FORM** until the pinned glass cures it.
 - **Every glass half goes to glass** (OA-63, "fixed at the glass-ui root"). Cite O-65 or O-59. No local copy of a glass surface.
+
+## ADDENDUM 2026-09-24 — OA-66/OA-67 (COHESION §0cs)
+- Record honest-RED **GLASS-SELECT-GREY** (O-66) for Select triggers and selected items painting grey. Check the call sites for any consumer class or dead prop that causes it, and cure those locally. Never override the glass surface. Dock motion stays with glass D2 (O-66 §2).

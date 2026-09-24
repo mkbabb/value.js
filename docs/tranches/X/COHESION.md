@@ -3342,3 +3342,13 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 ## §0cr ADDENDUM 2026-09-24 — glass I-48 (O-65 registered); P-1 and P-2 ruled for fourier
 - Glass registered O-65 at `806b7690`, and it enters D2 pass 2. Read from source only: glass has **no** edge-drawer-under-content primitive (P-2). Its Configurator is a floating card with **no** inset placement (P-1). Both go to glass formation.
 - **Ruled.** Placement and hiding are the consumer's layout, not glass surfaces. F.W14U `.s` places glass's own card with an inset gutter, and `.t` hides the table of contents under the paper through fourier's grid. Neither copies a glass surface. Both adopt the glass primitive at the landing repin if formation ships one (P-2-ADOPT). The addendum is in `F-W14U.md` (b).
+
+## §0cs ADDENDUM 2026-09-24 — OA-66 grey selects and OA-67 dock motion, both to the glass root (O-66)
+- **Owner, verbatim:** *"the dropdown items when selected are an ugly gray, too, fix this in the glass-ui root. And the dock animations in all apps are poor and need to be fixed in the glass-ui root"*. The frame is keyframes' Controls pane.
+- **Relayed as O-66** (mirrored and sent live):
+  - GLASS-SELECT-GREY, with the likely mechanism O-62 applied to the Select trigger and selected item
+  - the clipped left shadow, in the O-61 R-1 and O-63 family
+  - every dock motion as a D2 witness, across all three apps
+- **Consumers:**
+  - X-W12, KF.W13W and F.W14U record honest-RED **GLASS-SELECT-GREY** with no override, alongside the dock ids.
+  - A consumer that passes its own grey class to a Select (the §0cb dead `variant` pattern) is cured locally. Each wave checks its call sites.

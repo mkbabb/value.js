@@ -42,3 +42,6 @@ The owner ordered a full UI audit of every page (OA-37). The fourier register, `
 - **`.t`, the paper table-of-contents drawer.** Glass has no edge-drawer-under-content primitive (I-48 P-2). The table of contents is fourier's own content, and hiding it under the paper is fourier's layout. `.t` builds it from fourier's layout: the paper's grid column collapses, and the table of contents translates under the paper surface. The visible surfaces are glass's own, so it copies no glass surface.
   - The component is written so that one glass primitive can replace the slide. Its motion lives in one place with no bespoke styling of glass surfaces.
   - If glass's formation ships P-2, fourier adopts it at the landing repin, recorded as **P-2-ADOPT**.
+
+## ADDENDUM 2026-09-24 — OA-66/OA-67 (COHESION §0cs)
+- Record honest-RED **GLASS-SELECT-GREY** (O-66) for Select triggers and selected items painting grey. Check the call sites for any consumer class or dead prop that causes it, and cure those locally. Never override the glass surface. Dock motion stays with glass D2 (O-66 §2).
