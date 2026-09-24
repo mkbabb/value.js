@@ -445,3 +445,69 @@ Per-meaning commits were cut by re-applying each cure's hunks onto a clean worki
 **Scratch evidence** (`scratchpad/v/`, sha256 prefix): bench records `2026-09-23-x-p-w7-v-r1.json` `9549b68f…` · `-r2.json` `2ecedd78…`; first use `cold-r1.json` `e57e6d0b…` · `cold-r2.json` `00081c8c…`; browser `browser-r1.txt` `c9586bf8…` (Chromium + WebKit, 20 ms) · `browser-ff.json` `91dffa67…` (Firefox, 20 ms) · `browser-ffwk-100.json` `7a747ab0…` (Firefox + WebKit, 100 ms).
 
 **Commits (value.js):** `3cdd4888` (adoption) · `93aaea4e` (V-8 test) · this receipt.
+
+### .k
+
+**Seat:** `claude-opus-5-5`, 2026-09-24 (fresh open; no prior `.k` receipt). **Status: ESCALATED** — the specified cure (entries bound once at module load, no per-call rule lookup, no `RunResult`, no generic wrapper) is in place and measured neutral; the profile puts the accepted-`parseKeyframeSelector` floor in value.js's ACTION layer (`math.ts`'s `tokenQuantity`/`quantity`, `.v`'s bytes) and the shared `success` layer (measured only by spec), NOT in `index.ts` and NOT in the emitted entry shape. Neither of `.k`'s two cure sites reaches it; no substitute is made. → ESC-W7k-1.
+
+**Open.** Spec read whole (190 lines incl. the §0ck addendum). Record: header through the Unit plan, the `.v` receipt (the last section). COHESION §0j head, §0ck, §0cl, §0cm (to the file end, 3,281 lines; no later addendum rules on W7).
+
+**Crash recovery.** ⟨`git status --porcelain src/css/bbnf docs/tranches/X/execution/D/X-P-W7.md package.json`⟩ → empty; ⟨`git -C ../bbnf-lang-x-p-w7-typescript status --porcelain`⟩ → empty (HEAD `373ca34a6`). No inherited work.
+
+**Anchor at the true bytes.** The spec's `index.ts:33` (`ruleOf(grammar())`, `RunResult`, generic `parseRule`) no longer exists: `.v`'s `3cdd4888` replaced it with `const { entries } = parser;` and per-call `entries.<rule>(source)`. The emitted entries (`generated/grammar.js:2913–2936`) are already `function e3(s) { const o = r88_keyframeSelector_v(s, 0); return o === s.length ? V : FAIL; }` — value or `FAIL`, no result object (`.e` (b)). INTENT kept at the true bytes: bind each entry function once, at module load.
+
+**Acts, in order.**
+1. **Profile first (the falsifier: accepted `parseKeyframeSelector`, 56 sources).** Scratch `scratchpad/k/{parts.ts,prof.mjs,pure.mjs,cpu.mjs}`: an esbuild bundle of `load.ts`/`value.ts`/`result.ts`/`math.ts`/`src/css/index.ts` at HEAD `07732e1d`, the retired arm from `bench/paired/_build/retired.mjs`, the 56 accepted sources (`INPUTS.filter(retired ok)`), 2,048 repetitions per pass, gc before every pass, 11 interleaved rounds (arm order reversed on odd rounds).
+   - ⟨`node --expose-gc pure.mjs`⟩ (load 32.4) → ns/call: retired **164.3** · product **215.5** (1.311) · retired's logic WITHOUT `success` 54.6 · **the emitted parser with identity actions 30.1** (`createParser` over `ACTION_KINDS` with `v => v`) · the real entry with value.js's actions 105.6 · real entry + `keyframeSelector` + `success` 207.5.
+   - Reading: the emitted code costs 30 ns (0.55 of the retired parse logic's 55 ns). value.js's actions add **~76 ns** on top. `success` (deep freeze) costs **~100–110 ns in both arms** (it is the same `../result` law the retired parser used), which is 2/3 of the retired call and dilutes every ratio. `index.ts` itself adds ~8 ns (215.5 vs 207.5).
+   - ⟨`node --cpu-prof cpu.mjs`⟩ (product only, 40,000 × 56 calls), self time: `deepFreeze` **30.9%** · `tokenQuantity` **11.4%** · `quantity` (its `Object.freeze`) **8.4%** · `success` **7.3%** · `r88_keyframeSelector_v` 4.9% · `r26_percentage_v` 3.9% · `tokenQuantity`'s re-split regex `^([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)(.*)$` **3.9%** · GC 3.7% · the `percentage` leaf regex 2.6% · `r46_ws_r` 2.1% · `r89_selectorNamed_v` 1.9%. Result layer 38%; the `percentage` action (`math.ts` `tokenQuantity` + `quantity` + its regex) ~24%; every emitted rule together ~15%.
+   - ⟨`node --expose-gc tq.mjs`⟩ (`tokenQuantity` alone, 10 percentage tokens) → 88.7 ns as written · 64.1 without `Object.freeze` · 53.8 with `Number(t.slice(0,-1))` in place of the second regex · 30.0 with both. So the action re-splits, by a second regex, a token the leaf already delimited, and freezes an intermediate the entry discards (`keyframeSelector` builds a new object from it).
+2. **The specified cure, at `index.ts`.** `const { colorTop, valueTop, scalarTop, keyframeSelector: selectorEntry, timingFunction, commaItems, semiItems, spaceItems } = parser.entries;` once at module load; each entry calls its function directly, and `splitTopLevel`'s `LISTS` maps the separator to the bound function (no dynamic `entries[name]` key). `success`/`failure` untouched. ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit`⟩ → 0; ⟨`npx eslint src/css/bbnf/index.ts --max-warnings=0`⟩ → clean. Commit **`065ba11e`**.
+   - Paired before/after (⟨`node --expose-gc ab.mjs`⟩ ×2, one process, retired + before + after): before 1.358 / 1.369 · after 1.389 / 1.294 → **neutral within noise**, as the profile predicts (the lookup was never the floor).
+3. **Emitter branch not taken.** W7.md: "If the floor lives in the emitted entry shape, the cure lands in bbnf-lang's emitter". Measured: the emitted parser with identity actions is 30 ns/call, 0.18 of the retired call and 0.55 of its parse logic; the entry shape is `value | FAIL` with no object. The floor is not in the emitted shape, so bbnf-lang is not written (⟨`git -C ../bbnf-lang-x-p-w7-typescript status --porcelain`⟩ → empty; no patch release).
+
+**Gates, BEFORE → AFTER** (AFTER read on the committed bytes `065ba11e`; ⟨`node bench/paired/build.mjs`⟩ → provenance `valuejsHead 065ba11e…`, `srcDirty ""`, banked manifest 79/79).
+- **K-1 accepted-class cells** ⟨`node bench/paired/isolated.mjs k-r1 product 3 11 whole,acc,rej,large`⟩, then ⟨`… k-r2 …`⟩. Clean-cell paired medians, product/retired, every clean ratio listed:
+
+| acc entry | BEFORE (`.v` r1 / r2 medians) | AFTER k-r1 | AFTER k-r2 |
+|---|---|---|---|
+| parseCssColor | .638 / .680 | .735/.706/.677 → .706 | .716/.716/.746 → .716 |
+| parseCssScalar | .718 / .707 | .673/.778/.639 → .673 | .696/.652/.734 → .696 |
+| parseCssValue | .420 / .414 | .415/.432 → .423 (2 clean) | .392/.395/.430 → .395 |
+| parseCssValues | .428 / .433 | .448/.427/.458 → .448 | .514/.457/.450 → .457 |
+| **parseKeyframeSelector** | **1.356 / 1.333** | **1.366/1.348/1.308 → 1.348** | **1.429/1.365/1.355 → 1.365** |
+| parseTimingFunction | .924 / .890 | .965/.983/.822 → .965 | .969/.958/.876 → .958 |
+| parseStylesheet | .870 / .858 | .790/.873/.955 → .873 | .907/.899/.915 → .907 |
+
+  - Instrument verdicts, both runs: `accepted-7/7 RED 6/7` (BEFORE: RED 6/7 ×2). **K-1: RED** — unchanged by the specified cure, as the profile predicts. Note `acc parseTimingFunction` reads .82–.98 (every cell < 1, but the closest margin after the falsifier).
+  - Set aside and counted: 16 of 81 cells (k-r1), 10 of 76 (k-r2). Load (`uptime`): k-r1 `35.63 64.93 69.99` → `35.75 55.01 65.34`; k-r2 `34.44 53.77 64.72` → `27.12 45.55 60.18`.
+  - Records moved out of `bench/records/` (`.o`/`.z`'s write set) to `scratchpad/k/2026-09-23-x-p-w7-k-r1.json` (sha256 `1df6c9dadc11…`) · `-k-r2.json` (`02891ca97680…`).
+- **K-2 `.v`'s gates still hold.**
+  - **Whole-corpus** (same runs): `whole-7/7 GREEN 7/7` ×2. Medians k-r1 / k-r2: color .740/.681 · scalar .689/.670 · value .472/.461 · values .454/.481 · keyframe .660/.672 · timing .754/.727 · stylesheet .752/.737; every one inside its ceiling (.90 · .81 · .57 · .58 · .78 · .87 · .85); worst whole cell timing .843 (k-r1). Rejected halves `GREEN 7/7` ×2 (worst rej cell color .839). **HOLDS.**
+  - **Oracle** ⟨`node bench/paired/equiv.mjs product <out>`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 88 (ASCII-only sources 0)`, sections `{"entry:parseCssValue":4,"entry:parseCssValues":4,"reader:functionParam":11,"reader:splitTopLevel(,)":13,"reader:splitTopLevel(;)":11,"reader:splitTopLevel(space)":45}`; keyed against `bench/paired/oracle/F-b-4.json` (section + key) → `88 88 True · arm!=sound 0` both runs. The `splitTopLevel` rewiring (act 2) changed no reader row. **HOLDS.**
+  - **`test:css-equivalence`** ×2 → `Tests 19 passed (19)`; `26 × MIRROR-DEFECTS 0`. **HOLDS.**
+  - **Large sheets (node)**: k-r1 `1.275/0.544/0.597`, k-r2 `0.607/0.570/1.362` — the same shape as `.v`'s V-6 (one >1 cell per run, R-v-3's k = 1 instrument artefact against a bimodal retired arm). Unchanged: **still RED as `.v` left it** (ESC-W7v-2 / R-v-3).
+  - **Browser (G-browser)** — scratch `scratchpad/k/browser/` (`.v`'s `run.mjs`/`entry.mjs` copied, bundle rebuilt from `_build/` at `065ba11e`); probe parsimony: Chromium + WebKit, 2 reps, 20 ms floor (`.v`'s `browser-r1` setting); Firefox not re-read (its REDs are ESC-W7v-2's, unreachable from `index.ts`). ⟨`node run.mjs chromium,webkit 2 ../browser-k.json 20`⟩ → 89 cells, 1 set aside; Chromium 148.0.7778.96, WebKit 26.4; load `22.92` → `22.83`. Over 1.00, and ONLY these: Chromium acc keyframe **1.254/1.269** (`.v`: 1.278/1.238) · WebKit acc keyframe **1.200/1.115** (`.v`: 1.207/1.167) · WebKit large **1.286/1.286** (`.v`: 1.357/1.286). Every other Chromium/WebKit cell < 1.00. Record `scratchpad/k/browser-k.json` (sha256 `5b01aa0e5466…`). **Unchanged from `.v`** (the same three misses; G-browser stays RED under ESC-W7v-2 + this unit's ESC-W7k-1).
+  - `.v`'s grep, depth and first-use gates read bytes `.k` did not touch (`src/css/grammar/**`, `generated/**`, `load.ts`); not re-run.
+
+**Where the floor is, and what would cure it (measured, scratch only, nothing committed).** ⟨`node --expose-gc proto.mjs`⟩ ×2: the same generated parser with ONE action replaced — `percentage: { kind: "map", fn: (t) => ({ kind: "quantity", type: "percentage", value: Number(t.slice(0, -1)) }) }` (the leaf has already proved `<number>%`, so no second regex and no `Object.freeze` on an intermediate that `keyframeSelector` discards), plus `keyframeSelector` + `success` exactly as `index.ts` calls them → accepted `parseKeyframeSelector` **0.978 (9/11 rounds < 1) and 0.980 (6/11)**, against the product's 1.361 / 1.396 in the same processes. So:
+- the floor is the `percentage` action, `math.ts`'s `tokenQuantity` (`NUMERIC.exec` re-split + `toLowerCase` + `quantity`'s `Object.freeze`), ~60 ns of the ~75 ns gap;
+- even that cure lands at ~0.98, a margin the gate's "every cell < 1.00" would not hold reliably under load; the remaining levers are (i) the number/unit split handed over by the leaf (W7.md `.v`: "`tokenQuantity` takes the number/unit split from the leaf, if it measures faster"), which is an emitter/action-contract change, and (ii) the shared `success` layer (`deepFreeze`, 31% of self time), which W7.md holds "shared with the retired parser … only measured".
+
+**Why no cure is committed.** `.k`'s writable set is `index.ts`, `generated/` (via `bbnf gen`) and the bbnf-lang emitter "if the floor lives in the emitted entry shape". The floor is in `src/css/bbnf/math.ts` (the action layer), which is `.v`'s writable set (`src/css/bbnf/**`); §0bt's adjacent-line rule never extends to "anything another unit in the same group owns", and changing `quantity`'s freeze or `tokenQuantity`'s contract is a semantic change to a shared action module, not a few adjacent lines of `.k`'s own concern. The emitter branch is falsified by measurement (identity-action parse 30 ns). No substitute cure is made (METHOD; no masking, no per-entry fast path in `index.ts` that bypasses the grammar).
+
+**Adjacent edits:** none. **Out-of-set writes:** none (bench records moved to the scratchpad; bbnf-lang untouched: ⟨`git -C ../bbnf-lang-x-p-w7-typescript status --porcelain`⟩ → empty, HEAD `373ca34a6`).
+
+**Residuals.**
+- **R-k-1:** accepted `parseKeyframeSelector` 1.308–1.429 (node, 6/6 cells), 1.25–1.27 (Chromium), 1.12–1.20 (WebKit). K-1 RED.
+- **R-k-2:** accepted `parseTimingFunction` reads .82–.98 (every cell < 1): the next-closest accepted cell; any action-layer change should be re-read against it.
+- **R-k-3:** the `success` layer (`deepFreeze` via `Object.values` recursion + `Object.freeze`) is ~100–110 ns/call in both arms, 2/3 of the retired call on accepted selectors; measured only, per W7.md.
+
+**Escalations.**
+- **ESC-W7k-1 (ruling):** the accepted-`parseKeyframeSelector` floor (decision 9, G-acc/rej) lives in the action layer (`src/css/bbnf/math.ts` `tokenQuantity`/`quantity` on the `percentage` action), outside `.k`'s writable set and inside `.v`'s. Ask: grant a unit (a re-opened `.v`, or `.k` extended by an addendum) `src/css/bbnf/math.ts` (+ `value.ts` if the selector action takes the split) and, if the leaf split is chosen, bbnf-lang's emitter (a `span`/split action kind on numeric leaves, re-emit, `.e` gates, 0.2.x). Measured target: the lean `percentage` action alone reads 0.978/0.980, so the ruling should also say whether the `success` layer stays measured-only (W7.md) or joins the cure (it is shared with the retired arm, so it only dilutes; it does not create the gap).
+
+**Gate summary.** RED: K-1 (accepted `parseKeyframeSelector`; 6/7 ×2). K-2: HOLDS for whole-corpus 7/7 ×2 (every median inside its ceiling), rejected 7/7 ×2, oracle (88 = the F-b-4 rows, arm = sound, ×2), `test:css-equivalence` 19/19 ×2; browser and large cells unchanged from `.v` (still RED on the same cells, ESC-W7v-2).
+
+**Scratch evidence** (`scratchpad/k/`): `2026-09-23-x-p-w7-k-r1.json` `1df6c9dadc11…` · `-k-r2.json` `02891ca97680…` · `browser-k.json` `5b01aa0e5466…` · `equiv-r{1,2}.json` · profile scripts `prof.mjs`, `pure.mjs`, `tq.mjs`, `cpu.mjs`, `ab.mjs`, `proto.mjs`.
+
+**Commits (value.js):** `065ba11e` (entries bound once at module load) · this receipt.
