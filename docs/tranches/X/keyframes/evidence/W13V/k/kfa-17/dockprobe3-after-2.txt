@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+reel-then-play | btn {"x":666.8046875,"y":792.6484375,"w":32} | click1 440 PLAYING | btn2 {"x":687.5,"y":792.6484375,"w":40} | click2+150 460 READY | +later 460 READY | +600 460 READY
+held-play | btn {"x":630.2890625,"y":792.6484375,"w":32} | click1 0 PLAYING | btn2 {"x":687.5,"y":792.6484375,"w":40} | click2+150 0 READY | +later 0 READY | +600 0 READY
+scrub-then-play | btn {"x":666.8046875,"y":792.6484375,"w":32} | click1 1420 PLAYING | btn2 {"x":687.5,"y":792.6484375,"w":40} | click2+150 1429 READY | +later 1429 READY | +600 1429 READY

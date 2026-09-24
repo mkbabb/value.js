@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+{"liveSamples":1018,"wallHits":4,"floorOffsetsMs":[33,84,117,167],"childPhaseErrMs":183.1,"X":1066.6,"Y":883.5}
+{"liveSamples":1686,"wallHits":4,"floorOffsetsMs":[0,0,0,0],"childPhaseErrMs":0,"X":1134.7,"Y":1134.7}
+{"liveSamples":1689,"wallHits":4,"floorOffsetsMs":[0,0,0,0],"childPhaseErrMs":0,"X":1134.5,"Y":1134.5}

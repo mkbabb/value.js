@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+{"Spin":{"channel":"0.0197,0.1292,0.5,0.8708","frames":4,"easeInOutFrames":4,"distinctFrameCurves":1},"Bouncing X":{"channel":"0.0197,0.1292,0.5,0.8708","frames":4,"easeInOutFrames":4,"distinctFrameCurves":1},"Bouncing Y":{"channel":"0.0197,0.1292,0.5,0.8708","frames":4,"easeInOutFrames":4,"distinctFrameCurves":1}}
+{"Spin":{"channel":"0.1,0.25,0.5,0.75","frames":4,"easeInOutFrames":0,"distinctFrameCurves":1},"Bouncing X":{"channel":"0.1,0.25,0.5,0.75","frames":4,"easeInOutFrames":0,"distinctFrameCurves":1},"Bouncing Y":{"channel":"0.004,0.0625,0.5,0.9375","frames":4,"easeInOutFrames":0,"distinctFrameCurves":2}}
+{"Spin":{"channel":"0.1,0.25,0.5,0.75","frames":4,"easeInOutFrames":0,"distinctFrameCurves":1},"Bouncing X":{"channel":"0.1,0.25,0.5,0.75","frames":4,"easeInOutFrames":0,"distinctFrameCurves":1},"Bouncing Y":{"channel":"0.004,0.0625,0.5,0.9375","frames":4,"easeInOutFrames":0,"distinctFrameCurves":2}}

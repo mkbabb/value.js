@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+{"khead":"505f6a0c","restOffsetPx":[0,-22.5,-45,-67.5,-90.1],"maxOverrunPastRailEndPx":9.1,"backwardLurches":0}
+{"khead":"505f6a0c","restOffsetPx":[0,0,0,0,0],"maxOverrunPastRailEndPx":9.6,"backwardLurches":0}
+{"khead":"505f6a0c","restOffsetPx":[0,0,0,0,0],"maxOverrunPastRailEndPx":9.6,"backwardLurches":0}
