@@ -1,0 +1,9 @@
+mock spring pane 1440x900
+mock spring pane 390x844
+mock spring stage 390x844
+mock easing stage 1440x900
+mock easing stage 390x844
+mock sequence stage 1440x900
+mock sequence stage 390x844
+ok
+EXIT 0
