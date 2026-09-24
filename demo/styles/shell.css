@@ -215,6 +215,10 @@
      * The box is now sized by its content. The INLINE clamp above is
      * untouched — it is the owner-ruled ≈1050px invariant. */
     min-height: 0;
+    /* X.W12.c — the row contract below asks THIS box how many tracks it
+     * holds, so it is the named query container (inline axis only: its width
+     * is `width: 100%` + the clamp above, never its content's). */
+    container: pane-row / inline-size;
 }
 
 /* The pane slots are size containers: in-card sizing rides `cqi` (container
@@ -237,6 +241,40 @@
  * and after X.W5.c a region's side is not a fact the schema states. */
 .pane-wrapper--stage {
     z-index: 1;
+}
+
+/* ── THE ROW CONTRACT: A COMPANION THAT FOLLOWS THE ROW (X.W12.c · OA-5/OA-21)
+ * Two regions side by side share one grid row, and every item stretches to
+ * the row (the equal-height pairing §0ax P-5a keeps). The row's height is the
+ * TALLER item's content. The About pane's content is a reference text
+ * (7458.8 px at 1440×900, measured at the X-W12 open), so it set the row, the
+ * Picker plate stood 684.8 px tall inside a 7458.8 px track, and the document
+ * scrolled 7585 px against a 900 px viewport. The owner's words: "does not
+ * clip properly to be the same size as the left pane".
+ *
+ * A pane that DECLARES it follows the row (`.pane-row-follow` on its root)
+ * gives its region wrapper `contain: size`: the wrapper contributes nothing
+ * to the row's height, the stage's content sets it, and `align-self: stretch`
+ * then hands the wrapper exactly that height (a stretched grid item is
+ * definite, so the pane's `h-full` resolves against it). The pane scrolls its
+ * body inside its own card on glass's scroll primitive (AboutPane.vue).
+ *
+ * WHY THE CONTAINER QUERY. Stacked in ONE column the companion is alone in
+ * its row, and `contain: size` would collapse it to nothing. The contract
+ * therefore holds only while the grid holds two tracks, which is the exact
+ * `auto-fit` condition of `.pane-container` above: its inline size is at
+ * least two `--pane-min` tracks plus one `--pane-gap`. A size query cannot
+ * read custom properties, so the two token values are written out here —
+ * `--pane-min: 25rem` and `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`
+ * (foundation.css). A change to either token changes this line with it.
+ *
+ * It sits on the WRAPPER, not the card: the pane swap sets `contain: layout
+ * paint` on the travelling pane (animations.css), and a `contain` declared on
+ * the card would be replaced by it for the travel. */
+@container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .pane-wrapper:has(> .pane-row-follow) {
+        contain: size;
+    }
 }
 
 /* X.W5.c — THE `[data-layout]` DISPLAY WITNESSES ARE GONE, all four of them.
