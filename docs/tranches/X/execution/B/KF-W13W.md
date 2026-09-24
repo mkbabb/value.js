@@ -543,5 +543,5 @@ Every pane read dC 0, so the centring law already held. The RED is the **edges**
 
 **Commits**:
 - keyframes.js `e97b9e35`: the gutter token, the scene-host gutter, the per-scene deletions, the Sheet body padding and the test. Pushed to origin/master.
-- value.js `ddfdf07b`: evidence (5 probes + the batch runner; 26 census JSON: before ×8, before-glass1010 ×2, after ×8, after2 ×8). Frames (96) and logs are local, gitignored.
+- value.js `ddfdf07b`: evidence (4 probes + the batch runner; 26 census JSON: before ×8, before-glass1010 ×2, after ×8, after2 ×8). Frames (96) and logs are local, gitignored.
 - This record.
