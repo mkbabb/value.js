@@ -73,6 +73,9 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
 
 export type SelectorNode = KeyframeSelector | Refused;
 const selectorRange = refused("keyframe_selector_invalid", "0%..100%");
+/** `from` and `to` (css-animations-1 §3): one shared frozen node each, since a published result is immutable. */
+const FROM: KeyframeSelector = Object.freeze({ kind: "percent", value: 0 });
+const TO: KeyframeSelector = Object.freeze({ kind: "percent", value: 1 });
 
 /** `<keyframe-selector>`: `from` · `to` · a percentage · a timeline range name with an offset. */
 export function keyframeSelector(value: unknown): SelectorNode {
@@ -162,7 +165,8 @@ export const valueActions = {
     spaceList: { kind: "map", fn: listOf("space") },
     slashList: { kind: "map", fn: listOf("slash") },
     commaList: { kind: "map", fn: listOf("comma") },
-    selectorKeyword: { kind: "map", fn: (token: string): SelectorNode => ({ kind: "percent", value: token.toLowerCase() === "from" ? 0 : 1 }) },
+    // The leaf proved the token is `from` or `to` in some case, so its length names it.
+    selectorKeyword: { kind: "map", fn: (token: string): SelectorNode => (token.length === 4 ? FROM : TO) },
     selectorNamed: { kind: "map", fn: namedSelector },
     timingKeyword: { kind: "map", fn: timingKeyword },
     cubicBezier: { kind: "map", fn: cubicBezier },

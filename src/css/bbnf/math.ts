@@ -51,6 +51,15 @@ export function tokenQuantity(token: string): Numeric {
     return quantity(unit, value);
 }
 
+/**
+ * The `<number>` and `<percentage>` leaves (`tokens.bbnf`) have already proved their token's shape, so
+ * the type is known and the number is the token itself (`parseFloat` stops at the `%`): no re-split,
+ * no unit read. The node is fresh per call and never shared, so it is not frozen here: the result
+ * layer (`../result`'s `success`) deep-freezes everything a parse publishes.
+ */
+const numberQuantity = (token: string): Quantity => ({ kind: "quantity", type: "number", value: Number(token) });
+const percentageQuantity = (token: string): Quantity => ({ kind: "quantity", type: "percentage", value: parseFloat(token) });
+
 /** §10.7.1's constants — `e`, `pi`, `infinity`, `-infinity`, `NaN` (ASCII case-insensitive). */
 export function constantQuantity(token: string): Quantity {
     switch (token.toLowerCase()) {
@@ -129,8 +138,8 @@ export const calculated = (q: Numeric): Numeric => (q.kind === "quantity" ? Obje
  * keeps its `undefined` slot).
  */
 export const mathActions = {
-    number: { kind: "map", fn: tokenQuantity },
-    percentage: { kind: "map", fn: tokenQuantity },
+    number: { kind: "map", fn: numberQuantity },
+    percentage: { kind: "map", fn: percentageQuantity },
     angle: { kind: "map", fn: tokenQuantity },
     dimension: { kind: "map", fn: tokenQuantity },
     none: { kind: "map", fn: (): NoneToken => NONE },
