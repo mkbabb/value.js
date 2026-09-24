@@ -15,7 +15,12 @@ import type { Numeric } from "./math";
 import type { Refused, SelectorNode, TimingNode, ValueNode } from "./value";
 import { keyframeSelector } from "./value";
 
-const { entries } = parser;
+/**
+ * The emitted entry functions, bound ONCE at module load (X.P.W7 `.k`): each call below is a direct call
+ * to the generated entry (value | `FAIL`), with no per-call rule lookup, no intermediate result object and
+ * no generic wrapper. `success`/`failure` (`../result`) is the result layer shared with the retired parser.
+ */
+const { colorTop, valueTop, scalarTop, keyframeSelector: selectorEntry, timingFunction, commaItems, semiItems, spaceItems } = parser.entries;
 
 const refusal = <T>(source: string, node: Refused): ParseResult<T> =>
     node.span === undefined
@@ -32,7 +37,7 @@ function colorResult(source: string, node: ColorNode): ParseResult<CssColor> {
 
 /** `parseCssColor` — one whole `<color>`. */
 export function parseCssColor(source: string): ParseResult<CssColor> {
-    const node = entries.colorTop(source);
+    const node = colorTop(source);
     return node === FAIL ? failure(source, "css_syntax", ["color"]) : colorResult(source, asColorNode(node as ColorNode | Numeric));
 }
 
@@ -42,7 +47,7 @@ function valueResult<T extends CssValue>(source: string, node: ValueNode): Parse
 
 /** `parseCssValue` — a component-value list (comma, then slash, then space separated). */
 export function parseCssValue(source: string): ParseResult<CssValue> {
-    const node = entries.valueTop(source);
+    const node = valueTop(source);
     return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
 }
 
@@ -57,13 +62,13 @@ export function parseCssValues(source: string): ParseResult<CssList> {
 
 /** `parseCssScalar` — one scalar: a colour, a number with its unit, a string, an operator or a keyword. */
 export function parseCssScalar(source: string): ParseResult<CssScalar> {
-    const node = entries.scalarTop(source);
+    const node = scalarTop(source);
     return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
 }
 
 /** `parseKeyframeSelector` — one `<keyframe-selector>`. */
 export function parseKeyframeSelector(source: string): ParseResult<KeyframeSelector> {
-    const parsed = entries.keyframeSelector(source);
+    const parsed = selectorEntry(source);
     if (parsed === FAIL) return failure(source, "keyframe_selector_invalid", ["keyframe selector"]);
     const node: SelectorNode = keyframeSelector(parsed);
     return node.kind === "refused" ? refusal(source, node) : success(node);
@@ -71,13 +76,13 @@ export function parseKeyframeSelector(source: string): ParseResult<KeyframeSelec
 
 /** `parseTimingFunction` — one `<easing-function>`. */
 export function parseTimingFunction(source: string): ParseResult<CssTimingFunction> {
-    const parsed = entries.timingFunction(source);
+    const parsed = timingFunction(source);
     if (parsed === FAIL) return failure(source, "css_syntax", ["timing function"]);
     const node = parsed as TimingNode;
     return node.kind === "refused" ? refusal(source, node) : success(node);
 }
 
-const LISTS = { ",": "commaItems", ";": "semiItems", space: "spaceItems" } as const;
+const LISTS = { ",": commaItems, ";": semiItems, space: spaceItems } as const;
 
 /**
  * A top-level list's items, trimmed, empty items dropped — split at `separator` only outside a
@@ -85,6 +90,6 @@ const LISTS = { ",": "commaItems", ";": "semiItems", space: "spaceItems" } as co
  * string): the caller answers that with its own diagnostic.
  */
 export function splitTopLevel(source: string, separator: keyof typeof LISTS): readonly string[] | null {
-    const items = entries[LISTS[separator]](source);
+    const items = LISTS[separator](source);
     return items === FAIL ? null : (items as readonly string[]);
 }
