@@ -1437,3 +1437,52 @@ Falsifier: a planted alpha defect reads RED on 3 of 3 cells.
 
 - **R-h-1**: `parseStylesheet` and the stylesheet layer have no BBNF peer (RES-b-1). F-w4f-1, R-b-2 and the stylesheet-shaped rulings (ID-1b, ID-3, ID-4) have no cell on this surface. `.x`'s swap re-opens them when a `stylesheet.bbnf` exists.
 - **R-h-2**: `color-mix()` / `light-dark()` in `parseCssValue` are generic calls on both sides. The candidate's colour reading of them reaches only `parseCssColor` / `parseCssScalar`. This is shared behaviour, not a divergence.
+
+## §15-A — X.P.W6R.l: the ledger follows the files; SH-1 and `badTerm` rowed (SERVED MODEL: claude-opus-5-5 · 2026-09-23) — DATED, BESIDE (E-3)
+
+Nothing above this heading is edited; §15.1–§15.5 stand as written on 2026-09-23. Authority: `waves/W6R.md` `.l` (COHESION §0cg: RES-x-4 becomes X.P.W6R). Sources: the X.P.W6 record `execution/D/X-P-W6.md` (`.x` receipt, the close's RES-x-4/RES-x-5 and LW-1 rows).
+
+### §15-A.1 The instrument moved: `test/css/equivalence/…` → `bench/css-equivalence/…`
+
+X.P.W6.x (value.js `7e60d700` family) moved the differential out of `test/` so it no longer rides `npm test`. Every §15 citation of `test/css/equivalence/…` (§15 "The instrument" paragraph; §15.4's command) now reads at `bench/css-equivalence/…`, with the file names unchanged:
+
+| §15 cites | reads now at |
+|---|---|
+| `test/css/equivalence/` (the instrument) | `bench/css-equivalence/` |
+| `lib/adjudications.mjs` · `lib/tokens.mjs` · `lib/ruled.mjs` | `bench/css-equivalence/lib/` (same three, plus their `.d.mts`) |
+| `differential.ts` · `w6-classes.ts` | `bench/css-equivalence/differential.ts` · `bench/css-equivalence/w6-classes.ts` |
+| `equivalence.test.ts` (G-h1) | `bench/css-equivalence/equivalence.measure.test.ts` |
+| `assay-corpus.json` · `real-corpus.json` · `build-corpus.mjs` | `bench/css-equivalence/` (same names) |
+| — (new at `.x`) | `bench/css-equivalence/stylesheet.measure.test.ts` (the `parseStylesheet` differential and SH-1, §15-A.2) |
+| ⟨`npx vitest run test/css/equivalence`⟩ | ⟨`npx vitest run -c bench/vitest.config.ts`⟩, or ⟨`npm run test:css-equivalence`⟩ (X.P.W6R.c `1d970c7c`, which also runs it in the producer CI job): `Test Files 2 passed (2)` · `Tests 19 passed (19)` |
+
+The count moves from §15.4's 15 tests to 19 because `.x` added `stylesheet.measure.test.ts` (4 tests: the `parseStylesheet` census, the two timeline entries, its falsifier). `real-corpus.json` keeps its generation note naming the old `build-corpus.mjs` path; that is `.h`'s evidence, re-pinned on its next regeneration (RES-x-5 / R-h-4), not edited here.
+
+### §15-A.2 SH-1 · UNMATCHED DELIMITER — `parseStylesheet`, 13 cases (css-syntax-3 §5.4.8)
+
+The §5-era SH-1 row above (the `.j` escalation, routed UNADJUDICATED; §0w rules it ID-4) read the vendored 4.0.0 against parse-that's candidate. This row is the same family on the X.P.W6.x surface: value.js's retired hand stylesheet layer (incumbent) against `src/css/grammar/stylesheet.bbnf` (candidate, `dff875e8`). Mechanism test: `bench/css-equivalence/stylesheet.measure.test.ts` (`withoutUnmatchedDelimiters`, `SHEET_CLASSES["SH-1"]`).
+
+| field | value |
+|---|---|
+| **class id** | `SH-1` UNMATCHED DELIMITER |
+| **entry** | `parseStylesheet` |
+| **cells** | **13** of 32,021 sheets. ⟨`npx vitest run -c bench/vitest.config.ts bench/css-equivalence/stylesheet.measure.test.ts`⟩ (2026-09-23, this seat) → `parseStylesheet × 32021: {"AGREE":30252,"VALUE_GRAMMAR":1726,"BOTH_REFUSE":30,"DEFECT":0} · classes {"SH-1":13} · STYLESHEET DEFECTS 0`; the same census as the `.x` receipt (X-P-W6.md:226). |
+| **example** | `a { backgrou(d-color: red }` |
+| **incumbent (retired signed paren-depth)** | Counted parentheses with a signed depth: an unclosed `(` hid every later `;`/`{`, and a stray `)` drove the depth negative. It read the example as a declaration NAMED `backgrou(d-color`. |
+| **candidate (BBNF reading)** | `stylesheet.bbnf` reads a `(` only as the start of a block that closes at its matching `)`, and a `)` with no `(` closes nothing. It REFUSES the sheet. |
+| **spec citation** | css-syntax-3 §5.4.8: a `(`-block is consumed to its matching `)`, so the parser holds a stack, not a signed counter. |
+| **governs when (the proof by repair)** | All three hold: (1) HEAD refuses the sheet (fail-closed, `after.ok === false`); (2) the sheet has at least one unmatched `(`/`)` outside strings and comments; (3) with exactly those delimiters removed, the retired-plus-BBNF-values hybrid and HEAD agree (deep-equal, or both refuse). Then the delimiter is the whole difference. |
+| **falsifier** | The class is fail-closed. A sheet HEAD ACCEPTS, a sheet with no unmatched delimiter, or a sheet whose repair still disagrees is never SH-1; it counts as `DEFECT` and fails `STYLESHEET DEFECTS 0`. The census itself can fail: the planted sheet-layer defect (`!important` → false) reads `DEFECT` on 3 of 3 sheets (`falsifier: a planted sheet-layer defect reads RED`, GREEN in the same run: `Tests 4 passed (4)`). |
+| **consumer direction** | **NARROWS.** A consumer that fed a sheet with an unmatched `(`/`)` got a misread rule (a declaration named across the delimiter) and now gets a refusal. |
+| **adjudication** | Rowed as a mechanism class, as `.x` shipped it (X-P-W6.md:195). It is spec-correct on the candidate side. It shares only the predicate (a delimiter that closes nothing, or is never closed) with the §5-era SH-1 row; the direction differs because the incumbent differs (4.0.0 REJECTED there, the retired value.js layer MISREAD here). This row neither re-opens nor leans on that row's ID-4 ruling. |
+
+### §15-A.3 `badTerm` — the refused component, cured in `value.bbnf` (X.P.W6.x, `7e60d700`; LW-1 ratified by COHESION §0cg)
+
+| field | value |
+|---|---|
+| **what went RED** | With the BBNF path public, `test/v4-css-emerging.test.ts:100` went RED. `calc(1px @ 2px)` must refuse and name the offending component (`actual: "@"`); BBNF refused the whole input instead (X-P-W6.md:178). |
+| **cure (grammar)** | `src/css/grammar/value.bbnf`: `badTerm = /[^\s(),\/:;"']+/ ;` is the LAST `valueTerm` alternative (`valueTerm = colorCall \| varCall \| call \| numeric \| string \| operator \| identTerm \| badTerm ;`). It matches a component no production above reads, only to REFUSE it. |
+| **cure (action)** | `src/css/bbnf/value.ts`: `rules.badTerm` answers `refused("css_syntax", "scalar")`, with a `span` from `mapState`'s `prev.offset`/`next.offset`: exactly the run it matched. |
+| **divergence vs the retired hand parser** | Verdict and label agree (`css_syntax`, expecting a scalar, naming `@`). The span is ABSOLUTE (an offset into the whole input), where the hand parser gave one relative to its sub-part. The differential compares verdicts and values, not refusal spans (RES-x-2), so no cell moves. The span difference is rowed here so it is not left unrowed. |
+| **consumer direction** | none for the verdict; a consumer reading `span` gets whole-input offsets. |
+| **bounds** | LW-1 (X-P-W6.md:274): `value.bbnf` sat outside `.x`'s dispatched set. COHESION §0cg ratified it after the fact under the ADJACENT-LINE RULE: same wave, same concern, required by the swap sentence. |
