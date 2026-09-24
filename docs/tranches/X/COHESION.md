@@ -3363,3 +3363,13 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Cause:** glass `ConfiguratorLayer` has no header-actions slot, as fourier's own source records. **Relayed as O-68** (mirrored, sent live), asking for an additive `#actions` slot, possibly in a 10.x minor.
 - **Consumer:** F.W14U `.a` moves every reset into the header when the slot publishes. Until then it records honest-RED CONFIGURATOR-HEADER-ACTIONS, with no local overlay.
 - **"All UIs"** becomes AUDIT-2 **Lens 3**, design hierarchy and use of space in every view of every app, which also censuses every lone-row action in value.js and keyframes.
+
+## §0cv ADDENDUM 2026-09-24 — F.W14 ESC-S-1 and ESC-C4-1 ruled; fourier dev storage made persistent
+- F.W14 resume 2 landed `.s`: seeding through the API, a GPU project run headed, and `f-w14-uia` GREEN twice. The check left two HIGH defects:
+  - vc `:145`'s admin-banner golden, a diff from `.h`'s OA-50 render (ESC-S-1)
+  - five blob-500 tests (ESC-C4-1), because the reboot wiped `/tmp/fourier-e2e-blobs` while mongo kept its rows
+- **Host cure, done by the orchestrator:** the stale DB was moved aside to `~/.mongo-dev/fourier.pre-2026-09-24-bloblost`. A fresh DB serves :27018, and the API runs with a persistent **`BLOB_DIR=~/.mongo-dev/fourier-blobs`**. `POST /api/sessions` returns 200.
+- **Ruled:**
+  - `F.W14.s2` re-baselines vc `:145` under the `.h2` grant pattern, after reading the diff, and keys the global seed per run.
+  - The product half, a missing blob answering 500 and never re-stored, becomes **`F.W14U.b`** (`api/**`).
+- Specs: `F-W14.md` (g) and `F-W14U.md` (d).

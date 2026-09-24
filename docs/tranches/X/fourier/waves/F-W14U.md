@@ -53,3 +53,6 @@ The owner ordered a full UI audit of every page (OA-37). The fourier register, `
 - **Owner, verbatim:** *"and the refresh button should be inline in the section when expanded too. Ensure proper design hierarchy and usage of space in all UIs hereof"*. Frame: `fourier/evidence/W14/owner-2026-09-24-section-reset.png`.
 - **`F.W14U.a`:** when glass publishes `ConfiguratorLayer #actions` (O-68), every section's reset moves into the header row, and the body's reset rows are deleted. Until then, record honest-RED **CONFIGURATOR-HEADER-ACTIONS**. Add no local overlay into glass's header.
 - Also apply the owner's "proper design hierarchy and usage of space" to every fourier view, as the family units cure their rows.
+
+## ADDENDUM 2026-09-24 (d) — `.b`, blob integrity (COHESION §0cv)
+- **`F.W14U.b`, bounds `api/**`.** A request for a missing blob answers 404 or a typed error, never 500. An upload whose content-addressed blob file is missing re-stores the bytes, even when the row exists. It needs a falsifier in the api tests: delete the blob file, re-upload, and read it back as 200.
