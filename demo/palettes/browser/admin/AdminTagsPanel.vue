@@ -43,7 +43,9 @@
         <!-- UIA-V-182: below `sm` the primary name field takes its own full
              row and the category + Create share the second, so the name is
              never the narrower field clipping its own placeholder. -->
-        <div v-if="!tagsApi.access.value" class="flex flex-wrap sm:flex-nowrap items-center gap-2">
+        <!-- UIA-V-652: the create row stands only over a readable list — it
+             leaves with the error plate and is inert while the list loads. -->
+        <div v-if="!tagsApi.access.value && !tagsApi.loadError.value" class="flex flex-wrap sm:flex-nowrap items-center gap-2">
             <!-- S.W5-3 (S-17/F-7): glass-ui Input pills, sm rung; the pair
                  sized honestly (name vs category was ~5×; the category well
                  no longer clips its own placeholder). -->
@@ -53,6 +55,7 @@
                 size="sm"
                 placeholder="Tag name..."
                 aria-label="New tag name"
+                :disabled="tagsApi.loading.value"
                 :aria-invalid="tagsApi.newNameProblem.value ? true : undefined"
                 aria-describedby="admin-tag-name-problem"
                 class="basis-full sm:basis-auto flex-1 min-w-0 font-mono"
@@ -63,6 +66,7 @@
                 size="sm"
                 placeholder="Category..."
                 aria-label="New tag category"
+                :disabled="tagsApi.loading.value"
                 class="flex-1 min-w-0 sm:flex-none sm:w-36 font-mono"
             />
             <!-- W5-a11y: icon-only create tag button needs accessible name -->
@@ -70,7 +74,7 @@
                 emphasis="secondary"
                 size="xs" icon-only
                 aria-label="Create tag"
-                :disabled="!tagsApi.newName.value.trim() || !tagsApi.newCategory.value.trim() || !!tagsApi.newNameProblem.value || tagsApi.creating.value"
+                :disabled="tagsApi.loading.value || !tagsApi.newName.value.trim() || !tagsApi.newCategory.value.trim() || !!tagsApi.newNameProblem.value || tagsApi.creating.value"
                 @click="tagsApi.createTag()"
             >
                 <Plus class="h-3 w-3" aria-hidden="true" />

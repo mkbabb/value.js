@@ -70,7 +70,12 @@ export function useAdminTags(deps: { onChange: () => void }): UseAdminTags {
             if (!groups.has(cat)) groups.set(cat, []);
             groups.get(cat)!.push(tag);
         }
-        return Array.from(groups.entries()).sort(([a], [b]) => a.localeCompare(b));
+        // UIA-V-651: "uncategorized" is the absence of a category — it sorts
+        // after every real one, never alphabetically among them.
+        const rank = (c: string) => (c === "uncategorized" ? 1 : 0);
+        return Array.from(groups.entries()).sort(
+            ([a], [b]) => rank(a) - rank(b) || a.localeCompare(b),
+        );
     });
 
     async function loadTags() {
@@ -85,6 +90,9 @@ export function useAdminTags(deps: { onChange: () => void }): UseAdminTags {
         } else if (result.kind === "failed") {
             // W5-5 (F-2): a dead backend must never read as "no tags yet".
             loadError.value = result.message;
+            // UIA-V-653: an earlier write's success notice does not stand over
+            // the error plate — one verdict at a time.
+            dismissNotice();
         }
     }
 
