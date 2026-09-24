@@ -381,3 +381,120 @@ SEAT `.srv`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` Units :8-18 ("Bound
 - (iii) Existing and unrelated to these rows, seen in the BEFORE output: `\frac{3.3}{2}` prints a₀ where a₀/2 was meant, and `e^{i-t}` at n = −1. They are not in any server row, so they are not touched.
 
 **Escalations:** none.
+
+### F.W14U.vdock
+
+SEAT `.vdock`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` (58 L, read whole; Units :8-18). Register rows read at their lines (`audit/UI-AUDIT-fourier.md` :78 :83 :150-168 :205 :218 :229 :254-263 :315 :326-330). COHESION §0cl..§0cx read at their headings (:3253-3392); no ruling names a `.vdock` row. `.d` receipt read (shares `AnimationControls`/`CanvasControlsDock`/`SpeedSelect`).
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → nothing under this unit's set (`?? .worktrees/` only); value.js `C/F-W14U.md` clean. **Nothing inherited.**
+
+**Instrument.** Dev `:3100` (the working tree, HMR) and `:8000` → `200`/`200`. The RED readings run against the **pre-cure bytes** served from a detached worktree at HEAD `798c98f` (⟨`git worktree add --detach <scratch>/vdock/pre HEAD`⟩, `web/node_modules` symlinked, ⟨`npx vite --port 4178 --strictPort`⟩, proxying the same `:8000`). Data = the e2e global seed (`e2e/global-seed.ts`, per-run keyed); the falsifier seeds nothing. All falsifier runs **headed** (`--headed`), `--workers=3`, host load 52-196 (recorded per run).
+
+**Acts, in order.**
+1. **Anchors at the bytes.** Drifted: F-92's `useCanvasSetup.ts:18/:40` is now `.p2`'s `backingSize()` rule (`2b86203`); the only `getBoundingClientRect` left is the non-device-box fallback (`:86`), which Chromium never takes. F-81/F-9's `AnimationControls.vue:183-198` = `:184-216` at HEAD; F-76/F-173's `CanvasControlsDock.vue:64/:68` = `:77/:74`; F-181's `ExportModal.vue:55-70` holds. F-124: the fs-dialog's rounded corner is the owner's OA-1 ruling (`FullscreenViewer.vue` X.F.W11.a comment: "the squared corner is abrogated"). F-174's overlay draw is `composables/useImageOverlay.ts:74-90` (a flat `globalAlpha 0.28` `drawImage`), not `BasisCanvas.vue`.
+2. **Falsifier** `web/e2e/f-w14u-vdock.spec.ts` (new), 9 cases, each framing the served page `{before,after}-<case>-<width>.png` under `web/e2e/screenshots/f-w14u/vdock/` (PNG gitignored, on disk):
+   - **v9** ×{1440, 390} (F-9 ⊕ F-82 ⊕ F-175 ⊕ F-240): the ⋮ menu holds no combobox; every row sits inside the menu; `scrollWidth − clientWidth ≤ 0.5`; Export is in view and its centre hits it; a `group` named Speed and one named Easing; the dock holds no speed Select; choosing `2×` and `Linear` keeps the menu open with each `aria-checked`. F-137's clearance is READ (annotation), not asserted.
+   - **v76** ×{1440, 390}: View options' plate (the popper wrapper holding its toggles) opens at or below its trigger, never above the stage top, inside the viewport.
+   - **v94** ×{1440, 390}: the collapsed canvas dock's face glyph ≠ the Fullscreen control's glyph.
+   - **v244** ×{1440, 390}: the fullscreen takeover's `aria-describedby` resolves to text; F-92's fill READ (canvas `offsetWidth` vs container).
+   - **v181** 1440 (F-181 ⊕ F-229 ⊕ F-243 ⊕ F-182's labels half): described dialog; every switch inside `[data-slot=labeled-field]`; no consumer size class on the title; switches named Opaque background and Reference contour; no Reka Description warning; an export with Opaque background on has 0 transparent pixels; it stays on at the next open; Reference contour off removes > 100 px; Grid on + Labels off keeps grid pixels in the top-left 200×100 region.
+3. **RED ×2 against the pre-cure bytes (`:4178`).** ⟨`FW14U_PHASE=before BASE_URL=http://localhost:4178 npx playwright test e2e/f-w14u-vdock.spec.ts --project=chromium --headed --workers=3 --reporter=json`⟩ ×2 → **8 failed · 1 passed**, both runs identical (loads 51.9 / 79.2):
+   - v9 1440: dock combobox `1`; menu combobox `1`; no Speed group. v9 390: combobox `1`; row `"1×"` outside the menu; **`overflowX 25`** (the BROKEN frame).
+   - v76 390: plate top **13** vs trigger bottom 178.9 / stage top 120.9 (over the app chrome). v76 1440 **passes pre-cure** (top 139 ≥ 135: glass's collision flip already put it below; the plate was centre-aligned, right edge 909) — F-76's RED is its 390 half.
+   - v94 ×2: face glyph = Fullscreen glyph `true`.
+   - v244 ×2: description `""`.
+   - v181: description `""`, `glassRows 0/4`, title size class `true`, no ground switch. (These two RED runs carried the switch's first name, "Background"; the final spec names it "Opaque background". The pre-cure dialog has no ground switch under either name, and v181's description, glass-row and title assertions fail there independently of it.)
+   - F-92 read pre-cure: `{cw 1440, pw 1440}` · `{cw 390, pw 390}` — **GREEN-BEFORE-CURE** (cured at the `.p2` root).
+4. **Cures** (fourier, the unit's set):
+   - `SpeedSelect.vue` — rewritten: the Select (bare trigger in the dock from `sm`, `.input-pill` trigger in the menu below it) becomes a labelled `DropdownMenuLabel` + `DropdownMenuRadioGroup` over `ANIMATION_SPEEDS` (`lib/defaults.ts`), items preventing `select` so the menu stays open; the store's setter still coerces. It is the register's interim for F-9 (speed as `DropdownMenuRadioItem`s), EasingPicker's sibling section.
+   - `EasingPicker.vue` — its radio items prevent `select` (F-240: choosing keeps the menu open).
+   - `AnimationControls.vue` — the dock's speed Select + its Tooltip deleted (one control per setting); the menu = `.menu-sections` (Speed, Easing; `overflow-y: auto`, `min-block-size: 0`) + Export pinned below; `.menu-popup` capped at reka's `--reka-dropdown-menu-content-available-height`, `overflow: hidden`.
+   - `CanvasControlsDock.vue` — View options `PopoverContent side="bottom" align="end"` (F-76; glass's placement takes no consumer collision padding, measured at `_shared/overlay/placement.d.ts:17-22`); the collapsed face glyph `Maximize2` → `Ellipsis` (F-94).
+   - `FullscreenViewer.vue` — a sr-only `DialogDescription` (F-244); the undeclared `:show-ghost`/`:show-image-overlay`/`@toggle-*` passed to `AnimationControls` (raw DOM attributes, dead) deleted (F-93's plumbing limb).
+   - `ExportModal.vue` — glass `LabeledSwitch` rows (`layout="horizontal"`) replace the hand-rolled label+Switch rows and their CSS (F-181); `DialogDescription` (F-181); title loses `text-lg font-semibold` (F-229 consumer, F-243 rung); the Download icon's literal size dropped (F-243); new switches Reference contour and Opaque background (the first cut carried a `description` under a "Background" label; its frame showed the description wrapping in three short lines of muted ink beside the switch column, so the label says it whole and the description is gone); the choices persist per viewer under `fourier:export-options` through `useSafeStorage` (a malformed record reads as the defaults) (F-243).
+   - `BasisCanvas.vue` — `FrameLayers` gains `ghost` and `labels` (the live draw: `ghost = props.showGhost`, labels on); export options `withReference` / `withBackground`; the `clearRect(0, 0, 200, 100)` label "erase" deleted — labels are skipped (F-182's labels limb); an opaque ground = the first opaque ancestor background the engine resolves (F-243).
+5. **Probes that changed the cure (measured, then withdrawn).**
+   - **F-173** (the dot only off-default) was written, then withdrawn: `.d`'s committed falsifier `e2e/f-w14u-d.spec.ts:123` (d2) reads `.dock-layer--summary .view-dot` **at the default view state** (trace on), so an off-default-only dot makes d2 throw on a null rect. The cure needs d2's setup to switch the trace off first: a sibling unit's file, which the ADJACENT-LINE RULE excludes. → escalated (E-4).
+   - **F-244's Exit tooltip** was written, then withdrawn: the takeover's open-autofocus lands on Exit, the tooltip opens on that focus, and the first Escape dismissed the tooltip, not the takeover (probe: after keyboard open + Escape, the active element was still "Exit fullscreen"). The Exit control's form rides F-93 (the hosted dock's Minimize).
+   - **F-148** was probed on both trees (⟨headless node probe, fresh upload, 1440⟩). Pre and post: keyboard open + Escape → focus `Fullscreen`; pointer open + Escape → `Fullscreen`; **pointer open + Exit click → `BODY`**. A `@close-auto-focus` hand-back (invoker captured at open) and an Exit re-routed through `DialogClose` each measured **no change** (`BODY` ×2) and were withdrawn. Cause: on the Exit-click path the pointer rests at the takeover's top-right, so when the takeover closes the canvas dock rests collapsed and its Fullscreen control sits in the dock's inert expanded layer, which cannot take focus. The Escape path works only because the pointer never left the dock. The stray "Fullscreen" tooltip after Escape is the tooltip opening on the restored focus (measured pre and post). Both are glass halves (the dock's posture when focus returns into it; a tooltip opened by a programmatic focus restore). → routed (see Relay).
+6. **Instrument incident (caused by this seat, repaired).** The first pre-cure server (`:4178`) symlinked `web/node_modules`, so vite's dependency pre-bundle wrote into the shared `web/node_modules/.vite/deps` (⟨`ls -la`⟩ → modified 13:03, the minute it started). The `:3100` dev server's module graph then held two Vue copies: `/morph` rendered blank with `TypeError: Cannot read properties of null (reading 'ce')`, and the paper and `/morph` keystones failed in neighbour runs 1-2. Repair: `:4178` stopped; `:3100` restarted with its own command from its own cwd (⟨`npx vite web --port 3100 --strictPort`⟩ in `fourier-analysis/`), after which `/morph` → `errs 0 · heading 1` ×2. Every GREEN and neighbour figure below was read **after** the restart. The second pre-cure server used an isolated `cacheDir` (a scratch `vite.pre.config.ts` spreading `vite.config`), leaving the shared cache untouched (⟨`ls -la .vite/`⟩ still 13:29). Both scratch worktrees were removed (⟨`git worktree remove --force`⟩; symlinks unlinked first).
+7. **GREEN ×2 on the settled bytes (after the restart).** ⟨`FW14U_PHASE=after BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-vdock.spec.ts --project=chromium --headed --workers=3 --reporter=json`⟩ ×2 → **9 passed · 0 failed**, both runs (loads 23.0 / 28.8). Readings: v9 `overflowX 0 · out [] · combobox 0` at 1440 and 390; v76 plate top 139 ≥ 135 (right edge 763, end-aligned) and 183 ≥ 178.9 at 390; v181 `description "Save the current frame as a PNG, with the layers you choose." · glassRows 6/6 · titleSizeClass false`. Frames AFTER inspected: the 390 menu shows Speed (5 rates) · Easing (6 curves) · Export all inside the plate, with Export in view.
+8. **Neighbours (non-regression), after the restart.** ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14-uia.spec.ts e2e/f-w14-dpr.spec.ts e2e/f-w14u-d.spec.ts e2e/fullscreen.spec.ts e2e/visualization-ux.spec.ts --project=chromium --project=chromium-headed --workers=3`⟩ ×2 → **51 passed · 1 failed** ×2 (loads 29.8 / 23.7). The one RED both times is f-w14-uia `:162` (UIA-F-17), a 60 s timeout at the fourth export's `Play animation` hover.
+   - **The Close gate's own mode passes it.** ⟨`… e2e/f-w14-uia.spec.ts --project=chromium --workers=1`⟩ → **32 passed**. ⟨`… -g "UIA-F-(5|7|12|17) " --workers=1`⟩ → **4 passed**. F-17 alone → passed.
+   - **It is not this unit's.** ⟨`… e2e/f-w14-uia.spec.ts --project=chromium --workers=3`⟩ reads it RED ×2 on the cured bytes, and RED ×2 on the **pre-cure bytes** (the isolated `:4178`, same spec). The pre-cure failure is at `:209` ("Epicycles off removes the chain", Expected > 23840). `:162` under concurrency is F.W14's recorded load-sensitive case (`C/F-W14.md:1789`). It is not in the named set, so it is carried to the Close (R-3).
+   - The adjacent F-17 edit below is required, not cosmetic. Neighbour run 1 was read before that edit, on the broken graph of act 6. It read `:209` RED with `all − noChain = −25222`, because the toggle-from-default helper, meeting remembered choices, flipped the previous export's switches back.
+   - f-w14-dpr G-p (headed) 2/2 in both runs, and `.d`'s d1/d2 6/6.
+   - `:3100` rewrote 4 tracked dpr frames (`web/e2e/screenshots/f-w14/after-dpr-epicycles-{1x,2x}-{figure,rest}.png`). They were clean at open and outside this set, so they were restored by exact path (⟨`git checkout HEAD -- <4 paths>`⟩). Tree after: `?? .worktrees/` only.
+
+**Commit.** fourier **`7ad6be2`**. Pathspec: the 7 components, `web/e2e/f-w14u-vdock.spec.ts` (new) and `web/e2e/f-w14-uia.spec.ts` (adjacent). Pushed: ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `7ad6be235763`. Frames are on disk under `web/e2e/screenshots/f-w14u/vdock/` (`{before,after}-{v9-more-open,v76-view-options,v94-collapsed,v244-fs-open}-{1440,390}.png` and `{before,after}-v181-export-open-1440.png`: 18 frames, ⟨`ls | wc -l`⟩ → 18). PNGs are gitignored and were not force-added.
+
+**Adjacent edits (§0bt):** `web/e2e/f-w14-uia.spec.ts:188-196`. UIA-F-17's export helper names switches by role, because the hand-rolled `label.option-row` it located is gone (F-181). It now *sets* each of the four layer switches rather than toggling from a presumed default, because the dialog remembers choices across opens (F-243). No assertion was changed.
+
+**Row dispositions (23).**
+| row | disposition | evidence |
+|---|---|---|
+| **F-9** (BROKEN) | **CURED** (the register's interim: speed as menu radio items, Export pinned outside the scroll area). F-81's pane is the final form (E-1) | v9 1440+390: RED ×2 (`overflowX 25`, row `1×` outside, combobox 1) → GREEN ×2 |
+| **F-14** (BROKEN) | **ESCALATED (E-2)** | cure site `VisualizationView.vue`, outside the set |
+| F-76 | **CURED** | v76 390: RED ×2 (top 13 over the chrome) → GREEN ×2. The 1440 half was already below the trigger pre-cure; end-aligned now |
+| F-77ˢ | glass half ROUTED O-59 (standing). Consumer half (a menu of two CheckboxItems) **ESCALATED with F-79 (E-3)** | — |
+| F-79 | **ESCALATED (E-3)** | — |
+| F-80ˢ | glass half ROUTED O-59 (standing). Consumer geometry = F-5, non-regression GREEN (f-w14-uia F-5 in 4/4 ×1 at `--workers=1` and in the ×2 neighbour runs); plus F-94's face | — |
+| **F-81** | **ESCALATED (E-1)** | — |
+| F-82 | **CURED** | v9: no combobox in the menu or the dock, RED ×2 → GREEN ×2 |
+| F-92 | **GREEN-BEFORE-CURE** (cured at the `.p2` root, `2b86203`); no edit | v244 read: `cw = pw` at 1440 and 390, pre and post |
+| F-93 | **PARTIAL**: dead attribute plumbing deleted. Hosting the canvas dock in the takeover rides F-14 (E-2) | — |
+| F-94ˢ | consumer **CURED**; glass half (reserved persistent space) ROUTED O-59 (standing) | v94 ×2 widths RED ×2 → GREEN ×2 |
+| F-124ˢ | glass half (a takeover arm) ROUTED O-59 (standing). Consumer: **no change, by the owner's OA-1 ruling** (X.F.W11.a keeps glass's radius on the takeover) | `FullscreenViewer.vue` fs-dialog comment |
+| F-137ˢ | glass half ROUTED O-59 (standing; DockTrigger anchoring to the dock face). Consumer: `DropdownMenuContent` takes only `side`/`sideOffset`/`align`/`alignOffset`, and a larger literal offset would copy the dock's padding, so no consumer cure | v9 read: menu bottom − plate top = −8.1 (1440) / −7.5 (390) post-cure |
+| F-148 | **ROUTED**: glass halves, new (Relay) | act 5 probes: Exit-click → `BODY` pre and post; Escape → `Fullscreen` pre and post |
+| F-173 | **ESCALATED (E-4)** | act 5 |
+| F-174 | **NOT LANDED (residual R-1)** | — |
+| F-175 | **CURED**: labelled Speed and Easing sections; speed left the dock | v9 groups, RED ×2 → GREEN ×2 |
+| F-181 | **CURED** | v181 RED ×2 → GREEN ×2 |
+| F-182 | **PARTIAL**: labels skip **CURED** (v181 corner > 0). Export → canvas dock and fullscreen → dialog **ESCALATED (E-2)** | — |
+| F-229ˢ | consumer (`text-lg`) **CURED**; glass header anatomy ROUTED O-59 (standing) | v181 `titleSizeClass` RED ×2 → GREEN ×2 |
+| F-240 | **CURED**: choosing keeps the menu open. The collapsed `×` ink was cured by `.d` d1 | v9 radio clicks → menu visible, GREEN ×2 |
+| F-243 | **CURED**: opaque ground, remembered choices, the title rung and icon size, the reference-contour switch | v181 RED ×2 → GREEN ×2 |
+| F-244 | **PARTIAL**: description **CURED**. Exit's form rides F-93/F-14 (E-2) | v244 RED ×2 → GREEN ×2 |
+
+Tally ⟨count of the table's rows⟩ → 23:
+- CURED 11: F-9, F-76, F-82, F-94, F-175, F-181, F-229, F-240, F-243, F-80 (consumer via F-5), F-124 (consumer by OA-1).
+- PARTIAL 3: F-93, F-182, F-244.
+- ESCALATED 5: F-14, F-77 (consumer), F-79, F-81, F-173.
+- ROUTED only 2: F-137, F-148.
+- GREEN-BEFORE-CURE 1: F-92.
+- NOT LANDED 1: F-174.
+
+**Gates BEFORE → AFTER.**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-u (this unit's 23) | 23 owed | 11 cured · 1 green-before-cure · 2 routed · 3 partial · 5 escalated · 1 not landed (table) → **RED for the unit** |
+| falsifier `f-w14u-vdock` | 8 failed · 1 passed ×2 (pre-cure bytes) | **9/9 ×2** |
+| f-w14-uia F-5/F-7/F-12/F-17 + f-w14-dpr | GREEN (banked) | ⟨`-g "UIA-F-(5\|7\|12\|17) "` `--workers=1`⟩ 4/4; the uia file whole at `--workers=1` 32/32; dpr G-p 2/2 in each neighbour run; F-17 RED under `--workers=3` on **both** trees (R-3) |
+| `vue-tsc -b` | 0 (banked) | ⟨`npx vue-tsc -b` ×2⟩ exit 0 · exit 0 (on the final bytes) |
+| `vitest` | 86/86 (banked) | ⟨`npx vitest run` ×2⟩ `Test Files 14 passed (14) · Tests 86 passed (86)` ×2 |
+
+**Escalations.** All four ask the orchestrator for a ruling on bounds. None is a substitute cure. Each cure below is what the register specifies; none was improvised.
+- **E-1, F-81 (+ F-9's final form).** The register's cure (`UI-AUDIT-fourier.md:155`) has three parts:
+  - one shared animation pane beside the stage, holding speed and easing;
+  - /morph's three phases as segments on one glass Timeline with transport;
+  - one easing catalogue (`easings.ts:186` `EASING_PRESETS` vs `:204` `ANIMATION_EASINGS`) and one picker, with the ⋮ menu keeping only Export.
+
+  Measured bounds: the /visualize pane is the Configurator aside in `VisualizationView.vue:379-425` (owned by `.vstage`/`.vedit`). The morph timeline is `FourierMorphDemo.vue:25-55` (owned by `.misc`). A shared pane component would be a new file in no unit's set. `MorphPhaseConfig.vue` (in this set) is only one of the three sites. **Ask:** grant `.vdock` the pane mount lines in `VisualizationView.vue`, `FourierMorphDemo.vue`'s phase block, and one new shared component (e.g. `visualization/AnimationSettingsPane.vue`); or re-home F-81 to a unit that holds them.
+- **E-2, F-14 (BROKEN) + F-93 + F-182 (export relocation) + F-244 (Exit).** The cure is to move the single live stage (`VisualizationView.vue:306-376`: BasisCanvas, ContourEditorCanvas with its ref and listeners, both docks) into the takeover, so no second editor is mounted. It requires `VisualizationView.vue` (a `Teleport`/host of the stage into `FullscreenViewer`), which is `.vstage`/`.vedit`'s. F-182's "Export on the canvas dock, fullscreen through the dialog" needs the same file (`@export` on `CanvasControlsDock` → `handleExportFrame` `:102`). **Ask:** grant `.vdock` those lines, or fold F-14/F-93/F-182's relocation into `.vstage`.
+- **E-3, F-79 (+ F-77's consumer half).** One `ViewLayersMenu` (DropdownMenu, CheckboxItems) mounted by both docks means a new file plus `EditorControlsDock.vue:202` (`.vedit`'s). **Ask:** grant, or re-home to `.vedit`, which holds F-86 (the register says F-79 cures it).
+- **E-4, F-173.** The cure conflicts with `.d`'s committed oracle `e2e/f-w14u-d.spec.ts:123` (d2 reads the dot at the default state). **Ask:** allow a two-line setup change in d2 (switch the trace off before reading the collapsed dot), then land the dot as `showImageOverlay || !showGhost` (the withdrawn cut, act 5).
+
+**Relay (glass; O-59 addendum owed, not in this seat's bounds).** F-148's two glass halves, newly measured:
+- (a) a dock's control that opened a modal cannot take focus back when the modal closes with the pointer outside the dock, because the control sits in the collapsed dock's inert expanded layer. The dock should restore its expanded posture, or seat the focus, when focus returns into it.
+- (b) a tooltip opens on the dialog chassis's programmatic focus restore, which the register reports as the stray "Fullscreen" tooltip after Escape.
+
+Also noted: `LabeledSwitch layout="horizontal"` sets its control in a fixed second column rather than at the row's end, so the export dialog's switches sit mid-plate (frame `after-v181-export-open-1440.png`). That is glass's layout; it is not overridden here.
+
+**Residuals.**
+- (R-1) **F-174 not landed.** The draw is `composables/useImageOverlay.ts:86-89`: a flat `globalAlpha 0.28` over a transparent canvas. A blend mode cannot act on a transparent backdrop, so the cure is a luminance key applied once per loaded image, at that file. No unit owns the file, so the ADJACENT-LINE RULE reaches it. The seeded image, though, is a photograph with no white ground (v174 probe: slab 44 px of 3.2 M, a false GREEN). The falsifier needs a white-ground upload. That case was withdrawn rather than committed GREEN.
+- (R-2) F-137's 8 px overlap of the menu over the dock plate stays until glass anchors dock-launched content to the dock face (O-59).
+- (R-3) f-w14-uia `:162` (F-17) is RED under `--workers=3` on the pre-cure and the cured bytes alike, and GREEN at `--workers=1` (the Close's mode). It is carried to the Close as F.W14's load/concurrency-sensitive case.
+- (R-4) Two doc comments outside this set still name the retired Select: `lib/defaults.ts:55` and `stores/animation.ts:69`. They are documentation only; no code reads them.
+
+**Status: PARTIAL**, escalations E-1..E-4.
