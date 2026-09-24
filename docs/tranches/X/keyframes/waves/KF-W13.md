@@ -500,3 +500,6 @@ Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d
 
 ## ADDENDUM 2026-09-24 — OA-66/OA-67 (COHESION §0cs)
 - Record honest-RED **GLASS-SELECT-GREY** (O-66) for Select triggers and selected items painting grey. Check the call sites for any consumer class or dead prop that causes it, and cure those locally. Never override the glass surface. Dock motion stays with glass D2 (O-66 §2).
+
+## ADDENDUM 2026-09-24 — OA-68 (COHESION §0ct)
+- Read every side and canvas dock on the served page, in both themes. Record honest-RED **SIDE-DOCK-EDGE** (O-67) for plate edges that do not close and for badge overlap. Cure only a consumer clip or crowding in the ancestor chain, such as a missing gutter to the panel above. Never override the dock.

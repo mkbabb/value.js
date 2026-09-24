@@ -3352,3 +3352,8 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Consumers:**
   - X-W12, KF.W13W and F.W14U record honest-RED **GLASS-SELECT-GREY** with no override, alongside the dock ids.
   - A consumer that passes its own grey class to a Select (the §0cb dead `variant` pattern) is cured locally. Each wave checks its call sites.
+
+## §0ct ADDENDUM 2026-09-24 — OA-68: side docks and their edges (O-67)
+- **Owner, verbatim:** *"and the side docks, and the edges thereof, are not right"*. The frame is a dark side or canvas dock whose plate edge does not close, crowds the panel above, and has a status dot overlapping the expand glyph.
+- **Relayed as O-67** (mirrored and sent live): side, vertical and canvas docks become a D2 witness family, with whole edges in both themes at every DPR, and a reserved badge seat.
+- **Consumers:** X-W12, KF.W13W and F.W14U record honest-RED **SIDE-DOCK-EDGE**. Each checks its ancestor chain for a consumer clip and cures only that. The fourier canvas docks (`CanvasControlsDock`, `EditorControlsDock`) are the first place to read.
