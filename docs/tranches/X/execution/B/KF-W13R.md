@@ -484,3 +484,17 @@ SERVED MODEL: claude-opus-5-5 · seat `KF.W13R` CHECK 1 (L-20 pass 1 on the Clos
 ### Verdict
 
 **CONFORMANT-HONEST-RED** — 0 BLOCKER / CRITICAL / HIGH; 7 of 7 claimed GREENs reproduce; every red is relieved by the spec's own bytes or is producer-owned and relayed: **SHEET-POSITION · B7 SPECULAR-REST · DOCK-MORPH-ROOT · GLASS-VEIL-GREY · DOCK-TRIGGER-CLIP · DARK-MENU-ITEM**. The easing occlusion is carried as MEDIUM C1-1 to KF.W13V. Four verbs: AUDITED YES · SPECIFIED YES · IMPLEMENTED YES · **VERIFIED YES**. LEDGER → CLOSED 2026-09-17 (honest-RED …).
+
+## Close (re-dispatch, 2026-09-24) — addendum beside the Close and Check 1 (E-3; neither is amended)
+
+SERVED MODEL: claude-opus-5-5 · seat `KF.W13R` CLOSE re-dispatched ("redeploy all workflows"), VERIFY-ONLY, 0 kf/glass bytes · kf HEAD `ab94125c` (= `d94017ff` + 22 KF.W13V shas, unpushed, not this wave's) · origin/master `d94017ff` · load ⟨`uptime`⟩ → 12.28 70.12 88.11.
+
+**Finding: this wave was already CLOSED and VERIFIED.** The Close (`:377`) and Check 1 (`:435`, CONFORMANT-HONEST-RED, VERIFIED YES) stand; the LEDGER row `:60` already reads CLOSED. This seat re-verified; it does not re-close.
+
+- **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → 2 untracked coordination letters (pre-existing); nothing in this seat's set dirty in value.js. No inherited work.
+- **Act 1 (commits)**: all 22 kf shas `dca116e1`…`d94017ff` exist (⟨`git cat-file -e`⟩ ×22 ok); ⟨`git rev-list --count febb3bcd..d94017ff`⟩ → 22; paths outside `demo/`/pin/lock/vitest.config → 16 (the §0bt adjacent set the `.m` receipt names). value.js `4bd9bef8 1ca41d12 5f9dcfe0 bbf8f1cf 96c8cdfa 8b419438 744ef4c9 16e04c84 2ed657b3` exist and are ancestors of origin/tranche-u. **Landed-wrong: 0.**
+- **Act 2 (regression guards at current HEAD, ×2)**: G-R-pin `78: "10.0.1"`, installed 10.0.1 · G-R-exports absent subpaths **0** · G-R-sheet `glass-ui/drawer` 0 / `glass-ui/sheet` 1 · ⟨`npm run check`⟩ EXIT 0 · EXIT 0 · ⟨`npx vitest run --project demo`⟩ **69/69 files · 533/533 tests** ×2 (the count grew from 66/518 by KF.W13V's added tests; these are not this wave's). Served-page and e2e reads are not re-driven: HEAD now carries KF.W13V's unclosed product bytes, so a served read here would measure KF.W13V, not KF.W13R. The Close/Check 1 readings at `d94017ff` stand.
+- **Act 4 (E13)**: ⟨`find` value.js V/coordination · glass BK/coordination · kf V/coordination · atlas P/coordination `-newer INBOX.md`⟩ → 0; INBOX rows with status `UNREAD` → 0.
+- **Act 7 (push)**: every KF.W13R sha is already on origin (`d94017ff` = origin/master; the value.js shas are on origin/tranche-u). **kf `push origin HEAD` was NOT run**: it would publish 22 KF.W13V shas (`e69f7731`…`ab94125c`) before that wave's own close. That push belongs to KF.W13V's close seat.
+- **Residuals** unchanged from the Close and Check 1. SHEET-POSITION → glass BL F-21 (KF.W13V `.s` `317fae99` has since touched the mobile sheet, which is that wave's to read). C1-1 easing occlusion → KF.W13V `.c` (`3b5f483d` names it). The DOCK-MORPH-ROOT, GLASS-VEIL-GREY, DOCK-TRIGGER-CLIP, DARK-MENU-ITEM and B7 SPECULAR-REST reds stay with BL.
+- **State**: unchanged. CLOSED (honest-RED, as LEDGER `:60`). Four verbs: AUDITED YES · SPECIFIED YES · IMPLEMENTED YES · VERIFIED YES (Check 1).
