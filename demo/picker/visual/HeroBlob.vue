@@ -14,7 +14,6 @@
             ref="blobRef"
             :color="cssColorOpaque"
             :config="heroConfig"
-            :paused="blobPaused"
             class="w-(--blob-fp)"
         />
     </div>
@@ -25,8 +24,6 @@ import {
     computed,
     inject,
     onActivated,
-    onScopeDispose,
-    ref,
     shallowRef,
     useTemplateRef,
     watch,
@@ -47,11 +44,11 @@ import { resolveSurfaceLightnessLive } from "../../color-session/useContrastSafe
 // app moments the picker UX cares about (the W6-4 mood-FSM row):
 //   scrub → excited   (a run of rapid colour changes — the user is scrubbing)
 //   save  → happy drip (a colour lands in the palette — pulse() is the drip)
-//   idle  → sleepy-as-contained-pose (the W3-3 park freezes the SLEEPY frame,
-//           so the parked blob reads as a resting creature, not a paused video)
+//   idle  → the producer's own arc (sleepy after 6 s of pointer idle) and its
+//           `settled` demand gate — no consumer clock (X.W12.d, G-3)
 // PRM: no demo wiring — the producer substrate renders ONE static frame and
 // parks itself under prefers-reduced-motion (seed w6-blob-redress §d-5); the
-// idle-gate + mood writes below are harmless no-ops on that parked substrate.
+// mood writes below are harmless no-ops on that parked substrate.
 
 const { cssColorOpaque, cssColorOpaqueFrame, savedColorStrings } = inject(COLOR_MODEL_KEY)!;
 
@@ -177,57 +174,25 @@ const heroConfig = computed<BlobConfig>(() => ({
     quality: isLgViewport.value ? appBlobConfig.quality : "half",
 }));
 
-// --- W3-3 (S.W3): blob idle-gate (the demo half) + the W6-4 sleepy pose ---
-// The blob's WebGL render loop costs ~7ms EVERY frame it is mounted, even fully
-// idle — the picker's default-view floor sits at 54fps vs the blob-off 85fps
-// (perf-transitions P0-2). We drive the renderer's EXISTING `paused` seam (the
-// `v-model:paused` prop → the substrate's `manual` suspend) after N ms with no
-// colour or save activity; the producer's own colour/paletteStops wake
-// watchers repaint the parked blob on a colour change (single-frame repaint),
-// and those programmatic moments resume the live loop. The producer per-frame
-// CPU profile is letter L5 — this is the demo half ONLY, no ../glass-ui patch.
+// --- X.W12.d · G-3 (§0cb): THE PARK IS THE PRODUCER'S `settled` SEAM ---
+// The W3-3 idle-gate parked the bead on a WALL CLOCK: 2 s after the last
+// colour change it pinned a manual `sleepy`, and 3.3 s later it drove the
+// substrate's manual suspend (`paused`). The suspend froze the frame AND
+// cancelled the engine's own scheduled satellite wakes, so from 5.3 s the
+// hero was a still picture until the next colour change — the owner's "not
+// animated" (OA-23, frame 4; measured: 0.000/255 frame diff at 5 s idle).
 //
-// W6-4 (idle → sleepy-as-contained-pose): at the idle threshold the blob is
-// first put to SLEEP (the mood FSM's contained rest pose), then the park
-// freezes that frame SLEEPY_POSE_MS later — the parked hero reads as a
-// creature at rest, never a paused video.
-//
-// N is the idle threshold. The §6.1 idle-budget e2e specs' sampling windows
-// MUST exceed the FULL park latency (N + SLEEPY_POSE_MS): the four blob-park
-// specs import the ONE shared contract (e2e/smoke/fixtures/blob-timing.ts),
-// which mirrors N + SLEEPY_POSE_MS here and derives PARK_SETTLE_MS =
-// N + SLEEPY_POSE_MS + 800ms slack. Keep N and SLEEPY_POSE_MS in lock-step
-// with that fixture (a one-file edit with four call sites).
-//
-// WR-2 / T-49c — THE PARK RUNWAY EXTENSION: one fission BEAT is 5.2s
-// (FISSION_BEAT_MS, glass-ui goo-blob constants); the former 2.7s park froze
-// the resting colony mid-split (or before any split showed). SLEEPY_POSE_MS is
-// extended so the FULL park latency (N + SLEEPY_POSE_MS = 5.3s) clears one
-// fission beat — the sleepy colony breathes out at least one calm split before
-// the frame freezes. The idle-CPU cost of the longer live window is the demo
-// INTERIM; the producer `settled`/park-from-quiescence seam (GAP-L5, booked at
-// the 5.0.0 adopt) restores the tight park by consulting the engine's
-// quiescence read instead of the wall clock (t49-research §2.3).
-const BLOB_IDLE_MS = 2000;
-const SLEEPY_POSE_MS = 3300;
-const blobPaused = ref(false);
-let idleTimer: ReturnType<typeof setTimeout> | undefined;
-let poseTimer: ReturnType<typeof setTimeout> | undefined;
-function noteBlobActivity() {
-    blobPaused.value = false; // resume the live loop for the new app moment
-    clearTimeout(idleTimer);
-    clearTimeout(poseTimer);
-    idleTimer = setTimeout(() => {
-        blobRef.value?.setMood("sleepy"); // the contained rest pose…
-        poseTimer = setTimeout(() => {
-            blobPaused.value = true; // …then park, freezing the sleepy frame
-        }, SLEEPY_POSE_MS);
-    }, BLOB_IDLE_MS);
-}
-onScopeDispose(() => {
-    clearTimeout(idleTimer);
-    clearTimeout(poseTimer);
-});
+// Glass 7.0.0 ships the seam that clock stood in for (GAP-L5, booked at the
+// 5.0.0 adopt): the renderer's demand gate parks the loop exactly when the
+// engine is quiescent — mood settled, pointer at rest, no satellite merging,
+// emerging or fissioning — the SAME predicate the Blob exposes as `settled`,
+// and it schedules its own wake for the next satellite event or autonomic
+// mood retarget. The idle CPU the W3-3 park bought is therefore the
+// engine's own, spent only while something is moving, and the producer's
+// autonomic arc supplies the sleepy rest pose (pointer idle > 6 s). The
+// consumer keeps no idle or arming logic of its own, so it has nothing left
+// to gate on `settled`: the wall clock, its timers and the `paused` binding
+// are retired, and no local engine replaces them.
 
 // --- boot-B / §0.3: THE WAKE-GRAY CURE (the KeepAlive re-activation flash) ---
 // The picker pane is KeepAlive-cached; navigating away parks the blob (or the
@@ -239,55 +204,50 @@ onScopeDispose(() => {
 // the correct state BEFORE the wake repaint: re-seed the ramp from the live
 // colour (a fresh `heroStops` reference → the producer's paletteStops wake
 // watcher repaints with the LIVE palette, never its default stops) and wake
-// the loop (`noteBlobActivity` unparks + re-arms the park; `resume()` forces
-// the engine awake in the same tick). If a gray frame survives this — the
+// the loop (the fresh reference IS the wake: the producer's paletteStops
+// watcher calls the renderer's own `wake()`; X.W12.d retired the consumer
+// park, so there is no manual suspend left to `resume()`). If a gray frame survives this — the
 // engine painting its default BEFORE reading the re-seeded prop — the root is
 // PRODUCER (the P6 reveal/wake rider, PR-2 fence: no demo shader/engine fork).
 onActivated(() => {
     reseedHeroStops(cssColorOpaqueFrame.value);
-    noteBlobActivity();
-    blobRef.value?.resume();
 });
 
 // --- W6-4: scrub → excited ---
-// A colour change is activity (keeps the blob live + re-arms the idle park);
+// A colour change wakes the engine itself (the producer's colour watcher);
 // a RUN of changes inside the window is a SCRUB — the moment the picker is
 // being played like an instrument — and reads as excitement. Re-fire is
 // throttled so a long drag lands one mood kick, not a mood flood (the
-// producer's autonomic arc settles it back down on its own). `immediate`
-// arms the first idle countdown at mount, so an untouched picker parks.
+// producer's autonomic arc settles it back down on its own).
 const SCRUB_WINDOW_MS = 700;
 const SCRUB_CHANGES = 5;
 const SCRUB_REFIRE_MS = 1600;
 let changeTimes: number[] = [];
 let lastScrubFire = 0;
-watch(
-    cssColorOpaque,
-    () => {
-        noteBlobActivity();
-        const now = performance.now();
-        changeTimes.push(now);
-        changeTimes = changeTimes.filter((t) => now - t <= SCRUB_WINDOW_MS);
-        if (
-            changeTimes.length >= SCRUB_CHANGES &&
-            now - lastScrubFire > SCRUB_REFIRE_MS
-        ) {
-            lastScrubFire = now;
-            blobRef.value?.setMood("excited");
-        }
-    },
-    { immediate: true },
-);
+watch(cssColorOpaque, () => {
+    const now = performance.now();
+    changeTimes.push(now);
+    changeTimes = changeTimes.filter((t) => now - t <= SCRUB_WINDOW_MS);
+    if (
+        changeTimes.length >= SCRUB_CHANGES &&
+        now - lastScrubFire > SCRUB_REFIRE_MS
+    ) {
+        lastScrubFire = now;
+        blobRef.value?.setMood("excited");
+    }
+});
 
 // --- W6-4: save → happy drip ---
 // A colour landing in the palette is the picker's save moment — the hero
 // celebrates with the happy mood + a pulse (the drip). Length-increase only:
 // removals/clears are not celebrations.
+// Residual (O-56 G-3 relay, X.W12.d): at glass 7.0.0 `setMood`/`pulse` do not
+// wake a demand-parked loop (the Blob exposes no `wake`), so on a quiescent
+// engine the drip renders at the engine's next scheduled wake.
 watch(
     () => savedColorStrings.value.length,
     (n, prev) => {
         if (n > prev) {
-            noteBlobActivity(); // wake the parked loop so the drip renders
             blobRef.value?.setMood("happy");
             blobRef.value?.pulse();
         }
@@ -305,12 +265,10 @@ watch(
 // idempotent `resize()` on the was-suspended path — as a pause()/resume() pair
 // at the emerge pose's animationend, sizing the backing against the settled
 // (untransformed) box with one same-frame repaint. Name-filtered (the engine's own grammars
-// compose inside this subtree); park-guarded so a parked blob is never woken
-// by a beat's end. Under PRM the emerge never runs (no-preference-wrapped) and
+// compose inside this subtree). Under PRM the emerge never runs (no-preference-wrapped) and
 // the engine arms against the untransformed box — no cure needed, none fires.
 function onEmergeEnd(e: AnimationEvent) {
     if (e.animationName !== "blob-emerge") return;
-    if (blobPaused.value) return;
     blobRef.value?.pause();
     blobRef.value?.resume();
 }
