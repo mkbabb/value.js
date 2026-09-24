@@ -66,6 +66,7 @@
         "lint": "eslint . --max-warnings=0",
         "pretest": "npm run build",
         "test": "vitest run",
+        "test:css-equivalence": "vitest run -c bench/vitest.config.ts",
         "test:e2e": "playwright test",
         "test:visual": "playwright test --project=visual",
         "slate": "node scripts/ci/oracle-slate.mjs",
