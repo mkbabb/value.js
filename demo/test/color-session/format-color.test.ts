@@ -141,7 +141,7 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
     /** [OM-14 id, file under demo/, the routed expression at the site, occurrences]. */
     const SITES: readonly (readonly [string, string, string, number])[] = [
         // §2.A — visible text (17; A2 is the 4dp INCONSIST row, not a raw-12 site)
-        ["A1", "color-session/ColorSpaceSelector.vue", "formatSpecimen(colorModel.model.value.color, entry.id)", 1],
+        ["A1", "color-session/ColorSpaceSelector.vue", "formatSpecimen(color, entry.id)", 1],
         ["A3", CI, '{{ formatColor(currentPhysicalColor, "caption") }}', 1],
         ["A4-A6·A8", CI, "innerText = formatCssCaption(formattedCurrentColor.value)", 4],
         ["A7", CI, "innerText = formatCssCaption(text)", 1],
