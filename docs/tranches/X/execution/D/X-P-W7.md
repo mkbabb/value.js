@@ -511,3 +511,58 @@ Per-meaning commits were cut by re-applying each cure's hunks onto a clean worki
 **Scratch evidence** (`scratchpad/k/`): `2026-09-23-x-p-w7-k-r1.json` `1df6c9dadc11…` · `-k-r2.json` `02891ca97680…` · `browser-k.json` `5b01aa0e5466…` · `equiv-r{1,2}.json` · profile scripts `prof.mjs`, `pure.mjs`, `tq.mjs`, `cpu.mjs`, `ab.mjs`, `proto.mjs`.
 
 **Commits (value.js):** `065ba11e` (entries bound once at module load) · this receipt.
+
+### .z
+
+**Seat:** `claude-opus-5-5`, 2026-09-24 (fresh open; no prior `.z` receipt). **Status: ESCALATED.** `.z`'s premise, "after a fresh install on the published pins", is unmet at the registry: neither parse-that 2.0.0 nor `@mkbabb/bbnf-lang` 0.2.0 is published (ESC-W7p-1 / ESC-W7e-1 / ESC-W7v-1, the npm `EOTP` owner act, are still open). Also, K-1 is RED under ESC-W7k-1, which has no ruling. So Z-2 cannot read GREEN, and the COHESION rows (RES-x-1 and OC-1 speed GREEN, BBNF-TS-TOOLCHAIN discharged, F-b-1..4 and F-p-EOF closed) cannot truthfully be written. The lawful acts were done: the bbnf-lang preflight passed and PR #1 is open. The merge is held because the branch still has writes owed (see Z-4).
+
+**Open.** I read the spec whole (190 lines, incl. the §0ck addendum). From the record I read the header through the Unit plan, plus the `.k` receipt (the last section); I found the other units' statuses by grep. I read COHESION §0cg through §0cm, to the file end (3,281 lines). No addendum rules on ESC-W7p-1, ESC-W7e-1, ESC-W7v-1/2 or ESC-W7k-1.
+
+**Crash recovery.** ⟨`git status --porcelain | grep -E 'bench/records|COHESION|relay/|INBOX|LEDGER|X-P-W7'`⟩ → empty (the only nearby dirty row is `docs/tranches/V/reformation/CARRY-LEDGER.md`, which is outside the set and a sibling's). No inherited work.
+
+**Registry at open.** ⟨`npm view @mkbabb/parse-that versions --json | tail -3`⟩ → `"0.13.0", "1.0.0"` · ⟨`npm view @mkbabb/bbnf-lang versions --json | tail -3`⟩ → `"0.1.3", "0.1.4"`. **No published pin exists to install.**
+
+**Acts, in order.**
+1. **bbnf-lang preflight (§0ck 5, read-only).** ⟨`git -C ../bbnf-lang fetch origin`⟩, then ⟨`git rev-parse origin/master`⟩ → `d2b32f6e3` · ⟨`git rev-parse origin/x-p-w7-typescript`⟩ → `373ca34a6`, equal to the worktree HEAD · ⟨`git diff origin/master...origin/x-p-w7-typescript --stat | tail -1`⟩ → `88 files changed, 12116 insertions(+)` · ⟨`… --name-only | grep -v '^typescript/'`⟩ → empty. **Only `typescript/**`; no CI or release file outside it.**
+2. **PR opened, not merged.** ⟨`gh pr create --base master --head x-p-w7-typescript …`⟩ → `https://github.com/mkbabb/bbnf-lang/pull/1`; ⟨`gh pr view 1 --json state,mergeable,headRefOid,changedFiles`⟩ → `OPEN MERGEABLE 373ca34a6… 88`. The merge is held for a measured reason. The branch still owes writes that must land before master receives the package:
+   - R-t-1: `typescript/package-lock.json` regenerates only once parse-that 2.0.0 is on the registry. At `373ca34a6`, `package.json` depends on `^2.0.0`, which returns 404, so merging now would put an uninstallable package on master.
+   - The 0.2.0 publish itself (E-8) runs from this branch's worktree.
+   - ESC-W7k-1's ruling may choose the leaf-split lever: "a `span`/split action kind on numeric leaves, re-emit, `.e` gates, 0.2.x". That would be an emitter write on this same branch.
+   Merging now would split the close across two PRs and publish a broken intermediate state. `gh pr merge 1 --merge` is the one remaining act once those land.
+3. **Z-1 reading on the tree as it stands** (not on published pins). ⟨`npm ls @mkbabb/parse-that @mkbabb/bbnf-lang`⟩ → `@mkbabb/bbnf-lang@0.1.4` (→ `parse-that@0.8.2 deduped`) · `@mkbabb/parse-that@0.8.2`. That is one copy each, but of the pre-W7 runtime pins (V-9 is still escalated as ESC-W7v-1), so it is not the gate's reading.
+4. **Bench of record not re-read.** ⟨`git log --oneline 065ba11e..HEAD -- src package.json`⟩ → empty. The product bytes are the ones `.k` read twice (`k-r1`/`k-r2`), and a re-read on the same unpublished-pin bytes cannot turn Z-2. Nothing was banked to `bench/records/`: a record labelled as the published-pin close reading would be false.
+5. **Relays not sent.** The relay texts W7.md prescribes (141–148) assert facts that do not hold yet:
+   - T/U: "value.js carries no parse-that at runtime", but V-9 is RED.
+   - SK-V26: "value.js consumes the TS package at build time", but 0.2.0 is unpublished and `.v` generated from a local archive.
+   - keyframes.js: "receives the parser at X-W11", but only after the publishes.
+   Sending them now would relay false state, and Z-3's acknowledgement needs the recipient sessions. They are owed at the re-opened `.z`. latex-paper's row (it stays on ^0.1.1) holds either way and goes out with the rest, so recipients get one letter each.
+6. **COHESION not written.** I did not write the addendum's claims (RES-x-1 and OC-1 speed half GREEN, etc.), because Z-2 is RED on accepted `parseKeyframeSelector` (1.31–1.43 node, `.k`), on G-browser and on G-large (ESC-W7v-2). Writing them would record a false GREEN.
+
+**Gates.** The BEFORE readings are the baseline table. The AFTER readings are this seat's.
+- **Z-1** fresh install, one copy of each package, on the published pins: **RED, unreadable.** No published pin exists. On the current tree it reads one copy each of 0.1.4/0.8.2 (act 3).
+- **Z-2** every entry below 1.00 in every whole-corpus and accepted-class cell, on the published pins: **RED.** The pins are unpublished, and on the same bytes `.k` read accepted `parseKeyframeSelector` 1.348/1.365 (median of cells, 6/6 cells >1; load `35.63 64.93 69.99`→`35.75 55.01 65.34` and `34.44 53.77 64.72`→`27.12 45.55 60.18`). Whole-corpus 7/7 GREEN ×2 (`.k` K-2).
+- **Z-3** each relay acknowledged in INBOX; COHESION rows committed: **RED.** No relay is sent, per act 5, and COHESION is not written, per act 6.
+- **Z-4** PR merged; preflight is `typescript/**` only; local master unchanged: **preflight GREEN** (act 1). **Local master unchanged GREEN**: ⟨`git -C ../bbnf-lang rev-parse master`⟩ → `af15f63e0d2d…` before and after. **Merge HELD** (act 2).
+
+**Adjacent edits:** none. **Out-of-set writes:** none. The only bbnf-lang act is the server-side PR creation; no local branch, worktree or master was written.
+
+**Residuals.**
+- **R-z-1:** bbnf-lang PR #1 is open and MERGEABLE at `373ca34a6`, and its merge is held (act 2).
+- **R-z-2:** the relays in W7.md 141–148 and the COHESION addendum are owed, with texts as the spec prescribes, once the publishes land and ESC-W7k-1 (with ESC-W7v-2) is ruled.
+
+**Escalations.**
+- **ESC-W7z-1 (owner act, the same wall as ESC-W7p-1/-e-1/-v-1):** publish parse-that 2.0.0 with an npm OTP (`../parse-that-x-p-w7/typescript`: `npm whoami && git status --porcelain && npm run build && npm publish --access public --otp=<code>`). Then `.e`'s E-8 chain runs: regenerate the lockfile on `x-p-w7-typescript`, run `.e`'s gates, publish 0.2.0. Then `.v`'s ESC-W7v-1 seat runs: pin 0.2.0 as a devDependency, take parse-that out of runtime, add the CI `bbnf gen --check` step. Only after that can `.z` re-open.
+- **ESC-W7z-2 (ruling, joins ESC-W7k-1 and ESC-W7v-2):** Z-2 binds accepted-class cells (decision 9), and accepted `parseKeyframeSelector` reads above 1 on every engine. `.z` cannot close GREEN until a unit is granted the action layer (`src/css/bbnf/math.ts`), and the emitter if the leaf split is chosen, per ESC-W7k-1.
+- **Re-open recipe for `.z`:**
+  1. Run `npm ci` in value.js, then `npm ls` (Z-1).
+  2. Run `node bench/paired/build.mjs`, then `node bench/paired/isolated.mjs z-r{1,2} product 3 11 whole,acc,rej,large` and bank both JSONs in `bench/records/` (Z-2).
+  3. Run the preflight again, then `gh pr merge 1 --merge` (Z-4).
+  4. Send the relays and write the COHESION addendum (Z-3).
+
+**Gate summary.**
+- GREEN: Z-4 preflight and local master unchanged.
+- HELD: Z-4 merge.
+- RED: Z-1 and Z-2, since no published pins exist and accepted keyframe is above 1.
+- RED: Z-3, since no relays are sent and no COHESION rows are written, to avoid false state.
+
+**Commits (value.js):** this receipt, plus one LEDGER event line. **bbnf-lang:** none (PR #1 opened server-side).
