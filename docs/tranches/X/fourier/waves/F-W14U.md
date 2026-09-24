@@ -36,3 +36,9 @@ The owner ordered a full UI audit of every page (OA-37). The fourier register, `
     - `PaperSidebar` and `MobileFloatingToc` become one component with two presentations, and no duplicate stays (DRY).
     - Use glass's drawer or sheet primitive, and relay any gap to O-65.
   - **`F.W14U.d` the collapsed dock, OA-57, fourier's consumer half.** Read and cure consumer causes. The producer half is O-65, honest-RED **DOCK-COLLAPSED-FORM**.
+
+## ADDENDUM 2026-09-24 (b) — P-1 and P-2 as glass read them (COHESION §0cr)
+- **`.s`, the detached pane.** Glass's Configurator is already a floating, rounded card (I-48 P-1). What is missing is only its placement, and placement is the consumer's layout. `.s` places glass's own card with an inset gutter through fourier's layout, never restyling the card. If glass later ships an inset mode, it is adopted at the landing repin.
+- **`.t`, the paper table-of-contents drawer.** Glass has no edge-drawer-under-content primitive (I-48 P-2). The table of contents is fourier's own content, and hiding it under the paper is fourier's layout. `.t` builds it from fourier's layout: the paper's grid column collapses, and the table of contents translates under the paper surface. The visible surfaces are glass's own, so it copies no glass surface.
+  - The component is written so that one glass primitive can replace the slide. Its motion lives in one place with no bespoke styling of glass surfaces.
+  - If glass's formation ships P-2, fourier adopts it at the landing repin, recorded as **P-2-ADOPT**.

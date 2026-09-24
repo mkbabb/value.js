@@ -3338,3 +3338,7 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - **parse-that and bbnf-lang:** Track D, via X.P.W7 and X.P.W7P.
   - **glass-ui:** relay only, live session glass-ui-9d, BL.
   - **latex-paper:** consumed by fourier's paper view, and reached only through F.W14U `.t` if its drawer needs a producer change.
+
+## §0cr ADDENDUM 2026-09-24 — glass I-48 (O-65 registered); P-1 and P-2 ruled for fourier
+- Glass registered O-65 at `806b7690`, and it enters D2 pass 2. Read from source only: glass has **no** edge-drawer-under-content primitive (P-2). Its Configurator is a floating card with **no** inset placement (P-1). Both go to glass formation.
+- **Ruled.** Placement and hiding are the consumer's layout, not glass surfaces. F.W14U `.s` places glass's own card with an inset gutter, and `.t` hides the table of contents under the paper through fourier's grid. Neither copies a glass surface. Both adopt the glass primitive at the landing repin if formation ships one (P-2-ADOPT). The addendum is in `F-W14U.md` (b).
