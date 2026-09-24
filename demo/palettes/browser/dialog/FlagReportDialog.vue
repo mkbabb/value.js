@@ -37,7 +37,7 @@
             </div>
 
             <DialogFooter>
-                <Button @click="$emit('update:open', false)">
+                <Button emphasis="text" @click="$emit('update:open', false)">
                     Cancel
                 </Button>
                 <Button

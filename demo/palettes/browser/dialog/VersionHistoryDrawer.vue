@@ -74,8 +74,9 @@
                     <!-- Revert button (hidden for current version) -->
                     <Button
                         v-if="!isCurrent(version)"
+                        emphasis="secondary"
                         size="xs"
-                        class="mt-2 text-caption opacity-0 transition-opacity group-hover:opacity-100"
+                        class="mt-2 opacity-0 transition-opacity group-hover:opacity-100"
                         @click="$emit('revert', version.hash)"
                     >
                         <RotateCcw class="mr-1 h-3 w-3" />
@@ -86,8 +87,9 @@
                 <!-- Load more -->
                 <Button
                     v-if="versions.length < total"
+                    emphasis="quiet"
                     size="sm"
-                    class="self-center text-caption"
+                    class="self-center"
                     :disabled="loading"
                     @click="loadMore"
                 >
