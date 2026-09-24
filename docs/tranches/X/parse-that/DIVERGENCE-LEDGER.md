@@ -1486,3 +1486,116 @@ The §5-era SH-1 row above (the `.j` escalation, routed UNADJUDICATED; §0w rule
 | **divergence vs the retired hand parser** | Verdict and label agree (`css_syntax`, expecting a scalar, naming `@`). The span is ABSOLUTE (an offset into the whole input), where the hand parser gave one relative to its sub-part. The differential compares verdicts and values, not refusal spans (RES-x-2), so no cell moves. The span difference is rowed here so it is not left unrowed. |
 | **consumer direction** | none for the verdict; a consumer reading `span` gets whole-input offsets. |
 | **bounds** | LW-1 (X-P-W6.md:274): `value.bbnf` sat outside `.x`'s dispatched set. COHESION §0cg ratified it after the fact under the ADJACENT-LINE RULE: same wave, same concern, required by the swap sentence. |
+
+## §16 — X.P.W7.o: F-b-4, the non-ASCII leading code unit, rowed as spec-correct (SERVED MODEL: claude-opus-5-5 · 2026-09-23) — DATED, BESIDE (E-3)
+
+**Authority.** COHESION §0ck decision 1 (ruled 2026-09-23): *"F-b-4: accept the grammar's sound answer on non-ASCII leading code units. The 4 corpus rows and 62 reader rows are rowed as spec-correct divergences in DIVERGENCE-LEDGER, in a dated section. A defect is never reproduced to keep a number."* W7.md §`.o` (a): *"the F-b-4 class enumerated row by row (4 sources × `parseCssValue`/`Values`; 62 reader rows)"*. Nothing above this section is edited (E-3).
+
+**The mechanism.** `@mkbabb/bbnf-lang` 0.1.4 routes a choice by an ASCII-only, flag-blind first-character table: a source whose deciding code unit is ≥ 128 (`—`, `…`, `é`, `🎨`, `§`, `·`, `≡`, `→`) is dispatched as if no alternative could start there. The grammar's own productions (`/…/` classes such as `[^\s(),\/:;"']+`) do accept those code units. The sound analysis (flag-aware FIRST sets with a non-ASCII bit, `.t` (c)) routes them by the grammar, so the emitted parser answers what the grammar says. The oracle (0.1.4) is the defect; the sound answer is the grammar's.
+
+**How the class is defined, so it cannot absorb anything else.** It is a difference of two banked research arms that share one emitter and differ only in dispatch (`judge/banked-tmp/`, MANIFEST 79/79): `jx-aot-pos` (sound routing) and `jx-aot-pos-sa` (the same emitter emulating 0.1.4's ASCII-only table). `bench/paired/fb4.mjs` requires `jx-aot-pos-sa` to reproduce the frozen oracle with 0 mismatches, and requires every `jx-aot-pos` mismatch to sit on a source holding a code unit ≥ 128. Both preconditions hold at the bytes, so every row below is F-b-4 and nothing else.
+
+⟨`node bench/paired/fb4.mjs`⟩ →
+
+`banked:jx-aot-pos-sa: … mismatches 0 (ASCII-only sources 0)` · `banked:jx-aot-pos: … mismatches 88 (ASCII-only sources 0)` · `F-b-4: 88 rows = 8 entry + 80 reader {"entry:parseCssValue":4,"entry:parseCssValues":4,"reader:functionParam":11,"reader:splitTopLevel(,)":13,"reader:splitTopLevel(;)":11,"reader:splitTopLevel(space)":45}`.
+
+**The count against the spec's.** Over the 29,944 sources of record the class is exactly the spec's: **8 entry rows** (4 sources × `parseCssValue`/`parseCssValues`) **+ 62 reader rows** (`functionParam` 11 · `splitTopLevel` `,` 11 · `;` 11 · `space` 29). The frozen oracle also holds the reader-shaped corpus (`.o` (a): 25,167 argument lists the readers received while the real sheets were parsed); on it the same class reaches **18 more reader rows** (`splitTopLevel` `,` 2 · `space` 16), each the trimmed or split form of a source already rowed above (`reader-shaped` in the table). Total 88. Rows are generated, not hand-written: `bench/paired/fb4.mjs` → `bench/paired/oracle/F-b-4.json` (oracle sha256 `8f6ed13f…`).
+
+| # | row | on | source (JSON; full rows in `bench/paired/oracle/F-b-4.json`) | 0.1.4 oracle | sound (the grammar) | retired hand parser |
+|---|---|---|---|---|---|---|
+| 1 | `entry:parseCssValue` | corpus #27664 | "R-b-2 — css-variables-1 §3: a var() in the animation family is valid at parse time" | refused css_syntax actual "R-b-2 — css-variables-1 §3: a var() in the … | refused css_syntax actual "—" | differs from both |
+| 2 | `entry:parseCssValue` | corpus #28730 | "component values — comma, then slash, then space lists; calls; scalars" | refused css_syntax actual "component values — comma, then slash, then … | refused css_syntax actual "—" | differs from both |
+| 3 | `entry:parseCssValue` | corpus #29015 | "keyframe selectors — css-animations-1 §3.2, scroll-animations-1 §4.2" | refused css_syntax actual "keyframe selectors — css-animations-1 §3.2,… | refused css_syntax actual "—" | differs from both |
+| 4 | `entry:parseCssValue` | corpus #29943 | "… 74.9%, … 50%, … 100%" | refused css_syntax actual "… 74.9%, … 50%, … 100%" | refused css_syntax actual "…" | = sound |
+| 5 | `entry:parseCssValues` | corpus #27664 | "R-b-2 — css-variables-1 §3: a var() in the animation family is valid at parse time" | refused css_syntax actual "R-b-2 — css-variables-1 §3: a var() in the … | refused css_syntax actual "—" | differs from both |
+| 6 | `entry:parseCssValues` | corpus #28730 | "component values — comma, then slash, then space lists; calls; scalars" | refused css_syntax actual "component values — comma, then slash, then … | refused css_syntax actual "—" | differs from both |
+| 7 | `entry:parseCssValues` | corpus #29015 | "keyframe selectors — css-animations-1 §3.2, scroll-animations-1 §4.2" | refused css_syntax actual "keyframe selectors — css-animations-1 §3.2,… | refused css_syntax actual "—" | differs from both |
+| 8 | `entry:parseCssValues` | corpus #29943 | "… 74.9%, … 50%, … 100%" | refused css_syntax actual "… 74.9%, … 50%, … 100%" | refused css_syntax actual "…" | = sound |
+| 9 | `reader:functionParam` | corpus #426 | "oklch(🎨0% 0.15 50deg)" | null | {"default":{"$u":1},"head":"oklch(🎨0% 0.15 50deg)"} | n/a (BBNF reader) |
+| 10 | `reader:functionParam` | corpus #547 | "🎨gb(255 0 153 / 0.5)" | null | {"default":{"$u":1},"head":"🎨gb(255 0 153 / 0.5)"} | n/a (BBNF reader) |
+| 11 | `reader:functionParam` | corpus #597 | "hsl(é20, 50%, 50%)" | null | {"default":{"$u":1},"head":"hsl(é20, 50%, 50%)"} | n/a (BBNF reader) |
+| 12 | `reader:functionParam` | corpus #954 | "éab(50% -100% 100%)" | null | {"default":{"$u":1},"head":"éab(50% -100% 100%)"} | n/a (BBNF reader) |
+| 13 | `reader:functionParam` | corpus #1064 | "🎨ff0099cc" | null | {"default":{"$u":1},"head":"🎨ff0099cc"} | n/a (BBNF reader) |
+| 14 | `reader:functionParam` | corpus #1181 | "hsl(120, 50%, 50%)é" | null | {"default":{"$u":1},"head":"hsl(120, 50%, 50%)é"} | n/a (BBNF reader) |
+| 15 | `reader:functionParam` | corpus #1470 | "rgb(255 0 153 / 0.5)é" | null | {"default":{"$u":1},"head":"rgb(255 0 153 / 0.5)é"} | n/a (BBNF reader) |
+| 16 | `reader:functionParam` | corpus #1774 | "rgb(255 0 153 / 0.5)🎨" | null | {"default":{"$u":1},"head":"rgb(255 0 153 / 0.5)🎨"} | n/a (BBNF reader) |
+| 17 | `reader:functionParam` | corpus #1877 | "rgb(é55 0 153 / 0.5)" | null | {"default":{"$u":1},"head":"rgb(é55 0 153 / 0.5)"} | n/a (BBNF reader) |
+| 18 | `reader:functionParam` | corpus #27076 | " is §7 (§6.1 is Named Colors) — the INTENT, cited at the true bytes.\n// This discharges … | null | {"default":{"$u":1},"head":"is §7 (§6.1 is Named Colors) — the INTENT,… | n/a (BBNF reader) |
+| 19 | `reader:functionParam` | corpus #29943 | "… 74.9%, … 50%, … 100%" | null | {"default":{"$u":1},"head":"… 74.9%, … 50%, … 100%"} | n/a (BBNF reader) |
+| 20 | `reader:splitTopLevel(,)` | corpus #426 | "oklch(🎨0% 0.15 50deg)" | null | ["oklch(🎨0% 0.15 50deg)"] | n/a (BBNF reader) |
+| 21 | `reader:splitTopLevel(,)` | corpus #547 | "🎨gb(255 0 153 / 0.5)" | null | ["🎨gb(255 0 153 / 0.5)"] | n/a (BBNF reader) |
+| 22 | `reader:splitTopLevel(,)` | corpus #597 | "hsl(é20, 50%, 50%)" | null | ["hsl(é20, 50%, 50%)"] | n/a (BBNF reader) |
+| 23 | `reader:splitTopLevel(,)` | corpus #954 | "éab(50% -100% 100%)" | null | ["éab(50% -100% 100%)"] | n/a (BBNF reader) |
+| 24 | `reader:splitTopLevel(,)` | corpus #1064 | "🎨ff0099cc" | null | ["🎨ff0099cc"] | n/a (BBNF reader) |
+| 25 | `reader:splitTopLevel(,)` | corpus #1181 | "hsl(120, 50%, 50%)é" | null | ["hsl(120, 50%, 50%)é"] | n/a (BBNF reader) |
+| 26 | `reader:splitTopLevel(,)` | corpus #1470 | "rgb(255 0 153 / 0.5)é" | null | ["rgb(255 0 153 / 0.5)é"] | n/a (BBNF reader) |
+| 27 | `reader:splitTopLevel(,)` | corpus #1774 | "rgb(255 0 153 / 0.5)🎨" | null | ["rgb(255 0 153 / 0.5)🎨"] | n/a (BBNF reader) |
+| 28 | `reader:splitTopLevel(,)` | corpus #1877 | "rgb(é55 0 153 / 0.5)" | null | ["rgb(é55 0 153 / 0.5)"] | n/a (BBNF reader) |
+| 29 | `reader:splitTopLevel(,)` | corpus #27076 | " is §7 (§6.1 is Named Colors) — the INTENT, cited at the true bytes.\n// This discharges … | null | ["is §7 (§6.1 is Named Colors) — the INTENT","cited at the true bytes.… | n/a (BBNF reader) |
+| 30 | `reader:splitTopLevel(,)` | corpus #29943 | "… 74.9%, … 50%, … 100%" | null | ["… 74.9%","… 50%","… 100%"] | n/a (BBNF reader) |
+| 31 | `reader:splitTopLevel(;)` | corpus #426 | "oklch(🎨0% 0.15 50deg)" | null | ["oklch(🎨0% 0.15 50deg)"] | n/a (BBNF reader) |
+| 32 | `reader:splitTopLevel(;)` | corpus #547 | "🎨gb(255 0 153 / 0.5)" | null | ["🎨gb(255 0 153 / 0.5)"] | n/a (BBNF reader) |
+| 33 | `reader:splitTopLevel(;)` | corpus #597 | "hsl(é20, 50%, 50%)" | null | ["hsl(é20, 50%, 50%)"] | n/a (BBNF reader) |
+| 34 | `reader:splitTopLevel(;)` | corpus #954 | "éab(50% -100% 100%)" | null | ["éab(50% -100% 100%)"] | n/a (BBNF reader) |
+| 35 | `reader:splitTopLevel(;)` | corpus #1064 | "🎨ff0099cc" | null | ["🎨ff0099cc"] | n/a (BBNF reader) |
+| 36 | `reader:splitTopLevel(;)` | corpus #1181 | "hsl(120, 50%, 50%)é" | null | ["hsl(120, 50%, 50%)é"] | n/a (BBNF reader) |
+| 37 | `reader:splitTopLevel(;)` | corpus #1470 | "rgb(255 0 153 / 0.5)é" | null | ["rgb(255 0 153 / 0.5)é"] | n/a (BBNF reader) |
+| 38 | `reader:splitTopLevel(;)` | corpus #1774 | "rgb(255 0 153 / 0.5)🎨" | null | ["rgb(255 0 153 / 0.5)🎨"] | n/a (BBNF reader) |
+| 39 | `reader:splitTopLevel(;)` | corpus #1877 | "rgb(é55 0 153 / 0.5)" | null | ["rgb(é55 0 153 / 0.5)"] | n/a (BBNF reader) |
+| 40 | `reader:splitTopLevel(;)` | corpus #27076 | " is §7 (§6.1 is Named Colors) — the INTENT, cited at the true bytes.\n// This discharges … | null | ["is §7 (§6.1 is Named Colors) — the INTENT, cited at the true bytes.\… | n/a (BBNF reader) |
+| 41 | `reader:splitTopLevel(;)` | corpus #29943 | "… 74.9%, … 50%, … 100%" | null | ["… 74.9%, … 50%, … 100%"] | n/a (BBNF reader) |
+| 42 | `reader:splitTopLevel(space)` | corpus #426 | "oklch(🎨0% 0.15 50deg)" | null | ["oklch(🎨0% 0.15 50deg)"] | n/a (BBNF reader) |
+| 43 | `reader:splitTopLevel(space)` | corpus #547 | "🎨gb(255 0 153 / 0.5)" | null | ["🎨gb(255 0 153 / 0.5)"] | n/a (BBNF reader) |
+| 44 | `reader:splitTopLevel(space)` | corpus #597 | "hsl(é20, 50%, 50%)" | null | ["hsl(é20, 50%, 50%)"] | n/a (BBNF reader) |
+| 45 | `reader:splitTopLevel(space)` | corpus #954 | "éab(50% -100% 100%)" | null | ["éab(50% -100% 100%)"] | n/a (BBNF reader) |
+| 46 | `reader:splitTopLevel(space)` | corpus #1064 | "🎨ff0099cc" | null | ["🎨ff0099cc"] | n/a (BBNF reader) |
+| 47 | `reader:splitTopLevel(space)` | corpus #1181 | "hsl(120, 50%, 50%)é" | null | ["hsl(120, 50%, 50%)é"] | n/a (BBNF reader) |
+| 48 | `reader:splitTopLevel(space)` | corpus #1470 | "rgb(255 0 153 / 0.5)é" | null | ["rgb(255 0 153 / 0.5)é"] | n/a (BBNF reader) |
+| 49 | `reader:splitTopLevel(space)` | corpus #1774 | "rgb(255 0 153 / 0.5)🎨" | null | ["rgb(255 0 153 / 0.5)🎨"] | n/a (BBNF reader) |
+| 50 | `reader:splitTopLevel(space)` | corpus #1877 | "rgb(é55 0 153 / 0.5)" | null | ["rgb(é55 0 153 / 0.5)"] | n/a (BBNF reader) |
+| 51 | `reader:splitTopLevel(space)` | corpus #27052 | " : \"\";\n\n// ── §1 · the 56 empty-/whitespace-body vectors ────────────────────────────… | null | [":","\"\";","//","──","§1","·","the","56","empty-/whitespace-body","v… | n/a (BBNF reader) |
+| 52 | `reader:splitTopLevel(space)` | corpus #27055 | " against the live referents —\n    //   page@0.5103          → oklch(0.9700 0.0148 32.0) … | null | ["against","the","live","referents","—","//","page@0.5103","→","oklch(… | n/a (BBNF reader) |
+| 53 | `reader:splitTopLevel(space)` | corpus #27073 | " is\n// §5.1 and " | null | ["is","//","§5.1","and"] | n/a (BBNF reader) |
+| 54 | `reader:splitTopLevel(space)` | corpus #27076 | " is §7 (§6.1 is Named Colors) — the INTENT, cited at the true bytes.\n// This discharges … | null | ["is","§7","(§6.1 is Named Colors)","—","the","INTENT,","cited","at","… | n/a (BBNF reader) |
+| 55 | `reader:splitTopLevel(space)` | corpus #27083 | " members. */\nconst PROTO_KEYS = [\"constructor\", \"__proto__\"] as const;\n\nconst PROT… | null | ["members.","*/","const","PROTO_KEYS","=","[\"constructor\",","\"__pro… | n/a (BBNF reader) |
+| 56 | `reader:splitTopLevel(space)` | corpus #27086 | " re-exports. This unwraps it once so the round-trip assertions\n * below read the string … | null | ["re-exports.","This","unwraps","it","once","so","the","round-trip","a… | n/a (BBNF reader) |
+| 57 | `reader:splitTopLevel(space)` | corpus #27092 | " where\n    // it once threw. The consumer branches on that shape — there is no\n    // " | null | ["where","//","it","once","threw.","The","consumer","branches","on","t… | n/a (BBNF reader) |
+| 58 | `reader:splitTopLevel(space)` | corpus #27284 | ". */\nconst HEADS = [\n    \"rgb\", \"rgba\", \"hsl\", \"hsla\", \"hwb\", \"lab\", \"lch\… | null | [".","*/","const","HEADS","=","[","\"rgb\",","\"rgba\",","\"hsl\",","\… | n/a (BBNF reader) |
+| 59 | `reader:splitTopLevel(space)` | corpus #27620 | "<easing-function> — css-easing-2" | null | ["<easing-function>","—","css-easing-2"] | n/a (BBNF reader) |
+| 60 | `reader:splitTopLevel(space)` | corpus #27639 | "D6 — the certification headroom (the interim-model tolerance)" | null | ["D6","—","the","certification","headroom","(the interim-model toleran… | n/a (BBNF reader) |
+| 61 | `reader:splitTopLevel(space)` | corpus #27656 | "O-14 · sampleInterpolationRamp ≡ the library (strict)" | null | ["O-14","·","sampleInterpolationRamp","≡","the","library","(strict)"] | n/a (BBNF reader) |
+| 62 | `reader:splitTopLevel(space)` | corpus #27664 | "R-b-2 — css-variables-1 §3: a var() in the animation family is valid at parse time" | null | ["R-b-2","—","css-variables-1","§3:","a","var()","in","the","animation… | n/a (BBNF reader) |
+| 63 | `reader:splitTopLevel(space)` | corpus #27686 | "W7-4 — the seal ink (the SEEDS.md w7 rider; R1 survivor)" | null | ["W7-4","—","the","seal","ink","(the SEEDS.md w7 rider; R1 survivor)"] | n/a (BBNF reader) |
+| 64 | `reader:splitTopLevel(space)` | corpus #27878 | "color(display-p3-linear …) (SC-2) — admitted, written as the exact xyz it names" | null | ["color(display-p3-linear …)","(SC-2)","—","admitted,","written","as",… | n/a (BBNF reader) |
+| 65 | `reader:splitTopLevel(space)` | corpus #28730 | "component values — comma, then slash, then space lists; calls; scalars" | null | ["component","values","—","comma,","then","slash,","then","space","lis… | n/a (BBNF reader) |
+| 66 | `reader:splitTopLevel(space)` | corpus #28751 | "css-color-4 §4 — math functions in every component (SC-1), resolved at parse where absolu… | null | ["css-color-4","§4","—","math","functions","in","every","component","(… | n/a (BBNF reader) |
+| 67 | `reader:splitTopLevel(space)` | corpus #28816 | "every stop serializes paintable — oklch(L C H[ / A]), never a raw hsv()/xyz() string" | null | ["every","stop","serializes","paintable","—","oklch(L C H[ / A]),","ne… | n/a (BBNF reader) |
+| 68 | `reader:splitTopLevel(space)` | corpus #28846 | "honest absence: <2 operands → null; unparseable operand → null" | null | ["honest","absence:","<2","operands","→","null;","unparseable","operan… | n/a (BBNF reader) |
+| 69 | `reader:splitTopLevel(space)` | corpus #29015 | "keyframe selectors — css-animations-1 §3.2, scroll-animations-1 §4.2" | null | ["keyframe","selectors","—","css-animations-1","§3.2,","scroll-animati… | n/a (BBNF reader) |
+| 70 | `reader:splitTopLevel(space)` | corpus #29943 | "… 74.9%, … 50%, … 100%" | null | ["…","74.9%,","…","50%,","…","100%"] | n/a (BBNF reader) |
+| 71 | `reader:splitTopLevel(,)` | reader-shaped | "is §7 (§6.1 is Named Colors) — the INTENT, cited at the true bytes.\n// This discharges X… | null | ["is §7 (§6.1 is Named Colors) — the INTENT","cited at the true bytes.… | n/a (BBNF reader) |
+| 72 | `reader:splitTopLevel(,)` | reader-shaped | "… 74.9%, … 50%, … 100%" | null | ["… 74.9%","… 50%","… 100%"] | n/a (BBNF reader) |
+| 73 | `reader:splitTopLevel(space)` | reader-shaped | ": \"\";\n\n// ── §1 · the 56 empty-/whitespace-body vectors ─────────────────────────────… | null | [":","\"\";","//","──","§1","·","the","56","empty-/whitespace-body","v… | n/a (BBNF reader) |
+| 74 | `reader:splitTopLevel(space)` | reader-shaped | "<easing-function> — css-easing-2" | null | ["<easing-function>","—","css-easing-2"] | n/a (BBNF reader) |
+| 75 | `reader:splitTopLevel(space)` | reader-shaped | "D6 — the certification headroom (the interim-model tolerance)" | null | ["D6","—","the","certification","headroom","(the interim-model toleran… | n/a (BBNF reader) |
+| 76 | `reader:splitTopLevel(space)` | reader-shaped | "O-14 · sampleInterpolationRamp ≡ the library (strict)" | null | ["O-14","·","sampleInterpolationRamp","≡","the","library","(strict)"] | n/a (BBNF reader) |
+| 77 | `reader:splitTopLevel(space)` | reader-shaped | "R-b-2 — css-variables-1 §3: a var() in the animation family is valid at parse time" | null | ["R-b-2","—","css-variables-1","§3:","a","var()","in","the","animation… | n/a (BBNF reader) |
+| 78 | `reader:splitTopLevel(space)` | reader-shaped | "W7-4 — the seal ink (the SEEDS.md w7 rider; R1 survivor)" | null | ["W7-4","—","the","seal","ink","(the SEEDS.md w7 rider; R1 survivor)"] | n/a (BBNF reader) |
+| 79 | `reader:splitTopLevel(space)` | reader-shaped | "against the live referents —\n    //   page@0.5103          → oklch(0.9700 0.0148 32.0)  … | null | ["against","the","live","referents","—","//","page@0.5103","→","oklch(… | n/a (BBNF reader) |
+| 80 | `reader:splitTopLevel(space)` | reader-shaped | "color(display-p3-linear …) (SC-2) — admitted" | null | ["color(display-p3-linear …)","(SC-2)","—","admitted"] | n/a (BBNF reader) |
+| 81 | `reader:splitTopLevel(space)` | reader-shaped | "css-color-4 §4 — math functions in every component (SC-1)" | null | ["css-color-4","§4","—","math","functions","in","every","component","(… | n/a (BBNF reader) |
+| 82 | `reader:splitTopLevel(space)` | reader-shaped | "every stop serializes paintable — oklch(L C H[ / A])" | null | ["every","stop","serializes","paintable","—","oklch(L C H[ / A])"] | n/a (BBNF reader) |
+| 83 | `reader:splitTopLevel(space)` | reader-shaped | "honest absence: <2 operands → null; unparseable operand → null" | null | ["honest","absence:","<2","operands","→","null;","unparseable","operan… | n/a (BBNF reader) |
+| 84 | `reader:splitTopLevel(space)` | reader-shaped | "is\n// §5.1 and" | null | ["is","//","§5.1","and"] | n/a (BBNF reader) |
+| 85 | `reader:splitTopLevel(space)` | reader-shaped | "keyframe selectors — css-animations-1 §3.2" | null | ["keyframe","selectors","—","css-animations-1","§3.2"] | n/a (BBNF reader) |
+| 86 | `reader:splitTopLevel(space)` | reader-shaped | "re-exports. This unwraps it once so the round-trip assertions\n * below read the string t… | null | ["re-exports.","This","unwraps","it","once","so","the","round-trip","a… | n/a (BBNF reader) |
+| 87 | `reader:splitTopLevel(space)` | reader-shaped | "scroll-animations-1 §4.2" | null | ["scroll-animations-1","§4.2"] | n/a (BBNF reader) |
+| 88 | `reader:splitTopLevel(space)` | reader-shaped | "where\n    // it once threw. The consumer branches on that shape — there is no\n    //" | null | ["where","//","it","once","threw.","The","consumer","branches","on","t… | n/a (BBNF reader) |
+
+| field | value |
+|---|---|
+| **what diverges** | Entry rows: 0.1.4 refuses the WHOLE source, naming it all as `actual`; the sound parser refuses only the offending component (`actual: "—"` / `"…"`). Reader rows: 0.1.4 answers `null` (no parse) on a list or parameter whose deciding code unit is ≥ 128; the sound parser returns the split list / the `{ head }` the grammar describes. |
+| **the retired hand parser** | On all 8 entry rows it refuses naming the same single component as the sound parser (`"—"`, `"…"`). Rows 4 and 8 (`… 74.9%, …`) agree with the sound answer whole; rows 1–3 and 5–7 differ from it only in the span, which the hand parser gave relative to its sub-part and the BBNF path gives absolute (the §15-A.3 span note; the differential compares verdicts and values, not refusal spans). The readers are BBNF-only; the hand parser has no counterpart. |
+| **adjudication** | **Spec-correct on the sound side; accepted (COHESION §0ck 1).** The grammar's productions admit these code units; 0.1.4's ASCII-only first-character table refused them before the grammar was consulted (F-b-3/F-b-4). `.t` (c) cures the routing at the root (flag-aware FIRST sets with a non-ASCII bit); `.v` adopts it. Stock-ASCII routing is never reproduced to keep a number. |
+| **consumer direction** | **WIDENS** for the readers (a value instead of `null`); **NARROWS the refusal** for the entries (the diagnostic names the offending component, not the whole source). No accepted source changes its value. |
+| **gate reading** | `.v` V-1 / `.e` E-3: the adopted module against the oracle reads 0 mismatches outside exactly these 88 rows (`bench/paired/equiv.mjs product` lists each mismatch with its `nonAscii` class). |
