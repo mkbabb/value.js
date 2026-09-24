@@ -6,7 +6,7 @@
 // a whole sheet (R-h-1); this one reads every sheet of the corpus through both layers.
 //
 // SHEETS: every CSS file and every SFC `<style>` block of value.js's demo and of keyframes.js (each
-// at its pinned commit), whole and cut at 16 points (every prefix is a sheet, so the rule-list
+// at its pinned commit; keyframes.js's frozen in `keyframes-sheets.json`), whole and cut at 16 points (every prefix is a sheet, so the rule-list
 // faults — an unclosed comment, block or prelude — are exercised where real text breaks), and every
 // source of the two value corpora read as a sheet.
 //
@@ -62,10 +62,13 @@ function sheetsAt(repo: string, sha: string, root: string): string[] {
     }).filter((t) => t.trim());
 }
 
-const whole = [
-    ...sheetsAt(REPO, real.provenance.valueJs, "demo"),
-    ...sheetsAt(path.resolve(REPO, "..", "keyframes.js"), real.provenance.keyframesJs, "."),
-];
+// keyframes.js is not in this checkout (CI has no sibling): its sheets at the pinned commit are frozen
+// in `keyframes-sheets.json` by `freeze-keyframes-sheets.mjs` (X.P.W6R Repair 1, D-1).
+const frozen = read("keyframes-sheets.json") as { provenance: { keyframesJs: string }; sheets: string[] };
+if (frozen.provenance.keyframesJs !== real.provenance.keyframesJs) {
+    throw new Error(`keyframes-sheets.json @ ${frozen.provenance.keyframesJs} ≠ real-corpus.json @ ${real.provenance.keyframesJs}`);
+}
+const whole = [...sheetsAt(REPO, real.provenance.valueJs, "demo"), ...frozen.sheets];
 const cut = (sheet: string) => Array.from({ length: 16 }, (_, i) => sheet.slice(0, Math.floor((sheet.length * (i + 1)) / 17)));
 const SHEETS = [...new Set([
     ...whole,

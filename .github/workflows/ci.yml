@@ -40,7 +40,13 @@ jobs:
                     - 22
                     - 24
         steps:
+            # `bench/retired.ts` reads the retired hand parser back from git history
+            # (`RETIRED_AT`), and `stylesheet.measure.test.ts` reads the demo sheets at
+            # `real-corpus.json`'s pinned commit: `test:css-equivalence` needs full
+            # history, not the default depth-1 clone (X.P.W6R Repair 1, D-1).
             - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
             - uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node }}
