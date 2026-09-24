@@ -584,3 +584,10 @@ The KF.W13V addenda state their gates in prose on the SERVED page (headed, 1440 
 **Adjacent edits (§0bt)**: `keyframes.js/test/demo/instrument/KeyframesAddDialog.test.ts:253` (+ its `:33` docblock line) — the string the oracle asserts for the rest class this seat changed (KFA-15). **Escalations**: none (every cure landed inside the writable set; no package bump — value.js 4.1.0 is unpublished).
 
 **Evidence** (value.js, scripts + JSON + text only; the frames — 3,263 jpg + 3,544 png, 1.3 GB — stay on disk uncommitted): `docs/tranches/X/keyframes/evidence/W13V/k/{kfa-1-2,kfa-3,kfa-12,kfa-15,kfa-17,kfa-17-cube,kfa-18,kfa-181,critic}/` + `split.mjs` + `split-table.md`.
+
+## RESUME plan (2026-09-24, SEAT 0 re-dispatch, `claude-opus-5-5`, VERIFY-ONLY — 0 kf/glass/product bytes)
+
+⟨`grep -n "KF.W13V" LEDGER.md`⟩ → row `:61` `OPEN 2026-09-17`; receipts present for `.s` (`6107889a`) · `.c` (`30e9c24c`) · `.y` (`c84a3a4c`) · `.p` (`ed91f62b`) · `.k` (`9618c461`, PARTIAL). ⟨`git -C keyframes.js log --oneline -3`⟩ → `ab94125c` KFA-136 · `047bedfe` KFA-134 · `e26cdddf` KFA-61 — all tagged `X.KF.W13V.u`, **no `.u` receipt, no `.u` LEDGER line** (the `.u` seat was killed after its third commit). ⟨`git status --porcelain -- …/evidence/W13V/u`⟩ → untracked `W13V/u/` (catch-all 27 · kfa-61 13 · kfa-134 10 · kfa-136 7 · kfa-228 9 · kfa-95 5 · `parse-register.mjs` · `rows.json` · `dockdump.mjs`) = the killed seat's partial evidence. kf tree: 0 modified paths.
+
+- **alreadyDone** (commits exist, never re-dispatched): `.s` `.c` `.y` `.p` `.k` `.u`.
+- **Owed**: one continuation seat **`KF.W13V.u2`** (Opus, effort high) on `.u`'s spec rows and writable set — inherits the 3 kf `.u` commits (verify, do not redo) and the untracked `W13V/u/` evidence (read, judge, finish); owes KFA-95 · KFA-228 (u4 remainder), u1..u3 (every UIA-KF row cured or routed to glass by id beside O-59; a frame before every cure; the catch-all route audited), the floor, and the `### KF.W13V.u` receipt + LEDGER event naming all `.u` shas. The `.k` successor rows (183 consumer OPEN) stay with the close/repair cycle, not this plan.
