@@ -42,6 +42,9 @@ import { onScopeDispose, ref, watch, type Ref } from "vue";
  * correct dormant behavior). Observers re-bind on ref resolve (async-mount safe)
  * and self-clean on scope dispose.
  */
+/** The pane slot's travel classes (PaneSlot: vj-enter swap + overture appear). */
+const PANE_TRAVEL = ".vj-enter-enter-active, .vj-enter-leave-active, .overture-appear-active";
+
 export function useHeaderCondense(
     sentinel: Ref<HTMLElement | null>,
     header: Ref<HTMLElement | null>,
@@ -84,6 +87,14 @@ export function useHeaderCondense(
                 (entries) => {
                     const e = entries[entries.length - 1];
                     if (!e) return;
+                    // X.W12.b (OA-25 — no layout shift during an enter): the
+                    // sentinel's intersection is a SCROLL signal only while
+                    // its pane is at rest. A pane travelling in or out on the
+                    // slot's grammar sits off-canvas, which the observer reads
+                    // as "scrolled past" — the header condensed and
+                    // re-expanded (padding transitions, a 0.018 layout shift)
+                    // on every KeepAlive return (w12-motion census, before).
+                    if (sent.closest(PANE_TRAVEL)) return;
                     const wantsCondense = !e.isIntersecting;
 
                     if (wantsCondense && !condensed.value) {
