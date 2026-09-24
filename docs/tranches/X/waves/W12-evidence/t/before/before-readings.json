@@ -1,0 +1,178 @@
+[
+ {
+  "tag": "before-1440-light",
+  "focused": true,
+  "rest": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "radius": "9999px",
+   "border": "0px none",
+   "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "backdrop": "none",
+   "outline": "none 1.5px",
+   "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]",
+   "w": 112,
+   "h": 85
+  },
+  "hover": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "radius": "9999px",
+   "border": "0px none",
+   "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "backdrop": "none",
+   "outline": "none 1.5px",
+   "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]",
+   "w": 112,
+   "h": 85
+  },
+  "focus": {
+   "focusVisible": true,
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+   "outline": "none 3px color(srgb 0.665504 0.000101413 0.261748 / 0.86)",
+   "radius": "6px",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "kb": {
+   "before": "Lab",
+   "openKb": "open",
+   "afterKb": "Lab"
+  },
+  "ptr": {
+   "openPtr": "open",
+   "afterPtr": "OKLCh"
+  }
+ },
+ {
+  "tag": "before-1440-dark",
+  "focused": true,
+  "rest": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "radius": "9999px",
+   "border": "0px none",
+   "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "backdrop": "none",
+   "outline": "none 1.5px",
+   "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]",
+   "w": 112,
+   "h": 85
+  },
+  "hover": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "radius": "9999px",
+   "border": "0px none",
+   "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "backdrop": "none",
+   "outline": "none 1.5px",
+   "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]",
+   "w": 112,
+   "h": 85
+  },
+  "focus": {
+   "focusVisible": true,
+   "shadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px",
+   "outline": "none 3px color(srgb 0.999884 0.924705 0.933067 / 0.86)",
+   "radius": "6px",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "kb": {
+   "before": "Lab",
+   "openKb": "open",
+   "afterKb": "Lab"
+  },
+  "ptr": {
+   "openPtr": "open",
+   "afterPtr": "OKLCh"
+  }
+ },
+ {
+  "tag": "before-390-light",
+  "focused": true,
+  "rest": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "radius": "9999px",
+   "border": "0px none",
+   "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "backdrop": "none",
+   "outline": "none 1.5px",
+   "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]",
+   "w": 70,
+   "h": 53
+  },
+  "hover": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "radius": "9999px",
+   "border": "0px none",
+   "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "backdrop": "none",
+   "outline": "none 1.5px",
+   "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]",
+   "w": 70,
+   "h": 53
+  },
+  "focus": {
+   "focusVisible": true,
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+   "outline": "none 3px color(srgb 0.665504 0.000101413 0.261748 / 0.86)",
+   "radius": "6px",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "kb": {
+   "before": "Lab",
+   "openKb": "open",
+   "afterKb": "Lab"
+  },
+  "ptr": {
+   "openPtr": "open",
+   "afterPtr": "OKLCh"
+  }
+ },
+ {
+  "tag": "before-390-dark",
+  "focused": true,
+  "rest": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "radius": "9999px",
+   "border": "0px none",
+   "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "backdrop": "none",
+   "outline": "none 1.5px",
+   "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]",
+   "w": 70,
+   "h": 53
+  },
+  "hover": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "radius": "9999px",
+   "border": "0px none",
+   "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "backdrop": "none",
+   "outline": "none 1.5px",
+   "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]",
+   "w": 70,
+   "h": 53
+  },
+  "focus": {
+   "focusVisible": true,
+   "shadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px",
+   "outline": "none 3px color(srgb 0.999884 0.924705 0.933067 / 0.86)",
+   "radius": "6px",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "kb": {
+   "before": "Lab",
+   "openKb": "open",
+   "afterKb": "Lab"
+  },
+  "ptr": {
+   "openPtr": "open",
+   "afterPtr": "OKLCh"
+  }
+ }
+]
