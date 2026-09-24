@@ -329,7 +329,7 @@ SEAT `.srv`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` Units :8-18 ("Bound
 3. **F-83 cure (adjacent, `latex_rendering.py`).**
    - Removed from `render_trig`: the `max_terms = 4` line (`:32`), its `term_count` counter and its `\cdots`-break.
    - Removed from `render_exponential` and `render_polar`: `shown = 0`, `shown += 1`, and the `if shown >= 4` cdots-break (`:104`, `:143`).
-   - Four docstrings that described the cap were corrected.
+   - Five docstrings that described the cap were corrected (the module line and four function docstrings).
    - Why removal and not passing `budget` in as `max_terms`: the budget is applied upstream as the kept term set. A cap counted in renderer units (cos and sin separately, or ±n separately) would split the kept harmonics again. So each renderer now renders every term it is given.
 4. **F-112 cure (`equations.py`).**
    - `class ExpressionInvalid(ValueError)` and `_parse_function_of_x(expression)`: a `parse_expression` `ValueError`, an undefined function (`AppliedUndef`), a free symbol other than `x`, or `zoo`/`nan`/`±oo` raises `ExpressionInvalid` with a message.
