@@ -118,8 +118,8 @@
                     v-for="(path, index) in currentColorSpaceInfo.conversions"
                     :key="index"
                     class="flex flex-wrap items-center p-3 bg-well rounded-panel hover:bg-accent/50 transition-colors max-w-full"
-                    @mouseenter="setHoveredPath(path)"
-                    @mouseleave="clearHoveredPath"
+                    @mouseenter="hoveredPathIndex = index"
+                    @mouseleave="hoveredPathIndex = null"
                 >
                     <template
                         v-for="(space, spaceIndex) in path"
@@ -130,7 +130,7 @@
                              colored fill under the fixed foreground. -->
                         <div
                             :style="
-                                hoveredPath.length && hoveredPath.includes(space)
+                                hoveredPathIndex === index
                                     ? { backgroundColor: nodeFill, color: nodeInk }
                                     : undefined
                             "
@@ -236,14 +236,10 @@ const formattedRange = computed<Record<string, { min: string; max: string }>>(()
     ),
 );
 
-const hoveredPath = ref<readonly string[]>([]);
-
-const setHoveredPath = (path: readonly string[]) => {
-    hoveredPath.value = path;
-};
-
-const clearHoveredPath = () => {
-    hoveredPath.value = [];
-};
+// X.W12.c · UIA-V-206 — the hover names ONE path. It used to hold the hovered
+// path's node NAMES, and every chip lit each node whose name was in that list,
+// so hovering `lab → xyz` also lit `xyz` in every other path. The index of the
+// hovered chip lights that chip's nodes and no other.
+const hoveredPathIndex = ref<number | null>(null);
 
 </script>
