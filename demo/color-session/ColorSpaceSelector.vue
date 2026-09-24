@@ -170,17 +170,23 @@ const colorModel = inject(COLOR_MODEL_KEY, null);
  * The catalog rows. Each carries its own `DisplayColorSpace` and — when a
  * pipeline is present — the ONE specimen for the live colour in that space:
  * one call, one digit policy, one declared grammar, gamut measured and marked.
- * SelectContent unmounts when closed, so this computes only while the dropdown
- * renders.
+ *
+ * X.W12.a · OA-19 — the specimens compute ONLY while the menu is open. The
+ * producer Select keeps its items rendered while closed (SelectValue reads the
+ * selected item's text), so the former "SelectContent unmounts when closed"
+ * premise was false at the bytes: every drag frame re-ran eighteen per-space
+ * conversions in each of the two hosts — the kelvin inverse among them, a
+ * 39,001-step search — and the drag trace named it the top JS cost. The rows
+ * (and the SelectValue text) stay; only the live conversion line waits for
+ * the menu that shows it.
  */
-const rows = computed(() =>
-    SPACE_CATALOG_ENTRIES.map((entry) => ({
+const rows = computed(() => {
+    const color = colorModel && openModel.value ? colorModel.model.value.color : null;
+    return SPACE_CATALOG_ENTRIES.map((entry) => ({
         entry,
-        specimen: colorModel
-            ? formatSpecimen(colorModel.model.value.color, entry.id)
-            : null,
-    })),
-);
+        specimen: color ? formatSpecimen(color, entry.id) : null,
+    }));
+});
 
 /**
  * X-W6.f · X:CSS-1 (f9) — ONE COMMAND, ONE HOME. The space switch used to be
