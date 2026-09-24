@@ -27,3 +27,15 @@
 
 ## Shape
 One page-family seat per app per lens, then a confirm seat per row, then a register per app, then one glass letter. Rows route to the apps' cure waves: X-W12 or its successor, KF.W13W or its successor, and F.W14U or its successor. Glass rows go to BL.
+
+## Lens 3 — design hierarchy and use of space, every UI (OA-69, added 2026-09-24, COHESION §0cu)
+- **Owner, verbatim:** *"Ensure proper design hierarchy and usage of space in all UIs hereof"*.
+- **Per view, per app:**
+  - a single clear primary element per region
+  - a type scale in use, with no competing sizes at one level
+  - no row spent on a lone control that belongs inline (section actions, resets, toggles)
+  - no dead whitespace bands
+  - consistent gutters and rhythm
+  - group dividers where groups change
+  - controls on one line with their labels where they fit
+- **Findings** name the view, the frame, the waste or hierarchy fault, and the cure: consumer, or a glass slot such as O-68.

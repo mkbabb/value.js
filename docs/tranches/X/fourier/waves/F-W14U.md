@@ -48,3 +48,8 @@ The owner ordered a full UI audit of every page (OA-37). The fourier register, `
 
 ## ADDENDUM 2026-09-24 — OA-68 (COHESION §0ct)
 - Read every side and canvas dock on the served page, in both themes. Record honest-RED **SIDE-DOCK-EDGE** (O-67) for plate edges that do not close and for badge overlap. Cure only a consumer clip or crowding in the ancestor chain, such as a missing gutter to the panel above. Never override the dock.
+
+## ADDENDUM 2026-09-24 (c) — OA-69: section actions inline in the header (COHESION §0cu)
+- **Owner, verbatim:** *"and the refresh button should be inline in the section when expanded too. Ensure proper design hierarchy and usage of space in all UIs hereof"*. Frame: `fourier/evidence/W14/owner-2026-09-24-section-reset.png`.
+- **`F.W14U.a`:** when glass publishes `ConfiguratorLayer #actions` (O-68), every section's reset moves into the header row, and the body's reset rows are deleted. Until then, record honest-RED **CONFIGURATOR-HEADER-ACTIONS**. Add no local overlay into glass's header.
+- Also apply the owner's "proper design hierarchy and usage of space" to every fourier view, as the family units cure their rows.

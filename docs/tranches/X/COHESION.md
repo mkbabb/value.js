@@ -3357,3 +3357,9 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Owner, verbatim:** *"and the side docks, and the edges thereof, are not right"*. The frame is a dark side or canvas dock whose plate edge does not close, crowds the panel above, and has a status dot overlapping the expand glyph.
 - **Relayed as O-67** (mirrored and sent live): side, vertical and canvas docks become a D2 witness family, with whole edges in both themes at every DPR, and a reserved badge seat.
 - **Consumers:** X-W12, KF.W13W and F.W14U record honest-RED **SIDE-DOCK-EDGE**. Each checks its ancestor chain for a consumer clip and cures only that. The fourier canvas docks (`CanvasControlsDock`, `EditorControlsDock`) are the first place to read.
+
+## §0cu ADDENDUM 2026-09-24 — OA-69: section actions inline, and hierarchy and space in every UI
+- **Owner, verbatim:** *"and the refresh button should be inline in the section when expanded too. Ensure proper design hierarchy and usage of space in all UIs hereof"*. The frame is fourier's Contour section, whose reset sits alone on a row below the header.
+- **Cause:** glass `ConfiguratorLayer` has no header-actions slot, as fourier's own source records. **Relayed as O-68** (mirrored, sent live), asking for an additive `#actions` slot, possibly in a 10.x minor.
+- **Consumer:** F.W14U `.a` moves every reset into the header when the slot publishes. Until then it records honest-RED CONFIGURATOR-HEADER-ACTIONS, with no local overlay.
+- **"All UIs"** becomes AUDIT-2 **Lens 3**, design hierarchy and use of space in every view of every app, which also censuses every lone-row action in value.js and keyframes.
