@@ -3534,3 +3534,17 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - ESC-W12d-1: the owner's live blob supersedes. The four specs are restated as an idle frame-cost budget with the hero live, and `HERO_FISSION_AMP` is not tuned. This is **X-W12U `.b`**.
   - X-W12 then closes CONFORMANT-HONEST-RED.
 - **Track A is resumed.** The X-W12 note is "RESUME: no unit owed; close and check". The live chassis now also carries **X-W7L → X-W12U** (with `.p` and `.b`) before X-W8.
+
+## §0dn — 2026-09-24 ~evening: the account session limit (resets 22:10 ET); speedtest PR; the resume recipe
+- **Session limit:** the slides seat died on HTTP 429, "session limit · resets 10:10pm (America/New_York)". Every in-flight seat, including the four chassis tracks, will fail the same way until then. **Resume recipe after 22:10 ET:**
+  1. `TaskStop` any workflow that is still listed.
+  2. Resume each track on its run id with `resumeFromRunId`, using the chassis scripts in the session's `workflows/scripts/` (identical to `execution/chassis/`): A `wf_87c7b042-62b`, B `wf_82af6dba-aba`, C `wf_c7aa48ac-f02`, D `wf_41f62d34-81d`.
+  3. Resume the slides seat by message: its last step was "final full audit run, then commit" on `glass-10.1` in `/Users/mkbabb/Programming/slides`.
+- **speedtest** PR https://github.com/mkbabb/speedtest/pull/1 (`e2d9444d`, unmerged). 10.1.0 exact, plus keyframes ^6 and value.js ^4, deduped. `check` 0 (it also cured a pre-existing misplaced `@keyframes`), vitest 708/708 ×2, build, server 109/109. The headed visual pass caught 3 regressions, all cured.
+  - **Disclosure:** local master was 196 commits ahead of origin, with no remote branch holding them, so pushing `glass-10.1` published those 196 on that branch. The PR body says so; master was not pushed.
+  - **Held from merge, for the owner:**
+    - the seat set `--glass-veil` per panel and re-declared glass-dropped tokens (meter ring, dock density, celebration spacing) locally. For speedtest's surfaces that is a consumer override of glass internals;
+    - dropped effects: the dialog scrim "breath" (no 10.x hook) and the gauge specular;
+    - number inputs moved to NumberField;
+    - the context menu now wraps the whole table;
+    - e2e was not run.
