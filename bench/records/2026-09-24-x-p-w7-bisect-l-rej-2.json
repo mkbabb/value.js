@@ -1,0 +1,109 @@
+{
+ "tag": "l-rej-2",
+ "instrument": "bench/paired/bisect.mjs (X.P.W7.l)",
+ "cls": "rej",
+ "rounds": 11,
+ "probes": [
+  "retired",
+  "product",
+  "retiredFault",
+  "productFault",
+  "ruleListFault",
+  "retiredBlocks",
+  "productBlocks"
+ ],
+ "valuejsHead": "5dffa9878fa2f839ab5707fbe74cb9389a9c328b",
+ "uptimeStart": "15:05  up 13:08, 3 users, load averages: 26.63 35.39 29.14",
+ "versions": {
+  "chromium": "148.0.7778.96",
+  "webkit": "26.4",
+  "firefox": "150.0.2"
+ },
+ "results": {
+  "chromium": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 34.25,
+    "product": 19.15,
+    "retiredFault": 11.8,
+    "productFault": 7.85,
+    "ruleListFault": 4.9,
+    "retiredBlocks": 21.55,
+    "productBlocks": 10.45
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.56,
+    "retiredFault": 0.342,
+    "productFault": 0.23,
+    "ruleListFault": 0.142,
+    "retiredBlocks": 0.624,
+    "productBlocks": 0.306
+   }
+  },
+  "webkit": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 51.5,
+    "product": 40,
+    "retiredFault": 18.5,
+    "productFault": 18.5,
+    "ruleListFault": 6,
+    "retiredBlocks": 32,
+    "productBlocks": 17.5
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.72,
+    "retiredFault": 0.353,
+    "productFault": 0.353,
+    "ruleListFault": 0.118,
+    "retiredBlocks": 0.602,
+    "productBlocks": 0.33
+   }
+  },
+  "firefox": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 57.5,
+    "product": 65,
+    "retiredFault": 18.5,
+    "productFault": 29.5,
+    "ruleListFault": 13,
+    "retiredBlocks": 43,
+    "productBlocks": 33.5
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 1.165,
+    "retiredFault": 0.36,
+    "productFault": 0.606,
+    "ruleListFault": 0.232,
+    "retiredBlocks": 0.606,
+    "productBlocks": 0.583
+   }
+  }
+ },
+ "uptimeEnd": "15:06  up 13:09, 3 users, load averages: 41.12 38.27 30.33"
+}

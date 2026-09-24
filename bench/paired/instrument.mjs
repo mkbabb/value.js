@@ -49,6 +49,8 @@ if (compiledOut.shippedInstrumentTokens.length > 0) throw new Error("L-8: the sh
 const entry = path.join(OUT, "entry.ts");
 writeFileSync(entry, `export * as css from ${JSON.stringify(path.join(REPO, "src/css/index.ts"))};
 export { parser } from ${JSON.stringify(path.join(REPO, "src/css/bbnf/load.ts"))};
+export * as sheet from ${JSON.stringify(path.join(REPO, "src/css/bbnf/sheet.ts"))};
+export { failure, success } from ${JSON.stringify(path.join(REPO, "src/css/result.ts"))};
 `);
 const redirect = { name: "instrumented-grammar", setup(b) {
     b.onResolve({ filter: /^\.\/generated\/grammar$/ }, (a) => (a.importer === path.join(REPO, "src/css/bbnf/load.ts") ? { path: inst } : undefined));

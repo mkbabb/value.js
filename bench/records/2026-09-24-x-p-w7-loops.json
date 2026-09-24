@@ -1,0 +1,40 @@
+{
+ "tag": "loops",
+ "instrument": "bench/paired/loops.mjs (X.P.W7.l)",
+ "uptimeStart": "15:40  up 13:43, 3 users, load averages: 43.12 42.94 38.66",
+ "versions": {
+  "chromium": "148.0.7778.96",
+  "webkit": "26.4",
+  "firefox": "150.0.2"
+ },
+ "results": {
+  "chromium": {
+   "loop": 0.92,
+   "loopA": 0.935,
+   "loopN": 0.71,
+   "loopS": 0.745,
+   "rx": 0.815,
+   "loopLatin1": 0.905,
+   "rxLatin1": 0.98
+  },
+  "webkit": {
+   "loop": 0.8,
+   "loopA": 0.75,
+   "loopN": 0.9,
+   "loopS": 0.9,
+   "rx": 0.8,
+   "loopLatin1": 0.75,
+   "rxLatin1": 0.9
+  },
+  "firefox": {
+   "loop": 1.9,
+   "loopA": 3.15,
+   "loopN": 10.45,
+   "loopS": 2.45,
+   "rx": 0.9,
+   "loopLatin1": 2.35,
+   "rxLatin1": 1
+  }
+ },
+ "uptimeEnd": "15:40  up 13:43, 3 users, load averages: 42.71 42.86 38.65"
+}

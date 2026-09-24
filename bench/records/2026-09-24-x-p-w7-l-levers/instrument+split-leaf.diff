@@ -1,0 +1,279 @@
+diff --git a/typescript/src/analysis/regex.ts b/typescript/src/analysis/regex.ts
+index 5483bd673..05598f198 100644
+--- a/typescript/src/analysis/regex.ts
++++ b/typescript/src/analysis/regex.ts
+@@ -263,3 +263,41 @@ export function singleClassRun(re: RegExp): { cls: RegExp; tbl: Uint8Array; min:
+     const all = /^\[(?:\\s\\S|\\S\\s|\\d\\D|\\D\\d|\\w\\W|\\W\\w|\^)\]$/.test(m[1]);
+     return { cls, tbl, min: m[2] === "+" ? 1 : 0, all };
+ }
++
++export type RegexAlternative = Readonly<{ source: string; first: CharSet; nullable: boolean }>;
++
++/**
++ * A regex whose top level is an ordered disjunction `A|B|…`: each alternative's own source, FIRST set
++ * and nullability (flags respected). `null` when the top level is one alternative, or when splitting
++ * could change an answer or its groups: a capturing or named group, a back-reference, or the `v` flag
++ * (nested classes). With nothing after the disjunction, a sticky match at `p` answers the first
++ * alternative that matches there, so an alternative that cannot start with the unit at `p` (not in
++ * its FIRST set, not nullable) can be dropped at `p` without changing the match.
++ */
++export function topAlternatives(re: RegExp): RegexAlternative[] | null {
++    if (re.flags.includes("v")) return null;
++    const src = re.source, cuts: number[] = [];
++    let depth = 0;
++    for (let i = 0; i < src.length; i++) {
++        const ch = src[i];
++        if (ch === "\\") {
++            const next = src[i + 1] ?? "";
++            if (/[1-9k]/.test(next)) return null; // back-reference
++            i++;
++        } else if (ch === "[") {
++            for (i++; i < src.length && src[i] !== "]"; i++) if (src[i] === "\\") i++;
++        } else if (ch === "(") {
++            const lookbehind = src.startsWith("?<=", i + 1) || src.startsWith("?<!", i + 1);
++            if (src[i + 1] !== "?" || (src[i + 2] === "<" && !lookbehind)) return null; // capturing / named group
++            depth++;
++        } else if (ch === ")") depth--;
++        else if (ch === "|" && depth === 0) cuts.push(i);
++    }
++    if (cuts.length === 0) return null;
++    const flags = re.flags.replace(/[gy]/g, "");
++    return [-1, ...cuts].map((c, j) => {
++        const source = src.slice(c + 1, j < cuts.length ? cuts[j] : src.length);
++        const { first: f, nullable: n } = regexFirst(new RegExp(source, flags));
++        return { source, first: f, nullable: n };
++    });
++}
+diff --git a/typescript/src/cli.ts b/typescript/src/cli.ts
+index 900f030c1..30e0c292b 100644
+--- a/typescript/src/cli.ts
++++ b/typescript/src/cli.ts
+@@ -2,11 +2,12 @@
+ // SERVED MODEL: claude-opus-5-5
+ //
+ // cli.ts — `bbnf gen <grammar.bbnf> --actions <module> --out <file.js> [--export <name>]
+-//            [--entries a,b,…] [--max-depth n] [--check]`
++//            [--entries a,b,…] [--max-depth n] [--check] [--instrument]`
+ // Writes `<file.js>` and `<file.d.ts>` (the emitted parser; see gen.ts). The action kinds are read
+ // from the consumer's action-table module: its `--export` (default `actions`, else the default
+ // export), each entry `{ kind, fn }`. `--check` writes nothing and exits 1 when either file is not
+-// what the grammar and this emitter generate now.
++// what the grammar and this emitter generate now. `--instrument` emits an evidence build with the
++// per-rule profile (`profile()`, `resetProfile()`); a shipped module is never generated with it.
+ 
+ import { existsSync, readFileSync, writeFileSync } from "node:fs";
+ import { resolve } from "node:path";
+@@ -14,7 +15,7 @@ import { pathToFileURL } from "node:url";
+ import type { ActionKind } from "./emit.js";
+ import { check, generate } from "./gen.js";
+ 
+-const USAGE = "usage: bbnf gen <grammar.bbnf> --actions <module> --out <file.js> [--export <name>] [--entries a,b] [--max-depth n] [--check]";
++const USAGE = "usage: bbnf gen <grammar.bbnf> --actions <module> --out <file.js> [--export <name>] [--entries a,b] [--max-depth n] [--check] [--instrument]";
+ 
+ function fail(message: string): never {
+     process.stderr.write(`bbnf: ${message}\n`);
+@@ -26,10 +27,11 @@ async function main(argv: string[]): Promise<number> {
+     if (command !== "gen") fail(USAGE);
+     const flags = new Map<string, string>();
+     const positional: string[] = [];
+-    let checkOnly = false;
++    let checkOnly = false, instrument = false;
+     for (let i = 0; i < rest.length; i++) {
+         const a = rest[i];
+         if (a === "--check") checkOnly = true;
++        else if (a === "--instrument") instrument = true;
+         else if (a.startsWith("--")) { const v = rest[++i]; if (v === undefined) fail(`${a} needs a value\n${USAGE}`); flags.set(a.slice(2), v); }
+         else positional.push(a);
+     }
+@@ -46,6 +48,7 @@ async function main(argv: string[]): Promise<number> {
+         actions: table,
+         entries: flags.get("entries")?.split(",").filter((e) => e !== ""),
+         maxDepth,
++        instrument,
+     });
+     const js = resolve(out), dts = js.replace(/\.[cm]?js$/, "") + ".d.ts";
+     if (checkOnly) {
+diff --git a/typescript/src/emit.ts b/typescript/src/emit.ts
+index 818be4aaa..2c2b590b1 100644
+--- a/typescript/src/emit.ts
++++ b/typescript/src/emit.ts
+@@ -25,7 +25,8 @@
+ import type { AST, Expression, RecoverDirective } from "./types.js";
+ import type { Info } from "./analysis/first.js";
+ import { analyzeFirst, routes } from "./analysis/first.js";
+-import { singleClassRun } from "./analysis/regex.js";
++import { singleClassRun, topAlternatives } from "./analysis/regex.js";
++import type { RegexAlternative } from "./analysis/regex.js";
+ import { collectDependencies } from "./analysis/deps.js";
+ 
+ /**
+@@ -57,6 +58,15 @@ export type EmitOptions = Readonly<{
+      * rule is also emitted in recognize mode (`recognize[name]`) for the mode differential.
+      */
+     audit?: boolean;
++    /**
++     * Evidence builds only: a per-rule profile. Every rule function (each mode) and every hoisted
++     * alternative counts its calls and failures and accumulates its inclusive time; every action counts
++     * its calls and time; an action value a failing function discards is counted once, at the innermost
++     * failing function around it; every entry counts its calls, refusals and time. The parser gains
++     * `profile()` and `resetProfile()`. A shipping build never sets it, and without it the emitted text
++     * carries none of this code (it is compiled out, not switched off at run time).
++     */
++    instrument?: boolean;
+     /**
+      * Evidence builds only: the alternatives a non-ASCII first unit is routed to, per ordered choice
+      * (`null` keeps the grammar's). `test/stock-ascii.test.ts` passes bbnf-lang 0.1.4's ASCII-only
+@@ -207,6 +217,15 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+     };
+     const helpers: string[] = [];
+     const actNames: string[] = [];
++    // The instrument's slots (one per emitted function) and the declaration every function goes through.
++    const slots: string[] = [];
++    const ruleDecl = (f: string, label: string, code: string): string => {
++        if (!opts.instrument) return `/** @type {Rule} */ function ${f}(s, i) {${code}}`;
++        const j = slots.push(label) - 1;
++        return `/** @type {Rule} */ function ${f}$(s, i) {${code}}\n` +
++            `/** @type {Rule} */ function ${f}(s, i) { PC[${j}]++; const a0 = ACT, d0 = DISC, t0 = NOW(); const o = ${f}$(s, i); PT[${j}] += NOW() - t0; ` +
++            `if (o < 0) { PF[${j}]++; const own = ACT - a0 - (DISC - d0); PD[${j}] += own; DISC += own; } return o; }`;
++    };
+ 
+     /** A first-unit test of `c` against `inf` (true = may start). */
+     const mayStart = (c: string, inf: Info): string =>
+@@ -224,6 +243,43 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+      */
+     let groupsLeaf: Expression | null = null;
+ 
++    /**
++     * A regex leaf whose top level is a disjunction (`topAlternatives`), routed by its first unit: each
++     * unit runs one sticky regex holding only the alternatives that can start with it (in their order;
++     * nullable ones everywhere), so no engine walks a disjunction whose other arms fail at the first
++     * unit. Exact: nothing follows the disjunction, so the first alternative that matches is the match.
++     * `null` when every unit would run the whole disjunction anyway.
++     */
++    function splitLeaf(re: RegExp, pos: string, out: string, keep: boolean, nullable: boolean, rn: string): string | null {
++        const alts = topAlternatives(re);
++        if (alts === null) return null;
++        const flags = re.flags.replace(/[gy]/g, "") + "y";
++        const groups: RegexAlternative[][] = [];
++        const group = (take: (a: RegexAlternative) => boolean): number => {
++            const members = alts.filter((a) => a.nullable || take(a));
++            if (members.length === 0) return -1;
++            const g = groups.findIndex((m) => m.length === members.length && m.every((a, j) => a === members[j]));
++            return g >= 0 ? g : groups.push(members) - 1;
++        };
++        const tbl = new Int16Array(128);
++        for (let c = 0; c < 128; c++) tbl[c] = group((a) => a.first.has(c));
++        const na = group((a) => a.first.nonAscii), eof = group(() => false);
++        if (groups.every((m) => m.length === alts.length)) return null;
++        const R = opts.audit ? constName(new RegExp(re.source, flags)) : "";
++        const regs = groups.map((m) => constName(new RegExp(m.map((a) => a.source).join("|"), flags)));
++        const c = tmp("c"), g = tmp("g");
++        const hit = nullable ? `V = ${out} > ${pos} ? s.substring(${pos}, ${out}) : undefined; ` : `V = s.substring(${pos}, ${out}); `;
++        const cases = regs.map((r, j) => `case ${j}: ${r}.lastIndex = ${pos}; if (${r}.test(s)) { ${out} = ${r}.lastIndex; ${keep ? hit : ""}} else ${out} = -1; break;
++`).join("");
++        const audit = opts.audit ? `{ ${R}.lastIndex = ${pos}; AUDIT.check(${out}, ${R}.test(s) ? ${R}.lastIndex : -1, ${JSON.stringify(`split /${re.source}/${re.flags} in ${rn}`)}, s, ${pos}); }
++` : "";
++        return `{ const ${c} = s.charCodeAt(${pos}); const ${g} = ${c} < 128 ? ${constName(tbl)}[${c}] : ${c} === ${c} ? ${na} : ${eof};
++ switch (${g}) {
++${cases}default: ${out} = -1; }
++  ${audit}}
++`;
++    }
++
+     /** Emits code that sets `out` to the end offset (or -1) of `e` matched at `pos`, in `mode`. */
+     function gen(e: Expression, mode: Mode, pos: string, out: string, rn: string): string {
+         const keep = mode === "v";
+@@ -259,8 +315,10 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+   for (; ${q} < s.length; ${q}++) { const ${c} = s.charCodeAt(${q}); if (${c} < 128) { if (${T}[${c}] === 0) break; } else { ${C}.lastIndex = ${q}; if (!${C}.test(s)) break; } }
+   if (${q} - ${pos} < ${run.min}) ${out} = -1; else { ${keep ? `V = ${q} > ${pos} ? s.substring(${pos}, ${q}) : undefined; ` : ""}${out} = ${q}; } }\n`;
+                 }
+-                const R = constName(new RegExp(re.source, re.flags.replace(/[gy]/g, "") + "y"));
+                 const inf = info(e);
++                const split = splitLeaf(re, pos, out, keep, inf.nullable, rn);
++                if (split !== null) return split;
++                const R = constName(new RegExp(re.source, re.flags.replace(/[gy]/g, "") + "y"));
+                 if (!inf.nullable) {
+                     const c = tmp("c");
+                     const audit = opts.audit ? `if (!${mayStart(c, inf)}) { ${R}.lastIndex = ${pos}; AUDIT.check(${out}, ${R}.test(s) ? ${R}.lastIndex : -1, ${JSON.stringify(`guard /${re.source}/${re.flags} in ${rn}`)}, s, ${pos}); }\n` : "";
+@@ -355,7 +413,7 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+                     const u = unwrap(a);
+                     if (u.type === "nonterminal" || u.type === "literal" || u.type === "regex") return (o: string) => gen(a, mode, pos, o, rn);
+                     const h = tmp("h"), o2 = tmp("o");
+-                    helpers.push(`/** @type {Rule} */ function ${h}(s, i) { let ${o2}; ${gen(a, mode, "i", o2, rn)}return ${o2}; }`);
++                    helpers.push(ruleDecl(h, `${rn}/${mode} alt ${h}`, ` let ${o2}; ${gen(a, mode, "i", o2, rn)}return ${o2}; `));
+                     return (o: string) => `${o} = ${h}(s, ${pos});\n`;
+                 });
+                 const T = constName(r.tbl), c = tmp("c"), g = tmp("g");
+@@ -404,14 +462,15 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+                     : kind === "groups" ? `if (o >= 0) V = ${A}(${groups});\n`
+                         : `if (o >= 0) V = ${A}(s.substring(i, o));\n`;
+         }
+-        fns.push(`/** @type {Rule} */ function ${fnName.get(`${name}/${mode}`)}(s, i) {\n${body}return o;\n}`);
++        fns.push(ruleDecl(fnName.get(`${name}/${mode}`)!, `${name}/${mode}`, `\n${body}return o;\n`));
+     }
+ 
+     const q = JSON.stringify;
+     const fault = entryNames.map((n) => depth && nests(n));
+     const reset = (j: number) => `${fault[j] ? "D = 0; " : ""}${hasRec ? "RC.length = 0; " : ""}`;
+     const entryFns = entryNames.map((n, j) =>
+-        `/** @param {string} s */ function e${j}(s) { ${reset(j)}const o = ${fnName.get(`${n}/v`)}(s, 0); return o === s.length${fault[j] ? ` && D <= ${maxDepth}` : ""} ? V : FAIL; }`);
++        `/** @param {string} s */ function e${j}${opts.instrument ? "$" : ""}(s) { ${reset(j)}const o = ${fnName.get(`${n}/v`)}(s, 0); return o === s.length${fault[j] ? ` && D <= ${maxDepth}` : ""} ? V : FAIL; }${
++            opts.instrument ? `\n/** @param {string} s */ function e${j}(s) { EC[${j}]++; const t0 = NOW(); const r = e${j}$(s); ET[${j}] += NOW() - t0; if (r === FAIL) EF[${j}]++; return r; }` : ""}`);
+     const wrap = entryNames.map((_, j) => fault[j] || hasRec);
+     const ruleFns = entryNames.flatMap((n, j) => (wrap[j]
+         ? [`/** @type {Rule} */ function x${j}(s, i) { ${reset(j)}const o = ${fnName.get(`${n}/v`)}(s, i); return ${fault[j] ? `D > ${maxDepth} ? -1 : ` : ""}o; }`]
+@@ -422,7 +481,14 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+         `/** @typedef {(s: string, i: number) => number} Rule */`,
+         `for (const [n, k] of Object.entries(ACTION_KINDS)) { const a = A[n]; if (a == null || a.kind !== k || typeof a.fn !== "function") throw new TypeError("bbnf: rule \`" + n + "\` needs a " + k + " action"); }`,
+         `for (const n of Object.keys(A)) if (!Object.prototype.hasOwnProperty.call(ACTION_KINDS, n)) throw new TypeError("bbnf: no rule \`" + n + "\` takes an action (a stale parser module?)");`,
+-        ...actNames.map((n, j) => `const A${j} = A[${q(n)}].fn;`),
++        ...(opts.instrument
++            ? [`const NOW = () => globalThis.performance.now();`, `let ACT = 0, DISC = 0;`,
++                `const PC = new Float64Array(${slots.length}), PF = new Float64Array(${slots.length}), PT = new Float64Array(${slots.length}), PD = new Float64Array(${slots.length});`,
++                `const AC = new Float64Array(${actNames.length}), AT = new Float64Array(${actNames.length});`,
++                `const EC = new Float64Array(${entryNames.length}), EF = new Float64Array(${entryNames.length}), ET = new Float64Array(${entryNames.length});`,
++                `const instrumented = (f, k) => function () { AC[k]++; ACT++; const t0 = NOW(); const r = f.apply(undefined, arguments); AT[k] += NOW() - t0; return r; };`]
++            : []),
++        ...actNames.map((n, j) => (opts.instrument ? `const A${j} = instrumented(A[${q(n)}].fn, ${j});` : `const A${j} = A[${q(n)}].fn;`)),
+         ...(hostNames.length > 0
+             ? [...hostNames.map((n, j) => `const H${j} = H[${q(n)}]; if (typeof H${j} !== "function") throw new TypeError("bbnf: host rule \`" + ${q(n)} + "\` is not supplied");`), `const HB = { v: undefined };`]
+             : []),
+@@ -433,7 +499,11 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+         ...fns, ...helpers, ...entryFns, ...ruleFns,
+         `return { rules: ${table(entryNames, (n, j) => (wrap[j] ? `x${j}` : fnName.get(`${n}/v`)!))}, entries: ${table(entryNames, (_, j) => `e${j}`)}, value: () => V${
+             hasRec ? `, recovered: () => RC` : ""}${
+-            opts.audit ? `, recognize: ${table(ruleNames, (n) => `(s, i) => { ${depth ? "D = 0; " : ""}return ${fnName.get(`${n}/r`)}(s, i); }`)}` : ""} };`,
++            opts.audit ? `, recognize: ${table(ruleNames, (n) => `(s, i) => { ${depth ? "D = 0; " : ""}return ${fnName.get(`${n}/r`)}(s, i); }`)}` : ""}${
++            opts.instrument ? `, profile: () => ({ slots: ${q(slots)}, calls: Array.from(PC), fails: Array.from(PF), time: Array.from(PT), discarded: Array.from(PD), `
++                + `actions: ${q(actNames)}, actionCalls: Array.from(AC), actionTime: Array.from(AT), `
++                + `entries: ${q(entryNames)}, entryCalls: Array.from(EC), entryFails: Array.from(EF), entryTime: Array.from(ET) }), `
++                + `resetProfile: () => { for (const a of [PC, PF, PT, PD, AC, AT, EC, EF, ET]) a.fill(0); ACT = 0; DISC = 0; }` : ""} };`,
+     ].join("\n");
+ 
+     const header = opts.header ?? "";
+diff --git a/typescript/src/gen.ts b/typescript/src/gen.ts
+index f933b4e68..92c1d6a55 100644
+--- a/typescript/src/gen.ts
++++ b/typescript/src/gen.ts
+@@ -27,6 +27,8 @@ export type GenerateOptions = Readonly<{
+     entries?: readonly string[];
+     /** Back-edge nesting limit (default: the emitter's). */
+     maxDepth?: number;
++    /** Evidence builds only: the per-rule profile (`EmitOptions.instrument`); never a shipped module. */
++    instrument?: boolean;
+ }>;
+ 
+ export type Generated = Readonly<{ js: string; dts: string; sha256: string }>;
+@@ -50,9 +52,10 @@ export function generate(options: GenerateOptions): Generated {
+     const grammarKey = [...texts].map(([id, t]) => [rel(id), t] as const).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+         .map(([id, t]) => `${id}\u0000${t}`).join("\u0000");
+     const digest = sha256(`${sha256(grammarKey)}${EMITTER_SHA256}`);
+-    const header = `// GENERATED by @mkbabb/bbnf-lang \`bbnf gen\` from ${rel(resolve(options.grammar))} — DO NOT EDIT.\n// sha256(grammar ⊕ emitter) ${digest}\n`;
++    const header = `// GENERATED by @mkbabb/bbnf-lang \`bbnf gen\` from ${rel(resolve(options.grammar))} — DO NOT EDIT.\n// sha256(grammar ⊕ emitter) ${digest}\n${
++        options.instrument ? "// INSTRUMENTED: an evidence build with the per-rule profile; never ship it.\n" : ""}`;
+     const actionKinds = Object.fromEntries(Object.entries(options.actions).map(([n, a]) => [n, a.kind]));
+-    const e = emitGrammar(ast, { actionKinds, entries: options.entries, recovers, maxDepth: options.maxDepth, header });
++    const e = emitGrammar(ast, { actionKinds, entries: options.entries, recovers, maxDepth: options.maxDepth, header, instrument: options.instrument });
+     return { js: e.module, dts: e.dts, sha256: digest };
+ }
+ 

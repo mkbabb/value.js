@@ -1,0 +1,91 @@
+diff --git a/typescript/src/emit.ts b/typescript/src/emit.ts
+index 0ec44bcaf..4c8289664 100644
+--- a/typescript/src/emit.ts
++++ b/typescript/src/emit.ts
+@@ -15,6 +15,8 @@
+ //     not a plain leaf or reference is hoisted into its own function, so routes share its code;
+ //   · a single-class run (`[^()"']+`, `\s*`) is a code-unit loop; a non-nullable regex leaf, `p?`
+ //     and `p*` test the first unit before entering the regex engine or the call;
++//   · an escape run in a regex leaf (`(?:\\[\s\S]|[^"\\])*`, a string literal's body) is unrolled
++//     (`analysis/regex.ts` `unrollEscapeRuns`): same match, no per-iteration alternation to backtrack;
+ //   · a reference is a DIRECT call to the referenced rule's function (no trampoline, no table);
+ //   · the nesting-depth fault: a counter on the recursive back-edges alone (a DFS over the rule
+ //     graph marks one edge on every cycle). Beyond `maxDepth` the call answers failure, the parse
+@@ -25,7 +27,7 @@
+ import type { AST, Expression, RecoverDirective } from "./types.js";
+ import type { Info } from "./analysis/first.js";
+ import { analyzeFirst, routes } from "./analysis/first.js";
+-import { singleClassRun } from "./analysis/regex.js";
++import { singleClassRun, unrollEscapeRuns } from "./analysis/regex.js";
+ import { collectDependencies } from "./analysis/deps.js";
+ 
+ /**
+@@ -215,7 +217,9 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+         return f;
+     };
+     const helpers: string[] = [];
+-    const actNames: string[] = [];
++    // The rules that take an action, bound `A0…` in rule order (every rule has a value-mode function).
++    const actNames = ruleNames.filter((n) => actionKinds[n] !== undefined);
++    const actionOf = (name: string): string => `A${actNames.indexOf(name)}`;
+     // The instrument's slots (one per emitted function) and the declaration every function goes through.
+     const slots: string[] = [];
+     const ruleDecl = (f: string, label: string, code: string): string => {
+@@ -277,17 +281,21 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+   for (; ${q} < s.length; ${q}++) { const ${c} = s.charCodeAt(${q}); if (${c} < 128) { if (${T}[${c}] === 0) break; } else { ${C}.lastIndex = ${q}; if (!${C}.test(s)) break; } }
+   if (${q} - ${pos} < ${run.min}) ${out} = -1; else { ${keep ? `V = ${q} > ${pos} ? s.substring(${pos}, ${q}) : undefined; ` : ""}${out} = ${q}; } }\n`;
+                 }
+-                const R = constName(new RegExp(re.source, re.flags.replace(/[gy]/g, "") + "y"));
++                const flags = re.flags.replace(/[gy]/g, "") + "y", unrolled = unrollEscapeRuns(re.source);
++                const R = constName(new RegExp(unrolled, flags));
+                 const inf = info(e);
++                // An audit build re-runs an unrolled leaf as the grammar spelt it.
++                const Ro = opts.audit && unrolled !== re.source ? constName(new RegExp(re.source, flags)) : null;
++                const same = Ro === null ? "" : `{ ${Ro}.lastIndex = ${pos}; AUDIT.check(${out}, ${Ro}.test(s) ? ${Ro}.lastIndex : -1, ${JSON.stringify(`unrolled /${re.source}/${re.flags} in ${rn}`)}, s, ${pos}); }\n`;
+                 if (!inf.nullable) {
+                     const c = tmp("c");
+                     const audit = opts.audit ? `if (!${mayStart(c, inf)}) { ${R}.lastIndex = ${pos}; AUDIT.check(${out}, ${R}.test(s) ? ${R}.lastIndex : -1, ${JSON.stringify(`guard /${re.source}/${re.flags} in ${rn}`)}, s, ${pos}); }\n` : "";
+                     return `{ const ${c} = s.charCodeAt(${pos});
+   if (!${mayStart(c, inf)}) ${out} = -1;
+   else { ${R}.lastIndex = ${pos}; if (${R}.test(s)) { ${out} = ${R}.lastIndex; ${keep ? `V = s.substring(${pos}, ${out}); ` : ""}} else ${out} = -1; }
+-  ${audit}}\n`;
++  ${audit}${same}}\n`;
+                 }
+-                return `{ ${R}.lastIndex = ${pos}; if (${R}.test(s)) { ${out} = ${R}.lastIndex; ${keep ? `V = ${out} > ${pos} ? s.substring(${pos}, ${out}) : undefined; ` : ""}} else ${out} = -1; }\n`;
++                return `{ ${R}.lastIndex = ${pos}; if (${R}.test(s)) { ${out} = ${R}.lastIndex; ${keep ? `V = ${out} > ${pos} ? s.substring(${pos}, ${out}) : undefined; ` : ""}} else ${out} = -1; }\n${same}`;
+             }
+             case "nonterminal": {
+                 const target = e.value as string;
+@@ -352,10 +360,21 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+                 const ts = parts.map(() => tmp("t")), vs = parts.map(() => tmp("v"));
+                 let code = `${L}: { ${out} = -1;\n`;
+                 let at = pos;
++                // A part that is a reference to a `text`-action rule is only recognized where it stands; its
++                // action runs on its span once every part has matched, so a sequence that fails later
++                // never builds (nor discards) that value. Exact: a text action sees only the text.
++                const deferred: string[] = [];
+                 parts.forEach((p, idx) => {
+-                    code += `let ${ts[idx]}; ${gen(p, mode, at, ts[idx], rn)}if (${ts[idx]} < 0) break ${L}; ${keep ? `const ${vs[idx]} = V;` : ""}\n`;
++                    const u = unwrap(p), target = u.type === "nonterminal" ? u.value as string : "";
++                    if (keep && parts.length > 1 && actionKinds[target] === "text" && ast.has(target) && !recovers.has(target)) {
++                        code += `let ${ts[idx]}; ${gen(p, "r", at, ts[idx], rn)}if (${ts[idx]} < 0) break ${L};\n`;
++                        deferred.push(`const ${vs[idx]} = ${actionOf(target)}(s.substring(${at}, ${ts[idx]}));`);
++                    } else {
++                        code += `let ${ts[idx]}; ${gen(p, mode, at, ts[idx], rn)}if (${ts[idx]} < 0) break ${L}; ${keep ? `const ${vs[idx]} = V;` : ""}\n`;
++                    }
+                     at = ts[idx];
+                 });
++                if (deferred.length > 0) code += `${deferred.join(" ")}\n`;
+                 if (keep) code += `V = [${vs.join(", ")}];\n`; // positional (VALUE-SEMANTICS.md)
+                 return code + `${out} = ${at}; }\n`;
+             }
+@@ -414,8 +433,7 @@ export function emitGrammar(ast: AST, opts: EmitOptions = {}): Emission {
+             body += `if (o < 0) { ${starts}{ let ${u}; ${gen(sync, "r", "i", u, name)}if (${u} > i) { RC.push(${ruleNames.indexOf(name)}, i, ${u}); ${mode === "v" ? "V = null; " : ""}return ${u}; } } }\n`;
+         }
+         if (kind !== undefined && mode === "v") {
+-            const A = `A${actNames.length}`;
+-            actNames.push(name);
++            const A = actionOf(name);
+             const groups = kind === "groups" ? Array.from({ length: groupCount(groupsLeaf!.value as RegExp) }, (_, g) => `V[${g + 1}]`).join(", ") : "";
+             body += kind === "map" ? `if (o >= 0) V = ${A}(V);\n`
+                 : kind === "span" ? `if (o >= 0) V = ${A}(V, i, o);\n`

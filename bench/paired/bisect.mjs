@@ -28,7 +28,16 @@ function install(P, R, inputs, sheets) {
         declarations: () => { for (const s of DECL) E.semiItems(s); },
         values: () => { for (const s of VALS) E.valueTop(s); },
         declaration: () => { for (const s of DECLS) E.declaration(s); },
+        // The class split by the rule list's own verdict: sources whose rule list ends on a fault, and the rest.
+        retiredFault: () => { for (const s of FAULT) R.parseStylesheet(s); },
+        productFault: () => { for (const s of FAULT) P.css.parseStylesheet(s); },
+        ruleListFault: () => { for (const s of FAULT) E.ruleList(s); },
+        wrapperFault: () => { for (const s of FAULT) P.sheet.ruleList(s); },
+        failureFault: () => { for (const s of FAULT) P.failure(s, "css_syntax", ["rule"], 0); },
+        retiredBlocks: () => { for (const s of BLOCKS) R.parseStylesheet(s); },
+        productBlocks: () => { for (const s of BLOCKS) P.css.parseStylesheet(s); },
     };
+    const FAULT = xs.filter((s) => E.ruleList(s)?.fault !== undefined), BLOCKS = xs.filter((s) => E.ruleList(s)?.fault === undefined);
     // The inputs the style-rule path hands its entries, harvested once from the product's own reads.
     const DECL = [], VALS = [], DECLS = [];
     for (const s of xs) { const v = E.ruleList(s); for (const b of (v && v.blocks) || []) if (b.body !== null) DECL.push(b.body); }
@@ -42,7 +51,7 @@ function install(P, R, inputs, sheets) {
             for (const n of order) { const t0 = performance.now(); probes[n](); probes[n](); t[n].push(performance.now() - t0); }
         }
         const med = (a) => { const s = [...a].sort((x, y) => x - y); return s[s.length >> 1]; };
-        return { n: xs.length, harvested: { bodies: DECL.length, declarations: DECLS.length, values: VALS.length },
+        return { n: xs.length, harvested: { bodies: DECL.length, declarations: DECLS.length, values: VALS.length, fault: FAULT.length, blocks: BLOCKS.length },
             ms: Object.fromEntries(names.map((n) => [n, +(med(t[n]) / 2).toFixed(2)])),
             ofRetired: Object.fromEntries(names.map((n) => [n, +med(t[n].map((x, i) => x / t.retired[i])).toFixed(3)])) };
     };
