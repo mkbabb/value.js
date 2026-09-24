@@ -3474,3 +3474,7 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - Each works on a `glass-10.1` branch with a PR where there is a remote.
   - **No merge to a deploying default branch and no atlas release until the orchestrator has read that seat's report.**
   - The migration is at the root, with no shims.
+
+## §0dg — 2026-09-24: a system-wide stream stall; the six seats resumed; keyframes on 10.1.0
+- At about 16:45 every background seat (the six single seats, plus the chassis seats) stalled together on a stream watchdog. The network probe was clean afterwards. Tracks A, C and D re-launched their seats themselves at 16:55. The six single seats were resumed from their transcripts by message, each re-reading `git status` before continuing.
+- **keyframes on 10.1.0** (`9fa56c26`, KF.W13X.g0): pixel-identical, and the pin needed no code change. The routed leftovers are in KF-W13.md addendum (d): the pre-existing orbital-drag lint cycles, and the stale :5173 dep cache.

@@ -542,3 +542,8 @@ KF.W13V ended NOT-CONFORMANT after 2 repairs, and its check says the loop is dry
 
 ## KF.W13X — ADDENDUM 2026-09-24 (c) (COHESION §0dd): glass 10.1.0 `#actions`
 - glass-ui 10.1.0 (live) ships `ConfiguratorLayer` `#actions`. KF.W13X repins keyframes to `10.1.0` exact and moves every section action that sits on its own row (reset, refresh) into its layer's header (the owner: *"the refresh button should be inline in the section when expanded too"*), deleting the body rows. It also reads whether any keyframes stage-plus-inspector Configurator shows a shell band between stage and aside (the fourier owner frame, §0cz), and adopts `layout="detached"` where it does. The falsifier is the same as fourier's `f-w14v-detached.spec.ts` shape.
+
+## KF.W13X — ADDENDUM 2026-09-24 (d) (COHESION §0dg): g0 landed; lint cycles; the stale dev bundle
+- **`.g0` landed** (kf `9fa56c26`; record `03875c26`): 10.1.0 exact. check, vitest ×2, build and gh-pages are GREEN; 12 of 12 frame pairs are pixel-identical; traps 1/3/4/5 are checked, with one deduped `@mkbabb/value.js@4.0.0`. keyframes' demo mounts no Configurator, so addendum (c)'s `#actions` and `detached` apply only if a unit introduces one. The owner's "refresh inline in the section header" still applies to keyframes' own section headers, through glass's section primitive.
+- **Lint RED, pre-existing:** 4 `no-cycle` errors in `demo/scenes/cube/orbital-drag/`. KF.W13X cures the import graph at the root. No lint disables.
+- **Instrument:** the shared :5173 dev server still serves a glass bundle optimised before the repin. KF.W13X's first served measurement restarts it with a clean dep cache (`vite --force`) and confirms 10.1.0 is served.
