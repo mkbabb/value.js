@@ -125,14 +125,14 @@ const SECTIONS: SliderSection[] = [
             <div class="aurora-row">
                 <span :id="`${labelId}-harmony`" class="section-label">Harmony</span>
                 <Select :model-value="harmony()" @update:model-value="setHarmony">
-                    <SelectTrigger :aria-labelledby="`${labelId}-harmony`" class="h-9 text-caption min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-harmony`" class="h-9 min-w-menu">
                         <SelectValue>{{ label(harmony()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
                         <!-- T-17 (STRIP family member): each row previews the
                              palette ITS harmony resolves from the live atoms
                              — seed-exact, never a canned swatch. -->
-                        <SelectItem v-for="h in HARMONIES" :key="h" :value="h" class="text-caption">
+                        <SelectItem v-for="h in HARMONIES" :key="h" :value="h">
                             {{ label(h) }}
                             <template #description>
                                 <PreviewStrip :stops="auroraHarmonyStops(atoms, h)" />
@@ -145,11 +145,11 @@ const SECTIONS: SliderSection[] = [
             <div class="aurora-row">
                 <span :id="`${labelId}-arrangement`" class="section-label">Arrangement</span>
                 <Select :model-value="arrangement()" @update:model-value="setArrangement">
-                    <SelectTrigger :aria-labelledby="`${labelId}-arrangement`" class="h-9 text-caption min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-arrangement`" class="h-9 min-w-menu">
                         <SelectValue>{{ label(arrangement()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
-                        <SelectItem v-for="a in ARRANGEMENTS" :key="a" :value="a" class="text-caption">
+                        <SelectItem v-for="a in ARRANGEMENTS" :key="a" :value="a">
                             {{ label(a) }}
                         </SelectItem>
                     </SelectContent>
@@ -159,11 +159,11 @@ const SECTIONS: SliderSection[] = [
             <div class="aurora-row">
                 <span :id="`${labelId}-medium`" class="section-label">Medium</span>
                 <Select :model-value="medium()" @update:model-value="setMedium">
-                    <SelectTrigger :aria-labelledby="`${labelId}-medium`" class="h-9 text-caption min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-medium`" class="h-9 min-w-menu">
                         <SelectValue>{{ label(medium()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
-                        <SelectItem v-for="m in MEDIA" :key="m" :value="m" class="text-caption">
+                        <SelectItem v-for="m in MEDIA" :key="m" :value="m">
                             {{ label(m) }}
                         </SelectItem>
                     </SelectContent>
@@ -173,11 +173,11 @@ const SECTIONS: SliderSection[] = [
             <div class="aurora-row">
                 <span :id="`${labelId}-motion`" class="section-label">Motion</span>
                 <Select :model-value="motion()" @update:model-value="setMotion">
-                    <SelectTrigger :aria-labelledby="`${labelId}-motion`" class="h-9 text-caption min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-motion`" class="h-9 min-w-menu">
                         <SelectValue>{{ label(motion()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
-                        <SelectItem v-for="m in MOTIONS" :key="m" :value="m" class="text-caption">
+                        <SelectItem v-for="m in MOTIONS" :key="m" :value="m">
                             {{ label(m) }}
                         </SelectItem>
                     </SelectContent>
