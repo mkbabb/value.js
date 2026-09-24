@@ -102,52 +102,49 @@
                 Conversion Graph
             </h2>
             <div class="flex flex-wrap gap-4">
-                <TooltipProvider
+                <!-- X.W12.c · UIA-V-4 — the chip is a path to READ, not a control.
+                     Each chip sat in its own TooltipProvider/Tooltip whose
+                     content was an empty `contents` box: hovering opened a
+                     1×1 px role=tooltip that said nothing, and the chip wore
+                     `cursor-pointer` with no action behind it. The empty
+                     tooltip layer and the pointer cursor are gone; the hover
+                     highlight (the chip's one real behaviour) stays. -->
+                <!-- AB-3 (D1): the conversion-graph node seats on the
+                     well recipe; the interactive hover follows the
+                     app's established well-row idiom (bg-well →
+                     hover:bg-accent/50, per VersionHistoryDrawer),
+                     collapsing the /50 /30 /60 muted-alpha species. -->
+                <div
                     v-for="(path, index) in currentColorSpaceInfo.conversions"
                     :key="index"
-                    :delay-duration="100"
+                    class="flex flex-wrap items-center p-3 bg-well rounded-panel hover:bg-accent/50 transition-colors max-w-full"
+                    @mouseenter="setHoveredPath(path)"
+                    @mouseleave="clearHoveredPath"
                 >
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <!-- AB-3 (D1): the conversion-graph node seats on the
-                                 well recipe; the interactive hover follows the
-                                 app's established well-row idiom (bg-well →
-                                 hover:bg-accent/50, per VersionHistoryDrawer),
-                                 collapsing the /50 /30 /60 muted-alpha species. -->
-                            <div
-                                class="flex flex-wrap items-center p-3 bg-well rounded-panel hover:bg-accent/50 transition-colors cursor-pointer max-w-full"
-                                @mouseenter="setHoveredPath(path)"
-                                @mouseleave="clearHoveredPath"
-                            >
-                                <template
-                                    v-for="(space, spaceIndex) in path"
-                                    :key="spaceIndex"
-                                >
-                                    <!-- F-3 split: the hovered node commits to the live
-                                         fill AND the fill-derived ink together — never a
-                                         colored fill under the fixed foreground. -->
-                                    <div
-                                        :style="
-                                            hoveredPath.length && hoveredPath.includes(space)
-                                                ? { backgroundColor: nodeFill, color: nodeInk }
-                                                : undefined
-                                        "
-                                        :class="['px-2 py-1 rounded transition-colors']"
-                                        data-o18="graph-node"
-                                    >
-                                        {{ space }}
-                                    </div>
-                                    <ArrowRight
-                                        v-if="spaceIndex < path.length - 1"
-                                        class="mx-1"
-                                    />
-                                </template>
-                            </div>
-                        </TooltipTrigger>
-                        <TooltipContent class="contents w-64 p-2 text-small">
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                    <template
+                        v-for="(space, spaceIndex) in path"
+                        :key="spaceIndex"
+                    >
+                        <!-- F-3 split: the hovered node commits to the live
+                             fill AND the fill-derived ink together — never a
+                             colored fill under the fixed foreground. -->
+                        <div
+                            :style="
+                                hoveredPath.length && hoveredPath.includes(space)
+                                    ? { backgroundColor: nodeFill, color: nodeInk }
+                                    : undefined
+                            "
+                            :class="['px-2 py-1 rounded transition-colors']"
+                            data-o18="graph-node"
+                        >
+                            {{ space }}
+                        </div>
+                        <ArrowRight
+                            v-if="spaceIndex < path.length - 1"
+                            class="mx-1"
+                        />
+                    </template>
+                </div>
             </div>
         </section>
 
@@ -176,12 +173,6 @@ import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { contrastInkFor } from "../../color-session/ink";
 import { Separator } from "../../ui/separator";
-import {
-    Tooltip,
-    TooltipProvider,
-    TooltipTrigger,
-    TooltipContent,
-} from "../../ui/tooltip";
 import { ArrowRight } from "@lucide/vue";
 import { Alert, AlertTitle, AlertDescription } from "../../ui/alert";
 import type { ColorModel } from "../../color-session/color-model";
