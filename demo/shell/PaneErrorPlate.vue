@@ -21,10 +21,13 @@
             tier="resting"
             class="w-full h-full min-w-0 flex flex-col justify-center px-6"
         >
+            <!-- X.W12.u3 (UIA-V-453): the loader's raw message (dev URL,
+                 filesystem path, cache-buster) stays out of the UI — the
+                 failure reporter already carries it; the plate states the
+                 failure and its one cure in the human register. -->
             <EmptyState
                 variant="error"
-                message="This scene could not be loaded."
-                :detail="detail ?? undefined"
+                message="This scene could not be loaded. Reload to continue."
             >
                 <template #action>
                     <Button size="sm" class="font-display mt-1" @click="reload">
@@ -58,16 +61,14 @@ export class PaneChunkError extends Error {
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
 import { RotateCcw } from "@lucide/vue";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import EmptyState from "../shared/ui/EmptyState.vue";
 
-/** `defineAsyncComponent` hands its `errorComponent` the loader's error. */
-const { error } = defineProps<{ error?: unknown }>();
-
-const detail = computed(() => (error instanceof Error ? error.message : null));
+/** `defineAsyncComponent` hands its `errorComponent` the loader's error; the
+ *  plate does not print it (UIA-V-453) — the region's reporter logs it. */
+defineProps<{ error?: unknown }>();
 
 function reload() {
     window.location.reload();
