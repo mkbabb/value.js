@@ -6,8 +6,15 @@
 // entries both carry. One iteration parses EVERY distinct source of the differential corpus
 // (`css-equivalence/`: the assay union, 27,021 rows, and the real-CSS arms, 3,049 rows) through one
 // entry — the same inputs the equivalence harness classifies, so speed and agreement are read over
-// one population; `parseStylesheet` reads the same sources as sheets. Run at a quiesced load:
+// one population; `parseStylesheet` reads the same sources as sheets.
 // `npx vitest bench --run -c bench/vitest.config.ts`.
+//
+// X.P.W7 `.o` (R-3, COHESION §0ci): this vitest bench is CONTEXT, not the instrument of record. The bench of
+// record is `bench/paired/` beside it — one fresh process per cell, the retired parser in the same process,
+// ≥ 11 interleaved rounds with rotating arm order, gc before every pass, `uptime` recorded, the median of the
+// per-round paired ratios, whole-corpus + accepted/rejected + large-sheet cells, set-aside cells counted
+// (`node bench/paired/build.mjs && node bench/paired/isolated.mjs <tag>`). Load is recorded, never gated:
+// the quiesced-load rule retires into the paired ratio.
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
