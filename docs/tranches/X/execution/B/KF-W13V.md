@@ -895,3 +895,63 @@ Check 1's cure line named the wrong four. By `.k`'s own table (`:306-322`), the 
 - **INFO 2**: C1-7 (out of bounds, a pin edit) and C1-8 (no cure needed).
 - Gates re-read: 11 rows (⟨`grep -c` on the table⟩).
 - Commits: kf 1 and value.js 2 (the evidence commit and this record).
+
+## Check 2 (L-20 pass 2 on Repair 1)
+
+**Seat**: `claude-opus-5-5`, VERIFY-ONLY (0 kf / glass / product bytes). **Date**: 2026-09-24 (sitting of record 2026-09-17). **kf HEAD** `5cf0f58a` = `origin/master`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → 2 standing untracked inbound letters, 0 modified; value.js dirty paths (admin panels · CARRY-LEDGER · X-P-W7.md · LEDGER · `scripts/dev/dev.sh`) belong to sibling seats or are unowned; none touched except this record and minimal LEDGER appends.
+
+**Verdict: NOT-CONFORMANT.** Every GREEN that Repair 1 and the Close claim reproduces. Bounds, masking, families, E-3 and mail are clean. Three gates stay RED with no relief in the spec: s1 at Sequence, k1 and u1. Repair 1 escalated each of them with a measured reason. No dated ruling has landed since: ⟨`grep -n 'ESC-s-1\|OPEN-CARRIED' COHESION.md`⟩ → 0. The COHESION tail is §0cv (F.W14), and §0cq..§0cu route nothing to these rows. The spec's relief for `.k` covers glass rows only, and the relief for `.u` is "routed to glass by id". Neither covers consumer rows.
+
+### Reproduced (×2 unless noted)
+
+| axis / gate | command | result | reads as claimed |
+|---|---|---|---|
+| floor `npm run check` | ⟨`npm run check; echo $?`⟩ (load 11.74 at start) | EXIT 0 · EXIT 0 | yes |
+| floor demo vitest | ⟨`npx vitest run --project demo \| grep -E "Test Files\|Tests "`⟩ (load 19.30 · 21.56) | 76/76 · 560/560 · 76/76 · 560/560 | yes |
+| k4 / C1-5 `[real-cube]` | ⟨`KF_PLAYWRIGHT_DIR=value.js node scripts/run-demo-roster.mjs --only=subject-animates --workers=1`⟩ on the dist built 11:44, after `5cf0f58a` (load 24.29 · 21.64) | PASS 1/1 · PASS 1/1: `[real-cube]` ✓, playhead held at rest (24.1 · 34.1), then advanced on Play; nodes bob 40 / spin 40 | yes (my 2 runs join Repair 1's 8/8 and its e2e ✓ ×2) |
+| C1-5 test | ⟨`npx vitest run --project demo test/demo/instrument/animation-sync-pause-edge.test.ts`⟩ | 2/2 | yes (born-RED at `15edd312` is cited from the commit message, not re-run) |
+| eslint | ⟨`npx eslint demo/components/instrument/transport test/demo/instrument/animation-sync-pause-edge.test.ts`⟩ | EXIT 0 | yes |
+| diff --check | ⟨`git diff --check 15edd312..5cf0f58a \| wc -l`⟩ | 0 | yes |
+| s1 grep | ⟨`grep -rln "KeyframesEditor\|CSSCodeEditor\|useSpringKeyframesEditor\|keyframes (editable)" demo/scenes \| wc -l`⟩ | 0 | yes |
+| k2 / KFA-15 surface-retired | ⟨`git grep -n "import KeyframesEditor\|<KeyframesEditor\b" HEAD -- demo \| wc -l`⟩ · ⟨`grep -l "progress-bar origin-left" dist/gh-pages/assets/*.js \| wc -l`⟩ | 0 · 0. The `KeyframesAddDialog` hit in `timeline/CSSPasteDialog.vue:121` is a docblock, not a mount | yes |
+| k3 / O-72 producer fact | ⟨`grep -n 'data-state="open"' glass-ui/src/styles/glass/reveal.css`⟩ | `:136 .glass-reveal[data-state="open"]` (keyed on `open`; reka writes `delayed-open`) | yes, a producer row |
+| k1 tally | ⟨`grep -c 'OPEN — honest-RED, not cured this seat' W13V/k/split-table.md`⟩ | 183 | yes (RED) |
+| u1 tally | ⟨awk col 4 of `W13V/u/DISPOSITION.md` \| sort \| uniq -c⟩ | OPEN-CARRIED 240 · ROUTED-GLASS 37 · SPLIT 17 · PIN-CARRIED 14 · CURED-u 6 · PARTIAL-u 2 · LANDED-BY 2 · 1 each of the rest | yes (RED) |
+
+Served s1-DOM at Sequence was not re-run. No byte since Check 1 touched it: `5cf0f58a` changes only `useAnimationSync.ts` and its test. Check 1's census ×2 (`stageEditors=6`) stands. I did not re-run the full 6-case e2e roster. The only case a Repair 1 byte can move is `[real-cube]`, and I re-ran that one ×2 above.
+
+### Axes
+
+- **(2) bounds**: ⟨`git show --stat 5cf0f58a`⟩ → 2 paths (`demo/…/useAnimationSync.ts`, `test/demo/instrument/animation-sync-pause-edge.test.ts`), both inside `.k`'s set. value.js `91218014` touches 21 paths under `evidence/W13V/k/**` + `relay/X-KF-BK-O72-…md` + INBOX, and `3cf8c284` touches this record + LEDGER. ⟨`git log d1c2ac84^..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → 0. Clean.
+- **(3) masking**: the cure is a root-cause read at the play-state edge. The ticker and the oracle are unchanged, and no try/catch, skip or allowlist was added. The new test asserts the engine time at the edge, with no rAF. Clean.
+- **(4) families**: one meaning per sha (the kf cure + its test; value.js evidence; the record). Clean.
+- **(5) E-3**: every commit in `d1c2ac84^..HEAD` that touches `KF-W13.md` is an orchestrator `docs(X·§0…)` dated addendum. No wave-tagged commit touches KF-W13.md, `registry/adjudicated/`, `keyframes/audit/`, `audit/UI-AUDIT-keyframes.md` or CONFORMANCE (a per-sha name filter over ⟨`git log --grep=W13V`⟩ → only the §0 cohesion shas). Clean.
+- **(6) mail**: ⟨`grep -c '| UNREAD' INBOX.md`⟩ → 1, the `:406` sweep line, not a row. O-72 is a SENT row at `:520`. ⟨find -newer INBOX⟩ → `glass-ui/…/BL/FORMATION-PROGRESS.md` only, which is glass-internal. 0 UNREAD in scope.
+- **(7) four-verb**: IMPLEMENTED = PARTIAL, VERIFIED = NO. Lawful.
+- **(8) goal at the bytes**: NOT MET. OA-46 names "the sequcne … NOT inline", and Sequence still renders its re-time editors inline with all four dock items off. §0bl/§0bn also require every consumer KFA row "cured at cause" and every UIA-KF row "cured … or routed to glass". 183 and 240 are not.
+- **(9) figures**: Repair 1's vitest 76/560, check EXIT 0, eslint, diff-check, the 183 and 240/17 tallies and the `[real-cube]` PASS all reproduce.
+- **(10) honest-RED adjudication**: below.
+
+### Register (severity · claim · receipt · cure)
+
+- **C2-1 HIGH** (= C1-1, standing): G-W13V-s1 is RED at Sequence. ESC-s-1 is escalated and still unruled. Receipt: Check 1 census ×2 `stageEditors=6`; ⟨`grep -c ESC-s-1 COHESION.md`⟩ → 0; no kf byte since touches Sequence. **Cure**: an orchestrator/COHESION ruling picks (a) re-cut rows as channels or (b) a Sequence mode for the shared Timeline pane, then a granted `.s` successor lands it. Alternatively, a dated ruling re-homes s1-Sequence by id to a named wave, for example KF.W13W.
+- **C2-2 HIGH** (= C1-2, standing): G-W13V-k1 is RED, with 183 consumer KFA rows OPEN. The spec relieves glass rows only. **Cure**: granted `.k` successor seats, or a dated re-home ruling by id.
+- **C2-3 HIGH** (= C1-3, standing): G-W13V-u1 is RED, with 240 OPEN-CARRIED and 17 SPLIT consumer UIA-KF rows. **Cure**: granted `.u` successor seats, or a dated re-home ruling by id.
+- **C2-4 INFO**: `KFE-ORPHAN` (KeyframesEditor/KeyframesAddDialog have no mount but still have live tests). Repair 1 routed it to the KF.W13W component-structure audit (§0cq). That is reasonable and not a mask, but §0cq names no row for it yet, so it is carried to the orchestrator.
+- **C2-5 INFO**: `vue-sonner` unread (C1-7): still a pin edit, outside every W13V grant.
+- Repair 1's cures of C1-4, C1-5 and C1-6 verify: k2, k3 and k4 plus the e2e `[real-cube]` clause read GREEN, with no new defect.
+
+### Honest-RED set (relieved, owner-named)
+
+- `TILE-PRIMITIVE` (p3): named by id in the §0bl second addendum, with O-58/O-67. Owner: glass BL.
+- `SHEET-POSITION` (e2e M1) · `B7 SPECULAR-REST` (e2e B7): relieved by id at KF.W13R Check 1 under the §0cd classes. Owner: glass.
+- `SLIDER-THUMB` (y5 thumb clause) and `TOOLTIP-REVEAL-STATE` (k3 tooltip, O-72): producer-owned under the `.k`/`.y` relief ("glass rows → the batched glass letter"). They go green only upstream.
+- `DARK-MENU-ITEM` · `QUIET-FOCUS-RING`: named in §0br/§0cd. `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `GLASS-VEIL-GREY` · `DOCK-TRIGGER-CLIP`: named in §0br/§0cf/§0cj. The glass KFA rows go via O-60/O-69/O-72, and the glass UIA rows via O-59/O-70. Owner: glass BL.
+
+**Unrelieved**: s1-DOM (Sequence) · k1 · u1.
+
+### Successors
+
+KF.W13W opens after "KF.W13V" (spec `:447`). That conjunct is **RED** because this row is not CLOSED, so KF.W13W is lawfully **BLOCKED**. The other conjuncts: the Model/Record clauses are not gating. The §0co/§0cq routings into KF.W13W are GREEN as written. KF.W13W unblocks only when an orchestrator grant or ruling relieves C2-1..C2-3, or when successor seats cure them. A third repair round without such a grant cannot move them: Repair 1 measured this, and no grant has landed since.
+
+**SELF-COUNT**: gates reproduced 11 (the table rows: check · vitest · `[real-cube]` · C1-5 test · eslint · diff-check · s1-grep · k2 · k3 · k1-tally · u1-tally). Gates failed 3 (s1-DOM Sequence · k1 · u1). Register 5 rows: HIGH 3 · INFO 2 (⟨`grep -c '^- \*\*C2-'`⟩ on this section → 5).
