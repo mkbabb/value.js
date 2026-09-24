@@ -125,7 +125,7 @@ const SECTIONS: SliderSection[] = [
             <div class="aurora-row">
                 <span :id="`${labelId}-harmony`" class="section-label">Harmony</span>
                 <Select :model-value="harmony()" @update:model-value="setHarmony">
-                    <SelectTrigger :aria-labelledby="`${labelId}-harmony`" class="h-9 min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-harmony`">
                         <SelectValue>{{ label(harmony()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
@@ -145,7 +145,7 @@ const SECTIONS: SliderSection[] = [
             <div class="aurora-row">
                 <span :id="`${labelId}-arrangement`" class="section-label">Arrangement</span>
                 <Select :model-value="arrangement()" @update:model-value="setArrangement">
-                    <SelectTrigger :aria-labelledby="`${labelId}-arrangement`" class="h-9 min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-arrangement`">
                         <SelectValue>{{ label(arrangement()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
@@ -159,7 +159,7 @@ const SECTIONS: SliderSection[] = [
             <div class="aurora-row">
                 <span :id="`${labelId}-medium`" class="section-label">Medium</span>
                 <Select :model-value="medium()" @update:model-value="setMedium">
-                    <SelectTrigger :aria-labelledby="`${labelId}-medium`" class="h-9 min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-medium`">
                         <SelectValue>{{ label(medium()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
@@ -173,7 +173,7 @@ const SECTIONS: SliderSection[] = [
             <div class="aurora-row">
                 <span :id="`${labelId}-motion`" class="section-label">Motion</span>
                 <Select :model-value="motion()" @update:model-value="setMotion">
-                    <SelectTrigger :aria-labelledby="`${labelId}-motion`" class="h-9 min-w-menu">
+                    <SelectTrigger :aria-labelledby="`${labelId}-motion`">
                         <SelectValue>{{ label(motion()) }}</SelectValue>
                     </SelectTrigger>
                     <SelectContent class="max-h-[16rem] min-w-menu">
