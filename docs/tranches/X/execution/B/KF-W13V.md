@@ -1013,3 +1013,53 @@ s1-DOM at Sequence is not re-run: no kf byte has landed since Check 1's census �
 KF.W13W "Opens after: KF.W13V" (spec `:447`) is **RED**; KF.W13W is lawfully **BLOCKED**. Its §0co/§0cq routings are GREEN as written; they do not gate.
 
 **SELF-COUNT**: gates reproduced 5 (check · vitest · s1-grep · k1-tally · u1-tally). Gates failed 3 (s1-DOM Sequence · k1 · u1). Register 6 ids on 5 lines (⟨`grep -c "^- \*\*C3-"`⟩ → 5; C3-4 and C3-5 share a line): HIGH 3 · INFO 3.
+
+## RESUME 2 — Open (2026-09-24, SEAT 0 on COHESION §0cw, `claude-opus-5-5`, VERIFY-AND-BANK — 0 kf/glass/product bytes)
+
+**Authority**: KF-W13.md `:507-519` (KF.W13V ADDENDUM 2026-09-24, §0cw — the dry loop, ruled) · `:521-533` (KF.W13X minted) · COHESION `§0cw` (`:3377-3384`). ESC-s-1 RULED option (b): a Sequence mode of the shared Timeline pane (`.s2`). k1 (183 KFA) · u1 (240 + 17 UIA-KF) · k2 (KFA-15 re-capture) · k3 (4 critic gaps) · k4 (`[real-cube]` → KF.W13X `.r`) · KFE-ORPHAN · `vue-sonner` re-homed WHOLE by id to KF.W13X — the close counts what it dispositioned and cites KF.W13X; **no Repair 3 on re-homed gates**.
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → 2 standing untracked inbound letters (2026-07-24, 2026-07-27), 0 modified. ⟨`git -C value.js status --porcelain docs/tranches/X/execution docs/tranches/V/coordination/INBOX.md`⟩ → `M execution/D/X-P-W7.md` only (Track D's, not this seat's). Nothing inherited in this seat's writable set.
+
+**Frontier**: ⟨`git -C keyframes.js log --oneline -1`⟩ → `5cf0f58a` (Repair 1; = origin, per Check 3). No `.s2` commit exists: ⟨`git -C keyframes.js log --oneline -15 | grep -c s2`⟩ → 0.
+
+**alreadyDone (§0cw: "every dispatched unit, including `.u2`")**: `.s` · `.c` · `.y` · `.p` · `.k` · `.u` · `.u2` — never re-dispatched.
+
+### Preconditions (unchanged since the first Open; re-read at the bytes)
+
+| # | condition | bytes | LEDGER | verdict |
+|---|---|---|---|---|
+| P-1 | KF.W13U CLOSED | `execution/B/KF-W13U.md` present | row KF.W13U `CLOSED 2026-09-17` | MET |
+| P-2 | KF.W13R CLOSED | `execution/B/KF-W13R.md` present | row `:60` `CLOSED 2026-09-17 (honest-RED …)` | MET |
+| P-3 | KFA register | `keyframes/audit/KF-ANIMATION-AUDIT.md` present | — | MET |
+| P-4 | UIA-KF register | `audit/UI-AUDIT-keyframes.md` present | — | MET |
+| P-5 | the ruling for `.s2` | KF-W13.md `:510-512` + COHESION §0cw | — | MET (grant: Sequence scene files, the shared Timeline pane and its dock item; §0bt applies) |
+
+### E13 Step-0 mail sweep (four paths, read-only)
+
+- ⟨`ls -dt glass-ui/docs/tranches/*/ | head -3`⟩ → `BL/ BK/ BJ/`; ⟨`ls -d BL/coordination`⟩ → no such dir → BK/coordination stays the live path.
+- ⟨`find value.js/…/V value.js/…/V/coordination glass-ui/…/BK/coordination keyframes.js/…/V/coordination sci-report/atlas/…/P/coordination -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 2026-09-24 11:43:42) → **0 files**. BK newest = our own outbound mirrors (`valuejs-outbound-2026-09-24-*`).
+- ⟨`grep -n "| UNREAD" INBOX.md`⟩ → 1 hit, `:406` — a 2026-09-22 sweep line's prose, not a row.
+- **Result: 0 unrowed addressed to value.js · 0 UNREAD in scope.** Dated sweep line appended at INBOX's end.
+
+## RESUME 2 — Baseline (BEFORE `.s2`, read-only, kf `5cf0f58a`, 2026-09-24 ~12:0x EDT)
+
+Per seat law (RESUME open): only the gates the owed unit turns are re-run; the floor is cited from Check 3 at the same kf HEAD (`5cf0f58a`, 0 kf bytes since): `npm run check` EXIT 0 ×2 · demo vitest 76/76 · 560/560 ×2.
+
+| gate | command | BEFORE ×2 | reading |
+|---|---|---|---|
+| G-W13V-s1 (served DOM, headed) | ⟨`node evidence/W13V/s/census.mjs http://localhost:5173/ 1 <out>.json`⟩ ×2 (dev 200) | run 1 = run 2, every viewport (1440×900 · 390×844 · 360×740): home 0 · cube 0 · amiga 0 · square 2 · easing 0 · spring 1 · **sequence 6** (`Re-time row 1..5 start offset` + `Scrub the sequence master clock`) | **RED at Sequence** (ESC-s-1). Square 2 (`Horizontal/Vertical position`) and Spring 1 (`Spring target`) are the subject's own handles — the canonical row `.s` banked; `.s2` must read them against §0cw's "0 inline editors on every scene" and record its judgement (a subject handle is the subject, not an editor, or it moves) |
+| G-W13V-s2 at Sequence | same census, dock column | `Controls(off) · Keyframes(off) · Timeline(off) · Scene facet(off)` ×2 on all three viewports | RED in substance (every item disabled; Timeline must enable with the sequence's data) |
+| s1 byte proxy | ⟨`grep -rln 'Re-time row\|Scrub the sequence master clock' keyframes.js/demo \| wc -l`⟩ ×2 | **2** · 2 (`scenes/sequence/SequenceTarget.vue:152` · `scenes/sequence/SequenceScrubber.vue:32`) | RED (the handles/scrub must leave the stage; their names may re-home inside the Timeline pane) |
+| re-time falsifier | (owed by `.s2`: drag a lane handle in the pane → the stage child's `at` placement moves; revert → returns) | not constructible before the pane mode exists | born-RED by absence |
+
+**R.2 (GREEN before its cure)**: none — every `.s2` gate reads RED at open.
+
+## RESUME 2 — Unit plan
+
+**Order**: `[.s2]` alone, then the close (the close seat re-reads s1/s2 served ×2 on dev + gh-pages, the floor ×2, kf e2e `--workers=1` within the honest-RED set, and dispositions k1/u1/k2/k3/k4/KFE-ORPHAN/`vue-sonner` by citing KF.W13X — never a Repair 3 on the re-homed gates). Peak concurrency 1.
+
+| unit | model | spec sections | writable (kf = keyframes.js) | gates | locks |
+|---|---|---|---|---|---|
+| `.s2` | opus | KF-W13 `:507-512` (§0cw ESC-s-1 → option b) · `:380` OA-46 · `:419-435` OA-51 (surfaces) · this record `:139` (ESC-s-1 measurement) | kf `demo/scenes/sequence/**` · `demo/components/instrument/timeline/**` · `demo/components/instrument/surfaceTabs.ts` · `demo/state/controlSurfaces.ts` · `demo/composables/scene-facility/**` · `demo/app/dock/ChromeDock.vue` · `demo/app/App.vue` (surface feed only) · `test/demo/**` (sequence/timeline/dock-item tests) · `scripts/observe/demo/**` (oracle re-seat on moved DOM, property unchanged); value.js `docs/tranches/X/keyframes/evidence/W13V/s2/**` + this record | G-W13V-s1 (every scene, Sequence 6→0, headed ×2 dev + gh) · s2 (Timeline enabled on Sequence, opens the shared pane in Sequence mode) · re-time falsifier ×2 · floor | the move is ONE commit family (handles + scrub leave the stage and land in the pane together; no dual-render window); `selectedSurfaceFrom` untouched and no per-scene table (§0cd); the engine's `seq.add(child, at)` stays the placement truth — no child `delay` shim; glass read-only |
+
+## RESUME 2 — Unit receipts
