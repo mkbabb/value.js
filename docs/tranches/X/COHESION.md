@@ -3390,3 +3390,31 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - **Still RED:** Firefox rejected stylesheet at 1.08–1.13, and WebKit and Firefox large sheets at 1.09–1.31. All four granted levers regress another engine.
 - **Ruled (W7.md addendum (b)):** a root-cause unit **`.l`**, which profiles per engine by per-rule bisection and cures structurally, one cure for every engine. That includes not building speculative nodes that a refusal discards. The gate stays: faster than the retired parser on every engine. No per-engine path and no relief. A measured impasse goes to the owner.
 - **Slots:** AUDIT-2 launched as `wf_375e45f5-661` in Track D's freed slot, as promised in §0cw. **Track D resumes (`.l`) at the next freed slot.** A, B, C and AUDIT-2 are running.
+
+## §0cy — 2026-09-24: AUDIT-2 routed whole; X-W12U minted (it is the X-W12S supplement); O-74 erratum; the critic's 15 gaps homed
+- **AUDIT-2 landed** (`wf_375e45f5-661`): 166 rows. value.js has 44 (`39d76f92`), keyframes 60 (`868e69a9`) and fourier 62 (`9c7552d3`). The glass letter was minted as O-69 and filed as **O-74** (`1a05749f`) because of an id collision; every citation now reads O-74. Frames stay local and git-excluded.
+- **Routing:**
+  - **value → X-W12U** (new `waves/W12U.md`, Track A chassis after X-W12, blocking X-W8).
+  - **keyframes → KF.W13X** (KF-W13.md addendum (b)).
+  - **fourier → F.W14U** (F-W14U.md addendum (e)).
+  - A row with a glass half alone is **ADOPT-AT-LANDING** (value: ADOPT-AT-X-W7L) and names its O-74 row. No consumer copies.
+- **Ruled: X-W12U IS the supplement X-W12's close called "X-W12S"** (RESIDUE-U1/U2/U3: 152 + 89 halves, plus 492 rows and 3 held). It is unit `.s`, deduped against AUDIT-2. One successor, not two (KISS). The X-W12 check reads "X-W12S" as X-W12U.
+- **The critic's gaps, each homed:**
+  1. **The A2-VA-L2-6 mis-route** goes to O-74a E-1, and value's half to X-W12U `.x`.
+  2. **The §11 contradiction** goes to O-74a E-2, where glass is asked to rule. The consumer rows are HELD in all three apps.
+  3. **Cross-app adoption rows** go to X-W12U `.k` and F.W14U (e).
+  4. **The value admin routes, never seen populated**, go to X-W12U `.x` (route stubs).
+  5. **The value overlays at 360/430/844×390** go to `.x`.
+  6. **The keyframes views never read at phone size** go to KF.W13X (b).
+  7. **fourier's Audit Log and the other views L3 never read** go to F.W14U (e).
+  8. **value's Markdown `.toc`, the pickers and the runtime mount census** go to `.k`.
+  9. **The easing specimen, in all three apps**, goes to O-74a E-3 plus each app's wave.
+  10. **`/admin/tags` rendering Not Found** goes to `.x`.
+  11. **The safe-area instrument (the CDP override)** goes to every wave, with O-74a E-4.
+  12. **keyframes' `docSH`** is added to the A2-KE-L2-2 gate.
+  13. **The unrowed pairs** (useSafeStorage, AdminFlaggedPanel, search inputs, sampling law) go to `.k` and F.W14U (e).
+  14. **value's 11 px micro type** goes to `.x` and O-74a E-5.
+  15. **The fourier re-baseline to `7ad6be2`** goes to F.W14U (e).
+  16. **Tablet 768/1024** goes to every wave.
+  17. **The instrument:** X-W12U measures on :9000, and every falsifier is a committed script.
+- **Slots:** A (X-W12), B (KF.W13V `.s2` → W13W → W13X), C (F.W14 `.s2` → F.W14U) and D (X.P.W7 `.l`) are running. Track A picks up X-W12U when it is resumed on X-W12's completion (the live run predates the stage).
