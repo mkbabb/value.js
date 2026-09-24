@@ -113,7 +113,17 @@ export function useAdminFlagged(deps: {
 
     async function dismiss(paletteSlug: string) {
         const result = await call((token) => dismissFlags(token, paletteSlug));
-        if (result.ok) removeRow(paletteSlug);
+        if (result.ok) {
+            items.value = items.value.filter((i) => i.paletteSlug !== paletteSlug);
+            // UIA-V-176: the server dropped the dismissed row, so every later
+            // report shifted up one offset. Re-read the current page so the
+            // shifted report refills it, and page 2 does not skip it. (A
+            // palette delete keeps its reports in the server's queue —
+            // UIA-V-178, the API cascade — so its offsets do not shift and
+            // the local removal stays exact.) `loadFlagged` also clamps an
+            // emptied last page.
+            void loadFlagged();
+        }
         settle(result, `Dismissed the reports on ${paletteSlug}`, "Could not dismiss the reports");
         return result;
     }

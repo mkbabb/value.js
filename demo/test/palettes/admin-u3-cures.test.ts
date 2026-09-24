@@ -14,7 +14,7 @@ import { useAdminAuth } from "../../platform/auth/useAdminAuth";
 import { markApiReachable } from "../../platform/transport/availability";
 import type { ViewId } from "../../shell/useViewManager";
 
-type AdminView = "admin-users";
+type AdminView = "admin-users" | "admin-flagged";
 
 const mounted: VueWrapper[] = [];
 let fetchMock: ReturnType<typeof vi.fn>;
@@ -115,5 +115,45 @@ describe("UIA-V-51 · a notice that mounts visible starts its dismissal at mount
         } finally {
             vi.useRealTimers();
         }
+    });
+});
+
+describe("UIA-V-176 · a dismiss refills the page, so page 2 skips no report", () => {
+    it("after dismissing on page 1, the report that shifted up server-side is shown", async () => {
+        useAdminAuth().login("t");
+        // The server's queue: 25 reports; a dismiss drops its row, so every
+        // later report shifts up one offset.
+        let queue = Array.from({ length: 25 }, (_, i) => ({
+            paletteSlug: `p-${String(i + 1).padStart(2, "0")}`,
+            palette: null,
+            flagCount: 1,
+            flags: [],
+        }));
+        fetchMock.mockImplementation(async (input: unknown, init?: RequestInit) => {
+            const url = urlOf(input);
+            if (init?.method === "DELETE" && url.includes("/admin/flags/")) {
+                const slug = decodeURIComponent(url.split("/admin/flags/")[1]!);
+                queue = queue.filter((q) => q.paletteSlug !== slug);
+                return json({ dismissed: 1 });
+            }
+            if (url.includes("/admin/flagged?")) {
+                const u = new URL(url, "http://x");
+                const limit = Number(u.searchParams.get("limit"));
+                const offset = Number(u.searchParams.get("offset"));
+                return json({ data: queue.slice(offset, offset + limit), total: queue.length, limit, offset });
+            }
+            return json({ data: [], total: 0, limit: 20, offset: 0 });
+        });
+        const { ports } = mountAdmin("admin-flagged");
+        await ports.admin.flagged.loadFlagged();
+        await flushPromises();
+        await ports.admin.flagged.dismiss("p-01");
+        await flushPromises();
+        const seen = new Set(ports.admin.flagged.items.value.map((i) => i.paletteSlug));
+        ports.admin.flagged.nextPage();
+        await flushPromises();
+        for (const i of ports.admin.flagged.items.value) seen.add(i.paletteSlug);
+        // every report still in the queue was shown on page 1 or page 2
+        expect(queue.filter((q) => !seen.has(q.paletteSlug)).map((q) => q.paletteSlug)).toEqual([]);
     });
 });

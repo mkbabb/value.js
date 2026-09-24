@@ -1,9 +1,12 @@
 <template>
-    <div class="grid gap-3 pb-3">
+    <!-- UIA-V-176/173: a dismiss re-reads the page (the refill) over the
+         retained rows — a refetch, dimmed and `aria-busy`, never a skeleton
+         flash; skeletons only on a first load. -->
+    <div class="grid gap-3 pb-3" :aria-busy="refetching || undefined">
         <!-- Toolbar -->
         <div class="flex items-center gap-2">
             <span
-                v-if="!flagged.access.value && !flagged.loading.value && !flagged.loadError.value"
+                v-if="!flagged.access.value && !firstLoad && !flagged.loadError.value"
                 class="text-mono-small text-muted-foreground"
             >
                 {{ flagged.total.value }} flagged
@@ -39,7 +42,7 @@
         />
 
         <!-- W5-1 + F-13: flagged rows load as row shadows, one grammar. -->
-        <div v-else-if="flagged.loading.value" class="grid gap-2" aria-label="Loading flagged palettes">
+        <div v-else-if="firstLoad" class="grid gap-2" aria-label="Loading flagged palettes">
             <AdminListSkeleton v-for="i in 2" :key="i" />
         </div>
 
@@ -71,7 +74,8 @@
         <div
             v-for="item in flagged.items.value"
             :key="item.paletteSlug"
-            class="rounded-md border border-card-edge overflow-hidden"
+            class="rounded-md border border-card-edge overflow-hidden transition-opacity duration-fast"
+            :class="refetching && 'opacity-60'"
         >
             <!-- Palette header row -->
             <div class="flex items-center gap-3 px-3 py-2.5">
@@ -199,7 +203,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, inject, onMounted, ref, shallowRef, watch } from "vue";
 import {
     Dialog,
     DialogContent,
@@ -221,6 +225,9 @@ import { ADMIN_PORT_KEY } from "../../usePalettePorts";
 // D.W3 Lane B: route through pm.flagged sub-object (was: direct getFlaggedPalettes/dismissFlags/deletePaletteAdmin)
 const pm = inject(ADMIN_PORT_KEY)!;
 const flagged = pm.flagged;
+
+const firstLoad = computed(() => flagged.loading.value && flagged.items.value.length === 0);
+const refetching = computed(() => flagged.loading.value && flagged.items.value.length > 0);
 
 onMounted(() => flagged.loadFlagged());
 
