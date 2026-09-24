@@ -310,13 +310,11 @@ defineExpose({
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--destructive) 25%, transparent);
 }
 
+/* X.W12.e: input-mode-flash and crown-appear live in styles/animations.css
+ * (moved, never deleted). crown-appear is bound from an INLINE style, which
+ * a scoped (hash-renamed) keyframe could never match — global is its home. */
 .color-input-mode-flash {
     animation: input-mode-flash var(--duration-slow) var(--ease-decelerate);
-}
-
-@keyframes input-mode-flash {
-    0% { transform: scaleX(0.97); opacity: 0.6; }
-    100% { transform: scaleX(1); opacity: 1; }
 }
 
 .color-input:empty[data-placeholder]::before {
@@ -364,15 +362,5 @@ defineExpose({
        from-state matches it (pure pop, no positional jump). */
     --vj-celebrate-y: -50%;
     --vj-celebrate-scale: 0.85;
-}
-
-/* Crown indicator animation */
-@keyframes crown-appear {
-    0%   { opacity: 0; color: var(--color-gold-light); transform: scale(0) rotate(-15deg); }
-    40%  { opacity: 1; color: var(--color-gold); transform: scale(1.4) rotate(5deg);
-           filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-gold) 70%, transparent)); }
-    70%  { color: var(--color-gold); transform: scale(0.95) rotate(-2deg);
-           filter: drop-shadow(0 0 3px color-mix(in srgb, var(--color-gold) 40%, transparent)); }
-    100% { color: var(--color-gold); transform: scale(1) rotate(0deg); filter: none; }
 }
 </style>

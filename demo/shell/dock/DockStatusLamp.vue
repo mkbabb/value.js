@@ -106,16 +106,9 @@ const lamp = computed(() => resolveLampState(availability.value, isDev));
     background: currentColor;
 }
 
+/* X.W12.e: lamp-dot-pulse lives in styles/animations.css (moved, never
+ * deleted); the no-preference gate on its USE stays here. */
 @media (prefers-reduced-motion: no-preference) {
-    @keyframes lamp-dot-pulse {
-        0%,
-        100% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0.35;
-        }
-    }
     .lamp-dot {
         animation: lamp-dot-pulse 2.4s var(--ease-standard) infinite;
     }

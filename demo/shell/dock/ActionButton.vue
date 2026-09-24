@@ -118,20 +118,13 @@ function handleClick() {
     transform: scale(1.2);
     stroke: var(--hover-color);
 }
+/* X.W12.e: the action-pulse / action-spin keyframes live in
+ * styles/animations.css (moved, never deleted — 0 local dock keyframes). */
 .action-flash {
     animation: action-pulse 0.4s var(--ease-standard) forwards;
 }
 .action-rotate {
     animation: action-pulse 0.4s var(--ease-standard) forwards,
                action-spin 0.4s var(--ease-standard) forwards;
-}
-@keyframes action-pulse {
-    0%   { stroke: var(--flash-color, currentColor); stroke-width: 2.75; transform: scale(1.3); }
-    50%  { stroke: var(--flash-color, currentColor); stroke-width: 2.5; transform: scale(1.15); }
-    100% { stroke: currentColor; stroke-width: 2; transform: scale(1); }
-}
-@keyframes action-spin {
-    0%   { transform: rotate(0deg) scale(1.3); }
-    100% { transform: rotate(-360deg) scale(1); }
 }
 </style>
