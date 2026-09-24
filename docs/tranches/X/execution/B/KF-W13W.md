@@ -453,3 +453,95 @@ BEFORE → AFTER: 1 of 5 preview scenes with an eye (static, in flow, hide = `v-
 - keyframes.js `6e8fc989`: the component, the mounts, the retirements, the re-seated oracles and the test. Pushed to origin/master.
 - value.js `78406007`: evidence (2 probes, 7 JSON, 20 after frames + 6 before frames).
 - This record.
+
+### KF.W13W.m
+
+**Seat**: `claude-opus-5-5`, 2026-09-24. **Spec**: KF-W13.md §0cq `:491-496` (OA-64). **Mode**: fresh. **Crash-recovery** ⟨`git -C keyframes.js status --porcelain`⟩ → the 2 standing inbound mail packets only; **0 inherited paths** under `demo/**` / `test/demo/**`; value.js `evidence/W13W/m/` absent. kf HEAD = origin/master = `6e8fc989` (`.e`).
+
+#### Act 1 — measure before the edit (served, headed Chromium, `isMobile` + touch, dpr 3)
+
+**The probe.** ⟨`evidence/W13W/m/census.mjs --w W --h H --theme T`⟩ (batch: `run-all.sh <prefix> [base]`). It covers the 4 viewports × 2 themes × 6 scenes × (the initial state + every enabled top-dock surface item: Controls · Keyframes · Timeline · the facet), which is 30 states per config. It reads:
+- **Panes.** Every outermost `.card` in the mobile Sheet (`.controls-drawer-content`), and every stage pane (a `.card` or painted `canvas` under `.stage-cell`). The cube's 3D faces and axis lines are the subject, not a pane.
+- **Per pane:** `dC` = inline centre − viewport centre (law |dC| ≤ 1), and its insets L/R.
+- **The gutter.** It is `calc(var(--space-family) + 1rem)`, resolved: the Sheet's own content inset (glass `--space-family`) plus the pane body's 1rem shadow reserve (ChannelControls `pl-4 pr-4`, OA-34). The law: |L − g| ≤ 1 and |R − g| ≤ 1.
+- **Overflow.** Document `scrollWidth − clientWidth`, every real horizontal scroller, and every box in the Sheet, the dock tethers or a stage card that is clipped outside [0, vw]. The law is 0.
+- **Detents.** The Sheet handle's `aria-valuenow` and the Sheet's block size, per state.
+
+**BEFORE** ⟨`run-all.sh before http://localhost:5287`⟩: a detached worktree at kf `6e8fc989` (pre-cure bytes), served by vite on :5287.
+
+| config (light = dark, identical) | RED | gutter g | pane edges (L/R) found |
+|---|---|---|---|
+| 390×844 | 106 / 30 states | 28 | sheet cards 41/41 · square, amiga, easing panes **0/0** · spring, sequence 24/24 |
+| 430×932 | 106 | 28 | 41/41 · 0/0 · 24/24 |
+| 844×390 | 106 | 36 | 49/49 · 0/0 · 24/24 · sequence 62/62 |
+| 932×430 | 106 | 36 | 49/49 · 0/0 · 24/24 · sequence 106/106 |
+
+Every pane read dC 0, so the centring law already held. The RED is the **edges**: four different gutters, chosen scene by scene. Horizontal overflow (panes) read 0, and docOvf 0. The only spill was the cube's decorative 3D axis lines, which are subject, not a pane, and out of scope. Frames: `evidence/W13W/m/before/frames/` (48: 390×844 light + 844×390 dark, every scene × surface; local, `*.png` is gitignored repo-wide, as for `.e`).
+
+**Cause** ⟨`chain.mjs`, `sheetchain.mjs`: ancestor chains with inline padding⟩:
+- **Stage.** `.scene-host` (App.vue, the one host every scene mounts in) had no gutter. Two scenes supplied their own: `SpringScene.vue:51` `px-6` and `SequenceTarget.vue:5` `px-6`, plus `max-w-3xl`, which caps the width in landscape. The square, easing and amiga panes ran full-bleed.
+- **Sheet.** The cards sat at region (`--space-family` + 1 px border) + `.controls-content` `padding-inline: 0.75rem` (`ControlsPaneWrapper.css:54`) + scroller `pl-4`. The 0.75rem doubled the region's own inset.
+
+#### Act 2 — the cure at the layout root (kf `e97b9e35`, pushed)
+
+- **`demo/styles/layout.css`**: below lg, `:root` declares **`--page-gutter: calc(var(--space-family) + 1rem)`**. It is the ONE inline inset for phone surfaces. It reads glass's spacing token and overrides nothing of glass.
+- **`demo/app/App.vue`**: `@media (max-width: 1023px) { .scene-host { padding-inline: var(--page-gutter) } }`. Every stage pane sits on the gutter at the root, and the desktop grid column is untouched.
+- **Per-scene offsets deleted:**
+  - `SpringScene.vue` `px-6 lg:px-8` → `lg:px-8`.
+  - `SequenceTarget.vue` `px-6 lg:px-8 max-w-3xl` → `lg:px-8 lg:max-w-3xl`. The reading measure is lg-only; below lg the column spans the gutter. Its comment is updated in place.
+- **`ControlsPaneWrapper.css`**: `.controls-drawer-content .controls-content { padding-inline: 0 }` (was 0.75rem). The region inset and the scroller's 1rem shadow reserve are the gutter.
+- The cure has no glass override, no per-scene offset and no copied producer selector. The Sheet, its detents and its region are untouched.
+- **Test**: `test/demo/app/page-gutter.test.ts` has 4 cases:
+  1. `--page-gutter` is declared below lg, from `--space-family`;
+  2. `.scene-host` takes `padding-inline: var(--page-gutter)` below lg;
+  3. no scene frame (the non-Card `h-full w-full` root of a `*Scene.vue` / `*Target.vue`) carries an unprefixed `px-`/`pl-`/`pr-`;
+  4. the Sheet body's `padding-inline: 0`.
+  **Born-RED 4/4** at `6e8fc989` ⟨the test copied into the scratch worktree: `× (1) … × (4)`, `Tests 4 failed (4)`⟩ → **GREEN 4/4** at `e97b9e35`.
+- **Mid-seat act (landscape residue):** after run 1 read sequence at 38/38 (844) and 82/82 (932), because `max-w-3xl` capped the pane below lg. Cured at the same site (`lg:max-w-3xl`) before the commit, and every AFTER run below is at the final bytes.
+
+#### Act 3 — AFTER ×2 (served dev :5173 = kf working tree = `e97b9e35` bytes)
+
+⟨`run-all.sh after`⟩ and ⟨`run-all.sh after2`⟩ → **0 RED in all 8 configs, both runs** (480 states):
+
+| config | gutter g | stage panes | sheet cards | max dC | overflow | detents vs BEFORE |
+|---|---|---|---|---|---|---|
+| 390×844 L/D | 28 | 28/28 | 29/29 (g + the Sheet's 1 px border) | 0 | 0 | identical (0.12@171 · 0.36@304 · 0.62@523) |
+| 430×932 L/D | 28 | 28/28 | 29/29 | 0 | 0 | identical (0.12@171 · 0.36@336 · 0.62@578) |
+| 844×390 L/D | 36 | 36/36 | 37/37 | 0 | 0 | identical (0.12@204 · 0.36@204 · 0.62@242) |
+| 932×430 L/D | 36 | 36/36 | 37/37 | 0 | 0 | identical (0.12@205 · 0.36@205 · 0.62@267) |
+
+⟨node aggregate over the before and after JSON, state by state⟩ → `{ states: 480, detDiff: 0, maxdC: 0, ovf: 0 }`.
+- Two run-1 configs (390 light, 430 dark) first crashed on a transient dock re-render (`locator.getAttribute` 30 s timeout, a probe fault). The probe was hardened: it re-queries, and a surface that never returns is recorded as RED `missing`, never skipped. Both configs were re-run → 0 RED.
+- Frames: `evidence/W13W/m/after/frames/` (48, same matrix; local).
+
+**Glass repin mid-seat (read, not mine):** sibling KF.W13X.g0 repinned glass 10.0.1 → 10.1.0 (kf `9fa56c26`, node_modules replaced at 16:32:54). BEFORE ran at 10.0.1; every AFTER run ran at 10.1.0. To separate the two, the pre-cure bytes were re-read at 10.1.0 ⟨`census.mjs --base :5287` 390×844 light + 844×390 dark → `before-glass1010-*.json`⟩ → **106 RED each, same edges**. The RED is kf's, and the cure is what turns it.
+
+#### Gates (BEFORE → AFTER)
+
+- **G-W13W-m: controls and panes at 390 and 430, portrait and landscape, every scene, both themes**: **GREEN**.
+  - **Inline centre within 1 px:** dC 0 → dC 0.
+  - **Edges on the gutter:** 4 gutters (0 / 24 / 41-49 / 62-106) → 1. Stage panes sit at g. Sheet cards sit at g + 1, the Sheet's own border, within 1 px.
+  - **0 horizontal overflow:** docOvf 0, pane spill 0, and 0 horizontal scrollers. The easing catalogue's family strip is a designed x-scroller, listed separately and not counted.
+  - **KF.W13R Sheet/Drawer detents hold:** identical in all 480 states.
+  - Readings: 106 RED per config → 0 ×2.
+- **RED before → GREEN after ×2**: GREEN. BEFORE 8 × 106 RED (and 2 × 106 at glass 10.1.0) → AFTER 8 × 0 and AFTER2 8 × 0.
+- **`npm run check` EXIT 0 + `npm run test:demo` GREEN ×2**: GREEN.
+  - Check: ⟨check⟩ → EXIT 0 · EXIT 0 on the final bytes (vue-tsc ×2 + proof:structure 0 violations). An intermediate run caught `page-gutter.test.ts(77)` TS2532, which was fixed at the bytes (`(root[2] ?? "")`) before both GREEN runs.
+  - test:demo: ⟨test:demo⟩ on the final bytes → run A 80/81 files, 582/583 (`hero-wave-pause` 5 s timeout, the Baseline's banked load flake; it ran concurrently with 2 census browsers) · run B 81/81 · 583/583 EXIT 0 · run C 81/81 · 583/583 EXIT 0. That is `.e`'s 80/579 plus this unit's +1 file and +4 tests.
+  - `npx eslint` on the touched files → 0. `git diff --check` → clean.
+
+**Adjacent edits**: none. Every edit is in `demo/**` or is an additive `test/demo/**` file.
+
+**Residuals** (out of this concern, homed):
+- **R-1:** landscape detents are degenerate (0.12 and 0.36 are both 204/205 px). They hold unchanged here. The defect is A2-KE-L2-3 → KF.W13X + BL.
+- **R-2:** the in-flow Sheet grows the document block (`docSH` > 0 at every width; A2-KE-L2-2 SHEET-POSITION) → BL / KF.W13X's added gate. This unit reads the inline axis only.
+- **R-3:** the collapsed transport plate is centred (dC 0), but its content spills past it (A2-KE-L2-8 / O-65 DOCK-COLLAPSED-FORM) → `.d` (next) + BL.
+- **R-4:** the cube's 3D axis lines extend past the viewport by design, inside the fixed stage (docOvf 0). They are the subject, not a pane, so there is no row.
+- **R-5:** the Sheet cards sit 1 px inside the stage panes' edge (the Sheet's own 1 px border, a glass surface). There is no consumer compensation, by law.
+
+**Escalations**: none.
+
+**Commits**:
+- keyframes.js `e97b9e35`: the gutter token, the scene-host gutter, the per-scene deletions, the Sheet body padding and the test. Pushed to origin/master.
+- value.js `ddfdf07b`: evidence (5 probes + the batch runner; 26 census JSON: before ×8, before-glass1010 ×2, after ×8, after2 ×8). Frames (96) and logs are local, gitignored.
+- This record.
