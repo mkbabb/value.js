@@ -62,15 +62,22 @@ async function onCopy() {
             <!-- The awaiting well: the convergence target, announced before
                  the drops arrive. Same seed as the landed dot — one shape. -->
             <div v-if="ghost" key="well" class="flex items-center gap-3">
-                <WatercolorDot
-                    :color="wellColor"
-                    variant="ghost"
-                    seed="mix-result"
+                <!-- X.W12.u2: glass 7.0.0's WatercolorDot forwards only
+                     class/style, so `data-mix-target` rides a host span the
+                     dot fills — the convergence stage (mixStage.ts) reads it. -->
+                <span
                     data-mix-target
-                    class="shrink-0"
+                    class="inline-flex shrink-0"
                     :class="result.type === 'color' ? 'w-14 h-14' : 'w-10 h-10'"
                     aria-hidden="true"
-                />
+                >
+                    <WatercolorDot
+                        :color="wellColor"
+                        variant="ghost"
+                        seed="mix-result"
+                        class="w-full h-full"
+                    />
+                </span>
             </div>
 
             <div v-else key="content" class="flex flex-col gap-3">
@@ -93,14 +100,18 @@ async function onCopy() {
                         tag="div"
                         class="swatch-row flex flex-wrap gap-2"
                     >
-                        <WatercolorDot
+                        <span
                             v-for="(color, i) in result.colors"
                             :key="i"
-                            :color="color.css"
-                            class="w-10 h-10 shrink-0"
+                            class="inline-flex w-10 h-10 shrink-0"
                             :title="formatCssCaption(color.css)"
-                            :seed="i === 0 ? 'mix-result' : `mix-result-${i}`"
-                        />
+                        >
+                            <WatercolorDot
+                                :color="color.css"
+                                class="w-full h-full"
+                                :seed="i === 0 ? 'mix-result' : `mix-result-${i}`"
+                            />
+                        </span>
                     </TransitionGroup>
                     <!-- Gradient preview (decorative) -->
                     <!-- W5-a11y: gradient strip is decorative -->

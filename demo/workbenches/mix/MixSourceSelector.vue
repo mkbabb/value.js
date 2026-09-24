@@ -5,6 +5,7 @@ import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../ui/collapsible";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { Button } from "../../ui/button";
 import { PaletteColorStrip } from "../../palettes/browser/card";
 import EmptyState from "../../shared/ui/EmptyState.vue";
 import type { Palette } from "../../palettes/types";
@@ -161,6 +162,7 @@ const swatchKeys = computed(() => {
                             class="group relative"
                             data-mix-source
                             :data-mix-color="sc.css"
+                            :title="`${formatCssCaption(sc.css)} (${sc.source})`"
                         >
                             <!-- T.W6 · W6-7 (T-28's register-law sibling): the
                                  former `ring-2 ring-primary/50` here was
@@ -174,11 +176,11 @@ const swatchKeys = computed(() => {
                                  (the P5 producer solid-ring register) or do not
                                  exist — the dead utility is excised, never
                                  re-minted geometric. -->
+                            <!-- X.W12.u2 (UIA-V-40): glass 7.0.0's WatercolorDot forwards
+                                 only class/style — the chip's title lives on its host div. -->
                             <WatercolorDot
                                 :color="sc.css"
-                                tag="div"
                                 class="w-11 h-11 sm:w-12 sm:h-12 shrink-0"
-                                :title="`${formatCssCaption(sc.css)} (${sc.source})`"
                             />
                             <button
                                 class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all cursor-pointer z-popover active:scale-95 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
@@ -191,20 +193,29 @@ const swatchKeys = computed(() => {
 
                         <!-- Add current color swatch — the shipped WatercolorDot
                              ghost (R.W4 Lane A / A3, U18): the seeded dashed
-                             silhouette the next selection will fill. -->
-                        <WatercolorDot
+                             silhouette the next selection will fill.
+                             X.W12.u2 (UIA-V-40/43): glass 7.0.0's WatercolorDot is a
+                             visual primitive (inheritAttrs:false, no `tag`, no slot),
+                             so the command lives on glass's Button (text emphasis,
+                             icon-only) and the dot paints inside it — the u1 add-slot
+                             shape (bed4ce3a/24caf8fd). -->
+                        <Button
                             key="__add__"
-                            :color="cssColorOpaque ?? 'var(--muted-foreground)'"
-                            variant="ghost"
-                            tag="button"
-                            seed="mix-add-slot"
-                            class="add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                            emphasis="text"
+                            icon-only
+                            class="add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform"
                             aria-label="Add current color to the mix"
-                            :disabled="!canAddColor || undefined"
+                            :disabled="!canAddColor"
                             @click="addCurrentColor"
                         >
-                            <Plus class="w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
-                        </WatercolorDot>
+                            <WatercolorDot
+                                :color="cssColorOpaque ?? 'var(--muted-foreground)'"
+                                variant="ghost"
+                                seed="mix-add-slot"
+                                class="w-full h-full"
+                            />
+                            <Plus class="absolute w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
+                        </Button>
                     </TransitionGroup>
                 </div>
 
@@ -238,18 +249,25 @@ const swatchKeys = computed(() => {
                                 </div>
                                 <!-- Clickable swatches -->
                                 <div class="px-3 pb-3 flex flex-wrap gap-1.5">
-                                    <!-- W5-a11y: swatch button needs accessible name -->
-                                    <WatercolorDot
+                                    <!-- W5-a11y: swatch button needs accessible name.
+                                         X.W12.u2 (UIA-V-40/43): the verb lives on glass's
+                                         Button; the WatercolorDot inside is paint only. -->
+                                    <Button
                                         v-for="(color, ci) in palette.colors"
                                         :key="ci"
-                                        :color="color.css"
-                                        tag="button"
-                                        class="w-8 h-8 shrink-0 cursor-pointer"
+                                        emphasis="text"
+                                        icon-only
+                                        class="palette-swatch-add w-8 h-8 shrink-0 cursor-pointer"
                                         :title="formatCssCaption(color.css)"
                                         :aria-label="`Add color ${formatCssCaption(color.css)} from ${palette.name}`"
-                                        :seed="`palette-${palette.slug}-${ci}`"
                                         @click="emit('addColor', color.css, palette.name)"
-                                    />
+                                    >
+                                        <WatercolorDot
+                                            :color="color.css"
+                                            class="w-full h-full"
+                                            :seed="`palette-${palette.slug}-${ci}`"
+                                        />
+                                    </Button>
                                 </div>
                             </div>
                         </div>
@@ -347,8 +365,11 @@ const swatchKeys = computed(() => {
     --vj-morph-y: 0px;
 }
 
-/* R.W4 Lane A / A3 — the add-slot ghost hosts a centred Plus glyph. */
+/* R.W4 Lane A / A3 — the add-slot ghost hosts a centred Plus glyph.
+ * X.W12.u2: the host is glass's Button; the dot fills it by w/h (its own inline
+ * style pins position:relative) and the Plus is the absolutely placed child. */
 .add-slot-ghost {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
