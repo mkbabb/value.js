@@ -336,25 +336,18 @@
  * leave held the outgoing pane at full presence exactly when the
  * incoming pane arrived — the F2 mid-flight collision). Both rules stay
  * SCOPED to the pane wrappers: the un-scoped vj-enter family above is
- * the F6 KEEP set, untouched.
- *
- * X.W12.b (OA-25 — a pane enter/leave runs to its end on ONE channel): the
- * region rules declare TRANSFORM ONLY. The pane's opacity is pinned 1 at
- * both ends (the D3 geometry above, the LCP reveal-only law), so an opacity
- * channel here never ran — but Vue's <Transition> counts the DECLARED
- * properties and waits for that many `transitionend`s, so it never heard the
- * second one and ended every swap on its fallback timer, measured from the
- * class flip rather than the transition's start. Under load the leaving pane
- * was removed ≈70ms short of its travel, and the entering pane's active class
- * dropped mid-spring (w12-motion census, before: the About card's leave cut at
- * 105–160ms of 200ms). One declared channel = one awaited end. */
+ * the F6 KEEP set, untouched. */
 .pane-wrapper--stage > .vj-enter-enter-active,
 .pane-wrapper--inspector > .vj-enter-enter-active,
 .pane-wrapper--action > .vj-enter-enter-active {
-    transition: transform var(--spring-snappy-duration) var(--spring-snappy);
+    transition:
+        opacity var(--duration-fast) var(--ease-decelerate),
+        transform var(--spring-snappy-duration) var(--spring-snappy);
 }
 .pane-wrapper--stage > .vj-enter-leave-active,
 .pane-wrapper--inspector > .vj-enter-leave-active,
 .pane-wrapper--action > .vj-enter-leave-active {
-    transition: transform var(--duration-fast) var(--ease-out);
+    transition:
+        opacity var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-out);
 }
