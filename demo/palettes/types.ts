@@ -64,7 +64,10 @@ export interface Palette {
 }
 
 export interface PaletteVersion {
+    /** The RELEASE id (`palette_versions._id`) — what revert and the detail route take. */
     hash: string;
+    /** The CONTENT identity; `Palette.currentHash` mirrors it (X-W3 · X.W3.2). */
+    payloadHash: string;
     name: string;
     colors: PaletteColor[];
     parentHash: string | null;

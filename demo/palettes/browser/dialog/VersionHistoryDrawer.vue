@@ -23,11 +23,11 @@
                     v-for="(version, i) in versions"
                     :key="version.hash"
                     class="group relative rounded-lg border border-border bg-well p-3 transition-colors hover:bg-accent/50"
-                    :class="{ 'ring-2 ring-primary': version.hash === currentHash }"
+                    :class="{ 'ring-2 ring-primary': isCurrent(version) }"
                 >
                     <!-- Current indicator -->
                     <div
-                        v-if="version.hash === currentHash"
+                        v-if="isCurrent(version)"
                         class="absolute -left-px top-3 h-4 w-1 rounded-r bg-primary"
                     />
 
@@ -35,7 +35,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-micro font-medium">
                             v{{ total - i }}
-                            <span v-if="version.hash === currentHash" class="ml-1 text-primary">(current)</span>
+                            <span v-if="isCurrent(version)" class="ml-1 text-primary">(current)</span>
                         </span>
                         <span class="text-micro text-muted-foreground tabular-nums">
                             {{ formatTime(version.createdAt) }}
@@ -73,7 +73,7 @@
 
                     <!-- Revert button (hidden for current version) -->
                     <Button
-                        v-if="version.hash !== currentHash"
+                        v-if="!isCurrent(version)"
                         size="xs"
                         class="mt-2 text-caption opacity-0 transition-opacity group-hover:opacity-100"
                         @click="$emit('revert', version.hash)"
@@ -126,6 +126,12 @@ const emit = defineEmits<{
     /** X.W7.z1 (COHESION §0bt.1): a failed page load, handed to the host's rail. */
     "load-failed": [message: string];
 }>();
+
+// X.W12.u1 (UIA-V-36): the list's `hash` is the release id, while the palette's
+// `currentHash` is the payload hash — the live row is the one whose CONTENT matches.
+function isCurrent(version: PaletteVersion): boolean {
+    return !!currentHash && version.payloadHash === currentHash;
+}
 
 // D.W3 Lane B: route the api call through pm.versions, keep per-drawer local
 // list (each drawer instance owns its display state).
