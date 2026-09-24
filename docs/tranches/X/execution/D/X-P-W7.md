@@ -1283,3 +1283,49 @@ W7.md has no §State clause, and nothing in it designates this seat to stamp a v
 **Cured 0 · escalated 3 (one ruling: ESC-W7g-1).** Product bytes unchanged since `ceab2066`; no gate a cure could move exists, so none re-run (WRITE-THEN-MEASURE: the figures above are Check 2's, cited, not re-published). Row stays **PARTIAL**.
 
 **Commits (this seat):** this section, plus one LEDGER event line.
+
+## RESUME Check 3 (2026-09-24, L-20 pass 3, `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 214 lines, both addenda). From this record: `## RESUME Open` through `## RESUME Unit plan`, the `## RESUME Close` gate table/residuals/four-verb line, `## RESUME Check 2`, `## RESUME Repair 2` (the last section). **Crash-recovery:** ⟨`git status --porcelain -- src bench test package.json package-lock.json docs/tranches/X/execution/`⟩ → only siblings' `A/X-W12.md`, `B/KF-W13V.md` (untouched); `../bbnf-lang-x-p-w7-typescript` clean at `6d5a2b4a0`, `../parse-that-x-p-w7` clean at `96e68e9`; parse-that master's dirty `rust/**`, `README.md`, `.cargo/config.toml` belong to other programs (W7.md:65 "Nothing under `rust/`"; untouched). **No inherited partial work.** **Ruling probe:** ⟨`grep -n ESC-W7g-1 docs/tranches/X/COHESION.md`⟩ → 0 hits; last COHESION section `§0cw` (Track B); ⟨`grep -n '^## ADDENDUM' W7.md`⟩ → `165`, `192` only. **ESC-W7g-1 still unruled.** Product bytes: ⟨`git log --oneline ceab2066..HEAD -- src bench test package.json package-lock.json tsconfig*.json scripts .github`⟩ → empty (unchanged since Repair 1).
+
+### Axes
+- **(2) Writes inside §File Bounds.** No commit since Check 2 touches product or bench paths (above); the RESUME commits were verified by Checks 1–2. ⟨`git log --oneline 8d916780..HEAD -- scripts/dev/dev.sh`⟩ → empty. **Held.**
+- **(3) No masking fallback.** No diff since Check 2; nothing to re-read. **Held.**
+- **(4) Commit families.** Unchanged. **Held.**
+- **(5) E-3.** ⟨`git diff --stat 8d916780..HEAD -- docs/tranches/X/parse-that/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/CONFORMANCE-2026-08-03.md`⟩ → prints nothing. **Held.**
+- **(6) Mail.** ⟨`grep -cE '\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`. **Clean.**
+- **(7) Four-verb line.** LEDGER:102 reads `PARTIAL — ESC-W7g-1 unruled …`; nothing stamped past PARTIAL. **Lawful.**
+- **(1) Claimed GREENs, re-run by this seat** (records moved to the scratchpad `chk3/`; ⟨`git status --porcelain bench`⟩ → empty after):
+  - K2-b ⟨`grep -rn deepFreeze src/css | wc -l`⟩ → `0`; ⟨`grep -n NUMERIC src/css/bbnf/math.ts | wc -l`⟩ → `0`. V-8 ⟨`grep -rn 'GRAMMAR_MODULES\|new ParserState\|reset()' src/css/bbnf | grep -v generated/ | wc -l`⟩ → `0`; ⟨`grep -rnE '/[^/]*\[xX\][^/]*/i' src/css/grammar | wc -l`⟩ → `0`. **Reproduces.**
+  - K2-c + E-7 ⟨`npx vitest run test/css/bbnf-frozen.test.ts test/css/bbnf-depth.test.ts`⟩ → `Test Files 2 passed (2) · Tests 24 passed (24)`. **Reproduces.**
+  - ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`, 0 non-zero `MIRROR-DEFECTS`. **Reproduces.**
+  - ⟨`node bench/paired/build.mjs`⟩ → `srcDirty ""`, `bankedManifestOk 79/79`.
+  - V-1 ⟨`node bench/paired/equiv.mjs product <scratch>/eq{1,2}.json`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 88 (ASCII-only sources 0)` both; split `parseCssValue 4 · parseCssValues 4 · functionParam 11 · splitTopLevel 13/11/45` (F-b-4). **Reproduces ×2.**
+  - ⟨`npx vue-tsc --noEmit -p tsconfig.test.json | grep -c "error TS"`⟩ → `0` (with `_build` present). **Reproduces.**
+  - bbnf-lang ⟨`npx vitest run`⟩ (branch worktree `typescript/`) → `Test Files 17 passed (17) · Tests 282 passed (282)`; ⟨`npx tsc --noEmit -p .`⟩ → exit 0. parse-that ⟨`npx vitest run`⟩ (`../parse-that-x-p-w7/typescript`) → `Test Files 15 passed (15) · Tests 143 passed (143)`. **Reproduces.**
+  - **node** ⟨`node --expose-gc bench/paired/isolated.mjs chk3-node product 3 11 whole,acc,rej,large`⟩ (load `45.22` → `54.20`, recorded; sibling seats running): whole medians color .623 · scalar .597 · value .415 · values .406 · keyframe .689 · timing .629 · stylesheet .598 (all inside ceilings .90/.81/.57/.58/.78/.87/.85); acc .598 · .601 · .335 · .328 · **keyframe .603** · .504 · .626; rej .682 · .577 · .471 · .463 · .684 · .650 · .628; large clean .456 / .434 (4 set aside for spread ≥1.6, every one reported, all < 1: .373/.434/.435/.453). `whole-7/7 GREEN` · `accepted-7/7 GREEN` · `rejected-7/7 GREEN`. Fourth node read GREEN. **Reproduces.**
+  - **Browsers, contested rows** ⟨`node bench/paired/browser.mjs chk3-br webkit,firefox 2 whole,rej,large 11 product parseCssValue,parseCssValues,parseStylesheet`⟩ (load `54.20` → `31.11`, recorded), 2 reps:
+    - WebKit whole .497/.509 · .497/.505 · .703/.704; rej .645/.630 · .656/.642 · .758/.750 — **GREEN**; **large parseStylesheet 1.162 / 1.222 RED** (R-g-2).
+    - Firefox whole parseCssValue .694/.708 · Values .663/.667 · parseStylesheet .951/.924 — GREEN this read; rej parseCssValue .944/.954 · rej parseCssValues .937/.906 (+ one set-aside .973) — GREEN this read; **rej parseStylesheet 1.070 / 1.137 RED** (R-g-1) · **large 1.158 / 1.226 RED** (R-g-2).
+    - The Firefox whole-stylesheet and rej value/values cells (RC2-3) read < 1 here but ≥ 1.00 in Check 2 at similar load: they sit at noise distance from 1 and are not stable GREENs; they stay inside ESC-W7g-1's scope.
+  - **Cited, not re-run** (product bytes unchanged since Check 1): `npm test` 940/943 (3 foreign), `gen-grammar --check` ×2, E-6 size, E-2 audit, Chromium 22/22 ×2.
+- **(8) Goal criterion at the bytes.** R-3 + G-browser + G-large (ADDENDUM 2026-09-23, binding; W7.md:196 "Every engineering gate stays binding here"): **NOT MET** on Firefox rejected parseStylesheet and on WebKit/Firefox large sheets. Met on node and Chromium in full, WebKit except large. Correctness half met.
+- **(9) Published figures.** The RESUME Close's node, correctness, and suite figures reproduce; its Firefox rej stylesheet (1.03–1.08) and WebKit/Firefox large (1.11–1.23) REDs reproduce in range (1.07–1.14; 1.16–1.23).
+- **(10) Honest-RED adjudication.**
+  - **Relieved by the spec:** P-6 · E-8 · V-9 + CI `--check` step · Z-1 · Z-3 publish half (+ installed-pin `--check`, bbnf-lang PR #1 merge). W7.md:196 "X.P.W7's close relieves P-6, E-8, V-9 plus the CI step, Z-1 and Z-3's publish half by citing X.P.W7P"; owner X.P.W7P, GATE-KEYED on the owner's npm OTP (LEDGER:103). **Honest.**
+  - **NOT relieved:** G-1 Firefox rejected parseStylesheet and G-2 (V-6/G-large) WebKit + Firefox large sheets. W7.md:196 "**Every engineering gate stays binding here**"; ADDENDUM §3 mints `.g` for exactly these gaps; not producer-owned (the emitter is this wave's own branch), not routed to a successor (W7P.md:3 opens only after "X.P.W7 has CLOSED its engineering gates"), not named honest-RED by id. Registered (R-g-1, R-g-2) and escalated (ESC-W7g-1), but unruled (COHESION 0 hits). An escalation is not a relief.
+- **Successor "Opens" conjuncts.** X.P.W7P (W7P.md:3): (a) owner's npm OTP or step-1 publish → not supplied (LEDGER:103 `GATE-KEYED`); (b) "X.P.W7 has CLOSED its engineering gates" → RED. **X.P.W7P is lawfully blocked on both.** No other wave names X.P.W7 in an Opens clause.
+
+### Register (severity · claim · receipt · cure)
+| # | Severity | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| RC3-1 | HIGH | G-1 (G-browser, binding per W7.md:196) RED on Firefox rejected parseStylesheet, with no spec relief; ESC-W7g-1 unruled. | 1.070 / 1.137 (this seat, load 54→31); Check 2 1.055/1.098; Close 1.075/1.058 · 1.037/1.031. | Owner rules ESC-W7g-1: (a) a dated addendum re-scoping to recorded, (b) a new lever grant to < 1.00 ×2, or (c) the engine-split F8 admission; then re-read. No seat can cure it: §0cp 3's four levers were all measured and refused by `.g`. |
+| RC3-2 | HIGH | G-2 (V-6 / G-large) RED on WebKit and Firefox large sheets, no spec relief. | WebKit 1.162 / 1.222; Firefox 1.158 / 1.226 (this seat); Check 2 WebKit 1.154/1.125, Firefox 1.265/1.278. | Same ruling (ESC-W7g-1). |
+| RC3-3 | MINOR | Firefox rej parseCssValue/Values and whole parseStylesheet (RC2-3) read < 1 in this seat's cells but ≥ 1.00 in Check 2's at similar load. Noise distance from 1, not a stable GREEN. | This seat: .944/.954 · .937/.906 · .951/.924; Check 2: 1.000/1.017 · 1.027/.984 · .967/1.000. | Keep them inside ESC-W7g-1's scope. Any GREEN claimed on them must hold across reads at the loads the bench records. |
+
+**Honest-RED set (relieved by W7.md:196 → X.P.W7P, owner-named, OTP-keyed):** P-6 · E-8 · V-9 + CI `--check` step · Z-1 · Z-3 publish half.
+**Unrelieved RED:** G-1 Firefox rejected parseStylesheet (RC3-1) · G-2 WebKit/Firefox large (RC3-2).
+
+**Verdict: NOT-CONFORMANT.** Nothing was written outside the File Bounds and there is no masking fallback. E-3 held, mail is clean, and the commit families are whole. Every claimed GREEN reproduces: node whole/acc/rej 7/7 GREEN, V-1 88 = F-b-4 ×2, css-equiv 19/19, frozen+depth 24/24, vue-tsc 0, bbnf-lang 282/282 + tsc 0, parse-that 143/143. The bar still fails on the binding engineering gates G-1 (Firefox rejected stylesheet) and G-2 (WebKit/Firefox large), which read RED for the third check running while ESC-W7g-1 stays unruled. That ruling belongs to the owner or orchestrator, and no seat can make it. The LEDGER status stays `PARTIAL`. This seat appends one event line. X.P.W7P stays lawfully blocked.
+
+**Commits (this seat):** this section, plus one LEDGER event line.
