@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from "vue";
+import { computed, ref } from "vue";
 import {
     Select,
     SelectContent,
@@ -11,7 +11,7 @@ import { Slider } from "../../ui/slider";
 import { Button } from "../../ui/button";
 import { Badge } from "../../ui/badge";
 import { RefreshCw, Save, Copy, Check } from "@lucide/vue";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
 // (`@mkbabb/glass-ui/labeled-field`, 7.0.0): `controlLabelable: false` for the
 // non-labelable combobox root, and the slot's `labelledBy` names the trigger, so
@@ -114,16 +114,17 @@ async function copyColors() {
 
 /** Per-swatch copy — the specimen face's one direct verb; the copied swatch
  *  shows a check (and its name reads "Copied …") for a beat. */
-const copiedIndex = ref<number | null>(null);
-let copiedTimer: ReturnType<typeof setTimeout> | undefined;
+// Glass's scope-owned clipboard status (the gradient easing rows' idiom): the
+// tick clears itself when the status resets — no local timer.
+const { status: swatchCopyStatus, copy } = useClipboard({ resetMs: 1200 });
+const lastCopied = ref<number | null>(null);
+const copiedIndex = computed(() =>
+    swatchCopyStatus.value === "success" ? lastCopied.value : null,
+);
 async function copyColor(css: string, i: number) {
-    await writeClipboard(css);
-    copiedIndex.value = i;
-    clearTimeout(copiedTimer);
-    copiedTimer = setTimeout(() => (copiedIndex.value = null), 1200);
+    lastCopied.value = i;
+    await copy(css);
 }
-
-onBeforeUnmount(() => clearTimeout(copiedTimer));
 
 defineExpose({ regenerate, save, copyColors });
 </script>
