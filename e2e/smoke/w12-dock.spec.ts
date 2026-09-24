@@ -308,8 +308,22 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             const page = await ctx.newPage();
             await openHome(page, sw.width, sw.height);
             if (sw.hash !== "#/") {
-                await page.evaluate((h) => (location.hash = h), sw.hash);
-                await page.waitForTimeout(1_500);
+                // X-W12 Repair 2 (M-2′): the navigation's own view-select
+                // settle beat (Dock.vue `.dock-settle`, vj-settle) must END
+                // before the census arms — a fixed 1.5 s let a beat still
+                // pending under load be billed to the layer switch. The census
+                // itself is unchanged: vj-settle stays a consumer keyframe.
+                await page.evaluate((h) => {
+                    const w = window as unknown as { __w12eSettled?: boolean };
+                    w.__w12eSettled = false;
+                    const done = (e: AnimationEvent) => {
+                        if (e.animationName === "vj-settle") w.__w12eSettled = true;
+                    };
+                    document.addEventListener("animationend", done, true);
+                    document.addEventListener("animationcancel", done, true);
+                    location.hash = h;
+                }, sw.hash);
+                await page.waitForFunction(() => (window as unknown as { __w12eSettled?: boolean }).__w12eSettled === true, null, { timeout: 15_000 });
             }
             const before = await activeFace(page, sw.face);
             await armSwitchCensus(page);
