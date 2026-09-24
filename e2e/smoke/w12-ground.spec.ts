@@ -86,11 +86,39 @@ for (const route of ["#/", "#/mix→#/"] as const) {
         }
         for (const s of [6, 12, 20, 32]) await at(s + (then ? 2 : 0), `idle+${s}s`);
 
+        // Playwright's focus emulation pins every page to `visible`; drop it
+        // so the tab switch below really hides this page (visibilitychange,
+        // rAF throttle — the owner's tab-away), and freeze it on the CDP
+        // web-lifecycle door where the embedder keeps it visible (headless).
+        const cdp = await context.newCDPSession(page);
+        await cdp.send("Emulation.setFocusEmulationEnabled", { enabled: false });
         const other = await context.newPage();
         await other.goto("about:blank");
         await other.bringToFront();
         await page.waitForTimeout(1500);
-        const hiddenState = await page.evaluate(() => document.visibilityState);
+        let hiddenState: string = await page.evaluate(() => document.visibilityState);
+        if (hiddenState === "visible") {
+            await cdp.send("Page.setWebLifecycleState", { state: "frozen" });
+            await page.waitForTimeout(1500);
+            await cdp.send("Page.setWebLifecycleState", { state: "active" });
+            // …and drive the page's own visibility door (the handlers the
+            // atmosphere and the blob pause/resume on), since the embedder
+            // never reports `hidden` under Playwright (measured: headless,
+            // headed, minimised window all read `visible`).
+            await page.evaluate(async () => {
+                const set = (v: string) => {
+                    Object.defineProperty(document, "visibilityState", { configurable: true, get: () => v });
+                    Object.defineProperty(document, "hidden", { configurable: true, get: () => v === "hidden" });
+                    document.dispatchEvent(new Event("visibilitychange"));
+                };
+                set("hidden");
+                await new Promise((r) => setTimeout(r, 1500));
+                set("visible");
+                delete (document as { visibilityState?: unknown }).visibilityState;
+                delete (document as { hidden?: unknown }).hidden;
+            });
+            hiddenState = "frozen+visibilitychange";
+        }
         await page.bringToFront();
         await other.close();
         await page.waitForTimeout(800);
