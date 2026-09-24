@@ -56,7 +56,14 @@
              `DisplayColorSpace`, so the render-boundary cast that `Object.entries`
              forced (its keys widen to `string`) is unspellable here rather than
              merely removed. -->
-        <SelectContent align="start">
+        <!-- X.W12.t · UIA-V-5 — the list never leaves a phone screen: it is
+             capped at reka's own available width (the collision-bounded room
+             the floating layer measures), and the caption's char-budget box
+             yields to that cap (`min(…, 100%)`) so its `truncate` applies. -->
+        <SelectContent
+            align="start"
+            class="max-w-(--reka-select-content-available-width)"
+        >
             <SelectGroup>
                 <SelectItem
                     v-for="row in rows"
@@ -395,6 +402,6 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
      * SHRINKS: the type rung is untouched — the box grew to hold the sentence,
      * the sentence was not shrunk to fit the box. */
     letter-spacing: normal;
-    max-width: calc(var(--specimen-char-budget) * 1ch);
+    max-width: min(calc(var(--specimen-char-budget) * 1ch), 100%);
 }
 </style>
