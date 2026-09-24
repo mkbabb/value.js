@@ -11,12 +11,14 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(LIBRARY_PORT_KEY)!;
 const controlsRef = ref<InstanceType<typeof GenerateControls> | null>(null);
 
-function onSave(colors: string[]) {
+// X.W12.u2 (UIA-V-42): the save carries the plate's own name (GenerateControls
+// emits it); the dock's generate.save routes through the same emit.
+function onSave(colors: string[], name: string) {
     const paletteColors: PaletteColor[] = colors.map((css, i) => ({
         css,
         position: i,
     }));
-    pm.createPalette("Generated Palette", paletteColors);
+    pm.createPalette(name.trim() || "Generated Palette", paletteColors);
 }
 
 defineExpose({
