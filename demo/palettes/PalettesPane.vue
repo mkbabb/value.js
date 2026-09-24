@@ -84,7 +84,7 @@
                      rarest action) to a quiet ghost — red on hover/focus. -->
                 <div v-if="pm.savedPalettes.value.length > 0" class="flex items-center justify-end">
                     <Button
-                        variant="ghost"
+                        emphasis="quiet"
                         icon-only
                         size="xs"
                         class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"

@@ -73,14 +73,14 @@
                             <span class="text-mono-small text-muted-foreground truncate">{{ formatCssCaption(item.css) }}</span>
                         </template>
                         <template #actions>
-                            <Button variant="outline" size="xs" class="px-2 cursor-pointer" :aria-label="`Approve color name ${item.name}`" @click="emit('approve', item)">
+                            <Button emphasis="secondary" size="xs" class="px-2 cursor-pointer" :aria-label="`Approve color name ${item.name}`" @click="emit('approve', item)">
                                 <Check class="w-3.5 h-3.5" aria-hidden="true" />
                             </Button>
                             <!-- W5-12 (F-8): destructive quieted to ink-at-rest;
                                  red arrives on hover/focus, never as a resting
                                  beacon on every row. -->
                             <Button
-                                variant="ghost"
+                                emphasis="quiet"
                                 size="xs"
                                 class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                                 :aria-label="`Reject color name ${item.name}`"
@@ -126,7 +126,7 @@
                         <template #actions>
                             <!-- W5-12 (F-8): quiet destructive — ink at rest. -->
                             <Button
-                                variant="ghost"
+                                emphasis="quiet"
                                 size="xs"
                                 class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                                 :aria-label="`Delete color name ${item.name}`"

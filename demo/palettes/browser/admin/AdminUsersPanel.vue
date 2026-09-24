@@ -130,7 +130,7 @@
                              words (label-in-name) plus the user it acts on. -->
                         <Button
                             v-if="user.paletteCount"
-                            variant="outline"
+                            emphasis="secondary"
                             size="xs"
                             class="px-2 cursor-pointer font-display text-caption"
                             :aria-label="`Delete all palettes of ${user.slug}`"
@@ -142,7 +142,7 @@
                         <!-- S-15 (W7.96 · Δ-19): the two irreversible acts no longer
                              share one glyph — deleting the USER reads as a user act. -->
                         <Button
-                            variant="ghost"
+                            emphasis="quiet"
                             size="xs"
                             class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                             :aria-label="`Delete user ${user.slug}`"

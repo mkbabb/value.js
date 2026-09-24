@@ -5,7 +5,7 @@
                  onto the sanctioned glass-ui atom (+ the missing name). -->
             <Button
                 icon-only
-                variant="ghost"
+                emphasis="quiet"
                 size="xs"
                 aria-label="Sort users"
                 class="shrink-0"

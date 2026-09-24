@@ -10,7 +10,7 @@
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button variant="outline" size="xs" class="px-2" aria-label="Refresh flagged palettes" :disabled="!!flagged.access.value" @click="flagged.loadFlagged()">
+            <Button emphasis="secondary" size="xs" class="px-2" aria-label="Refresh flagged palettes" :disabled="!!flagged.access.value" @click="flagged.loadFlagged()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
@@ -119,7 +119,7 @@
                          no longer indistinguishable to AT; the visible word
                          leads the accessible name (label-in-name). -->
                     <Button
-                        variant="outline"
+                        emphasis="secondary"
                         size="xs"
                         class="px-2 text-caption font-display"
                         :aria-label="`Dismiss reports on ${item.palette?.name ?? item.paletteSlug}`"
@@ -130,7 +130,7 @@
                     <!-- X.W7.e (G14 · W7.91 · AF-2): soft-deleting another user's
                          palette is confirmed first, as the users scene does. -->
                     <Button
-                        variant="ghost"
+                        emphasis="quiet"
                         size="xs"
                         class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                         :aria-label="`Delete palette ${item.palette?.name ?? item.paletteSlug}`"
