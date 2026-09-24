@@ -3455,3 +3455,15 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   This is **F.W14V `.s2`'s glass half ⊕ F.W14U `.a2`**. When F.W14V opens, `.s2` reads it as landed and verifies it.
 - **value.js** stays on glass 7.0.0 until X-W7L (§0ci R-5): X-W12U `.h` records `#actions` / `detached` as ADOPT-AT-X-W7L. **keyframes** adopts `#actions` wherever a section action sits on its own row, in KF.W13X (the owner's "all UIs").
 - **O-76** (TOGGLE-PRESSED-TINT) missed the 10.1.0 tag. glass is raising a later minor with the owner; CHIP-PRESSED-TINT stays honest-RED.
+
+## §0de — 2026-09-24: the owner rules "All should be on 10.1."; X-W7L brought forward; keyframes repins now
+- **Owner, verbatim:** *"All should be on 10.1."* Every tranche app pins `@mkbabb/glass-ui` **10.1.0 exact**. This **supersedes the §0ci R-5 hold** of value.js on 7.0.0.
+- **fourier:** on 10.1.0 (the §0dd adoption seat).
+- **keyframes:** 10.0.1 → 10.1.0 (additive) as a single seat, `KF.W13X.g0`, landed ahead of the wave; the `#actions` and detached adoption stays in KF.W13X's addendum (c).
+- **value.js: X-W7L** (`waves/W7L.md`) is minted now, not at BL's cut, and runs in the Track A chassis **after X-W12 and before X-W12U** (X-W12U now depends on X-W7L).
+  - `.m`: the repin, applying the banked `d49d2238` migration patch at the root.
+  - `.i`: the certified-ink `contrast_unreachable` on glass 10's veil (ESC-W7Rm-1's only cause), cured at the root against the real composite. It never holds; a surface that stays unreachable is recorded honest-RED with an O-62 addendum.
+  - `.v`: every glass-owned row and every ADOPT-AT-X-W7L AUDIT-2 row re-read at 10.1.0.
+  - `.a`: `#actions` and detached where value.js has that shape.
+  W12U.md's addendum turns its ADOPT-AT-X-W7L rows into "adopt now". glass has been asked whether 10.1.0 changes the O-62 veil.
+- **Outside tranche X (not ruled here; reported to the owner):** atlas `^6.0.0`, chicago `^10.0.1`, slides `3.13.0`, speedtest `^4.0.1`, bbnf-buddy `^3.9.0` also consume glass-ui.

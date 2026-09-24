@@ -100,12 +100,19 @@ const TRACK = {
       ],
       "note": "ALSO (2026-09-23): W12.md ADDENDA (a) UI-audit fold §0ca, (b) glass BL consumer halves §0cb, (c) OA-54 unit .t colour-space dropdowns as text §0ci — all IN SCOPE; runs on glass 7.0.0 (§0ci R-5). AUTHORITY: the owner's value.js dockets, VERBATIM in W12.md §Authority (2026-09-22 and 2026-09-23 — READ both and the four frames docs/tranches/X/waves/owner-2026-09-23/frame-{1..4}.png); minted by COHESION §0bd; every seat Opus 5.5 (owner 2026-09-23). (X.W12.l RETIRED by §0by into X.P.W6 — never edit src/css/grammar.ts) Strictly serial: [X.W12.a] (black ground bisect + aurora artefacts + drag frame budget) → [X.W12.b] (motion census: one owner per element per property; boot overture; never regress X-W5 cold-nav) → [X.W12.c] (About pane = Picker pane height, inner scroll clipped by radius) → [X.W12.d] (Picker card hierarchy + whether the blob animates; consumer cause cured, producer cause → O-56) → [X.W12.e] (dock pills + layer morph on glass primitives; else DOCK-MORPH-ROOT honest-RED with O-55/O-56); glass-ui READ-ONLY, no consumer copies of producer behaviour; ESCALATED units do not halt the wave"
     },
-    "X-W12U": {
-      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U.md",
+    "X-W7L": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W7L.md",
       "after": [
         "X-W12"
       ],
-      "note": "AUTHORITY: COHESION §0cy + W12U.md (READ whole) + docs/tranches/X/audit/AUDIT-2-value.md (the scope, 44 rows) + the O-74 letter and its 2026-09-24 erratum. X-W12U IS the X-W12S supplement (one successor). Strictly serial: [X.W12U.x] (measure the unseen: admin populated via route stubs, /admin/tags NotFound, overlays at 360/430/844x390, the 32x32 action-button seats, 11px micro, tablet 768/1024) -> [X.W12U.s] (X-W12 UIA-V residue RESIDUE-U1/U2/U3 per X-W12.md + disposition-full.tsv; deduped vs AUDIT-2; may split .s1..s3 by page) -> [X.W12U.k] (Lens 1 cogency + runtime mount census + cross-app adoption rows) -> [X.W12U.m] (Lens 2 mobile; safe area via CDP override) -> [X.W12U.h] (Lens 3 hierarchy; section actions inline in the header; A2-VA-L3-6 HELD for glass's §11 ruling). Measure on :9000 headed real GPU; value stays on glass 7.0.0 (glass 10.x/11 cures = ADOPT-AT-X-W7L); glass-ui READ-ONLY; never touch scripts/dev/dev.sh; every seat Opus 5.5; ESCALATED units do not halt the wave"
+      "note": "AUTHORITY: COHESION §0de (the owner: 'All should be on 10.1.' supersedes the §0ci R-5 hold) + W7L.md (READ whole). Strictly serial: [X.W7L.m] (pin @mkbabb/glass-ui 10.1.0 exact; apply the banked patch docs/tranches/X/evidence/X-W7R/m-repin-10.0.1-migration.patch at the root; CHANGELOG 8..10.1 whole; check/test/vue-tsc/smoke/D1) -> [X.W7L.i] (the certified-ink instrument's contrast_unreachable on glass 10's veil cured at the root against the real composite; never hold; honest-RED only per surface with an O-62 addendum) -> [X.W7L.v] (re-read every glass-owned row and every ADOPT-AT-X-W7L AUDIT-2 row at 10.1.0) -> [X.W7L.a] (ConfiguratorLayer #actions + Configurator layout=detached where value has the shape). Served :9000 headed real GPU; glass-ui READ-ONLY; never touch scripts/dev/dev.sh; every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
+    "X-W12U": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U.md",
+      "after": [
+        "X-W7L"
+      ],
+      "note": "AUTHORITY: COHESION §0cy + W12U.md (READ whole) + docs/tranches/X/audit/AUDIT-2-value.md (the scope, 44 rows) + the O-74 letter and its 2026-09-24 erratum. X-W12U IS the X-W12S supplement (one successor). Strictly serial: [X.W12U.x] (measure the unseen: admin populated via route stubs, /admin/tags NotFound, overlays at 360/430/844x390, the 32x32 action-button seats, 11px micro, tablet 768/1024) -> [X.W12U.s] (X-W12 UIA-V residue RESIDUE-U1/U2/U3 per X-W12.md + disposition-full.tsv; deduped vs AUDIT-2; may split .s1..s3 by page) -> [X.W12U.k] (Lens 1 cogency + runtime mount census + cross-app adoption rows) -> [X.W12U.m] (Lens 2 mobile; safe area via CDP override) -> [X.W12U.h] (Lens 3 hierarchy; section actions inline in the header; A2-VA-L3-6 HELD for glass's §11 ruling). Measure on :9000 headed real GPU; value is on glass 10.1.0 from X-W7L (ADOPT-AT-X-W7L rows = adopt now); glass-ui READ-ONLY; never touch scripts/dev/dev.sh; every seat Opus 5.5; ESCALATED units do not halt the wave"
     },
     "X-W8": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W8.md",
@@ -154,6 +161,7 @@ const TRACK = {
     ["X-W7"],
     ["X-W7R"],
     ["X-W12"],
+    ["X-W7L"],
     ["X-W12U"],
     ["X-W8"],
     [
