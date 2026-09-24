@@ -1266,3 +1266,20 @@ W7.md has no §State clause, and nothing in it designates this seat to stamp a v
 **Verdict: NOT-CONFORMANT.** No write outside the File Bounds, no masking fallback, E-3 held, mail clean, families whole, and every claimed GREEN reproduces (node ×1 here + Check 1's ×2, correctness, Repair 1's RC1-4). The bar fails on the binding engineering gates G-1 (Firefox) and G-2 (WebKit/Firefox large), which read RED again, with ESC-W7g-1 still unruled. No seat can cure this: it needs the owner's ruling. The LEDGER status stays `PARTIAL`, this seat appends one event line, and X.P.W7P stays lawfully blocked.
 
 **Commits (this seat):** this section, plus one LEDGER event line.
+
+## RESUME Repair 2 (2026-09-24, repair seat round 2, `claude-opus-5-5`, Track D; answers `## RESUME Check 2`)
+
+**Open.** Spec read whole (W7.md, 214 lines, both addenda); record read from `## RESUME Check 2`. **Crash-recovery:** ⟨`git status --porcelain docs/tranches/X/execution/`⟩ → only siblings' `A/X-W12.md`, `B/KF-W13V.md` (untouched); dirty `../parse-that` paths are all under `rust/**`, `.cargo/`, `README.md` — outside this wave's writable set (W7.md:65 "Nothing under `rust/`"), a sibling's, untouched. No inherited partial work on this unit.
+
+**Ruling probe.** ⟨`grep -c ESC-W7g-1 docs/tranches/X/COHESION.md`⟩ → `0`. No dated addendum beside W7.md after `ADDENDUM 2026-09-24` (⟨`grep -n '^## ADDENDUM' W7.md`⟩ → the two already read). ESC-W7g-1 stays **unruled**.
+
+| # | Defect | Cure | Commit | Gate re-reading |
+|---|---|---|---|---|
+| RC2-1 | HIGH · G-1 Firefox rej parseStylesheet RED | **ESCALATED** — needs the owner's ESC-W7g-1 ruling ((a) re-scope addendum, (b) a new lever grant, (c) F8 engine-split admission). §0cp 3's four levers were each built and measured by `.g` and none qualified; any further emitter lever is ungranted, so building one is a write outside the grant. | — | Not re-run: no product byte moved (Check 2's 1.055 / 1.098 stands). |
+| RC2-2 | HIGH · G-2 WebKit/Firefox large RED | **ESCALATED** — same ruling. | — | Check 2's WebKit 1.154 / 1.125, Firefox 1.265 / 1.278 stand. |
+| RC2-3 | HIGH · Firefox rej parseCssValue/Values, whole parseStylesheet ≥ 1.00 | **ESCALATED** — same ruling (re-opened R-k2-1 inside ESC-W7g-1 scope). | — | Check 2's figures stand. |
+| RC2-4 | INFO · RC1-4 cured | None owed. | — | — |
+
+**Cured 0 · escalated 3 (one ruling: ESC-W7g-1).** Product bytes unchanged since `ceab2066`; no gate a cure could move exists, so none re-run (WRITE-THEN-MEASURE: the figures above are Check 2's, cited, not re-published). Row stays **PARTIAL**.
+
+**Commits (this seat):** this section, plus one LEDGER event line.
