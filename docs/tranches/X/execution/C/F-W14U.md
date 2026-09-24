@@ -271,3 +271,28 @@ SERVED MODEL: claude-opus-5-5 · 2026-09-24 · spec F-W14U.md (c) §0cu :52-55 �
 
 **Commits:** fourier none (lock). value.js: this receipt only.
 **Adjacent edits:** none. **Residuals:** CONFIGURATOR-HEADER-ACTIONS (O-68). **Escalations:** none.
+
+### F.W14U.b
+
+SEAT `.b`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` addendum (d) §0cv :57-58 (read whole, 58 L); COHESION §0cv :3367-3375 (read to the file end, :3384). Bounds: `api/services/image_storage.py`, `api/routers/images.py`, new `api/tests/test_blob_integrity.py`, this receipt.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only; nothing in this unit's set. **Nothing inherited.**
+
+**Anchors at the true bytes (fourier `b62821d`).** `image_storage.py:221` `return _resolve(asset.storage_uri).read_bytes(), asset.content_type` (unguarded → `FileNotFoundError` → 500) ✓. Dedup-hit branch `:105-136`, its `try` `:117` … `except Exception:` `:130` → `logger.warning("Thumbnail regeneration failed …")` ✓ (spec cites :104-132; same branch, INTENT at :105-136). `images.py:141/:156/:159` build `FileResponse(_resolve(uri))` with no presence check (Starlette raises `RuntimeError` "does not exist" at send → the global `Exception` handler `main.py:114` → 500); `:178` `image_bytes` (overlay), `:228` `image_tempfile` (extract-contour) ✓.
+
+**Instrument.** api tests need the `web` + `dev` extras and a live Mongo; `conftest.py:30` defaults to `:27017`, so every run sets `MONGO_TEST_URI=mongodb://localhost:27018 MONGO_URI=mongodb://localhost:27018/fourier` (never :27017). No `httpx` in the dependency set (⟨`uv run python -c "import httpx"`⟩ → `ModuleNotFoundError`), so the falsifier drives `api.main.app` through a small raw-ASGI client (routing + middleware + the global handler: the status it reads is the status sent). ⟨`uv run --extra web --extra dev pytest api/tests -q`⟩ BEFORE → `258 passed`.
+
+**Acts.**
+1. **Falsifier first** — `api/tests/test_blob_integrity.py` (2 tests, `@requires_mongo`, per-test tmp `blob_dir`, throwaway DB): (a) `test_missing_blob_file_reads_as_not_found`: POST `/api/images` → 200, unlink the blob + thumb files, GET `/blob`, `/thumbnail`, `/overlay` → expect `{404,404,404}`; (b) `test_reupload_restores_missing_blob_file`: upload, unlink both files, re-upload the same bytes → 200, same slug, 1 row; GET `/blob` → 200 with body == the uploaded bytes; GET `/thumbnail` → 200. ⟨`pytest api/tests/test_blob_integrity.py -q` ×2, pre-cure⟩ → `2 failed` ×2: (a) `{'blob': 500, … 'thumbnail': 500} == {… 404}`, (b) `assert 500 == 200`, with the swallow on the record `WARNING … image_storage.py:131 Thumbnail regeneration failed for <slug>`. **RED ×2.**
+2. **Cure, `image_storage.py`.** `class BlobNotFound(LookupError)` (carries `uri`) + `resolve_blob(uri) -> Path` = `_resolve` confinement plus `is_file()`, raising `BlobNotFound` — the typed not-found at the read boundary; `image_bytes` reads through `resolve_blob` (so `image_tempfile` does too). Dedup-hit branch rewritten with no broad `except`: `ImageAsset.model_validate(existing)` stays the typed shape contract (C9); the row is content-addressed, so when `_resolve(storage_uri)` is not a file the uploaded `content` is written back to it; the thumbnail is regenerated from `content` and written as a FILE + `thumbnail_uri` (invariant 18). Thumbnail generation — optional by contract (`thumbnail_uri is None` → readers fall back to the primary) — is one `_thumbnail_or_none(content, content_type, label)` shared by the insert path (the former inline `try` at `:145-149`) and the dedup path; its guard is scoped to the PIL encode only, never around a blob read or write.
+3. **Cure, `images.py`.** One `@contextmanager _blob_not_found_as_404()` maps `BlobNotFound` → `HTTPException(404, "Image blob not found")`; used at `/blob` and `/thumbnail` (now `resolve_blob`, the `_resolve` import dropped), `/overlay` (`image_bytes`) and `/extract-contour` (`image_tempfile`).
+4. **Gates.** ⟨falsifier ×2⟩ → `2 passed` · `2 passed`. ⟨full `pytest api/tests -q` ×2⟩ → `260 passed in 17.06s` · `260 passed in 18.08s` (258 + the 2 new). ⟨`ruff check` per file, HEAD via `--stdin-filename` vs now⟩ → `image_storage.py` 0→0, `images.py` 11→11 (the pre-existing E402 ×10 + F401 `validate_image_slug`, untouched), test 0. ⟨`mypy api/services/image_storage.py api/routers/images.py`⟩ → 0 errors in the two modules (41 elsewhere, pre-existing).
+5. **Commit + push.** fourier **`66bb321`** `fix(api): X.F.W14U.b — blob integrity …` (pathspec: the 3 files), pushed ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `66bb321205e5`.
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-b missing blob → 404/typed, never 500 | RED (500 at /blob /thumbnail /overlay, measured ×2) | **GREEN ×2** (404 ×3) |
+| re-upload (dedup-hit, row exists, file missing) re-stores; read 200 | RED (swallowed; /blob 500) | **GREEN ×2** (200, bytes identical, 1 row, thumb 200) |
+| falsifier RED→GREEN ×2; full api pytest | 2 RED ×2 · 258 passed | 2/2 GREEN ×2 · **260 passed ×2** |
+
+**Adjacent edits:** none. **Residuals:** none in `api/**`. The dev store's pre-2026-09-24 rows (moved aside by the orchestrator, §0cv) are not touched; any such row now reads 404 and heals on re-upload. **Escalations:** none.
