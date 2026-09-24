@@ -370,3 +370,86 @@ Frames: BEFORE `evidence/W13W/p/before/before-{1440-light,390-dark}-{gallery,dro
 - **R-5 (process, owned):** to clear the first test:demo attempt this seat ran `pkill -f "vitest run --project demo"`, which matches vitest runs in any repo on the host. A sibling seat's demo test run may have been killed during this sitting; that seat should re-run its gate. No file was touched.
 
 **Escalations**: none. **Commits**: keyframes.js `ba530256` (the cure + the test; pushed to origin/master) · value.js `2c9a42d6` (evidence: probe + 7 JSON + 8 frames) · this record (below).
+
+### KF.W13W.e
+
+**Seat**: `claude-opus-5-5`, 2026-09-24. **Spec**: KF-W13.md §0cq `:485-490` (OA-61). **Mode**: fresh. **Crash-recovery** ⟨`git -C keyframes.js status --porcelain`⟩ → the 2 standing inbound mail packets only; **0 inherited paths** under `demo/**` / `test/demo/**`; value.js `evidence/W13W/e/` absent. kf HEAD = origin/master = `ba530256` (`.p`).
+
+#### Act 1 — census (measure before edit)
+
+⟨`grep -rnE '\bEye(Off)?\b' demo --include='*.vue' --include='*.ts'`⟩ → 3 sites, anchors TRUE at the bytes:
+- `PlaybackRibbon.vue:127` — the ball preview's (AnimationVisualizer's) inline hide toggle; rendered only where the mount bound `preview` (EasingScene alone); inline in a flex row (`ms-auto`), hidden = `v-if` (the preview left the flow, so every box below it moved).
+- `StartingStyleTarget.vue:67` and `SpringScene.vue:228` — the Spring discrete view's **Reveal/Dismiss** disclosure verb (in-card + its ribbon twin), carrying the eye / eye-off glyph pair.
+
+⟨`node evidence/W13W/e/census.mjs` (served, headed, 1440 light, kf `ba530256`)⟩ → ball previews on cube · square · amiga · easing · spring (1 each); sequence 0. Eyes: **easing only** (1, `position: static`, box `[428,674,36,36]`); cube / square / amiga / spring **0**. → `before-census-1440-light.json`, 6 frames `before/`.
+
+**Ruling (census)**: the one surface OA-61 governs is the ball preview, and its one home is `PlaybackRibbon` (all 3 mounts: `EasingScene` · `SpringScene` standard ribbon · `ChannelOptions` for cube/square/amiga). Reveal/Dismiss is not a preview toggle: it is the discrete view's subject verb (`aria-expanded` disclosure of the `@starting-style` card, whose entry and exit ARE the demonstration). It keeps its word and behaviour but loses the eye glyph, so the eye / eye-off pair means one thing in the app. Sequence carries no ball preview and so no eye.
+
+#### Act 2 — the cure (kf `6e8fc989`, pushed)
+
+- **NEW `demo/components/playback/PreviewToggle.vue`** — the one toggle. It wraps the preview (default slot) in a `position: relative` box and floats ONE glass `Button` (`size="xs"`, `emphasis="quiet"`, `icon-only`, `aria-label="Hide ball preview"`, `aria-pressed` = hidden) at `position: absolute; top: 0; right: 0; z-index: var(--z-controls)`. The body is `isolation: isolate`, so the ball's `--z-bar` stays inside it. Hidden keeps the box: opacity 0 + `scale(0.9)`, then `visibility: hidden` after the fade. It never uses `v-if` or `display`. Both transitions run on `--preview-ease` = `springTimingFunction({ response: 0.3, dampingFraction: 0.72 }).css`, the engine's own spring serialized to its `linear()` twin, over `420ms`. The eye and eye-off glyphs sit in one grid cell and cross-fade + scale (0.6) on the same easing. `@media (prefers-reduced-motion: reduce)` sets `transition: none`, so the toggle is instant. With `state` unbound (a bare harness mount), it offers no eye and the preview shows.
+- **`PlaybackRibbon.vue`**: the inline row (`AnimationVisualizer` + the `ms-auto` eye Button) becomes `<PreviewToggle :state="preview" @update:state=…>` around the visualizer. `Eye` and `EyeOff` imports removed; prop doc updated.
+- **Every mount binds the state** in its scene bucket. `controlOptionsStore.ts`: `easingPreview` → `ballPreview` (per scene; absent = shown). `EasingScene.vue`: renamed field. `SpringScene.vue`: `standardRibbon` binds `preview`/`onUpdate:preview` to `getStoredAnimationGroupControlOptions(SPRING_SCENE_ID).ballPreview`. `ChannelOptions.vue`: binds `:preview`/`@update:preview` to `getStoredAnimationGroupControlOptions(props.animation).ballPreview`, the same bucket `ChannelControls` reads.
+- **Retirements**: the ribbon's inline eye Button (deleted into the one component). The eye glyph comes off Reveal/Dismiss in both copies (`StartingStyleTarget.vue`, `SpringScene.vue` discrete ribbon). Their `Eye`/`EyeOff` imports are gone.
+- **Adjacent edits (§0bt, oracles re-seated for the changed law: hidden now keeps the box)**:
+  - `test/demo/instrument/playback-ribbon-contract.test.ts:610` — `previewOf` reads the SHOWN preview (`.preview-toggle[data-state="shown"] …`). One clause is added at `:637`: while hidden, the preview stays mounted. No assertion was removed.
+  - `test/demo/scenes/easing-preview-persistence.test.ts:129` — the same `previewOf` re-seat, plus the field `easingPreview` → `ballPreview` (4 strings).
+- **Test**: `test/demo/instrument/preview-toggle.test.ts` has 5 cases:
+  1. exactly one demo file imports the eye glyphs;
+  2. every `PlaybackRibbon` mount binds `preview` + `ballPreview`;
+  3. the eye is absolute at top 0 / right 0, and hidden = `visibility`, with no `display` and no `v-if`/`v-show`;
+  4. the easing is `springTimingFunction(...).css` on opacity + transform with a scale, and PRM sets `transition: none`;
+  5. a press emits the other state, pressed = hidden, the preview stays mounted while hidden, and an unbound mount offers no eye.
+
+  **Born-RED 5/5** at `ba530256` ⟨scratch `git worktree add --detach … HEAD` + this test, case (5)'s import made runtime-resolved so the suite collects; worktree removed after⟩ → `× (1) … × (5)`, `Tests 5 failed (5)`. **GREEN 5/5** at `6e8fc989`.
+
+#### Act 3 — served gate (dev :5173 = kf `6e8fc989` working tree, headed Chromium)
+
+⟨`node evidence/W13W/e/gate.mjs [--w 390 --h 844 --theme dark] [--prm]`⟩ reads each scene that carries the preview:
+
+- **Position**: the eye's computed `position` and its offset from the preview box's top-right.
+- **0 px**: the layout box of every visible element outside the preview body and the eye. It reads `offsetLeft/Top/Width/Height` + `offsetParent`. The layout box is used because the living dock icons run their own transform loops and move at idle. It is read before the hide, after the hide and after the show.
+  - Elements whose box moves with **no** toggle are named and excluded. Only cube's are: the playing scrub rail's `slider-range` and `slider-thumb`.
+  - Hover of the eye was checked separately: 0 moved.
+- **Animation**: per-frame samples of the body's opacity and scale for 600 ms after each press.
+
+| run | cube | square | amiga | easing | spring | sequence |
+|---|---|---|---|---|---|---|
+| 1440 L run 1 (`after-1440-light.json`) | 1 eye · absolute 0/0 · hide 0 moved/0 px · show 0/0 · 9/9 fade frames | same (9/9) | same | same | same | no preview, 0 eyes |
+| 1440 L run 2 (`after-1440-light-run2.json`) | 0/0 · 0/0 | 0/0 · 0/0 | 0/0 · 0/0 | 0/0 · 0/0 | 0/0 · 0/0 | — |
+| 390 D run 1 (`after-390-dark.json`) | absolute 0/0 · 0/0 · 0/0 | same | same | same | same | — |
+| 390 D run 2 (`after-390-dark-run2.json`) | 0/0 · 0/0 | 0/0 · 0/0 | 0/0 · 0/0 (10/9 frames) | 0/0 · 0/0 | 0/0 · 0/0 | — |
+| 1440 L PRM (`after-1440-light-prm.json`) | 0/0 · 0/0 · **0/0 intermediate frames** (first sample already `[0 opacity, 0.9]`) | same | same | same | same | — |
+
+In every run, while hidden the body read `opacity 0 · visibility hidden · aria-pressed true`.
+
+⟨`node census.mjs` AFTER (`after-census-1440-light.json`)⟩ → cube · square · amiga · easing · spring each carry ONE eye button (`position: absolute`, box `[436,553,28,28]` on cube), holding the stacked eye and eye-off glyphs.
+
+BEFORE → AFTER: 1 of 5 preview scenes with an eye (static, in flow, hide = `v-if` collapse) → 5 of 5 (absolute, 0 px). Frames: `evidence/W13W/e/after/{1440-light,390-dark}-<scene>-{shown,hidden}.png` (20).
+
+#### Gates (BEFORE → AFTER)
+
+- **G-W13W-e: census → ONE eye/eye-off toggle component, every duplicate retired**: GREEN.
+  - BEFORE: 3 eye sites, 2 meanings. ⟨`grep -rnE '\bEye(Off)?\b' demo`⟩ → `StartingStyleTarget.vue:67` · `SpringScene.vue:228` · `PlaybackRibbon.vue:127`.
+  - AFTER: the same grep returns 3 lines, all in `PreviewToggle.vue` (`:32`, `:33`, `:48`). Test case (1) asserts it.
+- **Top-right, absolutely positioned, cross-fade + scale on the engine's easing, PRM instant**: GREEN.
+  - Served: `position: absolute`, dTop 0 / dRight 0 on every preview scene, ×2 at 1440 L and ×2 at 390 D.
+  - The fade shows 9-10 intermediate frames per press, hide and show. Under PRM it shows 0.
+  - Tests (3) and (4) assert it.
+- **Toggling moves every other element's box by 0 px, served headed 1440 + 390, ×2**: GREEN. Hide 0 moved / 0 px and show 0 / 0 on 5 of 5 preview scenes, in all 4 runs (table above). The only exclusion is cube's playing scrub range and thumb, which move at idle and are named in each JSON.
+- **`npm run check` EXIT 0 + `npm run test:demo` GREEN ×2**: GREEN.
+  - ⟨check⟩ → EXIT 0 · EXIT 0 (vue-tsc ×2 + proof:structure 0 violations).
+  - ⟨test:demo⟩ → 80/80 files · 579/579 · EXIT 0 · 80/80 · 579/579 · EXIT 0. That is the `.p` baseline of 79/574 plus this unit's `preview-toggle` (+1 file, +5 tests).
+  - `npx eslint` on the 10 touched files → 0. `git diff --check` → clean.
+
+**Residuals**:
+- **R-1 (Lens-1 cogency, not this concern):** the Spring discrete view's Reveal/Dismiss verb is still authored twice: in the card, and in the discrete ribbon (`SpringScene.vue` `ribbonContent`). Retiring the ribbon twin would leave the discrete view's ribbon empty; that is a ribbon-layout decision outside OA-61. It goes to AUDIT-2 Lens 1 / KF.W13X.
+- **R-2:** the eye overlays the preview's dashed terminal ring in its top-right corner (frames). That is the specified float, and it is legible in both themes. A glass `Button` `xs` has no smaller icon-only size.
+- **R-3:** stored `easingPreview` values from before the rename are not migrated (per the no-backcompat law). A user who had hidden the easing preview sees it shown once.
+
+**Escalations**: none.
+
+**Commits**:
+- keyframes.js `6e8fc989`: the component, the mounts, the retirements, the re-seated oracles and the test. Pushed to origin/master.
+- value.js `78406007`: evidence (2 probes, 7 JSON, 20 after frames + 6 before frames).
+- This record.
