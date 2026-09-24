@@ -3519,3 +3519,7 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   2. the owner reading the Button `variant` → `emphasis` mapping (ghost→quiet, glass/outline→secondary, accent→primary), which glass has no table for;
   3. atlas redefining the dropped `--paper-aged-texture` itself. glass dropped that token without a note, so it is asked as part of O-78's round.
   No release or publish of atlas.
+
+## §0dl — 2026-09-24: O-78 confirmed (menus have no z tier; fixed in 10.2.0); O-79 answered (atlas adopts the paper tooth)
+- **O-78:** a root defect since 7.0.0, cured in glass **10.2.0** at one site. **Ruled for bbnf-buddy:** its `glass-10.1` branch does not merge with the shim. It waits for 10.2.0, then repins to 10.2.0, deletes the shim, and merges (it is local, with no remote). Until then bbnf-buddy's master stays on glass 3.9, working as before. All three tranche apps pick up the same menu fix at their 10.2.0 repin.
+- **O-79:** atlas's local `--paper-aged-texture` recreates a look the owner rejected ("metallic"). The atlas seat is told to adopt glass's successor (`--paper-grain-tooth` and its utilities), apply the provisional Button mapping additions (`link`→`text`, `destructive`→`tone`, `ai` tints with `--glass-accent`), and update PR #1. glass's MIGRATION.md gains the paper line and the variant table in 10.2.0.
