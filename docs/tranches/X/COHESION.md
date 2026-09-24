@@ -3299,3 +3299,21 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Owner, verbatim:** *"with all the easing curves and simulators, the tracking ball must be on the curve itself--mark and ecoute-moi"*. The frame is the easing gallery, where the ball sits on a mid-height rail.
 - Minted **KF.W13W** in `KF-W13.md`, to run after KF.W13V. Its units are `.c` (census of every curve or simulator with a marker, including the dock's easing mini), `.b` (one shared curve-to-point primitive, the ball derived from the same function as the stroke), and `.v` (the served-page gate: the ball's centre within 1.5 CSS px of the curve at 12 or more samples per site, RED before the cure).
 - KF.W13V was already past its `.y` unit and running `.u` when the frame arrived, so a new wave carries this rather than killing a live seat. The Track B chassis appends KF.W13W. Its live run picks it up on the next resume after KF.W13V.
+
+## §0cp ADDENDUM 2026-09-24 — X.P.W7 ruled: the release acts go to X.P.W7P (gated on the owner's npm one-time password); `.k2` and `.g` minted
+- **X.P.W6R CLOSED** (run `wf_41f62d34-81d`). Its only honest-RED is PT-PERF-LOAD on `proof:perf`: W6R changed no measured byte, and the id is named in the spec.
+- **X.P.W7 ended NOT-CONFORMANT after 2 repairs.**
+- **What landed:**
+  - parse-that branch `x-p-w7`: the paired instrument, `mapSpan` in place of `Object.create(state)`, a silent failure path and F-p-EOF.
+  - bbnf-lang branch `x-p-w7-typescript`: `typescript/` restored and ported to parse-that 2.x, F-b-1 cured, the single emitter with `bbnf gen --check`, a depth fault at 256 back-edges, and the emitted module proved equal to runtime `compile()`.
+  - value.js: the oracle, the adoption on linked worktrees, and `.k`'s module-load binding.
+  - **Whole-corpus speed reads 7 of 7 GREEN twice.**
+- **Blocked:**
+  - **npm answered EOTP.** A one-time password is required, so parse-that 2.0.0 and bbnf-lang 0.2.0 are unpublished and the value.js dependency move cannot commit. This is an owner act: only the owner holds the second factor.
+  - Accepted parseKeyframeSelector reads about 1.3× on every engine. The profile puts the floor in value.js's value actions: `tokenQuantity`'s re-splitting regex and a post-hoc `deepFreeze`.
+  - Firefox is slower on parseStylesheet and parseCssColor, and WebKit on large sheets.
+- **Ruled** in the W7.md 2026-09-24 addendum:
+  - The release chain becomes **X.P.W7P**, specified in `W7P.md` and **GATE-KEYED on the owner's one-time password**. X.P.W7 closes its engineering gates by citing it.
+  - **`.k2`:** the leaf hands `tokenQuantity` its split, and results are frozen at construction, not walked again.
+  - **`.g`:** W7.md (g)'s emitter levers, each admitted only on paired numbers with no regression on any engine, plus the R-v-3 warm-up fix for the retired arm.
+  - **LEDGER hygiene:** a seat stages only its own hunk. That cures C3-3, where repair 2 swept in Track C's LEDGER cells.
