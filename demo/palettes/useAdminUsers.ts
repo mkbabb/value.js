@@ -10,6 +10,7 @@ import {
     getUserPalettes,
 } from "./api";
 import { useAdminAccess, useAdminNotice, latestRequest, type AdminResult } from "./api/admin-call";
+import { admitRecoveryProbe } from "../platform/transport/availability";
 import type { Palette, User } from "./types";
 
 /**
@@ -84,6 +85,16 @@ export function useAdminUsers(deps: {
 
     function onUserSortChange(value: string) {
         userSortMode.value = value as "slug" | "newest" | "palettes";
+    }
+
+    /**
+     * UIA-V-49 (the X.W7.z1 law, `useBrowsePalettes.retryRemotePalettes`): the
+     * roster's Retry/Refresh is a person asking for one read now — it is the
+     * latch's recovery probe, never short-circuited by the automatic cooldown.
+     */
+    function retryAdminUsers() {
+        admitRecoveryProbe();
+        return loadAdminUsers();
     }
 
     async function loadAdminUsers() {
@@ -253,6 +264,7 @@ export function useAdminUsers(deps: {
         toggleUserExpand,
         onUserSortChange,
         loadAdminUsers,
+        retryAdminUsers,
         onImpersonate,
         onFeaturePalette,
         adminDeletePalette,

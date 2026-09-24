@@ -241,6 +241,7 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         userPalettesError: admin.userPalettesError,
         toggleUserExpand: admin.toggleUserExpand,
         loadAdminUsers: admin.loadAdminUsers,
+        retryAdminUsers: admin.retryAdminUsers,
         loadingUsers: admin.loadingUsers,
         usersLoadError: admin.usersLoadError,
         onDeleteUser: admin.onDeleteUser,

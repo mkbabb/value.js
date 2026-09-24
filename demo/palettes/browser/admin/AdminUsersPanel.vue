@@ -22,11 +22,14 @@
                 <Eraser v-else class="w-3 h-3" />
                 Prune empty
             </Button>
+            <!-- UIA-V-49: while the error plate offers Retry, the header's
+                 duplicate Refresh stands down; both are the recovery probe. -->
             <Button
+                v-if="!loadError"
                 size="xs"
                 class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
                 :disabled="loading || !!access"
-                @click="pm.loadAdminUsers()"
+                @click="pm.retryAdminUsers()"
             >
                 <RefreshCw class="w-3 h-3" :class="loading && 'animate-spin'" />
                 Refresh
@@ -70,7 +73,7 @@
             :detail="loadError"
         >
             <template #action>
-                <Button size="sm" class="font-display" @click="pm.loadAdminUsers()">
+                <Button size="sm" class="font-display" @click="pm.retryAdminUsers()">
                     Retry
                 </Button>
             </template>
