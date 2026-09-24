@@ -30,3 +30,13 @@ Re-read, on the served page (`:9000`, headed): every open value.js honest-RED id
 
 ## §2 Close
 The pin reads `10.1.0` exact on `tranche-u`, committed and pushed. Every gate above is GREEN ×2 or carries a named honest-RED with a relayed id. No row reads "hold on 7.0.0". The row flips CLOSED on a CONFORMANT check.
+
+## ADDENDUM 2026-09-24 (I-56) — the migration traps glass names, which MIGRATION.md does not catch at build time
+`.m` checks each one against value.js's source and lists it in the record with the grep or measurement:
+- 1. 10.0.0 put every library rule in `@layer components`. Unlayered consumer CSS now BEATS library rules it used to lose to: old no-op overrides can start painting, and `!important` hacks flip meaning. Audit every consumer stylesheet that touches glass classes.
+- 2. Stale reka-ui bindings silently do nothing: `:pressed`, `v-model:search-term`, `tag=`, and the MIGRATION BI.W-* renames (variant→tone, type→tone, direction/position, surface="clear" retired, Sheet → <Dialog placement>, MultiSelect → <Combobox multiple>, ContextMenu → Menu trigger="context"). vue-tsc and unit tests PASS these; only e2e or a paint check catches them. Grep for each.
+- 3. `:global(.dark) .x` inside scoped Vue style blocks is DROPPED from the emitted CSS. Use a plain `.dark .x` ancestor instead.
+- 4. `light-dark()` wrapping an inset shadow computes the whole box-shadow to none, so any consumer shadow token built that way paints nothing.
+- 5. glass → keyframes.js ^6 → value.js 4.0.0: a consumer that also pins value.js directly can end up with two copies. Check `npm ls @mkbabb/value.js` and dedupe.
+- 6. For jumps from 3.x: cross 4.0.0, 5.0.0 (the /api fold, --ring → --focus-ring-color, goo-blob → blob) and 7.0.0. Read MIGRATION.md BOTTOM-UP from your pinned version, not top-down.
+- **Also:** the veil fix (O-62 plus O-66 §1) ships in glass **10.2.0**. It depends on BL D3 converging, and the owner confirms that publish in the glass session. When it publishes, value.js repins to it exactly and re-reads its certified ink. That work is a follow-up unit, not a reason to stay on 10.1.
