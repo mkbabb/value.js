@@ -17,7 +17,7 @@
             <Button
                 size="xs"
                 class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
-                :disabled="!!access || emptyCount === 0 || pruning"
+                :disabled="!!access || loading || emptyCount === 0 || pruning"
                 @click="onPruneClick"
             >
                 <Loader2 v-if="pruning" class="w-3 h-3 animate-spin" />
@@ -196,7 +196,12 @@
                         >
                             <PaletteSpecimen :palette="palette" />
                             <div class="admin-palette__actions flex items-center gap-1.5 pe-2">
+                                <!-- UIA-V-630: the palette-row actions take an emphasis
+                                     (the G-2 mapping: a toggle is secondary, the
+                                     destructive-quiet law is ink at rest), never the
+                                     default filled capsule. -->
                                 <Button
+                                    emphasis="secondary"
                                     size="xs"
                                     class="px-2 cursor-pointer font-display text-caption gap-1"
                                     :aria-pressed="palette.tier === 'featured'"
@@ -207,6 +212,7 @@
                                     {{ palette.tier === 'featured' ? 'Unfeature' : 'Feature' }}
                                 </Button>
                                 <Button
+                                    emphasis="quiet"
                                     size="xs"
                                     icon-only
                                     class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
