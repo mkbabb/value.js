@@ -545,3 +545,97 @@ Every pane read dC 0, so the centring law already held. The RED is the **edges**
 - keyframes.js `e97b9e35`: the gutter token, the scene-host gutter, the per-scene deletions, the Sheet body padding and the test. Pushed to origin/master.
 - value.js `ddfdf07b`: evidence (4 probes + the batch runner; 26 census JSON: before ×8, before-glass1010 ×2, after ×8, after2 ×8). Frames (96) and logs are local, gitignored.
 - This record.
+
+### KF.W13W.d
+
+**Seat**: `claude-opus-5-5`, 2026-09-24. **Spec**: KF-W13.md §0cq `:497-499` (OA-57, consumer half) + §0ct `:504-505` (OA-68, O-67); COHESION §0cq, §0cr, §0ct, and §0dg (the stale :5173 dep cache). **Mode**: fresh. **Crash-recovery** ⟨`git -C keyframes.js status --porcelain`⟩ → the 2 standing inbound mail packets only; **0 inherited paths** under `demo/**` / `test/demo/**`; value.js `evidence/W13W/d/` absent. kf HEAD = origin/master = `e97b9e35` (`.m`).
+
+#### Act 0 — instrument
+- ⟨`node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"`⟩ → `10.1.0`. But `node_modules/.vite/deps/_metadata.json` is from 16:08, and glass was installed at 16:32. So the shared :5173 serves a pre-repin glass bundle (§0dg).
+- Remedy: a private vite with its own dep cache and `--force`. It runs through a scratch config that wraps the kf `vite.config.ts` and overrides only `cacheDir` and the port.
+  - **:5293** = the kf working tree.
+  - **:5294** = a detached scratch worktree at `e97b9e35` (the pre-cure bytes), with node_modules symlinked.
+- The shared :5173 was not touched.
+
+#### Act 1 — the owner's frame, and what keyframes shows
+- `audit/owner-2026-09-24-collapsed-dock.png` shows a collapsed transport: a Play face, a progress track and a count "1" that run out of the plate, with a loose ×.
+- The probe ⟨`probe-collapsed-dock.mjs`⟩ reads every `.glass-dock` after each dock reaches `.collapsed` with its morph settled. It first arms the idle collapse by hovering (desktop) or tapping (touch) each dock, then leaving. It records:
+  - the plate box
+  - every visible descendant of the collapsed face (the summary seat plus any `.dock-persistent` seat) that lies outside the plate by more than 0.5 px ("spill")
+  - every ancestor with overflow, clip-path or paint containment, and how far it cuts the plate ("clip")
+  - the dock's class (`vertical` = side/canvas dock)
+- The batch ⟨`run-all.sh <tag> <base>`⟩ runs 1440×900 and 390×844 (`isMobile`, touch), light and dark, 6 scenes, dpr 2. ⟨`summarize.mjs <tag>`⟩ tallies each tag.
+
+**BEFORE** ⟨`run-all.sh before http://127.0.0.1:5294 && node summarize.mjs before`⟩ (pre-cure bytes `e97b9e35`):
+```
+before-1440-dark.json: docks 12 · collapsed 12 · vertical 0 · spill 6 (max 41.2 px) · clipped 0 · cube/bottom:56px[Pause animation|Rotations] square/bottom:56px[Play animation|Transform] amiga/bottom:56px[Play animation|Spin] easing/bottom:56px[Play animation|Easing] spring/bottom:56px[Play animation|Sweep] sequence/bottom:56px[Play animation|Sequence]
+before-1440-light.json: docks 12 · collapsed 12 · vertical 0 · spill 6 (max 41.2 px) · clipped 0 · (same six transports)
+before-390-dark.json:   docks 12 · collapsed 12 · vertical 0 · spill 6 (max 34.5 px) · clipped 0 · (six transports, plate 60px)
+before-390-light.json:  docks 12 · collapsed 12 · vertical 0 · spill 6 (max 34.5 px) · clipped 0 · (six transports, plate 60px)
+```
+- **The reading.** The top ChromeDock is GREEN in every state: one glyph Button, 36 px, centred in a 56 px plate. Every collapsed **TransportDock** is RED: two seats, the Play mirror and the animation name, spill out of a 56 or 60 px plate, **24 of 48 docks**. Frames `before/<w>-<theme>-<scene>-dock1-bottom.png` show the play disc and the name hanging over the plate edges.
+- **Cause.** Two halves, split at the producer seam.
+  - *Producer (O-65).* glass 10.1.0 `components/dock/styles/morph.css` sizes `.glass-dock .dock-layer--summary` at `min-width`, `block-size` and `height` = `--dock-collapsed-summary-min-size` with `aspect-ratio: 1`. So the `#collapsed` seat is one circle, and the plate does not grow to wrap more than one seat. That is **DOCK-COLLAPSED-FORM**.
+  - *Consumer (keyframes).* `TransportDock.vue`'s `#collapsed` copied a **second Play mirror plus the name** into that one-circle seat. glass ships a seam for exactly this case. The dist `GlassDock.vue.d.ts` declares the slots `persistent`, `default`, `collapsed`, `search` and `persistent-end`, and the docblock of the producer's source reads: *"a consumer keeps a control visible while collapsed WITHOUT hand-duplicating it into both the `#default` and `#collapsed` slots"*. `morph.css` centres `.dock-persistent` in the plate when `.dock-layer--summary:empty`.
+- **No clip.** 0 ancestors cut a plate in any state. The only overflow ancestors are `body` and `.editor-shell`, and both cut ≤ −43 px, so neither reaches a plate.
+- **No side or canvas dock.** 0 `.glass-dock.vertical` in the 48 states. The only docks in the demo are the top ChromeDock and the bottom TransportDock (⟨`grep -rln 'GlassDock' demo`⟩ → `ChromeDock.vue`, `TransportDock.vue`).
+- **The 390 ×.** At 390 the × beside the collapsed transport is the glass Sheet's own close button in the sheet header, not a dock seat (frame `after/390-dark-cube.png`). So it is not a keyframes DOCK-COLLAPSED-FORM limb.
+
+#### Act 2 — the cure: glass's own seat, the consumer's slot content (kf `574642be`)
+- **`TransportDock.vue`.**
+  - Play (the Tooltip and Button, with the same `usePlayActuation` handlers and the same `aria-label`) moves from the `#default` row into `<template #persistent>`. That makes it ONE control, in flow on both faces, never `inert`, never a crossfade pane.
+  - `#collapsed` is deleted, both the Play mirror and the name span. The summary becomes `:empty`, and the plate centres Play.
+  - The animation name stays on the expanded face: the channel Select when there are ≥2 channels. A lone animation is the scene's identity (T.B5-RENDER). This matches the ChromeDock's icon-forward collapsed face, which already rules the same way.
+  - TD-37 (play leads on both faces) and TD-39 (one stable name) now hold by structure, because Play is one element.
+  - The header docblock is corrected (it said "the selected name + the play mirror, #collapsed"). Nothing overrides the dock: no glass selector, token or class is restyled.
+- **Adjacent edit (§0bt).** `test/demo/instrument/transport-keyboard-propagation.test.ts`, whose oracle asserted the retired two-mirror shape.
+  - The GlassDock stub now renders `#persistent` beside the two layers, as 10.1.0 does (the stub block at `:57-77`).
+  - Case (1′) is re-seated. Before, it asserted 2 mirrors. Now it asserts **one** Play, in the persistent seat and outside both layers, with one actuation per press, no registry echo and no `.stop`.
+  - The docblock and describe text follow the change. No assertion is dropped: the (1′) policy clauses all stand.
+- **Test.** `test/demo/instrument/transport-collapsed-form.test.ts`, 4 cases: 1 and 2 channels × (a) `#collapsed` is not authored and the summary is empty, (b) there is exactly one Play/Pause, in the persistent seat and outside `[data-layer]`.
+  - **Born-RED.** The test was run against a byte copy of the `e97b9e35` SFC: `git show HEAD:…/TransportDock.vue > TransportDockPre.vue`, a temporary test pointed at it, and both deleted after the run.
+  - ⟨`npx vitest run --project demo …zz-pre-collapsed-form.test.ts`⟩ ×2 → `Tests 4 failed (4)` · `4 failed (4)`. At the cure: ⟨`npx vitest run --project demo test/demo/instrument/transport-collapsed-form.test.ts`⟩ → `4 passed (4)`.
+
+#### Act 3 — AFTER, served ×2 (:5293 = the kf working tree, then `574642be`)
+⟨`run-all.sh after …:5293` · `run-all.sh after2 …:5293` · `node summarize.mjs after|after2`⟩:
+```
+after-1440-dark.json:   docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+after-1440-light.json:  docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+after-390-dark.json:    docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+after-390-light.json:   docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+after2-1440-dark.json:  docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+after2-1440-light.json: docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+after2-390-dark.json:   docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+after2-390-light.json:  docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+```
+- **Spill:** 24 of 48 → **0 of 48, ×2**. The collapsed transport is `[Play]` 40 px, centred in a 56 px plate (1440).
+- **The expanded face is unchanged.** ⟨`probe-expanded-transport.mjs --theme light|dark --scene cube|easing`⟩ → `expanded-1440.jsonl`. It reads plate 279 px `[Pause | Select animation | Reset]` for cube and 129 px `[Play | Reset]` for easing, every control inside the plate and `playNamed 1`. BEFORE read the same plate widths: 279 for cube, 129 for easing.
+
+#### Act 4 — the repo gates (at the `574642be` bytes)
+| gate | run 1 | run 2 | verdict |
+|---|---|---|---|
+| `npm run check` | EXIT 0 (vue-tsc ×2, and proof:structure PASS with 0 violations) | EXIT 0 | GREEN |
+| `npm run test:demo` | 82/82 files · 587/587 · EXIT 0 | 82/82 · 587/587 · EXIT 0 | GREEN |
+- **An earlier run failed on an unrelated timeout.** One earlier full run, made while the served census was driving headed Chromium on the same host, read `1 failed | 586 passed`. The failure was `preview-toggle.test.ts` (5), `Test timed out in 5000ms`, in `.e`'s file, which does not import TransportDock.
+  - Isolated, ⟨`npx vitest run --project demo test/demo/instrument/preview-toggle.test.ts`⟩ ×2 → `5 passed (5)` · `5 passed (5)`.
+  - This is the host-load timeout class banked at this wave's Baseline, not a `.d` row. The two GREEN runs above were made with no census running.
+- ⟨`git diff --check`⟩ → empty. ⟨`npx eslint TransportDock.vue transport-collapsed-form.test.ts transport-keyboard-propagation.test.ts`⟩ → 0 findings.
+
+#### Gates
+- **G-W13W-d (the served collapsed dock read at 1440 and 390, both themes, with the consumer cause cured): GREEN.** 48 dock states per run. Before: 24 of 48 spill. After: 0 of 48, ×2. The cause was the hand-duplicated `#collapsed` content, cured through glass's exported `#persistent` seat, with no override.
+- **DOCK-COLLAPSED-FORM (O-65): honest-RED, recorded.** The producer's `#collapsed` summary is one circle (`aspect-ratio: 1`), and the plate does not wrap a multi-seat collapsed face. The owner's frame (face, track, count) needs exactly that. The frames also show the collapsed plate as a lopsided squircle (the corner radii are not equal) in both themes: `after/*-dock*-*.png`. That shape is the producer's D2 morph, not a consumer byte. Relay only (OA-63, §0cr). keyframes adopts the multi-seat form at the repin that ships it, if the name is to return to the collapsed face.
+- **SIDE-DOCK-EDGE (O-67): honest-RED, recorded; consumer half vacuous-GREEN.** The demo mounts no side, vertical or canvas dock (0 `.vertical` in 48 states ×3 runs). No ancestor clips a plate: `clipped 0` in every state, and the only overflow ancestors (`body`, `.editor-shell`) stop ≥ 43 px short of a plate. So there is no consumer clip or crowding to cure. The producer family (whole edges in both themes at every DPR, and a reserved badge seat) stays O-67.
+- **`npm run check` EXIT 0 + `npm run test:demo` GREEN ×2: GREEN.**
+
+#### Residuals
+- **R-1: the desktop transport overlays three stage cards.** Square, Easing and Spring at 1440: the stage card runs under the bottom dock band (probe `nearestPanelGap` −1, meaning the rects intersect), in both themes. The readings are identical before and after, so the cure did not cause it.
+  - It is not a clip, and it is not a side dock. It is stage height against the bottom band (`--dock-band-reserve`, `layout.css:107-114`, is not fed to the desktop card).
+  - Routed to **KF.W13X**, AUDIT-2 Lens 3 (use of space). It is not cured here: it is outside `.d`'s collapsed-form and side-dock scope, and the spec names no cure for it.
+- **R-2: the shared :5173 still serves the pre-repin glass dep cache** (§0dg). This seat measured on its own `--force` servers and did not restart :5173, which belongs to another seat. That restart stays KF.W13X's first served act.
+
+#### Commits
+- keyframes.js **`574642be`**: TransportDock `#persistent` Play, `#collapsed` deleted, the propagation oracle re-seated (adjacent), and the new test. Pushed to origin/master.
+- value.js **`8cdd425f`**: evidence (4 scripts, 12 census JSON: before ×4, after ×4, after2 ×4, plus `expanded-1440.jsonl`). The 3×(24 full + 48 crop) frames are local and gitignored.
+- This record.
+
+**Adjacent edits** (§0bt): `test/demo/instrument/transport-keyboard-propagation.test.ts:1-22` (docblock), `:37-39` (stub comment), `:73` (`#persistent` in the stub), `:130` (field doc), `:207-229` (the describe title and the (1) and (1′) re-seat). The reason: the oracle asserted the retired two-mirror shape of the copy this unit changed.
