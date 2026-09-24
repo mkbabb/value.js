@@ -165,3 +165,76 @@ GREEN ×2 (runs 2 and 4). Runs 1 and 3 fail the same load-timeout set the Open b
 - `.v` re-runs `falsifier-ball-on-curve.mjs` unchanged (`--w 390 --h 844`, `--theme dark`). A newly added site, such as `.p`'s picker tiles, is one more row in its `SITES` table. **Residuals**: none. **Escalations**: none.
 
 **Commits**: value.js `b58d7438` (evidence: falsifier + served census + run JSON + 8 before frames) · this record (below). kf: none.
+
+### KF.W13W.b
+
+**Seat**: `claude-opus-5-5` · 2026-09-24 · spec `KF-W13.md :449-455` (the law) + `:463` (`[KF.W13W.b]`); locks `:454-455`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → only the 2 standing inbound mail packets, 0 paths under `demo/**` / `test/demo/**`; value.js 0 dirty under `evidence/W13W/b/**` or this record. No inherited work. kf HEAD at open = `a939e7d6` (= origin/master; `.c` wrote no kf byte).
+
+**Anchors verified at true bytes** (`.c`'s census L1–L4): `EasingTarget.vue:133-148` (`.tile-sparkline path` · `.progress-rail.tile-rail` · `.tile-ball`, painter `translateX(fn(phase)·maxX)`) · `EasingMini.vue:57-63` (curve · `.rail` · `.carriage > .ball`, engine `translateX 0→100%`) · `SpringTarget.vue:232-244` (`.sampler-track` + `.sampler-ball`) · `SpringTarget.vue:107-161` (`.spring-ball` on the target rail) · `SpringTrace.vue:82-89` (`.plot-trace`, no marker). All present as `.c` recorded. One drift found in passing: the gallery's `steps` tile drew `generateStepSVGPath(4)` (a jump-START staircase) while its ball ran `steps(4, jump-end)`: a second geometry, cured by the primitive.
+
+#### Act 1 — the primitive (kf `demo/utils/curvePlot.ts`, new)
+
+`curvePlot(fn, frame, {samples, knots})` returns ONE object that answers both questions:
+- `d` is the stroke: a polyline through `(t, fn(t))` over a uniform grid ∪ the caller's knots. Each interval is bisected (48 levels); a difference that survives is a jump and is drawn as a vertical riser, so steps are the staircase the ball jumps along.
+- `value(p)` / `point(p)` / `fraction(p)` / `place(p)` read the SAME polyline at `x = p`. On a riser's column the upper vertex wins (the step has fired). Nothing is clamped: back/elastic/spring overshoot maps beyond the band.
+- `place(p)` is `translate(x%, y%)` for one placement idiom (`design-idioms.css` `.curve-carriage` / `.curve-ball`): the carriage spans the stroke's own `<svg>` box, so the percentages resolve against the plot box and no width is ever read. `--curve-rest` holds an unpainted carriage on the curve.
+- `curveKeyframes(plot, name)`: the plot's vertices as `@keyframes`, played LINEAR by the engine, so the carriage interpolates straight along the drawn segments.
+- `unitEasingFrame(viewBox)` · `polylineFn(points)` (a resolved `linear()`).
+
+#### Act 2 — every census site onto it (the rails deleted)
+
+| site | before (`a939e7d6`) | after (`82360347`) |
+|---|---|---|
+| L1 gallery tiles (`EasingTarget.vue/.css`) | sparkline + 1px `.tile-rail` + origin/terminus ticks + ball `translateX` on the rail; `railWidth` + `useResizeObserver` | `.tile-plot` box = sparkline (`plot.d`) + `.tile-carriage` (`plot.place(phase)`); rail, ticks, width measure and observer deleted; PRM rests `place(1)`; `getCurvePath` (dead) deleted from `timingCurveUtils.ts` |
+| L2 dock easing mini (`EasingMini.vue`, `easingMotion.ts`) | curve (top 60 %) · `.rail` (82.5 %) · ball on the rail | `EASING_MINI_PLOT` + `EASING_MINI_KEYFRAMES` (`curveKeyframes`), engine plays them linear, alternate; rest = `place(0)` via `--curve-rest`; `.rail` deleted |
+| L3 spring sweep sampler (`SpringTarget.vue`) | `.sampler-track` rail + `.sampler-ball` | `.sampler-carriage` in `SpringTrace`'s slot, `plot.place((phase·2) % 1)` (each leg of the 0→1→0 sweep is f(u), u ∈ [0,1)); the track is deleted |
+| L4 spring live simulator ball (`SpringTarget.vue`, `SpringTrace.vue`, `useSpringDemo.ts`, `useSpringHotPath.ts`) | `.spring-ball` on the target rail, `translateX(railPct(value))` | `.spring-carriage` in `SpringTrace`'s slot, `plot.place(settled ? 1 : simMs / horizonMs)`; `springLive.simMs` accumulates `dt` and resets at every live-target write (reseat · derby launch · derby settle · reset); `SpringTrace` builds the trace with `springTracePlot` (`samples: 1`, `knots` = the stops) and `defineExpose({ plot })` |
+
+- **The rail under L4.** The target rail stays: it is the scene's target control (`.c`'s ruling on L4 left it to `.b`). It holds no ball. It keeps only a subordinate `.spring-fill` (2px, 45 % tint, `scaleX` on the same `railPct` map) plus the dashed target marker (`:455`).
+- **The trace box.** `.plot-frame` grew from 4.5rem to 8rem so a ball reads ON the trace; the `PLOT` viewBox constants are unchanged. Ball sizes: live 1.5rem, sampler 1rem.
+- **Adjacent edits (§0bt).** Oracles re-seated to the new geometry; no assertion was deleted.
+  - `test/demo/scenes/easing-playback-runs.test.ts:132-134`: "the balls moved" now reads `.tile-carriage` `translate(x%` instead of `.tile-ball` `translateX(px)`.
+  - `test/demo/scenes/spring-derby-truth.test.ts:348-357`: every painter write goes through `railPct(` (rail marks) or `plot.place(` (trace marks, exactly 2). `railPct(live.sampled)` is gone because the sampler left the rail.
+  - `test/demo/scenes/spring-trace-truth.test.ts:208-210,289-290`: the path's number format is now the primitive's `+toFixed(4)` (`M 0 56` / `L 100 20`).
+
+#### Act 3 — tests born-RED then GREEN (kf `test/demo/scenes/ball-on-curve.test.ts`, additive)
+
+The DOM cases read the geometry back from the rendered bytes, never from the primitive. The stroke is the sibling `<path>`'s `d` over its `<svg>`'s `viewBox`. The ball is its carriage's `translate(x%, y%)` over the same box. The ball's user-space point must lie on the stroke's polyline within 1e-3 of the plot height.
+
+| case | at `a939e7d6` site bytes | after |
+|---|---|---|
+| (1a) primitive: `point(p)` on `d` for ease/linear/in-out-back/out-back/steps(4, jump-end)/step-start; overshoot beyond the band; steps jump + risers; `place` = translate % | RED (the module is absent: ⟨`npx vitest run … ball-on-curve.test.ts`⟩ → `Failed to resolve import "../../../demo/utils/curvePlot"`) | GREEN |
+| (2a) gallery playing: 0 rails in the drawer; every ball on its stroke; x = the sweep time | RED (`expected <span …>` — `.tile-rail` present) | GREEN |
+| (2b) gallery PRM: every ball on its curve at t = 1 | RED (`expected false to be true` — no `.curve-carriage`) | GREEN |
+| (3a) dock mini: no rail; rest on the curve; every played keyframe is a stroke vertex at x = its offset | RED (`expected true to be false` — `.rail` present) | GREEN |
+| (4a) spring: live ball + sampler inside `.plot-frame`, on `.plot-trace` for 12 samples through a chase; 0 balls on the rail; no sampler track | RED (`to have a length of +0 but got 1` — ball on the rail) | GREEN |
+| (4b) spring PRM: the snapped, settled ball rests on the trace at t = 1 | RED (`expected false to be true`) | GREEN |
+
+⟨`npx vitest run --project demo test/demo/scenes/ball-on-curve.test.ts`⟩ with the primitive present and the sites at `a939e7d6` → `Tests 6 failed (6)`. Case (1a) failed there on a test-authoring slip, an easing name missing from the catalogue (`ease-out-elastic` → `ease-out-back`). With that fixed, (1a) passed alone against the new module. After the cure: `Tests 6 passed (6)`.
+
+#### Act 4 — gates (kf `82360347`)
+
+| gate | run 1 | run 2 |
+|---|---|---|
+| `npm run check` | EXIT 0 (vue-tsc ×2 · `proof:structure — PASS … 0 violations`) | EXIT 0 |
+| `npm run test:demo` | **78/78 files · 571/571 · EXIT 0** (run pre-commit on the identical bytes) | **78/78 · 571/571 · EXIT 0** (post-commit) |
+| served: `.c`'s falsifier, UNCHANGED, dev `localhost:5173` (cwd keyframes.js per `lsof`) | ⟨`node falsifier-ball-on-curve.mjs --frames ../b/after --tag b-run1-1440-light`⟩ EXIT 0: gallery 28 pairs · 448 samples · **0 over** · max 0.17 px · 25 moving; dock mini 2 · 32 · **0** · 0.90; sweep sampler 1 · 16 · **0** · 0.77; live ball 1 · 16 · **0** · 0.50 | ⟨`… --tag b-run2-1440-light`⟩ EXIT 0: 0 · 0.19 / 0 · 0.89 / 0 · 0.73 / 0 · 0.46 |
+| served coverage (390 × 844, dark) | ⟨`… --w 390 --h 844 --theme dark --frames ../b/after --tag b-run3-390-dark`⟩ EXIT 0: 0 over on all 4 sites (max 0.14 / 0.90 / 0.29 / 0.29 px; 10 tiles moving in view) | — |
+
+`.c` measured BEFORE, on the same file: 437/448 · 31/32 · 16/16 · 16/16 samples over 1.5 px (max 22.5 / 12.8 / 108.4 / 279.8 px). Evidence: `keyframes/evidence/W13W/b/b-run{1,2}-1440-light.json` · `b-run3-390-dark.json` · 8 after frames `b/after/*.png`. The full 1440/390 × light/dark matrix is `.v`'s act.
+
+#### Gates
+
+- **G-W13W-b: GREEN.**
+  - Every `.c` census law site (L1–L4) is on the ONE primitive, and the ball comes from the same plot as the stroke.
+  - Overshoot is followed beyond [0, 1] (case 1a). Steps jump on the drawn risers (case 1a; the gallery `steps` tile's second geometry is cured). Simulators ride the trace: the live ball at sim time, the sampler at its leg's time (case 4a).
+  - PRM puts the ball on the curve at rest (cases 2b, 4b; the mini rests at `place(0)` and the engine's PRM snap lands on a keyframe, which is a vertex).
+  - 0 balls on a rail at the law sites. The rails `.c` ruled out of law are untouched: Sequence rows and lanes, SpringMini lanes, derby lanes, AnimationVisualizer.
+- **Unit tests born-RED then GREEN: GREEN** (6/6 RED → 6/6 GREEN).
+- **`npm run check` EXIT 0 ×2 + `npm run test:demo` GREEN ×2: GREEN.**
+
+**Residuals**:
+- The "Timing-function sweep" header row now labels the sampler ball that rides the "Sampled curve" figure below it, so two label rows sit stacked. That is a hierarchy question for `.p`/OA-69, not a law row.
+- The glass `EasingPicker` (sidebar) draws the producer's own path. It is outside the law, as `.c` ruled.
+
+**Escalations**: none. **Commits**: kf `82360347` (pushed `a939e7d6..82360347` → origin/master) · value.js `ce814103` (evidence: 3 run JSON + 8 after frames) · this record (below).
