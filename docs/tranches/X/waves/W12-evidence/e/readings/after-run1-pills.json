@@ -1,0 +1,32 @@
+[
+ {
+  "name": "Login",
+  "classes": "dock-tab-button glass-specular-track gap-1.5 text-mono-small font-bold",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 38,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.2074 0.165013 0.1326 / 0.72)"
+ },
+ {
+  "name": "@mbabb",
+  "classes": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 30.96875,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.2074 0.165013 0.1326 / 0.72)"
+ }
+]
