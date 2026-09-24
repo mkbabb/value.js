@@ -122,13 +122,14 @@ export function useGradientModel() {
      * dialect the seeds print in. The owner used to sample and hand the colour
      * in, which is how a minted stop came to print in a second grammar.
      */
-    function mintStop(position: number) {
+    function mintStop(position: number): string {
         const at = axisPosition(position);
-        addStop(formatColorLiteral(sampleAt(modelState.value, at)), at);
+        return addStop(formatColorLiteral(sampleAt(modelState.value, at)), at);
     }
 
-    /** Insert a stop of a GIVEN colour; the sort keeps the ordinal invariant. */
-    function addStop(cssColor: string, position: number) {
+    /** Insert a stop of a GIVEN colour; the sort keeps the ordinal invariant.
+     *  Returns the new stop's id (X.W12.u2 · UIA-V-373: the owner selects it). */
+    function addStop(cssColor: string, position: number): string {
         const added: GradientStop = {
             id: uid(),
             cssColor,
@@ -136,6 +137,7 @@ export function useGradientModel() {
             easing: linearInterval(),
         };
         stops.value = [...stops.value, added].sort(byPosition);
+        return added.id;
     }
 
     /** Back to the seeded pair (the Reset action). */

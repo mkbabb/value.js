@@ -67,8 +67,9 @@ const GRADIENT_TYPES: { value: GradientType; label: string; description: string 
 // A bar press mints through the model's own mint path (X-W6 · X.W6.c): the
 // model samples its ramp through the one sampling law and prints the stop in
 // the one literal dialect — the visualizer no longer carries a second sampler.
+// X.W12.u2 (UIA-V-373): the minted stop becomes the inspector's subject.
 function onAddStop(position: number) {
-    mintStop(position);
+    selectedStopId.value = mintStop(position);
 }
 
 // The one-line Fira verdict of the LAST editor parse (W5-11 / P0-1):
