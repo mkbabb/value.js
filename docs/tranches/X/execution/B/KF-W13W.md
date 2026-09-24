@@ -238,3 +238,52 @@ The DOM cases read the geometry back from the rendered bytes, never from the pri
 - The glass `EasingPicker` (sidebar) draws the producer's own path. It is outside the law, as `.c` ruled.
 
 **Escalations**: none. **Commits**: kf `82360347` (pushed `a939e7d6..82360347` → origin/master) · value.js `ce814103` (evidence: 3 run JSON + 8 after frames) · this record (below).
+
+### KF.W13W.v
+
+**Seat**: `claude-opus-5-5` · 2026-09-24 · spec `KF-W13.md :464-467` (`[KF.W13W.v]`); law `:449-455`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain | grep -E '^.. (demo/|test/demo/)'`⟩ → empty; value.js 0 dirty under `evidence/W13W/v/**` or this record. No inherited work. ⟨`git -C keyframes.js rev-parse --short HEAD` · `… origin/master`⟩ → `82360347` · `82360347` (`.b`'s cure). Dev server `localhost:5173`, cwd `/Users/mkbabb/Programming/keyframes.js` (⟨`lsof -p 17315 | grep cwd`⟩). The record requires no gh-pages build (`.c` and `.b` both ran dev), so this seat measured on dev.
+
+**kf bytes**: none. Every site read GREEN, so no cure at the primitive was owed. **Adjacent edits**: none.
+
+#### Act 1 — `.c`'s falsifier, UNCHANGED, the full matrix ×2 (headed)
+
+The file is `evidence/W13W/c/falsifier-ball-on-curve.mjs`, unedited. It launches `chromium.launch({ headless: false })` and takes 16 samples per pair, 140 ms apart. It measures each ball's rect centre against the nearest of 601 points on the rendered `path`, and the tolerance is 1.5 CSS px. The driver was ⟨`for run in 1 2; for cfg in "1440 900 light" "1440 900 dark" "390 844 light" "390 844 dark": node ../c/falsifier-ball-on-curve.mjs --w W --h H --theme T [--frames after on run 1] --tag v-run$run-W-T > v-run$run-W-T.json`⟩ → all 8 runs EXIT 0.
+
+Figures are read from the settled JSON (⟨`node -e 'const j=require("./v-runN-….json"); j.report.map(r=>…)'`⟩). Each cell gives samples over 1.5 px / total samples, then the max distance in px.
+
+| run | viewport · theme | L1 gallery (28 pairs) | L2 dock mini (2) | L3 sweep sampler (1) | L4 live ball (1) | exit |
+|---|---|---|---|---|---|---|
+| 1 | 1440 × 900 · light | 0/448 · 0.18 · 25 moving | 0/32 · 0.90 | 0/16 · 0.75 | 0/16 · 0.71 | 0 |
+| 1 | 1440 × 900 · dark | 0/448 · 0.18 · 25 moving | 0/32 · 0.90 | 0/16 · 0.76 | 0/16 · 0.73 | 0 |
+| 1 | 390 × 844 · light | 0/448 · 0.14 · 10 moving | 0/32 · 0.89 | 0/16 · 0.29 | 0/16 · 0.25 | 0 |
+| 1 | 390 × 844 · dark | 0/448 · 0.13 · 10 moving | 0/32 · 0.90 | 0/16 · 0.30 | 0/16 · 0.28 | 0 |
+| 2 | 1440 × 900 · light | 0/448 · 0.18 · 25 moving | 0/32 · 0.89 | 0/16 · 0.77 | 0/16 · 0.42 | 0 |
+| 2 | 1440 × 900 · dark | 0/448 · 0.18 · 25 moving | 0/32 · 0.90 | 0/16 · 0.72 | 0/16 · 0.73 | 0 |
+| 2 | 390 × 844 · light | 0/448 · 0.14 · 10 moving | 0/32 · 0.89 | 0/16 · 0.29 | 0/16 · 0.21 | 0 |
+| 2 | 390 × 844 · dark | 0/448 · 0.14 · 10 moving | 0/32 · 0.89 | 0/16 · 0.29 | 0/16 · 0.26 | 0 |
+
+Every run: 512 samples, 0 over 1.5 px, max 0.90 px, every pair moving at L2–L4, verdict GREEN on all 4 sites.
+
+#### Act 2 — RED-before (cited from `.c`, same file, kf `a939e7d6`) → GREEN-after
+
+| site | `.c` BEFORE (runs 1 · 2 at 1440 light; run 3 at 390 dark) | `.v` AFTER (8 runs, kf `82360347`) |
+|---|---|---|
+| L1 easing gallery tiles | 437/448 · 440/448 · 441/448 over; max 22.53 · 22.62 · 17.67 px — **RED** | 0 over on every run; max 0.18 px — **GREEN** |
+| L2 dock easing mini | 31/32 · 30/32 · 31/32; max 12.78 · 12.77 · 12.78 — **RED** | 0; max 0.90 — **GREEN** |
+| L3 spring sweep sampler | 16/16 · 16/16 · 16/16; max 108.39 · 108.44 · 103.34 — **RED** | 0; max 0.77 — **GREEN** |
+| L4 spring live ball | 16/16 · 16/16 · 16/16; max 279.81 · 279.81 · 285.97 — **RED** | 0; max 0.73 — **GREEN** |
+
+Before frames: `evidence/W13W/c/before/run1-1440-light-*.png` and `run3-390-dark-*.png`. After frames: `evidence/W13W/v/after/v-run1-{1440,390}-{light,dark}-{easing-gallery-tiles,dock-easing-mini,spring-sweep-sampler,spring-live-ball}.png`, 16 in all. Run JSON: `evidence/W13W/v/v-run{1,2}-{1440,390}-{light,dark}.json`.
+
+The `.b`-era PNGs (`b/after/*.png`) and `.c`'s PNGs are not tracked. ⟨`git check-ignore -v …/v/after/…png`⟩ → `.gitignore:34:*.png`, and ⟨`git ls-files evidence/W13W/b/after`⟩ → empty. `.b`'s receipt names those frames as committed in `ce814103`, but only its JSON landed there. This seat committed its own frames with `git add -f` inside its writable set. It leaves `b/` and `c/` untouched, since they belong to other units' paths (E-3).
+
+#### Gates
+
+- **G-W13W-v: GREEN.** Served (dev), headed, at 1440 and 390, light and dark, on every census law site L1–L4, 16 samples per pair per cycle (≥ 12). Every sample is ≤ 1.5 CSS px (max 0.90), ×2: 8 of 8 runs EXIT 0.
+- **RED-before cited from `.c` on every site; after frames captured: GREEN.** Act 2 cites all 4 sites RED at `a939e7d6`, and 16 after frames are in `evidence/W13W/v/after/`.
+
+**Residuals**:
+- At 390, 10 of the gallery's 28 tiles move during the cycle. The other 18 are scrolled out of view, and their balls are measured at rest, still on their strokes (0 over). The same condition held for `.c`'s 390 run.
+- `.b`'s and `.c`'s frames are untracked because of `.gitignore:34 *.png`. That is a record correction for those units' owners, not a `.v` row.
+
+**Escalations**: none. **Commits**: value.js `e4c9854a` (evidence: 8 run JSON + 16 after frames) · this record (below). kf: none.
