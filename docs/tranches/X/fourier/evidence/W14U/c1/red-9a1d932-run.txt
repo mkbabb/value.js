@@ -1,0 +1,346 @@
+
+Running 2 tests using 2 workers
+
+[1/2] [chromium] › e2e/f-w14u-vstage.spec.ts:361:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[2/2] [chromium] › e2e/f-w14u-vstage.spec.ts:361:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+  1) [chromium] › e2e/f-w14u-vstage.spec.ts:361:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue 
+
+    Error: the sliders do not share one accent
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 1
+    Received:   1
+
+      391 |             // accent; each wears its owner's hue from the one palette, and none is
+      392 |             // the error ink.
+    > 393 |             expect.soft(new Set(fills).size, "the sliders do not share one accent").toBeGreaterThan(1);
+          |                                                                                     ^
+      394 |             const hues = await side.evaluate((root, owner) => {
+      395 |                 const probe = document.createElement("span");
+      396 |                 root.appendChild(probe);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:393:85
+
+    Error: slider "Harmonics" wears its owner's hue (track 28,25,23 vs 215,53,35)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    187
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Sample Points" wears its owner's hue (track 28,25,23 vs 49,86,185)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    162
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "ML Threshold" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Blur Sigma" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Min Area %" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Max Contours" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Smoothing" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: the pressed Epicycles chip is tinted (chroma 0)
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 6
+    Received:    0
+
+      465 |                 if (!c.want) continue; // "Off" is not a basis
+      466 |                 const d = Math.abs(((c.bg.hue - c.want.hue + 540) % 360) - 180);
+    > 467 |                 expect.soft(c.bg.chroma, `the pressed ${c.label} chip is tinted (chroma ${c.bg.chroma})`).toBeGreaterThanOrEqual(6);
+          |                                                                                                           ^
+      468 |                 expect.soft(d, `the pressed ${c.label} chip carries its basis hue (${c.bg.hue} vs ${c.want.hue})`).toBeLessThanOrEqual(20);
+      469 |             }
+      470 |         });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:467:107
+
+    Error: the pressed Epicycles chip carries its basis hue (NaN vs 6)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 20
+    Received:    NaN
+
+      466 |                 const d = Math.abs(((c.bg.hue - c.want.hue + 540) % 360) - 180);
+      467 |                 expect.soft(c.bg.chroma, `the pressed ${c.label} chip is tinted (chroma ${c.bg.chroma})`).toBeGreaterThanOrEqual(6);
+    > 468 |                 expect.soft(d, `the pressed ${c.label} chip carries its basis hue (${c.bg.hue} vs ${c.want.hue})`).toBeLessThanOrEqual(20);
+          |                                                                                                                    ^
+      469 |             }
+      470 |         });
+      471 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:468:116
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-cd617-each-slider-its-owner-s-hue-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-cd617-each-slider-its-owner-s-hue-chromium/error-context.md
+
+
+  2) [chromium] › e2e/f-w14u-vstage.spec.ts:361:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue 
+
+    Error: the sliders do not share one accent
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 1
+    Received:   1
+
+      391 |             // accent; each wears its owner's hue from the one palette, and none is
+      392 |             // the error ink.
+    > 393 |             expect.soft(new Set(fills).size, "the sliders do not share one accent").toBeGreaterThan(1);
+          |                                                                                     ^
+      394 |             const hues = await side.evaluate((root, owner) => {
+      395 |                 const probe = document.createElement("span");
+      396 |                 root.appendChild(probe);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:393:85
+
+    Error: slider "Harmonics" wears its owner's hue (track 28,25,23 vs 215,53,35)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    187
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Sample Points" wears its owner's hue (track 28,25,23 vs 49,86,185)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    162
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "ML Threshold" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Blur Sigma" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Min Area %" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Max Contours" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: slider "Smoothing" wears its owner's hue (track 28,25,23 vs 157,101,21)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 3
+    Received:    129
+
+      458 |                 expect.soft(s.want, `slider "${s.label}" has an owner`).not.toBeNull();
+      459 |                 const off = Math.max(...s.track.map((v, i) => Math.abs(v - s.want![i])));
+    > 460 |                 expect.soft(off, `slider "${s.label}" wears its owner's hue (track ${s.track} vs ${s.want})`).toBeLessThanOrEqual(3);
+          |                                                                                                               ^
+      461 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      462 |             }
+      463 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:460:111
+
+    Error: the pressed Epicycles chip is tinted (chroma 0)
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 6
+    Received:    0
+
+      465 |                 if (!c.want) continue; // "Off" is not a basis
+      466 |                 const d = Math.abs(((c.bg.hue - c.want.hue + 540) % 360) - 180);
+    > 467 |                 expect.soft(c.bg.chroma, `the pressed ${c.label} chip is tinted (chroma ${c.bg.chroma})`).toBeGreaterThanOrEqual(6);
+          |                                                                                                           ^
+      468 |                 expect.soft(d, `the pressed ${c.label} chip carries its basis hue (${c.bg.hue} vs ${c.want.hue})`).toBeLessThanOrEqual(20);
+      469 |             }
+      470 |         });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:467:107
+
+    Error: the pressed Epicycles chip carries its basis hue (NaN vs 6)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 20
+    Received:    NaN
+
+      466 |                 const d = Math.abs(((c.bg.hue - c.want.hue + 540) % 360) - 180);
+      467 |                 expect.soft(c.bg.chroma, `the pressed ${c.label} chip is tinted (chroma ${c.bg.chroma})`).toBeGreaterThanOrEqual(6);
+    > 468 |                 expect.soft(d, `the pressed ${c.label} chip carries its basis hue (${c.bg.hue} vs ${c.want.hue})`).toBeLessThanOrEqual(20);
+          |                                                                                                                    ^
+      469 |             }
+      470 |         });
+      471 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:468:116
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-8ecb8-each-slider-its-owner-s-hue-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-8ecb8-each-slider-its-owner-s-hue-chromium/error-context.md
+
+
+  2 failed
+    [chromium] › e2e/f-w14u-vstage.spec.ts:361:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:361:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue 

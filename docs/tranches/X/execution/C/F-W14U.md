@@ -679,3 +679,67 @@ Residuals carried in from `.vstage`, by id: **R-1** (`EquationPanel.vue:106` rin
 | api `pytest` (equation rows) | — | ⟨`pytest api/tests -k "equation or simplif or latex or uia"`⟩ `12 passed, 3 skipped` |
 
 **Status: PARTIAL**, escalations E-1 and E-2.
+
+## F.W14U.c1
+
+**Spec:** `fourier/waves/F-W14U.md` ADDENDUM 2026-09-24 (g), COHESION §0da. The owner reverses UIA-F-172's colour limb: *"What happened to the fourier colors in the configurator and the sliders and the like"*. One Opus seat, outside the chassis loop, in files disjoint from `.vedit`. Owner frame: `fourier/evidence/W14/owner-2026-09-24-configurator-shell-band.png` (pre-`9a1d932`: Epicycles chip tinted, Harmonics red, Sample Points blue).
+
+**1. Census, fourier `98fc769..HEAD`.** ⟨`git log -G 'VIZ_COLORS|section-color|pill-color|--viz-|control-accent|:color=' 98fc769..HEAD -- web/src`⟩ returns 4 commits, plus `dd123a9` (landed during this unit). Every Configurator layer was read at both ends: BasisSelector, ContourSettings, CoefficientsPanel, ImageUpload, VisualizationView, and the morph and equation layers.
+
+| # | control (layer) | hue at `98fc769` | lost in | row | c1 |
+|---|---|---|---|---|---|
+| 1 | pressed Fourier chip (Decomposition) | `--pill-color` = `basisDisplay.fourier` (tint 12 %, ink toward `--foreground`) | `9a1d932` .vstage | UIA-F-170 (pills → glass ToggleGroup; the `.basis-toggle` retint retired with them) | **RESTORED**: Epicycles and Series |
+| 2 | pressed Chebyshev chip | `basisDisplay.chebyshev` | `9a1d932` | F-170 | **RESTORED** |
+| 3 | pressed Legendre chip | `basisDisplay.legendre` | `9a1d932` | F-170 | **RESTORED** |
+| 4 | Harmonics slider | `VIZ_COLORS.fourier` | `9a1d932` | UIA-F-172 → `--control-accent` | **RESTORED** |
+| 5 | Sample Points slider | `VIZ_COLORS.chebyshev` | `9a1d932` | F-172 | **RESTORED** |
+| 6–10 | ML Threshold, Blur Sigma, Min Area %, Max Contours, Smoothing (Contour) | `VIZ_COLORS.amber` | `9a1d932` | F-172 | **RESTORED** |
+| — | the `--control-accent: var(--primary)` token (`style.css`) | — | minted `9a1d932` | F-172 | **DELETED** |
+| — | FrequencyGraph rainbow bars (Coefficients) | spectrum hsl ramp | `9a1d932` | UIA-F-169 (duplicate amplitude view removed) | structural, stands; the spectrum rows keep the same ramp |
+| — | Harmonics / Sample Points `--track-color` | same hues | `ef9dfc6` (X.F.W14.h) | OA-45: moved onto `SliderControl`'s `color` prop | not a loss |
+| — | pressed chip ink | bare hue → hue 75 % toward `--foreground` | `001bdcf` (X.F.W14.g) | OA-43, for AA | not a loss; c1 reuses it |
+| — | canvas hover (golden) | — | `1623166` | UIA-F-17, canvas only | not a control |
+| — | section headers and eyebrows (ConfiguratorLayer label/sub) | none at `98fc769` (glass's ink) | — | — | nothing to restore |
+| 11 | contour-editor dock Smooth / Simplify / Delete hover tints (`.is-amber`, `.is-sky`, `.is-rose`), the Save plate's `--viz-fourier` hover, the Magnet glyph's `text-viz-fourier` | amber / chebyshev / pink / fourier | `dd123a9` (.vedit, Track C) | F-242 "one hover ink" | **OUTSIDE c1's files.** Flagged for the orchestrator: does (g)'s "and the like" cover the editor dock's hover tints? The quantity-owning controls there keep hues: Magnet radius → `--viz-amber`, Terms → `--viz-fourier` (dd123a9 cites (g)) |
+
+**2. Restored at the root** (fourier `b7607f8`, 4 paths):
+- `web/src/components/visualization/BasisSelector.vue`. Harmonics sets `:color="FOURIER_HUE"` (`computed(() => basisDisplay.fourier.color)`). Sample Points sets `:color="basisDisplay.chebyshev.color"`. Both go through `SliderControl`'s own `color` prop, into glass's documented track token. The Epicycles and Series items and the Chebyshev and Legendre items carry `class="basis-chip"` and `--basis-hue`, passed through glass ToggleGroupItem's published `class` prop. `.basis-chip[data-state="on"]` retints the item's own pressed state: the hue at 12 % as background (16 % on hover), and the ink is `color-mix(in oklab, hue 75%, --foreground)`. This is the X.F.W14.g recipe on the new item. **Off** is not a basis and keeps glass's neutral pressed state. The class is named `basis-chip` because e170's `.basis-toggle` count 0 still holds.
+- `web/src/components/visualization/ContourSettings.vue`. The five rows set `:color="CONTOUR_HUE"` (`computed(() => VIZ_COLORS.amber)`, the contour stroke's ink).
+- `web/src/style.css`. The `--control-accent` block is deleted. No reader remains in fourier HEAD (`git grep control-accent` → only the c1 comments).
+- Nothing in glass was restyled or edited. The rest of `.vstage` (the ToggleGroups, Advanced disclosure, row subtitles, stage rows) stands.
+
+**3. Falsifier.** `web/e2e/f-w14u-vstage.spec.ts` e171. The one-accent assertion `expect(new Set(fills).size).toBe(1)` is **INVERTED, not deleted** (ADJACENT-LINE RULE). It now asserts that the sliders do not share one accent, and that each slider's painted track colour equals its owner's token within ±3 per channel: Harmonics `--viz-fourier`, Sample Points `--viz-chebyshev`, the five contour rows `--viz-amber`. No track equals `--destructive`. Each pressed basis chip's computed background, composited over white, has chroma ≥ 6 and an HSL hue within 20° of its basis token. All limbs are `expect.soft`, so the RED reading names every limb. The run was headed Chromium (`--project chromium --headed`) against :3100/:8000.
+- **RED on `9a1d932`'s bytes** (the three src paths reverted to HEAD; the spec edit kept). 2 failed ×2 (1440 and 390). Each viewport fails 10 limbs: the one-accent set, 7 sliders (`track 28,25,23` = `--primary`, against 215,53,35 / 49,86,185 / 157,101,21), and the Epicycles chip (chroma 0, hue NaN). Log: `fourier/evidence/W14U/c1/red-9a1d932-run.txt`.
+- **GREEN ×2 after**: the whole spec **18/18 ×2** (12.5 s, 14.5 s).
+- Also run: `vue-tsc --noEmit` exit 0, `vitest` 14 files / 86 tests passed, and `slider-scrub-contrast` + `f-w14-veil` + `f-w13-image-controls` + `contrast` **9/9**.
+
+**4. Contrast guard.** Painted pixels, headed Chromium at 1440, both themes. Epicycles, Chebyshev and Legendre were all pressed, and Contour Advanced was open. Chip ink is the computed `color`; its surface is the chip's painted pixel. For each slider, the fill and the remaining track were sampled on the painted track, and the surface 3 px above it. Data: `after-contrast-painted.json`, script `contrast.mjs`.
+
+| theme | control | ink / fill | surface / track | ratio | need |
+|---|---|---|---|---|---|
+| light | Epicycles chip ink | 146,33,20 | 231,206,193 | **5.71** | 4.5 |
+| light | Chebyshev chip ink | 30,56,125 | 216,209,206 | **7.27** | 4.5 |
+| light | Legendre chip ink | 100,41,118 | 225,208,206 | **6.66** | 4.5 |
+| light | Harmonics fill | 215,53,35 | track 249,244,237 / surface 253,245,236 | **4.34** / 4.40 | 3 |
+| light | Sample Points fill | 49,86,185 | track / surface | **6.07** / 6.15 | 3 |
+| light | 5 contour fills | 157,101,21 | track / surface | **4.46** / 4.44–4.54 | 3 |
+| dark | Epicycles chip ink | 244,152,140 | 71,47,36 | **5.72** | 4.5 |
+| dark | Chebyshev chip ink | 165,185,238 | 62,51,48 | **6.26** | 4.5 |
+| dark | Legendre chip ink | 219,171,233 | 68,50,47 | **6.32** | 4.5 |
+| dark | Harmonics fill | 235,115,102 | track 45,38,32 / surface 58,48,40 | **5.09** / 4.39 | 3 |
+| dark | Sample Points fill | 136,161,231 | track / surface | **5.89** / 5.08 | 3 |
+| dark | 5 contour fills | 232,185,109 | track / surface | **8.22–8.25** / 6.99–7.10 | 3 |
+
+All pass AA. The row labels, numbers and subtitles keep `--foreground` or `--muted-foreground`; c1 tints no text other than the chip ink. **Error ink:** the basis red never takes the error role. The error ink stays glass's `--destructive` (light `hsl(0 72% 50%)` ≈ 219,36,36), and falsifier limb 3 asserts that no track equals it. The fourier red (215,53,35) sits close to it by eye. The addendum accepts that ("keeps its hue"), and it is recorded here.
+
+**Frames** (headed, 1440, light + dark, before = `9a1d932` bytes, after = `b7607f8` bytes, same minted visualization; Chebyshev toggled on locally so two basis tints read): `fourier/evidence/W14U/c1/{before,after}-{decomposition,contour}-1440-{light,dark}.png`. Script: `capture.mjs`. The frames were taken on the shared served tree, which also carried `.vedit`'s then-uncommitted edits. Those edits are outside the aside's layers. The visualization minted for the frames (`sable-shaping-ember-macaw`) was soft-deleted with its own session afterwards.
+
+**Commit.** fourier **`b7607f8`** (`fix(web): X.F.W14U.c1 — …`), pathspec-only: `web/e2e/f-w14u-vstage.spec.ts`, `BasisSelector.vue`, `ContourSettings.vue` and `web/src/style.css` (4 files). It was pushed without force: ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `b7607f86bda8`, on top of `.vedit`'s `dd123a9`.
+
+**Residuals (honest).**
+- (R-1) Census row 11: `dd123a9` removed the editor dock's hover tints under F-242. That is outside c1's files. The orchestrator should rule whether (g) reaches them.
+- (R-2) The pre-`9a1d932` pills wore a 40 % basis border. The glass ToggleGroupItem's edge is glass's `glass-control-edge`, and c1 does not retint it (glass internals). The pressed chip carries its tint as background and ink only. If the owner wants the border back, that is a glass ask (a pressed-state tint token on ToggleGroupItem).
+- (R-3) The Fourier-mode items lost the `ℱ` glyph at `.vstage` (F-170, structure). That is not colour, so c1 leaves it.
+- (R-4) The in-flight `f-w14u-vedit.spec.ts` read 6 failed / 9 passed on the shared tree mid-flight. That was before `dd123a9` landed, and the failures were element-not-found and timeouts, none about colour. `.vedit`'s own record carries its 13/13 ×2.
+
+**Status: CURED** (census 10 control hues restored + 1 token deleted; falsifier RED ×2 → GREEN ×2; contrast AA in both themes).
