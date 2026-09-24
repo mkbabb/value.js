@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onBeforeUnmount, ref } from "vue";
 import {
     Select,
     SelectContent,
@@ -10,7 +10,7 @@ import {
 import { Slider } from "../../ui/slider";
 import { Button } from "../../ui/button";
 import { Badge } from "../../ui/badge";
-import { RefreshCw, Save, Copy } from "@lucide/vue";
+import { RefreshCw, Save, Copy, Check } from "@lucide/vue";
 import { writeClipboard } from "@mkbabb/glass-ui";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
 // (`@mkbabb/glass-ui/labeled-field`, 7.0.0): `controlLabelable: false` for the
@@ -112,10 +112,18 @@ async function copyColors() {
     await writeClipboard(palette.value.join(", "));
 }
 
-/** Per-swatch copy — the specimen face's one direct verb. */
-async function copyColor(css: string) {
+/** Per-swatch copy — the specimen face's one direct verb; the copied swatch
+ *  shows a check (and its name reads "Copied …") for a beat. */
+const copiedIndex = ref<number | null>(null);
+let copiedTimer: ReturnType<typeof setTimeout> | undefined;
+async function copyColor(css: string, i: number) {
     await writeClipboard(css);
+    copiedIndex.value = i;
+    clearTimeout(copiedTimer);
+    copiedTimer = setTimeout(() => (copiedIndex.value = null), 1200);
 }
+
+onBeforeUnmount(() => clearTimeout(copiedTimer));
 
 defineExpose({ regenerate, save, copyColors });
 </script>
@@ -198,15 +206,30 @@ defineExpose({ regenerate, save, copyColors });
                  the silhouette via the producer P5 register, or do not exist —
                  the MixSourceSelector precedent). -->
             <div class="px-3 pb-1 flex flex-wrap gap-1.5">
-                <WatercolorDot
+                <!-- X.W12.u2 (UIA-V-41): glass 7.0.0's WatercolorDot is paint
+                     only (inheritAttrs:false, no `tag`, pointer-events:none), so
+                     the copy verb lives on glass's Button and the dot fills it. -->
+                <Button
                     v-for="(css, i) in palette"
                     :key="i"
-                    :color="css"
-                    :seed="`gen-${css}-${i}`"
-                    class="generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none"
-                    :aria-label="`Copy ${formatCssCaption(css)}`"
-                    @click="copyColor(css)"
-                />
+                    emphasis="text"
+                    icon-only
+                    class="generate-swatch relative w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform"
+                    :aria-label="copiedIndex === i ? `Copied ${formatCssCaption(css)}` : `Copy ${formatCssCaption(css)}`"
+                    :title="formatCssCaption(css)"
+                    @click="copyColor(css, i)"
+                >
+                    <WatercolorDot
+                        :color="css"
+                        :seed="`gen-${css}-${i}`"
+                        class="w-full h-full"
+                    />
+                    <Check
+                        v-if="copiedIndex === i"
+                        class="absolute w-4 h-4 text-white drop-shadow pointer-events-none"
+                        aria-hidden="true"
+                    />
+                </Button>
             </div>
 
             <!-- The bench note: seed as provenance, select-all kept. -->
