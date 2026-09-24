@@ -3478,3 +3478,8 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 ## §0dg — 2026-09-24: a system-wide stream stall; the six seats resumed; keyframes on 10.1.0
 - At about 16:45 every background seat (the six single seats, plus the chassis seats) stalled together on a stream watchdog. The network probe was clean afterwards. Tracks A, C and D re-launched their seats themselves at 16:55. The six single seats were resumed from their transcripts by message, each re-reading `git status` before continuing.
 - **keyframes on 10.1.0** (`9fa56c26`, KF.W13X.g0): pixel-identical, and the pin needed no code change. The routed leftovers are in KF-W13.md addendum (d): the pre-existing orbital-drag lint cycles, and the stale :5173 dep cache.
+
+## §0dh — 2026-09-24: fourier on glass 10.1.0 with the detached Configurator and the header actions; O-77
+- **Landed** (fourier `239845f`; record `db0058c7`): the owner's shell band is gone. The stage and the pane are separate glass cards with the page ground between them, measured light and dark at 1440 and 1024. The resets sit in their section headers. The honest-REDs CONFIGURATOR-DETACHED and CONFIGURATOR-HEADER-ACTIONS are CURED. Along the way, the :3100 dev server was restarted with `--force` to drop the stale 10.0.1 pre-bundle.
+- **O-77 LAYER-HEADER-LABEL** is sent and mirrored: with `#actions`, the label truncates before the sub-label does.
+- **Ruled:** /equation moves onto the Configurator if it is a stage plus an inspector (F.W14V `.eq2`), because the owner's complaint was inconsistency across pages.
