@@ -52,10 +52,14 @@ export function tokenQuantity(digits: string, rawUnit: string): Numeric {
 /**
  * The `<number>` and `<percentage>` leaves (`tokens.bbnf`) have already proved their token's shape, so
  * the type is known and the number is the token itself (`parseFloat` stops at the `%`): no re-split,
- * no unit read. Built frozen, like every node a parse publishes (`../result`).
+ * no unit read. A quantity is an intermediate value, never a result node: the actions read it (a
+ * selector's percent, a channel, a timing number) and publish what they build from it, frozen at its
+ * construction (`../result`). So the per-token quantity is a plain literal (`Readonly` by type); an
+ * `Object.freeze` here costs ~83 ns a call on SpiderMonkey (X.P.W7.k2 receipt) and guards nothing a
+ * caller can reach — `test/css/bbnf-frozen.test.ts` reads every published node frozen without it.
  */
-const numberQuantity = (token: string): Quantity => quantity("number", Number(token));
-const percentageQuantity = (token: string): Quantity => quantity("percentage", parseFloat(token));
+const numberQuantity = (token: string): Quantity => ({ kind: "quantity", type: "number", value: Number(token) });
+const percentageQuantity = (token: string): Quantity => ({ kind: "quantity", type: "percentage", value: parseFloat(token) });
 
 /** §10.7.1's constants — `e`, `pi`, `infinity`, `-infinity`, `NaN` (ASCII case-insensitive). */
 export function constantQuantity(token: string): Quantity {
