@@ -31,15 +31,9 @@
                 :key="key"
                 :color="color"
                 :open="currentSwatchPopoverIndex === i"
-                :can-hover="canHover"
-                :floating-style="currentFloatingStyle"
                 size-class="w-11 h-11 sm:w-12 sm:h-12"
                 :ghost="isSwatchEditing(i)"
-                @hover="onCurrentSwatchHover(i, $event)"
-                @leave="onCurrentSwatchLeave()"
-                @cancel-leave="cancelCurrentSwatchLeave()"
-                @click="onCurrentSwatchClick(i)"
-                @update:open="(v: boolean) => onCurrentSwatchPopoverUpdateTouch(v, i)"
+                @update:open="(v: boolean) => onCurrentSwatchOpenChange(v, i)"
             >
                 <template #actions>
                     <!-- W5-a11y: icon-only swatch action buttons need accessible names -->
@@ -92,13 +86,14 @@
                             <!-- R.W4 Lane A / A3 (U18): the add-slot is the shipped
                                  WatercolorDot ghost — the seeded dashed silhouette the
                                  committed swatch will fill — seeded by the LIVE color.
-                                 X.W12.u1 (G-2 sweep · UIA-V dead add-slot): glass 7.0.0's
+                                 X.W12.u1 (G-2 sweep · UIA-V-24): glass 7.0.0's
                                  WatercolorDot is a visual primitive (inheritAttrs:false,
                                  no `tag`, no slot) — it forwards only class/style, so the
-                                 command lives on a real host <button> and the dot paints
-                                 inside it. -->
-                            <button
-                                type="button"
+                                 command lives on glass's Button (text emphasis, icon-only;
+                                 UIA-V-24 fix shape) and the dot paints inside it. -->
+                            <Button
+                                emphasis="text"
+                                icon-only
                                 class="add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
                                 :aria-label="`Add current color ${formatCssCaption(cssColorOpaque)} to palette`"
                                 @click="addCurrentColor"
@@ -110,7 +105,7 @@
                                     class="absolute inset-0"
                                 />
                                 <Plus class="relative w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
-                            </button>
+                            </Button>
                         </TooltipTrigger>
                         <TooltipContent class="text-mono-small">
                             Add current color ({{ formatCssCaption(cssColorOpaque) }})
@@ -231,16 +226,10 @@ const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 // --- Swatch interaction state & actions ---
 const {
-    canHover,
     currentSwatchPopoverIndex,
-    currentFloatingStyle,
     swatches,
     copyFeedback,
-    onCurrentSwatchHover,
-    onCurrentSwatchLeave,
-    cancelCurrentSwatchLeave,
-    onCurrentSwatchPopoverUpdateTouch,
-    onCurrentSwatchClick,
+    onCurrentSwatchOpenChange,
     isSwatchEditing,
     addCurrentColor,
     onCurrentSwatchEdit,
@@ -298,7 +287,7 @@ function confirmUpdatePalette() {
  * overlay's FROM slot now consume the glass-ui WatercolorDot ghost variant
  * (the seeded dashed silhouette; one shape source, producer-owned). */
 
-/* The add-slot host button paints the ghost dot behind a centred Plus glyph. */
+/* The add-slot host Button paints the ghost dot behind a centred Plus glyph. */
 .add-slot-ghost {
     position: relative;
     display: inline-flex;

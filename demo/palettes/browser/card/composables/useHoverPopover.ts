@@ -1,67 +1,25 @@
-import { ref, reactive, nextTick, computed } from "vue";
-import type { Ref } from "vue";
-import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { useLeaveTimer } from "./useLeaveTimer";
+import { ref } from "vue";
 
 /**
- * Shared hover-timer + floating-panel positioning pattern.
- * Used by PaletteDialog (current swatches) and PaletteCard (expanded swatches).
+ * Which swatch's action popover is open, for a row of swatches.
+ * Used by CurrentPaletteEditor (current swatches) and PaletteInspector (a card's swatches).
+ *
+ * X.W12.u1 (UIA-V-25): hover intent, the leave timer and the panel position are glass's
+ * — each swatch rides `<Popover trigger="hover">`, which opens a hover card on fine
+ * pointers and a click popover on coarse ones and reports every change through
+ * `update:open`. This holds only the one-open-at-a-time index.
  */
-export function useHoverPopover(options?: { canHover?: boolean }) {
-    const { matches: canHoverMq } = useBreakpoint("(hover: hover)");
-    const canHover: Ref<boolean> = options?.canHover !== undefined
-        ? ref(options.canHover)
-        : computed(() => canHoverMq.value);
-
+export function useHoverPopover() {
     const openIndex = ref<number | null>(null);
-    const style = reactive({ top: "0px", left: "0px" });
-    const leaveTimer = useLeaveTimer(250);
 
-    function positionPanel(swatchEl: Element, offsetY = -42) {
-        const rect = swatchEl.getBoundingClientRect();
-        style.top = `${rect.top + offsetY}px`;
-        style.left = `${rect.left + rect.width / 2}px`;
-    }
-
-    function onHover(index: number, e: PointerEvent) {
-        if (!canHover.value || e.pointerType === "touch") return;
-        cancelLeave();
-        openIndex.value = index;
-        nextTick(() => positionPanel(e.currentTarget as Element));
-    }
-
-    function onLeave() {
-        if (!canHover.value) return;
-        leaveTimer.schedule(() => { openIndex.value = null; });
-    }
-
-    function cancelLeave() {
-        leaveTimer.cancel();
+    function onOpenChange(open: boolean, index: number) {
+        if (open) openIndex.value = index;
+        else if (openIndex.value === index) openIndex.value = null;
     }
 
     function close() {
-        cancelLeave();
         openIndex.value = null;
     }
 
-    function onPopoverUpdateTouch(open: boolean, index: number) {
-        openIndex.value = open ? index : null;
-    }
-
-    function onSwatchClick(index: number) {
-        cancelLeave();
-        openIndex.value = openIndex.value === index ? null : index;
-    }
-
-    return {
-        canHover,
-        openIndex,
-        style,
-        onHover,
-        onLeave,
-        cancelLeave,
-        close,
-        onPopoverUpdateTouch,
-        onSwatchClick,
-    };
+    return { openIndex, onOpenChange, close };
 }

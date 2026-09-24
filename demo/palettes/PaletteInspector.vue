@@ -110,14 +110,8 @@
                 :display-slug="showSlug ? displaySlug : undefined"
                 :safe-first-color="safeFirstColor"
                 :open-popover-index="openPopoverIndex"
-                :can-hover="canHover"
-                :floating-style="floatingStyle"
                 :swatch-class="swatchClass"
-                @hover="onSwatchHover"
-                @leave="onSwatchLeave()"
-                @cancel-leave="cancelSwatchLeave()"
-                @swatch-click="onSwatchClick"
-                @popover-touch="onPopoverUpdateTouch"
+                @popover-open="onPopoverOpenChange"
                 @popover-add="onPopoverAdd"
                 @popover-edit="onPopoverEdit"
                 @popover-copy="onPopoverCopy"
@@ -232,16 +226,7 @@ function showFeedback(message: string, variant: "success" | "error") {
 
 defineExpose({ showFeedback });
 
-const {
-    canHover,
-    openIndex: openPopoverIndex,
-    style: floatingStyle,
-    onHover: onSwatchHover,
-    onLeave: onSwatchLeave,
-    cancelLeave: cancelSwatchLeave,
-    onPopoverUpdateTouch,
-    onSwatchClick,
-} = useHoverPopover();
+const { openIndex: openPopoverIndex, onOpenChange: onPopoverOpenChange } = useHoverPopover();
 
 const menuOpen = ref(false);
 

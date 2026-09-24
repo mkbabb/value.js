@@ -28,15 +28,9 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
 
     // --- Hover popover for current swatches ---
     const {
-        canHover,
         openIndex: currentSwatchPopoverIndex,
-        style: currentFloatingStyle,
-        onHover: onCurrentSwatchHover,
-        onLeave: onCurrentSwatchLeave,
-        cancelLeave: cancelCurrentSwatchLeave,
         close: closeCurrentSwatchPopover,
-        onPopoverUpdateTouch: onCurrentSwatchPopoverUpdateTouch,
-        onSwatchClick: onCurrentSwatchClick,
+        onOpenChange: onCurrentSwatchOpenChange,
     } = useHoverPopover();
 
     // --- Identity keys for TransitionGroup ---
@@ -115,17 +109,11 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
 
     return {
         // State
-        canHover,
         currentSwatchPopoverIndex,
-        currentFloatingStyle,
         swatches,
         copyFeedback,
-        // Hover/popover handlers
-        onCurrentSwatchHover,
-        onCurrentSwatchLeave,
-        cancelCurrentSwatchLeave,
-        onCurrentSwatchPopoverUpdateTouch,
-        onCurrentSwatchClick,
+        // Popover handler
+        onCurrentSwatchOpenChange,
         // Swatch state checks
         isSwatchEditing,
         // Actions

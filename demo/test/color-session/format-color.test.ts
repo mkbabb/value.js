@@ -154,7 +154,7 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         ["A15", MRD, ':title="formatCssCaption(color.css)"', 1],
         ["A16", MSS, ":title=\"`${formatCssCaption(sc.css)} (${sc.source})`\"", 1],
         ["A17·A18", ANP, "{{ formatCssCaption(item.css) }}", 2],
-        // §2.B — ARIA (11)
+        // §2.B — ARIA (10; B9 retired at X.W12.u1)
         ["B1", CPE, "`Add current color ${formatCssCaption(cssColorOpaque)} to palette`", 1],
         ["B2", CPE, "`Edit color ${formatCssCaption(color)}`", 1],
         ["B3", CPE, "`Copy color ${formatCssCaption(color)}`", 1],
@@ -162,15 +162,17 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         ["B5", PCS, "`Add ${formatCssCaption(color.css)} to current palette`", 1],
         ["B6", PCS, "`Edit color ${formatCssCaption(color.css)}`", 1],
         ["B7", PCS, "`Copy color ${formatCssCaption(color.css)}`", 1],
-        ["B8·B9", SHM, "`Color swatch ${formatCssCaption(color)}`", 2],
+        // X.W12.u1 (UIA-V-25): the touch/hover fork is one glass Popover, so the
+        // swatch trigger — and its name — renders once (B9 retired with the fork).
+        ["B8", SHM, "`Color swatch ${formatCssCaption(color)}`", 1],
         ["B10", "workbenches/generate/GenerateControls.vue", "`Copy ${formatCssCaption(css)}`", 1],
         ["B11", MSS, "`Add color ${formatCssCaption(color.css)} from ${palette.name}`", 1],
         // §5 — the model write-back (1)
         ["WB", "picker/ColorPicker.vue", "updateModel({ inputColor: formatCssCaption(formattedCurrentColor.value) })", 1],
     ];
 
-    it("the census is the OM-14 denominator: 17 text + 11 ARIA + 1 write-back = 29", () => {
-        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(29);
+    it("the census is the OM-14 denominator: 17 text + 10 ARIA + 1 write-back = 28", () => {
+        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(28);
     });
     for (const [id, file, expression, count] of SITES) {
         it(`${id} · ${file} reads through format-color`, () => {

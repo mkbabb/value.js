@@ -27,14 +27,8 @@
                 :key="`${color.css}-${i}`"
                 :color="color.css"
                 :open="openPopoverIndex === i"
-                :can-hover="canHover"
-                :floating-style="{ ...floatingStyle, transform: 'translateX(-50%)' }"
                 :size-class="swatchClass"
-                @hover="$emit('hover', i, $event)"
-                @leave="$emit('leave')"
-                @cancel-leave="$emit('cancelLeave')"
-                @click="$emit('swatchClick', i)"
-                @update:open="(v: boolean) => $emit('popoverTouch', v, i)"
+                @update:open="(v: boolean) => $emit('popoverOpen', v, i)"
             >
                 <template #actions>
                     <!-- W5-a11y: icon-only buttons need explicit aria-label -->
@@ -78,17 +72,11 @@ defineProps<{
     displaySlug: string | undefined;
     safeFirstColor: string;
     openPopoverIndex: number | null;
-    canHover: boolean;
-    floatingStyle: Record<string, string | number>;
     swatchClass: string;
 }>();
 
 defineEmits<{
-    hover: [index: number, evt: PointerEvent];
-    leave: [];
-    cancelLeave: [];
-    swatchClick: [index: number];
-    popoverTouch: [open: boolean, index: number];
+    popoverOpen: [open: boolean, index: number];
     popoverAdd: [css: string];
     popoverEdit: [color: PaletteColor, index: number];
     popoverCopy: [css: string];
