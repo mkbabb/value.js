@@ -3279,3 +3279,18 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
     - `f-w14-dpr :228` fails only headless.
 - **Ruled:** the new unit `F.W14.s` seeds through the public API, idempotently and namespaced, in Playwright setup. It makes seeded goldens deterministic, re-baselining only a seed-confined diff. It gives the GPU spec a headed Chromium project, per §0be, so it is never skipped. Spec: `F-W14.md` addendum (f).
 - The resumed `.p2` seat restarted the fourier API with `scripts/e2e.sh`'s environment: `BLOB_DIR=/tmp/fourier-e2e-blobs` and raised rate limits. That is the lawful e2e instrument.
+
+## §0cn ADDENDUM 2026-09-24 — host reboot recovered; all four tracks redeployed
+- **Owner, verbatim:** *"Continue. Redeploy all workflows."* The host rebooted (uptime 7h47m at 09:44), killing all four runs mid-seat and every dev service. The `/private/tmp` scratchpad was wiped too.
+- **Where each run stood:**
+  - A (`wf_87c7b042-62b`): X-W12 `.a` and `.e` in flight.
+  - B (`wf_82af6dba-aba`): KF.W13V `.u` in flight.
+  - C (`wf_c7aa48ac-f02`): F.W14 close and check in flight.
+  - D (`wf_41f62d34-81d`): X.P.W7 repair 1 in flight.
+  - Each resumes from its run id. Completed seats replay from cache, and in-flight seats rerun with crash-recovery of inherited paths.
+- **Services restored, with logs in `~/.dev-logs/`:**
+  - value.js: `scripts/dev/dev.sh up`, with the web on :9000, the API on :3000 and the docker mongo `rs0` on :27017. Docker Desktop was started for it.
+  - keyframes: `npm run dev` on :5173.
+  - fourier: web on :3100 via `npx --prefix web vite web --port 3100`, and API on :8000 with `scripts/e2e.sh`'s env.
+  - Verified: fourier `POST /api/sessions` 200, value.js `/health` 200, and :5173, :9000 and :3100 all 200.
+- **Port change:** fourier's fresh dev mongod (§0cl) moved from :27017 to **:27018**, because value.js's dev mongo owns :27017. The fourier API runs with `MONGO_URI=mongodb://localhost:27018/fourier`. The Track C chassis tells every fourier seat to export it, because `e2e.sh` defaults to :27017. The owner item on the corrupt Homebrew DB stands.
