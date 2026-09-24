@@ -251,7 +251,10 @@ onUnmounted(() => {
             background-size: 100% 100%, 100% 100%;
         }
     }
-    .spectrum-picker {
+    /* X.W12.b — the picker pane's FIRST arrival only (`data-arrival`,
+     * ColorPicker.vue): a KeepAlive return re-inserts this field, which
+     * restarted the paint-in under the pane-swap travel. */
+    .pane-shell[data-arrival="first"] .spectrum-picker {
         animation: field-paint-in 420ms var(--ease-standard) 180ms both;
     }
 }

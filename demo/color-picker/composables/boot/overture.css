@@ -11,12 +11,19 @@
  * chain — cascade order preserved. ═══ */
 
 :root {
-    /* B1 · the plate-land family (440ms --spring-snappy; staggers per the
-     * beat sheet: dock +0 · left +40ms · right +120ms). */
-    --overture-plate-land: 440ms;
+    /* B1 · the plate-land family (--spring-snappy on ITS OWN clock — glass's
+     * `--spring-snappy-duration`, 0.44s × tempo; X.W12.b retired the local
+     * 440ms copy of it; staggers per the beat sheet: dock +0 · left +40ms ·
+     * right +120ms). */
+    --overture-plate-land: var(--spring-snappy-duration);
     --overture-dock-delay: 0ms;
     --overture-left-delay: 40ms;
     --overture-right-delay: 120ms;
+    /* B1→B3 · the channel cascade starts when the stage plate has LANDED
+     * (X.W12.b: never a rise inside a plate still travelling). */
+    --overture-stagger-base: calc(
+        var(--overture-left-delay) + var(--overture-plate-land)
+    );
     /* B2 · the field derive-in (0.9s decelerate — t-aurora-boot §2.1). */
     --overture-derive-in: 0.9s;
 }
@@ -61,16 +68,33 @@
  * PI-2/M-13: the left slot hosts the LCP-owning picker plate; its paint
  * chain never carries an opacity gate). The travel is the plate-land settle
  * (translateY + the cartoon half-degree), NOT the vj-enter off-canvas slide
- * — arrival is a landing, not a swap. */
-.overture-appear-from {
-    transform: translateY(-12px) rotate(-0.6deg);
+ * — arrival is a landing, not a swap.
+ *
+ * X.W12.b (OA-20 — ONE clock): the landing is a KEYFRAME on the appear-active
+ * class, no longer a from→to TRANSITION. A transition cannot begin until
+ * Vue's <Transition> swaps from→to two frames after insertion, while the
+ * plate's inner beats (plate-land's shadow, the field paint-in, the channel
+ * cascade) are CSS animations that start at the insertion frame itself — so
+ * the "sequenced" cascade began 27–107ms INSIDE a plate still travelling
+ * (w12-motion census, SwiftShader, loaded host). As a keyframe the landing
+ * starts on the same frame as every beat inside it, and
+ * `--overture-stagger-base` (= left-delay + plate-land) lands the cascade
+ * exactly as the plate settles. `backwards` holds the from-pose through the
+ * stagger delay (the former from-class's job); the one-shot release law below
+ * applies. PaneSlot still names `overture-appear-from`/`-to` (now carrying
+ * no style) because <Transition> would otherwise default them to the
+ * vj-enter swap classes and fling the plate off-canvas. */
+@keyframes overture-plate-settle {
+    from {
+        transform: translateY(-12px) rotate(-0.6deg);
+    }
+    to {
+        transform: none;
+    }
 }
 .overture-appear-active {
-    transition: transform var(--overture-plate-land) var(--spring-snappy);
-    transition-delay: var(--overture-appear-delay, 0ms);
-}
-.overture-appear-to {
-    transform: none;
+    animation: overture-plate-settle var(--overture-plate-land)
+        var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards;
 }
 
 /* ── B1 · the dock voice (the M-14 booked-interim): veiled while the
@@ -123,7 +147,10 @@
             box-shadow: var(--shadow-cartoon);
         }
     }
-    .pane-shell > :first-child {
+    /* X.W12.b — first arrival only (`data-arrival`, ColorPicker.vue): a
+     * KeepAlive return re-inserts this card, which would restart the beat
+     * under the pane-swap travel. */
+    .pane-shell[data-arrival="first"] > :first-child {
         /* backwards per the one-shot release law above: the card's natural
          * box-shadow IS var(--shadow-cartoon) (probed computed-equal), so the
          * release at animationend is seamless. */
@@ -172,7 +199,10 @@
             transform: none;
         }
     }
-    .hero-blob-anchor {
+    /* X.W12.b — first arrival only, as plate-land above. A return rides
+     * HeroBlob's onActivated re-measure (`resume()`), the path PRM already
+     * takes with no emerge at all. */
+    .pane-shell[data-arrival="first"] .hero-blob-anchor {
         /* backwards per the one-shot release law above (`to` ≡ natural). */
         animation: blob-emerge 500ms var(--ease-decelerate) backwards;
     }
@@ -182,12 +212,8 @@
  * surface is simply present in its settled pose. (blob-emerge/plate-land
  * above are no-preference-wrapped; the canvas pin is in its own block.) */
 @media (prefers-reduced-motion: reduce) {
-    .overture-appear-from,
-    .overture-appear-to {
-        transform: none;
-    }
     .overture-appear-active {
-        transition: none;
+        animation: none;
     }
     .overture-dock-land {
         animation: none;

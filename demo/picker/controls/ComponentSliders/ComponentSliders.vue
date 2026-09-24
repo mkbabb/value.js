@@ -34,6 +34,7 @@
                 :components="componentEntries.map(([c]) => c)"
                 :active="activeComponent"
                 :animation-key="animationKey"
+                :cascade="cascade"
                 @select="scrollToSlider"
             />
 
@@ -45,7 +46,8 @@
                  hover-jailed thumb tooltip is DEAD — one voice per fact). -->
             <div
                 :key="animationKey"
-                class="channel-rows flex-1 min-w-0 flex flex-col justify-around stagger-children"
+                class="channel-rows flex-1 min-w-0 flex flex-col justify-around"
+                :class="cascade && 'stagger-children'"
             >
                 <div
                     v-for="[component] in componentEntries"
@@ -91,7 +93,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, watch } from "vue";
+import { computed, inject, onDeactivated, ref, watch } from "vue";
 import { Card } from "../../../ui/card";
 import { Slider } from "../../../ui/slider";
 import { PICKER_CHANNELS, channelNumber, normalizedChannel } from "../../../color-session/picker-color";
@@ -140,7 +142,20 @@ watch(currentColorSpace, () => { activeComponent.value = null; });
 // Animation key — re-keys the ROWS + rail letters on a space change (the
 // chassis-persistence law: console card + ring never re-mount).
 const animationKey = ref(0);
-watch(currentColorSpace, () => { animationKey.value++; });
+// X.W12.b (OA-25): the cascade voices a FRESH row set — the pane's first
+// mount and every space-change re-key. A KeepAlive return re-inserts the SAME
+// rows, and the browser restarts a CSS animation on a re-inserted element, so
+// the cascade re-ran inside the pane-swap travel on every return (census,
+// before: stagger-child-in in the gradient→picker window). Deactivation retires
+// the class while the rows are detached; the next re-key re-arms it.
+const cascade = ref(true);
+watch(currentColorSpace, () => {
+    animationKey.value++;
+    cascade.value = true;
+});
+onDeactivated(() => {
+    cascade.value = false;
+});
 
 // --- W4-3: THE METER — the strip's persistent live reading -----------------
 // The same formatted cell the header tuple consumes (currentColorComponents-

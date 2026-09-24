@@ -1,6 +1,8 @@
 <template>
     <div
+        ref="paneShell"
         class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full"
+        :data-arrival="arrival"
     >
         <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
              clamp via the .pane-container min() formula; the mobile slot wrapper
@@ -71,7 +73,7 @@
                  `.stagger-children` see the var unset → 0ms, exactly as before. -->
             <CardContent
                 class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
-                :style="plateOpening ? { '--stagger-base': '220ms' } : undefined"
+                :style="plateOpening ? { '--stagger-base': 'var(--overture-stagger-base)' } : undefined"
             >
                 <div class="flex flex-col gap-3">
                     <SpectrumCanvas />
@@ -120,6 +122,7 @@ import {
     computed,
     defineAsyncComponent,
     inject,
+    onDeactivated,
     onMounted,
     onUnmounted,
     provide,
@@ -380,22 +383,46 @@ watch(
     { immediate: true },
 );
 
-// --- The orchestrated open (R.W3 Lane E / E1; retimed S.W3-5) ---
-// One breath, three beats, trimmed to a ~0.85s total (was 1.1–1.2s — the S-9
-// taste pass: a TOOL's fresh-mount breath, not a marketing splash): plate-land
-// (440ms, the cartoon shadow casting in) → field paint-in (SpectrumCanvas) →
-// the channel stagger (+220ms via --stagger-base above). The flag drops at
-// 850ms — after the last channel lands (~760ms), 90ms slack — so space-change
-// stagger re-fires run undelayed.
+// --- The orchestrated open (R.W3 Lane E / E1; retimed S.W3-5; X.W12.b) ---
+// One breath, three beats, SEQUENCED on the overture's glass-token clock:
+// plate-land (`--overture-plate-land` = `--spring-snappy-duration`, the cartoon
+// shadow casting in) → field paint-in (SpectrumCanvas) → the channel stagger,
+// whose base is `--overture-stagger-base` (overture.css): it starts when the
+// plate has LANDED, so the rows never rise inside a plate that is still
+// travelling (X.W12.b census, before: stagger-child-in at +220ms ran inside
+// the shell's landing transform — two travels stacked on one surface). The
+// flag drops when the cascade's own animations finish (no wall-clock guess
+// that could cut a late row's delay mid-run), so space-change stagger re-fires
+// run undelayed.
 const plateOpening = ref(true);
+const paneShell = useTemplateRef<HTMLElement>("paneShell");
+
+// X.W12.b (OA-25 — a pane enter runs ONCE, on one owner): the opening beats
+// (plate-land, field paint-in, blob-emerge — overture.css / SpectrumCanvas)
+// belong to the pane's FIRST arrival. A KeepAlive return re-inserts the same
+// elements, and the browser restarts every CSS animation on a re-inserted
+// element, so each return re-ran the whole boot breath INSIDE the pane-swap
+// travel (census, before: plate-land, field-paint-in, stagger-child-in and
+// blob-emerge all re-fired in the gradient→picker window beneath the shell's
+// vj-enter). `data-arrival` scopes those beats to the first arrival; the
+// swap family alone moves a returning pane.
+const arrival = ref<"first" | "return">("first");
+onDeactivated(() => {
+    arrival.value = "return";
+});
 
 // --- Lifecycle ---
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
-    window.setTimeout(() => {
-        plateOpening.value = false;
-    }, 850);
+    requestAnimationFrame(() => {
+        const cascade = Array.from(
+            paneShell.value?.querySelectorAll(".stagger-children > *") ?? [],
+        ).flatMap((el) => el.getAnimations());
+        void Promise.allSettled(cascade.map((a) => a.finished)).then(() => {
+            plateOpening.value = false;
+        });
+    });
 });
 
 onUnmounted(() => {
@@ -415,7 +442,14 @@ onUnmounted(() => {
        `--transition-liquid-spatial` at the spring's OWN clock
        (`--spring-smooth-duration`), never a bezier on a generic clock; the
        producer's PRM carve re-aliases the token to `--ease-standard` under
-       reduced motion. */
+       reduced motion.
+       X.W12.b: this rule (0,2,0 scoped) outranked the overture's former
+       `.overture-appear-active` TRANSITION (0,1,0), so the boot landing ran
+       here — 350ms smooth, no stagger delay — instead of on the overture's
+       clock (census, before: `div.pane-shell transition(transform) 0+350`).
+       The landing is now a keyframe (overture.css), which a transition can
+       neither outrank nor be triggered by; the slot's vj-enter region rules
+       own every swap. */
     transition: transform var(--spring-smooth-duration) var(--transition-liquid-spatial);
 }
 

@@ -18,7 +18,8 @@
     >
         <div
             :key="animationKey"
-            class="rail-letters h-full flex flex-col items-center justify-around stagger-children"
+            class="rail-letters h-full flex flex-col items-center justify-around"
+            :class="cascade && 'stagger-children'"
         >
             <TooltipProvider :delay-duration="300">
                 <Tooltip v-for="component in components" :key="component">
@@ -99,13 +100,15 @@ import { colorSpaceInfo } from "../../../color-session/colorSpaceInfo";
 import type { DisplayColorSpace } from "../../../color-session/color-model";
 import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "../../../color-session/keys";
 
-const { components, active, animationKey } = defineProps<{
+const { components, active, animationKey, cascade } = defineProps<{
     /** The current space's shown channels (rail order = row order). */
     components: string[];
     /** The active channel (the WatercolorDot seat). */
     active: string | null;
     /** The rows' re-key counter — letters re-key WITH the rows (N-2). */
     animationKey: number;
+    /** X.W12.b — the letters cascade WITH the rows: fresh sets only, never a KeepAlive return. */
+    cascade: boolean;
 }>();
 
 const emit = defineEmits<{ select: [component: string] }>();
