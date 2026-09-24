@@ -961,3 +961,47 @@ Tally ⟨count of the table's rows⟩ → 12:
 | `vitest` | 86/86 (banked) | 86/86 |
 
 **Status: PARTIAL**, escalations E-1 (carried) through E-4, and the R-1 relay.
+
+## F.W14V.s2 (glass half, adopted early) ⊕ F.W14U.a2
+
+**Ruling:** COHESION §0dd. glass-ui **10.1.0** is live (O-68, O-75, both additive, no MIGRATION entry). One Opus seat, same laws as c1 and c2. Track C's `.gallery` seat held `web/src/lib/api.ts`, `stores/gallery.ts` and `components/visualization/gallery/**` dirty at points in this unit. None of those were touched; my commit is pathspec-only.
+
+**1. Repin.** `web/package.json` `"@mkbabb/glass-ui": "10.1.0"` (exact) and `npm install` in `web/`. ⟨`git diff web/package-lock.json`⟩ shows 4 lines: the one package entry, 10.0.1 → 10.1.0, with its resolved URL and integrity. **CHANGELOG:** 10.1.0 ships no CHANGELOG.md in the tarball. glass's repo CHANGELOG tops out at `## 10.0.1` (⟨`grep -n "^## " glass-ui/CHANGELOG.md | head -1`⟩ → `## 10.0.1 — 2026-09-22`). The API was therefore read from the published `.d.ts`: `ConfiguratorLayout = "attached" | "detached"` ("detached paints NO shell plate … the page ground shows between them"), and ConfiguratorLayer's `actionsWhen?: "open" | "always"` plus the `actions` slot. The live Vite on :3100 had prebundled 10.0.1 (`.vite/deps/_metadata.json` 14:55), so I restarted it with the orchestrator's command plus `--force`. ⟨`vue-tsc --noEmit`⟩ → 0 errors · ⟨`vitest run`⟩ → 14 files / 86 tests passed.
+
+**2. O-75 CONFIGURATOR-DETACHED** (`VisualizationView.vue`):
+- `<Configurator layout="detached">`: no shell plate. The stage and the aside are each glass's own card (`glass-floating rounded-card border`), with `--configurator-detached-gap` between them.
+- **Deleted:** the X.F.W14U.s consumer wrap `<component :is="isDesktop ? Card : 'div'" v-bind="isDesktop ? { shadow: true } : {}">`, which is now a plain `div` at every width; the `Card` import; and the `.s` lg placement rule `@media (min-width:1024px){.viz-panel-left-wrap{width:auto;max-width:none;margin:var(--space-body)}}`.
+- **`glass-opaque` re-checked, kept.** It sets only `--glass-level: 0` (⟨`grep glass-opaque dist`⟩ → `.glass-opaque{--glass-level: 0;}`). Detached, the shell carries no plate class, so the class paints nothing itself. Its level inherits into the two cards, so each is the solid `--card` of OA-43. The gutter now reads the page ground (falsifier da).
+- **Aside band kept at `.s`'s +2 `--space-body`.** Those insets are now the detached card's own padding and edge. Measured on a first after-frame with the plain 360/400 band, the layer headers ellipsised to "Decompos…" and "Conto…" beside the header reset.
+- **No-image state:** `[data-sidebar="none"]` also sets `--configurator-detached-gap: 0px`, and the grid's transition gains `gap` on the same panel spring (none under PRM). Without that, the stage stood 14 px short of the frame (`f-w13-image-empty` G-c read 14 > 4).
+- **Mobile (< lg) kept as it was.** Detached, the inactive stage (the Controls tab up) still painted its card border as a 1 px line under the tabs, with a gap above the sheet. `.configurator-stage:has(> .panel-inactive)` now takes `display: none` below lg. The 390 frames before and after match apart from that line.
+- **Other Configurators:** ⟨`grep -rn "<Configurator " web/src`⟩ → only `VisualizationView.vue`. `/equation` stacks ConfiguratorLayers in its own column with no stage+aside shell (the `.eq` record, :935, declined to re-host it), and `/morph` mounts none. So no other site had the owner-visible band, and none adopts detached. Whether `/equation` should move onto the Configurator chassis is a separate ruling, still open from `.eq`.
+
+**3. O-68 CONFIGURATOR-HEADER-ACTIONS.** Census of every ConfiguratorLayer site (visualization, equation, morph): 8 layers. Two held a section action on a body row: BasisSelector (Decomposition) and ContourSettings (Contour), and both of their comments cited the missing slot.
+- Both "Reset to defaults" buttons move into `<template #actions>`, with the default `actionsWhen="open"`. They are `size="sm"` so the header row keeps its height. Their body rows and the "no header-actions slot" comments are deleted.
+- No other layer carries a section action: Image, Coefficients, the equation Function, Controls and Coefficients layers, and morph (which has no layers). ContourSettings' error-Alert Retry is a contextual command, not a section action, and it stays.
+
+**4. Falsifier** `web/e2e/f-w14v-detached.spec.ts` (5 cases, headed, :3100 → :8000):
+- **da** runs at 1440×900 and 1024×768 × light/dark. At 1024 the Configurator is single-column, so the gutter there is the vertical seam below the stage. The gutter's AREA median must be the page ground's colour, taken as the area median of the margin outside the Configurator. The channel shift from the ground must be neutral (spread ≤ 4), and the gutter no more tinted than the ground. The cards' casts shade the gutter neutrally (1440 light 217,216,214 against ground 227,227,225), and a plate tints it.
+- **db** checks each layer's reset: inside the layer's `configurator-layer-header`, its box centre on the trigger's row, restoring the default (Harmonics 200, Blur 0.5) without toggling the layer (`aria-expanded` stays true), and one reset per layer, none in a body.
+- **RED ×2 on HEAD's bytes** (the 3 src paths reverted to `fcc5617`): 5 failed ×2, 12 soft limbs each. The gutters read plate-tinted: 242,232,219 and 248,237,225 against a neutral 227,227,225 in light, and 66,49,37 and 62,46,33 against 25,24,23 in dark (shifts 15,5,−6 up to 41,25,14). Both resets are "in the body, not the header" and off the label's row. Log: `evidence/W14V/s2/red-HEAD-run.txt`.
+- **GREEN ×2 after:** 5/5, 5/5.
+
+**Adjacent specs (§0bt), each listed:**
+- `web/e2e/f-w14u-s.spec.ts` G-s (1440/1024 × light/dark). `expect(m.card).toBe(true)`, "the pane is glass's own Card", is **INVERTED** to `toBe(false)` ("no consumer Card wrap") plus `detached === true`. The gutter, the four `--radius-card` corners and the own-shadow reads are **RE-POINTED** from `.viz-panel-left-wrap` to glass's `.configurator-aside`. The 390 case is unchanged: the wrap is still a plain column there.
+- `f-w13-image-empty` G-c needed no spec edit. Its "the stage fills the frame" read (≤ 4) was cured at the source (the gap closes with the band).
+- `f-w13-image-controls` finds the resets by role name, so no edit was needed; it passes.
+
+**Regression:** veil + s + image-empty + image-controls + residuals + vstage + control-row + slider-scrub-contrast + contrast **43/43**; vedit **13/13** (`--workers=1`).
+
+**5. Frames** (headed; before = HEAD `fcc5617` bytes on the 10.1.0 install, which is additive; after = `239845f`): `evidence/W14V/s2/{before,after}-1440-{light,dark}.png`, `-1440-{light,dark}-contour.png` (both headers open, Harmonics moved so the reset is live), `-390-{light,dark}.png`. Script: `capture.mjs`. The visualization minted for them was soft-deleted afterwards.
+
+**Commit.** fourier **`239845f`**: pathspec-only, 7 paths (package.json, package-lock.json, VisualizationView, BasisSelector, ContourSettings, f-w14u-s.spec, f-w14v-detached.spec). Pushed without force: `fcc5617..239845f`.
+
+**Honest-RED flips.** **CONFIGURATOR-DETACHED → CURED** (da GREEN ×2). **CONFIGURATOR-HEADER-ACTIONS → CURED** (db GREEN ×2). With that, F-238's lone reset row (R-7) and G-a are discharged. `.s` (PARTIAL → F.W14V `.s2`) is complete.
+
+**Residuals.**
+- (R-1) **Header label ellipsis.** In the frames, the layer label still ellipsises before its sub-label: "Decomposit…" / "basis & resoluti…" at 1440, and "Decomp…" at 390. The 390 case already did so at HEAD, without the reset. glass's header gives the label no priority over the `sub` once the actions slot takes a column. Consumer width buys only part of it (the kept band). This is a glass ask: label priority over sub in `configurator-layer-header`. **Owner-visible; I did not work around it inside glass.**
+- (R-2) glass 10.1.0 ships no CHANGELOG entry; its repo tops out at 10.0.1. That is a producer bookkeeping gap for the glass relay.
+- (R-3) Restarting the :3100 dev server (needed for the repin to serve) briefly interrupted the shared server for the other seats.
+- (R-4) The tracked `web/e2e/screenshots/f-w14/after-*` frames regenerated by suite runs remain other seats' dirt, and I left them untouched.
