@@ -3483,3 +3483,14 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Landed** (fourier `239845f`; record `db0058c7`): the owner's shell band is gone. The stage and the pane are separate glass cards with the page ground between them, measured light and dark at 1440 and 1024. The resets sit in their section headers. The honest-REDs CONFIGURATOR-DETACHED and CONFIGURATOR-HEADER-ACTIONS are CURED. Along the way, the :3100 dev server was restarted with `--force` to drop the stale 10.0.1 pre-bundle.
 - **O-77 LAYER-HEADER-LABEL** is sent and mirrored: with `#actions`, the label truncates before the sub-label does.
 - **Ruled:** /equation moves onto the Configurator if it is a stage plus an inspector (F.W14V `.eq2`), because the owner's complaint was inconsistency across pages.
+
+## §0di — 2026-09-24: Track D returned; X.P.W7 NOT-CONFORMANT only on Firefox; ESC-W7l-1 ruled (static bulk-run emission); `.l2`
+- **Track D completed** (`wf_41f62d34-81d`). X.P.W7 is NOT-CONFORMANT after 2 repairs, on one cause only.
+- **`.l` cured JSC's large-sheet backtracking** (bbnf-lang `d81016e96`), so WebKit's large sheets went from 1.11–1.19 to .55–.59. WebKit and Chromium are GREEN on 22/22 rows ×2, node 7/7 on every class, and L-G2, L-G3 and all stay-GREEN gates are GREEN.
+- **Remaining RED:** Firefox rejected and large `parseStylesheet` (×1.10–1.34). The cause is SpiderMonkey running the emitted class-run loops at half its regex engine's speed.
+- **Ruled (W7.md addendum (c)):**
+  - (c) relief is refused.
+  - (a) is admitted in its **static** form: the emitter classifies bulk-text class runs from the grammar's structure and emits them as sticky regex scans, while token runs stay loops. It uses no input length and no engine detection.
+  - (b), the uniform lever at a ×1.02–1.05 cost on Chromium and WebKit (which stay below 1), is the measured fallback only.
+- **Unit `.l2`** is the Track D chassis RESUME 4 note. Track D is resumed.
+- **The release stays X.P.W7P**, on the owner's npm one-time password. **Reported to the owner**, who can overrule the ruling.
