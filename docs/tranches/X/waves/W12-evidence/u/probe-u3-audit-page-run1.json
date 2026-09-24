@@ -1,0 +1,21 @@
+{
+ "errs": [],
+ "during": {
+  "skeleton": false,
+  "rows": 20,
+  "pager": true,
+  "busy": "true",
+  "focus": "BUTTON:Next page",
+  "cardH": 1839,
+  "pageText": "Page 2 of 3"
+ },
+ "after": {
+  "skeleton": false,
+  "rows": 20,
+  "pager": true,
+  "busy": null,
+  "focus": "BUTTON:Next page",
+  "cardH": 1839,
+  "pageText": "Page 2 of 3"
+ }
+}

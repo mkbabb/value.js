@@ -1,0 +1,680 @@
+# SERVED MODEL: claude-opus-5-5 — X.W12.u3 the full UIA-V disposition table (every `#### UIA-V-` row of audit/UI-AUDIT-value.md: 676 numbered + 3 held). Columns: id sev page owner bucket disposition. sha = cured by that commit; O-59 = glass relay X-ALL-BK-UI-AUDIT.md (other O-rows named); HONEST-RED <ID> / R-5 HOLD / VERDICT = standing honest-RED or measured verdict; SUPPLEMENT X-W12S = consumer residue routed row by row to the X-W12 supplement (§0bl). Built by build-disposition-u3.py.
+UIA-V-1	BROKEN	app-ground-atmosphere	CONSUMER	sha	9711abdb [.a]
+UIA-V-2	BROKEN	home-picker	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-3	BROKEN	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-4	BROKEN	about-pane	CONSUMER	sha	a89fa035 [.c]
+UIA-V-5	BROKEN	color-space-select	GLASS+CONSUMER	sha	d40b574c [.t]
+UIA-V-6	BROKEN	dock-main	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-7	BROKEN	dock-main	CONSUMER	sha	f91d5ccd (consumer; a colour-only glass ring seam would retire the composed shadow — not yet relayed, noted in the receipt) [.u3]
+UIA-V-8	BROKEN	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-9	BROKEN	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-10	BROKEN	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-11	BROKEN	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-12	BROKEN	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-13	BROKEN	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-14	BROKEN	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-15	BROKEN	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-16	BROKEN	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-17	BROKEN	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-18	BROKEN	dock-mobile-menu	CONSUMER	sha	b4173137 [.u3]
+UIA-V-19	BROKEN	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-20	BROKEN	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-21	BROKEN	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-22	BROKEN	dock-mbabb-menu	CONSUMER	sha	b4173137 [.u3]
+UIA-V-23	BROKEN	dock-mbabb-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-24	BROKEN	palettes-view	GLASS+CONSUMER	O-row+sha	bed4ce3a+67c4f29a (consumer) · O-59 (glass: WatercolorDot no passthrough contract) [.u1]
+UIA-V-25	BROKEN	palettes-view	CONSUMER	sha	67c4f29a [.u1]
+UIA-V-26	BROKEN	palettes-view	CONSUMER	sha	2ff95e51 [.u1]
+UIA-V-27	BROKEN	palettes-view	CONSUMER	sha	67c4f29a [.u1]
+UIA-V-28	BROKEN	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-29	BROKEN	palette-card-menu	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-30	BROKEN	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-31	BROKEN	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-32	BROKEN	browse-search-filter	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-33	BROKEN	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-34	BROKEN	tag-edit-popover	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-35	BROKEN	tag-edit-popover	CONSUMER	sha	2753482a [.u1]
+UIA-V-36	BROKEN	version-history-drawer	CONSUMER	sha	c8c5a4aa [.u1]
+UIA-V-37	BROKEN	version-history-drawer	CONSUMER	sha	a658d2c4 [.u1]
+UIA-V-38	BROKEN	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-39	BROKEN	flag-report-dialog	CONSUMER	sha	360bd254 [.u1]
+UIA-V-40	BROKEN	mix-view	CONSUMER	sha	e7f2e5e4 [.u2]
+UIA-V-41	BROKEN	generate-view	CONSUMER	sha	b2548908+728b6d36 [.u2]
+UIA-V-42	BROKEN	generate-view	CONSUMER	sha	c85ae287 [.u2]
+UIA-V-43	BROKEN	generate-view	CONSUMER	sha	e7f2e5e4 (Mix half; palette-card half = .u1 67c4f29a) [.u2]
+UIA-V-44	BROKEN	gradient-view	GLASS+CONSUMER	O-row+sha	b6efe950 (consumer) · O-59 (glass: SelectTrigger value span cannot shrink) [.u2]
+UIA-V-45	BROKEN	gradient-view	CONSUMER	sha	82516588 [.u2]
+UIA-V-46	BROKEN	atmosphere-view	GLASS	O-row	O-59 [.u2]
+UIA-V-47	BROKEN	blob-view	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-48	BROKEN	blob-view	GLASS+CONSUMER	O-row+sha	dda1f85c (consumer) · O-68 BLOB-WAKE-SEAM (glass half) [.d]
+UIA-V-49	BROKEN	admin-users	CONSUMER	sha	e585692e [.u3]
+UIA-V-50	BROKEN	admin-names	GLASS	O-row	O-59
+UIA-V-51	BROKEN	admin-names	CONSUMER	sha	6e7f215e [.u3]
+UIA-V-52	BROKEN	admin-audit	CONSUMER	sha	c680a943 [.u3]
+UIA-V-53	BROKEN	pane-plates	CONSUMER	sha	f2a7ab8f [.u3]
+UIA-V-54	BROKEN	pointer-debug-overlay	GLASS+CONSUMER	O-row+sha	e3d459de (consumer: --z-max) · O-59 (glass: --z-debug rung absent) [.u3]
+UIA-V-55	HIGH	app-ground-atmosphere	GLASS	O-row	O-59 · O-56 G-4 addendum [.a]
+UIA-V-56	HIGH	app-ground-atmosphere	CONSUMER	sha	bbebe3f8+028c2462 [.a]
+UIA-V-57	HIGH	app-ground-atmosphere	CONSUMER	sha	bbebe3f8 [.a]
+UIA-V-58	HIGH	app-ground-atmosphere	CONSUMER	sha	e1aaee3e+7465354d (D1 one enter per region; D5 band anchor: the 47-48 px jump) [.b, mapped by .u3]
+UIA-V-59	HIGH	app-ground-atmosphere	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-60	HIGH	home-picker	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-61	HIGH	home-picker	CONSUMER	sha	82ba99e1 [.d]
+UIA-V-62	HIGH	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-63	HIGH	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-64	HIGH	about-pane	CONSUMER	sha	38b35385+4b7639c0 [.c]
+UIA-V-65	HIGH	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-66	HIGH	color-space-select	CONSUMER	sha	b98faac1 [.t]
+UIA-V-67	HIGH	dock-main	GLASS	O-row+honest-RED/verdict	HONEST-RED DOCK-MORPH-ROOT (O-55/O-64) [.e]
+UIA-V-68	HIGH	dock-main	GLASS	O-row+honest-RED/verdict	HONEST-RED DOCK-MORPH-ROOT (O-55/O-64) [.e]
+UIA-V-69	HIGH	dock-main	CONSUMER	sha	038c795c [.e]
+UIA-V-70	HIGH	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-71	HIGH	dock-main	CONSUMER	sha	b4173137 [.u3]
+UIA-V-72	HIGH	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-73	HIGH	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-74	HIGH	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-75	HIGH	dock-action-bar-color	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-76	HIGH	dock-action-bar-color	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-77	HIGH	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-78	HIGH	dock-color-input	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-79	HIGH	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-80	HIGH	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-81	HIGH	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-82	HIGH	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-83	HIGH	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-84	HIGH	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-85	HIGH	dock-slug-edit-layer	GLASS	O-row	O-59
+UIA-V-86	HIGH	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-87	HIGH	dock-mobile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-88	HIGH	dock-mobile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-89	HIGH	dock-mobile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-90	HIGH	dock-profile-menu	CONSUMER	sha	038c795c [.e]
+UIA-V-91	HIGH	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-92	HIGH	dock-profile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-93	HIGH	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-94	HIGH	dock-mbabb-menu	CONSUMER	sha	038c795c [.e]
+UIA-V-95	HIGH	dock-mbabb-menu	CONSUMER	sha	038c795c [.e]
+UIA-V-96	HIGH	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-97	HIGH	palettes-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-98	HIGH	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-99	HIGH	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-100	HIGH	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-101	HIGH	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-102	HIGH	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-103	HIGH	palettes-view	CONSUMER	sha	bed4ce3a+67c4f29a [.u1]
+UIA-V-104	HIGH	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-105	HIGH	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-106	HIGH	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-107	HIGH	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-108	HIGH	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-109	HIGH	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-110	HIGH	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-111	HIGH	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-112	HIGH	palette-card-menu	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-113	HIGH	palette-card-menu	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-114	HIGH	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-115	HIGH	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-116	HIGH	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-117	HIGH	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-118	HIGH	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-119	HIGH	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-120	HIGH	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-121	HIGH	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-122	HIGH	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-123	HIGH	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-124	HIGH	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-125	HIGH	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-126	HIGH	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-127	HIGH	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-128	HIGH	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-129	HIGH	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-130	HIGH	flag-report-dialog	CONSUMER	sha	5e0be623 [.u1]
+UIA-V-131	HIGH	flag-report-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-132	HIGH	migrate-palettes-dialog	CONSUMER	sha	5e0be623 [.u1]
+UIA-V-133	HIGH	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-134	HIGH	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-135	HIGH	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-136	HIGH	mix-view	GLASS	O-row	O-59 [.u2]
+UIA-V-137	HIGH	mix-view	CONSUMER	sha+supplement	c911941a (section heads) · RESIDUE-U2 → SUPPLEMENT X-W12S (LabeledField label rung: glass 7.0.0 exposes no label-size prop) [.u2]
+UIA-V-138	HIGH	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-139	HIGH	mix-view	GLASS	O-row	O-59 [.u2]
+UIA-V-140	HIGH	mix-view	CONSUMER	honest-RED/verdict	R-5 HOLD (COHESION §0ci: glass stays 7.0.0 until X-W7L) [.u2]
+UIA-V-141	HIGH	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-142	HIGH	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-143	HIGH	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-144	HIGH	gradient-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-145	HIGH	gradient-view	CONSUMER	sha	6a264f01 [.u2]
+UIA-V-146	HIGH	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-147	HIGH	gradient-view	CONSUMER	sha	316c8058 [.u2]
+UIA-V-148	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-149	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-150	HIGH	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-151	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-152	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-153	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-154	HIGH	atmosphere-view	GLASS	O-row	O-59 [.u2]
+UIA-V-155	HIGH	atmosphere-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-156	HIGH	atmosphere-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-157	HIGH	atmosphere-view	GLASS+CONSUMER	O-row+sha	9d27d6e9 (consumer) · O-59 (glass: 7.0.0 text-caption italic; PaneHeader caption) [.u2]
+UIA-V-158	HIGH	atmosphere-view	CONSUMER	sha+supplement	c63fcab0 (readout) · RESIDUE-U2 → SUPPLEMENT X-W12S (spectrum slab variant: the o18 contrast-certified track recipe) [.u2]
+UIA-V-159	HIGH	atmosphere-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-160	HIGH	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-161	HIGH	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-162	HIGH	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-163	HIGH	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-164	HIGH	blob-view	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-165	HIGH	admin-users	GLASS+CONSUMER	sha	d3ed6370 [.u1 G-2]
+UIA-V-166	HIGH	admin-users	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-167	HIGH	admin-users	CONSUMER	sha	85a478f3 [.u3]
+UIA-V-168	HIGH	admin-users	CONSUMER	sha	85a478f3 [.u3]
+UIA-V-169	HIGH	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-170	HIGH	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-171	HIGH	admin-names	CONSUMER	sha	d3ed6370 [.u1 G-2]
+UIA-V-172	HIGH	admin-names	CONSUMER	sha	426bf798 [.u3]
+UIA-V-173	HIGH	admin-audit	CONSUMER	sha	2d3799d7 [.u3]
+UIA-V-174	HIGH	admin-audit	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-175	HIGH	admin-flagged	CONSUMER	sha	d3ed6370 [.u1 G-2]
+UIA-V-176	HIGH	admin-flagged	CONSUMER	sha	81ac55b5 [.u3]
+UIA-V-177	HIGH	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-178	HIGH	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-179	HIGH	admin-tags	CONSUMER	O-row+honest-RED/verdict	HONEST-RED CHIP-STYLES-ORPHAN (glass 7.0.0 ./styles never imports styles/glass/glass-chip.css — the glass-chip.css orphan already reported as O-20 SC-1; the removable Chip renders an 8px unstyled remove button, measured); consumer keeps its chip until the repin (X-W7L) [.u3]
+UIA-V-180	HIGH	admin-tags	GLASS+CONSUMER	O-row+sha	bd0af74d (consumer) · O-59 (glass: Chip nowrap/truncate) [.u3]
+UIA-V-181	HIGH	admin-tags	CONSUMER	sha	426bf798 [.u3]
+UIA-V-182	HIGH	admin-tags	CONSUMER	sha	bd0af74d [.u3]
+UIA-V-183	HIGH	not-found	CONSUMER	sha	b6f90b5c [.u3]
+UIA-V-184	HIGH	pane-plates	CONSUMER	sha	2480c047 [.u3]
+UIA-V-185	HIGH	pane-plates	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-186	MEDIUM	app-ground-atmosphere	GLASS+CONSUMER	O-row+honest-RED/verdict	HONEST-RED A-DARK-BAND (design ruling owed on X-W6 i2's shipped band) · O-59 (glass half) [.a]
+UIA-V-187	MEDIUM	app-ground-atmosphere	CONSUMER	sha	1a696ca6 (D2-D4: the opening breath on one clock, once; no KeepAlive-return replay of plate-land/blob-emerge) [.b, mapped by .u3]
+UIA-V-188	MEDIUM	app-ground-atmosphere	CONSUMER	supplement	SUPPLEMENT X-W12S (glass <Aurora> remount; .a sizing cured) [.a→u3]
+UIA-V-189	MEDIUM	app-ground-atmosphere	CONSUMER	sha	2480c047 (the region fallback on the resting Card; no square UA outline — the row is V-184+V-455 seen from the ground) [.u3]
+UIA-V-190	MEDIUM	app-ground-atmosphere	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-191	MEDIUM	app-ground-atmosphere	CONSUMER	sha	028c2462 [.a]
+UIA-V-192	MEDIUM	app-ground-atmosphere	GLASS+CONSUMER	O-row+sha	consumer half gone with UIA-V-1 (9711abdb) · O-56 G-4 addendum (glass) [.a]
+UIA-V-193	MEDIUM	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-194	MEDIUM	home-picker	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-195	MEDIUM	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-196	MEDIUM	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-197	MEDIUM	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-198	MEDIUM	home-picker	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-199	MEDIUM	home-picker	GLASS+CONSUMER	O-row+sha	82ba99e1 (consumer) · O-56 G-3 (glass matte) [.d]
+UIA-V-200	MEDIUM	home-picker	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-201	MEDIUM	home-picker	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-202	MEDIUM	about-pane	CONSUMER	O-row+honest-RED/verdict	O-59 (adopt via repin; R-5 HOLD) [.c]
+UIA-V-203	MEDIUM	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-204	MEDIUM	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-205	MEDIUM	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-206	MEDIUM	about-pane	CONSUMER	sha	b1bc7b52 [.c]
+UIA-V-207	MEDIUM	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-208	MEDIUM	about-pane	GLASS	O-row	O-59 [.c]
+UIA-V-209	MEDIUM	about-pane	GLASS	O-row	O-59 (cured at glass HEAD; adopt via repin) [.c]
+UIA-V-210	MEDIUM	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-211	MEDIUM	color-space-select	CONSUMER	sha	83d1c61f [.t]
+UIA-V-212	MEDIUM	color-space-select	CONSUMER	sha	b98faac1 [.t]
+UIA-V-213	MEDIUM	color-space-select	GLASS	O-row	O-59
+UIA-V-214	MEDIUM	color-space-select	GLASS+CONSUMER	O-row+honest-RED/verdict+sha	HONEST-RED TEXT-TRIGGER-ROOT (O-66, f4ba97e9) [.t]
+UIA-V-215	MEDIUM	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-216	MEDIUM	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-217	MEDIUM	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-218	MEDIUM	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-219	MEDIUM	dock-main	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-220	MEDIUM	dock-main	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-221	MEDIUM	dock-view-select	GLASS	O-row	O-59
+UIA-V-222	MEDIUM	dock-view-select	GLASS	O-row	O-59
+UIA-V-223	MEDIUM	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-224	MEDIUM	dock-view-select	GLASS	O-row	O-59
+UIA-V-225	MEDIUM	dock-view-select	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-226	MEDIUM	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-227	MEDIUM	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-228	MEDIUM	dock-view-select	CONSUMER	sha	038c795c [.e]
+UIA-V-229	MEDIUM	dock-action-bar-color	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-230	MEDIUM	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-231	MEDIUM	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-232	MEDIUM	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-233	MEDIUM	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-234	MEDIUM	dock-action-bar-color	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-235	MEDIUM	dock-action-bar-color	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-236	MEDIUM	dock-action-bar-color	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-237	MEDIUM	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-238	MEDIUM	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-239	MEDIUM	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-240	MEDIUM	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-241	MEDIUM	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-242	MEDIUM	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-243	MEDIUM	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-244	MEDIUM	dock-color-input	CONSUMER	sha+supplement	04b1e822+13b81c30 (shim + keyframes) · SUPPLEMENT X-W12S (vocabulary half, with V-501) [.e]
+UIA-V-245	MEDIUM	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-246	MEDIUM	dock-slug-edit-layer	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-247	MEDIUM	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-248	MEDIUM	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-249	MEDIUM	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-250	MEDIUM	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-251	MEDIUM	dock-slug-edit-layer	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-252	MEDIUM	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-253	MEDIUM	dock-mobile-menu	GLASS	O-row	O-59
+UIA-V-254	MEDIUM	dock-mobile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-255	MEDIUM	dock-mobile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-256	MEDIUM	dock-mobile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-257	MEDIUM	dock-mobile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-258	MEDIUM	dock-mobile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-259	MEDIUM	dock-mobile-menu	GLASS	O-row	O-59
+UIA-V-260	MEDIUM	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-261	MEDIUM	dock-profile-menu	GLASS	O-row	O-59
+UIA-V-262	MEDIUM	dock-profile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-263	MEDIUM	dock-profile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-264	MEDIUM	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-265	MEDIUM	dock-profile-menu	CONSUMER	sha	b4173137 [.u3]
+UIA-V-266	MEDIUM	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-267	MEDIUM	dock-mbabb-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-268	MEDIUM	dock-mbabb-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-269	MEDIUM	dock-mbabb-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-270	MEDIUM	dock-mbabb-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-271	MEDIUM	dock-mbabb-menu	GLASS	O-row	O-59
+UIA-V-272	MEDIUM	dock-mbabb-menu	CONSUMER	honest-RED/verdict	R-5 HOLD → X-W7L [.e]
+UIA-V-273	MEDIUM	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-274	MEDIUM	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-275	MEDIUM	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-276	MEDIUM	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-277	MEDIUM	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-278	MEDIUM	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-279	MEDIUM	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-280	MEDIUM	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-281	MEDIUM	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-282	MEDIUM	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-283	MEDIUM	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-284	MEDIUM	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-285	MEDIUM	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-286	MEDIUM	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-287	MEDIUM	palette-card-menu	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-288	MEDIUM	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-289	MEDIUM	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-290	MEDIUM	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-291	MEDIUM	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-292	MEDIUM	palette-card-menu	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-293	MEDIUM	palette-card-menu	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-294	MEDIUM	palettes-delete-all-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-295	MEDIUM	palettes-delete-all-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-296	MEDIUM	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-297	MEDIUM	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-298	MEDIUM	palettes-delete-all-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-299	MEDIUM	browse-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-300	MEDIUM	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-301	MEDIUM	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-302	MEDIUM	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-303	MEDIUM	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-304	MEDIUM	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-305	MEDIUM	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-306	MEDIUM	browse-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-307	MEDIUM	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-308	MEDIUM	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-309	MEDIUM	browse-search-filter	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-310	MEDIUM	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-311	MEDIUM	browse-search-filter	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-312	MEDIUM	browse-search-filter	GLASS	O-row	O-59 [.u1]
+UIA-V-313	MEDIUM	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-314	MEDIUM	browse-search-filter	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-315	MEDIUM	tag-edit-popover	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-316	MEDIUM	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-317	MEDIUM	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-318	MEDIUM	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-319	MEDIUM	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-320	MEDIUM	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-321	MEDIUM	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-322	MEDIUM	version-history-drawer	CONSUMER	sha	5e0be623 (italic caption: glass repin) [.u1]
+UIA-V-323	MEDIUM	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-324	MEDIUM	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-325	MEDIUM	version-history-drawer	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-326	MEDIUM	version-history-drawer	GLASS	O-row	O-59 [.u1]
+UIA-V-327	MEDIUM	flag-report-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-328	MEDIUM	flag-report-dialog	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-329	MEDIUM	flag-report-dialog	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-330	MEDIUM	flag-report-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-331	MEDIUM	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-332	MEDIUM	migrate-palettes-dialog	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-333	MEDIUM	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-334	MEDIUM	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-335	MEDIUM	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-336	MEDIUM	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-337	MEDIUM	migrate-palettes-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-338	MEDIUM	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-339	MEDIUM	migrate-palettes-dialog	CONSUMER	sha	5e0be623 [.u1]
+UIA-V-340	MEDIUM	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-341	MEDIUM	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-342	MEDIUM	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-343	MEDIUM	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-344	MEDIUM	extract-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-345	MEDIUM	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-346	MEDIUM	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-347	MEDIUM	extract-view	GLASS	O-row	O-59 [.u2]
+UIA-V-348	MEDIUM	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-349	MEDIUM	extract-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-350	MEDIUM	mix-view	GLASS	O-row	O-59 [.u2]
+UIA-V-351	MEDIUM	mix-view	CONSUMER	sha	c6e5e375 [.u2]
+UIA-V-352	MEDIUM	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-353	MEDIUM	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-354	MEDIUM	mix-view	GLASS	O-row	O-59 [.u2]
+UIA-V-355	MEDIUM	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-356	MEDIUM	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-357	MEDIUM	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-358	MEDIUM	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-359	MEDIUM	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-360	MEDIUM	mix-view	GLASS	O-row	O-59 [.u2]
+UIA-V-361	MEDIUM	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-362	MEDIUM	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-363	MEDIUM	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-364	MEDIUM	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-365	MEDIUM	generate-view	GLASS	O-row	O-59 [.u2]
+UIA-V-366	MEDIUM	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-367	MEDIUM	generate-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-368	MEDIUM	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-369	MEDIUM	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-370	MEDIUM	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-371	MEDIUM	gradient-view	CONSUMER	honest-RED/verdict	R-5 HOLD → X-W7L (--radius-input removed at glass 8) [.u2]
+UIA-V-372	MEDIUM	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-373	MEDIUM	gradient-view	CONSUMER	sha+supplement	5ccc0e3e (selection) · RESIDUE-U2 → SUPPLEMENT X-W12S (help-line block-size jump) [.u2]
+UIA-V-374	MEDIUM	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-375	MEDIUM	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-376	MEDIUM	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-377	MEDIUM	gradient-easing-authoring	GLASS	O-row	O-59 [.u2]
+UIA-V-378	MEDIUM	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-379	MEDIUM	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-380	MEDIUM	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-381	MEDIUM	gradient-easing-authoring	GLASS	O-row	O-59 [.u2]
+UIA-V-382	MEDIUM	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-383	MEDIUM	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-384	MEDIUM	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-385	MEDIUM	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-386	MEDIUM	atmosphere-view	GLASS	O-row	O-59 [.u2]
+UIA-V-387	MEDIUM	atmosphere-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-388	MEDIUM	atmosphere-view	GLASS	O-row	O-59 [.u2]
+UIA-V-389	MEDIUM	atmosphere-view	GLASS	O-row	O-59 [.u2]
+UIA-V-390	MEDIUM	atmosphere-view	CONSUMER	sha	7513b817 [.u2]
+UIA-V-391	MEDIUM	atmosphere-view	CONSUMER	sha+supplement	5ead5816 (copy) · RESIDUE-U2 → SUPPLEMENT X-W12S (Reset modified state) [.u2]
+UIA-V-392	MEDIUM	atmosphere-view	GLASS	O-row	O-59 [.u2]
+UIA-V-393	MEDIUM	atmosphere-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-394	MEDIUM	atmosphere-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-395	MEDIUM	atmosphere-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-396	MEDIUM	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-397	MEDIUM	blob-view	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-398	MEDIUM	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-399	MEDIUM	blob-view	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-400	MEDIUM	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-401	MEDIUM	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-402	MEDIUM	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-403	MEDIUM	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-404	MEDIUM	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-405	MEDIUM	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-406	MEDIUM	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-407	MEDIUM	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-408	MEDIUM	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-409	MEDIUM	admin-users	CONSUMER	sha	4d63f788 [.u3]
+UIA-V-410	MEDIUM	admin-users	GLASS	O-row	O-59
+UIA-V-411	MEDIUM	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-412	MEDIUM	admin-users	CONSUMER	sha	7465354d (D5: the scene row is top-anchored, so a state change no longer re-centres the card) [.b, mapped by .u3]
+UIA-V-413	MEDIUM	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-414	MEDIUM	admin-names	CONSUMER	sha	4d63f788 [.u3]
+UIA-V-415	MEDIUM	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-416	MEDIUM	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-417	MEDIUM	admin-names	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-418	MEDIUM	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-419	MEDIUM	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-420	MEDIUM	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-421	MEDIUM	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-422	MEDIUM	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-423	MEDIUM	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-424	MEDIUM	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-425	MEDIUM	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-426	MEDIUM	admin-audit	CONSUMER	sha	4d63f788 [.u3]
+UIA-V-427	MEDIUM	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-428	MEDIUM	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-429	MEDIUM	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-430	MEDIUM	admin-audit	CONSUMER	sha	7465354d (D5: the scene row is top-anchored, so a state change no longer re-centres the card) [.b, mapped by .u3]
+UIA-V-431	MEDIUM	admin-audit	GLASS	O-row	O-59
+UIA-V-432	MEDIUM	admin-flagged	CONSUMER	sha	4d63f788 [.u3]
+UIA-V-433	MEDIUM	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-434	MEDIUM	admin-flagged	CONSUMER	sha	426bf798 (icon-only rung: 44x44 at 390, measured probe-u3-admin-icons) [.u3]
+UIA-V-435	MEDIUM	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-436	MEDIUM	admin-flagged	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-437	MEDIUM	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-438	MEDIUM	admin-tags	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-439	MEDIUM	admin-tags	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-440	MEDIUM	admin-tags	GLASS	O-row	O-59
+UIA-V-441	MEDIUM	admin-tags	GLASS	O-row	O-59
+UIA-V-442	MEDIUM	admin-tags	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-443	MEDIUM	admin-tags	CONSUMER	sha	7465354d (D5: the scene row is top-anchored, so a state change no longer re-centres the card) [.b, mapped by .u3]
+UIA-V-444	MEDIUM	admin-tags	GLASS	O-row	O-59
+UIA-V-445	MEDIUM	not-found	GLASS	O-row	O-59
+UIA-V-446	MEDIUM	not-found	CONSUMER	sha	b6f90b5c [.u3]
+UIA-V-447	MEDIUM	not-found	CONSUMER	sha	b6f90b5c [.u3]
+UIA-V-448	MEDIUM	not-found	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-449	MEDIUM	not-found	CONSUMER	sha	b6f90b5c [.u3]
+UIA-V-450	MEDIUM	not-found	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-451	MEDIUM	not-found	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-452	MEDIUM	pane-plates	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-453	MEDIUM	pane-plates	CONSUMER	sha	f8fa42d4 [.u3]
+UIA-V-454	MEDIUM	pane-plates	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-455	MEDIUM	pane-plates	CONSUMER	sha	2480c047 [.u3]
+UIA-V-456	MEDIUM	pane-plates	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-457	MEDIUM	pointer-debug-overlay	GLASS	O-row	O-59
+UIA-V-458	MEDIUM	pointer-debug-overlay	CONSUMER	sha	e3d459de [.u3]
+UIA-V-459	MEDIUM	pointer-debug-overlay	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-460	MEDIUM	pointer-debug-overlay	CONSUMER	sha	e3d459de [.u3]
+UIA-V-461	LOW	app-ground-atmosphere	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-462	LOW	app-ground-atmosphere	CONSUMER	sha	1a696ca6 (D2-D4: the opening breath on one clock, once; no KeepAlive-return replay of plate-land/blob-emerge) [.b, mapped by .u3]
+UIA-V-463	LOW	app-ground-atmosphere	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-464	LOW	app-ground-atmosphere	UNRESOLVED	honest-RED/verdict	VERDICT NOT-A-DEFECT (transient overlay-scrollbar thumb; x=382 samples measured) [.u1]
+UIA-V-465	LOW	home-picker	GLASS	O-row	O-59
+UIA-V-466	LOW	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-467	LOW	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-468	LOW	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-469	LOW	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-470	LOW	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-471	LOW	home-picker	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-472	LOW	about-pane	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-473	LOW	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-474	LOW	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-475	LOW	about-pane	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-476	LOW	about-pane	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-477	LOW	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-478	LOW	about-pane	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-479	LOW	color-space-select	CONSUMER	sha	67bc5144 [.t]
+UIA-V-480	LOW	color-space-select	CONSUMER	sha	67bc5144 [.t]
+UIA-V-481	LOW	color-space-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-482	LOW	color-space-select	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-483	LOW	color-space-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-484	LOW	color-space-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-485	LOW	color-space-select	GLASS	O-row	O-59
+UIA-V-486	LOW	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-487	LOW	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-488	LOW	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-489	LOW	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-490	LOW	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-491	LOW	dock-main	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-492	LOW	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-493	LOW	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-494	LOW	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-495	LOW	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-496	LOW	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-497	LOW	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-498	LOW	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-499	LOW	dock-view-select	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-500	LOW	dock-action-bar-color	GLASS+CONSUMER	sha	04b1e822 [.e]
+UIA-V-501	LOW	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-502	LOW	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-503	LOW	dock-action-bar-color	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-504	LOW	dock-action-bar-color	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-505	LOW	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-506	LOW	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-507	LOW	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-508	LOW	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-509	LOW	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-510	LOW	dock-slug-edit-layer	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-511	LOW	dock-slug-edit-layer	GLASS+CONSUMER	sha	b4173137 [.u3]
+UIA-V-512	LOW	dock-slug-edit-layer	GLASS	O-row	O-59
+UIA-V-513	LOW	dock-slug-edit-layer	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-514	LOW	dock-mobile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-515	LOW	dock-mobile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-516	LOW	dock-mobile-menu	CONSUMER	sha	b4173137 [.u3]
+UIA-V-517	LOW	dock-mobile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-518	LOW	dock-profile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-519	LOW	dock-profile-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-520	LOW	dock-profile-menu	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-521	LOW	dock-mbabb-menu	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-522	LOW	dock-mbabb-menu	GLASS	O-row	O-59
+UIA-V-523	LOW	dock-mbabb-menu	GLASS	O-row	O-59
+UIA-V-524	LOW	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-525	LOW	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-526	LOW	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-527	LOW	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-528	LOW	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-529	LOW	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-530	LOW	palettes-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-531	LOW	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-532	LOW	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-533	LOW	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-534	LOW	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-535	LOW	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-536	LOW	palette-scene-actions	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-537	LOW	palette-scene-actions	UNRESOLVED	O-row+honest-RED/verdict	VERDICT GLASS → O-59 (Dialog placement=right surface; consumer class carries width/flex only) [.u1]
+UIA-V-538	LOW	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-539	LOW	palette-card-menu	GLASS	O-row	O-59 [.u1]
+UIA-V-540	LOW	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-541	LOW	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-542	LOW	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-543	LOW	palette-card-menu	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-544	LOW	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-545	LOW	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-546	LOW	palettes-delete-all-dialog	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-547	LOW	palettes-delete-all-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-548	LOW	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-549	LOW	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-550	LOW	palettes-delete-all-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-551	LOW	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-552	LOW	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-553	LOW	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-554	LOW	browse-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-555	LOW	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-556	LOW	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-557	LOW	browse-view	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-558	LOW	browse-search-filter	GLASS	O-row	O-59 [.u1]
+UIA-V-559	LOW	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-560	LOW	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-561	LOW	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-562	LOW	browse-search-filter	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-563	LOW	browse-search-filter	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-564	LOW	tag-edit-popover	GLASS	O-row	O-59 [.u1]
+UIA-V-565	LOW	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-566	LOW	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-567	LOW	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-568	LOW	tag-edit-popover	GLASS	O-row	O-59 [.u1]
+UIA-V-569	LOW	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-570	LOW	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-571	LOW	tag-edit-popover	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-572	LOW	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-573	LOW	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-574	LOW	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-575	LOW	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-576	LOW	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-577	LOW	version-history-drawer	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-578	LOW	flag-report-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-579	LOW	flag-report-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-580	LOW	flag-report-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-581	LOW	flag-report-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-582	LOW	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-583	LOW	migrate-palettes-dialog	GLASS	O-row	O-59 [.u1]
+UIA-V-584	LOW	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-585	LOW	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-586	LOW	migrate-palettes-dialog	CONSUMER	supplement	RESIDUE-U1 → SUPPLEMENT X-W12S [.u1]
+UIA-V-587	LOW	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-588	LOW	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-589	LOW	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-590	LOW	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-591	LOW	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-592	LOW	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-593	LOW	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-594	LOW	extract-view	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-595	LOW	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-596	LOW	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-597	LOW	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-598	LOW	mix-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-599	LOW	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-600	LOW	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-601	LOW	generate-view	GLASS	O-row	O-59 [.u2]
+UIA-V-602	LOW	generate-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-603	LOW	generate-view	CONSUMER	honest-RED/verdict	R-5 HOLD → X-W7L (repin removes seams) [.u2]
+UIA-V-604	LOW	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-605	LOW	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-606	LOW	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-607	LOW	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-608	LOW	gradient-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-609	LOW	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-610	LOW	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-611	LOW	gradient-easing-authoring	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-612	LOW	gradient-easing-authoring	GLASS+CONSUMER	O-row+supplement	O-59 + RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-613	LOW	atmosphere-view	GLASS	O-row	O-59 [.u2]
+UIA-V-614	LOW	atmosphere-view	CONSUMER	sha	72985b2c [.u2]
+UIA-V-615	LOW	atmosphere-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-616	LOW	atmosphere-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-617	LOW	atmosphere-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-618	LOW	atmosphere-view	GLASS	O-row	O-59 [.u2]
+UIA-V-619	LOW	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-620	LOW	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-621	LOW	blob-view	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-622	LOW	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-623	LOW	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-624	LOW	admin-users	CONSUMER	sha+supplement	b0c81878 (Prune inert while loading) · RESIDUE-U3 → SUPPLEMENT X-W12S (dimmed-rows refresh + Refresh loading) [.u3]
+UIA-V-625	LOW	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-626	LOW	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-627	LOW	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-628	LOW	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-629	LOW	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-630	LOW	admin-users	CONSUMER	sha	b0c81878 [.u3]
+UIA-V-631	LOW	admin-users	CONSUMER	sha	426bf798 (icon-only rung: Delete user 44x44 at 390, measured probe-u3-admin-icons-run3/4) [.u3]
+UIA-V-632	LOW	admin-users	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-633	LOW	admin-names	GLASS	O-row	O-59
+UIA-V-634	LOW	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-635	LOW	admin-names	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-636	LOW	admin-names	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-637	LOW	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-638	LOW	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-639	LOW	admin-audit	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-640	LOW	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-641	LOW	admin-audit	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-642	LOW	admin-audit	CONSUMER	sha	2d3799d7 (the pager and its aria-live region stay mounted through a page turn — measured probe-u3-audit-page) [.u3]
+UIA-V-643	LOW	admin-audit	UNRESOLVED	O-row+honest-RED/verdict	VERDICT NOT-A-DEFECT (designed 5 s idle collapse) · HONEST-RED DOCK-COLLAPSED-FORM (O-65) [.u1]
+UIA-V-644	LOW	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-645	LOW	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-646	LOW	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-647	LOW	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-648	LOW	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-649	LOW	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-650	LOW	admin-flagged	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-651	LOW	admin-tags	CONSUMER	sha	0223f1c6 [.u3]
+UIA-V-652	LOW	admin-tags	CONSUMER	sha	0223f1c6 [.u3]
+UIA-V-653	LOW	admin-tags	CONSUMER	sha	0223f1c6 [.u3]
+UIA-V-654	LOW	admin-tags	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-655	LOW	admin-tags	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-656	LOW	not-found	CONSUMER	sha	b6f90b5c [.u3]
+UIA-V-657	LOW	not-found	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-658	LOW	not-found	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-659	LOW	not-found	CONSUMER	sha	eeebabd9 [.u3]
+UIA-V-660	LOW	not-found	GLASS+CONSUMER	O-row+supplement	O-59 (glass half) · RESIDUE-U3 → SUPPLEMENT X-W12S (consumer half)
+UIA-V-661	LOW	not-found	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-662	LOW	not-found	CONSUMER	sha	7465354d (D5: the scene row is top-anchored under the route title, never viewport-centred) [.b, mapped by .u3]
+UIA-V-663	LOW	pane-plates	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-664	LOW	pane-plates	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-665	LOW	pane-plates	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-666	LOW	pane-plates	GLASS	O-row	O-59
+UIA-V-667	LOW	pane-plates	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-668	LOW	pane-plates	UNRESOLVED	O-row+honest-RED/verdict	VERDICT NOT-A-DEFECT (designed 5 s idle collapse) · HONEST-RED DOCK-COLLAPSED-FORM (O-65) [.u1]
+UIA-V-669	LOW	pane-plates	GLASS	O-row	O-59
+UIA-V-670	LOW	pane-plates	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-671	LOW	pointer-debug-overlay	CONSUMER	sha	e3d459de [.u3]
+UIA-V-672	LOW	pointer-debug-overlay	CONSUMER	sha	e3d459de [.u3]
+UIA-V-673	LOW	pointer-debug-overlay	CONSUMER	sha	e3d459de [.u3]
+UIA-V-674	LOW	pointer-debug-overlay	CONSUMER	sha	e3d459de [.u3]
+UIA-V-675	LOW	pointer-debug-overlay	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-676	LOW	pointer-debug-overlay	GLASS+CONSUMER	O-row+sha	e3d459de (consumer: --z-max clears --z-toggle 999 + teleported overlays) · O-59 (glass: --z-debug rung) [.u3]
+UIA-V-H1	LOW	dock-color-input	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S
+UIA-V-H2	LOW	extract-view	CONSUMER	supplement	RESIDUE-U2 → SUPPLEMENT X-W12S [.u2]
+UIA-V-H3	LOW	not-found	CONSUMER	supplement	RESIDUE-U3 → SUPPLEMENT X-W12S

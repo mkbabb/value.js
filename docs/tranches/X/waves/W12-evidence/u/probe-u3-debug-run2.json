@@ -1,0 +1,96 @@
+[
+ {
+  "vp": 390,
+  "scheme": "dark",
+  "collapsed": {
+   "z": "9999",
+   "radius": "12px"
+  },
+  "open": {
+   "z": "9999",
+   "radius": "12px",
+   "headerHitIsOverlay": true,
+   "toggleHitIsOverlay": true,
+   "rightEdgeHitIsOverlay": true,
+   "scrollPE": "auto",
+   "btn": [
+    [
+     36,
+     "4px"
+    ],
+    [
+     36,
+     "4px"
+    ],
+    [
+     36,
+     "4px"
+    ]
+   ],
+   "gauges": [
+    "global.activePointer no",
+    "global.activePointers 0",
+    "global.silenceMs 189",
+    "global.lastDown.pid 1",
+    "global.lastDown.hasCap no",
+    "global.lastDown.target div.flex.flex-col",
+    "lastForceRelease 0.2s ago",
+    "lastForceReset 0.2s ago"
+   ],
+   "firstRows": [
+    "0.00 FORCE_RESET_DONE 13 els checked",
+    "0.00 FORCE_RELEASE manual"
+   ],
+   "rawClockInLog": false,
+   "noiseInLog": false
+  },
+  "focusRing": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px inset, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px"
+ },
+ {
+  "vp": 1440,
+  "scheme": "light",
+  "collapsed": {
+   "z": "9999",
+   "radius": "12px"
+  },
+  "open": {
+   "z": "9999",
+   "radius": "12px",
+   "headerHitIsOverlay": true,
+   "toggleHitIsOverlay": true,
+   "rightEdgeHitIsOverlay": true,
+   "scrollPE": "auto",
+   "btn": [
+    [
+     36,
+     "4px"
+    ],
+    [
+     36,
+     "4px"
+    ],
+    [
+     36,
+     "4px"
+    ]
+   ],
+   "gauges": [
+    "global.activePointer no",
+    "global.activePointers 0",
+    "global.silenceMs 108",
+    "global.lastDown.pid 1",
+    "global.lastDown.hasCap no",
+    "global.lastDown.target div.pane-container",
+    "lastForceRelease 0.1s ago",
+    "lastForceReset 0.1s ago"
+   ],
+   "firstRows": [
+    "0.00 FORCE_RESET_DONE 13 els checked",
+    "0.00 FORCE_RELEASE manual"
+   ],
+   "rawClockInLog": false,
+   "noiseInLog": false
+  },
+  "focusRing": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px inset, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px"
+ }
+]

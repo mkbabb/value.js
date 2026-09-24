@@ -1,0 +1,40 @@
+[
+ {
+  "vp": 1440,
+  "scheme": "light",
+  "h1": [
+   "NOT FOUND"
+  ],
+  "plate": {
+   "texts": [
+    "This address names no view of this app.",
+    "/foo/bar baz"
+   ],
+   "detailFont": "\"Fira Code\", \"Fira C",
+   "detailColor": "oklch(0.447121 0.00386159 34.63)"
+  },
+  "emphasis": "quiet",
+  "bgRest": "rgba(0, 0, 0, 0)",
+  "bgHover": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+  "afterHome": "#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)"
+ },
+ {
+  "vp": 390,
+  "scheme": "dark",
+  "h1": [
+   "NOT FOUND"
+  ],
+  "plate": {
+   "texts": [
+    "This address names no view of this app.",
+    "/foo/bar baz"
+   ],
+   "detailFont": "\"Fira Code\", \"Fira C",
+   "detailColor": "oklch(0.729311 0.00382185 41.8684)"
+  },
+  "emphasis": "quiet",
+  "bgRest": "rgba(0, 0, 0, 0)",
+  "bgHover": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+  "afterHome": "#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)"
+ }
+]

@@ -1,0 +1,20 @@
+[
+ {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 0.665504 0.0000974858 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.0000974858 0.261748 / 0.15) 0px 0px 8px 0px",
+  "ring": "0 0 0 2px color-mix(in srgb, oklch(0.471189 0.188448 9.83402) 30%, transparent), 0 0 8px color-mix(in srgb, oklch(0.4711",
+  "vp": 1440,
+  "scheme": "light",
+  "tabs": 1
+ },
+ {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px",
+  "ring": "0 0 0 2px color-mix(in srgb, oklch(0.958322 0.0210531 9.83402) 30%, transparent), 0 0 8px color-mix(in srgb, oklch(0.958",
+  "vp": 390,
+  "scheme": "dark",
+  "tabs": 1
+ }
+]

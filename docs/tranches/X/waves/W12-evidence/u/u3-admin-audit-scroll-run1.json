@@ -1,0 +1,267 @@
+{
+  "errs": [],
+  "at390": {
+    "vw": 390,
+    "card": [
+      16,
+      128,
+      358,
+      1839
+    ],
+    "grid": [
+      33,
+      214,
+      324,
+      1736
+    ],
+    "row": [
+      33,
+      298,
+      324,
+      67
+    ],
+    "rowMinW": "0px",
+    "count": [
+      33,
+      262,
+      86,
+      20
+    ],
+    "refresh": [
+      127,
+      258,
+      28,
+      28
+    ],
+    "next": [
+      244,
+      1889,
+      40,
+      36
+    ],
+    "pageText": [
+      154,
+      1899,
+      81,
+      16
+    ],
+    "docSW": 390,
+    "scrollers": [
+      {
+        "tag": "DIV",
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scrol",
+        "oy": "auto",
+        "sh": 1837,
+        "ch": 1837,
+        "st": 0
+      },
+      {
+        "tag": "HTML",
+        "cls": "",
+        "oy": "visible",
+        "sh": 1980,
+        "ch": 844,
+        "st": 0
+      }
+    ]
+  },
+  "at390AfterWheel": {
+    "vw": 390,
+    "card": [
+      16,
+      -1008,
+      358,
+      1839
+    ],
+    "grid": [
+      33,
+      -923,
+      324,
+      1736
+    ],
+    "row": [
+      33,
+      -839,
+      324,
+      67
+    ],
+    "rowMinW": "0px",
+    "count": [
+      33,
+      -874,
+      86,
+      20
+    ],
+    "refresh": [
+      127,
+      -879,
+      28,
+      28
+    ],
+    "next": [
+      244,
+      753,
+      40,
+      36
+    ],
+    "pageText": [
+      154,
+      763,
+      81,
+      16
+    ],
+    "docSW": 390,
+    "scrollers": [
+      {
+        "tag": "DIV",
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scrol",
+        "oy": "auto",
+        "sh": 1837,
+        "ch": 1837,
+        "st": 0
+      },
+      {
+        "tag": "HTML",
+        "cls": "",
+        "oy": "visible",
+        "sh": 1980,
+        "ch": 844,
+        "st": 1136
+      }
+    ]
+  },
+  "refreshHit": {
+    "inViewport": true,
+    "hitIsButton": false
+  },
+  "at1440": {
+    "vw": 1440,
+    "card": [
+      199,
+      112,
+      1042,
+      1943
+    ],
+    "grid": [
+      224,
+      217,
+      992,
+      1820
+    ],
+    "row": [
+      224,
+      265,
+      992,
+      73
+    ],
+    "rowMinW": "0px",
+    "count": [
+      1079,
+      224,
+      101,
+      23
+    ],
+    "refresh": [
+      1188,
+      221,
+      28,
+      28
+    ],
+    "next": [
+      775,
+      1978,
+      40,
+      36
+    ],
+    "pageText": [
+      673,
+      1986,
+      93,
+      19
+    ],
+    "docSW": 1440,
+    "scrollers": [
+      {
+        "tag": "DIV",
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scrol",
+        "oy": "auto",
+        "sh": 1941,
+        "ch": 1941,
+        "st": 0
+      },
+      {
+        "tag": "HTML",
+        "cls": "",
+        "oy": "visible",
+        "sh": 2069,
+        "ch": 900,
+        "st": 0
+      }
+    ]
+  },
+  "at1440AfterWheel": {
+    "vw": 1440,
+    "card": [
+      199,
+      -1057,
+      1042,
+      1943
+    ],
+    "grid": [
+      224,
+      -952,
+      992,
+      1820
+    ],
+    "row": [
+      224,
+      -904,
+      992,
+      73
+    ],
+    "rowMinW": "0px",
+    "count": [
+      1079,
+      -945,
+      101,
+      23
+    ],
+    "refresh": [
+      1188,
+      -948,
+      28,
+      28
+    ],
+    "next": [
+      775,
+      809,
+      40,
+      36
+    ],
+    "pageText": [
+      673,
+      817,
+      93,
+      19
+    ],
+    "docSW": 1440,
+    "scrollers": [
+      {
+        "tag": "DIV",
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scrol",
+        "oy": "auto",
+        "sh": 1941,
+        "ch": 1941,
+        "st": 0
+      },
+      {
+        "tag": "HTML",
+        "cls": "",
+        "oy": "visible",
+        "sh": 2069,
+        "ch": 900,
+        "st": 1169
+      }
+    ]
+  }
+}
