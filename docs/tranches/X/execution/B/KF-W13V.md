@@ -722,3 +722,66 @@ The served-page gates were read headed ×2 on dev + ×2 on gh-pages by each owni
 **SELF-COUNT**: gate rows in the table above 18 (⟨`sed -n` the section `| grep -c`⟩ → 18 · 18) → GREEN 11 · honest-RED 1 (p3) · RED 6 (s1-DOM · k1 · k2 · k3 · k4 · u1) · mixed 1 (kf e2e: GREEN-WITH-HONEST-RED for B7/M1, RED for `[real-cube]` — the same defect as k4). kf shas audited 29 (s 4 · c 2 · y 4 · k 9 · u 10), landed-wrong 0; value.js unit shas 10.
 
 **Push (act 7)**: ⟨`git -C keyframes.js push origin HEAD`⟩ → `d94017ff..15edd312  HEAD -> master`; ⟨`rev-parse --short origin/master`⟩ → `15edd312`. value.js pushed after this record and the LEDGER commit.
+
+## Check 1 (L-20 pass 1 on the Close)
+
+**Seat**: `claude-opus-5-5`, VERIFY-ONLY (0 kf / glass / product bytes). **Date**: 2026-09-24 (sitting of record 2026-09-17). **kf HEAD** `15edd312` = `origin/master`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → 2 standing untracked inbound letters, 0 modified; value.js dirty paths (CARRY-LEDGER · X-W12.md · `scripts/dev/dev.sh`) are outside this seat's set (this record, LEDGER) and untouched.
+
+**Verdict: NOT-CONFORMANT.** Every GREEN the close claims reproduces, and bounds, masking, families, E-3 and mail are clean. But six gates stay RED with no relief in the spec. The spec's `.k` relief covers glass rows only ("glass rows → the batched glass letter"). `.u`'s relief is "routed to glass by id". No COHESION section after §0ce grants or relieves ESC-s-1 or the carried consumer rows: ⟨`grep -n 'ESC-s-1\|OPEN-CARRIED\|REAL-CUBE\|CRITIC-GAPS' COHESION.md KF-W13.md`⟩ → 0. A "successor unit of this wave" is not an owner the spec names.
+
+### Reproduced (×2 unless noted; load 20.17 at open)
+
+| axis / gate | command | result | reads as claimed |
+|---|---|---|---|
+| s1 grep | ⟨`grep -rln "KeyframesEditor\|CSSCodeEditor\|useSpringKeyframesEditor\|keyframes (editable)" demo/scenes \| wc -l`⟩ | 0 · 0 | yes |
+| s1 DOM (served, dev) | ⟨`node W13V/s/census.mjs http://localhost:5173/ 1 …`⟩ | sequence `stageEditors=6` (5 re-time sliders + master scrub) at 1440/390/360, dock `Controls(off) · Keyframes(off) · Timeline(off) · Scene facet(off)` · others 0 inline kf blocks | RED as the close says |
+| s2 (served, dev, 1440) | ⟨`node W13V/s/items.mjs http://localhost:5173/ 1440x900`⟩ | `fails=0` · `fails=0` | yes (script-GREEN; see C1-1: Sequence has all four items off) |
+| p1 proxy | ⟨`grep -rn radius-field demo --include='*.vue' --include='*.css' \| wc -l`⟩ | 3 · 3 | yes |
+| c2 | ⟨`grep -c '<Separator' demo/components/instrument/transport/channel-controls/ChannelOptions.vue`⟩ | 2 · 2 | yes |
+| floor check | ⟨`npm run check; echo $?`⟩ | EXIT 0 · EXIT 0 | yes |
+| floor vitest | ⟨`npx vitest run --project demo`⟩ | 75/75 · 558/558 · 75/75 · 558/558 | yes |
+| eslint | ⟨`npx eslint demo/app demo/components/instrument/transport demo/components/playback demo/scenes`⟩ | EXIT 0 | yes |
+| diff --check | ⟨`git diff --check d94017ff..15edd312 \| wc -l`⟩ | 0 · 0 | yes |
+| u1 tally | ⟨awk col 4 of `W13V/u/DISPOSITION.md` \| uniq -c⟩ | CURED-u 6 · HONEST-RED 1 · LANDED-BY 2 · NOT-REPRODUCED 1 · OPEN-CARRIED 240 · PARTIAL-u 2 · PIN-CARRIED 14 · ROUTED-GLASS 37 · ROUTED-VALUE.JS 1 · SPLIT 17 · SURFACE-RETIRED 1 (=322); OPEN by severity BROKEN 24 · HIGH 41 · MEDIUM 96 · LOW 79 | yes (figures) |
+| k1 tally | ⟨`grep -c '^\| KFA-.*\| OPEN — honest-RED, not cured this seat' W13V/k/split-table.md`⟩ | 183 · 183 of 228 | yes (figures) |
+
+Served readings not re-run here (c1/c3–c5, y1–y5, p2, s3/s4, u2–u4): I cite them from the unit receipts. Because the verdict is already NOT-CONFORMANT on the unrelieved REDs, re-running them would not change it (probe parsimony, §5.2). kf e2e was not re-run. The close's 4/6 · 3/6 is taken as the record's figure.
+
+### Axes
+
+- **(2) bounds**: 29 kf shas `d94017ff..15edd312`, and ⟨`--invert-grep --grep=W13V \| wc -l`⟩ → 0. Paths outside `demo/ test/ scripts/observe/ src/` → 1: `scripts/lib/demo-driver.mjs`, a §0bt adjacent declared by `.s`. `src/` (7 files, +53/−11) is inside `.k`'s set. package.json, the lock and node_modules have 0 lines of diff. value.js unit commits touch only the record, `evidence/W13V/**`, `relay/`, INBOX and LEDGER. ⟨`git log $B^..HEAD -- scripts/dev/dev.sh`⟩ → 0. Clean.
+- **(3) masking**: I grepped the added lines for `.skip` / `.only` / `@ts-expect-error` / `@ts-ignore` / catch / allowlist. The only hit is a white-box `seq as any` in the new KFA-17 test (`test/orchestration/sequence-transport.test.ts`), which follows the file's existing `s._time` idiom. Assertion removals (`spring-heatmap-reversibility` −18/+9, `scene-entries` −2/+1, …) follow deleted or redesigned subjects: `sceneIndex` deleted by `ab94125c`, and the inner preset slider retired by `9262899b`. None is a narrowed oracle. Clean.
+- **(4) families**: the Spring inline-editor retirement is ONE sha (`e69f7731`), and so is the one dock descriptor (`e11db5a1`). One meaning per sha. Clean.
+- **(5) E-3**: ⟨`git diff --stat ad69b2a9^..HEAD -- KF-W13.md registry/adjudicated/ keyframes/audit/ audit/UI-AUDIT-keyframes.md`⟩ → KF-W13.md +62/−0 only. Those lines are the orchestrator's dated addenda (§0co/§0cq/§0cs/§0ct), not this wave's commits. The registry and both registers are untouched. Clean.
+- **(6) mail**: ⟨`grep -c '| UNREAD' INBOX.md`⟩ → 1, and that hit is the `:406` sweep line, not a row. ⟨find -newer INBOX⟩ → `glass-ui/…/BL/FORMATION-PROGRESS.md` only, which is glass-internal. 0 UNREAD in scope.
+- **(7) four-verb**: IMPLEMENTED = NO — PARTIAL, and VERIFIED = NO. That is lawful and honest.
+- **(8) goal at the bytes**: NOT MET. The owner's OA-46 words name "the sequcne … NOT inline". The Sequence scene still renders six inline editors, and all four of its dock items are disabled.
+- **(9) figures**: the u1 and k1 tallies reproduce exactly. So do check, vitest and the grep proxies.
+
+### Register (severity · claim · receipt · cure)
+
+- **C1-1 HIGH**: G-W13V-s1 is RED at Sequence, and ESC-s-1 is unruled. The receipt is census ×2 above: `stageEditors=6`, and Controls, Keyframes, Timeline and the facet are all `(off)`. OA-46 says "a scene may disable an item it has no data for". Sequence has keyframes and timing data, but it disables every item and keeps its editors inline. The same defect makes s2 read GREEN only in form. **Cure**: an orchestrator grant (a Timeline/Keyframes shared-pane seat for Sequence's re-time rows and master scrub), then a `.s` successor that moves them and enables the items.
+- **C1-2 HIGH**: G-W13V-k1 is RED. 183 of 228 KFA rows are consumer-caused and stay OPEN. The split table labels them "honest-RED" with owner "KF.W13V `.k` successor". The spec's honest-RED relief is for glass rows (§0bl `.k`; §0bn "glass rows (O-60) … else honest-RED by id"), and consumer rows are "cured at cause". **Cure**: a `.k` successor seat (or an owner/COHESION ruling that re-homes the rows to a named later wave) cures them at their cause.
+- **C1-3 HIGH**: G-W13V-u1 is RED. 240 consumer UIA-KF rows are OPEN-CARRIED, as are the 17 SPLIT consumer halves. The spec (§0bl `.u`) says "Every UIA-KF-n row: cured … or routed to glass by id", and no relief covers consumer rows. **Cure**: a `.u` successor seat, or a dated ruling that re-homes the rows by id.
+- **C1-4 HIGH**: G-W13V-k3 is RED. Only 3 of the 7 critic gaps are captured (`CRITIC-GAPS-UNCAPTURED`), and §0bn makes each capture a `.k` obligation. **Cure**: the `.k` successor captures and judges the other four: the 6-scene × verb matrix, dark legs, the mobile Sheet, and tooltips/toasts as listed.
+- **C1-5 HIGH**: G-W13V-k4 and the kf e2e close clause are RED. `[real-cube]` failed in 1 of 2 runs at the close. §0cd assigns C6-3 (KFA-17) to KF.W13V `.k`, so no other owner holds it. The mechanism is inferred, not isolated. **Cure**: isolate the cause of `rest=false` under autoplay and cure it, then run e2e `--workers=1` ×2 with the load recorded.
+- **C1-6 MEDIUM**: G-W13V-k2 is RED. KFA-15's served re-capture is owed (10 of 11). **Cure**: the `.k` successor re-captures it with the audit's script.
+- **C1-7 INFO**: `vue-sonner` is unread after `56244f0d`. Removing it is a pin edit, owned by a seat granted `package.json` (§0bt excludes pins).
+- **C1-8 INFO**: the white-box `as any` in the KFA-17 test follows the file's idiom. It is not a mask.
+
+### Honest-RED set (relieved, owner-named)
+
+- `TILE-PRIMITIVE` (p3): named by id in the spec's second addendum (§0bl), with O-58/O-67. Owner: glass BL.
+- `SHEET-POSITION` (e2e M1): relieved at KF.W13R Check 1 by id. Owner: glass BL F-21.
+- `B7 SPECULAR-REST` (e2e B7): relieved at KF.W13R Check 1 by id. Owner: glass.
+- `SLIDER-THUMB` (y5's thumb clause): producer-owned. Green only upstream.
+- `DARK-MENU-ITEM` (UIA-KF-017 dark half, O-61 R-3) and `QUIET-FOCUS-RING` (UIA-KF-025): named by id in §0br/§0cd.
+- Carried producer ids `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `GLASS-VEIL-GREY` · `DOCK-TRIGGER-CLIP`: named in §0br/§0cf/§0cj. The glass KFA rows go via O-60/O-69, and the glass UIA rows via O-59/O-70.
+
+**Unrelieved**: s1-DOM (Sequence) · k1 · k2 · k3 · k4 / e2e `[real-cube]` · u1.
+
+### Successors
+
+KF.W13W opens after "KF.W13V" (spec `:447`). That conjunct is **RED**: this row is not CLOSED. KF.W13W is lawfully **BLOCKED** until a repair closes C1-1..C1-6 or a dated ruling relieves them.
+
+**SELF-COUNT**: gates reproduced 10 (s1-grep · s2 · p1 · c2 · check · vitest · eslint · diff-check · u1-tally · k1-tally). Gates failed 6 (s1-DOM · k1 · k2 · k3 · k4/e2e · u1). Register 8 rows: HIGH 5 · MEDIUM 1 · INFO 2 (⟨`grep -c '^- \*\*C1-'`⟩ on this section → 8).
