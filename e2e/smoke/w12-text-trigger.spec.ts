@@ -31,6 +31,19 @@ import { regionSettled } from "./fixtures/settle";
 
 const OUT = process.env.W12_TEXT_TRIGGER_OUT;
 
+/**
+ * X-W12 Repair 2 (H-2′): the §0ci gate is read in HEADED Chromium, the eye's
+ * frame — the §0ax D1 real-GPU cell (`W12_REAL_GPU=1 … --headed`, the same
+ * seam as `w12-drag.spec.ts`). MEASURED 2026-09-24 (load 53–154): under the
+ * smoke project's SwiftShader launch the page composites at 4–8 fps and the
+ * listbox's exit animation (`glass-reveal-out`) sits PENDING at currentTime 0
+ * for 3–5 s after `data-state="closed"` (it waits on the compositor for its
+ * start time), so reka's Presence unmounts past the 8 s expect; on the real
+ * GPU the same close unmounts in < 0.8 s, 3 legs of 3. The SwiftShader
+ * reading stays the default run and is banked beside.
+ */
+if (process.env.W12_REAL_GPU === "1") test.use({ launchOptions: { args: [] }, headless: false });
+
 const VIEWPORTS = [
     { name: "1440", width: 1440, height: 900 },
     { name: "390", width: 390, height: 844 },

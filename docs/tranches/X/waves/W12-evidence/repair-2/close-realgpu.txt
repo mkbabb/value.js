@@ -1,0 +1,7 @@
+17:10  up 15:13, 3 users, load averages: 55.21 60.05 80.14
+0 273 {"fps4":18,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"0.000","an":"","pe":"","a":[]}]}
+0 830 {"fps4":25,"vis":"visible","focus":true,"n":0,"c":[]}
+1 273 {"fps4":17,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"0.000","an":"","pe":"","a":[]}]}
+1 831 {"fps4":25,"vis":"visible","focus":true,"n":0,"c":[]}
+2 276 {"fps4":19,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"0.000","an":"","pe":"","a":[]}]}
+2 833 {"fps4":26,"vis":"visible","focus":true,"n":0,"c":[]}
