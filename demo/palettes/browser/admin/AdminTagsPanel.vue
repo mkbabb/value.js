@@ -40,7 +40,10 @@
         />
 
         <!-- Create form -->
-        <div v-if="!tagsApi.access.value" class="flex items-center gap-2">
+        <!-- UIA-V-182: below `sm` the primary name field takes its own full
+             row and the category + Create share the second, so the name is
+             never the narrower field clipping its own placeholder. -->
+        <div v-if="!tagsApi.access.value" class="flex flex-wrap sm:flex-nowrap items-center gap-2">
             <!-- S.W5-3 (S-17/F-7): glass-ui Input pills, sm rung; the pair
                  sized honestly (name vs category was ~5×; the category well
                  no longer clips its own placeholder). -->
@@ -52,7 +55,7 @@
                 aria-label="New tag name"
                 :aria-invalid="tagsApi.newNameProblem.value ? true : undefined"
                 aria-describedby="admin-tag-name-problem"
-                class="flex-1 min-w-0 font-mono"
+                class="basis-full sm:basis-auto flex-1 min-w-0 font-mono"
             />
             <Input
                 v-model="tagsApi.newCategory.value"
@@ -60,7 +63,7 @@
                 size="sm"
                 placeholder="Category..."
                 aria-label="New tag category"
-                class="w-36 font-mono"
+                class="flex-1 min-w-0 sm:flex-none sm:w-36 font-mono"
             />
             <!-- W5-a11y: icon-only create tag button needs accessible name -->
             <Button
@@ -116,7 +119,10 @@
         <EmptyState v-else-if="tagsApi.tags.value.length === 0" message="No tags yet." />
 
         <!-- Tag list grouped by category -->
-        <div v-else class="flex flex-col gap-4">
+        <!-- UIA-V-180 (the AdminListItem S.W5-12 F-1 law): `min-w-0` on the
+             grid item itself, or a long name's min-content blows the panel's
+             track past the card and nothing downstream can truncate. -->
+        <div v-else class="min-w-0 flex flex-col gap-4">
             <div v-for="[category, catTags] in tagsApi.groupedTags.value" :key="category">
                 <div class="mb-1.5 section-label text-muted-foreground">
                     {{ category }}
@@ -125,9 +131,12 @@
                     <div
                         v-for="tag in catTags"
                         :key="tag.name"
-                        class="group flex items-center gap-1 rounded-full border border-card-edge bg-muted/30 px-2.5 py-1 text-mono-small transition-colors hover:bg-accent/50"
+                        class="group flex items-center gap-1 max-w-full min-w-0 rounded-full border border-card-edge bg-muted/30 px-2.5 py-1 text-mono-small transition-colors hover:bg-accent/50"
                     >
-                        <span>{{ tag.name }}</span>
+                        <!-- UIA-V-180: the chip holds ONE line — a long name
+                             truncates inside the row (full name in `title`),
+                             never a two-line stadium. -->
+                        <span class="truncate min-w-0" :title="tag.name">{{ tag.name }}</span>
                         <!-- W5-a11y: icon-only delete button needs accessible name.
                              X.W7.e (S-14(b) · W7.90 · ATP-2): the seat is VISIBLE at
                              rest — never an opacity-0, hover-gated box that a touch
