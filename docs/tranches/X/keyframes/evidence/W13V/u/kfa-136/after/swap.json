@@ -1,0 +1,31 @@
+{
+ "hash": "#/amiga",
+ "trigger": true,
+ "row": true,
+ "vt": [
+  {
+   "types": [],
+   "anims": [
+    "::view-transition-group(root):-ua-view-transition-group-anim-root:250",
+    "::view-transition-group(scene-subject):-ua-view-transition-group-anim-scene-subject:250",
+    "::view-transition-new(root):-ua-view-transition-fade-in:250",
+    "::view-transition-new(root):-ua-mix-blend-mode-plus-lighter:250",
+    "::view-transition-old(root):-ua-view-transition-fade-out:250",
+    "::view-transition-old(root):-ua-mix-blend-mode-plus-lighter:250",
+    "::view-transition-new(scene-subject):-ua-view-transition-fade-in:250",
+    "::view-transition-new(scene-subject):-ua-mix-blend-mode-plus-lighter:250",
+    "::view-transition-old(scene-subject):-ua-view-transition-fade-out:250",
+    "::view-transition-old(scene-subject):-ua-mix-blend-mode-plus-lighter:250"
+   ]
+  }
+ ],
+ "hostBefore": {
+  "w": 878,
+  "h": 646
+ },
+ "hostAfter": {
+  "w": 878,
+  "h": 646
+ },
+ "pageerrors": []
+}

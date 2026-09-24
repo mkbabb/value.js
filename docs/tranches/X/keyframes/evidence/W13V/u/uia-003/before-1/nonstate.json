@@ -1,0 +1,21 @@
+{
+ "base": "http://localhost:5173/",
+ "legs": [
+  {
+   "payload": "MTIz",
+   "opened": true,
+   "toasts": [
+    "State restored!Animation state loaded from shared URL."
+   ],
+   "fieldStillOpen": false
+  },
+  {
+   "payload": "not-base64-%%",
+   "opened": true,
+   "toasts": [
+    "Invalid shared state"
+   ],
+   "fieldStillOpen": true
+  }
+ ]
+}

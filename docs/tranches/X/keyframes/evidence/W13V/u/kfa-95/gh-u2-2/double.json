@@ -1,0 +1,91 @@
+{
+ "base": "http://127.0.0.1:4181/",
+ "square": [
+  {
+   "k": "End",
+   "scrubBefore": {
+    "now": 0,
+    "max": 2000
+   },
+   "scrubAfter": {
+    "now": 0,
+    "max": 2000
+   },
+   "fill": "(none)",
+   "log": [
+    {
+     "key": "End",
+     "pre": false,
+     "role": "group"
+    },
+    {
+     "key": "End",
+     "pre": true,
+     "role": "group"
+    },
+    {
+     "key": "End",
+     "pre": true,
+     "role": "group"
+    }
+   ]
+  },
+  {
+   "k": "Home",
+   "scrubBefore": {
+    "now": 0,
+    "max": 2000
+   },
+   "scrubAfter": {
+    "now": 0,
+    "max": 2000
+   },
+   "fill": "(none)",
+   "log": [
+    {
+     "key": "Home",
+     "pre": false,
+     "role": "group"
+    },
+    {
+     "key": "Home",
+     "pre": true,
+     "role": "group"
+    },
+    {
+     "key": "Home",
+     "pre": true,
+     "role": "group"
+    }
+   ]
+  }
+ ],
+ "ribbon": {
+  "stepsPerPress": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "preConsumedDispatches": 20,
+  "dispatches": 30,
+  "sample": [
+   {
+    "key": "ArrowRight",
+    "pre": false,
+    "role": "slider"
+   },
+   {
+    "key": "ArrowRight",
+    "pre": true,
+    "role": "slider"
+   }
+  ]
+ }
+}

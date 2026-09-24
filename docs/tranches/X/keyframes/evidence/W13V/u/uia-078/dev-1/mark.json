@@ -1,0 +1,28 @@
+[
+ {
+  "select": "alternate",
+  "rows": [
+   {
+    "text": "alternate",
+    "mark": {
+     "w": 8,
+     "h": 8,
+     "bg": "rgb(28, 25, 23)"
+    }
+   }
+  ]
+ },
+ {
+  "select": "ease-in-out",
+  "rows": [
+   {
+    "text": "ease-in-outslow start & end",
+    "mark": {
+     "w": 8,
+     "h": 8,
+     "bg": "rgb(28, 25, 23)"
+    }
+   }
+  ]
+ }
+]

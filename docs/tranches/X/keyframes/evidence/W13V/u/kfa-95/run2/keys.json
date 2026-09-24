@@ -1,0 +1,56 @@
+{
+ "square": {
+  "found": true,
+  "legA": [
+   {
+    "k": "End",
+    "before": 0,
+    "after": 0,
+    "active": "Drag the box across two axes — a spring chases each axis"
+   },
+   {
+    "k": "Home",
+    "before": 0,
+    "after": 0,
+    "active": "Drag the box across two axes — a spring chases each axis"
+   },
+   {
+    "k": "End",
+    "before": 0,
+    "after": 0,
+    "active": "Drag the box across two axes — a spring chases each axis"
+   },
+   {
+    "k": "Home",
+    "before": 0,
+    "after": 0,
+    "active": "Drag the box across two axes — a spring chases each axis"
+   }
+  ]
+ },
+ "ribbon": {
+  "max": 5000,
+  "stepsPerPress": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ }
+}

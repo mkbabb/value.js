@@ -1,0 +1,17 @@
+{
+ "base": "http://localhost:5173/",
+ "before": {
+  "visible": true,
+  "text": ""
+ },
+ "options": [
+  "Rotations",
+  "Matrix",
+  "Hover"
+ ],
+ "picked": "Matrix",
+ "after": {
+  "hash": "#/cube",
+  "text": "Rotations"
+ }
+}

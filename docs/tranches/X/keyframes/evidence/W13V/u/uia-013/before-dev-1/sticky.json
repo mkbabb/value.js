@@ -1,0 +1,53 @@
+{
+ "base": "http://localhost:5173/",
+ "fields": [
+  {
+   "label": "duration",
+   "orig": "5s",
+   "afterBad": {
+    "value": "5s",
+    "ariaInvalid": "true",
+    "dataInvalid": null,
+    "describedBy": "Invalid value for animation option \"duration\": \"abc\" — expected a positive duration in milliseconds or a CSS time string"
+   },
+   "afterRestore": {
+    "value": "5s",
+    "ariaInvalid": null,
+    "dataInvalid": null,
+    "describedBy": ""
+   }
+  },
+  {
+   "label": "delay",
+   "orig": "0ms",
+   "afterBad": {
+    "value": "0ms",
+    "ariaInvalid": "true",
+    "dataInvalid": null,
+    "describedBy": "Invalid value for animation option \"delay\": \"abc\" — expected a delay in milliseconds or a CSS time string"
+   },
+   "afterRestore": {
+    "value": "0ms",
+    "ariaInvalid": null,
+    "dataInvalid": null,
+    "describedBy": ""
+   }
+  },
+  {
+   "label": "iterations",
+   "orig": "∞",
+   "afterBad": {
+    "value": "∞",
+    "ariaInvalid": "true",
+    "dataInvalid": null,
+    "describedBy": "Invalid value for animation option \"iterationCount\": \"abc\" — expected a non-negative count, \"infinite\", or Infinity"
+   },
+   "afterRestore": {
+    "value": "∞",
+    "ariaInvalid": null,
+    "dataInvalid": null,
+    "describedBy": ""
+   }
+  }
+ ]
+}

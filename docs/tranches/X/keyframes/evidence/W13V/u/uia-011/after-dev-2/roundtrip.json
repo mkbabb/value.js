@@ -1,0 +1,16 @@
+{
+ "base": "http://localhost:5173/",
+ "before": {
+  "duration": "5s",
+  "delay": null,
+  "timing": "ease-in-out"
+ },
+ "after": {
+  "duration": "5s",
+  "delay": null,
+  "timing": "ease-in-out"
+ },
+ "errs": [],
+ "clipA": ".keyframes-style-cube-Rotations {\n  animation-name: keyframes-style-cube-Rotations;\n  animation-duration: 5s;\n  animation-timing-function: ease-in-out;\n  animation-iteration-count: infinite;\n  animation-direction: alternate;\n  animation-fill-mode: forwards;\n}\n\n@keyframes keyframes-style-cube-Rotations {\n  0% {\n    transform: rotateX(0deg) rotateY(0turn) rotateZ(0deg);\n  }\n  100% {\n    transform: rotateX(var(--rotationX)) rotateY(1turn) rotateZ(360deg);\n  }\n}\n",
+ "clipB": ".keyframes-style-cube-Rotations {\n  animation-name: keyframes-style-cube-Rotations;\n  animation-duration: 5s;\n  animation-timing-function: ease-in-out;\n  animation-iteration-count: infinite;\n  animation-direction: alternate;\n  animation-fill-mode: forwards;\n}\n\n@keyframes keyframes-style-cube-Rotations {\n  0% {\n    transform: rotateX(0deg) rotateY(0turn) rotateZ(0deg);\n  }\n  100% {\n    transform: rotateX(var(--rotationX)) rotateY(1turn) rotateZ(360deg);\n  }\n}\n"
+}

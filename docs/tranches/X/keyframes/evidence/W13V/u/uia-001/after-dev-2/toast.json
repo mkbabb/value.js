@@ -1,0 +1,102 @@
+{
+ "base": "http://localhost:5173/",
+ "copy-1440": [
+  {
+   "tag": "SPAN",
+   "text": "Notification CSS copied to clipboard",
+   "x": -2,
+   "y": -2,
+   "w": 1,
+   "h": 1,
+   "onScreen": false,
+   "position": "absolute",
+   "opacity": "1"
+  },
+  {
+   "tag": "LI",
+   "text": "CSS copied to clipboard",
+   "x": 1036,
+   "y": 798,
+   "w": 388,
+   "h": 86,
+   "onScreen": true,
+   "position": "relative",
+   "opacity": "1"
+  }
+ ],
+ "copy-390": [
+  {
+   "tag": "SPAN",
+   "text": "Notification CSS copied to clipboard",
+   "x": -2,
+   "y": -2,
+   "w": 1,
+   "h": 1,
+   "onScreen": false,
+   "position": "absolute",
+   "opacity": "1"
+  },
+  {
+   "tag": "LI",
+   "text": "CSS copied to clipboard",
+   "x": 16,
+   "y": 16,
+   "w": 358,
+   "h": 83,
+   "onScreen": true,
+   "position": "relative",
+   "opacity": "1"
+  }
+ ],
+ "switch": {
+  "before": [
+   {
+    "tag": "SPAN",
+    "text": "Notification CSS copied to clipboard",
+    "x": -2,
+    "y": -2,
+    "w": 1,
+    "h": 1,
+    "onScreen": false,
+    "position": "absolute",
+    "opacity": "1"
+   },
+   {
+    "tag": "LI",
+    "text": "CSS copied to clipboard",
+    "x": 1036,
+    "y": 798,
+    "w": 387,
+    "h": 77,
+    "onScreen": true,
+    "position": "relative",
+    "opacity": "0.190562"
+   }
+  ],
+  "after": [
+   {
+    "tag": "SPAN",
+    "text": "Notification CSS copied to clipboard",
+    "x": -2,
+    "y": -2,
+    "w": 1,
+    "h": 1,
+    "onScreen": false,
+    "position": "absolute",
+    "opacity": "1"
+   },
+   {
+    "tag": "LI",
+    "text": "CSS copied to clipboard",
+    "x": 1036,
+    "y": 798,
+    "w": 388,
+    "h": 86,
+    "onScreen": true,
+    "position": "relative",
+    "opacity": "1"
+   }
+  ],
+  "hash": "#/amiga"
+ }
+}
