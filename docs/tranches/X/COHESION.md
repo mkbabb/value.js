@@ -3382,3 +3382,11 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - The 183 KFA rows, the 257 UIA-KF rows, KFA-15, the critic gaps, the `[real-cube]` root cause, KFE-ORPHAN and `vue-sonner` move to the new wave **KF.W13X**.
 - **Track B order:** KF.W13V (`.s2` and close), then KF.W13W, then KF.W13X.
 - **Slot order (cap of 4):** Track B resumes in its freed slot now, because KF.W13W carries the owner's explicit asks: OA-56 (ball on the curve, "ecoute-moi"), OA-58, OA-61 and OA-64. **AUDIT-2 takes the next freed slot,** Track D's or Track C's.
+
+## §0cx ADDENDUM 2026-09-24 — X.P.W7 ESC-W7g-1 ruled: a root-cause unit `.l`; AUDIT-2 launched
+- **X.P.W7 resume** (Track D, `wf_41f62d34-81d`):
+  - **`.k2` landed:** bbnf-lang `6d5a2b4a0` (a groups action kind), plus value.js `8850d74d`, `ccb1f7a3` and `baaec604`: `tokenQuantity` takes the leaf's split, and nodes are built frozen with `deepFreeze` deleted. Accepted keyframe is now .56–.68 on node, Chromium and WebKit.
+  - **`.g` landed:** the R-v-3 warm-up and the browser paired instrument. Node large sheets now read .38–.45.
+  - **Still RED:** Firefox rejected stylesheet at 1.08–1.13, and WebKit and Firefox large sheets at 1.09–1.31. All four granted levers regress another engine.
+- **Ruled (W7.md addendum (b)):** a root-cause unit **`.l`**, which profiles per engine by per-rule bisection and cures structurally, one cure for every engine. That includes not building speculative nodes that a refusal discards. The gate stays: faster than the retired parser on every engine. No per-engine path and no relief. A measured impasse goes to the owner.
+- **Slots:** AUDIT-2 launched as `wf_375e45f5-661` in Track D's freed slot, as promised in §0cw. **Track D resumes (`.l`) at the next freed slot.** A, B, C and AUDIT-2 are running.
