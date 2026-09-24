@@ -1,0 +1,6 @@
+light 390x844 stage=[102,723] cubeCentre=(195.0,412.0) stageCentre=(195.0,412.0) dx=0.0 dy=0.0 | h1=[78,141,312,271] h1dx=-0.0 h1∩cube=false deck∩cube=false deckdx=0.0 painted=(201.9,418.9 212h) visibleDocksCentreY=407.3
+light 360x740 stage=[102,619] cubeCentre=(180.0,360.0) stageCentre=(180.0,360.0) dx=0.0 dy=0.0 | h1=[66,120,294,248] h1dx=0.0 h1∩cube=false deck∩cube=false deckdx=-0.0 painted=(185.9,365.9 196h) visibleDocksCentreY=355.3
+light 1440x900 stage=[116,758] cubeCentre=(720.0,450.0) stageCentre=(720.0,437.2) dx=0.0 dy=12.8 | h1=[43,375,1374,606] h1dx=-11.6 h1∩cube=true deck∩cube=false deckdx=-456.5 painted=(734.4,464.4 307h) visibleDocksCentreY=431.9
+dark 390x844 stage=[102,723] cubeCentre=(195.0,412.0) stageCentre=(195.0,412.0) dx=0.0 dy=0.0 | h1=[78,141,312,271] h1dx=-0.0 h1∩cube=false deck∩cube=false deckdx=0.0 painted=(201.9,418.9 212h) visibleDocksCentreY=407.3
+dark 360x740 stage=[102,619] cubeCentre=(180.0,360.0) stageCentre=(180.0,360.0) dx=0.0 dy=0.0 | h1=[66,120,294,248] h1dx=0.0 h1∩cube=false deck∩cube=false deckdx=-0.0 painted=(185.9,365.9 196h) visibleDocksCentreY=355.3
+dark 1440x900 stage=[116,758] cubeCentre=(720.0,450.0) stageCentre=(720.0,437.2) dx=0.0 dy=12.8 | h1=[43,375,1374,606] h1dx=-11.6 h1∩cube=true deck∩cube=false deckdx=-456.5 painted=(734.4,464.4 307h) visibleDocksCentreY=431.9

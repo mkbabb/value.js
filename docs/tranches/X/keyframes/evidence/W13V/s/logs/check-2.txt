@@ -1,0 +1,12 @@
+21:04  up 1 day,  3:53, 1 user, load averages: 15.87 25.43 32.36
+
+> @mkbabb/keyframes.js@6.0.0 check
+> vue-tsc --noEmit -p tsconfig.json && vue-tsc --noEmit -p tsconfig.test.json && npm run proof:structure
+
+
+> @mkbabb/keyframes.js@6.0.0 proof:structure
+> node scripts/gates/structure/index.mjs
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT 0

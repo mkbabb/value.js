@@ -1,0 +1,7 @@
+1440x900 cube     Controls:OPEN | Keyframes:OPEN | Timeline:OPEN | Scene facet:off
+1440x900 amiga    Controls:OPEN | Keyframes:OPEN | Timeline:OPEN | Scene facet:off
+1440x900 square   Controls:OPEN | Keyframes:OPEN | Timeline:OPEN | Scene facet:off
+1440x900 easing   Controls:OPEN | Keyframes:OPEN | Timeline:OPEN | Curve:OPEN
+1440x900 spring   Controls:OPEN | Keyframes:OPEN | Timeline:OPEN | Physics:OPEN
+1440x900 sequence Controls:off | Keyframes:off | Timeline:off | Scene facet:off
+fails=0
