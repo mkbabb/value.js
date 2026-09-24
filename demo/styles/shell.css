@@ -143,13 +143,20 @@
     min-height: var(--dock-band-min-h);
 }
 
-/* <main> (.pane-main) is the scene band: it centres the pane container
- * within row 2 (the centring the flex shell used to do at the layout root —
- * now the band's own job). */
+/* <main> (.pane-main) is the scene band. X.W12.b (OA-20/OA-25 — no layout
+ * shift during an enter): the band ANCHORS the pane row at its start. It used
+ * to centre the row vertically, which made every region's position a function
+ * of the TALLEST mounted pane: when one region's pane entered, the row's
+ * height changed and the companion that never moved jumped by half the
+ * difference (w12-motion census, before: the boot's About mount grew the row
+ * 685→788px and threw the Picker card up 47px — boot CLS 0.0220 ×2; each pane
+ * switch shifted the kept card by the same 47px, CLS ≈0.02 per switch). The
+ * row is top-anchored under the route title, where the panes already sit
+ * whenever a pane fills the band. */
 .pane-main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     /* flex-min-size idiom — let the column shrink to its content. */
     min-height: 0;
     min-width: 0;
