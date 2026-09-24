@@ -45,6 +45,9 @@ watch(
             timer = setTimeout(() => emit("update:visible", false), props.autoDismissMs);
         }
     },
+    // UIA-V-51: a chip that MOUNTS visible (the admin names notice is re-keyed
+    // per act with `:visible="true"`) starts its dismissal at mount too.
+    { immediate: true },
 );
 
 // A dismissal scheduled for an unmounted chip must not fire.
