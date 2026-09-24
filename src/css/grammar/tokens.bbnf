@@ -21,8 +21,10 @@ close    = /\s*\)/ ;
 // integer part of a longer number (`0` of `0.15deg`): css-syntax-3 §4.3.12 consumes digits greedily.
 number     = /[+-]?(?:\d*\.\d+|\d+(?!\.\d))(?:[eE][+-]?\d+)?(?![\w%\\])/ ;
 percentage = /[+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?%/ ;
-dimension  = /[+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?[a-zA-Z_][\w-]*/ ;
-angle      = /[+-]?(?:\d*\.\d+|\d+)(?:e[+-]?\d+)?(?:deg|grad|rad|turn)(?![\w-])/i ;
+// A dimension and an angle capture their number and their unit: the leaf hands the pair to its
+// `groups` action (`src/css/bbnf/math.ts`), so the token is split once, here, never re-split.
+dimension  = /([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)([a-zA-Z_][\w-]*)/ ;
+angle      = /([+-]?(?:\d*\.\d+|\d+)(?:e[+-]?\d+)?)(deg|grad|rad|turn)(?![\w-])/i ;
 
 none       = /none(?![\w-])/i ;
 ident      = /-?[a-zA-Z_][\w-]*|--[\w-]*/ ;

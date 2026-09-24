@@ -34,15 +34,13 @@ const ABSOLUTE_LENGTH: Readonly<Record<string, number>> = {
 /** §6.1.1–§6.1.2: the font- and viewport-relative lengths — unknown at parse time. */
 const RELATIVE_LENGTH = /^(?:r?(?:em|ex|cap|ch|ic|lh)|[sld]?v(?:w|h|i|b|min|max)|cq(?:w|h|i|b|min|max))$/;
 
-const NUMERIC = /^([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)(.*)$/;
-
-/** A numeric TOKEN (`number` · `percentage` · `angle` · `dimension`) as its typed quantity. */
-export function tokenQuantity(token: string): Numeric {
-    const [, digits = "", rawUnit = ""] = NUMERIC.exec(token) ?? [];
+/**
+ * An `angle` or `dimension` TOKEN as its typed quantity. The leaf (`tokens.bbnf`) captured the number
+ * and the unit as its two groups (a `groups` action), so nothing here re-splits the text.
+ */
+export function tokenQuantity(digits: string, rawUnit: string): Numeric {
     const value = Number(digits);
     const unit = rawUnit.toLowerCase();
-    if (unit === "") return quantity("number", value);
-    if (unit === "%") return quantity("percentage", value);
     const angle = ANGLE[unit];
     if (angle !== undefined) return quantity("angle", angle(value));
     const length = ABSOLUTE_LENGTH[unit];
@@ -140,8 +138,8 @@ export const calculated = (q: Numeric): Numeric => (q.kind === "quantity" ? Obje
 export const mathActions = {
     number: { kind: "map", fn: numberQuantity },
     percentage: { kind: "map", fn: percentageQuantity },
-    angle: { kind: "map", fn: tokenQuantity },
-    dimension: { kind: "map", fn: tokenQuantity },
+    angle: { kind: "groups", fn: tokenQuantity },
+    dimension: { kind: "groups", fn: tokenQuantity },
     none: { kind: "map", fn: (): NoneToken => NONE },
     calcConstant: { kind: "map", fn: constantQuantity },
     calcKeyword: { kind: "text", fn: (): Numeric => KEYWORD },
