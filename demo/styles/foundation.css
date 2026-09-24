@@ -661,7 +661,7 @@
          * 135deg, 4 stops); only the registered per-stop `<color>` properties
          * `--saved-bg-0..3` move (written by useAtmosphere's sink + the
          * index.html fouc-guard boot script — boot/ground.ts is the record
-         * of truth). Each stop rides the :root 200ms transition below, so a
+         * of truth). Each stop rides the `.ground-breath` 200ms transition below, so a
          * discrete pick breathes into the new family in OKLab (F-12) and the
          * boot crossfade blends like-with-like (F-4). `--saved-bg` (the base
          * stop) stays as the solid fallback var; first-ever visits get the
@@ -685,16 +685,38 @@
         background-attachment: fixed;
         color: var(--foreground);
     }
-    :root {
-        /* W2-2 — the ground's material clock: each registered `--saved-bg-*`
-         * stop (registered in index.html, pre-paint) interpolates as a
-         * `<color>` — OKLab by CSS Color 4's default — over 200ms decelerate.
-         * The rAF re-derive under a continuous drag outruns this (one write
-         * per frame → the transition restarts at the fresh value, visually
-         * the live tracking the drag already had — W2-5's byte-identity
-         * clause holds); only DISCRETE picks (swatch click, palette apply)
-         * ride the full 200ms breath. PRM: a color crossfade is a state
-         * change, not motion — kept under reduced motion by design. */
+    /* W2-2 — the ground's material clock: each registered `--saved-bg-*`
+     * stop (registered in index.html, pre-paint) interpolates as a `<color>`
+     * — OKLab by CSS Color 4's default — over 200ms decelerate. Only DISCRETE
+     * picks (swatch click, palette apply) ride the full 200ms breath; the rAF
+     * re-derive under a continuous drag restarts it at each fresh value (the
+     * live tracking the drag already had — W2-5's byte-identity clause
+     * holds). PRM: a color crossfade is a state change, not motion — kept
+     * under reduced motion by design.
+     *
+     * X-W12 Repair 1 (H-1 · GROUND-CLOCK-ON-ROOT): the clock runs on a LEAF,
+     * never on `:root`. A transition running on the root restyled the whole
+     * document every animation frame of a drag (563 elements, ~7 ms/frame —
+     * `.a` act 7). The stops are still WRITTEN on the root (useAtmosphere's
+     * sink, the fouc-guard boot script; the oracles read them there), so the
+     * root and body carry the settled value at once; `.ground-breath` (the
+     * descendant-less fixed plate in index.html, under every layer) inherits
+     * each write, transitions it alone, and paints the breathing ramp over
+     * the body's settled one — one element restyled per frame. */
+    .ground-breath {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        contain: strict;
+        background-color: var(--saved-bg, var(--background));
+        background-image: linear-gradient(
+            135deg,
+            var(--saved-bg-0, var(--saved-bg, var(--background))) 0%,
+            var(--saved-bg-1, var(--saved-bg, var(--background))) 33%,
+            var(--saved-bg-2, var(--saved-bg, var(--background))) 67%,
+            var(--saved-bg-3, var(--saved-bg, var(--background))) 100%
+        );
         transition:
             --saved-bg-0 200ms var(--ease-decelerate),
             --saved-bg-1 200ms var(--ease-decelerate),
