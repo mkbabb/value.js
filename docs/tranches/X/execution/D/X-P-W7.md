@@ -668,3 +668,60 @@ ESC-W7p-1 / ESC-W7e-1 / ESC-W7v-1 / ESC-W7z-1 (owner act: npm OTP publish chain)
 W7.md has no §State clause that designates this seat to stamp a verb. X.P.W7 is therefore **not IMPLEMENTED**: it stays **PARTIAL**, and VERIFIED is not stamped. It moves to IMPLEMENTED when the publish chain lands and the ESC-W7k-1 ruling is executed, and a re-opened `.z` then reads Z-1..Z-4 GREEN.
 
 **Commits (this seat):** this Close, plus the LEDGER row cell.
+
+## Check 1
+
+**Seat:** `claude-opus-5-5`, 2026-09-24, fresh adversarial check (L-20 pass 1), verify-only. **Verdict: NOT-CONFORMANT.** Every GREEN I re-ran reproduces. The remaining RED gates have no relief in the spec: none is producer-owned, none is routed to a later wave, and none is an honest-RED named by id. They are this wave's own acts and its own goal. So the row stays PARTIAL.
+
+**Open.** I read the spec whole (190 lines, incl. the §0ck addendum). From this record I read the header through the Unit plan, and the Close; everything else by grep. **Crash recovery:** ⟨`git status --porcelain docs/tranches/X/execution/`⟩ → empty. parse-that master's dirty `rust/**`, `README.md` and `.cargo/config.toml` rows are another program's (L-3), untouched. `../parse-that-x-p-w7` and `../bbnf-lang-x-p-w7-typescript` are clean. **No inherited work.**
+
+### Axes
+- **(1) Claimed GREENs, re-run by this seat, ×2 where the gate is a count:**
+  - V-1: ⟨`node bench/paired/equiv.mjs product`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 88 (ASCII-only sources 0)`. Keyed on (section, key) against `bench/paired/oracle/F-b-4.json` ×2 → `inter 88 onlyProduct 0 onlyFb4 0`.
+  - V-2: ⟨`npm run test:css-equivalence`⟩ ×2 → `Test Files 2 passed (2)`, `Tests 19 passed (19)`, and `MIRROR-DEFECTS [1-9]` occurs 0 times. ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit | grep -c "error TS"`⟩ → `0`.
+  - V-7: `GRAMMAR_MODULES` 0 · `reset()|new ParserState` 0 · case-pair classes on `/i` lines 0. Only `6` bracket pairs remain in the grammar, none inside `/…/i`. `ws = /\s*/ ;` sits at `tokens.bbnf:14`, and the five modules carry `@import` headers.
+  - V-8: ⟨`npx vitest run test/css/bbnf-depth.test.ts`⟩ ×2 → `Tests 2 passed (2)`.
+  - V-3 whole: ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead f7b71132`, `srcDirty ""`, `bankedManifestOk 79/79`. Then ⟨`node --expose-gc bench/paired/isolated.mjs check1-r{1,2} product 3 11 whole,acc`⟩. Load was `16.08 31.75 44.47` → `35.47 33.30 43.85` for r1 and `34.60 33.90 43.21` → `28.95 32.41 42.01` for r2. Set aside and counted: r1 7 cells, r2 1. Whole medians, r1 · r2:
+    - color .755 · .718
+    - scalar .654 · .667
+    - value .450 · .458
+    - values .463 · .453
+    - keyframe .655 · .663
+    - timing .677 · .713
+    - stylesheet .742 · .710
+
+    Verdict `whole-7/7 GREEN` ×2, with every median inside its ceiling. The records were moved from `bench/records/` to scratchpad `chk/` (sha256 `0269ab84541b…`, `c982e2f6f1e7…`). ⟨`git status --porcelain bench src`⟩ → empty.
+  - P-1..P-3: ⟨`npx vitest run`⟩ in `../parse-that-x-p-w7/typescript` ×2 → `Test Files 15 passed (15)`, `Tests 143 passed (143)`.
+  - P-4: ⟨`npm run proof:all`⟩ → manifest, subpath, 4 packrat, no-span, no-dead-combinator and no-css-surface are GREEN or PASS. `FAIL: proof:perf` is the ruled PT-PERF-LOAD (R-p-1).
+  - T-1: ⟨`npx vitest run`⟩ in `../bbnf-lang-x-p-w7-typescript/typescript` ×2 → `Test Files 16 passed (16)`, `Tests 277 passed (277)`.
+  - T-6 and the Z-4 preflight: ⟨`git diff --name-only origin/master...HEAD | grep -vc '^typescript/'`⟩ → `0`. HEAD = `origin/x-p-w7-typescript` = `373ca34a6`. Local master is `af15f63e0`, unchanged.
+  - O-4: `.o`'s commits touch no `src/` path (see (2)).
+  - **12 gate rows reproduced, 0 failed to reproduce.**
+  - Cited by the Close and not re-run by me, on unmoved bytes: P-5, T-2..T-5, E-1..E-7, V-4, and `npm test` 908/910.
+- **(2) File bounds.** I ran ⟨`git show --name-only`⟩ over all 18 value.js commits (`1c7b67f0` … `f7b71132`), ⟨`git diff --name-only cb9c0d4..96e68e9`⟩ in parse-that (10 paths: `typescript/src/parse/{leaf,parser,state,utils}.ts`, `typescript/test/**`, `typescript/CHANGELOG.md`, `docs/x-p-w7-2026-09-23-addendum.md`) and the bbnf-lang `typescript/**`-only reading above. Every path is inside its unit's set. ⟨`git diff --stat 0b64d20c..HEAD -- scripts/dev/dev.sh package.json package-lock.json .github`⟩ → empty. **GREEN.**
+- **(3) Masking.** ⟨`git show 3cdd4888 93aaea4e 065ba11e -- src test scripts | grep -E '^\+.*(try|catch|\.skip|\.todo|allowlist|console\.)'`⟩ → one hit, `scripts/gen-grammar.mjs`'s `try { … } finally { rmSync(scratch) }`. That is scratch-directory cleanup, not a guard around a defect. The generated module contains 0 `try`/`catch`. In the parse-that diff the only `.skip(` hit is the combinator `jsonString.skip(colon)` in a bench entry. **None found.**
+- **(4) Commit families.** F-b-1 (the `@import` headers plus deleting the concatenation) is one commit, `3cdd4888`. The dependency-move family never landed (V-9), so it is not split. No revert of `90d4ec5` was owed, because P-5 kept it. `3cdd4888` bundles the adoption, the four workaround removals and the positional rewrite. They are one meaning, since the generated module needs all of them. **GREEN (INFO).**
+- **(5) E-3.** ⟨`git diff --stat 0b64d20c..HEAD -- docs/tranches/X/parse-that/waves docs/tranches/V/megatranche/registry/adjudicated docs/tranches/X/parse-that/evidence/W7-research`⟩ → empty. The DIVERGENCE-LEDGER change is an append only: ⟨`git diff … | grep -c '^-[^-]'`⟩ → `0`. **GREEN.**
+- **(6) Mail.** ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` and `V/coordination/`, glass-ui `BK/coordination/` and `BL/` (⟨`ls -t`⟩ → `BL BK BJ`), keyframes.js `V/coordination/` and atlas `P/coordination/` → `0` in all six. **0 UNREAD.**
+- **(7) Four-verb.** The Close lawfully left the row PARTIAL and stamped no verb. **GREEN.**
+- **(8) Goal at the bytes.** The goal is R-3 as bound by decision 9 and G-acc/rej: "faster than the retired hand parser on every bench entry", on accepted and rejected halves alike, on every engine. **It is NOT MET.** Accepted `parseKeyframeSelector` reads **1.303 · 1.327** (cells 1.27/1.303/1.334 and 1.327/1.333/1.297), 0 of 6 cells below 1.00, which is `accepted-7/7 RED 6/7` ×2. Those are the selectors keyframes.js actually sends. Separately, §0ck 7's "value.js runtime carries no parse-that and no bbnf-lang" is also unmet at the bytes: `package.json` deps still read `{"@mkbabb/bbnf-lang":"0.1.4","@mkbabb/parse-that":"0.8.2"}`, even though `src/` imports neither.
+- **(9) Published figures.** The Close's V-1 (88 = F-b-4, by section), css-equivalence 19/19, 143/143, 277/277, whole-7/7 GREEN inside the ceilings and accepted keyframe 1.300/1.317 all reproduce within noise (mine: 1.303/1.327). **GREEN.**
+- **(10) Honest-RED adjudication, gate by gate at the spec bytes:**
+  - **K-1 / V-3 accepted / Z-2** (accepted keyframe 1.30–1.33). The spec binds it: decision 9 plus the addendum's G-acc/rej ("must beat the retired parser on each half"). `.k` exists to meet it (W7.md 123–131), and no successor wave receives it. It is not producer-owned: the floor `.k` found is in value.js's own `math.ts` `percentage` action, which is `.v`'s writable set in this same wave. **No relief.** ESC-W7k-1 names the orchestrator/owner ruling as its owner, but no COHESION ruling exists (⟨`grep -n "W7k-1" COHESION.md`⟩ → 0).
+  - **V-5 / V-6** (G-browser: Firefox parseStylesheet/color, WebKit-large, accepted keyframe on every engine; G-large: the WebKit large sheets). Addendum gates ("must not be slower … on any engine, per entry"). **No relief.** The owner is ESC-W7v-2, the same ruling. These readings are cited from `.v`/`.k`; the bytes are unmoved and, for probe parsimony, I did not re-launch a browser.
+  - **P-6, E-8, V-9 + the CI `bbnf gen --check` step, Z-1, and Z-3's publish-dependent half.** These are this wave's own release acts (R-1: publishing unwalled; W7.md 64, 100, 102–104, 132–140). They are blocked by the npm `EOTP` second factor, which only the owner can supply. The spec has no clause that relieves them, so they are **not honest-RED** under (10). They are an owner-act blocker with a named owner (ESC-W7p-1 = e-1 = v-1 = z-1). One related fact: ⟨`scripts/gen-grammar.mjs`⟩ needs a `bbnf` bin, and the installed 0.1.4 has none (the script's own guard says so). So the checked-in `generated/grammar.js` cannot be regenerated or drift-checked from value.js's own tree until the 0.2.0 pin lands.
+  - **Z-3's relay half and the COHESION addendum (R-z-2).** The spec assigns these to `.z` (W7.md 136–140) and they are not sent. The owner is `.z`'s re-open.
+  - **O-1 `check`** reads RED by construction on the moved product (R-close-1). This is not a claimed GREEN: O-1 was a pre-move gate that held at `.o`, and V-1 is the post-move reading, 88 = F-b-4 exactly. Mitigated.
+- **Successor "Opens after" conjuncts.** X-W11 opens after "X-W0 … X-W10 are IMPLEMENTED", and COHESION §0ck:3189 adds "value.js publishes at X-W11, after X.P.W7". The X.P.W7 conjunct is **RED** (PARTIAL), so X-W11 is lawfully BLOCKED on X.P.W7 (among its other conjuncts). keyframes.js receives the parser only at X-W11. No other wave spec names X.P.W7 in its Opens-after (⟨`grep -rn "Opens after" docs/tranches/X | grep "P.W7"`⟩ → 0).
+
+### Register (severity · claim · receipt · cure)
+| # | Severity | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| C1-1 | HIGH | Accepted `parseKeyframeSelector` is slower than the retired parser, so the spec's goal (R-3 under decision 9 / G-acc/rej) is unmet. K-1, V-3 accepted and Z-2 are RED with no relief. | `isolated.mjs check1-r{1,2}` → acc keyframe median 1.303 · 1.327, `accepted-7/7 RED 6/7` ×2 | The ESC-W7k-1 COHESION ruling grants a repair unit `src/css/bbnf/math.ts` (the `percentage` action, `tokenQuantity`/`quantity` freeze), plus the emitter leaf split if needed (bbnf-lang `typescript/**`, re-check `.e`). Re-read K-1 and V-3 ×2. |
+| C1-2 | HIGH | The release chain has not run: parse-that 2.0.0 and bbnf-lang 0.2.0 are unpublished, value.js still carries both in runtime `dependencies`, there is no CI `--check` step, and Z-1/Z-3 are RED. These are this wave's own acts, with no spec relief. | `npm view … versions` tails `0.13.0, 1.0.0` · `0.1.3, 0.1.4`; `package.json` deps as in (8); `grep -c 'bbnf' ci.yml` 0 | The owner supplies the npm OTP (ESC-W7p-1 chain, Residuals step 1–4). Then the ESC-W7v-1 seat pins devDep 0.2.0, drops both from runtime and appends the ci.yml step. `.z` re-opens. |
+| C1-3 | HIGH | G-browser/G-large are RED: V-5 (Firefox parseStylesheet/color, accepted keyframe on every engine) and V-6 (WebKit large sheets). No relief. | `.v`/`.k` receipts (cited, bytes unmoved `065ba11e`) | Under the same ruling, ESC-W7v-2: the W7.md (g) emitter levers, each admitted only if it regresses no entry. Re-read V-5/V-6. |
+| C1-4 | MINOR | The relays (W7.md 141–148) and the COHESION addendum are unsent (R-z-2). | Close §Residuals R-z-2; INBOX has no W7 relay row | `.z` re-open, after C1-2. |
+| C1-5 | MINOR (mitigated) | `oracle.mjs check` cannot re-read O-1 on the moved product. | Close O-1 reading | V-1 stands (88 = F-b-4 exactly, ×2, this seat). R-close-1: add a frozen-arm mode in `bench/**`. |
+| C1-6 | INFO | Some GREENs are cited, not re-run by this seat or the Close: P-5, T-2..T-5, E-1..E-7, V-4, `npm test` 908/910. | Close Act 2 | Re-read them at the `.z` re-open on the published pins. |
+
+**Honest-RED set: none.** No remaining RED gate is relieved under axis (10). **gatesReproduced 12 · gatesFailed 0** (of those this seat re-ran). The LEDGER status is left **PARTIAL**, and an event line is appended. **Adjacent edits: none. Out-of-set writes: none.** The bench records went to the scratchpad; `bench/records/` is clean.
