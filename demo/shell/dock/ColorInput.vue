@@ -67,6 +67,7 @@
                     <button
                         v-if="proposeMode"
                         class="send-btn btn-interactive"
+                        aria-label="Propose this color name"
                         :disabled="!proposedName.trim() || proposing"
                         @click="submitProposedName"
                     >
@@ -76,6 +77,7 @@
                     <button
                         v-else
                         class="send-btn btn-interactive"
+                        aria-label="Apply color"
                         @click="onSubmitColor"
                     >
                         <ArrowRight class="w-4 h-4" :style="{ stroke: safeAccent }" />
