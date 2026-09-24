@@ -21,8 +21,8 @@
                 variant="secondary"
                 class="text-mono-small ml-2"
                 aria-hidden="true"
-            >{{ pm.savedPalettes.value.length }}</Badge>
-            <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ pm.savedPalettes.value.length }} saved)</span>
+            >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</Badge>
+            <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
@@ -98,9 +98,14 @@
                 <PaletteCardGrid
                     ref="sortableGridRef"
                     :empty="pm.filteredSaved.value.length === 0"
-                    empty-text="No saved palettes yet."
-                    empty-hint="Add colors, then save."
+                    :empty-text="searchNarrows ? `No saved palette matches “${pm.searchQuery.value.trim()}”.` : 'No saved palettes yet.'"
+                    :empty-hint="searchNarrows ? `${pm.savedPalettes.value.length} saved palette${pm.savedPalettes.value.length === 1 ? '' : 's'} hidden by the search.` : 'Add colors, then save.'"
                 >
+                    <!-- X.W12.u1 (UIA-V-26): a search that matches nothing says so and
+                         offers the way back; it never claims the library is empty. -->
+                    <template v-if="searchNarrows" #emptyAction>
+                        <Button emphasis="text" @click="pm.searchQuery.value = ''">Clear search</Button>
+                    </template>
                     <PaletteInspector
                         v-for="palette in pm.filteredSaved.value"
                         :ref="(el: any) => el && (cardRefs[palette.id] = el)"
@@ -182,6 +187,10 @@ const emit = defineEmits<{
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(LIBRARY_PORT_KEY)!;
+/** A non-empty query over a non-empty library: the list is filtered, not empty. */
+const searchNarrows = computed(
+    () => pm.searchQuery.value.trim() !== "" && pm.savedPalettes.value.length > 0,
+);
 const colorTarget = inject(COLOR_TARGET_PORT_KEY)!;
 
 // WR-8 (P4-R1): alias the per-site TITLE ramp tokens into the shared
