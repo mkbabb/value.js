@@ -127,7 +127,13 @@ userTest.describe("G13 · user rows", () => {
 
     userTest("report — a failure is announced as a failure, never as a success (W7.22)", async ({ page }) => {
         await browseWith(page, 400);
-        await expect(page.getByRole("status").filter({ hasText: "Report failed: Rate limit exceeded" })).toBeVisible();
+        // X-W12 Repair 1 (SR-3): since X.W12.u1 `360bd254` (UIA-V-39) a failed
+        // report keeps its dialog and form open and announces the reason there
+        // as an `alert` beside the Report button; the success chip never shows.
+        await expect(
+            page.getByRole("dialog").getByRole("alert").filter({ hasText: "Report failed: Rate limit exceeded" }),
+        ).toBeVisible();
+        await expect(page.getByRole("status").filter({ hasText: "Reported — thank you." })).toHaveCount(0);
     });
 });
 
@@ -211,6 +217,12 @@ const VERSIONED = { ...REMOTE, slug: "versioned-one", name: "Versioned One", ver
 function version(hash: string, name: string, parentHash: string | null, depth: number) {
     return {
         hash,
+        // X-W12 Repair 1 (SR-4): the server's version row carries its CONTENT
+        // identity `payloadHash` (X-W3 · X.W3.2), which `Palette.currentHash`
+        // mirrors; since X.W12.u1 `c8c5a4aa` (UIA-V-36) the drawer marks the
+        // live row by it. In this stub the release id and the payload hash
+        // coincide, so v2 (currentHash "h2") is the live row with no Revert.
+        payloadHash: hash,
         name,
         colors: [{ css: "#0af", position: 0 }],
         parentHash,
