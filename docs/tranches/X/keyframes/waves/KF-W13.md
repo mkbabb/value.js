@@ -503,3 +503,31 @@ Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d
 
 ## ADDENDUM 2026-09-24 — OA-68 (COHESION §0ct)
 - Read every side and canvas dock on the served page, in both themes. Record honest-RED **SIDE-DOCK-EDGE** (O-67) for plate edges that do not close and for badge overlap. Cure only a consumer clip or crowding in the ancestor chain, such as a missing gutter to the panel above. Never override the dock.
+
+## KF.W13V — ADDENDUM 2026-09-24 (COHESION §0cw): the dry repair loop, ruled
+KF.W13V ended NOT-CONFORMANT after 2 repairs, and its check says the loop is dry: no repair can move the three RED gates without a ruling. **alreadyDone:** every dispatched unit, including `.u2`.
+
+1. **ESC-s-1: Sequence's inline re-time editors go to the shared Timeline pane.** That is option (b), and it is what OA-46 demands ("dock items for keyframes, timeline, etc--NOT inline").
+   - **`[KF.W13V.s2]`:** the five re-time handles and the master scrub leave the Sequence stage. They become a **Sequence mode of the shared Timeline pane**, opened from the Timeline dock item like every scene's. Each lane is one of the sequence's items, with its re-time handles on the lane, and the master scrub is the pane's playhead. The stage shows the subject only.
+   - **Gate G-W13V-s1:** 0 inline editors in the DOM on every scene, Sequence included, headed. Re-timing in the pane changes the stage animation, with a falsifier ×2.
+   - **Grant:** the Sequence scene files, the shared Timeline pane and its dock item. The ADJACENT-LINE RULE applies.
+2. **G-W13V-k1 (183 OPEN consumer KFA rows) and G-W13V-u1 (240 OPEN-CARRIED plus 17 SPLIT consumer UIA-KF rows) move whole, by id, to KF.W13X**, a successor wave defined below. KF.W13V's close counts what it dispositioned and cites KF.W13X for the rest. This re-homes the rows to an authored wave; it does not defer them into prose.
+3. **KFE-ORPHAN** (the unmounted `KeyframesEditor` with live tests) and **the `vue-sonner` pin** become AUDIT-2 Lens 1 rows. Their cure goes to KF.W13X.
+4. **`k2`, the KFA-15 served re-capture, and `k3`, the 4 uncaptured critic gaps,** also move to KF.W13X.
+5. **`k4`, the `[real-cube]` intermittent (KFA-17/C6-3),** is ruled as its own KF.W13X unit, **`.r`**. Its root cause is found from the playhead trace 0, then −1266.7, then −25.1. It is never retried until it passes.
+
+**Owed:** `[KF.W13V.s2]`, then close. After that come KF.W13W, then KF.W13X.
+
+## KF.W13X — the keyframes audit rows, whole (minted 2026-09-24, COHESION §0cw)
+- **Opens after:** KF.W13W. **Model:** Opus 5.5. **Record:** `docs/tranches/X/execution/B/KF-W13X.md`.
+- **Scope, by id:**
+  - every OPEN consumer KFA row (183, listed in KF.W13V's `.k` disposition)
+  - every OPEN-CARRIED or SPLIT consumer UIA-KF row (240 plus 17, in `W13V/u/DISPOSITION.md`)
+  - KFA-15's served re-capture
+  - the 4 uncaptured critic gaps
+  - KFE-ORPHAN and the `vue-sonner` pin
+  - `.r`, the `[real-cube]` intermittent at its root
+  - the keyframes rows AUDIT-2 files, when AUDIT-2 has landed
+- **Units:** the open seat lists every row by id and groups them by page or scene family, one unit per family, with disjoint file sets running in parallel groups. BROKEN rows go first.
+- **Per row:** a served-page frame before, the cure at the root, a falsifier RED then GREEN ×2, a frame after, and the disposition. Glass rows are relay-only.
+- **Close:** every row dispositioned; `npm run check` 0; `test:demo` GREEN; kf e2e at `--workers=1` ×2 within the honest-RED set.

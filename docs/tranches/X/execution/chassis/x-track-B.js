@@ -129,6 +129,13 @@ const TRACK = {
       ],
       "note": "AUTHORITY: COHESION §0bs + KF-W13.md\'s KF.W13R addendum (READ it whole, and the frame keyframes/evidence/W13U/owner-2026-09-23-mobile-controls.png). The owner, verbatim: \"the dock transitions and animations from small to large are blurry, slow, and jittery--not smooth and ios 27 loke\". Strictly serial: [KF.W13R.m] (ALSO per §0cd: migrate the snap-point Drawer to glass\'s Sheet at the root for DRAWER-DETENT-REACH; QUIET-FOCUS-RING rides the repin; pin @mkbabb/glass-ui 10.0.1 exact; read the 8/9/10 CHANGELOG + migration notes whole; migrate at the root, no shims; npm run check 0, vitest, e2e --workers=1 with load) → [KF.W13R.v] (ALSO per §0cd: re-read kf e2e S4 ringPainted and M1 at a point on the pane, unmoved; re-read every glass-owned KFA row + the KF.W13U served-page gates at 10.0.1: CURED-BY-REPIN with frames, or still-live) → [KF.W13R.d] (OA-41 + OA-48 dock morph smooth and sharp at 10.0.1; the rest DOCK-MORPH-ROOT with the 10.0.1 measurement). Served-page instrument rule; every seat Opus 5.5; ESCALATED units do not halt the wave"
     },
+    "KF.W13X": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13W"
+      ],
+      "note": "AUTHORITY: COHESION §0cw + KF-W13.md's KF.W13X section (READ whole) + KF.W13V's .k/.u dispositions (W13V/u/DISPOSITION.md and the .k receipt) + the owner's OA-37 full UI audit and OA-30 animation audit. Open seat: list every OPEN consumer KFA row (183), OPEN-CARRIED/SPLIT UIA-KF row (240+17), KFA-15 re-capture, the 4 critic gaps, KFE-ORPHAN, the vue-sonner pin, and AUDIT-2's keyframes rows if landed; group by page/scene family into units with DISJOINT file sets (parallel groups allowed), BROKEN first; plus [KF.W13X.r] the [real-cube] intermittent root-caused from the playhead trace (never retried until green). Per row: served frame before, root cure, falsifier RED->GREEN x2, frame after, disposition; glass rows relay-only. Close: all dispositioned; npm run check 0; test:demo green; kf e2e --workers=1 x2 within the honest-RED set. Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "KF.W13W": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
       "after": [
@@ -141,7 +148,7 @@ const TRACK = {
       "after": [
         "KF.W13R"
       ],
-      "note": "AUTHORITY: the owner\'s 2026-09-23 words verbatim in KF-W13.md\'s KF.W13V addendum (READ it and the frame keyframes/evidence/W13U/owner-2026-09-23-easing-page.png); COHESION §0bl. PRECONDITION: both registers exist — docs/tranches/X/keyframes/audit/KF-ANIMATION-AUDIT.md and docs/tranches/X/audit/UI-AUDIT-keyframes.md — else return blocked naming the missing one. Served-page instrument rule (§0be). Strictly serial: [KF.W13V.s] (OA-46: every scene\'s editors — Keyframes, Timeline, Controls, editor facets — are DOCK ITEMS opening shared panes, 0 inline editors in any scene; one scene idiom: every scene on Cube/Amiga\'s regions, the shared keyframes pane only, Spring\'s inline editor and every one-off retired) → [KF.W13V.c] (OA-47: controls-pane rows — label + control on one line, divider above the easing group, tighter rhythm) → [KF.W13V.y] (OA-49, effort high design-author: Easing, Sequence, Spring redesigned to the Cube/Amiga idiom, glass radius canon, type scale, space for the subject) → [KF.W13V.p] (multi-line tiles off rounded-full onto glass\'s card radius; O-58) → [KF.W13V.k] (every open KFA row) → [KF.W13V.u] (every UIA-KF row); glass rows routed, never copied; every seat Opus 5.5; ESCALATED units do not halt the wave"
+      "note": "RESUME 2026-09-24 on COHESION §0cw + KF-W13.md's KF.W13V ADDENDUM (the dry loop, ruled): every dispatched unit incl. .u2 is alreadyDone. Owed: [KF.W13V.s2] (Sequence's 5 re-time handles + master scrub leave the stage and become a Sequence mode of the SHARED Timeline pane opened from the Timeline dock item; 0 inline editors on every scene, headed; re-time in the pane drives the stage, falsifier x2). Then close: k1 (183 KFA) + u1 (240+17 UIA-KF) + k2 + k3 + k4 relieved by citing KF.W13X (authored). Never dispatch a Repair 3 on the re-homed gates. EARLIER NOTES FOLLOW: AUTHORITY: the owner\'s 2026-09-23 words verbatim in KF-W13.md\'s KF.W13V addendum (READ it and the frame keyframes/evidence/W13U/owner-2026-09-23-easing-page.png); COHESION §0bl. PRECONDITION: both registers exist — docs/tranches/X/keyframes/audit/KF-ANIMATION-AUDIT.md and docs/tranches/X/audit/UI-AUDIT-keyframes.md — else return blocked naming the missing one. Served-page instrument rule (§0be). Strictly serial: [KF.W13V.s] (OA-46: every scene\'s editors — Keyframes, Timeline, Controls, editor facets — are DOCK ITEMS opening shared panes, 0 inline editors in any scene; one scene idiom: every scene on Cube/Amiga\'s regions, the shared keyframes pane only, Spring\'s inline editor and every one-off retired) → [KF.W13V.c] (OA-47: controls-pane rows — label + control on one line, divider above the easing group, tighter rhythm) → [KF.W13V.y] (OA-49, effort high design-author: Easing, Sequence, Spring redesigned to the Cube/Amiga idiom, glass radius canon, type scale, space for the subject) → [KF.W13V.p] (multi-line tiles off rounded-full onto glass\'s card radius; O-58) → [KF.W13V.k] (every open KFA row) → [KF.W13V.u] (every UIA-KF row); glass rows routed, never copied; every seat Opus 5.5; ESCALATED units do not halt the wave"
     },
     "KF.W13U": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
@@ -207,7 +214,8 @@ const TRACK = {
     ["KF.W13U"],
     ["KF.W13R"],
     ["KF.W13V"],
-    ["KF.W13W"]
+    ["KF.W13W"],
+    ["KF.W13X"]
   ]
 }
 

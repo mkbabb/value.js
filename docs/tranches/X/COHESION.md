@@ -3373,3 +3373,12 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - `F.W14.s2` re-baselines vc `:145` under the `.h2` grant pattern, after reading the diff, and keys the global seed per run.
   - The product half, a missing blob answering 500 and never re-stored, becomes **`F.W14U.b`** (`api/**`).
 - Specs: `F-W14.md` (g) and `F-W14U.md` (d).
+
+## §0cw ADDENDUM 2026-09-24 — Track B: KF.W13U and KF.W13R CLOSED; KF.W13V ruled; KF.W13X minted; slot order
+- **KF.W13U CLOSED.** Honest-RED: QUIET-FOCUS-RING, DRAWER-DETENT-REACH, DOCK-MORPH-ROOT and DARK-MENU-ITEM. `.d5` landed keyframes `febb3bcd`: one resolved-scene projection, so the dock changes once per switch (width `1111111111` ×2) and the Scene and Controls labels flip in the same frame.
+- **KF.W13R CLOSED**, with glass 10.0.1 in keyframes. Honest-RED: SHEET-POSITION, B7 SPECULAR-REST, DOCK-MORPH-ROOT, GLASS-VEIL-GREY, DOCK-TRIGGER-CLIP and DARK-MENU-ITEM.
+- **KF.W13V was NOT-CONFORMANT, with the loop dry.** Ruled in KF-W13.md's KF.W13V addendum:
+  - Sequence's inline re-time editors become a Sequence mode of the shared Timeline pane (`.s2`).
+  - The 183 KFA rows, the 257 UIA-KF rows, KFA-15, the critic gaps, the `[real-cube]` root cause, KFE-ORPHAN and `vue-sonner` move to the new wave **KF.W13X**.
+- **Track B order:** KF.W13V (`.s2` and close), then KF.W13W, then KF.W13X.
+- **Slot order (cap of 4):** Track B resumes in its freed slot now, because KF.W13W carries the owner's explicit asks: OA-56 (ball on the curve, "ecoute-moi"), OA-58, OA-61 and OA-64. **AUDIT-2 takes the next freed slot,** Track D's or Track C's.
