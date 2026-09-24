@@ -9,6 +9,8 @@
 //   keyword  — a bare ident inside a calculation: a relative colour's channel name;
 //   invalid  — a type error (§10.8: `1px + 2`, `2% * 3%`, `1 / 2deg`).
 
+import type { Actions } from "./generated/grammar";
+
 /** `math` marks the result of a math function (a top-level calculation, css-values-4 §10.9). */
 export type Quantity = Readonly<{ kind: "quantity"; type: string; value: number; math?: true }>;
 export type Unresolved = Readonly<{ kind: "unresolved"; reason: "context" | "keyword" | "invalid" }>;
@@ -120,3 +122,26 @@ export function signAbs(name: string, arg: Numeric): Numeric {
 
 /** A math function's result, marked as a top-level calculation. */
 export const calculated = (q: Numeric): Numeric => (q.kind === "quantity" ? Object.freeze({ ...q, math: true as const }) : q);
+
+/**
+ * `tokens.bbnf`'s numeric tokens and `math.bbnf`'s calculations, as typed quantities. Each action
+ * receives its rule's value where the grammar puts it (positional sequences: an unmatched optional
+ * keeps its `undefined` slot).
+ */
+export const mathActions = {
+    number: { kind: "map", fn: tokenQuantity },
+    percentage: { kind: "map", fn: tokenQuantity },
+    angle: { kind: "map", fn: tokenQuantity },
+    dimension: { kind: "map", fn: tokenQuantity },
+    none: { kind: "map", fn: (): NoneToken => NONE },
+    calcConstant: { kind: "map", fn: constantQuantity },
+    calcKeyword: { kind: "text", fn: (): Numeric => KEYWORD },
+    varFn: { kind: "text", fn: (): Numeric => CONTEXT },
+    calc: { kind: "map", fn: calculated },
+    calcSum: { kind: "map", fn: ([first, steps]: readonly [Numeric, readonly Step[]]) => fold(first, steps) },
+    calcProduct: { kind: "map", fn: ([first, steps]: readonly [Numeric, readonly Step[]]) => fold(first, steps) },
+    minMax: { kind: "map", fn: ([name, first, rest]: readonly [string, Numeric, readonly Numeric[]]) =>
+        calculated(comparison(name.toLowerCase() === "min" ? "min" : "max", [first, ...rest])) },
+    clampFn: { kind: "map", fn: (args: readonly [Numeric, Numeric, Numeric]) => calculated(comparison("clamp", args)) },
+    signAbs: { kind: "map", fn: ([name, arg]: readonly [string, Numeric]) => calculated(signAbs(name, arg)) },
+} as const satisfies Partial<Actions>;

@@ -29,10 +29,8 @@ import { adaptXyzD50ToD65 } from "../../color/anchors";
 import type { Alpha, Channel } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
 import type { CssColor } from "../types";
-import type { Rules } from "./load";
-import { ruleOf } from "./load";
+import type { Actions } from "./generated/grammar";
 import type { NoneToken, Numeric } from "./math";
-import { CONTEXT, KEYWORD, NONE, calculated, comparison, constantQuantity, fold, signAbs, tokenQuantity } from "./math";
 import type { HueMethod, MixItem } from "./mix";
 import { displayP3LinearToXyz, resolveColorMix } from "./mix";
 
@@ -100,13 +98,14 @@ const COLOR_FN: Reading = { percent: 1, number: 1 };
 
 type Factory = (a: Channel, b: Channel, c: Channel, alpha: Alpha) => Result<CssColor, ColorIssue>;
 
+/** A colour function's parts, where the grammar puts them: three channels, then the alpha or `undefined`. */
+type Channels = readonly [Component, Component, Component, Component | undefined];
+
 /**
  * Three channels and an optional alpha read under their rules, then built by the space's
  * factory. The first refusal wins, in source order; a factory's refusal is a syntax refusal.
  */
-function build(parts: readonly Component[], readings: readonly [Reading, Reading, Reading], alphaReading: Reading, factory: Factory): ColorNode {
-    const [a, b, c, alpha] = parts;
-    if (a === undefined || b === undefined || c === undefined) return invalid("three components");
+function build([a, b, c, alpha]: Channels, readings: readonly [Reading, Reading, Reading], alphaReading: Reading, factory: Factory): ColorNode {
     const values: (Channel | ColorNode)[] = [
         readChannel(a, readings[0]), readChannel(b, readings[1]), readChannel(c, readings[2]),
         alpha === undefined ? 1 : readChannel(alpha, alphaReading),
@@ -139,7 +138,7 @@ export function keywordColor(token: string): ColorNode {
 }
 
 /** `color(<space> …)` (§10): each predefined space onto the `CssColorSpace` member naming it. */
-function predefined(space: string, parts: readonly Component[]): ColorNode {
+function predefined(space: string, parts: Channels): ColorNode {
     const R3: readonly [Reading, Reading, Reading] = [COLOR_FN, COLOR_FN, COLOR_FN];
     const scaled = (k: number) => (x: Channel): Channel => (x === "none" ? x : x * k);
     const concrete = (convert: (v: readonly [number, number, number]) => readonly [number, number, number]): Factory =>
@@ -163,25 +162,8 @@ function predefined(space: string, parts: readonly Component[]): ColorNode {
     }
 }
 
-/** Every value of `kind` inside a rule's (possibly nested) result, in source order. */
-function collect<T extends { kind: string }>(value: unknown, kinds: readonly string[]): T[] {
-    const out: T[] = [];
-    const walk = (v: unknown): void => {
-        if (Array.isArray(v)) v.forEach(walk);
-        else if (v !== null && typeof v === "object" && kinds.includes((v as { kind?: unknown }).kind as string)) out.push(v as T);
-    };
-    walk(value);
-    return out;
-}
-
-const COMPONENT_KINDS = ["quantity", "unresolved", "none"] as const;
-const components = (value: unknown): Component[] => collect<Component>(value, COMPONENT_KINDS);
-const NODE_KINDS = ["color", "context", "invalid", "unresolved"] as const;
-
 /** A colour position's node: a bare `var()` (an unresolved numeric) is a context colour. */
-export function asColorNode(value: unknown): ColorNode {
-    const [node] = collect<ColorNode | Numeric>(value, NODE_KINDS);
-    if (node === undefined) return invalid("<color>");
+export function asColorNode(node: ColorNode | Numeric): ColorNode {
     if (node.kind === "unresolved") return node.reason === "context" ? CONTEXT_NODE : invalid("<color>");
     if (node.kind === "quantity") return invalid("<color>");
     return node;
@@ -195,10 +177,9 @@ function firstRefusal(nodes: readonly ColorNode[]): ColorNode | null {
     return nodes.find((n) => n.kind === "invalid") ?? nodes.find((n) => n.kind === "context") ?? null;
 }
 
-/** css-color-5 §3: a parsed `color-mix()` as the colour it computes to. */
-function colorMix(value: unknown): ColorNode {
-    const [method] = collect<MixMethodNode>(value, ["method"]);
-    const items = collect<MixItemNode>(value, ["mixItem"]);
+/** css-color-5 §3: a parsed `color-mix()` — its method, its first item, the rest — as the colour it computes to. */
+function colorMix([method, first, rest]: readonly [MixMethodNode | undefined, MixItemNode, readonly MixItemNode[]]): ColorNode {
+    const items = [first, ...rest];
     const refused = firstRefusal(items.map((item) => item.color));
     if (refused !== null) return refused;
     const mixItems: MixItem[] = [];
@@ -222,61 +203,36 @@ function colorMix(value: unknown): ColorNode {
 }
 
 const hueMethodOf = (token: string): HueMethod => token.toLowerCase().split(/\s+/)[0] as HueMethod;
+const mixItem = (color: ColorNode | Numeric, percent: Numeric | undefined): MixItemNode =>
+    Object.freeze({ kind: "mixItem", color: asColorNode(color), ...(percent === undefined ? {} : { percent }) });
 
 /**
- * Attaches `color.bbnf`'s and `math.bbnf`'s semantic actions to `rules` (each rule's name is its
- * production in the grammar files; a rule not named here yields its raw match).
+ * `color.bbnf`'s semantic actions, by production. Each receives its rule's value where the grammar
+ * puts it (positional sequences: an unmatched optional keeps its `undefined` slot).
  */
-export function attachColorActions(rules: Rules): void {
-    const on = <T>(name: string, action: (value: never) => T): void => {
-        rules[name] = ruleOf(rules, name).map(action as (value: unknown) => T);
-    };
-    type Step = readonly [string, Numeric];
-    // ── math.bbnf / tokens.bbnf ─────────────────────────────────────────────────────
-    for (const token of ["number", "percentage", "angle", "dimension"]) on(token, tokenQuantity);
-    on("none", () => NONE);
-    on("calcConstant", constantQuantity);
-    on("calcKeyword", () => KEYWORD);
-    on("varFn", () => CONTEXT);
-    on("calc", calculated);
-    on("calcSum", ([first, steps]: [Numeric, Step[]]) => fold(first, steps));
-    on("calcProduct", ([first, steps]: [Numeric, Step[]]) => fold(first, steps));
-    on("minMax", ([name, first, rest]: [string, Numeric, Numeric[]]) =>
-        calculated(comparison(name.toLowerCase() === "min" ? "min" : "max", [first, ...rest])));
-    on("clampFn", (args: Numeric[]) => calculated(comparison("clamp", args)));
-    on("signAbs", ([name, arg]: [string, Numeric]) => calculated(signAbs(name, arg)));
-    // ── color.bbnf ───────────────────────────────────────────────────────────────
-    on("rgbModern", (v: unknown) => build(components(v), [RGB, RGB, RGB], ALPHA, rgb));
-    on("rgbLegacyPct", (v: unknown) => build(components(v), [RGB_PCT, RGB_PCT, RGB_PCT], LEGACY_ALPHA, rgb));
-    on("rgbLegacyNum", (v: unknown) => build(components(v), [RGB_NUM, RGB_NUM, RGB_NUM], LEGACY_ALPHA, rgb));
-    on("hslModern", (v: unknown) => build(components(v), [HUE, UNIT, UNIT], ALPHA, hsl));
-    on("hslLegacy", (v: unknown) => build(components(v), [HUE, UNIT_PCT, UNIT_PCT], LEGACY_ALPHA, hsl));
-    on("hwbFn", (v: unknown) => build(components(v), [HUE, UNIT, UNIT], ALPHA, hwb));
-    on("labFn", (v: unknown) => build(components(v), [LAB_L, LAB_AB, LAB_AB], ALPHA, lab));
-    on("lchFn", (v: unknown) => build(components(v), [LAB_L, LCH_C, HUE], ALPHA, lch));
-    on("oklabFn", (v: unknown) => build(components(v), [OK_L, OK_AB, OK_AB], ALPHA, oklab));
-    on("oklchFn", (v: unknown) => build(components(v), [OK_L, OK_C, HUE], ALPHA, oklch));
-    on("colorFn", ([space, ...rest]: [string, ...unknown[]]) => predefined(space, components(rest)));
-    on("hex", hexColor);
-    on("colorKeyword", keywordColor);
-    on("relativeColor", (v: unknown) => {
-        const origin = collect<ColorNode>(v, ["color", "context", "invalid"]);
-        return origin.find((n) => n.kind === "invalid") ?? CONTEXT_NODE;
-    });
-    on("lightDark", (v: unknown) => {
-        const arms = collect<ColorNode | Numeric>(v, NODE_KINDS).map(asColorNode);
-        return arms.find((n) => n.kind === "invalid") ?? CONTEXT_NODE;
-    });
-    on("mixPolar", (v: string | [string, string?]) => {
-        const [space, hue] = Array.isArray(v) ? v : [v];
-        return Object.freeze({ kind: "method", space, ...(hue === undefined ? {} : { hue: hueMethodOf(hue) }) });
-    });
-    on("mixRect", (space: string) => Object.freeze({ kind: "method", space }));
-    on("mixLead", ([percent, color]: [Numeric, unknown]) => Object.freeze({ kind: "mixItem", color: asColorNode(color), percent }));
-    on("mixTrail", (v: unknown) => {
-        const percent = Array.isArray(v) && v.length > 1 ? (v[v.length - 1] as Numeric) : undefined;
-        const color = asColorNode(Array.isArray(v) ? v[0] : v);
-        return Object.freeze({ kind: "mixItem", color, ...(percent === undefined ? {} : { percent }) });
-    });
-    on("colorMix", colorMix);
-}
+export const colorActions = {
+    rgbModern: { kind: "map", fn: (v: Channels) => build(v, [RGB, RGB, RGB], ALPHA, rgb) },
+    rgbLegacyPct: { kind: "map", fn: (v: Channels) => build(v, [RGB_PCT, RGB_PCT, RGB_PCT], LEGACY_ALPHA, rgb) },
+    rgbLegacyNum: { kind: "map", fn: (v: Channels) => build(v, [RGB_NUM, RGB_NUM, RGB_NUM], LEGACY_ALPHA, rgb) },
+    hslModern: { kind: "map", fn: (v: Channels) => build(v, [HUE, UNIT, UNIT], ALPHA, hsl) },
+    hslLegacy: { kind: "map", fn: (v: Channels) => build(v, [HUE, UNIT_PCT, UNIT_PCT], LEGACY_ALPHA, hsl) },
+    hwbFn: { kind: "map", fn: (v: Channels) => build(v, [HUE, UNIT, UNIT], ALPHA, hwb) },
+    labFn: { kind: "map", fn: (v: Channels) => build(v, [LAB_L, LAB_AB, LAB_AB], ALPHA, lab) },
+    lchFn: { kind: "map", fn: (v: Channels) => build(v, [LAB_L, LCH_C, HUE], ALPHA, lch) },
+    oklabFn: { kind: "map", fn: (v: Channels) => build(v, [OK_L, OK_AB, OK_AB], ALPHA, oklab) },
+    oklchFn: { kind: "map", fn: (v: Channels) => build(v, [OK_L, OK_C, HUE], ALPHA, oklch) },
+    colorFn: { kind: "map", fn: ([space, a, b, c, alpha]: readonly [string, ...Channels]) => predefined(space, [a, b, c, alpha]) },
+    hex: { kind: "map", fn: hexColor },
+    colorKeyword: { kind: "map", fn: keywordColor },
+    //  A relative colour depends on its origin, so it is a context colour — unless the origin is refused.
+    relativeColor: { kind: "map", fn: ([, origin]: readonly [string, ColorNode | Numeric, unknown]): ColorNode =>
+        (origin.kind === "invalid" ? origin : CONTEXT_NODE) },
+    lightDark: { kind: "map", fn: ([light, dark]: readonly [ColorNode | Numeric, ColorNode | Numeric]): ColorNode =>
+        [asColorNode(light), asColorNode(dark)].find((n) => n.kind === "invalid") ?? CONTEXT_NODE },
+    mixPolar: { kind: "map", fn: ([space, hue]: readonly [string, string | undefined]): MixMethodNode =>
+        Object.freeze({ kind: "method", space, ...(hue === undefined ? {} : { hue: hueMethodOf(hue) }) }) },
+    mixRect: { kind: "map", fn: (space: string): MixMethodNode => Object.freeze({ kind: "method", space }) },
+    mixLead: { kind: "map", fn: ([percent, color]: readonly [Numeric, ColorNode | Numeric]) => mixItem(color, percent) },
+    mixTrail: { kind: "map", fn: ([color, percent]: readonly [ColorNode | Numeric, Numeric | undefined]) => mixItem(color, percent) },
+    colorMix: { kind: "map", fn: colorMix },
+} as const satisfies Partial<Actions>;

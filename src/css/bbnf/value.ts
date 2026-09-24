@@ -9,8 +9,8 @@ import type { CssCall, CssScalar, CssValue } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
 import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, ParseIssue } from "../types";
 import type { ColorNode } from "./color";
-import type { Rules } from "./load";
-import { ruleOf } from "./load";
+import { keywordColor } from "./color";
+import type { Actions } from "./generated/grammar";
 import type { Numeric, Quantity } from "./math";
 
 /** A refusal; `span` (source offsets) narrows its diagnostic to the component refused. */
@@ -51,7 +51,7 @@ const isRefused = (v: unknown): v is Refused => typeof v === "object" && v !== n
 
 /** `first ( sep item ) *` as the list it separates — or the one item, when there is no separator. */
 function listOf(separator: "comma" | "slash" | "space") {
-    return ([first, rest]: [ValueNode, ValueNode[]]): ValueNode => {
+    return ([first, rest]: readonly [ValueNode, readonly ValueNode[]]): ValueNode => {
         const items = [first, ...rest];
         const refusal = items.find(isRefused);
         if (refusal !== undefined) return refusal;
@@ -63,7 +63,7 @@ function listOf(separator: "comma" | "slash" | "space") {
 const ZERO_ARGUMENT = /^(?:sibling-index|sibling-count)$/i;
 const MAY_BE_EMPTY = /^(?:--.*|scroll|view)$/i;
 
-function callValue([name, body]: [string, ValueNode?]): ValueNode {
+function callValue([name, body]: readonly [string, ValueNode | undefined]): ValueNode {
     if (ZERO_ARGUMENT.test(name)) return body === undefined ? { kind: "call", name, args: [] } satisfies CssCall : refused("css_syntax", "zero-argument function");
     if (body === undefined) return MAY_BE_EMPTY.test(name) ? { kind: "call", name, args: [] } satisfies CssCall : refused("css_syntax", "function argument");
     if (isRefused(body)) return body;
@@ -83,8 +83,7 @@ export function keyframeSelector(value: unknown): SelectorNode {
     return value as SelectorNode;
 }
 
-function namedSelector(v: string | [string, Numeric?]): SelectorNode {
-    const [rawName, offset] = Array.isArray(v) ? v : [v];
+function namedSelector([rawName, offset]: readonly [string, Numeric | undefined]): SelectorNode {
     const name = rawName.toLowerCase() as "entry" | "exit" | "cover" | "contain";
     if (offset === undefined) return { kind: "named", name };
     if (offset.kind !== "quantity") return selectorRange;
@@ -114,14 +113,13 @@ function timingKeyword(token: string): TimingNode {
     return { kind: "keyword", name: name as "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out" };
 }
 
-function cubicBezier(args: Numeric[]): TimingNode {
+function cubicBezier(args: readonly [Numeric, Numeric, Numeric, Numeric]): TimingNode {
     const [x1, y1, x2, y2] = args.map(numberOf);
     if (x1 == null || y1 == null || x2 == null || y2 == null) return timingRefused;
     return x1 >= 0 && x1 <= 1 && x2 >= 0 && x2 <= 1 ? { kind: "cubic-bezier", x1, y1, x2, y2 } : timingRefused;
 }
 
-function stepsFn(v: Numeric | [Numeric, string?]): TimingNode {
-    const [countQ, rawPosition] = Array.isArray(v) ? v : [v];
+function stepsFn([countQ, rawPosition]: readonly [Numeric, string | undefined]): TimingNode {
     const count = numberOf(countQ);
     const position = JUMP_ALIASES.get((rawPosition ?? "jump-end").toLowerCase());
     return count !== null && Number.isInteger(count) && count > 0 && position !== undefined && !(position === "jump-none" && count < 2)
@@ -129,45 +127,46 @@ function stepsFn(v: Numeric | [Numeric, string?]): TimingNode {
         : timingRefused;
 }
 
-function linearStop(v: Numeric | Numeric[]): CssLinearStop | Refused {
-    const [outputQ, ...inputs] = Array.isArray(v) ? v : [v];
+/** `number , ( ws1 >> percentage ) ? , ( ws1 >> percentage ) ?`: the second input only follows a first. */
+function linearStop([outputQ, ...slots]: readonly [Numeric, Numeric | undefined, Numeric | undefined]): CssLinearStop | Refused {
     const output = numberOf(outputQ);
     if (output === null) return timingRefused;
+    const inputs = slots.filter((q): q is Numeric => q !== undefined);
     const positions = inputs.map((q) => (q.kind === "quantity" && q.type === "percentage" ? q.value / 100 : NaN));
     return { output, input: positions as [] | [number] | [number, number] };
 }
 
-function linearFn([first, rest]: [CssLinearStop | Refused, (CssLinearStop | Refused)[]]): TimingNode {
+function linearFn([first, rest]: readonly [CssLinearStop | Refused, readonly (CssLinearStop | Refused)[]]): TimingNode {
     const stops = [first, ...rest];
     if (stops.some(isRefused)) return timingRefused;
     return stops.length >= 2 ? { kind: "linear-function", stops: stops as CssLinearStop[] } : timingRefused;
 }
 
-/** Attaches `value.bbnf`'s semantic actions; `color` reads a hex/keyword token as its colour node. */
-export function attachValueActions(rules: Rules, color: (token: string) => ColorNode): void {
-    const on = <T>(name: string, action: (value: never) => T): void => {
-        rules[name] = ruleOf(rules, name).map(action as (value: unknown) => T);
-    };
-    on("numeric", numericScalar);
-    on("string", keyword);
-    on("operator", keyword);
-    on("identTerm", (token: string) => identScalar(token, color));
-    on("colorCall", colorScalar);
+/**
+ * `value.bbnf`'s semantic actions, by production. Each receives its rule's value where the grammar
+ * puts it (positional sequences: an unmatched optional keeps its `undefined` slot).
+ */
+export const valueActions = {
+    numeric: { kind: "map", fn: numericScalar },
+    string: { kind: "map", fn: keyword },
+    operator: { kind: "map", fn: keyword },
+    identTerm: { kind: "map", fn: (token: string) => identScalar(token, keywordColor) },
+    colorCall: { kind: "map", fn: colorScalar },
     //  `color-mix()` / `light-dark()` stand in a scalar position as colours (their node, unwrapped).
-    on("scalarTerm", (v: ValueNode | ColorNode) =>
-        v.kind === "color" || v.kind === "context" || v.kind === "invalid" ? colorScalar(v) : v);
-    on("call", callValue);
-    on("varCall", callValue);
-    rules.badTerm = ruleOf(rules, "badTerm").mapState((next, prev) =>
-        next.ok(Object.freeze({ ...refused("css_syntax", "scalar"), span: Object.freeze({ start: prev.offset, end: next.offset }) })));
-    on("spaceList", listOf("space"));
-    on("slashList", listOf("slash"));
-    on("commaList", listOf("comma"));
-    on("selectorKeyword", (token: string): SelectorNode => ({ kind: "percent", value: token.toLowerCase() === "from" ? 0 : 1 }));
-    on("selectorNamed", namedSelector);
-    on("timingKeyword", timingKeyword);
-    on("cubicBezier", cubicBezier);
-    on("stepsFn", stepsFn);
-    on("linearStop", linearStop);
-    on("linearFn", linearFn);
-}
+    scalarTerm: { kind: "map", fn: (v: ValueNode | ColorNode) =>
+        (v.kind === "color" || v.kind === "context" || v.kind === "invalid" ? colorScalar(v) : v) },
+    call: { kind: "map", fn: callValue },
+    varCall: { kind: "map", fn: callValue },
+    badTerm: { kind: "span", fn: (_: string, start: number, end: number): Refused =>
+        Object.freeze({ ...refused("css_syntax", "scalar"), span: Object.freeze({ start, end }) }) },
+    spaceList: { kind: "map", fn: listOf("space") },
+    slashList: { kind: "map", fn: listOf("slash") },
+    commaList: { kind: "map", fn: listOf("comma") },
+    selectorKeyword: { kind: "map", fn: (token: string): SelectorNode => ({ kind: "percent", value: token.toLowerCase() === "from" ? 0 : 1 }) },
+    selectorNamed: { kind: "map", fn: namedSelector },
+    timingKeyword: { kind: "map", fn: timingKeyword },
+    cubicBezier: { kind: "map", fn: cubicBezier },
+    stepsFn: { kind: "map", fn: stepsFn },
+    linearStop: { kind: "map", fn: linearStop },
+    linearFn: { kind: "map", fn: linearFn },
+} as const satisfies Partial<Actions>;

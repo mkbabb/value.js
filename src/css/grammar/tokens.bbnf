@@ -1,22 +1,17 @@
 // SERVED MODEL: claude-opus-5-5
 //
 // value.js's CSS grammar — the SOURCE OF TRUTH (X.P.W6 · the owner's ruling 2026-09-23,
-// "No custom grammar, unless it's BBNF"). These `.bbnf` modules are compiled at load by the
-// published BBNF toolchain (`@mkbabb/bbnf-lang` `BBNFToParser`) into `@mkbabb/parse-that`
-// parsers; `src/css/bbnf/` attaches the semantic actions (values, never grammar).
+// "No custom grammar, unless it's BBNF"). X.P.W7: `@mkbabb/bbnf-lang`'s `bbnf gen` compiles these
+// modules AHEAD OF TIME (`scripts/gen-grammar.mjs`) into `src/css/bbnf/generated/`, the checked-in
+// parser value.js runs; `src/css/bbnf/actions.ts` gives it its semantic actions (values, never grammar).
 //
-// The modules are concatenated in one order — tokens · math · color · value — because
-// bbnf-lang 0.1.4's `@import` loader is unusable in its published build (see `load.ts`).
+// Each module `@import`s the modules whose rules it reads; `css.bbnf` is the root.
 //
 // tokens.bbnf — css-syntax-3 §4 tokens, as the value and colour productions read them.
 // Keywords and function names are ASCII case-insensitive (`/…/i`); every keyword carries an
-// ident-boundary lookahead so `nonesuch` is never `none`. Each case-insensitive regex also spells
-// the FIRST letter of every alternative as a class (`/[nN]one/i`): bbnf-lang 0.1.4 builds its
-// alternation dispatch tables from a regex's `source` alone (`regexFirstChars` never reads
-// `flags`), so `/none/i` would be dispatched on `n` only and `NONE` refused before it is tried.
+// ident-boundary lookahead so `nonesuch` is never `none`.
 
-// `?`: parse-that's regex leaf fails at end of input even when the pattern matches empty.
-ws       = /\s*/ ? ;
+ws       = /\s*/ ;
 ws1      = /\s+/ ;
 comma    = /\s*,\s*/ ;
 slash    = /\s*\/\s*/ ;
@@ -27,9 +22,9 @@ close    = /\s*\)/ ;
 number     = /[+-]?(?:\d*\.\d+|\d+(?!\.\d))(?:[eE][+-]?\d+)?(?![\w%\\])/ ;
 percentage = /[+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?%/ ;
 dimension  = /[+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?[a-zA-Z_][\w-]*/ ;
-angle      = /[+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?(?:[dD]eg|[gG]rad|[rR]ad|[tT]urn)(?![\w-])/i ;
+angle      = /[+-]?(?:\d*\.\d+|\d+)(?:e[+-]?\d+)?(?:deg|grad|rad|turn)(?![\w-])/i ;
 
-none       = /[nN]one(?![\w-])/i ;
+none       = /none(?![\w-])/i ;
 ident      = /-?[a-zA-Z_][\w-]*|--[\w-]*/ ;
 dashedIdent = /--[\w-]+/ ;
 string     = /"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*'/ ;

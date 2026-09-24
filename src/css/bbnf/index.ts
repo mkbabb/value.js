@@ -9,28 +9,14 @@ import type { CssList, CssScalar, CssValue } from "../../value";
 import { failure, success } from "../result";
 import type { CssColor, CssTimingFunction, KeyframeSelector, ParseResult } from "../types";
 import type { ColorNode } from "./color";
-import { asColorNode, attachColorActions, keywordColor } from "./color";
-import type { Rules } from "./load";
-import { compileGrammar, ruleOf, run } from "./load";
-import { attachStylesheetActions } from "./stylesheet";
+import { asColorNode } from "./color";
+import { FAIL, parser } from "./load";
+import type { Numeric } from "./math";
 import type { Refused, SelectorNode, TimingNode, ValueNode } from "./value";
-import { attachValueActions, keyframeSelector } from "./value";
+import { keyframeSelector } from "./value";
 
-let compiled: Rules | undefined;
+const { entries } = parser;
 
-/** The grammar, compiled and given its semantic actions once, on first use. */
-export function grammar(): Rules {
-    if (compiled === undefined) {
-        const rules = compileGrammar();
-        attachColorActions(rules);
-        attachValueActions(rules, keywordColor);
-        attachStylesheetActions(rules);
-        compiled = rules;
-    }
-    return compiled;
-}
-
-const parseRule = (name: string, source: string) => run<unknown>(ruleOf(grammar(), name), source);
 const refusal = <T>(source: string, node: Refused): ParseResult<T> =>
     node.span === undefined
         ? failure(source, node.code, [node.expected])
@@ -46,8 +32,8 @@ function colorResult(source: string, node: ColorNode): ParseResult<CssColor> {
 
 /** `parseCssColor` — one whole `<color>`. */
 export function parseCssColor(source: string): ParseResult<CssColor> {
-    const parsed = parseRule("colorTop", source);
-    return parsed.ok ? colorResult(source, asColorNode(parsed.value)) : failure(source, "css_syntax", ["color"]);
+    const node = entries.colorTop(source);
+    return node === FAIL ? failure(source, "css_syntax", ["color"]) : colorResult(source, asColorNode(node as ColorNode | Numeric));
 }
 
 function valueResult<T extends CssValue>(source: string, node: ValueNode): ParseResult<T> {
@@ -56,8 +42,8 @@ function valueResult<T extends CssValue>(source: string, node: ValueNode): Parse
 
 /** `parseCssValue` — a component-value list (comma, then slash, then space separated). */
 export function parseCssValue(source: string): ParseResult<CssValue> {
-    const parsed = parseRule("valueTop", source);
-    return parsed.ok ? valueResult(source, parsed.value as ValueNode) : failure(source, "css_syntax", ["scalar"]);
+    const node = entries.valueTop(source);
+    return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
 }
 
 /** `parseCssValues` — `parseCssValue`, always as a list (one item → a one-item space list). */
@@ -71,23 +57,23 @@ export function parseCssValues(source: string): ParseResult<CssList> {
 
 /** `parseCssScalar` — one scalar: a colour, a number with its unit, a string, an operator or a keyword. */
 export function parseCssScalar(source: string): ParseResult<CssScalar> {
-    const parsed = parseRule("scalarTop", source);
-    return parsed.ok ? valueResult(source, parsed.value as ValueNode) : failure(source, "css_syntax", ["scalar"]);
+    const node = entries.scalarTop(source);
+    return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
 }
 
 /** `parseKeyframeSelector` — one `<keyframe-selector>`. */
 export function parseKeyframeSelector(source: string): ParseResult<KeyframeSelector> {
-    const parsed = parseRule("keyframeSelector", source);
-    if (!parsed.ok) return failure(source, "keyframe_selector_invalid", ["keyframe selector"]);
-    const node: SelectorNode = keyframeSelector(parsed.value);
+    const parsed = entries.keyframeSelector(source);
+    if (parsed === FAIL) return failure(source, "keyframe_selector_invalid", ["keyframe selector"]);
+    const node: SelectorNode = keyframeSelector(parsed);
     return node.kind === "refused" ? refusal(source, node) : success(node);
 }
 
 /** `parseTimingFunction` — one `<easing-function>`. */
 export function parseTimingFunction(source: string): ParseResult<CssTimingFunction> {
-    const parsed = parseRule("timingFunction", source);
-    if (!parsed.ok) return failure(source, "css_syntax", ["timing function"]);
-    const node = parsed.value as TimingNode;
+    const parsed = entries.timingFunction(source);
+    if (parsed === FAIL) return failure(source, "css_syntax", ["timing function"]);
+    const node = parsed as TimingNode;
     return node.kind === "refused" ? refusal(source, node) : success(node);
 }
 
@@ -99,6 +85,6 @@ const LISTS = { ",": "commaItems", ";": "semiItems", space: "spaceItems" } as co
  * string): the caller answers that with its own diagnostic.
  */
 export function splitTopLevel(source: string, separator: keyof typeof LISTS): readonly string[] | null {
-    const parsed = run<readonly string[]>(ruleOf(grammar(), LISTS[separator]), source);
-    return parsed.ok ? parsed.value : null;
+    const items = entries[LISTS[separator]](source);
+    return items === FAIL ? null : (items as readonly string[]);
 }

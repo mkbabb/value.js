@@ -1,0 +1,8 @@
+// SERVED MODEL: claude-opus-5-5
+//
+// css.bbnf — the root module `bbnf gen` compiles (X.P.W7): the value productions (`value.bbnf`,
+// which imports `color` · `math` · `tokens`) and the stylesheet layer's texts (`stylesheet.bbnf`).
+// The entries value.js calls are named in `scripts/gen-grammar.mjs`.
+
+@import "value.bbnf" ;
+@import "stylesheet.bbnf" ;

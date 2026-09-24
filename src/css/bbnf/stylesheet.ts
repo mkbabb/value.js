@@ -1,115 +1,94 @@
 // SERVED MODEL: claude-opus-5-5
 //
-// X.P.W6.x — `stylesheet.bbnf`'s semantic actions. Its rules yield TEXT: every leaf is a matched
-// run of code units, so an action joins the leaves back into the run the grammar delimited — it
-// never scans the source for a boundary of its own.
+// X.P.W6.x — `stylesheet.bbnf`'s semantic actions. Its rules yield TEXT: a run's action is a `text`
+// action, which receives exactly the code units its match covered, so no action scans the source for
+// a boundary of its own. X.P.W7: a composite rule's action DESTRUCTURES its parts where the grammar
+// puts them (positional sequences: an unmatched optional keeps its `undefined` slot), so no tag is
+// carried and no subtree is walked to find a part (the template: the W7 research's
+// `route-ts-compiler/shim/stylesheet-positional.ts`).
 
-import type { Rules } from "./load";
-import { ruleOf } from "./load";
-
-/** A rule's leaves, joined in order: the exact text its match covered. */
-export function textOf(value: unknown): string {
-    if (Array.isArray(value)) return value.map(textOf).join("");
-    return typeof value === "string" ? value : "";
-}
-
-/**
- * A TAG: the value an action gives a sub-rule so the enclosing rule can find it. parse-that drops
- * an `undefined` (an unmatched optional) from a sequence's value, so a sequence's shape is not
- * positional; every part a rule needs is tagged by its own action and collected wherever it sits.
- */
-type Tag = Readonly<Record<string, unknown>>;
-const isTag = (value: unknown): value is Tag => typeof value === "object" && value !== null && !Array.isArray(value);
-
-/** Every tag in `value`, in source order. */
-export function tagsOf(value: unknown): Tag[] {
-    if (isTag(value)) return [value];
-    return Array.isArray(value) ? value.flatMap(tagsOf) : [];
-}
-
-/** The first tag carrying `key`, or `undefined` when the optional part it names was absent. */
-function tag<T>(value: unknown, key: string): T | undefined {
-    return tagsOf(value).find((t) => key in t)?.[key] as T | undefined;
-}
+import type { Actions } from "./generated/grammar";
 
 /** The fault a rule list ends on: the named expectation and the offset it starts at. */
 export type ListFault = Readonly<{ expected: string; start: number }>;
 export type RuleBlock = Readonly<{ prelude: string; body: string | null }>;
+/** One comma-list part: an item's trimmed text, or the offset of the comma after it. */
+export type CommaSpan = Readonly<{ item: string }> | Readonly<{ comma: number }>;
 
-/** Attaches `stylesheet.bbnf`'s actions: each rule answers text, or tags that carry text. */
-export function attachStylesheetActions(rules: Rules): void {
-    const on = <T>(name: string, action: (value: never) => T): void => {
-        rules[name] = ruleOf(rules, name).map(action as (value: unknown) => T);
-    };
-    /** An action that also sees the offsets its rule matched between. */
-    const spanned = <T>(name: string, action: (value: never, start: number, end: number) => T): void => {
-        rules[name] = ruleOf(rules, name).mapState((next, prev) =>
-            next.ok((action as (value: unknown, start: number, end: number) => T)(next.value, prev.offset, next.offset)));
-    };
-    const text = (key: string) => (value: unknown): Tag => ({ [key]: textOf(value) });
-    const trimmed = (key: string) => (value: unknown): Tag => ({ [key]: textOf(value).trim() });
-    const items = (value: unknown): string[] => tagsOf(value).filter((t) => "item" in t).map((t) => t.item as string);
+/** `( sep item ) *`'s repeated pairs; `at` is the item's slot in each pair. */
+type Rest<T> = readonly (readonly T[])[];
+const list = <T>(first: T, rest: Rest<unknown>, at: number): T[] => [first, ...rest.map((pair) => pair[at] as T)];
 
+const trim = (text: string): string => text.trim();
+const same = (text: string): string => text;
+const inner = (text: string): string => text.slice(1, -1);
+const at = (kind: string) => ([, rest]: readonly [string, string]) => ({ at: kind, name: kind, rest: rest.trim() });
+
+/** `stylesheet.bbnf`'s semantic actions, by production. */
+export const stylesheetActions = {
     // Lists: each run its trimmed text; a list its runs (empty runs dropped, except where the
     // reader needs them — `syntaxAlts` and `commaSpans` keep them).
-    for (const run of ["commaRun", "semiRun", "spaceRun", "argRun", "syntaxPart"]) on(run, trimmed("item"));
-    for (const list of ["commaItems", "semiItems", "spaceItems"]) on(list, (v: unknown) => items(v).filter(Boolean));
-    on("syntaxAlts", items);
-    on("timelineArgs", items);
-    spanned("listComma", (_: unknown, start: number): Tag => ({ comma: start }));
-    on("commaSpans", (v: unknown) => tagsOf(v));
-    on("restText", text("rest"));
+    commaRun: { kind: "text", fn: trim },
+    semiRun: { kind: "text", fn: trim },
+    spaceRun: { kind: "text", fn: trim },
+    argRun: { kind: "text", fn: trim },
+    syntaxPart: { kind: "text", fn: trim },
+    commaItems: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => list(first, rest, 1).filter(Boolean) },
+    semiItems: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => list(first, rest, 1).filter(Boolean) },
+    spaceItems: { kind: "map", fn: ([, rest]: readonly [unknown, Rest<string>]) => rest.map((pair) => pair[0] as string).filter(Boolean) },
+    syntaxAlts: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => list(first, rest, 1) },
+    timelineArgs: { kind: "map", fn: ([, rest]: readonly [unknown, Rest<string>]) => rest.map((pair) => pair[0] as string) },
+    listComma: { kind: "span", fn: (_: string, start: number): CommaSpan => ({ comma: start }) },
+    commaSpans: { kind: "map", fn: ([first, rest]: readonly [string, Rest<unknown>]): CommaSpan[] => {
+        const parts: CommaSpan[] = [{ item: first }];
+        for (const [comma, item] of rest) parts.push(comma as CommaSpan, { item: item as string });
+        return parts;
+    } },
+    restText: { kind: "text", fn: same },
 
     // Rule lists.
-    on("preludeRun", text("prelude"));
-    on("semiTail", (): Tag => ({ body: null }));
-    on("blockTail", text("body"));
-    on("ruleBlock", (v: unknown): Tag => ({
-        block: { prelude: (tag<string>(v, "prelude") ?? "").trim(), body: tag<string | null>(v, "body") ?? null } satisfies RuleBlock,
-    }));
-    spanned("openComment", (_: unknown, start: number): Tag => ({ fault: { expected: "closing comment", start } }));
-    spanned("openBlock", (v: unknown, start: number): Tag =>
-        ({ fault: { expected: "closing brace", start: start + (tag<string>(v, "prelude") ?? "").length } }));
-    spanned("openRule", (_: unknown, start: number): Tag => ({ fault: { expected: "rule", start } }));
-    on("ruleList", (v: unknown) => ({
-        blocks: tagsOf(v).filter((t) => "block" in t).map((t) => t.block as RuleBlock),
-        fault: tag<ListFault>(v, "fault"),
-    }));
+    preludeRun: { kind: "text", fn: same },
+    semiTail: { kind: "map", fn: (): null => null },
+    blockTail: { kind: "text", fn: inner },
+    ruleBlock: { kind: "map", fn: ([prelude, body]: readonly [string, string | null]): RuleBlock => ({ prelude: prelude.trim(), body }) },
+    openComment: { kind: "span", fn: (_: unknown, start: number): ListFault => ({ expected: "closing comment", start }) },
+    openBlock: { kind: "span", fn: ([prelude]: readonly [string, string, string], start: number): ListFault =>
+        ({ expected: "closing brace", start: start + prelude.length }) },
+    openRule: { kind: "span", fn: (_: unknown, start: number): ListFault => ({ expected: "rule", start }) },
+    ruleList: { kind: "map", fn: ([, rest, fault]: readonly [unknown, Rest<unknown>, ListFault | undefined]) => ({
+        blocks: rest.map((pair) => pair[0] as RuleBlock),
+        fault,
+    }) },
 
     // At-rule preludes.
-    const at = (kind: string) => (v: unknown): Tag => ({ at: kind, name: kind, rest: (tag<string>(v, "rest") ?? "").trim() });
-    on("atKeyframes", at("keyframes"));
-    on("atProperty", at("property"));
-    on("atFunction", at("function"));
-    on("atScope", at("scope"));
-    on("atStartingStyle", (): Tag => ({ at: "starting-style", name: "starting-style", rest: "" }));
-    on("atScrollTimeline", at("scroll-timeline"));
-    on("atViewTimeline", at("view-timeline"));
-    on("atName", (v: string): Tag => ({ name: v.slice(1) }));
-    on("atRest", (v: unknown): Tag => ({ other: tag<string>(v, "rest") ?? "" }));
-    on("atOther", (v: unknown): Tag => ({ at: "other", name: tag<string>(v, "name") ?? "", rest: tag<string>(v, "other") ?? "" }));
-    on("syntaxCore", text("core"));
-    on("syntaxText", (v: unknown) => tag<string>(v, "core") ?? "");
-    on("scopeGroup", text("group"));
-    on("scopeLimit", (v: unknown): Tag => ({ limit: tag<string>(v, "group") }));
-    on("scopePrelude", (v: unknown) => ({ root: tag<string>(v, "group"), limit: tag<string>(v, "limit") }));
-    on("functionName", text("name"));
-    on("functionParams", text("params"));
-    on("functionHead", (v: unknown) => ({ name: tag<string>(v, "name") ?? "", params: tag<string>(v, "params") ?? "" }));
-    on("colonRun", trimmed("head"));
-    on("paramDefault", (v: unknown): Tag => ({ default: (tag<string>(v, "rest") ?? "").trim() }));
-    on("functionParam", (v: unknown) => ({ head: tag<string>(v, "head") ?? "", default: tag<string>(v, "default") }));
-    on("paramName", text("name"));
-    on("paramSyntax", trimmed("syntax"));
-    on("paramHead", (v: unknown) => ({ name: tag<string>(v, "name") ?? "", syntax: tag<string>(v, "syntax") }));
+    atKeyframes: { kind: "map", fn: at("keyframes") },
+    atProperty: { kind: "map", fn: at("property") },
+    atFunction: { kind: "map", fn: at("function") },
+    atScope: { kind: "map", fn: at("scope") },
+    atStartingStyle: { kind: "map", fn: () => ({ at: "starting-style", name: "starting-style", rest: "" }) },
+    atScrollTimeline: { kind: "map", fn: at("scroll-timeline") },
+    atViewTimeline: { kind: "map", fn: at("view-timeline") },
+    atName: { kind: "map", fn: (token: string) => token.slice(1) },
+    atOther: { kind: "map", fn: ([name, other]: readonly [string, string | undefined]) => ({ at: "other", name, rest: other ?? "" }) },
+    syntaxCore: { kind: "text", fn: same },
+    syntaxText: { kind: "map", fn: ([, core]: readonly [unknown, string | undefined, unknown]) => core ?? "" },
+    scopeGroup: { kind: "text", fn: inner },
+    scopePrelude: { kind: "map", fn: ([, part]: readonly [unknown, readonly [string, string | undefined, unknown] | undefined]) =>
+        ({ root: part?.[0], limit: part?.[1] }) },
+    functionName: { kind: "text", fn: same },
+    functionParams: { kind: "text", fn: same },
+    functionHead: { kind: "map", fn: ([name, params]: readonly [string, string]) => ({ name, params }) },
+    colonRun: { kind: "text", fn: trim },
+    paramDefault: { kind: "map", fn: (rest: string) => rest.trim() },
+    functionParam: { kind: "map", fn: ([head, def]: readonly [string, string | undefined]) => ({ head, default: def }) },
+    paramName: { kind: "text", fn: same },
+    paramSyntax: { kind: "text", fn: trim },
+    paramHead: { kind: "map", fn: ([name, syntax]: readonly [string, string | undefined]) => ({ name, syntax }) },
 
     // Declarations.
-    on("declName", (v: string): Tag => ({ name: v.trim().toLowerCase() }));
-    on("declValue", (v: unknown): Tag => ({ value: textOf(v).trim() }));
-    on("declImportant", (): Tag => ({ important: true }));
-    on("declaration", (v: unknown) => ({
-        name: tag<string>(v, "name") ?? "",
-        value: tag<string>(v, "value") ?? "",
-        important: tag<boolean>(v, "important") === true,
-    }));
-}
+    declName: { kind: "map", fn: (token: string) => token.trim().toLowerCase() },
+    declValue: { kind: "text", fn: trim },
+    declImportant: { kind: "map", fn: (): true => true },
+    declaration: { kind: "map", fn: ([name, , value, important]: readonly [string, string, string, true | undefined]) =>
+        ({ name, value, important: important === true }) },
+} as const satisfies Partial<Actions>;

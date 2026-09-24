@@ -6,12 +6,14 @@
 // expression (§10.8: number · percentage · angle · length …) is checked when it is
 // resolved (`src/css/bbnf/math.ts`), because it depends on where the expression stands.
 
+@import "tokens.bbnf" ;
+
 mathFn     = calc | minMax | clampFn | signAbs | varFn ;
 
-calc       = /[cC]alc\(\s*/i >> calcSum << close ;
-minMax     = /(?:[mM]in|[mM]ax)(?=\()/i , /\(\s*/ >> calcSum , ( comma >> calcSum ) * << close ;
-clampFn    = /[cC]lamp\(\s*/i >> calcSum , comma >> calcSum , comma >> calcSum << close ;
-signAbs    = /(?:[sS]ign|[aA]bs)(?=\()/i , /\(\s*/ >> calcSum << close ;
+calc       = /calc\(\s*/i >> calcSum << close ;
+minMax     = /(?:min|max)(?=\()/i , /\(\s*/ >> calcSum , ( comma >> calcSum ) * << close ;
+clampFn    = /clamp\(\s*/i >> calcSum , comma >> calcSum , comma >> calcSum << close ;
+signAbs    = /(?:sign|abs)(?=\()/i , /\(\s*/ >> calcSum << close ;
 
 calcSum     = calcProduct , ( calcAddOp , calcProduct ) * ;
 calcAddOp   = /\s+[+-]\s+/ ;
@@ -19,10 +21,10 @@ calcProduct = calcValue , ( calcMulOp , calcValue ) * ;
 calcMulOp   = /\s*[*\/]\s*/ ;
 calcValue   = mathFn | calcGroup | calcConstant | percentage | angle | number | dimension | calcKeyword ;
 calcGroup   = /\(\s*/ >> calcSum << close ;
-calcConstant = /(?:-?[iI]nfinity|[nN]an|[pP]i|[eE])(?![\w-])/i ;
+calcConstant = /(?:-?infinity|nan|pi|e)(?![\w-])/i ;
 // A bare keyword inside a calculation: a relative colour's channel name (`r`, `alpha`, …).
 // Outside a relative colour it names nothing and the colour is refused as syntax.
 calcKeyword = /[a-zA-Z][\w-]*(?![\w(-])/ ;
 
 // var() — its value is unknown until computed-value time (css-variables-1 §3).
-varFn      = /(?:[vV]ar|[eE]nv)(?=\()/i , /\(\s*/ >> ( dashedIdent | ident ) , ( comma >> balanced ) ? << close ;
+varFn      = /(?:var|env)(?=\()/i , /\(\s*/ >> ( dashedIdent | ident ) , ( comma >> balanced ) ? << close ;

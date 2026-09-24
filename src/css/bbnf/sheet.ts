@@ -5,15 +5,15 @@
 // whole-input run of one grammar rule, and answers the rule's value (or `null` when the text is not
 // that production). None of them scans text; the grammar decides every boundary.
 
-import { grammar } from "./index";
-import { ruleOf, run } from "./load";
-import type { ListFault, RuleBlock } from "./stylesheet";
+import { FAIL, parser } from "./load";
+import type { CommaSpan, ListFault, RuleBlock } from "./stylesheet";
 
-const read = <T>(name: string, source: string): T | null => {
-    const parsed = run<T>(ruleOf(grammar(), name), source);
-    return parsed.ok ? parsed.value : null;
+type EntryName = keyof typeof parser.entries;
+const read = <T>(name: EntryName, source: string): T | null => {
+    const value = parser.entries[name](source);
+    return value === FAIL ? null : (value as T);
 };
-const matches = (name: string, source: string): boolean => run(ruleOf(grammar(), name), source).ok;
+const matches = (name: EntryName, source: string): boolean => parser.entries[name](source) !== FAIL;
 
 export type { ListFault, RuleBlock };
 
@@ -76,16 +76,16 @@ export const declaration = (row: string): Readonly<{ name: string; value: string
  * it, or the last comma when the list ends empty); `undefined` when every item is non-empty.
  */
 export function emptyListComma(source: string): number | undefined {
-    const parts = read<Readonly<Record<string, unknown>>[]>("commaSpans", source);
+    const parts = read<readonly CommaSpan[]>("commaSpans", source);
     if (!parts) return undefined;
     let item = "";
     let last: number | undefined;
     for (const part of parts) {
         if ("item" in part) {
-            item = part.item as string;
+            item = part.item;
             continue;
         }
-        const comma = part.comma as number;
+        const comma = part.comma;
         if (!item) return comma;
         last = comma;
         item = "";
