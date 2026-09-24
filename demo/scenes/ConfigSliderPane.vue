@@ -16,11 +16,11 @@
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { Slider } from "../ui/slider";
-import { Copy, RotateCcw } from "@lucide/vue";
+import { Check, Copy, RotateCcw } from "@lucide/vue";
 import { GlassDock } from "@mkbabb/glass-ui/dock";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { useClipboard } from "@mkbabb/glass-ui";
 
 /** A single slider definition inside a section. `key` may be a dot-path
  *  (e.g. `geometry.bodyRadius`) addressing a nested config atom. */
@@ -89,8 +89,11 @@ function fmt(v: number, step: number): string {
     return v.toFixed(decimals);
 }
 
+// X.W12.u2 (UIA-V-391, the copy half): the copy confirms itself on glass's
+// scope-owned clipboard status — the label swaps to "Copied" for a beat.
+const { status: jsonCopyStatus, copy } = useClipboard({ resetMs: 1400 });
 async function copyAsJson() {
-    await writeClipboard(JSON.stringify(config, null, 2));
+    await copy(JSON.stringify(config, null, 2));
 }
 
 function resetDefaults() {
@@ -167,8 +170,9 @@ function resetDefaults() {
             <div v-if="sections.length > 0" class="config-action-bar">
                 <GlassDock :always-expanded="true" :fit-content="true">
                     <Button size="sm" @click="copyAsJson">
-                        <Copy class="w-3.5 h-3.5" />
-                        Copy JSON
+                        <Check v-if="jsonCopyStatus === 'success'" class="w-3.5 h-3.5" />
+                        <Copy v-else class="w-3.5 h-3.5" />
+                        {{ jsonCopyStatus === "success" ? "Copied" : "Copy JSON" }}
                     </Button>
                     <Button size="sm" @click="resetDefaults">
                         <RotateCcw class="w-3.5 h-3.5" />
