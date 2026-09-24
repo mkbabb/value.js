@@ -1167,3 +1167,73 @@ None. ESC-s-1 is discharged: ruled option (b) by §0cw and cured by `.s2` `a939e
 **SELF-COUNT**: gate rows in the table above 12 (⟨`awk` the section's `^| ` rows minus the header row⟩ → 12 · 12) → GREEN 9 (s1 · s1-falsifier · s2 · byte proxy · check · vitest · eslint · diff-check · the cited prior GREEN set) · GREEN-WITH-HONEST-RED 1 (kf e2e) · DISPOSITIONED-by-re-home 1 (k1..k4 · u1) · honest-RED 1 (p3). Served reads: census 4 runs × 21 rows = 84; pane 4 runs × 2 viewports = 8. kf shas audited 1, landed-wrong 0; value.js unit shas 1 (`8b22a084`).
 
 **Push (act 7)**: ⟨`git -C keyframes.js push origin HEAD`⟩ → `5cf0f58a..a939e7d6  HEAD -> master`; ⟨`git -C keyframes.js rev-parse --short origin/master`⟩ → `a939e7d6`. value.js pushed after this record and the LEDGER commit.
+
+## RESUME 2 — Check 1 (L-20 pass 1 on the RESUME 2 Close)
+
+**Seat**: `claude-opus-5-5`, VERIFY-ONLY (0 kf / glass / product bytes). **Date**: 2026-09-24. **kf HEAD** `a939e7d6` = ⟨`git -C keyframes.js rev-parse --short origin/master`⟩ → `a939e7d6` (pushed). **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → the 2 standing untracked inbound letters, 0 modified; this record and the LEDGER were clean at open. Nothing inherited. Spec read whole (KF-W13.md, 533 lines); record read at the header → Unit plan, the RESUME 2 Open/Baseline/Unit plan/`.s2` receipt, and the RESUME 2 Close.
+
+### Axis 1 + 9 — every claimed GREEN re-run by this seat (write-then-measure, ×2)
+
+Logs in this seat's scratch (`w13v-chk1/`). Served runs headed Chromium with the unit's own probes (`evidence/W13V/s/census.mjs <url> 1` + `evidence/W13V/s2/pane.mjs <url> {1440x900,390x844} <label> frames 1`); dev `localhost:5173` ×2 and a fresh gh-pages build of `a939e7d6` (`dist/gh-pages`, the e2e roster's own build) served at `127.0.0.1:4178` ×2. Load: dev 37.47 · 28.91; e2e 24.22 · 58.38; gh 63.51 · 81.22.
+
+| gate | Close's claim | this seat ×2 | verdict |
+|---|---|---|---|
+| G-W13V-s1 (served DOM, 7 scenes × 1440/390/360) | Sequence 0 ×4; square 2, spring 1 | 84 census rows over 4 runs: `stageEditors=0` 60 · `=1` 12 (spring `Spring target`) · `=2` 12 (square `Horizontal/Vertical position`); Sequence 0 on all 12 rows; `kfBlock=true` 0 | REPRODUCES |
+| s1 falsifier (re-time in the pane moves the stage) | 8/8 moved+returned | ⟨`grep -ho '"moved":…,"returned":…' pane-*.txt \| sort \| uniq -c`⟩ → `8 "moved":true,"returned":true`; 1440 `@260ms → @1079ms → @260ms`, x `782 → 1012 → 782`; 390 `@260ms → @1450ms → @260ms`, x `152 → 247 → 152` (dev and gh identical) | REPRODUCES |
+| G-W13V-s2 at Sequence | item enabled 8/8; lanes 5 | item `disabled:false` 8/8 · `paneLanes:5` · `paneScrub:true` · `playhead:true` · `stageEditors:0` 8/8; dock `Controls(off) · Keyframes(off) · Timeline · Scene facet(off)` on 12/12 Sequence rows; `Timeline(off)` 0 in all 4 census files | REPRODUCES |
+| byte proxy ⟨`grep -rlE 'Re-time row\|Scrub the sequence master clock' demo/scenes \| wc -l`⟩ | 0 · 0 | **0 · 0**; ⟨same over `demo`⟩ → `timeline/components/SequenceLanes.vue` only | REPRODUCES |
+| ⟨`npm run check`⟩ | EXIT 0 ×2 | **EXIT 0 · EXIT 0** (proof:structure 0 violations) | REPRODUCES |
+| ⟨`npx vitest run --project demo`⟩ | 77/565 ×2 | **77/77 · 565/565 · 77/77 · 565/565** | REPRODUCES |
+| unit test ⟨`vitest … sequence-timeline-pane.test.ts`⟩ | 5/5 | **5 passed (5)** | REPRODUCES |
+| ⟨`npx eslint demo/app demo/components/instrument/transport demo/components/instrument/timeline demo/components/playback demo/scenes`⟩ | EXIT 0 ×2 | **EXIT 0 · EXIT 0** | REPRODUCES |
+| ⟨`git diff --check 5cf0f58a..HEAD \| wc -l`⟩ | 0 | **0** | REPRODUCES |
+| kf e2e ⟨`npm run gh-pages && KF_PLAYWRIGHT_DIR=value.js node scripts/run-demo-roster.mjs --workers=1`⟩ | 4/6 ×2, B7 + M1 only | **4/6 · 4/6** (EXIT 1 both): ✗ live-session = B7 only (`maxRest 0.16`, dock-icon-button glass `::before`) · ✗ live-session-mobile = M1 OPEN/SCROLL/RE-OPEN only; smoke · occlusion · usability · subject-animates ✓ (`[real-cube]` ✓ in both runs) | REPRODUCES (GREEN-WITH-HONEST-RED) |
+
+**Reproduced 10 / 10; failed 0.**
+
+### Axes 2–7
+
+- **(2) Bounds.** ⟨`git -C keyframes.js log --oneline 5cf0f58a..HEAD`⟩ → 1 (`a939e7d6`, 19 paths, +737/−435). ⟨`git show --stat a939e7d6`⟩: `demo/scenes/sequence/**` 7 · `demo/components/instrument/timeline/**` 3 · `demo/composables/scene-facility/index.ts` 1 · `test/demo/**` 4 · `scripts/observe/demo/**` 2 — all in the RESUME 2 `.s2` writable set; plus 2 §0bt adjacents (`transport/controls-pane/ControlsPaneWrapper.vue` = the Sequence-mode mount in the shared pane's only body host; `transport/transportSource.ts` = the channel's `sequence?` field), same concern, declared in the commit body and the receipt → lawful. value.js: `fdec6068` (record · LEDGER · INBOX), `8b22a084` (record + `evidence/W13V/s2/**`), `caa6b933` (record · LEDGER + `s2/close/**`) — all in the seats' sets. `scripts/dev/dev.sh` in none of them (⟨`git diff --stat fdec6068~1..HEAD -- scripts/dev/dev.sh`⟩ → empty). **Landed-wrong 0.**
+- **(3) Masking.** ⟨`git show a939e7d6 -- test/ scripts/ demo/ | grep -E '^\+.*(skip|only|todo|catch|try \{|!important)'`⟩ → the only `try` blocks are `try … finally { app.unmount() }` in the new test (cleanup, 4/4 have `finally`, 0 `catch`); 0 skip/only/todo. The re-seated assertions are WIDER, not narrower (`dock-surface-items.test.ts`: `every(!enabled)` → the exact 4-tuple `[Controls false · Keyframes false · Timeline true · Scene facet false]`). The one oracle clause change — `live-session-mobile.mjs` A3 `clean(r.sequence)` → `!r.sequence.ghostCol` — follows the property's own premise (the railless arm applies to empty-DFA scenes; Sequence now derives `["timeline"]` and is not empty-DFA); the ghost-column clause it still owes is kept → lawful re-seat, not a narrowing. `live-session.mjs` sequence trigger `null → "Timeline"` = the same fact on the moved DOM. No child `delay` shim (placement stays `reseatRow → seq.add(child, at)`); `selectedSurfaceFrom` untouched (⟨`git show --format= a939e7d6 | grep -c selectedSurfaceFrom`⟩ → 0); no per-scene surface table. **0 masks.**
+- **(4) Commit families.** The move is ONE kf commit (handles + scrub leave the stage and land in the pane together, `SequenceScrubber.vue` deleted in the same sha, its tests re-seated in the same sha) — the family the Unit plan's lock declares; not split.
+- **(5) E-3.** ⟨`git diff --stat fdec6068~1..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ scripts/dev/dev.sh`⟩ → empty. No conformance artifact or sibling spec touched.
+- **(6) Mail.** ⟨`grep -n '| UNREAD' INBOX.md`⟩ → 1 hit `:406` (a 2026-09-22 sweep line's prose, not a row). ⟨`find <four paths> -maxdepth 1 -type f -newer INBOX.md`⟩ → 1: `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (12:45) — glass's own formation log, not a letter addressed to value.js. **0 UNREAD in scope.**
+- **(7) Four-verb line.** Close moved IMPLEMENTED → YES and left VERIFIED to the check seat — lawful. This check stamps VERIFIED (below).
+
+### Axis 8 — the goal at the bytes
+
+§0cw item 1: "the five re-time handles and the master scrub leave the Sequence stage … a Sequence mode of the shared Timeline pane, opened from the Timeline dock item … each lane is one of the sequence's items, with its re-time handles on the lane, and the master scrub is the pane's playhead. The stage shows the subject only." Read at the bytes: `SequenceTarget.vue` holds no `role="slider"` and no `SequenceScrubber` (the unit test's source clause, GREEN); `SequenceLanes.vue` renders the scrub row + one lane per `Sequence.entries[]` item at its `at`; the Timeline item opens it (s2 8/8, lanes 5); re-timing on the lane moves the stage (falsifier 8/8). OA-46's "dock items … NOT inline" holds for Sequence. **MET.**
+
+**Square 2 / Spring 1 against "0 inline editors … on every scene"** — re-read at `SquareScene.vue:79-96` (two `sr-only` `role=slider` spans whose `aria-valuenow` is the dragged subject's own position, inside the draggable box) and `SpringTarget.vue:114-115` (the rail the spring subject chases). Neither edits keyframes, timing, placement or parameters; they are the subject's own interaction/a11y projection. Checks 1–3 read the same rows without objection; `.s2`'s judgement is upheld → INFO, not a defect.
+
+### Axis 10 — honest-RED adjudication
+
+| RED gate | relief at the spec bytes | owner named in the residual register |
+|---|---|---|
+| p3 · `TILE-PRIMITIVE` | named by id in the spec: KF-W13.md `:351` ("else records `TILE-PRIMITIVE` honest-RED with O-58") — producer ruling (BL) | glass BL, O-58/O-67 — YES |
+| kf e2e live-session B7 · `B7 SPECULAR-REST` | producer paint (every `.dock-icon-button` glass `::before` rests at 0.16 at 10.0.1); carried from KF.W13R's close honest-RED (KF-W13R.md `:154` R-m-4; COHESION §0cw `:3379` records it); a consumer override is forbidden | glass BL (specular register, DOCK-MORPH-ROOT family) — YES |
+| kf e2e live-session-mobile M1 · `SHEET-POSITION` | the successor of `DRAWER-DETENT-REACH`, which the spec's §0cd ruling (`:399-403`) made honest-RED with the forbidden masks named (moving M1's touch point); at 10.0.1 still-live as glass BL F-21 (`SheetContent` `position: relative`, KF-W13R.md `:151`, `:185`); COHESION §0cw `:3379` | glass BL F-21 — YES |
+| k1 · k2 · k3 · k4 · u1 | re-homed WHOLE by id to KF.W13X by the spec's own routing (§0cw items 2/4/5, `:514-517`; KF.W13X scope `:523-530`) — "no Repair 3 on re-homed gates" | KF.W13X (183 KFA · 240 + 17 UIA-KF · KFA-15 · 4 critic gaps · `.r`) — YES |
+
+Every remaining RED is relieved and owner-named. **0 unrelieved REDs.**
+
+### Successor "Opens after" conjuncts
+
+- **KF.W13W** (`:447`): "Opens after: KF.W13V" — the single conjunct turns GREEN with this check's CLOSED stamp. Not blocked.
+- **KF.W13X** (`:522`): "Opens after: KF.W13W" — RED (KF.W13W QUEUED); lawfully blocked on KF.W13W, not on this wave.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | INFO | Square's 2 sr-only position sliders and Spring's `Spring target` remain in the stage census | `SquareScene.vue:79-96` · `SpringTarget.vue:114-115`; census 12 + 12 rows | none — subject handles, not editors (judgement upheld) |
+| C1-2 | INFO | prose-only mentions of the deleted `SequenceScrubber` remain (`demo/composables/useDragScrub.ts:18`, `SequenceTarget.css:146` comment, test docblocks) | Close residual R-s2-3 | owner KF.W13X (sequence family), cosmetic |
+| C1-3 | INFO | at 390 the Sequence lanes sit below the sheet's peek fold | R-s2-1; pane 390 reads lanes 5 in the DOM | `SHEET-POSITION`, glass BL F-21 |
+
+0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MEDIUM · 0 MINOR · 3 INFO.
+
+### Verdict
+
+**CONFORMANT-HONEST-RED** — every claimed GREEN reproduces (10/10 ×2), 0 BLOCKER/CRITICAL/HIGH, and the honest-RED set is `TILE-PRIMITIVE` · `B7 SPECULAR-REST` · `SHEET-POSITION` (all glass BL), with k1/k2/k3/k4/u1 re-homed whole to KF.W13X. Four-verb line: VERIFIED → **YES**. LEDGER row KF.W13V → `CLOSED 2026-09-17 (honest-RED: TILE-PRIMITIVE · B7 SPECULAR-REST · SHEET-POSITION)`. KF.W13W unblocked.
+
+**SELF-COUNT**: register rows 3 (INFO 3); axis-1 gate rows 10, reproduced 10, failed 0; census rows read 84 (4 runs × 21); pane reads 8; honest-RED ids 3; re-homed gates 5.
