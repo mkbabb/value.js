@@ -1200,3 +1200,23 @@ W7.md has no §State clause, and nothing in it designates this seat to stamp a v
 **Verdict: NOT-CONFORMANT.** Nothing was written outside the File Bounds and no masking fallback was found. E-3 held, the mail is clean and the commit families are whole. Every correctness gate and every node, Chromium and WebKit (non-large) GREEN reproduces. Three things fail the bar. First, the engineering gates G-1 and G-2 are binding by the spec's own text and read RED, and ESC-W7g-1 is unruled. Second, three Firefox GREEN claims do not reproduce. Third, the RESUME Close's PARTIAL is honest, and this check agrees with it. The LEDGER status stays `PARTIAL`, and this seat appends an event line. X.P.W7P stays lawfully blocked on both of its conjuncts.
 
 **Commits (this seat):** this section, plus one LEDGER event line.
+
+## RESUME Repair 1 (2026-09-24, repair seat round 1, `claude-opus-5-5`, Track D; answers `## RESUME Check 1`)
+
+**Open.** Spec read whole (W7.md, 214 lines, both addenda). From this record: header, `## RESUME Unit plan`, `## RESUME Check 1` (the last section), and the `.g` receipt's ESC-W7g-1 rows by grep only. **Crash-recovery:** ⟨`git status --porcelain docs/tranches/X/execution bench src tsconfig.test.json`⟩ → only a sibling's `A/X-W12.md` (not mine, untouched); parse-that master's dirty `rust/**`, `README.md`, `.cargo/config.toml` belong to other programs (untouched). **No inherited partial work.** ⟨`grep -n "ESC-W7g-1" COHESION.md`⟩ → 0 hits: the ruling is still owed.
+
+| # | Defect | Cure | Commit | Gate re-read |
+|---|---|---|---|---|
+| RC1-1 | HIGH · G-1 Firefox rejected parseStylesheet RED | **Escalated, not cured.** The only cures Check 1 names are owner acts: ruling ESC-W7g-1 as (a) re-scope, (b) mint a follow-up lever, or (c) an engine-split F8 admission. §0cp 3 grants exactly four levers, and `.g` built and measured all four; none qualifies (`.g` receipt, ESC-W7g-1). A fifth lever or an engine split is a new grant, and granting it is outside this seat's bounds. | none | cited from Check 1 (1.084 / 1.128 · 1.103 / 1.13); no product byte moved, so no re-read |
+| RC1-2 | HIGH · G-2 WebKit/Firefox large RED | **Escalated, not cured.** This needs the same ESC-W7g-1 ruling. | none | cited from Check 1 (WebKit 1.172 / 1.143; Firefox 1.194 / 1.294) |
+| RC1-3 | HIGH · three Firefox GREEN claims do not reproduce | **Record correction, dated here (E-3: the RESUME Close stands unedited).** ESC-W7g-1's scope now includes, beside R-g-1: Firefox **rejected parseCssValue**, **rejected parseCssValues** and **whole parseStylesheet**. They sit at 1.00 ± noise, and at Check 1's loads (22–39) at least one clean cell of each reads ≥ 1. **R-k2-1 is re-opened.** The RESUME Close:1142 line "no action is owed" is withdrawn. Its owner is the orchestrator, through ESC-W7g-1. The `.k2` fork (built frozen versus SpiderMonkey's `Object.freeze` on the refused path, `.k2` receipt:969) is the named cause if branch (b) is ruled. No GREEN is claimed for these rows. | this section | Check 1's figures stand (1.008 / .922 · 1.008 / 1.005; 1.032 / 1.022 · .912; 1.023 / .976 · .945) |
+| RC1-4 | MINOR · `vue-tsc -p tsconfig.test.json` nonzero while `bench/paired/_build/*.ts` exists | `tsconfig.test.json` gets `"exclude": ["bench/paired/_build/**"]`. Adjacent edit under §0bt: an ignore entry for the git-ignored generated bench entries (⟨`git check-ignore -v bench/paired/_build/product-entry.ts`⟩ → `.gitignore:12:_*`). | `ceab2066` | ⟨`ls bench/paired/_build/*.ts`⟩ → 2 files present; ⟨`npx vue-tsc --noEmit -p tsconfig.test.json \| grep -c "error TS"`⟩ ×2 → `0` / `0`, exit 0 (was 5 × TS5097). **GREEN ×2.** |
+| RC1-5 | INFO · E-6 flags | none (both readings under the ceiling) | — | — |
+
+**Adjacent edits (§0bt):** `tsconfig.test.json:40`. The `exclude` entry keeps the bench's git-ignored build output out of the typed test program. Its concern is the bench, which is `.g`'s grant.
+
+**Gates a cure could move:** only the test-program typecheck (RC1-4), re-read ×2 above. No byte moved under `src/`, `bench/` or bbnf-lang, so the timing, oracle and size gates stand as Check 1 read them.
+
+**Escalations:** ESC-W7g-1 is still open. Its scope now covers R-g-1 (Firefox rejected parseStylesheet), R-g-2 (WebKit/Firefox large), and the re-opened R-k2-1 rows (Firefox rejected parseCssValue/parseCssValues, whole parseStylesheet). The owner's ruling, (a), (b) or (c), is the only cure. X.P.W7 stays **PARTIAL**, and X.P.W7P stays blocked on both of its conjuncts.
+
+**Commits (this seat):** `ceab2066` (RC1-4) · this section · one LEDGER event line.
