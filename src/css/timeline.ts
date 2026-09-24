@@ -18,7 +18,7 @@ const SCROLLERS = new Set(["nearest", "root", "self"] as const);
 export function parseAnimationTimeline(source: string): ParseResult<AnimationTimelineValue> {
     const input = source.trim();
     const lower = input.toLowerCase();
-    if (lower === "auto" || lower === "none") return success({ kind: lower });
+    if (lower === "auto" || lower === "none") return success(Object.freeze({ kind: lower }));
     const scrollArgs = timelineArgs("scroll", input);
     if (scrollArgs !== null) {
         const result: { kind: "scroll"; scroller?: "nearest" | "root" | "self"; axis?: TimelineAxis } = { kind: "scroll" };
@@ -31,7 +31,7 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
             }
             else return failure(source, "timeline_option_invalid", ["scroll timeline"]);
         }
-        return success(result);
+        return success(Object.freeze(result));
     }
     const viewArgs = timelineArgs("view", input);
     if (viewArgs !== null) {
@@ -43,10 +43,10 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
             else if (isTimelineLength(arg) && inset.length < 2) inset.push(arg);
             else return failure(source, "timeline_option_invalid", ["view timeline"]);
         }
-        if (inset[0]) result.inset = inset[1] ? { start: inset[0], end: inset[1] } : { start: inset[0] };
-        return success(result);
+        if (inset[0]) result.inset = Object.freeze(inset[1] ? { start: inset[0], end: inset[1] } : { start: inset[0] });
+        return success(Object.freeze(result));
     }
-    return isDashedIdent(input) ? success({ kind: "name", name: input }) : failure(source, "timeline_option_invalid", ["timeline"]);
+    return isDashedIdent(input) ? success(Object.freeze({ kind: "name", name: input })) : failure(source, "timeline_option_invalid", ["timeline"]);
 }
 
 const RANGE_PHASES = new Set<RangePhase>(["normal", "cover", "contain", "entry", "exit", "entry-crossing", "exit-crossing"]);
@@ -55,11 +55,11 @@ function rangeBoundary(tokens: readonly string[]): RangeBoundary | null {
     const phase = tokens[0]?.toLowerCase() as RangePhase;
     if (RANGE_PHASES.has(phase)) {
         return tokens[1] === undefined
-            ? { phase }
-            : isTimelineLength(tokens[1]) ? { phase, offset: tokens[1] } : null;
+            ? Object.freeze({ phase })
+            : isTimelineLength(tokens[1]) ? Object.freeze({ phase, offset: tokens[1] }) : null;
     }
     return tokens.length === 1 && tokens[0] !== undefined && isTimelineLength(tokens[0])
-        ? { offset: tokens[0] }
+        ? Object.freeze({ offset: tokens[0] })
         : null;
 }
 export function parseAnimationRange(source: string): ParseResult<AnimationRangeValue> {
@@ -74,16 +74,16 @@ export function parseAnimationRange(source: string): ParseResult<AnimationRangeV
         const endTokens = splitTopLevel(commaEnd, "space");
         const start = startTokens && rangeBoundary(startTokens);
         const end = endTokens && rangeBoundary(endTokens);
-        return start && end ? success({ start, end }) : failure(source, "timeline_option_invalid", ["animation range"]);
+        return start && end ? success(Object.freeze({ start, end })) : failure(source, "timeline_option_invalid", ["animation range"]);
     }
     const tokens = splitTopLevel(input, "space");
     if (!tokens) return failure(source, "timeline_option_invalid", ["animation range"]);
     const single = rangeBoundary(tokens);
-    if (single) return success({ start: single });
+    if (single) return success(Object.freeze({ start: single }));
     for (const split of [2, 1]) {
         const start = rangeBoundary(tokens.slice(0, split));
         const end = rangeBoundary(tokens.slice(split));
-        if (start && end) return success({ start, end });
+        if (start && end) return success(Object.freeze({ start, end }));
     }
     return failure(source, "timeline_option_invalid", ["animation range"]);
 }

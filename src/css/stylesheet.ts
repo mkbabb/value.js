@@ -113,9 +113,10 @@ function parseKeyframes(name: string, body: string): ParseResult<KeyframesBlock>
         } = { selectors, declarations: declarations.value };
         if (timing?.ok) rule.timingFunction = timing.value as never;
         if (composition) rule.composition = composition;
-        rules.push(rule);
+        Object.freeze(selectors);
+        rules.push(Object.freeze(rule));
     }
-    return success({ kind: "keyframes", name, rules });
+    return success(Object.freeze({ kind: "keyframes", name, rules: Object.freeze(rules) }));
 }
 
 function descriptorDeclarations(body: string): ReadonlyMap<string, Declaration> | null {
@@ -140,14 +141,14 @@ function parseScopePrelude(source: string): Pick<Extract<StylesheetItem, { kind:
     const limits = groups.limit === undefined ? undefined : splitTopLevel(groups.limit, ",");
     if (!roots || limits === null) return null;
     return {
-        root: roots,
-        ...(limits === undefined ? {} : { limit: limits }),
+        root: Object.freeze(roots),
+        ...(limits === undefined ? {} : { limit: Object.freeze(limits) }),
     };
 }
 
 function parseStyleBody(body: string): ParseResult<Pick<StyleRule, "declarations" | "children">> {
     const plain = parseDeclarations(body);
-    if (plain.ok) return success({ declarations: plain.value });
+    if (plain.ok) return success(Object.freeze({ declarations: plain.value }));
     const rows = blocks(`${body};`);
     if (!rows.ok) return rows as ParseResult<Pick<StyleRule, "declarations" | "children">>;
     const declarations: Declaration[] = [];
@@ -163,7 +164,10 @@ function parseStyleBody(body: string): ParseResult<Pick<StyleRule, "declarations
         if (!parsed.ok) return parsed as ParseResult<Pick<StyleRule, "declarations" | "children">>;
         children.push(...parsed.value);
     }
-    return success({ declarations, ...(children.length === 0 ? {} : { children }) });
+    return success(Object.freeze({
+        declarations: Object.freeze(declarations),
+        ...(children.length === 0 ? {} : { children: Object.freeze(children) }),
+    }));
 }
 
 function parseFunctionPrelude(source: string): ParseResult<Readonly<{
@@ -186,13 +190,13 @@ function parseFunctionPrelude(source: string): ParseResult<Readonly<{
             name: string;
             parameters: readonly CustomFunctionParameter[];
         }>>;
-        parameters.push({
+        parameters.push(Object.freeze({
             name: head.name,
             ...(head.syntax ? { syntax: head.syntax } : {}),
             ...(parsedDefault?.ok ? { default: parsedDefault.value } : {}),
-        });
+        }));
     }
-    return success({ name: signature.name, parameters });
+    return success(Object.freeze({ name: signature.name, parameters: Object.freeze(parameters) }));
 }
 
 function parseItems(source: string): ParseResult<Stylesheet> {
@@ -244,12 +248,12 @@ function parseItems(source: string): ParseResult<Stylesheet> {
                 const coerced = coerceToSyntax(initialText.value, syntax);
                 if (!coerced.ok) return coerced as ParseResult<Stylesheet>;
             }
-            const descriptor: CSSPropertyDescriptor = {
+            const descriptor: CSSPropertyDescriptor = Object.freeze({
                 syntax,
                 inherits: inheritsText === "true",
                 ...(initial ? { initialValue: initial.value } : {}),
-            };
-            result.push({ kind: "property", name, descriptor });
+            });
+            result.push(Object.freeze({ kind: "property", name, descriptor }));
             continue;
         }
         if (at?.at === "function") {
@@ -259,23 +263,23 @@ function parseItems(source: string): ParseResult<Stylesheet> {
             const declarations = parseDeclarations(row.body);
             if (!declarations.ok) return declarations as ParseResult<Stylesheet>;
             const resultDeclaration = collectDeclarations(declarations.value).get("result");
-            const descriptor: CustomFunctionDescriptor = {
+            const descriptor: CustomFunctionDescriptor = Object.freeze({
                 ...(signature.value.parameters.length > 0 ? { parameters: signature.value.parameters } : {}),
                 ...(resultDeclaration ? { result: resultDeclaration.value } : {}),
                 declarations: declarations.value,
-            };
-            result.push({ kind: "function", name: signature.value.name, descriptor });
+            });
+            result.push(Object.freeze({ kind: "function", name: signature.value.name, descriptor }));
             continue;
         }
         if (at?.at === "scope" || at?.at === "starting-style") {
             if (row.body === null) return failure(source, "css_syntax", ["nested body"]);
             const children = parseItems(row.body);
             if (!children.ok) return children;
-            if (at.at === "starting-style") result.push({ kind: "starting-style", children: children.value });
+            if (at.at === "starting-style") result.push(Object.freeze({ kind: "starting-style", children: children.value }));
             else {
                 const parsedPrelude = parseScopePrelude(at.rest);
                 if (!parsedPrelude) return failure(source, "css_syntax", ["scope prelude"]);
-                result.push({ kind: "scope", ...parsedPrelude, children: children.value });
+                result.push(Object.freeze({ kind: "scope", ...parsedPrelude, children: children.value }));
             }
             continue;
         }
@@ -292,11 +296,11 @@ function parseItems(source: string): ParseResult<Stylesheet> {
                 if (!timelineSource.ok || !orientation.ok) {
                     return failure(source, "css_syntax", ["serializable timeline descriptor"]);
                 }
-                const descriptor: ScrollTimelineDescriptor = {
+                const descriptor: ScrollTimelineDescriptor = Object.freeze({
                     ...(timelineSource.value === undefined ? {} : { source: timelineSource.value }),
                     ...(orientation.value === undefined ? {} : { orientation: orientation.value as TimelineAxis }),
-                };
-                result.push({ kind: "scroll-timeline", name: at.rest, descriptor });
+                });
+                result.push(Object.freeze({ kind: "scroll-timeline", name: at.rest, descriptor }));
             } else {
                 const subject = descriptorText(declarations.get("subject"));
                 const axis = descriptorText(declarations.get("axis"));
@@ -304,24 +308,24 @@ function parseItems(source: string): ParseResult<Stylesheet> {
                 if (!subject.ok || !axis.ok || !inset.ok) {
                     return failure(source, "css_syntax", ["serializable timeline descriptor"]);
                 }
-                const descriptor: ViewTimelineDescriptor = {
+                const descriptor: ViewTimelineDescriptor = Object.freeze({
                     ...(subject.value === undefined ? {} : { subject: subject.value }),
                     ...(axis.value === undefined ? {} : { axis: axis.value as TimelineAxis }),
                     ...(inset.value === undefined ? {} : { inset: inset.value }),
-                };
-                result.push({ kind: "view-timeline", name: at.rest, descriptor });
+                });
+                result.push(Object.freeze({ kind: "view-timeline", name: at.rest, descriptor }));
             }
             continue;
         }
         if (at !== null) {
             const parsedChildren = row.body === null ? null : parseItems(row.body);
-            result.push({
+            result.push(Object.freeze({
                 kind: "unknown",
                 atName: at.name,
                 prelude: at.rest,
                 body: row.body,
                 ...(parsedChildren?.ok ? { children: parsedChildren.value } : {}),
-            });
+            }));
             continue;
         }
         if (row.body === null) return failure(source, "css_syntax", ["style body"]);
@@ -329,9 +333,9 @@ function parseItems(source: string): ParseResult<Stylesheet> {
         if (!body.ok) return body as ParseResult<Stylesheet>;
         const selectors = splitTopLevel(prelude, ",");
         if (!selectors) return failure(source, "css_syntax", ["selector list"]);
-        result.push({ kind: "style", selectors, ...body.value });
+        result.push(Object.freeze({ kind: "style", selectors: Object.freeze(selectors), ...body.value }));
     }
-    return success(result);
+    return success(Object.freeze(result));
 }
 
 export function parseStylesheet(source: string): ParseResult<Stylesheet> {

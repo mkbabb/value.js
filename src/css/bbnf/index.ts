@@ -57,7 +57,7 @@ export function parseCssValues(source: string): ParseResult<CssList> {
     if (!parsed.ok) return parsed;
     return parsed.value.kind === "list"
         ? success(parsed.value)
-        : success({ kind: "list", separator: "space", items: [parsed.value] });
+        : success(Object.freeze({ kind: "list", separator: "space", items: Object.freeze([parsed.value]) }) as CssList);
 }
 
 /** `parseCssScalar` — one scalar: a colour, a number with its unit, a string, an operator or a keyword. */

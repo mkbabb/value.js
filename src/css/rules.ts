@@ -34,10 +34,10 @@ const TRIGGER_TYPES = new Set<TriggerType>(["once", "repeat", "alternate", "stat
 
 export function parseTimelineScope(source: string): ParseResult<TimelineScopeValue> {
     const input = source.trim();
-    if (input === "none" || input === "all") return success({ kind: input });
+    if (input === "none" || input === "all") return success(Object.freeze({ kind: input }));
     const names = splitTopLevel(input, ",");
     return names !== null && names.length > 0 && names.every(isDashedIdent)
-        ? success({ kind: "names", names })
+        ? success(Object.freeze({ kind: "names", names: Object.freeze(names) }))
         : failure(source, "timeline_option_invalid", ["timeline scope"]);
 }
 
@@ -66,7 +66,7 @@ export function parseAnimationTrigger(source: string): ParseResult<AnimationTrig
         result.range = parsed.value;
     }
     return Object.keys(result).length > 0
-        ? success(result)
+        ? success(Object.freeze(result))
         : failure(source, "timeline_option_invalid", ["animation trigger"]);
 }
 
@@ -373,7 +373,7 @@ export function parseDeclarations(body: string): ParseResult<readonly Declaratio
         // functions are syntactically valid, the entire property's grammar must be assumed to be
         // valid at parse time. It is only syntax-checked at computed-value time." (R-b-2, X.P.W6.b)
         if (holdsVar(value.value)) {
-            declarations.push({ name, value: value.value, important });
+            declarations.push(Object.freeze({ name, value: value.value, important }));
             continue;
         }
         if (!optionDeclarationValid(name, value.value)) {
@@ -400,9 +400,9 @@ export function parseDeclarations(body: string): ParseResult<readonly Declaratio
             const trigger = parseAnimationTrigger(source);
             if (!trigger.ok) return trigger as ParseResult<readonly Declaration[]>;
         }
-        declarations.push({ name, value: value.value, important });
+        declarations.push(Object.freeze({ name, value: value.value, important }));
     }
-    return success(declarations);
+    return success(Object.freeze(declarations));
 }
 
 export function collectDeclarations(declarations: readonly Declaration[]): ReadonlyMap<string, Declaration> {

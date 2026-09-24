@@ -52,11 +52,10 @@ export function tokenQuantity(digits: string, rawUnit: string): Numeric {
 /**
  * The `<number>` and `<percentage>` leaves (`tokens.bbnf`) have already proved their token's shape, so
  * the type is known and the number is the token itself (`parseFloat` stops at the `%`): no re-split,
- * no unit read. The node is fresh per call and never shared, so it is not frozen here: the result
- * layer (`../result`'s `success`) deep-freezes everything a parse publishes.
+ * no unit read. Built frozen, like every node a parse publishes (`../result`).
  */
-const numberQuantity = (token: string): Quantity => ({ kind: "quantity", type: "number", value: Number(token) });
-const percentageQuantity = (token: string): Quantity => ({ kind: "quantity", type: "percentage", value: parseFloat(token) });
+const numberQuantity = (token: string): Quantity => quantity("number", Number(token));
+const percentageQuantity = (token: string): Quantity => quantity("percentage", parseFloat(token));
 
 /** §10.7.1's constants — `e`, `pi`, `infinity`, `-infinity`, `NaN` (ASCII case-insensitive). */
 export function constantQuantity(token: string): Quantity {

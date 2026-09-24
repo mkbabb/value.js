@@ -1,10 +1,14 @@
 // SERVED MODEL: claude-opus-5-5
 //
-// X.P.W7 Repair 1 — every published result is deeply frozen. The `<number>` and `<percentage>`
-// actions (`src/css/bbnf/math.ts`) build their quantity unfrozen and leave the freeze to the result
-// layer (`src/css/result.ts`'s `success`), and `from`/`to` publish one shared frozen node each
-// (`src/css/bbnf/value.ts`). `deepFreeze` stops at an already-frozen node, so this test pins that no
-// frozen published node holds an unfrozen number or percentage quantity.
+// X.P.W7 — the public contract "results are immutable", pinned. Since `.k2` (W7.md ADDENDUM
+// 2026-09-24 §2, Cure 2) a node is BUILT frozen where it is constructed (the actions under
+// `src/css/bbnf/`, the stylesheet layer's readers), and `success` (`src/css/result.ts`) freezes only
+// its own envelope: nothing walks a result after it is built. So a construction site that forgets its
+// freeze publishes a mutable node, and this test is what catches it — on hand-picked sources and on a
+// sample of the real corpus through all seven entries.
+
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 import { describe, expect, it } from "vitest";
 
@@ -48,5 +52,36 @@ describe("published results are deeply frozen", () => {
         const parsed = parse(source);
         expect(parsed.ok).toBe(true);
         expect(unfrozenPaths(parsed)).toEqual([]);
+    });
+});
+
+const HERE = path.dirname(new URL(import.meta.url).pathname);
+
+/** The real corpus (`bench/css-equivalence/real-corpus.json`, 3,049 sources): every entry, every source. */
+const REAL: readonly string[] = JSON.parse(readFileSync(path.join(HERE, "../../bench/css-equivalence/real-corpus.json"), "utf8"))
+    .rows.map((row: { s: string | { src: string } }) => (typeof row.s === "string" ? row.s : row.s.src));
+
+const ENTRIES: ReadonlyArray<readonly [string, (source: string) => { ok: boolean; value?: unknown }]> = [
+    ["parseCssColor", parseCssColor],
+    ["parseCssScalar", parseCssScalar],
+    ["parseCssValue", parseCssValue],
+    ["parseCssValues", parseCssValues],
+    ["parseKeyframeSelector", parseKeyframeSelector],
+    ["parseTimingFunction", parseTimingFunction],
+    ["parseStylesheet", parseStylesheet],
+];
+
+describe("sampled results are deeply frozen, every entry", () => {
+    it.each(ENTRIES)("%s — the real corpus", (_name, parse) => {
+        let accepted = 0;
+        const unfrozen: string[] = [];
+        for (const source of REAL) {
+            const parsed = parse(source);
+            if (!parsed.ok) continue;
+            accepted++;
+            for (const path of unfrozenPaths(parsed)) unfrozen.push(`${JSON.stringify(source).slice(0, 60)} ${path}`);
+        }
+        expect(accepted).toBeGreaterThan(0);
+        expect(unfrozen.slice(0, 10)).toEqual([]);
     });
 });

@@ -43,7 +43,14 @@ type Component = Numeric | NoneToken;
 
 const CONTEXT_NODE: ColorNode = Object.freeze({ kind: "context" });
 const invalid = (expected: string): ColorNode => Object.freeze({ kind: "invalid", expected });
-const colorNode = (color: CssColor): ColorNode => Object.freeze({ kind: "color", color });
+/**
+ * A colour enters the parse here and only here (a space's factory, or `color-mix()`'s resolution), so
+ * it is frozen here, with its channels: every node a parse publishes is built frozen (`../result`).
+ */
+const colorNode = (color: CssColor): ColorNode => {
+    Object.freeze(color.channels);
+    return Object.freeze({ kind: "color", color: Object.freeze(color) });
+};
 
 /** The colour keywords whose value depends on the document (css-color-4 §6.3–§6.4). */
 const CONTEXT_KEYWORDS: ReadonlySet<string> = new Set([
