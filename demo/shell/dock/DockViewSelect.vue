@@ -4,7 +4,7 @@ import { DockTrigger } from "@mkbabb/glass-ui/dock";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectValue,
 } from "../../ui/select";
-import { inject } from "vue";
+import { computed, inject } from "vue";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
@@ -33,6 +33,22 @@ const emit = defineEmits<{
 const open = defineModel<boolean>("open", { default: false });
 
 const pm = inject(SESSION_PORT_KEY)!;
+
+/**
+ * UIA-V-7: glass consumes `--dock-ring` as a whole `box-shadow` (its default is
+ * `var(--focus-ring-shadow)`). A bare colour there is an invalid shadow, so the
+ * trigger drew NO keyboard focus ring. The seam carries the full ring, in the
+ * shape of glass's own `--focus-ring-shadow` (width token + two tinted
+ * layers), tinted by the view accent — or admin gold. Glass's colour-only
+ * ring seam is the root ask (O-59).
+ */
+const viewRing = computed(() => {
+    const hue = isAdminMode ? "var(--color-gold)" : "var(--accent-view)";
+    return (
+        `0 0 0 var(--focus-ring-width) color-mix(in srgb, ${hue} 30%, transparent), ` +
+        `0 0 8px color-mix(in srgb, ${hue} 15%, transparent)`
+    );
+});
 
 // T.W6 · W6-4 (T-10, the owner overrule of W7-4's color-wheel legend): the
 // menu speaks INK. Rows are icon + label in the popover foreground pair;
@@ -67,7 +83,7 @@ const pm = inject(SESSION_PORT_KEY)!;
             for="select"
             aria-label="Select view"
             class="view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
-            :style="{ '--dock-ring': isAdminMode ? 'var(--color-gold)' : 'var(--accent-view)' }"
+            :style="{ '--dock-ring': viewRing }"
         >
             <!-- The view-select moment (R.W4 Lane B / B3): the trigger icon
                  swaps on the morph family (scale-settle beat), and reads the
