@@ -3418,3 +3418,13 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   16. **Tablet 768/1024** goes to every wave.
   17. **The instrument:** X-W12U measures on :9000, and every falsifier is a committed script.
 - **Slots:** A (X-W12), B (KF.W13V `.s2` → W13W → W13X), C (F.W14 `.s2` → F.W14U) and D (X.P.W7 `.l`) are running. Track A picks up X-W12U when it is resumed on X-W12's completion (the live run predates the stage).
+
+## §0cz — 2026-09-24: owner frame, "the background area between the two elements … should not be displayed"; F.W14V minted; O-75 CONFIGURATOR-DETACHED
+- **Owner, verbatim:** *"the background area between the two elements is not right--this should not be displayed--they should be distincitly there"* (frame banked at `fourier/evidence/W14/owner-2026-09-24-configurator-shell-band.png`, fourier `/visualize`, light, desktop).
+- **Cause:** glass `Configurator`'s shell (`Configurator.vue:169-199`) is one plate around `#stage` and the aside. F.W14U `.s` (`10c8e1a`) detached the pane as a glass `Card` with an inset gutter. That was the lawful consumer half, but the gutter shows the shell plate, so the pane reads as a card on a card. Ruled: **`.s` is INCOMPLETE** (PARTIAL → F.W14V `.s2`), not landed-wrong.
+- **Glass half:** O-75 CONFIGURATOR-DETACHED, sent and mirrored. Glass registered it at `3057474f` (I-53) and merged it with O-65 P-1 and O-68 `#actions` into one Configurator wave. **An early 10.x minor for these is OW-11, the owner's call**, and glass is putting both items to the owner together.
+- **F.W14V minted** (`fourier/waves/F-W14V.md`; Track C chassis after F.W14U):
+  - `.s2`: the gutter reads the page ground; consumer contributors such as `glass-opaque` on `.viz-configurator` are cured at the root; adopt O-75 on publish, otherwise honest-RED.
+  - `.p`: the same frame shows a raw "A session is required to publish." toast over the pane. A signed-out Publish reaches the inline sign-in, and toasts never cover the pane.
+  - `.au0` onward: **the AUDIT-2 fourier scope, re-homed from F-W14U addendum (e)**. F.W14U opened before (e) was written, so its plan never carried it; this is recorded in F-W14U addendum (f).
+- **Slots:** unchanged. Track C is on F.W14U `.vstage` (unit 8 of 15), and it is not interrupted: the in-flight seat holds uncommitted edits in the same panels. **Track C picks up F.W14V when it is resumed on its completion notification** (the live run predates the stage), the same as Track A with X-W12U.

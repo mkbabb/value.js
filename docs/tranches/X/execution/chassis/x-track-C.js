@@ -127,6 +127,13 @@ const TRACK = {
       ],
       "note": "ALSO §0cv: [F.W14U.b] api/**: a missing blob answers 404 or a typed error, never 500; a content-addressed upload re-stores a missing blob; falsifier in the api tests. ALSO §0cq (2026-09-24): F-W14U.md ADDENDUM adds units BEFORE the family units: [F.W14U.s] (the Configurator controls pane detached: inset gutter, four --radius-card corners, own shadow) → [F.W14U.t] (paper ToC hideable: slides under the paper into an edge drawer that expands back to its place; PaperSidebar + MobileFloatingToc become one component) → [F.W14U.d] (collapsed dock consumer half; O-65). HOST NOTE 2026-09-24 (§0cn, after the reboot): fourier's dev mongod is on :27018 (~/.mongo-dev/fourier); :27017 is value.js's docker mongo. The fourier API on :8000 already runs with MONGO_URI=mongodb://localhost:27018/fourier + scripts/e2e.sh's env; any fourier API or e2e.sh launch MUST export MONGO_URI=mongodb://localhost:27018/fourier (e2e.sh defaults to :27017, which is value.js's DB — never point fourier there). Logs in ~/.dev-logs/. AUTHORITY: COHESION §0cl + F-W14U.md (READ whole; it IS the spec) + the .u receipt in execution/C/F-W14.md + docs/tranches/X/audit/UI-AUDIT-fourier.md. The owner, verbatim (OA-37): a full UI audit of every page; fourier 'UI elements are malformed' (OA-42..45, OA-50). Open seat: list every owed UIA-F row by id, group by page family (register sections), mint one unit per family with DISJOINT file sets; groups with disjoint sets may run in parallel, BROKEN rows first. Per row: served-page frame before, root cure (glass idiom, no local glass copies), falsifier RED->GREEN x2, frame after, disposition. GLASS rows relay-only (O-59/O-63). api/** granted for F-35, F-83, F-112, F-39, F-46 server half. Close: 256/256 dispositioned; full e2e --workers=1 x2 with load; vue-tsc 0; vitest green. Every seat Opus 5.5; ESCALATED units do not halt the wave"
     },
+    "F.W14V": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W14V.md",
+      "after": [
+        "F.W14U"
+      ],
+      "note": "AUTHORITY: COHESION §0cz + F-W14V.md (READ whole, and READ the owner frame docs/tranches/X/fourier/evidence/W14/owner-2026-09-24-configurator-shell-band.png) + F-W14U.md addendum (e) (the AUDIT-2 scope, re-homed here) + docs/tranches/X/audit/AUDIT-2-fourier.md. Strictly serial: [F.W14V.s2] (the stage and the detached pane distinct: the gutter reads the page ground, not glass Configurator's shell plate; consumer contributors such as glass-opaque on .viz-configurator cured at the root; the glass half is O-75 CONFIGURATOR-DETACHED: adopt if published, else honest-RED, with no shell override) -> [F.W14V.p] (a signed-out Publish reaches the inline sign-in, never the raw 'A session is required to publish' toast; toasts never cover the pane) -> [F.W14V.au0] (AUDIT-2 re-baseline to HEAD + the unread views + tablet) -> the AUDIT-2 family units grouped by surface. Served :3100 against the API on :8000 (MONGO 27018, persistent BLOB_DIR); headed real GPU; glass-ui READ-ONLY; every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "F.W14": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W14.md",
       "after": [
@@ -173,7 +180,8 @@ const TRACK = {
     ["F.W12"],
     ["F.W13"],
     ["F.W14"],
-    ["F.W14U"]
+    ["F.W14U"],
+    ["F.W14V"]
   ]
 }
 
