@@ -1,0 +1,678 @@
+[
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 479.5,
+    "h": 61,
+    "x": 480.3,
+    "y": 10.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/palettes",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 493.6,
+    "h": 61,
+    "x": 473.2,
+    "y": 10.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/browse",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 364.2,
+    "h": 56,
+    "x": 537.9,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/gradient",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 500.6,
+    "h": 56,
+    "x": 469.7,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/mix",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 460.8,
+    "h": 56,
+    "x": 489.6,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/extract",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 362.7,
+    "h": 56,
+    "x": 538.6,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/generate",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 502.8,
+    "h": 56,
+    "x": 468.6,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/atmosphere",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 307,
+    "h": 55,
+    "x": 566.5,
+    "y": 13.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/blob",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 432.5,
+    "h": 56,
+    "x": 503.7,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 479.5,
+    "h": 61,
+    "x": 480.3,
+    "y": 10.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/palettes",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 493.6,
+    "h": 61,
+    "x": 473.2,
+    "y": 10.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/browse",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 364.2,
+    "h": 56,
+    "x": 537.9,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/gradient",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 500.6,
+    "h": 56,
+    "x": 469.7,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/mix",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 460.8,
+    "h": 56,
+    "x": 489.6,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/extract",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 362.7,
+    "h": 56,
+    "x": 538.6,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/generate",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 502.8,
+    "h": 56,
+    "x": 468.6,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/atmosphere",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 307,
+    "h": 55,
+    "x": 566.5,
+    "y": 13.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/blob",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 432.5,
+    "h": 56,
+    "x": 503.7,
+    "y": 12.8,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/palettes",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/browse",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 132,
+    "h": 52,
+    "x": 129,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/gradient",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/mix",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/extract",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 132,
+    "h": 52,
+    "x": 129,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/generate",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/atmosphere",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 132,
+    "h": 52,
+    "x": 129,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "light",
+  "route": "/blob",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/palettes",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/browse",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 132,
+    "h": 52,
+    "x": 129,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/gradient",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/mix",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/extract",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 132,
+    "h": 52,
+    "x": 129,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/generate",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/atmosphere",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 132,
+    "h": 52,
+    "x": 129,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0ct-census",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/blob",
+  "plates": [
+   {
+    "orientation": "horizontal",
+    "w": 172,
+    "h": 52,
+    "x": 109,
+    "y": 23.3,
+    "radius": "9999px",
+    "consumerClipAncestors": []
+   }
+  ]
+ },
+ {
+  "read": "0cq-collapsed",
+  "vp": 390,
+  "theme": "light",
+  "route": "/",
+  "plate": {
+   "orientation": "horizontal",
+   "w": 172,
+   "h": 52,
+   "x": 109,
+   "y": 23.3,
+   "radius": "9999px",
+   "consumerClipAncestors": []
+  },
+  "square": false
+ },
+ {
+  "read": "0cq-collapsed",
+  "vp": 390,
+  "theme": "dark",
+  "route": "/",
+  "plate": {
+   "orientation": "horizontal",
+   "w": 172,
+   "h": 52,
+   "x": 109,
+   "y": 23.3,
+   "radius": "9999px",
+   "consumerClipAncestors": []
+  },
+  "square": false
+ },
+ {
+  "read": "0cq-collapsed",
+  "vp": 1440,
+  "theme": "light",
+  "route": "/",
+  "plate": {
+   "orientation": "horizontal",
+   "w": 56,
+   "h": 56,
+   "x": 692,
+   "y": 12.8,
+   "radius": "9999px",
+   "consumerClipAncestors": []
+  },
+  "square": true
+ },
+ {
+  "read": "0cq-collapsed",
+  "vp": 1440,
+  "theme": "dark",
+  "route": "/",
+  "plate": {
+   "orientation": "horizontal",
+   "w": 56,
+   "h": 56,
+   "x": 692,
+   "y": 12.8,
+   "radius": "9999px",
+   "consumerClipAncestors": []
+  },
+  "square": true
+ }
+]
