@@ -129,6 +129,13 @@ const TRACK = {
       ],
       "note": "AUTHORITY: COHESION §0bs + KF-W13.md\'s KF.W13R addendum (READ it whole, and the frame keyframes/evidence/W13U/owner-2026-09-23-mobile-controls.png). The owner, verbatim: \"the dock transitions and animations from small to large are blurry, slow, and jittery--not smooth and ios 27 loke\". Strictly serial: [KF.W13R.m] (ALSO per §0cd: migrate the snap-point Drawer to glass\'s Sheet at the root for DRAWER-DETENT-REACH; QUIET-FOCUS-RING rides the repin; pin @mkbabb/glass-ui 10.0.1 exact; read the 8/9/10 CHANGELOG + migration notes whole; migrate at the root, no shims; npm run check 0, vitest, e2e --workers=1 with load) → [KF.W13R.v] (ALSO per §0cd: re-read kf e2e S4 ringPainted and M1 at a point on the pane, unmoved; re-read every glass-owned KFA row + the KF.W13U served-page gates at 10.0.1: CURED-BY-REPIN with frames, or still-live) → [KF.W13R.d] (OA-41 + OA-48 dock morph smooth and sharp at 10.0.1; the rest DOCK-MORPH-ROOT with the 10.0.1 measurement). Served-page instrument rule; every seat Opus 5.5; ESCALATED units do not halt the wave"
     },
+    "KF.W13W": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
+      "after": [
+        "KF.W13V"
+      ],
+      "note": "AUTHORITY: the owner, verbatim (2026-09-24): \"with all the easing curves and simulators, the tracking ball must be on the curve itself--mark and ecoute-moi\". COHESION §0co + KF-W13.md's KF.W13W section (READ it whole, and the frame keyframes/evidence/W13U/owner-2026-09-24-ball-on-curve.png). Strictly serial: [KF.W13W.c] (census: every curve/simulation plot with a moving marker incl. easing gallery tiles, easing scene plot, easing picker trigger + dropdown previews, Spring/linear()/sweep traces, Sequence rails, living dock minis) → [KF.W13W.b] (one shared curve-to-point primitive; the ball derives from the same function as the stroke; overshoot followed; steps jump; reduced motion = ball on curve at rest; no mid-height rail under the ball) → [KF.W13W.v] (served page, headed, 1440+390, both themes: ball centre within 1.5 CSS px of the rendered curve at >=12 samples per site; RED before on every site; frames before/after). Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "KF.W13V": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/waves/KF-W13.md",
       "after": [
@@ -199,7 +206,8 @@ const TRACK = {
     ["KF.W13T"],
     ["KF.W13U"],
     ["KF.W13R"],
-    ["KF.W13V"]
+    ["KF.W13V"],
+    ["KF.W13W"]
   ]
 }
 

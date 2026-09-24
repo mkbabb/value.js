@@ -3294,3 +3294,8 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - fourier: web on :3100 via `npx --prefix web vite web --port 3100`, and API on :8000 with `scripts/e2e.sh`'s env.
   - Verified: fourier `POST /api/sessions` 200, value.js `/health` 200, and :5173, :9000 and :3100 all 200.
 - **Port change:** fourier's fresh dev mongod (§0cl) moved from :27017 to **:27018**, because value.js's dev mongo owns :27017. The fourier API runs with `MONGO_URI=mongodb://localhost:27018/fourier`. The Track C chassis tells every fourier seat to export it, because `e2e.sh` defaults to :27017. The owner item on the corrupt Homebrew DB stands.
+
+## §0co ADDENDUM 2026-09-24 — OA-56: the tracking ball rides the curve (KF.W13W minted)
+- **Owner, verbatim:** *"with all the easing curves and simulators, the tracking ball must be on the curve itself--mark and ecoute-moi"*. The frame is the easing gallery, where the ball sits on a mid-height rail.
+- Minted **KF.W13W** in `KF-W13.md`, to run after KF.W13V. Its units are `.c` (census of every curve or simulator with a marker, including the dock's easing mini), `.b` (one shared curve-to-point primitive, the ball derived from the same function as the stroke), and `.v` (the served-page gate: the ball's centre within 1.5 CSS px of the curve at 12 or more samples per site, RED before the cure).
+- KF.W13V was already past its `.y` unit and running `.u` when the frame arrived, so a new wave carries this rather than killing a live seat. The Track B chassis appends KF.W13W. Its live run picks it up on the next resume after KF.W13V.

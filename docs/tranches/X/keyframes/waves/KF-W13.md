@@ -441,3 +441,29 @@ Run `wf_82af6dba-aba` ended NOT-CONFORMANT after 2 repairs. `.t2`, `.d2` and `.d
 
 ## KF.W13R — ADDENDUM 2026-09-23 (b) (COHESION §0cj): DOCK-TRIGGER-CLIP limb
 - `.v` reads on the served page whether dock trigger hover, selected and focus capsules are clipped. If they are, record honest-RED DOCK-TRIGGER-CLIP (O-63), with no local override. A keyframes consumer clip in the ancestor chain is cured here.
+
+## KF.W13W — the tracking ball rides the curve (minted 2026-09-24, COHESION §0co)
+- **Owner, verbatim:** *"with all the easing curves and simulators, the tracking ball must be on the curve itself--mark and ecoute-moi"*. Frame: `keyframes/evidence/W13U/owner-2026-09-24-ball-on-curve.png`. It shows the easing gallery. Every tile's ball sits on a flat horizontal rail at mid-height, with the curve drawn separately above and below it.
+- **Opens after:** KF.W13V. **Model:** Opus 5.5, every seat. **Record:** `docs/tranches/X/execution/B/KF-W13W.md`.
+- **The law.** On every plot of an easing or a simulation, the playhead ball is a point **on the plotted curve**, at `(x(p), y(p))` in the plot's own coordinates:
+  - For a timing function, x is normalized time t and y is the eased progress f(t).
+  - For a simulator, the ball rides the trace at the current simulation time.
+  - For steps, it jumps with the steps.
+  - For back, elastic and spring overshoot outside [0, 1], the ball follows the curve beyond the band. The plot bounds already contain the curve, so they contain the ball.
+  - One mapping from the curve's own path or function places both the stroke and the ball. No second geometry, no separate rail, no mid-height track.
+  - A rail can stay only as a secondary, clearly subordinate progress cue. The ball never sits on it.
+- **Units, strictly serial:**
+  - **`[KF.W13W.c]` census.** List every site that draws an easing curve or a simulation trace with a moving marker:
+    - the easing gallery tiles and the easing scene's main plot
+    - the easing picker's trigger and dropdown previews (§0bi OA-31)
+    - the Spring trace, `linear()` trace and sweep
+    - the Sequence rails
+    - the living dock icons (`.d2`'s easing mini, which today is curve, rail, then ball)
+    - any other site found by grep and on the served page
+  - **`[KF.W13W.b]` the cure at the root.** Build one shared plot primitive or composable that owns curve-to-point mapping. Every site in the census moves onto it. The ball's position derives from the same function that draws the path. Reduced motion still shows the ball on the curve, at rest.
+  - **`[KF.W13W.v]` verification on the served page.** Headed, at 1440 and 390, in both themes.
+    - For every census site, sample the ball's centre over one cycle, at 12 or more points.
+    - At each point, assert that its distance to the rendered curve path is at most 1.5 CSS px. Use the path's `isPointInStroke`, or the nearest point on the sampled polyline.
+    - Record before frames and after frames.
+    - The falsifier reads RED at the pre-cure bytes on every census site.
+- **Bounds:** keyframes `demo/**`, and `test/demo/**` additive, plus the value.js receipt. The ADJACENT-LINE RULE applies. A glass half, such as a glass chart primitive, goes by relay only.
