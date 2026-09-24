@@ -239,3 +239,45 @@ The KF.W13V addenda state their gates in prose on the SERVED page (headed, 1440 
 **SELF-COUNT**: gates owned 6 (y1 · y2 · y3 · y4 · y5 · floor) → GREEN 6 (y5 with the SLIDER-THUMB clause honest-RED, producer), RED 0; commits 6 before this record (value.js 2 · kf 4); residuals 3 own (SLIDER-THUMB routed · R-y-1 · R-y-2) + ESC-s-1 carried.
 
 **Status: DONE** — G-W13V-y1 · y2 · y3 · y4 · y5 · floor GREEN ×2 on dev and gh-pages; the thumb clause is the producer's (SLIDER-THUMB).
+
+### KF.W13V.p
+
+**Seat**: `claude-opus-5-5`. **Spec**: KF-W13 `:345` OA-35 (§0bl `.p`) · `:350-351` (§0bl second addendum, the O-58 canon `glass-ui/DESIGN.md:385-391`). **Rulings consumed**: COHESION §0bl · §0cb (O-58 "tiles use `--radius-pill`" glass-side; R-5 landing likely 11.0.0) · §0bt (ADJACENT-LINE: none needed). **Frontier at open**: kf `4fafc186` (after `.y`), glass installed `10.0.1`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → the 2 standing untracked mail letters, 0 modified; value.js inside the writable set → **inherited** `keyframes/evidence/W13V/p/tiles.mjs` (81 L, a killed predecessor's probe, uncommitted) + an empty `logs/`. Read whole and judged: the census and the p1/p2 laws conform to the gates. Its line law was text-only, which does not meet the brief's "by computed height", so this seat widened it (act 2). **E13**: ⟨`find <four paths> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 files. 0 UNREAD in scope.
+
+#### Acts, in order
+
+1. **Text-law census** (the inherited probe as found; dev): ⟨`node tiles.mjs http://localhost:5173/`⟩ → `tile-reads=80 p1-fail=0 p2-fail=0` (`logs/textlaw-dev-1.txt`). It caught only the 4 spring presets. The 28 easing specimens escaped because each has a one-line name over a sparkline, which the text-only law reads as one line.
+2. **Probe widened to the height law** (the brief says "by computed height"): a painted graphic leaf (svg/canvas/img/video) now counts as a row box, so a sparkline stacked over a name reads 2 rows. An icon beside its label still overlaps vertically and reads 1 row. The census summary also records each tile's computed height range.
+3. **Census, height law, served page** (7 routes × stage + every enabled dock-surface pane × 1440×900 / 390×844 × light / dark; ×2 dev, ×2 gh-pages build of `4fafc186`, ⟨`npm run gh-pages`⟩ → `✓ built`, EXIT 0, served from a copy at `127.0.0.1:4181`). Distinct multi-line selectable tiles: **32**. There are **28** easing specimens (`button.toggle-group__item[role=radio]`, 2 rows, h 98–101 px, r 16) and **4** spring presets Smooth/Snappy/Bouncy/Gentle (same element, 2 rows, h 58–65 px, r 16). No other route or pane holds a multi-line selectable tile. Sequence exposes no enabled dock surface to this probe, so only its stage was read.
+4. **UIA-KF-046's third site, the "Curve preset strip"**: ⟨`node curve-popup.mjs <base>`⟩ ×2 dev + ×2 gh. At glass 10.0.1 it is the Curve facet's `Easing preset` Select. Its listbox holds **31** `div.glass-menu-row[role=option]`, each 1 row, h 44, **r 12** (glass's own menu row; ≤ 16). No multi-line tile there. The ten category chips (All…Steps) are 1-row stadiums, which is lawful.
+5. **The re-point is already at the bytes**. `.y` landed it under OA-49/51 (N-4): `SpringPhysicsFacet.vue:198` `.preset-cell { border-radius: var(--radius-field) }` (kf `9262899b`) and `EasingTarget.css:116` `.specimen-tile { border-radius: var(--radius-field) }` (kf `0c8c690d`). Both are canon re-points to the producer token. ⟨`grep -rn radius-field demo --include=*.vue --include=*.css | wc -l`⟩ ×2 → **3 · 3** (2 declarations + 1 comment; seat-0 B-p3 was 0). The census finds no multi-line tile outside those two sites, so **this seat writes 0 keyframes.js bytes**. That follows the brief ("re-point each"): every tile is already re-pointed. A second local rule would be the "new local style" the lock forbids. **R.2 note:** p1/p2 read GREEN at this seat's open because `.y` cured them under its own gate y3 and y5 ("presets … on `--radius-field`"). Seat-0's RED B-p3 was banked before `.y`.
+6. **Primitive check at 10.0.1 (p3)**: `ToggleGroupItem` has no shape axis (`dist/components/toggle-group/ToggleGroupItem.vue.d.ts`: value/disabled/class). `dist/glass-ui.css` `.toggle-group__item{…border-radius:var(--radius-pill)…}` applies unconditionally. `Card` has `selected?: boolean` (`Card.vue.d.ts:29`, "makes the card an option") but no group, roving focus or radio semantics. BL's ruling lives in D4 (`glass-ui:docs/tranches/BL/FORMATION-PROGRESS.md:20`): round 0 DONE `91dbcbd8`, pass 1 **PAUSED**. ⟨`npm view @mkbabb/glass-ui version`⟩ → `10.0.1`. BL's primitive is not installable, so this seat records **`TILE-PRIMITIVE` honest-RED with O-58**. `Card selected` is not adopted unilaterally, because which primitive owns the tile is BL's ruling (spec `:351`).
+7. **Relay**: `docs/tranches/X/relay/X-KF-BK-O58-TILE-PRIMITIVE.md`, an addendum beside O-58, plus INBOX row **O-67** (FILED), both in value.js `e3a7ece5`. Evidence (probes + 24 logs): value.js `bda1d75d`. The one frame `logs/curve-popup-1440-light.png` stays local (`.gitignore:34` `*.png`; not a named gate frame).
+
+#### Gates — BEFORE → AFTER (served, headed Chromium; dev `localhost:5173` ×2 + gh-pages build of `4fafc186` ×2; load 15.98 / 19.93 / 22.51 / 19.98, `logs/*-load.txt`)
+
+| gate | BEFORE | AFTER (this seat's reading) | reading |
+|---|---|---|---|
+| **p1** every multi-line tile computed radius ≤ `--radius-field` | seat-0 B-p3 **0** (kf `d94017ff`, before `.y`) | ⟨`tiles.mjs`⟩ dev ×2, gh ×2 → `tile-reads=640 p1-fail=0` each; 32 distinct tiles at 16 px = field (16 px) | **GREEN** (0 → all 32) |
+| **p2** 0 `rounded-full`/`9999px` on elements taller than one line | `.y` BEFORE: 22 multi-line stadiums at 1440 | `p2-fail=0` ×4 (every painted stadium on the page, 28 cells × views); the 16 byte hits (⟨`grep -rn "rounded-full\|9999px" demo \| wc -l`⟩ → 16 · 16) all lay out on one row | **GREEN** |
+| **p3** BL tile primitive adopted if installable at 10.0.1, else `TILE-PRIMITIVE` honest-RED with O-58 | — | not installable (D4 pass 1 paused; npm `10.0.1`); O-67 relay filed | **honest-RED `TILE-PRIMITIVE`** (owner: glass BL D4) |
+| floor vue-tsc | 0 | **0 · 0** | GREEN |
+| floor `npm run check` | EXIT 0 | **EXIT 0 · EXIT 0** | GREEN |
+| floor demo vitest | 67/67 · 525/525 (`.y`) | **67/67 · 525/525 ×2** | GREEN |
+
+#### Commits
+
+- value.js: `bda1d75d` (evidence: `tiles.mjs` · `curve-popup.mjs` · 24 logs) · `e3a7ece5` (relay addendum + INBOX O-67) · this record's commit.
+- keyframes.js: none. Every tile was already on the canon token (act 5).
+
+#### Residuals (carried by id)
+
+- **`TILE-PRIMITIVE`** (producer, glass BL D4; O-58 / O-67 / UIA-KF-046): honest-RED. On landing, the consumer adopts the primitive and deletes the two consumer radius rules (relay §5).
+- **UIA-KF-047** (matrix cells as discs, single-value fields) is not a multi-line tile. It stays with `.u` (routed with the UIA register).
+- Honest-RED ids carried, none touched: `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `DARK-MENU-ITEM` · `SHEET-POSITION` · `B7 SPECULAR-REST` · `GLASS-VEIL-GREY` · `DOCK-TRIGGER-CLIP`. 0 glass bytes.
+
+**Adjacent edits**: none. **Escalations**: none.
+
+**SELF-COUNT**: gates owned 4 (p1 · p2 · p3 · floor) → GREEN 3 (p1 · p2 · floor), honest-RED 1 (p3 `TILE-PRIMITIVE`, producer), RED 0. Commits before this record: 2 (value.js). Tiles in the census: 32 (28 + 4). Inherited paths: 1 (`tiles.mjs`).
+
+**Status: DONE**. p1 and p2 are GREEN ×2 on dev and gh-pages, and the floor is GREEN ×2. p3 is `TILE-PRIMITIVE` honest-RED with O-58 (O-67 filed).
