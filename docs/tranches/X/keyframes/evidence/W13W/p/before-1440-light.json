@@ -1,0 +1,64 @@
+{
+ "viewport": "1440x900",
+ "theme": "light",
+ "sites": {
+  "gallery": {
+   "found": true,
+   "catalogue": "none",
+   "filter": {
+    "tag": "DIV",
+    "role": "radiogroup",
+    "cls": "toggle-group",
+    "items": 10,
+    "stadiumPlates": 1
+   },
+   "dividers": 0,
+   "headers": [
+    "ease"
+   ],
+   "tiles": 28,
+   "tileRadius": "16px",
+   "radiusField": "16px",
+   "truncated": [
+    "ease-in-out-cubic"
+   ],
+   "selected": "ease",
+   "selPaint": {
+    "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "ring": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "outline": "none 1.5px",
+    "border": "color(srgb 0.11 0.098 0.09 / 0.14)",
+    "nameColor": "oklch(0.56 0.17 295)"
+   },
+   "unselPaint": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "ring": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "outline": "none 1.5px",
+    "border": "color(srgb 0.11 0.098 0.09 / 0.14)",
+    "nameColor": "rgb(112, 89, 66)"
+   }
+  },
+  "dropdownTrigger": {
+   "role": "combobox",
+   "text": "ease-in-out",
+   "bg": "rgba(0, 0, 0, 0)",
+   "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full cursor-point"
+  },
+  "dropdown": {
+   "found": true,
+   "catalogue": "none",
+   "filter": null,
+   "dividers": 0,
+   "headers": [],
+   "tiles": 0,
+   "tileRadius": null,
+   "radiusField": "16px",
+   "truncated": [],
+   "selected": null
+  },
+  "dropdownSelectItem": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 text-dropdown data-[disabled]:cursor-"
+  }
+ }
+}

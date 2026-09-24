@@ -1,0 +1,105 @@
+{
+ "viewport": "390x844",
+ "theme": "dark",
+ "sites": {
+  "gallery": {
+   "found": true,
+   "catalogue": "inside",
+   "filter": {
+    "tag": "DIV",
+    "role": "group",
+    "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track",
+    "items": 10,
+    "stadiumPlates": 0
+   },
+   "dividers": 1,
+   "headers": [
+    "ease",
+    "Standard",
+    "Sine",
+    "Quad",
+    "Cubic",
+    "Expo",
+    "Circ",
+    "Back",
+    "Bounce",
+    "Steps"
+   ],
+   "headerFont": "20.352px 600",
+   "filterSegmented": true,
+   "dividerBetween": true,
+   "tiles": 28,
+   "tileRadius": "16px",
+   "radiusField": "16px",
+   "truncated": [],
+   "selected": "easegentle start & end",
+   "selPaint": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "outline": "solid 1.5px",
+    "border": "color(srgb 0.914 0.9 0.886 / 0.14)",
+    "nameColor": "rgb(233, 230, 226)"
+   },
+   "unselPaint": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "outline": "none 1.5px",
+    "border": "color(srgb 0.914 0.9 0.886 / 0.14)",
+    "nameColor": "rgb(195, 185, 172)"
+   }
+  },
+  "dropdownTrigger": {
+   "role": null,
+   "text": "ease-in-out",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover col-start-2 w-full min-w-0 justify-b"
+  },
+  "dropdown": {
+   "found": true,
+   "catalogue": "self",
+   "filter": {
+    "tag": "DIV",
+    "role": "group",
+    "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track",
+    "items": 11,
+    "stadiumPlates": 0
+   },
+   "dividers": 1,
+   "headers": [
+    "Standard",
+    "Sine",
+    "Quad",
+    "Cubic",
+    "Expo",
+    "Circ",
+    "Back",
+    "Bounce",
+    "Steps",
+    "Custom"
+   ],
+   "headerFont": "20.352px 600",
+   "filterSegmented": true,
+   "dividerBetween": true,
+   "tiles": 29,
+   "tileRadius": "16px",
+   "radiusField": "16px",
+   "truncated": [],
+   "selected": "ease-in-outslow start & end",
+   "selPaint": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "outline": "solid 1.5px",
+    "border": "color(srgb 0.914 0.9 0.886 / 0.14)",
+    "nameColor": "rgb(233, 230, 226)"
+   },
+   "unselPaint": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "outline": "none 1.5px",
+    "border": "color(srgb 0.914 0.9 0.886 / 0.14)",
+    "nameColor": "rgb(195, 185, 172)"
+   }
+  },
+  "dropdownSelectItem": null
+ }
+}
