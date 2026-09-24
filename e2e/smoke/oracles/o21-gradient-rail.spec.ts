@@ -390,9 +390,9 @@ test("stop inspector numeric entry round-trips to the ordinal the rail paints", 
     await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
     await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
 
-    // Select the interior stop; the inspector takes it as its subject.
+    // The minted interior stop is already the inspector's subject (X.W12.u2 ·
+    // UIA-V-373); a re-tap would deselect it (the handle's re-tap grammar).
     const handle = rail.locator("[data-stop-id]").nth(1);
-    await handle.click();
     const id = (await handle.getAttribute("data-stop-id"))!;
     await expect(main.getByTestId("gradient-stop-inspector")).toContainText(
         "Stop 2 of 3",
@@ -531,7 +531,7 @@ test("one removal owner: the floor is a disabled control carrying its reason", a
     const box = (await rail.boundingBox())!;
     await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
     await expect(rail.locator("[data-stop-id]")).toHaveCount(3);
-    await rail.locator("[data-stop-id]").nth(1).click();
+    // The minted stop is selected on mint (X.W12.u2 · UIA-V-373).
     await expect(remove).toBeEnabled();
     await remove.click();
     await expect(rail.locator("[data-stop-id]")).toHaveCount(2);
