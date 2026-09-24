@@ -179,8 +179,19 @@ test.describe("X.W12.t · the large colour-space dropdown is a text trigger", ()
                         await page.waitForTimeout(400);
                         expectPaintFree(await readPaint(trigger), "open");
                         await frame(page, trigger, `${tag}-open`);
+                        // X-W12 Repair 1 (H-4 · TT-KBD-ABOUT): each key waits for
+                        // the state its predecessor produced, as a user reads the
+                        // highlight before pressing the next key. reka moves option
+                        // focus in a deferred task (`SelectContentImpl` handleKeyDown
+                        // → `setTimeout(focusFirst)`); under SwiftShader that task
+                        // was measured landing AFTER a fixed-200 ms Enter (probe:
+                        // ArrowDown 8827 ms · Enter on option lab 9236 · focus
+                        // option lch 10329), so Enter re-selected the open value.
+                        const focusedOption = page.locator("[role=option]:focus");
+                        await expect(focusedOption).toHaveCount(1);
+                        const openedOn = await focusedOption.getAttribute("data-space");
                         await page.keyboard.press("ArrowDown");
-                        await page.waitForTimeout(200);
+                        await expect(focusedOption).not.toHaveAttribute("data-space", openedOn ?? "");
                         await page.keyboard.press("Enter");
                         await expect(listbox).toBeHidden();
                         await expect.poll(() => label(trigger)).not.toBe(kbBefore);
