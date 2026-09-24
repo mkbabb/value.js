@@ -3249,3 +3249,22 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - the depth-guard hot-path cost
   - the parse-that Tranche T boundary
 - **Order:** Track D resumes X.P.W6R, then X.P.W7. W7 `.p` branches from the parse-that master tip after W6R `.p`, not from `92d8ea7`.
+
+## §0cl ADDENDUM 2026-09-23 — F.W14 ruled; F.W14U minted; fourier's dev MongoDB restored
+- **F.W14** (run `wf_c7aa48ac-f02`) ended NOT-CONFORMANT after 2 repairs. Its check raised two HIGH defects:
+  - `.u` covered 88 of 256 UIA-F rows.
+  - The close e2e and G-p could not be read, because fourier's MongoDB was down.
+  - One close seat was also lost to the network (ENOTFOUND).
+- **Ruled:**
+  - The golden re-baseline is granted as a new unit, `.h2`, in the same class as §0bm.
+  - G-p's one-device-pixel miss on a fractional stage becomes `.p2`: one rounding rule at `useCanvasSetup`'s root.
+  - **G-u moves whole to the new wave F.W14U.** It covers the 168 owed rows, in family units with disjoint file sets. `api/**` is granted for the server rows.
+  - F.W14 closes with the 88 counted and F.W14U cited.
+  - The specs are `F-W14.md` addendum (e) and `F-W14U.md`.
+- **MongoDB.**
+  - fourier's dev `MONGO_URI` is `mongodb://localhost:27017/fourier`, served by Homebrew `mongod` 8.2.9. That `mongod` has refused to start since 2026-09-22 17:12. Its log shows WiredTiger `txn-recover` ENOENT, then "metadata corruption", then a fatal assertion. The data directory, `/opt/homebrew/var/mongodb` (2.3 GB), may hold other projects' data.
+  - **It is left untouched.** `mongod --repair` rewrites files in place, which is irreversible.
+  - **Owner item:** repair or restore that database, after copying its directory aside.
+  - For the dev and e2e gates, a fresh standalone `mongod` now serves :27017 from `~/.mongo-dev/fourier`, which is outside every repo. fourier uses no transactions and Homebrew had no replica set, so standalone matches.
+  - The fourier API held a stale replica-set topology from the dead server and was restarted with its own command. `POST /api/sessions` then returned 200.
+- Track C resumes: F.W14 (`.h2`, `.p2`, close), then F.W14U.
