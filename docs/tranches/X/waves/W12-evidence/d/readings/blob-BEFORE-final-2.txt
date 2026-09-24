@@ -1,0 +1,7 @@
+[w12-blob] idle 5000ms → max frame diff 0.000/255 · 0 draws
+      83 |     console.log(`[w12-blob] idle ${IDLE_MS}ms → max frame diff ${d.toFixed(3)}/255 · ${draws} draws`);
+[w12-blob] hover after 5000ms idle → max frame diff 0.000/255 · 0 draws
+      95 |     console.log(`[w12-blob] hover after ${IDLE_MS}ms idle → max frame diff ${d.toFixed(3)}/255 · ${draws} draws`);
+[w12-blob] PRM → max frame diff 0.000/255 · 0 draws
+  2 failed
+  1 passed (1.7m)
