@@ -1451,3 +1451,86 @@ Seat `claude-opus-5-5`, 2026-09-24, Track D. Governing text: W7.md (230 lines, r
 **Verdict: ESCALATED.**
 - **Green:** WebKit and Chromium on every cell, twice; node 7/7 on every class; L-G2; L-G3; every stay-GREEN gate; the instrument flag and its harness.
 - **Red:** Firefox rej and large parseStylesheet (ESC-W7l-1, with the per-rule profile in `bench/records/2026-09-24-x-p-w7-profile-l-{p1,final}.json`).
+
+## RESUME 3 Close (2026-09-24, close seat `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 230 lines, all three addenda; ADDENDUM (b) at `:216` binds). From this record: header, `## RESUME 3 — Open` through `## RESUME 3 Unit plan`, and the `.l` receipt (the last section). Every earlier section stands (E-3); this one is written beside them. **Crash-recovery:** ⟨`git status --porcelain -- src bench test scripts/gen-grammar.mjs docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md`⟩ → empty; ⟨`git -C ../bbnf-lang-x-p-w7-typescript status -sb`⟩ → `## x-p-w7-typescript...origin/x-p-w7-typescript`, clean at `d81016e96`. parse-that master's dirty `rust/**`, `README.md`, `.cargo/config.toml` belong to other programs (untouched). **No inherited partial work.** Product bytes: HEAD `24f8d58d`; ⟨`git log 4ffbe7de..HEAD -- src/css package.json package-lock.json`⟩ → empty, so the product is `.l`'s final bytes (`generated/grammar.js` sha256 `5dffabdc…`).
+
+### Act 1: commit roster, and whether `.l` stayed in its writable set
+⟨`git show --stat --format= <c>`⟩ per commit:
+
+| Commit | Paths touched | In set? |
+|---|---|---|
+| bbnf-lang `dcf72b966` (instrument flag) | `typescript/src/{cli,emit,gen}.ts`, `typescript/test/instrument.test.ts` | yes (`typescript/**`) |
+| bbnf-lang `d81016e96` (cure 1, escape runs unrolled; ⟨`git branch -r --contains d81016e96`⟩ → `origin/x-p-w7-typescript`) | `typescript/src/analysis/regex.ts`, `typescript/src/emit.ts`, `typescript/test/unroll.test.ts` | yes |
+| value.js `816ec3d1` (profile harness) | `bench/paired/{bisect,instrument,profile}.mjs` | yes (`bench/**`) |
+| value.js `4ffbe7de` (re-emission + probe) | `src/css/bbnf/generated/grammar.{js,d.ts}`, `bench/paired/yarr.mjs` | yes (`generated/` via `gen-grammar.mjs`; `bench/**`) |
+| value.js `5f7bd27e` (records, lever diffs) | 24 paths: `bench/paired/{bisect,instrument,loops}.mjs` + 21 under `bench/records/` | yes |
+| value.js `24f8d58d` (receipt) | this record | yes |
+
+**Landed wrong: none.** No `package.json`/lockfile, `ci.yml`, `rust/**`, bbnf-lang master or `scripts/dev/dev.sh` path in any commit; no lever commit (none admitted; the three lever diffs are banked as records only). PR #1 untouched.
+
+### Act 2: the gates re-read by this seat (RESUME rule: the gates `.l` turns plus stay-GREEN; older unit gates cited from RESUME Check 3)
+
+**Correctness, gates and size.**
+- L-G2 / V-1 ⟨`node bench/paired/equiv.mjs product <scratch>`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 88 (ASCII-only sources 0)` both times = the F-b-4 rows. **GREEN ×2.**
+- L-G3 ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`; ⟨`node bench/paired/instrument.mjs`⟩ (emitter linked, below) → `{"plainEqualsShipped":true,"plainEqualsShippedBarHeaderSha":true,"shippedInstrumentTokens":[],"instrumentedTokens":6}`. **GREEN.**
+- K2-b ⟨`grep -rn deepFreeze src | wc -l`⟩ → `0`. V-8 ⟨`grep -rn 'GRAMMAR_MODULES\|new ParserState\|reset()' src/css/bbnf | grep -v generated/`⟩ → 0; ⟨`grep -rnE '/[^/]*\[xX\][^/]*/i' src/css/grammar`⟩ → 0. **GREEN.**
+- ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`; ⟨`… | grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `28 MIRROR-DEFECTS 0`. **GREEN.**
+- E-4 `--check`: on the installed 0.1.4 → exit 1, `has no bbnf bin (bbnf gen needs @mkbabb/bbnf-lang >= 0.2.0)` = the X.P.W7P dependency move, not drift. With `node_modules/@mkbabb/bbnf-lang` linked to the worktree (dist built 15:16, carries `unrollEscapeRuns`) ×2 → `grammar.js is current (sha256 5dffabdc…)`. Link removed, 0.1.4 restored (⟨`grep '"version"'`⟩ → `0.1.4`). **GREEN on the linked emitter.**
+- E-1/E-3/E-5 ⟨`npx vitest run`⟩ ×2 in `../bbnf-lang-x-p-w7-typescript/typescript` → `Test Files 19 passed (19) · Tests 288 passed (288)` both; ⟨`npx tsc --noEmit -p .`⟩ → 0. **GREEN.** E-2 (174.0 M checks, 0 violations, 0 modeDiffs) is cited from the `.l` receipt: its scratch driver is not banked, and the emitter bytes are unchanged at `d81016e96`.
+- E-6 ⟨`esbuild --minify` of `generated/grammar.js`⟩ → `94017` B; `| gzip | wc -c` → `12920` B (ceiling 125,646 / 14,517). **GREEN.**
+- ⟨`npx vitest run`⟩ (value.js) → `Tests 3 failed | 940 passed (943)`: `spectrum-luma` C-5 BORN-RED and `reka-binding-idiom` NG-6 (the foreign pair `.l` named), plus `demo/test/generate/generate-rail.test.ts` EC-10 `Test timed out in 5000ms` at load 42–61; alone ⟨`npx vitest run demo/test/generate/generate-rail.test.ts`⟩ → `Tests 2 passed (2)` (a sibling's `26681172` test timing out under load; not under `src/css`/`test/css`). **GREEN** (941 css-relevant rows as `.l`; 0 css failures).
+- ⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit`⟩ → `0 · 0 · 0`. **GREEN.**
+
+**Timing** (arms rebuilt ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 24f8d58d`, `srcDirty ""`, `bankedManifestOk 79/79`; records moved to scratchpad `w7lclose/`, `bench/` left clean; load was 30–116 throughout, sibling tracks busy, recorded).
+- **browsers, read 1** ⟨`node bench/paired/browser.mjs lclose-r1 chromium,webkit,firefox 2 whole,acc,rej,large 11 product`⟩ (load `41.54` → `30.15`):
+  - Chromium 22/22 rows < 1 in both reps (large .380 / .348; highest whole keyframe .619).
+  - **WebKit 22/22** (large **.552 / .571**; highest whole keyframe .844 / .842).
+  - Firefox: clean RED **rej parseStylesheet 1.226 / 1.141 (+1 SA 1.109)** · **large 1.264 / 1.250 (+1 SA 1.19)** · whole parseStylesheet 1.068 (+4 SA .87–1.09) · rej parseCssValue .986 / 1.071 · rej parseCssValues .993 / 1.12; acc parseStylesheet has no clean cell (8 SA, .81–1.23). The other 16 Firefox rows < 1.
+- **browsers, read 2** ⟨same, tag `lclose-r2`⟩ (load `30.15` → `63.23`, peak 116): Chromium 22/22 (large .351 / .354) · **WebKit 22/22** (large **.579 / .579**; highest .842) · ⟨`grep -E '^product (chromium|webkit)' | grep -vc '<1'`⟩ → `0` of 44. Firefox: clean RED **rej parseStylesheet 1.113 / 1.122 (+1 SA 1.25)** · **large 1.216 (+4 SA 1.17–1.35)**; rows with no clean cell (every rep set aside at load 60–116): whole parseStylesheet (8 SA .86–1.23), acc parseCssColor (8 SA .82–1.31), acc parseStylesheet (8 SA .70–1.00), rej parseCssValue (8 SA .90–1.37), rej parseCssValues (8 SA .86–1.21), rej parseTimingFunction (8 SA .76–1.20). Every set-aside cell is in the records.
+- **node, read 1** ⟨`node --expose-gc bench/paired/isolated.mjs lclose-node-r1 product 3 11 whole,acc,rej,large`⟩ (load `63.23` → `78.12`): whole medians color .672 · scalar .591 · value .439 · values .420 · keyframe .657 · timing .605 · stylesheet .617 (ceilings .90/.81/.57/.58/.78/.87/.85); acc keyframe .586; rej stylesheet .627; large .428 / .439 (4 SA, one 1.148 at spread 16.9, all reported). `whole-7/7 GREEN` · `accepted-7/7 GREEN` · `rejected-7/7 GREEN`.
+- **node, read 2** ⟨same, tag `lclose-node-r2`⟩ (→ load `77.30`): whole .677 · .591 · .443 · .414 · .665 · .610 · .648; acc keyframe .648; rej stylesheet .614; large .428 / .429 / .455. All three 7/7 verdicts `GREEN`. (`O-2 … DOES NOT HOLD` = the product is faster than stock, as at every prior close.)
+- The browser reads reproduce `.l`'s receipt: WebKit large is GREEN in both reads (1.11–1.20 at the RESUME Close → .55–.58), and Firefox rej and large parseStylesheet stay RED in both. Chromium, WebKit and node are below 1 on every cell, twice.
+
+### Acts 3 and 4: verification artefacts and E13
+- The spec names no Verification Artefacts clause beyond its gates. The paired records are in scratchpad `w7lclose/` (`lclose-r{1,2}`, `lclose-node-r{1,2}`, logs); `.l`'s banked records (`5f7bd27e`: profiles `profile-l-{p1,final}`, `loops`, `yarr`, `bisect-l-*`, `browser-l-final-r{1,2}`, lever diffs) stand as the records of record. ⟨`git status --porcelain bench`⟩ → empty.
+- E13 ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/`, glass `BK/coordination/` + `BL/` (⟨`ls -td glass-ui/docs/tranches/B*/ | head -3`⟩ → `BL BK BJ`), keyframes.js `V/coordination/`, atlas `P/coordination/` → 0 files, except glass `BL/FORMATION-PROGRESS.md` (BL's own cursor, not a letter). ⟨`grep -nE '\| *UNREAD *\|' INBOX.md | wc -l`⟩ → 0. **0 UNREAD in scope.**
+
+### Gate table, BEFORE → AFTER (BEFORE = RESUME 3 Baseline; AFTER = this seat's two reads)
+
+| Gate | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|
+| L-G1 WebKit large parseStylesheet | 1.111 / 1.192 | .552 / .571 · .579 / .579 | **GREEN ×2** |
+| L-G1 WebKit, other 21 rows | GREEN | 21/21 < 1, both reads | **GREEN ×2** |
+| L-G1 Chromium 22 rows | GREEN (`.g`) | 22/22 < 1, both reads | **GREEN ×2** |
+| L-G1 node whole/acc/rej/large | GREEN (Check 3) | 7/7 · 7/7 · 7/7 · large .43–.46, both reads | **GREEN ×2** |
+| L-G1 Firefox rej parseStylesheet | 1.042 / 1.050 | **1.226 / 1.141 · 1.113 / 1.122** | **RED** |
+| L-G1 Firefox large parseStylesheet | 1.170 / 1.101 | **1.264 / 1.250 · 1.216** | **RED** |
+| L-G1 Firefox whole parseStylesheet, rej parseCssValue / Values | noise distance | r1 1.068 · .986 / 1.071 · .993 / 1.12; r2 no clean cell (all SA at load 60–116) | RED at noise distance |
+| L-G1 Firefox, other 16 rows | GREEN (`.g`) | < 1 in read 1; read 2 adds acc parseCssColor, acc parseStylesheet, rej parseTimingFunction with no clean cell (all reps set aside, .70–1.31) | GREEN r1; load-voided r2 |
+| L-G2 V-1 | 88 = F-b-4 | 88 = F-b-4 ×2 | **GREEN ×2** |
+| L-G3 instrument bytes in shipped `generated/` | vacuous | 0; `plainEqualsShipped true` | **GREEN** |
+| stay-GREEN: css-equiv · npm test · vue-tsc · `--check` · K2-b · V-8 | GREEN | 19/19, 28× MIRROR-DEFECTS 0 · 940/943 (0 css failures) · 0/0/0 · current ×2 (linked) · 0 · 0 | **GREEN** |
+| E-1/E-3/E-5 · E-6 · E-2 · E-7 | GREEN | 288/288 ×2, tsc 0 · 94,017 / 12,920 B · cited (`.l`) · depth pin in the suite | **GREEN** |
+| whole-7/7 inside ceilings | GREEN | node ×2, e.g. keyframe .657 / .665 (ceiling .78), stylesheet .617 / .648 (.85) | **GREEN ×2** |
+| P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half | relieved | relieved by citation to X.P.W7P (§0cp 1), GATE-KEYED on the owner's OTP | **relieved → X.P.W7P** |
+
+### Residuals (named owners)
+- **R-l-1: Firefox (SpiderMonkey) rej and large parseStylesheet** (1.11–1.26 in this seat's clean cells), with whole parseStylesheet and rej parseCssValue/Values at noise distance. Cause named by `.l`'s profile: the emitted code-unit class-run loops (`loops.json`: 1.9 ms vs 0.9 ms through SpiderMonkey's regex engine). Owner: **the owner, via ESC-W7l-1**.
+- **R-l-2: Firefox read-2 load voiding.** Six Firefox rows had no clean cell in read 2 (load 60–116, sibling tracks). They are not claimed GREEN or RED from that read; read 1 and `.l`'s two reads cover them. Owner: whichever seat re-reads Firefox after ESC-W7l-1 is ruled.
+- **R-l-3: the lever diffs** (`instrument+split-leaf`, `negated-run-regex+defer`, `defer-text-actions`) are banked under `bench/records/2026-09-24-x-p-w7-l-levers/`. Owner: the unit that executes ESC-W7l-1's branch (a) or (b).
+- **The release chain:** P-6, E-8, V-9 and its CI step, Z-1, Z-3's publish half, `--check` on the installed pin, the bbnf-lang PR #1 merge. Owner: X.P.W7P, GATE-KEYED on the owner's npm one-time password.
+- **Foreign test rows** (not W7's): `spectrum-luma` C-5 BORN-RED, `reka-binding-idiom` NG-6, and `generate-rail` EC-10 timing out at 5 s under load (passes alone). Owners: their Track A/B units.
+
+### Escalations (carried open, none new)
+- **ESC-W7l-1** (the `.l` receipt) is unruled: ⟨`grep -n ESC-W7l-1 COHESION.md`⟩ → 0 hits. Branches: (a) a run-length-dependent emission; (b) accept the negated-run lever's ×1.02–1.05 costs on Chromium/WebKit; (c) record Firefox's stylesheet cells rather than gate them.
+- **ESC-W7p-1 / e-1 / v-1 / z-1** stay with X.P.W7P.
+- This seat raises no new escalation. **Adjacent edits: none. Out-of-set writes: none.**
+
+### Four-verb line
+W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (b) binds L-G1 on every engine, and Firefox rej and large parseStylesheet read RED twice. So X.P.W7 is **not IMPLEMENTED**. It stays **PARTIAL**, and VERIFIED is not stamped. It moves to IMPLEMENTED once ESC-W7l-1 is ruled and its branch is executed (or, under (c), once the Firefox stylesheet cells are re-scoped to recorded).
+
+**Verdict: PARTIAL.** `.l` delivered the instrument flag (compiled out), the per-rule profile, and cure 1 (escape runs unrolled), which turns WebKit large GREEN twice here. Chromium, WebKit and node are below the retired parser on every cell, twice. Firefox rej and large parseStylesheet stay RED under ESC-W7l-1. The release gates are relieved to X.P.W7P.
+
+**Commits (this seat):** this RESUME 3 Close, plus the LEDGER row cell.
