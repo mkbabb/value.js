@@ -3494,3 +3494,15 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - (b), the uniform lever at a ×1.02–1.05 cost on Chromium and WebKit (which stay below 1), is the measured fallback only.
 - **Unit `.l2`** is the Track D chassis RESUME 4 note. Track D is resumed.
 - **The release stays X.P.W7P**, on the owner's npm one-time password. **Reported to the owner**, who can overrule the ruling.
+
+## §0dj — 2026-09-24: bbnf-buddy and chicago on 10.1.0; two value.js library defects; O-78 menu stacking
+- **chicago:** 10.1.0 exact; build GREEN; traps 0 hits. It is not a git repo, and the backup is in the session scratchpad.
+- **bbnf-buddy:** `2857c2f` on `glass-10.1`, local (no remote).
+  - It migrated from 3.9 to 10.1 at the root: DockControl, DockTrigger, `Chip mode`, `--focus-ring-color`, `emphasis`, `--glass-veil-*`, `:collapse`, SortableItem, and two class collisions under `@layer`.
+  - It also moved to keyframes ^6 and value.js ^4, with one copy of each.
+  - vue-tsc 0, vitest 163/164 ×2 (`align-parity` fails identically on master; that is morph data, not ours), build GREEN.
+  - **It does not merge while it carries a consumer z-index shim for menus.** That is O-78 MENU-STACKING, sent and mirrored.
+- **Library defects routed to Track D** (W7.md addendum (d), unit `.cp` after `.l2`):
+  - value.js lowercases custom-property names, which css-variables-1 §2 says are case-sensitive.
+  - 4.x's easing catalogue lost its descriptions and bounce curves. The unit cites the ruling that removed them, or restores them.
+- **Left for their owners:** bbnf-buddy's SVG context menu with zero-size content (identical on master with glass 3.9), and `align-parity`.
