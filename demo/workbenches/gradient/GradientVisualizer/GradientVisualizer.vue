@@ -144,12 +144,17 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
              the direction slider's only visible effect was corrupting the
              rail). One sampling law feeds both; the tile paints the
              CSS-output truth (`coalescedCSS`). -->
-        <div class="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-5">
-            <div class="grid grid-cols-3 gap-3 min-w-0">
+        <!-- X.W12.u2 (UIA-V-44, consumer half): below sm the band stacks —
+             the render tile full-width on top, the three fields in one column
+             — so no trigger overlaps its neighbour or the tile at phone width.
+             (The glass half — SelectTrigger's value span cannot shrink — is O-59.) -->
+        <div class="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 min-w-0">
                 <!-- W5-7 (P1-11): the per-select subtitle rows are EXCISED — they
                  truncated at every viewport and duplicated the descriptions
                  already carried inside each dropdown's items. -->
                 <LabeledField
+                    class="min-w-0"
                     label="Type"
                     :control-labelable="false"
                     v-slot="{ labelledBy }"
@@ -181,6 +186,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 </LabeledField>
 
                 <LabeledField
+                    class="min-w-0"
                     label="Space"
                     :control-labelable="false"
                     v-slot="{ labelledBy }"
@@ -213,6 +219,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 </LabeledField>
 
                 <LabeledField
+                    class="min-w-0"
                     label="Hue"
                     :control-labelable="false"
                     v-slot="{ labelledBy }"
@@ -254,7 +261,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 data-testid="gradient-render-tile"
                 role="img"
                 aria-label="Gradient render with type and direction applied"
-                class="gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"
+                class="gradient-render-tile order-first sm:order-none h-20 sm:h-auto w-full sm:w-24 sm:row-span-2 rounded-card border border-card-edge"
                 :style="{ '--tile-render': coalescedCSS }"
             />
 
