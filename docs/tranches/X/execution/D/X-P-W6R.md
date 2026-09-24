@@ -61,3 +61,15 @@ Three Opus 5.5 units, **strictly serial** (spec "Units, strictly serial"): `[.c]
 
 ## Unit receipts
 
+
+### X.P.W6R.c
+SERVED MODEL: claude-opus-5-5
+
+- **Crash-recovery.** ⟨git status --porcelain -- package.json .github/workflows/ci.yml $record⟩ → ` M .github/workflows/ci.yml` only. Inherited hunk (killed predecessor seat): one line `- run: npm run test:css-equivalence` after `- run: npm test` in the producer job (ci.yml:69→70). Judged against W6R.md `.c`: conforms; kept whole. Inherited path: `.github/workflows/ci.yml`.
+- **L-1.** ⟨git diff --stat package.json package-lock.json⟩ → empty before the edit (no X-W7R glass pin present in the working tree; package.json:88 reads `"@mkbabb/glass-ui": "^7.0.0"` committed). After the edit ⟨git diff package.json \| grep -c '^[+-] '⟩ → `1` (the `.c` hunk only). ⟨git diff --cached --name-only⟩ → empty. package-lock.json untouched.
+- **Act 1.** package.json scripts: `"test:css-equivalence": "vitest run -c bench/vitest.config.ts",` after `"test"` (package.json:69). ⟨ls bench/vitest.config.ts⟩ → exists.
+- **Act 2.** CI step (inherited, above), producer job only (L-2).
+- **C-1** ⟨grep -c test:css-equivalence .github/workflows/ci.yml package.json⟩ BEFORE (baseline) 0/0 → AFTER `ci.yml:1` · `package.json:1`. GREEN.
+- **C-2** ⟨npm run test:css-equivalence \| grep -E "Test Files\|Tests "⟩ run 1 → `Test Files 2 passed (2)` · `Tests 19 passed (19)`; run 2 → `Test Files 2 passed (2)` · `Tests 19 passed (19)`. GREEN x2.
+- **Commit.** `1d970c7c` ci(X.P.W6R.c) — package.json + .github/workflows/ci.yml, one family, pathspec (⟨git log -1 --stat⟩ → 2 files, 2 insertions).
+- Adjacent edits: none. Residuals: none. Escalations: none. Status: DONE.
