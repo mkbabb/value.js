@@ -287,3 +287,86 @@ The `.b`-era PNGs (`b/after/*.png`) and `.c`'s PNGs are not tracked. ⟨`git che
 - `.b`'s and `.c`'s frames are untracked because of `.gitignore:34 *.png`. That is a record correction for those units' owners, not a `.v` row.
 
 **Escalations**: none. **Commits**: value.js `e4c9854a` (evidence: 8 run JSON + 16 after frames) · this record (below). kf: none.
+
+### KF.W13W.p
+
+SERVED MODEL: claude-opus-5-5 · spec `KF-W13.md` §0cq `:477-483` ([KF.W13W.p] OA-58; the brief cites `:478-484` — a one-line drift, intent read at the true bytes) + §0cs `:501-502` (O-66 GLASS-SELECT-GREY) · kf base `82360347`.
+
+**Crash-recovery (inherited)** — ⟨`git -C keyframes.js status --porcelain`⟩ → 0 paths under `demo/**`/`test/demo/**` (2 standing untracked V/coordination letters). ⟨`git -C value.js status --porcelain -- …/evidence/W13W/p`⟩ → `?? evidence/W13W/p/` from a killed predecessor seat: `probe-picker.mjs`, `before-1440-light.json`, `before-390-dark.json`, `before/before-{1440-light,390-dark}-{gallery,dropdown}.png`. Judged: a read-only served probe + BEFORE frames at the pre-cure bytes, conforming to the brief; KEPT and used as the BEFORE witness; the probe EXTENDED (act 4) — named here as inherited.
+
+#### Act 1 — census (measure before edit)
+
+⟨`grep -rn "EasingSidebar|TimingFunctionPanel|useEasingPickerSeat|specimen-tile|EASING_GROUPS" demo`⟩ → the named-curve pickers at kf `82360347`:
+
+| site | file | what it was |
+|---|---|---|
+| gallery | `demo/scenes/easing/EasingTarget.vue` | a glass `ToggleGroup` of 10 stadium pills (filter) + one flat 28-tile `ToggleGroup` grid; no divider, no family headers; tiles ellipsized (`ease-in-out-cub…` at 1440); selected = glass item's 12 % foreground plate (grey) |
+| Controls-pane dropdown | `…/channel-controls/ChannelOptions.vue:367-570` | a glass `Select` listing `EASING_GROUPS` as text rows (glyph + name + description) — a second picker idiom |
+| Controls-pane editor | `TimingFunctionPanel.vue` + `EasingSidebar.vue` via `useEasingPickerSeat` | glass `EasingPicker` (bezier/steps editor); its preset "Custom" list is INSIDE the producer component (no prop to replace or hide it — ⟨`components/easing/EasingPicker.vue.d.ts`⟩ props = `initial · playback · label · surface · class · modelValue`) |
+
+BEFORE (served, dev :5173, headed Chromium; inherited run) ⟨`node evidence/W13W/p/probe-picker.mjs --w 1440 --theme light` · `--w 390 --h 844 --theme dark`⟩:
+
+| reading | 1440 light | 390 dark |
+|---|---|---|
+| gallery filter | `toggle-group` (10 pills, 1 stadium plate) | `toggle-group` |
+| dividers / family headers | 0 / 0 (only the `h2` name) | 0 / 0 |
+| tiles · truncated | 28 · [`ease-in-out-cubic`] | 28 · [] |
+| selected paint | bg `oklab(0.216 … / 0.12)` (grey plate), outline none | bg `oklab(0.925 … / 0.12)`, outline none |
+| dropdown | a `Select` listbox: 0 tiles, 0 filter, not the catalogue | same |
+
+#### Act 2 — the cure: ONE easing picker (`demo/components/EasingCatalogue/EasingCatalogue.vue`, new)
+
+The component owns the whole hierarchy; each site passes only its data and its clock:
+1. **Family filter** = glass `SegmentedTabs` (`@mkbabb/glass-ui/tabs`, the exported segmented seam; `aria-label="Filter curves by family"`), fade-scrolled in a max-content row — no ToggleGroup pills.
+2. **Divider** = glass `Separator` between the filter and the grid.
+3. **Sections**: on "All", one `<h3 class="text-subheading">` per family over its own grid; a single family shows its tiles only.
+4. **Tile idiom** on `--radius-field`: the `.b` primitive (`curvePlot` + `unitEasingFrame`) draws the stroke AND places the ball (`plot.place`); name beneath, `white-space: normal` + `overflow-wrap: anywhere` (wraps at its own hyphens, never ellipsizes); the description is the tile's accessible description (sr-only, `aria-describedby`), never its name.
+5. **Selection** = ink + ring: `data-state="on"` → transparent ground, `outline: 1.5px solid var(--foreground)`, stroke + name in `--foreground` (forced-colors: `Highlight`). The tiles stay ONE glass `ToggleGroup type="single"` for the selection model and roving focus; the KF-ET-10 interim track reset moved here with the grid (the demo tile idiom's own paint, as `--radius-field` on `.specimen-tile` already was — not a Select surface).
+The painter (shared sweep clock, IO-gated direct transform writes, PRM rest on the curve) moved from `EasingTarget.vue` into the component behind an optional `clock` prop; without one every ball rests on its curve via `--curve-rest`.
+
+Sites moved onto it:
+- **Gallery** (`EasingTarget.vue`): the header keeps the promoted name + literal; the drawer is `<EasingCatalogue :clock>` over the scene's `registerDotPainter`/`repaintDots`. The filter, grid, painter and the interim style block are deleted here; `EasingTarget.css` loses every tile/filter rule (moved, not duplicated).
+- **Controls-pane dropdown** (`ChannelOptions.vue`): the easing `Select` is retired for a glass `Popover` (`@mkbabb/glass-ui/popover`) whose content is the same `EasingCatalogue` (`density="menu"`, all 10 families incl. Custom, `curveFor` = the store-live resolution). Trigger = `PopoverTrigger as-child` + glass `Button emphasis="secondary"` showing the current curve's glyph + NAME only (OA-28/OA-31 kept), labelled by the row label + its value; the popover joins the card's one-open mutex (`isOpen('easing')`); a pick persists through `onCurvePicked` (the one seam) and closes. `SelectLabel`/`SelectSeparator` imports and the row-description ids retire with the listbox.
+- `useTimingFunctionEditor.ts`: `curveFnFor(key)` exposed — the ONE key→easing resolution both the trigger glyph and the tile plots read.
+- The Controls-pane EDITOR (glass `EasingPicker`) is not a named-curve picker of the demo's: its preset list is producer bytes → residual R-1 below.
+
+**Adjacent edits (§0bt)**: `demo/styles/layout.css:38` (the `--easing-dropdown-max-h` comment names the picker popover, not the retired SelectContent) · `test/demo/instrument/channel-options-render-edge.test.ts` — the oracles of (5)/(6) re-seated from the retired Select stubs onto the picker: rows = `.specimen-tile`, stroke = `curvePlot(<registry easing>, unitEasingFrame()).d` (was `generateCurveSVGPath`), trigger = the popover's button (glyph truth `expectGlyphTrue` unchanged), the pick = a tile click (was a Select `$emit`); every clause kept (29 rows, names in order, no shared glyph, trigger text = name without description, description wired by `aria-describedby`, `aria-hidden`); two seam mocks added (`/popover` passthrough; `/tabs` passthrough — measured: under this harness's zero-geometry jsdom a real SegmentedTabs turned each mount from 0.9 s to ~48 s and timed all 8 clauses out; its hierarchy is the new test's, on a real mount).
+
+#### Act 3 — test (additive): `test/demo/scenes/easing-picker-hierarchy.test.ts` (3 cases, a real mount of the gallery)
+
+(1)(2) exactly one `[data-easing-catalogue]`; the filter is `.segmented-tabs` with 0 `.toggle-group__item`, labels `All` + the 9 specimen families; a `[data-slot=separator]` follows the filter and precedes the grid in DOM order · (3) on All, 9 sections whose `h3.text-subheading` headers equal the families, each over its own tiles in catalogue order; after "Sine" 0 headers and only Sine's tiles · (4) 28 tiles, each a `.tile-plot > .tile-carriage > .tile-ball` on a `M …` stroke, whole name (no ellipsis), exactly one `data-state="on"` = the scene's curve, and a click on `ease-out-back` selects it. jsdom shims for Web Animations (`getAnimations`/`animate`) and `matchMedia` are capability stand-ins the segmented indicator needs, not assertions.
+⟨born-RED: HEAD `82360347` bytes of `EasingTarget.{vue,css}` restored in place, run, then the cure restored⟩ → **3/3 FAILED** (`expected … to have a length of 1 but got +0`; `expected [] to have a length of 28`) → at the cure **3/3 passed**. `channel-options-render-edge.test.ts` → 8/8 passed (4.58 s).
+
+#### Act 4 — served, headed (dev :5173), the extended probe (`evidence/W13W/p/probe-picker.mjs`: + `headerFont`, `filterSegmented`, `dividerBetween`; dropdown read inside `[role=dialog] [data-easing-catalogue]`)
+
+| reading | BEFORE 1440 L | BEFORE 390 D | AFTER 1440 L (run 1 · 2) | AFTER 390 D (run 1 · 2) |
+|---|---|---|---|---|
+| gallery filter | toggle-group pills | toggle-group | `segmented-tabs segmented-tabs--pill` · same | same · same |
+| gallery dividers · headers | 0 · 1 (`h2` only) | 0 · 1 | 1 · 10 (`h2` + 9 families) ×2 | 1 · 10 ×2 |
+| divider between filter and grid | — | — | true ×2 | true ×2 |
+| tiles · truncated | 28 · [ease-in-out-cubic] | 28 · [] | 28 · [] ×2 | 28 · [] ×2 |
+| tile radius = `--radius-field` | 16px = 16px | 16px = 16px | 16px = 16px | 16px = 16px |
+| selected paint (bg · outline) | grey `…/0.12` · none | grey `…/0.12` · none | `rgba(0,0,0,0)` · solid 1.5px ×2 | `rgba(0,0,0,0)` · solid 1.5px ×2 |
+| dropdown = the one picker | no (Select listbox, 0 tiles) | no | yes: segmented filter · 1 divider · 10 family headers · 29 tiles · 0 truncated ×2 | same ×2 |
+
+Frames: BEFORE `evidence/W13W/p/before/before-{1440-light,390-dark}-{gallery,dropdown}.png` (inherited); AFTER `evidence/W13W/p/after/after-{1440-light,390-dark}-{gallery,dropdown}.png`. JSON: `before-*.json`, `after-{1440-light,390-dark}{,-run2}.json`.
+
+#### Act 5 — GLASS-SELECT-GREY (§0cs, O-66): consumer call sites
+
+⟨`grep -rcE "^\s*<Select(\s|$)" demo --include='*.vue'`⟩ → 4 files, 5 live Selects (2 more files match `<Select` in comments only): `ChromeDock.vue:400` (scene) · `TransportDock.vue:82` (animation) · `LayerConfigPanel.vue:37` (blend op) · `ChannelOptions.vue` direction + fill mode (the easing Select is retired, act 2). Attributes on every Select/SelectTrigger/SelectContent/SelectGroup/SelectItem read: classes `p-0 m-0 cursor-pointer` · `dock-label` · `min-w-[var(--dropdown-min-width)]` · `py-2 px-3` + `hide-indicator` · `max-[399px]:sr-only` · a `--select-dot-color: currentColor` style; ⟨`grep -rnE "^\s*<Select(Trigger|Content|Group|Item|Value)?\b" demo -A3 | grep -c "variant="`⟩ → **0**; ⟨`grep -rn "\.dock-label" demo/styles`⟩ → `style.css:368` font-size only; no demo CSS targets `[role=option]`, `glass-menu-row`, `interactive-item` or a checked/highlighted item (⟨grep⟩ → 0). **No consumer grey class and no dead variant exists → nothing to cure locally; honest-RED `GLASS-SELECT-GREY` (O-66) stands at the producer.** (The easing dropdown no longer paints a Select item selection at all: its selection is the picker's ink + ring.)
+
+#### Gates (BEFORE → AFTER)
+
+- **G-W13W-p (one picker component at gallery, dropdown and Controls-pane sites): GREEN at the two consumer-owned sites** — the gallery and the Controls pane's easing dropdown both render `EasingCatalogue` (served: `[data-easing-catalogue]` in the stage and inside the popover `[role=dialog]`, ×2 at 1440 L and 390 D; test (1)(2) + render-edge (5)/(6)). The Controls-pane EDITOR's preset list lives inside glass `EasingPicker` → R-1 (relay, no consumer copy). BEFORE: two idioms (tile grid · Select rows).
+- **Hierarchy (segmented filter · divider · family headers on All · one tile idiom on `--radius-field` with ball on the `.b` curve and untruncated name · selection by ink + ring): GREEN** — served table above ×2 per viewport/theme; test (1)–(4). BEFORE: pills · 0 · 0 · truncated · grey plate.
+- **GLASS-SELECT-GREY: honest-RED (O-66)** — 5 live consumer Selects checked, 0 grey classes, 0 dead variants; nothing to cure locally (act 5).
+- **`npm run check` EXIT 0 ×2 · `npm run test:demo` GREEN ×2** — ⟨check⟩ → EXIT 0 · EXIT 0 (vue-tsc ×2 + proof:structure 0 violations); ⟨test:demo⟩ → 79/79 files · 574/574 · EXIT 0 · 79/79 · 574/574 · EXIT 0 (baseline 77/565 at `a939e7d6`: +2 files, +9 tests = `.b`'s `ball-on-curve` 6 + this unit's `easing-picker-hierarchy` 3). `npx eslint` on the 6 touched source/test files → 0; `git diff --check` → clean.
+
+**Residuals**:
+- **R-1 (glass half, relay):** glass `EasingPicker` (TimingFunctionPanel + EasingSidebar, via `useEasingPickerSeat`) carries its own preset list ("Custom" select) with no prop to hide or replace it, so the Controls-pane editor cannot render the one picker without a local copy. Relay ask for the wave close (OA-63): a preset-list opt-out (or a slot) on `EasingPicker`, so the demo's picker is the only catalogue.
+- **R-2 (glass ask, standing):** the tiles use glass `ToggleGroup` for selection + roving focus only; the interim track reset (KF-ET-10) and the tile's ink + ring selection paint are demo tile-idiom rules over the item's `data-state="on"`. A producer track/plate opt-out on `ToggleGroup` would retire both.
+- **R-3:** the dropdown trigger is `PopoverTrigger as-child` + glass `Button emphasis="secondary"`; glass exports no field-look trigger for a non-Select popover, and copying `SelectTrigger`'s classes would be a copied producer selector. Its look differs slightly from the direction / fill-mode Select triggers beside it; a glass field-trigger seam would align them.
+- **R-4:** under the render-edge harness's zero-geometry jsdom (NoopResizeObserver), a real `SegmentedTabs` mount took ~48 s (bisected: stubbing `/tabs` → 5 s total, `/toggle-group` or `/fading-scroll` → 60-70 s). Served open of the popover was immediate. Recorded for glass as a measurement note, not a product defect here.
+- **R-5 (process, owned):** to clear the first test:demo attempt this seat ran `pkill -f "vitest run --project demo"`, which matches vitest runs in any repo on the host. A sibling seat's demo test run may have been killed during this sitting; that seat should re-run its gate. No file was touched.
+
+**Escalations**: none. **Commits**: keyframes.js `ba530256` (the cure + the test; pushed to origin/master) · value.js `2c9a42d6` (evidence: probe + 7 JSON + 8 frames) · this record (below).
