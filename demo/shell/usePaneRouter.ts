@@ -243,13 +243,32 @@ export const PANE_CACHE_MAX: Record<RegionRole, number> = (() => {
 //   · the RESOLVED PANE — the module's component, published through
 //     `resolvedPane` the moment the loader's promise fulfils (the loader
 //     itself, never a Vue-internal field of the wrapper).
-const PANE_LOAD_DELAY_MS = 200;
+export const PANE_LOAD_DELAY_MS = 200;
 
 /** The name every lazy pane's plate phase carries — `PaneSlot`'s `<KeepAlive>` excludes it. */
 export const PANE_PLATE_PHASE = "PanePlatePhase";
 
 /** Plate phase → its pane's resolution (`null` until the loader fulfils). */
 const PANE_RESOLUTION = new WeakMap<Component, Readonly<ShallowRef<Component | null>>>();
+
+/** Plate phase → its ONE memoized chunk load (shared by the async wrapper and `preloadPane`). */
+const PANE_LOAD = new WeakMap<Component, () => Promise<unknown>>();
+
+/**
+ * X.W12.b (OA-25 — one enter per region) — start a lazy pane's chunk BEFORE
+ * the slot commits the swap, so a chunk that lands inside the plate's own
+ * `delay` swaps straight to the pane: one leave, one enter. Measured before
+ * (`w12-motion` census, W12-evidence/b/before): every swap to an unresolved
+ * pane ran the region's travel twice — the plate phase slid in, slid out
+ * under out-in, then the pane slid in — and the boot's inspector landed as a
+ * plate, then flew in off-canvas on the pane-swap family instead of the
+ * overture. Resolves when the pane is published; rejects with the loader's
+ * typed `PaneChunkError`. `null` for an eager or already-resolved pane.
+ */
+export function preloadPane(component: Component): Promise<unknown> | null {
+    if (resolvedPane(component) !== null) return null;
+    return PANE_LOAD.get(component)?.() ?? null;
+}
 
 /**
  * The pane a table entry renders as, REACTIVELY: an eager pane is itself; a
@@ -266,16 +285,22 @@ function lazyPane<T extends Component>(
     load: () => Promise<{ default: T }>,
 ): Component {
     const resolution = shallowRef<T | null>(null);
+    // One load per pane, shared by the wrapper and `preloadPane`; a rejection
+    // is not memoized, so the wrapper's own retry path is unchanged.
+    let pending: Promise<T> | null = null;
+    const loadOnce = (): Promise<T> =>
+        (pending ??= load().then(
+            (module) => {
+                resolution.value = module.default;
+                return module.default;
+            },
+            (cause: unknown) => {
+                pending = null;
+                return Promise.reject(new PaneChunkError(pane, { cause }));
+            },
+        ));
     const plate = defineAsyncComponent({
-        loader: () =>
-            load().then(
-                (module) => {
-                    resolution.value = module.default;
-                    return PaneLoadingPlate;
-                },
-                (cause: unknown) =>
-                    Promise.reject(new PaneChunkError(pane, { cause })),
-            ),
+        loader: () => loadOnce().then(() => PaneLoadingPlate),
         loadingComponent: PaneLoadingPlate,
         errorComponent: PaneErrorPlate,
         delay: PANE_LOAD_DELAY_MS,
@@ -285,6 +310,7 @@ function lazyPane<T extends Component>(
         setup: () => () => h(plate),
     });
     PANE_RESOLUTION.set(platePhase, resolution);
+    PANE_LOAD.set(platePhase, loadOnce);
     return platePhase;
 }
 

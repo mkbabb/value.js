@@ -76,7 +76,13 @@ import {
     type Component,
 } from "vue";
 import { useRoute } from "vue-router";
-import { PANE_PLATE_PHASE, resolvedPane, type PaneRenderProps } from "./usePaneRouter";
+import {
+    PANE_LOAD_DELAY_MS,
+    PANE_PLATE_PHASE,
+    preloadPane,
+    resolvedPane,
+    type PaneRenderProps,
+} from "./usePaneRouter";
 import { VIEW_MAP } from "./viewSchema";
 
 const {
@@ -150,6 +156,7 @@ const livePane = computed(() =>
 );
 
 let raf = 0;
+let hold = 0;
 
 function commit(key: string) {
     liveComponent.value = component;
@@ -157,18 +164,56 @@ function commit(key: string) {
     liveProps.value = componentProps;
 }
 
+function schedule(key: string) {
+    if (!transitionName) {
+        // No enter animation to cover a deferred mount — swap now.
+        commit(key);
+        return;
+    }
+    raf = requestAnimationFrame(() => commit(key));
+}
+
+// X.W12.b (OA-25 — one enter per region): a swap to a lazy pane whose chunk
+// is not yet resolved HOLDS for at most the plate's own `delay` while the
+// chunk loads (`preloadPane`). Inside that window the swap commits straight
+// to the resolved pane — one leave, one enter, the region travels once.
+// Only a chunk slower than the window commits the plate phase, which then
+// shows its plate exactly as X.W5.d4 keyed it (`(pane, resolved)`, out-in:
+// plate-leave THEN pane-enter), so the cold-navigation cure stands whole.
 watch(
     () => componentKey,
     (key) => {
         cancelAnimationFrame(raf);
-        if (!transitionName) {
-            // No enter animation to cover a deferred mount — swap now.
-            commit(key);
+        window.clearTimeout(hold);
+        const loading = component === null ? null : preloadPane(component);
+        if (loading === null) {
+            schedule(key);
             return;
         }
-        raf = requestAnimationFrame(() => commit(key));
+        let settled = false;
+        const go = () => {
+            if (settled || componentKey !== key) return;
+            settled = true;
+            window.clearTimeout(hold);
+            schedule(key);
+        };
+        hold = window.setTimeout(go, PANE_LOAD_DELAY_MS);
+        loading.then(go, go);
     },
 );
+
+// X.W12.b — the FIRST arrival of a lazy region lands through the overture's
+// appear grammar, never through a plate. `<Transition appear>` voices only a
+// child present when the Transition mounts, so the Transition mounts with the
+// first RESOLVED pane; until then the plate phase renders bare beside it (its
+// plate still shows after `delay` on a slow chunk) and leaves with no travel.
+// Before (w12-motion census, W12-evidence/b/before): the boot's inspector
+// region mounted as a plate phase, then its pane arrived on the pane-SWAP
+// family (the off-canvas slide) — never landing beside the stage plate.
+const arrived = ref(livePane.value !== null);
+watch(livePane, (pane) => {
+    if (pane !== null) arrived.value = true;
+});
 
 // Same-key prop updates stay live: while the rendered key matches the incoming
 // key (i.e. NOT mid-swap), forward fresh props to the active pane every tick.
@@ -270,11 +315,15 @@ watch(
     { flush: "sync" },
 );
 
-onBeforeUnmount(() => cancelAnimationFrame(raf));
+onBeforeUnmount(() => {
+    cancelAnimationFrame(raf);
+    window.clearTimeout(hold);
+});
 </script>
 
 <template>
     <Transition
+        v-if="arrived"
         :name="transitionName"
         mode="out-in"
         :appear="appear"
@@ -296,4 +345,5 @@ onBeforeUnmount(() => cancelAnimationFrame(raf));
             <component :is="liveComponent" v-else :key="`${liveKey}:plate`" />
         </KeepAlive>
     </Transition>
+    <component :is="liveComponent" v-else-if="liveComponent" :key="`${liveKey}:plate`" />
 </template>
