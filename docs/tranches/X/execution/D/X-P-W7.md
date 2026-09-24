@@ -1622,3 +1622,38 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (b)
 - **C2-2 (INFO)** 29 vs 27/28 MIRROR-DEFECTS lines, every one 0 (log layout); cure none.
 - **Gates re-read:** none — no product byte moved (this seat wrote only this section); Check 2's GREEN set (V-1 88 ×2 · css-equiv 19/19 · test/css 58/58 · vue-tsc 0/0 · bbnf-lang 288/288 · E-6 94,065 / 12,895) stands at HEAD `733a9207`.
 - **Commits:** this section only. **Cured:** 0. **Escalated:** 1 (ESC-W7l-1, owner). **Adjacent edits:** none. Row stays **PARTIAL**.
+
+## Check 3 (2026-09-24, L-20 fresh adversarial pass 3 of the RESUME 3 Close, `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 230 lines; ADDENDUM (b) at `:216` binds). From this record: `## RESUME 3 — Open` through `## RESUME 3 Unit plan`, `## RESUME 3 Close`, `## Check 2`, `## Repair 2` (the last section). **Crash-recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution src/css bench test/css`⟩ → empty; bbnf-lang worktree `## x-p-w7-typescript...origin/x-p-w7-typescript`, clean at `d81016e96`; parse-that master's dirty `rust/**`, `README.md`, `.cargo/config.toml` are other programs' (not touched). **No inherited partial work.** ⟨`git log --oneline 4ffbe7de..HEAD -- src/css package.json package-lock.json bench test/css`⟩ → only `5f7bd27e` (records): product bytes are `.l`'s. Since Check 2 the wave added only `32ecd200` (Repair 2, this record). Load 26–92 during this seat, recorded.
+- **Ruling status:** ⟨`grep -n ESC-W7l-1 docs/tranches/X/COHESION.md`⟩ → 0 hits; ⟨`grep -n ADDENDUM W7.md`⟩ → last `:216` (b); ⟨`git log -3 -- COHESION.md W7.md`⟩ → `733a9207` §0dh, `2d8e6eef` §0dg, `6d75f1e0` §0df (fourier/glass/keyframes rows). **ESC-W7l-1 is still unruled.**
+
+### Axes
+- **(1) Claimed GREENs reproduce (this seat's reads).**
+  - L-G2 / V-1 ⟨`node bench/paired/equiv.mjs product <scratch file>`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 88 (ASCII-only sources 0)` both, split `parseCssValue 4 · parseCssValues 4 · functionParam 11 · splitTopLevel(,) 13 · (;) 11 · (space) 45` = the F-b-4 rows. **GREEN ×2.**
+  - ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`; ⟨`grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `27 MIRROR-DEFECTS 0`. ⟨`npx vitest run test/css`⟩ → `5 passed · 58 passed`. **GREEN.**
+  - bbnf-lang ⟨`npx vitest run`⟩ in the worktree → `Test Files 19 passed (19) · Tests 288 passed (288)`; ⟨`npx tsc --noEmit -p .`⟩ → exit 0. **GREEN.**
+  - L-G3 ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`; K2-b ⟨`grep -rn deepFreeze src | wc -l`⟩ → `0`; V-8 ⟨GRAMMAR_MODULES/new ParserState/reset() grep⟩ → `0`, ⟨`[xX]` inside `/…/i` grep⟩ → `0`. **GREEN.**
+  - E-6 ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js | wc -c`⟩ → `94065`; `| gzip | wc -c` → `12895` (= Checks 1–2; ceilings 125,646 / 14,517). **GREEN.**
+  - Timing, bounded to the disputed cells plus the WebKit cure: ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 32ecd200`, `srcDirty ""`, `bankedManifestOk 79/79`; ⟨`node bench/paired/browser.mjs c3 firefox,webkit 1 rej,large 11 product parseStylesheet`⟩ (load 26.6 → 26.4; record moved to scratchpad `w7c3/`, ⟨`git status --porcelain bench src test | wc -l`⟩ → 0): **WebKit rej .75 (11/11 < 1) · large .562 (11/11)**; **Firefox rej 1.104 (2/11 < 1, spread 1.49) · large 1.27 (0/11, spread 1.38)**, clean cells, RED. Chromium/node cells cited from Check 1 and the Close (no product byte moved).
+- **(2) Writes in set.** Since Check 2 only `32ecd200` (this record). `.l`'s roster (`dcf72b966`, `d81016e96`, `816ec3d1`, `4ffbe7de`, `5f7bd27e`, `24f8d58d`) verified by Check 1, unchanged. ⟨`git log 3ec883a3..HEAD -- scripts/dev/dev.sh`⟩ → empty. **Clean.**
+- **(3) No masking fallback.** No code moved since Check 1; its reading stands. **Clean.**
+- **(4) Families** whole. **(5) E-3** ⟨`git diff --stat 3ec883a3..HEAD -- registry/adjudicated X/conformance X/parse-that/waves`⟩ → only `W7.md | 16 +` = the orchestrator's §0cx ADDENDUM (b) (`3a776571`), not this wave's write. **Held.**
+- **(6) Mail** ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. **Clean.**
+- **(7) Four-verb line** stays `PARTIAL`; no verb moved on a RED gate. **Lawful.**
+- **(8) Goal criterion** (ADDENDUM (b) §3: every entry, both halves and large sheets, below the retired parser on four engines, ×2): **NOT MET.** Firefox rej/large parseStylesheet read 1.104 / 1.27 here, clean.
+- **(9) Published figures** reproduce: 88, 19/19, 58/58, 288/288, 94,065 / 12,895, the WebKit .55–.75 band and the Firefox 1.10–1.28 RED band. The Close's phrase "`generated/grammar.js` sha256 `5dffabdc…`" is the file's `sha256(grammar ⊕ emitter)` header line (⟨`head -2`⟩), not the file digest (⟨`shasum -a 256`⟩ → `592dfab9…`): INFO.
+- **(10) Honest-RED adjudication.** L-G1 Firefox rej + large parseStylesheet: **RED, unrelieved.** ADDENDUM (b) keeps the gate "unchanged" and "not relaxed to 'recorded'". Its impasse clause makes the ESCALATED return lawful, but it relieves nothing while ESC-W7l-1 is unruled. The gate is not producer-owned (the cure sits in this wave's own emitter/actions grant) and not routed to a successor. Release gates P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half: **relieved** to X.P.W7P by ADDENDUM 2026-09-24 §1, owner-named (the owner's npm OTP).
+- **Successors.** X.P.W7P (`W7P.md:3`) opens when (i) the owner supplies an OTP or publishes step 1 (**not met**) **and** (ii) X.P.W7 has CLOSED its engineering gates (**RED**, L-G1 Firefox). **Lawfully blocked** on both. No other wave names X.P.W7 as an opens-after conjunct.
+
+### Register
+| # | Severity | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| C3-1 | **HIGH** | ADDENDUM (b)'s binding L-G1 reads RED on Firefox rej parseStylesheet and large parseStylesheet a fifth time, with no spec relief (ESC-W7l-1 unruled). Same defect as C1-1/C2-1; Repair 2 moved no bytes. | this seat: rej 1.104 (2/11), large 1.27 (0/11), clean; Check 2 1.109 / 1.281; Close 1.11–1.26 ×2; `grep ESC-W7l-1 COHESION.md` → 0 | The owner rules ESC-W7l-1: (a) run-length emission · (b) negated-run lever · (c) record. A root-cause unit under the ruling re-reads L-G1 on four engines ×2. Row stays PARTIAL. |
+| C3-2 | INFO | The Close calls the header's `sha256(grammar ⊕ emitter)` "`generated/grammar.js` sha256"; the file digest is `592dfab9…`. | axis (9) | none (wording only; `--check` compares the header) |
+| C3-3 | INFO | 27 MIRROR-DEFECTS lines vs 28/29 before, every one 0 (log layout). | axis (1) | none |
+
+**Honest-RED set (relieved):** P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half → X.P.W7P (ADDENDUM 2026-09-24 §1; owner's npm OTP).
+**Unrelieved RED:** L-G1 Firefox rej + large parseStylesheet (C3-1).
+
+**Verdict: NOT-CONFORMANT.** One HIGH (C3-1). Every claimed GREEN reproduces (V-1 88 ×2 · css-equiv 19/19 · test/css 58/58 · bbnf-lang 288/288 + tsc 0 · L-G3 0 · K2-b 0 · V-8 0/0 · E-6 · WebKit rej/large < 1). **The LEDGER row stays `PARTIAL`, with no status edit.** An event line is appended. **Adjacent edits: none. Out-of-set writes: none.**
