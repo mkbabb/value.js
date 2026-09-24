@@ -166,3 +166,79 @@ SEAT `.t`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` §0cq `.t` :30-37 + (
 - (iv) `src/style.css:298` still names the two retired files in a comment (`.paper` owns `paper/**`; `style.css` is `.vstage`'s).
 
 **Escalations:** none.
+
+### F.W14U.d
+
+SEAT `.d`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` §0cq `.d` :38 + §0cs :46-47 + §0ct :49-50 (read whole, 58 L); COHESION §0cq OA-57 (:3321-3340), §0cr, §0cs (:3346-3354), §0ct (:3356-3359), read to the file end (:3384). Relays read whole: `relay/X-ALL-BK-{DOCK-COLLAPSED-FORM,SIDE-DOCK-EDGE,SELECT-GREY-DOCK-MOTION}.md`; glass's own mapping of them `glass-ui/docs/tranches/BL/audit/INBOUND-MAP.md:619-631` (read-only). Owner frames `audit/owner-2026-09-24-{collapsed-dock,side-dock-edge}.png` opened.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only; value.js `C/F-W14U.md` clean. **Nothing inherited.**
+
+**Both owner frames are fourier's own docks (measured).** The collapsed-dock frame is `AnimationControls.vue`'s dock: the Play/Pause face is `#persistent`, the track is `.mini-progress`, and the count "1" plus the "×" are one glass `Metric` (speed `1`, unit `×`). **The "×" is not a dismiss.** It is the Metric's unit. O-65's "the dismiss × floats detached" reads the unit as a dismiss, and glass's formation should know that. The side-dock frame is `CanvasControlsDock.vue` collapsed: the Maximize summary glyph with the amber `.view-dot`, and the persistent-end Pencil.
+
+**Acts, in order.**
+1. **BEFORE frames, headed** (throwaway node probe, since deleted; headed Chromium, DPR 2, a fresh upload of `golden-retriever.webp`, pointer parked off the docks, 4 s settle). Frames `web/e2e/screenshots/f-w14u/d/before-{1440-dark,390-dark,1440-dark-edit}-{dock0,dock1,dock2,full}.png` reproduce both owner frames exactly. Readings at 1440 dark:
+   - **app dock** `glass-dock … expanded pinned always-expanded`. `AppDock.vue:71` passes `:collapse="false"`, so it **has no collapsed form**. Nothing to cure.
+   - **canvas dock** `collapsed fit-content`: plate [903, 85, w96, h56]; summary [911, 93, 40×40]; persistent-end [951, 93, 40×40]. The plate wraps both seats. The `.view-dot` [938–944 × 102–108] overlaps the glyph [921–941 × 103–123] by 3 × 5 px, which is the collision in the owner's frame.
+   - **animation dock** `collapsed`: plate [457, 819, w102]; summary layer [511, 827, **40×40**]; its content `.mini-progress` [504–552] and the Metric (value [558–587.5], unit "×" at 592.3–600.9) run **out of the 40 px summary and past the plate's right edge (559)**.
+   - **editor dock** (edit mode): plate [418.7, 819, w178.7] wraps the persistent `N pts` + Save and the Wand summary. Only the rim fades on its left cap (producer, O-67 R-1).
+   - At 390 dark (the Canvas tab): the same shapes (animation summary 44×44 with its content at 193–284 past the plate's right edge at 250; the dot [311–317 × 150.5–156.5] on the glyph [292–314 × 151.5–173.5]).
+2. **The cause read at the bytes (G-d).**
+   - **Producer:** glass `src/components/dock/styles/morph.css:180-199` (read-only, glass HEAD `504ff421`; the installed 10.0.1 behaves the same, as measured) locks `.dock-layer--summary` to `block-size`/`height` = `--dock-layer-height`, `min-width` the same, `aspect-ratio: 1`. The comment says this "guarantees 1:1 even if a consumer's collapsed-slot content is wider than the floor". The plate is sized from that one layer (glass's own map, INBOUND-MAP `:619`), so a summary wider than one seat overflows by design. That is **DOCK-COLLAPSED-FORM, honest-RED (O-65)**.
+   - **The consumer's own track** (`.mini-progress` 3rem) is legitimate summary content. The O-65 ask is that the plate wraps "face, track and count", so the track is not shrunk locally.
+   - **Consumer cause 1 (cured):** `AnimationControls.vue:176` `<Metric … size="sm" class="summary-speed">` with `:256` `.summary-speed { @apply text-base; color: color-mix(foreground 35%) }`. The class's color is inherited by `.metric__value` only, because glass's `.metric__unit` sets its own `--muted-foreground`. So the value "1" painted at alpha 0.349 while its unit "×" painted opaque. The reading inverted the Metric's hierarchy, and the "×" read as a separate glyph beside the plate, which is the owner's "dismiss". `text-base` never reached the value (`.metric[data-size="sm"] .metric__value` sets it) and only re-based the reading's `0.3em` gap.
+   - **Also producer, not cured:** the remaining "1 ×" separation after the cure is glass's `.metric__value { min-inline-size: 3ch }` (`metric/styles.css:66-75`): a left-aligned "1" in a 3ch box, then the 0.3em gap. It belongs to O-65's form (the count seat), so it is recorded rather than overridden.
+3. **The Select call sites (GLASS-SELECT-GREY).** ⟨`grep -rln "<Select\b\|SelectTrigger" web/src`⟩ → 5 files, each read at its trigger and items:
+   - `ContourSettings.vue:246-260`: `class="w-full"` (layout).
+   - `SpeedSelect.vue:30-43`: `speed-trigger` strips the surface to transparent (a deliberate bare trigger); `input-pill` is glass's own register.
+   - `GallerySearchBar.vue:136-170`: `w-full h-8 text-sm border border-foreground/12 rounded-lg` (size, rim and radius; no background).
+   - `AdminUserList.vue:422-430`: `shrink-0`.
+   - `MorphPhaseConfig.vue:58-90`: `w-full`, `text-value` (live).
+   - **No `variant` prop and no background class at any site.**
+   - Measured on the served page (headless, 1440, `/gallery` with the filter drawer open + `/morph`, light and dark): every visible trigger paints the **identical** `background-image` (the glass plate `linear-gradient(color(srgb 0.204 0.148 0.083 / 0.1) …)` light, `/ 0.14` dark), with `background-color` transparent. The grey is glass's `control-surface` plate (glass map `:623`/`:628`: `--glass-plate-quiet`, O-62's grey). There is **no consumer cause, so none was cured, and GLASS-SELECT-GREY is honest-RED (O-66).** The gallery triggers' `rounded-lg`/`h-8`/border utilities are shape overrides, not grey, and outside this unit's lock ("touched only for consumer-passed grey class/dead prop"), so they were left for `.gallery`.
+4. **The canvas docks' ancestor chain (SIDE-DOCK-EDGE)**, both themes, 1440 + 390.
+   - Chain (canvas dock and animation dock alike): `.controls-dock-anchor`/`.controls-overlay` (visible) → `.canvas-stage` **overflow hidden** → `.configurator-stage` overflow hidden → `.configurator-shell` overflow hidden. No clip-path, no `contain`.
+   - The docks sit inside the clip with an **8 px** gutter (anchor `top/right: 0.5rem`, `VisualizationView.vue:659-664`). The collapsed shadow is glass's `--shadow-dock-collapsed: 0 0 12px …12%`, so the outer ~4 px of a 12 px blur halo is clipped at the stage edge (≈1% alpha at 8 px). That is sub-perceptual, and it is **not** the owner frame's open rim: the rim fades on the plate's *left* cap, 90 px from any clip edge, which is glass's plate composite (O-67 R-1).
+   - The 8 px gutter to the stage rim is the consumer placement the owner reads as crowding (O-67 R-2). It lives in `VisualizationView.vue`, which is outside `.d`'s set and owned by `.vstage`/`.vedit`. The ADJACENT-LINE RULE excludes a sibling unit's file, so it is **not edited**. It is carried as residual (ii).
+   - **Consumer cause 2 (cured): the badge collision.** `.view-dot` (`top: -1px; right: -3px`) is shared by the expanded 40 px `.view-btn-wrap`, where it lands on the control's corner clear of the Eye glyph, and by the collapsed `.summary-glyph-wrap`, which is only the 20 px glyph box. There, the same offsets put the dot on the Maximize arrow tip. The dot is the consumer's own element (glass map `:631`: "the amber dot is the consumer's"). The glass half, a reserved badge seat, stays O-67 R-3.
+5. **Falsifier** `web/e2e/f-w14u-d.spec.ts` (new), with 6 cases: {1440 light, 1440 dark, 390 dark (mobile, Canvas tab)} × {d1, d2}. Each case uploads, parks the pointer, waits for both docks to be `.collapsed`, and waits until every DocumentTimeline animation on them has ended. Scroll-timeline and infinite animations are excluded, following `.s`'s settle; the first cut waited on the dock's scroll-timeline animations and timed out 6/6, which was a probe defect and not a reading.
+   - **d1:** in the collapsed animation dock, the `.metric__value` ink alpha is ≥ the `.metric__unit` alpha (resolved through a 1×1 canvas), and the Metric's font size equals its summary host's.
+   - **d2:** the `.view-dot` rect ∩ the summary glyph rect = ∅, and the dot lies within the dock plate.
+   - Frames: `{before,after}-{1440-light,1440-dark,390-dark}-{animation,canvas}-dock.png`.
+6. **RED, pre-cure bytes, ×2.** ⟨`FW14U_PHASE=before BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-d.spec.ts --project=chromium --workers=3`⟩ → **6 failed** ×2 (run 1 and run 2 identical). d1 ×3: `Expected: >= 1 · Received: 0.34901960784313724`. d2 ×3: `dot {left 938, top 102, right 944, bottom 108} glyph {left 921, top 103, right 941, bottom 123}` → `Received: false`, and at 390 `dot {311…317 × 150.5…156.5} glyph {292…314 × 151.5…173.5}`. Load 43.0.
+7. **Cure** (fourier, two files):
+   - (a) `AnimationControls.vue:176`: `class="summary-speed"` is removed from the `<Metric>`, and the `.summary-speed` rule (`:256`) is replaced by a dated comment. The Metric now paints as glass paints it.
+   - (b) `CanvasControlsDock.vue`: one rule, `.summary-glyph-wrap > .view-dot { top: auto; right: auto; bottom: 100%; left: 100% }`. On the resting face only, the dot sits just outside the glyph's top-right corner and stays on the plate. There is no new number and no dock override. The expanded `.view-btn-wrap` dot is unchanged. A dated comment names O-67 R-3 as the seat glass will own.
+   - No glass surface is restyled, no dock motion is touched (O-66 §2), and no Select site is edited.
+8. **GREEN ×2 on the settled bytes.** ⟨same command, `FW14U_PHASE=after`⟩ → **6 passed** ×2 (after the last comment-only edit: runs 3 and 4, `6 passed` · `6 passed`; load 35.6). The AFTER frames were inspected:
+   - The canvas dock's dot sits clear above-right of the Maximize glyph, on the plate (1440 dark; headed 390 light `after-headed-390-light-dock1.png`).
+   - The animation dock's "1" is now full ink beside its muted "×". The track and count still overflow the fixed 40 px summary: **DOCK-COLLAPSED-FORM stays RED, as ruled.**
+   - Headed AFTER frames: `after-headed-{1440,390}-light-{dock0,dock1,dock2,full}.png`.
+9. **Neighbours.** ⟨`BASE_URL=… npx playwright test e2e/f-w13-image-controls.spec.ts e2e/f-w14-control-row.spec.ts e2e/fullscreen.spec.ts --project=chromium --workers=3`⟩ → **6 passed**. `f-w14-control-row.spec.ts:39` rewrote the 15 tracked frames `web/e2e/screenshots/f-w14/after-page-*.png`. They were clean at this seat's open and are outside `.d`'s set, so they were restored to HEAD by exact path (`git checkout HEAD -- <15 paths>`). Tree after: `?? .worktrees/` only.
+
+**Gates BEFORE → AFTER.**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| **G-d** collapsed dock, consumer half | RED: consumer cause 1 measured (d1 ×3 RED ×2) | **GREEN** for the consumer: d1 3/3 ×2. App dock: no collapsed form (`:collapse="false"`). Editor dock: plate wraps its seats. Producer half **honest-RED DOCK-COLLAPSED-FORM (O-65)**: summary locked 1:1 at `morph.css:180-199`, plus Metric `3ch` value floor |
+| **GLASS-SELECT-GREY** | honest-RED (O-66), call sites unread | **honest-RED (O-66)**: 5/5 sites read; 0 grey class, 0 dead prop; served plate identical at every site = glass's `control-surface` plate |
+| **SIDE-DOCK-EDGE** | honest-RED (O-67), chain unread | consumer crowding (dot on glyph) **cured**: d2 3/3 ×2. Rim (R-1) and badge seat (R-3) **honest-RED (O-67)**. Gutter (R-2) consumer placement measured at `VisualizationView.vue:659-664`, out of `.d`'s set → residual (ii) |
+| falsifier | 6 failed ×2 | 6/6 ×2 (×4 in all) |
+| `vue-tsc -b` | 0 (banked) | ⟨`npx vue-tsc -b` ×2⟩ exit 0 · exit 0 |
+| `vitest` | 86/86 (banked) | ⟨`npx vitest run` ×2⟩ `Test Files 14 passed (14) · Tests 86 passed (86)` ×2 |
+
+**Commit.** fourier `b62821d`, with pathspec `web/src/components/visualization/{AnimationControls,CanvasControlsDock}.vue` and `web/e2e/f-w14u-d.spec.ts`. Pushed: ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `b62821d55c49`. Frames are on disk only, under `web/e2e/screenshots/f-w14u/d/` (`*.png` gitignored, not force-added).
+
+**Adjacent edits:** none.
+
+**Relay.** There is no new glass half, so there is no new mail. For the orchestrator's next O-65 exchange, two measured facts about the owner's frame:
+- (1) the "×" is the Metric's unit, not a dismiss;
+- (2) what separates it from the "1" is glass's `metric__value` `3ch` floor.
+
+Both bear on O-65's "a dismiss is a seat inside the plate" clause.
+
+**Residuals.**
+- (i) DOCK-COLLAPSED-FORM, GLASS-SELECT-GREY and SIDE-DOCK-EDGE (R-1 rim, R-3 badge seat) stay honest-RED until the landing repin (glass BL, working 11.0.0). The `.view-dot` rule retires to the glass badge seat when it ships.
+- (ii) **The canvas docks' 8 px gutter** (`VisualizationView.vue:659-664`, `.controls-dock-anchor { top/right: 0.5rem }`) is the consumer half of O-67 R-2, the plate crowding the stage rim, most visible at 390 where the plate's corner nears the stage's rounded corner. It is owned by `.vstage`/`.vedit`, so it is carried there. It also clips the outer ~4 px of glass's 12 px collapsed halo (≈1% alpha).
+- (iii) The GallerySearchBar triggers' `h-8 rounded-lg border border-foreground/12` override glass's control height, radius and rim. They are not grey, so they were outside this lock, and they are carried to `.gallery` (whose set holds the file).
+- (iv) The editor dock's `.is-save { background: foreground 6% }` is a consumer grey fill on a DockControl. It is not a Select, not collapsed-form and not an edge, so it is noted for `.vedit` (UIA register row owner).
+
+**Escalations:** none.
