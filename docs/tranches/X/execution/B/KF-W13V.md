@@ -644,3 +644,81 @@ SERVED MODEL: claude-opus-5-5 · continuation of the killed `.u` seat (and of a 
 #### Escalation
 
 None. No write went outside the writable set, and no specified cure was impossible at the bytes.
+
+## Close
+
+**Seat**: `claude-opus-5-5`, VERIFY-ONLY (0 kf / glass / product bytes). **Date**: 2026-09-24 (sitting of record 2026-09-17, COHESION §0j). **kf HEAD**: `15edd312`; kf `origin/master` at open `d94017ff` (29 W13V shas unpushed — pushed at this close, below). **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → 2 standing untracked inbound letters, 0 modified; ⟨`git -C value.js status --porcelain`⟩ → `M` CARRY-LEDGER · X-W12.md · F-W14.md · X-P-W7.md · `scripts/dev/dev.sh` (siblings' / unowned) — none in this seat's writable set (this record, LEDGER); nothing inherited.
+
+### Commit roster (act 1) — every sha exists, every path in its unit's writable set
+
+⟨`git -C keyframes.js log --oneline d94017ff..HEAD | wc -l`⟩ → **29**; ⟨`… --invert-grep --grep=W13V | wc -l`⟩ → **0** (every sha tagged by its unit). Per-unit ⟨`git show --name-only`⟩ union filtered against the unit's writable set (record `## Unit plan`):
+
+| unit | kf shas | paths | outside the set | disposition |
+|---|---|---|---|---|
+| `.s` | `e69f7731` · `e11db5a1` · `07fd5b7a` · `317fae99` | 20 | 1: `scripts/lib/demo-driver.mjs` | §0bt adjacent, declared in `.s`'s receipt (`:919-922`, oracle re-seat on moved DOM) — lawful |
+| `.c` | `c1f3f39d` · `3b5f483d` | 5 | 0 | — |
+| `.y` | `9262899b` · `0c8c690d` · `06b4d103` · `4fafc186` | 14 | 0 | — |
+| `.p` | — (0 kf bytes; value.js `bda1d75d` · `e3a7ece5`) | 0 | 0 | — |
+| `.k` | `027b6f99` · `505f6a0c` · `28e97ec3` · `cb9e1aa5` · `47f2627e` · `b84fa236` · `5ae589ab` · `431e5bcc` · `d4085ab4` | 32 | 0 | adjacent `KeyframesAddDialog.test.ts:253` declared |
+| `.u`/`.u2` | `e26cdddf` · `047bedfe` · `ab94125c` · `87bcc597` · `11704ae8` · `56244f0d` · `dd7eae52` · `0d2c06af` · `1a397a4e` · `15edd312` | 37 | 0 (rename-detected; the old `assets/icons/favicon.svg` is the §0bt adjacent named in `11704ae8`) | — |
+
+value.js receipts/evidence: `6107889a` (.s) · `30e9c24c` (.c) · `c84a3a4c` (.y) · `bda1d75d` `e3a7ece5` `ed91f62b` (.p) · `9618c461` (.k) · `363e8835` `74c9d668` `df7687de` (.u2) — each ⟨`git show --name-only`⟩ inside `execution/B/KF-W13V.md` · `keyframes/evidence/W13V/**` · `relay/` · INBOX · LEDGER. **Landed-wrong: 0.**
+
+### Gate table (act 2) — BEFORE (Baseline, kf `d94017ff`) → AFTER (this close, kf `15edd312`, ×2)
+
+The served-page gates were read headed ×2 on dev + ×2 on gh-pages by each owning unit (receipts above); the addenda assign their re-read to the check seat. This close re-runs every byte-readable proxy, the unit ledgers' tallies, and the whole floor, double-run; the served readings are cited from the unit receipts, not re-claimed.
+
+| gate | BEFORE | AFTER (this close, ×2 unless noted) | verdict |
+|---|---|---|---|
+| G-W13V-s1 grep ⟨`grep -rln "KeyframesEditor\|CSSCodeEditor\|useSpringKeyframesEditor\|keyframes (editable)" demo/scenes \| wc -l`⟩ | 4 · 4 | **0 · 0** | GREEN (grep) |
+| G-W13V-s1 DOM (served, `.s` ×4, `.y` y4 ×4 identical) | Sequence 6 inline | Sequence **6** (5 re-time handles + master scrub) | **RED at Sequence — ESC-s-1, unruled** |
+| G-W13V-s2 · s3 · s4 (served, `.s` ×4) | — | GREEN (s4's live sheet placement = `SHEET-POSITION`, producer) | GREEN |
+| G-W13V-c1..c5 (served, `.c` ×4) · c2 at the true file ⟨`grep -c '<Separator' …/channel-controls/ChannelOptions.vue`⟩ | 1 | **2 · 2** | GREEN |
+| G-W13V-y1..y5 (served, `.y` ×4) | — | GREEN (y5's thumb clause = `SLIDER-THUMB`, producer) | GREEN |
+| G-W13V-p1 · p2 (served, `.p` ×4) · ⟨`grep -rn radius-field demo --include=*.vue --include=*.css \| wc -l`⟩ | 0 | **3 · 3** | GREEN |
+| G-W13V-p3 | — | `TILE-PRIMITIVE` honest-RED (O-58 / O-67) | honest-RED |
+| G-W13V-k1 (`.k` split) | 228 open | 11 CURED · 34 routed/honest-RED by id · **183 OPEN** consumer | **RED** |
+| G-W13V-k2 | — | 10 of 11 re-captured; KFA-15 owed | **RED** |
+| G-W13V-k3 | 0 of 7 | 3 of 7 (`CRITIC-GAPS-UNCAPTURED`) | **RED** |
+| G-W13V-k4 | open | sequence leg cured; `[real-cube]` mechanism inferred, not isolated (`REAL-CUBE-INTERMITTENT`) | **RED** |
+| G-W13V-u1 — ⟨awk tally of `W13V/u/DISPOSITION.md` rows⟩ | 0 of 322 | 322 rows: CURED-u 6 · PARTIAL-u 2 · NOT-REPRODUCED 1 · LANDED-BY 2 · SURFACE-RETIRED 1 · HONEST-RED 1 · PIN-CARRIED 14 · ROUTED-GLASS 37 · ROUTED-VALUE.JS 1 · SPLIT 17 · **OPEN-CARRIED 240** (identical ×2; = the ledger's own tally line) | **RED** |
+| G-W13V-u2 · u3 · u4 (served, `.u2` ×4) | — | GREEN | GREEN |
+| floor — `npm run check` (vue-tsc app + test + proof:structure) | EXIT 0 | **EXIT 0 · EXIT 0** (load 22.72 · 21.38) | GREEN |
+| floor — demo vitest ⟨`npx vitest run --project demo`⟩ | 66/66 · 518/518 | **75/75 · 558/558 · 75/75 · 558/558** (load 19.61 · 27.55) | GREEN |
+| §Verification — ⟨`npx eslint demo/app demo/components/instrument/transport demo/components/playback demo/scenes`⟩ | — | **EXIT 0 · EXIT 0** (`demo/styles` is wholly ignored by `eslint.config.js` — passing it exits 2 "all files ignored"; CSS is not an eslint surface) | GREEN |
+| §Verification — ⟨`git diff --check d94017ff..HEAD \| wc -l`⟩ | — | **0** | GREEN |
+| kf e2e ⟨`KF_PLAYWRIGHT_DIR=value.js node scripts/run-demo-roster.mjs --workers=1`⟩ on a fresh ⟨`npm run gh-pages`⟩ of `15edd312` | 3/6 (KF.W13R close) | run 1 (load 30.37) **4/6**: ✗ live-session B7 (`maxRest 0.16`, `B7 SPECULAR-REST`) · ✗ live-session-mobile M1 OPEN/SCROLL/RE-OPEN (`SHEET-POSITION`). Run 2 (load 19.61) **3/6**: the same two + ✗ subject-animates `[real-cube]` (`rest=false`, autoplay true — `REAL-CUBE-INTERMITTENT`, KFA-17 / C6-3). occlusion ✓ ×2, usability ✓ ×2, demo-smoke ✓ ×2 | GREEN-WITH-HONEST-RED for B7 + M1 (§0cd relief classes); `[real-cube]` **RED** (1 of 2, as `.u2` measured) |
+
+### E13 (act 4)
+
+⟨`find value.js/docs/tranches/V value.js/docs/tranches/V/coordination glass-ui/docs/tranches/BK/coordination glass-ui/docs/tranches/BL keyframes.js/docs/tranches/V/coordination sci-report/atlas/docs/tranches/P/coordination -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 2026-09-24 10:28) → 1: `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (glass's internal cursor, not addressed to value.js → no row, as every 09-24 sweep read it). INBOX tail: O-70 SENT (this wave's), I-49..I-51 answered/registered. ⟨`grep -c '| UNREAD'`⟩ on rows → 0 (the one textual hit `:406` is a sweep line). **0 unrowed · 0 UNREAD in scope.**
+
+### Residuals (named owners)
+
+- **ESC-s-1** (G-W13V-s1 at Sequence: the inline re-time handles + master scrub have no shared-pane seat) — unruled; owner: the orchestrator/COHESION (a Timeline-pane seat for Sequence), then a `.s` successor. Not relieved by any §0 ruling (⟨`grep -n ESC-s-1 COHESION.md`⟩ → 0).
+- **183 OPEN consumer KFA rows** + `RESET-READOUT-STALE` · easing Reverse sweep · `CRITIC-GAPS-UNCAPTURED` · the KFA-15 served re-capture · `REAL-CUBE-INTERMITTENT` (✗ in run 2 here) — owner: the `.k` successor unit.
+- **240 OPEN-CARRIED consumer UIA-KF rows** (BROKEN 24 · HIGH 41 · MEDIUM 96 · LOW 79, named in `W13V/u/DISPOSITION.md`) + the 17 SPLIT consumer halves + UIA-KF-012's remainder (Monaco marker/shake; the engine's dropped-declaration diagnostic in kf `src/`) — owner: a `.u` successor unit.
+- **`vue-sonner`** unread after `56244f0d` — a `package.json` removal; owner: a seat granted the kf pin (§0bt excludes pins).
+- **`VALUEJS-LEGACY-RGBA`** (KFA-14) — owner: value.js X-W11 publish → kf bump.
+- **R-s-1** (expanded-detent floor prose) → `.c`'s successor; **R-y-1 · R-y-2** as in `.y`'s receipt.
+- Honest-RED producer ids, carried, never cured locally: `TILE-PRIMITIVE` (O-58/O-67) · `SLIDER-THUMB` · `SHEET-POSITION` · `B7 SPECULAR-REST` · `DARK-MENU-ITEM` · `QUIET-FOCUS-RING` (UIA-KF-025) · `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `GLASS-VEIL-GREY` · `DOCK-TRIGGER-CLIP`; 28 KFA glass rows via O-60/O-69; 53 UIA glass rows via O-59 + UIA-KF-078 via O-70 — owner glass BL.
+
+### Escalations
+
+- **ESC-s-1** (above) — the only unit escalation standing; carried by `.c`, `.y` receipts unchanged.
+- None from this seat: 0 writes outside the writable set.
+
+### Four-verb line (the addenda's §State: this wave moves IMPLEMENTED; no clause designates this seat to stamp VERIFIED)
+
+| verb | state |
+|---|---|
+| AUDITED | YES (the KFA 228 + UIA-KF 322 registers) |
+| SPECIFIED | YES (KF-W13.md, the KF.W13V addenda) |
+| IMPLEMENTED | **NO — PARTIAL**: `.c` `.y` `.p` DONE; `.s` PARTIAL (ESC-s-1); `.k` PARTIAL (k1..k4 RED); `.u` PARTIAL (u1 RED) |
+| VERIFIED | NO (the check seat's) |
+
+**Status: PARTIAL** — s2..s4 · c1..c5 · y1..y5 · p1..p2 · u2..u4 and the floor GREEN; s1 (Sequence) · k1..k4 · u1 RED; kf e2e 4/6 · 3/6 with B7 + M1 honest-RED and `[real-cube]` intermittent RED.
+
+**SELF-COUNT**: gate rows in the table above 18 (⟨`sed -n` the section `| grep -c`⟩ → 18 · 18) → GREEN 11 · honest-RED 1 (p3) · RED 6 (s1-DOM · k1 · k2 · k3 · k4 · u1) · mixed 1 (kf e2e: GREEN-WITH-HONEST-RED for B7/M1, RED for `[real-cube]` — the same defect as k4). kf shas audited 29 (s 4 · c 2 · y 4 · k 9 · u 10), landed-wrong 0; value.js unit shas 10.
+
+**Push (act 7)**: ⟨`git -C keyframes.js push origin HEAD`⟩ → `d94017ff..15edd312  HEAD -> master`; ⟨`rev-parse --short origin/master`⟩ → `15edd312`. value.js pushed after this record and the LEDGER commit.
