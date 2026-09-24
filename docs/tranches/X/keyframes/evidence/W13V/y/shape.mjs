@@ -19,11 +19,17 @@ for (const theme of th.split(",")) for (const vp of vps.split(",")) for (const s
   await p.waitForTimeout(2300);
   const read = () => p.evaluate(() => {
     const lines = (el) => {
-      const tops = new Set();
+      // a LINE = a cluster of text rects whose vertical extents overlap (same row);
+      // rows that do not overlap are separate lines.
+      const rs = [];
       const walk = (n) => { for (const c of n.childNodes) {
-        if (c.nodeType === 3 && c.textContent.trim()) { const r = document.createRange(); r.selectNodeContents(c); for (const q of r.getClientRects()) if (q.width > 1) tops.add(Math.round(q.top / 4)); }
-        else if (c.nodeType === 1 && getComputedStyle(c).display !== "none") walk(c); } };
-      walk(el); return tops.size;
+        if (c.nodeType === 3 && c.textContent.trim()) { const r = document.createRange(); r.selectNodeContents(c); for (const q of r.getClientRects()) if (q.width > 1 && q.height > 1) rs.push([q.top, q.bottom]); }
+        else if (c.nodeType === 1 && getComputedStyle(c).display !== "none" && !c.classList.contains("sr-only")) { const cr = c.getBoundingClientRect(); if (cr.width > 1 && cr.height > 1) walk(c); } } }; // visually-hidden boxes (1px clip) are not laid-out text
+      walk(el);
+      rs.sort((a, b) => a[0] - b[0]);
+      let n = 0, end = -Infinity;
+      for (const [t, bt] of rs) { const mid = t + (bt - t) / 2; if (mid > end) { n++; end = bt; } else end = Math.max(end, bt); }
+      return n;
     };
     const stadiumMulti = [];
     for (const el of document.querySelectorAll("body *")) {
