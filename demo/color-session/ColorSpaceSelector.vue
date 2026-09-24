@@ -278,6 +278,11 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
      * rung (0.095em ≈ the 0.25rem it carried at the display-1 basis). */
     padding: 0 0 0.095em;
     margin: 0;
+    /* X.W12.t · OA-54 / UIA-V-479 — the caret is the text trigger's rest
+     * affordance ("hover and press affordance comes from ink and the
+     * chevron"): glass's chevron reads its alpha from this token (0.5 at
+     * 7.0.0), so the caret draws in the title's own ink, not a faint tint. */
+    --select-chevron-opacity: 1;
 }
 
 /* The inline host (About): the trigger rides its SENTENCE — size 1em means
@@ -325,13 +330,21 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
     text-decoration-color: currentColor;
 }
 
-/* C5 — the accent-aware house focus register on the trigger (the ghost
- * variant strips the control chrome; the ring must stay visible) — UNCHANGED
- * per W4-1: ring, never pill. */
+/* X.W12.t · OA-54 / UIA-V-480 — THE FOCUS RING, ON THE FIELD CORNER. The
+ * ring is glass's own token, `--focus-ring-shadow`. It is re-applied here
+ * because glass 7.0.0's ghost arm composes `shadow-none` (a utility) over its
+ * own `.focus-ring:focus-visible` rule, so without this line the text trigger
+ * shows NO focus ring at all (measured: every box-shadow layer transparent;
+ * relayed with the text-trigger gap). The CORNER is the unit's ruling: glass's
+ * ring rides `--radius-pill`, and a stadium around a display-type title is the
+ * shape the owner ruled out ("the large dropdowns should not be so rounded").
+ * The text trigger's only surface is its focus ring, so it takes the
+ * large-holder role token `--radius-field` (glass DESIGN.md radius table;
+ * O-58), never the `--radius-md` scale step it carried. */
 .space-trigger:focus-visible {
     outline: none;
     box-shadow: var(--focus-ring-shadow);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-field);
 }
 
 .specimen-dot {
