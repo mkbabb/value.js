@@ -1108,3 +1108,62 @@ Frames: BEFORE `s2/before/before-head-sequence-{1440x900,390x844}-{landing,timel
 #### Escalations
 
 None. ⟨`git -C keyframes.js log --oneline 5cf0f58a..HEAD`⟩ → 1 (`a939e7d6`).
+
+## RESUME 2 — Close
+
+**Seat**: `claude-opus-5-5`, VERIFY-ONLY (0 kf / glass / product bytes). **Date**: 2026-09-24 (sitting of record 2026-09-17, COHESION §0j). **kf HEAD** `a939e7d6` (origin at open `5cf0f58a`, 1 sha ahead — pushed at this close). **Authority**: KF-W13.md `:507-519` (§0cw: `.s2`, then close; k1 · u1 · k2 · k3 · k4 · KFE-ORPHAN · `vue-sonner` re-homed whole by id to KF.W13X `:521-533`). **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → the 2 standing untracked inbound letters, 0 modified; value.js dirty paths (CARRY-LEDGER · `execution/D/X-P-W7.md` · `scripts/dev/dev.sh` · untracked W13R/W13V evidence) are siblings' / unowned — none in this seat's writable set (this record, LEDGER, `evidence/W13V/s2/close/`). Nothing inherited.
+
+### Commit roster (act 1) — `.s2` in bounds
+
+⟨`git -C keyframes.js log --oneline 5cf0f58a..HEAD`⟩ → **1**: `a939e7d6` (19 paths, +737/−435). ⟨`git show --stat a939e7d6`⟩ against the RESUME 2 Unit plan's writable set: `demo/scenes/sequence/**` 7 (incl. `SequenceScrubber.vue` deleted) · `demo/components/instrument/timeline/**` 3 (`SequenceTimeline.vue` · `components/SequenceLanes.vue` · `timelineTypes.ts`) · `demo/composables/scene-facility/index.ts` 1 · `test/demo/**` 4 · `scripts/observe/demo/**` 2 (oracle re-seat, property unchanged) · **outside the set 2**: `demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue` + `demo/components/instrument/transport/transportSource.ts` — both §0bt adjacent, declared in the commit body and in `.s2`'s receipt (the shared pane's only body host; same concern) → lawful. One commit family (handles + scrub leave the stage and land in the pane together; no dual-render window). `selectedSurfaceFrom` untouched: ⟨`git show --format= a939e7d6 | grep -c selectedSurfaceFrom`⟩ → 0 (the diff; the name appears only in the commit message). value.js `8b22a084` (37 paths): ⟨`git show --name-only 8b22a084 | grep -v evidence/W13V/s2/`⟩ → `execution/B/KF-W13V.md` only. **Landed-wrong: 0.**
+
+### Gate table (act 2) — BEFORE (RESUME 2 Baseline, kf `5cf0f58a`) → AFTER (this close, kf `a939e7d6`, ×2)
+
+Served gates re-run by this seat, headed Chromium, dev `localhost:5173` ×2 + a fresh scratch gh-pages build of `a939e7d6` at `127.0.0.1:4176` ×2, with the unit's own probes: ⟨`s2/close/run-close.sh`⟩ (`../s/census.mjs <url> 1` + `s2/pane.mjs <url> {1440x900,390x844} <label> frames 1`); logs `evidence/W13V/s2/close/`; load 30.26 · 34.37 · 25.05 · 23.89.
+
+| gate | BEFORE | AFTER — dev-1 · dev-2 · gh-1 · gh-2 | verdict |
+|---|---|---|---|
+| **G-W13V-s1** (0 inline editors, every scene, DOM) | Sequence **6** at 1440/390/360 | Sequence **0 · 0 · 0 · 0** at 1440/390/360 (21 census rows each); home · cube · amiga · easing 0 on every row; square 2 (`Horizontal/Vertical position`, sr-only in the draggable subject); spring 1 (`Spring target`, the subject's rail); `kfBlock=true` 0 | **GREEN** — the Square/Spring judgement of `.s2`'s receipt is re-read and upheld: both are the subject's own handles (they move the subject, not the animation's keyframes/timing/placement), the canonical row `.s` banked |
+| **G-W13V-s1 falsifier** (re-timing in the pane changes the stage animation) | not constructible | drag lane 2's handle: stage row 2 `@260ms → @1079ms → @260ms` (1440) · `@260ms → @1450ms → @260ms` (390); traveller x `782 → 1012 → 782` · `152 → 247 → 152`; moved=true · returned=true on **8/8** reads | **GREEN** ×2 dev + ×2 gh |
+| **G-W13V-s2** at Sequence (Timeline item opens the shared pane in Sequence mode) | Timeline `disabled:true`, lanes 0 | item enabled 8/8; dock `Controls(off) · Keyframes(off) · Timeline · Scene facet(off)` on all 12 Sequence census rows (`Timeline(off)` 0); pane lanes **5**, master scrub ✓, playhead ✓, stage editors 0 — 8/8 | **GREEN** |
+| byte proxy ⟨`grep -rlE 'Re-time row\|Scrub the sequence master clock' keyframes.js/demo/scenes \| wc -l`⟩ ×2 | 2 · 2 | **0 · 0** (names live in `timeline/components/SequenceLanes.vue` only) | **GREEN** |
+| floor ⟨`npm run check`⟩ ×2 | EXIT 0 ×2 (Check 3) | **EXIT 0 · EXIT 0** (vue-tsc app + test, proof:structure 0 violations) | GREEN |
+| floor ⟨`npx vitest run --project demo`⟩ ×2 | 76/76 · 560/560 | **77/77 · 565/565 · 77/77 · 565/565** | GREEN |
+| §Verification ⟨`npx eslint demo/app demo/components/instrument/transport demo/components/instrument/timeline demo/components/playback demo/scenes`⟩ ×2 | EXIT 0 (Close 1) | **EXIT 0 · EXIT 0** | GREEN |
+| §Verification ⟨`git diff --check 5cf0f58a..HEAD \| wc -l`⟩ | — | **0** | GREEN |
+| kf e2e ⟨`npm run gh-pages && KF_PLAYWRIGHT_DIR=value.js node scripts/run-demo-roster.mjs --workers=1`⟩ ×2 | 4/6 · 4/6 (Repair 1) | **4/6 · 4/6** (load 45.82 · 36.48): smoke ✓ · occlusion ✓ · usability ✓ · subject-animates ✓ (incl. `[real-cube]` ✓ ×2) · live-session ✗ = B7 only (S5 walks all 7 scenes clean with the re-seated sequence trigger `Timeline`) · live-session-mobile ✗ = M1 OPEN/SCROLL/RE-OPEN only | GREEN-WITH-HONEST-RED: B7 = `B7 SPECULAR-REST` · M1 = `SHEET-POSITION` (glass BL F-21), both §0cd-relieved; 0 new reds |
+| G-W13V-k1 · k2 · k3 · k4 · u1 | RED (Check 3) | **re-homed whole by id to KF.W13X** (§0cw items 2/4/5; spec `:521-533`): 183 OPEN consumer KFA rows · 240 OPEN-CARRIED + 17 SPLIT consumer UIA-KF rows · KFA-15 re-capture · 4 critic gaps · `.r` = `[real-cube]` at its root | DISPOSITIONED (cited, not re-run; §0cw forbids a Repair 3 on them) |
+| s2..s4 · c1..c5 · y1..y5 · p1..p2 · u2..u4 | GREEN (Close 1, Check 1..3) | unchanged — `.s2` touched none of their surfaces except the Sequence dock column (s2 above) | GREEN (cited) |
+| p3 | honest-RED | `TILE-PRIMITIVE` (O-58/O-67) | honest-RED |
+
+### E13 (act 4)
+
+⟨`ls -dt glass-ui/docs/tranches/*/ | head -3`⟩ → `BL/ BK/ BJ/`. ⟨`find value.js/docs/tranches/V value.js/docs/tranches/V/coordination glass-ui/docs/tranches/BK/coordination glass-ui/docs/tranches/BL keyframes.js/docs/tranches/V/coordination sci-report/atlas/docs/tranches/P/coordination -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 2026-09-24 12:10:32) → **0 files**. ⟨`grep -n '| UNREAD' INBOX.md`⟩ → 1 hit, `:406`, a 2026-09-22 sweep line's prose, not a row. INBOX tail: O-73 (X.W12.u3, Track A) + its sweep line. **0 unrowed · 0 UNREAD in scope.**
+
+### Residuals (named owners)
+
+- **KF.W13X** (spec `:521-533`, opens after KF.W13W): the 183 OPEN consumer KFA rows (`.k` split table) · the 240 OPEN-CARRIED + 17 SPLIT consumer UIA-KF rows (`W13V/u/DISPOSITION.md`) · KFA-15's served re-capture · the 4 uncaptured critic gaps · KFE-ORPHAN · the `vue-sonner` pin · `.r` (`[real-cube]` at its root; ✓ ×2 at this close, which is not a root cause) · UIA-KF-012's remainder.
+- **R-s2-1** (the 390 sheet opens at the peek detent; lanes below the fold) — `SHEET-POSITION`, owner glass BL F-21.
+- **R-s2-3** (prose-only mentions of the deleted `SequenceScrubber`: `demo/composables/useDragScrub.ts:18`, `demo/scenes/sequence/SequenceTarget.css:146` comment, historical test docblocks) — no code reference; owner KF.W13X (the sequence family's unit), cosmetic.
+- **R-s2-2** — informational only (pane.mjs's `paneHost` label at 390); no owner needed.
+- **`VALUEJS-LEGACY-RGBA`** (KFA-14) — value.js X-W11 publish → kf bump.
+- Honest-RED producer ids, carried, never cured locally (owner glass BL): `TILE-PRIMITIVE` · `SLIDER-THUMB` · `SHEET-POSITION` · `B7 SPECULAR-REST` · `TOOLTIP-REVEAL-STATE` · `DARK-MENU-ITEM` · `QUIET-FOCUS-RING` · `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `GLASS-VEIL-GREY` · `DOCK-TRIGGER-CLIP`; the KFA glass rows via O-60/O-69; the UIA glass rows via O-59/O-70.
+
+### Escalations
+
+None. ESC-s-1 is discharged: ruled option (b) by §0cw and cured by `.s2` `a939e7d6` (s1 at Sequence 6 → 0 ×4). This seat wrote 0 bytes outside its writable set.
+
+### Four-verb line (§State of the KF.W13V addenda: this wave moves IMPLEMENTED; no clause designates this seat to stamp VERIFIED)
+
+| verb | state |
+|---|---|
+| AUDITED | YES (KFA 228 + UIA-KF 322 registers) |
+| SPECIFIED | YES (KF-W13.md, the KF.W13V addenda through §0cw) |
+| IMPLEMENTED | **YES**: `.s` + `.s2` · `.c` · `.y` · `.p` · `.k` · `.u`/`.u2` DONE on their gates; k1 · k2 · k3 · k4 · u1 re-homed whole by id to KF.W13X (§0cw); honest-RED set as above |
+| VERIFIED | NO (the check seat's) |
+
+**Status: IMPLEMENTED 2026-09-17** (honest-RED: `TILE-PRIMITIVE` · `B7 SPECULAR-REST` · `SHEET-POSITION`; k1/k2/k3/k4/u1 → KF.W13X).
+
+**SELF-COUNT**: gate rows in the table above 12 (⟨`awk` the section's `^| ` rows minus the header row⟩ → 12 · 12) → GREEN 9 (s1 · s1-falsifier · s2 · byte proxy · check · vitest · eslint · diff-check · the cited prior GREEN set) · GREEN-WITH-HONEST-RED 1 (kf e2e) · DISPOSITIONED-by-re-home 1 (k1..k4 · u1) · honest-RED 1 (p3). Served reads: census 4 runs × 21 rows = 84; pane 4 runs × 2 viewports = 8. kf shas audited 1, landed-wrong 0; value.js unit shas 1 (`8b22a084`).
+
+**Push (act 7)**: ⟨`git -C keyframes.js push origin HEAD`⟩ → `5cf0f58a..a939e7d6  HEAD -> master`; ⟨`git -C keyframes.js rev-parse --short origin/master`⟩ → `a939e7d6`. value.js pushed after this record and the LEDGER commit.

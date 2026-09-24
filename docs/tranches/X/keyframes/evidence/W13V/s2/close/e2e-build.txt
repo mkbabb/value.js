@@ -1,0 +1,115 @@
+
+> @mkbabb/keyframes.js@6.0.0 gh-pages
+> vite build --mode gh-pages
+
+vite v8.0.16 building client environment for gh-pages...
+
+ WARN  advancedChunks option is deprecated, please use codeSplitting instead.
+
+(node:48015) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2Ktransforming...Found 3 warnings while optimizing generated CSS:
+
+Issue #1:
+[2m│   }[22m
+[2m│   .min-w-\[var\(\.\.\.\)\] {[22m
+[2m│[22m     min-width: var(...);
+[2m┆[22m                    [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .min-w-input-sm {[22m
+
+Issue #2:
+[2m│   }[22m
+[2m│   .text-\[var\(\.\.\.\)\] {[22m
+[2m│[22m     color: var(...);
+[2m┆[22m                [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .text-\[var\(…\)\] {[22m
+
+Issue #3:
+[2m│   }[22m
+[2m│   .text-\[var\(…\)\] {[22m
+[2m│[22m     color: var(…);
+[2m┆[22m                [33m[2m^--[22m Unexpected token Ident("…")[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .text-\[…\] {[22m
+
+✓ 3576 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/gh-pages/index.html                                        8.60 kB │ gzip:   3.39 kB
+dist/gh-pages/assets/ppmycota-logo-3-BIN0nMRd.svg              10.28 kB │ gzip:   4.95 kB
+dist/gh-pages/assets/ppmycota-logo-2-CAWHh5aE.svg              42.68 kB │ gzip:  20.11 kB
+dist/gh-pages/assets/editor.worker-Cn2oRESe.js                279.94 kB
+dist/gh-pages/assets/usePainterRegistry-69RMtdvw.css            0.11 kB │ gzip:   0.10 kB
+dist/gh-pages/assets/HeroAurora-DhixwrrL.css                    0.16 kB │ gzip:   0.12 kB
+dist/gh-pages/assets/AmigaScene-CLl2pNY-.css                    0.39 kB │ gzip:   0.21 kB
+dist/gh-pages/assets/KeyframeTimeline-DxhHs0ar.css              1.29 kB │ gzip:   0.46 kB
+dist/gh-pages/assets/EasingScene-OW6aRnxU.css                   2.95 kB │ gzip:   0.99 kB
+dist/gh-pages/assets/SquareScene-B5CMK4yo.css                   3.83 kB │ gzip:   1.15 kB
+dist/gh-pages/assets/SequenceScene-nq1Py6oS.css                 5.78 kB │ gzip:   1.68 kB
+dist/gh-pages/assets/SpringScene-DhXzZBoK.css                  10.36 kB │ gzip:   2.37 kB
+dist/gh-pages/assets/vendor-monaco-C5uazxST.css                74.44 kB │ gzip:  11.76 kB
+dist/gh-pages/assets/index-CluQshBF.css                       576.50 kB │ gzip: 178.70 kB
+dist/gh-pages/assets/result-CZJK1CwL-CWW-B4jr.js                0.07 kB │ gzip:   0.07 kB
+dist/gh-pages/assets/binary-search-U2Hj7143.js                  0.14 kB │ gzip:   0.13 kB
+dist/gh-pages/assets/useSweepScene-BjOxCgA5.js                  0.52 kB │ gzip:   0.31 kB
+dist/gh-pages/assets/easing-CpDxI9j2.js                         0.64 kB │ gzip:   0.40 kB
+dist/gh-pages/assets/rolldown-runtime-QTnfLwEv.js               0.69 kB │ gzip:   0.42 kB
+dist/gh-pages/assets/useReducedMotion-vCXA_vyM-ST3pdKTn.js      0.80 kB │ gzip:   0.43 kB
+dist/gh-pages/assets/preload-helper-kNaey6uv.js                 1.20 kB │ gzip:   0.68 kB
+dist/gh-pages/assets/usePainterRegistry-O0i7YeLc.js             2.21 kB │ gzip:   1.06 kB
+dist/gh-pages/assets/operations-CB_1wGy4-Bx9iljqj.js            2.97 kB │ gzip:   1.18 kB
+dist/gh-pages/assets/transform-216m7gth.js                      6.63 kB │ gzip:   2.93 kB
+dist/gh-pages/assets/progress-C5qeWFOx.js                       8.38 kB │ gzip:   2.89 kB
+dist/gh-pages/assets/KeyframesStringControls-BvPPUlTN.js        8.53 kB │ gzip:   3.18 kB
+dist/gh-pages/assets/AmigaScene-C5NETCUn.js                     9.25 kB │ gzip:   4.38 kB
+dist/gh-pages/assets/EasingScene-yyKMh-BH.js                    9.85 kB │ gzip:   4.21 kB
+dist/gh-pages/assets/SequenceScene-Djs96jS-.js                 10.27 kB │ gzip:   4.38 kB
+dist/gh-pages/assets/vendor-lucide-B3AovzkK.js                 10.93 kB │ gzip:   4.12 kB
+dist/gh-pages/assets/SquareScene-CG94oAhG.js                   12.34 kB │ gzip:   5.46 kB
+dist/gh-pages/assets/CSSCodeEditor-15tWb5Hn.js                 13.10 kB │ gzip:   4.58 kB
+dist/gh-pages/assets/state-D9dkKi5z.js                         24.11 kB │ gzip:   9.08 kB
+dist/gh-pages/assets/SpringScene-B_WjPwaI.js                   30.19 kB │ gzip:  10.77 kB
+dist/gh-pages/assets/KeyframeTimeline-qcgY39VX.js              32.75 kB │ gzip:  11.83 kB
+dist/gh-pages/assets/css-BYnVws54.js                           43.57 kB │ gzip:  15.39 kB
+dist/gh-pages/assets/public-BgMl8CY9.js                       108.88 kB │ gzip:  33.92 kB
+dist/gh-pages/assets/html2canvas-B9Ed0YNC.js                  199.57 kB │ gzip:  46.79 kB
+dist/gh-pages/assets/HeroAurora-YKUTttcv.js                   215.68 kB │ gzip:  71.23 kB
+dist/gh-pages/assets/vendor-prettier-BrO5FaSX.js              240.38 kB │ gzip:  74.37 kB
+dist/gh-pages/assets/index-BXwprNK5.js                        332.08 kB │ gzip: 107.79 kB
+dist/gh-pages/assets/vendor-reka-ui-DBGZjK34.js               334.21 kB │ gzip:  99.14 kB
+dist/gh-pages/assets/vendor-three-D372l2EG.js                 538.06 kB │ gzip: 134.67 kB
+dist/gh-pages/assets/vendor-monaco-CmTWeAmA.js              2,529.27 kB │ gzip: 648.50 kB
+
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m3362 │[0m /* #__PURE__ */
+ [38;5;240m     │[0m ───────┬───────  
+ [38;5;240m     │[0m        ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+ [38;5;240m     │[0m                       ───────┬───────  
+ [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0mdemo/scenes/cube/CubeScene.vue is dynamically imported by demo/app/scene/scenes.ts but also statically imported by demo/app/App.vue?vue&type=script&setup=true&lang.ts, dynamic import will not move module into another chunk.
+
+✓ built in 2.41s
