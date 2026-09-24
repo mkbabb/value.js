@@ -373,3 +373,61 @@ The morph is byte-for-byte the same before and after, as expected: the one consu
 | `.d2` gh open clause (`.v` esc. 2) | diffOutside 191–309 (`.v`) | 0–531, trigger not animating | **honest-RED** (R-6; the capsule attribution is refuted; the plate re-sample is attributed, not proven) |
 
 **Adjacent edits (§0bt):** none. **Escalations:** none. **Residuals:** DOCK-MORPH-ROOT R-1..R-6 (O-64 → BL; re-read at the landing repin per §0cb R-5); the owner's OA-41/OA-48 "slow · jittery" is the R-1 + R-4 pair. **Commits:** keyframes.js `d94017ff` (the cure). value.js `8b419438` (evidence `W13R/d/**` incl. 12 WebMs · relay O-64 · INBOX sweep + O-64 row, 46 paths) and this record commit (hash in the ledger line). Frames that are not WebM, and the dev2/gh2 WebMs, stay local.
+
+## Close
+
+SERVED MODEL: claude-opus-5-5 · seat `KF.W13R` CLOSE (VERIFY-ONLY; 0 keyframes.js product bytes, 0 glass bytes), 2026-09-23 · keyframes.js HEAD `d94017ff` (origin/master `febb3bcd` at open of this seat) · glass-ui **10.0.1** installed.
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked coordination letters only (pre-existing, not this wave's); ⟨`git -C value.js status --porcelain`⟩ → nothing in this seat's set (this record, LEDGER, INBOX); the dirty `ci.yml` · `ColorSpaceSelector.vue` · `CARRY-LEDGER.md` · `bbnf-speed-uplift.js` · `w12-ground.spec.ts` · `dev.sh` and the untracked `W13R/d/webm-*2/` · `W13R/v/chrome-dock-menus/live-dock/*` · `parse-that/evidence/W7-research/` · `w12-drag.spec.ts` are sibling seats' or local-only evidence the unit receipts name; untouched. No inherited partial work.
+**Read.** Spec `KF-W13.md` whole (443 L); this record's header → Unit plan, the three unit receipts' gate tables, residuals and escalations (grep-located); COHESION §0ci R-5 · §0cj.
+
+### Commit audit (act 1) — every sha exists and lands inside its unit's writable set
+
+⟨`git -C keyframes.js rev-list --count febb3bcd..HEAD`⟩ → **22** (21 `.m` + 1 `.d`); ⟨`git diff --name-only febb3bcd..HEAD | grep -vE '^(demo/|package\.json|package-lock\.json|vitest\.config\.ts)'`⟩ → **16 paths**, every one a §0bt adjacent edit the `.m` receipt lists by name (`test/demo/instrument/{CSSPasteDialog,KeyframesAddDialog,keyframes-editor-honest,keyframe-card-offset-loop,channel-options-render-edge,playback-ribbon-contract,timeline-hover-preview}.test.ts` · `test/demo/app/{dock-context-slot-resolution,mbabb-menu-self-hold,mbabb-menu-share-keyboard,chrome-dock-containment}.test.ts` · `test/demo/scenes/{starting-style-artifact,spring-heatmap-reversibility}.test.ts` · `test/demo/setup/jsdom-layout.ts` (created as `jsdom-hit-test.ts` in `352f0d69`, renamed in `a1422c24`) · `scripts/observe/demo/live-session{,-mobile}.mjs`). ⟨`git show --name-only d94017ff`⟩ → `demo/components/instrument/transport/AnimationControlsGroup.css` only (`.d`'s `transport/**`). Test diffs re-seat assertions onto the migrated API (e.g. `chrome-dock-containment` (2): `dock-overflow-wrap` → no `overflow` attr + no wrap class, the "never a clip" clause kept); 0 `.skip`/`.only`/`todo` added (⟨`git diff febb3bcd..HEAD -- test scripts | grep -cE '^\+.*(\.skip|\.only|todo)'`⟩ → 0). The one family law the plan names — Drawer→Sheet ONE commit — holds at `29d2cc50` (the M1 oracle re-seat `d54a6ab8` followed it; `.m` R-m-6 records it). ⟨`git diff --check <c>~1 <c>`⟩ → 0 lines for all 22. value.js: `4bd9bef8` · `1ca41d12` · `5f9dcfe0` (`.m`), `bbf8f1cf` · `96c8cdfa` (`.v`), `8b419438` · `744ef4c9` · `16e04c84` (`.d`) — ⟨`git show --name-only`⟩ filtered against this record · LEDGER · `keyframes/evidence/W13R/**` · `relay/X-KF-BK-W13R*` · INBOX → 0 paths outside. glass-ui: the BK mirror `valuejs-outbound-2026-09-23-kf-w13r-dock-morph.md` is a new untracked file only (`.d`'s grant), 0 glass product bytes. **landedWrong: 0.**
+
+### Gates re-run by this seat (act 2) — BEFORE (`febb3bcd`, 7.0.0) → AFTER (`d94017ff`, 10.0.1), each double-run
+
+| gate (addendum `:370-372` + §0cd §1 + §0cf + §0cj) | BEFORE | AFTER (this seat) | reading |
+|---|---|---|---|
+| G-R-pin | `:78 "7.0.0"` | ⟨`grep -n '"@mkbabb/glass-ui"' package.json`⟩ → `78: "10.0.1"`; installed ⟨`node -p require(…glass-ui/package.json).version`⟩ → `10.0.1`; lock ⟨`packages["node_modules/@mkbabb/glass-ui"].version`⟩ → `10.0.1` | **GREEN** |
+| G-R-exports | 4 absent | ⟨`comm -23 <(grep -rhoE '@mkbabb/glass-ui/[a-z0-9-]+' demo src → ./sub, sort -u) <(installed exports keys)`⟩ → **0** · **0** | **GREEN** |
+| G-R-sheet (DRAWER-DETENT-REACH at the root) | snap-point Drawer | ⟨`grep -rn 'glass-ui/drawer' demo \| wc -l`⟩ → 0 · 0; ⟨`grep -rln 'glass-ui/sheet' demo \| wc -l`⟩ → 1 · 1 (`ControlsPaneWrapper.vue:193` `SheetContent`, `:152` the mount) | **GREEN at the root**; served placement = SHEET-POSITION (below) |
+| G-R-check | EXIT 0 ×2 | ⟨`npm run check`⟩ → `proof:structure — PASS … 0 violations` **EXIT 0** · **EXIT 0** | **GREEN** |
+| G-R-vitest | 66/66 · 518/518 ×2 | ⟨`npx vitest run --project demo`⟩ → `Test Files 66 passed (66)` · `Tests 518 passed (518)` · EXIT 0, **×2** | **GREEN** |
+| G-R-e2e `demo:correctness --workers=1`, load recorded | 4/6 ×2 (✗ S4 · ✗ M1) | run 1 (load 94.75 → 31.67) **3/6** · run 2 (31.67 → 76.11) **3/6**; identical reds both runs: ✗ occlusion `easing/desktop/closed` (dock covers the subject's content rect) · ✗ live-session B7 (`maxRest 0.16`, 91 glass nodes) · ✗ live-session-mobile M1 OPEN/SCROLL/RE-OPEN (`open=false`, `--detent-t=0.36`, `761px content in a 194px body`); ✓ smoke · usability · subject-animates; **S4 `ringPainted: true`** both runs | **RECORDED** (the addendum's clause); **S4 CURED-BY-REPIN**; 3 reds named below |
+| S4 QUIET-FOCUS-RING (§0cd) | `ringPainted` false | true ×2 here (+ `.m` ×3, `.v` ×5) | **CURED-BY-REPIN** (0 consumer bytes, emphasis untouched) |
+| M1 DRAWER-DETENT-REACH (§0cd), touch point unmoved | pane below fold | detent size 0.36 reached, sheet `position: relative` below the fold, `open=false` ×2 here | **still-live → honest-RED `SHEET-POSITION`** (glass BL F-21) |
+| `.v` KFA table + KF.W13U served gates | — | cited, `.v` receipt: 12 CURED-BY-REPIN · 15 still-live · 1 regression (REPIN-SPRING-SMOOTH-DEAD, cured `.d` `d94017ff`); `.w .t .e .d .d5 .d4`-Share GREEN dev ×2 + gh ×2 | **RECORDED** (served-page reads are `.v`'s/`.d`'s headed runs; this VERIFY-ONLY close does not re-drive them — probe parsimony §5.2) |
+| `.d` OA-41/OA-48 morph | blur 0 · rows 0 · radius ≥ 0 · 398.49/223 px snap · 225–257 ms | cited, `.d` receipt ×4 headed: blur-on-text 0 · no wrap · no negative radius **GREEN**; duration + first-morph snap RED → honest-RED `DOCK-MORPH-ROOT`, relayed O-64 | **GREEN on the consumer clauses; remainder honest-RED, relayed** (as the addendum prescribes) |
+| G-R-veil (§0cf) | cream frost α 0.328 / 0.52 (`.m`) | dark-ink wash luma 213–214/208 ×5 (`.v`) | **honest-RED `GLASS-VEIL-GREY`** (O-62), no local override |
+| DOCK-TRIGGER-CLIP (§0cj) | — | cut by `.dock-layer--full` `overflow: auto hidden`; no kf ancestor clip (`.v`) | **honest-RED** (O-63), no consumer cure owed |
+
+### Verification artefacts (act 3)
+
+⟨`npm run check`⟩ ×2 EXIT 0 and ⟨`npm run test:demo`-equivalent `vitest run --project demo`⟩ ×2 66/518 (above). ⟨`npx eslint demo/app demo/components/instrument/transport demo/components/playback`⟩ → EXIT **0** · **0** (the §Format list's `demo/styles` is CSS-only and ignored by `eslint.config.js`: passed alone it exits 2 with "all of the files matching the glob pattern "demo/styles" are ignored" — no lintable file, so it is dropped from the argv, recorded here). ⟨`git diff --check <c>~1 <c>`⟩ → 0 for each of the 22 kf shas. Raw logs: scratchpad `kfw13r-close/{check,vt,e2e}{1,2}.log` (local).
+
+### E13 (act 4)
+
+⟨`find value.js/docs/tranches/V/coordination glass-ui/docs/tranches/BK/coordination keyframes.js/docs/tranches/V/coordination sci-report/atlas/docs/tranches/P/coordination -type f -newer INBOX.md`⟩ → `glass-ui/…/BK/coordination/valuejs-outbound-2026-09-23-kf-w13r-dock-morph.md` only (our own O-64 mirror, `.d`); ⟨same over `glass-ui/docs/tranches/BL` + `value.js/docs/tranches/V`, captures excluded⟩ → `BL/audit/INBOUND-MAP.md` (glass-internal round-4 REGISTRY seat's map of value.js's outbound O-53..O-63 rows onto BL families, untracked; not addressed to value.js). **0 UNREAD in scope.** Sweep line appended to INBOX.
+
+### Commit roster
+
+keyframes.js (22, `febb3bcd..d94017ff`): `.m` `dca116e1` (pin + lock) · `2598fb8a` · `302a9a81` · `b0b9bb53` · `40ca7a44` · `19725cd5` · `c3d08c43` · `8df8df26` · `352f0d69` · `85862590` · `acdfba0e` · `29d2cc50` (Drawer→Sheet, ONE) · `d27cb4c5` · `90ac7aaf` · `06900f57` · `ac8e4add` · `ed2203a5` · `a1422c24` · `b0cc65c2` · `87ff9654` · `d54a6ab8`; `.d` `d94017ff`. value.js: `4bd9bef8` · `1ca41d12` · `5f9dcfe0` · `bbf8f1cf` · `96c8cdfa` · `8b419438` · `744ef4c9` · `16e04c84`, and this close's record + LEDGER + INBOX commit.
+
+### Residuals (named owners)
+
+- **SHEET-POSITION** (successor of DRAWER-DETENT-REACH) — glass **BL F-21** (R2-01-03, BLOCKER): `SheetContent` computes `position: relative`, in flow below the fold; kf e2e M1 OPEN/SCROLL/RE-OPEN RED. **User-visible regression against 7.0.0's peek on phones** (the mobile controls sheet is unreachable at this HEAD); a consumer `fixed` class is a forbidden mask. Re-read at the landing repin (§0cb R-5).
+- **B7 SPECULAR-REST** — glass (specular register; DOCK-MORPH-ROOT family relay): `.dock-icon-button` `::before` rests at 0.16. New at 10.0.1.
+- **EASING occlusion `easing/desktop/closed`** — new consumer-layout red at 10.0.1 (passes at 7.0.0), routed by `.m` (R-m-3) to **KF.W13V `.c`** (OA-47 control-row density). No dated relief names it; flagged for the check.
+- **DOCK-MORPH-ROOT** R-1..R-6 — BL via O-64. **GLASS-VEIL-GREY** — O-62, until BL's cut (§0ci R-5). **DOCK-TRIGGER-CLIP** — O-63. **DARK-MENU-ITEM** — O-61.
+- **15 still-live KFA rows** (7, 8, 13, 50-part, 109, 110, 112, 163, 164, 189, 23, 74, 37-part, 132, 133) — BL relay / **KF.W13V `.k`**. `.d2` gh open clause (R-6) — DOCK-MORPH-ROOT.
+- R-m-2 TOOLTIP-HINT-LABEL → **KF.W13V `.u`**; R-m-5 `labelClass` ×3 (not a repin break) → **KF.W13V `.u`**; R-m-6 (M1 oracle re-seat as its own commit) — recorded.
+
+### Escalations
+
+1. **Push of a known mobile regression (orchestrator/owner visibility).** `.m` escalated that kf HEAD was unpushed because SHEET-POSITION makes the mobile controls unusable. This close pushes on the orchestrator's act 7 and COHESION §0ci R-5 (*"keyframes keeps its landed 10.0.1, whose gates are green"*); the regression is recorded here and in the LEDGER, not hidden.
+2. **The easing occlusion red has no ruling** — a check seat may read it as an unrelieved consumer red; the relief (or a cure unit) is the orchestrator's.
+
+### State
+
+**IMPLEMENTED 2026-09-23** — every addendum gate reads GREEN or carries the addendum-prescribed disposition (e2e *recorded* at `--workers=1` with load; producer remainders honest-RED and relayed; veil and trigger-clip honest-RED without local override). **VERIFIED: NO** — this seat is not designated to stamp it (a successor check's act). Four verbs: AUDITED YES · SPECIFIED YES · IMPLEMENTED YES · VERIFIED NO.
