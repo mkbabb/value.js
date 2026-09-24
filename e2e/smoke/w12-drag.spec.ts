@@ -27,7 +27,21 @@ const P95_BUDGET_MS = 16.7;
 const SOFT_MAX_TASK_MS = 3000;
 const DRAG_MS = 2000;
 
-if (REAL_GPU) test.use({ launchOptions: { args: [] }, headless: false });
+/**
+ * X-W12 Repair 1 (H-1): the display the window paints on sets the rAF clock.
+ * On a 60 Hz panel a BLANK page reads rAF p95 17.6 ms (vsync timestamps land
+ * at 16.7-17.7 ms), so the 16.7 ms budget sits below the instrument's floor
+ * there; on the 120 Hz panel a blank page reads p95 9.2 ms, and 16.7 ms is
+ * the "never two refreshes late" budget the gate means. `W12_WINDOW_POSITION`
+ * ("x,y") places the headed window on the named panel; the record names it.
+ */
+const WINDOW_POSITION = process.env.W12_WINDOW_POSITION;
+
+if (REAL_GPU)
+    test.use({
+        launchOptions: { args: WINDOW_POSITION ? [`--window-position=${WINDOW_POSITION}`] : [] },
+        headless: false,
+    });
 test.use({ viewport: { width: 1440, height: 900 } });
 
 type Target = { name: string; locate: (p: Page) => ReturnType<Page["locator"]>; axis: "xy" | "x" };
