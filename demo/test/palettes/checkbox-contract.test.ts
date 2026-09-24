@@ -78,7 +78,11 @@ describe("G2 · SearchFilterBar — one click, one update:selectedTags", () => {
 
 describe("G2 · TagEditPopover — one click, one saveTags", () => {
     function mountPopover(currentTags: string[]) {
-        const saveTags = vi.fn<BrowsePort["tagEdit"]["saveTags"]>(async () => undefined);
+        // X.W12.u1 (UIA-V-35): saveTags resolves the SAVED palette on success
+        // (undefined = refused/failed), and the popover emits only after it.
+        const saveTags = vi.fn<BrowsePort["tagEdit"]["saveTags"]>(
+            async (slug, tags) => ({ slug, tags }) as Palette,
+        );
         const port: Pick<BrowsePort, "tagEdit" | "remotePalettes"> = {
             tagEdit: {
                 allTags: ref(TAGS),
