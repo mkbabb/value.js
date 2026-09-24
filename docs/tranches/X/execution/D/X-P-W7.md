@@ -223,3 +223,132 @@ Per-meaning commits were cut by re-applying each cure's hunks onto a clean worki
 - **R-t-3 (for `.v`):** `semantics.json`'s regex-at-EOF and empty-match cases fix an empty regex match's value as `undefined` (parse-that 2.x), not `''`.
 
 **Commits (bbnf-lang, pushed):** `48d5fba61` · `0999cb8c3` · `da0c0b892` · `763aa6534` · `1df11b11e` · `0b33396b3` · `a7a48473a` · `202dcf046` · `08acb9575` · `b35836fec`; this receipt (value.js).
+
+### .e
+
+**Seat:** `claude-opus-5-5`, 2026-09-24 00:31–01:05 EDT (a RESUME of a killed predecessor seat). **Status: PARTIAL.** E-1..E-6 GREEN (double-run). E-7: the depth half is GREEN on V8 and WebKit; the fault-cost half is GREEN on per-entry medians, but per-cell ≤1.02 is below the instrument's noise floor at load 22–37; the "still below retired" half can only be read with value.js's positional actions, so it rides `.v` V-3. E-8 is ESCALATED: parse-that 2.0.0 is still not on the registry (ESC-W7p-1), so a 0.2.0 on `^2` cannot be installed.
+
+**Open.** I read the spec whole (190 lines, incl. the §0ck addendum). From this record I read the header through the Unit plan, the `.t` receipt, and `.p`'s ESC-W7p-1 lines (by grep). I read COHESION §0ck, and §0cl by grep (Track C only, no W7 row).
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ in `../bbnf-lang-x-p-w7-typescript` → ` M typescript/src/emit.ts` · ` M typescript/test/conformance.test.ts`. ⟨`git log`⟩ → two unpushed commits from the killed `.e` seat: `79330801c` (the one emitter; compile/façade on it) and `a02e71936` (`bbnf gen` + `--check`). Its scratch was `scratchpad/e/` (e123.ts, depth probes, fault cells).
+- The **inherited diff**: `DEFAULT_MAX_DEPTH` 1000 → 256, with a measured-throw-point comment, and an E-1 block in `conformance.test.ts`. I read both hunks whole and judged them against the spec. Both conform, and I committed them after re-measuring (acts 1–2).
+- The **inherited commits**: I read both commit bodies and `src/emit.ts`, `gen.ts` and `gen.test.ts` whole. They carry spec (a)–(d): route-ts-compiler's `src/emit.ts` ported onto `.t`'s one analysis as the only emitter, `RULE_NAMES`/`ENTRY_NAMES`/`ACTION_KINDS`/`FAIL`, a typed `Actions`, entries returning value | FAIL, and `sha256(grammar ⊕ emitter)`.
+- Inherited paths: `typescript/src/{emit,compile,facade,generate,gen,cli,index,raw.d}.ts`, `typescript/{package.json,vite.config.ts}`, `typescript/test/{bbnf,conformance,recover,gen,modules}.test.ts`, `typescript/test/conformance/grammars.addendum-2026-09-23.json`.
+- Local bbnf-lang master was untouched: ⟨`git -C ../bbnf-lang rev-parse --short master`⟩ → `af15f63e0`.
+
+**Anchors at true bytes.**
+- (i) Spec (e) says to set the fixed depth *"below the smallest engine's measured throw point … JSC's stack is the smaller"*. **Drift:** measured, JSC is the larger (WebKit 26.4 throws at 4,970–5,047 back-edges; V8 at 881–934). I kept the INTENT, "below the smallest engine": the limit sits under V8's throw point.
+- (ii) Spec (d) says `BBNFToParser` survives as a façade (`toParser`). It holds at the bytes (`src/facade.ts`, `src/generate.ts:50`).
+- (iii) The spec's gate says the stock-ASCII switch "stays as a test", and §0ck 1 says it is never reproduced. The reading taken: the shipping emitter gains only an evidence-only `nonAsciiRoute` hook, the same kind of evidence-only option as the existing `audit`. 0.1.4's dispatch lives in `test/helpers/` alone.
+
+**Acts, in order (bbnf-lang `x-p-w7-typescript`, all under `typescript/`).** The predecessor's `79330801c` and `a02e71936` are inherited; they are listed in Crash recovery above.
+1. `68e1ea7ea` fix: the depth fault trips at 256 back-edges (inherited hunk). Depth probe (scratch `e2/depth-{node,browser,all}.mjs`: 13 nesting shapes, a probe build with a limit of 1e9 reading `D` at the throw):
+   - run 1: node 26 → 881 · Chromium 148 → 911 · WebKit 26.4 → 5,047;
+   - run 2: node 934 · Chromium 884 · WebKit 5,012.
+
+   256 is under 0.3 of V8's smallest reading.
+2. `7155abbb4` test **E-1** (inherited block): the module is written to a file and imported, and compared with runtime `compile()` over both conformance corpora (64 cases: value, end offset and FAIL identity).
+3. `55995f00b` test **E-3**, the stock-ASCII proof:
+   - `routes(infos, nonAscii?)` and `EmitOptions.nonAsciiRoute` are evidence-only.
+   - `test/helpers/bbnf-0.1.4/` holds 0.1.4's `charset`/`regex-first`/`first-sets`/`dispatch`, verbatim from `e91428ce1` with two import paths repointed, plus `stockNonAsciiRoute`: perfect table → `[]`, partial → fallbacks, none → keep.
+   - `fixtures/value-js/verdicts-0.1.4.json` is frozen by `freeze-verdicts-0.1.4.mjs` from the published 0.1.4 on parse-that 0.8.2, over the 134 non-ASCII-bearing sources of the 29,944 × 17 rules. ⟨re-freeze + `cmp`⟩ → `IDENTICAL`.
+   - `fixtures/value-js/F-b-4.json` holds the enumerated rows, reconciled by source text against value.js `bench/paired/oracle/F-b-4.json`: every row appears there, plus valueTop `🎨ff0099cc` (`.t` T-5's badTerm row).
+   - A small comment edit to the depth numbers rode in `emit.ts`.
+4. `a3e64a564` feat **E-5**:
+   - The emitted functions carry JSDoc (`@typedef Rule`, `@type {Rule}`, `@param {string} s`), and so do `let V` and `createParser`'s table. The action check loops over `Object.entries(ACTION_KINDS)`.
+   - `test/types.test.ts` runs tsc (strict, `checkJs`, `skipLibCheck: false`) over value.js's grammar emitted with map, span and text actions, plus a consumer file with four bad lines.
+   - **Erratum to that commit's message** ("the minified module is byte-for-byte what it was"): the rewritten action-check loop moves the minified size 93,122 → 93,119 B and the gzip size 12,715 → 12,728 B (17 entries; ⟨`size.mts` at `55995f00b` vs `a3e64a564`⟩). The comments themselves minify away.
+5. `7f36e94c6` perf, **G-depth**:
+   - An entry whose reachable rules hold no marked back-edge carries no `D = 0` and no `D <= max` (`ruleDeps` is shared by `backEdges` and the new `nests`). Ten of value.js's 17 entry rules now emit no counter, among them keyframeSelector and timingFunction.
+   - Cause, measured: before this, the paired fault on/off read parseKeyframeSelector **1.0516 / 1.0531** in both reps, though its rules cannot nest.
+   - `test/depth.test.ts` (new; no depth test existed) checks:
+     - calc( ×10,000 and @media ×10,000 are refused and nothing throws;
+     - the limit is exactly 256 (and `maxDepth: 4` is exactly 4);
+     - a trip does not outlive its parse;
+     - only back-edges count;
+     - `maxDepth: 0` emits no `D`;
+     - one edge is marked per cycle.
+
+     Falsified: against `a3e64a564`'s emitter the "no counter" assertion fails on `e1 … keyframeSelector … D = 0`.
+6. `5e1a9e3b4` docs: the package **README**.
+   - It names the TS emitter as value.js's output of record; the Rust `TsEmitter` is the Rust program's (§0ck 4, untouched).
+   - It also covers one emitter / three faces, `bbnf gen` + `--check`, the **Actions contract** (pure and total, since recognize mode skips them in discarded positions; the register is not re-entrant; an action never calls a parse entry) and nesting depth.
+   - CLAUDE.md's package map was refreshed; ASTToParser, lazy refs and the combinator-pattern codegen are gone from it.
+7. `d5ab15025` docs: README and `emit.ts` now carry every V8 throw point measured (881–934). I amended this unpushed commit of mine once to catch the README's wrapped line.
+8. `373ca34a6` chore: `package.json` 0.2.0 (§0ck 3). The lockfile still waits on R-t-1.
+9. ⟨`git push origin x-p-w7-typescript`⟩ → `b35836fec..373ca34a6`. Branch only, per L-4.
+
+**Not landed (spec (g)):** none of the runner-up levers (F1, F7, F8, keyword heads). Each is admitted only on 2-rep paired isolated cells over the 7 entries with value.js's actions, which is `.v`'s adopted module. No lever was built, so none was admitted. Memoization is off (the emitter has none).
+
+**Gates, BEFORE → AFTER (AFTER read twice on the settled bytes, `373ca34a6`).**
+- **E-1** (emitted vs runtime `compile()`).
+  - BEFORE (at the inherited `a02e71936`): the conformance-corpus comparison was uncommitted, and the oracle comparison existed only in the predecessor's scratch.
+  - AFTER, ⟨`npx vitest run`⟩ ×2 → `Test Files 16 passed (16)` · `Tests 277 passed (277)`, including the 64 E-1 cases.
+  - ⟨scratch `e2/e123.mts` ×2⟩ over the bench of record (29,944 sources × 17 rules) → `{"calls":509048,"diffs":0,"failIsShared":true}`.
+  - ⟨`e2/e123h.mts` ×2⟩ over the oracle's reader-shaped corpus (the 6,749 distinct strings in `golden.ndjson.gz`'s `harvest` rows × 17) → `{"calls":114733,"diffs":0}`.
+  - **GREEN.**
+- **E-2** (the routing audit on the EMITTED module, G-audit). ⟨`e123.mts` ×2⟩:
+  - audit build over 29,944 × 17: `checks 186113813` · `violations 0`;
+  - recognize vs value on every rule (160 × 29,944): `modeCalls 4791040` · `modeDiffs 0`;
+  - harvest corpus: `checks 66498670` · `violations 0` · `modeDiffs 0` of 1,079,840.
+  - **GREEN.**
+- **E-3** (stock-ASCII only as a test; sound differs only in F-b-4).
+  - BEFORE: no stock-ASCII variant existed.
+  - AFTER ⟨`vitest run test/stock-ascii.test.ts`⟩ ×2 → `2 passed`. Stock-ASCII vs 0.1.4 → 0 mismatches over 134 × 17. Sound vs 0.1.4 → exactly the fixture rows: valueTop 5, functionParam 11, commaItems 11, semiItems 11, spaceItems 29, i.e. 67 = the 4 enumerated entry sources + `🎨ff0099cc` + the 62 reader rows, the same set as `.t` T-5.
+  - ⟨`e123.mts` ×2⟩, whole corpus → the same 67 rows (`sameRowsAsT5: true` on all 17 rules), `0` on ASCII-only sources.
+  - Harvest corpus → 87 differing rows, all on non-ASCII sources (`onAsciiOnly 0`, the F-b-4 class definition of `bench/paired/fb4.mjs`).
+  - **GREEN.**
+- **E-4** (determinism + drift).
+  - `gen.test.ts` ×2 → green.
+  - CLI end to end on the built `dist/cli.js` (scratch `e2/cli/`, value.js's five modules, the 100 judge action kinds, 6 entries):
+    - gen twice → `cmp` identical (`.js` + `.d.ts`), sha `9df92fe5…`;
+    - `--check` → exit `0`;
+    - a one-byte edit to `tokens.bbnf` (a space inserted) → `--check` exit `1` (`js, d.ts differ`);
+    - regenerate → `--check` exit `0` (sha `4a85835f…`).
+  - **GREEN.**
+- **E-5** (`tsc --strict`; `Actions` rejects bad tables).
+  - BEFORE ⟨scratch `e2/tscjs.ts`: tsc strict + `checkJs` over the emitted value.js module⟩ → `599` diagnostics (350 implicit-any parameters, 246 on `V`, 2 on the `ACTION_KINDS` index, 1 evolving `V`).
+  - AFTER ⟨`types.test.ts`⟩ ×2 → module + `.d.ts` `[]`. The consumer is refused on exactly lines 6/7/8/9 (missing action · `map` for a `text` rule · `fn(t: number)` · a non-entry). ⟨`npx tsc --noEmit -p .`⟩ → 0.
+  - **GREEN.**
+- **E-6** (size ≤ 125,646 B min / 14,517 B gz, the judge's `synth`; esbuild `transform` minify + zlib gzip at the default level, the judge's own `gen.mjs` idiom). ⟨scratch `e2/size.mts`, value.js's grammar, the judge's 100 action kinds⟩:
+  - **17 entries** (value.js's call surface: 5 entries + ruleList + 9 readers + 3 splitters): **92,583 / 12,691**. **GREEN.**
+  - Recorded, not the ship shape — **all 160 rules as entries** (the judge's module exposed every rule, `rules` only): 108,904 / 15,529. Minified is under the ceiling; gzip is **over by 1,012 B**. The extra is the per-rule value | FAIL `entries` table the spec requires, plus the depth wrappers of the nesting entries.
+  - **Interning** (329 → 197 constants), measured against a scratch no-intern copy of the emitter:
+    - 17 entries: 124,232 / 13,953 → 93,122 / 12,715;
+    - all rules: 145,496 / 17,213 → 114,401 / 15,917;
+    - timing, paired interned vs not, 2 reps × 11 rounds: medians 0.94–1.03, within the A/A noise.
+
+    Interning is **kept** (the size drops and no timing moves).
+- **E-7** (depth + the fault's hot-path cost, G-depth).
+  - **Depth, GREEN.** calc( ×10,000 → `FAIL (refused)` on node 26 (V8), Chromium 148 (V8) and WebKit 26.4 (JSC), in two runs each; `calc10` → accepted. `depth-all.mjs`: every one of the 13 shapes at ×10,000 is refused or accepted, none throws; the deepest calc( accepted is `256`. Firefox is not installed in the Playwright cache; it is not in the gate.
+  - **Fault on/off cost.** Instrument: scratch `e2/bench-fault.mjs`. One fresh process per rep; the same emission with the fault ON (default) vs OFF (`maxDepth 0`); 2 warm-ups, then interleaved rounds with the arm order reversed each round and the entry order rotated per rep; gc before every pass; each pass repeats the 29,944 sources until it takes ≥20 ms; ratio = median of the per-round ON/OFF ratios. Raw grammar, no actions.
+    - BEFORE (at `a3e64a564`; 2 reps × 11; load 21–23): keyframe 1.0516 / 1.0531 (consistent: the per-call reset); the other entries 0.94–1.04.
+    - AFTER (at `7f36e94c6`; 5 reps × 21; load 22–37). Per-entry medians across the 5 reps: color 1.0037 · scalar 0.9997 · value 0.9916 · values 0.9973 · keyframe 1.0102 · timing 1.0032 · stylesheet 1.0069. **Every median ≤1.02.**
+    - Per cell: 29 of 35 are ≤1.02. The 6 above it are keyframe 1.1589 and 1.0238, and timing 1.045, where ON and OFF are now byte-identical code for those rules, so the excess is pure noise; plus stylesheet 1.0228 and 1.0225, and values 1.0355.
+    - The A/A control (two copies of the OFF build, 3 reps × 21) reads 0.963–1.0333 per cell, and an earlier A/A (2 × 11) read up to 1.5686. **At this load the instrument cannot resolve a 2% per-cell bar.** No cell was set aside; all 35 are counted above.
+  - **"Every entry still below retired" is not readable in `.e`.** The emitted module is positional (§0ck 2), while value.js's color/value/math actions still take 0.1.4's shape; their positional rewrite is `.v`'s act. `.v` V-3 times the adopted module with the fault ON, which is this reading.
+  - **E-7: RED as a whole** (depth GREEN · cost GREEN on medians, per-cell below the noise floor · the below-retired half carried to `.v`).
+- **E-8** (publish). ⟨`npm whoami`⟩ → `mkbabb`. Worktree clean except ignored `dist/` and `node_modules/`. `package.json` reads `0.2.0`. ⟨`npm view @mkbabb/parse-that@2.0.0 version`⟩ → `404` (ESC-W7p-1 still open), so a `@mkbabb/bbnf-lang@0.2.0` depending on `^2.0.0` would not install, and `typescript/package-lock.json` cannot regenerate (R-t-1). **Not published: ESCALATED.**
+- **Stay-green:**
+  - `.t`'s gates re-read on the final bytes: the suite ×2 (above); ⟨`npx tsc --noEmit -p .`⟩ → 0.
+  - T-6 ⟨`git diff --name-only origin/master...x-p-w7-typescript | grep -vc '^typescript/'`⟩ → `0` (`88 files changed, 12116 insertions(+)`).
+  - `npm run build` → green; `dist/cli.js` is the bin.
+
+**Adjacent edits:** none. **Out-of-set writes:** none. The scratch lives in `scratchpad/e2/`: the probes, `e123.mts`, `e123h.mts`, `size.mts`, `size2.mts`, `emit-nointern.ts`, the fault/A-A/intern cells as JSON, `cli/`.
+
+**Residuals.**
+- **R-e-1 (for `.v`):** E-7's "every entry still below retired" is `.v` V-3 on the adopted module (fault ON, the default).
+- **R-e-2 (for `.v`/`.k`):** ship `bbnf gen --entries` with value.js's call surface. E-6 holds at that shape (92,583 / 12,691); emitting every rule as an entry is over the gzip ceiling by 1,012 B.
+- **R-e-3 (instrument, for `.o`/`.z`):** at load 22–37 an A/A cell reads up to 1.03 (once 1.57). A 1.02 per-cell bar needs either quieter load or more reps than 2; the medians are the stable reading.
+- **R-e-4:** R-t-2 is discharged. The façade now compiles through the emitter, host rules are bound at compile time (`host`/`fromParser`), and late `nonterminals[name]` mutation is ported to actions/host (`79330801c`).
+
+**Escalation.**
+- **ESC-W7e-1 (owner act, the same wall as ESC-W7p-1):** publish parse-that 2.0.0 first, from `../parse-that-x-p-w7/typescript`: `npm whoami && git status --porcelain && npm run build && npm publish --access public --otp=<code>`. Then, from `../bbnf-lang-x-p-w7-typescript/typescript`:
+  1. `rm node_modules/@mkbabb/parse-that && npm install` (regenerates the lockfile, R-t-1);
+  2. `npx vitest run && npx tsc --noEmit -p . && npm run build`;
+  3. commit the lockfile on the branch;
+  4. `npm publish --access public --otp=<code>` (0.2.0).
+
+  `.v` needs 0.2.0 on the registry to pin it.
+
+**Commits (bbnf-lang, pushed through `373ca34a6`):** inherited `79330801c` · `a02e71936`; this seat `68e1ea7ea` · `7155abbb4` · `55995f00b` · `a3e64a564` · `7f36e94c6` · `5e1a9e3b4` · `d5ab15025` · `373ca34a6`; this receipt (value.js).
