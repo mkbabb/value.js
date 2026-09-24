@@ -1,5 +1,8 @@
 <template>
-    <div class="grid gap-3 pb-3">
+    <!-- UIA-V-173: a page turn is a REFETCH, not a first load — the rows and
+         the pager stay mounted (dimmed, the list `aria-busy`), so focus stays
+         on the pager button and the card never collapses to skeletons. -->
+    <div class="grid gap-3 pb-3" :aria-busy="refetching || undefined">
         <!-- Toolbar -->
         <div class="flex items-center gap-2 flex-wrap">
             <!-- S.W5-3 (S-17/F-7): the glass-ui Input pill, sm rung — the
@@ -25,7 +28,7 @@
             <div class="flex-1" />
             <!-- S.W5-7: the naked count gains its unit, matching the
                  labeled counts everywhere else ("5 users", "2 flagged"). -->
-            <span v-if="!audit.access.value && !audit.loading.value" class="text-mono-small text-muted-foreground">
+            <span v-if="!audit.access.value && !firstLoad" class="text-mono-small text-muted-foreground">
                 {{ audit.total.value }} entr{{ audit.total.value === 1 ? "y" : "ies" }}
             </span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
@@ -45,7 +48,7 @@
         />
 
         <!-- W5-1 + F-13: entries load as row shadows, one grammar. -->
-        <div v-else-if="audit.loading.value" class="grid gap-2" aria-label="Loading audit log">
+        <div v-else-if="firstLoad" class="grid gap-2" aria-label="Loading audit log">
             <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
 
@@ -85,7 +88,8 @@
         <div
             v-for="entry in audit.entries.value"
             :key="entry.id"
-            class="min-w-0 flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
+            class="min-w-0 flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-[background-color,opacity] duration-fast hover:bg-accent/50"
+            :class="refetching && 'opacity-60'"
         >
             <div class="flex flex-col gap-0.5 min-w-0 flex-1">
                 <!-- primary line: action badge + timestamp -->
@@ -148,6 +152,11 @@ watch([audit.actionFilter, audit.targetFilter], () => {
 onScopeDispose(() => clearTimeout(filterTimeout));
 
 const filtered = computed(() => !!(audit.actionFilter.value || audit.targetFilter.value));
+
+// UIA-V-173: skeletons only when there is nothing on the card yet; a read
+// over a retained page (a page turn, Refresh, a filter) is a refetch.
+const firstLoad = computed(() => audit.loading.value && audit.entries.value.length === 0);
+const refetching = computed(() => audit.loading.value && audit.entries.value.length > 0);
 
 onMounted(() => audit.loadAuditLog());
 </script>
