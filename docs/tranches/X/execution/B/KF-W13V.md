@@ -591,3 +591,56 @@ The KF.W13V addenda state their gates in prose on the SERVED page (headed, 1440 
 
 - **alreadyDone** (commits exist, never re-dispatched): `.s` `.c` `.y` `.p` `.k` `.u`.
 - **Owed**: one continuation seat **`KF.W13V.u2`** (Opus, effort high) on `.u`'s spec rows and writable set — inherits the 3 kf `.u` commits (verify, do not redo) and the untracked `W13V/u/` evidence (read, judge, finish); owes KFA-95 · KFA-228 (u4 remainder), u1..u3 (every UIA-KF row cured or routed to glass by id beside O-59; a frame before every cure; the catch-all route audited), the floor, and the `### KF.W13V.u` receipt + LEDGER event naming all `.u` shas. The `.k` successor rows (183 consumer OPEN) stay with the close/repair cycle, not this plan.
+
+### KF.W13V.u2
+
+SERVED MODEL: claude-opus-5-5 · continuation of the killed `.u` seat (and of a killed first `.u2` seat) · the `### KF.W13V.u` receipt the RESUME plan owes · appended under the RESUME plan (the `## Unit receipts` block precedes it; this is its `.u` entry).
+
+**Status: PARTIAL.** u2 · u3 · u4 and the floor are GREEN; u1 is not total: 240 consumer UIA-KF rows are OPEN-CARRIED by id (BROKEN 24 · HIGH 41 · MEDIUM 96 · LOW 79), never silently dropped.
+
+#### Acts, in order
+
+1. **Crash recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → 0 modified paths (2 standing untracked inbound packets, not mine). ⟨`git -C keyframes.js log --oneline e26cdddf^..HEAD`⟩ at open → 7 `.u` commits, not the 3 the brief named: the killed `.u` seat's `e26cdddf` KFA-61 · `047bedfe` KFA-134 · `ab94125c` KFA-136, and a killed first `.u2` seat's `87bcc597` KFA-95 · `11704ae8` UIA-KF-227 · `56244f0d` UIA-KF-001/002 · `dd7eae52` UIA-KF-003. Each message carries its born-RED test and its served ×2 capture; the evidence dirs (`W13V/u/kfa-61`, `kfa-134`, `kfa-136`, `kfa-95`, `catch-all`, `uia-001`, `uia-003`) hold the named scripts and runs. Judged conforming and **kept, not redone**. ⟨`git diff --name-only e26cdddf^ HEAD | grep -v '^demo/\|^test/demo/\|^scripts/observe/demo/'`⟩ → **0 lines** (37 paths, all in bounds; the favicon move's old path `assets/icons/favicon.svg` is `11704ae8`'s §0bt adjacent edit, named in its message). value.js: untracked `W13V/u/` (the killed seats' evidence, incl. `DISPOSITION.md` + `disposition.mjs` + `rows.json`) and the untracked relay `X-KF-BK-UI-AUDIT-ADDENDUM-2026-09-24-KFW13VU.md` (O-70); its INBOX O-row was already committed (`86250c4b`, INBOX `:512`). Inherited paths judged, finished and committed at act 7.
+2. **u4 remainder.** **KFA-95** — `87bcc597` (inherited): LANDED-BY the glass 10.0.1 repin `dca116e1` (the registry returns on a consumed event), locked by a 12-case contract test; GREEN-BEFORE-CURE recorded in its message; served ×2 dev + gh. **KFA-228** — reads cured at HEAD, landed by `cd2cd88f` (X.KF.W13U.e, the glass `SelectValue` slot; its witness case (6) in `channel-options-render-edge.test.ts` was born RED then). Served ⟨`node kfa-228/label.mjs <tag> <base>`⟩ → the trigger on amiga/square/cube reads `"linear"` / `"ease-in-out-cubic"` / `"ease-in-out"` + a curve glyph, no description run-on — `dev-u2-1`, `dev-u2-2`, `gh-u2-1`, `gh-u2-2` identical (and `run1` of the killed seat). No new byte is owed: no re-cure of a cured row.
+3. **u1 · u2 — the UIA-KF walk.** The register is 322 rows (⟨`node parse-register.mjs`⟩ → `rows.json`); the ledger is generated, not hand-written: ⟨`node W13V/u/disposition.mjs`⟩ → `DISPOSITION.md`, double-run, identical tally. Each cure below framed on the served page BEFORE the edit, then a born-RED test, then the cure, then the same script AFTER ×2 dev + ×2 gh-pages (a build of the working tree served at `127.0.0.1:4190`):
+   - **UIA-KF-011** (BROKEN) → kf **`0d2c06af`**. Frame ⟨`node uia-011/roundtrip.mjs before-dev-1`⟩ → `{"before":{"duration":"5s"},"after":{"duration":"5ms"}}` — reproduced. Cause: value.js `collectAnimationOptions` reports seconds; `parseAnimationCSS` passed them to the engine (ms) unscaled. Cure at the one boundary (×1000 for duration and delay, the type names the unit). Test `parse-animation-units.test.ts` born-RED 3/4 → GREEN 4/4. AFTER → `"5s"` → `"5s"` at `after-dev-1`, `after-dev-2`, `after-gh-1`, `after-gh-2`.
+   - **UIA-KF-004** (BROKEN) → kf **`1a397a4e`**. Frame ⟨`node uia-004/pick.mjs before-dev-1`⟩ → options `[Rotations, Matrix, Hover]`, picked `Matrix`, lands `#/cube` naming `"Rotations"` — reproduced. Cause: home's pick lands in HOME's control bucket; cube selects from its own. Cure in the home→cube intercept (`useSceneMachineShellBinding.ts`): carry the pick into cube's bucket and consume it. Test `home-pick-carry.test.ts` born-RED 1/2 → GREEN 2/2. AFTER → `"Matrix"` ×2 dev + ×2 gh.
+   - **UIA-KF-012** (BROKEN) → kf **`15edd312`**, **consumer half**. Frame ⟨`node uia-012/hardfail.mjs before-dev-1`⟩ → `"}}} @@ nope {"` toasts `"Keyframes parsed 🎉"` — reproduced. Cause: the projection refused `PARSE_ERROR` only, so an `EMPTY_PARSE` buffer (0 `@keyframes` rules) was adopted. Cure: `EMPTY_PARSE` also refuses adoption. Test `parse-animation-reject.test.ts` born-RED 2/3 at the HEAD bytes (swapped in and out) → GREEN 3/3. AFTER → `"Failed to parse keyframes … zero @keyframes rules"` ×2 dev + ×2 gh. **Carried**: the Monaco marker and the shake (`markers: 0` in every run) and the engine's dropped-declaration diagnostic (kf `src/`, outside `.u`'s bounds).
+   - **UIA-KF-013** (BROKEN) → **NOT-REPRODUCED at HEAD**. Frame ⟨`node uia-013/sticky.mjs before-dev-1`⟩ and `gh-1` → duration/delay/iterations: `abc`+Enter → `aria-invalid="true"` with the engine message; the persisted value +Enter → cleared. No byte.
+   - **UIA-KF-017** → PARTIAL-by-others: Share half LANDED-BY `9aa93cae` (X.KF.W13U.d4); Dark mode half = honest-RED `DARK-MENU-ITEM` (O-61 R-3), carried, not cured locally.
+   - Inherited cures kept: UIA-KF-001/002 `56244f0d`, 003 `dd7eae52`, 227 `11704ae8`; UIA-KF-009/010 LANDED-BY `b84fa236` (`.k`); 041 SURFACE-RETIRED `e69f7731` (`.s`); 025 honest-RED `QUIET-FOCUS-RING`.
+   - **u2**: the 16 rows with no audit frame (123 128 129 162 177 232 234 240 241 249 254 255 276 277 289 322) — **none was cured**, so no cure landed without a frame. Every cure at this sitting has a BEFORE frame on the served page (above).
+4. **Glass rows (u1, routed by id).** 36 GLASS rows + 17 split glass halves stay under **O-59**, and UIA-KF-078 goes to **O-70**, the addendum beside O-59 (`relay/X-KF-BK-UI-AUDIT-ADDENDUM-2026-09-24-KFW13VU.md`). At installed 10.0.1, 078 reads cured: ⟨`node uia-078/mark.mjs`⟩ → 8×8 `rgb(28, 25, 23)` at dev-1, dev-2, gh-1 and gh-2. It also carries the UIA-F-51 Toaster witness and the landed registry `defaultPrevented` half. INBOX O-70 is at `:512` (committed at `86250c4b`). There is 1 ROUTED-VALUE.JS row and 14 PIN-CARRIED rows (§0cb R-5). No glass selector, token or primitive was copied.
+5. **u3: the catch-all route.** `catch-all/AUDIT.md` covers `router.ts:31` `/:pathMatch(.*)*` → `/`. ⟨`node catch-all/visit.mjs`⟩ ran 8 links × {1440 light, 1440 dark, 390 light}: `run1` on dev by the killed seat, `run2-dev`, `run3-gh`. CA-1..CA-7 are dispositioned. The only defect was the dev favicon 404, cured as UIA-KF-227 (`11704ae8`). ⟨`node catch-all/r404.mjs`⟩ → icon 200, 0 responses ≥ 400, dev ×2 + gh ×2. No "not found" notice was invented, because the router states that silent-home is its design.
+6. **Floor ×2** at kf `15edd312`. The load was 21.23 before run 1 and 21.84 before run 2.
+
+#### Gates: BEFORE → AFTER
+
+| gate | BEFORE | AFTER (×2) | reading |
+|---|---|---|---|
+| G-W13V-u1 (every UIA-KF row cured or routed to glass by id) | 0 of 322 dispositioned at the RESUME open | the ledger covers all 322 rows: CURED-u 6 · PARTIAL-u 2 · NOT-REPRODUCED 1 · LANDED-BY 2 · SURFACE-RETIRED 1 · HONEST-RED 1 · PIN-CARRIED 14 · ROUTED-GLASS 37 · ROUTED-VALUE.JS 1 · SPLIT 17 · **OPEN-CARRIED 240** | **RED** (not total: 240 consumer rows are carried by id) |
+| G-W13V-u2 (a frame before every cure) | — | every cure at this sitting (011 · 004 · 012) and every inherited one has a served BEFORE frame; none of the 16 frameless rows was cured | GREEN |
+| G-W13V-u3 (the catch-all route) | never visited | `catch-all/AUDIT.md`: 8 links × 3 legs, dev + gh; the favicon 404 is cured | GREEN |
+| G-W13V-u4 (KFA-61 · 95 · 134 · 136 · 228) | 3 of 5 committed | 61 `e26cdddf` · 134 `047bedfe` · 136 `ab94125c` · 95 `87bcc597` (landed at 10.0.1, locked by a test) · 228 landed at `cd2cd88f`, served ×2 dev + ×2 gh | GREEN |
+| vue-tsc | 0 | 0 · 0 | GREEN |
+| `npm run check` | EXIT 0 | EXIT 0 · EXIT 0 | GREEN |
+| demo vitest | 66/518 (open) | **75/75 · 558/558** · 75/75 · 558/558 | GREEN |
+| kf e2e `demo:correctness --workers=1` (`KF_PLAYWRIGHT_DIR=value.js`, dist rebuilt at `15edd312`) | 3/6 (KF.W13R close) | run 1 (load 22.16) **3/6**: ✗ subject-animates `[real-cube]` (the KFA-17 / C6-3 intermittent, `.k`'s k4) · ✗ live-session B7 (`maxRest 0.16`, honest-RED `B7 SPECULAR-REST`) · ✗ live-session-mobile M1 OPEN/SCROLL/RE-OPEN (`SHEET-POSITION` / drawer detent). Run 2 (load 18.60) **4/6**: the same reds without `[real-cube]`. occlusion ✓ in both runs (C1-1 stays cured) | recorded; no new red |
+
+#### Commits
+
+- keyframes.js (pathspec each, not pushed): inherited `e26cdddf` · `047bedfe` · `ab94125c` (killed `.u`) · `87bcc597` · `11704ae8` · `56244f0d` · `dd7eae52` (killed first `.u2`); this seat `0d2c06af` UIA-KF-011 · `1a397a4e` UIA-KF-004 · `15edd312` UIA-KF-012 (consumer half).
+- value.js: `363e8835` (the evidence `W13V/u/**`, the disposition ledger and the O-70 relay addendum) and this record.
+
+#### Residuals (carried by id)
+
+- **240 OPEN-CARRIED consumer UIA-KF rows**, each named in `W13V/u/DISPOSITION.md` (BROKEN 24 · HIGH 41 · MEDIUM 96 · LOW 79). They go to a successor `.u` seat or the repair cycle, the same way `.k`'s 183 went.
+- The 17 SPLIT rows' consumer halves are still owed. Their glass halves are routed under O-59.
+- The rest of UIA-KF-012 is still owed: the Monaco marker, the shake, and the engine's dropped-declaration diagnostic in kf `src/`.
+- Honest-RED ids are carried and were not cured locally: `DARK-MENU-ITEM` (017's Dark half) · `QUIET-FOCUS-RING` (025) · `B7 SPECULAR-REST` · `SHEET-POSITION` · `DOCK-MORPH-ROOT` · `GLASS-VEIL-GREY` · `KF-TIMELINE-FILL` · `GLASS-SURFACE-PAINT-CONTAIN` · `DOCK-SCROLL-MORPH`.
+- The `vue-sonner` dependency is now unread after `56244f0d`. Removing it is a `package.json` pin, which is outside `.u`'s bounds (§0bt).
+- The `[real-cube]` intermittent (KFA-17 / C6-3) read ✗ once in 2 e2e runs. It belongs to `.k` (k4).
+
+#### Escalation
+
+None. No write went outside the writable set, and no specified cure was impossible at the bytes.
