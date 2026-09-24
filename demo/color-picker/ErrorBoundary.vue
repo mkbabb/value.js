@@ -17,23 +17,34 @@
          de-emphasis-rung rule;
          the boundary now adds only what is its own: the assertive live
          region, the focus target, and the full-region fill. -->
-    <EmptyState
+    <!-- X.W12.u3 (UIA-V-184): the fallback stands on the pane's resting
+         surface, filling the region — the composition PaneErrorPlate already
+         uses — never a bare plate painted on the atmosphere ground. The
+         landing target is a screen-reader landing, not a control, so it draws
+         no square UA outline around the region (UIA-V-455); the Try-again
+         button keeps glass's focus ring. -->
+    <Card
         v-if="caught"
-        ref="plateRef"
-        variant="error"
-        class="vj-error-boundary h-full w-full min-h-0"
-        aria-live="assertive"
-        tabindex="-1"
-        :message="message"
-        :detail="detail ?? undefined"
+        tier="resting"
+        class="w-full h-full min-w-0 min-h-0 flex flex-col justify-center px-6"
     >
-        <template #action>
-            <Button size="sm" class="font-display mt-1" @click="reset">
-                <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
-                {{ retryLabel }}
-            </Button>
-        </template>
-    </EmptyState>
+        <EmptyState
+            ref="plateRef"
+            variant="error"
+            class="vj-error-boundary w-full min-h-0 outline-none"
+            aria-live="assertive"
+            tabindex="-1"
+            :message="message"
+            :detail="detail ?? undefined"
+        >
+            <template #action>
+                <Button size="sm" class="font-display mt-1" @click="reset">
+                    <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
+                    {{ retryLabel }}
+                </Button>
+            </template>
+        </EmptyState>
+    </Card>
     <slot v-else />
 </template>
 
@@ -56,6 +67,7 @@ export const FAILURE_REPORTER_KEY: InjectionKey<FailureReporter> = Symbol("failu
 import { ref, nextTick, onErrorCaptured, useTemplateRef, inject, watch } from "vue";
 import { RotateCcw } from "@lucide/vue";
 import { Button } from "../ui/button";
+import { Card } from "../ui/card";
 import EmptyState from "../shared/ui/EmptyState.vue";
 import { PaneChunkError } from "../shell/PaneErrorPlate.vue";
 
