@@ -7,7 +7,7 @@
 //   large   parseStylesheet on the G-large sheets (sheets/MANIFEST.json; recorded, not in R-3's seven)
 // A pass times every source of the class once per repetition; the repetition count k doubles until the retired
 // parser's pass takes ≥ 20 ms (G-acc/rej: a small class, e.g. the 56 accepted keyframe selectors, is repeated to a
-// fixed pass size). gc() runs before every pass; 2 warm-up passes per arm; ≥ 11 timed rounds; the arm order rotates
+// fixed pass size), after a declared warm-up of 3 passes per arm at k = 1 (R-v-3). gc() runs before every pass; 2 warm-up passes per arm at k; ≥ 11 timed rounds; the arm order rotates
 // every round and flips every full rotation (with two arms, rotate+reverse on odd rounds would cancel: the judge's
 // rule assumed ≥ 3 arms); `rev=1` reverses the arm list for the whole cell. Every call is wrapped identically
 // (try/catch) for every arm. `uptime` is read before and after the timed rounds; load is RECORDED, never gated
@@ -30,6 +30,11 @@ const xs = CLASS === "whole" ? INPUTS : CLASS === "acc" ? INPUTS.filter(accepts)
     : CLASS === "large" ? largeSheets().map((s) => s.text) : null;
 if (xs === null || (CLASS === "large" && ENTRY !== "parseStylesheet")) throw new Error(`class ${CLASS} for ${ENTRY}`);
 const pass = (fn, k) => { gc(); const t = performance.now(); for (let j = 0; j < k; j++) for (let i = 0; i < xs.length; i++) { try { fn(xs[i]); } catch { } } return performance.now() - t; };
+// R-v-3 (X.P.W7.g): the DECLARED warm-up runs BEFORE the k-rule, identical for every arm (WARMUP passes at k = 1, in
+// the cell's arm order). Before it, k was sized on the retired arm's cold first pass (its rep-0 is bimodal), so a
+// large sheet could run at k = 1 and be set aside by a cold outlier.
+const WARMUP = 3;
+for (let w = 0; w < WARMUP; w++) for (const a of ARMS) pass(F[a], 1);
 let k = 1;
 while (pass(F.retired, k) < 20) k *= 2;
 for (let w = 0; w < 2; w++) for (const a of ARMS) pass(F[a], k);
@@ -41,7 +46,7 @@ for (let r = 0; r < ROUNDS; r++) {
     for (const a of order) t[a].push(pass(F[a], k));
 }
 const u1 = uptime();
-const cell = { entry: ENTRY, class: CLASS, n: xs.length, k, rounds: ROUNDS, arms: ARMS, rev: REV === "1", node: process.version,
+const cell = { entry: ENTRY, class: CLASS, n: xs.length, k, warmup: WARMUP, rounds: ROUNDS, arms: ARMS, rev: REV === "1", node: process.version,
     uptimeBefore: u0, uptimeAfter: u1, load: [load1(u0), load1(u1)], retiredSpread: +(Math.max(...t.retired) / Math.min(...t.retired)).toFixed(3),
     medianMs: {}, minMs: {}, ratio: {}, raw: t };
 for (const a of ARMS) {

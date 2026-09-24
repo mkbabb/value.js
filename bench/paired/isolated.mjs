@@ -47,7 +47,9 @@ for (const a of record.arms) for (const cls of classes) for (const e of entries)
     const all = record.cells.filter((c) => c.class === cls && c.entry === e);
     if (all.length === 0) continue;
     const clean = all.filter((c) => c.clean).map((c) => c.ratio[a].paired);
-    (summary[a] ??= {})[`${cls}|${e}`] = { cleanCells: clean.length, setAside: all.length - clean.length, ratios: clean,
+    // R-v-3: every rep is reported — the set-aside cells' ratios stand beside the clean ones (never averaged in).
+    const every = all.map((c) => ({ rep: c.rep, attempt: c.attempt, k: c.k, clean: c.clean, spread: c.retiredSpread, paired: c.ratio[a].paired }));
+    (summary[a] ??= {})[`${cls}|${e}`] = { cleanCells: clean.length, setAside: all.length - clean.length, ratios: clean, every,
         median: clean.length ? +median(clean).toFixed(3) : null, max: clean.length ? Math.max(...clean) : null, allBelow1: clean.length > 0 && clean.every((x) => x < 1) };
 }
 const gate = (a, cls) => { const rows = ENTRIES.map((e) => summary[a][`${cls}|${e}`]).filter(Boolean); const green = rows.filter((r) => r.allBelow1).length;
@@ -67,6 +69,7 @@ const file = path.join(RECORDS, `2026-09-23-x-p-w7-${TAG}.json`);
 writeFileSync(file, JSON.stringify(record, null, 1) + "\n");
 console.log("\nSUMMARY (clean cells' paired median ratio arm/retired; set-aside counted)");
 for (const [a, rows] of Object.entries(summary)) for (const [k, v] of Object.entries(rows))
-    console.log(a, k.padEnd(34), `clean ${v.cleanCells} (set aside ${v.setAside}) · ${v.ratios.join("/")} · median ${v.median}`);
+    console.log(a, k.padEnd(34), `clean ${v.cleanCells} (set aside ${v.setAside}) · ${v.ratios.join("/")} · median ${v.median} · every ` +
+        v.every.map((c) => `r${c.rep}a${c.attempt} k${c.k} x${c.paired}${c.clean ? "" : ` SET-ASIDE(spread ${c.spread})`}`).join(" "));
 console.log(JSON.stringify(record.gates, null, 1));
 console.log(record.uptimeStart, "\n", record.uptimeEnd, "→", path.relative(process.cwd(), file));
