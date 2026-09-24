@@ -142,7 +142,8 @@ const adminCount = computed(() => {
         // S.W5-7 (F-12): the header badge is the ACTIONABLE queue — the old
         // pending+approved sum matched neither visible list.
         case "admin-names":
-            return pm.loadingColorQueue.value || pm.namesAccess.value
+            // UIA-V-414: nor over the queue's load-error plate.
+            return pm.loadingColorQueue.value || pm.namesAccess.value || pm.queueLoadError.value
                 ? null
                 : pm.filteredColorQueue.value.length;
         default: return null;

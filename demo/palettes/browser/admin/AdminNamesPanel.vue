@@ -189,6 +189,8 @@ import AdminListSkeleton from "./AdminListSkeleton.vue";
 const {
     pendingItems,
     approvedItems,
+    loadingPending,
+    loadingApproved,
     pendingError = null,
     approvedError = null,
     access = null,
@@ -278,9 +280,17 @@ function onDeleteClick(item: ProposedColorName) {
 
 const namesTab = ref<string>("pending");
 
+// UIA-V-414: a list's count speaks only once that list resolved — never a
+// "0" while it loads or over its load-error plate.
 const namesTabOptions = computed(() => [
-    { label: `Pending · ${pendingItems.length}`, value: "pending" },
-    { label: `Approved · ${approvedItems.length}`, value: "approved" },
+    {
+        label: loadingPending || pendingError ? "Pending" : `Pending · ${pendingItems.length}`,
+        value: "pending",
+    },
+    {
+        label: loadingApproved || approvedError ? "Approved" : `Approved · ${approvedItems.length}`,
+        value: "approved",
+    },
 ]);
 
 // X.W5.c2 · gate D4 — the swap's direction token, read from the strip's OWN

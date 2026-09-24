@@ -80,6 +80,19 @@
                 </Button>
             </template>
         </EmptyState>
+        <!-- UIA-V-409: a search that matches nothing is not an empty roster —
+             it says what it searched and offers the way back (the W7.83
+             filtered-zero register the audit and names panels speak). -->
+        <EmptyState
+            v-else-if="users.length === 0 && pm.usersSearch.value.trim()"
+            :message="`No users match “${pm.usersSearch.value.trim()}”.`"
+        >
+            <template #action>
+                <Button size="sm" emphasis="quiet" @click="pm.usersSearch.value = ''">
+                    Clear search
+                </Button>
+            </template>
+        </EmptyState>
         <EmptyState v-else-if="users.length === 0" message="No users found." />
         <div v-else class="grid gap-3">
             <div

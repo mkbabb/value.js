@@ -99,6 +99,9 @@ export function useAdminFlagged(deps: {
             // W7.81 (AF-4): the error plate replaces the rows; none are retained.
             items.value = [];
             loadError.value = result.message;
+            // UIA-V-432: an earlier act's success notice does not stand beside
+            // the error plate — one verdict at a time.
+            dismissNotice();
         }
     }
 

@@ -28,7 +28,9 @@
             <div class="flex-1" />
             <!-- S.W5-7: the naked count gains its unit, matching the
                  labeled counts everywhere else ("5 users", "2 flagged"). -->
-            <span v-if="!audit.access.value && !firstLoad" class="text-mono-small text-muted-foreground">
+            <!-- UIA-V-426: nor beside the error plate (a stale count there
+                 contradicts "Couldn't load the audit log."). -->
+            <span v-if="!audit.access.value && !firstLoad && !audit.loadError.value" class="text-mono-small text-muted-foreground">
                 {{ audit.total.value }} entr{{ audit.total.value === 1 ? "y" : "ies" }}
             </span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
