@@ -63,15 +63,21 @@
         <SelectContent
             align="start"
             class="max-w-(--reka-select-content-available-width)"
+            :style="{ '--select-dot-color': safeAccent }"
         >
             <SelectGroup>
+                <!-- X.W12.t · UIA-V-66 / UIA-V-212 — glass's own row: its
+                     padding (`py-1.5`, the start-indicator gutter) and its
+                     selection dot, inked by the accent through glass's
+                     `--select-dot-color` knob on the content, so the selected
+                     row reads apart from the highlighted one. The name steps
+                     two rungs down (title → subheading): 6 of 18 rows show in
+                     the capped list, not 4. -->
                 <SelectItem
                     v-for="row in rows"
                     :key="row.entry.id"
                     :value="row.entry.id"
                     :data-space="row.entry.id"
-                    hide-indicator
-                    class="pl-3 pr-4 py-2"
                 >
                     <!-- Default slot = SelectItemText: the display-face
                          name ONLY (reka's SelectValue clones this node
@@ -83,7 +89,7 @@
                          the bold (selection speaks through the specimen
                          dot's idle-opacity step, never through weight). -->
                     <span
-                        class="specimen-name font-display italic text-title leading-tight"
+                        class="specimen-name font-display italic text-subheading leading-tight"
                     >{{ row.entry.label }}</span>
                     <template #description>
                         <span class="flex items-center gap-2 min-w-0">
