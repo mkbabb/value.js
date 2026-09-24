@@ -861,3 +861,63 @@ W7.md has no §State clause that designates this seat to stamp a verb. X.P.W7 is
 | C3-5 | MINOR (mitigated) | `oracle.mjs check` cannot re-read O-1 on the moved product (R-close-1). Carried from C2-4. | Close O-1 | V-1 stands (88 = F-b-4 ×2). Add a frozen-arm mode in `bench/**` at `.z`. |
 
 **Honest-RED set: none.** No remaining RED gate is relieved under axis (10). Each one has a named owner: the owner's `npm login` and OTP for C3-1, and the ESC-W7v-2 ruling for C3-2. **gatesReproduced 12 · gatesFailed 0.** The LEDGER status stays **PARTIAL**. I appended one event line and did not change the row cell. **Adjacent edits: none. Out-of-set writes: none.** The bench records went to the scratchpad, `bench/records/` is clean, and `scripts/dev/dev.sh` was not touched.
+
+## RESUME 2026-09-24 — Open (seat 0, `claude-opus-5-5`, Track D; §0cp + W7.md ADDENDUM 2026-09-24)
+
+- **Mode:** RESUME. ⟨`grep -n "| X.P.W7 |" LEDGER.md`⟩ → status `PARTIAL — npm-OTP publish chain … + ESC-W7v-2 ruling …` (not CLOSED); this record exists. Governing text: W7.md's 2026-09-24 ADDENDUM (read whole with the spec, 214 lines) and COHESION §0cp (read to the file end, line 3319). Read from this record: header through `## Unit plan`, and `## Check 3` (the last section). No `.k2`/`.g` receipt exists (⟨`grep -n "k2\|W7\.g" X-P-W7.md`⟩ → 0 prior hits).
+- **alreadyDone (§0cp: "alreadyDone: `.o .p .t .e .v .k`. Their commits stand"), verified at the bytes:** value.js ⟨`git log --oneline`⟩ → `.o`…`.v` `3cdd4888` · `.v` receipt `07732e1d` · `.k` `065ba11e` + receipt `3d4029fa` · `.z` receipt `07f048d1` · Repair 1 `8b08db4b`; parse-that ⟨`git -C ../parse-that-x-p-w7 log --oneline -1`⟩ → `96e68e9` (`.p`); bbnf-lang ⟨`git -C ../bbnf-lang-x-p-w7-typescript log --oneline -1`⟩ → `373ca34a6` (`.e`, branch `x-p-w7-typescript`). `.z` re-opens only in X.P.W7P (never here).
+- **Crash-recovery:** ⟨`git status --porcelain -- src bench test package.json package-lock.json .github scripts/gen-grammar.mjs <record> LEDGER.md INBOX.md`⟩ → empty; `../parse-that-x-p-w7` clean; `../bbnf-lang-x-p-w7-typescript` clean at `373ca34a6`. **No inherited partial work.**
+- **Preconditions:** the owed units open on §0cp's ruling (not on a predecessor wave): ⟨`grep -n "^## §0cp" COHESION.md`⟩ → `3303`; W7.md:192 ADDENDUM present; the linked worktrees exist at the commits above (L-1: engineering gates read on the linked worktrees). The release chain is X.P.W7P ⟨LEDGER:102⟩ → `GATE-KEYED 2026-09-24 on the owner's npm one-time password`. **MET.** No npm act in this wave.
+
+### E13 Step-0 mail sweep (2026-09-24)
+- ⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ` (BL has no `coordination/`; BK stays the mail path, BL's root swept too).
+- ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` · keyframes.js `V/coordination/` · atlas `P/coordination/` → 0, except glass `BL/FORMATION-PROGRESS.md` (BL's own cursor, not a letter). INBOX last rows I-47 · O-69.
+- **Result: 0 unrowed · 0 UNREAD in scope.** A sweep line was appended to INBOX.md.
+
+## RESUME Baseline (BEFORE, read-only, 2026-09-24; product bytes `8b08db4b`, HEAD `8d916780`)
+
+RESUME rule: only the gates `.k2`/`.g` turn are re-read; every other gate is cited from Check 3 (12 GREENs ×2: V-1 88 = F-b-4, css-equivalence 19/19, css 51/51, `npm test` 924/927 with 3 foreign, vue-tsc 0, whole-7/7 GREEN ×2, parse-that 143/143, bbnf-lang 277/277, T-6 0).
+
+| Gate | Unit | Command | BEFORE | Reading |
+|---|---|---|---|---|
+| K2-a node acc/rej halves | `.k2` | ⟨`node bench/paired/build.mjs`⟩ → `srcDirty ""`, `bankedManifestOk 79/79`; ⟨`node --expose-gc bench/paired/isolated.mjs w7-resume-base product 3 11 acc,rej,large`⟩ (load `20.35` → `25.23`) | `accepted-7/7 RED 6/7`: acc keyframe cells **.950 / .898 / 1.007** (median .950); acc color .604 · scalar .658 · value .398 · values .430 · timing .665 · stylesheet .865. `rejected-7/7 GREEN 7/7` (color … stylesheet .698) | **born-RED** (accepted keyframe 1.007; the floor Repair 1 moved to ~.92 sits at noise distance from 1) |
+| K2-a/G-1 browsers (V-5) | `.k2`/`.g` | cited: `.v` receipt (record:412–416), `.k` receipt (record:490); the scratch harness is gone (`find` over the scratchpads → none) | Chromium acc keyframe 1.254/1.269 · WebKit acc keyframe 1.200/1.115 · Firefox whole/acc/rej stylesheet 1.08–1.27, color .98–1.04 (read before Repair 1's `8b08db4b`; not re-read here, probe parsimony — no harness in the tree) | born-RED (cited) |
+| G-2 large (V-6) node | `.g` | same run, `large` class | clean cells .588 / 1.507 / .527 — **3 set aside** (spread ≥1.6; one set-aside cell 1.228, one 1.507 at k = 1) | **born-RED** (the R-v-3 k = 1 artefact reproduces) |
+| G-2 large WebKit | `.g` | cited `.k` receipt | 1.286 / 1.286 | born-RED (cited) |
+| K2-b post-hoc walk | `.k2` | ⟨`grep -rn deepFreeze src`⟩ | `src/css/result.ts:13` def · `:23 value: deepFreeze(value)` | born-RED |
+| K2-b re-split | `.k2` | ⟨`grep -n NUMERIC src/css/bbnf/math.ts`⟩ | `:37 const NUMERIC = …` · `:41 NUMERIC.exec(token)` (angle/dimension leaves) | born-RED |
+| G-3 levers | `.g` | ⟨`grep -n "fus\|keyword" typescript/src/emit.ts`⟩ @ `373ca34a6` | 0 lever hits | born-RED |
+| R-v-3 warm-up | `.g` | `bench/paired/bench.mjs:33-35` | k sized on the cold retired pass, warm-ups after it | born-RED |
+
+**greenBeforeCure: none.** Record moved to scratchpad `w7-resume/2026-09-23-x-p-w7-w7-resume-base.json` (sha256 `7b683a023f26…`), log `w7-resume/base.log`; ⟨`git status --porcelain bench src`⟩ → empty.
+
+## RESUME Unit plan (2026-09-24)
+
+**alreadyDone:** `.o .p .t .e .v .k` (never re-dispatched; §0cp). **`.z`:** re-opens only in X.P.W7P (never here). **Owed, strictly serial** (W7.md:214 "Owed, strictly serial: `[X.P.W7.k2]`, then `[X.P.W7.g]`, then close"), one concurrent: `[.k2] → [.g]` → close. Every seat Opus 5.5 (owner's Opus-only order, 2026-09-23). ESCALATED units do not halt the wave.
+
+### Rulings cited (never re-opened)
+§0cp (release chain → X.P.W7P, GATE-KEYED on the owner's OTP; `.k2` + `.g` minted; LEDGER hunk hygiene) · §0ck 1–7 (as cited in the first Unit plan) · §0ci R-1..R-3 · §0bt ADJACENT-LINE RULE.
+
+### Locks
+- **L-1 (strict order):** `.g` dispatches only after `.k2`'s commits exist; `.g`'s lever admission is measured on `.k2`'s product bytes.
+- **L-4 (bbnf-lang):** writes only in `../bbnf-lang-x-p-w7-typescript` on `x-p-w7-typescript`; push the branch only; never local master; PR #1 stays open (its merge is X.P.W7P's `.z`). Any re-emission of `src/css/bbnf/generated/` goes through `node scripts/gen-grammar.mjs` only, and `--check` must pass after.
+- **L-6 (no npm):** no `npm publish`, no version bump, no `package.json`/lockfile dependency move in this wave (X.P.W7P).
+- **L-7 (LEDGER, §0cp 4 / C3-3):** before any commit touching `LEDGER.md`, read `git diff` on it; if a sibling's hunk is present, stage only this seat's lines (`git apply --cached` of the own hunk) or wait.
+- **Same-commit families:** `.k2` Cure 1 (the leaf's matched split in the emitter + `tokenQuantity` consuming it + the re-emitted module) is ONE meaning per repo (bbnf-lang emitter commit; value.js consumer + regenerated module commit); `.k2` Cure 2 (freeze at construction + removal of the `deepFreeze` walk + the pinning test) ONE value.js commit. `.g`: one commit per admitted lever in bbnf-lang, each with its value.js re-emission beside it; the R-v-3 instrument fix its own `bench/**` commit.
+
+### `[X.P.W7.k2]` — the accepted-input floor (W7.md 192–214: ADDENDUM 2026-09-24 §2; §0cp)
+- **Writable:** value.js `src/css/bbnf/**` (incl. `math.ts`, `generated/` through `node scripts/gen-grammar.mjs` only), `src/css/result.ts` (the success-freeze helper) and its callers under `src/css/**`, `test/css/**` (the immutability pin; §0bt adjacent) · bbnf-lang `typescript/**` on `x-p-w7-typescript` (the leaf split) · this record. `src/css/grammar/tokens.bbnf` only under §0bt if the leaf's groups strictly require it (list it as an adjacent edit).
+- **Acts:** (1) re-profile the 56 accepted keyframe selectors (BEFORE: emitter ~30 ns, actions ~76 ns, `deepFreeze` 100–110 ns; `tokenQuantity` + its re-splitting `NUMERIC` regex ~24%); (2) Cure 1: the emitted regex leaf hands `tokenQuantity` its number/unit split as matched groups (emitter + action-kind contract in bbnf-lang; value.js consumes the groups; no second regex over the same text; `NUMERIC` leaves); (3) Cure 2: every node is built frozen at construction (`quantity`, `numberQuantity`, `percentageQuantity`, color/value/sheet nodes); `result.ts`'s `deepFreeze` walk is deleted; `success` freezes only its own envelope; (4) a test pins "results are immutable": `Object.isFrozen` deep on sampled results from all 7 entries (extend `test/css/bbnf-frozen.test.ts`); (5) re-emit, `--check`, V-1/V-2 stay GREEN; (6) read the gate.
+- **Gates:** K2-a accepted AND rejected halves, every entry, < 1.00 paired, ×2, load recorded, on node (`bench/paired/isolated.mjs … acc,rej`) AND Chromium, WebKit, Firefox (browser harness in the scratchpad; the `.v`/`.k` scratch harness is gone — rebuild it from `.v`'s receipt, W7 record:412; Firefox at a 100 ms floor) · K2-b ⟨`grep -n deepFreeze src/css`⟩ → 0 and ⟨`grep -n NUMERIC src/css/bbnf/math.ts`⟩ → 0 · K2-c deep-frozen pin GREEN · stay-GREEN: V-1 88 = F-b-4 ×2, `test:css-equivalence` 19/19, `npm test` 924/927 (3 foreign), `vue-tsc` 0, `gen-grammar --check` 0, whole-7/7 inside ceilings, bbnf-lang TS 277+/277+.
+- **Locks:** L-1, L-4, L-6, L-7; Cure 1 and Cure 2 families.
+
+### `[X.P.W7.g]` — the engine gaps (W7.md 94 (g); ADDENDUM 2026-09-24 §3; §0cp)
+- **Writable:** bbnf-lang `typescript/**` on `x-p-w7-typescript` (the emitter levers) · value.js `src/css/bbnf/generated/` (through `gen-grammar` only) · value.js `bench/**` (R-v-3 warm-up fix; the browser harness promoted beside `bench/paired/`) · this record.
+- **Acts:** (1) R-v-3 first: in `bench/paired/bench.mjs` a declared warm-up pass, identical for both arms, runs BEFORE the k-rule (today `bench.mjs:33-34` sizes k on the cold retired pass), and every rep is reported; promote the browser harness (Chromium/WebKit/Firefox, same page, paired, Firefox ≥100 ms floor) into `bench/paired/`; (2) one lever at a time on the emitter — F1 exact terminal-choice fusion, F7 same-action leaf fusion, F8 recognizer loops, keyword heads for the colour group — each re-emitted, `.e`'s gates re-read (E-1 emitted = runtime `compile()`, E-2 routing audit on the emitted module, E-4 determinism/`--check`, E-5 tsc, E-6 size, E-7 depth), and admitted ONLY if its own paired numbers regress no entry on any engine (node + 3 browsers), else reverted; memoization stays off; (3) V-5 + V-6 ×2 on all three engines + node.
+- **Gates:** G-1 V-5 every entry × {whole, acc, rej} < 1.00 on Chromium, WebKit, Firefox ×2 · G-2 V-6 50–500 KB sheets < 1.00 on node + 3 engines ×2 · G-3 each admitted lever's paired before/after table, no regression · G-4 `.e` E-1..E-7 re-read on the final emitter · stay-GREEN as `.k2`.
+- **Locks:** L-1 (after `.k2`), L-4, L-6, L-7; one commit per lever.
+
+### Close (after `.g`)
+Engineering gates binding (accepted + rejected halves under the retired parser on every engine, large sheets). Release gates P-6 · E-8 · V-9 + the CI step · Z-1 · Z-3 (publish half) relieved by citing X.P.W7P (§0cp; GATE-KEYED on the owner's npm one-time password). No `npm publish` in this wave.
+
+## RESUME Unit receipts
