@@ -3444,3 +3444,14 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Routed to F.W14V `.c3`** (F-W14V.md addendum (a)): the magnet's state is hidden on the closed dock (ruled: an "on" mark on the More-tools trigger through glass's seat, otherwise ask glass), and the menu-row icon gap (glass's DropdownMenuItem anatomy).
 - **Honest-RED:** CHIP-PRESSED-TINT (O-76).
 - **For Track C, not ruled here:** the `.c2` test runs left tracked screenshots dirty under `web/e2e/screenshots/f-w14/after-veil-*`. The `after-page-*` frames were already dirty. Their owner decides.
+
+## §0dd — 2026-09-24: glass-ui 10.1.0 live (O-68 + O-75); fourier adopts now
+- **glass-ui 10.1.0** is on npm (tag v10.1.0, provenance-signed; I-54) with O-68 ConfiguratorLayer `#actions` and O-75 `Configurator layout="detached"`, both additive. This is the owner's OW-11 ruling (§0da) delivered.
+- **fourier adopts at once**, out of the chassis loop (the same single Opus seat as `.c1`/`.c2`, in files disjoint from Track C's in-flight `.gallery`):
+  - repin `10.1.0` exact;
+  - `layout="detached"` on /visualize, deleting `.s`'s consumer Card wrap and its placement rule;
+  - every section reset moved into `#actions`, deleting the body reset rows;
+  - falsifier `f-w14v-detached.spec.ts` (gutter = page ground; reset in the header row, never toggling the layer).
+  This is **F.W14V `.s2`'s glass half ⊕ F.W14U `.a2`**. When F.W14V opens, `.s2` reads it as landed and verifies it.
+- **value.js** stays on glass 7.0.0 until X-W7L (§0ci R-5): X-W12U `.h` records `#actions` / `detached` as ADOPT-AT-X-W7L. **keyframes** adopts `#actions` wherever a section action sits on its own row, in KF.W13X (the owner's "all UIs").
+- **O-76** (TOGGLE-PRESSED-TINT) missed the 10.1.0 tag. glass is raising a later minor with the owner; CHIP-PRESSED-TINT stays honest-RED.

@@ -539,3 +539,6 @@ KF.W13V ended NOT-CONFORMANT after 2 repairs, and its check says the loop is dry
 - **A2-KE-L2-15 (safe area) is re-measured with CDP `Emulation.setSafeAreaInsetsOverride`** (technique: `audit-2/fourier-L2/probe-safearea.mjs`). It now also cites the glass dock `env()` inset ask (O-74 erratum E-4).
 - **A2-KE-L3-1 and A2-KE-L3-2 are HELD for glass's §11 ruling** (O-74 erratum E-2).
 - **Cross-app convergence:** `demo/utils/curvePlot.ts` and the EasingTarget gallery converge on glass's EasingCurve marker API and preset strip (O-74 erratum E-3) once they land. Until then they stay the one keyframes owner. Record them as ADOPT-AT-LANDING, and do not copy them into other files.
+
+## KF.W13X — ADDENDUM 2026-09-24 (c) (COHESION §0dd): glass 10.1.0 `#actions`
+- glass-ui 10.1.0 (live) ships `ConfiguratorLayer` `#actions`. KF.W13X repins keyframes to `10.1.0` exact and moves every section action that sits on its own row (reset, refresh) into its layer's header (the owner: *"the refresh button should be inline in the section when expanded too"*), deleting the body rows. It also reads whether any keyframes stage-plus-inspector Configurator shows a shell band between stage and aside (the fourier owner frame, §0cz), and adopts `layout="detached"` where it does. The falsifier is the same as fourier's `f-w14v-detached.spec.ts` shape.
