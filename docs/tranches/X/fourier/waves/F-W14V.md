@@ -33,3 +33,8 @@ F-W14U.md addendum (e) was written after F.W14U opened, so its plan never carrie
 
 ## §2 Close
 Every unit's rows are CURED (falsifier GREEN ×2 on the served page, :3100 against the API on :8000), ADOPT-AT-LANDING (with the O-74 or O-75 row), or honest-RED with a relayed id. `vue-tsc` 0, vitest GREEN, full e2e `--workers=1` GREEN except the named honest-RED set. The row flips CLOSED on a CONFORMANT check.
+
+## ADDENDUM 2026-09-24 (a) — `.c3`, the editor dock's leftovers from F.W14U.c2 (COHESION §0dc)
+- **The magnet's state must show without opening a menu.** `dd123a9` moved the Magnet toggle into the More-tools menu. When the magnet is on, the closed dock now gives no sign of it (before, a red glyph sat in the row). Ruled: show state where it is visible. The More-tools trigger carries an "on" mark in the magnet's hue while the magnet is engaged, through glass's published DockControl props or tokens, never a consumer overlay. If glass has no mark or badge seat on DockControl, ask for it in a dated addendum beside O-76 and record honest-RED MAGNET-STATE-HIDDEN.
+- **The menu rows' icon-to-label gap:** Smooth, Simplify and Reset have none. Use glass's `DropdownMenuItem` icon anatomy (its published icon slot or gap), not a consumer margin.
+- **Gates:** headed frames at 1440 and 390, both themes; a falsifier for the mark (magnet on shows the mark, off shows none) and for the gap (≥ glass's menu icon gap), RED before and GREEN ×2 after.
