@@ -3467,3 +3467,10 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - `.a`: `#actions` and detached where value.js has that shape.
   W12U.md's addendum turns its ADOPT-AT-X-W7L rows into "adopt now". glass has been asked whether 10.1.0 changes the O-62 veil.
 - **Outside tranche X (not ruled here; reported to the owner):** atlas `^6.0.0`, chicago `^10.0.1`, slides `3.13.0`, speedtest `^4.0.1`, bbnf-buddy `^3.9.0` also consume glass-ui.
+
+## §0df — 2026-09-24: owner "yes to both": the veil fix ships in 10.x; every glass consumer goes to 10.1.0
+- **Veil (O-62) in 10.x.** The owner answered "yes" to shipping the grey-veil fix in a 10.x minor instead of at 11.0.0. This is the ruling glass said it needed, because the recut revises a documented design law. It was relayed to glass-ui-2d: O-62 plus O-66 §1 SELECT-GREY (plus O-76 if it is ready) ship in a 10.x minor, and BL loop D3 is un-paused as the priority. value.js X-W7L `.i` still cures its ink instrument against the current composite, sends any unreachable surface as a measured O-62 addendum, and re-reads its ink at the veil minor.
+- **Every consumer on 10.1.0.** The owner answered "yes" to the five glass consumers outside tranche X. One Opus seat each: atlas (`^6.0.0`, library), slides (`3.13.0`, deploys Pages from main), speedtest (`^4.0.1`, 16 pre-existing dirty paths left untouched), bbnf-buddy (`^3.9.0`, no remote), chicago (`^10.0.1`, not a git repo; backed up before the change).
+  - Each works on a `glass-10.1` branch with a PR where there is a remote.
+  - **No merge to a deploying default branch and no atlas release until the orchestrator has read that seat's report.**
+  - The migration is at the root, with no shims.
