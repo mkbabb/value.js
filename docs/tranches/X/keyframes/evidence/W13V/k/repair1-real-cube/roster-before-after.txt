@@ -1,0 +1,31 @@
+SERVED MODEL: claude-opus-5-5
+# roster --only=subject-animates BEFORE (kf 15edd312 dist) x6
+run 1 exit 0 load 13.71 15.64 21.68
+run 2 exit 1 load 14.98 15.74 21.54
+run 3 exit 0 load 13.80 15.40 21.25
+run 4 exit 0 load 11.85 14.82 20.87
+run 5 exit 1 load 11.63 14.52 20.58
+run 6 exit 0 load 11.53 14.27 20.32
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 608.2000000000007, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 608.2000000000007 → 616.4000000000015 → 1883.2000
+  ✗ [real-cube] the demo cube's REAL subject did NOT receive the engine write — rest=false (autoplay true; playhead 451 → 458.90000000000146; nodes {"bob":1,"pose":1,"spin":1}), playhead 451 → 458.90000000000146 → 1716.300000000003 (engineWrote=true), nodes wh
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 458.2999999999993, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 458.2999999999993 → 466.7000000000007 → 1725, ari
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 400.7000000000007, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 400.7000000000007 → 409 → 1675, aria flipped to "
+  ✗ [real-cube] the demo cube's REAL subject did NOT receive the engine write — rest=false (autoplay true; playhead 141.6999999999971 → 150; nodes {"bob":1,"pose":1,"spin":1}), playhead 141.6999999999971 → 150 → 1418.300000000003 (engineWrote=true), nodes whil
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 24.399999999997817, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 24.399999999997817 → 32.799999999995634 → 1299.3
+# AFTER (kf 5cf0f58a dist) x8
+run 1 exit 0 load 14.49 16.24 18.26
+run 2 exit 0 load 16.55 16.61 18.34
+run 3 exit 0 load 14.94 16.27 18.17
+run 4 exit 0 load 18.62 17.04 18.39
+run 5 exit 0 load 18.72 17.24 18.43
+run 6 exit 0 load 19.39 17.47 18.47
+run 7 exit 0 load 18.57 17.44 18.43
+run 8 exit 0 load 18.33 17.54 18.44
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 24.799999999999272, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 24.799999999999272 → 32.099999999998545 → 1299.7
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 34, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 34 → 43 → 1309.5999999999985, aria flipped to "Pause animation",
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 34.79999999999927, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 34.79999999999927 → 43.20000000000073 → 1301.5, a
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 25.099999999998545, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 25.099999999998545 → 35.099999999998545 → 1293.3
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 23.299999999999272, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 23.299999999999272 → 31.5 → 1318.2000000000007, 
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 25, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 25 → 33.400000000001455 → 1299.1000000000022, aria flipped to "P
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 24.899999999997817, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 24.899999999997817 → 34.29999999999927 → 1317.39
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 17.099999999998545, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 17.099999999998545 → 25.099999999998545 → 1299.5

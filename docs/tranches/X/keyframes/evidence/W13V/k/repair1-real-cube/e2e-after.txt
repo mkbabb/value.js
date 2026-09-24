@@ -1,0 +1,28 @@
+SERVED MODEL: claude-opus-5-5
+# kf e2e run-demo-roster --workers=1 on a fresh gh-pages of kf 5cf0f58a, x2
+e2e 1 exit 1 load-start 18.65 19.95 18.68 load-end 33.04 24.59 20.91
+e2e 2 exit 1 load-start 33.04 24.59 20.91 load-end 16.89 22.46 21.09
+## run 1
+occlusion observation — PASS: every observed scene × viewport × controls-state is occlusion-free (controls: closed).
+usability observation — PASS: the live behaviors hold (G.W11) and the hero rides the T.D10 per-char two-tier contract (X-5 gap + sr-mirror kept, monotone global-index wave, honest ink).
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 41.30000000000291, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 41.30000000000291 → 48.400000
+subject-animates observation — PASS: every play path (rAF / WAAPI / group composite) WRITES the interpolated frame to its subject — the subject's computed style traverses the animation, not just the playhead — AND the REAL demo cube on the 
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":100,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:doc
+live-session observation — FAIL (2): the human battery (PLAY + SWITCH + DRAG) blew the ERROR BUDGET (S2a) or a product-facing DOM assertion failed.
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 706px content in a 61px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+live-session-mobile observation — FAIL (3): the 390×844 + hasTouch session found a Keyframes-owned touch, interaction, error-budget, or appearance defect.
+  ✗ failed: live-session, live-session-mobile
+## run 2
+occlusion observation — PASS: every observed scene × viewport × controls-state is occlusion-free (controls: closed).
+usability observation — PASS: the live behaviors hold (G.W11) and the hero rides the T.D10 per-char two-tier contract (X-5 gap + sr-mirror kept, monotone global-index wave, honest ink).
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 24.099999999998545, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 24.099999999998545 → 32.2999
+subject-animates observation — PASS: every play path (rAF / WAAPI / group composite) WRITES the interpolated frame to its subject — the subject's computed style traverses the animation, not just the playhead — AND the REAL demo cube on the 
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":100,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:doc
+live-session observation — FAIL (2): the human battery (PLAY + SWITCH + DRAG) blew the ERROR BUDGET (S2a) or a product-facing DOM assertion failed.
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 706px content in a 61px body) — below-fold controls are touch-unreachable
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+live-session-mobile observation — FAIL (3): the 390×844 + hasTouch session found a Keyframes-owned touch, interaction, error-budget, or appearance defect.
+  ✗ failed: live-session, live-session-mobile
