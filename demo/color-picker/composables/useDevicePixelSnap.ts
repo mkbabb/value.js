@@ -18,8 +18,9 @@
  *       exact trap this same wave item audits against).
  *
  * Re-syncs on: element/container resizes, window resize (dpr change rides
- * it), pane swaps (childList), and transition/animation settle (the pane
- * spring translates mid-flight; rects are only trusted at rest).
+ * it), pane swaps (childList at or above a card), and transition/animation
+ * settle at or above a card (the pane spring translates mid-flight; rects are
+ * only trusted at rest).
  */
 
 import { onBeforeUnmount, onMounted } from "vue";
@@ -60,11 +61,31 @@ export function useDevicePixelSnap(container: Ref<HTMLElement | null>) {
         rafId ??= requestAnimationFrame(sync);
     }
 
+    /**
+     * X-W12 Repair 1 (H-1): only an element AT or ABOVE a pane card can move
+     * the card's top — the wrapper, the card root, or an ancestor of a
+     * wrapper. Churn INSIDE a card (the readout's digit text nodes and their
+     * per-change animations, the dock-colour caption) cannot, and re-syncing
+     * on it forced a `getBoundingClientRect` layout on every frame of a
+     * colour drag. Card-internal size changes still arrive through the
+     * ResizeObserver on the wrappers.
+     */
+    function movesACard(node: Node): boolean {
+        const host = container.value;
+        if (!host || !(node instanceof Element) || !host.contains(node)) return false;
+        return (
+            node === host ||
+            node.matches(".pane-wrapper, .pane-wrapper > *") ||
+            node.querySelector(".pane-wrapper") !== null
+        );
+    }
+
     function onSettle(event: Event) {
-        // Only re-measure when something inside the pane column settled.
-        if (event.target instanceof Node && container.value?.contains(event.target)) {
-            schedule();
-        }
+        if (event.target instanceof Node && movesACard(event.target)) schedule();
+    }
+
+    function onMutations(records: MutationRecord[]) {
+        if (records.some((r) => movesACard(r.target))) schedule();
     }
 
     onMounted(() => {
@@ -77,7 +98,7 @@ export function useDevicePixelSnap(container: Ref<HTMLElement | null>) {
             ro.observe(wrapper);
         }
 
-        mo = new MutationObserver(schedule);
+        mo = new MutationObserver(onMutations);
         mo.observe(host, { childList: true, subtree: true });
 
         window.addEventListener("resize", schedule, { passive: true });
