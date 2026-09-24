@@ -33,6 +33,14 @@
                         <span class="text-mono-caption text-muted-foreground ml-auto shrink-0">{{ tag.category }}</span>
                     </label>
                 </div>
+
+                <p
+                    v-if="tagEdit.error.value"
+                    role="alert"
+                    class="mt-2 text-caption text-destructive"
+                >
+                    {{ tagEdit.error.value }}
+                </p>
             </div>
         </PopoverContent>
     </Popover>
@@ -73,8 +81,11 @@ async function onToggle(name: string, checked: boolean) {
     const source = pm.remotePalettes.value.find((p) => p.slug === paletteSlug);
     const ifMatch = source ? paletteETag(source) : undefined;
 
-    emit("update:tags", updated);
-    await tagEdit.saveTags(paletteSlug, updated, ifMatch);
+    // X.W12.u1 (UIA-V-35): the card's tags change only after the server keeps
+    // them — a refused or failed save leaves the card and the checkbox as they
+    // were, and says why beside the list.
+    const saved = await tagEdit.saveTags(paletteSlug, updated, ifMatch);
+    if (saved) emit("update:tags", saved.tags ?? updated);
 }
 
 watch(() => open, (isOpen) => {
