@@ -81,8 +81,12 @@ function update(key: string, value: number) {
     writePath(config, key, value);
 }
 
-function fmt(v: number): string {
-    return Number.isInteger(v) ? String(v) : v.toFixed(3);
+/** X.W12.u2 (UIA-V-158, the readout half): a knob reads at its own step's
+ *  fixed precision — integers for integer steps (Zones), never a format that
+ *  flips between "0.760" and "1" as the value crosses an integer. */
+function fmt(v: number, step: number): string {
+    const decimals = Number.isInteger(step) ? 0 : (String(step).split(".")[1]?.length ?? 0);
+    return v.toFixed(decimals);
 }
 
 async function copyAsJson() {
@@ -138,7 +142,7 @@ function resetDefaults() {
                             v-for="def in section.defs"
                             :key="def.key"
                             :label="def.label"
-                            :name="fmt(read(def.key))"
+                            :name="fmt(read(def.key), def.step)"
                             class="gap-1.5 py-1"
                         >
                             <Slider
