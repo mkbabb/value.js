@@ -1,0 +1,91 @@
+{
+ "vw": 1440,
+ "vh": 900,
+ "card": {
+  "x": 71.2,
+  "y": 62,
+  "w": 407.2,
+  "h": 392,
+  "b": 454
+ },
+ "wrapper": {
+  "x": 43.2,
+  "y": 54,
+  "w": 475.2,
+  "h": 632,
+  "b": 686
+ },
+ "pane": {
+  "x": 43.2,
+  "y": 54,
+  "w": 475.2,
+  "h": 632,
+  "b": 686
+ },
+ "paneScrollH": 632,
+ "sheet": null,
+ "menubarBand": {
+  "x": 0,
+  "y": 758.6,
+  "w": 1440,
+  "h": 72.4,
+  "b": 831.1
+ },
+ "rows": [
+  {
+   "label": "duration",
+   "labelMidY": 96,
+   "ctlMidY": 96,
+   "dMid": 0,
+   "oneLine": true,
+   "rowH": 40,
+   "ctlW": 259.3
+  },
+  {
+   "label": "delay",
+   "labelMidY": 140,
+   "ctlMidY": 140,
+   "dMid": 0,
+   "oneLine": true,
+   "rowH": 40,
+   "ctlW": 259.3
+  },
+  {
+   "label": "iterations",
+   "labelMidY": 184,
+   "ctlMidY": 184,
+   "dMid": 0,
+   "oneLine": true,
+   "rowH": 40,
+   "ctlW": 259.3
+  },
+  {
+   "label": "direction",
+   "labelMidY": 228,
+   "ctlMidY": 228,
+   "dMid": 0,
+   "oneLine": true,
+   "rowH": 40,
+   "ctlW": 259.3
+  },
+  {
+   "label": "fill mode",
+   "labelMidY": 272,
+   "ctlMidY": 272,
+   "dMid": 0,
+   "oneLine": true,
+   "rowH": 40,
+   "ctlW": 259.3
+  },
+  {
+   "label": "easing",
+   "labelMidY": 316,
+   "ctlMidY": 360,
+   "dMid": 44,
+   "oneLine": false,
+   "rowH": 84,
+   "ctlW": 367.2
+  }
+ ],
+ "sepBeforeEasing": false
+}
