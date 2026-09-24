@@ -32,6 +32,8 @@
                     class="h-20 rounded-input border border-input bg-background px-3 py-2 text-small resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                     maxlength="500"
                 />
+
+                <p v-if="error" role="alert" class="text-caption text-destructive">{{ error }}</p>
             </div>
 
             <DialogFooter>
@@ -39,10 +41,10 @@
                     Cancel
                 </Button>
                 <Button
-                    :disabled="!reason || submitting"
+                    :disabled="!reason"
+                    :loading="pending"
                     @click="onSubmit"
                 >
-                    <Loader2 v-if="submitting" class="mr-2 h-4 w-4 animate-spin" />
                     Report
                 </Button>
             </DialogFooter>
@@ -62,12 +64,15 @@ import {
 } from "../../../ui/dialog";
 import { Button } from "../../../ui/button";
 import { RadioGroup, RadioGroupItem } from "../../../ui/radio-group";
-import { Loader2 } from "@lucide/vue";
 
-const { open, paletteName, paletteSlug } = defineProps<{
+const { open, paletteName, paletteSlug, pending = false, error = null } = defineProps<{
     open: boolean;
     paletteName: string;
     paletteSlug: string;
+    /** X.W12.u1 (UIA-V-39): the host owns the request, so it owns the pending state. */
+    pending?: boolean;
+    /** The last failed report's message, shown beside the kept form. */
+    error?: string | null;
 }>();
 
 const emit = defineEmits<{
@@ -84,17 +89,10 @@ const reasons = [
 
 const reason = ref("");
 const detail = ref("");
-const submitting = ref(false);
-
-async function onSubmit() {
-    if (!reason.value) return;
-    submitting.value = true;
-    try {
-        emit("submit", reason.value, detail.value.trim() || undefined);
-    } finally {
-        submitting.value = false;
-        reason.value = "";
-        detail.value = "";
-    }
+// The form lives as long as the dialog: the host unmounts it on close, so a
+// failed report keeps what was typed and a fresh open starts empty.
+function onSubmit() {
+    if (!reason.value || pending) return;
+    emit("submit", reason.value, detail.value.trim() || undefined);
 }
 </script>

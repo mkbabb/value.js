@@ -172,6 +172,8 @@
             :open="flagDialogOpen"
             :palette-name="flagPalette.name"
             :palette-slug="flagPalette.slug"
+            :pending="flagPending"
+            :error="flagError"
             @update:open="onFlagOpenChange"
             @submit="onFlagSubmit"
         />
@@ -344,6 +346,8 @@ function onVersionsOpenChange(open: boolean) {
 
 const flagDialogOpen = ref(false);
 const flagPalette = ref<Palette | null>(null);
+const flagPending = ref(false);
+const flagError = ref<string | null>(null);
 
 function onFlag(palette: Palette) {
     flagPalette.value = palette;
@@ -358,8 +362,18 @@ function onFlag(palette: Palette) {
 async function onFlagSubmit(reason: string, detail: string | undefined) {
     const palette = flagPalette.value;
     if (!palette) return;
-    const result = await pm.flagged.report(palette.slug, reason, detail);
-    showVerdict(palette.slug, result.ok ? "Reported — thank you." : `Report failed: ${result.message}`, result.ok);
+    flagPending.value = true;
+    flagError.value = null;
+    const result = await pm.flagged.report(palette.slug, reason, detail).finally(() => {
+        flagPending.value = false;
+    });
+    // X.W12.u1 (UIA-V-39): success closes and thanks on the card; a failure keeps
+    // the dialog and its form open with the reason beside the Report button.
+    if (!result.ok) {
+        flagError.value = `Report failed: ${result.message}`;
+        return;
+    }
+    showVerdict(palette.slug, "Reported — thank you.", true);
     onFlagOpenChange(false);
 }
 
@@ -367,7 +381,10 @@ async function onFlagSubmit(reason: string, detail: string | undefined) {
 // KeepAlive'd pane does not retain the dialog and its palette for the session.
 function onFlagOpenChange(open: boolean) {
     flagDialogOpen.value = open;
-    if (!open) flagPalette.value = null;
+    if (!open) {
+        flagPalette.value = null;
+        flagError.value = null;
+    }
 }
 
 function showVerdict(slug: string, message: string, ok: boolean) {
