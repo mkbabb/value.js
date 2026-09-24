@@ -68,7 +68,11 @@ const MEDIA: AuroraMedium[] = [
 ];
 const MOTIONS: AuroraMotionAtom[] = ["still", "breathing", "drifting"];
 
+/** X.W12.u2 (UIA-V-614): the one name the hyphen split cannot spell. */
+const LABELS: Record<string, string> = { vangogh: "Van Gogh" };
+
 function label(s: string): string {
+    if (LABELS[s]) return LABELS[s];
     return s
         .split("-")
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -104,7 +108,7 @@ const SECTIONS: SliderSection[] = [
     {
         title: "Field",
         defs: [
-            { key: "colorEnergy", label: "Colour Energy", min: 0, max: 1, step: 0.01 },
+            { key: "colorEnergy", label: "Color Energy", min: 0, max: 1, step: 0.01 },
             { key: "noise", label: "Noise", min: 0, max: 1, step: 0.01 },
             { key: "zones.count", label: "Zones", min: 1, max: 6, step: 1 },
         ],
