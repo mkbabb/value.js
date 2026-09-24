@@ -3506,3 +3506,16 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - value.js lowercases custom-property names, which css-variables-1 §2 says are case-sensitive.
   - 4.x's easing catalogue lost its descriptions and bounce curves. The unit cites the ruling that removed them, or restores them.
 - **Left for their owners:** bbnf-buddy's SVG context menu with zero-size content (identical on master with glass 3.9), and `align-parity`.
+
+## §0dk — 2026-09-24: atlas on glass 10.1.0 (PR #1, unmerged)
+- **atlas** PR https://github.com/mkbabb/atlas/pull/1 (`83945b7`, branch `glass-10.1`). It migrated at the root from 6.0.0 to 10.1.0:
+  - Drawer → Dialog plus SheetContent; `/menu`; `/dark-mode-toggle`; Card rim and pad tokens; spring tokens; `emphasis`; the `text-sm`/`text-xs` removals.
+  - glass 9's single-pen HandMark, with the non-text strokes through glass's pen functions in `InkStroke.vue`.
+  - `CompletionSeal`, owned by atlas per glass's own records.
+  - The peer ranges move to glass `^10.1.0`, value.js `^4.0.0` and keyframes `^6.0.0`, with one value.js copy. The CHANGELOG has an Unreleased entry.
+  - Gates: typecheck 0, tests 344/344 ×2, gates 31/31, build, attw and publint GREEN. Traps 1–6 checked.
+- **Held from merge on:**
+  1. a visual pass on the consuming app (sci-report; atlas has no demo);
+  2. the owner reading the Button `variant` → `emphasis` mapping (ghost→quiet, glass/outline→secondary, accent→primary), which glass has no table for;
+  3. atlas redefining the dropped `--paper-aged-texture` itself. glass dropped that token without a note, so it is asked as part of O-78's round.
+  No release or publish of atlas.
