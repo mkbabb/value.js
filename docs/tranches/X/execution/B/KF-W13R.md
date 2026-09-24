@@ -431,3 +431,56 @@ keyframes.js (22, `febb3bcd..d94017ff`): `.m` `dca116e1` (pin + lock) · `2598fb
 ### State
 
 **IMPLEMENTED 2026-09-23** — every addendum gate reads GREEN or carries the addendum-prescribed disposition (e2e *recorded* at `--workers=1` with load; producer remainders honest-RED and relayed; veil and trigger-clip honest-RED without local override). **VERIFIED: NO** — this seat is not designated to stamp it (a successor check's act). Four verbs: AUDITED YES · SPECIFIED YES · IMPLEMENTED YES · VERIFIED NO.
+
+## Check 1
+
+SERVED MODEL: claude-opus-5-5 · seat `KF.W13R` CHECK 1 (L-20 pass 1 on the Close; FRESH ADVERSARIAL; VERIFY-ONLY — 0 keyframes.js bytes, 0 glass bytes), 2026-09-23 · kf HEAD `d94017ff` = origin/master · glass-ui 10.0.1 installed · load ⟨`uptime`⟩ → 116.58 71.14 73.68 (at the e2e run 120.22).
+
+**Crash-recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → the two untracked coordination letters only; ⟨`git -C value.js status --porcelain`⟩ → nothing in this seat's set (record · LEDGER); sibling dirt (`ci.yml` · `ColorSpaceSelector.vue` · `CARRY-LEDGER.md` · `w12-ground.spec.ts` · `dev.sh` · untracked evidence dirs · `w12-drag.spec.ts`) untouched. No inherited partial work.
+**Read.** Spec `KF-W13.md` whole once (443 L; the W13R addendum `:365-373`, OA-41/48, §0cb, §0cd §1, §0cf `:437-440`, §0cj `:442-443`); this record header → Unit plan, the `.m` residuals (grep-located `:151-159`), the Close; COHESION §0ci R-5 · §0cj.
+
+### Axis readings
+
+| axis | reading (⟨cmd⟩ → output, this seat) | verdict |
+|---|---|---|
+| (1) claimed GREENs reproduce | G-R-pin ⟨`grep -n '"@mkbabb/glass-ui"' package.json`⟩ → `78: "10.0.1"`; installed + lock → `10.0.1` · `10.0.1` · G-R-exports ⟨`comm -23` demo/src subpaths ∖ installed exports⟩ → **0** · G-R-sheet ⟨`grep -rn 'glass-ui/drawer' demo \| wc -l`⟩ → 0; ⟨`grep -rln 'glass-ui/sheet' demo \| wc -l`⟩ → 1 · G-R-check ⟨`npm run check`⟩ → `PASS … 0 violations` **EXIT 0 · EXIT 0** · G-R-vitest ⟨`npx vitest run --project demo`⟩ → `66 passed (66)` · `518 passed (518)` EXIT 0 **×2** · eslint ⟨`npx eslint demo/app demo/components/instrument/transport demo/components/playback`⟩ → EXIT **0 · 0** · S4 QUIET-FOCUS-RING ⟨`KF_PLAYWRIGHT_DIR=<value.js> npm run demo:correctness -- --workers=1`⟩ → `✓ S4 … "ringPainted":true` · `.d` consumer clauses read off the committed evidence ⟨`report-after-gh1.json` top-expand-collapse expand1⟩ → `textBlurMorphFrames 0 · textBlurSettleFrames 0 · overshootPx 0 · rowsOverRest 0 · radSeq ["9999px"]` (served-page probes not re-driven — probe parsimony §5.2) | **7 of 7 reproduce** |
+| (1b) the e2e run itself (recorded clause) | same run, load 120: **2/6** — ✗ occlusion `easing/desktop/closed` · ✗ live-session B7 (`maxRest 0.16`, 91 glass) · ✗ live-session-mobile M1 OPEN/SCROLL (`--detent-t=0.36`, `761px content in a 194px body`) · ✗ subject-animates `[real-cube]` (the C6-3 intermittent, owned KF.W13V `.k` by §0cd §1); ✓ smoke · usability. The Close's 3/6 differs only by C6-3 | reproduces the three named reds; C6-3 intermittent INFO |
+| (2) bounds | ⟨`git -C keyframes.js rev-list --count febb3bcd..HEAD`⟩ → **22**; ⟨`git diff --name-only febb3bcd..HEAD \| grep -vE '^(demo/\|package\.json\|package-lock\.json\|vitest\.config\.ts)'`⟩ → **16** (7 `test/demo/instrument/*` · 4 `test/demo/app/*` · 2 `test/demo/scenes/*` · `test/demo/setup/jsdom-layout.ts` · 2 `scripts/observe/demo/live-session*.mjs`), each a §0bt adjacent edit the `.m` receipt names; `d94017ff` → `AnimationControlsGroup.css` only (`.d`'s `transport/**`). value.js `4bd9bef8 1ca41d12 5f9dcfe0 bbf8f1cf 96c8cdfa 8b419438 744ef4c9 16e04c84 2ed657b3` ⟨`git show --name-only`⟩ filtered against record · LEDGER · `evidence/W13R/**` · `relay/X-KF-BK-W13R*` · INBOX → **0** outside. `dev.sh` in no commit | GREEN |
+| (3) masking | ⟨`git diff febb3bcd..HEAD -- test scripts demo \| grep -cE '^\+.*(\.skip\(\|\.only\(\|\.todo\(\|it\.fails)'`⟩ → **0**; ⟨`… -- demo \| grep -E '^\+.*(catch *\(\|position: *fixed\|!important\|data-emphasis)'`⟩ → **0** (no consumer `fixed` on the sheet, Play's emphasis untouched, no local `:focus-visible` copy); test deltas read: `chrome-dock-containment` (2) re-seats `dock-overflow-wrap` onto 9.0.0's native scroll axis with the "never a clip" clause kept and a second negative assert added; `playback-ribbon-contract` ring regex moves `box-shadow` → `outline` (MIGRATION §8.0.0); `d54a6ab8` M1 oracle = pure selector/property rename (`.glass-drawer` → `[data-slot="sheet-content"]`, `--glass-drawer-t` → `--detent-t`), touch point unmoved; expect lines −2/+6 | GREEN — 0 masks |
+| (4) families | pin+lock ONE sha `dca116e1` (2 files); Drawer→Sheet ONE sha `29d2cc50` (wrapper .vue/.css + 2 test stub re-seats); the M1 oracle re-seat `d54a6ab8` followed as its own sha (R-m-6, recorded) | GREEN with one MINOR (below) |
+| (5) E-3 | ⟨`git diff --stat 4bd9bef8~1..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty; ⟨`git log --oneline 4bd9bef8~1..HEAD -- docs/tranches/X/keyframes/waves/KF-W13.md`⟩ → empty; working tree clean on both | GREEN |
+| (6) mail | ⟨INBOX rows with status `UNREAD`⟩ → **0**; ⟨`find` BK/coordination · kf/V/coordination · value.js/V/coordination `-newer INBOX.md`⟩ → **0** | GREEN |
+| (7) four verbs | Close: AUDITED YES · SPECIFIED YES · IMPLEMENTED YES · VERIFIED NO → this check stamps VERIFIED | lawful |
+| (8) goal at the bytes | kf is on glass 10.0.1 (not three majors behind); 4 absent subpaths → 0; the Drawer migrated to glass's Sheet at the root, no shim, no deep import; QUIET-FOCUS-RING cured by the repin with 0 consumer bytes; OA-41/48 consumer clauses GREEN, producer remainder relayed O-64 | MET (with the SHEET-POSITION producer regression recorded, not hidden) |
+| (9) published figures | 22 kf shas · 16 adjacent paths · 66/518 ×2 · check 0 ×2 · eslint 0 ×2 · exports 0 · pin 10.0.1 — all re-read identical | GREEN |
+
+### (10) Honest-RED adjudication — every red the Close left, at the spec bytes
+
+| red | relief at the bytes | owner | adjudged |
+|---|---|---|---|
+| **SHEET-POSITION** (M1 OPEN/SCROLL/RE-OPEN; successor of DRAWER-DETENT-REACH) | §0cd §1 assigns DRAWER-DETENT-REACH to this wave as two acts — `.m` migrates the Drawer to the Sheet at the root (`29d2cc50`, done), `.v` re-reads M1 at the unmoved point (done ×5); the cause is producer: glass 10.0.1 `SheetContent` defaults `surface: { default: "glass" }` (⟨`grep -o 'surface: { default: "glass" }' dist/sheet-BQJyER59.js`⟩ → 1), whose `.glass-floating` `position: relative` outranks the sheet's own `:where([data-slot="sheet-content"]){position: fixed}` in the same `@layer components` (⟨`dist/components/sheet/styles.css:1`⟩); a consumer `fixed` is the forbidden mask | glass **BL F-21** (⟨`grep -n 'F-21' glass-ui/docs/tranches/BL/audit/REGISTRY.md`⟩ → `:88 … BLOCKER`); re-read at the landing repin (§0cb R-5); §0ci R-5 keeps kf on 10.0.1 | **RELIEVED — producer-owned** |
+| **B7 SPECULAR-REST** | producer paint (`.dock-icon-button` glass `::before` rests 0.16); a consumer override is forbidden (§0cf law) | BL via O-64 (⟨`grep -il 'specular' relay/X-KF-BK-W13R-DOCK-MORPH.md`⟩ → hit) | **RELIEVED — producer-owned** |
+| **DOCK-MORPH-ROOT** (duration, first-morph snap) | the addendum `.d` prescribes it by id: *"whatever still fails is producer (DOCK-MORPH-ROOT, BL) with the 10.0.1 measurement relayed"* | BL via O-64 | **RELIEVED — spec-named** |
+| **GLASS-VEIL-GREY** | §0cf: *"record honest-RED GLASS-VEIL-GREY (O-62) … Never override the plate locally"*; §0ci R-5 | BL cut, O-62 | **RELIEVED — spec-named** |
+| **DOCK-TRIGGER-CLIP** | §0cj: honest-RED in KF.W13R `.v`; no kf ancestor clip found (`.v`) | O-63 | **RELIEVED — spec-named** |
+| **DARK-MENU-ITEM** | carried from KF.W13U's close relief | O-61 | **RELIEVED — carried** |
+| `[real-cube]` C6-3 (this seat's run only) | §0cd §1: *"stays owned by KF.W13V `.k` (KFA-17)"* | KF.W13V `.k` | **RELIEVED — spec-routed** |
+| **EASING occlusion `easing/desktop/closed`** | none dated. The addendum's e2e clause is *"the kf e2e suite at `--workers=1` with load recorded"* (recorded, met), so no addendum gate reads RED on it; but it is a consumer-layout regression this wave introduced (passes at 7.0.0), routed by the seat (R-m-3) to KF.W13V `.c`, whose OA-47 gate measures the Cube pane's height, not easing occlusion | KF.W13V `.c` (seat-routed, unruled) | **residual, MEDIUM (C1-1)** |
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | **MEDIUM** | The `easing/desktop/closed` occlusion is a consumer regression this wave introduced, with no dated relief; its route to KF.W13V `.c` is the seat's own, and `.c`'s gate does not measure it | kf e2e ×1 (this seat, load 120) ✗ occlusion `easing/desktop/closed`; Close `:421`, `.m` R-m-3 `:153`; W13V `.c` gate = Cube pane height (spec `:383`) | a dated addendum to KF.W13V `.c` (or `.k`) naming `easing/desktop/closed` occlusion ✓ as a gate clause; cured at the consumer root (the rail bounded above the menubar band), never an oracle change. Not blocking: the W13R addendum's e2e clause is *recorded* |
+| C1-2 | MINOR | The M1 oracle re-seat `d54a6ab8` landed as its own sha after the Drawer→Sheet commit `29d2cc50`; §0bt asks adjacent edits in the same commit | ⟨`git show --stat d54a6ab8`⟩ → `live-session-mobile.mjs` only; `.m` R-m-6 records it | none owed (recorded; the diff is a pure selector rename, touch point unmoved) |
+| C1-3 | INFO | The mobile controls sheet is unreachable at the pushed HEAD (SHEET-POSITION) — a user-visible regression against 7.0.0 | e2e M1 ✗ ×1 here, ×2 Close | producer (BL F-21); owner-ruled to stay on 10.0.1 by §0ci R-5; re-read at the landing repin |
+| C1-4 | INFO | My e2e run read 2/6, not the Close's 3/6: the extra red is `[real-cube]` C6-3 at load 120 | e2e log `subject-animates ✗ [real-cube]` | owned KF.W13V `.k` (§0cd §1) |
+
+### Successors — "Opens after"
+
+- **KF.W13V** — opens after *KF.W13R CLOSED* + *the two registers*: KF.W13R CLOSED → **GREEN at this check**; the registers exist (`docs/tranches/X/relay/X-KF-BK-ANIMATION-AUDIT.md` · `docs/tranches/X/audit/UI-AUDIT-keyframes.md`) → GREEN. Not blocked. It inherits C1-1.
+- No other wave names KF.W13R in its "Opens after"; X-W7L (value.js landing repin) waits on BL's cut, not on this wave.
+
+### Verdict
+
+**CONFORMANT-HONEST-RED** — 0 BLOCKER / CRITICAL / HIGH; 7 of 7 claimed GREENs reproduce; every red is relieved by the spec's own bytes or is producer-owned and relayed: **SHEET-POSITION · B7 SPECULAR-REST · DOCK-MORPH-ROOT · GLASS-VEIL-GREY · DOCK-TRIGGER-CLIP · DARK-MENU-ITEM**. The easing occlusion is carried as MEDIUM C1-1 to KF.W13V. Four verbs: AUDITED YES · SPECIFIED YES · IMPLEMENTED YES · **VERIFIED YES**. LEDGER → CLOSED 2026-09-17 (honest-RED …).
