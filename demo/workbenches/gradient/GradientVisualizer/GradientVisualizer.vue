@@ -265,15 +265,17 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 :style="{ '--tile-render': coalescedCSS }"
             />
 
-            <div class="flex flex-col gap-1">
+            <!-- X.W12.u2 (UIA-V-147): a radial render takes no angle, so the
+                 control leaves; for conic the angle is the sweep's start ("From"). -->
+            <div v-if="type !== 'radial'" class="flex flex-col gap-1">
                 <div class="flex items-center justify-between">
-                    <span class="section-label">Direction</span>
+                    <span class="section-label">{{ type === "conic" ? "From" : "Direction" }}</span>
                     <span class="text-mono-small text-muted-foreground tabular-nums"
                         >{{ direction }}&deg;</span
                     >
                 </div>
                 <Slider
-                    aria-label="Gradient direction"
+                    :aria-label="type === 'conic' ? 'Conic start angle' : 'Gradient direction'"
                     :model-value="[direction]"
                     :min="0"
                     :max="360"
