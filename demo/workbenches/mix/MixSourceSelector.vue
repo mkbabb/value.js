@@ -204,7 +204,8 @@ const swatchKeys = computed(() => {
                             key="__add__"
                             emphasis="text"
                             icon-only
-                            class="add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform"
+                            size="lg"
+                            class="add-slot-ghost shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform"
                             aria-label="Add current color to the mix"
                             :disabled="!canAddColor"
                             @click="addCurrentColor"

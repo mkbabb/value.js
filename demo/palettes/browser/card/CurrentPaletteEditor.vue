@@ -94,7 +94,8 @@
                             <Button
                                 emphasis="text"
                                 icon-only
-                                class="add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
+                                size="lg"
+                                class="add-slot-ghost btn-interactive shrink-0 cursor-pointer"
                                 :aria-label="`Add current color ${formatCssCaption(cssColorOpaque)} to palette`"
                                 @click="addCurrentColor"
                             >
