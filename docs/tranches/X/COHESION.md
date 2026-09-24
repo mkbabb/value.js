@@ -3524,3 +3524,13 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **O-78:** a root defect since 7.0.0, cured in glass **10.2.0** at one site. **Ruled for bbnf-buddy:** its `glass-10.1` branch does not merge with the shim. It waits for 10.2.0, then repins to 10.2.0, deletes the shim, and merges (it is local, with no remote). Until then bbnf-buddy's master stays on glass 3.9, working as before. All three tranche apps pick up the same menu fix at their 10.2.0 repin.
 - **O-79:** atlas's local `--paper-aged-texture` recreates a look the owner rejected ("metallic"). The atlas seat is told to adopt glass's successor (`--paper-grain-tooth` and its utilities), apply the provisional Button mapping additions (`link`→`text`, `destructive`→`tone`, `ai` tints with `--glass-accent`), and update PR #1. glass's MIGRATION.md gains the paper line and the variant table in 10.2.0.
 - **§0dl follow-up:** atlas `069708a` (PR #1 updated). The local aged texture is deleted, and the masthead grain, the callout chip and the dock contents list use glass's `--paper-grain-tooth`, `paper-grain-overlay` and `paper-underpaint`. No atlas Button uses `link`, `destructive` or `ai`. Gates: typecheck 0, tests 344/344 ×2, gates 31/31, build, attw and publint GREEN. **The merge waits only on a visual pass in sci-report**, which is a live session of its own, so this seat does not touch its tree.
+
+## §0dm — 2026-09-24: Track A returned; X-W12 NOT-CONFORMANT on two escalations, both ruled and re-homed; O-80
+- **Track A completed** (`wf_87c7b042-62b`). X-W12 is NOT-CONFORMANT after 2 repairs, for two reasons:
+  - **E-R1-1:** drag p95 over 16.7 ms on the 120 Hz panel. What remains is a whole-app recolour forced into layout by glass's dock-overflow `measure()`.
+  - **ESC-W12d-1:** four idle-park specs against the live-blob gate.
+- **Ruled (W12.md addendum (f)):**
+  - E-R1-1 has both halves. Glass: **O-80 DOCK-OVERFLOW-LAYOUT**, sent and mirrored. Consumer: colour custom properties scoped to the subtrees that read them, one write per frame. This is **X-W12U `.p`**, measured after X-W7L on the 120 Hz D1 cell, with the budget unchanged.
+  - ESC-W12d-1: the owner's live blob supersedes. The four specs are restated as an idle frame-cost budget with the hero live, and `HERO_FISSION_AMP` is not tuned. This is **X-W12U `.b`**.
+  - X-W12 then closes CONFORMANT-HONEST-RED.
+- **Track A is resumed.** The X-W12 note is "RESUME: no unit owed; close and check". The live chassis now also carries **X-W7L → X-W12U** (with `.p` and `.b`) before X-W8.
