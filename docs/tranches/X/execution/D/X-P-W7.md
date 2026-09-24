@@ -1573,3 +1573,10 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (b)
 **Unrelieved RED:** L-G1 Firefox (rej parseStylesheet, large parseStylesheet), which is C1-1.
 
 **Verdict: NOT-CONFORMANT.** One HIGH (C1-1), an unrelieved RED that has been escalated to the owner and not yet ruled. All 10 claimed GREENs reproduce: V-1 88 = F-b-4 · css-equiv 19/19 · test/css 58/58 · vue-tsc 0/0 · bbnf-lang 288/288 · L-G3 0 · K2-b 0 · V-8 0 · E-6 inside ceilings · Chromium/WebKit/node cells < 1 incl. WebKit large. Writes are in set, nothing is masked, the families are whole, E-3 held, 0 UNREAD, and the four-verb line did not move. **The LEDGER row stays `PARTIAL`, with no status edit.** An event line is appended.
+
+## Repair 1 (2026-09-24, repair seat round 1, `claude-opus-5-5`, Track D; answers `## Check 1`)
+- **Crash recovery:** no dirty path inside this unit's writable set (the record is clean at open; parse-that master's dirty rust/docs paths belong to other programs and are not touched).
+- **C1-1 (HIGH), L-G1 Firefox rej + large parseStylesheet RED → ESCALATED, not cured.** ADDENDUM (b) (W7.md:229) routes "a cause it cannot cure on some engine without regressing another" to the owner as a measured decision; `.l` already measured every admitted lever (the negated-run lever regresses Chromium ×1.054 / WebKit ×1.02; deferred text actions regress Chromium accepted ×1.087; engine splits barred by L-9). The remaining branches (a) run-length emission, (b) accept the negated-run costs, (c) record — are owner rulings, not a repair seat's. ⟨`grep -n ESC-W7l-1 docs/tranches/X/COHESION.md`⟩ → 0 hits (still unruled). No code change; no gate re-read owed (no bytes moved).
+- **C1-2 (INFO)** E-6 size variance 94,065 / 12,895 B vs 94,017 / 12,920: inside ceilings 125,646 / 14,517; cure none.
+- **C1-3 (INFO)** 27 vs 28 MIRROR-DEFECTS lines, every one 0; cure none.
+- **Commits:** this section only. **Cured:** 0. **Escalated:** 1 (ESC-W7l-1, owner). Row stays **PARTIAL**.
