@@ -955,3 +955,21 @@ Served s1-DOM at Sequence was not re-run. No byte since Check 1 touched it: `5cf
 KF.W13W opens after "KF.W13V" (spec `:447`). That conjunct is **RED** because this row is not CLOSED, so KF.W13W is lawfully **BLOCKED**. The other conjuncts: the Model/Record clauses are not gating. The §0co/§0cq routings into KF.W13W are GREEN as written. KF.W13W unblocks only when an orchestrator grant or ruling relieves C2-1..C2-3, or when successor seats cure them. A third repair round without such a grant cannot move them: Repair 1 measured this, and no grant has landed since.
 
 **SELF-COUNT**: gates reproduced 11 (the table rows: check · vitest · `[real-cube]` · C1-5 test · eslint · diff-check · s1-grep · k2 · k3 · k1-tally · u1-tally). Gates failed 3 (s1-DOM Sequence · k1 · u1). Register 5 rows: HIGH 3 · INFO 2 (⟨`grep -c '^- \*\*C2-'`⟩ on this section → 5).
+
+## Repair 2 (on Check 2's register)
+
+**Seat**: `claude-opus-5-5`, REPAIR round 2. **Date**: 2026-09-24. **kf HEAD** `5cf0f58a` = the Check 2 HEAD (⟨`git log --oneline 5cf0f58a..HEAD | wc -l`⟩ → 0). **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → 2 standing untracked inbound letters (not in any W13V set), 0 modified. There is no inherited partial work. **Bytes**: 0 kf, 0 glass, 0 product. This record and a LEDGER line only.
+
+### Defect → cure → commit → gate re-reading
+
+| defect | cure | commit | gate re-reading (×2, settled bytes) |
+|---|---|---|---|
+| C2-1 HIGH s1-Sequence | **ESCALATED (unchanged ESC-s-1).** The register's own cure is a design choice the orchestrator owns: (a) re-cut the re-time rows as transport channels, or (b) a Sequence mode on the shared Timeline pane. It can also be a dated re-home ruling. This seat was not granted `.s` successor authority, and picking (a) or (b) here would decide the owner's OA-46 design without a ruling. | — | ⟨`grep -c ESC-s-1 COHESION.md`⟩ → 0 · 0. No kf byte since Check 1: `stageEditors=6` (Check 1 census) stands. RED. |
+| C2-2 HIGH k1 | **ESCALATED.** Its cure is `.k` successor seats (183 rows, cured at cause per §0bl/§0bn) or a dated re-home by id. Neither is granted to a repair seat. A partial sweep would not change the gate verdict. | — | ⟨`grep -c 'OPEN — honest-RED, not cured this seat' W13V/k/split-table.md`⟩ → 183 · 183. RED. |
+| C2-3 HIGH u1 | **ESCALATED.** Its cure is `.u` successor seats (240 OPEN-CARRIED and the 17 SPLIT consumer halves) or a dated re-home by id. | — | ⟨awk col 4 of `W13V/u/DISPOSITION.md` \| grep OPEN-CARRIED\|SPLIT \| uniq -c⟩ → 240 · 17 and 240 · 17. RED. |
+| C2-4 INFO KFE-ORPHAN | Carried to the orchestrator, which names the row in KF.W13W or AUDIT-2. It is below MEDIUM and has no one-command cure inside the bounds, because deleting live tests is barred. | — | n/a |
+| C2-5 INFO vue-sonner | Carried. Removing it is a keyframes.js `package.json` pin edit, which no W13V grant covers and the adjacent-line rule excludes. | — | n/a |
+
+**Verdict**: NOT-CONFORMANT, unchanged. KF.W13V stays PARTIAL and KF.W13W stays BLOCKED until an orchestrator grant or a dated COHESION ruling relieves C2-1..C2-3. This is the second consecutive repair round that measured the same three RED gates, so a third round without such a ruling cannot move them.
+
+**SELF-COUNT**: cured 0 · escalated 3 (C2-1, C2-2, C2-3) · INFO carried 2 · gates re-read 3 ×2.
