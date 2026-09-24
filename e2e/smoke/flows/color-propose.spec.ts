@@ -74,7 +74,7 @@ test("propose cycle reaches 'Propose color name' state for an unnamed color", as
  * actually maintains — and the one nothing measured — is a THREE-part law
  * (`ActionBarLayer.vue:87-93`):
  *
- *   1. exactly one `.dock-layer` carries `is-active`, in every cycle state;
+ *   1. exactly one `.dock-face` (glass DockCrossfade, X.W12.e) carries `is-active`, in every cycle state;
  *   2. the other carries `inert` (so it is unreachable to pointer, keyboard
  *      and AT while it is crossfading out);
  *   3. a SUCCESSFUL propose returns the toolbar to `actions`.
@@ -98,17 +98,17 @@ test("the sub-layer cycle keeps exactly one active layer, the other inert", asyn
     });
 
     const grid = page.locator(".dock-layer-grid").first();
-    const layers = grid.locator("> .dock-layer");
+    const layers = grid.locator("> .dock-face");
     await expect(layers, "the grid hosts both sub-layers at once").toHaveCount(2);
 
     /** The invariant, asserted at whatever cycle state the toolbar is in. */
     const expectOneActiveOneInert = async (where: string) => {
         await expect(
-            grid.locator("> .dock-layer.is-active"),
+            grid.locator("> .dock-face.is-active"),
             `${where}: exactly one sub-layer is active`,
         ).toHaveCount(1);
         await expect(
-            grid.locator("> .dock-layer:not(.is-active)"),
+            grid.locator("> .dock-face:not(.is-active)"),
             `${where}: the inactive sub-layer is inert — a crossfading layer must not be reachable by pointer, keyboard or AT`,
         ).toHaveAttribute("inert", /.*/);
     };

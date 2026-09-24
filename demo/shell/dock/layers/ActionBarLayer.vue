@@ -14,13 +14,13 @@
  * carries neither the sub-layer nor its toggle, and the layer needs no scene
  * test of its own.
  */
-import { computed, inject, ref, useTemplateRef, watch, type Ref } from "vue";
+import { computed, inject, ref, watch } from "vue";
 import { EllipsisVertical, Type, Tag } from "@lucide/vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { SceneActionSet } from "../../../color-session/keys";
 import GenericActionBar from "./GenericActionBar.vue";
 import ColorInput from "../ColorInput.vue";
-import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockCrossfade, DockLayer, DockSeparator } from "@mkbabb/glass-ui/dock";
 import type { EditTarget } from "../../../color-session/color-model";
 
 const { actionSet, editTarget } = defineProps<{
@@ -80,74 +80,35 @@ const toggleLabel = computed(() => {
 });
 
 // ── Sub-layer transition (actions ↔ input) ──
-// V-W44 (Glass 7): glass-ui removed the standalone `useLayerTransition`
-// composable — the layer size-morph + crossfade folded INTO the DockCrossfade
-// component, which internalizes the class/inert packaging this template hand-
-// binds and offers no public composable successor. This local successor
-// preserves the exact two-refs contract the template needs: `currentLayer`
-// flips immediately on swap; `leavingLayer` holds the prior id for the
-// crossfade window, then clears. (Relay note for glass: a public
-// content-swap composable would retire this local shim.)
-const SUB_LAYER_CROSSFADE_MS = 260;
-function useLayerTransition(opts: {
-    containerEl: Ref<HTMLElement | null>;
-    activeLayer: Ref<string>;
-}) {
-    void opts.containerEl; // signature parity with the retired producer composable
-    const currentLayer = ref(opts.activeLayer.value);
-    const leavingLayer = ref<string | null>(null);
-    let timer: ReturnType<typeof setTimeout> | null = null;
-    watch(opts.activeLayer, (next, prev) => {
-        if (next === prev) return;
-        currentLayer.value = next;
-        leavingLayer.value = prev ?? null;
-        if (timer) clearTimeout(timer);
-        timer = setTimeout(() => {
-            leavingLayer.value = null;
-        }, SUB_LAYER_CROSSFADE_MS);
-    });
-    return { currentLayer, leavingLayer };
-}
-
-const subLayerGridEl = useTemplateRef<HTMLElement>("subLayerGridEl");
+// X.W12.e (OA-22): the sub-layer swap rides glass's own face-swap spine —
+// `<DockCrossfade :active>` hosting two `<DockLayer>` faces — on the ONE dock
+// spring (opacity overlap, peak reserve, inert + focus transfer all owned by
+// the producer). The local `useLayerTransition` successor (a 260 ms timer
+// copy of the retired producer composable, V-W44) is RETIRED with it: no
+// consumer copy of producer motion (SS-6/S-17).
 const activeSubLayer = computed(() => (showInput.value ? "input" : "actions"));
-const { currentLayer: currentSubLayer, leavingLayer: leavingSubLayer } =
-    useLayerTransition({
-        containerEl: subLayerGridEl,
-        activeLayer: activeSubLayer,
-    });
-
-function subLayerProps(id: "actions" | "input") {
-    const isActive = currentSubLayer.value === id;
-    return {
-        class: [
-            "dock-layer",
-            { "is-active": isActive, "is-leaving": leavingSubLayer.value === id },
-        ],
-        inert: isActive ? undefined : true,
-    };
-}
 
 defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
 
 <template>
     <div class="flex items-center gap-0 min-w-0">
-        <div ref="subLayerGridEl" class="dock-layer-grid flex-1">
-            <GenericActionBar
-                v-bind="subLayerProps('actions')"
-                :actions="actionSet.actions"
-                :accent-color="safeAccent"
-            />
-            <ColorInput
-                v-if="inputArm"
-                ref="colorInputRef"
-                v-bind="subLayerProps('input')"
-                :edit-target="editTarget"
-                :propose-mode="toolbarMode === 'propose'"
-                class="min-w-0"
-            />
-        </div>
+        <DockCrossfade :active="activeSubLayer" reserve="inline" class="dock-layer-grid flex-1">
+            <DockLayer id="actions">
+                <GenericActionBar
+                    :actions="actionSet.actions"
+                    :accent-color="safeAccent"
+                />
+            </DockLayer>
+            <DockLayer v-if="inputArm" id="input">
+                <ColorInput
+                    ref="colorInputRef"
+                    :edit-target="editTarget"
+                    :propose-mode="toolbarMode === 'propose'"
+                    class="min-w-0"
+                />
+            </DockLayer>
+        </DockCrossfade>
 
         <!-- The input arm's toggle rides the arm, not the layer: a scene that
              declares no input arm shows no control for it. -->
