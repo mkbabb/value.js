@@ -1614,3 +1614,11 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (b)
 **Unrelieved RED:** L-G1 Firefox rej + large parseStylesheet (C2-1).
 
 **Verdict: NOT-CONFORMANT.** One HIGH (C2-1). Every claimed GREEN reproduces (V-1 88 ×2 · css-equiv 19/19 · test/css 58/58 · vue-tsc 0/0 · bbnf-lang 288/288 + tsc 0 · L-G3 0 · K2-b 0 · V-8 0 · E-6 · WebKit rej/large < 1). **The LEDGER row stays `PARTIAL`; no status edit.** An event line is appended. **Adjacent edits: none. Out-of-set writes: none.**
+
+## Repair 2 (2026-09-24, repair seat round 2, `claude-opus-5-5`, Track D; answers `## Check 2`)
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D/`⟩ → empty at open; parse-that's dirty `rust/` + `.cargo` + `README.md` paths lie outside this unit's writable set and belong to other programs — not read, not touched.
+- **Ruling status re-read:** ⟨`grep -rn ESC-W7l-1 docs/tranches/X/COHESION.md`⟩ → 0 hits; ⟨`grep -n ADDENDUM docs/tranches/X/parse-that/waves/W7.md`⟩ → last is `:216` (b) (no ruling after it); ⟨`git log -3 -- COHESION.md W7.md`⟩ → `2d8e6eef` §0dg, `6d75f1e0` §0df, `459a7251` §0de — glass/keyframes rows only. **ESC-W7l-1 is still unruled.**
+- **C2-1 (HIGH), L-G1 Firefox rej + large parseStylesheet RED → ESCALATED, not cured.** The register's own cure is "the owner rules ESC-W7l-1 (a)/(b)/(c)". ADDENDUM (b) (W7.md:229) routes an engine-trade cause to the owner "as a measured decision, never as a quiet relaxation", and bars per-engine code paths and relaxation to "recorded". `.l` already measured every admitted lever against the four engines (Repair 1 lists them); each regresses another engine. No in-bounds idiomatic cure exists without the ruling; a repeat bench would move no bytes and so re-reads nothing new — Check 2's cells (Firefox rej 1.109, large 1.281, 0/11 each, clean; WebKit .74 / .577) stand as the measured reading.
+- **C2-2 (INFO)** 29 vs 27/28 MIRROR-DEFECTS lines, every one 0 (log layout); cure none.
+- **Gates re-read:** none — no product byte moved (this seat wrote only this section); Check 2's GREEN set (V-1 88 ×2 · css-equiv 19/19 · test/css 58/58 · vue-tsc 0/0 · bbnf-lang 288/288 · E-6 94,065 / 12,895) stands at HEAD `733a9207`.
+- **Commits:** this section only. **Cured:** 0. **Escalated:** 1 (ESC-W7l-1, owner). **Adjacent edits:** none. Row stays **PARTIAL**.
