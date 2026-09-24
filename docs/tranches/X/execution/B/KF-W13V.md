@@ -973,3 +973,43 @@ KF.W13W opens after "KF.W13V" (spec `:447`). That conjunct is **RED** because th
 **Verdict**: NOT-CONFORMANT, unchanged. KF.W13V stays PARTIAL and KF.W13W stays BLOCKED until an orchestrator grant or a dated COHESION ruling relieves C2-1..C2-3. This is the second consecutive repair round that measured the same three RED gates, so a third round without such a ruling cannot move them.
 
 **SELF-COUNT**: cured 0 · escalated 3 (C2-1, C2-2, C2-3) · INFO carried 2 · gates re-read 3 ×2.
+
+## Check 3 (L-20 pass 3 on Repair 2)
+
+**Seat**: `claude-opus-5-5`, VERIFY-ONLY (0 kf / glass / product bytes). **Date**: 2026-09-24 (sitting of record 2026-09-17). **kf HEAD** `5cf0f58a` = `origin/master` (⟨`git -C keyframes.js log --oneline -1`⟩ · ⟨`rev-parse --short origin/master`⟩). **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → 2 standing untracked inbound letters, 0 modified; value.js dirty paths (AdminTagsPanel · CARRY-LEDGER · X-P-W7.md · `scripts/dev/dev.sh` · untracked evidence) are sibling or unowned; none touched except this record and one LEDGER line.
+
+**Verdict: NOT-CONFORMANT, unchanged.** Repair 2 landed 0 bytes and re-escalated C2-1..C2-3. No ruling or grant has landed since: ⟨`grep -c ESC-s-1 COHESION.md`⟩ → 0; the COHESION tail is still §0cv (F.W14), and ⟨`git log 3cf8c284..HEAD -- KF-W13.md`⟩ → 0 commits. The three gates therefore stay RED with no relief in the spec.
+
+### Reproduced (×2, load 12.83 at start)
+
+| gate | command | result |
+|---|---|---|
+| floor `npm run check` | ⟨`npm run check; echo $?`⟩ | EXIT 0 · EXIT 0 |
+| floor demo vitest | ⟨`npx vitest run --project demo \| grep -E "Test Files\|Tests "`⟩ | 76/76 · 560/560 · 76/76 · 560/560 |
+| s1 grep | ⟨`grep -rln "KeyframesEditor\|…\|keyframes (editable)" demo/scenes \| wc -l`⟩ | 0 |
+| k1 tally | ⟨`grep -c 'OPEN — honest-RED, not cured this seat' W13V/k/split-table.md`⟩ | 183 · 183 (RED) |
+| u1 tally | ⟨awk col 4 of `W13V/u/DISPOSITION.md` \| grep OPEN-CARRIED\|SPLIT \| uniq -c⟩ | 240 · 17 (RED) |
+
+s1-DOM at Sequence is not re-run: no kf byte has landed since Check 1's census ×2 (`stageEditors=6`), so it stands RED.
+
+### Axes
+
+- **(1)** every GREEN claimed reproduces (above). **(2) bounds**: ⟨`git show --stat 7ca4c366`⟩ → this record + LEDGER only; ⟨`git log -1 -- scripts/dev/dev.sh`⟩ → `85cfea2c` (pre-X); clean. **(3) masking**: no byte, none. **(4) families**: one meaning per sha. **(5) E-3**: 0 commits to the spec, registry, audits since Check 2's base. **(6) mail**: ⟨`grep -c '| UNREAD' INBOX.md`⟩ → 1, the `:406` sweep line, not a row; ⟨find BK/coordination -newer INBOX⟩ → 0. Clean. **(7) four-verb**: IMPLEMENTED PARTIAL, VERIFIED NO; lawful. **(8) goal**: NOT MET (OA-46 Sequence inline; consumer KFA/UIA rows uncured). **(9) figures**: Repair 2's 183 and 240/17 reproduce. **(10)** below.
+
+### Register (severity · claim · receipt · cure)
+
+- **C3-1 HIGH** (= C2-1): G-W13V-s1 RED at Sequence (ESC-s-1 unruled). Receipt: `stageEditors=6` (Check 1) + kf HEAD unchanged; ESC-s-1 count 0. **Cure**: an orchestrator ruling picks (a) or (b) and grants an `.s` successor, or re-homes s1-Sequence by id to a named wave (e.g. KF.W13W).
+- **C3-2 HIGH** (= C2-2): G-W13V-k1 RED, 183 consumer KFA rows OPEN; the spec relieves glass rows only. **Cure**: granted `.k` successor seats or a dated re-home by id.
+- **C3-3 HIGH** (= C2-3): G-W13V-u1 RED, 240 OPEN-CARRIED + 17 SPLIT consumer UIA-KF rows. **Cure**: granted `.u` successor seats or a dated re-home by id.
+- **C3-4 INFO** (= C2-4 KFE-ORPHAN) · **C3-5 INFO** (= C2-5 vue-sonner): carried to the orchestrator.
+- **C3-6 INFO — the loop is dry.** Three checks and two repairs have measured the same three RED gates; only an orchestrator/COHESION act moves them. A further repair round without one is waste.
+
+### Honest-RED set (relieved, owner-named) — unchanged from Check 2
+
+`TILE-PRIMITIVE` (O-58/O-67, glass BL) · `SHEET-POSITION` · `B7 SPECULAR-REST` (KF.W13R §0cd classes, glass) · `SLIDER-THUMB` · `TOOLTIP-REVEAL-STATE` (O-72, glass) · `DARK-MENU-ITEM` · `QUIET-FOCUS-RING` · `DOCK-MORPH-ROOT` · `DOCK-SCROLL-MORPH` · `GLASS-SURFACE-PAINT-CONTAIN` · `KF-TIMELINE-FILL` · `GLASS-VEIL-GREY` · `DOCK-TRIGGER-CLIP` (§0br/§0cd/§0cf/§0cj, glass BL). **Unrelieved**: s1-DOM (Sequence) · k1 · u1.
+
+### Successors
+
+KF.W13W "Opens after: KF.W13V" (spec `:447`) is **RED**; KF.W13W is lawfully **BLOCKED**. Its §0co/§0cq routings are GREEN as written; they do not gate.
+
+**SELF-COUNT**: gates reproduced 5 (check · vitest · s1-grep · k1-tally · u1-tally). Gates failed 3 (s1-DOM Sequence · k1 · u1). Register 6 ids on 5 lines (⟨`grep -c "^- \*\*C3-"`⟩ → 5; C3-4 and C3-5 share a line): HIGH 3 · INFO 3.
