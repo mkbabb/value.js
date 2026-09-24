@@ -398,7 +398,10 @@ test("stop inspector numeric entry round-trips to the ordinal the rail paints", 
         "Stop 2 of 3",
     );
 
+    // X.W12.u2 (UIA-V-45): the field is glass's NumberField, which commits on
+    // Enter / blur (a half-typed entry is never a position).
     await main.getByTestId("gradient-stop-position").fill("37.5");
+    await main.getByTestId("gradient-stop-position").press("Enter");
 
     const seat = rail.locator(`[data-stop-id="${id}"]`);
     await expect(seat).toHaveAttribute("aria-valuenow", "37.5");

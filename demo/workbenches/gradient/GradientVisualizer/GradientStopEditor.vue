@@ -2,6 +2,7 @@
 import { ref, computed, watchEffect, useTemplateRef } from "vue";
 import { useElementSize } from "@vueuse/core";
 import { X } from "@lucide/vue";
+import { NumberField, NumberFieldInput } from "@mkbabb/glass-ui/number-field";
 import { clamp, scale } from "@mkbabb/value.js/math";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { PickerSpace } from "../../../color-session/picker-color";
@@ -446,19 +447,15 @@ function moveStop(stop: GradientStop, position: number) {
  * dragging at it. The field writes through the SAME sole mutator every other
  * gesture writes through, so entry and paint cannot disagree.
  *
- * An empty or half-typed field is a field mid-edit, not a position: it writes
- * nothing. That is not a masked failure — `type="number"` + `step` already
- * refuse non-numeric text at the platform level, and the field re-renders from
- * the model on every change, so the model is always the thing on screen.
+ * X.W12.u2 (UIA-V-45): the field is glass's NumberField (reka underneath), not
+ * a hand-rolled 5ch `<input type=number>` that cut "74.7" to "7‹". It parses,
+ * clamps to [0,100] and commits on Enter / blur / step, so a half-typed entry
+ * is never a position; a cleared field commits nothing.
  */
-function onPositionInput(e: Event) {
+function onPositionCommit(value: number | null | undefined) {
     const stop = selectedStop.value;
-    if (!stop) return;
-    const raw = (e.target as HTMLInputElement).value.trim();
-    if (raw === "") return;
-    const typed = Number(raw);
-    if (!Number.isFinite(typed)) return;
-    moveStop(stop, typed);
+    if (!stop || value == null || !Number.isFinite(value)) return;
+    moveStop(stop, value);
 }
 
 /**
@@ -711,19 +708,22 @@ function onCaretKeydown(e: KeyboardEvent) {
 
             <label class="stop-inspector-field flex items-center gap-1.5 text-caption">
                 <span class="text-muted-foreground">Position</span>
-                <input
-                    type="number"
-                    inputmode="decimal"
-                    data-testid="gradient-stop-position"
-                    class="stop-inspector-input"
-                    min="0"
-                    max="100"
-                    step="0.1"
-                    aria-label="Selected stop position, percent"
+                <NumberField
+                    class="stop-position-field"
+                    :model-value="selectedStop ? round1(selectedStop.position) : null"
+                    :min="0"
+                    :max="100"
+                    :step="0.1"
+                    :format-options="{ maximumFractionDigits: 1 }"
                     :disabled="!selectedStop"
-                    :value="selectedStop ? formatPercent(selectedStop.position) : ''"
-                    @input="onPositionInput"
-                />
+                    @update:model-value="onPositionCommit"
+                >
+                    <NumberFieldInput
+                        data-testid="gradient-stop-position"
+                        inputmode="decimal"
+                        aria-label="Selected stop position, percent"
+                    />
+                </NumberField>
                 <span class="text-muted-foreground" aria-hidden="true">%</span>
             </label>
 
@@ -995,18 +995,14 @@ function onCaretKeydown(e: KeyboardEvent) {
 .stop-inspector {
     padding-top: var(--rail-gutter);
 }
-.stop-inspector-input {
+/* X.W12.u2 (UIA-V-45): glass's NumberField owns the field's plate, padding,
+   radius and focus ring; the seat only sizes its CONTENT box for "100.0" in the
+   input's own tabular numerals (content-box, so glass's padding sits outside). */
+.stop-position-field :deep(input) {
+    box-sizing: content-box;
     inline-size: 5ch;
-    min-block-size: var(--rail-hit);
-    padding-inline: 0.375rem;
-    border-radius: var(--radius-sm, 0.375rem);
-    border: 1px solid var(--card-edge);
-    background: var(--well, transparent);
     font-variant-numeric: tabular-nums;
     text-align: end;
-}
-.stop-inspector-input:disabled {
-    opacity: 0.55;
 }
 .stop-inspector-remove {
     min-block-size: var(--rail-hit);
@@ -1026,7 +1022,6 @@ function onCaretKeydown(e: KeyboardEvent) {
     opacity: 0.55;
     cursor: not-allowed;
 }
-.stop-inspector-input:focus-visible,
 .stop-inspector-remove:focus-visible {
     outline: none;
     box-shadow:
@@ -1059,7 +1054,6 @@ function onCaretKeydown(e: KeyboardEvent) {
 @media (forced-colors: active) {
     .rail-handle:focus-visible,
     .rail-caret:focus-visible,
-    .stop-inspector-input:focus-visible,
     .stop-inspector-remove:focus-visible {
         outline: 2px solid Highlight;
         outline-offset: 2px;
