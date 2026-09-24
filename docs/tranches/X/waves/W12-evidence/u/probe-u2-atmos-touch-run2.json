@@ -1,0 +1,92 @@
+[
+ {
+  "vp": 390,
+  "touch": true,
+  "triggers": [
+   [
+    59,
+    33,
+    ""
+   ],
+   [
+    252,
+    62,
+    "Analogous"
+   ],
+   [
+    217,
+    62,
+    "Scattered"
+   ],
+   [
+    260,
+    63,
+    "Smooth"
+   ],
+   [
+    260,
+    63,
+    "Drifting"
+   ]
+  ],
+  "media": [
+   "Smooth",
+   "Pastel",
+   "Watercolor",
+   "Oil",
+   "Crayon",
+   "Van Gogh",
+   "Oil Pastel"
+  ],
+  "rows": [
+   "Color Energy 0.76",
+   "Noise 0.50",
+   "Zones 6"
+  ]
+ },
+ {
+  "vp": 1440,
+  "touch": false,
+  "triggers": [
+   [
+    60,
+    32,
+    ""
+   ],
+   [
+    908,
+    40,
+    "Analogous"
+   ],
+   [
+    867,
+    40,
+    "Scattered"
+   ],
+   [
+    918,
+    40,
+    "Smooth"
+   ],
+   [
+    918,
+    40,
+    "Drifting"
+   ]
+  ],
+  "media": [
+   "Smooth",
+   "Pastel",
+   "Watercolor",
+   "Oil",
+   "Crayon",
+   "Van Gogh",
+   "Oil Pastel"
+  ],
+  "rows": [
+   "Color Energy 0.76",
+   "Noise 0.50",
+   "Zones 6"
+  ]
+ }
+]

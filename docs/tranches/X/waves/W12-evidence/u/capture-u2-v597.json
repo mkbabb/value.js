@@ -1,0 +1,16 @@
+[
+ {
+  "vp": 1440,
+  "scheme": "light",
+  "chips": 1,
+  "removeDisabled": true,
+  "removeName": "Remove lab(92% 88.8 20) from the mix"
+ },
+ {
+  "vp": 390,
+  "scheme": "dark",
+  "chips": 1,
+  "removeDisabled": true,
+  "removeName": "Remove lab(92% 88.8 20) from the mix"
+ }
+]

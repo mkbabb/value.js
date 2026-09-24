@@ -1,0 +1,92 @@
+[
+ {
+  "vp": 1440,
+  "scheme": "light",
+  "triggers": [
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ]
+  ],
+  "readouts": [
+   "Colour Energy 0.76",
+   "Noise 0.50",
+   "Zones 6"
+  ],
+  "options": [
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ]
+  ]
+ },
+ {
+  "vp": 390,
+  "scheme": "dark",
+  "triggers": [
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ]
+  ],
+  "readouts": [
+   "Colour Energy 0.76",
+   "Noise 0.50",
+   "Zones 6"
+  ],
+  "options": [
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ]
+  ]
+ }
+]

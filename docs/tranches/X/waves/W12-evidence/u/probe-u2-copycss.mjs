@@ -1,0 +1,20 @@
+// SERVED MODEL: claude-opus-5-5 — X.W12.u2: gradient Copy CSS confirms itself (UIA-V-145).
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import { writeFileSync } from "node:fs";
+const BASE = process.env.BASE ?? "http://localhost:9000";
+const OUT = new URL(".", import.meta.url).pathname;
+const b = await chromium.launch({ headless: true });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, permissions: ["clipboard-read", "clipboard-write"] });
+const p = await ctx.newPage();
+await p.goto(`${BASE}/?color=%23abcdef#/gradient`, { waitUntil: "domcontentloaded", timeout: 120000 });
+const btn = p.locator('[title^="Copy rendered CSS"]').first();
+await btn.waitFor({ timeout: 60000 });
+await p.evaluate(() => navigator.clipboard.writeText("SENTINEL"));
+const before = await btn.getAttribute("title");
+await btn.click(); await p.waitForTimeout(200);
+const r = { before, after: await p.locator('[title="Copied rendered CSS"]').count(), clip: (await p.evaluate(() => navigator.clipboard.readText())).slice(0, 80) };
+await p.waitForTimeout(1800);
+r.reset = await p.locator('[title^="Copy rendered CSS"]').count();
+await b.close();
+writeFileSync(`${OUT}probe-u2-copycss${process.env.RUN ?? ""}.json`, JSON.stringify(r, null, 1));
+console.log(JSON.stringify(r));

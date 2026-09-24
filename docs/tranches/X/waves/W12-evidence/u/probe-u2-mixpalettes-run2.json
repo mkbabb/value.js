@@ -1,0 +1,26 @@
+{
+ "rest": [
+  {
+   "pressed": "false",
+   "opacity": "1",
+   "name": "rgb(112, 89, 66)"
+  },
+  {
+   "pressed": "false",
+   "opacity": "1",
+   "name": "rgb(112, 89, 66)"
+  }
+ ],
+ "oneSelected": [
+  {
+   "pressed": "true",
+   "opacity": "1",
+   "name": "rgb(28, 25, 23)"
+  },
+  {
+   "pressed": "false",
+   "opacity": "1",
+   "name": "rgb(112, 89, 66)"
+  }
+ ]
+}

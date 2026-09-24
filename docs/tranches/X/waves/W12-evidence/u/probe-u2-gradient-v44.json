@@ -1,0 +1,88 @@
+[
+ {
+  "vp": 1440,
+  "scheme": "light",
+  "triggers": [
+   [
+    224,
+    493,
+    334,
+    529
+   ],
+   [
+    346,
+    493,
+    456,
+    529
+   ],
+   [
+    468,
+    493,
+    578,
+    529
+   ]
+  ],
+  "tile": [
+   590,
+   462,
+   686,
+   596
+  ],
+  "overlaps": 0,
+  "docW": 1440,
+  "pos": {
+   "tag": "INPUT",
+   "type": "number",
+   "val": "",
+   "w": 42,
+   "sw": 40,
+   "cw": 40
+  },
+  "dirOnRadial": 2,
+  "dirOnConic": 2,
+  "dirLabelConic": "Direction"
+ },
+ {
+  "vp": 390,
+  "scheme": "dark",
+  "triggers": [
+   [
+    33,
+    583,
+    357,
+    619
+   ],
+   [
+    33,
+    659,
+    357,
+    695
+   ],
+   [
+    33,
+    735,
+    357,
+    771
+   ]
+  ],
+  "tile": [
+   33,
+   456,
+   357,
+   536
+  ],
+  "overlaps": 0,
+  "docW": 390,
+  "pos": {
+   "tag": "INPUT",
+   "type": "number",
+   "val": "",
+   "w": 36,
+   "sw": 34,
+   "cw": 34
+  },
+  "dirOnRadial": 2,
+  "dirOnConic": 2,
+  "dirLabelConic": "Direction"
+ }
+]
