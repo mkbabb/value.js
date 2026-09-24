@@ -566,3 +566,105 @@ Per-meaning commits were cut by re-applying each cure's hunks onto a clean worki
 - RED: Z-3, since no relays are sent and no COHESION rows are written, to avoid false state.
 
 **Commits (value.js):** this receipt, plus one LEDGER event line. **bbnf-lang:** none (PR #1 opened server-side).
+
+## Close
+
+**Seat:** `claude-opus-5-5`, 2026-09-24 (close seat, verify-only; cures nothing). **Verdict: PARTIAL.** `.o` and `.t` are DONE. `.p`, `.e` and `.v` landed every cure their writable bytes reach. What remains is (i) the npm `EOTP` owner act: parse-that 2.0.0 and `@mkbabb/bbnf-lang` 0.2.0 are not on the registry, so V-9, the CI `--check` step, E-8, P-6 and `.z`'s Z-1/Z-3/Z-4-merge wait (ESC-W7p-1 = ESC-W7e-1 = ESC-W7v-1 = ESC-W7z-1); and (ii) the ruling on accepted `parseKeyframeSelector`, which still reads above 1.00 (K-1 RED, ESC-W7k-1 with ESC-W7v-2 / ESC-W7z-2).
+
+**Open.** I read the spec whole (190 lines, incl. the §0ck addendum). From this record I read the header through the Unit plan and each unit receipt's status, gates, residuals and escalations (by grep and sed ranges). There is no prior Close, Check or Repair section. **Crash recovery:** ⟨`git status --porcelain docs/tranches/X/execution/`⟩ → only `B/KF-W13V.md` (Track B's; untouched). ⟨`git -C ../parse-that-x-p-w7 status --porcelain`⟩ → empty. ⟨`git -C ../bbnf-lang-x-p-w7-typescript status --porcelain`⟩ → empty. parse-that master's dirty `rust/**` rows belong to another program and were untouched. **No inherited work.**
+
+### Act 1: commit roster, and whether each unit stayed in its writable set
+⟨`git show --name-only --format= <c>`⟩ for each commit:
+
+| Unit | Commits | Paths touched | In set? |
+|---|---|---|---|
+| `.o` | value.js `1c7b67f0` · `1bd030b0` · `9da28444` · `2bf1b352` · `ae846e2e` | `bench/css-parse.bench.ts`, `bench/paired/**`, `bench/records/2026-09-23-x-p-w7-o-product{,-r2}.json`, `DIVERGENCE-LEDGER.md`, this record | yes |
+| `.p` | parse-that `x-p-w7` `99d8f8e` · `41575eb` · `1168bc2` · `659d24d` · `8544424` · `4940e85` · `96e68e9` (= `origin/x-p-w7`); value.js `3c53b040` | `typescript/test/benchmarks/paired/*`, `typescript/src/parse/{parser,state,utils,leaf}.ts`, `typescript/test/x-p-w7-cures.test.ts`, `typescript/CHANGELOG.md`, `docs/x-p-w7-2026-09-23-addendum.md`, this record | yes |
+| `.t` | bbnf-lang `48d5fba61`..`b35836fec` (10); value.js `64b54ee5` · `727625f5` | `typescript/**` only, per ⟨`git diff --name-only origin/master...origin/x-p-w7-typescript \| grep -vc '^typescript/'`⟩ → `0` | yes |
+| `.e` | bbnf-lang `79330801c` · `a02e71936` (inherited) · `68e1ea7ea`..`373ca34a6` (8); value.js `78bced17` | `typescript/**` (same reading) | yes |
+| `.v` | value.js `3cdd4888` · `93aaea4e` · `07732e1d` | `scripts/gen-grammar.mjs`, `src/css/bbnf/**` (incl. `generated/`), `src/css/grammar/*.bbnf` (incl. new `css.bbnf`), `test/css/bbnf-depth.test.ts`, this record | yes |
+| `.k` | value.js `065ba11e` · `3d4029fa` | `src/css/bbnf/index.ts`, this record | yes |
+| `.z` | value.js `07f048d1` · `113580e3`; bbnf-lang PR #1 opened on the server | this record, `LEDGER.md` | yes |
+
+**Landed wrong: none.** Every commit is inside its unit's writable set. No `package.json`, `ci.yml` or `rust/**` path is touched, and neither is `scripts/dev/dev.sh`.
+
+### Act 2: every gate re-read by this seat (value.js HEAD `5603b398`; ⟨`git log 065ba11e..HEAD -- src/css package.json package-lock.json`⟩ → empty, so the product bytes are `.k`'s)
+
+**`.o`**
+- **O-1** BEFORE absent → `.o` GREEN ×2. Re-read ⟨`node bench/paired/oracle.mjs check`⟩ ×2 → `O-1 RED regenerated fb55a501… · stored 8f6ed13f… · pinned 8f6ed13f… · 1401722 rows · harvest 25179`. Reading: the frozen fixture is intact, because stored = pinned = `8f6ed13f…`. `check` regenerates from `_build/product.mjs`, and that is the ADOPTED module now. By design it can no longer reproduce the pre-move freeze: the 88 F-b-4 rows now answer differently, and the reader-shaped harvest grew from 25,167 to 25,179 because readers that used to refuse now pass more argument lists on. O-1 was a pre-move gate ("before anything moves"), and it held when `.o` read it. The post-move reading of record is V-1 below. **Recorded, not a regression.**
+- **O-2** and **O-3** were pre-move product readings. The product has since moved, and in this seat's run O-2 reads `DOES NOT HOLD` (the product is now faster). `.o`'s banked records `2bf1b352` stand for both.
+- **O-4** ⟨`git show --stat --format= 1c7b67f0 1bd030b0 9da28444 2bf1b352 -- src/`⟩ → empty. **GREEN.**
+
+**`.p`** (worktree `../parse-that-x-p-w7`, `96e68e9` = `origin/x-p-w7`)
+- **P-1/P-2/P-3** ⟨`npx vitest run`⟩ ×2 → `Test Files 15 passed (15)` · `Tests 143 passed (143)`. The P-1..P-3 laws are in `x-p-w7-cures.test.ts`. ⟨`grep -rn "Object.create(state" src/parse`⟩ → 0. `console.error` appears only as the opt-in `debug.ts:355` logger default. **GREEN.**
+- **P-4** ⟨`npm run proof:all`⟩ ×2 → 9 PASS/GREEN lines (manifest, subpath, 4 packrat, no-span, no-dead-combinator, no-css-surface) and `FAIL: proof:perf`. That is the ruled reading (clause (C) = PT-PERF-LOAD, retired into R-3 by §0ci; R-p-1). **GREEN in the ruled reading.**
+- **P-5**: I cite `.p`'s ×2 readings (every entry ≤ 1.00 vs 0.8.2) and did not re-time them. The parse-that source is unchanged since `96e68e9`.
+- **P-6** ⟨`npm view @mkbabb/parse-that versions --json | tail -3`⟩ → `"0.13.0", "1.0.0"`. **RED: 2.0.0 is unpublished (ESC-W7p-1).**
+
+**`.t` / `.e`** (bbnf-lang `x-p-w7-typescript` = `373ca34a6` = `origin/x-p-w7-typescript`; the worktree is clean)
+- **T-6 / preflight**: ⟨`git diff --name-only origin/master...origin/x-p-w7-typescript | grep -vc '^typescript/'`⟩ → `0`. **GREEN.**
+- **T-1 and the E-gate suite**: ⟨`cd typescript && npx vitest run`⟩ ×2 → `Test Files 16 passed (16)` · `Tests 277 passed (277)`. **GREEN.**
+- **T-2..T-5, E-1..E-7**: I cite the receipts' ×2 readings on `b35836fec` / `373ca34a6`. The branch has not moved since then, so a re-run reads the same bytes.
+- **E-8** ⟨`npm view @mkbabb/bbnf-lang versions --json | tail -3`⟩ → `"0.1.3", "0.1.4"`. **RED: 0.2.0 is unpublished (ESC-W7e-1).**
+
+**`.v` / `.k`** (value.js)
+- **V-1** ⟨`node bench/paired/equiv.mjs product <out>`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 88 (ASCII-only sources 0)`. By section: `entry:parseCssValue` 4, `entry:parseCssValues` 4, `reader:functionParam` 11, `reader:splitTopLevel(,)` 13, `(;)` 11, `(space)` 45. Keyed on (section, key) against `bench/paired/oracle/F-b-4.json` ×2 → `88 ∩ 88 = 88`, 0 missing rows, so the difference is exactly the §0ck 1 rows. **GREEN.**
+- **V-2** ⟨`npm run test:css-equivalence`⟩ ×2 → `Tests 19 passed (19)`, and ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0`. ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit`⟩ → 0 errors. I did not re-run the whole `npm test`: `.v` read it at 908/910 with R-v-2 as the foreign G16 A1, and it is cited. **GREEN on the CSS reading.**
+- **V-7** ⟨`grep -rn GRAMMAR_MODULES src/css/bbnf | wc -l`⟩ → `0` · ⟨`grep -rnE "reset\(\)|new ParserState" src/css/bbnf | wc -l`⟩ → `0`. **GREEN.**
+- **V-8** ⟨`npx vitest run test/css/bbnf-depth.test.ts`⟩ → `Tests 2 passed (2)`. **GREEN.**
+- **V-9** ⟨`node -e` over `package.json`⟩ → deps `{"@mkbabb/bbnf-lang":"0.1.4","@mkbabb/parse-that":"0.8.2"}` · devDeps `{}`. **RED (ESC-W7v-1).** CI: ⟨`grep -n 'bbnf\|gen-grammar' .github/workflows/ci.yml`⟩ → 0 hits. **The step is not landed (ESC-W7v-1).**
+- **V-4, V-5, V-6**: I cite `.v` and `.k`. V-4 is GREEN. V-5 and V-6 are RED (Firefox parseStylesheet/color, WebKit large, and accepted keyframe on every engine; ESC-W7v-2). With probe parsimony, no browser was re-launched on the unchanged bytes.
+
+- **V-3 / K-1 / Z-2 (timing, this seat, ×2).** ⟨`node bench/paired/build.mjs`⟩ → provenance `valuejsHead 5603b398…`, `srcDirty ""`, `bankedManifestOk 79/79`. Then ⟨`node --expose-gc bench/paired/isolated.mjs close-r{1,2} product 3 11 whole,acc`⟩. Load: r1 was about 53–59 during its cells; r2 ⟨`uptime`⟩ read `37.13 43.50 50.64` → `29.38 40.16 48.90`. Set aside and counted: r1 22 of 61 cells, r2 2 of 44. Clean-cell medians, product/retired, r1 · r2:
+  - whole: color .730 · .708, scalar .678 · .671, value .456 · .455, values .451 · .451, keyframe .657 · .657, timing .706 · .739, stylesheet .725 · .711. Instrument verdict `whole-7/7 GREEN 7/7` ×2, every median inside its V-3 ceiling (.90/.81/.57/.58/.78/.87/.85). **V-3 whole: GREEN.**
+  - accepted: color .653 · .690, scalar .696 · .689, value .407 · .405, values .440 · .437, **keyframe 1.300 (1.400/1.298/1.300) · 1.317 (1.325/1.317/1.297)**, timing .910 · .888, stylesheet .841 · .811. Verdict `accepted-7/7 RED 6/7` ×2. **K-1: RED (ESC-W7k-1). Z-2: RED.**
+  - The records are in scratchpad `close/2026-09-23-x-p-w7-close-r1.json` (sha256 `58e0dd230e23…`) and `-r2.json` (`b33c10863c52…`). They are not banked, because this is not the published-pin reading `.z` owes.
+- **Z-1 / Z-3**: RED as `.z` left them, since neither package is published (see P-6 and E-8). **Z-4**: the preflight is GREEN (T-6), PR #1 is ⟨`gh pr view 1 --json state,mergeable,headRefOid`⟩ → `OPEN MERGEABLE 373ca34a6…`, and local master is `af15f63e0`, unchanged. **The merge is HELD.**
+
+### Acts 3 and 4: verification artefacts and E13
+- The §Verification artefacts are the instrument, the oracle and the bench records. I ran them as written above: `oracle.mjs check` ×2, `equiv.mjs product` ×2, and `build.mjs` + `isolated.mjs close-r{1,2} product 3 11 whole,acc` (records in scratchpad `close/`, not banked to `bench/records/`, which is `.o`/`.z`'s set). The judge's banked MANIFEST was re-checked by `build.mjs` → `bankedManifestOk 79/79`, `srcDirty ""`.
+- **E13** ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/`, glass-ui `BK/coordination/` + `BL/` (⟨`ls -t glass-ui/docs/tranches`⟩ → `BL BK BJ`), keyframes.js `V/coordination/` and atlas `P/coordination/` → `0` in all six. **0 UNREAD in scope.**
+
+### Residuals (named owners)
+- **ESC-W7p-1 = ESC-W7e-1 = ESC-W7v-1 = ESC-W7z-1 (owner act, npm `EOTP`).** Owner: the owner, then Track D. The chain runs in this order:
+  1. parse-that 2.0.0 from `../parse-that-x-p-w7/typescript`: `npm publish --access public --otp=<code>`.
+  2. bbnf-lang: the lockfile regenerates on `x-p-w7-typescript` (R-t-1), then `.e`'s gates, then 0.2.0 is published (E-8).
+  3. value.js: the ESC-W7v-1 seat pins 0.2.0 as a devDependency, removes parse-that from runtime and appends the CI `--check` step (V-9).
+  4. `.z` re-opens on its recipe.
+- **ESC-W7k-1 + ESC-W7v-2 + ESC-W7z-2 (ruling).** Owner: the orchestrator/owner, via a COHESION addendum. Accepted `parseKeyframeSelector` is above 1.00 on every engine. `.k` measured the floor in `math.ts`'s `percentage` action (`tokenQuantity` + `quantity`'s freeze), which is `.v`'s set. The ruling needs to grant `math.ts` (and the emitter, if the leaf split is chosen). Firefox and WebKit-large (V-5/V-6) are candidates for emitter levers (W7.md (g)).
+- **R-z-1.** bbnf-lang PR #1 is OPEN and MERGEABLE at `373ca34a6` (⟨`gh pr view 1`⟩ re-read), and its merge is held until the publishes. Owner: `.z` re-open. ⟨`git -C ../bbnf-lang rev-parse --short master`⟩ → `af15f63e0`, unchanged.
+- **R-z-2.** The relays (W7.md 141–148) and the COHESION addendum (RES-x-1, OC-1 speed half, BBNF-TS-TOOLCHAIN, F-b-1..4, F-p-EOF) are owed at the `.z` re-open. Owner: `.z`.
+- **R-p-1.** `proof:perf` clause (C) should be restated on the paired instrument. Owner: parse-that's own program.
+- **R-v-2.** `demo/test/color-session` G16 A1 is foreign to this wave. Owner: Track A X.W12.t.
+- **R-v-3 / R-e-3.** The instrument's `large` class runs at k = 1, and A/A noise reaches about 1.03 under load. Owner: `.z` re-open (instrument, `bench/**`).
+- **R-k-2.** Accepted `parseTimingFunction` has the next-closest margin (.82–.98). Any change to the action layer must re-read it.
+- **R-close-1.** `oracle.mjs check` regenerates from the moved product, so it reads RED by construction after `.v` (see O-1). A later seat may add a mode that reads it against the frozen pre-move arm, or read V-1 alone. Owner: `.z` / `bench/**`.
+
+### Gate table, BEFORE → AFTER (AFTER = this seat's reading, or cited where marked)
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| O-1 / O-2 / O-3 / O-4 | absent / no instrument / unminted / — | GREEN / HOLDS / RED-as-required at `.o` (pre-move, banked); O-4 GREEN; O-1 `check` now RED by construction on the moved product (R-close-1) |
+| P-1 / P-2 / P-3 | RED (`Object.create(state)`, `console.error`, EOF) | GREEN (143/143 ×2) |
+| P-4 | 134/134; proof:all 1–9 | 143/143 ×2; proof:all 9 GREEN, `proof:perf` (C) = ruled PT-PERF-LOAD ×2 |
+| P-5 | — | GREEN ×2 (cited, `.p`); `90d4ec5` kept |
+| P-6 | 2.0.0 unpublished | **RED**: unpublished (EOTP) |
+| T-1 / T-6 | no `typescript/` | GREEN (277/277 ×2; 0 non-`typescript/` paths) |
+| T-2..T-5 · E-1..E-7 | RED at open | GREEN (cited ×2, bytes unmoved `373ca34a6`); E-7 per-cell ≤1.02 = medians (R-e-3) |
+| E-8 | 0.1.4 | **RED**: 0.2.0 unpublished |
+| V-1 | 0 (stock) | GREEN ×2: 88 = F-b-4 rows exactly |
+| V-2 | 19/19; 908/910 | GREEN ×2 (19/19, MIRROR-DEFECTS 0; vue-tsc lib 0); npm test cited |
+| V-3 whole · rejected | stock 1.33–2.58 | GREEN 7/7 ×2 inside ceilings · rejected cited GREEN (`.v`/`.k`) |
+| V-3 accepted = K-1 | stock 0/7 | **RED 6/7 ×2** (keyframe 1.300 / 1.317) |
+| V-4 · V-7 · V-8 | RED | GREEN (V-4 cited; V-7/V-8 re-read) |
+| V-5 · V-6 | — | **RED** (cited; ESC-W7v-2) |
+| V-9 + CI step | runtime deps both | **RED** (ESC-W7v-1) |
+| Z-1 · Z-2 · Z-3 | — | **RED** (unpublished pins; accepted keyframe; relays/COHESION owed) |
+| Z-4 | — | preflight GREEN · master unchanged GREEN · merge HELD |
+
+### Escalations (carried open, none new)
+ESC-W7p-1 / ESC-W7e-1 / ESC-W7v-1 / ESC-W7z-1 (owner act: npm OTP publish chain) · ESC-W7k-1 / ESC-W7v-2 / ESC-W7z-2 (ruling: grant the action layer `src/css/bbnf/math.ts` and the emitter levers for accepted keyframe, Firefox and WebKit-large). **This seat raises no new escalation. Adjacent edits: none. Out-of-set writes: none.** The bench records went to the scratchpad; `_build/` is git-ignored.
+
+### Four-verb line
+W7.md has no §State clause that designates this seat to stamp a verb. X.P.W7 is therefore **not IMPLEMENTED**: it stays **PARTIAL**, and VERIFIED is not stamped. It moves to IMPLEMENTED when the publish chain lands and the ESC-W7k-1 ruling is executed, and a re-opened `.z` then reads Z-1..Z-4 GREEN.
+
+**Commits (this seat):** this Close, plus the LEDGER row cell.
