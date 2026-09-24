@@ -18,7 +18,7 @@
                     <WatercolorDot
                         :color="color"
                         :variant="ghost ? 'ghost' : 'solid'"
-                        class="absolute inset-0"
+                        class="w-full h-full"
                     />
                 </Button>
             </PopoverTrigger>

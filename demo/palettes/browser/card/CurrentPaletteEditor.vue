@@ -102,9 +102,9 @@
                                     :color="cssColorOpaque"
                                     variant="ghost"
                                     seed="add-current-slot"
-                                    class="absolute inset-0"
+                                    class="w-full h-full"
                                 />
-                                <Plus class="relative w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
+                                <Plus class="absolute w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
                             </Button>
                         </TooltipTrigger>
                         <TooltipContent class="text-mono-small">
@@ -287,7 +287,9 @@ function confirmUpdatePalette() {
  * overlay's FROM slot now consume the glass-ui WatercolorDot ghost variant
  * (the seeded dashed silhouette; one shape source, producer-owned). */
 
-/* The add-slot host Button paints the ghost dot behind a centred Plus glyph. */
+/* The add-slot host Button fills with the ghost dot (the dot's own inline style
+ * pins position:relative, so it sizes by w/h, never by inset); the Plus glyph is
+ * the absolutely placed child, centred at its flex static position. */
 .add-slot-ghost {
     position: relative;
     display: inline-flex;
