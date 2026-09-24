@@ -71,3 +71,97 @@ Frame: `keyframes/evidence/W13W/open/before-easing-gallery-1440-light.png`. The 
 
 ## Unit receipts
 
+
+### KF.W13W.c
+
+**Seat**: `claude-opus-5-5` · 2026-09-24 · spec `KF-W13.md :449-462` (the law + `[KF.W13W.c]`), locks `:454-455`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → only the 2 standing inbound mail packets; 0 paths under `demo/**` / `test/demo/**`; value.js 0 dirty under `evidence/W13W/c/**` or this record. No inherited work. kf HEAD = `a939e7d6` (clean) = the pre-cure bytes; dev server `localhost:5173` (cwd keyframes.js, verified by `lsof`).
+
+**kf bytes**: none. No test seam was needed (the falsifier reads the served DOM through existing selectors), so `demo/**` and `test/demo/**` are untouched. **Adjacent edits**: none.
+
+#### Act 1 — census (grep + served), each site ruled
+
+Grep: ⟨`grep -rnE '<path|<polyline|<canvas|:d="' demo --include='*.vue'`⟩ · ⟨`grep -rnE 'progress-ball|class="[^"]*\bball\b|carriage|traveller' demo --include='*.vue'`⟩ · ⟨`grep -nE 'ball|dot|playhead|circle|progress' glass-ui/src/components/easing/{EasingCurve,EasingPicker}.vue`⟩ (read-only). Served: `evidence/W13W/c/served-census.mjs`: 7 routes, Play pressed, every visible round element ≤28 px whose centre moves over 400 ms, with its nearest visible svg path.
+
+**LAW sites** are plots of an easing or a simulation with a moving marker. The falsifier measures them, and each must read RED now:
+
+| # | site | bytes (a939e7d6) | geometry today | falsifier id |
+|---|---|---|---|---|
+| L1 | easing gallery tiles (28) = the easing scene's plot. The singular hero was promoted into the gallery, so no separate main plot exists: `EasingTarget.vue:1-10` | `EasingTarget.vue:133-148` (`.tile-sparkline path` · `.progress-rail.tile-rail` · `.tile-ball`) | curve in a 0..1 svg; ball `translateX` on a mid-height rail | `easing-gallery-tiles` |
+| L2 | dock easing mini (living icon, `.d2`), live on `#/easing` (trigger + collapsed face = 2) | `EasingMini.vue:57-63` (`svg.curve path` · `.rail` · `.carriage > .ball`) | curve in the top 60 %, rail at 82.5 %, ball on the rail | `dock-easing-mini` |
+| L3 | Spring timing-function sweep: the sampler tracks the spring's `linear()`, the curve SpringTrace plots | `SpringTarget.vue:232-244` (`.sampler-ball` on `.progress-rail`) · trace `SpringTrace.vue:82-89` (`.plot-trace`) | ball on a 1-D rail ~105 px above the trace; the trace has no ball of its own | `spring-sweep-sampler` |
+| L4 | Spring live simulator ball (the physics tracker) | `SpringTarget.vue:107-161` (`.spring-rail` · `.progress-rail` · `.spring-ball`) · trace `SpringTrace.vue:88` | ball on the value rail ~280 px from the trace; the trace carries no marker at sim time (law `:451`) | `spring-live-ball` |
+
+Ruling on L4: the rail is also the spring's target control (tap/drag sets the target, `SpringTarget.vue:218` hint). The law `:451` reads "for a simulator, the ball rides the trace at the current simulation time". So the simulator's tracking ball is a law site, and `.b` puts a ball on the trace at sim time. Whether the target control keeps a subordinate cue under `:455` is `.b`'s design call. It must not keep a ball on a rail.
+
+**Curve drawn but no moving marker.** These have nothing to measure today and sit outside the falsifier. They are carried to the named unit:
+
+| site | bytes | ruling |
+|---|---|---|
+| Controls-pane easing Select: trigger glyph + dropdown previews (§0bi OA-31) | `ChannelOptions.vue:402-419` (trigger) · `:515-531` (items) (`svg.curve-glyph path`, no ball) | curve only. `.p` gives every picker one tile idiom: "the curve with its ball on the curve (`.b`)" (`:482`) |
+| glass `EasingPicker` (sidebar Curve facet + Controls-pane `TimingFunctionPanel`) | `EasingSidebar.vue:34-38` · `TimingFunctionPanel.vue:54`, both `:playback="false"` | the producer's travelling dot is off at both mounts. Its geometry is already `(progress, f(progress))`, on the curve by construction (`glass EasingCurve.vue:176-179`). Producer-owned and read-only; no W13W row |
+| SpringTrace plot | `SpringTrace.vue:82-89` | has no marker of its own. It is the curve for L3 and L4 |
+
+**Time rails, stage subjects and parameter markers.** No easing or simulation curve is plotted under these. They are subordinate under `:455` and outside the law:
+
+| site | bytes | served | ruling |
+|---|---|---|---|
+| Sequence rows (travellers) | `SequenceTarget.vue:127-137` | `div.progress-ball.seq-ball` moves, no path within 80 px | time rail: x = the child's progress, no curve |
+| Sequence Timeline pane lanes + master scrub (`.s2`) | `SequenceLanes.vue:28-29,47-60` | `seq-lane-scrub-ball` moves, no path | time rail and scrub thumb |
+| dock SequenceMini | `SequenceMini.vue:72-81` | not live on 1440 routes | time rails |
+| dock SpringMini (3 preset lanes) | `SpringMini.vue:77-81` | `span.ball@carriage` moves, nearest path 77 px (none of its own) | race lanes: spatial position, no curve |
+| Spring derby lanes | `SpringTarget.vue:189-199` | off unless derby is on | race lanes: spatial, no curve |
+| PlaybackRibbon → AnimationVisualizer | `PlaybackRibbon.vue:105` · `AnimationVisualizer.vue:31-55` | the scrub visual's balls | time rail (the scrubber's sighted twin) |
+| Spring peak-overshoot heatmap marker | `SpringHeatmap.vue:109` | moves only when sliders move | a (response, ζ) parameter point, not a trajectory |
+| SquareMini box on its tour | `SquareMini.vue:81-85` | `span.box` dist 0 to its own path | spatial motion path, not an easing plot. Already on its path |
+| AmigaMini Boing ball | `AmigaMini.vue:61` (svg) | `circle` near the grid lines (0.7-1 px) | spatial bounce over a grid, not a plot |
+| CubeMini die faces (`#/`, `#/cube`) | — | `span.face@layer.die` rotating | 3-D glyph faces, not markers |
+| `useSweepScene.ts` | `demo/composables/scene-runtime/useSweepScene.ts` | — | a clock runtime (drives L1/L3 phases), draws nothing |
+
+**Served census readout** (⟨`node served-census.mjs`⟩, 1440, Play pressed; moving round markers → nearest path, min–max px): `#/easing`: `tile-ball` ×25 → `tile-sparkline` 4–22.8 · `ball@carriage` ×2 → `curve` 1.7–4.9. `#/spring`: `sampler-ball` → no path within 80 px · SpringMini `ball@carriage` ×2 → 77. `#/sequence`: `seq-ball` ×2, `seq-lane-scrub-ball` → no path. `#/square`: `box` → 0. `#/amiga`: `circle` → grid 0.7–1. `#/`, `#/cube`: die faces plus a hover capsule (noise). **The served pass found no law site the grep missed.** The spring live ball needs a target change to move, so the falsifier drives it with a rail click.
+
+#### Act 2 — the served falsifier (ONE file), RED ×2 at kf `a939e7d6`
+
+`evidence/W13W/c/falsifier-ball-on-curve.mjs` (seed: `open/probe-gallery-ball-on-curve.mjs`, generalized to a site table):
+- It takes 16 samples per pair, 140 ms apart, after the scene's own "Play animation" (L4 after a rail click at 85 %).
+- Distance = ball `getBoundingClientRect` centre to the nearest of 601 points on the RENDERED `path` (`getPointAtLength`, mapped to client px by `getScreenCTM`).
+- A sample passes at ≤1.5 CSS px. Exit 0 = all GREEN, 1 = a site RED, 2 = a site unmeasurable.
+- Flags: `--w --h --theme --frames --tag`, so `.v` re-runs it unchanged at 1440 and 390 in both themes.
+
+| run | cmd | L1 gallery (28 pairs) | L2 dock mini (2) | L3 sweep sampler | L4 live ball | exit |
+|---|---|---|---|---|---|---|
+| 1 | `node falsifier-ball-on-curve.mjs --frames before --tag run1-1440-light` | 437/448 over · max 22.53 · min 0.23 · 25 moving · **RED** | 31/32 · 12.78 · 1.04 · **RED** | 16/16 · 108.39 · 104.88 · **RED** | 16/16 · 279.81 · **RED** | 1 |
+| 2 | `node falsifier-ball-on-curve.mjs --tag run2-1440-light` | 440/448 · 22.62 · 0.03 · 25 moving · **RED** | 30/32 · 12.77 · 1.25 · **RED** | 16/16 · 108.44 · 104.81 · **RED** | 16/16 · 279.81 · **RED** | 1 |
+| 3 (coverage) | `… --w 390 --h 844 --theme dark --frames before --tag run3-390-dark` | 441/448 · 17.67 · 0.07 · 10 moving · **RED** | 31/32 · 12.78 · 0.86 · **RED** | 16/16 · 103.34 · 101.57 · **RED** | 16/16 · 285.97 · **RED** | 1 |
+
+Figures are read from the settled `run{1,2,3}-*.json` (⟨`node -e 'for(const x of require("./runN.json").report)console.log(…)'`⟩).
+- The few sub-1.5 px samples in L1/L2 are instants when the ball crosses the curve at the rail's height, which is the rail geometry, not conformance. Every site still fails most of its samples.
+- At 390, 10 of 28 tiles move, because the rest are scrolled out of view.
+
+Frames before: `evidence/W13W/c/before/run1-1440-light-*.png` and `run3-390-dark-*.png` (4 sites each). Evidence commit: value.js `b58d7438`.
+
+#### Act 3 — repo gates (kf `a939e7d6`, bytes unchanged by this unit)
+
+| gate | run | reading |
+|---|---|---|
+| `npm run check` | 1 · 2 | EXIT 0 · EXIT 0 (vue-tsc ×2 + `proof:structure — PASS … 0 violations`) |
+| `npm run test:demo` | 1 | 8 files / 2 tests FAIL, EXIT 1 (6 × `Hook timed out in 10000ms`, `hero-wave-pause` 5 s, `typing-dots-engine-seam` "no inline opacity"). Host load average 60–87 (⟨`uptime`⟩) |
+| | 2 | **77/77 · 565/565 · EXIT 0** |
+| | 3 | 2 files / 1 test FAIL, EXIT 1 (`transport-icon-spin` hook 10 s, `typing-dots-engine-seam`). Load 75 |
+| | 4 | **77/77 · 565/565 · EXIT 0** |
+
+GREEN ×2 (runs 2 and 4). Runs 1 and 3 fail the same load-timeout set the Open banked at baseline (`transport-icon-spin` · `hero-wave-pause` · `typing-dots-engine-seam`) while four tracks share the host. This unit wrote no kf byte, so it is not a W13W row.
+
+#### Gates
+
+- **G-W13W-c: census table (grep + served): GREEN.** 4 law sites (L1–L4). 3 curve-only sites are carried to `.p` or ruled producer. 11 time-rail, stage or parameter sites are ruled subordinate or out of law. The served pass found no site the grep missed.
+- **Served falsifier authored (≥12 samples/site, here 16; 1.5 CSS px) and RED ×2 at `a939e7d6` on EVERY law site: GREEN** (born-RED as the law requires). Runs 1 and 2 at 1440 light, plus run 3 at 390 dark for coverage.
+- **`npm run check` EXIT 0 ×2 + `npm run test:demo` GREEN ×2: GREEN.** 2 load-flake runs banked, not a W13W row.
+
+#### Hand-off to `.b`
+
+- Move L1–L4 onto one curve-to-point primitive. The ball comes from the same function as the stroke path.
+- L3 and L4 put the ball on `SpringTrace`'s trace at the sampler phase and at sim time.
+- L2's rail goes. L1's `.tile-rail` goes, or survives only as a subordinate cue with no ball on it.
+- `.v` re-runs `falsifier-ball-on-curve.mjs` unchanged (`--w 390 --h 844`, `--theme dark`). A newly added site, such as `.p`'s picker tiles, is one more row in its `SITES` table. **Residuals**: none. **Escalations**: none.
+
+**Commits**: value.js `b58d7438` (evidence: falsifier + served census + run JSON + 8 before frames) · this record (below). kf: none.
