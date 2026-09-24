@@ -296,3 +296,88 @@ SEAT `.b`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` addendum (d) §0cv :5
 | falsifier RED→GREEN ×2; full api pytest | 2 RED ×2 · 258 passed | 2/2 GREEN ×2 · **260 passed ×2** |
 
 **Adjacent edits:** none. **Residuals:** none in `api/**`. The dev store's pre-2026-09-24 rows (moved aside by the orchestrator, §0cv) are not touched; any such row now reads 404 and heals on re-upload. **Escalations:** none.
+
+### F.W14U.srv
+
+SEAT `.srv`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` Units :8-18 ("Bounds" :18, the `api/**` grant for F-35 F-83 F-112 F-39 and F-46's server half), read whole (58 L). Register rows `UI-AUDIT-fourier.md` :104 (F-35), :108 (F-39), :115 (F-46), :157 (F-83), :186 (F-112). COHESION §0cl/§0cm/§0cn/§0cv read; none rules on these rows beyond the grant. Bounds: `api/**` + this receipt; §0bt adjacent at `simplification.py:15-31` and `latex_rendering.py:32,:104,:143` only.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. **Nothing inherited.**
+
+**Anchors at the true bytes (fourier `66bb321`).**
+- F-35: `simplification.py:15-31` `truncate_by_budget`. The register writes `dc + non_dc[:budget-1]`; the bytes read `remaining = budget - len(dc)`, `kept = dc + non_dc[:remaining]`. It is the same cut by single exponential terms sorted by amplitude, so the INTENT holds at those bytes.
+- F-83: `latex_rendering.py:32` `max_terms = 4` ✓ · `:104` `if shown >= 4:` ✓ (exponential) · `:143` `if shown >= 4:` ✓ (polar). `render_latex` takes `budget` but drops it (`:271-281`).
+- F-112: `equations.py` `_run` calls `parse_expression` bare. The `ValueError` crosses `submit_compute_job` into the global handler and comes back as 500.
+- F-39: `visualizations.py:288-293` `list_visualizations` accepts limit, sort, cursor and owner only ✓. `cursors.paginate` owns the top-level `$or`.
+- F-46: no like route (⟨`grep -n like api/routers/*.py`⟩ → only the `liked_ips` projection strip). The model carries `likes: int = 0`.
+
+**Instrument.** Every run sets `MONGO_TEST_URI=mongodb://localhost:27018 MONGO_URI=mongodb://localhost:27018/fourier`, never :27017. ⟨`uv run --extra web --extra dev pytest api/tests -q`⟩ BEFORE → `260 passed in 13.93s`.
+
+**Measured before the cure, through the real ASGI app (`conftest.asgi`).**
+- ⟨POST `/api/equations/compute` `x*(pi-x)` on [0, π], trig⟩ → budget 8: `… -0.11\cos(3t) -0.031\cos(4t) \cdots`. Budget 10: `… -0.063\cos(4t) \cdots`. The coefficient depends on where the cut falls (F-35), and the output never holds more than 4 harmonics (F-83).
+- ⟨POST compute with `sin((x`, `x +`, `foo(x)` and `1/0`⟩ → `500 {"detail":"Internal server error"}` for all four (F-112).
+
+**Acts.**
+1. **Falsifier first.** `api/tests/test_uia_server_rows.py` holds 15 tests:
+   - F-35 ×2: a₄ = −0.0625 at budget 8, equal to its value at budget 10. `truncate_by_budget` keeps every `n` together with its `−n`, and `|n|` groups == budget for budgets 2..11.
+   - F-83 ×4: compute with `x` (a sawtooth) at budget 6, 15 and 20 has `\sin(` count == budget−1. `/simplify` at budget 20 has 19.
+   - F-112 ×6: `sin((x`, `x +`, `foo(x)`, `1/0` and `x*y` each return 422 with type `urn:contract:validation-failed` and a detail. `x*(pi-x)` still returns 200, as a control.
+   - F-39 ×1, live Mongo: 4 seeded rows, one of them a draft; 11 queries run over q, tier and basis.
+   - F-46 ×2, live Mongo: two sessions and eight verbs, which stays within the production write budget of 10/min. The second test gets 401 with no session and 404 for another owner's draft.
+   - The raw-ASGI client moves from `test_blob_integrity.py` into `conftest.asgi`, which adds a `query` argument, and the blob test imports it. That removes a duplicate. None of the blob test's assertions change.
+   - ⟨pytest of the file against the pre-cure bytes: `git archive HEAD api src` into scratch, `PYTHONPATH` set to that copy (the imports were checked to resolve there), ×2⟩ → `14 failed, 1 passed` · `14 failed, 1 passed`. The one pass is the F-112 control. The failure reasons match the defects: `-0.031 == -0.0625`; `(2, [-1, 0])` split pair; `2 == 19` sines; `500 == 422`; `q=zzz-no-such` returned all 3; like `404 == 401`.
+2. **F-35 cure (adjacent, `simplification.py:15-33`).** `truncate_by_budget` sums `amplitude²` per `|n|` group, ranks the non-DC groups by energy, and keeps the top `budget − has_dc` groups whole plus DC. The display re-sort is unchanged. The function body is the only change.
+3. **F-83 cure (adjacent, `latex_rendering.py`).**
+   - Removed from `render_trig`: the `max_terms = 4` line (`:32`), its `term_count` counter and its `\cdots`-break.
+   - Removed from `render_exponential` and `render_polar`: `shown = 0`, `shown += 1`, and the `if shown >= 4` cdots-break (`:104`, `:143`).
+   - Four docstrings that described the cap were corrected.
+   - Why removal and not passing `budget` in as `max_terms`: the budget is applied upstream as the kept term set. A cap counted in renderer units (cos and sin separately, or ±n separately) would split the kept harmonics again. So each renderer now renders every term it is given.
+4. **F-112 cure (`equations.py`).**
+   - `class ExpressionInvalid(ValueError)` and `_parse_function_of_x(expression)`: a `parse_expression` `ValueError`, an undefined function (`AppliedUndef`), a free symbol other than `x`, or `zoo`/`nan`/`±oo` raises `ExpressionInvalid` with a message.
+   - `_run` parses through it. The handler catches that one typed exception around `submit_compute_job` and answers `errors.validation_failed(detail=…)`, a 422 `application/problem+json`.
+5. **F-39 cure (`visualizations.py` `list_visualizations`).**
+   - New params `q` (≤200), `tier` (default `all`) and `basis` (≤64), each written as `Annotated[str, Query(…)] = default` so the handler's existing direct-call tests keep their Python defaults. A first pass with `= Query(...)` defaults read 7 existing direct-call tests RED (`KeyError 'items'`); that was measured and cured this way.
+   - Filters: `q` is a `re.escape`d case-insensitive `$regex` over title, description and tags. `tier` is exact, except that `normal` also matches a row with no tier (`$in [normal, None]`). An unknown tier answers 422. `basis` matches a member of `active_bases`.
+   - The filters are ANDed through `$and`, because `paginate` owns `$or`.
+6. **F-46 cure (`visualizations.py` and a `VisualizationLike` model in `models/visualization.py`).**
+   - `PUT /api/visualizations/{slug}/like` with `{liked: bool}` and `GET …/like`. Both require a session (401 `session-invalid` without one) and a readable row (404, since a draft is owner-only).
+   - Storage is one `visualization_likes` document whose `_id` is `"{slug}:{user_slug}"`. The primary key enforces uniqueness, so no index is added.
+   - A like is an insert, and `$inc likes +1` runs only when the insert succeeds; a `DuplicateKeyError` means the like already exists and nothing changes. An unlike is a `delete_one`, and `$inc −1` runs only when a document was removed, with the filter `likes > 0`.
+   - The response is `{slug, liked, likes}`.
+7. **Gates.**
+   - ⟨falsifier ×2⟩ → `15 passed in 1.76s` · `15 passed in 2.26s`.
+   - ⟨full `pytest api/tests -q` ×2⟩ → `275 passed in 12.97s` · `275 passed in 11.98s`, which is 260 plus the 15 new tests.
+   - ⟨`ruff check --output-format concise`, HEAD via `--stdin-filename` vs now, per touched file⟩ → equations 1→1 (the existing F401 `FourierTerm`) · visualizations 0→0 · models 0→0 · conftest 0→0 · blob test 0→0 · simplification 1→1 (the existing F401 `numpy`) · latex_rendering 0→0 · new test file 0.
+   - ⟨`mypy` on the 5 touched modules, at the HEAD copy vs now, error lines diffed with line numbers dropped⟩ → **0 new** in equations/visualizations after typing the helpers (`_liker` returns `str | Response`; `_parse_function_of_x -> Any`; `AppliedUndef` read through `sp.core.function`, which adds no new untyped import); models/latex 0→0; simplification 1→1.
+8. **Commit + push.** fourier **`798c98f`** `fix(api): X.F.W14U.srv — the server halves of UIA-F-35, -83, -112, -39 and -46 …`. It is one commit because the five cures share one falsifier file and the shared ASGI client move. The pathspec is the 8 files. Pushed: ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `798c98fcde2b`.
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| F-35 expanded coefficients whole (no split pair) | RED (a₄ −0.031 at budget 8; split `(2, [-1, 0])`) ×2 | **GREEN ×2** (−0.0625 = the budget-10 value; every kept n has −n) |
+| F-83 Terms shows up to 20 (no 4-cap) | RED (2 sines at budget 6/15/20; `/simplify` 2 ≠ 19) ×2 | **GREEN ×2** (budget−1 sines + DC; 19 at `/simplify` 20) |
+| F-112 invalid f(x) → typed 4xx | RED (500 ×5 inputs) ×2 | **GREEN ×2** (422 `urn:contract:validation-failed` + detail; the valid control stays 200) |
+| F-39 q/tier/basis honoured | RED (every query returned all 3) ×2 | **GREEN ×2** (11 queries exact; unknown tier 422) |
+| F-46 like persists as a toggle | RED (route 404) ×2 | **GREEN ×2** (1,1,2,1,1,0,0,1; persisted 1; 401/404 guards) |
+| api pytest | 260 passed | **275 passed ×2** |
+
+**Contract for the consumer units (`.eq` F-35/F-112 · `.vedit` F-83 · `.gallery` F-39/F-46).**
+- **Budget (F-35/F-83).** `budget` counts **harmonics**: `|n|` groups, with DC as one. The expanded `latex` shows every kept harmonic and no longer ends in `\cdots`. In trig form a harmonic is one or two terms (cos and/or sin), and a term below 0.5% of the maximum amplitude is still hidden. `energy_captured` is the energy of the kept groups. `/simplify`'s `term_count` stays `len(kept)`, counted in exponential terms. The panel should scroll or wrap for up to 20 harmonics.
+- **F-112.** `POST /api/equations/compute` answers **422 `application/problem+json`** `{type: "urn:contract:validation-failed", title, status: 422, detail}` for an invalid f(x). The `detail` is a message such as `Cannot parse expression: …`, `Unknown function: foo`, `f(x) may depend only on x, not y` or `f(x) is not finite`. Show `detail` under the field with `aria-invalid`, and do not offer Retry on a 4xx. A 429 or 504 is still transient.
+- **F-39.** `GET /api/visualizations?q=&tier=&basis=` sits alongside `limit/sort/cursor/owner`:
+  - `q` is a case-insensitive substring of the title, description or a tag.
+  - `tier` is `featured|saved|normal|all`. An untiered row counts as `normal`, and any other value answers 422.
+  - `basis` matches one entry of `active_bases`.
+  - Resend the same filters with `cursor` when paging; the `Link: rel=next` header carries only `cursor`, as before.
+- **F-46.** `PUT /api/visualizations/{slug}/like` with body `{"liked": true|false}` and an `X-Session-Token` returns `200 {slug, liked, likes}`, and is idempotent per session user. `GET /api/visualizations/{slug}/like` returns the same body and should be used to seed `aria-pressed` after a reload. Errors: 401 `session-invalid` without a session · 404 when the row is unreadable · 400 for a bad slug shape · 429 when the per-IP write budget of 10/min is spent, since a like costs one write.
+
+**Adjacent edits (§0bt).** Both are in the same repo and the same concern, and both are the lines the lock names:
+- `src/fourier_analysis/symbolic/simplification.py:15-33`: the body of `truncate_by_budget` (F-35).
+- `src/fourier_analysis/symbolic/latex_rendering.py`, 19 lines deleted and 5 docstrings changed, all in the named renderers' cap mechanism (F-83). HEAD `:32` `max_terms = 4`; `:39,:49,:52-55` its `term_count` counter and break; `:72,:103-107` and `:123,:143-147` the `shown` counter and `if shown >= 4` break; docstrings at `:4,:26,:65,:116,:279`.
+
+  The lock asks for "a few lines". The cure is the three named caps together with the counters that exist only to feed them. Leaving the counters as dead code, or passing a cap in the wrong unit, would be a defect, so they are recorded here rather than escalated.
+
+**Residuals.**
+- (i) The dev API on :8000 (`uvicorn api.main:app`, no `--reload`, started 10:36) still serves the pre-cure code. A consumer seat that reads these routes live must restart it with the §0cn/§0cv environment (`MONGO_URI=…:27018/fourier`, `BLOB_DIR=~/.mongo-dev/fourier-blobs`, the e2e rate limits). This seat did not restart it: the host instrument is not in its writable set.
+- (ii) `render_*_sigma` falls back to the expanded renderer when a series has only negative harmonics (`latex_rendering.py` exponential and polar sigma fallbacks). That fallback now renders every term it is given instead of 4. This affects the sigma form of a one-sided series only, and no row covers it.
+- (iii) Existing and unrelated to these rows, seen in the BEFORE output: `\frac{3.3}{2}` prints a₀ where a₀/2 was meant, and `e^{i-t}` at n = −1. They are not in any server row, so they are not touched.
+
+**Escalations:** none.
