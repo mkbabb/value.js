@@ -281,3 +281,306 @@ The KF.W13V addenda state their gates in prose on the SERVED page (headed, 1440 
 **SELF-COUNT**: gates owned 4 (p1 · p2 · p3 · floor) → GREEN 3 (p1 · p2 · floor), honest-RED 1 (p3 `TILE-PRIMITIVE`, producer), RED 0. Commits before this record: 2 (value.js). Tiles in the census: 32 (28 + 4). Inherited paths: 1 (`tiles.mjs`).
 
 **Status: DONE**. p1 and p2 are GREEN ×2 on dev and gh-pages, and the floor is GREEN ×2. p3 is `TILE-PRIMITIVE` honest-RED with O-58 (O-67 filed).
+
+### KF.W13V.k
+
+**SERVED MODEL**: `claude-opus-5-5` (Opus 5.5, effort high). **Spec sections executed**: KF-W13.md `:346` (§0bl `.k`) · `:353-354` (§0bn) · `:390-395` (§0cb glass round-2 facts); COHESION §0bn · §0cb · §0ci R-1 read for the rulings consumed. **Writable set** as briefed (kf `demo/**` · `src/**` · `test/**` · `scripts/observe/**`; value.js relay/INBOX O-row/evidence `W13V/k/**`/this receipt/LEDGER line).
+
+**Crash-recovery** — ⟨`git -C keyframes.js status --porcelain`⟩ → 2 untracked coordination letters (standing), **0 modified paths**; ⟨`git -C value.js status --porcelain -- docs/tranches/X/relay docs/tranches/X/keyframes/evidence/W13V docs/tranches/X/execution/B/KF-W13V.md`⟩ → empty. No inherited partial work; FRESH seat. kf HEAD at open `4fafc186` (the `.y` tail).
+
+**Anchor drift at true bytes (INTENT kept, recorded)** — KFA-1's `CubeTarget.vue:15` gate and `useTransformState.ts` watcher: live, moved (watcher at `:262-290`, not `:276-293`); the cube is already one-element-per-owner since KF.W13U.w (`.cube-bob > .cube-pose > .cube`), so KFA-2's "paintTarget writes `.cube`" was still live via `cubeElRef`. KFA-12 `view-transition.ts:233-243` live at `:233-236`. KFA-17 `useSequenceDemo.ts:254/271` live at `:253-268`; `lifecycle.ts:108` live. KFA-18's `ChannelOptions.vue:933-941` onMounted drifted to `:1002-1010`; `useTimingFunctionEditor.ts:148-152` live at `:149-152`. KFA-181 `frame.ts:130-134` live. KFA-3 `SequenceTarget.css:239-244` live. KFA-15 `KeyframesEditor.vue:253` + `KeyframesAddDialog.vue:51` live.
+
+#### Acts in order (each cure: BEFORE → AFTER with the audit's own capture script, ×2 AFTER; tests born-RED verified by swapping the HEAD copy of the cured file in and out)
+
+1. **KFA-1 · KFA-2 · KFA-29 — one playing-state authority, one writer per element** → kf **`027b6f99`**. CubeScene's `isPlaying`/`isStarted` are read-only projections of `machine.status` (the house `useSceneTransport`; autoplay PLAY now counts) and are no longer exposed (no shell write-back); the orbit container ALWAYS composes its `rotate3d`; the drag→`matrix3dEnd` watcher (+ its translate write-back / echo guard / `updateTransformations`) is deleted, so only cell/Reset intents write the Matrix channel; the pre-start painter targets `.cube-pose` and writes only while the group is idle. ⟨`node evidence/W13V/k/kfa-1-2/writers.mjs`⟩ (the audit's `cube-orbital-drag-inertia/writers.mjs`) BEFORE ×2 → `{"cube:rotateX":295,"cube:matrix3d":135,"pose:matrix3d":290}` / `cube frames with >1 writer kind: 134` · `…131…` / `130`; AFTER ×2 → `{"cube:rotateX":292,"orb:translate3d":10}` / `0` · `{"cube:rotateX":293,"orb:translate3d":10}` / `0`. Tests: `cube-roll-and-prestart.test.ts` — #53's case and the start→end-delta case **re-seated onto the cell intent** (the property each guards is kept: a serialized `matrix3d` painted; a real start→end delta), + `KFA-1/KFA-29 — an orbit drag never writes the Matrix channel` + `KFA-2 — once the group has started, the painter never writes`.
+2. **KFA-33 — the orbit container follows the whole Euler triple** → kf **`505f6a0c`**. `containerStyle` depended on `rotate.x` alone (a pure yaw froze the container). Test born-RED ⟨swap HEAD `OrbitalDrag.vue`; `npx vitest run --project demo test/demo/scenes/orbital-rotate3d.test.ts`⟩ → `× KFA-33 …`; GREEN 5/5 after. Served ⟨`writers.mjs` ×2⟩ orbit writes over a horizontal fling+coast **10/10 → 246/257**, `.cube` two-writer frames 0/0.
+3. **KFA-3 — the sequence ball travels on the individual `translate`** → kf **`28e97ec3`**. ⟨`node summarize.mjs before|after|after2`⟩ over the audit's `sequence-staggered-rows/capture.mjs` → rest offset ball-vs-gate per row **[0,-22.5,-45,-67.5,-90.1] → [0,0,0,0,0] ×2**; the worst rail-end overrun BEFORE was bp 0.75 × scale 1.15 (+9.1 px); AFTER only the glide spring's own 2.3 % overshoot at bp 1.023 (+9.6 px — lawful spring physics, not KFA-3). No jsdom test (CSS composition is not computable there; the served capture is the gate).
+4. **KFA-12 — `startViewTransition` called as a method; the swap spring follows the dispatch handle** → kf **`cb9e1aa5`**. Library: `const start = doc.startViewTransition!.bind(doc)`; the two unit stubs now throw `Illegal invocation` on a wrong receiver (born-RED ⟨swap HEAD `view-transition.ts`⟩ → `2 failed | 5 passed`; GREEN 7/7). Demo: `useSceneTransition` exposes `lastSwapBackend` from the handle; `useSceneSwap` stands its spring down only when that reads `view-transition` (consumed per swap; a hash/back-forward switch falls through to the spring) — the one-shot `supportsViewTransitions()` probe is retired. +2 cases in `e-w1-encapsulation.test.ts`. Served ⟨`node evidence/W13V/k/kfa-12/probe-vt-binding.mjs`⟩ (the audit's) BEFORE → `[{this===document:false, threw:"Illegal invocation"} ×2]`; AFTER ×2 → `[{doc:true,native:true}]`, `#/amiga`; ⟨`vt-anims.mjs`⟩ ×2 → `maxViewTransitionPseudoAnims: 10` · `10` (audit: 0).
+5. **KFA-17 (sequence leg) — Play after a scrub runs the master** → kf **`47f2627e`**. `Sequence.resume()` on a seeked-only sequence silently returned (no `_playingPromise`); it now begins a play FROM the retained playhead through the one loop-start body `play()` shares (`playFrom`; `play() = playFrom(0)`). The demo reflects the natural end once per play promise (`reflectNaturalEnd(sequence.finished)`). Library test born-RED ⟨swap HEAD `lifecycle.ts`⟩ → `1 failed | 20 passed`; GREEN 21/21. Served (the audit's `sequence-reel-egg/dockprobe3.mjs`, `dockprobe4.mjs` + a no-cancel variant `heldplay.mjs` of dockprobe4, ×2): scrub → Play **970 frozen PLAYING (audit) → 970→1409 in 450 ms → 1940 READY** ×2; scrub → reel → held Play **frozen (audit) → honoured at the reel's settle, 1940 READY** ×2.
+6. **KFA-18 · KFA-21 — the running animation is the truth at mount** → kf **`b84fa236`**. An empty store bucket for a LIVE animation is seeded FROM its options (duration/delay/iterations/fill/direction + the easing as the catalogue literal: CSS twin, else the engine-registry name hyphenated); `ChannelOptions` no longer re-applies the stored easing on mount; an easing edit goes through the engine's identity-preserving `animation.setTimingFunction` (re-seats inherited frames only). Tests: `test/demo/state/kfa-18-authored-timing.test.ts` (+2, born-RED ⟨swap HEAD store + editor⟩ → `2 failed`); the render-edge fixture now builds its channels FROM the store the way the cube does (the mount re-apply that used to impose the bucket on the fixture is gone; every assertion kept). Served ⟨`node summarize.mjs`⟩ over the audit's `amiga-boing-composite/probe-easing.mjs`: BEFORE (audit `easing-probe.json`) ease-in-out on **12/12** compiled frames → AFTER ×2 **0/12** (Spin + X linear `0.1,0.25,0.5,0.75`; Y its FALL/RISE pair, 2 distinct frame curves); ⟨`kfa21-store.mjs` ×2⟩ the pane's buckets → Spin/X `8000ms normal linear infinite`, Y `1600ms normal` (the dark-leg frame `critic/legs/amiga-dark.png` shows the pane reading 8000ms · normal · linear).
+7. **KFA-181 — a non-final wrap carries its overshoot** → kf **`5ae589ab`** + **`d4085ab4`** (the setter folded to one line to hold `proof:structure`'s 500-line ceiling: ⟨`npm run proof:structure`⟩ R4 `animation.ts 502` → PASS, 497 L). The next iteration begins one duration after the last began (`carriedStartTime`, consumed by the next lazy start; cleared by settle and by any external `startTime` write). Tests: `test/engine/iteration-carry.test.ts` (+2, born-RED ⟨swap HEAD `frame.ts`⟩ → `2 failed`); the two event-order locks (`event-ordering.test.ts` clause 2, `sync-step.test.ts` clause 2) **re-seat their DRIVE onto the true clock** (3×100 ms ends at 300, not after six re-based steps) — every ordering assertion kept. Served (the audit's `amiga-boing-composite/capture.mjs` ×2; ⟨`node summarize.mjs`⟩): floor-minimum offset from each wall hit **[+33,+84,+117,+167] ms → [0,0,0,0] ×2**; child clocks while playing `(X mod 1600) − Y` **183.1 ms → 0 · 0**.
+8. **KFA-15 — the edit-feedback sweep's rest sits on its own property** → kf **`431e5bcc`**. Both twins rest at `[transform:scaleX(0)]` (Tailwind 4's `scale-x-0` is the individual `scale: 0 1`, which multiplied the animated `transform` by zero). **Adjacent edit** (§0bt): `test/demo/instrument/KeyframesAddDialog.test.ts:253` — the rest-class assertion names the new class (property kept: rests at zero). **Served re-capture OWED**: the audit's path (`keyframes-editor-cards/capture.mjs` reaches the Spring scene's inline section) was retired by `.s`; an adapted probe (`kfa-15/sweep.mjs`, `look.mjs`) found the dock's Keyframes item (button at 880,71) but no card editor opened in 2.5 s (0 `.progress-bar`, 0 editable cards) — the instrument did not reach the surface; recorded, not claimed.
+
+**Commits (keyframes.js, pathspec, in order)**: `027b6f99` · `505f6a0c` · `28e97ec3` · `cb9e1aa5` · `47f2627e` · `b84fa236` · `5ae589ab` · `431e5bcc` · `d4085ab4`. Not pushed (the branch was already ahead of origin with sibling units' commits; the push is the close's act).
+
+#### G-W13V-k3 — the critic's gaps, captured and judged (headed, dev page, kf `d4085ab4`)
+
+- **6-scene × {Play, Pause, Reset, Reverse, scrub}** — ⟨`node evidence/W13V/k/critic/transport-matrix.mjs`⟩ ×2 (one frame per cell under `critic/matrix/`; the playhead read on the transport's own scrub slider `[role=slider][aria-label*=crub]`). Run 1 ≡ run 2 cell-for-cell:
+
+| scene | Play | Pause | Reset (while paused) | Reverse | scrub |
+|---|---|---|---|---|---|
+| cube | ok (3695→4114→4522) | ok (holds) | **FAIL** (4450→4450) | ok (4645→4339→4034) | ok |
+| amiga | ok (0→429→837) | ok | **FAIL** (800→800) | ok (929→623→317) | ok |
+| square | ok | ok | **FAIL** (660→660) | ok | ok |
+| easing | ok | ok | **FAIL** (1350→1350) | **FAIL** (pressed, playhead keeps rising 864→1210→1385) | ok |
+| spring | ok | ok | **FAIL** (420→420) | ok (wraps 1181→87) | ok |
+| sequence | ok (0→21→41) | ok | **FAIL** (82→82) | n/a (no Reverse on the surface in view) | ok |
+
+  Judged: **Reset-while-paused leaves the readout at the paused value on all six scenes** — cause measured at the bytes (`useAnimationSync.ts`: the rAF mirror idles after 30 stable paused frames; `useAnimationGroupActions.reset` → `group.stop()` writes the markRaw clock with no reactive signal, and `isPlaying` does not change, so nothing wakes the mirror). A Play afterwards runs from 0 (⟨`kfa-17-cube/reset-paused.mjs` ×2⟩ → `afterReset 4255.7 … trace [122.4, 234.7, …]`) — the rewind happens, the readout lies. This is KF.W13U's `R-x-1`. **Not cured this seat** (the wake needs one transport-epoch authority the Reset path and the channel mirror share — a cross-component design act, not a line) → honest-RED **`RESET-READOUT-STALE`**, owner the `.k` successor. **Easing Reverse** keeps the sweep forward (new reading; the same family as KFA-44 on the spring Sweep) → honest-RED by the same owner.
+- **Dark legs** — ⟨`node evidence/W13V/k/critic/legs.mjs`⟩ → `cube-dark` html `dark` bg `rgb(11,10,9)`; `amiga-dark` likewise; light twins `rgb(251,250,248)`. Judged from the frames: the cube re-light reads in dark (top face brightest, the turned-away faces shaded — no inversion); the Amiga grid composes (floor + back wall legible on the dark ground); the ball rests mid-room at load with no floor contact, so the contact-shadow leg is not exercised at rest (the live leg is covered by the KFA-181 capture). No new defect filed from the dark legs.
+- **Mobile Sheet (390×844, cube)** — the dock's Controls opens the Sheet at its peek detent (`controls-drawer-content`, y 716.1, h 171). Judged: the Sheet's transport shows **both faces at rest** — a grey ghost of the collapsed summary capsule behind the expanded Pause/"Rotations" face (`critic/legs/mobile-sheet-open.png`); producer family KFA-50/189 → relayed in O-69 (no consumer copy). The top dock's collapsed mark is an irregular soft shape → DOCK-MORPH-ROOT (O-56/O-64), relayed.
+- **Matrix-editor cell/reset tweens · toasts · tooltips · the tab-panel `@keyframes enter` slide** — **NOT captured this seat** (the budget went to the ten cures above). Honest-RED **`CRITIC-GAPS-UNCAPTURED`** (4 of the 7 critic items), owner the `.k` successor. G-W13V-k3 therefore reads **RED (3 of 7 captured and judged)**.
+
+#### G-W13V-k4 — KFA-17 / C6-3 `[real-cube]` intermittent
+
+- The sequence leg of KFA-17 is **cured at cause** (act 5).
+- The cube leg: ⟨`KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --only=subject-animates`⟩ ×4 on a fresh `npm run gh-pages` build at `47f2627e`+ (load 117 · 131 · 134 · 188) → **`✓ [real-cube]` 4/4** (e.g. `playhead held 61 … 61 → 67.5 → 1344.3`, nodes `{"bob":40,"pose":1,"spin":40}`). The recorded failure signature (KF.W13U R-close-2: playhead 0 → −1275 → −33.3 counting UP, nodes held `{1,1,1}`) is the engine's paused-clock arithmetic when a child with a stale `pausedTime` restarts with `startTime` undefined (`frame.ts` `begin()` anchors at `t`, then `advanceBody` subtracts `t − pausedTime` → local = −(paused span)); the cure this seat landed (act 1) removed the one path that re-authored a PLAYING channel every frame (`adoptCompiled` from the drag watcher) — but **no run reproduced the failure before or after**, so the mechanism is inferred, not isolated. **G-W13V-k4 reads RED (not resolved at cause)**: honest-RED **`REAL-CUBE-INTERMITTENT`**, owner the `.k` successor (next act: an instrumented roster read that logs each child's `startTime`/`pausedTime` at the Play edge).
+
+#### Glass rows (§0cb) — O-69
+
+⟨`node evidence/W13V/k/split.mjs`⟩ → the 33 glass-touching rows: **13** producer-live relay-only · **12** cured-at-glass-HEAD, honest-RED until the landing repin (§0cb R-5) · **3** reframed, re-read still-live by KF.W13R `.v` · **5** consumer halves → `.u`. Installed glass 10.0.1 carries none of the 28 producer cures (§0cb) → nothing adopted, nothing copied. Batched addendum written: `docs/tranches/X/relay/X-KF-BK-O60-W13V-K-ADDENDUM.md` (O-69, beside O-60; adds the mobile-Sheet ghost-face and collapsed-mark readings) + INBOX O-69 row.
+
+**KFA-14** — ⟨`npm view @mkbabb/value.js versions`⟩ → `… "4.0.0"` (latest); value.js `package.json` `4.1.0` carries the legacy-comma grammar (`acb7dca7` / `7e60d700`) **unpublished**; §0ci R-1: value.js publishes at X-W11. kf pin stays `4.0.0` (no bump to an unpublished version; no kf colour workaround). → honest-RED **`VALUEJS-LEGACY-RGBA`**, owner value.js X-W11 publish → kf bump.
+
+#### G-W13V-k1 — the open/cured split of all 228 KFA rows (per-row table)
+
+⟨`node evidence/W13V/k/split.mjs '<cured map>'`⟩ ×2 → `{"rows":228,"unique":228,"tally":{"CURED":11,"OPEN — honest-RED, not cured this seat":183,"honest-RED relay-only":13,"honest-RED until the landing repin":12,"honest-RED":1,"routed":5,"honest-RED relay":3}}` — SELF-COUNT 11 + 183 + 13 + 12 + 1 + 5 + 3 = **228**. Prior-wave credit: KF.W13U's receipts name no KFA row cured (they cite KFA-1/-17 as open, owned here); KF.W13R `.v` read 12 rows CURED-BY-REPIN, which §0cb R-5 does not credit (carried as "until the landing repin"). The 183 OPEN rows are consumer rows whose causes the register places in keyframes.js; none was re-read or cured this seat, and none is claimed cured by `.s`/`.c`/`.y`/`.p` without a read (several — e.g. KFA-9, 40, 43 — sit on surfaces those units rebuilt; the successor re-reads them first). **G-W13V-k1 reads RED** (183 consumer rows open, owner named).
+
+| row | sev | surface | disposition | owner / evidence |
+|---|---|---|---|---|
+| KFA-1 | BROKEN | cube-orbital-drag-inertia, cube-relit-fa | CURED (this seat) | `027b6f99` · writers.mjs ×2 |
+| KFA-2 | BROKEN | cube-orbital-drag-inertia, cube-group-sp | CURED (this seat) | `027b6f99` · writers.mjs ×2 |
+| KFA-3 | BROKEN | sequence-staggered-rows, sequence-reel-e | CURED (this seat) | `28e97ec3` · staggered-rows capture ×2 |
+| KFA-4 | BROKEN | square-drag-spring-tether | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-5 | BROKEN | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-6 | BROKEN | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-7 | BROKEN | transport-dock | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-8 | BROKEN | chrome-dock-expand-collapse | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-9 | BROKEN | easing-gallery-race | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-10 | BROKEN | easing-gallery-race | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-11 | BROKEN | easing-picker-curve | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-12 | BROKEN | scene-swap-transition | CURED (this seat) | `cb9e1aa5` · probe-vt-binding ×2 |
+| KFA-13 | BROKEN | transport-dock, cube-group-spin-matrix-b | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-14 | BROKEN | timeline-panel | honest-RED `VALUEJS-LEGACY-RGBA` | value.js X-W12 `.l` — grammar fix in value.js 4.1.0 (acb7dca7/7e60d700), UNPUBLISHED (npm 4.0.0); publish at X-W11 (§0ci R-1) → kf bumps then |
+| KFA-15 | BROKEN | keyframes-editor-cards | CURED (this seat) | `431e5bcc` · served re-capture OWED (audit path retired by `.s`) |
+| KFA-16 | BROKEN | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-17 | BROKEN | sequence-reel-egg | CURED (this seat) | `47f2627e` · dockprobe3/4 + heldplay ×2 |
+| KFA-18 | HIGH | amiga-boing-composite, amiga-contact-sha | CURED (this seat) | `b84fa236` · probe-easing ×2 |
+| KFA-19 | HIGH | amiga-sphere-spin-gesture | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-20 | HIGH | amiga-sphere-spin-gesture | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-21 | HIGH | square-tour, amiga-boing-composite, amig | CURED (this seat) | `b84fa236` · kfa21-store ×2 |
+| KFA-22 | HIGH | home-landing-cube | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-23 | HIGH | home-landing-cube, home-hero-aurora | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-24 | HIGH | scene-swap-transition | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-25 | HIGH | scene-swap-transition | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-26 | HIGH | scene-swap-transition | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-27 | HIGH | scene-skeleton-shimmer | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-28 | HIGH | home-typing-dots | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-29 | HIGH | cube-group-spin-matrix-bob | CURED (this seat) | `027b6f99` · writers.mjs ×2 (pose writes 290 → 0) |
+| KFA-30 | HIGH | cube-orbital-drag-inertia | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-31 | HIGH | cube-relit-faces, cube-group-spin-matrix | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-32 | HIGH | cube-relit-faces | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-33 | HIGH | cube-relit-faces | CURED (this seat) | `505f6a0c` · writers.mjs ×2 |
+| KFA-34 | HIGH | square-drag-spring-tether | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-35 | HIGH | easing-gallery-race | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-36 | HIGH | easing-picker-curve | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-37 | HIGH | easing-picker-curve | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-38 | HIGH | spring-live-solver, spring-physics-facet | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-39 | HIGH | spring-live-solver | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-40 | HIGH | spring-derby-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-41 | HIGH | spring-derby-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-42 | HIGH | spring-derby-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-43 | HIGH | spring-physics-facet | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-44 | HIGH | spring-physics-facet | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-45 | HIGH | spring-starting-style-entry | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-46 | HIGH | spring-starting-style-entry | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-47 | HIGH | sequence-staggered-rows, sequence-reel-e | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-48 | HIGH | sequence-reel-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-49 | HIGH | sequence-power-on-cascade | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-50 | HIGH | chrome-dock-expand-collapse, chrome-dock | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-51 | HIGH | chrome-dock-expand-collapse | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-52 | HIGH | chrome-dock-expand-collapse | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-53 | HIGH | chrome-dock-expand-collapse, transport-d | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-54 | HIGH | transport-dock | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-55 | HIGH | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-56 | HIGH | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-57 | HIGH | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-58 | HIGH | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-59 | HIGH | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-60 | HIGH | playback-ribbon-visualizer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-61 | HIGH | playback-ribbon-visualizer | routed (§0cb consumer half) | KF.W13V `.u` |
+| KFA-62 | HIGH | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-63 | HIGH | copy-button-feedback | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-64 | MEDIUM | amiga-grid-room-backdrop | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-65 | MEDIUM | amiga-sphere-spin-gesture | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-66 | MEDIUM | amiga-boing-composite, amiga-grid-room-b | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-67 | MEDIUM | amiga-grid-room-backdrop | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-68 | MEDIUM | amiga-grid-room-backdrop | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-69 | MEDIUM | amiga-boing-composite, cube-group-spin-m | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-70 | MEDIUM | home-landing-cube | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-71 | MEDIUM | home-landing-cube | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-72 | MEDIUM | home-landing-cube | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-73 | MEDIUM | home-hero-aurora | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-74 | MEDIUM | home-animated-text | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-75 | MEDIUM | scene-swap-transition | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-76 | MEDIUM | scene-swap-transition | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-77 | MEDIUM | scene-swap-transition | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-78 | MEDIUM | scene-skeleton-shimmer | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-79 | MEDIUM | scene-skeleton-shimmer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-80 | MEDIUM | scene-skeleton-shimmer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-81 | MEDIUM | cube-group-spin-matrix-bob | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-82 | MEDIUM | cube-orbital-drag-inertia | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-83 | MEDIUM | cube-orbital-drag-inertia | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-84 | MEDIUM | cube-orbital-drag-inertia | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-85 | MEDIUM | cube-relit-faces | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-86 | MEDIUM | cube-roll-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-87 | MEDIUM | cube-roll-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-88 | MEDIUM | cube-axis-lines | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-89 | MEDIUM | cube-loader-spin | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-90 | MEDIUM | square-tour, square-tumble-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-91 | MEDIUM | square-tour, square-tumble-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-92 | MEDIUM | square-drag-spring-tether | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-93 | MEDIUM | square-drag-spring-tether | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-94 | MEDIUM | square-drag-spring-tether | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-95 | MEDIUM | square-drag-spring-tether, playback-ribb | routed (§0cb consumer half) | KF.W13V `.u` |
+| KFA-96 | MEDIUM | square-tumble-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-97 | MEDIUM | square-tumble-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-98 | MEDIUM | square-tumble-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-99 | MEDIUM | easing-gallery-race | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-100 | MEDIUM | easing-gallery-race | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-101 | MEDIUM | easing-picker-curve | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-102 | MEDIUM | spring-live-solver, spring-derby-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-103 | MEDIUM | spring-live-solver | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-104 | MEDIUM | spring-starting-style-entry | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-105 | MEDIUM | sequence-staggered-rows | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-106 | MEDIUM | sequence-power-on-cascade | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-107 | MEDIUM | sequence-reel-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-108 | MEDIUM | sequence-reel-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-109 | MEDIUM | chrome-dock-expand-collapse | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-110 | MEDIUM | chrome-dock-expand-collapse | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-111 | MEDIUM | chrome-dock-expand-collapse | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-112 | MEDIUM | chrome-dock-menus | honest-RED relay (§0cb reframed; KF.W13R .v re-read: still-live on kf 10.0.1) | glass BL |
+| KFA-113 | MEDIUM | chrome-dock-menus | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-114 | MEDIUM | chrome-dock-menus | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-115 | MEDIUM | chrome-dock-menus | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-116 | MEDIUM | controls-pane-drawer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-117 | MEDIUM | controls-pane-drawer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-118 | MEDIUM | controls-pane-drawer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-119 | MEDIUM | controls-pane-drawer, timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-120 | MEDIUM | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-121 | MEDIUM | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-122 | MEDIUM | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-123 | MEDIUM | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-124 | MEDIUM | copy-button-feedback | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-125 | LOW | amiga-contact-shadow | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-126 | LOW | amiga-boing-composite | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-127 | LOW | amiga-boing-composite | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-128 | LOW | amiga-sphere-spin-gesture | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-129 | LOW | amiga-sphere-spin-gesture | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-130 | LOW | amiga-sphere-spin-gesture | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-131 | LOW | home-landing-cube, cube-roll-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-132 | LOW | home-hero-aurora | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-133 | LOW | home-hero-aurora | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-134 | LOW | home-animated-text | routed (§0cb consumer half) | KF.W13V `.u` |
+| KFA-135 | LOW | home-typing-dots | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-136 | LOW | scene-swap-transition | routed (§0cb consumer half) | KF.W13V `.u` |
+| KFA-137 | LOW | scene-skeleton-shimmer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-138 | LOW | cube-group-spin-matrix-bob | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-139 | LOW | cube-group-spin-matrix-bob | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-140 | LOW | cube-roll-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-141 | LOW | cube-roll-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-142 | LOW | cube-roll-egg, cube-axis-lines | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-143 | LOW | cube-axis-lines | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-144 | LOW | cube-loader-spin | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-145 | LOW | square-tour | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-146 | LOW | square-tour | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-147 | LOW | square-tumble-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-148 | LOW | square-tumble-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-149 | LOW | easing-picker-curve | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-150 | LOW | easing-picker-curve | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-151 | LOW | spring-live-solver | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-152 | LOW | spring-live-solver | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-153 | LOW | spring-derby-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-154 | LOW | spring-physics-facet | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-155 | LOW | spring-physics-facet | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-156 | LOW | spring-physics-facet | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-157 | LOW | spring-starting-style-entry | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-158 | LOW | spring-starting-style-entry | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-159 | LOW | sequence-staggered-rows | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-160 | LOW | sequence-staggered-rows | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-161 | LOW | sequence-power-on-cascade | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-162 | LOW | sequence-reel-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-163 | LOW | chrome-dock-menus | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-164 | LOW | chrome-dock-menus | honest-RED relay (§0cb reframed; KF.W13R .v re-read: still-live on kf 10.0.1) | glass BL |
+| KFA-165 | LOW | transport-dock | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-166 | LOW | transport-dock | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-167 | LOW | transport-dock | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-168 | LOW | controls-pane-drawer | honest-RED relay-only (O-60, §0cb producer-live) | glass BL |
+| KFA-169 | LOW | controls-pane-drawer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-170 | LOW | controls-pane-drawer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-171 | LOW | controls-pane-drawer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-172 | LOW | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-173 | LOW | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-174 | LOW | playback-ribbon-visualizer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-175 | LOW | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-176 | LOW | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-177 | LOW | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-178 | LOW | copy-button-feedback | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-179 | LOW | copy-button-feedback | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-180 | LOW | copy-button-feedback | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-181 | HIGH | amiga-boing-composite | CURED (this seat) | `5ae589ab`+`d4085ab4` · boing capture ×2 |
+| KFA-182 | HIGH | cube-orbital-drag-inertia | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-183 | MEDIUM | home-landing-cube | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-184 | MEDIUM | scene-skeleton-shimmer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-185 | MEDIUM | cube-orbital-drag-inertia | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-186 | MEDIUM | square-drag-spring-tether | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-187 | MEDIUM | spring-starting-style-entry | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-188 | MEDIUM | easing-picker-curve | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-189 | MEDIUM | transport-dock | honest-RED relay (§0cb reframed; KF.W13R .v re-read: still-live on kf 10.0.1) | glass BL |
+| KFA-190 | MEDIUM | sequence-power-on-cascade | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-191 | MEDIUM | spring-physics-facet | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-192 | MEDIUM | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-193 | MEDIUM | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-194 | LOW | amiga-grid-room-backdrop | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-195 | LOW | amiga-sphere-spin-gesture | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-196 | LOW | amiga-sphere-spin-gesture | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-197 | LOW | home-landing-cube | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-198 | LOW | home-landing-cube | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-199 | LOW | home-landing-cube | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-200 | LOW | home-typing-dots | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-201 | LOW | scene-swap-transition | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-202 | LOW | scene-skeleton-shimmer | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-203 | LOW | cube-group-spin-matrix-bob | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-204 | LOW | cube-loader-spin | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-205 | LOW | cube-loader-spin | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-206 | LOW | square-tour | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-207 | LOW | square-tumble-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-208 | LOW | easing-gallery-race | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-209 | LOW | easing-picker-curve | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-210 | LOW | spring-live-solver | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-211 | LOW | spring-live-solver | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-212 | LOW | spring-derby-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-213 | LOW | spring-derby-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-214 | LOW | spring-physics-facet | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-215 | LOW | spring-starting-style-entry | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-216 | LOW | spring-starting-style-entry | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-217 | LOW | sequence-staggered-rows | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-218 | LOW | sequence-power-on-cascade | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-219 | LOW | sequence-reel-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-220 | LOW | sequence-reel-egg | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-221 | LOW | chrome-dock-menus | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-222 | LOW | transport-dock | honest-RED until the landing repin (§0cb R-5; cured at glass HEAD) | glass BL → landing-repin wave |
+| KFA-223 | LOW | controls-pane-drawer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-224 | LOW | timeline-panel | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-225 | LOW | playback-ribbon-visualizer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-226 | LOW | playback-ribbon-visualizer | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-227 | LOW | keyframes-editor-cards | OPEN — honest-RED, not cured this seat | KF.W13V `.k` successor (consumer; cause in keyframes.js) |
+| KFA-228 | LOW | square-tour, amiga-grid-room-backdrop, e | routed (§0cb consumer half) | KF.W13V `.u` |
+
+#### Gate readings BEFORE → AFTER (×2)
+
+| gate | BEFORE | AFTER (this seat) | reading |
+|---|---|---|---|
+| G-W13V-k1 every open KFA row cured or honest-RED by id with owner | 228 open (B-k1) | 11 CURED · 34 honest-RED/routed by id (glass 28 · KFA-14 · `.u` 5) · **183 OPEN** consumer, owner the `.k` successor | **RED** |
+| G-W13V-k2 each cure re-captured with the audit's own script | — | 10 of 11 re-captured ×2 (KFA-1/2/29/33 writers · 3 staggered-rows · 12 probe-vt-binding · 17 dockprobe3/4 · 18/21 probe-easing · 181 boing capture); KFA-15 OWED (audit path retired by `.s`) | **RED (1 owed)** |
+| G-W13V-k3 critic gaps captured + judged | 0 of 7 | 3 of 7 (transport matrix · dark legs · mobile Sheet); 4 uncaptured (`CRITIC-GAPS-UNCAPTURED`) | **RED** |
+| G-W13V-k4 KFA-17 / C6-3 resolved at cause | open | sequence leg CURED at cause; `[real-cube]` 4/4 PASS, mechanism inferred not isolated (`REAL-CUBE-INTERMITTENT`) | **RED** |
+| floor: vue-tsc | 0 | ⟨`npm run check`⟩ (vue-tsc app + test + proof:structure) → **EXIT 0 · EXIT 0** (a first read went EXIT 1 on R4 `animation.ts 502` — cured in `d4085ab4`, re-read) | GREEN |
+| floor: demo vitest | 66/518 | ⟨`npx vitest run --project demo`⟩ → **68 files · 532/532 ×2** | GREEN |
+| floor: library vitest | — | ⟨`npx vitest run --project library`⟩ → **114 passed · 5 skipped · 1262 passed · 2 expected fail · 14 skipped ×2** | GREEN |
+
+**Residuals (honest-RED ids, owners)**: `RESET-READOUT-STALE` (all 6 scenes; cause `useAnimationSync` idle + markRaw reset with no signal) · easing Reverse keeps the sweep forward · `REAL-CUBE-INTERMITTENT` · `CRITIC-GAPS-UNCAPTURED` (matrix tweens, toasts, tooltips, tab-panel slide) · the KFA-15 served re-capture · the 183 OPEN consumer rows — all owner **the `.k` successor unit**; `VALUEJS-LEGACY-RGBA` (KFA-14) → value.js X-W11 publish then the kf bump; the 28 glass rows → BL via O-60/O-69; KFA-61/95/134/136/228 → `.u`. **Persisted-bucket note (R-k-1)**: a store bucket persisted by an earlier session for an animation-AUTHORED scene (the Amiga) is no longer imposed on the running animation at mount (the KFA-18 fix shape: "apply only on a user edit"); a stale persisted bucket therefore displays its old edit until expiry (`checkAndResetExpiredStore`) or an edit — recorded, not cured.
+
+**Adjacent edits (§0bt)**: `keyframes.js/test/demo/instrument/KeyframesAddDialog.test.ts:253` (+ its `:33` docblock line) — the string the oracle asserts for the rest class this seat changed (KFA-15). **Escalations**: none (every cure landed inside the writable set; no package bump — value.js 4.1.0 is unpublished).
+
+**Evidence** (value.js, scripts + JSON + text only; the frames — 3,263 jpg + 3,544 png, 1.3 GB — stay on disk uncommitted): `docs/tranches/X/keyframes/evidence/W13V/k/{kfa-1-2,kfa-3,kfa-12,kfa-15,kfa-17,kfa-17-cube,kfa-18,kfa-181,critic}/` + `split.mjs` + `split-table.md`.
