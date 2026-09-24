@@ -242,3 +242,32 @@ Both bear on O-65's "a dismiss is a seat inside the plate" clause.
 - (iv) The editor dock's `.is-save { background: foreground 6% }` is a consumer grey fill on a DockControl. It is not a Select, not collapsed-form and not an edge, so it is noted for `.vedit` (UIA register row owner).
 
 **Escalations:** none.
+
+### F.W14U.a
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-24 · spec F-W14U.md (c) §0cu :52-55 · COHESION §0cu :3361-3365 · INBOX I-51 (`:516`, O-68 registered at glass `2efb414c`; early 10.x ship = glass owner item OW-11).
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only; ⟨`git status --porcelain execution/C/F-W14U.md`⟩ → clean. Nothing inherited. fourier HEAD ⟨`git rev-parse --short HEAD`⟩ → `b62821d`.
+
+**Acts (read-only in fourier; the unit's writable set is this record).**
+1. Pin and install. ⟨`grep -n '"@mkbabb/glass-ui"' web/package.json`⟩ → `:19 "10.0.1"`; ⟨`grep '"version"' web/node_modules/@mkbabb/glass-ui/package.json`⟩ → `"10.0.1"`.
+2. The slot. ⟨`grep -n actions web/node_modules/@mkbabb/glass-ui/dist/components/configurator/ConfiguratorLayer.vue.d.ts`⟩ → no match (exit 1); the declared slots (`:54-56`) are `default?: (props) => any` only. **`#actions` is NOT published at the installed pin.** The lock holds: no fourier write (the pin is out of bounds).
+3. Census of every ConfiguratorLayer section. ⟨`grep -rn "<ConfiguratorLayer" web/src`⟩ → 6 sections; body reset rows read at the bytes:
+
+| section (label) | mount file:line | body reset row (the future move into `#actions`) |
+|---|---|---|
+| Contour | `web/src/components/visualization/ContourSettings.vue:227` | **`:228-242`**: comment `:228-229` ("ConfiguratorLayer has no header-actions slot"), row `<div class="flex items-center justify-end -mt-1 -mb-1">` `:230`, `Tooltip` + `Button emphasis="quiet" icon-only :disabled="isDefault" aria-label="Reset to defaults" @click.stop="resetDefaults"` `:231-241` (`resetDefaults` `:98`, `RotateCcw` import `:22`) |
+| Decomposition | `web/src/components/visualization/BasisSelector.vue:136` | **`:137-151`**: comment `:137-138`, row `:139`, Tooltip + Button `:140-150` (`resetDefaults` `:96`, `RotateCcw` import `:11`) |
+| Image | `web/src/components/visualization/ImageUpload.vue:64` | none |
+| Coefficients | `web/src/components/visualization/CoefficientsPanel.vue:14` | none |
+| Preview | `web/src/components/visualization/ContourPreview.vue:59` | none |
+| Coefficients (equation) | `web/src/components/equation/EqCoefficientsPanel.vue:72` | none |
+
+   Not in scope, checked: `VisualizationView.vue:254` `<template #actions>` is the load-error plate's slot, not a ConfiguratorLayer; `ui/CollapsibleSection.vue:100` `<slot name="actions" />` is fourier's own disclosure header, not glass's.
+4. No local overlay into glass's header. Glass header classes ⟨`grep -rho 'configurator-layer[a-z_-]*' node_modules/@mkbabb/glass-ui/dist | sort | uniq -c`⟩ → `configurator-layer`, `-trigger`, `-region`, `-body`. ⟨`grep -rn 'configurator-layer-trigger\|configurator-layer-region\|configurator-layer-body' web/src`⟩ → 0 hits (exit 1). ⟨`grep -rn Teleport web/src | grep -i 'configurator\|layer-trigger'`⟩ → 0 hits. The only `configurator-layer` selector in fourier is `VisualizationView.vue:557` `.viz-panel-left > :not(.configurator-layer):not(:last-child)` (sibling spacing, excludes the layer; not a header overlay).
+5. Double-run. ⟨loop ×2: slot-hits · section files · `aria-label="Reset to defaults"` count · header-selector hits⟩ → `run1 actions=0 sections_files=6 body_resets=2 header_overlay=0` · `run2 actions=0 sections_files=6 body_resets=2 header_overlay=0`. Load 22.95/30.22/28.58.
+
+**Gate G-a.** BEFORE: RED (the open baseline). AFTER: **honest-RED CONFIGURATOR-HEADER-ACTIONS** recorded. `#actions` is unpublished at 10.0.1. The census holds 2 body reset rows in 6 sections, and the header overlay reads 0. The cure is owed at the landing repin that publishes O-68: move the two rows above into `#actions`, delete the body rows and their "no header-actions slot" comments, and falsify RED→GREEN ×2. The producer is glass O-68/I-51, and the early 10.x minor is owner item OW-11.
+
+**Commits:** fourier none (lock). value.js: this receipt only.
+**Adjacent edits:** none. **Residuals:** CONFIGURATOR-HEADER-ACTIONS (O-68). **Escalations:** none.
