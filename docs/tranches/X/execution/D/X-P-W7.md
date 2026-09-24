@@ -1657,3 +1657,60 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (b)
 **Unrelieved RED:** L-G1 Firefox rej + large parseStylesheet (C3-1).
 
 **Verdict: NOT-CONFORMANT.** One HIGH (C3-1). Every claimed GREEN reproduces (V-1 88 ×2 · css-equiv 19/19 · test/css 58/58 · bbnf-lang 288/288 + tsc 0 · L-G3 0 · K2-b 0 · V-8 0/0 · E-6 · WebKit rej/large < 1). **The LEDGER row stays `PARTIAL`, with no status edit.** An event line is appended. **Adjacent edits: none. Out-of-set writes: none.**
+
+## RESUME 4 — Open (2026-09-24, seat 0, `claude-opus-5-5`, Track D; COHESION §0di + W7.md ADDENDUM (c))
+
+- **Mode:** RESUME 4. ⟨`grep -n "| X.P.W7 |" LEDGER.md`⟩ → `:104` status `PARTIAL — ESC-W7l-1 unruled (2026-09-24): …` (not CLOSED); this record exists (1659 lines before this section). Governing text: W7.md read whole (247 lines; ADDENDUM (c) at `:231` binds — ESC-W7l-1 RULED: (c) refused, (a) admitted STATIC, (b) measured fallback only) and COHESION §0di (`:3487`, the file end). Read from this record: `## RESUME 3 — Open` through `## RESUME 3 Unit receipts` (the `.l` receipt) and `## Check 3` (the last section).
+- **alreadyDone (orchestrator note + ADDENDUM (c)): `.o .p .t .e .v .k .k2 .g .l`**, verified at the bytes: ⟨`git cat-file -e <sha>^{commit}`⟩ → value.js `816ec3d1` `4ffbe7de` `5f7bd27e` `24f8d58d` (`.l`) · `baaec604` (`.k2`) · `df9c6f7e` (`.g`) · `8b08db4b` (Repair 1) all OK; bbnf-lang `dcf72b966` (instrument flag) · `d81016e96` (cure 1) OK, `d81016e96` = branch `x-p-w7-typescript` HEAD = `origin/x-p-w7-typescript`. `.o`…`.k` verified at the RESUME Open (record:867). `.z` re-opens only in X.P.W7P.
+- **Crash-recovery:** ⟨`git status --porcelain -- src/css bench test/css scripts/gen-grammar.mjs docs/tranches/X/execution`⟩ → empty; ⟨`git -C ../bbnf-lang-x-p-w7-typescript status --porcelain -b`⟩ → `## x-p-w7-typescript...origin/x-p-w7-typescript`, clean. `node_modules/@mkbabb/bbnf-lang` → `0.1.4` (restored by `.l`). ⟨`git log --oneline 4ffbe7de..HEAD -- src/css bench test/css scripts/gen-grammar.mjs package.json`⟩ → only `5f7bd27e` (records): product bytes = `.l`'s final bytes. **No inherited partial work.**
+- **Preconditions:** `.l2` opens on §0di's ruling (not a predecessor wave): ⟨`grep -n "^## §0di" COHESION.md`⟩ → `3487`; W7.md:231 ADDENDUM (c) present; `.l` commits exist (above); the linked worktree present on the branch; the banked lever diffs ⟨`ls bench/records/2026-09-24-x-p-w7-l-levers/`⟩ present (the (b) starting point). Release chain stays X.P.W7P (LEDGER:105 `GATE-KEYED … one-time password`). **MET.** No npm act in this wave.
+
+### E13 Step-0 mail sweep (2026-09-24)
+- ⟨`ls -td glass-ui/docs/tranches/B*/ | head -3`⟩ → `BL BK BJ` (BL newest, no `coordination/`; BK stays the mail path, BL root swept).
+- ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ over value.js `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` · keyframes.js `V/coordination/` · atlas `P/coordination/` → **0** on every path. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0` (last row I-57).
+- **Result: 0 unrowed · 0 UNREAD in scope.** A dated sweep line was appended to INBOX.md.
+
+## RESUME 4 Baseline (BEFORE, read-only, 2026-09-24; product bytes = `.l`'s final bytes `4ffbe7de`, unchanged)
+
+- ⟨`git log --oneline 4ffbe7de..HEAD -- src bench test/css scripts/gen-grammar.mjs`⟩ → only `5f7bd27e` (records). ⟨`node bench/paired/build.mjs`⟩ → `srcDirty ""`, `bankedManifestOk 79/79`, `retiredAt 2155142b`.
+- **RESUME rule:** `.l2` turns L-G1 (the Firefox RED cells, and every cell it could move) and the new classification test; every other gate is cited from `## Check 3` (V-1 88 = F-b-4 ×2 · css-equiv 19/19 · test/css 58/58 · bbnf-lang 288/288 + tsc 0 · L-G3 0 · K2-b 0 · E-6 94,065/12,895 · Chromium/node < 1) and `.l` act 7 (`gen-grammar --check` exit 0 on the linked emitter; not re-read here because `--check` needs the emitter linked, a `.l2` act: ⟨`node scripts/gen-grammar.mjs --check`⟩ on the 0.1.4 install → `has no \`bbnf\` bin (bbnf gen needs @mkbabb/bbnf-lang >= 0.2.0)`, the expected tooling state, not a drift reading).
+
+| Gate | Command | BEFORE (2 reps, paired median) | Reading |
+|---|---|---|---|
+| L-G1 Firefox rej parseStylesheet | ⟨`node bench/paired/browser.mjs l2-open firefox,webkit,chromium 2 rej,large 11 product parseStylesheet`⟩ (load 43.15 → 41.75, recorded; Firefox 150.0.2 · WebKit 26.4 · Chromium 148.0.7778.96; record moved to the scratchpad, ⟨`git status --porcelain bench src test | wc -l`⟩ → 0) | **1.184 / 1.103** clean (+3 SA 1.158/1.26/1.22, spread 1.81–2.73) | **born-RED** |
+| L-G1 Firefox large parseStylesheet | same | **1.316 / 1.279** | **born-RED** |
+| L-G1 WebKit rej / large parseStylesheet | same | .75 / .74 · .571 / .581 | GREEN (stay-GREEN) |
+| L-G1 Chromium rej / large parseStylesheet | same | .529 / .539 · .352 / .352 | GREEN (stay-GREEN; the (b) regression watch cell) |
+| `.l2` classification property | ⟨`grep -rniE bulk ../bbnf-lang-x-p-w7-typescript/typescript/src | wc -l`⟩ | `0` (`analysis/` = deps, first, index, metadata, regex, scc) | **born-RED** |
+| L-G3 instrument bytes in shipped `generated/` | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ | 0 | stay-GREEN |
+| K2-b post-hoc walk | ⟨`grep -rn deepFreeze src | wc -l`⟩ | 0 | stay-GREEN |
+| emitted code-unit loops | ⟨`grep -c charCodeAt src/css/bbnf/generated/grammar.js`⟩ | 225 | recorded (the `.l2` scan-form surface) |
+
+**greenBeforeCure: none.**
+
+## RESUME 4 Unit plan (2026-09-24)
+
+**alreadyDone:** `.o .p .t .e .v .k .k2 .g .l` (never re-dispatched; ADDENDUM (c) + orchestrator note). **`.z`:** re-opens only in X.P.W7P. **Owed:** `[X.P.W7.l2]` alone, then close. One concurrent. Every seat Opus 5.5 (owner's Opus-only order, 2026-09-23; ADDENDUM (c) "Opus, effort high"). An ESCALATED `.l2` does not halt the wave: the close runs on it.
+
+### Rulings cited (never re-opened)
+§0di / W7.md ADDENDUM (c) (ESC-W7l-1 RULED: (c) record-instead-of-gate REFUSED; (a) admitted STATIC — per-rule classification from the grammar's structure, no input length, no engine detection; (b) uniform negated-run lever = measured fallback only, stating which form shipped and why with lever tables) · §0cx / ADDENDUM (b) (root cause, no per-engine path; impasse → ESCALATED with the profile) · §0cp (release chain → X.P.W7P, OTP-keyed; LEDGER hunk hygiene) · §0ck 1–7 (F-b-4 accepted; positional semantics; bbnf-lang choreography) · §0bt ADJACENT-LINE RULE.
+
+### Locks
+- **L-4 (bbnf-lang):** writes only in `../bbnf-lang-x-p-w7-typescript` on `x-p-w7-typescript`; push the branch only; never local master; PR #1 stays open. Every re-emission of `src/css/bbnf/generated/` goes through `node scripts/gen-grammar.mjs` only (emitter linked from the worktree as `.l` did; restore 0.1.4 after, ⟨`grep '"version"'`⟩ → `0.1.4`); `--check` passes after.
+- **L-6 (no npm):** no `npm publish`, no version bump, no dependency move (X.P.W7P); ⟨`git diff HEAD -- package.json package-lock.json`⟩ empty at the end.
+- **L-7 (LEDGER, §0cp 4):** read `git diff` on LEDGER.md before any commit touching it; stage only this seat's hunk.
+- **L-8 (instrument compiled out):** L-G3 stays 0 in shipped `generated/`.
+- **L-9 (one module, every engine):** no engine sniffing, no input-length test, no per-engine branch in emitted or action code; K2-b stays 0; no try/catch around a defect.
+- **L-10 (static classification, ADDENDUM (c)):** the bulk-text/token decision is a named, tested property of `typescript/src/analysis/**`, computed from grammar structure only; a unit test names each classified rule of value.js's grammar (at least `preludeRun`, `blockBody`, `textBody`, `ruleGap`).
+- **Families:** the classification + emission = one bbnf-lang commit (analysis + `emit.ts` + tests), pushed; its value.js re-emission (+ any bench probe) = one value.js commit; records = one value.js `bench/**` commit; if (b) ships, it is its own bbnf-lang commit + re-emission commit.
+
+### `[X.P.W7.l2]` — the static bulk-run emission (W7.md 231–247: ADDENDUM (c); COHESION §0di)
+- **Writable:** bbnf-lang `typescript/**` on `x-p-w7-typescript` (`src/analysis/**`, `src/emit.ts`, tests) · value.js `src/css/bbnf/generated/**` (through `node scripts/gen-grammar.mjs` only) · `bench/**` (probes beside `bench/paired/`, records) · `test/css/**` (pins; §0bt) · this record.
+- **Acts:** (1) analysis property `bulkRun` (name the seat's choice): a class run is bulk-text when its rule's run is unbounded and spans a block/prelude/body (structural: the run's repetition is `*`/`+` over a negated class whose terminators are block/statement delimiters, reached from block/prelude/body rules) — token runs keep the code-unit loop; unit test naming each classified rule; (2) emit bulk-text runs as a sticky regex scan (`lastIndex`/`y`), token runs unchanged; audit build re-runs as spelt; (3) re-emit value.js (`gen-grammar.mjs`), `--check` 0, deterministic ×2; (4) read the gates; (5) only if a cell stays RED by measurement: fallback (b) from `bench/records/2026-09-24-x-p-w7-l-levers/negated-run-regex+defer.diff` (the negated-run half only; the deferred-text half was refused on its own numbers), uniform, with lever tables; state which form shipped and why.
+- **Gates:** L-G1 every entry × {acc, rej} + large sheets < 1.00 paired on node, Chromium, WebKit, Firefox, ×2, load recorded (`bench/paired/isolated.mjs`, `bench/paired/browser.mjs`); set-aside cells re-read quiesced, never a voided cell claimed · L-G2 V-1 88 = F-b-4 exactly ×2 (`bench/paired/equiv.mjs`) · L-G3 0 · stay-GREEN: `test:css-equivalence` 19/19 MIRROR-DEFECTS 0, `npx vitest run test/css`, `npm test` (foreign failures only), `vue-tsc` 0/0/0, `gen-grammar --check` 0, K2-b 0, E-1..E-7 on the final emitter (E-6 ≤ 125,646 / 14,517), bbnf-lang TS suite ×2 + `tsc --noEmit` 0, whole-7/7 inside ceilings. New born-RED: the classification test (0 `bulk` hits in `analysis/` at open).
+- **Locks:** L-4, L-6, L-7, L-8, L-9, L-10.
+
+### Close (after `.l2`)
+Engineering gates binding (accepted + rejected halves and large sheets under the retired parser on every engine, ×2). Release gates P-6 · E-8 · V-9 + the CI step · Z-1 · Z-3 (publish half) relieved by citing X.P.W7P (§0cp; OTP-keyed). No `npm publish` in this wave.
+
+## RESUME 4 Unit receipts
