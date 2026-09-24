@@ -10,7 +10,7 @@
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button emphasis="secondary" size="xs" class="px-2" aria-label="Refresh flagged palettes" :disabled="!!flagged.access.value" @click="flagged.loadFlagged()">
+            <Button emphasis="secondary" size="xs" icon-only aria-label="Refresh flagged palettes" :disabled="!!flagged.access.value" @click="flagged.loadFlagged()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
@@ -132,7 +132,8 @@
                     <Button
                         emphasis="quiet"
                         size="xs"
-                        class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                        icon-only
+                        class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                         :aria-label="`Delete palette ${item.palette?.name ?? item.paletteSlug}`"
                         @click="onDeleteClick(item.paletteSlug, item.palette?.name ?? item.paletteSlug)"
                     >

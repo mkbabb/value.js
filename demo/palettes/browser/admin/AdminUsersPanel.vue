@@ -148,8 +148,8 @@
                              share one glyph — deleting the USER reads as a user act. -->
                         <Button
                             emphasis="quiet"
-                            size="xs"
-                            class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                            size="xs" icon-only
+                            class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                             :aria-label="`Delete user ${user.slug}`"
                             @click="onDeleteUserClick(user.slug)"
                         >
@@ -195,7 +195,8 @@
                                 </Button>
                                 <Button
                                     size="xs"
-                                    class="px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                                    icon-only
+                                    class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                                     :aria-label="`Delete palette ${palette.name}`"
                                     @click="onDeletePaletteClick(palette)"
                                 >

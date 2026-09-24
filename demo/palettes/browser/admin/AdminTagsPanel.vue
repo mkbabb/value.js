@@ -11,7 +11,7 @@
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button emphasis="secondary" size="xs" class="px-2" aria-label="Refresh tags" :disabled="!!tagsApi.access.value" @click="tagsApi.loadTags()">
+            <Button emphasis="secondary" size="xs" icon-only aria-label="Refresh tags" :disabled="!!tagsApi.access.value" @click="tagsApi.loadTags()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
@@ -65,8 +65,7 @@
             <!-- W5-a11y: icon-only create tag button needs accessible name -->
             <Button
                 emphasis="secondary"
-                size="xs"
-                class="px-2"
+                size="xs" icon-only
                 aria-label="Create tag"
                 :disabled="!tagsApi.newName.value.trim() || !tagsApi.newCategory.value.trim() || !!tagsApi.newNameProblem.value || tagsApi.creating.value"
                 @click="tagsApi.createTag()"

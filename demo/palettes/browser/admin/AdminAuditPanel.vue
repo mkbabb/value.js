@@ -32,7 +32,7 @@
                 {{ audit.total.value }} entr{{ audit.total.value === 1 ? "y" : "ies" }}
             </span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button emphasis="secondary" size="xs" class="px-2" aria-label="Refresh audit log" :disabled="!!audit.access.value" @click="audit.loadAuditLog()">
+            <Button emphasis="secondary" size="xs" icon-only aria-label="Refresh audit log" :disabled="!!audit.access.value" @click="audit.loadAuditLog()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
