@@ -73,3 +73,18 @@ SERVED MODEL: claude-opus-5-5
 - **C-2** ⟨npm run test:css-equivalence \| grep -E "Test Files\|Tests "⟩ run 1 → `Test Files 2 passed (2)` · `Tests 19 passed (19)`; run 2 → `Test Files 2 passed (2)` · `Tests 19 passed (19)`. GREEN x2.
 - **Commit.** `1d970c7c` ci(X.P.W6R.c) — package.json + .github/workflows/ci.yml, one family, pathspec (⟨git log -1 --stat⟩ → 2 files, 2 insertions).
 - Adjacent edits: none. Residuals: none. Escalations: none. Status: DONE.
+
+### X.P.W6R.l
+SERVED MODEL: claude-opus-5-5
+
+- **Crash-recovery.** ⟨git status --porcelain -- DIVERGENCE-LEDGER.md X-P-W6R.md⟩ → empty. No inherited work.
+- **Anchors (measured before the edit).** §15 runs 1373–1439 and is the file end (1439 lines); `test/css/equivalence` cited at 1379 and 1422, as the brief says. `value.bbnf:17` `valueTerm … | badTerm`, `:21` `badTerm = /[^\s(),\/:;"']+/`; `bbnf/value.ts:161` the `badTerm` action; `git log -- value.bbnf` → `7e60d700` (the swap) carries it. `bench/css-equivalence/stylesheet.measure.test.ts:78-121` is the SH-1 mechanism. No drift.
+- **Measurement for the SH-1 figure.** ⟨npx vitest run -c bench/vitest.config.ts bench/css-equivalence/stylesheet.measure.test.ts⟩ → `parseStylesheet × 32021: {"AGREE":30252,"VALUE_GRAMMAR":1726,"BOTH_REFUSE":30,"DEFECT":0} · classes {"SH-1":13} · STYLESHEET DEFECTS 0` · `Tests 4 passed (4)`. This matches the `.x` receipt (X-P-W6.md:226). `.c` read the whole instrument at 19/19 x2.
+- **Act 1.** Appended `## §15-A` at the file end (DIVERGENCE-LEDGER.md:1441–1489), dated and beside, with no §15.x byte touched. §15-A.1 is the re-point table from `test/css/equivalence/…` to `bench/css-equivalence/…`, with the run commands (`-c bench/vitest.config.ts` / `npm run test:css-equivalence`, 19 tests, 15→19 explained). §15-A.2 is the SH-1 row: 13 cases, the retired signed paren-depth reading against the BBNF stack reading, the governs-when repair, the falsifier (fail-closed class plus the planted `!important` defect, 3/3), NARROWS. §15-A.3 is the `badTerm` row: the grammar and action cure, the absolute-span divergence, LW-1 ratified by §0cg.
+- **Commit.** `a8f93163` docs(X.P.W6R.l), pathspec DIVERGENCE-LEDGER.md only (⟨git log -1 --stat⟩ → 1 file, 49 insertions(+)).
+- **Gates, BEFORE→AFTER (AFTER read twice on the settled bytes):**
+  - L-1: ⟨grep -c bench/css-equivalence DIVERGENCE-LEDGER.md⟩ 0 → 10, 10. GREEN.
+  - L-2: ⟨grep -n "^### §15-A.2" …⟩ 0 → 1 hit, `:1461 SH-1 · UNMATCHED DELIMITER — parseStylesheet, 13 cases`, with a falsifier field. GREEN.
+  - L-3: ⟨grep -c badTerm⟩ 0 → 4, 4. GREEN.
+  - E-3: ⟨git diff --numstat -- DIVERGENCE-LEDGER.md⟩ (pre-commit) → `49 0`, read twice. 0 deletions. GREEN.
+- **Adjacent edits:** none. **Residuals:** RES-x-5 (the `real-corpus.json` generation note) stays with its next regeneration, as §15-A.1 records. **Escalations:** none. **Status:** DONE.
