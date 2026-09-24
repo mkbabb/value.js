@@ -135,7 +135,10 @@ const adminCount = computed(() => {
         // the loading skeletons lies (the length is 0 before data arrives).
         case "admin-users":
             // W7.62: the server's roster total, not the loaded page's length.
-            return pm.loadingUsers.value || pm.usersAccess.value ? null : pm.adminUsersTotal.value;
+            // UIA-V-168: a failed read has no count either.
+            return pm.loadingUsers.value || pm.usersAccess.value || pm.usersLoadError.value
+                ? null
+                : pm.adminUsersTotal.value;
         // S.W5-7 (F-12): the header badge is the ACTIONABLE queue — the old
         // pending+approved sum matched neither visible list.
         case "admin-names":

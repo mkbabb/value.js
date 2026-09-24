@@ -5,10 +5,12 @@
             <!-- A-3: the count speaks only once the roster resolves — a "0
                  users" line above three loading skeletons is a self-
                  contradiction (totalUsers is 0 before the data arrives). -->
-            <span v-if="!loading && !access" class="text-mono-small text-muted-foreground">
+            <!-- UIA-V-168: nor while the read failed — a dead backend is not
+                 an empty roster ("0 users" over the error plate lies). -->
+            <span v-if="!loading && !access && !loadError" class="text-mono-small text-muted-foreground">
                 {{ totalUsers }} user{{ totalUsers !== 1 ? 's' : '' }}
             </span>
-            <span v-if="!loading && !access && emptyCount > 0" class="text-mono-small text-muted-foreground">
+            <span v-if="!loading && !access && !loadError && emptyCount > 0" class="text-mono-small text-muted-foreground">
                 · {{ emptyCount }} empty
             </span>
             <div class="flex-1" />
@@ -97,7 +99,7 @@
                     :class="[
                         'flex items-center gap-3 px-3 py-2.5 transition-colors',
                         user.paletteCount
-                            ? 'cursor-pointer hover:bg-accent/50 focus-visible:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'
+                            ? 'cursor-pointer hover:bg-accent/50 focus-visible:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring'
                             : 'cursor-default',
                     ]"
                     :role="user.paletteCount ? 'button' : undefined"

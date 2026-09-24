@@ -80,6 +80,8 @@ describe("UIA-V-49 · the roster's Retry is the latch's recovery probe", () => {
         await ports.admin.loadAdminUsers();
         await flushPromises();
         expect(wrapper.text()).toContain("Retry");
+        // UIA-V-168: a dead backend is not an empty roster — no "0 users".
+        expect(wrapper.text()).not.toMatch(/\b0 users\b/);
         // the header's duplicate Refresh stands down while the plate offers Retry
         const labels = wrapper.findAll("button").map((b) => b.text().trim());
         expect(labels).not.toContain("Refresh");
