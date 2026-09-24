@@ -785,3 +785,113 @@ Served readings not re-run here (c1/c3–c5, y1–y5, p2, s3/s4, u2–u4): I cit
 KF.W13W opens after "KF.W13V" (spec `:447`). That conjunct is **RED**: this row is not CLOSED. KF.W13W is lawfully **BLOCKED** until a repair closes C1-1..C1-6 or a dated ruling relieves them.
 
 **SELF-COUNT**: gates reproduced 10 (s1-grep · s2 · p1 · c2 · check · vitest · eslint · diff-check · u1-tally · k1-tally). Gates failed 6 (s1-DOM · k1 · k2 · k3 · k4/e2e · u1). Register 8 rows: HIGH 5 · MEDIUM 1 · INFO 2 (⟨`grep -c '^- \*\*C1-'`⟩ on this section → 8).
+
+## Repair 1 (on Check 1's register)
+
+**Seat**: `claude-opus-5-5`, REPAIR round 1. **Date**: 2026-09-24 (sitting of record 2026-09-17, COHESION §0j). **kf HEAD at open**: `15edd312` = `origin/master`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → 2 standing untracked inbound letters, 0 modified; value.js dirty paths (`demo/workbenches/mix/MixSourceSelector.vue` · CARRY-LEDGER · `src/css/bbnf/generated/*` · `scripts/dev/dev.sh`) all outside this seat's set and untouched. Nothing inherited.
+
+**Writable set used**: `.k`'s (kf `demo/**` · `test/**`; value.js `evidence/W13V/**` · `relay/` · INBOX) and this record.
+
+### C1-5 (HIGH): the `[real-cube]` rest=false, isolated and cured at cause (G-W13V-k4 · the kf e2e close clause)
+
+- **Reproduced first.** ⟨`node scripts/run-demo-roster.mjs --only=subject-animates`⟩ ×6 on the gh-pages build of `15edd312` gave **2 FAIL of 6**, with loads 13.7–15.0. Run 2 read `rest=false (autoplay true; playhead 451 → 458.9; nodes {1,1,1})` and the other failing run read `141.7 → 150`. In both, the playhead moved about 8 ms, one frame, **while the transport read "Play"**, and the nodes held still. The earlier "negative playhead" signature (KF.W13U R-close-2) did not appear in 6 runs.
+- **Isolated.** ⟨`node evidence/W13V/k/repair1-real-cube/oracletrace.mjs`⟩ follows the oracle's own path: gh-pages dist, localStorage cleared, `navToScene(cube, Controls)`, then the driver's synthetic down+up on Pause. A MutationObserver records the readout at the DOM mutation that flips the face to "Play". **6 of 6 were stale at the flip.** The face flips about 2.4 ms after the press, while the readout is still one frame behind (for example `2041.7`); the next frame settles it (`2050`). A trace that samples only per rAF (`pausetrace.mjs`, real mouse) never sees the window: 0 of 5.
+- **Cause, at the bytes.** `useAnimationSync.ts` samples `effectiveT` once per demo-ticker frame, so while playing the readout trails the engine by up to a frame. The transport face flips on the play-state change. The engine's paused `t` is final at `group.pause()`, because `lifecycle.ts` records `lastTickTime`. So for one frame after Pause, the face read "paused" and the ribbon showed the previous frame's time. The oracle's rest read (`readSlider` right after `waitForFunction(Play face)`) sometimes landed inside that frame. The subject was never at fault: `rest=false` came from the readout clause alone.
+- **Cure.** kf **`5cf0f58a`**: the play-state watcher now calls `read()` (the ticker's body, extracted) before `wake()`. It runs in the pre-render flush, so the face and the readout land in the same render. This is not a mask. The oracle is unchanged and the ticker is unchanged, and the readout now states the engine's time at the moment the face does.
+- **Test.** `test/demo/instrument/animation-sync-pause-edge.test.ts` has 2 cases (pause edge; resume/reverse/started edge), with no rAF, only `nextTick()`. Born-RED 2/2 at `15edd312` (`expected 100 to be 108.3`); GREEN 2/2.
+- **Served, AFTER.** `oracletrace.mjs` gives stale-at-flip **0/5 · 0/5 on dev** (`after-dev-{1,2}.txt`) and **0/5 · 0/5 on gh-pages** (`after-gh-{1,2}.txt`). ⟨`--only=subject-animates`⟩ ×8 on the rebuilt dist gives **8 PASS of 8** (loads 14.5–19.4; `roster-before-after.txt`).
+- **The kf e2e close clause.** ⟨`KF_PLAYWRIGHT_DIR=value.js node scripts/run-demo-roster.mjs --workers=1`⟩ on a fresh `npm run gh-pages` of `5cf0f58a`:
+  - Run 1 (load 18.65 → 33.04) was **4/6**.
+  - Run 2 (load 33.04 → 16.89) was **4/6**.
+  - Both runs failed only live-session B7 (`maxRest 0.16`, **`B7 SPECULAR-REST`**) and live-session-mobile M1 OPEN/SCROLL/RE-OPEN (**`SHEET-POSITION`**). Both are relieved by id at KF.W13R Check 1 under §0cd's classes.
+  - subject-animates ✓ ×2 (`[real-cube]` ✓), occlusion ✓ ×2, usability ✓ ×2, demo-smoke ✓ ×2 (`e2e-after.txt`).
+- **G-W13V-k4 → GREEN.** The sequence leg was already cured by `.k`. The cube leg's mechanism is now isolated (6/6 deterministic at the face flip) and cured at cause (0/20 after, 8/8 oracle, e2e ✓ ×2). **Kf e2e → GREEN-WITH-HONEST-RED** for B7 and M1 only.
+
+### C1-6 (MEDIUM): KFA-15's served re-capture (G-W13V-k2)
+
+- **Why `.k`'s instrument never reached the surface.** KFA-15's surface (`KeyframesEditor.vue`'s edit-feedback sweep `.progress-bar` and its twin in `KeyframesAddDialog.vue`) **is mounted by no product file**:
+  - ⟨`git -C keyframes.js grep -n "import KeyframesEditor\|<KeyframesEditor" HEAD -- demo | wc -l`⟩ → **0**.
+  - ⟨`git grep -n KeyframesAddDialog HEAD -- demo`, filtered to mounts outside the component's own folder⟩ → **0**.
+  - The last mount was `SpringPhysicsFacet.vue`'s `<KeyframesEditor :animation="demo.springEditAnim">`, which **`.s`'s `e69f7731` retired** under OA-37/46/51. The shared Keyframes pane mounts `KeyframesStringControls.vue`, which has no sweep.
+  - The built bytes agree. ⟨`grep -l "progress-bar origin-left" dist/gh-pages/assets/*.js | wc -l`⟩ → **0**, and ⟨`grep -l "The feedback sweep" dist/gh-pages/assets/*.js | wc -l`⟩ → **0**. The component is tree-shaken out of the served build.
+- **Served census.** ⟨`node evidence/W13V/k/kfa-15/retired.mjs http://localhost:5173/ 1440x900`⟩ is `W13V/s/items.mjs` adapted. It visits home plus the six scenes and opens every enabled dock item, then counts `.progress-bar` + `pre[contenteditable]` at load and in each open pane. Result: **0 surface nodes · 0 items not opened**, run twice (`retired-dev-{1,2}.txt`).
+- **Reading.** A frame-by-frame re-capture of a sweep that no served page renders cannot be taken. The surface is **SURFACE-RETIRED** on the served page, the class `.u`'s DISPOSITION already uses. The cure (`431e5bcc`, rest on `transform`) stays proven by its unit oracle (`KeyframesAddDialog.test.ts:253`). **G-W13V-k2 → GREEN: 10 of 11 re-captured with the audit's scripts, and 1 surface-retired with a served census ×2 plus the dist-byte proof.**
+- **Residual, named rather than cured.** `KeyframesEditor.vue` and `KeyframesAddDialog.vue` are now **orphan product components**: no demo mount, but live tests (`keyframes-editor-honest`, `kf-toolbar-keyboard`, `KeyframesAddDialog`). Retiring them is a component-structure act, and the KF.W13W OA-64-era "no duplicate component" audit (spec §0cq) is its home. It is recorded as **`KFE-ORPHAN`** and routed there. No test is deleted here.
+
+### C1-4 (HIGH): the four uncaptured critic gaps, captured and judged (G-W13V-k3)
+
+Check 1's cure line named the wrong four. By `.k`'s own table (`:306-322`), the transport matrix, the dark legs and the mobile Sheet were captured. The four owed were the **tab-panel `@keyframes enter` slide · tooltips · toasts · the matrix-editor cell/reset tweens**.
+
+⟨`node evidence/W13V/k/critic/gaps.mjs http://localhost:5173/ run{1,2}`⟩ ran headed at 1440×900 on the dev page of kf `5cf0f58a`. Each leg samples its node per rAF. The readings are `gaps-run{1,2}.json`, and the curated frames are `critic/gaps/run1-*.png` (5).
+
+| gap | run 1 | run 2 | judged |
+|---|---|---|---|
+| A · tab-panel `enter` (cube, Controls → Keyframes) | old panel (node0) at opacity 1 until the switch; new panel (node1) enters at opacity **0** with `translate 8px`, then eases over ~200 ms: 13 distinct transforms, animation `enter` | identical shape (14 distinct transforms) | **lawful** — no flash: the entering panel's first painted frame is opacity 0 |
+| B · tooltip (transport Play/Pause, glass `<Tooltip>`) | first paint **198 ms**, already **opacity 1**, `scale none`, `translate none`, **no animation**, `data-state=delayed-open` | 186 ms, same | **DEFECT, producer**: glass `reveal.css` keys the whole entrance on `[data-state="open"]`, but reka's TooltipContent writes `delayed-open`/`instant-open`. The reveal never matches and the tooltip pops in. The bug is still live at glass HEAD `f4946674` (`src/styles/glass/reveal.css:136`). Relayed as **O-72** (`relay/X-KF-BK-O72-TOOLTIP-REVEAL-STATE.md`; INBOX O-72 SENT). Honest-RED **`TOOLTIP-REVEAL-STATE`**, with no consumer copy. |
+| C · toast (Mod+S Copy CSS → glass `[data-slot=toast]`) | enters as an opacity 0 → 1 CSS transition over ~500 ms at 1036,798, 388×86 ("CSS copied to clipboard"); exits by `glass-vaporize-*` and is gone at **3994 ms** | enter same; gone at **4017 ms** | **lawful** — enters, dwells, exits by glass's own vaporize, nothing cut |
+| D · matrix editor (cube → Matrix channel via the transport list → Matrix Controls; ArrowUp ×3 on a cell, then Reset) | cell nudge: `.cube-pose` traverses **42** distinct transforms (a tween, not a jump); Reset: **34** distinct, easing to `matrix(1,0,0,1,0,0)` by ~600 ms with a small spring undershoot (0.99884) and holding after | 39 · 34, same end | **lawful** — both edits tween and Reset settles to identity |
+
+**G-W13V-k3 → GREEN: 7 of 7 captured and judged** (3 by `.k`, 4 here). The one new defect is a producer row, routed by id (O-72) and never copied, and the spec's `.k` relief covers it ("glass rows → the batched glass letter").
+
+### C1-1 · C1-2 · C1-3 (HIGH): escalated, with the measured reason
+
+- **C1-1 — ESC-s-1, the Sequence inline timeline (G-W13V-s1 at Sequence). ESCALATED to the orchestrator for the grant and ruling that Check 1's own cure names.**
+  - What was measured this seat: the shared **Timeline** surface is the built-in triad member. `surfacesFor` grants it only to a channel that carries an `animation` (`demo/state/controlSurfaces.ts:105-117`). Its pane content is `KeyframeTimeline` bound to that one Animation's keyframe offsets (`channel-controls/ChannelControls.vue:135-178`).
+  - Sequence's lone channel is a progress scalar with no `animation` (`useSequenceDemo.ts:497-505`). Its five re-time rows are `seq.add(child, at)` insertion points on the master `Sequence`, which the timeline pane cannot express.
+  - Moving them is therefore not a relocation. It needs either (a) Sequence's rows re-cut as transport channels, reversing T.B1's "rows are storyboard, not channels", or (b) a new Sequence mode for the shared Timeline pane.
+  - Both are design acts. `.s` routed the choice to `.y`, and `.y` did not rule (`:206`, `:234`). No COHESION section after §0ce rules it: ⟨`grep -c 'ESC-s-1' COHESION.md`⟩ → 0.
+  - A repair seat that picked (a) or (b) itself would be authoring an unratified design across the KF.W7-era timeline surface. The spec's KF.W13W (OA-64, component-structure audit) and OA-51 redesign are the natural homes.
+- **C1-2 — 183 OPEN consumer KFA rows (G-W13V-k1). ESCALATED for a dated re-home ruling, or successor `.k` seats.**
+  - Tally: ⟨`grep -c 'OPEN — honest-RED, not cured this seat' W13V/k/split-table.md`⟩ → **183 · 183**, unchanged by this seat.
+  - Each row's lawful cure is a root cause, a born-RED test and a served re-capture with the audit's script run twice on dev and twice on gh-pages. `.k` spent a whole effort-high seat on 11 such rows.
+  - At that measured rate, 183 rows is about 17 seat-equivalents. That is not one repair round's cure, and a batch "cure" without per-row served evidence would be a mask.
+  - This round cured the cross-cutting `REAL-CUBE-INTERMITTENT`, and it relieved C1-6 and C1-4.
+  - The rows need either a dated owner/COHESION ruling that re-homes them by id to a named wave, or a set of `.k` successor seats granted by the orchestrator.
+- **C1-3 — 240 OPEN-CARRIED + 17 SPLIT consumer UIA-KF rows (G-W13V-u1). ESCALATED on the same ground.**
+  - Tally: ⟨awk of `W13V/u/DISPOSITION.md` column 4⟩ → OPEN-CARRIED **240 · 240** and SPLIT **17 · 17**, unchanged.
+  - `.u`/`.u2` cured 8 rows across two effort-high seats.
+  - The rows need either a dated re-home ruling by id or granted `.u` successor seats.
+
+### C1-7 · C1-8 (INFO)
+
+- **C1-7**: removing `vue-sonner` is a kf `package.json` pin edit, which §0bt excludes. It stays with a seat granted the pin, and this seat does not touch it.
+- **C1-8**: no cure needed (Check 1: not a mask).
+
+### Commits
+
+| repo | sha | meaning |
+|---|---|---|
+| kf | `5cf0f58a` | C1-5 cure + its born-RED test (2 paths: `useAnimationSync.ts`, `animation-sync-pause-edge.test.ts`); pushed `15edd312..5cf0f58a` |
+| value.js | `91218014` | the served evidence (21 paths under `evidence/W13V/k/`), relay O-72, INBOX O-72 row |
+| value.js | this record's commit | `## Repair 1` |
+
+**Adjacent edits (§0bt)**: none.
+
+### Gate re-reading (every gate a cure could move; ×2)
+
+| gate | Check 1 | after Repair 1 | reading |
+|---|---|---|---|
+| G-W13V-k4 (`[real-cube]`) | RED (mechanism inferred; 1 of 2 e2e ✗) | isolated 6/6 → cured; oracletrace 0/5 ×4; subject-animates 8/8 | **GREEN** |
+| kf e2e `--workers=1` (fresh gh-pages of `5cf0f58a`) | 4/6 · 3/6 | **4/6 · 4/6** (loads 18.65→33.04 · 33.04→16.89); ✗ only B7 (`B7 SPECULAR-REST`) + M1 (`SHEET-POSITION`) | **GREEN-WITH-HONEST-RED** (§0cd classes) |
+| G-W13V-k2 | RED (10 of 11) | 10 re-captured + KFA-15 SURFACE-RETIRED (census 0 nodes ×2; dist bytes 0) | **GREEN** |
+| G-W13V-k3 | RED (3 of 7) | **7 of 7** captured ×2 and judged; 1 producer defect → O-72 `TOOLTIP-REVEAL-STATE` | **GREEN** (glass row relieved by id) |
+| G-W13V-k1 | 183 OPEN | **183 · 183** | **RED — ESCALATED (C1-2)** |
+| G-W13V-u1 | OPEN-CARRIED 240 · SPLIT 17 | **240 · 240 · 17 · 17** | **RED — ESCALATED (C1-3)** |
+| G-W13V-s1 DOM (Sequence) | 6 inline | no cure touched it (unchanged, not re-run: probe parsimony) | **RED — ESCALATED (C1-1)** |
+| floor `npm run check` | EXIT 0 ×2 | **EXIT 0 · EXIT 0** (load 15.52 · 15.31) | GREEN |
+| floor demo vitest | 75/75 · 558/558 ×2 | **76/76 · 560/560 · 76/76 · 560/560** (+1 file, +2 cases; load 20.10 · 19.28) | GREEN |
+| eslint ⟨`npx eslint demo/components/instrument/transport test/demo/instrument/animation-sync-pause-edge.test.ts`⟩ | — | EXIT 0 | GREEN |
+| `git diff --check 15edd312..5cf0f58a` | — | 0 | GREEN |
+
+**E13**: this seat sent O-72, recorded as a SENT row. It read no new inbound mail. The one `-newer` hit in scope is still glass's internal `BL/FORMATION-PROGRESS.md`, and it gets no row.
+
+**Status after Repair 1: PARTIAL.** k2, k3 and k4 plus the e2e clause moved RED → GREEN. s1 (Sequence), k1 and u1 stay RED, each escalated with its measured reason. KF.W13W stays blocked on them unless a dated ruling relieves them.
+
+**Residuals (new this seat)**: `TOOLTIP-REVEAL-STATE` (O-72, glass) · `KFE-ORPHAN` (KeyframesEditor/KeyframesAddDialog have no mount → KF.W13W component-structure audit) · `RESET-READOUT-STALE` unchanged (the Reset-while-paused path writes the markRaw clock with no play-state edge; this seat's edge read does not reach it; owner as `.k` named).
+
+**SELF-COUNT**: defects in the register **8**:
+- **cured 3**: C1-4, C1-5, C1-6.
+- **escalated 3**: C1-1, C1-2, C1-3.
+- **INFO 2**: C1-7 (out of bounds, a pin edit) and C1-8 (no cure needed).
+- Gates re-read: 11 rows (⟨`grep -c` on the table⟩).
+- Commits: kf 1 and value.js 2 (the evidence commit and this record).
