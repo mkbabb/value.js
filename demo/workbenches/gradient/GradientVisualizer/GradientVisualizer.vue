@@ -8,8 +8,8 @@ import {
     SelectValue,
 } from "../../../ui/select";
 import { Slider } from "../../../ui/slider";
-import { Copy } from "@lucide/vue";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { Check, Copy } from "@lucide/vue";
+import { useClipboard } from "@mkbabb/glass-ui";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
 // (`@mkbabb/glass-ui/labeled-field`, 7.0.0): `controlLabelable: false` for the
 // non-labelable combobox root, and the slot's `labelledBy` names the trigger. The
@@ -104,8 +104,12 @@ function resetGradient() {
     parseVerdict.value = null;
 }
 
+// X.W12.u2 (UIA-V-145): the copy confirms itself on glass's scope-owned
+// clipboard status (the easing rows' idiom), and says what it copies — the
+// rendered CSS, easing baked in — rather than the editable source above it.
+const { status: cssCopyStatus, copy } = useClipboard({ resetMs: 1400 });
 async function copyCSS() {
-    await writeClipboard(coalescedCSS.value);
+    await copy(coalescedCSS.value);
 }
 
 defineExpose({ resetGradient, copyCSS, seedFromPalette });
@@ -305,8 +309,13 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <hr class="border-border" />
         <div class="flex items-center justify-between">
             <h3 class="font-display text-subheading text-muted-foreground">CSS</h3>
-            <DockControl compact title="Copy CSS" @click="copyCSS">
-                <Copy class="w-5 h-5" />
+            <DockControl
+                compact
+                :title="cssCopyStatus === 'success' ? 'Copied rendered CSS' : 'Copy rendered CSS (easing baked in)'"
+                @click="copyCSS"
+            >
+                <Check v-if="cssCopyStatus === 'success'" class="w-5 h-5" />
+                <Copy v-else class="w-5 h-5" />
             </DockControl>
         </div>
         <GradientCodeEditor
