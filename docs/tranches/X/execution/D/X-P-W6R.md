@@ -112,3 +112,62 @@ SERVED MODEL: claude-opus-5-5
   - RES-p-1: parse-that root `package.json` (name `parse-that-css-totality-p2`, devDeps tsx/typescript/vitest) exists for the harness toolchain (its `why` key cites `harness/bench/package.json`). It is outside `.p`'s writable set and not named by the spec, so it stays. Its retirement belongs with X.P.W7's parse-that work.
   - RES-p-2: the two parse-that commits (`d129a97`, `cb9c0d4`) are local on `master` (⟨git status -sb⟩ → `ahead 2`); W6R prescribes no push. W7 `.p` branches from this tip (§0ck).
 - **Escalations:** none. **Status:** DONE.
+
+## Close
+
+SERVED MODEL: claude-opus-5-5 — the CLOSE SEAT, VERIFY-ONLY (cured nothing). 2026-09-23 20:11–20:20 EDT; 1-min load 34–41 (5-min 54, 15-min 65).
+
+- **Crash-recovery.** ⟨git status --porcelain⟩ in both trees: no dirty path in the close seat's writable set (this record, LEDGER row). value.js dirty rows (`demo/color-session/ColorSpaceSelector.vue`, `CARRY-LEDGER.md`, `scripts/dev/dev.sh`, W13R evidence, relay addendum, `e2e/smoke/w12-drag.spec.ts`) and parse-that dirty rows (`.cargo/config.toml`, `README.md`, `rust/**`) belong to other seats; untouched. The X-W7R `package.json` pin hunk named in lock L-1 is no longer in the working tree.
+- **Spec shape.** `W6R.md` (36 lines, read whole) carries per-unit gates inside "Units, strictly serial" and has no §Verification Artefacts and no §State four-verb line; the close therefore re-runs every unit gate and moves the wave to IMPLEMENTED only.
+
+### Commit roster (act 1: exist + writable set)
+| Unit | Commit | Tree | Paths (⟨git show --name-only⟩) | In writable set |
+|---|---|---|---|---|
+| `.c` | `1d970c7c` | value.js | `.github/workflows/ci.yml` (+1, producer job line 70, after `npm test` line 69) · `package.json` (+1, `scripts."test:css-equivalence": "vitest run -c bench/vitest.config.ts"`) | yes |
+| `.c` | `6ef57cc8` | value.js | this record (+12) | yes |
+| `.l` | `a8f93163` | value.js | `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` (+49 −0) | yes |
+| `.l` | `afc8034a` | value.js | this record (+15) | yes |
+| `.p` | `498a50fb` | value.js | 63 paths, all under `docs/tranches/X/parse-that/evidence/W6R/` (⟨grep -vc '^…/evidence/W6R/'⟩ → `0`) | yes |
+| `.p` | `d129a97` | parse-that | 62 deletions, all under `harness/` or `experiments/w2/{contract,corpus,stage0}/` (outside-set count `0`) | yes |
+| `.p` | `cb9c0d4` | parse-that | `CLAUDE.md` (1 line: `Domain parsers (JSON, CSV, CSS)` → `(JSON, CSV)` under `typescript/src/parse/`) · `typescript/CHANGELOG.md` (+26) | yes |
+| `.p` | `88be2e4a` | value.js | this record (+24) | yes |
+
+Order law held: evidence `498a50fb` precedes removal `d129a97`. **Landed-wrong: none.**
+
+### Gate table (act 2: every gate re-run at this seat, on the settled bytes)
+| Gate | BEFORE (baseline) | AFTER (this seat) | Verdict |
+|---|---|---|---|
+| C-1 CI names the script | `0` · `0` | ⟨grep -n 'css-equivalence' .github/workflows/ci.yml package.json⟩ → `ci.yml:70 - run: npm run test:css-equivalence` (producer job, `producer:` at :33, after `npm test` :69) · `package.json:69` | GREEN |
+| C-2 differential 19/19 x2 | `19 passed` (bench config) | ⟨npm run test:css-equivalence⟩ x2 → `Test Files 2 passed (2) · Tests 19 passed (19)`, both runs | GREEN |
+| L-1 §15 re-pointed | `0` | ⟨grep -c bench/css-equivalence DIVERGENCE-LEDGER.md⟩ → `10` | GREEN |
+| L-2 SH-1 row (unmatched delimiter, 13, falsifier) | W3-era row :1038 only | `§15-A.2` rows: `:1467 class id SH-1 UNMATCHED DELIMITER` · `:1469 cells 13 of 32,021` · `:1475 falsifier` · `:1477 adjudication` | GREEN |
+| L-3 badTerm row | `0` | ⟨grep -c badTerm⟩ → `4` | GREEN |
+| E-3 append-only | — | ⟨git diff --numstat 812daa4b a8f93163 -- DIVERGENCE-LEDGER.md⟩ → `49 0`; working tree clean on the ledger | GREEN |
+| P-1 no `.claude/jobs` | `6` | parse-that ⟨git grep -n '\.claude/jobs' \| wc -l⟩ → `0` | GREEN |
+| P-2 instruments moved | `62` · absent | parse-that ⟨git ls-files harness experiments/w2/{contract,corpus,stage0} \| wc -l⟩ → `0`; value.js `evidence/W6R` files excl. MANIFEST → `62`; MANIFEST sha256 rows → `62` | GREEN |
+| P-3 CHANGELOG Unreleased | `0` | `typescript/CHANGELOG.md:5 ## Unreleased — the CSS surface retires … — 2026-09-23` | GREEN |
+| P-4 CLAUDE.md drops `./css` | `0` (GREEN before cure) | seam regex over `CLAUDE.md docs/CLAUDE.md typescript/CLAUDE.md` → `0`; ⟨ls typescript/src/parse/parsers⟩ → `csv.ts index.ts json.ts utils.ts` (the `:18` cure matches); remaining `CLAUDE.md:40` "CSS" names `rust/parse_that/src/parsers/` which holds `css` (accurate) | GREEN |
+| P-5 npm test x2 | `134/134` | ⟨cd typescript && npm test⟩ x2 → `Test Files 14 passed (14) · Tests 134 passed (134)`, exit 0 both | GREEN |
+| P-6 proof:all x2 | proofs 1–9 GREEN; perf FAIL +44.0% (load 23.6) | proofs 1–9 GREEN both runs (`manifest-gate` · `subpath` · 6× PASS · `no-css-surface GREEN — 31 runtime exports, zero CSS surface`); `proof:perf` FAIL both: `json-comprehensive regressed 54.6%` (2695 ns, load 41.22) and `62.9%` (2838 ns, load 40.80) vs baseline 1742 ns | proofs 1–9 GREEN; perf **honest-RED = PT-PERF-LOAD** (OC-1, owner) |
+| Publish | none owed | none made | — |
+
+A first background proof run was killed by the host mid-`proof:perf` (exit 144); it is discarded, and the two runs above are the reading. `.p` changed no `typescript/src` byte, so the perf reading is load noise under a standing owner item, not W6R's.
+
+### Verification artefacts (act 3)
+The spec names none. The artefacts that exist are `docs/tranches/X/parse-that/evidence/W6R/MANIFEST.md` (62 sha256 rows) and `DIVERGENCE-LEDGER.md §15-A`; both were read above.
+
+### E13 (act 4)
+⟨find <path> -type f -newer docs/tranches/V/coordination/INBOX.md⟩ (INBOX mtime 2026-09-23 20:05): value.js `docs/tranches/V` `0` · glass-ui `BK/coordination` `0` · glass-ui `BL` `7` (all `audit/captures/R5-01/probes/*.mjs`, glass-internal smoke probes, not mail addressed to value.js) · keyframes.js `V/coordination` `0` · atlas `P/coordination` `0`. Newest INBOX row I-47 plus its erratum. **0 UNREAD in scope.**
+
+### Residuals (named owners)
+- **BBNF-TS-TOOLCHAIN** (F-b-1..3): OWNER (toolchain home ruling; §0cg). Open, honest-RED.
+- **PT-PERF-LOAD / RES-x-1**: OWNER under OC-1 (bench bar). `proof:perf` reads +54.6% / +62.9% at load ~41.
+- **RES-p-1** parse-that root `package.json` (`parse-that-css-totality-p2`, harness toolchain): X.P.W7 `.p`.
+- **RES-p-2** parse-that `master` ahead 2 (`d129a97`, `cb9c0d4`): discharged by this close's push (act 7).
+- **RES-x-5** `real-corpus.json` generation note: whichever unit next regenerates that file (X.P.W7).
+
+### Escalations
+None.
+
+### State
+**X.P.W6R — IMPLEMENTED 2026-09-23.** VERIFIED is not stamped here; the spec designates no seat of this wave to stamp it. Every unit gate is GREEN except `proof:perf`, which is the standing owner item PT-PERF-LOAD.
