@@ -3217,3 +3217,35 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - honest-RED **DOCK-TRIGGER-CLIP** in X-W12, in KF.W13R `.v` and in F.W14 `.r`.
   - Each re-reads it on the served page at its landing repin, X-W7L for value.js.
   - No local override.
+
+## §0ck ADDENDUM 2026-09-23 — OA-53 research landed; the X.P.W7 route ratified; seven decisions ruled
+- **Run `wf_aabc0842-0cc` finished.** Its first pass lost the arbiter, critic and author to a network error. The resume replayed seven seats from cache, and the three reran carrying §0ci.
+- **Outputs:** `parse-that/waves/W7.md` (seven units), `evidence/W7-research/BRIEF.md`, and the judge's re-measured harness and results.
+- **The judge's generated module and bundles** existed only in `$TMPDIR/value-js-w7-judge`. They are now banked at `evidence/W7-research/judge/banked-tmp/`, 79 files with a sha256 MANIFEST, so no `/tmp` wipe can lose them.
+- **The cause of the slowdown, measured.**
+  - parse-that's `mapState` calls `Object.create(state)`, making every per-parse state a V8 prototype. That turns the core's inline caches megamorphic.
+  - bbnf-lang 0.1.4 interprets the grammar at runtime: 776 closures, 376 `Parser.lazy` trampolines, and 45–70% of calls failing through labelled error bookkeeping.
+  - Unreleased parse-that 2.0.0 (commit `90d4ec5`, "NO RELEASE") runs 1.39–1.65× slower than 0.8.2 on this grammar.
+- **Ratified route: staged emission ahead of time.**
+  - The compiler and emitter from route ts-compiler live in bbnf-lang's revived TypeScript package (§0ci R-2).
+  - Delivery follows route aot-codegen's discipline: a checked-in generated module, a sha256 header checked by `bbnf gen --check` in CI, a typed action-kind manifest, and a frozen golden oracle.
+  - value.js runs the generated module with no parse-that and no bbnf-lang at runtime.
+  - parse-that takes only general core cures: `mapState` becomes `mapSpan`, a silent failure path, a lazy combinator that patches itself on first use, and F-p-EOF.
+  - The judge re-measured the exact form (`jx-aot-pos`): below the retired parser in **35 of 35** fresh-process paired cells, worst 0.882. Medians: color .819, scalar .726, value .494, values .502, keyframe .695, timing .790, stylesheet .768.
+  - The other arms each failed parseStylesheet.
+- **The seven decisions**, ruled under the owner's standing order to finish the plan in totality and the 2026-09-23 delegation ("use your logic to ratify the rest"):
+  1. **F-b-4: accept the grammar's sound answer on non-ASCII leading code units.** The 4 corpus rows and 62 reader rows are rowed as spec-correct divergences in DIVERGENCE-LEDGER, in a dated section. A defect is never reproduced to keep a number.
+  2. **Positional concatenation semantics** are the single semantic for the emitter and the façade. That matches parse-that 2.x `all()` and gives typed tuples.
+  3. **The revived package is `@mkbabb/bbnf-lang` 0.2.0.** That is a 0.x break, and latex-paper's `^0.1.1` is unaffected.
+  4. **The Rust `TsEmitter` is left untouched.** It is within bbnf-lang's own program. The TS package's emitter is the TypeScript output of record for value.js, and the package README says so. Superseding or deleting the Rust face is that program's call.
+  5. **bbnf-lang git: nothing of the sk-v25 program is published.**
+     - Branch `x-p-w7-typescript` is cut from **`origin/master`**, not local master, which is 71 commits ahead with 243 uncommitted paths. Pushing it therefore publishes no program commit.
+     - The close merges it through a GitHub pull request (`gh pr merge --merge`), server side. Local master and its worktree are never checked out or touched.
+     - Preflight: `git diff origin/master...x-p-w7-typescript --stat` adds only `typescript/**` plus that package's own CI and release files.
+  6. **parse-that release content.** `90d4ec5`'s own message forbids release. On the release line, `.p` reverts it with an ordinary revert commit, unless `.p`'s paired gate shows HEAD with the cures at or below 0.8.2 with the cures on every entry. Publish as 2.0.0.
+  7. **value.js drops parse-that and bbnf-lang from its runtime.** bbnf-lang becomes a devDependency, and the generated module is checked in. parse-that's program records, U.W7 "packed value.js adoption" and the Tranche T/U value.js rows, get a dated addendum from `.p` in parse-that's docs.
+- **Critic gaps folded:** W7.md's §0ck addendum carries them as gates or units. Material ones:
+  - an accepted-versus-rejected input split
+  - the depth-guard hot-path cost
+  - the parse-that Tranche T boundary
+- **Order:** Track D resumes X.P.W6R, then X.P.W7. W7 `.p` branches from the parse-that master tip after W6R `.p`, not from `92d8ea7`.

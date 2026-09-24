@@ -1,0 +1,86 @@
+{
+ "arm": "jx-aot-pos",
+ "rounds": 11,
+ "uptimeStart": "19:58  up 1 day,  2:47, 4 users, load averages: 57.70 68.23 84.19",
+ "entries": {
+  "parseCssColor": {
+   "accepted": 6460,
+   "reps": 1,
+   "paired": 0.704,
+   "below1": 8,
+   "ofMins": 0.784,
+   "medMs": {
+    "retired": 25.87,
+    "cand": 14.6
+   },
+   "uptimeBefore": "19:58  up 1 day,  2:47, 4 users, load averages: 57.70 68.23 84.19",
+   "uptimeAfter": "19:58  up 1 day,  2:47, 4 users, load averages: 57.16 67.94 84.00"
+  },
+  "parseCssScalar": {
+   "accepted": 7460,
+   "reps": 1,
+   "paired": 0.771,
+   "below1": 7,
+   "ofMins": 0.763,
+   "medMs": {
+    "retired": 23.58,
+    "cand": 16.51
+   },
+   "uptimeBefore": "19:58  up 1 day,  2:47, 4 users, load averages: 57.16 67.94 84.00",
+   "uptimeAfter": "19:58  up 1 day,  2:47, 4 users, load averages: 57.16 67.94 84.00"
+  },
+  "parseCssValue": {
+   "accepted": 13023,
+   "reps": 1,
+   "paired": 0.467,
+   "below1": 11,
+   "ofMins": 0.484,
+   "medMs": {
+    "retired": 80.33,
+    "cand": 31.66
+   },
+   "uptimeBefore": "19:58  up 1 day,  2:47, 4 users, load averages: 57.16 67.94 84.00",
+   "uptimeAfter": "19:58  up 1 day,  2:47, 4 users, load averages: 57.16 67.94 84.00"
+  },
+  "parseCssValues": {
+   "accepted": 13023,
+   "reps": 1,
+   "paired": 0.472,
+   "below1": 11,
+   "ofMins": 0.419,
+   "medMs": {
+    "retired": 73.25,
+    "cand": 34.47
+   },
+   "uptimeBefore": "19:58  up 1 day,  2:47, 4 users, load averages: 53.71 67.05 83.59",
+   "uptimeAfter": "19:58  up 1 day,  2:47, 4 users, load averages: 53.71 67.05 83.59"
+  },
+  "parseKeyframeSelector": {
+   "accepted": 56,
+   "reps": 1024,
+   "paired": 1.382,
+   "below1": 0,
+   "ofMins": 1.369,
+   "medMs": {
+    "retired": 12.32,
+    "cand": 17.3
+   },
+   "uptimeBefore": "19:58  up 1 day,  2:47, 4 users, load averages: 53.71 67.05 83.59",
+   "uptimeAfter": "19:58  up 1 day,  2:47, 4 users, load averages: 53.71 67.05 83.59"
+  },
+  "parseTimingFunction": {
+   "accepted": 509,
+   "reps": 16,
+   "paired": 0.786,
+   "below1": 11,
+   "ofMins": 0.729,
+   "medMs": {
+    "retired": 12.96,
+    "cand": 10.54
+   },
+   "uptimeBefore": "19:58  up 1 day,  2:47, 4 users, load averages: 53.71 67.05 83.59",
+   "uptimeAfter": "19:58  up 1 day,  2:47, 4 users, load averages: 53.71 67.05 83.59"
+  }
+ },
+ "uptimeEnd": "19:58  up 1 day,  2:47, 4 users, load averages: 53.71 67.05 83.59"
+}

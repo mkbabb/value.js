@@ -1,0 +1,13 @@
+Rust TsEmitter probe (route-aot-codegen). bbnf-lang was only READ: `git archive HEAD` (af15f63e0) of
+Cargo.toml Cargo.lock crates xtask grammar rust-toolchain.toml .cargo into the session scratchpad, with the
+sibling path deps parse-that/rust (git archive HEAD 92d8ea7) and pprint/rust (git archive HEAD); test
+zz_valuejs_ts.rs added in the scratch copy only (CompileTarget::Ts over value.js's 5 modules concatenated).
+1. The DIRTY worktree copy does not build: 882 rustc errors (worktree-build-errors.txt; e.g. E0407
+   `push_branch_tag` is not a member of trait `StructBuilder`) — matches sk-v26 E004.
+2. HEAD builds. Over value.js's grammar: compile error `UnknownNonterminal { rule: "angle", name: "i" }` —
+   the Rust BBNF front end has no regex-flag syntax; `/…/i` is read as regex + nonterminal `i`.
+3. With every `/…/i` flag stripped (semantics changed; probe only) it emits 2,006 bytes: ONE entry
+   (`parse`, the LAST rule timelineLength only), value = Span (recognizer), no semantic actions, and it FUSED
+   `/[aA]uto/i | /…/` into one regex without the `i` flag. Output: valuejs.i-flags-stripped.generated.ts.
+Verdict: not drivable for value.js without (a) regex flags in the Rust front end, (b) multi-entry emission,
+(c) value aggregation (repeats are count-only, AZ-IV W5 RED), (d) a host-action binding model.

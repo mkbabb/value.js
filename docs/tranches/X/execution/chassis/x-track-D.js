@@ -46,6 +46,13 @@ const TRACK = {
       ],
       "note": ".d fresh-Fable adjudicator = the ONLY X·P VERIFIED stamp; RC-P(V) evaluated by running the six commands against the registry coordinate V; OP-1 release word RULED at §0j; G-2 zero value.js source bytes"
     },
+    "X.P.W7": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W7.md",
+      "after": [
+        "X.P.W6R"
+      ],
+      "note": "AUTHORITY: the owner, verbatim: \"We need to likely uplift and begin fixing both parse-that and bbnf--look into both of those repos and their megatranches thereof in another workflow to get the parsing speed to be FASTER than baseline\" and \"npm login is done, the typescript compiler should be in BBNF-lang--then use your logic to ratify the rest\". COHESION §0ch/§0ci/§0ck + W7.md (READ whole INCLUDING its §0ck ADDENDUM, which binds and supersedes conflicting lines) + evidence/W7-research/BRIEF.md + judge/ (the measured route and banked-tmp artifacts). Units in W7.md order (.o/.p/.t may run in parallel groups as W7.md states; then .e, .v, .z). bbnf-lang: ONLY branch x-p-w7-typescript cut from origin/master in its own worktree; never touch local master or its worktree; merge by GitHub PR at .z. parse-that: branch from the master tip after X.P.W6R. npm publishing authorized (whoami mkbabb): parse-that 2.0.0 and @mkbabb/bbnf-lang 0.2.0, each after its gates. Gate: FASTER than the retired hand parser on every entry, accepted and rejected halves separately, paired same-process, Chromium+WebKit+Firefox, large sheets; 0 mismatches vs the frozen oracle except the ruled F-b-4 rows. Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "X.P.W6R": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W6R.md",
       "after": [
@@ -93,7 +100,8 @@ const TRACK = {
     ],
     ["X.P.W4S"],
     ["X.P.W6"],
-    ["X.P.W6R"]
+    ["X.P.W6R"],
+    ["X.P.W7"]
   ]
 }
 

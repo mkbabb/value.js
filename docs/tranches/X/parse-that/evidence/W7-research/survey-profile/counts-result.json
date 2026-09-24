@@ -1,0 +1,588 @@
+{
+ "script": "counts.mjs",
+ "corpus": 29944,
+ "inputChars": 1173426,
+ "graphParsers": 878,
+ "entries": {
+  "parseCssColor": {
+   "ok": 6559,
+   "parserCalls": 2073108,
+   "parserFails": 1495791,
+   "failPct": 72.2,
+   "leafCalls": 438941,
+   "leafFails": 305881,
+   "leafFailPct": 69.7,
+   "leafCallsPerSource": 14.7,
+   "parserCallsPerSource": 69.2,
+   "leafCharsConsumedOverInputChars": 0.27,
+   "mergeErrorState": 556005,
+   "mergeErrorStatePerSource": 18.6,
+   "expectedArrayAllocs": 54592,
+   "expectedMerges": 185561,
+   "mapStateProtoViews": 0,
+   "resets": 29944,
+   "byKind": {
+    "dispatch": {
+     "calls": 107464,
+     "fails": 57167,
+     "consumed": 401340
+    },
+    "regex": {
+     "calls": 264777,
+     "fails": 138525,
+     "consumed": 284601
+    },
+    "wrap": {
+     "calls": 76975,
+     "fails": 60232,
+     "consumed": 300232
+    },
+    "string": {
+     "calls": 92,
+     "fails": 1,
+     "consumed": 91
+    },
+    "nonterminal(lazy)": {
+     "calls": 581630,
+     "fails": 383694,
+     "consumed": 1031232
+    },
+    "map": {
+     "calls": 325832,
+     "fails": 272338,
+     "consumed": 432965
+    },
+    "all": {
+     "calls": 238644,
+     "fails": 227621,
+     "consumed": 247278
+    },
+    "many": {
+     "calls": 1774,
+     "fails": 0,
+     "consumed": 20843
+    },
+    "opt": {
+     "calls": 74169,
+     "fails": 0,
+     "consumed": 52297
+    },
+    "next": {
+     "calls": 211250,
+     "fails": 184060,
+     "consumed": 206223
+    },
+    "regexSpan": {
+     "calls": 174072,
+     "fails": 167355,
+     "consumed": 34559
+    },
+    "any": {
+     "calls": 11487,
+     "fails": 4142,
+     "consumed": 127406
+    },
+    "skip": {
+     "calls": 4942,
+     "fails": 656,
+     "consumed": 35465
+    }
+   }
+  },
+  "parseCssScalar": {
+   "ok": 7559,
+   "parserCalls": 2019267,
+   "parserFails": 1417420,
+   "failPct": 70.2,
+   "leafCalls": 420907,
+   "leafFails": 290117,
+   "leafFailPct": 68.9,
+   "leafCallsPerSource": 14.1,
+   "parserCallsPerSource": 67.4,
+   "leafCharsConsumedOverInputChars": 0.26,
+   "mergeErrorState": 523521,
+   "mergeErrorStatePerSource": 17.5,
+   "expectedArrayAllocs": 57648,
+   "expectedMerges": 160083,
+   "mapStateProtoViews": 0,
+   "resets": 29944,
+   "byKind": {
+    "dispatch": {
+     "calls": 128334,
+     "fails": 72216,
+     "consumed": 522218
+    },
+    "regex": {
+     "calls": 278181,
+     "fails": 153430,
+     "consumed": 276960
+    },
+    "wrap": {
+     "calls": 63089,
+     "fails": 46236,
+     "consumed": 293984
+    },
+    "string": {
+     "calls": 38,
+     "fails": 0,
+     "consumed": 38
+    },
+    "nonterminal(lazy)": {
+     "calls": 578891,
+     "fails": 376232,
+     "consumed": 1140157
+    },
+    "map": {
+     "calls": 376164,
+     "fails": 303294,
+     "consumed": 753954
+    },
+    "all": {
+     "calls": 182403,
+     "fails": 171852,
+     "consumed": 238173
+    },
+    "many": {
+     "calls": 1478,
+     "fails": 0,
+     "consumed": 18198
+    },
+    "opt": {
+     "calls": 73660,
+     "fails": 0,
+     "consumed": 49597
+    },
+    "next": {
+     "calls": 179247,
+     "fails": 152945,
+     "consumed": 197981
+    },
+    "regexSpan": {
+     "calls": 142688,
+     "fails": 136687,
+     "consumed": 33813
+    },
+    "any": {
+     "calls": 10771,
+     "fails": 4045,
+     "consumed": 122695
+    },
+    "skip": {
+     "calls": 4323,
+     "fails": 483,
+     "consumed": 32483
+    }
+   }
+  },
+  "parseCssValue": {
+   "ok": 11673,
+   "parserCalls": 5677884,
+   "parserFails": 3610064,
+   "failPct": 63.6,
+   "leafCalls": 1210120,
+   "leafFails": 858187,
+   "leafFailPct": 70.9,
+   "leafCallsPerSource": 40.4,
+   "parserCallsPerSource": 189.6,
+   "leafCharsConsumedOverInputChars": 0.79,
+   "mergeErrorState": 1229167,
+   "mergeErrorStatePerSource": 41,
+   "expectedArrayAllocs": 91924,
+   "expectedMerges": 563846,
+   "mapStateProtoViews": 34599,
+   "resets": 29944,
+   "byKind": {
+    "dispatch": {
+     "calls": 313668,
+     "fails": 146546,
+     "consumed": 1256629
+    },
+    "regex": {
+     "calls": 1072467,
+     "fails": 726045,
+     "consumed": 891995
+    },
+    "wrap": {
+     "calls": 93519,
+     "fails": 51203,
+     "consumed": 1019113
+    },
+    "nonterminal(lazy)": {
+     "calls": 1785617,
+     "fails": 1106259,
+     "consumed": 5286859
+    },
+    "map": {
+     "calls": 964587,
+     "fails": 691745,
+     "consumed": 3750592
+    },
+    "all": {
+     "calls": 527423,
+     "fails": 371147,
+     "consumed": 3021605
+    },
+    "many": {
+     "calls": 139259,
+     "fails": 0,
+     "consumed": 551826
+    },
+    "opt": {
+     "calls": 104479,
+     "fails": 0,
+     "consumed": 188537
+    },
+    "mapState": {
+     "calls": 34599,
+     "fails": 0,
+     "consumed": 93380
+    },
+    "next": {
+     "calls": 390872,
+     "fails": 289527,
+     "consumed": 755322
+    },
+    "regexSpan": {
+     "calls": 137653,
+     "fails": 132142,
+     "consumed": 31265
+    },
+    "any": {
+     "calls": 11801,
+     "fails": 5460,
+     "consumed": 130838
+    },
+    "minus": {
+     "calls": 95967,
+     "fails": 89366,
+     "consumed": 46330
+    },
+    "skip": {
+     "calls": 5973,
+     "fails": 624,
+     "consumed": 37738
+    }
+   }
+  },
+  "parseCssValues": {
+   "ok": 11673,
+   "parserCalls": 5677884,
+   "parserFails": 3610064,
+   "failPct": 63.6,
+   "leafCalls": 1210120,
+   "leafFails": 858187,
+   "leafFailPct": 70.9,
+   "leafCallsPerSource": 40.4,
+   "parserCallsPerSource": 189.6,
+   "leafCharsConsumedOverInputChars": 0.79,
+   "mergeErrorState": 1229167,
+   "mergeErrorStatePerSource": 41,
+   "expectedArrayAllocs": 91924,
+   "expectedMerges": 563846,
+   "mapStateProtoViews": 34599,
+   "resets": 29944,
+   "byKind": {
+    "dispatch": {
+     "calls": 313668,
+     "fails": 146546,
+     "consumed": 1256629
+    },
+    "regex": {
+     "calls": 1072467,
+     "fails": 726045,
+     "consumed": 891995
+    },
+    "wrap": {
+     "calls": 93519,
+     "fails": 51203,
+     "consumed": 1019113
+    },
+    "nonterminal(lazy)": {
+     "calls": 1785617,
+     "fails": 1106259,
+     "consumed": 5286859
+    },
+    "map": {
+     "calls": 964587,
+     "fails": 691745,
+     "consumed": 3750592
+    },
+    "all": {
+     "calls": 527423,
+     "fails": 371147,
+     "consumed": 3021605
+    },
+    "many": {
+     "calls": 139259,
+     "fails": 0,
+     "consumed": 551826
+    },
+    "opt": {
+     "calls": 104479,
+     "fails": 0,
+     "consumed": 188537
+    },
+    "mapState": {
+     "calls": 34599,
+     "fails": 0,
+     "consumed": 93380
+    },
+    "next": {
+     "calls": 390872,
+     "fails": 289527,
+     "consumed": 755322
+    },
+    "regexSpan": {
+     "calls": 137653,
+     "fails": 132142,
+     "consumed": 31265
+    },
+    "any": {
+     "calls": 11801,
+     "fails": 5460,
+     "consumed": 130838
+    },
+    "minus": {
+     "calls": 95967,
+     "fails": 89366,
+     "consumed": 46330
+    },
+    "skip": {
+     "calls": 5973,
+     "fails": 624,
+     "consumed": 37738
+    }
+   }
+  },
+  "parseKeyframeSelector": {
+   "ok": 56,
+   "parserCalls": 169135,
+   "parserFails": 78576,
+   "failPct": 46.5,
+   "leafCalls": 35317,
+   "leafFails": 5238,
+   "leafFailPct": 14.8,
+   "leafCallsPerSource": 1.2,
+   "parserCallsPerSource": 5.6,
+   "leafCharsConsumedOverInputChars": 0,
+   "mergeErrorState": 59784,
+   "mergeErrorStatePerSource": 2,
+   "expectedArrayAllocs": 5175,
+   "expectedMerges": 0,
+   "mapStateProtoViews": 0,
+   "resets": 29944,
+   "byKind": {
+    "dispatch": {
+     "calls": 29944,
+     "fails": 29857,
+     "consumed": 362
+    },
+    "regex": {
+     "calls": 35317,
+     "fails": 5238,
+     "consumed": 1211
+    },
+    "wrap": {
+     "calls": 29944,
+     "fails": 29857,
+     "consumed": 396
+    },
+    "nonterminal(lazy)": {
+     "calls": 35317,
+     "fails": 5179,
+     "consumed": 1251
+    },
+    "map": {
+     "calls": 5271,
+     "fails": 5174,
+     "consumed": 392
+    },
+    "all": {
+     "calls": 3281,
+     "fails": 3266,
+     "consumed": 114
+    },
+    "opt": {
+     "calls": 30046,
+     "fails": 0,
+     "consumed": 889
+    },
+    "next": {
+     "calls": 15,
+     "fails": 5,
+     "consumed": 40
+    }
+   }
+  },
+  "parseTimingFunction": {
+   "ok": 385,
+   "parserCalls": 275137,
+   "parserFails": 131132,
+   "failPct": 47.7,
+   "leafCalls": 61386,
+   "leafFails": 17318,
+   "leafFailPct": 28.2,
+   "leafCallsPerSource": 2.1,
+   "parserCallsPerSource": 9.2,
+   "leafCharsConsumedOverInputChars": 0.06,
+   "mergeErrorState": 88758,
+   "mergeErrorStatePerSource": 3,
+   "expectedArrayAllocs": 8275,
+   "expectedMerges": 5043,
+   "mapStateProtoViews": 0,
+   "resets": 29944,
+   "byKind": {
+    "dispatch": {
+     "calls": 29944,
+     "fails": 28863,
+     "consumed": 27053
+    },
+    "regex": {
+     "calls": 51437,
+     "fails": 10964,
+     "consumed": 38609
+    },
+    "wrap": {
+     "calls": 30360,
+     "fails": 29062,
+     "consumed": 28762
+    },
+    "nonterminal(lazy)": {
+     "calls": 63593,
+     "fails": 19310,
+     "consumed": 77844
+    },
+    "map": {
+     "calls": 22073,
+     "fails": 13979,
+     "consumed": 67033
+    },
+    "all": {
+     "calls": 12156,
+     "fails": 9397,
+     "consumed": 39235
+    },
+    "many": {
+     "calls": 1021,
+     "fails": 0,
+     "consumed": 6398
+    },
+    "opt": {
+     "calls": 35247,
+     "fails": 0,
+     "consumed": 6991
+    },
+    "next": {
+     "calls": 17536,
+     "fails": 12213,
+     "consumed": 61601
+    },
+    "regexSpan": {
+     "calls": 9949,
+     "fails": 6354,
+     "consumed": 31810
+    },
+    "skip": {
+     "calls": 1821,
+     "fails": 990,
+     "consumed": 6959
+    }
+   }
+  },
+  "parseStylesheet": {
+   "ok": 2204,
+   "parserCalls": 3675783,
+   "parserFails": 1648443,
+   "failPct": 44.8,
+   "leafCalls": 744343,
+   "leafFails": 331980,
+   "leafFailPct": 44.6,
+   "leafCallsPerSource": 24.9,
+   "parserCallsPerSource": 122.8,
+   "leafCharsConsumedOverInputChars": 2.83,
+   "mergeErrorState": 631746,
+   "mergeErrorStatePerSource": 21.1,
+   "expectedArrayAllocs": 26812,
+   "expectedMerges": 184247,
+   "mapStateProtoViews": 28811,
+   "resets": 72895,
+   "byKind": {
+    "dispatch": {
+     "calls": 515650,
+     "fails": 259748,
+     "consumed": 3747390
+    },
+    "regex": {
+     "calls": 526910,
+     "fails": 255737,
+     "consumed": 3176096
+    },
+    "wrap": {
+     "calls": 32696,
+     "fails": 10303,
+     "consumed": 572205
+    },
+    "string": {
+     "calls": 190805,
+     "fails": 50904,
+     "consumed": 139901
+    },
+    "nonterminal(lazy)": {
+     "calls": 844172,
+     "fails": 388128,
+     "consumed": 7011902
+    },
+    "map": {
+     "calls": 459817,
+     "fails": 200362,
+     "consumed": 5416105
+    },
+    "all": {
+     "calls": 393155,
+     "fails": 220925,
+     "consumed": 4636852
+    },
+    "many": {
+     "calls": 284868,
+     "fails": 5,
+     "consumed": 3712008
+    },
+    "opt": {
+     "calls": 82240,
+     "fails": 0,
+     "consumed": 951330
+    },
+    "mapState": {
+     "calls": 146389,
+     "fails": 117578,
+     "consumed": 718456
+    },
+    "next": {
+     "calls": 72308,
+     "fails": 62770,
+     "consumed": 67336
+    },
+    "regexSpan": {
+     "calls": 26628,
+     "fails": 25339,
+     "consumed": 7771
+    },
+    "any": {
+     "calls": 43748,
+     "fails": 16095,
+     "consumed": 753343
+    },
+    "minus": {
+     "calls": 54741,
+     "fails": 40337,
+     "consumed": 565526
+    },
+    "skip": {
+     "calls": 1656,
+     "fails": 212,
+     "consumed": 9923
+    }
+   }
+  }
+ }
+}

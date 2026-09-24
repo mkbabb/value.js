@@ -1,0 +1,229 @@
+{
+ "inputs": 29944,
+ "entries": {
+  "parseCssColor": {
+   "full": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "nolower": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "plain": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "text": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "textnomemo": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   }
+  },
+  "parseCssScalar": {
+   "full": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "nolower": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "plain": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "text": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "textnomemo": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   }
+  },
+  "parseCssValue": {
+   "full": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "nolower": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "plain": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "text": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "textnomemo": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   }
+  },
+  "parseCssValues": {
+   "full": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "nolower": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "plain": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "text": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "textnomemo": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   }
+  },
+  "parseKeyframeSelector": {
+   "full": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "nolower": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "plain": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "text": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "textnomemo": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   }
+  },
+  "parseTimingFunction": {
+   "full": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "nolower": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "plain": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "text": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "textnomemo": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   }
+  },
+  "parseStylesheet": {
+   "full": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "nolower": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "plain": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "text": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   },
+   "textnomemo": {
+    "mismatch": 0,
+    "threwBbnf": 0,
+    "threwAot": 0,
+    "examples": []
+   }
+  }
+ }
+}

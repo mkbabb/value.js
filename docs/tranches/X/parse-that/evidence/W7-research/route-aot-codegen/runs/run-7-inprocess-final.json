@@ -1,0 +1,519 @@
+{
+ "node": "v26.0.0",
+ "inputs": 29944,
+ "rounds": 9,
+ "variants": [
+  "base",
+  "bbnf",
+  "aot-text",
+  "aot-full"
+ ],
+ "uptimeStart": "18:01  up 1 day, 50 mins, 3 users, load averages: 41.44 31.63 28.86",
+ "timing": {
+  "parseCssColor": {
+   "uptimeBefore": "18:01  up 1 day, 50 mins, 3 users, load averages: 41.44 31.63 28.86",
+   "uptimeAfter": "18:01  up 1 day, 50 mins, 3 users, load averages: 41.44 31.63 28.86",
+   "base": {
+    "medianMs": 30.24,
+    "minMs": 28.37,
+    "rawMs": [
+     34.55,
+     39.04,
+     33.61,
+     30.23,
+     28.37,
+     28.92,
+     29.99,
+     33.01,
+     30.24
+    ],
+    "ratioMedian": 1,
+    "ratioMin": 1
+   },
+   "bbnf": {
+    "medianMs": 51.88,
+    "minMs": 45.72,
+    "rawMs": [
+     64.2,
+     55.43,
+     50.58,
+     45.72,
+     48.58,
+     48.61,
+     60.57,
+     58,
+     51.88
+    ],
+    "ratioMedian": 1.716,
+    "ratioMin": 1.612
+   },
+   "aot-text": {
+    "medianMs": 23.4,
+    "minMs": 20.93,
+    "rawMs": [
+     27.14,
+     26.05,
+     25.95,
+     20.93,
+     22.16,
+     22.33,
+     22.27,
+     23.99,
+     23.4
+    ],
+    "ratioMedian": 0.774,
+    "ratioMin": 0.738
+   },
+   "aot-full": {
+    "medianMs": 22.82,
+    "minMs": 21.75,
+    "rawMs": [
+     23.88,
+     25.99,
+     25.16,
+     21.93,
+     21.83,
+     21.75,
+     22.9,
+     22.65,
+     22.82
+    ],
+    "ratioMedian": 0.755,
+    "ratioMin": 0.767
+   }
+  },
+  "parseCssScalar": {
+   "uptimeBefore": "18:01  up 1 day, 50 mins, 3 users, load averages: 41.44 31.63 28.86",
+   "uptimeAfter": "18:01  up 1 day, 50 mins, 3 users, load averages: 41.44 31.63 28.86",
+   "base": {
+    "medianMs": 36.21,
+    "minMs": 34.81,
+    "rawMs": [
+     45.27,
+     36.21,
+     34.81,
+     36.31,
+     35.29,
+     35.6,
+     36.73,
+     37.16,
+     36.07
+    ],
+    "ratioMedian": 1,
+    "ratioMin": 1
+   },
+   "bbnf": {
+    "medianMs": 55.65,
+    "minMs": 49.99,
+    "rawMs": [
+     51.99,
+     59.06,
+     55.5,
+     59.74,
+     50.47,
+     55.65,
+     49.99,
+     61.8,
+     77.32
+    ],
+    "ratioMedian": 1.537,
+    "ratioMin": 1.436
+   },
+   "aot-text": {
+    "medianMs": 24.99,
+    "minMs": 22.42,
+    "rawMs": [
+     24.43,
+     25.94,
+     26.16,
+     25.45,
+     22.42,
+     24.17,
+     24.78,
+     26.12,
+     24.99
+    ],
+    "ratioMedian": 0.69,
+    "ratioMin": 0.644
+   },
+   "aot-full": {
+    "medianMs": 24.92,
+    "minMs": 23.44,
+    "rawMs": [
+     24.99,
+     25.91,
+     24.92,
+     27.37,
+     24.89,
+     23.45,
+     24.97,
+     23.94,
+     23.44
+    ],
+    "ratioMedian": 0.688,
+    "ratioMin": 0.673
+   }
+  },
+  "parseCssValue": {
+   "uptimeBefore": "18:01  up 1 day, 50 mins, 3 users, load averages: 39.33 31.35 28.78",
+   "uptimeAfter": "18:01  up 1 day, 50 mins, 3 users, load averages: 39.33 31.35 28.78",
+   "base": {
+    "medianMs": 107.65,
+    "minMs": 91.88,
+    "rawMs": [
+     103.06,
+     119.73,
+     119.03,
+     128.28,
+     109.75,
+     99.12,
+     107.65,
+     91.88,
+     102.47
+    ],
+    "ratioMedian": 1,
+    "ratioMin": 1
+   },
+   "bbnf": {
+    "medianMs": 267.91,
+    "minMs": 193.04,
+    "rawMs": [
+     267.91,
+     317.45,
+     289.81,
+     309.83,
+     253.53,
+     193.04,
+     243.27,
+     220.66,
+     290.98
+    ],
+    "ratioMedian": 2.489,
+    "ratioMin": 2.101
+   },
+   "aot-text": {
+    "medianMs": 55.16,
+    "minMs": 40.59,
+    "rawMs": [
+     60.13,
+     61,
+     59.18,
+     58.7,
+     42.79,
+     40.59,
+     55.16,
+     50.92,
+     52.72
+    ],
+    "ratioMedian": 0.512,
+    "ratioMin": 0.442
+   },
+   "aot-full": {
+    "medianMs": 59.48,
+    "minMs": 41.13,
+    "rawMs": [
+     60.58,
+     60.17,
+     59.48,
+     65.54,
+     41.32,
+     41.13,
+     59.75,
+     41.81,
+     55.71
+    ],
+    "ratioMedian": 0.553,
+    "ratioMin": 0.448
+   }
+  },
+  "parseCssValues": {
+   "uptimeBefore": "18:01  up 1 day, 50 mins, 3 users, load averages: 38.26 31.26 28.76",
+   "uptimeAfter": "18:01  up 1 day, 50 mins, 3 users, load averages: 39.76 31.69 28.92",
+   "base": {
+    "medianMs": 114.07,
+    "minMs": 92.11,
+    "rawMs": [
+     114.07,
+     115.39,
+     117.81,
+     113.07,
+     127.68,
+     111.41,
+     92.11,
+     109.1,
+     118.85
+    ],
+    "ratioMedian": 1,
+    "ratioMin": 1
+   },
+   "bbnf": {
+    "medianMs": 303.34,
+    "minMs": 203.18,
+    "rawMs": [
+     337.42,
+     303.34,
+     304.26,
+     296.5,
+     294.62,
+     285.66,
+     203.18,
+     365.2,
+     364.88
+    ],
+    "ratioMedian": 2.659,
+    "ratioMin": 2.206
+   },
+   "aot-text": {
+    "medianMs": 66.68,
+    "minMs": 57.22,
+    "rawMs": [
+     79.09,
+     78.2,
+     57.24,
+     64.06,
+     60.42,
+     66.68,
+     57.22,
+     82.52,
+     70.2
+    ],
+    "ratioMedian": 0.585,
+    "ratioMin": 0.621
+   },
+   "aot-full": {
+    "medianMs": 58.59,
+    "minMs": 46.32,
+    "rawMs": [
+     60.08,
+     62,
+     58.59,
+     64,
+     57.38,
+     51.03,
+     48.18,
+     46.32,
+     59.82
+    ],
+    "ratioMedian": 0.514,
+    "ratioMin": 0.503
+   }
+  },
+  "parseKeyframeSelector": {
+   "uptimeBefore": "18:01  up 1 day, 50 mins, 3 users, load averages: 39.76 31.69 28.92",
+   "uptimeAfter": "18:01  up 1 day, 50 mins, 3 users, load averages: 39.76 31.69 28.92",
+   "base": {
+    "medianMs": 5.62,
+    "minMs": 5.01,
+    "rawMs": [
+     5.63,
+     5.62,
+     5.44,
+     5.16,
+     6.24,
+     6.43,
+     5.34,
+     5.76,
+     5.01
+    ],
+    "ratioMedian": 1,
+    "ratioMin": 1
+   },
+   "bbnf": {
+    "medianMs": 10.55,
+    "minMs": 9.35,
+    "rawMs": [
+     9.35,
+     9.55,
+     10.6,
+     10.55,
+     13.3,
+     15.7,
+     9.6,
+     9.78,
+     10.87
+    ],
+    "ratioMedian": 1.877,
+    "ratioMin": 1.866
+   },
+   "aot-text": {
+    "medianMs": 4.9,
+    "minMs": 4.37,
+    "rawMs": [
+     5.03,
+     4.37,
+     5.17,
+     5.2,
+     4.9,
+     4.65,
+     4.44,
+     4.59,
+     5.53
+    ],
+    "ratioMedian": 0.872,
+    "ratioMin": 0.872
+   },
+   "aot-full": {
+    "medianMs": 4.78,
+    "minMs": 4.48,
+    "rawMs": [
+     4.87,
+     4.68,
+     4.48,
+     4.58,
+     5.06,
+     4.78,
+     4.95,
+     5.36,
+     4.67
+    ],
+    "ratioMedian": 0.851,
+    "ratioMin": 0.894
+   }
+  },
+  "parseTimingFunction": {
+   "uptimeBefore": "18:01  up 1 day, 50 mins, 3 users, load averages: 39.76 31.69 28.92",
+   "uptimeAfter": "18:01  up 1 day, 50 mins, 3 users, load averages: 39.76 31.69 28.92",
+   "base": {
+    "medianMs": 10.06,
+    "minMs": 8.19,
+    "rawMs": [
+     9.14,
+     10.06,
+     8.19,
+     9.7,
+     13.37,
+     11.1,
+     12.16,
+     9.85,
+     11.77
+    ],
+    "ratioMedian": 1,
+    "ratioMin": 1
+   },
+   "bbnf": {
+    "medianMs": 17.69,
+    "minMs": 14.75,
+    "rawMs": [
+     14.75,
+     15.3,
+     19.95,
+     20.29,
+     19.51,
+     15.45,
+     20.38,
+     17.69,
+     16.56
+    ],
+    "ratioMedian": 1.758,
+    "ratioMin": 1.801
+   },
+   "aot-text": {
+    "medianMs": 7.16,
+    "minMs": 6.28,
+    "rawMs": [
+     6.28,
+     6.64,
+     7.16,
+     7.49,
+     6.91,
+     7.69,
+     8.65,
+     8,
+     7.04
+    ],
+    "ratioMedian": 0.712,
+    "ratioMin": 0.767
+   },
+   "aot-full": {
+    "medianMs": 7.24,
+    "minMs": 6.58,
+    "rawMs": [
+     6.92,
+     6.82,
+     6.58,
+     7.2,
+     7.4,
+     10.46,
+     9.3,
+     7.9,
+     7.24
+    ],
+    "ratioMedian": 0.72,
+    "ratioMin": 0.803
+   }
+  },
+  "parseStylesheet": {
+   "uptimeBefore": "18:01  up 1 day, 50 mins, 3 users, load averages: 39.76 31.69 28.92",
+   "uptimeAfter": "18:01  up 1 day, 50 mins, 3 users, load averages: 51.11 34.41 29.92",
+   "base": {
+    "medianMs": 60.67,
+    "minMs": 58.03,
+    "rawMs": [
+     60.67,
+     66.36,
+     58.25,
+     59.83,
+     69.65,
+     80.68,
+     60.44,
+     58.03,
+     60.74
+    ],
+    "ratioMedian": 1,
+    "ratioMin": 1
+   },
+   "bbnf": {
+    "medianMs": 411.55,
+    "minMs": 374.19,
+    "rawMs": [
+     945.62,
+     1055.87,
+     516.79,
+     411.55,
+     390.9,
+     419.8,
+     406.08,
+     401.53,
+     374.19
+    ],
+    "ratioMedian": 6.783,
+    "ratioMin": 6.448
+   },
+   "aot-text": {
+    "medianMs": 64.75,
+    "minMs": 50.5,
+    "rawMs": [
+     197.82,
+     64.75,
+     74.79,
+     54.38,
+     65.62,
+     62.34,
+     59.53,
+     67.3,
+     50.5
+    ],
+    "ratioMedian": 1.067,
+    "ratioMin": 0.87
+   },
+   "aot-full": {
+    "medianMs": 138.05,
+    "minMs": 127.04,
+    "rawMs": [
+     707.41,
+     127.04,
+     180.72,
+     150.87,
+     169.27,
+     129.24,
+     138.05,
+     131.74,
+     138.05
+    ],
+    "ratioMedian": 2.275,
+    "ratioMin": 2.189
+   }
+  }
+ },
+ "uptimeEnd": "18:01  up 1 day, 50 mins, 3 users, load averages: 51.11 34.41 29.92"
+}

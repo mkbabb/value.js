@@ -1,0 +1,171 @@
+{
+ "arm": "proto",
+ "corpus": 29944,
+ "total": 62,
+ "rows": {
+  "atPrelude": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "declaration": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "emptyListComma": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "functionHead": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "functionParam": {
+   "mismatches": 11,
+   "samples": [
+    {
+     "s": "oklch(🎨0% 0.15 50deg)",
+     "stock": null,
+     "cand": {
+      "head": "oklch(🎨0% 0.15 50deg)"
+     }
+    },
+    {
+     "s": "🎨gb(255 0 153 / 0.5)",
+     "stock": null,
+     "cand": {
+      "head": "🎨gb(255 0 153 / 0.5)"
+     }
+    },
+    {
+     "s": "hsl(é20, 50%, 50%)",
+     "stock": null,
+     "cand": {
+      "head": "hsl(é20, 50%, 50%)"
+     }
+    }
+   ]
+  },
+  "isDashedIdent": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "isPropertyName": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "isTimelineLength": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "opensTimeline": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "paramHead": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "ruleList": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "scopePrelude": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "syntaxComponents": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "syntaxText": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "timelineArgs(scroll)": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "timelineArgs(view)": {
+   "mismatches": 0,
+   "samples": []
+  },
+  "splitTopLevel(,)": {
+   "mismatches": 11,
+   "samples": [
+    {
+     "s": "oklch(🎨0% 0.15 50deg)",
+     "stock": null,
+     "cand": [
+      "oklch(🎨0% 0.15 50deg)"
+     ]
+    },
+    {
+     "s": "🎨gb(255 0 153 / 0.5)",
+     "stock": null,
+     "cand": [
+      "🎨gb(255 0 153 / 0.5)"
+     ]
+    },
+    {
+     "s": "hsl(é20, 50%, 50%)",
+     "stock": null,
+     "cand": [
+      "hsl(é20, 50%, 50%)"
+     ]
+    }
+   ]
+  },
+  "splitTopLevel(;)": {
+   "mismatches": 11,
+   "samples": [
+    {
+     "s": "oklch(🎨0% 0.15 50deg)",
+     "stock": null,
+     "cand": [
+      "oklch(🎨0% 0.15 50deg)"
+     ]
+    },
+    {
+     "s": "🎨gb(255 0 153 / 0.5)",
+     "stock": null,
+     "cand": [
+      "🎨gb(255 0 153 / 0.5)"
+     ]
+    },
+    {
+     "s": "hsl(é20, 50%, 50%)",
+     "stock": null,
+     "cand": [
+      "hsl(é20, 50%, 50%)"
+     ]
+    }
+   ]
+  },
+  "splitTopLevel(space)": {
+   "mismatches": 29,
+   "samples": [
+    {
+     "s": "oklch(🎨0% 0.15 50deg)",
+     "stock": null,
+     "cand": [
+      "oklch(🎨0% 0.15 50deg)"
+     ]
+    },
+    {
+     "s": "🎨gb(255 0 153 / 0.5)",
+     "stock": null,
+     "cand": [
+      "🎨gb(255 0 153 / 0.5)"
+     ]
+    },
+    {
+     "s": "hsl(é20, 50%, 50%)",
+     "stock": null,
+     "cand": [
+      "hsl(é20, 50%, 50%)"
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,1053 @@
+{
+ "tag": "A",
+ "rounds": 11,
+ "reps": 3,
+ "arms": "tsc-proto-pos,tsc-emit-pos,aot-text,fx-final",
+ "uptimeStart": "18:28  up 1 day,  1:17, 3 users, load averages: 28.67 41.10 35.09",
+ "cells": {
+  "parseCssColor": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.818,
+      "pairedMax": 0.904,
+      "roundsBelow1": 11,
+      "ofMedians": 0.784,
+      "ofMins": 0.76
+     },
+     "tsc-emit-pos": {
+      "paired": 0.715,
+      "pairedMax": 0.99,
+      "roundsBelow1": 11,
+      "ofMedians": 0.737,
+      "ofMins": 0.683
+     },
+     "aot-text": {
+      "paired": 0.772,
+      "pairedMax": 0.983,
+      "roundsBelow1": 11,
+      "ofMedians": 0.766,
+      "ofMins": 0.74
+     },
+     "fx-final": {
+      "paired": 0.857,
+      "pairedMax": 1.054,
+      "roundsBelow1": 9,
+      "ofMedians": 0.857,
+      "ofMins": 0.854
+     }
+    },
+    "medianMs": {
+     "retired": 24.73,
+     "tsc-proto-pos": 19.38,
+     "tsc-emit-pos": 18.22,
+     "aot-text": 18.94,
+     "fx-final": 21.2
+    },
+    "minMs": {
+     "retired": 23.07,
+     "tsc-proto-pos": 17.53,
+     "tsc-emit-pos": 15.75,
+     "aot-text": 17.06,
+     "fx-final": 19.71
+    },
+    "uptimeBefore": "18:28  up 1 day,  1:17, 3 users, load averages: 28.67 41.10 35.09",
+    "uptimeAfter": "18:28  up 1 day,  1:17, 3 users, load averages: 27.10 40.57 34.94"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "fx-final": {
+      "paired": 0.896,
+      "pairedMax": 1.018,
+      "roundsBelow1": 10,
+      "ofMedians": 0.897,
+      "ofMins": 0.846
+     },
+     "aot-text": {
+      "paired": 0.806,
+      "pairedMax": 1.131,
+      "roundsBelow1": 10,
+      "ofMedians": 0.841,
+      "ofMins": 0.778
+     },
+     "tsc-emit-pos": {
+      "paired": 0.741,
+      "pairedMax": 1.207,
+      "roundsBelow1": 10,
+      "ofMedians": 0.759,
+      "ofMins": 0.716
+     },
+     "tsc-proto-pos": {
+      "paired": 0.809,
+      "pairedMax": 0.929,
+      "roundsBelow1": 11,
+      "ofMedians": 0.84,
+      "ofMins": 0.744
+     }
+    },
+    "medianMs": {
+     "fx-final": 22.79,
+     "aot-text": 21.37,
+     "tsc-emit-pos": 19.28,
+     "tsc-proto-pos": 21.35,
+     "retired": 25.41
+    },
+    "minMs": {
+     "fx-final": 20.61,
+     "aot-text": 18.95,
+     "tsc-emit-pos": 17.44,
+     "tsc-proto-pos": 18.13,
+     "retired": 24.35
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 24.80 39.40 34.62",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 24.80 39.40 34.62"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.84,
+      "pairedMax": 1.081,
+      "roundsBelow1": 9,
+      "ofMedians": 0.843,
+      "ofMins": 0.805
+     },
+     "tsc-emit-pos": {
+      "paired": 0.802,
+      "pairedMax": 1.043,
+      "roundsBelow1": 10,
+      "ofMedians": 0.767,
+      "ofMins": 0.68
+     },
+     "aot-text": {
+      "paired": 0.794,
+      "pairedMax": 1.041,
+      "roundsBelow1": 10,
+      "ofMedians": 0.82,
+      "ofMins": 0.757
+     },
+     "fx-final": {
+      "paired": 0.893,
+      "pairedMax": 1.116,
+      "roundsBelow1": 10,
+      "ofMedians": 0.833,
+      "ofMins": 0.881
+     }
+    },
+    "medianMs": {
+     "retired": 27.72,
+     "tsc-proto-pos": 23.36,
+     "tsc-emit-pos": 21.25,
+     "aot-text": 22.72,
+     "fx-final": 23.09
+    },
+    "minMs": {
+     "retired": 24.68,
+     "tsc-proto-pos": 19.86,
+     "tsc-emit-pos": 16.77,
+     "aot-text": 18.68,
+     "fx-final": 21.74
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 22.71 38.00 34.23",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 22.71 38.00 34.23"
+   }
+  ],
+  "parseCssScalar": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.707,
+      "pairedMax": 0.776,
+      "roundsBelow1": 11,
+      "ofMedians": 0.727,
+      "ofMins": 0.688
+     },
+     "tsc-emit-pos": {
+      "paired": 0.649,
+      "pairedMax": 0.742,
+      "roundsBelow1": 11,
+      "ofMedians": 0.653,
+      "ofMins": 0.628
+     },
+     "aot-text": {
+      "paired": 0.69,
+      "pairedMax": 0.77,
+      "roundsBelow1": 11,
+      "ofMedians": 0.696,
+      "ofMins": 0.654
+     },
+     "fx-final": {
+      "paired": 0.738,
+      "pairedMax": 0.841,
+      "roundsBelow1": 11,
+      "ofMedians": 0.777,
+      "ofMins": 0.7
+     }
+    },
+    "medianMs": {
+     "retired": 28.84,
+     "tsc-proto-pos": 20.98,
+     "tsc-emit-pos": 18.83,
+     "aot-text": 20.07,
+     "fx-final": 22.42
+    },
+    "minMs": {
+     "retired": 28.18,
+     "tsc-proto-pos": 19.39,
+     "tsc-emit-pos": 17.7,
+     "aot-text": 18.44,
+     "fx-final": 19.72
+    },
+    "uptimeBefore": "18:28  up 1 day,  1:17, 3 users, load averages: 27.10 40.57 34.94",
+    "uptimeAfter": "18:28  up 1 day,  1:17, 3 users, load averages: 27.10 40.57 34.94"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "fx-final": {
+      "paired": 0.804,
+      "pairedMax": 0.956,
+      "roundsBelow1": 11,
+      "ofMedians": 0.809,
+      "ofMins": 0.836
+     },
+     "aot-text": {
+      "paired": 0.761,
+      "pairedMax": 0.908,
+      "roundsBelow1": 11,
+      "ofMedians": 0.758,
+      "ofMins": 0.771
+     },
+     "tsc-emit-pos": {
+      "paired": 0.75,
+      "pairedMax": 1.223,
+      "roundsBelow1": 10,
+      "ofMedians": 0.757,
+      "ofMins": 0.711
+     },
+     "tsc-proto-pos": {
+      "paired": 0.74,
+      "pairedMax": 0.976,
+      "roundsBelow1": 11,
+      "ofMedians": 0.743,
+      "ofMins": 0.726
+     }
+    },
+    "medianMs": {
+     "fx-final": 28.13,
+     "aot-text": 26.35,
+     "tsc-emit-pos": 26.32,
+     "tsc-proto-pos": 25.83,
+     "retired": 34.75
+    },
+    "minMs": {
+     "fx-final": 26.59,
+     "aot-text": 24.55,
+     "tsc-emit-pos": 22.64,
+     "tsc-proto-pos": 23.11,
+     "retired": 31.82
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 24.80 39.40 34.62",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 24.80 39.40 34.62"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.75,
+      "pairedMax": 0.825,
+      "roundsBelow1": 11,
+      "ofMedians": 0.742,
+      "ofMins": 0.732
+     },
+     "tsc-emit-pos": {
+      "paired": 0.711,
+      "pairedMax": 0.823,
+      "roundsBelow1": 11,
+      "ofMedians": 0.694,
+      "ofMins": 0.689
+     },
+     "aot-text": {
+      "paired": 0.751,
+      "pairedMax": 0.797,
+      "roundsBelow1": 11,
+      "ofMedians": 0.733,
+      "ofMins": 0.728
+     },
+     "fx-final": {
+      "paired": 0.856,
+      "pairedMax": 0.939,
+      "roundsBelow1": 11,
+      "ofMedians": 0.872,
+      "ofMins": 0.807
+     }
+    },
+    "medianMs": {
+     "retired": 38.33,
+     "tsc-proto-pos": 28.45,
+     "tsc-emit-pos": 26.59,
+     "aot-text": 28.1,
+     "fx-final": 33.44
+    },
+    "minMs": {
+     "retired": 35.38,
+     "tsc-proto-pos": 25.88,
+     "tsc-emit-pos": 24.39,
+     "aot-text": 25.75,
+     "fx-final": 28.57
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 22.71 38.00 34.23",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 22.71 38.00 34.23"
+   }
+  ],
+  "parseCssValue": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.476,
+      "pairedMax": 0.534,
+      "roundsBelow1": 11,
+      "ofMedians": 0.481,
+      "ofMins": 0.512
+     },
+     "tsc-emit-pos": {
+      "paired": 0.439,
+      "pairedMax": 0.539,
+      "roundsBelow1": 11,
+      "ofMedians": 0.443,
+      "ofMins": 0.45
+     },
+     "aot-text": {
+      "paired": 0.453,
+      "pairedMax": 0.504,
+      "roundsBelow1": 11,
+      "ofMedians": 0.446,
+      "ofMins": 0.479
+     },
+     "fx-final": {
+      "paired": 0.528,
+      "pairedMax": 0.656,
+      "roundsBelow1": 11,
+      "ofMedians": 0.536,
+      "ofMins": 0.555
+     }
+    },
+    "medianMs": {
+     "retired": 94.77,
+     "tsc-proto-pos": 45.62,
+     "tsc-emit-pos": 41.99,
+     "aot-text": 42.28,
+     "fx-final": 50.75
+    },
+    "minMs": {
+     "retired": 84.39,
+     "tsc-proto-pos": 43.18,
+     "tsc-emit-pos": 37.99,
+     "aot-text": 40.42,
+     "fx-final": 46.83
+    },
+    "uptimeBefore": "18:28  up 1 day,  1:17, 3 users, load averages: 27.10 40.57 34.94",
+    "uptimeAfter": "18:28  up 1 day,  1:18, 3 users, load averages: 25.73 40.06 34.79"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "fx-final": {
+      "paired": 0.626,
+      "pairedMax": 0.667,
+      "roundsBelow1": 11,
+      "ofMedians": 0.597,
+      "ofMins": 0.575
+     },
+     "aot-text": {
+      "paired": 0.539,
+      "pairedMax": 0.627,
+      "roundsBelow1": 11,
+      "ofMedians": 0.518,
+      "ofMins": 0.504
+     },
+     "tsc-emit-pos": {
+      "paired": 0.534,
+      "pairedMax": 0.585,
+      "roundsBelow1": 11,
+      "ofMedians": 0.519,
+      "ofMins": 0.455
+     },
+     "tsc-proto-pos": {
+      "paired": 0.589,
+      "pairedMax": 0.705,
+      "roundsBelow1": 11,
+      "ofMedians": 0.609,
+      "ofMins": 0.547
+     }
+    },
+    "medianMs": {
+     "fx-final": 72.15,
+     "aot-text": 62.58,
+     "tsc-emit-pos": 62.71,
+     "tsc-proto-pos": 73.68,
+     "retired": 120.91
+    },
+    "minMs": {
+     "fx-final": 62.96,
+     "aot-text": 55.14,
+     "tsc-emit-pos": 49.81,
+     "tsc-proto-pos": 59.86,
+     "retired": 109.49
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 25.14 39.22 34.58",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 25.14 39.22 34.58"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.571,
+      "pairedMax": 0.776,
+      "roundsBelow1": 11,
+      "ofMedians": 0.59,
+      "ofMins": 0.556
+     },
+     "tsc-emit-pos": {
+      "paired": 0.49,
+      "pairedMax": 1.046,
+      "roundsBelow1": 10,
+      "ofMedians": 0.512,
+      "ofMins": 0.472
+     },
+     "aot-text": {
+      "paired": 0.494,
+      "pairedMax": 0.694,
+      "roundsBelow1": 11,
+      "ofMedians": 0.49,
+      "ofMins": 0.478
+     },
+     "fx-final": {
+      "paired": 0.61,
+      "pairedMax": 1.3,
+      "roundsBelow1": 10,
+      "ofMedians": 0.637,
+      "ofMins": 0.602
+     }
+    },
+    "medianMs": {
+     "retired": 123.19,
+     "tsc-proto-pos": 72.72,
+     "tsc-emit-pos": 63.09,
+     "aot-text": 60.35,
+     "fx-final": 78.45
+    },
+    "minMs": {
+     "retired": 116.39,
+     "tsc-proto-pos": 64.69,
+     "tsc-emit-pos": 54.97,
+     "aot-text": 55.64,
+     "fx-final": 70.05
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 22.41 37.69 34.14",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 23.98 37.76 34.19"
+   }
+  ],
+  "parseCssValues": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.511,
+      "pairedMax": 0.591,
+      "roundsBelow1": 11,
+      "ofMedians": 0.513,
+      "ofMins": 0.509
+     },
+     "tsc-emit-pos": {
+      "paired": 0.448,
+      "pairedMax": 0.518,
+      "roundsBelow1": 11,
+      "ofMedians": 0.445,
+      "ofMins": 0.476
+     },
+     "aot-text": {
+      "paired": 0.461,
+      "pairedMax": 0.56,
+      "roundsBelow1": 11,
+      "ofMedians": 0.441,
+      "ofMins": 0.466
+     },
+     "fx-final": {
+      "paired": 0.536,
+      "pairedMax": 0.656,
+      "roundsBelow1": 11,
+      "ofMedians": 0.531,
+      "ofMins": 0.536
+     }
+    },
+    "medianMs": {
+     "retired": 105.52,
+     "tsc-proto-pos": 54.08,
+     "tsc-emit-pos": 46.94,
+     "aot-text": 46.53,
+     "fx-final": 56.07
+    },
+    "minMs": {
+     "retired": 95.45,
+     "tsc-proto-pos": 48.58,
+     "tsc-emit-pos": 45.45,
+     "aot-text": 44.5,
+     "fx-final": 51.15
+    },
+    "uptimeBefore": "18:28  up 1 day,  1:18, 3 users, load averages: 25.73 40.06 34.79",
+    "uptimeAfter": "18:28  up 1 day,  1:18, 3 users, load averages: 25.83 39.84 34.74"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "fx-final": {
+      "paired": 0.547,
+      "pairedMax": 0.772,
+      "roundsBelow1": 11,
+      "ofMedians": 0.524,
+      "ofMins": 0.516
+     },
+     "aot-text": {
+      "paired": 0.479,
+      "pairedMax": 0.6,
+      "roundsBelow1": 11,
+      "ofMedians": 0.469,
+      "ofMins": 0.449
+     },
+     "tsc-emit-pos": {
+      "paired": 0.479,
+      "pairedMax": 0.597,
+      "roundsBelow1": 11,
+      "ofMedians": 0.462,
+      "ofMins": 0.452
+     },
+     "tsc-proto-pos": {
+      "paired": 0.503,
+      "pairedMax": 0.538,
+      "roundsBelow1": 11,
+      "ofMedians": 0.502,
+      "ofMins": 0.514
+     }
+    },
+    "medianMs": {
+     "fx-final": 55.09,
+     "aot-text": 49.35,
+     "tsc-emit-pos": 48.55,
+     "tsc-proto-pos": 52.77,
+     "retired": 105.17
+    },
+    "minMs": {
+     "fx-final": 51.2,
+     "aot-text": 44.52,
+     "tsc-emit-pos": 44.88,
+     "tsc-proto-pos": 50.99,
+     "retired": 99.19
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 24.40 38.84 34.47",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 24.40 38.84 34.47"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.598,
+      "pairedMax": 0.691,
+      "roundsBelow1": 11,
+      "ofMedians": 0.558,
+      "ofMins": 0.553
+     },
+     "tsc-emit-pos": {
+      "paired": 0.504,
+      "pairedMax": 0.769,
+      "roundsBelow1": 11,
+      "ofMedians": 0.47,
+      "ofMins": 0.502
+     },
+     "aot-text": {
+      "paired": 0.581,
+      "pairedMax": 1.108,
+      "roundsBelow1": 10,
+      "ofMedians": 0.63,
+      "ofMins": 0.555
+     },
+     "fx-final": {
+      "paired": 0.748,
+      "pairedMax": 1.29,
+      "roundsBelow1": 9,
+      "ofMedians": 0.664,
+      "ofMins": 0.64
+     }
+    },
+    "medianMs": {
+     "retired": 311.72,
+     "tsc-proto-pos": 173.88,
+     "tsc-emit-pos": 146.53,
+     "aot-text": 196.26,
+     "fx-final": 207.07
+    },
+    "minMs": {
+     "retired": 131.67,
+     "tsc-proto-pos": 72.77,
+     "tsc-emit-pos": 66.09,
+     "aot-text": 73.12,
+     "fx-final": 84.29
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 23.98 37.76 34.19",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 34.55 39.55 34.86"
+   }
+  ],
+  "parseKeyframeSelector": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.707,
+      "pairedMax": 0.771,
+      "roundsBelow1": 11,
+      "ofMedians": 0.711,
+      "ofMins": 0.711
+     },
+     "tsc-emit-pos": {
+      "paired": 0.713,
+      "pairedMax": 0.808,
+      "roundsBelow1": 11,
+      "ofMedians": 0.713,
+      "ofMins": 0.698
+     },
+     "aot-text": {
+      "paired": 0.805,
+      "pairedMax": 0.908,
+      "roundsBelow1": 11,
+      "ofMedians": 0.808,
+      "ofMins": 0.791
+     },
+     "fx-final": {
+      "paired": 0.854,
+      "pairedMax": 0.918,
+      "roundsBelow1": 11,
+      "ofMedians": 0.849,
+      "ofMins": 0.871
+     }
+    },
+    "medianMs": {
+     "retired": 4.48,
+     "tsc-proto-pos": 3.18,
+     "tsc-emit-pos": 3.19,
+     "aot-text": 3.62,
+     "fx-final": 3.8
+    },
+    "minMs": {
+     "retired": 4.28,
+     "tsc-proto-pos": 3.04,
+     "tsc-emit-pos": 2.99,
+     "aot-text": 3.39,
+     "fx-final": 3.73
+    },
+    "uptimeBefore": "18:28  up 1 day,  1:18, 3 users, load averages: 25.83 39.84 34.74",
+    "uptimeAfter": "18:28  up 1 day,  1:18, 3 users, load averages: 25.83 39.84 34.74"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "fx-final": {
+      "paired": 0.854,
+      "pairedMax": 0.953,
+      "roundsBelow1": 11,
+      "ofMedians": 0.873,
+      "ofMins": 0.86
+     },
+     "aot-text": {
+      "paired": 0.853,
+      "pairedMax": 0.929,
+      "roundsBelow1": 11,
+      "ofMedians": 0.831,
+      "ofMins": 0.816
+     },
+     "tsc-emit-pos": {
+      "paired": 0.716,
+      "pairedMax": 0.803,
+      "roundsBelow1": 11,
+      "ofMedians": 0.73,
+      "ofMins": 0.728
+     },
+     "tsc-proto-pos": {
+      "paired": 0.719,
+      "pairedMax": 0.826,
+      "roundsBelow1": 11,
+      "ofMedians": 0.721,
+      "ofMins": 0.721
+     }
+    },
+    "medianMs": {
+     "fx-final": 3.69,
+     "aot-text": 3.51,
+     "tsc-emit-pos": 3.08,
+     "tsc-proto-pos": 3.05,
+     "retired": 4.23
+    },
+    "minMs": {
+     "fx-final": 3.5,
+     "aot-text": 3.32,
+     "tsc-emit-pos": 2.96,
+     "tsc-proto-pos": 2.93,
+     "retired": 4.06
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 24.40 38.84 34.47",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 23.73 38.46 34.37"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.717,
+      "pairedMax": 1.056,
+      "roundsBelow1": 10,
+      "ofMedians": 0.736,
+      "ofMins": 0.761
+     },
+     "tsc-emit-pos": {
+      "paired": 0.74,
+      "pairedMax": 0.918,
+      "roundsBelow1": 11,
+      "ofMedians": 0.735,
+      "ofMins": 0.785
+     },
+     "aot-text": {
+      "paired": 0.864,
+      "pairedMax": 1.209,
+      "roundsBelow1": 10,
+      "ofMedians": 0.889,
+      "ofMins": 0.862
+     },
+     "fx-final": {
+      "paired": 0.937,
+      "pairedMax": 1.105,
+      "roundsBelow1": 9,
+      "ofMedians": 0.928,
+      "ofMins": 0.963
+     }
+    },
+    "medianMs": {
+     "retired": 5.59,
+     "tsc-proto-pos": 4.11,
+     "tsc-emit-pos": 4.11,
+     "aot-text": 4.97,
+     "fx-final": 5.18
+    },
+    "minMs": {
+     "retired": 5.01,
+     "tsc-proto-pos": 3.81,
+     "tsc-emit-pos": 3.93,
+     "aot-text": 4.32,
+     "fx-final": 4.82
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 34.55 39.55 34.86",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 34.55 39.55 34.86"
+   }
+  ],
+  "parseTimingFunction": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.827,
+      "pairedMax": 0.925,
+      "roundsBelow1": 11,
+      "ofMedians": 0.844,
+      "ofMins": 0.787
+     },
+     "tsc-emit-pos": {
+      "paired": 0.768,
+      "pairedMax": 0.856,
+      "roundsBelow1": 11,
+      "ofMedians": 0.766,
+      "ofMins": 0.784
+     },
+     "aot-text": {
+      "paired": 0.844,
+      "pairedMax": 0.976,
+      "roundsBelow1": 11,
+      "ofMedians": 0.844,
+      "ofMins": 0.844
+     },
+     "fx-final": {
+      "paired": 0.916,
+      "pairedMax": 1.073,
+      "roundsBelow1": 10,
+      "ofMedians": 0.915,
+      "ofMins": 0.881
+     }
+    },
+    "medianMs": {
+     "retired": 6.02,
+     "tsc-proto-pos": 5.08,
+     "tsc-emit-pos": 4.62,
+     "aot-text": 5.08,
+     "fx-final": 5.51
+    },
+    "minMs": {
+     "retired": 5.57,
+     "tsc-proto-pos": 4.38,
+     "tsc-emit-pos": 4.37,
+     "aot-text": 4.7,
+     "fx-final": 4.9
+    },
+    "uptimeBefore": "18:28  up 1 day,  1:18, 3 users, load averages: 25.83 39.84 34.74",
+    "uptimeAfter": "18:28  up 1 day,  1:18, 3 users, load averages: 25.83 39.84 34.74"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "fx-final": {
+      "paired": 0.859,
+      "pairedMax": 0.985,
+      "roundsBelow1": 11,
+      "ofMedians": 0.843,
+      "ofMins": 0.886
+     },
+     "aot-text": {
+      "paired": 0.854,
+      "pairedMax": 0.903,
+      "roundsBelow1": 11,
+      "ofMedians": 0.851,
+      "ofMins": 0.831
+     },
+     "tsc-emit-pos": {
+      "paired": 0.765,
+      "pairedMax": 0.925,
+      "roundsBelow1": 11,
+      "ofMedians": 0.768,
+      "ofMins": 0.819
+     },
+     "tsc-proto-pos": {
+      "paired": 0.826,
+      "pairedMax": 0.982,
+      "roundsBelow1": 11,
+      "ofMedians": 0.821,
+      "ofMins": 0.822
+     }
+    },
+    "medianMs": {
+     "fx-final": 5.61,
+     "aot-text": 5.66,
+     "tsc-emit-pos": 5.11,
+     "tsc-proto-pos": 5.46,
+     "retired": 6.66
+    },
+    "minMs": {
+     "fx-final": 5.2,
+     "aot-text": 4.88,
+     "tsc-emit-pos": 4.81,
+     "tsc-proto-pos": 4.83,
+     "retired": 5.87
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 23.73 38.46 34.37",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 23.73 38.46 34.37"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.841,
+      "pairedMax": 0.949,
+      "roundsBelow1": 11,
+      "ofMedians": 0.917,
+      "ofMins": 0.76
+     },
+     "tsc-emit-pos": {
+      "paired": 0.778,
+      "pairedMax": 0.998,
+      "roundsBelow1": 11,
+      "ofMedians": 0.817,
+      "ofMins": 0.776
+     },
+     "aot-text": {
+      "paired": 0.898,
+      "pairedMax": 0.996,
+      "roundsBelow1": 11,
+      "ofMedians": 0.913,
+      "ofMins": 0.803
+     },
+     "fx-final": {
+      "paired": 0.878,
+      "pairedMax": 1.058,
+      "roundsBelow1": 10,
+      "ofMedians": 0.94,
+      "ofMins": 0.848
+     }
+    },
+    "medianMs": {
+     "retired": 7.75,
+     "tsc-proto-pos": 7.1,
+     "tsc-emit-pos": 6.33,
+     "aot-text": 7.08,
+     "fx-final": 7.28
+    },
+    "minMs": {
+     "retired": 7.48,
+     "tsc-proto-pos": 5.69,
+     "tsc-emit-pos": 5.8,
+     "aot-text": 6.01,
+     "fx-final": 6.34
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 33.70 39.29 34.80",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 33.70 39.29 34.80"
+   }
+  ],
+  "parseStylesheet": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 0.877,
+      "pairedMax": 0.921,
+      "roundsBelow1": 11,
+      "ofMedians": 0.872,
+      "ofMins": 0.883
+     },
+     "tsc-emit-pos": {
+      "paired": 0.698,
+      "pairedMax": 0.739,
+      "roundsBelow1": 11,
+      "ofMedians": 0.693,
+      "ofMins": 0.703
+     },
+     "aot-text": {
+      "paired": 0.83,
+      "pairedMax": 1.01,
+      "roundsBelow1": 10,
+      "ofMedians": 0.838,
+      "ofMins": 0.831
+     },
+     "fx-final": {
+      "paired": 0.999,
+      "pairedMax": 1.072,
+      "roundsBelow1": 6,
+      "ofMedians": 1.002,
+      "ofMins": 1.019
+     }
+    },
+    "medianMs": {
+     "retired": 47.3,
+     "tsc-proto-pos": 41.24,
+     "tsc-emit-pos": 32.79,
+     "aot-text": 39.66,
+     "fx-final": 47.4
+    },
+    "minMs": {
+     "retired": 45.5,
+     "tsc-proto-pos": 40.18,
+     "tsc-emit-pos": 31.99,
+     "aot-text": 37.81,
+     "fx-final": 46.35
+    },
+    "uptimeBefore": "18:28  up 1 day,  1:18, 3 users, load averages: 25.83 39.84 34.74",
+    "uptimeAfter": "18:28  up 1 day,  1:18, 3 users, load averages: 25.83 39.84 34.74"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "fx-final": {
+      "paired": 1.111,
+      "pairedMax": 1.332,
+      "roundsBelow1": 3,
+      "ofMedians": 1.103,
+      "ofMins": 0.996
+     },
+     "aot-text": {
+      "paired": 0.833,
+      "pairedMax": 0.946,
+      "roundsBelow1": 11,
+      "ofMedians": 0.828,
+      "ofMins": 0.825
+     },
+     "tsc-emit-pos": {
+      "paired": 0.724,
+      "pairedMax": 0.833,
+      "roundsBelow1": 11,
+      "ofMedians": 0.716,
+      "ofMins": 0.678
+     },
+     "tsc-proto-pos": {
+      "paired": 0.884,
+      "pairedMax": 1.121,
+      "roundsBelow1": 10,
+      "ofMedians": 0.911,
+      "ofMins": 0.849
+     }
+    },
+    "medianMs": {
+     "fx-final": 60.09,
+     "aot-text": 45.14,
+     "tsc-emit-pos": 39.02,
+     "tsc-proto-pos": 49.62,
+     "retired": 54.48
+    },
+    "minMs": {
+     "fx-final": 50.23,
+     "aot-text": 41.64,
+     "tsc-emit-pos": 34.23,
+     "tsc-proto-pos": 42.85,
+     "retired": 50.46
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 23.73 38.46 34.37",
+    "uptimeAfter": "18:29  up 1 day,  1:18, 3 users, load averages: 23.73 38.46 34.37"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 1.069,
+      "pairedMax": 1.512,
+      "roundsBelow1": 2,
+      "ofMedians": 1.143,
+      "ofMins": 1.046
+     },
+     "tsc-emit-pos": {
+      "paired": 0.816,
+      "pairedMax": 3.246,
+      "roundsBelow1": 7,
+      "ofMedians": 0.955,
+      "ofMins": 0.77
+     },
+     "aot-text": {
+      "paired": 0.995,
+      "pairedMax": 1.569,
+      "roundsBelow1": 7,
+      "ofMedians": 0.997,
+      "ofMins": 0.969
+     },
+     "fx-final": {
+      "paired": 1.269,
+      "pairedMax": 1.513,
+      "roundsBelow1": 0,
+      "ofMedians": 1.43,
+      "ofMins": 1.244
+     }
+    },
+    "medianMs": {
+     "retired": 76.39,
+     "tsc-proto-pos": 87.33,
+     "tsc-emit-pos": 72.94,
+     "aot-text": 76.16,
+     "fx-final": 109.23
+    },
+    "minMs": {
+     "retired": 70.21,
+     "tsc-proto-pos": 73.46,
+     "tsc-emit-pos": 54.04,
+     "aot-text": 68.06,
+     "fx-final": 87.31
+    },
+    "uptimeBefore": "18:29  up 1 day,  1:18, 3 users, load averages: 33.70 39.29 34.80",
+    "uptimeAfter": "18:29  up 1 day,  1:19, 3 users, load averages: 32.29 38.90 34.69"
+   }
+  ]
+ },
+ "uptimeEnd": "18:29  up 1 day,  1:19, 3 users, load averages: 32.29 38.90 34.69"
+}

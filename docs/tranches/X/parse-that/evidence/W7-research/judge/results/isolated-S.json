@@ -1,0 +1,252 @@
+{
+ "tag": "S",
+ "rounds": 11,
+ "reps": 6,
+ "arms": "tsc-proto-pos,tsc-emit-pos,aot-text",
+ "uptimeStart": "18:31  up 1 day,  1:20, 3 users, load averages: 23.96 34.38 33.34",
+ "cells": {
+  "parseStylesheet": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 1.052,
+      "pairedMax": 1.525,
+      "roundsBelow1": 3,
+      "ofMedians": 1.145,
+      "ofMins": 1.072
+     },
+     "tsc-emit-pos": {
+      "paired": 0.944,
+      "pairedMax": 1.355,
+      "roundsBelow1": 8,
+      "ofMedians": 0.967,
+      "ofMins": 0.858
+     },
+     "aot-text": {
+      "paired": 1.04,
+      "pairedMax": 1.673,
+      "roundsBelow1": 5,
+      "ofMedians": 0.984,
+      "ofMins": 1.02
+     }
+    },
+    "medianMs": {
+     "retired": 93.74,
+     "tsc-proto-pos": 107.34,
+     "tsc-emit-pos": 90.61,
+     "aot-text": 92.19
+    },
+    "minMs": {
+     "retired": 77.11,
+     "tsc-proto-pos": 82.64,
+     "tsc-emit-pos": 66.14,
+     "aot-text": 78.67
+    },
+    "uptimeBefore": "18:31  up 1 day,  1:20, 3 users, load averages: 23.96 34.38 33.34",
+    "uptimeAfter": "18:31  up 1 day,  1:20, 3 users, load averages: 31.81 35.84 33.86"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.856,
+      "pairedMax": 1.282,
+      "roundsBelow1": 9,
+      "ofMedians": 0.875,
+      "ofMins": 0.856
+     },
+     "tsc-emit-pos": {
+      "paired": 0.719,
+      "pairedMax": 1.271,
+      "roundsBelow1": 10,
+      "ofMedians": 0.748,
+      "ofMins": 0.71
+     },
+     "tsc-proto-pos": {
+      "paired": 1.035,
+      "pairedMax": 2.267,
+      "roundsBelow1": 5,
+      "ofMedians": 1.433,
+      "ofMins": 1.02
+     }
+    },
+    "medianMs": {
+     "aot-text": 82.54,
+     "tsc-emit-pos": 70.57,
+     "tsc-proto-pos": 135.28,
+     "retired": 94.38
+    },
+    "minMs": {
+     "aot-text": 67.11,
+     "tsc-emit-pos": 55.64,
+     "tsc-proto-pos": 79.96,
+     "retired": 78.4
+    },
+    "uptimeBefore": "18:31  up 1 day,  1:20, 3 users, load averages: 37.75 37.00 34.28",
+    "uptimeAfter": "18:31  up 1 day,  1:20, 3 users, load averages: 44.82 38.48 34.82"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 1.103,
+      "pairedMax": 1.337,
+      "roundsBelow1": 3,
+      "ofMedians": 1.048,
+      "ofMins": 1.026
+     },
+     "tsc-emit-pos": {
+      "paired": 0.775,
+      "pairedMax": 0.978,
+      "roundsBelow1": 11,
+      "ofMedians": 0.885,
+      "ofMins": 0.754
+     },
+     "aot-text": {
+      "paired": 0.932,
+      "pairedMax": 2.121,
+      "roundsBelow1": 7,
+      "ofMedians": 0.905,
+      "ofMins": 0.912
+     }
+    },
+    "medianMs": {
+     "retired": 85.47,
+     "tsc-proto-pos": 89.61,
+     "tsc-emit-pos": 75.61,
+     "aot-text": 77.32
+    },
+    "minMs": {
+     "retired": 72.66,
+     "tsc-proto-pos": 74.53,
+     "tsc-emit-pos": 54.76,
+     "aot-text": 66.28
+    },
+    "uptimeBefore": "18:31  up 1 day,  1:20, 3 users, load averages: 44.82 38.48 34.82",
+    "uptimeAfter": "18:31  up 1 day,  1:20, 3 users, load averages: 44.83 38.59 34.88"
+   },
+   {
+    "rep": 3,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.946,
+      "pairedMax": 1.375,
+      "roundsBelow1": 8,
+      "ofMedians": 0.956,
+      "ofMins": 0.933
+     },
+     "tsc-emit-pos": {
+      "paired": 0.849,
+      "pairedMax": 0.916,
+      "roundsBelow1": 11,
+      "ofMedians": 0.845,
+      "ofMins": 0.781
+     },
+     "tsc-proto-pos": {
+      "paired": 1.085,
+      "pairedMax": 1.405,
+      "roundsBelow1": 2,
+      "ofMedians": 1.101,
+      "ofMins": 1.057
+     }
+    },
+    "medianMs": {
+     "aot-text": 74.46,
+     "tsc-emit-pos": 65.84,
+     "tsc-proto-pos": 85.73,
+     "retired": 77.88
+    },
+    "minMs": {
+     "aot-text": 68.54,
+     "tsc-emit-pos": 57.4,
+     "tsc-proto-pos": 77.69,
+     "retired": 73.47
+    },
+    "uptimeBefore": "18:31  up 1 day,  1:20, 3 users, load averages: 44.83 38.59 34.88",
+    "uptimeAfter": "18:31  up 1 day,  1:20, 3 users, load averages: 44.21 38.56 34.89"
+   },
+   {
+    "rep": 4,
+    "ratio": {
+     "tsc-proto-pos": {
+      "paired": 1.038,
+      "pairedMax": 1.292,
+      "roundsBelow1": 2,
+      "ofMedians": 1.121,
+      "ofMins": 1.034
+     },
+     "tsc-emit-pos": {
+      "paired": 0.826,
+      "pairedMax": 0.905,
+      "roundsBelow1": 11,
+      "ofMedians": 0.838,
+      "ofMins": 0.828
+     },
+     "aot-text": {
+      "paired": 0.942,
+      "pairedMax": 1.35,
+      "roundsBelow1": 9,
+      "ofMedians": 0.976,
+      "ofMins": 0.944
+     }
+    },
+    "medianMs": {
+     "retired": 73.84,
+     "tsc-proto-pos": 82.76,
+     "tsc-emit-pos": 61.85,
+     "aot-text": 72.09
+    },
+    "minMs": {
+     "retired": 71.73,
+     "tsc-proto-pos": 74.2,
+     "tsc-emit-pos": 59.37,
+     "aot-text": 67.73
+    },
+    "uptimeBefore": "18:31  up 1 day,  1:20, 3 users, load averages: 44.21 38.56 34.89",
+    "uptimeAfter": "18:31  up 1 day,  1:20, 3 users, load averages: 44.21 38.56 34.89"
+   },
+   {
+    "rep": 5,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.928,
+      "pairedMax": 1.104,
+      "roundsBelow1": 7,
+      "ofMedians": 0.912,
+      "ofMins": 0.928
+     },
+     "tsc-emit-pos": {
+      "paired": 0.812,
+      "pairedMax": 0.855,
+      "roundsBelow1": 11,
+      "ofMedians": 0.744,
+      "ofMins": 0.798
+     },
+     "tsc-proto-pos": {
+      "paired": 1.124,
+      "pairedMax": 1.257,
+      "roundsBelow1": 0,
+      "ofMedians": 1.09,
+      "ofMins": 1.133
+     }
+    },
+    "medianMs": {
+     "aot-text": 72.83,
+     "tsc-emit-pos": 59.42,
+     "tsc-proto-pos": 86.97,
+     "retired": 79.82
+    },
+    "minMs": {
+     "aot-text": 64.3,
+     "tsc-emit-pos": 55.28,
+     "tsc-proto-pos": 78.48,
+     "retired": 69.26
+    },
+    "uptimeBefore": "18:31  up 1 day,  1:20, 3 users, load averages: 42.19 38.23 34.79",
+    "uptimeAfter": "18:31  up 1 day,  1:20, 3 users, load averages: 42.19 38.23 34.79"
+   }
+  ]
+ },
+ "uptimeEnd": "18:31  up 1 day,  1:20, 3 users, load averages: 42.19 38.23 34.79"
+}

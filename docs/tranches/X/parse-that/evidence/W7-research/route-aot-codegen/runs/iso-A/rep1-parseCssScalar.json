@@ -1,0 +1,75 @@
+{
+ "node": "v26.0.0",
+ "inputs": 29944,
+ "rounds": 11,
+ "variants": [
+  "base",
+  "bbnf",
+  "aot-text"
+ ],
+ "uptimeStart": "17:56  up 1 day, 46 mins, 3 users, load averages: 24.57 28.36 27.40",
+ "timing": {
+  "parseCssScalar": {
+   "uptimeBefore": "17:56  up 1 day, 46 mins, 3 users, load averages: 24.57 28.36 27.40",
+   "uptimeAfter": "17:56  up 1 day, 46 mins, 3 users, load averages: 25.40 28.47 27.44",
+   "base": {
+    "medianMs": 90.21,
+    "minMs": 37.08,
+    "rawMs": [
+     53.97,
+     90.21,
+     159.92,
+     182.71,
+     127.96,
+     120.54,
+     102.85,
+     89.53,
+     42.72,
+     39.28,
+     37.08
+    ],
+    "ratioMedian": 1,
+    "ratioMin": 1
+   },
+   "bbnf": {
+    "medianMs": 185.04,
+    "minMs": 58.78,
+    "rawMs": [
+     144.39,
+     262.41,
+     272.5,
+     185.04,
+     232.17,
+     158.18,
+     228.95,
+     196.52,
+     58.78,
+     65.11,
+     69.98
+    ],
+    "ratioMedian": 2.051,
+    "ratioMin": 1.585
+   },
+   "aot-text": {
+    "medianMs": 69.5,
+    "minMs": 26.81,
+    "rawMs": [
+     90.53,
+     97.88,
+     84.65,
+     76.91,
+     76.55,
+     69.45,
+     69.5,
+     55,
+     67.69,
+     27.53,
+     26.81
+    ],
+    "ratioMedian": 0.77,
+    "ratioMin": 0.723
+   }
+  }
+ },
+ "uptimeEnd": "17:56  up 1 day, 46 mins, 3 users, load averages: 25.40 28.47 27.44"
+}

@@ -1,0 +1,14 @@
+import { readFileSync } from "node:fs";
+import { BBNFToAST, BBNFToASTWithImports, dedupGroups } from "@mkbabb/bbnf-lang";
+const G = "/Users/mkbabb/Programming/value.js/src/css/grammar/";
+const text = ["tokens","math","color","value","stylesheet"].map(m => readFileSync(G+m+".bbnf","utf8")).join("\n");
+const r = BBNFToASTWithImports(text);
+console.log("withImports len", r.length, r[1] && Object.keys(r[1]));
+let ast = r[1]?.rules ?? BBNFToAST(text)[1];
+console.log(ast.constructor.name, ast.size);
+dedupGroups(ast);
+console.log("after dedup", ast.size);
+const show = (e) => { if (!e || typeof e !== "object") return JSON.stringify(e); const v = e.value;
+  if (e.type==="regex") return `/${v.source}/${v.flags}`; if (e.type==="literal") return JSON.stringify(v); if (e.type==="nonterminal") return v;
+  if (Array.isArray(v)) return `${e.type}(${v.map(show).join(", ")})`; return `${e.type}(${show(v)})`; };
+for (const [n, rule] of ast) console.log(n, "=", show(rule.expression), Object.keys(rule).join(","));

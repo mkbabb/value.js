@@ -1,0 +1,313 @@
+{
+ "compileMs": 10.6,
+ "rulesInTable": 160,
+ "astRules": 160,
+ "staticNodes": 776,
+ "byType": {
+  "dispatch": 30,
+  "regex": 92,
+  "wrap": 20,
+  "all": 69,
+  "many": 25,
+  "opt": 30,
+  "next": 71,
+  "regexSpan": 18,
+  "any": 7,
+  "minus": 2,
+  "skip": 14
+ },
+ "lazyNonterminalRefNodes": 376,
+ "altStats": {
+  "dispatch": 30,
+  "any": 7
+ },
+ "inputs": 29944,
+ "chars": 1173426,
+ "entries": {
+  "colorTop": {
+   "lazyRefCalls": 581630,
+   "accepted": 7887,
+   "combinatorCalls": 1747276,
+   "callsPerChar": 1.49,
+   "failedCalls": 1223453,
+   "failRatio": 0.7,
+   "topByCalls_name_calls_fails": [
+    [
+     "lazy(ref)",
+     581630,
+     383694
+    ],
+    [
+     "regex",
+     264777,
+     138525
+    ],
+    [
+     "all",
+     238644,
+     227621
+    ],
+    [
+     "next",
+     211250,
+     184060
+    ],
+    [
+     "regexSpan",
+     174072,
+     167355
+    ],
+    [
+     "dispatch",
+     107464,
+     57167
+    ],
+    [
+     "wrap",
+     76975,
+     60232
+    ],
+    [
+     "opt",
+     74169,
+     0
+    ],
+    [
+     "any",
+     11487,
+     4142
+    ],
+    [
+     "skip",
+     4942,
+     656
+    ]
+   ]
+  },
+  "valueTop": {
+   "lazyRefCalls": 1785617,
+   "accepted": 16529,
+   "combinatorCalls": 4678698,
+   "callsPerChar": 3.99,
+   "failedCalls": 2918319,
+   "failRatio": 0.624,
+   "topByCalls_name_calls_fails": [
+    [
+     "lazy(ref)",
+     1785617,
+     1106259
+    ],
+    [
+     "regex",
+     1072467,
+     726045
+    ],
+    [
+     "all",
+     527423,
+     371147
+    ],
+    [
+     "next",
+     390872,
+     289527
+    ],
+    [
+     "dispatch",
+     313668,
+     146546
+    ],
+    [
+     "many",
+     139259,
+     0
+    ],
+    [
+     "regexSpan",
+     137653,
+     132142
+    ],
+    [
+     "opt",
+     104479,
+     0
+    ],
+    [
+     "minus",
+     95967,
+     89366
+    ],
+    [
+     "wrap",
+     93519,
+     51203
+    ]
+   ]
+  },
+  "scalarTop": {
+   "lazyRefCalls": 578891,
+   "accepted": 7720,
+   "combinatorCalls": 1643103,
+   "callsPerChar": 1.4,
+   "failedCalls": 1114126,
+   "failRatio": 0.678,
+   "topByCalls_name_calls_fails": [
+    [
+     "lazy(ref)",
+     578891,
+     376232
+    ],
+    [
+     "regex",
+     278181,
+     153430
+    ],
+    [
+     "all",
+     182403,
+     171852
+    ],
+    [
+     "next",
+     179247,
+     152945
+    ],
+    [
+     "regexSpan",
+     142688,
+     136687
+    ],
+    [
+     "dispatch",
+     128334,
+     72216
+    ],
+    [
+     "opt",
+     73660,
+     0
+    ],
+    [
+     "wrap",
+     63089,
+     46236
+    ],
+    [
+     "any",
+     10771,
+     4045
+    ],
+    [
+     "skip",
+     4323,
+     483
+    ]
+   ]
+  },
+  "keyframeSelector": {
+   "lazyRefCalls": 35317,
+   "accepted": 61,
+   "combinatorCalls": 163864,
+   "callsPerChar": 0.14,
+   "failedCalls": 73402,
+   "failRatio": 0.448,
+   "topByCalls_name_calls_fails": [
+    [
+     "lazy(ref)",
+     35317,
+     5179
+    ],
+    [
+     "regex",
+     35317,
+     5238
+    ],
+    [
+     "opt",
+     30046,
+     0
+    ],
+    [
+     "wrap",
+     29944,
+     29857
+    ],
+    [
+     "dispatch",
+     29944,
+     29857
+    ],
+    [
+     "all",
+     3281,
+     3266
+    ],
+    [
+     "next",
+     15,
+     5
+    ]
+   ]
+  },
+  "timingFunction": {
+   "lazyRefCalls": 63593,
+   "accepted": 1050,
+   "combinatorCalls": 253064,
+   "callsPerChar": 0.22,
+   "failedCalls": 117153,
+   "failRatio": 0.463,
+   "topByCalls_name_calls_fails": [
+    [
+     "lazy(ref)",
+     63593,
+     19310
+    ],
+    [
+     "regex",
+     51437,
+     10964
+    ],
+    [
+     "opt",
+     35247,
+     0
+    ],
+    [
+     "wrap",
+     30360,
+     29062
+    ],
+    [
+     "dispatch",
+     29944,
+     28863
+    ],
+    [
+     "next",
+     17536,
+     12213
+    ],
+    [
+     "all",
+     12156,
+     9397
+    ],
+    [
+     "regexSpan",
+     9949,
+     6354
+    ],
+    [
+     "skip",
+     1821,
+     990
+    ],
+    [
+     "many",
+     1021,
+     0
+    ]
+   ]
+  }
+ }
+}

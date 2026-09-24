@@ -1,0 +1,77 @@
+{
+ "parseCssColor": [
+  "r_number 4038/29252",
+  "r_percentage 3408/27131",
+  "r_angle 1240/6556",
+  "q_close 117/8792",
+  "r_calcValue 94/487",
+  "r_calcMulOp 94/487",
+  "r_varFn 90/1419",
+  "r_calcProduct 78/406",
+  "r_calcAddOp 78/406",
+  "q_comma 75/9983",
+  "r_dashedIdent 67/810",
+  "q_ws 67/63591"
+ ],
+ "parseCssScalar": [
+  "r_number 4038/29252",
+  "r_percentage 3408/27131",
+  "r_angle 1240/6556",
+  "q_close 117/8173",
+  "r_calcValue 94/487",
+  "r_calcMulOp 94/487",
+  "r_varFn 90/227",
+  "r_calcProduct 78/406",
+  "r_calcAddOp 78/406",
+  "q_comma 75/9364",
+  "r_dashedIdent 67/151",
+  "q_ws 67/63701"
+ ],
+ "parseCssValue": [
+  "r_number 5403/40356",
+  "r_percentage 4643/36557",
+  "r_angle 1599/8904",
+  "r_valueTerm 390/111178",
+  "r_spaceList 383/51527",
+  "r_slashList 379/50655",
+  "q_comma 332/59201",
+  "q_termSep 327/108932",
+  "r_call 324/49440",
+  "q_colorHead 324/49440",
+  "r_callName 324/39987",
+  "q_slash 323/58723"
+ ],
+ "parseCssValues": [
+  "r_number 5403/40356",
+  "r_percentage 4643/36557",
+  "r_angle 1599/8904",
+  "r_valueTerm 390/111178",
+  "r_spaceList 383/51527",
+  "r_slashList 379/50655",
+  "q_comma 332/59201",
+  "q_termSep 327/108932",
+  "r_call 324/49440",
+  "q_colorHead 324/49440",
+  "r_callName 324/39987",
+  "q_slash 323/58723"
+ ],
+ "parseKeyframeSelector": [],
+ "parseTimingFunction": [
+  "q_ws1 1260/3422",
+  "r_percentage 166/786"
+ ],
+ "parseStylesheet": [
+  "r_preludeRun 32190/78718",
+  "q_textGroup 21499/51436",
+  "q_textBody 21499/51436",
+  "r_number 1674/11819",
+  "r_percentage 1500/10363",
+  "r_angle 484/2477",
+  "q_quoted 141/568",
+  "r_slashList 24/10739",
+  "r_spaceList 24/10779",
+  "r_valueTerm 24/11839",
+  "r_call 24/6447",
+  "q_colorHead 24/6447"
+ ]
+}

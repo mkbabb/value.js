@@ -1,0 +1,165 @@
+{
+ "script": "bench.mjs",
+ "mode": "joint",
+ "rounds": 9,
+ "arms": [
+  "fx-table-dcr+a+l+s",
+  "fx-table-dcr+a+l+s+m"
+ ],
+ "node": "v26.0.0",
+ "sources": 29944,
+ "uptimeStart": "18:16  up 1 day,  1:05, 3 users, load averages: 25.90 25.99 25.59",
+ "cells": [
+  {
+   "rep": 0,
+   "entry": "parseCssColor",
+   "arms": [
+    "fx-table-dcr+a+l+s",
+    "fx-table-dcr+a+l+s+m"
+   ],
+   "uptimeBefore": "18:16  up 1 day,  1:05, 3 users, load averages: 25.90 25.99 25.59",
+   "uptimeAfter": "18:16  up 1 day,  1:05, 3 users, load averages: 25.90 25.99 25.59",
+   "res": {
+    "retired": {
+     "medianMs": 36.58,
+     "minMs": 34.04,
+     "pairedRatio": 1,
+     "ms": [
+      40.47,
+      41.32,
+      36.22,
+      34.04,
+      36.58,
+      40.75,
+      35.22,
+      38.66,
+      36.58
+     ]
+    },
+    "fx-table-dcr+a+l+s": {
+     "medianMs": 34.23,
+     "minMs": 29.24,
+     "pairedRatio": 0.912,
+     "ms": [
+      46.05,
+      31.23,
+      37.38,
+      34.23,
+      31.83,
+      37.16,
+      29.24,
+      33.02,
+      38.56
+     ]
+    },
+    "fx-table-dcr+a+l+s+m": {
+     "medianMs": 35.26,
+     "minMs": 33.59,
+     "pairedRatio": 0.971,
+     "ms": [
+      38.82,
+      33.59,
+      35.26,
+      34.45,
+      34.2,
+      36.71,
+      34.21,
+      38.55,
+      38.86
+     ]
+    }
+   }
+  },
+  {
+   "rep": 0,
+   "entry": "parseStylesheet",
+   "arms": [
+    "fx-table-dcr+a+l+s",
+    "fx-table-dcr+a+l+s+m"
+   ],
+   "uptimeBefore": "18:16  up 1 day,  1:05, 3 users, load averages: 25.90 25.99 25.59",
+   "uptimeAfter": "18:16  up 1 day,  1:05, 3 users, load averages: 25.43 25.89 25.56",
+   "res": {
+    "retired": {
+     "medianMs": 96.22,
+     "minMs": 77.23,
+     "pairedRatio": 1,
+     "ms": [
+      77.23,
+      91.29,
+      106.33,
+      99.73,
+      90.27,
+      85.74,
+      96.22,
+      103.2,
+      98.55
+     ]
+    },
+    "fx-table-dcr+a+l+s": {
+     "medianMs": 118.03,
+     "minMs": 103.54,
+     "pairedRatio": 1.229,
+     "ms": [
+      104.2,
+      103.54,
+      166,
+      133.57,
+      118.03,
+      104.48,
+      115.03,
+      126.82,
+      119.86
+     ]
+    },
+    "fx-table-dcr+a+l+s+m": {
+     "medianMs": 127.93,
+     "minMs": 105.91,
+     "pairedRatio": 1.325,
+     "ms": [
+      105.91,
+      116.72,
+      134.07,
+      129.45,
+      127.93,
+      113.64,
+      122.09,
+      140.53,
+      132.27
+     ]
+    }
+   }
+  }
+ ],
+ "uptimeEnd": "18:16  up 1 day,  1:05, 3 users, load averages: 25.43 25.89 25.56",
+ "summary": {
+  "parseCssColor": {
+   "fx-table-dcr+a+l+s": {
+    "pairedRatioMedian": 0.912,
+    "perRep": [
+     0.912
+    ]
+   },
+   "fx-table-dcr+a+l+s+m": {
+    "pairedRatioMedian": 0.971,
+    "perRep": [
+     0.971
+    ]
+   }
+  },
+  "parseStylesheet": {
+   "fx-table-dcr+a+l+s": {
+    "pairedRatioMedian": 1.229,
+    "perRep": [
+     1.229
+    ]
+   },
+   "fx-table-dcr+a+l+s+m": {
+    "pairedRatioMedian": 1.325,
+    "perRep": [
+     1.325
+    ]
+   }
+  }
+ }
+}

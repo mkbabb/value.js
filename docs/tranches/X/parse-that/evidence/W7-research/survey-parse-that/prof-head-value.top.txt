@@ -1,0 +1,41 @@
+total ms 3547
+ 14.4% (anon) bbnf-head.mjs:395
+  8.9% map bbnf-head.mjs:1239
+  6.5% mapState bbnf-head.mjs:1258
+  6.0% all2 bbnf-head.mjs:3578
+  5.7% anyParser bbnf-head.mjs:896
+  5.4% dispatchParser bbnf-head.mjs:3646
+  4.3% regexParser bbnf-head.mjs:1030
+  3.8% ok bbnf-head.mjs:754
+  3.8% next bbnf-head.mjs:1297
+  2.8% many bbnf-head.mjs:1562
+  2.7% enterLazy bbnf-head.mjs:780
+  2.3% (anon) bbnf-head.mjs:975
+  2.1% unsafeCallRaw bbnf-head.mjs:806
+  2.1% (anon) bbnf-head.mjs:4664
+  2.0% mergeErrorState bbnf-head.mjs:423
+  1.9% (garbage collector) :0
+  1.6% deepFreeze bbnf-head.mjs:2
+  1.5% rollback bbnf-head.mjs:771
+  1.3% wrapParser bbnf-head.mjs:1463
+  1.3% leaveLazy bbnf-head.mjs:794
+  1.0% unsafeSetValue bbnf-head.mjs:798
+  0.9% (anon) bbnf-head.mjs:4581
+  0.8% RegExp: [+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?[%a-zA-Z-]*(?![\w\\.]) :0
+  0.8% anyParser bbnf-head.mjs:880
+  0.7% RegExp: [+-]?(?:\d*\.\d+|\d+(?!\.\d))(?:[eE][+-]?\d+)?(?![\w%\\]) :0
+  0.7% RegExp: (?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\() :0
+  0.7% tokenQuantity bbnf-head.mjs:3799
+  0.6% identScalar bbnf-head.mjs:4569
+  0.6% RegExp: [+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?% :0
+  0.6% compileForInternalLoader realm:383
+  0.6% RegExp: \s+|(?=[:;])|(?<=[:;]) :0
+  0.5% dispatchParser bbnf-head.mjs:3621
+  0.5% opt bbnf-head.mjs:1317
+  0.5% RegExp: <=|>=|==|!=|[+*<>=:;]|-(?![\w-]) :0
+  0.5% RegExp: ^([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)(.*)$ :0
+  0.5% RegExp: (?:[rR]gba?|[hH]sla?|[hH]wb|[lL]ab|[lL]ch|[oO]klab|[oO]klch|[cC]olor)\( :0
+  0.5% failure bbnf-head.mjs:13
+  0.5% quantity bbnf-head.mjs:3781
+  0.4% RegExp: [-_a-zA-Z][-_a-zA-Z\d]*(?![\w(-]) :0
+  0.4% minus bbnf-head.mjs:1383

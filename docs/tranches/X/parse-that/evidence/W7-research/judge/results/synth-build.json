@@ -1,0 +1,41 @@
+{
+ "built": "2026-09-23T23:49:42.862Z",
+ "grammarSha256": "54dde4a055db7ab48bd7c614cf340507ad5ce2ccc25f3495e4b4f1710c49fc07",
+ "emitterSha256": "cbb0cb7ccb54ba17c9eee58b20ffdba67d88c7958c59368f04859a6289108356",
+ "variants": {
+  "synth": {
+   "file": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-js-w7-judge/css-grammar.synth.generated.js",
+   "bytes": 183912,
+   "minBytes": 125646,
+   "gzipMinBytes": 14517,
+   "deterministic": true,
+   "sha256": "ec272297329b7f0bc7c58140e6fbe6a632e81125756bd5c5e0bdb3ef7d088e73",
+   "arm": "jx-aot-pos",
+   "runtimeBundleHasParseThat": false,
+   "runtimeBundleHasFrontEnd": false
+  },
+  "synth-sa": {
+   "file": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-js-w7-judge/css-grammar.synth-sa.generated.js",
+   "bytes": 183931,
+   "minBytes": 125542,
+   "gzipMinBytes": 14502,
+   "deterministic": true,
+   "sha256": "c672d1f9a814b259392cdadf6da948e4f4d82865d48884422ffe2ebf80acc0ad",
+   "arm": "jx-aot-pos-sa",
+   "runtimeBundleHasParseThat": false,
+   "runtimeBundleHasFrontEnd": false
+  },
+  "synth-fb3": {
+   "file": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-js-w7-judge/css-grammar.synth-fb3.generated.js",
+   "bytes": 183540,
+   "minBytes": 125274,
+   "gzipMinBytes": 14411,
+   "deterministic": true,
+   "sha256": "88f10df89381568e187a69778228ba293c2a500db713f1b58f111f6f6cda82ec",
+   "strippedCaseClasses": 117,
+   "arm": "jx-aot-fb3",
+   "runtimeBundleHasParseThat": false,
+   "runtimeBundleHasFrontEnd": false
+  }
+ }
+}

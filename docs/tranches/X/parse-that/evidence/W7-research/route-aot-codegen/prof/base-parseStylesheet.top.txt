@@ -1,0 +1,62 @@
+base parseStylesheet passes=10
+ 96.6%  [value.js (actions + layer)]
+  1.4%  [(garbage]
+  1.0%  [(program)]
+  0.9%  [(anon)]
+--self--
+ 17.7%  blocks base.mjs:1415
+ 16.8%  splitTopLevel base.mjs:389
+ 11.4%  deepFreeze base.mjs:367
+ 10.5%  parseItems base.mjs:1602
+  8.3%  parseCssColor base.mjs:598
+  5.9%  failure base.mjs:378
+  3.6%  parseStyleBody base.mjs:1544
+  3.3%  parseFunctionalColor base.mjs:517
+  2.7%  parseValueInternal base.mjs:679
+  2.7%  splitValueTokens base.mjs:417
+  2.1%  post node:inspector:115
+  2.0%  parseScalarInternal base.mjs:658
+  1.5%  parseDeclarations base.mjs:1187
+  1.4%  (garbage collector) :0
+  1.4%  parseCssValue base.mjs:728
+  1.4%  success base.mjs:373
+  1.0%  (program) :0
+  1.0%  numberToken base.mjs:455
+  0.9%  flush base.mjs:422
+  0.9%  channelToken base.mjs:460
+  0.5%  createColor base.mjs:26
+  0.3%  parseStylesheet base.mjs:1736
+  0.3%  optionDeclarationValid base.mjs:1134
+  0.3%  (anon) prof.mjs:0
+  0.2%  holdsVar base.mjs:1124
+  0.2%  parseKeyframes base.mjs:1470
+  0.2%  (anon) base.mjs:44
+  0.2%  (anon) base.mjs:488
+  0.1%  parseFunctionPrelude base.mjs:1578
+  0.1%  collectDeclarations base.mjs:1232
+--inclusive--
+ 95.0%  parseStylesheet:1736
+ 94.5%  parseItems:1602
+ 55.6%  parseStyleBody:1544
+ 50.8%  parseDeclarations:1187
+ 40.8%  parseCssValue:728
+ 39.4%  parseValueInternal:679
+ 27.6%  parseScalarInternal:658
+ 24.6%  blocks:1415
+ 22.3%  parseCssColor:598
+ 16.8%  splitTopLevel:389
+ 12.7%  parseFunctionalColor:517
+ 12.7%  success:373
+ 11.4%  deepFreeze:367
+  5.9%  failure:378
+  5.5%  splitDeclarations:907
+  3.6%  splitValueTokens:417
+  2.1%  (anon):499
+  2.1%  fn:498
+  1.9%  triple:527
+  1.9%  channelToken:460
+  1.8%  channelTriple:489
+  1.8%  (anon):488
+  1.5%  parseKeyframes:1470
+  1.4%  (garbage collector):0
+  1.1%  descriptorDeclarations:1502

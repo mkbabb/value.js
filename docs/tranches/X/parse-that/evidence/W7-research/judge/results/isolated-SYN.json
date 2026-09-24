@@ -1,0 +1,1053 @@
+{
+ "tag": "SYN",
+ "rounds": 11,
+ "reps": 3,
+ "arms": "tsc-emit-pos,jx-aot-pos,jx-aot-pos-sa,aot-text",
+ "uptimeStart": "19:42  up 1 day,  2:31, 4 users, load averages: 42.27 84.49 125.68",
+ "cells": {
+  "parseCssColor": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.775,
+      "pairedMax": 1.031,
+      "roundsBelow1": 10,
+      "ofMedians": 0.799,
+      "ofMins": 0.828
+     },
+     "jx-aot-pos": {
+      "paired": 0.819,
+      "pairedMax": 1.039,
+      "roundsBelow1": 10,
+      "ofMedians": 0.803,
+      "ofMins": 0.885
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.744,
+      "pairedMax": 1.036,
+      "roundsBelow1": 10,
+      "ofMedians": 0.785,
+      "ofMins": 0.799
+     },
+     "aot-text": {
+      "paired": 0.831,
+      "pairedMax": 1.07,
+      "roundsBelow1": 9,
+      "ofMedians": 0.832,
+      "ofMins": 0.893
+     }
+    },
+    "medianMs": {
+     "retired": 39.73,
+     "tsc-emit-pos": 31.76,
+     "jx-aot-pos": 31.92,
+     "jx-aot-pos-sa": 31.18,
+     "aot-text": 33.05
+    },
+    "minMs": {
+     "retired": 34.08,
+     "tsc-emit-pos": 28.22,
+     "jx-aot-pos": 30.17,
+     "jx-aot-pos-sa": 27.24,
+     "aot-text": 30.43
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 42.27 84.49 125.68",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 42.27 84.49 125.68"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.866,
+      "pairedMax": 1.198,
+      "roundsBelow1": 9,
+      "ofMedians": 0.877,
+      "ofMins": 0.847
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.845,
+      "pairedMax": 0.999,
+      "roundsBelow1": 11,
+      "ofMedians": 0.843,
+      "ofMins": 0.844
+     },
+     "jx-aot-pos": {
+      "paired": 0.774,
+      "pairedMax": 1.208,
+      "roundsBelow1": 9,
+      "ofMedians": 0.799,
+      "ofMins": 0.816
+     },
+     "tsc-emit-pos": {
+      "paired": 0.803,
+      "pairedMax": 1.037,
+      "roundsBelow1": 10,
+      "ofMedians": 0.792,
+      "ofMins": 0.787
+     }
+    },
+    "medianMs": {
+     "aot-text": 33.42,
+     "jx-aot-pos-sa": 32.12,
+     "jx-aot-pos": 30.46,
+     "tsc-emit-pos": 30.19,
+     "retired": 38.11
+    },
+    "minMs": {
+     "aot-text": 27.94,
+     "jx-aot-pos-sa": 27.85,
+     "jx-aot-pos": 26.92,
+     "tsc-emit-pos": 25.96,
+     "retired": 32.99
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 43.16 80.57 122.83",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 43.16 80.57 122.83"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.87,
+      "pairedMax": 2.888,
+      "roundsBelow1": 7,
+      "ofMedians": 0.838,
+      "ofMins": 0.759
+     },
+     "jx-aot-pos": {
+      "paired": 0.882,
+      "pairedMax": 2.387,
+      "roundsBelow1": 7,
+      "ofMedians": 0.918,
+      "ofMins": 0.903
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.937,
+      "pairedMax": 2.978,
+      "roundsBelow1": 6,
+      "ofMedians": 1.199,
+      "ofMins": 1.06
+     },
+     "aot-text": {
+      "paired": 0.925,
+      "pairedMax": 4.101,
+      "roundsBelow1": 6,
+      "ofMedians": 0.984,
+      "ofMins": 0.875
+     }
+    },
+    "medianMs": {
+     "retired": 42.97,
+     "tsc-emit-pos": 36.02,
+     "jx-aot-pos": 39.46,
+     "jx-aot-pos-sa": 51.52,
+     "aot-text": 42.29
+    },
+    "minMs": {
+     "retired": 35.28,
+     "tsc-emit-pos": 26.77,
+     "jx-aot-pos": 31.85,
+     "jx-aot-pos-sa": 37.4,
+     "aot-text": 30.86
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 41.03 76.48 119.88",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 42.95 76.29 119.56"
+   }
+  ],
+  "parseCssScalar": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.761,
+      "pairedMax": 0.848,
+      "roundsBelow1": 11,
+      "ofMedians": 0.746,
+      "ofMins": 0.709
+     },
+     "jx-aot-pos": {
+      "paired": 0.691,
+      "pairedMax": 1.234,
+      "roundsBelow1": 10,
+      "ofMedians": 0.674,
+      "ofMins": 0.657
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.709,
+      "pairedMax": 0.901,
+      "roundsBelow1": 11,
+      "ofMedians": 0.715,
+      "ofMins": 0.649
+     },
+     "aot-text": {
+      "paired": 0.759,
+      "pairedMax": 0.944,
+      "roundsBelow1": 11,
+      "ofMedians": 0.765,
+      "ofMins": 0.742
+     }
+    },
+    "medianMs": {
+     "retired": 44.56,
+     "tsc-emit-pos": 33.25,
+     "jx-aot-pos": 30.04,
+     "jx-aot-pos-sa": 31.87,
+     "aot-text": 34.11
+    },
+    "minMs": {
+     "retired": 41.87,
+     "tsc-emit-pos": 29.68,
+     "jx-aot-pos": 27.5,
+     "jx-aot-pos-sa": 27.17,
+     "aot-text": 31.05
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 40.32 83.39 125.05",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 40.32 83.39 125.05"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.793,
+      "pairedMax": 1.03,
+      "roundsBelow1": 10,
+      "ofMedians": 0.772,
+      "ofMins": 0.749
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.699,
+      "pairedMax": 0.916,
+      "roundsBelow1": 11,
+      "ofMedians": 0.714,
+      "ofMins": 0.64
+     },
+     "jx-aot-pos": {
+      "paired": 0.732,
+      "pairedMax": 1.393,
+      "roundsBelow1": 10,
+      "ofMedians": 0.74,
+      "ofMins": 0.682
+     },
+     "tsc-emit-pos": {
+      "paired": 0.788,
+      "pairedMax": 0.869,
+      "roundsBelow1": 11,
+      "ofMedians": 0.821,
+      "ofMins": 0.715
+     }
+    },
+    "medianMs": {
+     "aot-text": 36.44,
+     "jx-aot-pos-sa": 33.7,
+     "jx-aot-pos": 34.89,
+     "tsc-emit-pos": 38.73,
+     "retired": 47.18
+    },
+    "minMs": {
+     "aot-text": 32.56,
+     "jx-aot-pos-sa": 27.82,
+     "jx-aot-pos": 29.65,
+     "tsc-emit-pos": 31.09,
+     "retired": 43.47
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 43.16 80.57 122.83",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 42.50 79.81 122.31"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.599,
+      "pairedMax": 4.566,
+      "roundsBelow1": 9,
+      "ofMedians": 0.431,
+      "ofMins": 0.651
+     },
+     "jx-aot-pos": {
+      "paired": 0.735,
+      "pairedMax": 1.59,
+      "roundsBelow1": 9,
+      "ofMedians": 0.579,
+      "ofMins": 0.798
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.53,
+      "pairedMax": 1.643,
+      "roundsBelow1": 9,
+      "ofMedians": 0.474,
+      "ofMins": 0.585
+     },
+     "aot-text": {
+      "paired": 0.497,
+      "pairedMax": 3.158,
+      "roundsBelow1": 9,
+      "ofMedians": 0.485,
+      "ofMins": 0.731
+     }
+    },
+    "medianMs": {
+     "retired": 103.53,
+     "tsc-emit-pos": 44.63,
+     "jx-aot-pos": 59.92,
+     "jx-aot-pos-sa": 49.04,
+     "aot-text": 50.19
+    },
+    "minMs": {
+     "retired": 48.06,
+     "tsc-emit-pos": 31.27,
+     "jx-aot-pos": 38.36,
+     "jx-aot-pos-sa": 28.12,
+     "aot-text": 35.11
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 42.95 76.29 119.56",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 45.59 76.28 119.30"
+   }
+  ],
+  "parseCssValue": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.517,
+      "pairedMax": 0.867,
+      "roundsBelow1": 11,
+      "ofMedians": 0.506,
+      "ofMins": 0.515
+     },
+     "jx-aot-pos": {
+      "paired": 0.493,
+      "pairedMax": 0.553,
+      "roundsBelow1": 11,
+      "ofMedians": 0.494,
+      "ofMins": 0.522
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.505,
+      "pairedMax": 1.061,
+      "roundsBelow1": 10,
+      "ofMedians": 0.488,
+      "ofMins": 0.499
+     },
+     "aot-text": {
+      "paired": 0.501,
+      "pairedMax": 0.693,
+      "roundsBelow1": 11,
+      "ofMedians": 0.494,
+      "ofMins": 0.541
+     }
+    },
+    "medianMs": {
+     "retired": 151.17,
+     "tsc-emit-pos": 76.47,
+     "jx-aot-pos": 74.75,
+     "jx-aot-pos-sa": 73.8,
+     "aot-text": 74.72
+    },
+    "minMs": {
+     "retired": 127.96,
+     "tsc-emit-pos": 65.91,
+     "jx-aot-pos": 66.77,
+     "jx-aot-pos-sa": 63.84,
+     "aot-text": 69.2
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 42.38 83.10 124.71",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 42.35 82.42 124.22"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.543,
+      "pairedMax": 0.679,
+      "roundsBelow1": 11,
+      "ofMedians": 0.543,
+      "ofMins": 0.528
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.507,
+      "pairedMax": 0.603,
+      "roundsBelow1": 11,
+      "ofMedians": 0.507,
+      "ofMins": 0.517
+     },
+     "jx-aot-pos": {
+      "paired": 0.507,
+      "pairedMax": 1.059,
+      "roundsBelow1": 10,
+      "ofMedians": 0.53,
+      "ofMins": 0.473
+     },
+     "tsc-emit-pos": {
+      "paired": 0.542,
+      "pairedMax": 0.722,
+      "roundsBelow1": 11,
+      "ofMedians": 0.549,
+      "ofMins": 0.525
+     }
+    },
+    "medianMs": {
+     "aot-text": 82.35,
+     "jx-aot-pos-sa": 76.87,
+     "jx-aot-pos": 80.48,
+     "tsc-emit-pos": 83.26,
+     "retired": 151.72
+    },
+    "minMs": {
+     "aot-text": 72.9,
+     "jx-aot-pos-sa": 71.31,
+     "jx-aot-pos": 65.22,
+     "tsc-emit-pos": 72.48,
+     "retired": 137.97
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 42.50 79.81 122.31",
+    "uptimeAfter": "19:42  up 1 day,  2:32, 4 users, load averages: 42.46 79.18 121.84"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.485,
+      "pairedMax": 1.159,
+      "roundsBelow1": 10,
+      "ofMedians": 0.451,
+      "ofMins": 0.521
+     },
+     "jx-aot-pos": {
+      "paired": 0.477,
+      "pairedMax": 0.661,
+      "roundsBelow1": 11,
+      "ofMedians": 0.476,
+      "ofMins": 0.503
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.447,
+      "pairedMax": 0.539,
+      "roundsBelow1": 11,
+      "ofMedians": 0.413,
+      "ofMins": 0.499
+     },
+     "aot-text": {
+      "paired": 0.548,
+      "pairedMax": 0.899,
+      "roundsBelow1": 11,
+      "ofMedians": 0.558,
+      "ofMins": 0.547
+     }
+    },
+    "medianMs": {
+     "retired": 178.09,
+     "tsc-emit-pos": 80.32,
+     "jx-aot-pos": 84.81,
+     "jx-aot-pos-sa": 73.47,
+     "aot-text": 99.44
+    },
+    "minMs": {
+     "retired": 131.41,
+     "tsc-emit-pos": 68.45,
+     "jx-aot-pos": 66.09,
+     "jx-aot-pos-sa": 65.62,
+     "aot-text": 71.91
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 45.59 76.28 119.30",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 44.79 75.12 118.39"
+   }
+  ],
+  "parseCssValues": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.505,
+      "pairedMax": 0.589,
+      "roundsBelow1": 11,
+      "ofMedians": 0.553,
+      "ofMins": 0.514
+     },
+     "jx-aot-pos": {
+      "paired": 0.525,
+      "pairedMax": 1.069,
+      "roundsBelow1": 10,
+      "ofMedians": 0.538,
+      "ofMins": 0.525
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.507,
+      "pairedMax": 0.814,
+      "roundsBelow1": 11,
+      "ofMedians": 0.529,
+      "ofMins": 0.526
+     },
+     "aot-text": {
+      "paired": 0.511,
+      "pairedMax": 0.559,
+      "roundsBelow1": 11,
+      "ofMedians": 0.521,
+      "ofMins": 0.519
+     }
+    },
+    "medianMs": {
+     "retired": 148.55,
+     "tsc-emit-pos": 82.13,
+     "jx-aot-pos": 79.9,
+     "jx-aot-pos-sa": 78.6,
+     "aot-text": 77.45
+    },
+    "minMs": {
+     "retired": 141.6,
+     "tsc-emit-pos": 72.77,
+     "jx-aot-pos": 74.3,
+     "jx-aot-pos-sa": 74.52,
+     "aot-text": 73.51
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 42.35 82.42 124.22",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 41.20 81.51 123.66"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.541,
+      "pairedMax": 0.658,
+      "roundsBelow1": 11,
+      "ofMedians": 0.54,
+      "ofMins": 0.547
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.44,
+      "pairedMax": 0.746,
+      "roundsBelow1": 11,
+      "ofMedians": 0.46,
+      "ofMins": 0.491
+     },
+     "jx-aot-pos": {
+      "paired": 0.461,
+      "pairedMax": 0.646,
+      "roundsBelow1": 11,
+      "ofMedians": 0.459,
+      "ofMins": 0.472
+     },
+     "tsc-emit-pos": {
+      "paired": 0.48,
+      "pairedMax": 0.559,
+      "roundsBelow1": 11,
+      "ofMedians": 0.48,
+      "ofMins": 0.502
+     }
+    },
+    "medianMs": {
+     "aot-text": 99.81,
+     "jx-aot-pos-sa": 85.1,
+     "jx-aot-pos": 84.96,
+     "tsc-emit-pos": 88.85,
+     "retired": 184.97
+    },
+    "minMs": {
+     "aot-text": 78.59,
+     "jx-aot-pos-sa": 70.54,
+     "jx-aot-pos": 67.78,
+     "tsc-emit-pos": 72.1,
+     "retired": 143.56
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:32, 4 users, load averages: 42.19 78.51 121.36",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 41.45 77.76 120.84"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.503,
+      "pairedMax": 0.563,
+      "roundsBelow1": 11,
+      "ofMedians": 0.497,
+      "ofMins": 0.501
+     },
+     "jx-aot-pos": {
+      "paired": 0.483,
+      "pairedMax": 0.583,
+      "roundsBelow1": 11,
+      "ofMedians": 0.49,
+      "ofMins": 0.515
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.506,
+      "pairedMax": 0.587,
+      "roundsBelow1": 11,
+      "ofMedians": 0.506,
+      "ofMins": 0.525
+     },
+     "aot-text": {
+      "paired": 0.508,
+      "pairedMax": 0.59,
+      "roundsBelow1": 11,
+      "ofMedians": 0.522,
+      "ofMins": 0.541
+     }
+    },
+    "medianMs": {
+     "retired": 150.99,
+     "tsc-emit-pos": 75.03,
+     "jx-aot-pos": 73.91,
+     "jx-aot-pos-sa": 76.44,
+     "aot-text": 78.79
+    },
+    "minMs": {
+     "retired": 133.92,
+     "tsc-emit-pos": 67.06,
+     "jx-aot-pos": 68.96,
+     "jx-aot-pos-sa": 70.26,
+     "aot-text": 72.39
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 44.79 75.12 118.39",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 43.61 74.37 117.87"
+   }
+  ],
+  "parseKeyframeSelector": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.673,
+      "pairedMax": 0.911,
+      "roundsBelow1": 11,
+      "ofMedians": 0.71,
+      "ofMins": 0.696
+     },
+     "jx-aot-pos": {
+      "paired": 0.67,
+      "pairedMax": 0.857,
+      "roundsBelow1": 11,
+      "ofMedians": 0.685,
+      "ofMins": 0.674
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.67,
+      "pairedMax": 1.319,
+      "roundsBelow1": 10,
+      "ofMedians": 0.67,
+      "ofMins": 0.682
+     },
+     "aot-text": {
+      "paired": 0.793,
+      "pairedMax": 0.98,
+      "roundsBelow1": 11,
+      "ofMedians": 0.797,
+      "ofMins": 0.803
+     }
+    },
+    "medianMs": {
+     "retired": 6.02,
+     "tsc-emit-pos": 4.28,
+     "jx-aot-pos": 4.13,
+     "jx-aot-pos-sa": 4.03,
+     "aot-text": 4.8
+    },
+    "minMs": {
+     "retired": 5.6,
+     "tsc-emit-pos": 3.9,
+     "jx-aot-pos": 3.77,
+     "jx-aot-pos-sa": 3.82,
+     "aot-text": 4.5
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 41.20 81.51 123.66",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 41.20 81.51 123.66"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.839,
+      "pairedMax": 1.661,
+      "roundsBelow1": 7,
+      "ofMedians": 0.903,
+      "ofMins": 0.834
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.719,
+      "pairedMax": 1.141,
+      "roundsBelow1": 10,
+      "ofMedians": 0.73,
+      "ofMins": 0.709
+     },
+     "jx-aot-pos": {
+      "paired": 0.72,
+      "pairedMax": 1.297,
+      "roundsBelow1": 7,
+      "ofMedians": 0.778,
+      "ofMins": 0.719
+     },
+     "tsc-emit-pos": {
+      "paired": 0.741,
+      "pairedMax": 1.114,
+      "roundsBelow1": 9,
+      "ofMedians": 0.728,
+      "ofMins": 0.738
+     }
+    },
+    "medianMs": {
+     "aot-text": 5.43,
+     "jx-aot-pos-sa": 4.39,
+     "jx-aot-pos": 4.68,
+     "tsc-emit-pos": 4.38,
+     "retired": 6.02
+    },
+    "minMs": {
+     "aot-text": 4.55,
+     "jx-aot-pos-sa": 3.87,
+     "jx-aot-pos": 3.92,
+     "tsc-emit-pos": 4.02,
+     "retired": 5.45
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 41.45 77.76 120.84",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 41.45 77.76 120.84"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.712,
+      "pairedMax": 0.989,
+      "roundsBelow1": 11,
+      "ofMedians": 0.728,
+      "ofMins": 0.726
+     },
+     "jx-aot-pos": {
+      "paired": 0.736,
+      "pairedMax": 1.067,
+      "roundsBelow1": 10,
+      "ofMedians": 0.741,
+      "ofMins": 0.715
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.696,
+      "pairedMax": 0.924,
+      "roundsBelow1": 11,
+      "ofMedians": 0.708,
+      "ofMins": 0.703
+     },
+     "aot-text": {
+      "paired": 0.791,
+      "pairedMax": 0.895,
+      "roundsBelow1": 11,
+      "ofMedians": 0.787,
+      "ofMins": 0.811
+     }
+    },
+    "medianMs": {
+     "retired": 5.81,
+     "tsc-emit-pos": 4.23,
+     "jx-aot-pos": 4.31,
+     "jx-aot-pos-sa": 4.12,
+     "aot-text": 4.57
+    },
+    "minMs": {
+     "retired": 5.35,
+     "tsc-emit-pos": 3.89,
+     "jx-aot-pos": 3.83,
+     "jx-aot-pos-sa": 3.76,
+     "aot-text": 4.34
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 43.61 74.37 117.87",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 43.61 74.37 117.87"
+   }
+  ],
+  "parseTimingFunction": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.781,
+      "pairedMax": 0.878,
+      "roundsBelow1": 11,
+      "ofMedians": 0.787,
+      "ofMins": 0.794
+     },
+     "jx-aot-pos": {
+      "paired": 0.78,
+      "pairedMax": 1.013,
+      "roundsBelow1": 10,
+      "ofMedians": 0.796,
+      "ofMins": 0.801
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.775,
+      "pairedMax": 0.948,
+      "roundsBelow1": 11,
+      "ofMedians": 0.816,
+      "ofMins": 0.761
+     },
+     "aot-text": {
+      "paired": 0.905,
+      "pairedMax": 1.031,
+      "roundsBelow1": 9,
+      "ofMedians": 0.879,
+      "ofMins": 0.853
+     }
+    },
+    "medianMs": {
+     "retired": 8.39,
+     "tsc-emit-pos": 6.61,
+     "jx-aot-pos": 6.67,
+     "jx-aot-pos-sa": 6.84,
+     "aot-text": 7.37
+    },
+    "minMs": {
+     "retired": 7.79,
+     "tsc-emit-pos": 6.18,
+     "jx-aot-pos": 6.24,
+     "jx-aot-pos-sa": 5.93,
+     "aot-text": 6.64
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 41.20 81.51 123.66",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 39.34 80.46 123.04"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.925,
+      "pairedMax": 1.789,
+      "roundsBelow1": 6,
+      "ofMedians": 1.152,
+      "ofMins": 0.843
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.821,
+      "pairedMax": 2.082,
+      "roundsBelow1": 8,
+      "ofMedians": 0.726,
+      "ofMins": 0.771
+     },
+     "jx-aot-pos": {
+      "paired": 0.83,
+      "pairedMax": 2.029,
+      "roundsBelow1": 8,
+      "ofMedians": 0.85,
+      "ofMins": 0.779
+     },
+     "tsc-emit-pos": {
+      "paired": 0.734,
+      "pairedMax": 1.874,
+      "roundsBelow1": 9,
+      "ofMedians": 0.767,
+      "ofMins": 0.788
+     }
+    },
+    "medianMs": {
+     "aot-text": 11.16,
+     "jx-aot-pos-sa": 7.04,
+     "jx-aot-pos": 8.24,
+     "tsc-emit-pos": 7.43,
+     "retired": 9.69
+    },
+    "minMs": {
+     "aot-text": 6.49,
+     "jx-aot-pos-sa": 5.93,
+     "jx-aot-pos": 5.99,
+     "tsc-emit-pos": 6.07,
+     "retired": 7.69
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 41.45 77.76 120.84",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 41.45 77.76 120.84"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.734,
+      "pairedMax": 1.018,
+      "roundsBelow1": 10,
+      "ofMedians": 0.761,
+      "ofMins": 0.781
+     },
+     "jx-aot-pos": {
+      "paired": 0.79,
+      "pairedMax": 0.996,
+      "roundsBelow1": 11,
+      "ofMedians": 0.795,
+      "ofMins": 0.766
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.741,
+      "pairedMax": 1.001,
+      "roundsBelow1": 10,
+      "ofMedians": 0.741,
+      "ofMins": 0.76
+     },
+     "aot-text": {
+      "paired": 0.759,
+      "pairedMax": 1.003,
+      "roundsBelow1": 10,
+      "ofMedians": 0.759,
+      "ofMins": 0.841
+     }
+    },
+    "medianMs": {
+     "retired": 9.04,
+     "tsc-emit-pos": 6.88,
+     "jx-aot-pos": 7.19,
+     "jx-aot-pos-sa": 6.7,
+     "aot-text": 6.87
+    },
+    "minMs": {
+     "retired": 7.78,
+     "tsc-emit-pos": 6.08,
+     "jx-aot-pos": 5.96,
+     "jx-aot-pos-sa": 5.91,
+     "aot-text": 6.54
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 43.61 74.37 117.87",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 43.61 74.37 117.87"
+   }
+  ],
+  "parseStylesheet": [
+   {
+    "rep": 0,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.784,
+      "pairedMax": 0.953,
+      "roundsBelow1": 11,
+      "ofMedians": 0.775,
+      "ofMins": 0.738
+     },
+     "jx-aot-pos": {
+      "paired": 0.768,
+      "pairedMax": 0.889,
+      "roundsBelow1": 11,
+      "ofMedians": 0.743,
+      "ofMins": 0.768
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.719,
+      "pairedMax": 0.989,
+      "roundsBelow1": 11,
+      "ofMedians": 0.729,
+      "ofMins": 0.758
+     },
+     "aot-text": {
+      "paired": 0.918,
+      "pairedMax": 1.015,
+      "roundsBelow1": 9,
+      "ofMedians": 0.892,
+      "ofMins": 0.924
+     }
+    },
+    "medianMs": {
+     "retired": 76.67,
+     "tsc-emit-pos": 59.41,
+     "jx-aot-pos": 57,
+     "jx-aot-pos-sa": 55.93,
+     "aot-text": 68.4
+    },
+    "minMs": {
+     "retired": 67.02,
+     "tsc-emit-pos": 49.43,
+     "jx-aot-pos": 51.48,
+     "jx-aot-pos-sa": 50.82,
+     "aot-text": 61.95
+    },
+    "uptimeBefore": "19:42  up 1 day,  2:31, 4 users, load averages: 39.34 80.46 123.04",
+    "uptimeAfter": "19:42  up 1 day,  2:31, 4 users, load averages: 43.16 80.57 122.83"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "aot-text": {
+      "paired": 1.057,
+      "pairedMax": 2.254,
+      "roundsBelow1": 5,
+      "ofMedians": 0.966,
+      "ofMins": 1.079
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.716,
+      "pairedMax": 1.805,
+      "roundsBelow1": 7,
+      "ofMedians": 0.742,
+      "ofMins": 0.716
+     },
+     "jx-aot-pos": {
+      "paired": 0.759,
+      "pairedMax": 1.3,
+      "roundsBelow1": 7,
+      "ofMedians": 0.831,
+      "ofMins": 0.781
+     },
+     "tsc-emit-pos": {
+      "paired": 0.841,
+      "pairedMax": 2.057,
+      "roundsBelow1": 9,
+      "ofMedians": 0.855,
+      "ofMins": 0.718
+     }
+    },
+    "medianMs": {
+     "aot-text": 97.19,
+     "jx-aot-pos-sa": 74.65,
+     "jx-aot-pos": 83.65,
+     "tsc-emit-pos": 86.01,
+     "retired": 100.62
+    },
+    "minMs": {
+     "aot-text": 76.62,
+     "jx-aot-pos-sa": 50.88,
+     "jx-aot-pos": 55.46,
+     "tsc-emit-pos": 51.03,
+     "retired": 71.02
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 41.81 77.23 120.40",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 41.03 76.48 119.88"
+   },
+   {
+    "rep": 2,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.826,
+      "pairedMax": 0.965,
+      "roundsBelow1": 11,
+      "ofMedians": 0.811,
+      "ofMins": 0.762
+     },
+     "jx-aot-pos": {
+      "paired": 0.8,
+      "pairedMax": 0.972,
+      "roundsBelow1": 11,
+      "ofMedians": 0.766,
+      "ofMins": 0.795
+     },
+     "jx-aot-pos-sa": {
+      "paired": 0.793,
+      "pairedMax": 1.073,
+      "roundsBelow1": 10,
+      "ofMedians": 0.792,
+      "ofMins": 0.774
+     },
+     "aot-text": {
+      "paired": 0.843,
+      "pairedMax": 1.418,
+      "roundsBelow1": 9,
+      "ofMedians": 0.907,
+      "ofMins": 0.913
+     }
+    },
+    "medianMs": {
+     "retired": 77.97,
+     "tsc-emit-pos": 63.25,
+     "jx-aot-pos": 59.71,
+     "jx-aot-pos-sa": 61.76,
+     "aot-text": 70.69
+    },
+    "minMs": {
+     "retired": 70.14,
+     "tsc-emit-pos": 53.45,
+     "jx-aot-pos": 55.78,
+     "jx-aot-pos-sa": 54.29,
+     "aot-text": 64.07
+    },
+    "uptimeBefore": "19:43  up 1 day,  2:32, 4 users, load averages: 42.68 73.66 117.37",
+    "uptimeAfter": "19:43  up 1 day,  2:32, 4 users, load averages: 42.30 73.07 116.90"
+   }
+  ]
+ },
+ "uptimeEnd": "19:43  up 1 day,  2:32, 4 users, load averages: 42.30 73.07 116.90"
+}

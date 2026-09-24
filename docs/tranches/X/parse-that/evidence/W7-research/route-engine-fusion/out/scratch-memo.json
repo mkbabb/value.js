@@ -1,0 +1,121 @@
+{
+ "script": "bench.mjs",
+ "mode": "joint",
+ "rounds": 7,
+ "arms": [
+  "fx-fused-dcr",
+  "fx-fused-dcrm"
+ ],
+ "node": "v26.0.0",
+ "sources": 29944,
+ "uptimeStart": "18:03  up 1 day, 52 mins, 3 users, load averages: 20.60 29.04 28.39",
+ "cells": [
+  {
+   "entry": "parseCssColor",
+   "arms": [
+    "fx-fused-dcr",
+    "fx-fused-dcrm"
+   ],
+   "uptimeBefore": "18:03  up 1 day, 52 mins, 3 users, load averages: 20.60 29.04 28.39",
+   "uptimeAfter": "18:03  up 1 day, 52 mins, 3 users, load averages: 20.60 29.04 28.39",
+   "res": {
+    "retired": {
+     "medianMs": 30.55,
+     "minMs": 27.83,
+     "pairedRatio": 1,
+     "ms": [
+      34.38,
+      28.96,
+      30.55,
+      35.75,
+      35.69,
+      30.02,
+      27.83
+     ]
+    },
+    "fx-fused-dcr": {
+     "medianMs": 29.35,
+     "minMs": 27.63,
+     "pairedRatio": 0.975,
+     "ms": [
+      29.35,
+      27.72,
+      34.28,
+      40.66,
+      34.78,
+      28.97,
+      27.63
+     ]
+    },
+    "fx-fused-dcrm": {
+     "medianMs": 30.33,
+     "minMs": 28.61,
+     "pairedRatio": 1.012,
+     "ms": [
+      28.71,
+      30.33,
+      28.61,
+      36.2,
+      35.89,
+      35.53,
+      29.82
+     ]
+    }
+   }
+  },
+  {
+   "entry": "parseStylesheet",
+   "arms": [
+    "fx-fused-dcr",
+    "fx-fused-dcrm"
+   ],
+   "uptimeBefore": "18:03  up 1 day, 52 mins, 3 users, load averages: 20.60 29.04 28.39",
+   "uptimeAfter": "18:03  up 1 day, 52 mins, 3 users, load averages: 22.64 29.33 28.50",
+   "res": {
+    "retired": {
+     "medianMs": 65.63,
+     "minMs": 54.57,
+     "pairedRatio": 1,
+     "ms": [
+      54.57,
+      75.28,
+      65.63,
+      70.07,
+      62.6,
+      64.35,
+      70.41
+     ]
+    },
+    "fx-fused-dcr": {
+     "medianMs": 132.38,
+     "minMs": 129.23,
+     "pairedRatio": 2.122,
+     "ms": [
+      129.66,
+      129.23,
+      132.38,
+      148.66,
+      144.69,
+      131.82,
+      160.57
+     ]
+    },
+    "fx-fused-dcrm": {
+     "medianMs": 141.54,
+     "minMs": 106.59,
+     "pairedRatio": 2.204,
+     "ms": [
+      125.2,
+      141.54,
+      147.5,
+      156.44,
+      114.06,
+      106.59,
+      155.15
+     ]
+    }
+   }
+  }
+ ],
+ "uptimeEnd": "18:03  up 1 day, 52 mins, 3 users, load averages: 22.64 29.33 28.50"
+}

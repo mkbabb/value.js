@@ -1,0 +1,255 @@
+{
+ "rounds": 11,
+ "uptimeBefore": "17:56  up 1 day, 46 mins, 3 users, load averages: 25.40 28.47 27.44",
+ "uptimeAfter": "17:57  up 1 day, 46 mins, 3 users, load averages: 23.93 28.11 27.32",
+ "arms": {
+  "retired": {
+   "importMs": 2.66,
+   "firstParseMs": 0.75,
+   "secondParseMs": 0.21,
+   "raw": [
+    {
+     "importMs": 3.082833000000001,
+     "firstParseMs": 0.7281669999999991,
+     "secondParseMs": 0.23479199999999878
+    },
+    {
+     "importMs": 2.6627500000000026,
+     "firstParseMs": 0.6965000000000003,
+     "secondParseMs": 0.19033299999999542
+    },
+    {
+     "importMs": 3.2964999999999947,
+     "firstParseMs": 0.7565410000000057,
+     "secondParseMs": 0.21020899999999898
+    },
+    {
+     "importMs": 2.635124999999995,
+     "firstParseMs": 0.6637500000000003,
+     "secondParseMs": 0.17770800000000264
+    },
+    {
+     "importMs": 2.8860829999999993,
+     "firstParseMs": 0.7103340000000031,
+     "secondParseMs": 0.18283299999999514
+    },
+    {
+     "importMs": 2.6619169999999954,
+     "firstParseMs": 0.7224160000000026,
+     "secondParseMs": 0.18820900000000051
+    },
+    {
+     "importMs": 2.652957999999998,
+     "firstParseMs": 0.995083000000001,
+     "secondParseMs": 0.2873750000000044
+    },
+    {
+     "importMs": 2.8143749999999983,
+     "firstParseMs": 0.7721250000000026,
+     "secondParseMs": 0.22537499999999966
+    },
+    {
+     "importMs": 2.8276250000000047,
+     "firstParseMs": 0.7882919999999984,
+     "secondParseMs": 0.22220800000000196
+    },
+    {
+     "importMs": 2.658541999999997,
+     "firstParseMs": 0.7890000000000015,
+     "secondParseMs": 0.19770799999999866
+    },
+    {
+     "importMs": 2.394959,
+     "firstParseMs": 0.7532080000000008,
+     "secondParseMs": 0.2817500000000024
+    }
+   ]
+  },
+  "stock": {
+   "importMs": 10.29,
+   "firstParseMs": 14.37,
+   "secondParseMs": 0.24,
+   "raw": [
+    {
+     "importMs": 11.948374999999999,
+     "firstParseMs": 17.089166999999996,
+     "secondParseMs": 0.2369160000000079
+    },
+    {
+     "importMs": 11.402332999999999,
+     "firstParseMs": 15.200332999999993,
+     "secondParseMs": 0.3140420000000006
+    },
+    {
+     "importMs": 13.550417000000003,
+     "firstParseMs": 17.735040999999995,
+     "secondParseMs": 0.23512499999999648
+    },
+    {
+     "importMs": 10.291666999999997,
+     "firstParseMs": 14.527957999999998,
+     "secondParseMs": 0.35454200000000924
+    },
+    {
+     "importMs": 10.937292,
+     "firstParseMs": 14.155375000000006,
+     "secondParseMs": 0.23524999999999352
+    },
+    {
+     "importMs": 10.919666999999997,
+     "firstParseMs": 14.478458000000003,
+     "secondParseMs": 0.18470800000000054
+    },
+    {
+     "importMs": 9.681125000000002,
+     "firstParseMs": 13.736832999999997,
+     "secondParseMs": 0.2984999999999971
+    },
+    {
+     "importMs": 9.436,
+     "firstParseMs": 13.605041,
+     "secondParseMs": 0.28683400000000603
+    },
+    {
+     "importMs": 10.243499999999997,
+     "firstParseMs": 13.273041,
+     "secondParseMs": 0.24412500000000392
+    },
+    {
+     "importMs": 9.722875000000002,
+     "firstParseMs": 14.369999999999997,
+     "secondParseMs": 0.30970800000000054
+    },
+    {
+     "importMs": 9.306791000000004,
+     "firstParseMs": 12.761499999999998,
+     "secondParseMs": 0.19550000000000267
+    }
+   ]
+  },
+  "proto-pos": {
+   "importMs": 9.86,
+   "firstParseMs": 16.68,
+   "secondParseMs": 0.21,
+   "raw": [
+    {
+     "importMs": 11.242584,
+     "firstParseMs": 29.813249999999996,
+     "secondParseMs": 0.21466600000000824
+    },
+    {
+     "importMs": 9.640959000000002,
+     "firstParseMs": 19.911374999999992,
+     "secondParseMs": 0.2061250000000001
+    },
+    {
+     "importMs": 10.246415999999996,
+     "firstParseMs": 17.836292000000007,
+     "secondParseMs": 0.1878329999999977
+    },
+    {
+     "importMs": 10.302416000000001,
+     "firstParseMs": 16.67725,
+     "secondParseMs": 0.18804199999999582
+    },
+    {
+     "importMs": 9.671083000000003,
+     "firstParseMs": 17.229292,
+     "secondParseMs": 0.20895799999999554
+    },
+    {
+     "importMs": 9.975250000000003,
+     "firstParseMs": 18.031292,
+     "secondParseMs": 0.20783299999999372
+    },
+    {
+     "importMs": 8.775083000000002,
+     "firstParseMs": 14.791083999999998,
+     "secondParseMs": 0.16666599999999931
+    },
+    {
+     "importMs": 9.254542,
+     "firstParseMs": 15.158499999999997,
+     "secondParseMs": 0.1786250000000038
+    },
+    {
+     "importMs": 10.657041999999997,
+     "firstParseMs": 16.106832999999995,
+     "secondParseMs": 0.23354199999999992
+    },
+    {
+     "importMs": 9.864415999999999,
+     "firstParseMs": 16.067709000000008,
+     "secondParseMs": 0.18591599999999175
+    },
+    {
+     "importMs": 9.1265,
+     "firstParseMs": 14.376292,
+     "secondParseMs": 0.22766699999999673
+    }
+   ]
+  },
+  "emit-pos": {
+   "importMs": 9.45,
+   "firstParseMs": 20.42,
+   "secondParseMs": 0.24,
+   "raw": [
+    {
+     "importMs": 10.157916999999998,
+     "firstParseMs": 26.843416000000005,
+     "secondParseMs": 0.23658399999999347
+    },
+    {
+     "importMs": 10.450707999999999,
+     "firstParseMs": 23.322499999999998,
+     "secondParseMs": 0.2922920000000033
+    },
+    {
+     "importMs": 9.639083,
+     "firstParseMs": 20.704291999999995,
+     "secondParseMs": 0.23383300000000418
+    },
+    {
+     "importMs": 9.765041999999994,
+     "firstParseMs": 21.635166000000005,
+     "secondParseMs": 0.24245899999999665
+    },
+    {
+     "importMs": 9.433457999999995,
+     "firstParseMs": 20.420583999999998,
+     "secondParseMs": 0.3353749999999991
+    },
+    {
+     "importMs": 10.174208,
+     "firstParseMs": 18.991957999999997,
+     "secondParseMs": 0.21912500000000534
+    },
+    {
+     "importMs": 9.134625,
+     "firstParseMs": 18.388416999999997,
+     "secondParseMs": 0.21683300000000116
+    },
+    {
+     "importMs": 8.97325,
+     "firstParseMs": 18.342750000000002,
+     "secondParseMs": 0.2727080000000015
+    },
+    {
+     "importMs": 9.354,
+     "firstParseMs": 21.169624999999996,
+     "secondParseMs": 0.24204200000001208
+    },
+    {
+     "importMs": 9.451625,
+     "firstParseMs": 19.230125,
+     "secondParseMs": 0.3084999999999951
+    },
+    {
+     "importMs": 8.629792000000002,
+     "firstParseMs": 20.113332999999997,
+     "secondParseMs": 0.3746670000000023
+    }
+   ]
+  }
+ }
+}

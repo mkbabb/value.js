@@ -1,0 +1,91 @@
+{
+ "script": "bench.mjs",
+ "mode": "joint",
+ "rounds": 9,
+ "arms": [
+  "fx-table-dcr+a+l",
+  "fx-table-dcr+a+l+s"
+ ],
+ "node": "v26.0.0",
+ "sources": 29944,
+ "uptimeStart": "18:16  up 1 day,  1:05, 3 users, load averages: 23.08 25.47 25.40",
+ "cells": [
+  {
+   "rep": 0,
+   "entry": "parseStylesheet",
+   "arms": [
+    "fx-table-dcr+a+l",
+    "fx-table-dcr+a+l+s"
+   ],
+   "uptimeBefore": "18:16  up 1 day,  1:05, 3 users, load averages: 23.08 25.47 25.40",
+   "uptimeAfter": "18:16  up 1 day,  1:05, 3 users, load averages: 23.08 25.47 25.40",
+   "res": {
+    "retired": {
+     "medianMs": 62.87,
+     "minMs": 58.58,
+     "pairedRatio": 1,
+     "ms": [
+      66.86,
+      67.46,
+      65.11,
+      67.25,
+      59.69,
+      58.61,
+      59.19,
+      62.87,
+      58.58
+     ]
+    },
+    "fx-table-dcr+a+l": {
+     "medianMs": 77.43,
+     "minMs": 68.21,
+     "pairedRatio": 1.241,
+     "ms": [
+      83.85,
+      87.93,
+      80.2,
+      74.25,
+      84.95,
+      68.43,
+      73.46,
+      68.21,
+      77.43
+     ]
+    },
+    "fx-table-dcr+a+l+s": {
+     "medianMs": 70.45,
+     "minMs": 62.56,
+     "pairedRatio": 1.156,
+     "ms": [
+      81.98,
+      90.58,
+      73.35,
+      67.2,
+      70.45,
+      65.56,
+      62.56,
+      72.65,
+      69.32
+     ]
+    }
+   }
+  }
+ ],
+ "uptimeEnd": "18:16  up 1 day,  1:05, 3 users, load averages: 23.08 25.47 25.40",
+ "summary": {
+  "parseStylesheet": {
+   "fx-table-dcr+a+l": {
+    "pairedRatioMedian": 1.241,
+    "perRep": [
+     1.241
+    ]
+   },
+   "fx-table-dcr+a+l+s": {
+    "pairedRatioMedian": 1.156,
+    "perRep": [
+     1.156
+    ]
+   }
+  }
+ }
+}

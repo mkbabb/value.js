@@ -1,0 +1,34 @@
+{
+ "arm": "fx-table-dcr+a+l+s",
+ "stats": {
+  "inlined": 13,
+  "fusedRuns": 0,
+  "headDispatch": 26,
+  "headless": 0,
+  "anyChoices": 0,
+  "discardLeaves": 124,
+  "collapsed": 15,
+  "tableChoices": 25,
+  "sameActionRuns": 6,
+  "leafActions": 30,
+  "scanLoops": 10
+ },
+ "collapsedRules": [
+  "ws",
+  "textGroup",
+  "textBody",
+  "commaRun",
+  "semiRun",
+  "spaceRun",
+  "restText",
+  "ruleGap",
+  "preludeRun",
+  "blockBody",
+  "syntaxPart",
+  "colonRun",
+  "declValue",
+  "argRun",
+  "timelineLength"
+ ],
+ "memoRules": []
+}

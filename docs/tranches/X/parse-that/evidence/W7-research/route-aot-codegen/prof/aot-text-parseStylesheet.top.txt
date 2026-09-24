@@ -1,0 +1,63 @@
+aot-text parseStylesheet passes=10
+ 45.9%  [value.js (actions + layer)]
+ 41.4%  [generated parser]
+  7.9%  [(anon)]
+  3.6%  [(garbage]
+  1.1%  [(program)]
+--self--
+ 11.0%  deepFreeze aot-text.mjs:2
+  5.0%  failure aot-text.mjs:13
+  4.6%  run2 aot-text.mjs:8831
+  3.7%  tokenQuantity aot-text.mjs:8945
+  3.7%  post node:inspector:115
+  3.6%  (garbage collector) :0
+  2.6%  r_component aot-text.mjs:2415
+  2.5%  hq945 aot-text.mjs:1140
+  2.3%  r_number aot-text.mjs:1240
+  2.3%  r_ruleList aot-text.mjs:7011
+  1.8%  parseDeclarations aot-text.mjs:10486
+  1.7%  r_preludeRun$ aot-text.mjs:6723
+  1.7%  r_ruleGap aot-text.mjs:6670
+  1.7%  collectTags aot-text.mjs:9636
+  1.6%  r_declName aot-text.mjs:8091
+  1.5%  r_declValue aot-text.mjs:8107
+  1.4%  (anon) aot-text.mjs:9700
+  1.4%  hq649 aot-text.mjs:910
+  1.3%  r_valueTerm aot-text.mjs:4862
+  1.2%  (anon) aot-text.mjs:9706
+  1.1%  (program) :0
+  1.1%  hq696 aot-text.mjs:974
+  1.1%  parseItems aot-text.mjs:10711
+  1.1%  tag aot-text.mjs:9642
+  1.0%  r_preludeRun aot-text.mjs:6710
+  0.9%  hq691 aot-text.mjs:958
+  0.9%  r_identTerm aot-text.mjs:5414
+  0.9%  r_numeric aot-text.mjs:5380
+  0.9%  run aot-text.mjs:8903
+  0.9%  r_ruleBlock aot-text.mjs:6886
+--inclusive--
+ 90.6%  parseStylesheet:10846
+ 90.1%  parseItems:10711
+ 66.8%  run:8903
+ 65.9%  run2:8831
+ 54.2%  parseStyleBody:10669
+ 50.8%  parseDeclarations:10486
+ 34.1%  parseCssValue:9897
+ 31.4%  read:9929
+ 29.5%  blocks:10612
+ 29.4%  parseRule:9878
+ 29.0%  r_valueTop:4676
+ 28.5%  r_commaList:4707
+ 28.0%  r_slashList:4754
+ 27.7%  r_spaceList:4801
+ 26.2%  r_valueTerm:4862
+ 22.3%  ruleList:9934
+ 19.4%  r_ruleList:7011
+ 18.7%  r_colorCall:5171
+ 11.7%  success:8
+ 11.0%  deepFreeze:2
+ 10.6%  r_ruleBlock:6886
+  8.5%  r_rgbFn:2574
+  7.4%  r_component:2415
+  7.1%  declaration:9951
+  7.0%  splitTopLevel:9923

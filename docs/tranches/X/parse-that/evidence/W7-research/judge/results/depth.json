@@ -1,0 +1,121 @@
+{
+ "uptimeStart": "19:47  up 1 day,  2:36, 4 users, load averages: 76.10 64.27 101.76",
+ "node": "v26.0.0",
+ "arms": {
+  "retired": {
+   "maxDepth": 2811,
+   "atMax": {
+    "threw": false,
+    "ok": true
+   },
+   "past": {
+    "threw": false,
+    "ok": true
+   },
+   "at10": {
+    "threw": false,
+    "ok": true
+   },
+   "at100": {
+    "threw": false,
+    "ok": true
+   }
+  },
+  "stock": {
+   "maxDepth": 624,
+   "atMax": {
+    "threw": false,
+    "ok": true
+   },
+   "past": {
+    "threw": false,
+    "ok": true
+   },
+   "at10": {
+    "threw": false,
+    "ok": true
+   },
+   "at100": {
+    "threw": false,
+    "ok": true
+   }
+  },
+  "tsc-emit-pos": {
+   "maxDepth": 1092,
+   "atMax": {
+    "threw": false,
+    "ok": true
+   },
+   "past": {
+    "threw": false,
+    "ok": true
+   },
+   "at10": {
+    "threw": false,
+    "ok": true
+   },
+   "at100": {
+    "threw": false,
+    "ok": true
+   }
+  },
+  "jx-aot-pos": {
+   "maxDepth": 1092,
+   "atMax": {
+    "threw": false,
+    "ok": true
+   },
+   "past": {
+    "threw": false,
+    "ok": true
+   },
+   "at10": {
+    "threw": false,
+    "ok": true
+   },
+   "at100": {
+    "threw": false,
+    "ok": true
+   }
+  },
+  "jx-aot-pos-sa": {
+   "maxDepth": 1092,
+   "atMax": {
+    "threw": false,
+    "ok": true
+   },
+   "past": {
+    "threw": false,
+    "ok": true
+   },
+   "at10": {
+    "threw": false,
+    "ok": true
+   },
+   "at100": {
+    "threw": false,
+    "ok": true
+   }
+  },
+  "aot-text": {
+   "maxDepth": 1249,
+   "atMax": {
+    "threw": false,
+    "ok": true
+   },
+   "past": {
+    "threw": false,
+    "ok": true
+   },
+   "at10": {
+    "threw": false,
+    "ok": true
+   },
+   "at100": {
+    "threw": false,
+    "ok": true
+   }
+  }
+ },
+ "uptimeEnd": "19:47  up 1 day,  2:37, 4 users, load averages: 73.63 64.22 101.08"
+}

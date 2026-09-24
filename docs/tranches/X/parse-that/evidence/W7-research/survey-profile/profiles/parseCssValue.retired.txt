@@ -1,0 +1,35 @@
+# parseCssValue.retired.cpuprofile — 4284 ms sampled (idle excluded)
+## by layer
+ 86.8% value.js stylesheet/css layer
+  8.7% regex engine (irregexp code)
+  1.5% GC
+  1.0% V8 (program: runtime/regex/IC)
+  0.7% value.js colour/value model
+  0.0% bundle other
+  1.4% node/harness JS (loader, script)
+## top 25 self
+ 23.3% splitTopLevel · src/src/css/grammar.ts:69   [value.js stylesheet/css layer]
+ 13.3% parseValueInternal · src/src/css/grammar.ts:379   [value.js stylesheet/css layer]
+ 12.5% splitValueTokens · src/src/css/grammar.ts:95   [value.js stylesheet/css layer]
+  9.1% parseCssColor · src/src/css/grammar.ts:290   [value.js stylesheet/css layer]
+  8.1% deepFreeze · src/src/css/grammar.ts:39   [value.js stylesheet/css layer]
+  4.9% failure · src/src/css/grammar.ts:51   [value.js stylesheet/css layer]
+  3.6% parseScalarInternal · src/src/css/grammar.ts:356   [value.js stylesheet/css layer]
+  3.4% RegExp: \s ·    [regex engine (irregexp code)]
+  3.3% parseCssValue · src/src/css/grammar.ts:433   [value.js stylesheet/css layer]
+  3.0% parseFunctionalColor · src/src/css/grammar.ts:208   [value.js stylesheet/css layer]
+  2.5% flush · src/src/css/grammar.ts:100   [value.js stylesheet/css layer]
+  1.5% (garbage collector) ·    [GC]
+  1.1% RegExp: ^([a-z_-][\w-]*)\((.*)\)$ ·    [regex engine (irregexp code)]
+  1.0% (program) ·    [V8 (program: runtime/regex/IC)]
+  0.9% success · src/src/css/grammar.ts:46   [value.js stylesheet/css layer]
+  0.9% numberToken · src/src/css/grammar.ts:134   [value.js stylesheet/css layer]
+  0.8% channelToken · src/src/css/grammar.ts:140   [value.js stylesheet/css layer]
+  0.8% RegExp: ^([a-z][\w-]*)\((.*)\)$ ·    [regex engine (irregexp code)]
+  0.6% RegExp: ^([+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?)([%a-z-]*)$ ·    [regex engine (irregexp code)]
+  0.6% compileForInternalLoader · node:internal/bootstrap/realm   [other JS (realm)]
+  0.5% createColor · src/src/color/model.ts:78   [value.js colour/value model]
+  0.4% RegExp: ^#([\da-f]{3,4}|[\da-f]{6}|[\da-f]{8})$ ·    [regex engine (irregexp code)]
+  0.4% RegExp: ^[-_a-z][-_a-z\d]*$ ·    [regex engine (irregexp code)]
+  0.4% RegExp: ^[+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$ ·    [regex engine (irregexp code)]
+  0.3% RegExp: ^(?:currentcolor|accentcolor|accentcolortext|activetext|buttonborder|buttonface|buttontext|canvas|canvastext|field|fieldtext|graytext|highlight|highlighttext|linktext|mark|marktext|selecteditem|selecteditemtext|visitedtext)$ ·    [regex engine (irregexp code)]

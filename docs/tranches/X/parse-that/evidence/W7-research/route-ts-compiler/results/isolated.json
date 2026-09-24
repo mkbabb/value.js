@@ -1,0 +1,394 @@
+{
+ "parseCssColor": [
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.83,
+     "ofMedians": 0.833,
+     "ofMins": 0.764
+    },
+    "proto-pos": {
+     "paired": 0.858,
+     "ofMedians": 0.856,
+     "ofMins": 0.8
+    },
+    "emit-pos": {
+     "paired": 0.789,
+     "ofMedians": 0.762,
+     "ofMins": 0.707
+    }
+   },
+   "medianMs": {
+    "retired": 35.67,
+    "proto": 29.72,
+    "proto-pos": 30.51,
+    "emit-pos": 27.19
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 34.10 29.85 28.08",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 34.10 29.85 28.08"
+  },
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.891,
+     "ofMedians": 0.834,
+     "ofMins": 0.785
+    },
+    "proto-pos": {
+     "paired": 0.882,
+     "ofMedians": 0.905,
+     "ofMins": 0.841
+    },
+    "emit-pos": {
+     "paired": 0.829,
+     "ofMedians": 0.778,
+     "ofMins": 0.748
+    }
+   },
+   "medianMs": {
+    "retired": 29.64,
+    "proto": 24.72,
+    "proto-pos": 26.83,
+    "emit-pos": 23.05
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 30.89 29.34 27.93",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 30.89 29.34 27.93"
+  }
+ ],
+ "parseCssScalar": [
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.767,
+     "ofMedians": 0.766,
+     "ofMins": 0.702
+    },
+    "proto-pos": {
+     "paired": 0.756,
+     "ofMedians": 0.769,
+     "ofMins": 0.724
+    },
+    "emit-pos": {
+     "paired": 0.688,
+     "ofMedians": 0.687,
+     "ofMins": 0.689
+    }
+   },
+   "medianMs": {
+    "retired": 34.89,
+    "proto": 26.74,
+    "proto-pos": 26.82,
+    "emit-pos": 23.98
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 34.10 29.85 28.08",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 34.10 29.85 28.08"
+  },
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.731,
+     "ofMedians": 0.796,
+     "ofMins": 0.728
+    },
+    "proto-pos": {
+     "paired": 0.746,
+     "ofMedians": 0.756,
+     "ofMins": 0.724
+    },
+    "emit-pos": {
+     "paired": 0.726,
+     "ofMedians": 0.704,
+     "ofMins": 0.656
+    }
+   },
+   "medianMs": {
+    "retired": 34.6,
+    "proto": 27.54,
+    "proto-pos": 26.16,
+    "emit-pos": 24.35
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 30.89 29.34 27.93",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 30.89 29.34 27.93"
+  }
+ ],
+ "parseCssValue": [
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.542,
+     "ofMedians": 0.512,
+     "ofMins": 0.515
+    },
+    "proto-pos": {
+     "paired": 0.563,
+     "ofMedians": 0.516,
+     "ofMins": 0.564
+    },
+    "emit-pos": {
+     "paired": 0.503,
+     "ofMedians": 0.457,
+     "ofMins": 0.505
+    }
+   },
+   "medianMs": {
+    "retired": 122.14,
+    "proto": 62.55,
+    "proto-pos": 63.07,
+    "emit-pos": 55.77
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 32.33 29.55 27.99",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 32.33 29.55 27.99"
+  },
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.55,
+     "ofMedians": 0.612,
+     "ofMins": 0.55
+    },
+    "proto-pos": {
+     "paired": 0.533,
+     "ofMedians": 0.56,
+     "ofMins": 0.578
+    },
+    "emit-pos": {
+     "paired": 0.479,
+     "ofMedians": 0.493,
+     "ofMins": 0.515
+    }
+   },
+   "medianMs": {
+    "retired": 123.32,
+    "proto": 75.42,
+    "proto-pos": 69.02,
+    "emit-pos": 60.85
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 30.26 29.23 27.90",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 30.26 29.23 27.90"
+  }
+ ],
+ "parseCssValues": [
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.516,
+     "ofMedians": 0.519,
+     "ofMins": 0.507
+    },
+    "proto-pos": {
+     "paired": 0.501,
+     "ofMedians": 0.481,
+     "ofMins": 0.501
+    },
+    "emit-pos": {
+     "paired": 0.48,
+     "ofMedians": 0.459,
+     "ofMins": 0.45
+    }
+   },
+   "medianMs": {
+    "retired": 125.5,
+    "proto": 65.11,
+    "proto-pos": 60.38,
+    "emit-pos": 57.67
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 32.33 29.55 27.99",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 31.66 29.46 27.97"
+  },
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.546,
+     "ofMedians": 0.592,
+     "ofMins": 0.575
+    },
+    "proto-pos": {
+     "paired": 0.537,
+     "ofMedians": 0.6,
+     "ofMins": 0.528
+    },
+    "emit-pos": {
+     "paired": 0.5,
+     "ofMedians": 0.52,
+     "ofMins": 0.499
+    }
+   },
+   "medianMs": {
+    "retired": 124.51,
+    "proto": 73.73,
+    "proto-pos": 74.73,
+    "emit-pos": 64.79
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 30.26 29.23 27.90",
+   "uptimeAfter": "17:59  up 1 day, 49 mins, 3 users, load averages: 29.12 29.01 27.83"
+  }
+ ],
+ "parseKeyframeSelector": [
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.724,
+     "ofMedians": 0.731,
+     "ofMins": 0.709
+    },
+    "proto-pos": {
+     "paired": 0.744,
+     "ofMedians": 0.736,
+     "ofMins": 0.733
+    },
+    "emit-pos": {
+     "paired": 0.751,
+     "ofMedians": 0.763,
+     "ofMins": 0.751
+    }
+   },
+   "medianMs": {
+    "retired": 4.54,
+    "proto": 3.32,
+    "proto-pos": 3.34,
+    "emit-pos": 3.46
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 31.66 29.46 27.97",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 31.66 29.46 27.97"
+  },
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.743,
+     "ofMedians": 0.721,
+     "ofMins": 0.718
+    },
+    "proto-pos": {
+     "paired": 0.744,
+     "ofMedians": 0.727,
+     "ofMins": 0.743
+    },
+    "emit-pos": {
+     "paired": 0.736,
+     "ofMedians": 0.726,
+     "ofMins": 0.72
+    }
+   },
+   "medianMs": {
+    "retired": 4.48,
+    "proto": 3.23,
+    "proto-pos": 3.25,
+    "emit-pos": 3.25
+   },
+   "uptimeBefore": "17:59  up 1 day, 49 mins, 3 users, load averages: 29.12 29.01 27.83",
+   "uptimeAfter": "17:59  up 1 day, 49 mins, 3 users, load averages: 29.12 29.01 27.83"
+  }
+ ],
+ "parseTimingFunction": [
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.752,
+     "ofMedians": 0.748,
+     "ofMins": 0.747
+    },
+    "proto-pos": {
+     "paired": 0.772,
+     "ofMedians": 0.769,
+     "ofMins": 0.824
+    },
+    "emit-pos": {
+     "paired": 0.718,
+     "ofMedians": 0.712,
+     "ofMins": 0.766
+    }
+   },
+   "medianMs": {
+    "retired": 7.19,
+    "proto": 5.38,
+    "proto-pos": 5.53,
+    "emit-pos": 5.12
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 31.66 29.46 27.97",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 31.66 29.46 27.97"
+  },
+  {
+   "ratio": {
+    "proto": {
+     "paired": 0.805,
+     "ofMedians": 0.817,
+     "ofMins": 0.749
+    },
+    "proto-pos": {
+     "paired": 0.836,
+     "ofMedians": 0.824,
+     "ofMins": 0.753
+    },
+    "emit-pos": {
+     "paired": 0.791,
+     "ofMedians": 0.802,
+     "ofMins": 0.718
+    }
+   },
+   "medianMs": {
+    "retired": 6.86,
+    "proto": 5.6,
+    "proto-pos": 5.65,
+    "emit-pos": 5.5
+   },
+   "uptimeBefore": "17:59  up 1 day, 49 mins, 3 users, load averages: 29.12 29.01 27.83",
+   "uptimeAfter": "17:59  up 1 day, 49 mins, 3 users, load averages: 29.12 29.01 27.83"
+  }
+ ],
+ "parseStylesheet": [
+  {
+   "ratio": {
+    "proto": {
+     "paired": 1.884,
+     "ofMedians": 1.896,
+     "ofMins": 1.78
+    },
+    "proto-pos": {
+     "paired": 0.924,
+     "ofMedians": 0.95,
+     "ofMins": 0.924
+    },
+    "emit-pos": {
+     "paired": 0.739,
+     "ofMedians": 0.762,
+     "ofMins": 0.718
+    }
+   },
+   "medianMs": {
+    "retired": 55.38,
+    "proto": 105.02,
+    "proto-pos": 52.62,
+    "emit-pos": 42.2
+   },
+   "uptimeBefore": "17:59  up 1 day, 48 mins, 3 users, load averages: 31.66 29.46 27.97",
+   "uptimeAfter": "17:59  up 1 day, 48 mins, 3 users, load averages: 30.89 29.34 27.93"
+  },
+  {
+   "ratio": {
+    "proto": {
+     "paired": 1.831,
+     "ofMedians": 1.819,
+     "ofMins": 1.881
+    },
+    "proto-pos": {
+     "paired": 0.954,
+     "ofMedians": 0.963,
+     "ofMins": 0.968
+    },
+    "emit-pos": {
+     "paired": 0.735,
+     "ofMedians": 0.733,
+     "ofMins": 0.698
+    }
+   },
+   "medianMs": {
+    "retired": 63.93,
+    "proto": 116.31,
+    "proto-pos": 61.55,
+    "emit-pos": 46.86
+   },
+   "uptimeBefore": "17:59  up 1 day, 49 mins, 3 users, load averages: 29.12 29.01 27.83",
+   "uptimeAfter": "17:59  up 1 day, 49 mins, 3 users, load averages: 27.91 28.76 27.75"
+  }
+ ]
+}

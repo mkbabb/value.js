@@ -1,0 +1,338 @@
+{
+ "tag": "D",
+ "rounds": 11,
+ "reps": 2,
+ "arms": "aot-text,aot-text-slot,tsc-emit-pos",
+ "uptimeStart": "18:41  up 1 day,  1:31, 3 users, load averages: 233.10 97.82 62.67",
+ "cells": {
+  "parseKeyframeSelector": [
+   {
+    "rep": 0,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.631,
+      "pairedMax": 2.206,
+      "roundsBelow1": 7,
+      "ofMedians": 0.399,
+      "ofMins": 0.547
+     },
+     "aot-text-slot": {
+      "paired": 0.577,
+      "pairedMax": 2.976,
+      "roundsBelow1": 9,
+      "ofMedians": 0.262,
+      "ofMins": 0.768
+     },
+     "tsc-emit-pos": {
+      "paired": 0.516,
+      "pairedMax": 2.249,
+      "roundsBelow1": 8,
+      "ofMedians": 0.47,
+      "ofMins": 0.918
+     }
+    },
+    "medianMs": {
+     "retired": 129.82,
+     "aot-text": 51.75,
+     "aot-text-slot": 33.97,
+     "tsc-emit-pos": 61.03
+    },
+    "minMs": {
+     "retired": 23.46,
+     "aot-text": 12.84,
+     "aot-text-slot": 18.01,
+     "tsc-emit-pos": 21.54
+    },
+    "uptimeBefore": "18:42  up 1 day,  1:31, 3 users, load averages: 257.80 107.53 66.52",
+    "uptimeAfter": "18:42  up 1 day,  1:31, 3 users, load averages: 281.44 117.54 70.55"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.527,
+      "pairedMax": 2.35,
+      "roundsBelow1": 10,
+      "ofMedians": 0.483,
+      "ofMins": 1.5
+     },
+     "aot-text-slot": {
+      "paired": 0.96,
+      "pairedMax": 2.025,
+      "roundsBelow1": 6,
+      "ofMedians": 0.773,
+      "ofMins": 0.691
+     },
+     "aot-text": {
+      "paired": 0.8,
+      "pairedMax": 1.244,
+      "roundsBelow1": 8,
+      "ofMedians": 0.681,
+      "ofMins": 1.05
+     }
+    },
+    "medianMs": {
+     "tsc-emit-pos": 122.15,
+     "aot-text-slot": 195.6,
+     "aot-text": 172.33,
+     "retired": 253.04
+    },
+    "minMs": {
+     "tsc-emit-pos": 67.2,
+     "aot-text-slot": 30.94,
+     "aot-text": 47.03,
+     "retired": 44.79
+    },
+    "uptimeBefore": "18:42  up 1 day,  1:31, 3 users, load averages: 292.48 136.29 79.00",
+    "uptimeAfter": "18:42  up 1 day,  1:32, 3 users, load averages: 299.87 143.02 82.06"
+   }
+  ],
+  "parseTimingFunction": [
+   {
+    "rep": 0,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.838,
+      "pairedMax": 1.152,
+      "roundsBelow1": 9,
+      "ofMedians": 0.134,
+      "ofMins": 0.86
+     },
+     "aot-text-slot": {
+      "paired": 0.852,
+      "pairedMax": 3.07,
+      "roundsBelow1": 8,
+      "ofMedians": 0.224,
+      "ofMins": 0.817
+     },
+     "tsc-emit-pos": {
+      "paired": 0.778,
+      "pairedMax": 2.364,
+      "roundsBelow1": 9,
+      "ofMedians": 0.45,
+      "ofMins": 0.764
+     }
+    },
+    "medianMs": {
+     "retired": 83.65,
+     "aot-text": 11.22,
+     "aot-text-slot": 18.73,
+     "tsc-emit-pos": 37.68
+    },
+    "minMs": {
+     "retired": 7.13,
+     "aot-text": 6.13,
+     "aot-text-slot": 5.82,
+     "tsc-emit-pos": 5.44
+    },
+    "uptimeBefore": "18:42  up 1 day,  1:31, 3 users, load averages: 289.09 121.84 72.35",
+    "uptimeAfter": "18:42  up 1 day,  1:31, 3 users, load averages: 306.54 128.24 74.89"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.759,
+      "pairedMax": 1.812,
+      "roundsBelow1": 10,
+      "ofMedians": 0.757,
+      "ofMins": 0.74
+     },
+     "aot-text-slot": {
+      "paired": 0.891,
+      "pairedMax": 47.332,
+      "roundsBelow1": 7,
+      "ofMedians": 1.256,
+      "ofMins": 0.816
+     },
+     "aot-text": {
+      "paired": 0.9,
+      "pairedMax": 44.695,
+      "roundsBelow1": 8,
+      "ofMedians": 0.925,
+      "ofMins": 0.873
+     }
+    },
+    "medianMs": {
+     "tsc-emit-pos": 6.63,
+     "aot-text-slot": 11.01,
+     "aot-text": 8.11,
+     "retired": 8.76
+    },
+    "minMs": {
+     "tsc-emit-pos": 5.3,
+     "aot-text-slot": 5.84,
+     "aot-text": 6.25,
+     "retired": 7.16
+    },
+    "uptimeBefore": "18:42  up 1 day,  1:32, 3 users, load averages: 305.95 149.47 85.06",
+    "uptimeAfter": "18:43  up 1 day,  1:32, 3 users, load averages: 313.81 153.70 86.93"
+   }
+  ],
+  "parseCssColor": [
+   {
+    "rep": 0,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.875,
+      "pairedMax": 1.899,
+      "roundsBelow1": 7,
+      "ofMedians": 0.836,
+      "ofMins": 0.774
+     },
+     "aot-text-slot": {
+      "paired": 0.944,
+      "pairedMax": 1.401,
+      "roundsBelow1": 7,
+      "ofMedians": 0.951,
+      "ofMins": 0.78
+     },
+     "tsc-emit-pos": {
+      "paired": 0.739,
+      "pairedMax": 8.153,
+      "roundsBelow1": 7,
+      "ofMedians": 0.793,
+      "ofMins": 0.716
+     }
+    },
+    "medianMs": {
+     "retired": 35.73,
+     "aot-text": 29.87,
+     "aot-text-slot": 33.99,
+     "tsc-emit-pos": 28.34
+    },
+    "minMs": {
+     "retired": 27.42,
+     "aot-text": 21.23,
+     "aot-text-slot": 21.38,
+     "tsc-emit-pos": 19.64
+    },
+    "uptimeBefore": "18:42  up 1 day,  1:31, 3 users, load averages: 306.54 128.24 74.89",
+    "uptimeAfter": "18:42  up 1 day,  1:31, 3 users, load averages: 306.54 128.24 74.89"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.827,
+      "pairedMax": 1.317,
+      "roundsBelow1": 10,
+      "ofMedians": 0.827,
+      "ofMins": 0.809
+     },
+     "aot-text-slot": {
+      "paired": 0.803,
+      "pairedMax": 797.929,
+      "roundsBelow1": 9,
+      "ofMedians": 0.815,
+      "ofMins": 0.881
+     },
+     "aot-text": {
+      "paired": 0.855,
+      "pairedMax": 0.984,
+      "roundsBelow1": 11,
+      "ofMedians": 0.888,
+      "ofMins": 0.793
+     }
+    },
+    "medianMs": {
+     "tsc-emit-pos": 28.81,
+     "aot-text-slot": 28.41,
+     "aot-text": 30.94,
+     "retired": 34.85
+    },
+    "minMs": {
+     "tsc-emit-pos": 24.06,
+     "aot-text-slot": 26.2,
+     "aot-text": 23.59,
+     "retired": 29.75
+    },
+    "uptimeBefore": "18:43  up 1 day,  1:32, 3 users, load averages: 311.26 155.83 88.07",
+    "uptimeAfter": "18:43  up 1 day,  1:32, 3 users, load averages: 311.26 155.83 88.07"
+   }
+  ],
+  "parseStylesheet": [
+   {
+    "rep": 0,
+    "ratio": {
+     "aot-text": {
+      "paired": 0.89,
+      "pairedMax": 1.836,
+      "roundsBelow1": 6,
+      "ofMedians": 0.863,
+      "ofMins": 0.857
+     },
+     "aot-text-slot": {
+      "paired": 0.949,
+      "pairedMax": 1.319,
+      "roundsBelow1": 9,
+      "ofMedians": 0.918,
+      "ofMins": 0.883
+     },
+     "tsc-emit-pos": {
+      "paired": 0.826,
+      "pairedMax": 1.243,
+      "roundsBelow1": 8,
+      "ofMedians": 0.857,
+      "ofMins": 0.764
+     }
+    },
+    "medianMs": {
+     "retired": 71.94,
+     "aot-text": 62.05,
+     "aot-text-slot": 66.06,
+     "tsc-emit-pos": 61.62
+    },
+    "minMs": {
+     "retired": 60.04,
+     "aot-text": 51.45,
+     "aot-text-slot": 53.01,
+     "tsc-emit-pos": 45.85
+    },
+    "uptimeBefore": "18:42  up 1 day,  1:31, 3 users, load averages: 294.96 128.80 75.40",
+    "uptimeAfter": "18:42  up 1 day,  1:31, 3 users, load averages: 291.05 133.38 77.65"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "tsc-emit-pos": {
+      "paired": 0.775,
+      "pairedMax": 1.417,
+      "roundsBelow1": 10,
+      "ofMedians": 0.195,
+      "ofMins": 0.688
+     },
+     "aot-text-slot": {
+      "paired": 0.865,
+      "pairedMax": 1.452,
+      "roundsBelow1": 9,
+      "ofMedians": 1.245,
+      "ofMins": 0.803
+     },
+     "aot-text": {
+      "paired": 0.982,
+      "pairedMax": 2.05,
+      "roundsBelow1": 7,
+      "ofMedians": 1.313,
+      "ofMins": 0.869
+     }
+    },
+    "medianMs": {
+     "tsc-emit-pos": 62.54,
+     "aot-text-slot": 399.91,
+     "aot-text": 421.59,
+     "retired": 321.13
+    },
+    "minMs": {
+     "tsc-emit-pos": 42.45,
+     "aot-text-slot": 49.53,
+     "aot-text": 53.62,
+     "retired": 61.68
+    },
+    "uptimeBefore": "18:43  up 1 day,  1:32, 3 users, load averages: 311.26 155.83 88.07",
+    "uptimeAfter": "18:44  up 1 day,  1:33, 3 users, load averages: 351.23 179.49 98.94"
+   }
+  ]
+ },
+ "uptimeEnd": "18:44  up 1 day,  1:33, 3 users, load averages: 351.23 179.49 98.94"
+}

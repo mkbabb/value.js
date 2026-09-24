@@ -1,0 +1,719 @@
+{
+ "node": "v26.0.0",
+ "inputs": 29944,
+ "rounds": 9,
+ "uptimeStart": "17:22  up 1 day, 11 mins, 3 users, load averages: 8.20 17.57 23.96",
+ "correctness": {
+  "parseCssColor": {
+   "head": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl_head_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl082_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   }
+  },
+  "parseCssScalar": {
+   "head": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl_head_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl082_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   }
+  },
+  "parseCssValue": {
+   "head": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl_head_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl082_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   }
+  },
+  "parseCssValues": {
+   "head": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl_head_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl082_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   }
+  },
+  "parseKeyframeSelector": {
+   "head": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl_head_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   },
+   "abl082_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   }
+  },
+  "parseTimingFunction": {
+   "head": {
+    "mismatchVsPt082": 1021,
+    "threw": 1021,
+    "examples": [
+     {
+      "s": "linear(+34, -280)",
+      "pt082": "{\"r\":{\"ok\":true,\"value\":{\"kind\":\"linear-function\",\"stops\":[{\"output\":34,\"input\":[]},{\"output\":-280,\"input\":[]}]},\"diagnostics\":[]}}",
+      "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+     },
+     {
+      "s": "linear(+76)",
+      "pt082": "{\"r\":{\"ok\":false,\"diagnostics\":[{\"code\":\"css_syntax\",\"start\":0,\"end\":11,\"expected\":[\"timing function\"],\"actual\":\"linear(+76)\"}]}}",
+      "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+     },
+     {
+      "s": "linear(30 0e-85%, 6e109)",
+      "pt082": "{\"r\":{\"ok\":true,\"value\":{\"kind\":\"linear-function\",\"stops\":[{\"output\":30,\"input\":[0]},{\"output\":6e+109,\"input\":[]}]},\"diagnostics\":[]}}",
+      "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+     },
+     {
+      "s": "linear(.874, none, 61% 2e182%)",
+      "pt082": "{\"r\":{\"ok\":false,\"diagnostics\":[{\"code\":\"css_syntax\",\"start\":0,\"end\":30,\"expected\":[\"timing function\"],\"actual\":\"linear(.874, none, 61% 2e182%)\"}]}}",
+      "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+     }
+    ]
+   },
+   "abl_head_mapstate": {
+    "mismatchVsPt082": 1021,
+    "threw": 1021,
+    "examples": [
+     {
+      "s": "linear(+34, -280)",
+      "pt082": "{\"r\":{\"ok\":true,\"value\":{\"kind\":\"linear-function\",\"stops\":[{\"output\":34,\"input\":[]},{\"output\":-280,\"input\":[]}]},\"diagnostics\":[]}}",
+      "abl_head_mapstate": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+     },
+     {
+      "s": "linear(+76)",
+      "pt082": "{\"r\":{\"ok\":false,\"diagnostics\":[{\"code\":\"css_syntax\",\"start\":0,\"end\":11,\"expected\":[\"timing function\"],\"actual\":\"linear(+76)\"}]}}",
+      "abl_head_mapstate": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+     },
+     {
+      "s": "linear(30 0e-85%, 6e109)",
+      "pt082": "{\"r\":{\"ok\":true,\"value\":{\"kind\":\"linear-function\",\"stops\":[{\"output\":30,\"input\":[0]},{\"output\":6e+109,\"input\":[]}]},\"diagnostics\":[]}}",
+      "abl_head_mapstate": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+     },
+     {
+      "s": "linear(.874, none, 61% 2e182%)",
+      "pt082": "{\"r\":{\"ok\":false,\"diagnostics\":[{\"code\":\"css_syntax\",\"start\":0,\"end\":30,\"expected\":[\"timing function\"],\"actual\":\"linear(.874, none, 61% 2e182%)\"}]}}",
+      "abl_head_mapstate": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+     }
+    ]
+   },
+   "abl082_mapstate": {
+    "mismatchVsPt082": 0,
+    "threw": 0,
+    "examples": []
+   }
+  }
+ },
+ "timing": {
+  "parseCssColor": {
+   "uptimeBefore": "17:22  up 1 day, 11 mins, 3 users, load averages: 8.11 17.40 23.86",
+   "uptimeAfter": "17:22  up 1 day, 11 mins, 3 users, load averages: 8.11 17.40 23.86",
+   "base": {
+    "medianMs": 21.31,
+    "minMs": 20.45,
+    "rawMs": [
+     22.99,
+     22.27,
+     21.38,
+     20.66,
+     21.49,
+     21.27,
+     21.31,
+     20.45,
+     20.98
+    ],
+    "ratioOverBaseMedian": 1,
+    "ratioOverPt082Median": 0.434
+   },
+   "pt082": {
+    "medianMs": 49.09,
+    "minMs": 47.55,
+    "rawMs": [
+     62.98,
+     55.73,
+     48.08,
+     48.57,
+     47.9,
+     47.55,
+     49.37,
+     49.09,
+     51.39
+    ],
+    "ratioOverBaseMedian": 2.304,
+    "ratioOverPt082Median": 1
+   },
+   "head": {
+    "medianMs": 74.52,
+    "minMs": 71.98,
+    "rawMs": [
+     90.12,
+     77.65,
+     74.86,
+     72.71,
+     75.24,
+     72.09,
+     71.98,
+     73.11,
+     74.52
+    ],
+    "ratioOverBaseMedian": 3.497,
+    "ratioOverPt082Median": 1.518
+   },
+   "abl_head_mapstate": {
+    "medianMs": 29.05,
+    "minMs": 28.21,
+    "rawMs": [
+     35.47,
+     36.08,
+     28.52,
+     29.53,
+     29.05,
+     28.54,
+     30.12,
+     28.21,
+     28.26
+    ],
+    "ratioOverBaseMedian": 1.363,
+    "ratioOverPt082Median": 0.592
+   },
+   "abl082_mapstate": {
+    "medianMs": 29.35,
+    "minMs": 28.71,
+    "rawMs": [
+     40.63,
+     33.16,
+     30.01,
+     29.35,
+     29.02,
+     32.31,
+     29.15,
+     29.03,
+     28.71
+    ],
+    "ratioOverBaseMedian": 1.377,
+    "ratioOverPt082Median": 0.598
+   },
+   "ratio_pt082_over_base_median": 2.304,
+   "ratio_head_over_base_median": 3.497,
+   "ratio_head_over_pt082_median": 1.518,
+   "ratio_head_over_base_min": 3.52,
+   "ratio_pt082_over_base_min": 2.325
+  },
+  "parseCssScalar": {
+   "uptimeBefore": "17:22  up 1 day, 11 mins, 3 users, load averages: 8.11 17.40 23.86",
+   "uptimeAfter": "17:22  up 1 day, 11 mins, 3 users, load averages: 8.42 17.31 23.79",
+   "base": {
+    "medianMs": 25.1,
+    "minMs": 24.51,
+    "rawMs": [
+     25.68,
+     25.33,
+     25.18,
+     24.99,
+     24.51,
+     24.54,
+     25.1,
+     26.11,
+     24.77
+    ],
+    "ratioOverBaseMedian": 1,
+    "ratioOverPt082Median": 0.527
+   },
+   "pt082": {
+    "medianMs": 47.62,
+    "minMs": 46.5,
+    "rawMs": [
+     48.01,
+     47.19,
+     46.5,
+     46.83,
+     47.51,
+     51.14,
+     59.25,
+     49.04,
+     47.62
+    ],
+    "ratioOverBaseMedian": 1.897,
+    "ratioOverPt082Median": 1
+   },
+   "head": {
+    "medianMs": 72.07,
+    "minMs": 70.04,
+    "rawMs": [
+     72.34,
+     72.58,
+     72.07,
+     70.04,
+     71.48,
+     72.21,
+     71.72,
+     71.37,
+     74.54
+    ],
+    "ratioOverBaseMedian": 2.871,
+    "ratioOverPt082Median": 1.513
+   },
+   "abl_head_mapstate": {
+    "medianMs": 28.8,
+    "minMs": 28.39,
+    "rawMs": [
+     29.26,
+     28.8,
+     28.59,
+     29.45,
+     28.43,
+     29.49,
+     28.69,
+     28.39,
+     30.83
+    ],
+    "ratioOverBaseMedian": 1.147,
+    "ratioOverPt082Median": 0.605
+   },
+   "abl082_mapstate": {
+    "medianMs": 29.46,
+    "minMs": 29.28,
+    "rawMs": [
+     39.21,
+     29.31,
+     29.28,
+     29.62,
+     29.46,
+     33.02,
+     29.33,
+     30.13,
+     29.28
+    ],
+    "ratioOverBaseMedian": 1.174,
+    "ratioOverPt082Median": 0.619
+   },
+   "ratio_pt082_over_base_median": 1.897,
+   "ratio_head_over_base_median": 2.871,
+   "ratio_head_over_pt082_median": 1.513,
+   "ratio_head_over_base_min": 2.858,
+   "ratio_pt082_over_base_min": 1.897
+  },
+  "parseCssValue": {
+   "uptimeBefore": "17:22  up 1 day, 11 mins, 3 users, load averages: 8.42 17.31 23.79",
+   "uptimeAfter": "17:22  up 1 day, 11 mins, 3 users, load averages: 8.15 17.10 23.68",
+   "base": {
+    "medianMs": 82.1,
+    "minMs": 79.62,
+    "rawMs": [
+     81.41,
+     82.1,
+     81.51,
+     82.69,
+     85.52,
+     85.58,
+     81.18,
+     79.62,
+     83.94
+    ],
+    "ratioOverBaseMedian": 1,
+    "ratioOverPt082Median": 0.466
+   },
+   "pt082": {
+    "medianMs": 176.06,
+    "minMs": 164.54,
+    "rawMs": [
+     168.64,
+     176.06,
+     170,
+     180.35,
+     186.61,
+     183.69,
+     165.53,
+     164.54,
+     186.39
+    ],
+    "ratioOverBaseMedian": 2.144,
+    "ratioOverPt082Median": 1
+   },
+   "head": {
+    "medianMs": 278.18,
+    "minMs": 266.62,
+    "rawMs": [
+     278.72,
+     269.9,
+     273,
+     281.12,
+     278.18,
+     296.4,
+     266.62,
+     275.94,
+     280.97
+    ],
+    "ratioOverBaseMedian": 3.388,
+    "ratioOverPt082Median": 1.58
+   },
+   "abl_head_mapstate": {
+    "medianMs": 73.43,
+    "minMs": 71.9,
+    "rawMs": [
+     72.17,
+     74.01,
+     71.9,
+     73.43,
+     92.06,
+     97.6,
+     72.38,
+     81.96,
+     72.7
+    ],
+    "ratioOverBaseMedian": 0.894,
+    "ratioOverPt082Median": 0.417
+   },
+   "abl082_mapstate": {
+    "medianMs": 76.95,
+    "minMs": 74.65,
+    "rawMs": [
+     74.65,
+     81.96,
+     79.47,
+     74.76,
+     80.97,
+     82.34,
+     76.95,
+     75.44,
+     76.38
+    ],
+    "ratioOverBaseMedian": 0.937,
+    "ratioOverPt082Median": 0.437
+   },
+   "ratio_pt082_over_base_median": 2.144,
+   "ratio_head_over_base_median": 3.388,
+   "ratio_head_over_pt082_median": 1.58,
+   "ratio_head_over_base_min": 3.349,
+   "ratio_pt082_over_base_min": 2.067
+  },
+  "parseCssValues": {
+   "uptimeBefore": "17:22  up 1 day, 11 mins, 3 users, load averages: 8.45 17.02 23.61",
+   "uptimeAfter": "17:22  up 1 day, 12 mins, 3 users, load averages: 8.50 16.88 23.52",
+   "base": {
+    "medianMs": 90.08,
+    "minMs": 85.46,
+    "rawMs": [
+     86.02,
+     85.46,
+     107.86,
+     86.16,
+     88.66,
+     90.08,
+     110.02,
+     92.22,
+     124.3
+    ],
+    "ratioOverBaseMedian": 1,
+    "ratioOverPt082Median": 0.449
+   },
+   "pt082": {
+    "medianMs": 200.73,
+    "minMs": 188.94,
+    "rawMs": [
+     212.04,
+     231.69,
+     198.8,
+     191.85,
+     188.94,
+     200.73,
+     240.68,
+     197.22,
+     224.71
+    ],
+    "ratioOverBaseMedian": 2.228,
+    "ratioOverPt082Median": 1
+   },
+   "head": {
+    "medianMs": 330.12,
+    "minMs": 289.74,
+    "rawMs": [
+     330.12,
+     324.46,
+     357.28,
+     301.41,
+     289.74,
+     337.47,
+     409.7,
+     355.69,
+     324.63
+    ],
+    "ratioOverBaseMedian": 3.665,
+    "ratioOverPt082Median": 1.645
+   },
+   "abl_head_mapstate": {
+    "medianMs": 93.74,
+    "minMs": 84.48,
+    "rawMs": [
+     112.38,
+     119.75,
+     143.47,
+     86.19,
+     84.48,
+     93.74,
+     127.42,
+     91.56,
+     91.65
+    ],
+    "ratioOverBaseMedian": 1.041,
+    "ratioOverPt082Median": 0.467
+   },
+   "abl082_mapstate": {
+    "medianMs": 96.98,
+    "minMs": 77.55,
+    "rawMs": [
+     93.85,
+     106.04,
+     144.46,
+     77.55,
+     82.01,
+     96.98,
+     146.03,
+     88.02,
+     106.45
+    ],
+    "ratioOverBaseMedian": 1.077,
+    "ratioOverPt082Median": 0.483
+   },
+   "ratio_pt082_over_base_median": 2.228,
+   "ratio_head_over_base_median": 3.665,
+   "ratio_head_over_pt082_median": 1.645,
+   "ratio_head_over_base_min": 3.39,
+   "ratio_pt082_over_base_min": 2.211
+  },
+  "parseKeyframeSelector": {
+   "uptimeBefore": "17:22  up 1 day, 12 mins, 3 users, load averages: 8.50 16.88 23.52",
+   "uptimeAfter": "17:22  up 1 day, 12 mins, 3 users, load averages: 8.50 16.88 23.52",
+   "base": {
+    "medianMs": 4.09,
+    "minMs": 3.85,
+    "rawMs": [
+     4.15,
+     3.99,
+     4.05,
+     4.31,
+     4.04,
+     4.52,
+     4.36,
+     4.09,
+     3.85
+    ],
+    "ratioOverBaseMedian": 1,
+    "ratioOverPt082Median": 0.56
+   },
+   "pt082": {
+    "medianMs": 7.3,
+    "minMs": 6.48,
+    "rawMs": [
+     7.37,
+     6.48,
+     10.36,
+     7.79,
+     6.76,
+     7.29,
+     7.3,
+     7.19,
+     7.55
+    ],
+    "ratioOverBaseMedian": 1.785,
+    "ratioOverPt082Median": 1
+   },
+   "head": {
+    "medianMs": 7.7,
+    "minMs": 7.01,
+    "rawMs": [
+     7.18,
+     8.57,
+     7.7,
+     7.35,
+     7.27,
+     8.36,
+     8.17,
+     8.04,
+     7.01
+    ],
+    "ratioOverBaseMedian": 1.883,
+    "ratioOverPt082Median": 1.055
+   },
+   "abl_head_mapstate": {
+    "medianMs": 3.98,
+    "minMs": 3.93,
+    "rawMs": [
+     3.98,
+     3.93,
+     3.98,
+     5.13,
+     3.97,
+     3.98,
+     3.94,
+     4,
+     4.52
+    ],
+    "ratioOverBaseMedian": 0.973,
+    "ratioOverPt082Median": 0.545
+   },
+   "abl082_mapstate": {
+    "medianMs": 5.88,
+    "minMs": 5.51,
+    "rawMs": [
+     5.57,
+     5.51,
+     5.69,
+     6.19,
+     5.88,
+     6.13,
+     6.48,
+     5.87,
+     8.25
+    ],
+    "ratioOverBaseMedian": 1.438,
+    "ratioOverPt082Median": 0.805
+   },
+   "ratio_pt082_over_base_median": 1.785,
+   "ratio_head_over_base_median": 1.883,
+   "ratio_head_over_pt082_median": 1.055,
+   "ratio_head_over_base_min": 1.821,
+   "ratio_pt082_over_base_min": 1.683
+  },
+  "parseTimingFunction": {
+   "uptimeBefore": "17:22  up 1 day, 12 mins, 3 users, load averages: 8.50 16.88 23.52",
+   "uptimeAfter": "17:22  up 1 day, 12 mins, 3 users, load averages: 8.50 16.88 23.52",
+   "base": {
+    "medianMs": 6.19,
+    "minMs": 6.03,
+    "rawMs": [
+     9.31,
+     6.64,
+     6.65,
+     6.16,
+     6.15,
+     6.03,
+     6.19,
+     6.06,
+     6.81
+    ],
+    "ratioOverBaseMedian": 1,
+    "ratioOverPt082Median": 0.6
+   },
+   "pt082": {
+    "medianMs": 10.32,
+    "minMs": 8.89,
+    "rawMs": [
+     10.32,
+     9.64,
+     11.74,
+     10.61,
+     10.32,
+     10.44,
+     8.89,
+     9.94,
+     9.13
+    ],
+    "ratioOverBaseMedian": 1.667,
+    "ratioOverPt082Median": 1
+   },
+   "head": {
+    "medianMs": 16.74,
+    "minMs": 16.46,
+    "rawMs": [
+     17.5,
+     17.99,
+     17.19,
+     16.61,
+     16.74,
+     16.81,
+     16.57,
+     16.72,
+     16.46
+    ],
+    "ratioOverBaseMedian": 2.704,
+    "ratioOverPt082Median": 1.622
+   },
+   "abl_head_mapstate": {
+    "medianMs": 11.99,
+    "minMs": 11.55,
+    "rawMs": [
+     12.05,
+     11.99,
+     11.85,
+     11.57,
+     12.06,
+     11.55,
+     11.75,
+     12.13,
+     13.38
+    ],
+    "ratioOverBaseMedian": 1.937,
+    "ratioOverPt082Median": 1.162
+   },
+   "abl082_mapstate": {
+    "medianMs": 7.19,
+    "minMs": 6.87,
+    "rawMs": [
+     7.72,
+     7.7,
+     7.11,
+     7.01,
+     7.24,
+     7.17,
+     8.38,
+     6.87,
+     7.19
+    ],
+    "ratioOverBaseMedian": 1.162,
+    "ratioOverPt082Median": 0.697
+   },
+   "ratio_pt082_over_base_median": 1.667,
+   "ratio_head_over_base_median": 2.704,
+   "ratio_head_over_pt082_median": 1.622,
+   "ratio_head_over_base_min": 2.73,
+   "ratio_pt082_over_base_min": 1.474
+  }
+ },
+ "uptimeEnd": "17:22  up 1 day, 12 mins, 3 users, load averages: 8.50 16.88 23.52"
+}

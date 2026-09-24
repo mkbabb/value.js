@@ -1,0 +1,35 @@
+# parseStylesheet.retired.cpuprofile — 4209 ms sampled (idle excluded)
+## by layer
+ 89.9% value.js stylesheet/css layer
+  5.3% regex engine (irregexp code)
+  1.4% GC
+  1.0% V8 (program: runtime/regex/IC)
+  1.0% value.js colour/value model
+  0.0% bundle other
+  1.4% node/harness JS (loader, script)
+## top 25 self
+ 18.5% blocks · src/src/css/stylesheet.ts:61   [value.js stylesheet/css layer]
+ 14.9% splitTopLevel · src/src/css/grammar.ts:69   [value.js stylesheet/css layer]
+ 12.1% deepFreeze · src/src/css/grammar.ts:39   [value.js stylesheet/css layer]
+ 10.7% parseItems · src/src/css/stylesheet.ts:273   [value.js stylesheet/css layer]
+  6.7% parseCssColor · src/src/css/grammar.ts:290   [value.js stylesheet/css layer]
+  5.8% failure · src/src/css/grammar.ts:51   [value.js stylesheet/css layer]
+  3.2% parseStyleBody · src/src/css/stylesheet.ts:206   [value.js stylesheet/css layer]
+  2.8% splitValueTokens · src/src/css/grammar.ts:95   [value.js stylesheet/css layer]
+  2.8% parseValueInternal · src/src/css/grammar.ts:379   [value.js stylesheet/css layer]
+  2.6% parseFunctionalColor · src/src/css/grammar.ts:208   [value.js stylesheet/css layer]
+  1.4% (garbage collector) ·    [GC]
+  1.4% success · src/src/css/grammar.ts:46   [value.js stylesheet/css layer]
+  1.3% parseCssValue · src/src/css/grammar.ts:433   [value.js stylesheet/css layer]
+  1.3% parseDeclarations · src/src/css/rules.ts:384   [value.js stylesheet/css layer]
+  1.3% RegExp: \s ·    [regex engine (irregexp code)]
+  1.1% parseScalarInternal · src/src/css/grammar.ts:356   [value.js stylesheet/css layer]
+  1.0% (program) ·    [V8 (program: runtime/regex/IC)]
+  0.8% numberToken · src/src/css/grammar.ts:134   [value.js stylesheet/css layer]
+  0.7% flush · src/src/css/grammar.ts:100   [value.js stylesheet/css layer]
+  0.6% createColor · src/src/color/model.ts:78   [value.js colour/value model]
+  0.6% channelToken · src/src/css/grammar.ts:140   [value.js stylesheet/css layer]
+  0.6% RegExp: \s|; ·    [regex engine (irregexp code)]
+  0.5% compileForInternalLoader · node:internal/bootstrap/realm   [other JS (realm)]
+  0.5% RegExp: ^([a-z_-][\w-]*)\((.*)\)$ ·    [regex engine (irregexp code)]
+  0.4% parseStylesheet · src/src/css/stylesheet.ts:411   [value.js stylesheet/css layer]

@@ -1,0 +1,38 @@
+# parseCssColor.bbnf-polluted.cpuprofile — 5710 ms sampled (idle excluded)
+## by layer
+ 58.6% parse-that core
+ 12.4% value.js actions (src/css/bbnf)
+ 12.1% regex engine (irregexp code)
+  7.7% bbnf-lang output
+  4.1% value.js stylesheet/css layer
+  1.2% value.js colour/value model
+  1.1% GC
+  0.9% V8 (program: runtime/regex/IC)
+  0.0% bundle other
+  1.9% node/harness JS (loader, script)
+## top 25 self
+ 10.5% (anon) · parse-that/dist/parse.js:13   [parse-that core]
+  9.5% map · parse-that/dist/parse.js:833   [parse-that core]
+  8.1% next · parse-that/dist/parse.js:885   [parse-that core]
+  6.4% allParser · parse-that/dist/parse.js:560   [parse-that core]
+  5.7% regexParser · parse-that/dist/parse.js:621   [parse-that core]
+  5.0% dispatchParser · bbnf-lang/dist/bbnf.js:2306   [bbnf-lang output]
+  4.2% mergeErrorState · parse-that/dist/parse.js:52   [parse-that core]
+  3.1% wrapParser · parse-that/dist/parse.js:1051   [parse-that core]
+  3.0% failure · src/css/result.ts:27   [value.js stylesheet/css layer]
+  2.5% tokenQuantity · src/css/bbnf/math.ts:38   [value.js actions (src/css/bbnf)]
+  2.4% regexSpanParser · parse-that/dist/parse.js:1336   [parse-that core]
+  2.4% anyParser · parse-that/dist/parse.js:501   [parse-that core]
+  2.1% opt · parse-that/dist/parse.js:905   [parse-that core]
+  1.8% reset · parse-that/dist/parse.js:694   [parse-that core]
+  1.6% dispatchParser · bbnf-lang/dist/bbnf.js:2281   [bbnf-lang output]
+  1.4% RegExp: [+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?% ·    [regex engine (irregexp code)]
+  1.4% RegExp: [+-]?(?:\d*\.\d+|\d+(?!\.\d))(?:[eE][+-]?\d+)?(?![\w%\\]) ·    [regex engine (irregexp code)]
+  1.1% parseRule · src/css/bbnf/index.ts:33   [value.js actions (src/css/bbnf)]
+  1.1% (garbage collector) ·    [GC]
+  1.1% quantity · src/css/bbnf/math.ts:23   [value.js actions (src/css/bbnf)]
+  1.0% all2 · bbnf-lang/dist/bbnf.js:2238   [bbnf-lang output]
+  0.9% (program) ·    [V8 (program: runtime/regex/IC)]
+  0.9% RegExp: ^([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)(.*)$ ·    [regex engine (irregexp code)]
+  0.8% deepFreeze · src/css/result.ts:13   [value.js stylesheet/css layer]
+  0.8% createColor · src/color/model.ts:78   [value.js colour/value model]

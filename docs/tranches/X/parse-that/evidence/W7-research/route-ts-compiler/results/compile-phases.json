@@ -1,0 +1,97 @@
+{
+ "rounds": 9,
+ "uptimeBefore": "17:58  up 1 day, 47 mins, 3 users, load averages: 31.72 29.16 27.76",
+ "uptimeAfter": "17:58  up 1 day, 47 mins, 3 users, load averages: 31.72 29.16 27.76",
+ "median": {
+  "importMs": 12.51,
+  "bbnfToAstMs": 5.51,
+  "analysisMs": 3.91,
+  "closureCompileMs": 5.58,
+  "emitMs": 6.14,
+  "aotJsonToClosuresMs": 3.51,
+  "astJsonBytes": 35497
+ },
+ "raw": [
+  {
+   "importMs": 23.050165999999997,
+   "bbnfToAstMs": 10.96275,
+   "analysisMs": 4.455459000000005,
+   "closureCompileMs": 10.349249999999998,
+   "emitMs": 7.9808749999999975,
+   "aotJsonToClosuresMs": 3.3876669999999933,
+   "astJsonBytes": 35497
+  },
+  {
+   "importMs": 19.375917,
+   "bbnfToAstMs": 5.618167,
+   "analysisMs": 3.961750000000009,
+   "closureCompileMs": 5.21137499999999,
+   "emitMs": 5.819249999999997,
+   "aotJsonToClosuresMs": 3.906666999999999,
+   "astJsonBytes": 35497
+  },
+  {
+   "importMs": 12.781833999999996,
+   "bbnfToAstMs": 5.234875000000002,
+   "analysisMs": 3.380499999999998,
+   "closureCompileMs": 5.773166000000003,
+   "emitMs": 5.8400840000000045,
+   "aotJsonToClosuresMs": 3.507249999999999,
+   "astJsonBytes": 35497
+  },
+  {
+   "importMs": 13.024208000000002,
+   "bbnfToAstMs": 5.510874999999999,
+   "analysisMs": 3.195083000000004,
+   "closureCompileMs": 5.077166999999996,
+   "emitMs": 6.886167,
+   "aotJsonToClosuresMs": 3.624042000000003,
+   "astJsonBytes": 35497
+  },
+  {
+   "importMs": 12.510750000000002,
+   "bbnfToAstMs": 5.334000000000003,
+   "analysisMs": 4.081333000000001,
+   "closureCompileMs": 5.840708999999997,
+   "emitMs": 5.972458000000003,
+   "aotJsonToClosuresMs": 3.3854589999999973,
+   "astJsonBytes": 35497
+  },
+  {
+   "importMs": 11.695125000000004,
+   "bbnfToAstMs": 5.5874589999999955,
+   "analysisMs": 3.9094160000000073,
+   "closureCompileMs": 5.559708999999998,
+   "emitMs": 6.139040999999992,
+   "aotJsonToClosuresMs": 3.512459000000007,
+   "astJsonBytes": 35497
+  },
+  {
+   "importMs": 12.138166999999996,
+   "bbnfToAstMs": 5.192458000000002,
+   "analysisMs": 3.5345000000000013,
+   "closureCompileMs": 5.276667000000003,
+   "emitMs": 6.182707999999991,
+   "aotJsonToClosuresMs": 3.180374999999998,
+   "astJsonBytes": 35497
+  },
+  {
+   "importMs": 12.416374999999995,
+   "bbnfToAstMs": 5.647625000000005,
+   "analysisMs": 4.060124999999999,
+   "closureCompileMs": 5.679375,
+   "emitMs": 5.932166999999993,
+   "aotJsonToClosuresMs": 3.2546669999999978,
+   "astJsonBytes": 35497
+  },
+  {
+   "importMs": 12.501124999999995,
+   "bbnfToAstMs": 5.043375000000005,
+   "analysisMs": 3.834208000000004,
+   "closureCompileMs": 5.582583,
+   "emitMs": 6.856208999999993,
+   "aotJsonToClosuresMs": 4.242208000000005,
+   "astJsonBytes": 35497
+  }
+ ]
+}
