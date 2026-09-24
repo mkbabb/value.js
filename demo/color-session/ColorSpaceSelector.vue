@@ -121,6 +121,13 @@
                             >
                                 {{ row.specimen.text }}
                             </span>
+                            <!-- X.W12.t · UIA-V-211 — the out-of-gamut state has a
+                                 name that needs no hover (the `title` above is
+                                 pointer-only); the visible mark is the caption's
+                                 gamut-edge underline (scoped block below). -->
+                            <span v-if="row.specimen?.outOfGamut" class="sr-only">
+                                (outside {{ row.entry.label }}'s gamut)
+                            </span>
                         </span>
                     </template>
                 </SelectItem>
@@ -409,5 +416,19 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
      * the sentence was not shrunk to fit the box. */
     letter-spacing: normal;
     max-width: min(calc(var(--specimen-char-budget) * 1ch), 100%);
+}
+
+/* X.W12.t · UIA-V-211 — OUT OF GAMUT, SEEN. A conversion outside the space's
+ * gamut (`hsl(… -1295% …)`) was set exactly like an in-gamut one, marked only
+ * by a hover `title`. It now carries the house gamut vocabulary — the
+ * `--gamut-edge` ink (foundation.css, R.W3 Lane B1), the same ink the plate's
+ * out-of-gamut contour draws in — as a wavy underline, visible at rest, on
+ * touch, in both themes; the text itself stays the measured value. */
+.specimen-caption[data-out-of-gamut="true"] {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--gamut-edge);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
 }
 </style>
