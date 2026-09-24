@@ -1065,3 +1065,92 @@ Seat `claude-opus-5-5`, 2026-09-24, Track D. Governing text: W7.md (214 lines, r
   - G-1 Firefox: rejected parseStylesheet (1 entry firm, 2 at noise distance).
   - G-2 WebKit and Firefox large sheets.
 - Both red items are carried as ESC-W7g-1.
+
+## RESUME Close (2026-09-24, close seat `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 214 lines, incl. ADDENDUM 2026-09-24). From this record: header through `## RESUME Unit plan`, and the two RESUME receipts (`.k2`, `.g`). The first `## Close` (line 570) and Checks 1–3 stand unchanged (E-3); this section is written beside them. **Crash-recovery:** ⟨`git status --porcelain -- src bench test scripts/gen-grammar.mjs <record> LEDGER.md`⟩ → empty; ⟨`git -C ../bbnf-lang-x-p-w7-typescript status -sb`⟩ → clean, `x-p-w7-typescript...origin/x-p-w7-typescript` at `6d5a2b4a0`. No inherited partial work. Product bytes: ⟨`git log df9c6f7e..HEAD -- src/css package.json package-lock.json`⟩ → nothing under `src/css` (HEAD `f8fa42d4`, a sibling's `demo/shell` commit); ⟨`node bench/paired/build.mjs`⟩ → `srcDirty ""`, `bankedManifestOk 79/79`, `bbnf-lang` installed `0.1.4`.
+
+### Act 1: commit roster, and whether each unit stayed in its writable set
+⟨`git show --stat --format= <c>`⟩ per commit:
+
+| Unit | Commits | Paths touched | In set? |
+|---|---|---|---|
+| `.k2` | bbnf-lang `6d5a2b4a0` (pushed; = `origin/x-p-w7-typescript`) | `typescript/{README.md,src/cli.ts,src/compile.ts,src/emit.ts,src/generate.ts,test/groups.test.ts,test/types.test.ts}` | yes (`typescript/**`) |
+| `.k2` | value.js `8850d74d` (Cure 1) | `src/css/bbnf/generated/grammar.{js,d.ts}`, `src/css/bbnf/math.ts`, `src/css/grammar/tokens.bbnf` | yes; `tokens.bbnf` is the declared §0bt adjacent edit (`:24-27`, the capture groups Cure 1 consumes) |
+| `.k2` | value.js `ccb1f7a3` (Cure 2) | `src/css/bbnf/{color,index,math,value}.ts`, `src/css/{result,rules,stylesheet,timeline}.ts`, `test/css/bbnf-frozen.test.ts` | yes (`src/css/bbnf/**`; `result.ts` = the success-freeze helper, `rules/stylesheet/timeline.ts` = its callers under `src/css/**`; `test/css/**`) |
+| `.k2` | value.js `baaec604` · receipt `a2aec4cb` | `src/css/bbnf/math.ts` · this record | yes |
+| `.g` | value.js `6655c827` | `bench/paired/{bench,browser,browser-page,isolated}.mjs` | yes (`bench/**`) |
+| `.g` | value.js `41532531` | 11 files under `bench/records/` | yes |
+| `.g` | value.js `df9c6f7e` | this record | yes |
+
+**Landed wrong: none.** No `package.json`/lockfile, `ci.yml`, `rust/**` or `scripts/dev/dev.sh` path in any commit; no bbnf-lang lever commit (none admitted).
+
+### Act 2: the gates re-read by this seat (product bytes = `.k2`'s; RESUME rule: the gates `.k2`/`.g` turn plus stay-GREEN; older unit gates cited from Check 3)
+
+**Timing (records moved to scratchpad `w7close/`; `bench/` left clean).**
+- **node, read 1** ⟨`node --expose-gc bench/paired/isolated.mjs close-node-r1 product 3 11 whole,acc,rej,large`⟩ (load `16.89` → `15.69`): whole medians color .622 · scalar .549 · value .382 · values .398 · keyframe .685 · timing .598 · stylesheet .573 (ceilings .90/.81/.57/.58/.78/.87/.85); acc .590 · .539 · .320 · .310 · **keyframe .591** · .492 · .615; rej .637 · .547 · .428 · .441 · .669 · .637 · .586; large .402 / .889 (2 clean, **4 set aside** at spread 1.80–5.04, all reported; every clean and set-aside cell < 1). `whole-7/7 GREEN` · `accepted-7/7 GREEN` · `rejected-7/7 GREEN`.
+- **node, read 2** ⟨same, tag `close-node-r2`⟩ (→ load `24.29`): whole .602 · .548 · .387 · .405 · .691 · .603 · .597; acc .572 · .538 · .311 · .299 · **.585** · .496 · .620; rej .631 · .566 · .458 · .436 · .676 · .640 · .593; large .420 / .447 / .413 (0 set aside). All three 7/7 verdicts `GREEN`. (`O-2 … DOES NOT HOLD` = the product is faster than stock; `.o`'s banked O-2 stands, as at the first Close.)
+- **browsers, read 1** ⟨`node bench/paired/browser.mjs close-r1 chromium,webkit,firefox 2 whole,acc,rej,large 11 product`⟩ (load `24.29` → `12.54`), 2 reps each:
+  - Chromium 22/22 rows < 1 in both reps (highest acc keyframe .583; large .333 / .348).
+  - WebKit 21/22; **RED large parseStylesheet 1.114 / 1.171**; highest green rej keyframe .870.
+  - Firefox 20/22; **RED rej parseStylesheet 1.075 / 1.058 · large 1.140 / 1.228**; whole stylesheet .966 / .943; rej parseCssValue .920 / .899, parseCssValues .938 / .895 (R-k2-1 below 1); 7 cells set aside and re-run, all reported.
+- **browsers, read 2** ⟨same, tag `close-r2`⟩ (load `12.01` → `10.74`): 63/66 rows < 1 in both reps. Chromium 22/22 (large .323 / .332). WebKit 21/22, **RED large 1.158 / 1.200**. Firefox 20/22, **RED rej parseStylesheet 1.037 / 1.031 · large 1.146 / 1.149**; whole stylesheet .981 / .929; rej parseCssValue .927 / .883, parseCssValues .909 / .914.
+- The browser readings reproduce the `.g` receipt's RED set exactly, across both reads: WebKit large, Firefox rejected stylesheet and Firefox large. Every other cell on all four hosts is below 1, twice.
+
+**Correctness, gates and size.**
+- K2-b ⟨`grep -rn deepFreeze src/css | wc -l`⟩ → `0`; ⟨`grep -n NUMERIC src/css/bbnf/math.ts | wc -l`⟩ → `0`. **GREEN.**
+- K2-c ⟨`npx vitest run test/css/bbnf-frozen.test.ts`⟩ → `Tests 22 passed (22)`. **GREEN.**
+- V-8 grep ⟨`grep -rn 'GRAMMAR_MODULES\|new ParserState\|reset()' src/css/bbnf | grep -v generated/`⟩ → 0; ⟨`grep -rnE '/[^/]*\[xX\][^/]*/i' src/css/grammar`⟩ → 0. **GREEN.**
+- V-1 ⟨`node bench/paired/equiv.mjs product <out>`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 88 (ASCII-only sources 0)` both times, which are the F-b-4 rows. **GREEN ×2.**
+- ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`, every MIRROR-DEFECTS line `0`. **GREEN.**
+- E-4 `--check`: ⟨`node scripts/gen-grammar.mjs --check`⟩ on the installed 0.1.4 → exit 1, `has no bbnf bin (bbnf gen needs @mkbabb/bbnf-lang >= 0.2.0)`. That is the X.P.W7P dependency move (ESC-W7v-1), not drift. With `node_modules/@mkbabb/bbnf-lang` linked to the rebuilt `6d5a2b4a0` worktree, as `.g` did, it reads ×2 → `grammar.js is current (sha256 49c9d7ef…)`, exit 0. The link was then removed, and 0.1.4 is restored (⟨`grep '"version"'`⟩ → `0.1.4`). **GREEN on the linked emitter.**
+- E-1/E-3/E-5 ⟨`npx vitest run`⟩ ×2 in `../bbnf-lang-x-p-w7-typescript/typescript` → `Test Files 17 passed (17) · Tests 282 passed (282)` both times; ⟨`npx tsc --noEmit -p .`⟩ → exit 0. **GREEN.** E-2's 167.7M-check audit is cited from the `.g` receipt: the emitter bytes are unchanged at `6d5a2b4a0`, and this seat did not re-run it.
+- E-6 ⟨esbuild minify + gzip of `src/css/bbnf/generated/grammar.js`⟩ → `93999 12916` (ceiling 125,646 / 14,517). **GREEN.**
+- E-7 is covered by `test/css/bbnf-depth.test.ts` (`calc(` ×10,000 refuses, never throws) inside the node suite below. The WebKit/Chromium depth readings are cited from `.g`.
+- ⟨`npx vitest run`⟩ (value.js) → `Tests 3 failed | 940 passed (943)`. The 3 failures are the foreign rows `.k2`/`.g` named: `spectrum-luma` C-5 BORN-RED, `format-color` G16 A1 and `reka-binding-idiom` NG-6. None is under `src/css` or `test/css`. **GREEN** in that reading.
+- vue-tsc: ⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit`⟩ → lib 0 · demo 0 · test 2. The 2 errors are TS5097 in the git-ignored `bench/paired/_build/*-entry.ts` that `build.mjs` writes. With `_build` moved aside, test → 0, and `_build` was then restored. **GREEN (0/0/0)**, with the build-dir artefact recorded as `.g` did.
+- `.p`: ⟨`npx vitest run`⟩ in `../parse-that-x-p-w7/typescript` @ `96e68e9` → `Tests 143 passed (143)`. **GREEN.** `.o`/`.t` gates are cited from Check 3.
+
+### Acts 3 and 4: verification artefacts and E13
+- The spec names no separate Verification Artefacts clause beyond its gates. The artefacts are the paired records, which this seat left in scratchpad `w7close/` (node `close-node-r{1,2}`, browser `close-r{1,2}`, plus logs). `.g`'s banked records `41532531` stand as the records of record. ⟨`git status --porcelain bench`⟩ → empty.
+- E13 ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/`, glass `BK/coordination/` + `BL/` (⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ`), keyframes.js `V/coordination/` and atlas `P/coordination/` → 0 files, except glass `BL/FORMATION-PROGRESS.md` (BL's own cursor, not a letter). ⟨`grep -nE '\| *UNREAD *\|' INBOX.md`⟩ → 0. **0 UNREAD in scope.** INBOX.md carries a sibling seat's uncommitted line, so this seat did not append to it.
+
+### Gate table, BEFORE → AFTER (BEFORE = RESUME Baseline; AFTER = this seat's two reads)
+
+| Gate | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|
+| K2-a node acc/rej | acc keyframe .950 / .898 / 1.007 (RED 6/7) | acc keyframe .591 · .585; acc 7/7 and rej 7/7 GREEN ×2 | **GREEN ×2** |
+| K2-a / G-1 Chromium | acc keyframe 1.254 / 1.269 (cited) | 22/22 rows < 1, both reads | **GREEN ×2** |
+| K2-a / G-1 WebKit | acc keyframe 1.200 / 1.115 (cited) | 21/21 whole/acc/rej rows < 1, both reads | **GREEN ×2** |
+| K2-a / G-1 Firefox | rej stylesheet 1.235 / 1.269 (`.v`) | 20/21 rows < 1; **rej parseStylesheet 1.075 / 1.058 · 1.037 / 1.031** | **RED** (1 entry) |
+| K2-b | `deepFreeze` 2 hits · `NUMERIC` 2 hits | 0 · 0 | **GREEN** |
+| K2-c | pin absent | 22/22 | **GREEN** |
+| R-v-3 | node large with 3 set aside, k = 1 | read 2: 0 set aside (.420/.447/.413); read 1: 4 set aside, every one reported, 2 clean (.402/.889) | **GREEN** (every rep reported) |
+| G-2 V-6 node / Chromium | .588 / 1.507 / .527 · not read | node < 1 ×2; Chromium .333/.348 · .323/.332 | **GREEN ×2** |
+| G-2 V-6 WebKit | 1.286 / 1.286 | **1.114 / 1.171 · 1.158 / 1.200** | **RED** |
+| G-2 V-6 Firefox | not read | **1.140 / 1.228 · 1.146 / 1.149** | **RED** |
+| G-3 levers | 0 levers | F1 / F8 / keyword heads measured alone and reverted; F7 has 0 sites (`.g`, cited; `41532531`) | **GREEN as a procedure** |
+| G-4 E-1..E-7 | `.e` readings | bbnf-lang 282/282 ×2 · tsc 0 · `--check` 0 ×2 (linked) · size 93,999 / 12,916 · depth test green; E-2 cited | **GREEN** |
+| whole-7/7 in ceilings | GREEN (Check 3) | node ×2, e.g. keyframe .685 / .691 (ceiling .78) | **GREEN ×2** |
+| V-1 · css-equiv · npm test · vue-tsc | GREEN (Check 3) | 88 = F-b-4 ×2 · 19/19, 0 defects · 940/943 (3 foreign) · 0/0/0 | **GREEN** |
+| P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half | RED (npm EOTP) | relieved by citation to X.P.W7P (§0cp 1), GATE-KEYED on the owner's OTP | **relieved → X.P.W7P** |
+
+### Residuals (named owners)
+- **R-g-1: Firefox rejected parseStylesheet**, 1.075 / 1.058 · 1.037 / 1.031. It reproduces, somewhat smaller than `.g`'s 1.08–1.13. Owner: the orchestrator, through ESC-W7g-1.
+- **R-g-2: large sheets on WebKit** (1.11–1.20) **and on Firefox** (1.14–1.23). Owner: the orchestrator, through ESC-W7g-1.
+- **R-g-3: F8 splits the engines.** Its diff is banked in `.g`'s scratch. Owner: the orchestrator, if ESC-W7g-1 takes branch (b) or (c).
+- **R-k2-1: Firefox rejected parseCssValue** is below 1 in all four of this seat's cells (.920 / .899 · .927 / .883). No action is owed.
+- **The release chain:** P-6, E-8, V-9 and its CI step, Z-1, Z-3's publish half, the `--check` on the installed pin, and the bbnf-lang PR #1 merge. Owner: X.P.W7P, GATE-KEYED on the owner's npm one-time password.
+- **Build-dir artefact:** `vue-tsc -p tsconfig.test.json` reads 2 while the git-ignored `bench/paired/_build/*-entry.ts` exists. It is recorded, not cured here, because it is outside this seat's set and the paths are not tracked. Owner: Track D's next bench-touching unit. The fix is an exclude for `bench/paired/_build`.
+
+### Escalations (carried open, none new)
+- **ESC-W7g-1** (the `.g` receipt) is still unruled: ⟨`grep -n ESC-W7g-1 COHESION.md`⟩ → 0 hits. Its three branches are (a) re-scope Firefox rejected stylesheet and WebKit/Firefox large sheets to recorded, not gated; (b) mint a follow-up lever; (c) rule an engine-split admission of F8.
+- **ESC-W7p-1 / e-1 / v-1 / z-1** move to X.P.W7P.
+- This seat raises no new escalation. **Adjacent edits: none. Out-of-set writes: none.**
+
+### Four-verb line
+W7.md has no §State clause, and nothing in it designates this seat to stamp a verb. Every engineering gate stays binding here (§0cp 1), and G-1 on Firefox and G-2 on WebKit and Firefox read RED twice. So X.P.W7 is **not IMPLEMENTED**. It stays **PARTIAL**, and VERIFIED is not stamped. It moves to IMPLEMENTED once ESC-W7g-1 is ruled, and executed if the ruling is (b) or (c).
+
+**Verdict: PARTIAL.** `.k2` is DONE: every gate GREEN on node, Chromium and WebKit, and its Firefox rejected parseCssValue cell is now below 1. `.g` delivered R-v-3, the browser instrument and the four measured levers, but G-1 (Firefox) and G-2 (WebKit/Firefox large) stay RED under ESC-W7g-1. The release gates are relieved to X.P.W7P.
+
+**Commits (this seat):** this RESUME Close, plus the LEDGER row cell.
