@@ -2727,3 +2727,50 @@ Repair rounds cannot converge this row. Every further check/repair cycle adds lo
 **Honest-RED set:** none admissible. **Successors:** X.P.W7P "Opens when" needs the owner's npm OTP **and** "X.P.W7 has CLOSED its engineering gates". Both are RED, so W7P is lawfully blocked.
 
 **Verdict: NOT-CONFORMANT.** The LEDGER row stays PARTIAL, and an event line is appended. The check/repair cycles cannot converge this row; the next move is the orchestrator's or the owner's (ESC-W7l4-1).
+
+## .eq receipt (orchestrator seat, §0ed)
+
+Seat `claude-opus-5-5`, 2026-09-25, Track D, single seat. Governing text: W7.md read whole, ADDENDUM (g) (COHESION §0ed) binding: item 1 (R-l4-2, the equal-work large cell) and item 2's "Now" (unit `.eq`). Read beside it: `### X.P.W7.l4` (R-l4-1, R-l4-2, ESC-W7l4-1) and the RESUME 6 Close with its three checks. Writable set: `bench/**` and this record. No `src/` byte moved. The banked corpus `bench/paired/sheets/` is untouched (E-3; each sheet's sha256 is re-checked by the generator on every run).
+
+**What landed** (value.js `f4dcbd85`, pathspec-only):
+- **`bench/paired/prefix.mjs`, the generator.** It cuts each banked G-large sheet at its **common accepted prefix**: the longest prefix of whole top-level rules that both arms accept, where each rule, read alone as a sheet, gives canon-equal results on both arms (the oracle's relation, `oracle.mjs` `canon`).
+  - The product's `ruleList` reader decides the rule boundaries. Each block is aligned to its source span, and the alignment is verified: the prefix's own `ruleList` must return exactly the kept blocks, with no fault.
+  - The prefix, read whole, must be accepted by both arms with equal results, or the script throws.
+  - **Refusal index** is `.l4`'s count: the 0-based index of the refused declaration, in the document order of the declarations the product's `declaration` reader receives. The recorder arm harvests them rule by rule, so the count continues past the product's own refusal. The arm's `parseStylesheet` diagnostic on the refused rule must equal its `parseCssValue` diagnostic on that value, or the script throws.
+  - `freeze` refuses to rewrite a different dated MANIFEST. `check` regenerates from the banked sheets and compares.
+- **`bench/corpus/large-prefix-2026-09-25/`**: the four prefixes plus `MANIFEST.json`. For each sheet the manifest holds the cut (rules kept, UTF-16 offset, bytes, sha256, declarations kept, and the text the cut ends before), both arms' refusals (rule, declaration index, name, value, diagnostic), and the whole-sheet diagnostics.
+- **Wiring.** `common.mjs` gains `largePrefixSheets()`, which checks sha256 on every load.
+  - Class **`large-eq`** is the large cell of record in `bench.mjs`, `browser-page.mjs`/`browser.mjs` and `isolated.mjs`. It is in the default class lists, and `isolated.mjs` gains a `large-eq (equal work, ADDENDUM (g))` gate entry.
+  - **`large`** (the whole sheets) is kept and labelled **INFO**. `browser.mjs` prints it as INFO, and `isolated.mjs` lists it beside the gate without folding it in.
+  - `equiv.mjs` gains the equal-work rows. Each prefix, read whole, and each of its rules, read alone, must be accepted equal by the retired arm and the arm under test. They are reported on their own line and in `report.prefix`. The golden-oracle counts are unchanged.
+
+**The manifest** (⟨`node bench/paired/prefix.mjs freeze`⟩, then ⟨`node bench/paired/prefix.mjs check`⟩ → `PREFIX CORPUS GREEN`):
+
+| sheet | cut: rules kept / rules read | prefix bytes (of banked) | declarations kept | refusal index: retired | refusal index: product | the refused declaration |
+|---|---|---|---|---|---|---|
+| `value-js-index.css` | 115 / 174 (rule list ends on a `closing brace` fault at 199,077) | 13,471 (of 523,625) | 357 | 357 | 357 | `transform: rotate(0)scale(1.3)` (both arms) |
+| `keyframes-js-index.css` | 1 / 629 | 61 (of 573,524) | 2 | 3 | 3 | `background-image: url(./ppmycota-logo-2-CAWHh5aE.svg)` (both) |
+| `keyframes-js-vendor-monaco.css` | 403 / 650 | 45,938 (of 74,442) | 1,016 | 1,016 | 1,016 | `transform: translate(0%)scaleX(1)` (both) |
+| `wpt-bulma-0.7.5.css` | 5 / 1,651 | 1,689 (of 225,289) | 30 | **32** (`background-color: rgba(10, 10, 10, 0.2)`, rule 5) | **946** (`left: calc(50% - (1em / 2))`, rule 461) | differs per arm |
+
+- The ruling's bulma pair (retired 32, product 946) and `.l4`'s kf-index 3 and monaco 1,016 reproduce exactly.
+- The equal-work cell is 4 sheets, 524 rules, 1,405 declarations and 61,159 bytes. The whole-sheet cell (`large`, INFO) is 1,396,880 bytes.
+
+**Equivalence** (⟨`node bench/paired/equiv.mjs product`⟩ ×2, identical both reads):
+- Golden oracle: `compared 1376531/1376531 rows · mismatches 92 (ASCII-only sources 1 · CP-CASE 4)`. This is the standing ruled set (F-b-4 plus the 4 CP-CASE rows), unchanged.
+- Equal-work prefixes: `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0`. By sheet: value-js-index 115 rules, 357 declarations, 0 mismatches; kf-index 1, 2, 0; monaco 403, 1,016, 0; bulma 5, 30, 0.
+- **The prefixes parse identically on both arms to the cut. GREEN ×2.**
+
+**No timing claim.** The wiring was smoke-run once so the classes are known to resolve: ⟨`node --expose-gc bench/paired/bench.mjs parseStylesheet large-eq product 11 0`⟩ (n=4, retired spread 5.7, which would be set aside) and ⟨`node bench/paired/browser.mjs eqsmoke chromium 1 large-eq 11 product parseStylesheet`⟩ (n=4, k=8). Both ran at sibling-track load, not quiet, and neither is a reading. The browser record was moved to scratchpad, and no record was committed. **L-G1 ×2 on all four engines (accepted, rejected and `large-eq`) is owed in the orchestrator's quiet-host window (R-l4-1, L-13, ADDENDUM (g) 2).**
+
+**`.cp` state (ADDENDUM (d); report only, not executed): LANDED.**
+- **Case half:** `eeed0116`. `equiv.mjs` shows the 4 CP-CASE rows, and `test/css/custom-property-case.test.ts` reads `Tests 4 passed (4)`.
+- **Easing half:** resolved by the ruled path, not by restoration. `CHANGELOG.md` `[Unreleased]` carries the `### Migration` line citing V-A64 (`628d23b6`): the `timingFunctionDescriptions` table and the `bounce-*` curves have not been exported since 4.0.0, and `easeInBounce` plus the G25 fence stand in `src/easing.ts`.
+
+**Open (named owners):**
+- **R-l4-1**, the quiet-host L-G1 ×2 read with `large-eq` as the large cell. Owner: the orchestrator's window.
+- **Measured facts for whoever owns product correctness (no cure here; out of `.eq`'s set).** The prefixes are small because the arms share refusals of valid CSS:
+  - `rotate(0)scale(1.3)` and `translate(0%)scaleX(1)`: adjacent functions with no whitespace between them. Both arms refuse these.
+  - `url(./…svg)`, an unquoted url. Both arms refuse it.
+  - The product alone refuses `calc(50% - (1em / 2))`, a nested parenthesised calc sum, at bulma declaration 946.
+  - If the product cures these, the common prefix does not move, because the retired arm still refuses them. The dated corpus stays valid.
