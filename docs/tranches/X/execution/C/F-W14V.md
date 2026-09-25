@@ -1230,3 +1230,64 @@ Run 1 only, each GREEN alone or in run 2:
   - (3) the four owner escalations above.
   - The honest-RED glass rows ride 10.2.0 (O-77a, O-84, O-84a) and the O-74/O-75/O-76/O-82 rows.
 - **Push:** fourier `m/w1-bump-migration` pushed with `330fa09` and `79ea9f6`; value.js pushed with this close.
+
+## Check 1
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · FRESH ADVERSARIAL CHECK (L-20 pass 1), Track C, verify-only, no cure. Spec read whole (67 lines, addenda (a)–(g)); record read header → `## Unit plan` and `## Close`. fourier HEAD = `7e72a98` (= origin; the two commits after `79ea9f6` are F.CT `e2b1474` `7e72a98`, outside this wave). ⟨`git diff --quiet HEAD -- web/src api && echo CLEAN`⟩ → `CLEAN`, so `:3100` serves HEAD. Servers `:3100` `:8000` `:27018` `:4190` listening.
+
+**Verdict: NOT-CONFORMANT.** The Close itself read PARTIAL. Every GREEN it claims reproduces; three REDs carry no relief at the spec bytes.
+
+### Gates reproduced (this seat)
+- vue-tsc ⟨`npx vue-tsc --noEmit`⟩ → exit 0 · **GREEN**
+- vitest ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)` · **GREEN**
+- api ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 uv run pytest api/tests/conformance/test_identity.py::test_owner_required`⟩ → `1 passed` · **GREEN, unchanged**
+- `.s2` ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-detached.spec.ts --project=chromium --headed --workers=1`⟩ → `5 passed (17.0s)` · **GREEN**
+- `.nav` ⟨`… e2e/f-w14v-nav.spec.ts e2e/f-w14u-misc.spec.ts:343 :364 --project=chromium --workers=1`⟩ → `3 passed` (nav falsifier) · `2 failed` (r119, r212) — LW-1 reproduces
+- G-c1 ⟨`… e2e/f-w14-residuals.spec.ts:77 --project=chromium`⟩ → `1 failed` (`toBeVisible` · element not found) — reproduces RED
+- vc `:199` ⟨`… e2e/visual-checkpoint.spec.ts:199 --project=mobile-chromium`⟩ → `1 failed` · `3 pixels (ratio 0.01)` — reproduces RED
+- The full-e2e figure (33/30 failed) was not re-run (>120 s foreground each; the three targeted reproductions above confirm its outside-set members).
+
+### Axes
+- (2) **Bounds HELD.** The Close's roster/bounds reading re-read: only `cc08ffd`/`f980230` leave `web/**` (`.u2`'s addendum-(c) `api/**` limb + the declared §0bt `latex_rendering.py`). ⟨`git -C value.js status --porcelain scripts/dev/dev.sh`⟩ → ` M` (the standing unowned dirt), in no wave commit.
+- (3) **Masking HELD.** ⟨`git diff 7ee9b65..79ea9f6 -- web/src web/e2e | grep -E '^\+.*(catch *\(|\.skip\(|fixme|allowlist)'`⟩ → `waitForLoadState("networkidle").catch`/`isVisible().catch` probe tolerance in specs and `catch (e: unknown)` blocks in AdminFlaggedPanel/AdminUserList/useSimplifiedSeries that surface the server's problem detail (abort-aware) — error reporting, not a defect masked. 0 `test.skip`. `FW14V_PD_GLASS_CURE` (`f-w14v-pd.spec.ts:38`) is off by default; the shipped run reads the true bytes RED. Lawful instrument.
+- (4) **Families HELD** (one commit per meaning per the roster).
+- (5) **E-3 HELD.** ⟨`git diff --stat 4bd63b08..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/fourier/waves/`⟩ → `F-W14V.md +19`, `F-CT.md +41`, insertions only (dated addenda-beside); registry empty.
+- (6) **Mail clean.** ⟨`find <four paths> -maxdepth 1 -type f -newer INBOX.md`⟩ → ∅; ⟨`grep -oE '\| \*\*UNREAD[^|]{0,60}' INBOX.md`⟩ → one hit, prose inside a 2026-09-18 sweep line, no status cell.
+- (7) **Four-verb line.** LEDGER `:90` = PARTIAL. Lawful. It does not move at this check.
+- (8) **Goal, partly unmet at the bytes.** `.s2`, `.p` p1/p2, `.nav`, `.dm` goals are met. Addendum (g) routing 1 and routing 2 are unexecuted.
+- (9) **Figures.** Every figure reproduced here matches the Close.
+
+### Register (severity · claim · receipt · cure)
+- **C1-1 HIGH** · LW-1: r119/r212 (`f-w14u-misc.spec.ts:343 :364`) are RED at HEAD. `.nav` (`79ea9f6`) deleted the inline tab row that their `.app-dock [aria-current="page"]` oracle reads. Addendum (e) orders the tests to follow the ruling ("rewritten … named in the receipt"), which gives no RED relief. · receipt: `2 failed` above; GREEN at `82423c4` per the Close · cure: a §0bt owner-ruling restatement in the `.nav` owner's seat (read the section from `nav-trigger`'s accessible name or the open menu's `aria-current` item; keep every URL and label; delete nothing). GREEN ×2.
+- **C1-2 HIGH** · addendum (g) routing 1 is unexecuted. G-c1 is RED, and the spec routes it to this wave's `.u4` owner for a re-baseline, not honest-RED. The Close counts it inside the "named 21", which it is not. · receipt: `f-w14-residuals.spec.ts:77` `1 failed` · cure: re-baseline G-c1 to u4's rule (first upload: the stage button busy and no aside bar; replace: the aside bar) as a named §0bt edit, delete nothing. GREEN ×2.
+- **C1-3 MEDIUM** · vc `:199` [mobile-chromium] regressed inside this wave. `.u3` measured it GREEN ×2 at `ce002d8` (record `:299`); it was RED at `ba4efa9`. The Close says "Carried" but names no owner and no relief. · receipt: `3 pixels (ratio 0.01)` above · cure: bisect `ce002d8..ba4efa9` (candidates `0e817fd` `5b77972` `cad7518`). Then re-cut the golden with the diff described if the change is intended, or cure the paint.
+- **C1-4 MEDIUM** · addendum (g) routing 2 is undecided. The 28 `web/e2e/screenshots/f-w14/*.png` are still ` M` in the working tree. The spec orders the seat to either restore them or commit them as a dated capture. · receipt: ⟨`git status --porcelain web/e2e/screenshots/f-w14`⟩ → 28 ` M` (23 listed of 34 dirty paths; the rest are F.CT's) · cure: `git checkout -- <the 28>`, or commit them as a dated capture with a receipt line.
+- **C1-5 MEDIUM** · four owner escalations are open: ESC-u1-1, ESC-u1-2 = ESC-au2-1 (vedit v88, L2-15 ×3 RED), ESC-au3-1 (L1-12 RED), and A2-FO-X-7. §2 admits only CURED, ADOPT-AT-LANDING, or honest-RED with a relayed id. An escalation is a lawful stop, but it is not a close disposition. · cure: the owner's rulings, then the owning seat.
+- **INFO** · f-w14-uia UIA-F-17, vedit v87 and au0 d1440-light are load intermittents, each GREEN alone at least once (the Close's reading). They do not block.
+
+### Honest-RED adjudication (axis 10)
+**Relieved by spec, owner named (glass, ADOPT-AT-LANDING):**
+- `.c3` c3m/c3g: MAGNET-STATE-HIDDEN / MENU-ICON-GAP (add. (a), beside O-76)
+- `.p` p3 ×2: TOASTER-OFFSET (§1 `.p` 2)
+- `.pd` collapsed ×6: O-84/O-84a DOCK-SUMMARY-SQUARE (add. (f))
+- O-77/O-77a LAYER-HEADER-LABEL (add. (b))
+- O-82 F-177/F-203 (add. (c))
+- L2-12, and L2-18ˢ/L3-14 HELD (O-74/O-74a E-2)
+
+**Relieved as the F.W14U inherited named set** (§2 "except the named honest-RED set"):
+- contrast-floor ×3
+- gallery-admin-a11y ×4
+- vc `:81 :102 :123`
+- f-w14u-d d2
+
+**Not relieved:**
+- r119 and r212 (C1-1)
+- G-c1 (C1-2)
+- vc `:199` (C1-3)
+- vedit v88, L2-15 ×3 and L1-12 (C1-5): these are owner-held escalations, not spec relief.
+
+### Successors
+No wave spec declares "Opens after: F.W14V CLOSED". ⟨`grep -rn W14V docs/tranches/X/fourier/waves/`⟩ → F-CT cites addendum (d) only, as provenance and not as a gate. No successor is blocked.
+
+### State
+**NOT-CONFORMANT.** LEDGER `:90` stays PARTIAL. The next act is a Repair seat that takes C1-1 → C1-4. C1-5 waits on the owner.
