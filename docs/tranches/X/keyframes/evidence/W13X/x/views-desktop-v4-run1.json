@@ -1,0 +1,158 @@
+[
+ {
+  "view": "v1-timeline-expanded",
+  "route": "cube",
+  "vp": "1024x768",
+  "theme": "light",
+  "frame": "frames/v1-timeline-expanded-1024x768-light.jpg",
+  "docSH": 768,
+  "ih": 768,
+  "docSW": 1024,
+  "vw": 1024,
+  "overlays": [],
+  "pastEdgeCount": 1,
+  "pastEdge": [
+   {
+    "tag": "DIV",
+    "cls": "monaco-aria-container",
+    "n": "",
+    "x": -17468.3,
+    "y": -1,
+    "w": 1,
+    "h": 1,
+    "r": -17467.3,
+    "b": 0,
+    "cx": -17467.8
+   }
+  ],
+  "tinyCount": 0,
+  "tinyText": [],
+  "smallTargets": 7,
+  "occludedTargets": 0
+ },
+ {
+  "view": "v4-timing-detail",
+  "route": "cube",
+  "vp": "1024x768",
+  "theme": "light",
+  "frame": "frames/v4-timing-detail-1024x768-light.jpg",
+  "docSH": 768,
+  "ih": 768,
+  "docSW": 1024,
+  "vw": 1024,
+  "overlays": [],
+  "pastEdgeCount": 1,
+  "pastEdge": [
+   {
+    "tag": "DIV",
+    "cls": "monaco-aria-container",
+    "n": "",
+    "x": -17468.3,
+    "y": -1,
+    "w": 1,
+    "h": 1,
+    "r": -17467.3,
+    "b": 0,
+    "cx": -17467.8
+   }
+  ],
+  "tinyCount": 3,
+  "tinyText": [
+   {
+    "t": "0",
+    "fs": 11,
+    "cls": "pointer-events-none absolute bottom-1 le"
+   },
+   {
+    "t": "1",
+    "fs": 11,
+    "cls": "pointer-events-none absolute right-1 top"
+   },
+   {
+    "t": "cubic-bezier(0.42, 0, 0.",
+    "fs": 11,
+    "cls": "min-w-0 truncate text-micro select-text"
+   }
+  ],
+  "smallTargets": 10,
+  "occludedTargets": 3
+ },
+ {
+  "view": "v1-timeline-expanded",
+  "route": "cube",
+  "vp": "1024x768",
+  "theme": "dark",
+  "frame": "frames/v1-timeline-expanded-1024x768-dark.jpg",
+  "docSH": 768,
+  "ih": 768,
+  "docSW": 1024,
+  "vw": 1024,
+  "overlays": [],
+  "pastEdgeCount": 1,
+  "pastEdge": [
+   {
+    "tag": "DIV",
+    "cls": "monaco-aria-container",
+    "n": "",
+    "x": -17468.3,
+    "y": -1,
+    "w": 1,
+    "h": 1,
+    "r": -17467.3,
+    "b": 0,
+    "cx": -17467.8
+   }
+  ],
+  "tinyCount": 0,
+  "tinyText": [],
+  "smallTargets": 7,
+  "occludedTargets": 0
+ },
+ {
+  "view": "v4-timing-detail",
+  "route": "cube",
+  "vp": "1024x768",
+  "theme": "dark",
+  "frame": "frames/v4-timing-detail-1024x768-dark.jpg",
+  "docSH": 768,
+  "ih": 768,
+  "docSW": 1024,
+  "vw": 1024,
+  "overlays": [],
+  "pastEdgeCount": 1,
+  "pastEdge": [
+   {
+    "tag": "DIV",
+    "cls": "monaco-aria-container",
+    "n": "",
+    "x": -17468.3,
+    "y": -1,
+    "w": 1,
+    "h": 1,
+    "r": -17467.3,
+    "b": 0,
+    "cx": -17467.8
+   }
+  ],
+  "tinyCount": 3,
+  "tinyText": [
+   {
+    "t": "0",
+    "fs": 11,
+    "cls": "pointer-events-none absolute bottom-1 le"
+   },
+   {
+    "t": "1",
+    "fs": 11,
+    "cls": "pointer-events-none absolute right-1 top"
+   },
+   {
+    "t": "cubic-bezier(0.42, 0, 0.",
+    "fs": 11,
+    "cls": "min-w-0 truncate text-micro select-text"
+   }
+  ],
+  "smallTargets": 10,
+  "occludedTargets": 3
+ }
+]
