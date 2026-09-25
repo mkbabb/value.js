@@ -1445,3 +1445,93 @@ The spec's `FW14U_MISC_PROD` (default `http://localhost:4190`) points at the bun
 **Escalations:** none.
 
 **Unit status: DONE.** 17/17 rows dispositioned (the 14 plan rows plus the 3 carries): 16 CURED and 1 CURED-BY, each with its falsifier RED ×2 → GREEN ×2, except m209, which was GREEN before the cure. Its limbs outside this unit's files are carried by id (R-1, R-2), and its glass halves are named for relay (R-3). Commit fourier `a6d317d` (pushed, = origin `m/w1-bump-migration`).
+
+## Close
+
+SEAT CLOSE (verify-only, cures nothing), `claude-opus-5-5`, 2026-09-24 ~21:00 EDT. Spec `F-W14U.md` read whole (78 lines: Units · Close · addenda §0cq, (b)..(g)). Record: header through `## Unit plan` plus the unit receipts' status/escalation lines (by `grep -n`). fourier HEAD `a6d317d` = origin `m/w1-bump-migration`.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` plus **43 ` M web/e2e/screenshots/f-w14/*.png`** (mtime 19:43, before this seat: a sibling unit's neighbour run left tracked frames rewritten and unrestored). They are outside this seat's writable set, so they were not touched; recorded as residual CR-1. value.js: this record and LEDGER clean at open. **Nothing inherited.**
+
+### (1) Commit roster and bounds
+
+⟨`git log --reverse 67ad614..HEAD`⟩ → 17 fourier commits, all on origin (⟨`git log origin/m/w1-bump-migration -1`⟩ → `a6d317d`). ⟨`git show --name-only`⟩ per commit, read against the unit plan's writable set plus each receipt's declared §0bt adjacent list:
+
+| unit | fourier | value.js receipt | bounds reading |
+|---|---|---|---|
+| `.s` | `10c8e1a` | `5dc7d80f` | in set (VisualizationView + own spec) |
+| `.t` | `6f1f600` | `5baf202b` | in set; adjacent `scripts/derive-loops.vitest.ts` declared |
+| `.d` | `b62821d` | `a71155a0` | in set |
+| `.a` | none (slot unpublished at 10.0.1) | `c2a28e35` | receipt only; completed by `.a2` |
+| `.b` | `66bb321` | `abe6d844` | in set (`api/**`) |
+| `.srv` | `798c98f` | `1424b4a1` `4c8076d7` | `api/**` + declared adjacent `simplification.py`/`latex_rendering.py`. INFO: also edits `.b`'s `api/tests/test_blob_integrity.py` (the raw-ASGI client moved to `conftest.asgi`, −58/+3; no assertion changed; inside `.srv`'s `api/**` grant) |
+| `.vdock` | `7ad6be2` | `69b5c598` | in set; adjacent `f-w14-uia.spec.ts` declared |
+| `.vstage` | `9a1d932` | `e1c91406` | in set; adjacent `ContourPreview.vue` (deleted, sole mount) + 5 oracle files declared |
+| `.vedit` | `dd123a9` | `098c4640` | in set; adjacent `latex_rendering.py`, `latex_format.py`, 2 oracle specs declared |
+| `.c1` | `b7607f8` | `1e4a98c7` | addendum (g) seat |
+| `.c2` | `aef636f` | `5150061c` | §0db seat |
+| `.eq` | `fcc5617` | `be9367ac` | in set; adjacent `equation-interaction.spec.ts` |
+| `.a2` ⊕ F.W14V `.s2` | `239845f` | `db0058c7` | §0dd ruling (repin 10.1.0 = package.json + lockfile, ruled) |
+| `.gallery` | `30346dd` | `e556992a` | in set; adjacent `GalleryInfiniteGrid.vue` + oracle specs declared |
+| `.admin` | `78a213d` | `1682cf58` | in set; adjacent `GalleryView.vue`, `admin-row.css`, `f-w14-uia.spec.ts` declared |
+| `.paper` | `cd414b2` | `3d27bcc5` | in set (`paper/**`); adjacent unit vitests + derive-loops declared |
+| `.shell` | `b744993` | `004ce6f1` | in set; adjacent list declared in the commit body |
+| `.misc` | `a6d317d` | `191226f4` | in set; adjacent list declared in the commit body |
+
+No path outside a unit's set without a declared adjacent reason or a COHESION ruling. **No landed-wrong by bounds.**
+
+### (2) G-u — the register (Close 1)
+
+⟨python over this record: every `| F-n | disposition |` table row, the LAST row per id wins; owed set = the plan table's rows column, `F-a..F-b` expanded⟩ → `owed 165 · with a disposition row 165 · missing []`. Distribution of the last disposition: `CURED 124 · CURED-BY 6 · ROUTED 9 · GREEN-BEFORE-CURE 1 · VERIFIED-NOT-REPRODUCING 1 · PARTIAL 15 · ESCALATED 8 · NOT LANDED 1` (+ F-149 consumer HELD and F-77 consumer ESCALATED inside split rows).
+
+**Not closed by the Close 1 standard ("CURED with its falsifier ×2, or routed by id"): 26 rows.**
+- ESCALATED, unruled (no COHESION ruling through §0dn; ⟨`grep -n` over COHESION + `F-W14V.md`⟩ → none re-homed): `.vdock` E-1 F-81 (+F-9 final form) · E-2 **F-14 (BROKEN)** + F-93 + F-182 + F-244 · E-3 F-79 + F-77 consumer · E-4 F-173 — `.vstage` E-1 F-68 (+F-168, F-170 limbs) · E-2 F-183 control-state half (the toast action seat landed in `.shell`) · E-3 F-74 — `.vedit` E-1 F-85/F-241 (ToggleGroup limb cured by `.eq` F-204; glyph/ink at `lib/equation/notation.ts:14-17` open) · E-2 F-177 anchoring — `.eq` E-2 server limbs F-201/F-253 · E-3 F-203 primitive · E-4 F-253 "Conjectured".
+- PARTIAL (limbs carried to the escalations above or to glass): F-71 F-93 F-146 F-168 F-170 F-172 F-177 F-182 F-201 F-203 F-238 F-239 F-241 F-244 F-253.
+- NOT LANDED: F-174 (`.vdock` R-1, `composables/useImageOverlay.ts:86-89`, no owning unit).
+- HELD: F-149 consumer half (`.admin`, LOCK conflict).
+
+**G-u: RED — 230/256 closed, 26 open** (256 register rows; the 26 are 8 ESCALATED ids + F-77 + 15 PARTIAL + F-174 + F-149). Addendum (e) (AUDIT-2) is F.W14V's by addendum (f) and not counted here.
+
+### (3) Landed-wrong (recorded, not fixed here)
+
+- **LW-1 (`.eq`, `fcc5617`): three neighbour oracles outside the named set go RED.** `f-w13-radius.spec.ts:105` frame 5 (`getByLabel('Equation controls').locator('.cartoon-card').filter({ hasText: 'Function' })` → element not found; `.paper` R-2 saw it first), `visual-checkpoint.spec.ts:164` item 3 (`.eq-panel-left` 400×632 expected, 400×620 received, 0.14 of pixels), `visual-checkpoint.spec.ts:199` @coarse item 4 (the "Auto-select harmonics by Parseval energy" trigger, `components/equation/FunctionInput.vue`, 3 px). ⟨`git log 67ad614..HEAD -- web/src/components/equation`⟩ → `fcc5617` only. `.eq`'s neighbour run (receipt :893) covered only `equation-interaction` + `f-w14-uia -g …`, so it never read these. Owner: an `.eq` repair seat — re-point or re-baseline each oracle under §0bt with the reason, or restore the surface if the change was unintended.
+- **LW-2 (`.shell` `b744993` or `.admin` `78a213d`): `visual-checkpoint.spec.ts:145` item 8** (admin banner region, 358 px, 0.01) goes RED. `.admin` measured `:145` byte-stable at `78a213d` (receipt :1088/:1099); `.shell` then edited `GalleryAdminBanner.vue:97-101` (F-150's second Log out). Owner: the `.shell` repair seat (re-baseline under §0bt, or cure).
+- **LW-3 (`.misc` `a6d317d`): five `f-w14u-misc.spec.ts` cases depend on an unmanaged instrument** — a `vite preview` of a production build on `:4190` that neither `playwright.config` nor the spec starts (`:118` ×2, `:380` ×2, `:401`: `net::ERR_CONNECTION_REFUSED at http://localhost:4190/`). The full e2e gate therefore reads RED on any machine without a manual pre-step. `.misc` R-4 names it. Owner: `.misc` repair — declare the preview as a `webServer` entry (or a project) so the suite owns its instrument.
+
+### (4) Gate table, BEFORE → AFTER (read at fourier `a6d317d`)
+
+| gate | BEFORE (open, `67ad614`) | AFTER (this seat) | reading |
+|---|---|---|---|
+| G-u register (Close 1) | RED, 95/256 | **RED, 230/256** | §(2): 26 rows ESCALATED/PARTIAL/NOT LANDED/HELD, no ruling |
+| Close 2: full e2e `--workers=1` ×2, REDs ⊆ named set ∪ honest-RED | named set exactly (11) | **RED ×2** | ⟨`FW14_PHASE=uclose-r1 BASE_URL=http://localhost:3100 npx playwright test --workers=1 --reporter=line`⟩ load `8.03 → 13.14`, **`19 failed · 3 skipped · 378 passed (14.8m)`**; run 2 (`uclose-r2`, the `:4190` preview of a fresh `vite build` served by this seat for LW-3) load `12.56 → 12.22`, **`14 failed · 3 skipped · 383 passed (16.5m)`**. ⟨`grep '^  [0-9]*) ' | grep -o 'spec.ts:[0-9]*' | sort | uniq -c`⟩ → both runs: contrast-floor `:82` ×2 · `:128` · gallery-admin-a11y `:91 :103 :114 :125` · vc `:81 :102 :123` (named, 10; fullscreen `:40` now GREEN) **plus outside the set ×2: f-w13-radius `:105` · vc `:145` · vc `:164` · vc `:199` [mobile-chromium]** (LW-1, LW-2); run 1 adds `f-w14u-misc :118 ×2 · :380 ×2 · :401` (connection refused, `:4190` absent until mid-run; LW-3), all GREEN in run 2 |
+| Close 3: `vue-tsc -b` 0 | GREEN | **GREEN ×2** | ⟨`npx vue-tsc -b`⟩ → `exit 0` · `exit 0` |
+| Close 3: `vitest` GREEN | GREEN 14/86 | **GREEN ×2** | ⟨`npx vitest run`⟩ → `Test Files 14 passed (14)` · `Tests 86 passed (86)` ×2 |
+| G-s (OA-59) | RED | GREEN (the full runs carry `f-w14u-s` + `f-w14v-detached`, 0 failed ×2) | `.s` PARTIAL → completed by `.a2` ⊕ F.W14V `.s2` (`239845f`, §0dd); addendum (f) |
+| G-t (OA-60) | RED | GREEN (`f-w14u-t` 0 failed ×2) | P-2-ADOPT not recorded (glass has not shipped P-2) |
+| G-d (OA-57/-68/-66) | honest-RED | consumer halves GREEN (`f-w14u-d` 0 failed ×2); honest-RED DOCK-COLLAPSED-FORM (O-65) · SIDE-DOCK-EDGE (O-67) · GLASS-SELECT-GREY (O-66) stand | producer halves |
+| G-a (OA-69) | RED | GREEN via `.a2` (glass 10.1.0 `#actions`, `f-w14v-detached` db 0 failed ×2) | CONFIGURATOR-HEADER-ACTIONS discharged |
+| G-b (§0cv) | RED | **GREEN ×2** | ⟨`MONGO_TEST_URI=mongodb://localhost:27018 uv run pytest api/tests -q`⟩ → `275 passed in 14.92s` · `275 passed in 13.71s` (blob falsifier + `.srv` rows inside) |
+| family falsifiers `f-w14u-*.spec.ts` | born RED | 0 failed in both full runs, except LW-3 (instrument) in run 1 | — |
+
+Run dirt: ⟨`git -C fourier-analysis status --porcelain | wc -l`⟩ → `44` before and after both runs (the same 43 CR-1 frames + `.worktrees/`); no new dirty path.
+
+### (5) E13
+
+⟨`find <4 paths> -maxdepth 1 -type f -newermt "2026-09-24 11:50"`⟩ → value.js `INBOX.md` · glass BK `valuejs-outbound-2026-09-24-*` ×7 (value.js's own O-rows, outbound) · keyframes none · atlas none; glass BL `FORMATION-PROGRESS.md` + `audit/INBOUND*.md`/`REGISTRY.md` (glass-internal). Every inbound glass reply of the day is rowed I-50..I-59 in `INBOX.md`. **0 UNREAD in scope.**
+
+### (6) Residuals (named owners)
+
+- **CR-1** 43 tracked frames `web/e2e/screenshots/f-w14/*.png` dirty since 19:43 (a unit's neighbour run, unrestored). Owner: Track C's next fourier seat to restore by exact path (`git checkout -- <paths>`); not this seat's set.
+- **The 26 open G-u rows**, §(2). Owner: the root (COHESION ruling on `.vdock` E-1..E-4, `.vstage` E-1..E-3, `.vedit` E-1/E-2, `.eq` E-1..E-4, `.admin` F-149 LOCK, F-174), then an F.W14U repair seat or a re-home into F.W14V.
+- **LW-1..LW-3**, §(3): `.eq`, `.shell`, `.misc` repair seats.
+- Carried honest-RED at glass: GLASS-VEIL-GREY (O-62, 10.2.0) · DOCK-TRIGGER-CLIP (O-63) · DOCK-SCROLL-MORPH (O-55) · DOCK-COLLAPSED-FORM (O-65) · GLASS-SELECT-GREY (O-66) · SIDE-DOCK-EDGE (O-67) · CHIP-PRESSED-TINT (O-76) · LAYER-HEADER-LABEL (O-77) · O-78 menu stacking (10.2.0).
+- Addendum (e) (AUDIT-2) and `.c3`: F.W14V, by addendum (f) and §0dc.
+- Unit residuals as each receipt names them (`.t` R: mobile toggle, gutter 36 px, `src/style.css:298` comment; `.misc` R-1..R-4; `.shell` R-1/R-2; `.gallery`/`.admin`/`.paper` R-rows).
+
+### (7) Escalations from this seat
+
+- **ESC-C-U1:** G-u cannot close without rulings on the unit escalations listed in §(2); none were ruled or re-homed between their filing and this close.
+- **ESC-C-U2:** Close 2 is RED ×2 on four oracles outside the named set (LW-1, LW-2), each owned by a closed unit of this wave; §0bt re-baselines or cures are owed from repair seats.
+
+### (8) State
+
+**F.W14U: PARTIAL** — the four-verb line does not move to IMPLEMENTED. Remaining: 26 G-u rows (ESC-C-U1) and the Close 2 outside-set REDs vc `:145 :164 :199` + f-w13-radius `:105` (LW-1, LW-2), and the instrument ownership of LW-3. vue-tsc, vitest and G-b are GREEN ×2; G-s/G-t/G-a and the `.d` consumer halves are GREEN in both full runs.
