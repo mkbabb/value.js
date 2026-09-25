@@ -103,3 +103,100 @@ The glass half is asked at O-77 (§0dh). No consumer width, label or font overri
 - O-77 LAYER-HEADER-LABEL: → **honest-RED recorded** (measured above; glass-owned).
 
 **Commits:** fourier `b7531e7` (e2e reading). **Adjacent edits:** none. **Inherited paths:** none. **Residuals:** O-77 (glass). **Escalations:** none. The CONFIGURATOR-DETACHED and CONFIGURATOR-HEADER-ACTIONS cures (`239845f`) were verified and not redone.
+
+### F.W14V.u1
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · stage/dock rows (addendum (c); F-W14U.md addendum (h) `.vdock` E-1..E-4, `.vedit` E-2). Writable: `web/src/**`, `web/e2e/**`.
+
+**Acts, in order**
+1. Crash-recovery: ⟨`git -C fourier-analysis status --porcelain | grep web/(src|e2e)/`⟩ → nothing; no inherited paths.
+2. Anchors at the bytes (HEAD `b7531e7`). E-2's stage is `VisualizationView.vue:393-481` (was `:306-376`; drifted by the `.s2`/`.vstage` comments, intent kept). `FullscreenViewer.vue:115-130` mounted a second `ContourEditorCanvas` (no ref, no listeners) and a second `BasisCanvas`, a second `AnimationControls` and a free `Button.fs-close`. `CanvasControlsDock.vue:79-106` = the View options `Popover` (two unlabelled `DockControl`s); the editor's view rows sat in More editor tools (`EditorControlsDock.vue:205-219`, `dd123a9`). The view defaults: `useViewState.ts` ghost `true`, overlay `false`. The server persists `easing: str = "sine"` (`api/models/shared.py:69`), read for F-81 below.
+3. Falsifier authored first: `web/e2e/f-w14v-u1.spec.ts`, 7 cases (u14 and u93 at 1440 and 390; u182, u79 and u173 at 1440). Frames go to `web/e2e/screenshots/f-w14v/u1/{before,after}-*.png` (gitignored).
+4. **RED ×2 on the pre-cure bytes** (`:3100` against `:8000`). ⟨`FW14V_PHASE=before BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-u1.spec.ts --project=chromium --headed --workers=3`⟩ gave **7 failed** in both runs, with the same limbs each time:
+   - u93: "one BasisCanvas in the document": received **2**.
+   - u14: the census `toEqual` failed on 3 keys (two canvases, two editors, one `.fs-close`).
+   - u182: the ⋮ menu's Export count was 1, not 0.
+   - u79: `menu` was not found (the old control was a popover).
+   - u173: "no mark at the default view": received **2**.
+
+   These ran against the first draft of the spec. The committed spec differs only in the steps after each first failing assertion (u14's edit step, u173's dismissal); the RED limbs above are the same bytes.
+5. Cures (fourier `64a1865`):
+   - `FullscreenViewer.vue`: the takeover is now only the chassis (the Dialog, its title, its description) plus an empty `.fs-stage-host`. Both canvases, the second `AnimationControls`, the `.fs-close` Button and their styles are deleted.
+   - `VisualizationView.vue`: `<Teleport v-else :to="fsHost" :disabled="!stageInTakeover">` wraps the ONE stage. Opening fullscreen moves the stage into the takeover and closing moves it back. Nothing is remounted.
+   - `CanvasControlsDock.vue`: the Fullscreen control becomes `Exit fullscreen` (Minimize glyph, tooltip) while the stage is in the takeover, through `v-model:is-fullscreen`. It gains `Export frame`, which emits `exportFrame` → `handleExportFrame` → the export dialog. It mounts `ViewLayersMenu side="bottom"`. The collapsed-face mark is glass `StatusDot`, shown only when `isViewOffDefault`.
+   - `AnimationControls.vue`: the ⋮ menu's Export item and its `exportFrame` emit are deleted (F-182).
+   - `ViewLayersMenu.vue` (new): glass `DropdownMenu` + `DockTrigger for="dropdown"` ("View options") + a `DropdownMenuLabel` "View layers" + two `DropdownMenuCheckboxItem`s (Image overlay, Contour trace), which toggle without closing. It shows a `StatusDot` mark only off-default.
+   - `EditorControlsDock.vue`: mounts `ViewLayersMenu side="top"`; its two More-tools checkbox rows are deleted.
+   - `useViewState.ts`: `VIEW_DEFAULTS` and `isViewOffDefault`, one source for the defaults.
+6. **Two defects found by measurement and cured at their cause, not masked:**
+   - **(a) `hideOthers` ordering.** On the first cure, the takeover's editor dock read as `aria-hidden` (`getByRole("button",{name:"Save contour"})` → 0 inside the dialog).
+     - Cause (instrumented `setAttribute`/`insertBefore` sequence): reka's `DialogContentModal` `useHideOthers` runs as a queued watcher job before the template-ref handoff (post-flush). `aria-hidden` keeps every `[aria-live]` region's ancestors, so it walked the stage while the stage was still in `#app` and marked `.dock-controls`, `.canvas-container` and others. Those marks rode into the takeover.
+     - A `flush: "sync"` watcher on the template ref measured no change.
+     - Cure: the host is handed up from its `@vue:before-mount` vnode hook, inside the mounting patch. The parent's teleport job then sorts ahead of the chassis watcher. The measured sequence became `host-mounted → host-insert #text → host-insert DIV → hide …`, and nothing inside the takeover is marked.
+   - **(b) The Fullscreen toggle.** `showFullscreen = !showFullscreen` made `fullscreen.spec` fail to open (0 dialogs).
+     - The control now sets the state it shows (`update:isFullscreen`, `!isFullscreen`), so it is idempotent.
+     - The same spec's remaining RED was glass's morph guard (`dock.js` `onClickCapture`: a press whose pointerdown lands while `data-morphing` is set is swallowed). The dock gained a control, so its expansion morph is longer, and the spec now waits for `expanded` and no `data-morphing` before it clicks (setup only).
+7. **GREEN ×2 on the settled bytes (`64a1865`):** ⟨`FW14V_PHASE=after BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-u1.spec.ts --project=chromium --headed --workers=3`⟩ → run 1 `7 passed (23.1s)`, run 2 `7 passed (22.5s)`.
+   - u14 census `toEqual({canvases:1, canvasesInTakeover:1, editors:1, editorsInTakeover:1, freeExit:0})` passed at 1440 and at 390.
+   - A point deleted by key in the takeover leaves Undo enabled on the page after Exit.
+   - u93 re-opens the takeover (a new host), and it holds the same one canvas.
+8. **Neighbours (non-regression), final bytes.** ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-d.spec.ts e2e/f-w14u-vdock.spec.ts e2e/f-w14u-vedit.spec.ts e2e/fullscreen.spec.ts e2e/f-w14-uia.spec.ts e2e/visualization-ux.spec.ts e2e/visualization-crud.spec.ts e2e/gallery.spec.ts e2e/f-w14v-detached.spec.ts --project=chromium --headed --workers=1`⟩ → `87 passed · 2 failed · 3 skipped`:
+   - (i) `visualization-ux :150`, the ExportModal keystone: the same morph-guard press. It is cured in the same commit (wait for `expanded` then no `data-morphing`), then re-read ⟨`… -g ExportModal --repeat-each=4`⟩ → `4 passed`, and crud's ExportModal keystones ⟨`-g ExportModal`⟩ → `3 passed`.
+   - (ii) `f-w14u-vedit :198` v88: **ESCALATED**, see ESC-u1-2.
+   - `fullscreen.spec` alone ×2 → `1 passed` ×2. `f-w14-uia :162` (F-17) is GREEN at `--workers=1` (it went RED under `--workers=3` once, the standing load-sensitive case R-3 of F.W14U).
+9. `vue-tsc --noEmit` ×2 → exit 0, 0 `error TS` ×2. `vitest run` ×2 → `Test Files 14 passed (14) · Tests 86 passed (86)` ×2.
+
+**Adjacent edits (§0bt; each restates an oracle for a control this unit moved or renamed; no assertion deleted):**
+- `e2e/f-w14u-d.spec.ts:30,37,60-80,134-136`: the ruled d2 setup. `loadCollapsed` takes a setup step, and `traceOff` switches the trace off through the View options menu, dismisses by pointer and waits until the dock's box holds still (its collapse after an expansion settles in stages). The d2 assertion is unchanged.
+- `e2e/f-w14u-vdock.spec.ts`:
+  - `:111-113` v9's Export limb is inverted: the ⋮ menu holds no Export. This is the e171 precedent, the F-9 interim's Export limb superseded by F-182.
+  - `:146-156` v76 reads the `menuitemcheckbox` row and its popper wrapper; its geometry assertions are unchanged.
+  - `:256-258` `openExport` uses the canvas dock's Export.
+  - `:362` v174 uses `menuitemcheckbox`.
+- `e2e/f-w14-uia.spec.ts`:
+  - `:184-188`: the F-17 export path goes through the canvas dock's Export.
+  - `:670-693`: F-12's keyboard reach, restated for the menu. Enter opens the menu, the arrow keys reach both rows, and Enter toggles `aria-checked`.
+- `e2e/f-w14u-vedit.spec.ts:106-108`: `traceControl` opens the editor dock's View options.
+- `e2e/fullscreen.spec.ts:54-58,86-88`: the spec waits for the dock to settle before Fullscreen, and Exit is the hosted dock's control.
+- `e2e/visualization-ux.spec.ts:153-161` and `e2e/visualization-crud.spec.ts:662-669`: the ExportModal keystones open Export from the canvas dock. Crud's now-dead `openMoreOptions` helper (`:183-202`) is deleted.
+
+**Rows**
+
+| Row | Disposition | Evidence |
+|---|---|---|
+| **F-14** (BROKEN) | **CURED**. The one live stage is teleported into the takeover, with the editor's ref, listeners and dock, and an edit survives exit. | u14 1440+390: RED ×2 (census 2/2/1) → GREEN ×2 (1/1/1/1/0) |
+| F-93 | **CURED**. The canvas dock is hosted in the takeover, and its Fullscreen control is the Exit. The dead plumbing was already gone (F.W14U). | u93 1440+390 RED ×2 → GREEN ×2 |
+| F-182 | **CURED**. Export frame is on the canvas dock and always opens the dialog, inline and in fullscreen. The labels limb was cured at F.W14U. | u182 RED ×2 → GREEN ×2 |
+| F-244 | **CURED**. There is no free-floating Exit: Exit is the dock control, with its tooltip. The description was added at F.W14U. The register's "correct the comment after F-13" limb waits on F-13 (glass O-78, 10.2.0). | u14/u93 `freeExit 0` ×2 |
+| F-79 | **CURED at ≥ sm**. One `ViewLayersMenu`, with the same rows and order, is mounted by both docks. The editor mount at 390 is ESCALATED (ESC-u1-2). | u79 RED ×2 → GREEN ×2 |
+| F-77ˢ | **CURED** (consumer). A menu of labelled CheckboxItems replaces the 336×118 icon plate. Glass's content-fit popover arm (O-59) is no longer consumed here. | u79 |
+| F-173 | **CURED**. The mark shows only off-default, as glass `StatusDot`, on View options and on the collapsed face. d2's setup was changed as ruled, and its assertion is unchanged. | u173 RED ×2 → GREEN ×2; d2 3/3 |
+| F-177 | **honest-RED O-82 POPOVER-ANCHOR** (glass). No hand-rolled positioning. ⟨`cat node_modules/@mkbabb/glass-ui/dist/components/popover/index.d.ts`⟩ → `Popover`, `PopoverTrigger`, `PopoverContent` only (10.1.0). The panel's own limbs were cured at F.W14U. | — |
+| F-81 (+F-9 final form) | **ESCALATED (ESC-u1-1)**. F-9 stays CURED by its interim (banked, v9). | — |
+
+**Escalations**
+- **ESC-u1-1, F-81 (the shared animation pane, the phase Timeline with transport, one easing catalogue and one picker).** Measured at the bytes:
+  - (1) **Unifying the catalogues is a persisted-data change.** The animation store's six keys (`sine`, `quad`…, `lib/easings.ts:202`) are saved in every visualization (`api/models/shared.py:69` `easing: str = "sine"`) and in `localStorage`. The morph catalogue uses other names (`ease-in-out-sine`…, `:186`). "One catalogue" therefore needs a migration or alias ruling for stored documents. That is a server limb, and addendum (h) grants `api/**` only for F-201/F-253.
+  - (2) **Glass's `Timeline` (10.1.0) has no transport.** It exposes `segments`, `current`, `select` and `hover`. "Segments on one glass Timeline with transport" therefore needs either a consumer-built transport, which is a one-off against the owner's "NO one-off instances", or a glass limb.
+  - (3) The pane spans /morph, whose easing pickers AUDIT-2 already routes to O-74a E-3 (ADOPT-AT-LANDING) under `.au3`.
+  - **Ask:** re-home F-81 into `.au3` with O-74a E-3, and rule the easing-name migration (alias the six stored keys into the one catalogue, or migrate server-side). Nothing was substituted.
+- **ESC-u1-2, F-79's editor-dock mount at 390 against UIA-F-88's committed oracle.** Measured (⟨probe, `/v/<seed>` 390×844, editor dock expanded⟩):
+  - The dock is 340 px. The persistent Metric and Save take 113 px, which leaves the row 197 px.
+  - Undo, Redo, the separator, Delete, View options and More editor tools need 243 px.
+  - More editor tools lands at x 359–399, past the plate's right edge at 365. `f-w14u-vedit :198` v88 → `out ["More editor tools"]`, RED at `--workers=1`.
+  - Glass 10.1.0 has no dock overflow idiom (GlassDock has no size or overflow prop; DockControl `compact` only auto-sizes an icon, and coarse pointers clamp to 44 px).
+  - Every consumer fit that would satisfy v88 moves or drops one of its three named controls or the point count. Each of those is a design choice this seat may not improvise.
+  - **Ask:** rule what yields at < sm: (a) a glass dock overflow seat (a new O-row), (b) Delete into More tools at < sm, restating v88, or (c) the one menu reached from the canvas dock alone in edit mode at < sm, amending the lock.
+
+**Residuals**
+- (R-1) **UIA-F-13 (glass, O-78, fixed in 10.2.0, not yet published: ⟨`npm view @mkbabb/glass-ui versions`⟩ tops at `10.1.0`).** Menus opened inside the takeover (View options, More editor tools) render under the dialog. Measured: the u14 draft's `menuitem Smooth contour` click was intercepted by `svg.editor-svg` inside the dialog. So F-93's in-takeover menus become usable at the 10.2.0 repin (ADOPT-AT-LANDING), and u14 edits by key rather than through a menu.
+- (R-2) Glass dock posture after a keyboard-dismissed dock menu: an Escape hands focus back to the trigger, and the dock stays expanded while it holds focus. That is glass's design. The setups dismiss by pointer.
+- (R-3) A pre-existing Vue warning (`Component inside <Transition> renders non-element root node`) comes from `CoefficientsSpectrum`'s TransitionGroup of Tooltips. It fires on load, before any u1 surface, and is not this unit's.
+
+**Gates, BEFORE → AFTER**
+- `f-w14v-u1` falsifier: 7/7 RED ×2 → **7/7 GREEN ×2**.
+- The fullscreen DOM holds exactly one BasisCanvas and one ContourEditorCanvas (u14/u93 census): 2/2 → **1/1 ×2**.
+- `vue-tsc`: 0 → **0 ×2**. `vitest`: 86/86 → **86/86 ×2**.
+- Neighbours: 87 passed. v88 is ESCALATED (ESC-u1-2); the ux ExportModal case was cured and re-read ×4.
+
+**Commits:** fourier `2016861` (the falsifier), `64a1865` (the cure plus the adjacent restatements), pushed (`7ee9b65..64a1865` on `m/w1-bump-migration`). **Inherited paths:** none. **Status:** PARTIAL (ESC-u1-1, ESC-u1-2).
