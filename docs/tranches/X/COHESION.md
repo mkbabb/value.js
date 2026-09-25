@@ -3616,3 +3616,10 @@ The ConfiguratorLayer header ("Decomposit…" / "basis & resoluti…") is O-77's
 
 ## §0dz — 2026-09-25: owner frame on keyframes — "the squared off border is not correct--and both the easing, spring, and sequence uis are not properly digested with proper design hierarchy"
 Homed to KF.W13X as `.sq` (the Sequence stage's hard-cornered bordered box inside the rounded card: cure at the root, glass radius, relay if glass is at fault) and `.dh` (a design-hierarchy pass over Easing, Spring and Sequence: one primary subject, one Configurator-anatomy control group, subordinate readouts; a brief first, then served predicates ×2 dev and ×2 gh). They run ahead of KF.W13X's remaining register rows. Addendum (e).
+
+## §0ea — 2026-09-25: owner — "Continue. Deploy all workflows. Ratify the above with your judgement."
+**Ratified by the orchestrator's judgement, under the owner's grant:** O-84 (DOCK-SUMMARY-SQUARE: `morph.css:180-198`, the square lock on the collapsed summary) and O-84a (METRIC-TOKEN-JOIN: `metric/styles.css:66`, `min-inline-size: 3ch`) are **pulled into glass 10.2.0 (BL band 0)** instead of waiting for D2 pass 3 and the dock band.
+- **Why:** both are small, additive layout cures of the same kind as O-77a, which is already in band 0. The owner called out the floating dock twice ("still wrong", "floating elements"). The fourier `.pd` falsifier is already written and shown GREEN against the proposed rule (the injected-cure switch, 12/12 ×2). Leaving it for the 11.0.0 dock band keeps a visible defect live across every consumer's collapsed dock for a whole major.
+- **D2 keeps O-65's design questions** (collapsed-form anatomy beyond content sizing). Only the two mechanical cures move.
+- **Relayed live to glass-ui-f3.** The 10.2.0 tag still waits on D3 converging plus the owner's in-session go.
+- **The rest of the session's frame rulings are ratified as homed:** §0dw `.nav` and §0dx `.dm` (landed at fourier `79ea9f6`); §0dx `.pd` (honest-RED until 10.2.0); §0dy O-77a (10.2.0 W-0.3); §0dz KF.W13X `.sq` and `.dh` (Track B, next); F-W14V (g) G-c1 and the 28 PNGs (Track C, next seat).
