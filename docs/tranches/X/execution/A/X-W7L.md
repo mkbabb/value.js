@@ -232,3 +232,40 @@ These are the 13 rows AUDIT-2-value.md §Totals routes to the glass letter (O-74
 
 **Commits.** `1639d84b`: the evidence (24 files: `v-probe.ts`, `v-o65-probe.ts`, `v-o12-headed.config.ts`, `v-summarize.mjs`, readings ×2, 10 frames force-added as `.i` did, because `*.png` is ignored at `.gitignore:34`) plus the INBOX E13 sweep line. This receipt is a separate commit (pathspec: the record). The seat's `:9000` vite server is stopped at close.
 - **Adjacent edits:** none.
+
+### X.W7L.a
+
+Seat `claude-opus-5-5`, 2026-09-25 (resumed seat; HEAD at open `08353549`, at commit `a8449bee`+). Spec W7L.md §Units `.a` (:26-27); COHESION §0cu (OA-69), §0cz (O-75), §0dd, §0dh (fourier's precedent `239845f`).
+
+**Crash-recovery.** ⟨`git status --porcelain -- demo e2e docs/tranches/X/evidence/X-W7L docs/tranches/X/execution/A/X-W7L.md`⟩ → `?? e2e/smoke/x-w7l-detached.spec.ts` · `?? e2e/smoke/x-w7l-zprobe.spec.ts`, plus the ignored `a-frames/` (6 PNGs). These are a killed predecessor seat's partial work on this unit. Judged whole:
+- `x-w7l-detached.spec.ts` (253 lines): the falsifier, the same shape as fourier `web/e2e/f-w14v-detached.spec.ts` (210 lines): `da` gutter = page ground at 1440×900 and 1024×768, light and dark (structural stack + pixel medians with the casts off against the grid-hidden ground); `db` every section action on its header row, and a layer's header action never toggles it. Its `data-slot` names checked against glass 10.1.0 dist: ⟨`grep -o '"configurator-layer[a-z-]*"' node_modules/@mkbabb/glass-ui/dist/configurator-*.js | sort -u`⟩ → `configurator-layer`, `-actions`, `-header`, `-trigger`. Conforms; kept as written.
+- `x-w7l-zprobe.spec.ts` (128 lines): a scratch probe of gutter variants (`test("probe variants")`), not a gate. Moved out of `e2e/` to the session scratchpad, never committed.
+
+**Act 1 — census (L11).** Banked at `evidence/X-W7L/a-census.txt`.
+- ⟨`grep -rn 'ConfiguratorLayer\|layout="detached"\|<Configurator[ >]' demo | wc -l`⟩ → `0`. The only glass Configurator import is `ConfiguratorRow` in `demo/scenes/ConfigSliderPane.vue:21` (the /blob and /atmosphere inspectors).
+- **Stage + inspector:** value.js's scene is its own `.pane-container` grid of region cards (`.pane-wrapper--stage` / `--inspector`), not glass `Configurator`. It paints no shell plate: the falsifier's stack over the gutter is `div.pane-container > main.pane-main > div.app-layout > div`, `plates=0`, and the gutter pixel equals the grid-hidden ground (`delta=0,0,0`) in all four cells. There is no band for `layout="detached"` to remove, so it is not adopted (lock: "adopt only where value.js has the shape").
+- **Section actions:** ConfigSliderPane's titled sections (`.config-section-header`, non-collapsible) carry no action: ⟨falsifier census⟩ → `#/blob Geometry:0 · Membrane:0 · Color:0 · Lit Glass:0 · Pointer:0 · Satellites:0 · Tempo:0`, `#/atmosphere Field:0`. Its Copy JSON / Reset band (`ConfigSliderPane.vue:167-180`) resets the whole pane, so it is a PANE-level action. That row is A2-VA-L3-2 (glass CardHeader `#actions`, still-live at 10.1.0 per `.v` table B, owned by X-W12U `.h`), not a ConfiguratorLayer section's.
+- The other refresh/reset sites (⟨`grep -rln "RotateCcw\|RefreshCw\|RefreshCcw" demo`⟩ → 14 files: the workbench plates, the admin sub-view toolbars, the slug bar, error plates, dock menus) are not Configurator sections. GenerateControls already seats Regenerate on its plate's header row (UIA-V-361 is its wrap row). The admin toolbars' `Refresh …` buttons are measured in AUDIT-2 `value-L3/metrics.json` and belong to Lens 3's owner (X-W12U), not to this adoption.
+- Verdict: **L11 GREEN by census**. 0 sites have the glass shape, so 0 adoptions, and 0 `demo/**` edits.
+
+**Act 2 — the falsifier ×2 and its discrimination.** ⟨`npx playwright test e2e/smoke/x-w7l-detached.spec.ts --project=smoke --workers=1 --reporter=line`⟩
+- r1 → `6 passed (1.1m)` · r2 → `6 passed (1.3m)` (`a-falsifier-r1.txt`, `-r2.txt`). Readings are identical across runs: 1440 light `gap=18.0 gutter=255,145,176 ground=255,145,176/255,145,176 delta=0,0,0 plates=0`; 1024 light `gap=12.8 … delta=0,0,0`; 1440 dark `gutter=89,0,27 … delta=0,0,0`; 1024 dark `gutter=92,0,25 … delta=0,0,0`. The `casts=` read (e.g. 1024 light `70,51,51`) is the region cards' cartoon cast over the gutter: a shade, published but not judged, as in fourier's spec.
+- **Planted defect (the falsifier fails when the law breaks).** A scratch copy (`a-planted.spec.ts.txt`) plants `.pane-container { background: rgb(128,128,128) }` and appends a "Reset section" button to the body of the first section, then runs the same assertions → `6 failed` (`a-falsifier-planted.txt`): every `da` cell fails the stack check (`plates=1`) and both pixel checks (e.g. `gutter=128,128,128 … ground=255,145,176 delta=-127,-17,-48`), and each `db` scene fails "sits in the section header" and "sits on the header's row". The copy lived in `e2e/smoke/` only for that run and was deleted (⟨`ls e2e/smoke/x-w7l*`⟩ → the one spec).
+- Frames: `a-frames/after-da-{1440,1024}-{light,dark}.png`, `after-db-{blob,atmosphere}-1440-light.png`, force-added (`*.png` is ignored at `.gitignore:34`), the same way `.i` banked its frames.
+
+**Act 3 — floors.**
+- vue-tsc demo: ⟨`npx vue-tsc -p tsconfig.demo.json --noEmit`⟩ ×2 → EXIT 0, EXIT 0. e2e tsc: ⟨`npx tsc -p tsconfig.e2e.json --noEmit`⟩ → EXIT 0 (the new spec types clean).
+- vitest: ⟨`npx vitest run`⟩ r1 `Tests 7 failed | 980 passed (987)`; r2 `8 failed | 971 passed | 8 skipped (987)` at load 53, with the extra `palette-card-layout`, `plate-mass` and `generate-rail` EC-10 failures; ⟨those 3 files alone⟩ → `Tests 12 passed (12)`, so they are load flakes (the baseline's own class); r3 `7 failed | 980 passed (987)`. The steady 7 are the banked set: C-5, NG-6, and `.i`'s 5 INK-VEIL-MIDBAND. The spec's "945/947" floor is the pre-`.m` count; the tree has grown since (`.m` 958/960, `.i` +16 and +11 files), and the named failures are unchanged. **Floor held** (`a-vitest.txt`). This unit touched no product or unit-test file, so no count can move because of it.
+
+**Gates BEFORE → AFTER.**
+- L11: RED (0 ConfiguratorLayer, unmeasured) → **GREEN by census**: 0 glass Configurator shapes, 0 lone-row section actions, a gutter that is the page ground.
+- Falsifier: absent → **GREEN ×2** (6/6), RED 6/6 on the planted defect.
+- vue-tsc demo 0 → **0 ×2**. vitest floor → **held** (980/987, only the banked 7; one load-flake run classified).
+
+**Residuals.**
+- **RES-a-1.** The pane-level Copy JSON / Reset band in ConfigSliderPane is A2-VA-L3-2: glass CardHeader has no `#actions` at 10.1.0, and X-W12U `.h` owns it. This unit does not move it into a ConfiguratorLayer, because the sections are not layers; converting them would be a design change that no ruling has made.
+- **RES-a-2.** Lone-row actions outside Configurator shapes (the admin toolbars and others) are AUDIT-2 Lens 3's census, in X-W12U.
+
+**Escalations.** None. **Adjacent edits:** none. **Inherited paths:** `e2e/smoke/x-w7l-detached.spec.ts` (kept), `e2e/smoke/x-w7l-zprobe.spec.ts` (removed from the tree; scratch), and `a-frames/*.png` (re-shot by r2).
+
+**Commits.** `00d63cd3`: the falsifier plus its evidence (13 files). This receipt is a separate commit (pathspec: the record).
