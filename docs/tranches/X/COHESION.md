@@ -3592,3 +3592,7 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Committed:** fourier `assets/portraits/daraksha.jpg` (`4c38b12`, pushed). The original carried **GPS coordinates** and EXIF orientation 6, so it was re-encoded with the orientation baked in and **every EXIF field stripped** (0 tags). The GPS-bearing original stays only at `~/.fourier-samples/` and is never committed.
 - **F-CT.md addendum (a):** it is the primary committed sample. The seats read the spec at start, so the running F.CT workflow picks this up without a restart. EXIF-orientation handling on upload is a named input case.
 - **F-W14V.md addendum (d):** every fourier e2e upload moves to this sample through one fixture constant.
+
+## §0dt — 2026-09-25: Track D returned; `.l3` cured Firefox's refusal path; ESC-W7l3-1 ruled (i), with unit `.l4` and a quiet-host protocol
+- `.l3`: Firefox rejected `parseStylesheet` went from 1.02–1.08 to .915–.984. **The only RED cell is Firefox large accepted `parseStylesheet`** (median ≈1.04, read at load ≥15).
+- **Ruled:** a noise band is refused. **`.l4`** profiles and cures the accepted-sheet success path structurally, and its final gate reads are taken only at load < 8 (a bounded wait, load recorded, never a claimed unread cell). Then `.cp` is verified. The Track D chassis is now RESUME 6, and **Track D is resumed.**
