@@ -1038,3 +1038,123 @@ Neighbour oracles, run once after the cure:
 **Commits (fourier):** `2412ea0` (falsifier) · `642c87d` (L1-19) · `395d638` (L1-1 ⊕ L1-2ˢ) · `ba4efa9` (L1-4ˢ). A sibling `35b3464` (F.CT bench) interleaved and was not touched; nor were `bench/` and `tests/test_contour_bench.py`.
 
 **Dispositions:** L1-1 CURED · L1-19 CURED · L1-2ˢ CURED-to-seam + ADOPT-AT-LANDING (TocTree) · L1-4ˢ CURED (names) + ADOPT-AT-LANDING (publication) · L1-18ˢ ADOPT-AT-LANDING (measured) · L1-3 cited · X-7 OPEN for a ruling (conflicts with UIA-F-59). Self-count: 5 rows + 1 cite + 1 X row = 7 dispositions.
+
+### F.W14V.au6
+
+SERVED MODEL: claude-opus-5-5. Cross-app / lib / shell family: A2-FO-L1-14ˢ, L1-17, L1-21, L1-22, L1-24, L1-25, L1-28ˢ; the one search-with-glyph field (F-W14U addendum (e)); the useSafeStorage cross-cite; L2-18ˢ and L3-14 HELD; X-6 cited. fourier `ba4efa9` → `82423c4` (branch `m/w1-bump-migration`).
+
+**Act 0: crash recovery, anchors, baseline.** ⟨`git status --porcelain`⟩ → `?? .worktrees/` only, so nothing was inherited in `web/src/**` or `web/e2e/**`. During the unit a sibling (F.CT) had `bench/contours/harness.py`, `src/fourier_analysis/contours/*.py`, `shortest_tour.py` and `tests/test_shortest_tour.py` dirty; none of them was touched. Baseline gates: ⟨`npx vue-tsc --noEmit`⟩ → exit 0; ⟨`npx vitest run`⟩ → `19 files · 104 passed`. Anchors read at the true bytes (drifts get the intent at the true bytes, recorded per act):
+- glass pin 10.1.0. ⟨`cat dist/components/tooltip/index.d.ts`⟩ → `Tooltip · TooltipContent · TooltipTrigger · TooltipProvider` only, with no compact single-component tooltip. ⟨`cat dist/components/input/types.d.ts`⟩ → `InputProps` has no leading-adornment slot or prop. `dist/command-*.js` → `CommandInput` draws its own `Search` glyph.
+- ⟨`grep -rn animate-spin web/src | wc -l`⟩ → `0`.
+- `useSafeStorage.ts` is no longer byte-identical to value's: ⟨`diff value.js/demo/platform/storage/useSafeStorage.ts fourier-analysis/web/src/composables/useSafeStorage.ts`⟩ → fourier's adds `safeStorage(area)` and `Storage | null` parameters (UIA-F-120/F-213: reading `window.localStorage` itself throws when site data is blocked).
+- `FrequencyGraph.vue` had no importer: ⟨`grep -rn FrequencyGraph src e2e scripts`⟩ → comments only. It became an orphan when `9a1d932` (UIA-F-169) kept one amplitude view.
+- `problemMessage` already lives in `lib/api-problem.ts` (adminError.ts retired, UIA-F-121). `stores/gallery.ts` imports no component helper. `admin-row.css` is already deleted. `niceStep` is `lib/niceStep.ts` (`.au2` L1-23). `components/ui/` holds `SliderControl.vue` and `tooltip/` only.
+- `VisualizationView.vue` no longer imports `useToast`; `composables/useMorphConfig.ts` does. So the 7 importers are gallery store, GalleryView, AdminFlaggedPanel, UserSlugBar, AdminUserList, useWorkspaceLoader and useMorphConfig.
+- The search sites: `PaperSearchModal.vue:130` is glass `CommandInput` since UIA-F-64 (`cd414b2`), not a hand-rolled copy. `AdminUserList.vue:384` moved to `AdminUserToolbar.vue` at UIA-F-194. That leaves three hand-rolled hosts.
+
+**Act 1: falsifiers authored, RED ×2 on the before bytes** (fourier `a591669`).
+- `web/e2e/unit/f-w14v-au6.vitest.ts` reads the module graph: the file set (`import.meta.glob` keys), the modules' exports, and the specifiers of the importers a row names. ⟨`npx vitest run e2e/unit/f-w14v-au6.vitest.ts`⟩ ×2 → `12 failed (12)` both runs. The limbs: L1-17 (1), L1-21 (1), L1-22 (3, including "every component file has an importer", which caught `FrequencyGraph.vue`), L1-24 (4: a–d), L1-25 (2), and the search field (1).
+- `web/e2e/f-w14v-au6.spec.ts` checks L1-24 (d) against the served bytes. ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au6.spec.ts --project=chromium --workers=1`⟩ ×2 → `1 failed · 1 passed` both runs: the production limb (`:4190` `/demo/shape-extractor` is not the not-found page) failed, and the dev limb passed.
+
+**Act 2: L1-22 CURED** (`950638c`).
+- Deleted `evaluateBasis` and the `evaluateChebyshev`/`evaluateLegendre` that only it reached, plus `loadDraftByVisualizationSlug`. The IndexedDB `by-visualization-slug` index is schema and stays.
+- `lib/bases.ts` is deleted. Its `fourierPositionsAt` is folded into `lib/evaluators.ts`, which now exports exactly `evaluateFourier` and `fourierPositionsAt`, and its 3 importers were repointed.
+- **Intent at the true bytes:** the orphan `FrequencyGraph.vue` is deleted, along with the `#graph` slot that `CoefficientsSpectrum`/`CoefficientsPanel` forwarded to no filler.
+- Result: L1-22 limbs RED → GREEN.
+
+**Act 3: L1-21 CURED** (`6fbbf23`).
+- `composables/useToast.ts` is deleted. Every site calls glass `toast({ title, description, tone, action })` directly.
+- Each toast has a real title, the act itself. UIA-F-214 stands: no tone echo, and ⟨s214⟩ is GREEN.
+- A failure's description is the server's own word, from the new `problemDetail` (`problemMessage = problemDetail ?? fallback`).
+- The shim's one policy datum (an actionable error waits for the person, UIA-F-214) is `ERROR_TOAST` in `lib/toast-policy.ts`, which error sites spread.
+- The publish View action is glass `ToastAction`, built by `viewAction()` in the gallery store (UIA-F-248/F-183).
+- Toast oracles ⟨`playwright test f-w14u-shell f-w14u-misc f-w14u-gallery f-w14v-u3 f-w14v-p -g "toast|…"`⟩ → `12 passed · 2 failed`. The 2 are p3 @1440/@1024, the standing honest-RED **TOASTER-OFFSET** (ESC-p-1, `.p` receipt). They show the same 95 px toast box over the aside as `.p` measured.
+
+**Act 4: L1-24 ⊕ L1-17 CURED** (`68eed53`).
+- (a) `components/gallery/` holds GalleryView, the Gallery* parts, TierMark and TierControl. `components/admin/` holds Admin* and BatchActionBar. `components/auth/UserSlugBar.vue` is L1-17. `components/visualization/gallery/` is gone.
+- (b) `useCanvasSetup` and its `CanvasSurface` type move to `components/shared/canvas/`, and `NotationPills` to `components/shared/`. equation/ now imports nothing from visualization/.
+- (c) `components/equation/lib/{grid,harmonics,hit-test}.ts` and `harmonics.test.ts` move into `lib/equation/`.
+- (d) `components/dev/FourierShapeExtractor.vue`. Its route is registered only under `import.meta.env.DEV`.
+- (e) `components/ui/` keeps `SliderControl` and `tooltip` until L1-15 and L1-14 retire them.
+- **Adjacent edits (§0bt, no assertion removed):**
+  - `e2e/f-w14-dpr.spec.ts:4`: the `backingSize` import path.
+  - `e2e/f-w14v-au4.spec.ts:151`: the `ownedBy` path, `gallery/` → `admin/AdminUserToolbar.vue`.
+  - `e2e/f-w14u-misc.spec.ts:392-397`: r120's production read of `/demo/shape-extractor` now asserts the dev-only route's production answer, the not-found h1, still with storage blocked and zero page errors.
+- ⟨`playwright test f-w14v-au6 f-w14v-au4 f-w14-dpr f-w14u-misc --project=chromium --workers=1`⟩ → `51 passed (1.9m)`. The preview was rebuilt from these bytes: the stale `:4190` from 03:15 was stopped first so that `webServer` rebuilt it.
+
+**Act 5: L1-25 CURED** (`ef5678e`).
+- The route table is `router/routes.ts`. Each section is declared once, on its route: `meta.tab` (kept) plus `meta.nav {label, icon, order}` on the one route that names the section.
+- `sectionNav(records)` derives the list and skips alias records. ⟨`node -e …createRouter(…alias:["/visualize"]…).getRoutes()`⟩ → `[['/w/:s?',false],['/visualize',true]]`, so without the skip the alias would be a second Visualize.
+- `AppDock` reads `sectionNav(router.getRoutes())` and keeps no list. `getSavedTab` reads the same records.
+- **Intent at the true bytes:** `VALID_TABS` and the afterEach writer had already become `meta.tab` (UIA-F-212). The register's `group` is `order` here: there is one group, and `getRoutes()` returns matchers by path rank, not in declaration order.
+- The falsifier gained a live memory-history router limb in the same commit.
+- ⟨`playwright test f-w14u-shell f-w14u-misc --project=chromium --workers=1`⟩ → `49 passed (1.6m)`.
+
+**Act 6: the search-with-glyph field CURED** (`82423c4`).
+- `components/shared/SearchField.vue` has:
+  - glass `Input` with the glyph after it in tree order (UIA-F-106);
+  - a `<label>` root (MISS-DU4);
+  - an `#actions` seat, whose run the host reserves with `--search-field-end`;
+  - one anatomy per size;
+  - with actions, the engine's cancel glyph withdrawn (UIA-F-184).
+- `class`/`style` place the field; every other attribute rides to the Input.
+- The three hosts mount it:
+  - PaperSearchInput keeps its type register through `:deep(.search-field-input)`.
+  - AdminUserToolbar uses `sm`.
+  - GallerySearchBar is named by `aria-label`, so the wrapping label's content does not fold the actions' names into it.
+- Measured at 1440 (one bounded probe): gallery and paper both show `glyph 16px @ 12px · padStart 40px · h 40`, with padEnd 76 / 36 px. The before values, read from the source rules and not measured: paper 0.8rem @ 0.75rem / 1.875rem, gallery 16px @ 0.75rem / 2.25rem, admin 0.875rem @ 0.5rem / 1.75rem. Admin's `sm` anatomy is now 0.875rem @ 0.5rem / 1.875rem by the rule; it was not probed.
+- Consumer-owned until glass Input gains a leading-adornment slot (O-74 §10).
+- ⟨`playwright test paper-search f-w14u-paper f-w14-uia f-w14u-admin f-w14v-au4 f-w14u-gallery --project=chromium --workers=1`⟩ → `133 passed · 1 failed`. The failure is f-w14-uia UIA-F-17 `:162` (the Export frame dock control not visible), which is in the named pre-existing set.
+
+**Act 7: the rows without consumer code.**
+- **L1-14ˢ ADOPT-AT-LANDING.** At the pin, glass `./tooltip` exports the four decomposed parts and nothing else (Act 0). Deleting `components/ui/tooltip` now would spell three elements at every call site (⟨`grep -rn 'from "@/components/ui/tooltip"' web/src | wc -l`⟩ → `9` files), which is the repetition the row asks glass to end. The shim goes when glass's compact Tooltip lands (O-74 new ask L1-14).
+- **L1-28ˢ CURED-BY-TWIN** (`.au0`, confirmed): ⟨`grep -rn animate-spin web/src | wc -l`⟩ → `0`. The glass half (a public DotRing busy primitive, UIA-F-72) is still RED under its id.
+- **L1-17 glass half:** the presentation-only DockAccount/SlugIdentity stays a glass candidate. The consumer move is Act 4.
+- **useSafeStorage cross-cite** (value X-W12U `.k` item 4): the files are no longer byte-identical. fourier's is the superset: `safeStorage(area)` resolves the area inside the guard, because reading `window.localStorage` itself throws with site data blocked (UIA-F-120/F-213). One owner per app. Unless glass rules a shared home, value's `.k` should adopt fourier's area resolver rather than fourier adopting value's. No fourier code.
+- **AdminFlaggedPanel cross-cite:** `.au4` recorded it. The file is now `components/admin/AdminFlaggedPanel.vue`.
+- **Easing pickers** (O-74a E-3): `.au3` holds them, ADOPT-AT-LANDING. Not this unit's.
+- **A2-FO-L2-18ˢ HELD** and **A2-FO-L3-14 HELD** (O-74a E-2, the §11 type rows): no consumer edit while glass rules on the text-micro coarse step and the ui-scale/emphasis ladder.
+- **A2-FO-X-6 cited:** MENU-ICON-GAP (O-76 addendum (a), ESC-c3-1) plus L2-12, both glass-held.
+
+**Act 8: the final regression (full e2e `--workers=1`).** ⟨`FW14_PHASE=au6-r<n> MONGO_URI=mongodb://127.0.0.1:27018/fourier BASE_URL=http://localhost:3100 npx playwright test --workers=1 --reporter=line`⟩ at fourier `82423c4`. The suite is 513 cases: the three projects, with this wave's specs added since the F.W14U banked 401. The `:4190` preview was rebuilt by `webServer` from these bytes.
+- **Run 1** (load 67.9 → 27.3): **`23 failed · 3 skipped · 487 passed (33.7m)`**.
+  - 21 of the 23 are the standing named set:
+    - F.W14U: contrast-floor `:82` ×2 and `:128`; gallery-admin-a11y ×4 (all four `[serious] aria-hidden-focus`, as before); visual-checkpoint `:81 :102 :123`.
+    - This wave's honest-REDs: f-w14-residuals G-c1; f-w14u-d d2; f-w14u-vedit v88; f-w14v-au2 L2-15 ×3 (ESC-au2-1); f-w14v-au3 L1-12 (ESC-au3-1); f-w14v-c3 c3m/c3g (MAGNET-STATE-HIDDEN / MENU-ICON-GAP); f-w14v-p p3 ×2 (TOASTER-OFFSET).
+  - Two are outside the set:
+    - (i) f-w14u-vdock `:279` v181, a 120 s click timeout on the canvas dock's `Export frame` (not visible). `.u4` recorded the same case as run-1-only under load. Alone, ⟨`playwright test e2e/f-w14u-vdock.spec.ts:279 --workers=1`⟩ ×2 → passed ×2.
+    - (ii) mobile-chromium visual-checkpoint `:199` (@coarse item 4, the `Auto-select harmonics by Parseval energy` wand button): `3 pixels (ratio 0.01)` differ. It is RED alone ×2 at HEAD and **RED ×2 at the before bytes**. To read the before bytes, `ba4efa9` was served from a scratchpad `git worktree` on `:3199`, run as ⟨`BASE_URL=http://localhost:3199 npx playwright test e2e/visual-checkpoint.spec.ts:199`⟩ ×2 → `3 pixels` both runs, and then torn down. So it predates this unit. au6's only edit on /equation is `FunctionInput.vue`'s NotationPills import path. It is left for the Check. It was GREEN at F.W14U Repair 1 (`a926748`), and the candidate movers are this wave's /equation units (`0e817fd` `.eq2`, `5b77972` `.au3`, `cad7518` `.au1`), which ran no full e2e. Not re-baselined: it is not this unit's golden, and the diff is unread by its owner.
+- **Run 2** (load 31.9 → 225.6): **`23 failed · 3 skipped · 487 passed (35.9m)`**.
+  - Two earlier launches of this run died in the global seed before any case ran (`TimeoutError: apiRequestContext.post: Timeout 30000ms exceeded`, `POST /api/sessions` through `:3100` while the host was loaded). This was the instrument, not the product: ⟨`curl -X POST :3100/api/sessions`⟩ → `200` in 0.02 s straight after. The third launch ran to the end.
+  - ⟨`diff` of the two runs' sorted failure lists⟩ → exactly one line differs: run 1's v181 is run 2's f-w14u-vedit `:149` **v87** (the selected handle's ring opacity read `0.69492 < 0.9` mid-transition).
+  - Alone, ⟨`playwright test e2e/f-w14u-vedit.spec.ts:149 --project=chromium --workers=1`⟩ ×2 → `1 passed`, then `1 failed`, so it is intermittent at these bytes. au6 did not touch the contour editor: its visualization/ edits are import paths and the `CanvasSurface` type home only (⟨`git diff -M ba4efa9 82423c4 --stat -- web/src/components/visualization`⟩).
+  - Both runs otherwise hold the named set, plus vc `:199`, which predates this unit (above).
+- **Reading:** within the named set plus two load-timing intermittents (v181, v87), each GREEN alone at least once, and one pre-existing outside-set RED (vc `:199`, RED at the before bytes). None is attributable to au6 by bytes.
+
+**Gates (BEFORE → AFTER, each ×2):**
+
+| Gate | Before | After |
+|---|---|---|
+| per-row falsifier `e2e/unit/f-w14v-au6.vitest.ts` | RED ×2 (`12 failed (12)`) | **GREEN ×2** (`12 passed (12)` · `12 passed (12)`) |
+| L1-24 (d) served falsifier `e2e/f-w14v-au6.spec.ts` | RED ×2 (prod limb; dev limb passed) | **GREEN** (`2 passed`, in the 51-case neighbour run, and in both full runs) |
+| vue-tsc | 0 | **0 ×2** (⟨`npx vue-tsc --noEmit; echo $?`⟩ → `tsc 0` · `tsc 0`) |
+| vitest | 104/104 (19 files) | **116/116 (20 files) ×2** |
+| full e2e `--workers=1` | named set (banked, F.W14U) | r1 `23 failed · 487 passed` · r2 `23 failed · 487 passed`: named set + v181/v87 intermittents + vc `:199` (pre-existing) |
+
+**Commits (fourier; pushed as ⟨`git push origin 82423c4:refs/heads/m/w1-bump-migration`⟩ → ⟨`git ls-remote origin m/w1-bump-migration`⟩ `82423c443eb4`, a fast-forward that carries only this unit's commits):** `a591669` (falsifiers) · `950638c` (L1-22) · `6fbbf23` (L1-21) · `68eed53` (L1-24 ⊕ L1-17) · `ef5678e` (L1-25, plus the falsifier's live-router limb) · `82423c4` (the search field). Siblings interleaved after `82423c4`: F.CT `4c38b12` `94a60bf` `03e5e1c`, none under `web/`. They were not touched.
+
+**Inherited paths:** none. **Adjacent edits:** `e2e/f-w14-dpr.spec.ts:4`, `e2e/f-w14v-au4.spec.ts:151`, `e2e/f-w14u-misc.spec.ts:392-397` (Act 4, each a path or route move the cure made; no assertion removed).
+
+**Dispositions:**
+- CURED: L1-17 (consumer), L1-21, L1-22, L1-24, L1-25, and the search-with-glyph field.
+- ADOPT-AT-LANDING: L1-14ˢ (O-74 compact Tooltip); the search field's glass half (O-74 §10 leading adornment); L1-17's glass candidate.
+- CURED-BY-TWIN: L1-28ˢ (glass DotRing still RED, UIA-F-72).
+- HELD: L2-18ˢ and L3-14 (O-74a E-2).
+- Cited: X-6. Cross-cited: useSafeStorage (value X-W12U `.k`; fourier's is the superset) and AdminFlaggedPanel.
+- Self-count: 9 register rows (L1-14 L1-17 L1-21 L1-22 L1-24 L1-25 L1-28 L2-18 L3-14) + 1 X row + 1 addendum-(e) item (the field) + 2 cross-cites = 13 dispositions.
+
+**Residuals (for the Check):**
+- (R-1) vc `:199` mobile, 3 px on the /equation wand button. RED at the before bytes, so it is not this unit's. It needs its owner to read the diff, or to cure it (candidates `0e817fd`/`5b77972`/`cad7518`).
+- (R-2) The v181 and v87 load intermittents (one each, in different runs).
+- (R-3) Out of scope and unowned by any unit in the plan: F-W14V.md **addendum (d)** (COHESION §0ds, 2026-09-25: every `web/e2e/**` upload moves to `assets/portraits/daraksha.jpg` through one fixture constant) landed after this wave's plan was written, and no unit row carries it. It is for the close/Check to home.
+- **Escalations:** none.
