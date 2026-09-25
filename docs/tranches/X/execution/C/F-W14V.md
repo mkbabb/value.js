@@ -852,3 +852,123 @@ SERVED MODEL: claude-opus-5-5 · equation and morph (AUDIT-2 L1-5 L1-6 L1-12 L1-
 **Adjacent edits:** `web/e2e/f-w14u-vedit.spec.ts:130`, `:608` (L1-5, see Act 3).
 
 **Commits (fourier `m/w1-bump-migration`, pushed to `a6fa84c`):** `9f59faf` (falsifier + vitest), `5b77972` (L1-13), `f20ae5b` (L1-6), `e581e20` (L1-5), `a6fa84c` (L1-12 falsifier measure). value.js: this record.
+
+### F.W14V.au4
+
+SERVED MODEL: claude-opus-5-5 · gallery and admin (AUDIT-2 L1-9 L1-10 L1-27ˢ L2-9 L2-10 L2-11 L3-1ˢ L3-2 L3-3 L3-4, plus `.au0`'s X-8; cite L3-12 L3-13; AdminFlaggedPanel cross-cite value X-W12U `.k`). fourier base `a6fa84c`.
+
+**Act 0: crash recovery and baseline.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. Nothing was inherited under `web/src` or `web/e2e`. The servers were listening on :3100 (vite dev), :8000 (uvicorn), :27018 (mongod) and :4190. Baseline gates: vue-tsc 0, and vitest 97/97 (17 files) from the `.au3` receipt at these bytes.
+
+**Act 1: anchors re-measured at `a6fa84c`.** A throwaway probe on :3100 over the `fixtures/gallery` stubs measured the following:
+- **L3-1: GREEN at HEAD.** At 1440 the users toolbar is one row: search 1263×36 at y166, sort 93×40 at y164, overflow 36×36 at y166, bar 40 tall. X.F.W14U's UIA-F-194 move of Prune into the overflow cured the register's three-row reading. The consumer half is cited. The glass half (an inline SelectTrigger arm) is **ADOPT-AT-LANDING**.
+- **L3-2: GREEN at HEAD.** At 390 the flagged row runs x17–373 and its action group x97–262. UIA-F-110 (one visible action plus a menu) replaced the three-button group the register measured. The row is re-verified after L1-27, below.
+- **L2-9: OPEN.** At 360, 390 and 430 the card modal's left gutter is 0, against `--space-section` = 20 px.
+- **L2-10: OPEN for user rows only.** The user-row checkbox is 16×16 on touch. The card checkbox is already 44×44 (UIA-F-191).
+- **L2-11: OPEN.** The audit ledger at 390 is a table, with no card projection.
+- **L3-3: OPEN.** At 1440 the tab strip sits at y96 and the search at y146, on two rows. The "N loaded" row was already gone (UIA-F-247).
+- **L3-4: OPEN.** At 390 there is one card per row, each 358 wide.
+- **X-8: OPEN.** Both filters are 620 px wide. The action chips are solid `bg-success`.
+- **L1-9, L1-10 and L1-27 are structural and OPEN.**
+  - L1-9: three confirm machines, in GalleryView, AdminUserList and AdminFlaggedPanel.
+  - L1-10: the card draws Crown and Bookmark toggles, the modal a ToggleGroup, and the flagged row its own `handleSetTier` fork ("Kept …").
+  - L1-27: users and flagged sit on `admin-row.css`, and the pager is written twice (users, audit).
+- **Intent at the true bytes:**
+  - L1-10 `{refetch}`: the store's `setTier` already patches in place (F.W4 `.d`), so the option is moot. The fork is deleted instead, and the store answers the settled tier.
+  - L1-10 flagged setter: after UIA-F-110 the flagged row's setter is one menu item, "Keep". TierControl therefore mounts on the card and in the modal, and the flagged Keep calls the store.
+
+**Act 2: falsifier, RED before (`d83b01c`).** The new files are `web/e2e/f-w14v-au4.spec.ts` (23 cases) and `web/src/composables/useDestructiveConfirm.test.ts` (vitest).
+- ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au4.spec.ts --project=chromium --workers=2 --reporter=line`⟩ ×2 at `a6fa84c` → run 1 `19 failed · 4 passed (58.1s)`, run 2 `19 failed · 4 passed (1.8m)`. The same 19 failed on both runs:
+  - L1-9: `owned by components/shared/ConfirmDialog.vue (read components/visualization/GalleryView.vue < App.vue)`.
+  - L1-10 ×2: no `[data-slot=tier-mark]`, and "Tier set to saved" is not visible (the fork toasts "Kept").
+  - L1-27: no users DataTable.
+  - L2-9 ×6: `left gutter 0 vs --space-section 20`.
+  - L2-10: `user row checkbox 16x16`.
+  - L2-11 ×3: no `.data-table-cards`.
+  - L3-3 ×2, L3-4 ×2 and X-8 (`#audit-action-filter 619.84375px`).
+  - The 4 that passed are the L3-1 and L3-2 guards (both themes), which were GREEN at HEAD as Act 1 records.
+- ⟨`npx vitest run src/composables/useDestructiveConfirm.test.ts`⟩ ×2 → `Cannot find module './useDestructiveConfirm'`, so it is RED ×2.
+- **Instrument amendment `d6925e7`.** L2-11's "sideways pan" limb now counts only `overflow-x: auto|scroll` (the `sr-only` and `truncate` clippers are `hidden`, not pans). It also adds the limb the first cure attempt exposed: the target is painted in its card (> 40 px). At the before bytes it is still RED, on the missing card projection.
+
+**Act 3: cures (fourier, pushed to `67d5ba8`).**
+- `4bdc59d` **L1-9 CURED.**
+  - `composables/useDestructiveConfirm<I>({busy?})` holds the typed pending intent and the in-flight lock. `ask` and dismiss are refused mid-act, and a caller's own `busy` can serve as the lock. The dialog closes after the act settles.
+  - `shared/ConfirmDialog.vue` is the one dialog over glass Dialog: `locked` while busy and `deliberate` otherwise, Cancel disabled in flight, `tone` destructive or neutral, and the words in the host's slot.
+  - The gallery single/batch confirm, the users confirm (FR-AUL-32's `busy` is the lock) and the flagged delete confirm migrate. Their copy is unchanged.
+- `fd22fb9` **L1-10 CURED.**
+  - `gallery/TierMark.vue` is the readout (the tier glyph in its tier token; the name is visible when `labelled`; nothing renders for `normal`), used on the card, in the modal and on the flagged row.
+  - `gallery/TierControl.vue` is the setter (glass ToggleGroup `type="single"`, three values, a `compact` icon-only arm with named items), used on the card and in the modal.
+  - `stores/gallery.ts` `setTier` is the one mutation and returns the settled tier (`null` on failure). The flagged fork is deleted, and its Keep calls the store.
+- `edc0a08` **L2-9 CURED.** `w-full` is dropped from DialogContent, so glass's `min(100% - 2*--space-section, 32rem)` holds and the 28rem cap is kept.
+- `724957f` **L2-11 CURED, X-8 CURED** (one file, the audit ledger).
+  - L2-11: the DataTable is `responsive`. The target's `max-w-0` truncation clamp is scoped to `[td&]`, because the column class also reaches the card value, where it painted the target 0 px wide. The ledger's name rides a labelled region, since glass names only the table projection. The region sets the inherited `text-small`, so the cards read on the OA-50 admin rung.
+  - X-8: both filters are capped at `max-w-[20rem]`, and the IP hash header is `whitespace-nowrap`. A destructive verb keeps its solid destructive tone; every other action is a neutral outline chip (the F-197 precedent).
+- `1078586` **L3-3 CURED.** At ≥ sm the chrome is one toolbar row: tabs lead and the search trails at its own `--search-measure`. Below sm the tabs come first, then the search.
+- `735c459` **L3-4 CURED.**
+  - The grid's measure is named once (the inline style had been spelled twice).
+  - The host is an inline-size container. Below 30rem of its own width the public grid is `repeat(2, minmax(0,1fr))`.
+  - The card is its own container, with a compact arm under 13rem: the title and one meta line (the age), and the basis chips as glyphs (each name kept for a screen reader).
+  - **The admin grid keeps one column.** The select box, the three-state TierControl and Delete each need a 44 px touch target, and a 171 px card cannot seat them. Measured on a frame: the admin controls wrapped to three lines.
+- `67d5ba8` **L1-27 consumer half CURED, L2-10 CURED.**
+  - Users and flagged move onto glass DataTable (`responsive`), one idiom with the audit log. `admin-row.css` is deleted (154 lines), and L3-2's narrow arm goes with it.
+  - AdminUserList goes from 879 to 660 lines. It splits into `AdminUserToolbar.vue` and `AdminUserTable.vue`. The User column leads with the row's glass Checkbox at its own size (L2-10: the `h-4 w-4` literal is gone), then the slug on `text-mono-small` and the suspended badge. Entries, Joined and Seen sit on `text-mono-micro`, and the row menu is in `row-actions`. The list keeps the fetch, the selection, the batch bar, the confirm and the pager.
+  - The flagged queue is `AdminFlaggedTable.vue`: Entry (the media column, the flags, and the TierMark when notable), then Owner and Posted. Its last column is `AdminFlaggedActions.vue` (Dismiss visible; Keep and Delete in the menu, per UIA-F-110). **Measured:** glass fixes `.data-table-actions` at `width: 2.5rem` (one icon wide, `glass-ui.css`), and at 390 the Dismiss + menu group overran the card title. The actions therefore ride a column, not the seat.
+  - A Tier column was tried. It left an empty labelled "Tier" field on every normal row's card, so the tier rides the entry instead.
+  - One pager: `shared/Pager.vue` serves users and audit. Each ledger's name rides a labelled region.
+- **Location intent.** The register names `shared/ConfirmDialog.vue` and `shared/Pager.vue`, and both are used as named. The composable lives in `composables/` beside `useOffsetPagination`.
+
+**Act 4: gates AFTER (at `67d5ba8`).**
+- Falsifier: ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au4.spec.ts --project=chromium --workers=2 --reporter=line`⟩ ×2 → `23 passed (31.9s)` and `23 passed (29.2s)`. **Every row is GREEN ×2.**
+- vitest: ⟨`npx vitest run src/composables/useDestructiveConfirm.test.ts`⟩ → `5 passed`.
+- **vue-tsc 0 → 0** (⟨`npx vue-tsc --noEmit; echo $?`⟩ ×2 → 0).
+- **vitest 97/97 (17 files) → 102/102 (18 files)** ×2.
+- Neighbours, on the final bytes:
+  - ⟨`… f-w14v-au4 f-w14-admin-idiom f-w14-admin-table f-w14u-admin gallery-admin-a11y --workers=4`⟩ → `78 passed · 8 failed`. The 8 were:
+    - gallery-admin-a11y ×4, `[serious] aria-hidden-focus` on reka's focus guards. This is F.W14U `.admin` R-1, the named set; it is the only axe rule and it was RED at the base too.
+    - G-a Users ×4, "meta lines present". Cured before commit by `data-admin-meta` on the Entries/Joined/Seen values.
+  - The re-run ⟨`… f-w14-admin-idiom f-w14v-au4`⟩ → `35 passed`.
+  - Wide set ⟨`… visual-checkpoint f-w14-uia f-w14-uia-r2 coarse-pointer contrast-floor f-w14u-gallery gallery f-w14u-admin f-w14-admin-table f-w14v-au0 f-w14v-au1 --workers=4`⟩ → `142 passed · 7 failed`. None is from this unit:
+    - contrast-floor ×3: morph and grid pairs (`HLG-37[grid-cell-fill]` …, 18 of 36).
+    - visual-checkpoint ×3: the spec waits for `Open img-amber-fox-spiral-one`, but since UIA-F-99 the card is named by its title (`Open ${name}`, a label this unit did not touch). Neither these nor the contrast pairs touch this unit's diff. Whether they are in the banked F.W14U close set was not re-derived here; that is for the wave close.
+    - f-w14-uia UIA-F-17: a GPU-export flake, `1 passed` when re-run alone.
+  - Earlier readings: after L1-9, ⟨`… f-w14u-admin gallery gallery-admin-a11y f-w14u-gallery --workers=3`⟩ → `61 passed · 4 failed`, the same a11y R-1. After L3-3, ⟨`… f-w14u-gallery gallery f-w14-uia`⟩ → `57 passed · 1 failed` (UIA-F-17, flake).
+- Frames written by the neighbour specs (24 `e2e/screenshots/f-w14/after-*.png`) were restored to HEAD. They came from this seat's runs and are not cure evidence. This seat's own frames (1440/390, users, flagged, audit, public, admin phone) are in the session scratchpad, not committed.
+
+**Citations.**
+- **L3-12: CURED-BY-TWIN** (UIA-F-99, F-247), per `.au0`. The card and the modal lead with `title ?? slug`, and the slug and age are muted meta (read at `GalleryCard.vue` `name`, `GalleryCardModal.vue` `name`).
+- **L3-13: CURED-BY-TWIN** (UIA-F-189), per `.au0`.
+- **L3-1 consumer half: cured at HEAD** (UIA-F-194), with the guard GREEN ×2 before and after. The glass SelectTrigger inline arm is **ADOPT-AT-LANDING**.
+- **L3-2: cured at HEAD** (UIA-F-110). The guard is GREEN ×2 after the DataTable move, and `admin-row.css` (the register's anchor) is deleted.
+- **L1-27 glass half: Pagination (UIA-F-145) is ADOPT-AT-LANDING.** `shared/Pager.vue` is the one seat until it lands.
+- **AdminFlaggedPanel cross-cite (value X-W12U `.k`).** Fourier's queue is now glass DataTable plus the shared ConfirmDialog, TierMark and Pager idioms. Per the lock there is one owner per app, and nothing here writes to value.js.
+- **Glass asks for the wave check to relay** (glass is READ-ONLY, and the value.js letters are outside this seat's set):
+  - (a) DataTable's `row-actions` seat is fixed at 2.5rem, so a row with a visible verb beside its menu cannot use it. Ask for a content-sized arm.
+  - (b) DataTable names only the table projection (`aria-label` goes to the cards only when `selectable`). Ask for the label on both projections.
+  - (c) The L1-9 useConfirm candidate: six sites across three apps repeat the machine, and fourier's is now one composable.
+
+**Residuals.**
+- R-1: gallery-admin-a11y ×4 `aria-hidden-focus` (F.W14U `.admin` R-1, the named set). It is unchanged by this unit.
+- R-2: the wide-set REDs outside this unit's diff (contrast-floor ×3, visual-checkpoint ×3), for the wave close's full `--workers=1` reading.
+- R-3: glass asks (a)–(c) above are unrelayed; they are for the wave check.
+
+**Escalations:** none.
+
+**Adjacent edits** (same concern, and each keeps its assertions):
+- `web/e2e/f-w14-uia.spec.ts` UIA-F-42 (a card's title/`dd` fields) and UIA-F-36 (rows by `data-admin-row`).
+- `web/e2e/f-w14-admin-table.spec.ts` G-t: rows are `tbody tr` or `.data-table-card`, and pairs that share no edge are skipped.
+- `web/e2e/f-w14-admin-idiom.spec.ts` G-a: rows are `tbody tr` or cards; `[data-admin-row]` is counted; the card title/label/value sizes are read; a field's label comes from its column header or its card `dt`.
+- `web/e2e/f-w14u-admin.spec.ts`: `openAudit` (table row or card), `flaggedRow` and a193 (rows by `data-admin-row`).
+- `web/e2e/f-w14v-au0.spec.ts` `walkAudit` (table row or card).
+
+**Commits (fourier `m/w1-bump-migration`, pushed to `67d5ba8`):**
+- `d83b01c`: falsifier + vitest.
+- `4bdc59d`: L1-9.
+- `fd22fb9`: L1-10.
+- `edc0a08`: L2-9.
+- `d6925e7`: L2-11 instrument amendment.
+- `724957f`: L2-11 + X-8.
+- `1078586`: L3-3.
+- `41387d5`: L2-11 adjacent oracle waits.
+- `735c459`: L3-4.
+- `67d5ba8`: L1-27ˢ + L2-10.
+
+value.js: this record.
