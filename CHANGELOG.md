@@ -1,5 +1,15 @@
 # Changelog
 
+## [Unreleased] — 2026-09-24
+
+### Fixed
+
+- `./css`: custom property names keep their authored case (css-variables-1 §2: `--MyVar` and `--myvar` are distinct declarations). `parseStylesheet`, `collectKeyframes`, `collectStyleRules` and `collectDeclarations` used to lowercase every declaration name, which merged differently-cased custom properties. Standard property names are still ASCII-lowercased. (X.P.W7.cp)
+
+### Migration
+
+- `./easing`: since 4.0.0 the `timingFunctionDescriptions` table and the `bounce-in-ease` / `bounce-out-ease` / `-half` / `bounce-in-out-ease` curves are no longer exported (ruled V-A64, `docs/tranches/V/archive/ADDENDA.md`; `docs/tranches/V/CONSUMER-CUT.md` §1). Keep any description copy your UI renders, and any bounce curve besides `easeInBounce`, in your own code; express other curves as `CubicBezier(...)` or `linearEasing(...)`.
+
 ## [4.1.0] — 2026-09-19
 
 The totality cut. 4.0.0's surface was not total on its own declared boundary: public `./css` entries
