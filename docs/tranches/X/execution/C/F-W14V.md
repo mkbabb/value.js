@@ -446,3 +446,51 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), Track C, 2026-09-25. Sco
 **Adjacent edits:** none.
 
 **Commits:** fourier `1ff403d` (the falsifier and frames spec), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `1ff403d1f871`). value.js: the relay addendum, the INBOX line and this record, committed together below.
+
+### F.W14V.eq2
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), Track C, 2026-09-25. Scope: F-W14V.md addendum (b) `.eq2` ruling (:45), COHESION §0dh. Writable: fourier `web/src/**`, `web/e2e/**`.
+
+**Acts, in order**
+1. **Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain | grep -E 'web/(src|e2e)/'`⟩ → empty. Nothing inherited. fourier HEAD at open = `1ff403d` (`.c3`).
+2. **Measured /equation's shape** (`EquationView.vue` at `1ff403d`, and headed frames `before-{1440,390}-{light,dark}.png`). At lg+ a local `.eq-grid` placed the controls column (`FadingScroll aria-label="Equation controls"` around the Function/Controls and Coefficients `ConfiguratorLayer`s) left of a results column (`.eq-panel-right`: the series `cartoon-card` and the convergence-plot `cartoon-card`). Below lg the Controls/Canvas `SegmentedTabs` pick one. **Verdict: a stage (the series and its plot) plus a controls inspector, the same shape as /visualize, so it moves** (the ruling's "yes" branch). ⟨`grep -rn Configurator src`⟩ → only `/visualize` mounted a `Configurator`.
+3. **Measured glass 10.1.0's `Configurator` (READ-ONLY).** `Configurator.vue.d.ts`: `layout?: "attached"|"detached"`, `scrollMode`, `asideSide` (default `right`, the inspector idiom), `asideWidth`, slots `stage` · `controls` · `default` · `footer`. The render (`dist/configurator-CPxIo3q2.js:122-123`) puts `configurator-stage` before the `<aside class="configurator-aside">`, and under `scroll-mode="auto"` wraps the default slot in its own `FadingScroll`. `styles.css` `[data-layout="detached"]{gap: var(--configurator-detached-gap)}`. The aside side is left at glass's default (right), as /visualize has it, because the ruling's point is one page shape.
+4. **Falsifier `web/e2e/f-w14v-eq2.spec.ts`** (fourier `0beb3a2`). q1 (1440×900): one `[data-slot=configurator]` with `data-layout="detached"`; `.eq-card` and `.eq-plot-card` in `:scope > .configurator-stage`, 0 `.cartoon-card` there, 0 `.eq-grid`; ≥ 2 `.configurator-layer` in the aside; 0 reset buttons in a `.configurator-layer-body` (resets go in `#actions`); the stage-to-aside gap > 0. q2 (390×844): the Controls tab shows the aside's layers and no stage box (null or 0 height); the Canvas tab shows the series and hides the aside; the stage fits the viewport. Frames 1440/390 × light/dark (390 also on the Canvas tab).
+   - BEFORE ⟨`FW14V_PHASE=before BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-eq2.spec.ts --project=chromium --headed --workers=1`⟩ ×2 → run 1 `2 failed · 4 passed` (q1 `one glass Configurator on /equation … Expected: 1 Received: 0`; q2 `Expected: 1 Received: 0`; the 4 frame cells passed); run 2 (`-g "q1|q2"`, which also matched the frames through "eq2") → `2 failed · 4 passed`, the same two `Received: 0`. **RED ×2.**
+5. **The move** (fourier `0e817fd`, `EquationView.vue`). `<Configurator scroll-mode="auto" layout="detached" class="eq-configurator glass-opaque">`: `#stage` = `.eq-panel-right` (states, series, plot); the default slot (the aside) = `.eq-panel-left-wrap` (`role="group" aria-label="Equation controls"`, the name the column's FadingScroll carried) around the same `.eq-layers` stack. `.glass-opaque` is /visualize's OA-43 choice (both cards solid `--card`). **Retired:** the `.eq-grid` grid and its 360/400/440 column rules (now the aside band `--configurator-aside-{min,max}`, the same values /visualize sets); the column's own `FadingScroll` (glass's `scroll-mode="auto"` port replaces it; its import swapped for `Configurator`); the two `cartoon-card` stamps on `.eq-card` and `.eq-plot-card` (one stage card now; the series and plot are divided by glass's `--configurator-divider` hairline). Below lg, /visualize's three rules are carried (flex column with `min-width:0`; the active stage fills; an inactive stage or aside takes no box, so no empty detached card paints). **No reset exists on /equation** (⟨`grep -n -i reset FunctionInput.vue EqCoefficientsPanel.vue`⟩ → no reset control), so `#actions` stays empty; the lock "resets in #actions" is held by q1's no-reset-in-body limb.
+6. **AFTER** ⟨`FW14V_PHASE=after … f-w14v-eq2.spec.ts --project=chromium --headed --workers=1`⟩ ×2 → run 1 `6 passed (26.5s)`, run 2 `6 passed (26.1s)`. **GREEN ×2.** ⟨`npx vue-tsc --noEmit`⟩ → exit 0 (twice, before and after the comment fix). ⟨`npx vitest run`⟩ → `Test Files 15 passed (15)` · `Tests 90 passed (90)`.
+7. **Frames (headed; git-ignored under `web/e2e/screenshots/f-w14v/eq2/`)**: `before-` and `after-{1440,390}-{light,dark}.png`, plus `-canvas` at 390: 12 before-and-after frames and 4 canvas frames. Read: `after-1440-light` shows the stage card (series over plot, hairline between) and the controls card on the right, with the page grid in the gap between them; `after-390-dark` shows the Controls tab as one aside card and no stage box; `after-390-light-canvas` shows the stage card only.
+8. **Neighbours.** ⟨`playwright test equation-interaction f-w13-radius f-w14-dpr f-w14-control-row f-w14u-shell f-w14u-eq f-w14v-u2 f-w14u-vedit timeline-scrub shell-header --project=chromium --workers=3`⟩ → `67 passed · 3 failed`:
+   - f-w13-radius frame 5 (`controls stack top border-radius Expected 16 Received 4`): the layers now sit inside glass's aside card and take glass's concentric radius. Restated (adjacent).
+   - f-w14u-eq q114 (`.eq-panel-left` count 0): that FadingScroll column is retired. Restated to `.eq-panel-left-wrap` (adjacent).
+   - f-w14-control-row @390 (`.glass-slider` first hidden): glass renders the stage before the aside, so the first slider in DOM is the stage's timeline slider, which is hidden on the Controls tab. Restated to the first rendered slider (adjacent).
+   - f-w14u-vedit v88 (the 390 editor dock fit): **pre-existing and not this unit's** (the ESC-u1-2 v88 390 fit, and `.c3`'s R-1). It is /visualize's editor dock; this unit did not touch it.
+   - The run also rewrote 12 tracked `web/e2e/screenshots/f-w14/after-page-*.png` evidence frames (the control-row spec's frame side-effect). They were restored with ⟨`git checkout -- <those 12 paths>`⟩; they were this seat's own side-effect and clean at open. The re-runs used `FW14_PHASE=eq2check`, so git-ignored names were written instead.
+   - visual-checkpoint item 3 (`.eq-panel-left`, the retired column): restated to the aside card (`.eq-configurator .configurator-aside`). Golden `checkpoint-disclosure-body-chromium-darwin.png` re-baselined with `--update-snapshots` after the diff was read. It shows the same Function/Controls layers, now on glass's opaque aside card with its concentric corners, where the page grid showed through before (400×620 → 424×608).
+   - Restated set ×2: ⟨`… f-w14-control-row f-w14u-eq visual-checkpoint f-w13-radius -g "G-h control-row idiom @ 390|q114|disclosure|frame 5"`⟩ → `5 passed` ×2.
+   - ⟨`visual-baseline f-w14-uia visualization-ux -g "equation|Equation|notation|Notation|UIA-F-3"`⟩ → `13 passed`.
+
+**Gates BEFORE → AFTER**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| /equation shape measured | UNMEASURED | **stage + inspector → moved** |
+| falsifier q1/q2 (detached Configurator, layers in the aside, no reset in a body, gap; the <lg tabs) | **RED ×2** (0 Configurators) | **GREEN ×2** (6/6, 6/6) |
+| headed frames 1440 + 390, light + dark | — | **GREEN**: before 8 and after 8 (incl. 390 canvas) |
+| vue-tsc | 0 | 0 |
+| vitest | 86/86 (wave baseline) | 90/90 (15 files; the count rose with earlier units) |
+| equation neighbours | — | 67 pass · 3 restated then GREEN ×2 · v88 pre-existing (ESC-u1-2) |
+
+**Residuals**
+- (R-1) `.eq-status` straddles the series/plot seam as before; now that seam is the stage's hairline, not the gap between two cards. The comment was updated; the behaviour is unchanged.
+- (R-2) `style.css`'s `cartoon-card` shim census prose (":216", "`EquationView.vue` using it 5 times") was already stale before this unit and is now 2 lower. The prose was left alone (a different concern; the shim is `.au6`'s cross-app area).
+
+**Escalations:** none.
+
+**Adjacent edits** (COHESION §0bt; the moved shape's oracles):
+- `web/e2e/f-w13-radius.spec.ts:127-141`, frame 5: the panels are glass's stage and aside cards on `--radius-card`, and the layer stack's corners are concentric inside the aside (> 0, < card, top = bottom).
+- `web/e2e/f-w14u-eq.spec.ts:139-141`, q114: the column is `.eq-panel-left-wrap`.
+- `web/e2e/f-w14-control-row.spec.ts:218-221`: wait on the first rendered `.glass-slider`.
+- `web/e2e/visual-checkpoint.spec.ts:194`, plus its golden, re-baselined after the diff was read.
+
+**Commits:** fourier `0beb3a2` (the falsifier) · `0e817fd` (the move plus the adjacent oracle edits), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `0e817fde4ddf`). value.js: this record.
