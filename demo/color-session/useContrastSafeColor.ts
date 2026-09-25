@@ -7,6 +7,7 @@ import {
     type ComputedRef,
 } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+import type { Color } from "@mkbabb/value.js/color";
 import { parseColorIn } from "./color-utils";
 import { INK_AMBIENT_KEY } from "./keys";
 import {
@@ -42,7 +43,7 @@ import {
 // The referent is the tier's ACTUAL painted recipe, read live: a hidden probe
 // in the document's own cascade resolves the rung's background token
 // (color-mix, tint knob and all) to a concrete color+alpha; the dock band is
-// probed off the mounted `.glass-dock` element itself (its chrome recipe is
+// probed off the mounted `.dock-plate` element itself (its chrome recipe is
 // its own, thinner α). In non-browser contexts (jsdom — no canvas) the
 // resolver yields null and the static producer MODEL in `./ink` serves; the
 // O-18 census enforces the live path in the real browser.
@@ -57,7 +58,7 @@ const TIER_BG_TOKEN: Partial<Record<InkSurface, string>> = {
  * The probe EPOCH — the connection-truth signal for the live instrument. A
  * consumer's first `computed` evaluation runs while Vue is still building the
  * subtree DETACHED (elements insert bottom-up on initial mount), so a
- * `document.querySelector(".glass-dock")` read at that instant misses the
+ * `document.querySelector(".dock-plate")` read at that instant misses the
  * dock band and the cached computed would carry the static-model referent
  * FOREVER (the resume-run's earned catch: the light-scheme profile trigger
  * certified against the model's 0.90 while the REAL band composited 0.75 —
@@ -117,18 +118,17 @@ function resolveCssColorAlpha(
     };
 }
 
-/** OKLab L of an sRGB triple, memoized (library-resolved, never local math). */
-const tintLCache = new Map<string, number>();
-function srgbLightness(r: number, g: number, b: number): number | null {
+/** The opaque OKLCh colour of an sRGB triple, memoized (library-resolved,
+ *  never local math) — a live layer's colour for the sRGB composite. */
+const tintColorCache = new Map<string, Color<"oklch">>();
+function srgbColor(r: number, g: number, b: number): Color<"oklch"> {
     const key = `${Math.round(r)},${Math.round(g)},${Math.round(b)}`;
-    const hit = tintLCache.get(key);
+    const hit = tintColorCache.get(key);
     if (hit !== undefined) return hit;
-    const parsed = parseColorIn(`rgb(${key})`, "oklch");
-    const L = parsed.channels[0];
-    if (L === "none") return null;
-    tintLCache.set(key, L);
-    if (tintLCache.size > 512) tintLCache.clear();
-    return L;
+    const color = parseColorIn(`rgb(${key})`, "oklch");
+    tintColorCache.set(key, color);
+    if (tintColorCache.size > 512) tintColorCache.clear();
+    return color;
 }
 
 let tierProbe: HTMLElement | null = null;
@@ -149,7 +149,10 @@ function resolveLiveTint(surface: InkSurface): SurfaceTint | undefined {
     if (surface === "page") return undefined;
     let bg: string | undefined;
     if (surface === "chrome") {
-        const dock = document.querySelector<HTMLElement>(".glass-dock");
+        // X.W7L.i: glass 10 paints the dock's material on `.dock-plate`
+        // (`--glass-veil-dock`); `.glass-dock` itself is transparent there,
+        // so probing it read α 0 and the static model served in its place.
+        const dock = document.querySelector<HTMLElement>(".dock-plate");
         if (dock) bg = getComputedStyle(dock).backgroundColor;
     } else if (surface === "veil") {
         // T.W6.5-P (T-34): the veil is an IN-PLATE fixture — TWO alpha
@@ -158,7 +161,7 @@ function resolveLiveTint(surface: InkSurface): SurfaceTint | undefined {
         // adaptive `--glass-tint-*` axis retunes per-card, so a body-level
         // probe reads the wrong cascade — probed live: root-context veil
         // L 0.34/α 0.60 vs the card-context 0.41/0.63). So the veil is
-        // probed off the MOUNTED element itself (the `chrome`/`.glass-dock`
+        // probed off the MOUNTED element itself (the `chrome`/`.dock-plate`
         // precedent): the Card stamps `data-surface="veil"`, its painted
         // recipe + its nearest painted ancestor (the resting plate) are
         // composited A-over-B in sRGB — the SAME alpha-composite model the
@@ -193,17 +196,16 @@ function resolveLiveTint(surface: InkSurface): SurfaceTint | undefined {
             const aOut = veil.alpha + plate.alpha * (1 - veil.alpha);
             const mix = (a: number, b: number) =>
                 (veil.alpha * a + plate.alpha * b * (1 - veil.alpha)) / aOut;
-            const L = srgbLightness(
-                mix(veil.r, plate.r),
-                mix(veil.g, plate.g),
-                mix(veil.b, plate.b),
-            );
-            if (L === null) return undefined;
-            return { L, alpha: aOut };
+            return {
+                color: srgbColor(
+                    mix(veil.r, plate.r),
+                    mix(veil.g, plate.g),
+                    mix(veil.b, plate.b),
+                ),
+                alpha: aOut,
+            };
         }
-        const L = srgbLightness(veil.r, veil.g, veil.b);
-        if (L === null) return undefined;
-        return { L, alpha: veil.alpha };
+        return { color: srgbColor(veil.r, veil.g, veil.b), alpha: veil.alpha };
     } else {
         const probe = probeEl();
         const token = TIER_BG_TOKEN[surface];
@@ -215,9 +217,10 @@ function resolveLiveTint(surface: InkSurface): SurfaceTint | undefined {
     if (!bg) return undefined;
     const resolved = resolveCssColorAlpha(bg);
     if (!resolved || resolved.alpha === 0) return undefined;
-    const L = srgbLightness(resolved.r, resolved.g, resolved.b);
-    if (L === null) return undefined;
-    return { L, alpha: resolved.alpha };
+    return {
+        color: srgbColor(resolved.r, resolved.g, resolved.b),
+        alpha: resolved.alpha,
+    };
 }
 
 /**

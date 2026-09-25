@@ -70,13 +70,15 @@ function parseOklch(css: string): { L: number; C: number; H: number } {
 /** The measured ambient band (F-1) + interior points. */
 const AMBIENTS = [0.376, 0.5, 0.63, 0.8, 0.936] as const;
 
-/** The producer card tint's own L (the veil composite's mix endpoint) —
- *  parsed through the same library leaf the resolver threads (never a
- *  hand-computed lightness). */
+/** The producer veil ink's own L (the veil composite's mix endpoint) —
+ *  glass-ui 10.1.0's `--glass-veil-ink` (light `tokens/glass.css`, dark
+ *  `tokens/dark-arm.css`; X.W7L.i: 7.0.0's card-tint endpoint no longer
+ *  paints) — parsed through the same library leaf the resolver threads
+ *  (never a hand-computed lightness). */
 function veilCardBound(dark: boolean): number {
-    const lightness = requiredOklch(dark ? "hsl(26 22% 17%)" : "hsl(30 85% 96%)")
+    const lightness = requiredOklch(dark ? "oklch(0.17 0.03 70)" : "oklch(0.28 0.035 70)")
         .channels[0];
-    if (lightness === "none") throw new Error("Veil card is missing lightness");
+    if (lightness === "none") throw new Error("Veil ink is missing lightness");
     return lightness;
 }
 
@@ -134,7 +136,7 @@ describe("D6 — resolveSurfaceLightness (the ladder referent)", () => {
             for (const a of AMBIENTS) {
                 const veil = resolveSurfaceLightness("veil", a, dark);
                 const resting = resolveSurfaceLightness("resting", a, dark);
-                // A convex mix of the card tint and its plate underlay: the
+                // A convex mix of the veil ink and its plate underlay: the
                 // veil referent must sit BETWEEN the two, strictly inside.
                 const lo = Math.min(resting, veilCardBound(dark));
                 const hi = Math.max(resting, veilCardBound(dark));

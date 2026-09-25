@@ -16,8 +16,13 @@ export const TEXT_CONTRAST_FLOOR = 4.5;
 export const GRAPHICS_CONTRAST_FLOOR = 3;
 export const CERTIFY_HEADROOM = 1.25;
 
+/**
+ * A painted recipe: the layer's OPAQUE colour (alpha 1) and the alpha it
+ * paints at.
+ * The browser composites it source-over in sRGB, so the model does too.
+ */
 export interface SurfaceTint {
-    L: number;
+    color: Color<"oklch">;
     alpha: number;
 }
 
@@ -26,13 +31,28 @@ const PRODUCER_TINTS = {
     foreground: { light: "hsl(24 10% 10%)", dark: "hsl(30 14% 90%)" },
 } as const;
 
-const RUNG_ALPHA = {
-    resting: { light: 0.65, dark: 0.72 },
-    floating: { light: 0.8, dark: 0.88 },
-    quiet: { light: 0.5, dark: 0.58 },
+/**
+ * X.W7L.i — glass-ui 10.1.0's published veil ladder (`styles/tokens/glass.css`
+ * + `dark-arm.css`): every plate is `--glass-veil-ink` at the rung's alpha
+ * (`color-mix(in srgb, ink / α 100%, --card)` at `--glass-level: 1`), laid
+ * over the ground below it. Rung α = base + k·step (quiet −1, resting 0,
+ * floating +1; the dock plate is `--glass-veil-dock` = −1). The 7.0.0
+ * cream-frost constants (card tint at α .65/.80) no longer describe any
+ * painted surface; this is the static model the live probe falls back to.
+ */
+const PRODUCER_VEIL = {
+    ink: { light: "oklch(0.28 0.035 70)", dark: "oklch(0.17 0.03 70)" },
+    base: { light: 0.14, dark: 0.18 },
+    step: 0.04,
 } as const;
 
-const FLOATING_TINT_L = { light: 1, dark: 0.345 } as const;
+const RUNG_STEP = {
+    quiet: -1,
+    resting: 0,
+    floating: 1,
+    chrome: -1,
+} as const;
+
 const WELL_FOREGROUND_FRACTION = 0.08;
 
 function parseOklch(source: string): Color<"oklch"> | null {
@@ -66,17 +86,59 @@ function serialize(color: Color<"oklch">): string {
     return result.value;
 }
 
+/** Bisection steps for the best reachable ratio: 1.25 / 2^10 ≈ 1.2e-3. */
+const HEADROOM_SEARCH_STEPS = 10;
+
+/**
+ * Certify `accent` on the surface: the ink nearest the pick that clears
+ * `floor + headroom`. The headroom is a preference, not the floor.
+ *
+ * X.W7L.i (ESC-W7Rm-1): an opaque surface admits at most
+ * max((Y + .05) / .05, 1.05 / (Y + .05)) against black or white, which dips
+ * to 4.58:1 at Y ≈ 0.18. glass 10's dark veil seats mid-lightness grounds in
+ * that band (Y 0.133–0.238 admits no 5.75:1 ink), and the old search threw
+ * `contrast_unreachable` there although the 4.5:1 floor was reachable. Now,
+ * where the headroom target is unreachable, the search bisects for the
+ * highest ratio in [floor, floor + headroom) the surface admits and returns
+ * that ink: the best certified value, still ≥ the floor. Only a floor that no
+ * ink reaches is a failure, and that remains loud.
+ */
 function certify(
     accent: Color<"oklch">,
     surfaceL: number,
-    minimumRatio: number,
+    floor: number,
+    headroom: number = CERTIFY_HEADROOM,
 ): Color<"oklch"> {
-    const result = safeAccentColor(accent, surfaceColor(surfaceL), {
-        minimumRatio,
-        gamut: "srgb",
-    });
-    if (!result.ok) throw new Error(`Ink certification failed: ${result.error.code}`);
-    return result.value;
+    const surface = surfaceColor(surfaceL);
+    const attempt = (minimumRatio: number) =>
+        safeAccentColor(accent, surface, { minimumRatio, gamut: "srgb" });
+    const failed = (code: string): never => {
+        throw new Error(`Ink certification failed: ${code}`);
+    };
+
+    const preferred = attempt(floor + headroom);
+    if (preferred.ok) return preferred.value;
+    if (preferred.error.code !== "contrast_unreachable") failed(preferred.error.code);
+
+    const atFloor = attempt(floor);
+    if (!atFloor.ok) return failed(atFloor.error.code);
+
+    let best = atFloor.value;
+    let pass = floor;
+    let fail = floor + headroom;
+    for (let i = 0; i < HEADROOM_SEARCH_STEPS; i++) {
+        const middle = (pass + fail) / 2;
+        const probe = attempt(middle);
+        if (probe.ok) {
+            pass = middle;
+            best = probe.value;
+        } else if (probe.error.code === "contrast_unreachable") {
+            fail = middle;
+        } else {
+            failed(probe.error.code);
+        }
+    }
+    return best;
 }
 
 const CARD_L = {
@@ -89,7 +151,41 @@ const FOREGROUND = {
     dark: requiredOklch(PRODUCER_TINTS.foreground.dark),
 } as const;
 
-/** Resolve the effective lightness of the material rung under the ink. */
+const VEIL_INK = {
+    light: requiredOklch(PRODUCER_VEIL.ink.light),
+    dark: requiredOklch(PRODUCER_VEIL.ink.dark),
+} as const;
+
+/** The static model's plate recipe for a translucent rung (glass 10.1.0). */
+export function producerRungTint(
+    rung: keyof typeof RUNG_STEP,
+    dark: boolean,
+): SurfaceTint {
+    const scheme = dark ? "dark" : "light";
+    return {
+        color: VEIL_INK[scheme],
+        alpha: PRODUCER_VEIL.base[scheme] + RUNG_STEP[rung] * PRODUCER_VEIL.step,
+    };
+}
+
+/**
+ * Lay `tint` over `ground` the way the browser paints it: source-over in
+ * gamma-encoded sRGB (the library's rgb mix, never local math).
+ */
+function composite(ground: Color<"oklch">, tint: SurfaceTint): Color<"oklch"> {
+    if (tint.color.alpha !== 1) throw new Error("Ink layer colour must be opaque; its alpha rides SurfaceTint.alpha");
+    const mixed = mixColors(ground, tint.color, tint.alpha, { space: "rgb" });
+    if (!mixed.ok) throw new Error(`Ink composite failed: ${mixed.error.code}`);
+    const out = convertColor(mixed.value, "oklch");
+    if (!out.ok) throw new Error(`Ink composite failed: ${out.error.code}`);
+    return out.value;
+}
+
+/**
+ * Resolve the effective lightness of the material rung under the ink: the
+ * real composite of the plate recipe (live `tint`, else glass 10.1.0's
+ * published veil ladder) over the ground below it (the atmosphere ambient).
+ */
 export function resolveSurfaceLightness(
     surface: InkSurface,
     ambientL: number,
@@ -99,31 +195,23 @@ export function resolveSurfaceLightness(
 ): number {
     if (surface === "page") return ambientL;
 
-    if (surface === "veil") {
-        if (tint) return tint.alpha * tint.L + (1 - tint.alpha) * ambientL;
-        const underL = resolveSurfaceLightness("resting", ambientL, dark, underTint);
-        const alpha = RUNG_ALPHA.quiet[dark ? "dark" : "light"];
-        return alpha * CARD_L[dark ? "dark" : "light"] + (1 - alpha) * underL;
-    }
-
-    if (tint) return tint.alpha * tint.L + (1 - tint.alpha) * ambientL;
-
     const scheme = dark ? "dark" : "light";
-    const cardL = CARD_L[scheme];
-    switch (surface) {
-        case "resting": {
-            const alpha = RUNG_ALPHA.resting[scheme];
-            return alpha * cardL + (1 - alpha) * ambientL;
-        }
-        case "floating":
-        case "chrome": {
-            const alpha = RUNG_ALPHA.floating[scheme];
-            return alpha * FLOATING_TINT_L[scheme] + (1 - alpha) * ambientL;
-        }
-        case "well":
-            return (1 - WELL_FOREGROUND_FRACTION) * cardL
-                + WELL_FOREGROUND_FRACTION * lightness(FOREGROUND[scheme]);
+    if (surface === "well") {
+        return (1 - WELL_FOREGROUND_FRACTION) * CARD_L[scheme]
+            + WELL_FOREGROUND_FRACTION * lightness(FOREGROUND[scheme]);
     }
+
+    const ground = surfaceColor(ambientL);
+    if (tint) return lightness(composite(ground, tint));
+
+    if (surface === "veil") {
+        // The veil is an IN-PLATE fixture (T-34): quiet veil over the resting
+        // plate over the ground — two sRGB layers.
+        const plate = composite(ground, underTint ?? producerRungTint("resting", dark));
+        return lightness(composite(plate, producerRungTint("quiet", dark)));
+    }
+
+    return lightness(composite(ground, producerRungTint(surface, dark)));
 }
 
 /** Certify a concrete CSS color against the surface it actually paints. */
@@ -134,7 +222,7 @@ export function certifyAccentInk(
 ): string {
     const accent = parseOklch(css);
     if (!accent) return css;
-    const safe = certify(accent, surfaceL, floor + CERTIFY_HEADROOM);
+    const safe = certify(accent, surfaceL, floor);
     return safe.channels.every((channel, index) => {
         const source = accent.channels[index];
         return channel === source
@@ -151,7 +239,7 @@ export function resolveMutedInk(surfaceL: number, dark: boolean): string {
         { space: "oklch" },
     );
     if (!mixed.ok) throw new Error(`Muted ink mix failed: ${mixed.error.code}`);
-    return serialize(certify(mixed.value, surfaceL, TEXT_CONTRAST_FLOOR + CERTIFY_HEADROOM));
+    return serialize(certify(mixed.value, surfaceL, TEXT_CONTRAST_FLOOR));
 }
 
 /** Choose the WCAG-maximal neutral endpoint for a concrete opaque fill. */
