@@ -2522,3 +2522,86 @@ Seat `claude-opus-5-5`, 2026-09-25, Track D. Governing text: W7.md (268 lines, r
 - **R-l4-2 (the large cell measures unequal work).** Act 1 measured that all four large sheets are refused by both arms, and on `wpt-bulma-0.7.5.css` at different points: the retired parser stops at declaration 32 (it refuses the legacy comma `rgba(10, 10, 10, 0.2)`, which css-color-4 admits and the product accepts), the product at 946 — ≈ 29.6× the declaration work. Every operation the two arms share reads below the retired parser in Firefox (rule-list scan .70, value parser .53, the three equal-work sheets 1.0 / .50 / .59). The cell's remaining distance on SpiderMonkey is the bulma sheet's extra accepted work, not a slower operation. Recorded for the orchestrator; no instrument or corpus change was made (the large-sheet corpus is `.o`'s banked input, E-3).
 
 **Escalation — ESC-W7l4-1.** The structural cure is landed (each accepted node built once; allocation −20%; E5 < 1 on every clean Firefox large rep in the bisection), but the gate read L-13 requires could not be taken: the host's 1-minute load stayed ≥ 26.85 for the full 90-minute bounded wait. The cell is UNREAD, not claimed. With it: R-l4-2, a measured fact the ruling may need — on the large corpus the arms do unequal work (bulma: retired 32 declarations, product 946, because the retired parser refuses a legacy-comma `rgba()` css-color-4 admits). The per-rule profile is `bench/records/2026-09-24-x-p-w7-profile-l4.json`, and the per-sheet/per-reader tables are `bench/records/2026-09-25-x-p-w7-readers-t3.json` (`daa8e85a`).
+
+## RESUME 6 Close (2026-09-25, close seat `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 268 lines; ADDENDUM (f) at `:262` binds). From this record: `## RESUME 6 — Open` through `## RESUME 6 Unit plan`, and the `.l4` receipt (the last section). Every earlier section stands (E-3). **Crash-recovery:** ⟨`git status --porcelain -- src bench test/css docs/tranches/X/execution/D/X-P-W7.md package.json package-lock.json`⟩ → empty at open; parse-that's dirty paths (`rust/**`, `README.md`, `.cargo/config.toml`, untracked `docs/**`) are master's standing dirt, outside this seat's set, untouched. bbnf-lang worktree ⟨`git log --oneline -1`; `status --porcelain | wc -l`⟩ → `f0059db14` (= `origin/x-p-w7-typescript`), `0`.
+
+### Act 1: commit roster, and whether `.l4` stayed in its writable set
+⟨`git show --stat --format= <c>`⟩ per commit:
+
+| Commit | Paths touched | In set? |
+|---|---|---|
+| value.js `5d46e376` (cure + re-emission + pins) | `src/css/bbnf/{sheet,stylesheet,value}.ts`, `src/css/bbnf/generated/grammar.{js,d.ts}`, `src/css/stylesheet.ts`, `test/css/bbnf-success-path.test.ts`, `src/css/grammar/{stylesheet,value}.bbnf` | yes (`.k2` grant + ADDENDUM (f) 1's named files + `test/css/**`); the two `.bbnf` files are the declared §0bt adjacent edits (`stylesheet.bbnf:24,26,28,51`, `value.bbnf:39–40`: same repo, same concern, the builders destructure exactly those shapes) |
+| value.js `daa8e85a` (instruments + records) | 20 paths, all under `bench/` (`paired/{alloc,phases,readers}.mjs`, `records/**`) | yes (`bench/**`) |
+| value.js `ef91a5a3` (receipt) | this record | yes |
+
+**Landed wrong: none.** No `package.json`/lockfile, `ci.yml`, `src/css/result.ts`, bbnf-lang path (the emitter is unchanged at `f0059db14`), PR #1 or `scripts/dev/dev.sh` path in any commit. The hand-cut probes under `bench/records/2026-09-25-x-p-w7-l4-probes/` are bench evidence, never imported by `src/`.
+
+### Act 2: the gates re-read by this seat (final bytes: value.js src at `5d46e376`, emission `c1c91dad…`, bbnf-lang `f0059db14`; HEAD `9f847921`)
+
+**Correctness, gates and size** (load 33–50 throughout; sibling fleets).
+- ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 9f847921…`, `srcDirty ""`, `bankedManifestOk 79/79`, `retiredAt 2155142b…`.
+- **L-G2 / V-1** ⟨`node bench/paired/equiv.mjs product <scratch>/eq{1,2}`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 92 (ASCII-only sources 1 · CP-CASE 4)` both = 88 F-b-4 + 4 CP-CASE. **GREEN ×2.**
+- **L-G3** ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`; ⟨`node bench/paired/instrument.mjs`⟩ (emitter linked) → `"plainEqualsShipped":true`, `"shippedInstrumentTokens":[]`. **GREEN.**
+- **K2-b** ⟨`grep -rn deepFreeze src | wc -l`⟩ → `0`; **V-8** ⟨`grep -rnE 'GRAMMAR_MODULES|new ParserState|reset\(\)' src/css/bbnf --exclude-dir=generated | wc -l`⟩ → `0`. **GREEN.**
+- **E-4** ⟨`node scripts/gen-grammar.mjs --check`⟩ ×2, `node_modules/@mkbabb/bbnf-lang` linked to the worktree (`npm run -s build` exit 0) → `grammar.js is current (sha256 c1c91dad543dd45a…)` both; ⟨`git status --porcelain src/css/bbnf/generated | wc -l`⟩ → `0`. **GREEN ×2.**
+- **E-2** ⟨`node bench/paired/audit.mjs`⟩ (linked emitter; load 45.81 → 47.08) → `rules 160 · sources 29944 · sheets 4 · checks 200137551 · violations 0 · modeCalls 4791680 · modeDiffs 0`. **GREEN.**
+- **E-1/E-3/E-5** ⟨`npx vitest run`⟩ ×2 in the bbnf-lang worktree `typescript/` → `Test Files 21 passed (21) · Tests 299 passed (299)` both; ⟨`npx tsc --noEmit -p . | grep -c 'error TS'`⟩ → `0`. **GREEN ×2.**
+- **E-6** ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js | wc -c`⟩ → `92300`; `| gzip | wc -c` → `13002` (ceilings 125,646 / 14,517). **GREEN.**
+- **`.cp` pins (ADDENDUM (d))** ⟨`npx vitest run test/css/custom-property-case.test.ts`⟩ ×2 → `Tests 4 passed (4)` both; ⟨`grep -n "V-A64" CHANGELOG.md`⟩ → `:11` (the `./easing` migration note). **GREEN ×2.**
+- ⟨`npx vitest run test/css`⟩ → `Test Files 8 passed (8) · Tests 86 passed (86)` (incl. `bbnf-success-path.test.ts` 11, `bbnf-refusal.test.ts`, the deep-frozen pin). **GREEN.**
+- ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`; ⟨`… | grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `30 MIRROR-DEFECTS 0` (no other value; the line count varies with vitest's interleaved reporter, 28–32). **GREEN.**
+- ⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit | grep -c 'error TS'`⟩ → `0 · 0 · 0`. **GREEN.**
+- ⟨`npx vitest run`⟩ → `Test Files 3 failed | 71 passed (74) · Tests 7 failed | 980 passed (987)`: `test/ink.test.ts` ×5 (D6 ×2, T-35 ×2 + 1; Track A's working-tree edit), `test/spectrum-luma.test.ts` C-5 BORN-RED, `demo/test/shell/reka-binding-idiom.test.ts` NG-6 — **all foreign; 0 CSS failures** (the receipt's generate-rail EC-10 pair now passes: a sibling track's cure). **GREEN (G-suite).**
+- **L-6** ⟨`git diff HEAD --stat -- package.json package-lock.json | wc -l`⟩ → `0`. **Held.**
+
+**Timing — L-13, the quiet-host protocol, re-run by this seat.**
+- **Bounded wait.** A detached waiter (scratchpad `close/wait.sh`) polled ⟨`sysctl -n vm.loadavg`⟩ every 30 s from **18:03:54 to 19:34:01** (90 min, 177 samples) for a 1-minute load < 8. ⟨`cat close/status`⟩ → `NEVER-QUIET 19:34:01`. ⟨`awk '{print $2}' close/load.log | sort -n | sed -n '1p;$p'`⟩ → min **25.48** (19:06:37), max **68.38** (18:54:32). **The host never quieted** — the second consecutive 90-min window (the `.l4` seat's: min 26.85, max 256.15) with the three sibling tracks' fleets running.
+- **One read recorded with its load, not claimed.** ⟨`node bench/paired/browser.mjs l4close-ff firefox 2 large,rej 11 product parseStylesheet`⟩ (⟨`uptime`⟩ 63.96 → 49.22; record moved to scratchpad `close/`, ⟨`git status --porcelain bench src | wc -l`⟩ → `0`): Firefox **large** — 5 of 6 reps set aside (1 · 1.341 · 1.113 · .972 · 1.065), 1 clean rep **1.012** (spread 1.538); Firefox **rej** — 8 of 8 set aside (.85–1.302). At load 49–64 the instrument sets aside 13 of 14 reps: this read carries no verdict either way.
+- **Not re-read on the final bytes:** the node / Chromium / WebKit matrix and Firefox's other cells (whole, acc, rej for the six value entries), and whole-7/7 inside ceilings. L-13 binds the final reads to a quiet host; a matrix read at load 25–68 would be a claimed-while-voided cell (R-l-2). They stand as `.l4`'s receipt left them: **UNREAD on the final bytes.**
+- Tooling restored (L-4): ⟨`grep '"version"' node_modules/@mkbabb/bbnf-lang/package.json`⟩ → `"version": "0.1.4"`; bbnf-lang worktree ⟨`status --porcelain | wc -l`⟩ → `0` at `f0059db14`.
+
+### Act 3: §Verification Artefacts
+W7.md has no §Verification Artefacts clause. The artefacts the gates name were run above: the frozen oracle (`bench/paired/equiv.mjs`, 1,376,531 rows ×2), the emitted-module routing audit (`bench/paired/audit.mjs`), the compiled-out instrument (`bench/paired/instrument.mjs`), `gen-grammar --check` ×2, and the paired browser instrument (`bench/paired/browser.mjs`).
+
+### Act 4: E13 mail sweep
+⟨`ls -td glass-ui/docs/tranches/*/ | head -3`⟩ → `BL BK BJ`. ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` · keyframes.js `V/coordination/` · atlas `P/coordination/` → 0 on every path. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. **0 UNREAD in scope.**
+
+### Act 5: gate table, BEFORE → AFTER
+BEFORE = RESUME 6 Baseline (open bytes `1e04369b`/`31121b23`); AFTER = this seat's reads on the final bytes (`5d46e376`, emission `c1c91dad…`, emitter `f0059db14`).
+
+| Gate | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|
+| L-G1 Firefox large parseStylesheet | x1.056 (born-RED, load 25–44) | 90-min wait NEVER-QUIET (min 25.48); loaded read (63.96→49.22): 1 clean rep 1.012, 5 SA | **UNREAD** (L-13) |
+| L-G1 every other cell, node · Chromium · WebKit · Firefox, acc/rej/large | GREEN (RESUME 5 Close, on the `.l3` bytes) | not re-read (L-13); Firefox rej: 8/8 SA at load 49–64 | **UNREAD on the final bytes** |
+| whole-7/7 inside ceilings | GREEN (RESUME 5 Close) | not re-read (L-13) | **UNREAD on the final bytes** |
+| L-G2 V-1 | 92 = 88 + 4 | 92 = 88 F-b-4 + 4 CP-CASE ×2 | **GREEN ×2** |
+| L-G3 | 0 | 0; `plainEqualsShipped true`, 0 shipped instrument tokens | **GREEN** |
+| `.cp` pins + V-A64 | 4/4 · `:11` | 4/4 ×2 · `:11` | **GREEN ×2** |
+| test:css-equivalence | 19/19, MIRROR-DEFECTS 0 | 19/19, every MIRROR-DEFECTS line 0 | **GREEN** |
+| test/css (incl. refusal + deep-frozen pins) | 7/75 | 8/86 (+11 success-path pins) | **GREEN** |
+| npm test (G-suite) | foreign failures only | 980/987; 7 foreign (ink ×5, C-5, NG-6); 0 CSS | **GREEN** |
+| vue-tsc lib/demo/test | 0/0/0 | 0/0/0 | **GREEN** |
+| E-4 `gen-grammar --check` | current (`0b33024a…`) | current ×2 (`c1c91dad…`) | **GREEN ×2** |
+| K2-b · V-8 | 0 · 0 | 0 · 0 | **GREEN** |
+| E-1/E-3/E-5 bbnf-lang TS + tsc | 21/299 ×2, 0 | 21/299 ×2, 0 | **GREEN ×2** |
+| E-2 routing audit on the emitted module | 0 violations, 0 modeDiffs | 200,137,551 checks, 0 violations, 0 modeDiffs | **GREEN** |
+| E-6 size | 92,127 / 12,902 B | 92,300 / 13,002 B (≤ 125,646 / 14,517) | **GREEN** |
+| L-6 no npm / dependency move | held | `package*.json` diff 0 | **held** |
+| P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half | RED (npm EOTP) | relieved by citation: X.P.W7P (§0cp), GATE-KEYED on the owner's one-time password | **cited to X.P.W7P** |
+
+### Commit roster (X.P.W7 RESUME 6)
+value.js `5d46e376` (`.l4` cure + re-emission + pins) · `daa8e85a` (`.l4` instruments + records) · `ef91a5a3` (`.l4` receipt) · this Close's commit. bbnf-lang: none this sitting (`f0059db14` = origin, unchanged). parse-that: none (the `x-p-w7` line is unchanged since `.p`).
+
+### Residuals (named owners)
+- **R-l4-1 — the quiet-host L-G1 read is still owed.** L-G1 on the final bytes, all four engines × {acc, rej} + large sheets, ×2, at a 1-minute load < 8. Two consecutive 90-minute bounded windows (`.l4`: 16:29–18:00, min 26.85; this Close: 18:03–19:34, min 25.48) never quieted while the three sibling tracks ran. **Owner:** the next Track-D sitting, scheduled when the sibling fleets are idle (the orchestrator controls the host's load; a seat cannot).
+- **R-l4-2 — the large cell measures unequal work.** Carried from the `.l4` receipt, not re-measured here: on `wpt-bulma-0.7.5.css` the retired parser refuses at declaration 32 (legacy-comma `rgba()`, which css-color-4 admits) while the product reads to 946. **Owner:** the owner's ruling on ESC-W7l4-1.
+- **The release chain:** P-6, E-8, V-9 and its CI step, Z-1, Z-3's publish half, the bbnf-lang PR #1 merge. **Owner:** X.P.W7P, GATE-KEYED on the owner's npm one-time password.
+- **The foreign npm-test failures** (ink ×5, spectrum-luma C-5, reka NG-6): **Owner:** Track A / their units; not W7 rows.
+
+### Escalations
+- **ESC-W7l4-1** (the `.l4` receipt) is carried open. This seat's reads add: a second 90-minute window never quiet (min 25.48), and the correctness, size and suite gates all reproduce on the final bytes. The quiet-host protocol cannot be met on this host while the other tracks' fleets run. The owner's choices, as measured facts: (a) order a Track-D sitting on an idle host (the orchestrator pauses the other three tracks for the read's ~30 min); or (b) rule on R-l4-2, whether the large cell is to be compared over equal work (the sheets both arms accept to the same point). The gate is not relaxed here and no cell is claimed.
+
+### Four-verb line
+W7.md has no §State clause and designates no seat to stamp a verb. ADDENDA (b), (c), (e) and (f) bind L-G1 on every engine ×2, read under L-13, and that read could not be taken on the final bytes. X.P.W7 is therefore **not IMPLEMENTED**. It stays **PARTIAL**, and VERIFIED is not stamped. It remains: the quiet-host L-G1 ×2 read (R-l4-1) and ESC-W7l4-1's ruling; the release gates ride X.P.W7P.
