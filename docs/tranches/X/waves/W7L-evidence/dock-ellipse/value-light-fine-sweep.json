@@ -1,0 +1,121 @@
+[
+ {
+  "w": 920,
+  "plates": [
+   {
+    "w": 172,
+    "h": 56,
+    "ss": "50%",
+    "se": "calc(0% + 16px)",
+    "es": "50%",
+    "ee": "calc(0% + 16px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "overflow": 143,
+    "pitch": "48px",
+    "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded"
+   }
+  ]
+ },
+ {
+  "w": 940,
+  "plates": [
+   {
+    "w": 172,
+    "h": 56,
+    "ss": "50%",
+    "se": "calc(0% + 16px)",
+    "es": "50%",
+    "ee": "calc(0% + 16px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "overflow": 143,
+    "pitch": "48px",
+    "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded"
+   }
+  ]
+ },
+ {
+  "w": 960,
+  "plates": [
+   {
+    "w": 172,
+    "h": 56,
+    "ss": "50%",
+    "se": "calc(0% + 16px)",
+    "es": "50%",
+    "ee": "calc(0% + 16px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "overflow": 143,
+    "pitch": "48px",
+    "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded"
+   }
+  ]
+ },
+ {
+  "w": 980,
+  "plates": [
+   {
+    "w": 172,
+    "h": 56,
+    "ss": "50%",
+    "se": "calc(0% + 16px)",
+    "es": "50%",
+    "ee": "calc(0% + 16px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "overflow": 143,
+    "pitch": "48px",
+    "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded"
+   }
+  ]
+ },
+ {
+  "w": 1000,
+  "plates": [
+   {
+    "w": 172,
+    "h": 56,
+    "ss": "50%",
+    "se": "calc(0% + 16px)",
+    "es": "50%",
+    "ee": "calc(0% + 16px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "overflow": 143,
+    "pitch": "48px",
+    "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded"
+   }
+  ]
+ },
+ {
+  "w": 1010,
+  "plates": [
+   {
+    "w": 172,
+    "h": 56,
+    "ss": "50%",
+    "se": "calc(0% + 16px)",
+    "es": "50%",
+    "ee": "calc(0% + 16px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "overflow": 143,
+    "pitch": "48px",
+    "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded"
+   }
+  ]
+ },
+ {
+  "w": 1020,
+  "plates": [
+   {
+    "w": 172,
+    "h": 56,
+    "ss": "50%",
+    "se": "calc(0% + 16px)",
+    "es": "50%",
+    "ee": "calc(0% + 16px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "overflow": 143,
+    "pitch": "48px",
+    "cls": "glass-dock horizontal shape-pill expanded pinned fit-content always-expanded"
+   }
+  ]
+ }
+]
