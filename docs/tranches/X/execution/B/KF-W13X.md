@@ -358,3 +358,121 @@ SERVED MODEL: claude-opus-5-5 (unit `.mobile`, G3; this seat RESUMED a killed pr
 12 + 3 + 1 + 1 + 2 + 1 = **20**. ✓
 
 **kf commits this unit (in order):** `7047539f` · `0b058552` · `b0c781e2` · `a7e9b749` · `9da0f718` · `b10fbb53` · `718bfa0e` · `de0ae0b3` · `64be2572` · `3f63f4d4`.
+
+### .dock
+
+SERVED MODEL: claude-opus-5-5 (unit `.dock`, G4; RESUMED seat — a killed predecessor seat on this unit left commits and uncommitted work)
+
+**Crash recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → ` M demo/app/dock/ChromeDock.vue` · ` M test/demo/app/chrome-dock-triggers.test.ts` (+ the 2 old untracked letters). Both paths are in the G4 set: the predecessor's in-flight UIA-KF-242 cure (the warm moved from per-row `@pointerenter`/`@focus` to a watch on the list's open) and two falsifiers (242, 108) with no 108 cure yet. Read whole, judged against the row text (the row's own fix names "a watch on the open model that warms every scene once"): conforming; finished and committed below. ⟨`git -C keyframes.js log --oneline --grep=W13X.dock`⟩ → 8 inherited commits: `b1597622` KFA-113 · `74284974` UIA-KF-118 · `9de289f2` UIA-KF-148+149 · `cc5631bb` UIA-KF-060 · `69392e1a` A2-KE-L2-13+UIA-KF-137 · `fcdf5170` UIA-KF-138 · `737178d3` A2-KE-L2-17 · `693b6265` UIA-KF-237. Inherited value.js evidence (untracked): `evidence/W13X/dock/{dock.mjs, dock-before-{light,dark}.log, frames/*-before-*}` — committed with this receipt. No prior `.dock` receipt existed in this record.
+
+**Instrument.** The probe serves the gh-pages dist (`scripts/lib/demo-driver.mjs serveDist`), built from the unit's HEAD — not the shared :5173 server. ⟨`npm run gh-pages`⟩ → `EXIT 0`; ⟨`grep '"version"' node_modules/@mkbabb/glass-ui/package.json`⟩ → `10.1.0`.
+
+**Probe.** `evidence/W13X/dock/dock.mjs` (the predecessor's, one line per row per cell; this seat added section E — A2-KE-X-12, X-13, the menu's dock clearance, the UIA-KF-129 PRM still — and corrected two predicates, named at their rows). BEFORE = `dock-before-{light,dark}.log` (the predecessor's, at `574642be`-era bytes before any `.dock` commit, per its frame tags). AFTER = `dock-after-{light,dark}-{1,2}.log` at kf `01a6a4c2`. Diagnostics: `geom.mjs` (plate/wrapper/trigger/list rects), `trig.mjs` (trigger box + type), `x13.mjs` (what caps the list).
+
+**Acts, in order** (kf commits; each falsifier RED x2 at the parent sha, GREEN x2 after — ⟨`npx vitest run --project demo <file>`⟩ run twice at each side):
+
+*Inherited from the killed seat (read, re-measured served below, kept):*
+1. `b1597622` **KFA-113** — the menu holds the dock for every surface it opens (the hold keyed on the dropdown alone let the dock collapse behind the Clear-all and Shortcuts dialogs). Served BEFORE `dock 4.8 s after the dialog opened: Clear-all collapsed · shortcuts collapsed` → AFTER `expanded · expanded`.
+2. `74284974` **UIA-KF-118** — closing the confirm returns focus to the @mbabb trigger. BEFORE `focus after Cancel: BODY` → AFTER `@mbabb menu`.
+3. `9de289f2` **UIA-KF-148 + UIA-KF-149** — the confirm on the glass dialog canon (DialogHeader, canon type; `dismiss="deliberate"`, no ✕). BEFORE `header=false title …/text-subheading` · `data-dismiss=free · close-X 1` → AFTER `header=true` (no class overrides) · `deliberate · close-X 0`.
+4. `cc5631bb` **UIA-KF-060** — one red: the row reads `--destructive`, the confirm's tone. See the row's disposition below (a contrast residual stands, producer).
+5. `69392e1a` **A2-KE-L2-13 + UIA-KF-137** — the theme is a checkbox row. BEFORE `tap on the Dark mode row label: dark false -> false` · `role=menuitem` → AFTER `false -> true` · `menuitemcheckbox` (1440/390/844x390).
+6. `fcdf5170` **UIA-KF-138** — one subtitle, a one-row identity. BEFORE `rows-with-subtitle 4 … identity links+lines 2` → AFTER `1 [Clear all …] · 0`.
+7. `737178d3` **A2-KE-L2-17** (+ the menu half of **A2-KE-X-13**) — the short layout keeps the command rows only. BEFORE 844x390 `menu scroll 387/232` → AFTER `226/226 rows 4`.
+8. `693b6265` **UIA-KF-237** (first half) — the @mbabb trigger takes `dock-label`. BEFORE 390 `@mbabb 26` → `32` (see act 15).
+
+*This seat:*
+9. `3c28ca6f` **UIA-KF-242** — the inherited cure, finished: the warm rides the list's OPEN (a watch on `sceneSelectOpen` emits `warmScene` for every scene), the per-row `@pointerenter`/`@focus` deleted. Falsifier `chrome-dock-triggers.test.ts (2)`: RED x2 at `693b6265` (the HEAD bytes swapped in and back — `(2) … warms each scene once ×`), GREEN x2. Served BEFORE 390 touch `0 chunk requests after the tap opened the list` → AFTER `8`.
+10. `d535fb24` **UIA-KF-108** (ChromeDock half) — both consumer `font-bold` bindings on the scene rows deleted; the SelectItem indicator is the one channel (the D-24 note and the `currentSceneId` docblock rewritten). Falsifier `(3)`: RED x2 at `693b6265` (1 `.font-bold` in the open listbox), GREEN x2. The TransportDock `font-bold` (⟨`grep -n font-bold …/TransportDock.vue`⟩ → `:146`) and the ChannelOptions pane Selects are other units' files: **RE-HOMED → `.transport` / `.controls`**.
+11. `9fdda554` **UIA-KF-113** (consumer half) **+ A2-KE-X-12** — `:collision-padding="16"` (the Select's figure) on the menu's DropdownMenuContent; it falls through the glass component's attrs to the floating content (⟨read of `dist/menu-*.js` `DropdownMenuContent`⟩ → `inheritAttrs: !1`, attrs spread onto reka's content). Falsifier `mbabb-menu-dialogs.test.ts (9)` (PopperContent `collisionPadding`): RED x2 at `d535fb24` (`[0]`), GREEN x2. Served BEFORE (.x ROWS.md X-12) home 360/390 `gutL 0` → AFTER `#/home menu x[16,288] of 360` / `of 390`. Glass half (a default padding from `--popover-viewport-pad`) relay-only, O-59.
+12. `f376524b` — a stale oracle the killed seat left: `mbabb-menu-share-keyboard.test.ts` found the Share row by the subtitle `fcdf5170` removed, so the KF.W13U.d4 keyboard witness read `row undefined` from `fcdf5170` on (⟨`npx vitest run --project demo test/demo/app/`⟩ → `1 failed | 50 passed`). The finder now names the row by its label; assertions unchanged → `51 passed` x2.
+13. `68054f4a` **UIA-KF-131** (consumer half) — new `demo/app/dock/dockEdge.ts`: when a dock popup opens, its `sideOffset` = dock bottom − trigger bottom + 8 px; ChromeDock provides the dock element to its slot, the scene SelectContent and the @mbabb DropdownMenuContent bind it. Falsifier `chrome-dock-triggers.test.ts (4)`: RED x2 at `9fdda554` (`[0]` vs `[16]`), GREEN x2.
+14. `c8418e59` **UIA-KF-131** repair — the first served AFTER read the list 15-19 px below the dock, not 8 (`listbox top 101 vs dock bottom 83`): ⟨`node geom.mjs`⟩ → the wrapper div ChromeDock measured runs past the plate (390 `band [31,89] plate [31,83]`; 1440 `[43,105]` vs `[43,98]`). The offset now reads the GlassDock's own root element through ChromeDock's component ref (no producer selector). The falsifier was sharpened (wrapper stubbed 7 px past the plate): RED x2 at `68054f4a` (`23` vs `16`), GREEN x2.
+15. `01a6a4c2` **UIA-KF-237** repair — at 360/390 the Scene trigger's word is sr-only (OA-40), so the glyph-only trigger was 30 px beside @mbabb's 32 (⟨`node trig.mjs`⟩ → `Scene h 30.0 … @mbabb menu h 32.0`, both `fs 16px lh 24px pb 4px/4px`). Under `max-[399px]` it keeps one line box inside the producer's trigger padding (`min-h-[calc(1lh + 2 × var(--dock-trigger-padding-block))]`). Served → `32.0 / 32.0` at 390, `38.5 / 38.5` at 1440 unchanged. Falsifier `(5)`: RED x2 at `c8418e59`, GREEN x2.
+
+**Probe corrections (this seat, stated so no reading hides in them).**
+- UIA-KF-060: the predecessor's predicate compared the row's ink to the confirm button's painted FILL (`140,46,30`, the producer's capsule mix of its tone), which is never equal to a text colour. The row asks for one red, so the predicate now resolves the row's ink, the confirm's `--button-tone` and `--destructive` by painting each into a probe span (a `light-dark()` value is not a canvas colour; the first corrected run read `0,0,0` for both tokens and was discarded). Contrast is reported as its own line, `UIA-KF-060(contrast)`.
+- A2-KE-X-13: "clipped" counted options past the listbox's viewport and treated "no reka scroll buttons" as no affordance. ⟨`node x13.mjs`⟩ → the glass SelectContent caps at `maxh 234px` (60 vh at 390) and its inner `div.fading-scroll` scrolls (`324/188`, `overflow-y auto`): the producer's affordance is the fade. The predicate is now: the list stays inside the viewport, and when options overflow they are reachable in a fading scroller (scrolled to the end, the last option is inside it).
+
+**Served AFTER** (kf `01a6a4c2`, gh-pages dist, both themes, runs 1 and 2 — ⟨`diff` of the per-line verdicts⟩ below):
+- ⟨`diff` of `$1 $2 $4` (verdict, row, viewport) between runs 1 and 2⟩ → `light VERDICTS-IDENTICAL` · `dark VERDICTS-IDENTICAL`.
+- ⟨`grep '^RED' dock-after-*-2.log | awk '{print $2}' | sort | uniq -c`⟩ → `2 A2-KE-L2-1(tap)` · `2 A2-KE-L3-6` · `3 UIA-KF-060(contrast)`. Every other line reads GREEN in both themes, both runs, including every row this seat or the killed seat cured, and section E: `A2-KE-X-12 #/home menu x[16,288] of 360` · `UIA-KF-131 listbox top 95 vs dock bottom 83` (390), `110 vs 98` (1440) · `UIA-KF-131(menu) top 92 vs 83`, `107 vs 98` · `A2-KE-X-13 … fading true · last option reachable true` on all 7 routes · `UIA-KF-129 … frames 1.2 s apart identical` · `UIA-KF-237 … Scene 32 / @mbabb 32` (360/390), `39 / 39` (1440).
+- The three RED lines are the rows dispositioned below as re-homed / escalated / producer (none is a cure this unit landed). `UIA-KF-060(contrast)` at 390 is also a SAMPLER defect: the "plate" there reads the ink itself or the aurora (`on 253,104,92 = 1:1`, `on 218,59,213`), so the contrast reading rests on 1440: light `3.25:1` RED, dark `6.79:1` GREEN.
+- Frames: `frames/*-before-*` (16, the killed seat's) and `frames/*-after-{1,2}-*` (40), both themes.
+
+**Dispositions — all 39 rows of G4, by id** (2 KFA + 30 UIA-KF + 5 AUDIT-2 + the 2 `A2-KE-X` rows `.x` routed here; self-count below).
+
+| row | disposition | reading / reason |
+|---|---|---|
+| KFA-113 | **CURED** `b1597622` | dock `collapsed · collapsed` → `expanded · expanded` 4.8 s into each dialog |
+| KFA-114 | **ESCALATED — ESC-dock-1** | the popover's anchor/side lives in `SharePopover.vue` (`.overlays`, G16) |
+| UIA-KF-032 (B) [S] | **CURED-PRIOR** (consumer half, KF.W13W `.d`, one glyph in `#collapsed`) · glass half **honest-RED DOCK-COLLAPSED-FORM, O-59/O-65 relay-only** · file is `.transport`'s | served `transport collapsed plate x[165,225] spilling children 0` (390), `x[692,748] … 0` (1440), before and after |
+| UIA-KF-044 | **RE-HOMED → `.spring`** | the inline editor is `demo/scenes/spring/SpringPhysicsFacet.vue:109-139` + `useSpringKeyframesEditor.ts` (G5) |
+| UIA-KF-046 [S] | **RE-HOMED → `.spring` / `.easing`** (consumer: SpringPhysicsFacet presets, EasingTarget tiles, the Curve strip) · glass half relay-only O-59 (a tile shape on ToggleGroupItem) | no byte in G4 |
+| UIA-KF-056 | **ESCALATED — ESC-dock-1** | same root as KFA-114 |
+| UIA-KF-060 | **CURED** (one red) `cc5631bb` · **contrast residual = PRODUCER, relay-only** | `one red: row ink 219,36,36 · confirm tone 219,36,36 · --destructive 219,36,36` (light), `253,104,92` ×3 (dark). The canon's light `--destructive` (`hsl(0 72% 50%)`) reads `3.25:1` as 14 px text on the menu plate (dark `6.79:1`); a demo red beside it is the two-red defect the row cured, so the light arm is the producer's (new relay row for `.close`: DESTRUCTIVE-TEXT-CONTRAST) |
+| UIA-KF-063 | **RE-HOMED → `.matrix`** | `demo/scenes/cube/matrix-editor/MatrixEditor.vue:41-44, :208-209` (G12) |
+| UIA-KF-103 | **RE-HOMED → the ESC-mobile-2 owner** | the registry is `surfaceTabs.ts` + `demo/state/controlSurfaces.ts`; ChromeDock's import (`:19-23` at `.x` time) is the importer line ESC-mobile-2 already names |
+| UIA-KF-108 | **CURED** (ChromeDock half) `d535fb24` · TransportDock `:146` half **RE-HOMED → `.transport`** · pane Selects **RE-HOMED → `.controls`** | served `selected scene row weight 400` |
+| UIA-KF-109 | **CURED-PRIOR** (KF.W13V `.s`, OA-40: glyph-only scene word below 400, one row) | served `dock rows 1` at 360/390/1440, before and after |
+| UIA-KF-113 [S] | **CURED** (consumer half) `9fdda554` · glass half relay-only O-59 | `#/home menu x[16,288] of 360` (was `gutL 0`) |
+| UIA-KF-118 | **CURED** `74284974` | `focus after Cancel: @mbabb menu` |
+| UIA-KF-127 | **CURED-PRIOR** (KF.W13V `.s`, OA-37/40/46: one dock item per surface, each item the pane's own toggle; the Controls-tab Select and the separate panel toggle are gone) | ⟨`grep -c 'aria-label="Controls panel"\|Hide panel' ChromeDock.vue`⟩ → `0` |
+| UIA-KF-129 | **LAWFUL — owner ruling OA-32** (KF.W13U.d2: the chosen scene's glyph is its living miniature); the row's open question — is it still under reduced motion — **measured** | `#/cube collapsed dock face, reducedMotion=reduce: frames 1.2 s apart identical` (light and dark, ×2) |
+| UIA-KF-130 [S] | **CURED-PRIOR** (the repin: glass ≥ 8 no longer emits the Tailwind `:root{--radius-lg:.5rem}` leak) · glass half (ring + fill double channel) relay-only O-59 | `menu row radius 10px` before and after |
+| UIA-KF-131 [S] | **CURED** (consumer half) `68054f4a` + `c8418e59` · glass half (content in a dock offsets from the dock edge) relay-only O-59 | list `76 over 83` → `95 below 83` (390), `94 over 98` → `110 below 98` (1440); menu `78 over 83` → `92 below 83` |
+| UIA-KF-132 | **ESCALATED — ESC-dock-3** | the colourful Home glyph is `homeScene.icon` in `demo/app/scene/scenes.ts:124` (`.scene`, G19) plus a Home miniature beside the six `<S>Mini.vue`; ChromeDock's `<Home>` fallbacks (`:435`, `:453`, `:562`) follow it. The raster-blur half is superseded (OA-32 vector miniatures) |
+| UIA-KF-133 | reflow half **CURED-PRIOR** (KF.W13V `.s`: fixed-size icon items, no label-width trigger) · the label ("Matrix Controls" → "Matrix") **RE-HOMED → the ESC-mobile-2 owner** | `SURFACE_META["matrix-controls"].label` in `surfaceTabs.ts:18` / `controlSurfaces.ts` |
+| UIA-KF-134 | **CURED-PRIOR** (one-row dock at 390, OA-40; the panel is a bottom sheet under 1024) | `dock rows 1`; the listbox now also opens below the dock (UIA-KF-131) |
+| UIA-KF-137 | **CURED** `69392e1a` | `menuitemcheckbox` |
+| UIA-KF-138 | **CURED** `fcdf5170` (+ `f376524b`, the oracle it staled) | `rows-with-subtitle 1 … identity 0` |
+| UIA-KF-139 | **RE-HOMED → `.overlays`** | every cure site is `demo/components/instrument/shell/KeyboardShortcutsModal.vue` (`:162` sticky header, `:136` focus target, `:109` title case) (G16); FadingScroll's clipped outline relay-only |
+| UIA-KF-148 | **CURED** `9de289f2` | `header=true`, canon type |
+| UIA-KF-149 | **CURED** `9de289f2` | `deliberate · close-X 0` |
+| UIA-KF-237 | **CURED** `693b6265` + `01a6a4c2` | triggers `26/30` → `32/32` (390), `31/39` → `39/39` (1440). The DockControl items' own heights (`31`, `34` open seat) are the producer's compact icon rung, relay-only |
+| UIA-KF-238 | **RE-HOMED → the ESC-mobile-2 owner** | both `icon: "Activity"` are registry bytes (true bytes `surfaceTabs.ts:16-17` and `controlSurfaces.ts:153-154`; the row cited `:18-19`); ChromeDock's `TAB_ICONS` resolves names only |
+| UIA-KF-242 | **CURED** `3c28ca6f` | touch `0` → `8` chunk requests on open |
+| UIA-KF-244 | **KILLED-with-rationale** | the Controls-tab Select it orders is gone; the owner ruled one item per KIND at a fixed seat, "identical on every scene" (OA-37/46/51, KF.W13V `.s`, ChromeDock's surface-items comment), so a facet-first order per scene would break the ruled invariant |
+| UIA-KF-245 | **CURED-PRIOR** (KF.W13V `.s`) | `selects in the dock 1` |
+| UIA-KF-246 | **CURED-PRIOR** (MM-29 normal-case) + `fcdf5170` (the domain is a trailing glyph, no caps chip) | `text-transform=none` before; after, no text line (`null` at 844x390 = the short layout drops the row) |
+| UIA-KF-248 | **ESCALATED — ESC-dock-1** (the field is SharePopover's Input; if the stroke is the producer's Input focus ring, that half is relay-only) | `SharePopover.vue` is `.overlays`' |
+| A2-KE-L2-1 (B) | **RE-HOMED → `.mobile`** (consumer: `@pointer-down-outside`/`@interact-outside` on the Sheet in `controls-pane/ControlsPaneWrapper.vue:153-157, 182-189`, G3) · glass half relay-only (BL / O-74) | served `tap on Controls: detent 0.12` RED, `click … 0.36` — the item's own handler opens the pane; the sheet's outside-press dismissal closes it |
+| A2-KE-L2-8 (B) | **CURED-PRIOR** (consumer, KF.W13W `.d`) · glass **honest-RED DOCK-COLLAPSED-FORM** (O-65) · `TransportDock.vue:199-215` is `.transport`'s | `spilling children 0` at 390 and 1440 |
+| A2-KE-L2-13 | **CURED** `69392e1a` | `dark false -> true` |
+| A2-KE-L2-17 | **CURED** `737178d3` | `226/226` at 844x390 |
+| A2-KE-L3-6 | **ESCALATED — ESC-dock-2** | served `top dock cx 720 · transport cx 720 · stage cx 979` RED ×2 ×2 themes |
+| A2-KE-X-12 | **CURED** `9fdda554` | `#/home menu x[16,288]` at 360 and 390 |
+| A2-KE-X-13 | menu half **CURED** `737178d3` · list half **LAWFUL** | the list stays in the viewport (`y[66,300] of 390`) and scrolls in the producer's FadingScroll (`324/188`, last option reachable) on all 7 routes |
+
+**Self-count** (⟨`sed -n '/^### .dock/,$p' KF-W13X.md | grep -cE '^\| (KFA|UIA-KF|A2-KE)-'`⟩ → **39**), one row one class:
+- **CURED 14:** KFA-113 · UIA-KF-108 · 113 · 118 · 131 · 137 · 138 · 148 · 149 · 237 · 242 · A2-KE-L2-13 · L2-17 · X-12.
+- **CURED + producer residual 1:** UIA-KF-060.
+- **CURED-PRIOR 9:** UIA-KF-032 · 109 · 127 · 130 · 134 · 245 · 246 · A2-KE-L2-8 · UIA-KF-133 (reflow half; label half re-homed).
+- **LAWFUL 2:** UIA-KF-129 (owner OA-32) · A2-KE-X-13 (list half; menu half cured).
+- **KILLED-with-rationale 1:** UIA-KF-244.
+- **RE-HOMED 7:** UIA-KF-044 · 046 · 063 · 103 · 139 · 238 · A2-KE-L2-1.
+- **ESCALATED 5:** KFA-114 · UIA-KF-056 · 248 (ESC-dock-1) · A2-KE-L3-6 (ESC-dock-2) · UIA-KF-132 (ESC-dock-3).
+14 + 1 + 9 + 2 + 1 + 7 + 5 = **39**. ✓
+
+**Escalations (the cure needs a file another unit owns; a partial landing in G4 alone would split one motion):**
+- **ESC-dock-1 — KFA-114 · UIA-KF-056 · UIA-KF-248.** The filed cure (UIA-KF-056) makes Share a plain menuitem that closes the menu and opens the share surface as its own popover anchored to the @mbabb trigger (or a small dialog), with the copy glyph; KFA-114's alternative is side/align inputs on the popover. Every form needs `demo/components/instrument/shell/SharePopover.vue` — it owns the `Popover`, its own `PopoverTrigger` button (the thing nested in the row) and `align="end" :side-offset="8"` (`:59-62` era) — and UIA-KF-248's Input. That file is `.overlays`' (G16). The G4 half is the Share row, `MbabbMenu.vue:64-65`. **Ask:** grant `SharePopover.vue` (an open model without its own trigger, anchored by the caller) to `.dock`, or re-home the three rows to `.overlays` with `MbabbMenu.vue:64-65` granted to it. No consumer copy of the share surface was built.
+- **ESC-dock-2 — A2-KE-L3-6.** Both dock bands centre on the viewport while the stage centres in its column when the rail is open (served `top dock cx 720 · transport cx 720 · stage cx 979`). The cure anchors BOTH bands to the stage column while the rail is open. The rail's live track (`--rail-track`, open/closed/railless) is set in `AnimationControlsGroup.css:51-73` and the bottom band is `TransportDock.vue:7` — both `.transport`'s (G17); only the top band (`ChromeDock.vue:366`) is G4's. Moving one band alone makes the two docks disagree. **Ask:** one owner for the motion — grant `ChromeDock.vue:366` to `.transport`, or grant `.dock` the rail-state publication and `TransportDock.vue:7`.
+- **ESC-dock-3 — UIA-KF-132.** The standing half is Home, the one lucide monochrome glyph among six living miniatures. Its cure is `homeScene.icon` in `demo/app/scene/scenes.ts:124` (`.scene`, G19) plus a Home miniature in the `<S>Mini.vue` idiom; ChromeDock's three `<Home>` fallbacks (`:435`, `:453`, `:562`) then read the descriptor. **Ask:** re-home to `.scene` with those three ChromeDock lines granted, or grant `scenes.ts:124` to `.dock`. (A design act — the Home glyph's look — so the owner may prefer to rule it.)
+
+**Residuals and relays (for the close's mail round; no consumer copy anywhere):**
+- O-59 glass halves: UIA-KF-113 (default collision padding from `--popover-viewport-pad`), UIA-KF-130 (one highlight channel), UIA-KF-131 (content in a dock offsets from the dock edge — `dockEdge.ts` is the interim, to delete when it lands), UIA-KF-046 (tile shape), UIA-KF-032 / A2-KE-L2-8 (DOCK-COLLAPSED-FORM, O-65, honest-RED).
+- **New producer row for relay: DESTRUCTIVE-TEXT-CONTRAST** — light `--destructive` `hsl(0 72% 50%)` is `3.25:1` as small text on the glass menu plate (1440 light; dark `6.79:1`).
+- UIA-KF-237's item half: the compact DockControl items (`31`, `34` on the open seat) are the producer's rung.
+- A stale docblock the UIA-KF-242 cure leaves in another unit's file: `demo/app/scene/scenes.ts` `warmScene` still says "pointer-enter or keyboard focus of its nav row (X.KF.W13U.d5)" — `.scene`'s (G19), prose only; noted, not edited.
+- The probe's 390 contrast sampler is unreliable (see Served AFTER); the 1440 reading stands.
+
+**Gates (BEFORE → AFTER):**
+- **Rows dispositioned, falsifier RED→GREEN x2:** 39 of 39 dispositioned; every CURED row carries a committed falsifier RED x2 → GREEN x2 (acts 1-15; the inherited ones per their commit bodies, re-read GREEN here). 5 rows ESCALATED → **PARTIAL** for the gate.
+- **`npm run check`:** BEFORE (baseline `574642be`) EXIT 0 → AFTER ⟨`npm run check`⟩ ×2 at `01a6a4c2` → `proof:structure — PASS … (0 violations)`, EXIT 0 ×2. **GREEN.**
+- **`npm run test:demo`:** BEFORE 82 files / 587 tests → AFTER ⟨`npm run test:demo`⟩ ×2 → `Test Files 88 passed (88)` · `Tests 616 passed (616)` ×2. **GREEN.** (Between them, `fcdf5170`→`f376524b` the suite had one red test, the stale Share oracle, now cured.)
+- ⟨`git diff 693b6265~8..HEAD -- test | grep -c 'test.skip\|it.skip\|\.only('`⟩ → `0`.
+- Served: `dock-after-{light,dark}-{1,2}.log`, verdicts identical run to run; the only RED lines are the escalated/re-homed/producer rows above.
+
+**Adjacent edits:** `test/demo/app/mbabb-menu-share-keyboard.test.ts:88` (act 12: the oracle string for copy a G4 commit changed) — inside G4's `test/demo/**` anyway. None outside G4.
+
+**kf commits this unit (in order):** inherited `b1597622` · `74284974` · `9de289f2` · `cc5631bb` · `69392e1a` · `fcdf5170` · `737178d3` · `693b6265`; this seat `3c28ca6f` · `d535fb24` · `9fdda554` · `f376524b` · `68054f4a` · `c8418e59` · `01a6a4c2` (⟨`git log --format=%h 574642be..HEAD --grep=W13X.dock | wc -l`⟩ → 15).
