@@ -1291,3 +1291,52 @@ No wave spec declares "Opens after: F.W14V CLOSED". ⟨`grep -rn W14V docs/tranc
 
 ### State
 **NOT-CONFORMANT.** LEDGER `:90` stays PARTIAL. The next act is a Repair seat that takes C1-1 → C1-4. C1-5 waits on the owner.
+
+## Repair 1
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · REPAIR SEAT (round 1), Track C. Spec read whole (67 lines, addenda (a)–(g)); record read header → `## Unit plan` and `## Check 1`. fourier HEAD at open = `7e72a98` (branch `m/w1-bump-migration`).
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → dirty `src/fourier_analysis/**`, `tests/test_contour*.py` (F.CT, a sibling's; not touched), `?? .worktrees/` (not touched), and 23 ` M` `web/e2e/screenshots/f-w14/*.png` (addendum (g) routing 2, this seat's C1-4). No inherited edit inside `web/src` or `web/e2e/*.spec.ts`.
+
+### Defect → cure → commit → gate re-reading
+- **C1-1 HIGH (LW-1, r119/r212) → CURED, fourier `a262e97`.** A §0bt owner-ruling restatement (addendum (e), §0dw), in `web/e2e/f-w14u-misc.spec.ts` only. The `current` locator read `.app-dock [aria-current="page"]`, which was the inline tab row that `79ea9f6` deleted. It is replaced by `expectSection(page, label | null, msg)`, which reads the section where the ruling puts it:
+  - the one `nav-trigger`'s accessible name: `Navigate — current section <label>`, or `Navigate` off the five;
+  - the menu opened from the keyboard: one `[aria-current="page"]` row containing the label, or none off the five. Escape closes it.
+  - Every URL (`/visualize/`, `/v/<slug>`, `/morph`, `/demo/shape-extractor`, `/nope`, `/gallery` → `/`) and every label is kept. No assertion is deleted: count 1 plus label becomes accessible name plus one current row with the label, and count 0 becomes the bare name plus zero current rows.
+  - ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-misc.spec.ts -g "r119|r212" --project=chromium --workers=1`⟩ → `2 passed (6.1s)` · `2 passed (6.2s)`. Before: `2 failed` (Check 1).
+- **C1-2 HIGH (addendum (g) routing 1, G-c1) → CURED, fourier `bdf7064`.** A named §0bt re-baseline in `web/e2e/f-w14-residuals.spec.ts`, to `.u4`'s rule (`8e19043`, UIA-F-71 ⊕ F-238).
+  - First upload: the stage's `.drop-target-button [data-slot=dot-ring]` is visible, and the aside's "Uploading the image" bar has count 0. This replaces the stale "the bar is visible".
+  - A new replace limb, on the same page after the first upload lands: a held second POST shows the aside bar, and the bar leaves on release.
+  - Kept: every sidebar-on-pick limb (the sidebar is visible before the response lands, the aside is ≥ 300 px wide, there is no `/w/` before release) and the bar count of 0 after landing. The header comment names the re-baseline. Nothing is deleted.
+  - ⟨`… e2e/f-w14-residuals.spec.ts -g "G-c1" --project=chromium --workers=1`⟩ → `1 passed (6.0s)` · `1 passed (5.3s)`; the whole file gives `5 passed (7.8s)`. Before: `1 failed` (Check 1).
+- **C1-3 MEDIUM (vc `:199` [mobile-chromium]) → CURED (intended change; golden re-cut), fourier `97325fb`.**
+  - **Bisect by bytes.** ⟨`git archive <c> web paper`⟩ exported clean trees at `1ff403d` (= `0e817fd^`'s `web/src`) and at `0e817fd`. They were served by vite on scratch ports `:3197` and `:3198` (API `:8000`), and HEAD's spec and golden ran against each: `:3197` → `1 passed`, `:3198` → `3 pixels (ratio 0.01)`. The regression is `0e817fd` (`.eq2`: /equation onto glass's detached Configurator). The candidates `5b77972` and `cad7518` come later and are exonerated. The scratch servers were stopped and the exports deleted.
+  - **Diff read** (expected | actual | diff, 60×61): the Parseval trigger is unchanged (ring, wand glyph, fill). The ground behind it changed. Before, the page grid showed through (neutral `249,248,246` with `~229` grid lines). Now it is glass's opaque warm aside card (`252,244,235`, no grid). The 3 pixels over the threshold are grid-line pixels at the right edge. This is the same intended change `.eq2` described when it re-cut item 3 ("where the page grid showed before"). It missed this cell because the cell runs only in the coarse project.
+  - **Cure:** re-cut the one golden (`checkpoint-tooltip-trigger-mobile-chromium-darwin.png`, `--update-snapshots` on this test only). ⟨`… e2e/visual-checkpoint.spec.ts:199 --project=mobile-chromium --workers=1`⟩ → `1 passed (4.2s)` · `1 passed (3.1s)`.
+- **C1-4 MEDIUM (addendum (g) routing 2) → CURED by restore; no commit (restoring to HEAD needs none).**
+  - **Decision:** restore. This seat is not deliberately re-capturing F.W14's dated evidence, and E-3 forbids rewriting it.
+  - ⟨`git status --porcelain web/e2e/screenshots/f-w14/`⟩ → **23** ` M`, not 28. Check 1 had already noted "23 listed". The spec's 28 is the addendum's own count; the bytes say 23.
+  - ⟨`git checkout -- <those 23>`⟩, then ⟨`git status --porcelain web/e2e/screenshots/f-w14/ | wc -l`⟩ → `0` · `0`.
+  - **Observation, no cure:** the F.W14 frame specs (`f-w14-control-row`, `-admin-table`, `-admin-idiom`, `-dpr`, `-veil`) default `FW14_PHASE ?? "after"`. So every full e2e run rewrites these dated `after-*` frames again. This is a different concern and a different wave's instrument. It is recorded for the owner and not changed here.
+- **C1-5 MEDIUM (four owner escalations) → ESCALATED, unchanged.** ESC-u1-1, ESC-u1-2 = ESC-au2-1, ESC-au3-1 and A2-FO-X-7 each need an owner ruling, which no seat can give. Their REDs (vedit v88, L2-15 ×3, L1-12) stand as owner-held.
+- **INFO (the load intermittents):** no cure needed.
+
+**Adjacent edits:** none. All three commits sit in `web/e2e/**`, inside the `.nav` and `.u4` writable sets (addendum (c) bounds). No `web/src` byte changed.
+
+### Gates re-read after all cures (fourier `97325fb`; `:3100` → `:8000`; ×2)
+- vue-tsc ⟨`npx vue-tsc --noEmit`⟩ → exit 0 · exit 0 **GREEN** (all three cures are in `web/e2e`; this confirms the typed specs still compile).
+- The touched files, whole, in both projects ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-misc.spec.ts e2e/f-w14-residuals.spec.ts e2e/f-w14v-nav.spec.ts e2e/visual-checkpoint.spec.ts --project=chromium --project=mobile-chromium --workers=1`⟩:
+  - run 1 → `3 failed · 37 passed (2.6m)`
+  - run 2 → `3 failed · 37 passed (2.5m)`
+  - The 3 are vc `:81 :102 :123` [chromium], exactly F.W14U's inherited named set (Check 1 axis 10, relieved).
+  - r119, r212, G-c1, vc `:199` [mobile-chromium] and the `.nav` falsifier are all GREEN in both runs.
+- ⟨`git -C fourier-analysis status --porcelain web`⟩ after the runs → empty. The served `web/src` is HEAD's, and no dated frame was rewritten by these specs.
+- vitest and api: not re-run. No cure touches `web/src`, `web/e2e/unit` or `api/**`, so the Check 1 readings stand: vitest `116/116`, api `owner_required` `1 passed`. The full e2e was not re-run either (> 120 s foreground). The three targeted reproductions were its outside-set members, and each now reads GREEN ×2.
+
+### Escalations (the owner's; unchanged)
+ESC-u1-1 · ESC-u1-2 = ESC-au2-1 · ESC-au3-1 · A2-FO-X-7 (C1-5).
+
+### State
+- C1-1, C1-2, C1-3 and C1-4 are cured. C1-5 is escalated to the owner.
+- fourier commits: `a262e97` `bdf7064` `97325fb`.
+- The LEDGER row stays **PARTIAL**, because the four owner escalations are open. The next act is Check 2.
