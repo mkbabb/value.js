@@ -6,15 +6,17 @@
 // set-aside cell is kept in the record and counted. The record carries every cell's `uptime` lines.
 // GATES read from the clean cells (arm vs retired, paired median ratio):
 //   whole-7/7      every entry's whole-corpus cells all < 1.00        accepted-7/7   every entry's accepted cells all < 1.00
-//   (rejected halves and the large-sheet cell are recorded beside them; G-acc/rej reads both halves)
+//   (rejected halves and the large-sheet cells are recorded beside them; G-acc/rej reads both halves)
+//   large-eq       parseStylesheet on the equal-work prefix corpus (X.P.W7 `.eq`, ADDENDUM (g)) all < 1.00: the large
+//                  cell of record; `large` (the whole sheets, unequal work) is INFO, listed beside it, never folded in
 //   O-2 (.o only)  on the product: median whole-corpus ratio ≥ 1.3 on all 7 entries and ≥ 4 on parseStylesheet
-//   node bench/paired/isolated.mjs <tag> [arms=product] [reps=3] [rounds=11] [classes=whole,acc,rej,large] [entries=all]
+//   node bench/paired/isolated.mjs <tag> [arms=product] [reps=3] [rounds=11] [classes=whole,acc,rej,large-eq,large] [entries=all]
 import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { BUILD, ENTRIES, HERE, RECORDS, median, uptime } from "./common.mjs";
 
-const [TAG = "run", ARMS = "product", REPS = "3", ROUNDS = "11", CLASSES = "whole,acc,rej,large", ONLY = ""] = process.argv.slice(2);
+const [TAG = "run", ARMS = "product", REPS = "3", ROUNDS = "11", CLASSES = "whole,acc,rej,large-eq,large", ONLY = ""] = process.argv.slice(2);
 const SPREAD = 1.6, RERUNS = 3;
 if (Number(REPS) < 3 || Number(ROUNDS) < 11) throw new Error("the bench of record is ≥ 3 reps × ≥ 11 rounds");
 const entries = ONLY ? ONLY.split(",") : ENTRIES;
@@ -32,7 +34,7 @@ const cellOf = (entry, cls, rep, attempt) => {
 for (let rep = 0; rep < Number(REPS); rep++) {
     const order = entries.map((_, i) => entries[(i + rep) % entries.length]);
     for (const cls of classes) for (const entry of order) {
-        if (cls === "large" && entry !== "parseStylesheet") continue;
+        if (cls.startsWith("large") && entry !== "parseStylesheet") continue;
         for (let attempt = 0; attempt <= RERUNS; attempt++) {
             const c = cellOf(entry, cls, rep, attempt);
             c.clean = c.retiredSpread < SPREAD;
@@ -58,6 +60,9 @@ record.summary = summary;
 record.gates = Object.fromEntries(record.arms.map((a) => [a, {
     "whole-7/7": classes.includes("whole") ? gate(a, "whole") : null, "accepted-7/7": classes.includes("acc") ? gate(a, "acc") : null,
     "rejected-7/7 (G-acc/rej, recorded)": classes.includes("rej") ? gate(a, "rej") : null,
+    "large-eq (equal work, ADDENDUM (g))": classes.includes("large-eq") && summary[a]["large-eq|parseStylesheet"]
+        ? { ratios: summary[a]["large-eq|parseStylesheet"].ratios, verdict: summary[a]["large-eq|parseStylesheet"].allBelow1 ? "GREEN" : "RED" } : null,
+    "large (whole sheets, INFO)": classes.includes("large") && summary[a]["large|parseStylesheet"] ? { ratios: summary[a]["large|parseStylesheet"].ratios } : null,
     "O-2 (stock/retired >= 1.3 all 7, >= 4 parseStylesheet)": classes.includes("whole") ? (() => {
         const med = Object.fromEntries(ENTRIES.map((e) => [e, summary[a][`whole|${e}`]?.median ?? null]));
         const ok = ENTRIES.every((e) => med[e] !== null && med[e] >= 1.3) && med.parseStylesheet >= 4;

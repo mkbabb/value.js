@@ -4,7 +4,11 @@
 // Promoted from the W7 judge's bench.mjs and the critic's split-rep.mjs. The retired hand parser is in the same
 // process as every candidate arm. One cell = one entry × one input class:
 //   whole   the 29,944 sources of record              acc / rej   the sources the retired parser accepts / refuses
-//   large   parseStylesheet on the G-large sheets (sheets/MANIFEST.json; recorded, not in R-3's seven)
+//   large-eq  parseStylesheet on the EQUAL-WORK large corpus (X.P.W7 `.eq`, ADDENDUM (g)): each G-large sheet cut at the
+//             common accepted prefix of both arms (bench/corpus/large-prefix-2026-09-25/, derived by prefix.mjs) — the
+//             large cell of record
+//   large   parseStylesheet on the WHOLE G-large sheets (sheets/MANIFEST.json) — INFO only: both arms refuse every
+//           sheet, at different points on bulma (retired 32 declarations, product 946), so it compares unequal work
 // A pass times every source of the class once per repetition; the repetition count k doubles until the retired
 // parser's pass takes ≥ 20 ms (G-acc/rej: a small class, e.g. the 56 accepted keyframe selectors, is repeated to a
 // fixed pass size), after a declared warm-up of 3 passes per arm at k = 1 (R-v-3). gc() runs before every pass; 2 warm-up passes per arm at k; ≥ 11 timed rounds; the arm order rotates
@@ -15,7 +19,7 @@
 // median/median and min/min beside it, and the retired passes' spread (max/min) for the hygiene rule.
 //   node --expose-gc bench/paired/bench.mjs <entry> <class> <arms=product> <rounds=11> <rev=0|1> <out.json>
 import { writeFileSync } from "node:fs";
-import { ENTRIES, INPUTS, arm, largeSheets, load1, median, uptime } from "./common.mjs";
+import { ENTRIES, INPUTS, arm, largePrefixSheets, largeSheets, load1, median, uptime } from "./common.mjs";
 
 const [ENTRY, CLASS = "whole", ARMS_ARG = "product", ROUNDS_ARG = "11", REV = "0", OUT] = process.argv.slice(2);
 if (!ENTRIES.includes(ENTRY)) throw new Error(`entry ${ENTRY}`);
@@ -27,8 +31,8 @@ const F = {};
 for (const a of ARMS) F[a] = (await arm(a)).fns[ENTRY];
 const accepts = (s) => { try { return F.retired(s)?.ok === true; } catch { return false; } };
 const xs = CLASS === "whole" ? INPUTS : CLASS === "acc" ? INPUTS.filter(accepts) : CLASS === "rej" ? INPUTS.filter((s) => !accepts(s))
-    : CLASS === "large" ? largeSheets().map((s) => s.text) : null;
-if (xs === null || (CLASS === "large" && ENTRY !== "parseStylesheet")) throw new Error(`class ${CLASS} for ${ENTRY}`);
+    : CLASS === "large" ? largeSheets().map((s) => s.text) : CLASS === "large-eq" ? largePrefixSheets().map((s) => s.text) : null;
+if (xs === null || (CLASS.startsWith("large") && ENTRY !== "parseStylesheet")) throw new Error(`class ${CLASS} for ${ENTRY}`);
 const pass = (fn, k) => { gc(); const t = performance.now(); for (let j = 0; j < k; j++) for (let i = 0; i < xs.length; i++) { try { fn(xs[i]); } catch { } } return performance.now() - t; };
 // R-v-3 (X.P.W7.g): the DECLARED warm-up runs BEFORE the k-rule, identical for every arm (WARMUP passes at k = 1, in
 // the cell's arm order). Before it, k was sized on the retired arm's cold first pass (its rep-0 is bimodal), so a
@@ -58,5 +62,5 @@ for (const a of ARMS) {
         ofMedians: +(median(t[a]) / median(t.retired)).toFixed(3), ofMins: +(Math.min(...t[a]) / Math.min(...t.retired)).toFixed(3) };
 }
 if (OUT) writeFileSync(OUT, JSON.stringify(cell));
-console.log(`${ENTRY.padEnd(22)} ${CLASS.padEnd(5)} n=${xs.length} k=${k} retired ${cell.medianMs.retired}ms spread ${cell.retiredSpread} | ` +
+console.log(`${ENTRY.padEnd(22)} ${CLASS.padEnd(8)} n=${xs.length} k=${k} retired ${cell.medianMs.retired}ms spread ${cell.retiredSpread} | ` +
     ARMS.filter((a) => a !== "retired").map((a) => `${a} x${cell.ratio[a].paired} (${cell.ratio[a].roundsBelow1}/${ROUNDS}<1, min/min x${cell.ratio[a].ofMins})`).join(" | ") + ` | load ${cell.load.join(" -> ")}`);

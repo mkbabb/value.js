@@ -8,6 +8,7 @@
 //   recorder  `product` with every reader call site wrapped to log its arguments (the harvest)
 //   banked:<name>   a W7-research arm read from `judge/banked-tmp/` (MANIFEST-verified), never $TMPDIR
 import { execSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 
@@ -32,6 +33,18 @@ export const KEYFRAMES_SHEETS = JSON.parse(readFileSync(path.join(REPO, "bench/c
 export function largeSheets() {
     const m = JSON.parse(readFileSync(path.join(HERE, "sheets", "MANIFEST.json"), "utf8"));
     return m.sheets.map((s) => ({ ...s, text: readFileSync(path.join(HERE, "sheets", s.file), "utf8") }));
+}
+
+/** The equal-work large cell's corpus (X.P.W7 `.eq`, ADDENDUM (g)): each G-large sheet cut at the common accepted
+ *  prefix of both arms, derived by `prefix.mjs` (the manifest's sha256 is checked on every load). */
+export const PREFIX_CORPUS = path.join(REPO, "bench", "corpus", "large-prefix-2026-09-25");
+export function largePrefixSheets() {
+    const m = JSON.parse(readFileSync(path.join(PREFIX_CORPUS, "MANIFEST.json"), "utf8"));
+    return m.sheets.map((s) => {
+        const text = readFileSync(path.join(PREFIX_CORPUS, s.file), "utf8");
+        if (createHash("sha256").update(text).digest("hex") !== s.sha256) throw new Error(`${s.file}: prefix corpus sha256 drift`);
+        return { ...s, text };
+    });
 }
 
 export const uptime = () => execSync("uptime", { encoding: "utf8" }).trim();
