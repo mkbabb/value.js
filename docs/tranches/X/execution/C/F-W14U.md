@@ -1324,3 +1324,124 @@ SEAT `claude-opus-5-5`, 2026-09-24 (unit 14 of 15; the lock "after `.d` (AppDock
 **Escalations:** none.
 
 **Unit status: PARTIAL.** 20/20 rows dispositioned: 18 closed whole or with their glass halves routed. F-57's tree remainder (R-1) and F-256's logout limb (R-2) are carried to the owners of their files. Commit fourier `b744993` (pushed).
+
+### F.W14U.misc
+
+SEAT `.misc` (unit 15 of 15, the last family), `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` read whole (78 lines: Units :8-18 · Close · addenda through (g)). Rows: register sections morph-demo, shape-extractor-internal and root-redirect-and-404, plus visualization-saved F-246 (14 rows). Carries taken in: `.gallery` R-1 (F-96's route-morph limb), `.shell` R-1 (F-57, the `morph/**` remainder) and `.shell` R-2 (F-256, the logout limb). COHESION §0cl..§0dn read for rulings (none names `.misc`; `.vdock` E-1 / F-81 is still ESCALATED and unruled, so the shared animation pane is not this unit's).
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → nothing under `web/src/components/morph/`, `web/src/router/`, `web/src/stores/auth.ts`, or the spec and frames paths. The only dirty paths are `web/e2e/screenshots/f-w14/*.png` (not this unit's; left alone) and `.worktrees/`. value.js `execution/C/F-W14U.md` is clean. **Nothing inherited.**
+
+**Anchors at the true bytes (`b744993`).**
+- F-119: `.shell` had already made AppDock return `null` off the five sections. The defect left at the bytes is the path-prefix ladder (`AppDock.vue:63-71`). It marks no tab on `/visualize/` (a trailing slash), and the router carries no `meta.tab`.
+- F-212: the remembered tab has three copies: `router/index.ts:33` (VALID_TABS), `:216-227` (the afterEach ladder) and the AppDock ladder. `/v/` and trailing-slash paths are never written.
+- F-120: the crash sites are `router/index.ts:36` (`getSavedTab`), `:224`/`:226` (the afterEach writes) and `stores/auth.ts:14-17`. `safeGetItem(localStorage, …)` evaluates `localStorage` as its argument, so it throws before its own guard runs.
+- F-209: the "NumberFields render as circles" limb was already cured by X.F.W14.h `ef9dfc6` (SliderControl's 4.5rem field). m209 was **GREEN before the cure**, measured ×4.
+- F-255: `/demo/shape-extractor` has no meta (`router :115-119`); the test hook sits at `FourierShapeExtractor.vue:199`.
+
+**Instrument.** Fourier dev is on `:3100`, from the working tree. The blocked-storage cases (F-120/F-213) cannot be read on the dev server. Pinia's development-only devtools hook reads `localStorage` unguarded while the store installs, so every dev page crashes first. ⟨probe: the storage getter logs its own stack⟩ → `getTimelineLayersStateFromStorage (…/.vite/deps/pinia.js:2470)`. They are read on the **production bundle** under `vite preview`, which proxies `/api` the same way:
+- BEFORE: `b744993`, built from a scratch `git worktree` (symlinked `node_modules`; removed after), served on `:4191`.
+- AFTER: the working tree, built to a scratch `outDir`, served on `:4190`.
+
+The spec's `FW14U_MISC_PROD` (default `http://localhost:4190`) points at the bundle, and its header gives the serve recipe for the close.
+
+**1. Falsifier `web/e2e/f-w14u-misc.spec.ts`** (new; 26 cases = 20 row cases + 6 frame cases). The frame cases bank headed frames under `FW14U_PHASE` in `web/e2e/screenshots/f-w14u/misc/`: /morph idle, the shape extractor and an unknown route, each at 1440 and 390 in light and dark, plus the storage-blocked root. PNGs are gitignored and banked on disk.
+- ⟨`FW14U_PHASE=before BASE_URL=http://localhost:4191 FW14U_MISC_PROD=http://localhost:4191 npx playwright test e2e/f-w14u-misc.spec.ts --project=chromium --headed --workers=4`⟩ on `b744993`'s bundle ×2 → **19 failed · 7 passed** ×2 (1.2 m each).
+- The 7 greens are the 6 frame cases and m209.
+- Earlier readings on the dev server before the storage cases moved to the bundle: 18/8 and 19/7. m57 was sharpened between them from "below body" to "on the caption rung"; it read RED ×2 in the sharpened form.
+- The collection in r120/r213 was then narrowed to uncaught `pageerror`, and those two cases were re-read ×2 on `:4191` → 3 failed ×2.
+- Pre-cure reasons, measured: m115 stage `180` px wide (≥ 400 wanted), 390 stage scrolled off · m117 `.demo-info` ×2 · m208 tiles enabled mid-morph · m210 no fade, range rewritten · m254 `.demo-page` a scroll container, Export `primary` · m57 label `14` px vs caption `14.384` · x118 1 line, no Card · x211 h1 at body size, flush left · x255 default title · r119 `/visualize/` marks none · r212 `/v/` → `/` lands on `/gallery` · r120 `/` stays `/`, `#app` empty (frame `before-storage-blocked-root-{1440,390}.png` is white) · r213 no mount · v246 `/s/` → `/w/` blind; gallery → `/v/` opens 0 transitions · a256 no error toast.
+
+**2. The cure (fourier `a6d317d`, pushed).**
+- **`/morph`** (`FourierMorphDemo`, `MorphShapePreview`, `HarmonicLevelGrid`):
+  - F-115: `.demo-layout` is two columns at ≥1024 (`11fr 9fr`), with the stage column sticky beside the controls. Below 1024 a sticky stage band sits on `--background`. The stage button is `min(100%, 30vh)`, or `26rem` at ≥1024.
+  - F-117 / F-254: the duplicate desktop and mobile readout groups are one row. It does not wrap, uses tabular numerals, and the phase Chip reserves `11ch`.
+  - F-208: HarmonicLevelGrid takes a `disabled` prop that is true while a morph runs.
+  - F-210: `handlePreviewClick` only previews (the Low/High snapping is deleted). The clicked tile does `scrollIntoView({inline: "center"})`. The strip fades only on an edge that hides tiles (`data-more-start` / `data-more-end`, a mask on `--space-family`), with smooth scrolling only under `prefers-reduced-motion: no-preference`.
+  - F-254: `.demo-page` changes `overflow-x: hidden` → `clip`, so it is no longer a scroll container. Export and Reset are `sm`, secondary and quiet, under the stage. The bound tile trades `--viz-legendre` for a full `--foreground` edge. Low/High take `--viz-fourier`.
+  - F-57 (`.shell` R-1): `.grid-label`'s `@apply text-sm` → `--type-caption`.
+- **`FourierShapeExtractor`:**
+  - F-118: the output is `JSON.stringify(…, null, 2)` rendered as `{{ output }}` in a `<pre>`: min 10rem, max 24rem, `--radius-field`, `--muted` ground. It sits on a glass `Card` with a glass-`useClipboard` Copy button, whose failure is reported in the status line.
+  - F-211: a centred `56rem` column; h1 on `--type-display-2` and h2 on `--type-heading`; the subjects in glass `Card`s. The SVG geometry is byte-identical (FSE-L-B1 DO-NOT-REGENERATE held).
+  - F-255: the status line reads "Run n: extracted …"; the region takes glass's `focus-ring` (the local outline is deleted); `window.__fourierShapeData` is set only under `import.meta.env.DEV`.
+- **`router/index.ts`:**
+  - F-119 / F-212: a typed `RouteMeta.tab` on the five section routes (`/v/`, `/w/`, `/visualize` → `/visualize`). The single writer is `afterEach`, which writes `to.meta.tab`. The single reader is the `/` redirect, which validates against the tabs the routes declare.
+  - F-120: both go through `safeStorage("local")`.
+  - F-255: the shape-extractor route gains a title and `noindex`.
+  - F-246: `/s/:slug` → `beforeEnter` resolves it. A visualization goes to `/v/`; a 404 then checks the image, giving `/w/`; a 404 on both renders the not-found card; a non-404 failure goes to `/v/`, whose loader reports it. `isVizMorph` opens no transition to a slugless `/visualize`, which the loader `replace()`s at once, so there is one view transition per navigation.
+  - F-96 (`.gallery` R-1): `gallery` joins the morph routes.
+- **`stores/auth.ts`:**
+  - F-120 / F-213: every read and write goes through `safeStorage`. `clearSession`'s hand-rolled try is replaced by `safeRemoveItem`.
+  - F-256 (`.shell` R-2): `logout()` swallows only 401/404 (the session is already gone). Any other failure is rethrown with the account still signed in.
+- **Adjacent edits (§0bt), each in its row's concern:**
+  - `web/src/composables/useSafeStorage.ts:4-43`: `safeStorage(area)` resolves the storage inside the guard; the wrappers take `Storage | null`. The file is unowned; the change is additive, so existing callers compile.
+  - `web/src/components/layout/AppDock.vue:62-68`: `activeTab = route.meta.tab ?? null`. This is the lock's named F-119 seat ("AppDock label F-119 via router meta only").
+  - `web/src/components/visualization/gallery/UserSlugBar.vue:137-140`: `handleLogout` reports the rethrown failure as an error toast ("Could not log out: the session is still active. Try again."). It is the twin that `.shell` R-2 named.
+  - `web/src/components/visualization/composables/useViewState.ts:3,9,45-47`: F-213's named visualization storage site. The file is unowned; its read and write go through the accessor.
+  - `web/e2e/contrast-pairs.ts:132-139`: FMD-18's stack follows the bound edge (`--viz-legendre` → `--foreground`). The banked figures are cleared; they are informational and never asserted.
+
+**3. AFTER.**
+- ⟨`FW14U_PHASE=after BASE_URL=http://localhost:3100 FW14U_MISC_PROD=http://localhost:4190 npx playwright test e2e/f-w14u-misc.spec.ts --project=chromium --headed --workers=4`⟩ run 1 → 3 failed · 23 passed. The three were r120 ×2 and r213: the collector counted vueuse `useStorage`'s own **handled** refusal, logged through its default `onError` → `console.error` by glass's colour-scheme store, as an error.
+- The collector was narrowed to uncaught `pageerror`. Each page's function is asserted by what it renders: the dock, the stage, the extraction, the Account trigger.
+- r120/r213 re-read: before ×2 on `:4191` → **3 failed** ×2; after ×2 → **3 passed** ×2.
+- At the committed bytes (`a6d317d`), the whole spec was re-read ×2 with the same command → **26 passed** (10.8 s) · **26 passed** (10.3 s). Load was 15.65 / 14.21 / 12.35.
+- Frames `after-*-{1440,390}.png` are banked. The morph stage is dominant at 1440 (416 px, beside the cards). At 390 the stage band holds while the cards scroll. The extractor is a centred column with Card frames and a readable holder. The storage-blocked root renders `/paper`.
+
+**4. Dispositions.**
+
+| row | disposition | falsifier (RED ×2 → GREEN ×2) |
+|---|---|---|
+| F-115 | **CURED**: the stage is dominant, beside the controls at ≥1024 and sticky at 390 | m115 ×2 cases (1440, 390) |
+| F-117 | **CURED**: one non-wrapping readout row with a reserved chip; the controls hold still | m117 |
+| F-118 | **CURED**: pretty-printed holder on a glass Card at `--radius-field`, with Copy | x118 ×2 cases (1440, 390) |
+| F-119 | **CURED**: `meta.tab`; `/visualize/` and `/v/` mark Visualize; tools and unknown paths mark none | r119 |
+| F-120 | **CURED** at its named sites (router `:36`/`:224-226`, auth `:14-17`) through the accessor; the white screen is gone. The `/paper` limb is carried (R-1) | r120 ×2 cases (1440, 390) |
+| F-208 | **CURED**: tiles disabled mid-morph, stage `aria-busy` | m208 |
+| F-209 | **CURED-BY** `ef9dfc6` (the circles limb; m209 GREEN before and after). The duplicate-control limb is governed by OA-45's one control-row idiom (label + field + slider; G-h enforces it on /morph), so it is not re-cut. The range limb is a **GLASS half** (R-3) | m209 (GREEN-BEFORE) |
+| F-210 | **CURED**: a tile previews only; the chosen tile is centred; edge fades only where the strip continues | m210 |
+| F-211 | **CURED**: title and heading rungs, glass Card frames, centred bounded column | x211 |
+| F-212 | **CURED**: one writer and one reader, from `meta.tab` | r212 |
+| F-213 | **CURED** for auth and `useViewState` (the named visualization site). Two sibling call sites are carried (R-1) | r213 |
+| F-246 | **CURED**: `/s/` resolves; one view transition per navigation. The identity-header limb is carried (R-2) | v246 ×2 cases |
+| F-254 | **CURED**: no nested scroller; Export secondary and under the stage; one readout set; bound tile neutral; strip fades; level tints on the Fourier hue | m254 (+ m117, m210) |
+| F-255 | **CURED**: title and `noindex` (the register's either/or: noindex, not a DEV gate); each run reported; one focus ring; hook DEV-only. The primary-emphasis limb is a **GLASS half** (R-3) | x255 |
+| F-57 (`.shell` R-1, morph remainder) | **CURED**: the tile label is on `--type-caption` | m57 |
+| F-96 (`.gallery` R-1) | **CURED**, route-morph limb (the gallery joins the morph routes). The card-media `view-transition-name` limb is carried (R-2) | v246/g96 |
+| F-256 (`.shell` R-2, logout limb) | **CURED**: a real failure is reported and the account stays; 401/404 completes | a256 |
+
+⟨self-count: python over this table's rows⟩ → **17 rows**, 16 CURED + 1 CURED-BY, 2 GLASS halves, 4 carried limbs: the 14 plan rows plus 3 carries.
+- 14 plan rows: 13 CURED (4 with a limb carried or routed: F-120, F-213, F-246, F-255) and F-209 CURED-BY `ef9dfc6` with its range limb routed GLASS.
+- 3 carries CURED (F-96 with a limb carried).
+- 0 ESCALATED.
+
+**Gates.**
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-u rows (14 + 3 carries) | RED: 19 failed · 7 passed ×2 | **GREEN**: 26/26 ×2 |
+| G-h `f-w14-control-row` + `f-w14-uia` F-2/F-3/F-4/F-50 (+ F-5/7/12/16/28-30/36/49 in the same filter) + `f-w14u-shell` | 37/37 at `b744993` (`.shell`'s close) | ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14-control-row.spec.ts e2e/f-w14-uia.spec.ts e2e/f-w14u-shell.spec.ts --project=chromium --headed --workers=4 -g "…"`⟩ → **37 passed** ×2 (23.3 s · 23.4 s) |
+| a11y keystones `/morph` `/demo/shape-extractor` `/paper` + visual-baseline | — | 9 passed ×2 |
+| `contrast-floor` | 3 failed (pre-existing: 18/36 light · 10/36 dark · the unowned-expression list), read on the pre-cure spec | 3 failed with **identical counts**. Not moved by FMD-18's restack; FMD-18 is in neither violation list |
+| `vue-tsc -b` | 0 | **0** ×2 |
+| `vitest` | 86/86 | **86/86** ×2 |
+
+**Residuals (carried by id, each to the owner of its file; the adjacent-line rule excludes another unit's files).**
+- **R-1 · F-120 / F-213, the remaining storage call sites.** Two sites still name the storage as an argument:
+  - `paper/PaperToc.vue:134,139` (`.t` / `.paper`);
+  - `visualization/ExportModal.vue:44,63` (`.vdock`).
+
+  Each is one token: `localStorage` → `safeStorage("local")`. The accessor landed in `a6d317d`. Measured on the production bundle with storage blocked: `/` reaches `/paper` and the shell and paper render, but the ToC rail does not mount, because PaperToc's setup throws (frame `after-storage-blocked-root-1440.png`). Every other storage site is guarded: `PaperView.vue:209-221` and `useEquationCache.ts:54,100,115` sit inside try. Route: the wave close.
+- **R-2 · F-246 identity header and F-96 card-media name.**
+  - A `/v/` deep link should show the entity's identity (title, owner, visibility). That belongs in `VisualizationView.vue`, which is `.vstage`/`.vedit`'s file.
+  - The gallery card thumbnail's matching `view-transition-name` belongs in `gallery/GalleryCard.vue`, which is `.gallery`'s.
+
+  The router halves landed here (`/s/` resolution, one transition per navigation, the gallery pair). Route: the wave close.
+- **R-3 · two GLASS halves, named for relay beside O-59 (relay-only; this seat's bounds hold no mail file).**
+  - (a) A two-thumb range on the control-row idiom (F-209). Glass `Slider` paints no range fill on the `spectrum` variant (the idiom's visible thumb), and the default `scrubber` has no visible thumb. So Low/High cannot become one two-thumb row that meets G-h without a consumer copy of SliderControl's fill recipe. The ask: a range fill on `spectrum`.
+  - (b) F-255's "the primary CTA carries no primary emphasis". `Button emphasis="primary"` as published paints the warm capsule, indistinguishable at a glance from secondary (frame `after-shape-extractor-light-1440.png`).
+- **R-4 · the instrument.** The blocked-storage cases need the production bundle served (spec header recipe; `FW14U_MISC_PROD`, default `:4190`). The wave close's full e2e must serve it, or r120 ×2 / r213 read as instrument-RED. The dev server cannot model blocked storage, because pinia's development-only devtools hook reads `localStorage` unguarded (third-party, dev-only, absent from the shipped bundle).
+
+**E13.** Mail in scope was swept at wave open (0 UNREAD). This seat: ⟨`find glass-ui/docs/tranches/BK/coordination value.js/docs/tranches/V/coordination -maxdepth 1 -type f -newermt "2026-09-24 20:00"`⟩ → `INBOX.md` only. Its sole change is Track B's uncommitted KF.W13X sweep line (`:546`), with **0 UNREAD in F.W14U scope**. This seat appended no INBOX line: the file carries a sibling's uncommitted hunk.
+
+**Escalations:** none.
+
+**Unit status: DONE.** 17/17 rows dispositioned (the 14 plan rows plus the 3 carries): 16 CURED and 1 CURED-BY, each with its falsifier RED ×2 → GREEN ×2, except m209, which was GREEN before the cure. Its limbs outside this unit's files are carried by id (R-1, R-2), and its glass halves are named for relay (R-3). Commit fourier `a6d317d` (pushed, = origin `m/w1-bump-migration`).
