@@ -1535,3 +1535,52 @@ Run dirt: ⟨`git -C fourier-analysis status --porcelain | wc -l`⟩ → `44` be
 ### (8) State
 
 **F.W14U: PARTIAL** — the four-verb line does not move to IMPLEMENTED. Remaining: 26 G-u rows (ESC-C-U1) and the Close 2 outside-set REDs vc `:145 :164 :199` + f-w13-radius `:105` (LW-1, LW-2), and the instrument ownership of LW-3. vue-tsc, vitest and G-b are GREEN ×2; G-s/G-t/G-a and the `.d` consumer halves are GREEN in both full runs.
+
+## Check 1
+
+SEAT CHECK 1 (L-20 pass 1, verify-only, cures nothing), `claude-opus-5-5`, 2026-09-24 ~21:35 EDT. Spec `F-W14U.md` read whole (78 lines). Record: header through `## Unit plan`, `## Close` whole, receipts by `grep -n`. fourier HEAD ⟨`git rev-parse --short HEAD`⟩ → `a6d317d` (= the Close's tree).
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain | wc -l`⟩ → `44` (the Close's CR-1 43 frames + `.worktrees/`, not this seat's set, untouched). value.js record + LEDGER clean at open. Nothing inherited.
+
+### Axes
+
+| axis | reading |
+|---|---|
+| (1) claimed GREENs | **8/8 reproduce.** ⟨`npx vue-tsc -b` ×2⟩ → `exit 0` · `exit 0`; ⟨`npx vitest run` ×2⟩ → `14 passed · 86 passed` ×2; ⟨`MONGO_TEST_URI=mongodb://localhost:27018 uv run pytest api/tests -q` ×2⟩ → `275 passed in 13.45s` · `275 passed in 13.11s` (G-b); ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-*.spec.ts e2e/f-w14v-detached.spec.ts e2e/visual-checkpoint.spec.ts e2e/f-w13-radius.spec.ts --workers=1`⟩ (load 15.2) → **`12 failed · 199 passed (8.7m)`**: every `f-w14u-{s,t,d,vdock,vstage,vedit,eq,gallery,admin,paper,shell}` + `f-w14v-detached` case GREEN (G-s, G-t, G-a, G-d consumer, family falsifiers); the 12 = named vc `:81 :102 :123` + **vc `:145 :164 :199` + f-w13-radius `:105`** (LW-1/LW-2, the Close's outside-set REDs, reproduced) + **f-w14u-misc `:118` ×2 `:380` ×2 `:401`** (`:4190` absent, LW-3, reproduced). Targeted run once (the verdict does not turn on a second). Run dirt: status `44` lines before and after. |
+| (2) bounds | ⟨`git show --stat` per commit `67ad614..a6d317d`, paths outside `web/src` `web/e2e` `api/`⟩ → only `web/scripts/derive-loops.vitest.ts` (`.t`, `.paper`, declared §0bt), `src/fourier_analysis/symbolic/{simplification,latex_rendering,latex_format}.py` (`.srv`/`.vedit`, declared §0bt), `web/package{,-lock}.json` (`239845f`, §0dd ruled repin). `scripts/dev/dev.sh` untouched by this wave (its dirt is the standing arrangement). **HELD.** |
+| (3) masking | ⟨`git diff 67ad614..HEAD -- web/e2e api/tests web/src | grep '^+' | grep -E 'test\.skip|\.skip\(|fixme|\.only\(|allowlist|catch|except Exception|maxDiffPixelRatio|node_modules'`⟩ → 11 hits, each read: storage/JSON guards (`ExportModal`, `useSafeStorage`), network error → toast/route (`UserSlugBar` logout, `router` `/s/:slug`, `auth`, `gallery` like), and `api/tests/conftest.py` raw-ASGI client (`except Exception: if not status: raise` = the server already answered; re-raises otherwise). None wraps a defect; no skip/allowlist/node_modules patch. **HELD.** |
+| (4) families | one fourier commit per unit (`.a2` ⊕ `.s2` joined by §0dd); value.js receipt per unit. **HELD.** |
+| (5) E-3 | ⟨`git diff --stat 71ef200e^..HEAD -- registry/adjudicated/ audit/UI-AUDIT-fourier.md fourier/waves/`⟩ → only `F-W14U.md +20` / `F-W14V.md +45`, insertions only, by root COHESION commits (`f3ba1045` `3bd06545` `ffbd4f55` `70687e95` `733a9207`: dated addenda). No wave seat touched them. **HELD.** |
+| (6) mail | ⟨`find` 4 paths `-newermt "2026-09-24 21:00"`⟩ → none; INBOX has no UNREAD row in scope. **HELD.** |
+| (7) four-verb | the Close held the line at PARTIAL (not IMPLEMENTED). **Lawful.** |
+| (8) goal at the bytes | **NOT MET.** Close 1 ("All 256 … dispositioned … CURED with its falsifier ×2, or routed by id") reads 230/256; BROKEN **F-14** is ESCALATED (receipt `:437`), unruled. Close 2 RED outside the named set. |
+| (9) figures | G-u 230/256 and the RED census reproduce as the Close states (the e2e outside-set set is identical); api 275, vitest 86, vue-tsc 0 reproduce. |
+
+### (10) Honest-RED adjudication
+
+| RED gate | relief at the spec bytes | verdict |
+|---|---|---|
+| DOCK-COLLAPSED-FORM (O-65) · GLASS-SELECT-GREY (O-66) · SIDE-DOCK-EDGE (O-67) | named honest-RED by id (§0cq `.d`, §0cs, §0ct); producer-owned; consumer halves GREEN | **RELIEVED** |
+| GLASS-VEIL-GREY (O-62) · DOCK-TRIGGER-CLIP (O-63) · DOCK-SCROLL-MORPH (O-55) · named vc `:81 :102 :123`, contrast-floor, gallery-admin-a11y | the carried named baseline set / honest-RED ids (Close 2 "named baseline set plus the honest-RED ids") | **RELIEVED** |
+| Addendum (e) AUDIT-2 · `.s` completion · `.c3` | re-homed to F.W14V by addendum (f) / §0dc | **RELIEVED (routed)** |
+| **G-u: 26 rows** (ESCALATED F-14 BROKEN, F-81, F-9 final form, F-93, F-182, F-244, F-79, F-77ˢ, F-173, F-68, F-183, F-74, F-85/F-241, F-177, F-201, F-253, F-203; PARTIAL limbs; NOT LANDED F-174; HELD F-149ˢ) | none: the spec names no honest-RED for them, no ruling through §0dn re-homes them (⟨`grep -n` COHESION + `F-W14V.md`⟩ → none), and F-174 has no owning unit | **UNRELIEVED** |
+| **Close 2: vc `:145 :164 :199` + f-w13-radius `:105`** | none: outside the named set; caused by this wave's own `.eq` `fcc5617` / `.shell` `b744993` (LW-1/LW-2) | **UNRELIEVED** |
+| **Close 2: f-w14u-misc `:118 :380 :401` (LW-3)** | none: the wave's own spec depends on an unmanaged `:4190` preview | **UNRELIEVED** |
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | **HIGH** | Close 1 unmet: 26 of 256 rows neither CURED ×2 nor routed by id, incl. BROKEN F-14; no ruling | record `:437`, Close §(2); COHESION ends §0dn with no ruling | root ruling on ESC-C-U1 (`.vdock` E-1..E-4, `.vstage` E-1..E-3, `.vedit` E-1/E-2, `.eq` E-2..E-4, F-149 LOCK, F-174 owner), then a F.W14U repair seat (or a re-home to F.W14V by dated addendum) |
+| C1-2 | **HIGH** | Close 2 RED outside the named set: vc `:145 :164 :199`, f-w13-radius `:105` (landed-wrong by `.eq` `fcc5617`, `.shell` `b744993`) | this seat's targeted run `12 failed · 199 passed` | `.eq`/`.shell` repair seats: restore the surface or re-baseline each oracle under §0bt with the reason (never delete/narrow) |
+| C1-3 | MEDIUM | `f-w14u-misc` owns no instrument: 5 cases fail with `ERR_CONNECTION_REFUSED :4190` on a clean run | same run, `:118` ×2 `:380` ×2 `:401` | `.misc` repair: declare the production preview as a Playwright `webServer`/project |
+| C1-4 | MINOR | CR-1: 43 tracked `web/e2e/screenshots/f-w14/*.png` left dirty by a unit's neighbour run | ⟨`status --porcelain | wc -l`⟩ `44` | Track C's next fourier seat restores by exact path |
+| C1-5 | INFO | `.srv` edits `.b`'s test file (client moved to `conftest`), no assertion changed | Close §(1) | none |
+
+### Successors
+
+F.W14V "Opens after: F.W14U CLOSED" (`F-W14V.md:4`) — **not GREEN**: F.W14V is lawfully blocked (its `.s2` already landed early under §0dd). No other successor names F.W14U.
+
+### Verdict
+
+**NOT-CONFORMANT** — 2 HIGH (C1-1, C1-2), 1 MEDIUM, 1 MINOR, 1 INFO; 8/8 claimed GREENs reproduce; the unrelieved REDs are G-u (26) and Close 2's outside-set + LW-3 cases. LEDGER status stays PARTIAL (event line appended).
