@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+NEWLY-DEAD (declared by glass 7.0.0, not by 10.1.0, not by demo): 0
+DEAD-ON-BOTH: 12
+  --active-tab-color ['demo/styles/foundation.css:616']
+  --palettes-ramp-title-0 ['demo/palettes/PalettesPane.vue:201']
+  --palettes-ramp-title-1 ['demo/palettes/PalettesPane.vue:202']
+  --palettes-ramp-title-2 ['demo/palettes/PalettesPane.vue:203']
+  --saved-bg-0 ['demo/styles/foundation.css:672', 'demo/styles/foundation.css:715']
+  --saved-bg-1 ['demo/styles/foundation.css:673', 'demo/styles/foundation.css:716']
+  --saved-bg-2 ['demo/styles/foundation.css:674', 'demo/styles/foundation.css:717']
+  --saved-bg-3 ['demo/styles/foundation.css:675', 'demo/styles/foundation.css:718']
+  --type-mono-caption ['demo/picker/controls/ComponentSliders/ComponentSliders.vue:323', 'demo/shell/dock/DockStatusLamp.vue:54']
+  --vj-celebrate-x ['demo/styles/animations.css:159']
+  --vj-enter-opacity ['demo/styles/animations.css:95']
+  --vj-enter-rot ['demo/styles/animations.css:97']

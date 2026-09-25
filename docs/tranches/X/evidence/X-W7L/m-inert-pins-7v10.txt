@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+DEMO-DECLARED tokens read by glass 7.0.0, read by neither glass 10.1.0 nor demo: 2
+  --glass-tint-source demo/styles/foundation.css:282
+  --glass-tint-strength demo/styles/foundation.css:283

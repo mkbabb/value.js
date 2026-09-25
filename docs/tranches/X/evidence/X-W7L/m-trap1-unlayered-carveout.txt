@@ -1,0 +1,3 @@
+SERVED MODEL: claude-opus-5-5
+{"unlayeredCarveOut":{"transitionDuration":"0s","transitionProperty":"opacity"}}
+{"unlayeredCarveOut":{"transitionDuration":"0s","transitionProperty":"opacity"}}

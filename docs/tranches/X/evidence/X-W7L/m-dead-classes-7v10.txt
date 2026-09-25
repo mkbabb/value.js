@@ -1,0 +1,45 @@
+SERVED MODEL: claude-opus-5-5
+CLASSES in glass 7.0.0 CSS, absent from 10.1.0 CSS, referenced by demo: 43
+  animate-spin demo/shell/dock/ColorInput.vue 
+  basis-full demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue 
+  border-2 demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue 
+  border-muted-foreground demo/palettes/browser/slug/PaletteSlugBar.vue 
+  border-none demo/shell/dock/layers/SlugEditLayer.vue 
+  break-all demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue 
+  dropdown-menu-content demo/styles/foundation.css (demo declares)
+  dropdown-sub-content demo/styles/foundation.css (demo declares)
+  font-bold demo/workbenches/generate/GenerateControls.vue 
+  gap-4 demo/workbenches/gradient/GradientPane.vue 
+  gap-y-1 demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue 
+  grid-cols-1 demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue 
+  h-5 demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue 
+  h-9 demo/workbenches/generate/GenerateControls.vue 
+  inset-x-0 demo/workbenches/extract/ExtractWorkbench.vue 
+  leading-none demo/workbenches/extract/ExtractWorkbench.vue 
+  ml-auto demo/workbenches/generate/GenerateControls.vue 
+  mx-auto demo/workbenches/gradient/GradientPane.vue 
+  opacity-0 demo/workbenches/mix/MixSourceSelector.vue 
+  opacity-50 demo/shell/dock/Dock.vue 
+  opacity-70 demo/palettes/browser/admin/AdminFlaggedPanel.vue 
+  outline-none demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue 
+  overflow-x-hidden demo/workbenches/gradient/GradientPane.vue 
+  pb-0 demo/picker/ColorPicker.vue 
+  pt-4 demo/shared/ui/PaneHeader.vue 
+  py-6 demo/workbenches/extract/ImageDropZone.vue 
+  py-8 demo/shared/ui/EmptyState.vue 
+  right-2 demo/shell/dock/ColorInput.vue 
+  rounded-input demo/shell/dock/ColorInput.vue 
+  rounded-lg demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue 
+  rounded-none demo/palettes/browser/card/PaletteCardSkeleton.vue 
+  rounded-sm demo/workbenches/generate/GenerateControls.vue 
+  sticky demo/shared/ui/PaneHeader.vue 
+  text-subheading demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue 
+  tracking-wider demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue 
+  transition-opacity demo/palettes/browser/admin/AdminFlaggedPanel.vue 
+  uppercase demo/shell/dock/ParseEchoReadout.vue 
+  w-5 demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue 
+  watercolor-animated demo/shared/ui/watercolor-dot/WatercolorDot.vue (demo declares)
+  watercolor-filter-host demo/shared/ui/watercolor-dot/WatercolorDot.vue (demo declares)
+  watercolor-ghost-stroke demo/shared/ui/watercolor-dot/WatercolorDot.vue (demo declares)
+  watercolor-swatch demo/picker/controls/ComponentSliders/ConsoleRail.vue (demo declares)
+  wrap-anywhere demo/shared/ui/EmptyState.vue 
