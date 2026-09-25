@@ -3548,3 +3548,9 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
     - number inputs moved to NumberField;
     - the context menu now wraps the whole table;
     - e2e was not run.
+
+## §0do — 2026-09-24 late: slides on glass 10.1.0 (PR #1, unmerged); O-81
+- **slides** PR https://github.com/mkbabb/slides/pull/1 (`7dcbb3b`). 3.13.0 → 10.1.0 migrated at the root, plus keyframes 6.0.0. vue-tsc 0, vitest 22/22 ×2, build GREEN, Playwright 193 passed / 2 failed. G4 (warm/cool Fourier) also fails on main, because the new FourierField trace is monochrome. Traps 1–6 are checked; `--fc-hairline` uses `light-dark()` around an inset shadow and predates the repin.
+- **Held from merge, for the owner:** the feedback-coder constellation layout moved (glass's `seedField` draw order changed), which needs a design re-tune or a glass fix. The monochrome FourierField is a library redesign. slides also carries a consumer "glass bridge" in `deck.css`.
+- **O-81**, sent and mirrored: DOCK-END-INSET · DOCK-FIRST-EXPAND · DOCK-MOBILE-SCALE-COARSE · DATA-REVEAL-COLLISION · SEEDFIELD-DRAW-ORDER.
+- **All repins are now PRs or branches:** atlas #1 · speedtest #1 · slides #1 · bbnf-buddy local `glass-10.1` (waits for 10.2.0's menu fix) · chicago done in place. The three tranche apps are on 10.1.0 (value.js at X-W7L).
