@@ -396,3 +396,53 @@ SEAT `.u4`, `claude-opus-5-5`, 2026-09-25. Spec `F-W14V.md` read whole (48 L) an
 **Escalations:** none.
 
 **Commits:** fourier `e38e082` (falsifier) and `8e19043` (cures + 5 adjacent oracle files; the rename is recorded as R100), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `8e19043b703e`).
+
+### F.W14V.c3
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), Track C, 2026-09-25. Scope: F-W14V.md addendum (a) (:28-32), COHESION §0dc. Writable: fourier `web/src/**`, `web/e2e/**`.
+
+**Acts, in order**
+1. **Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain | grep -E '^.. web/(src|e2e)/'`⟩ → empty. Nothing inherited. fourier HEAD at open = `8e19043` (`.u4`).
+2. **Measured the glass seat for the mark (READ-ONLY).** ⟨`grep '"version"' web/node_modules/@mkbabb/glass-ui/package.json`⟩ → `10.1.0`. Glass `master` src at `bc2acc13` is also 10.1.0 (latest tag `v10.1.0`).
+   - `dist/components/dock/DockControl.vue.d.ts` has the props `shape · compact · active · type · disabled · as · asChild · class` and one `default` slot.
+   - The More-tools trigger is `<DockTrigger for="dropdown">` (`EditorControlsDock.vue:192`). `DockTrigger.vue.d.ts` has the props `for · class` and the slots `default` and `icon`.
+   - ⟨`grep -rhoE -- '--dock-control[a-z-]*' dist | sort -u`⟩ → `active-bg · floor · glyph-size · hover-bg · press-bg · radius · safe-inset · size · specular-size`.
+   - ⟨`grep -iE 'mark|badge|indicator|dot' dist/components/dock/*.d.ts`⟩ → no mark seat (the hits are the separator's "marker", the crossfade's traveling indicator and reka's layer marker).
+   - `active` is not a mark: it is the selected glass seat plus `aria-pressed` ("never a saturated brand hue"), which would mislabel a menu trigger as pressed.
+   - **Result: no mark seat → the O-76 addendum plus honest-RED MAGNET-STATE-HIDDEN**, as addendum (a) prescribes.
+3. **Measured glass's DropdownMenuItem icon anatomy.**
+   - The `DropdownMenuItem` render (`dist/menu-BnmCOa3y.js:186-230`) is `menu__item interactive-item glass-menu-row` around one `default` slot, with no icon slot.
+   - `.menu__item` (`dist/styles/glass/overlay-plate.css`) is `display:flex; align-items:center; padding-inline:0.5rem` with **no `gap`**.
+   - `components/_shared/menu/menu.css` publishes only `--menu-row-bg` and `--menu-row-lift`. `rowClass-*.js` has no gap either.
+   - ⟨`grep -rhoE -- '--(overlay|dropdown|menu)[a-z-]*(gap|icon)[a-z-]*' dist`⟩ → empty.
+   - **Result: glass publishes no icon slot or gap**, so the specified cure (glass's anatomy, never a consumer margin) cannot be made at the bytes. No consumer margin was substituted. The ask goes in the same O-76 addendum, with honest-RED **MENU-ICON-GAP**. See Escalations for the ruling this needs.
+4. **Wrote the falsifier `web/e2e/f-w14v-c3.spec.ts`** (committed at fourier `1ff403d`). It has two limbs and a frames block:
+   - **c3m (the mark):** the magnet goes to radius 0 and then to 4 through its menu field, the menu is closed and the pointer is parked. A seat-agnostic probe then walks the More-tools trigger, its descendants and their `::before`/`::after`. It looks for the magnet's hue (bare `--viz-fourier`, or the in-menu glyph's ink `color-mix(in oklab, var(--viz-fourier) 75%, var(--foreground))`) in color, fill, stroke, background, border, outline, box-shadow or background-image. With the magnet off it must find none; with it on, at least one.
+   - **c3g (the gap):** for each of Smooth contour, Simplify contour and Reset to extraction, it measures the gap from the svg's right edge to the label's first glyph (a Range rect). It also reads glass's own gap from a bare `menu__item interactive-item glass-menu-row` row. The assertions are that glass's gap is > 0 and that the measured gap is ≥ max(glass gap, 0.5 px).
+   - **Frames:** 1440×900 and 390×844, light and dark. Each takes the closed dock with the magnet on, then the open menu.
+5. **Gate readings, headed (`--project=chromium --headed --workers=1`, `BASE_URL=http://localhost:3100`, API :8000):**
+   - run 1 (full file) → c3m RED, c3g RED, 1440 L+D frames passed. The 390 frames failed: at 390 the More-tools trigger lies outside the dock's plate, and ⟨Playwright⟩ reported `<div class="dock-plate" aria-hidden="true">…</div> intercepts pointer events` (R-1 below). The frames now open the menu by keyboard (focus the trigger, then Enter) below lg.
+   - run 2 (⟨`-g 'c3m|c3g'`⟩) → `2 failed`. c3m: `magnet on … found [] · Expected: > 0 · Received: 0`, while the off limb held (`[]`). c3g: for all three rows, `glass publishes a DropdownMenuItem icon gap · Received: 0` and `icon-to-label gap 0px >= glass's 0px, and not flush · Expected: >= 0.5 · Received: 0`.
+   - run 3 (full file) → `2 failed` (c3m, c3g; the same 7 `Received: 0`) and `4 passed (41.6s)` (the four frame cells).
+   - ⟨`npx vue-tsc --noEmit`⟩ → exit 0.
+6. **Wrote the O-76 addendum** (E-3, beside the letter, which is left unedited): `docs/tranches/X/relay/X-F-BK-TOGGLE-PRESSED-TINT-ADDENDUM-2026-09-25-C3.md` (DOCK-CONTROL-MARK and MENU-ICON-GAP, with the 10.1.0 measurements and additive asks for the 10.x minor). An INBOX.md line was appended. The glass-side mirror and the live relay to glass-ui-2d are owed by seat 0, because glass is READ-ONLY to this seat.
+7. **Frames (headed; git-ignored `*.png` under `web/e2e/screenshots/f-w14v/c3/`):** `before-dock-magnet-on-{1440,390}-{light,dark}.png` and `before-menu-{1440,390}-{light,dark}.png`, 8 in all. They were read: `before-menu-1440-light` shows the Smooth, Simplify and Reset glyphs flush against their labels, and the closed dock at magnet 4 shows no sign of the magnet. No cure landed, so there are no "after" frames. The before frames stand as the honest-RED evidence.
+
+**Gates BEFORE → AFTER**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| mark falsifier (magnet on → mark, off → none) | RED by absence (no falsifier) | **RED ×3** (on → 0 marks; off → none holds). **Honest-RED MAGNET-STATE-HIDDEN** (O-76 addendum (a) §1) |
+| menu icon gap ≥ glass DropdownMenuItem gap | RED by absence | **RED ×3** (0 px on 3/3 rows; glass gap 0 = none published). **Honest-RED MENU-ICON-GAP** (O-76 addendum (a) §2), pending a ruling |
+| headed frames 1440 + 390, light + dark | none | **GREEN**: 8 frames, and the frame cells passed 4/4 on run 3 |
+| vue-tsc | 0 | 0 |
+
+**Residuals**
+- **R-1 (routed, not this unit's concern):** at 390×844 the editor dock's row overflows its plate. The More-tools trigger is outside the plate's edge and cannot be reached by pointer (`.dock-plate` intercepts the click; frames `before-menu-390-dark` and the run-1 failure shot). In the light theme the Undo glyph also sits half under Save. UIA-F-88 (the 390 fit) no longer holds. The cause is unmeasured; one candidate is the View options trigger `.u1` added to the row. It is proposed for `.au1` (mobile shell) or a close-time repair. The c3 frames reach the menu by keyboard, which is the trigger's own focus path, and do not mask the defect.
+
+**Escalations**
+- **ESC-c3-1 MENU-ICON-GAP:** addendum (a) names only the mark's fallback (the O-76 ask plus honest-RED). For the gap it names only the cure: "glass's `DropdownMenuItem` icon anatomy (its published icon slot or gap), not a consumer margin". Glass 10.1.0 has neither, so the cure cannot be made at the bytes. This seat did not substitute a consumer margin. It asked glass in the same addendum and records honest-RED MENU-ICON-GAP. **Ruling sought:** confirm honest-RED MENU-ICON-GAP with ADOPT-AT-LANDING on glass's answer (the analogue of the mark's ruled path).
+
+**Adjacent edits:** none.
+
+**Commits:** fourier `1ff403d` (the falsifier and frames spec), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `1ff403d1f871`). value.js: the relay addendum, the INBOX line and this record, committed together below.
