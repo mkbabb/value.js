@@ -1584,3 +1584,44 @@ F.W14V "Opens after: F.W14U CLOSED" (`F-W14V.md:4`) — **not GREEN**: F.W14V is
 ### Verdict
 
 **NOT-CONFORMANT** — 2 HIGH (C1-1, C1-2), 1 MEDIUM, 1 MINOR, 1 INFO; 8/8 claimed GREENs reproduce; the unrelieved REDs are G-u (26) and Close 2's outside-set + LW-3 cases. LEDGER status stays PARTIAL (event line appended).
+
+## Repair 1
+
+SEAT REPAIR 1 (round 1), `claude-opus-5-5`, 2026-09-24 ~21:45 EDT. Spec `F-W14U.md` read whole (78 lines). Record: header through `## Unit plan`, `## Close` and `## Check 1` whole; receipts' escalation lines by `grep -n`. fourier HEAD at open `a6d317d`.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` + the 43 CR-1 frames ` M web/e2e/screenshots/f-w14/*.png` (C1-4, cured below). value.js record + LEDGER clean. Nothing inherited in this seat's set.
+
+**COHESION re-read for ESC-C-U1.** ⟨`grep -n "^## §0d" COHESION.md | tail`⟩ → last section `§0dn` (:3538); ⟨`grep -n "ESC-C-U\|F\.W14U" COHESION.md`⟩ → no ruling on `.vdock` E-1..E-4, `.vstage` E-1..E-3, `.vedit` E-1/E-2, `.eq` E-1..E-4, the F-149 LOCK or F-174's owner.
+
+### Defect → cure → commit
+
+| # | sev | defect | cure | commit (fourier) |
+|---|---|---|---|---|
+| C1-1 | HIGH | G-u 230/256: 26 rows ESCALATED/PARTIAL/NOT LANDED/HELD, unruled | **ESCALATED (not cured here).** The Check's own cure is ordered: "the root rules on ESC-C-U1 … then an F.W14U repair seat cures the rows, or a dated addendum re-homes them". No ruling exists through §0dn. The limbs are not seat-decidable: E-2 (F-14) moves the live stage into the takeover across the `.vstage`/`.vedit` surfaces; `.vstage` E-3 (F-74) was landed and withdrawn because it inverts `.s`'s committed G-s 390 oracle; `.vdock` E-4 (F-173) needs a setup change in `.d`'s committed oracle; `.vedit` E-2 / `.eq` E-3 need a glass virtual-anchor export (O-59 addendum); `.eq` E-2/E-4 are server + tier limbs; F-149 is a LOCK conflict. Each needs a ruling on an oracle, a producer ask, or a re-home. **ESC-C-U1 stands.** | — |
+| C1-2 | HIGH | Close 2 RED outside the named set: vc `:145 :164 :199`, f-w13-radius `:105` (LW-1 `.eq`, LW-2 `.shell`) | Each render read before any change (diff/actual/expected PNGs): **`:105`**: `.eq` F-114 made Function/Controls/Coefficients one fused ConfiguratorLayer stack; measured ⟨probe, 1440⟩ → Function `16px/0px`, Controls `0px/0px`, Coefficients `0px/16px` (top-left/bottom-left). The panel is now the stack: the oracle asserts the stack's outer corners `toBe(card)` (same equality) plus the three layers present in order; the square seams are glass's canon. **`:164`** (`.eq-panel-left` 632→620) and **`:199`** (3 px of the layer surface behind the Parseval trigger, same size) are the intended `.eq` surface → re-baselined. **`:145`**: the 358 px are exactly `.shell` F-150's control copy "Exit admin mode" → re-baselined. §0bt; no assertion deleted, no threshold moved. | `a926748` (LW-1) · `56e56a3` (LW-2) |
+| C1-3 | MEDIUM | `f-w14u-misc` owns no instrument (`:4190`) | `web/playwright.config.ts` declares `webServer` = `vite build --outDir dist/e2e-preview` then `vite preview --port 4190 --strictPort` (preview inherits `server.proxy`), `reuseExistingServer`, none on the prod cell; the spec comment points at it. `web/dist/` is already ignored (⟨`git status`⟩ clean after build). Measured on a clean machine state: ⟨`curl :4190`⟩ → `000` (nothing listening) then ⟨`npx playwright test e2e/f-w14u-misc.spec.ts --workers=1`⟩ → **`26 passed (33.6s)`**, the preview started by Playwright. | `0e34595` |
+| C1-4 | MINOR | CR-1: 43 tracked `f-w14/*.png` dirty | ⟨`git status --porcelain | grep '^ M web/e2e/screenshots/f-w14/' | cut -c4- | xargs git checkout --`⟩ → status `?? .worktrees/` only. (Their writers are `f-w14-{admin-idiom,control-row,admin-table,dpr,veil}.spec.ts`; any full run re-dirties them, so a full-run seat restores by the same command.) | — (restore, no commit) |
+| C1-5 | INFO | `.srv` edits `.b`'s test file | none | — |
+
+Pushed: ⟨`git push origin m/w1-bump-migration`⟩ → origin at `0e34595`.
+
+### Gate re-reading (fourier `0e34595`)
+
+| gate | Check 1 | Repair 1 | reading |
+|---|---|---|---|
+| Close 2 (the Check's targeted set: `f-w14u-*` + `f-w14v-detached` + `visual-checkpoint` + `f-w13-radius`) | `12 failed · 199 passed` | **`3 failed · 208 passed` ×2** | ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-*.spec.ts e2e/f-w14v-detached.spec.ts e2e/visual-checkpoint.spec.ts e2e/f-w13-radius.spec.ts --workers=1 --reporter=line`⟩ run 1 load `12.95 → 9.24`, `3 failed · 208 passed (8.1m)`; run 2 load `9.24 → 14.31`, `3 failed · 208 passed (7.6m)`. Both runs' REDs = vc `:81 :102 :123` = **the named baseline set exactly**. Outside-set vc `:145 :164 :199`, f-w13-radius `:105` GREEN ×2; `f-w14u-misc` 26/26 ×2 with `:4190` started by the config (nothing listening before). |
+| `vue-tsc -b` | 0 | **0 ×2** | ⟨`npx vue-tsc -b`⟩ → `exit 0` · `exit 0` |
+| `vitest` | 14/86 | **14/86 ×2** | ⟨`npx vitest run`⟩ → `Test Files 14 passed (14)` · `Tests 86 passed (86)` ×2 |
+| G-b api | 275 | not moved (no `api/**` edit) | cites Check 1 ×2 |
+| G-u (Close 1) | RED 230/256 | **RED 230/256** (unchanged) | C1-1 escalated; no row moved by this seat |
+| run dirt | 44 | ⟨`git -C fourier-analysis status --porcelain | wc -l`⟩ → **`1`** (`.worktrees/`) | CR-1 cleared; the targeted set writes no tracked frame |
+
+Full e2e not re-run: the cures touch only the four named oracles' files, three snapshots and the preview instrument; the targeted set holds every spec a cure could move. The full ×2 is the next Close's.
+
+### Escalations
+
+- **ESC-C-U1 (carried, C1-1):** G-u 26 rows. Needs the root's rulings (`.vdock` E-1..E-4, `.vstage` E-1..E-3, `.vedit` E-1/E-2, `.eq` E-1..E-4, the F-149 LOCK, an owner for F-174) or a dated re-home to F.W14V. No seat cure is lawful before that.
+
+### State
+
+**F.W14U: PARTIAL.** C1-2, C1-3 and C1-4 are cured. Close 2's outside-set REDs are gone ×2, and the suite owns its `:4190` instrument. Close 1 stays RED on ESC-C-U1, so the four-verb line does not move.
