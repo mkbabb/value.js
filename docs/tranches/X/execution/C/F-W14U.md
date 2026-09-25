@@ -1625,3 +1625,50 @@ Full e2e not re-run: the cures touch only the four named oracles' files, three s
 ### State
 
 **F.W14U: PARTIAL.** C1-2, C1-3 and C1-4 are cured. Close 2's outside-set REDs are gone ×2, and the suite owns its `:4190` instrument. Close 1 stays RED on ESC-C-U1, so the four-verb line does not move.
+
+## Check 2
+
+SEAT CHECK 2 (L-20 pass 2, verify-only, cures nothing), `claude-opus-5-5`, 2026-09-24 ~22:08 EDT. Spec `F-W14U.md` read whole (78 lines). Record: header through `## Unit plan`, `## Close`, `## Check 1`, `## Repair 1` whole; receipts by `grep -n`. fourier HEAD ⟨`git rev-parse --short HEAD`⟩ → `0e34595` = ⟨`git ls-remote origin m/w1-bump-migration`⟩ `0e345958`.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only (CR-1 stays cleared). value.js record + LEDGER clean at open. Nothing inherited.
+
+**COHESION re-read for ESC-C-U1.** ⟨`grep -n "^## §0d" COHESION.md | tail -1`⟩ → `§0dn` (:3538), unchanged since Repair 1; ⟨`grep -n "ESC-C-U\|F\.W14U" COHESION.md`⟩ → no ruling on the 26 rows; ⟨`git log 71ef200e^..HEAD -- fourier/waves/F-W14U.md`⟩ → the three addendum commits only (no re-home of the escalations).
+
+### Axes
+
+| axis | reading |
+|---|---|
+| (1) claimed GREENs | **Repair 1's claims reproduce (6/6).** ⟨`npx vue-tsc -b` ×2⟩ → `exit 0` · `exit 0`; ⟨`npx vitest run` ×2⟩ → `Test Files 14 passed (14)` · `Tests 86 passed (86)` ×2; ⟨`MONGO_TEST_URI=mongodb://localhost:27018 uv run pytest api/tests -q`⟩ → `275 passed in 13.84s` (G-b); ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-*.spec.ts e2e/f-w14v-detached.spec.ts e2e/visual-checkpoint.spec.ts e2e/f-w13-radius.spec.ts --workers=1 --reporter=line`⟩ (load 15.1 at start, 218 at end: a sibling track's burst) → **`3 failed · 208 passed (9.9m)`**, the 3 = vc `:81 :102 :123` = the named baseline set exactly. Outside-set vc `:145 :164 :199` and f-w13-radius `:105` GREEN (C1-2 cure holds); `f-w14u-misc` 26/26 with `:4190` started by the config (⟨`curl :4190`⟩ → `000` before the run: C1-3 cure holds); every `f-w14u-*` family falsifier + `f-w14v-detached` GREEN (G-s, G-t, G-a, G-d consumer). Targeted run once: the verdict does not turn on a second (G-u decides). Run dirt: ⟨`status --porcelain | wc -l`⟩ → `1` before and after. |
+| (2) bounds | Check 1 read `67ad614..a6d317d` HELD. Repair 1's three commits ⟨`git show --stat`⟩: `a926748` `web/e2e/f-w13-radius.spec.ts` + 2 vc snapshots · `56e56a3` 1 vc snapshot · `0e34595` `web/e2e/f-w14u-misc.spec.ts` + `web/playwright.config.ts`. All inside `web/**`/`web/e2e/**`. `scripts/dev/dev.sh`: ⟨`git log --since=2026-09-23 -- scripts/dev/dev.sh`⟩ → none. **HELD.** |
+| (3) masking | `a926748` replaces the three per-layer `.cartoon-card` locators (the deleted local CollapsibleSection) with the three `.configurator-layer` presence/order assertions + the stack's outer corners `toBe(card)`: same equality, re-seated on the surface `.eq` F-114 made; not a threshold move, no skip. Snapshot re-baselines carry the reason per §0bt (the intended `.eq` surface; F-150's "Exit admin mode"). `0e34595` adds a `webServer` (instrument ownership), no fallback. **HELD.** |
+| (4) families | one commit per meaning (LW-1, LW-2, LW-3 separate). **HELD.** |
+| (5) E-3 | ⟨`git diff --stat 71ef200e^..HEAD -- registry/adjudicated/ audit/UI-AUDIT-fourier.md fourier/waves/`⟩ → `F-W14U.md +20`, `F-W14V.md +45` (root COHESION addenda, insertions only; unchanged since Check 1). **HELD.** |
+| (6) mail | ⟨`find` value V/coordination · glass BK/coordination + BL · keyframes V/coordination `-newermt "2026-09-24 21:30"`⟩ → glass `BL/FORMATION-PROGRESS.md` only (glass-internal cursor, not a letter); INBOX status column: 0 UNREAD in scope. **HELD.** |
+| (7) four-verb | Repair 1 held the line at PARTIAL. **Lawful.** |
+| (8) goal at the bytes | **NOT MET.** Close 1 ("All 256 … CURED with its falsifier ×2, or routed by id") reads 230/256; BROKEN **F-14** ⟨record `:437`⟩ → `ESCALATED (E-2)`, unruled; F-174 `NOT LANDED` with no owning unit. |
+| (9) figures | Repair 1's `3 failed · 208 passed`, vue-tsc 0, vitest 14/86, api 275 reproduce; G-u 230/256 unchanged (no row moved since the Close; no COHESION ruling). |
+
+### (10) Honest-RED adjudication
+
+| RED gate | relief at the spec bytes | verdict |
+|---|---|---|
+| DOCK-COLLAPSED-FORM (O-65) · GLASS-SELECT-GREY (O-66) · SIDE-DOCK-EDGE (O-67) | named honest-RED by id (§0cq `.d`, §0cs, §0ct); producer-owned; consumer halves GREEN | **RELIEVED** |
+| named vc `:81 :102 :123` (+ contrast-floor, gallery-admin-a11y in the full run) · GLASS-VEIL-GREY (O-62) · DOCK-TRIGGER-CLIP (O-63) · DOCK-SCROLL-MORPH (O-55) · CHIP-PRESSED-TINT (O-76) · LAYER-HEADER-LABEL (O-77) | Close 2 "named baseline set plus the honest-RED ids"; producer halves | **RELIEVED** |
+| Addendum (e) AUDIT-2 · `.s` completion · `.c3` | re-homed to F.W14V by addendum (f) / §0dc | **RELIEVED (routed)** |
+| **G-u (Close 1): 26 rows** — ESCALATED F-14 (BROKEN), F-81 (+F-9 final form), F-93, F-182, F-244, F-79, F-77ˢ, F-173, F-68, F-183, F-74, F-85/F-241, F-177, F-201, F-203, F-253; PARTIAL limbs (F-71 F-146 F-168 F-170 F-172 F-238 F-239 …); NOT LANDED F-174; HELD F-149ˢ | none: the spec names no honest-RED id for them; no COHESION ruling through §0dn re-homes or relieves them; F-174 has no owning unit. The residual register names only "the root" as owner (ESC-C-U1), which is an escalation, not a relief | **UNRELIEVED** |
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | **HIGH** | Close 1 unmet: 26 of 256 rows neither CURED ×2 nor routed by id, incl. BROKEN F-14; ESC-C-U1 unruled since the Close | record `:437` (F-14 ESCALATED E-2), Close §(2), Repair 1 C1-1; COHESION last section `§0dn`, no ruling | the root rules ESC-C-U1 (`.vdock` E-1..E-4, `.vstage` E-1..E-3, `.vedit` E-1/E-2, `.eq` E-2..E-4, F-149 LOCK, an owner for F-174) or re-homes the rows to F.W14V by dated addendum; then a F.W14U repair seat cures what stays here |
+| C2-2 | INFO | C1-2, C1-3, C1-4 cures verified: outside-set REDs gone, `:4190` suite-owned, CR-1 cleared | this seat's targeted run `3 failed · 208 passed`; status `1` line | none |
+| C2-3 | INFO | Close 2 full e2e ×2 not re-read after Repair 1 (targeted set only, by Repair 1's own note); owed to the next Close | Repair 1 "Full e2e not re-run" | the next Close runs the full suite ×2 at `--workers=1` |
+
+### Successors
+
+F.W14V "Opens after: F.W14U CLOSED" (`F-W14V.md:4`) — the conjunct is **not GREEN**; F.W14V is lawfully blocked (its `.s2` glass half already landed early at `239845f` under §0dd). No other wave's "Opens after" names F.W14U (⟨`grep -n "Opens after" fourier/waves/*.md | grep W14U`⟩ → `F-W14V.md:4` only).
+
+### Verdict
+
+**NOT-CONFORMANT** — 1 HIGH (C2-1: G-u 230/256, ESC-C-U1 unruled), 0 BLOCKER/CRITICAL; every claimed GREEN reproduces (vue-tsc 0 ×2, vitest 86 ×2, api 275, targeted e2e = named set exactly). LEDGER status stays PARTIAL; event line appended.
