@@ -476,3 +476,92 @@ SERVED MODEL: claude-opus-5-5 (unit `.dock`, G4; RESUMED seat — a killed prede
 **Adjacent edits:** `test/demo/app/mbabb-menu-share-keyboard.test.ts:88` (act 12: the oracle string for copy a G4 commit changed) — inside G4's `test/demo/**` anyway. None outside G4.
 
 **kf commits this unit (in order):** inherited `b1597622` · `74284974` · `9de289f2` · `cc5631bb` · `69392e1a` · `fcdf5170` · `737178d3` · `693b6265`; this seat `3c28ca6f` · `d535fb24` · `9fdda554` · `f376524b` · `68054f4a` · `c8418e59` · `01a6a4c2` (⟨`git log --format=%h 574642be..HEAD --grep=W13X.dock | wc -l`⟩ → 15).
+
+### .spring
+
+SERVED MODEL: claude-opus-5-5 (unit `.spring`, G5; writable `demo/scenes/spring/**` except `StartingStyleTarget.vue` and `useCompiledEntry.ts` · `src/components/slider/**` (absent at this tree) · `test/demo/**`)
+
+**Crash recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → only the 2 old untracked coordination letters; **0 dirty paths in G5**. Nothing inherited. Baseline kf HEAD `01a6a4c2` (the `.dock` close).
+
+**Instrument.** Private dists built with `vite build --mode gh-pages --outDir <scratch>/dist-{before,after}` (before = `01a6a4c2`; after rebuilt per landing), served by `serveDist`; no shared :5173. Probes (committed here): `evidence/W13X/spring/{spring,sweep,derby-exit,readout,rest,channel}.mjs`; frames `evidence/W13X/spring/frames/`. Falsifiers: kf `test/demo/scenes/spring-solver-truth.test.ts` (18 clauses) + `test/demo/instrument/live-session-spring-interact.test.ts`; RED ×2 was read at the pre-cure bytes of the cured paths (HEAD copies swapped in, then restored), GREEN ×2 after.
+
+**1. E2E-S5-1 (NEW RED at BEFORE) — CURED, kf `b6303001`.**
+- BEFORE ⟨`run-demo-roster.mjs --workers=1 --only=live-session`⟩ at `01a6a4c2` → `✗ S5 … "spring: INTERACT red — only 0 distinct spring-ball positions after the rail scrub (<3)"`.
+- Bisect against the KF.W13W commits: the falsifier (the painter's live-ball write target, seated in SpringTarget's own template tree, matched by S5's churn selector) is GREEN at `82360347^` and RED at `82360347` (KF.W13W.b, OA-56), probe unchanged. Root: W13W.b moved the live + sampler balls off `.spring-rail` onto the trace; the painter writes `plot.place(t)` to their `.curve-carriage`; S5 still read `.spring-rail [class*='ball'][style*='transform']`. An instrument defect, not a product one: the product moves the ball on a scrub.
+- Cure: S5's selector reads `.spring-target .curve-carriage[style*='transform']` plus the derby lane balls. **Adjacent edit (§0bt):** `scripts/observe/demo/live-session.mjs:1017-1047` (the oracle for my row; `.mobile` set the same precedent at E2E-OCC-1).
+- Falsifier `live-session-spring-interact.test.ts`: RED ×2 (`ref="liveCarriageEl" (.curve-carriage.spring-carriage) vs ".spring-rail [class*='ball'][style*='transform']"`), GREEN ×2.
+- AFTER ⟨same⟩ ×2 at `b6303001`: `✓ S5 … PASS · {"sceneFails":[]}` ×2; the leg's only red is honest-RED B7. Re-read at the unit's final HEAD in §Gates.
+
+**2. Cured this seat (per row: frame before · root cure · falsifier RED→GREEN ×2 · frame after).** Served figures are 1440 light / 1440 dark / 390 light / 390 dark unless stated; frames `frames/{before,after*}-*`.
+
+| row | kf commit | BEFORE (served) | root cure | falsifier | AFTER (served) |
+|---|---|---|---|---|---|
+| KFA-38 + UIA-KF-204 | `6f8d202f` (+ `85a1b6e5` type) | badge `tracking`, x `0.000`, carriage static, marker at value 1, all 4 cells | solvers born settled at `SPRING_BASE.initial`, target on the ball, readouts seated from the solvers; `reset()` rewinds to the same rest | (1) ×2 cases | badge `settled`, marker on the ball, all 4 cells |
+| UIA-KF-305 | `14e85683` | `.spring-rail` radius `0px`, `:focus-visible` ring on it | rail carries `--radius-field` | (2) | radius `16px`, 4 cells |
+| UIA-KF-110 + UIA-KF-307 | `46c6c975` | dark: tile bg `rgb(11,10,9)`, heatmap bg `rgb(11,10,9)` (page ground) | tiles transparent, washes over transparent; field + ramp mix into `--surface-tint-4` | (3)(4) | dark: tile bg `rgba(0,0,0,0)` / accent 8 % on the pressed one; heatmap `…/0.04` well tint |
+| A2-KE-L3-12 | `aff27193` | 390: readout past the tile's content edge +2/+10/+2 px | the line breaks between its two quantities; `items-stretch` keeps row heights equal | (5) | 390: −1/−1/−1/−3 px, heights 76 ×4 |
+| A2-KE-L3-9 | `4a840a23` (+ `b7d8a69a` test mount) | lone 23-25 px caption `<button>` row at the card foot | the facet is ONE glass `ConfiguratorLayer` ('Spring'); the action is a glass Button (quiet, sm, icon-only, Tooltip) in its `#actions` header slot (addendum (c), O-68); body row + `.reseed-btn` deleted; no consumer copy | (6) | parents `configurator-layer-actions > configurator-layer-header`, 4 cells |
+| A2-KE-L3-8 | `c3aac325` | Re-seat a full-width 3rd ribbon row (379×40 / 304×44) | Re-seat is a compact glass Button beside the rail hint on the stage; the solver ribbon is the standard transport | (7) | 105×36 / 146×44 inside `.spring-target` |
+| KFA-211 | `11446001` | (Sweep playing) live ball `will-change: transform`, `--live` while settled | `isLive = !liveSettled ‖ derbyActive`; the sampler gets its own `--sweeping` gate | (8) | playing: `live false`, live-ball `auto`, sampler `transform`, badge `settled` (1440 light, 390 dark) |
+| KFA-44 | `a4c9ebcf` | Reverse pressed: scrubber 774→1040 / 812→1079 ms (still rising) | the direction lives in the demo's sweep clock (`setReversed`, continuous rebase); SpringScene's Reverse calls it | (9) (RED: `the phase fell: expected 0.354 to be less than 0.24`) | reversed: 552→277 / 556→306 ms |
+| KFA-41 + KFA-40 + UIA-KF-094 | `7d812c60` | lane [583,1232] vs track [682,1233]; tags h 43/37 vs line 22/18, overlaps 5/3 | lanes span the rail's box (one `railPct` axis), a dashed target tick at value 1 crosses them, names are one nowrap legend row; the hint row steps back under it | (10) ×2 cases | lane = rail [583,1332], tick x 1233 = track end; tags one line; overlaps 0 |
+| UIA-KF-308 | `7f762d5c` | no hover readout; pip label under the marker `["smooth"]` | hover yields `(r) s · ζ (d) → (peak) %` in the header; the current preset's pip name steps aside (`is-current`); pips stay named (N-SH-5) | (11) | hover `1.00 s · ζ 0.45 → 21 %` (1440); label under marker `[]` |
+| KFA-154 | `95e73295` | (code-read: `lastWriteAt = −∞` → first sweep write glides) | the field's pointerdown declares the stream until release; the N-SH-3 clock rule stays for foreign writes | (12) | — (unit-level; jsdom has no glide to film) |
+| KFA-42 | `24119372` | race restores `0.500` (the tapped spot) | the first press of a gesture snapshots the field; a derby inside the double-tap window restores it first; `DOUBLE_TAP_MS` is one constant | (13) (RED: `smooth starts at the pose: expected 0.2599 to be 0`) | race restores `0.000` (born pose) |
+| KFA-153 | `66d421e5` | exit fade: 14 lane frames, 1 distinct pose | the ball map clears at the Transition's `after-leave`, not on the ref's null | (14) | 16 frames, 16 distinct poses |
+| KFA-102 | `24d7d45f` (+ `d57ca99a` oracle) | 5 lane frames pinned at a rail end | allowance derived from the presets' largest analytic overshoot (0.205 > 0.18) | (15) | 0 pinned frames |
+| KFA-103 + KFA-151 + KFA-212 | `e3f76350` | readout 174 ms after motion; `settled` 321 ms after the ball came within 0.5 px | settle floor in visible units (1e-3 / 1e-2 s⁻¹); arm edge flushed on the first moving frame, settled edge flushed the frame it happens; the 6 Hz throttle stands between | (16)(17) (RED: `settled 66 vs last visible step 44`; `x has left 0 …: expected 0`) | readout lag 0 / 0 ms, settled lag 4 / 2 ms (×2) |
+| KFA-213 | `034c8a44` | 1 skin flip across 145 `derby` frames | badge class derives from `stateLabel` | (18) | 0 flips |
+
+**3. Cured prior (measured at `01a6a4c2`, before any byte of this unit).**
+- **UIA-KF-044, 039, 040, 206, 228, and UIA-KF-042's consumer half:** the inline Physics-facet KeyframesEditor was retired at KF.W13V.s (`e69f7731`). ⟨`sweep.mjs`⟩ BEFORE `"inlineEditor":false` (1440 light, 390 dark); ⟨`grep -c KeyframesEditor demo/scenes/spring/*`⟩ → 0. UIA-KF-042's glass half (visible multi-thumb Slider) stays relay-only on its O-row.
+- **UIA-KF-095, spring-page half:** no remove-stop exists on the spring page any more (same retirement). The general limbs are RE-HOMED (§4).
+- **KFA-214:** the collapsed editor is the retired one (same).
+- **KFA-43:** the Sweep channel paints: ⟨`channel.mjs`, Sweep playing 800 ms⟩ → the ribbon's `visualizer-ball` takes 30 distinct positions and `document.getAnimations().length` is 4 (the audit read `[]` and 0 mutations). Keyframes edited in the shared pane (KF.W13V.s) reach that preview. The stage sampler is the analytic spring on the trace by OA-56 (KF.W13W.b) — LAWFUL. Its time contract is ESCALATED under KFA-191 (§5).
+- **KFA-155 + UIA-KF-107:** the readout is an sr-only description and the visible values are `<output>`s: ⟨`sweep.mjs`⟩ `["0.50 s","none"],["ζ 0.86","none"]` (text, text-transform). KF.W13V.y.
+- **KFA-157:** ⟨`rest.mjs`, Entry view, 1440×900⟩ the ribbon verb is at y 684 and the in-card verb at y 362; neither is below the fold.
+- **KFA-187:** Entry view values render (`["0.50 s","ζ 0.86"]`), no editor. The thumbless bar is glass's `scrubber` recipe ("one glass segment whose leading edge IS the handle, with no visible thumb", `slider/types.d.ts`) — LAWFUL.
+- **UIA-KF-101:** CURED-PRIOR by `.mobile` item 5 (UIA-KF-007: docSH 900/900 on spring, the rail bounded).
+- **UIA-KF-320 (re-homed in from `.mobile`):** ⟨`rest.mjs` 390 dark⟩ figure header h 20 (one line), legend h 16 (one line), pip labels on the ζ = 1 line `[]`. KF.W13V.y, plus (11)'s current-pip rule.
+- **UIA-KF-046, spring half (re-homed in from `.dock`):** preset tiles on `--radius-field` since KF.W13V.y; the tile shape axis is glass (O-59), relay-only.
+- **UIA-KF-205:** one legend line, values inline, no lattice aside, one label register (KF.W13V.y). The order (params → field → tiles) and the named pips are the OA-51 design note and N-SH-5 — LAWFUL.
+- **UIA-KF-306:** headers one line (above). Three inputs for two params are the OA-51 design note — LAWFUL. The slider tone: glass `Slider` has no tone axis (`slider/types.d.ts`: variant, size, marks, motion), so the fill is the producer's — relay ask (glass: a Slider tone/accent seam), for the close's SS-6 accretion. No consumer override.
+- **KFA-156, painter half:** no facet painter remains (the in-tile painter was retired at KF.W13V.y). The double mount is §4.
+
+**4. Re-homed (root outside G5; no byte here).**
+- **KFA-39 → `.transport`.** ⟨`rest.mjs`⟩ BEFORE and AFTER: End → `1.000`, dock `Reset animation` → `1.000` 1.5 s later. The dock reset is `useAnimationGroupActions.reset()` (`getGroup().stop()` + `syncPlayState(false)`), and the machine's RESET has no effect arm (`demo/state`, which no G-row owns). `useSpringDemo.reset()` is now the honest born rest (§2) and waits on that seam.
+- **KFA-104 → `.transport`** (`useAnimationGroupPlayback.ts` onSelectAnimation auto-plays).
+- **KFA-45, KFA-46, KFA-158, KFA-215, KFA-216 → `.springd`** (`StartingStyleTarget.vue` / `useCompiledEntry.ts`, G6; KFA-45's sampling window also names `src/animation/physics/spring/css/linear-stops.ts`, G2's tree).
+- **KFA-156 (double mount) → ESC-mobile-1** (A2-KE-L1-10: the controls host renders the slot in every wrapper; ⟨`spring.mjs`⟩ `heatmaps 2, visible 1` BEFORE and AFTER).
+- **UIA-KF-095, general limbs → `.keyframes`** (`KeyframeCardList.vue` keys) and G2 (`src/animation/resolve/browser.ts` scalar probe).
+- **UIA-KF-309 → honest-RED DOCK-MORPH-ROOT** (glass dock morph; consumer file `demo/app/dock/ChromeDock.vue` is G4's).
+- **UIA-KF-310 → the G3 sheet host + glass SheetContent** (the drawer body's scrollbar and fade are the host's and the producer's; `.mobile` item 15 read the glass-10 scroll adoption).
+
+**5. Escalated.**
+- **ESC-spring-1 (KFA-191).** The measured lurch/dwell is gone in kind: the sampler now rides the trace at constant x-speed (OA-56). What stays is the Sweep's TIME CONTRACT: the stage trace labels its axis `2000 ms` (the horizon, 4 × response) while each sampler leg is 700 ms (`SAMPLER_DURATION` 1400 = the channel animation's duration), and the channel's `direction: alternate` is a sawtooth on the scrubber. The row's cure ("size the legs to the settle horizon … fold the phase for alternate") makes the Sweep channel's duration a function of `response` (0.4-4.8 s over the slider range) and redefines what one channel iteration is; that changes the transport, the shared Keyframes pane's duration and W13W.b's per-leg ball mapping together. Needs a ruling on the Sweep channel's time model; no substitute cure was landed.
+
+**6. Gates (BEFORE → AFTER, at the unit's final kf HEAD `034c8a44`).**
+- **E2E-S5-1** ⟨`KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1 --only=live-session`⟩: `✗ S5 … only 0 distinct spring-ball positions` (`s5-before.log`) → `✓ S5 … PASS · {"sceneFails":[]}` ×2 (`s5-final-034c8a44-{1,2}.log`; also ×2 at `b6303001`). The leg's only red is honest-RED **B7 SPECULAR-REST**. **GREEN ×2.**
+- **Rows** (self-count below): every row dispositioned; each cure's falsifier RED ×2 at the pre-cure bytes → GREEN ×2. **GREEN.**
+- **`npm run check`**: EXIT 0 (vue-tsc app + test, `proof:structure — PASS: scope=src clean (0 violations across R1–R6)`). **GREEN.**
+- **`npm run test:demo`** ×2: `Test Files 90 passed (90)` · `Tests 637 passed (637)` ×2 (BEFORE 82/587 at the wave open; this unit adds 2 files, 21 cases). **GREEN.**
+- `npm run lint`: `x 4 dependency violations` — the 4 pre-existing `orbital-drag` no-cycles (`.cube`'s), 447 modules / 1626 dependencies; this unit adds none.
+
+**Adjacent edits (§0bt):**
+- `scripts/observe/demo/live-session.mjs:1017-1047` — S5's churn selector, the oracle of my row E2E-S5-1 (`b6303001`).
+- `test/demo/scenes/spring-heatmap-reversibility.test.ts:240` — the ramp-string oracle re-seated to the new mix partner (`46c6c975`); `:441-449` — the facet mount wrapped in the app's TooltipProvider (`b7d8a69a`, no assertion changed).
+- `test/demo/scenes/spring-derby-truth.test.ts:331-381` — the M-2/D-7 axis oracle re-seated from the 0.18 literal (the defect KFA-102 convicts) to the derived allowance; no assertion removed (`d57ca99a`).
+- All three are inside G5's `test/demo/**` or the row's own oracle; none touch another unit's product files.
+
+**Process notes (honest).** `4a840a23` landed with 2 red cases in `spring-heatmap-reversibility.test.ts` (the new Tooltip needs the provider) and `24d7d45f` with 2 red cases in `spring-derby-truth.test.ts` (the old allowance oracle); each was caught by the next full `test:demo` and repaired in the next commit (`b7d8a69a`, `d57ca99a`) before any further landing. From `034c8a44` the suite was gated before the commit.
+
+**kf commits this unit (in order, 20):** `b6303001` · `6f8d202f` · `14e85683` · `46c6c975` · `85a1b6e5` · `aff27193` · `4a840a23` · `c3aac325` · `11446001` · `a4c9ebcf` · `b7d8a69a` · `7d812c60` · `7f762d5c` · `95e73295` · `24119372` · `66d421e5` · `24d7d45f` · `d57ca99a` · `e3f76350` · `034c8a44`. kf master is ahead of origin by 35 (this unit's 20 plus sibling units'); not pushed here — the push rides the wave close with the siblings'.
+
+**Self-count** (G5's plan line: E2E-S5-1 + KFA 29 + UIA-KF 18 + A2 3 = 51; plus 3 rows re-homed in: UIA-KF-320 from `.mobile`, UIA-KF-044 and UIA-KF-046's spring half from `.dock` = **54**):
+- **CURED 23:** E2E-S5-1 · KFA-38 · UIA-KF-204 · UIA-KF-305 · UIA-KF-110 · UIA-KF-307 · A2-KE-L3-12 · A2-KE-L3-9 · A2-KE-L3-8 · KFA-211 · KFA-44 · KFA-41 · KFA-40 · UIA-KF-094 · UIA-KF-308 · KFA-154 · KFA-42 · KFA-153 · KFA-102 · KFA-103 · KFA-151 · KFA-212 · KFA-213.
+- **CURED-PRIOR 18:** KFA-43 · KFA-155 · KFA-157 · KFA-187 · KFA-214 · UIA-KF-039 · 040 · 042 (consumer) · 044 · 046 (spring) · 095 (spring page) · 101 · 107 · 205 · 206 · 228 · 306 · 320 (with the LAWFUL / relay remainders stated in §3).
+- **KILLED 2:** KFA-152, KFA-210 — the row's own step ("re-measure without the screencast before changing anything"): ⟨`rest.mjs`, first chase after load, headless, no screencast⟩ BEFORE `{"maxDt":40,"over40":1,"loaf":[]}`, AFTER `{"maxDt":44,"over40":1,"loaf":[]}` — no long animation frame (≥ 50 ms) and no jump; not reproduced.
+- **RE-HOMED 10:** KFA-39 · KFA-104 (→ `.transport`) · KFA-45 · 46 · 158 · 215 · 216 (→ `.springd`) · KFA-156 (→ ESC-mobile-1) · UIA-KF-309 (→ DOCK-MORPH-ROOT) · UIA-KF-310 (→ G3 host + glass).
+- **ESCALATED 1:** KFA-191 (ESC-spring-1).
+- 23 + 18 + 2 + 10 + 1 = **54**.
+- A2-KE-L3-9's lock (addendum (c): a lone-row action rides glass `#actions`; no consumer copy) is met by `ConfiguratorLayer #actions`.
