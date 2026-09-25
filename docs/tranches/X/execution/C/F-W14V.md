@@ -1471,3 +1471,39 @@ Relieved (unchanged from Check 2): `.c3` MAGNET-STATE-HIDDEN/MENU-ICON-GAP (add.
 
 ### State
 **NOT-CONFORMANT.** LEDGER `:90` stays PARTIAL. The wave cannot converge by another check or a repair seat; the next act is the owner's rulings (C3-1, C3-3, C3-4) and root's two relays (O-74 `.card-title` addendum; Timeline-transport O-row), then the owning seats' cures, then Check 4.
+
+## RESUME 1 — Open (2026-09-25, COHESION §0eb + addendum (h))
+
+SERVED MODEL: claude-opus-5-5 · Track C seat 0 · fourier HEAD `a0c61b6` (web/api = `97325fb`) · value.js HEAD `e58a785c`.
+
+- **Mode:** RESUME. LEDGER `:90` = PARTIAL (not CLOSED); record present. Spec re-read whole (86 lines, addenda (a)–(h)). §0eb read: the four Check-3 escalations RULED (addendum (h)).
+- **Crash-recovery:** ⟨`git -C fourier-analysis status --porcelain -- web api`⟩ → ∅; ⟨`git log --oneline 97325fb..HEAD -- web api`⟩ → ∅. Dirty fourier paths = `src/fourier_analysis/contours/{assembly,features,pipeline,structure}.py` + `?? .worktrees/` (F.CT, outside every writable set of this wave; untouched). No inherited partial work.
+- **alreadyDone:** every unit of the first sitting's plan (15) + `.nav` `.dm` `.pd` + Repair 1 cures (`a262e97` `bdf7064` `97325fb`) — commits verified in fourier `git log` (`b7531e7`…`82423c4`, `330fa09`, `79ea9f6`). None re-dispatched.
+- **Owed (addendum (h) Order):** `.r1` → `.r3` → `.r4`, strictly serial; then Close + Check. ⟨`git log --oneline -15`⟩ → no `.r1`/`.r3`/`.r4` commit exists.
+- **Preconditions:** F.W14U CLOSED (LEDGER `:89`) MET. Relays named by (h) exist: ⟨`ls docs/tranches/X/relay | grep -E 'PRIORITY|TRANSPORT|CARD-TITLE'`⟩ → `X-F-BK-CARD-TITLE-RUNG.md` (O-74b) · `X-F-BK-DOCK-PRIORITY-OVERFLOW.md` (O-85) · `X-F-BK-TIMELINE-TRANSPORT.md` (O-86). Servers ⟨`lsof -iTCP -sTCP:LISTEN`⟩ → node `:3100` · python `:8000` · mongod `:27018`. MET.
+- **E13 sweep (four paths):** value V/ + V/coordination · glass BK/coordination (newest dir by mtime = BL, no `coordination/`) · keyframes V/coordination · atlas P/coordination — ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → ∅ on every path; ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → `0`. Last rowed I-65. **0 unrowed · 0 UNREAD in scope.** Sweep line appended to INBOX.md.
+
+### RESUME 1 — Baseline (BEFORE, read-only, fourier web/api `97325fb`)
+
+| Gate | Owner | BEFORE | Receipt |
+|---|---|---|---|
+| L2-15 @360/390/430 + v88 | `.r1` | **RED** (4 failed) | ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au2.spec.ts e2e/f-w14v-au3.spec.ts e2e/f-w14u-vedit.spec.ts -g "L2-15\|L1-12\|v88" --project=chromium --workers=1`⟩ → `5 failed`: vedit `:198` v88 · au2 `:104` L2-15 ·360 ·390 ·430 · au3 `:119` L1-12 |
+| L1-12 | none (ADOPT-AT-LANDING, O-74b) | **RED** (honest-RED until 10.2.0) | same run, au3 `:119`; not re-landed early (h)(2) |
+| F-81 easing catalogue (server) | `.r3` | **RED** | ⟨`sed -n 69p api/models/shared.py`⟩ → `easing: str = "sine"` (no catalogue `Literal`); ⟨`grep -rn easing api \| grep -v /tests/`⟩ → that line only (no migration); no api legacy-doc test |
+| F-9 Timeline transport | none (O-86 ADOPT-AT-LANDING) | honest-RED | relay `X-F-BK-TIMELINE-TRANSPORT.md` |
+| A2-FO-X-7 × UIA-F-59 | `.r4` | **RED by absence** | ⟨`grep -rln 'X-7' web/e2e`⟩ → ∅; F-59 oracle in `e2e/f-w14-uia-r2.spec.ts` |
+| vue-tsc / vitest / api owner_required / f-w14v-detached | close | GREEN (banked) | Check 3 at `97325fb` (0 · 116/116 · 1 passed · 5/5 headed); web/api unmoved → cited, not re-run |
+
+greenBeforeCure: none.
+
+### RESUME 1 — Unit plan (strictly serial, one at a time)
+
+| # | Unit | Scope (addendum (h)) | Writable (fourier) | Gates |
+|---|---|---|---|---|
+| 1 | `.r1` | (h)(1): below `sm` the expanded editor-dock row = Undo · Redo · More editor tools; Delete (last item, separator, destructive tone + confirm kept) and View options (submenu, the same `ViewLayersMenu` rows) into More editor tools; ≥ sm unchanged; Metric + Save unchanged; v88 restated as named §0bt owner-ruling re-baseline | `web/src/**` `web/e2e/**` | L2-15 `scrollWidth<=clientWidth` @360/390/430 RED→GREEN ×2; v88 GREEN ×2; ≥sm editor oracles (f-w14u-vedit) GREEN |
+| 2 | `.r3` | (h)(3)(i): one easing catalogue — idempotent server migration (`api/migrations/` or `scripts/`), `shared.py:69` → catalogue `Literal` + default, client persisted-state storage-version bump, api test on a legacy doc; no alias layer; morph pickers stay O-74a E-3; transport O-86 | `api/**` `web/src/**` `web/e2e/**` | api legacy-doc test RED→GREEN ×2 + api suite GREEN; migration idempotent (2nd run 0 modified); vitest/vue-tsc GREEN |
+| 3 | `.r4` | (h)(4): ≥ lg paper search results inside the sidebar column; titles wrap (`text-wrap: pretty`), no ellipsis | `web/src/**` `web/e2e/**` | plate ⊂ sidebar rect @1024/1440/1920 + no title ellipsis/clip, RED→GREEN ×2; F-59 oracle (f-w14-uia-r2) GREEN |
+
+Then Close (full e2e `--workers=1` ×2 in the named set) and Check. L1-12 (O-74b) and F-9 transport (O-86) stay ADOPT-AT-LANDING / honest-RED.
+
+### RESUME 1 — Unit receipts
