@@ -1,0 +1,3405 @@
+[
+ {
+  "vp": "1440x900",
+  "theme": "light",
+  "err": "TimeoutError: locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[aria-label=\"Select animation\"]:visible').first()\u001b[22m\n"
+ },
+ {
+  "vp": "360x780",
+  "theme": "light",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 304,
+     "h": 565.9,
+     "b": 673,
+     "r": 332
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 254,
+     "h": 55.2,
+     "b": 183.2,
+     "r": 307
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 254,
+     "h": 27.2,
+     "b": 155.2,
+     "r": 307
+    },
+    "card": {
+     "x": 53,
+     "y": 91.3,
+     "w": 254,
+     "h": 170.2,
+     "b": 261.5,
+     "r": 307
+    },
+    "toggle": {
+     "x": 53,
+     "y": 252.4,
+     "w": 254,
+     "h": 44,
+     "b": 296.4,
+     "r": 307
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 250.8,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 270.4,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 253,
+     "y": 233.6,
+     "w": 54,
+     "h": 54,
+     "b": 287.6,
+     "r": 307
+    },
+    "artifact": {
+     "x": 53,
+     "y": 293.6,
+     "w": 254,
+     "h": 256,
+     "b": 549.6,
+     "r": 307
+    },
+    "status": {
+     "x": 279.5,
+     "y": 260.1,
+     "w": 1,
+     "h": 1,
+     "b": 261.1,
+     "r": 280.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 573.6,
+     "w": 254,
+     "h": 78.4,
+     "b": 652,
+     "r": 307
+    },
+    "meta": {
+     "x": 171.4,
+     "y": 573.6,
+     "w": 45.1,
+     "h": 78.4,
+     "b": 652,
+     "r": 216.5
+    }
+   },
+   "overlaps": [
+    "headerxcard 254x55",
+    "cardxtoggle 254x9",
+    "cardxartLabel 163x11",
+    "cardxcopy 54x28",
+    "togglexartLabel 163x18",
+    "togglexcopy 54x35",
+    "togglexartifact 254x3"
+   ],
+   "vw": 360,
+   "vh": 780,
+   "clipped": [
+    "card"
+   ],
+   "titleLines": 1,
+   "metaLines": 4,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 658.6,
+   "plateUnderDock": 14.4,
+   "sheetTop": 652.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 951,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 652,
+    "floor": 652.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 304,
+     "h": 565.9,
+     "b": 673,
+     "r": 332
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 254,
+     "h": 55.2,
+     "b": 183.2,
+     "r": 307
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 254,
+     "h": 27.2,
+     "b": 155.2,
+     "r": 307
+    },
+    "toggle": {
+     "x": 51.1,
+     "y": 251.1,
+     "w": 257.8,
+     "h": 44.7,
+     "b": 295.7,
+     "r": 308.9
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 250.8,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 270.4,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 253,
+     "y": 233.6,
+     "w": 54,
+     "h": 54,
+     "b": 287.6,
+     "r": 307
+    },
+    "artifact": {
+     "x": 53,
+     "y": 293.6,
+     "w": 254,
+     "h": 256,
+     "b": 549.6,
+     "r": 307
+    },
+    "status": {
+     "x": 279.5,
+     "y": 260.1,
+     "w": 1,
+     "h": 1,
+     "b": 261.1,
+     "r": 280.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 573.6,
+     "w": 254,
+     "h": 78.4,
+     "b": 652,
+     "r": 307
+    },
+    "meta": {
+     "x": 171.4,
+     "y": 573.6,
+     "w": 45.1,
+     "h": 78.4,
+     "b": 652,
+     "r": 216.5
+    }
+   },
+   "overlaps": [
+    "togglexartLabel 163x19",
+    "togglexcopy 54x37",
+    "togglexartifact 254x2"
+   ],
+   "vw": 360,
+   "vh": 780,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 4,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 652.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 951,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 652,
+    "floor": 652.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "390x844",
+  "theme": "light",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 334,
+     "h": 629.9,
+     "b": 737,
+     "r": 362
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 284,
+     "h": 55.2,
+     "b": 183.2,
+     "r": 337
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 284,
+     "h": 27.2,
+     "b": 155.2,
+     "r": 337
+    },
+    "card": {
+     "x": 53,
+     "y": 152.9,
+     "w": 284,
+     "h": 130.7,
+     "b": 283.6,
+     "r": 337
+    },
+    "toggle": {
+     "x": 53,
+     "y": 294.2,
+     "w": 284,
+     "h": 44,
+     "b": 338.2,
+     "r": 337
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 334.4,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 354,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 283,
+     "y": 317.2,
+     "w": 54,
+     "h": 54,
+     "b": 371.2,
+     "r": 337
+    },
+    "artifact": {
+     "x": 53,
+     "y": 377.2,
+     "w": 284,
+     "h": 256,
+     "b": 633.2,
+     "r": 337
+    },
+    "status": {
+     "x": 309.5,
+     "y": 343.7,
+     "w": 1,
+     "h": 1,
+     "b": 344.7,
+     "r": 310.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 657.2,
+     "w": 284,
+     "h": 58.8,
+     "b": 716,
+     "r": 337
+    },
+    "meta": {
+     "x": 171.5,
+     "y": 657.2,
+     "w": 55.5,
+     "h": 58.8,
+     "b": 716,
+     "r": 227
+    }
+   },
+   "overlaps": [
+    "headerxcard 284x30",
+    "togglexartLabel 163x4",
+    "togglexcopy 54x21"
+   ],
+   "vw": 390,
+   "vh": 844,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 3,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 722.6,
+   "plateUnderDock": 14.4,
+   "sheetTop": 716.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1015,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 716,
+    "floor": 716.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 334,
+     "h": 629.9,
+     "b": 737,
+     "r": 362
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 284,
+     "h": 55.2,
+     "b": 183.2,
+     "r": 337
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 284,
+     "h": 27.2,
+     "b": 155.2,
+     "r": 337
+    },
+    "toggle": {
+     "x": 50.9,
+     "y": 292.9,
+     "w": 288.3,
+     "h": 44.7,
+     "b": 337.5,
+     "r": 339.1
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 334.4,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 354,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 283,
+     "y": 317.2,
+     "w": 54,
+     "h": 54,
+     "b": 371.2,
+     "r": 337
+    },
+    "artifact": {
+     "x": 53,
+     "y": 377.2,
+     "w": 284,
+     "h": 256,
+     "b": 633.2,
+     "r": 337
+    },
+    "status": {
+     "x": 309.5,
+     "y": 343.7,
+     "w": 1,
+     "h": 1,
+     "b": 344.7,
+     "r": 310.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 657.2,
+     "w": 284,
+     "h": 58.8,
+     "b": 716,
+     "r": 337
+    },
+    "meta": {
+     "x": 171.5,
+     "y": 657.2,
+     "w": 55.5,
+     "h": 58.8,
+     "b": 716,
+     "r": 227
+    }
+   },
+   "overlaps": [
+    "togglexartLabel 163x3",
+    "togglexcopy 54x20"
+   ],
+   "vw": 390,
+   "vh": 844,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 3,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 716.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1015,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 716,
+    "floor": 716.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "430x932",
+  "theme": "light",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 374,
+     "h": 717.9,
+     "b": 825,
+     "r": 402
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 324,
+     "h": 55.4,
+     "b": 183.4,
+     "r": 377
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 324,
+     "h": 27.4,
+     "b": 155.4,
+     "r": 377
+    },
+    "card": {
+     "x": 70.6,
+     "y": 212.2,
+     "w": 288.7,
+     "h": 111.1,
+     "b": 323.3,
+     "r": 359.4
+    },
+    "toggle": {
+     "x": 53,
+     "y": 348.1,
+     "w": 324,
+     "h": 44,
+     "b": 392.1,
+     "r": 377
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 433.3,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 452.9,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 323,
+     "y": 416.1,
+     "w": 54,
+     "h": 54,
+     "b": 470.1,
+     "r": 377
+    },
+    "artifact": {
+     "x": 53,
+     "y": 476.1,
+     "w": 324,
+     "h": 256,
+     "b": 732.1,
+     "r": 377
+    },
+    "status": {
+     "x": 349.5,
+     "y": 442.6,
+     "w": 1,
+     "h": 1,
+     "b": 443.6,
+     "r": 350.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 756.1,
+     "w": 324,
+     "h": 47.8,
+     "b": 804,
+     "r": 377
+    },
+    "meta": {
+     "x": 171.8,
+     "y": 760.5,
+     "w": 69.2,
+     "h": 39.2,
+     "b": 799.6,
+     "r": 241
+    }
+   },
+   "overlaps": [],
+   "vw": 430,
+   "vh": 932,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 2,
+   "stageH": 120.7,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 810.6,
+   "plateUnderDock": 14.4,
+   "sheetTop": 804.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1103,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 804,
+    "floor": 804.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 374,
+     "h": 717.9,
+     "b": 825,
+     "r": 402
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 324,
+     "h": 55.4,
+     "b": 183.4,
+     "r": 377
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 324,
+     "h": 27.4,
+     "b": 155.4,
+     "r": 377
+    },
+    "toggle": {
+     "x": 50.6,
+     "y": 346.8,
+     "w": 328.9,
+     "h": 44.7,
+     "b": 391.4,
+     "r": 379.4
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 433.3,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 452.9,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 323,
+     "y": 416.1,
+     "w": 54,
+     "h": 54,
+     "b": 470.1,
+     "r": 377
+    },
+    "artifact": {
+     "x": 53,
+     "y": 476.1,
+     "w": 324,
+     "h": 256,
+     "b": 732.1,
+     "r": 377
+    },
+    "status": {
+     "x": 349.5,
+     "y": 442.6,
+     "w": 1,
+     "h": 1,
+     "b": 443.6,
+     "r": 350.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 756.1,
+     "w": 324,
+     "h": 47.8,
+     "b": 804,
+     "r": 377
+    },
+    "meta": {
+     "x": 171.8,
+     "y": 760.5,
+     "w": 69.2,
+     "h": 39.2,
+     "b": 799.6,
+     "r": 241
+    }
+   },
+   "overlaps": [],
+   "vw": 430,
+   "vh": 932,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 2,
+   "stageH": 120.7,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 804.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1103,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 804,
+    "floor": 804.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "844x390",
+  "theme": "light",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 36,
+     "y": 78,
+     "w": 772,
+     "h": 234,
+     "b": 312,
+     "r": 808
+    },
+    "header": {
+     "x": 61,
+     "y": 99,
+     "w": 722,
+     "h": 67.8,
+     "b": 166.8,
+     "r": 783
+    },
+    "title": {
+     "x": 61,
+     "y": 99,
+     "w": 722,
+     "h": 34.3,
+     "b": 133.3,
+     "r": 783
+    },
+    "card": {
+     "x": 270.9,
+     "y": 102.6,
+     "w": 302.3,
+     "h": 112.4,
+     "b": 215,
+     "r": 573.1
+    },
+    "toggle": {
+     "x": 61,
+     "y": 234.8,
+     "w": 722,
+     "h": 44,
+     "b": 278.8,
+     "r": 783
+    },
+    "artLabel": {
+     "x": 61,
+     "y": 231.4,
+     "w": 173.8,
+     "h": 20.9,
+     "b": 252.3,
+     "r": 234.8
+    },
+    "copy": {
+     "x": 729,
+     "y": 214.8,
+     "w": 54,
+     "h": 54,
+     "b": 268.8,
+     "r": 783
+    },
+    "artifact": {
+     "x": 61,
+     "y": 274.8,
+     "w": 722,
+     "h": 256,
+     "b": 530.8,
+     "r": 783
+    },
+    "status": {
+     "x": 755.5,
+     "y": 241.3,
+     "w": 1,
+     "h": 1,
+     "b": 242.3,
+     "r": 756.5
+    },
+    "footer": {
+     "x": 61,
+     "y": 554.8,
+     "w": 722,
+     "h": 24.9,
+     "b": 579.7,
+     "r": 783
+    },
+    "meta": {
+     "x": 297.3,
+     "y": 556.8,
+     "w": 134.2,
+     "h": 20.9,
+     "b": 577.7,
+     "r": 431.5
+    }
+   },
+   "overlaps": [
+    "headerxcard 302x64",
+    "togglexartLabel 174x18",
+    "togglexcopy 54x34",
+    "togglexartifact 722x4"
+   ],
+   "vw": 844,
+   "vh": 390,
+   "clipped": [
+    "artifact",
+    "footer"
+   ],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 315.1,
+   "plateUnderDock": -3.1,
+   "sheetTop": 468,
+   "footerUnderSheet": 111.7,
+   "docSH": 826,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 579.7,
+    "floor": 312,
+    "clears": false
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 36,
+     "y": 78,
+     "w": 772,
+     "h": 234,
+     "b": 312,
+     "r": 808
+    },
+    "header": {
+     "x": 61,
+     "y": 99,
+     "w": 722,
+     "h": 67.8,
+     "b": 166.8,
+     "r": 783
+    },
+    "title": {
+     "x": 61,
+     "y": 99,
+     "w": 722,
+     "h": 34.3,
+     "b": 133.3,
+     "r": 783
+    },
+    "toggle": {
+     "x": 55.6,
+     "y": 233.5,
+     "w": 732.8,
+     "h": 44.7,
+     "b": 278.2,
+     "r": 788.4
+    },
+    "artLabel": {
+     "x": 61,
+     "y": 231.4,
+     "w": 173.8,
+     "h": 20.9,
+     "b": 252.3,
+     "r": 234.8
+    },
+    "copy": {
+     "x": 729,
+     "y": 214.8,
+     "w": 54,
+     "h": 54,
+     "b": 268.8,
+     "r": 783
+    },
+    "artifact": {
+     "x": 61,
+     "y": 274.8,
+     "w": 722,
+     "h": 256,
+     "b": 530.8,
+     "r": 783
+    },
+    "status": {
+     "x": 755.5,
+     "y": 241.3,
+     "w": 1,
+     "h": 1,
+     "b": 242.3,
+     "r": 756.5
+    },
+    "footer": {
+     "x": 61,
+     "y": 554.8,
+     "w": 722,
+     "h": 24.9,
+     "b": 579.7,
+     "r": 783
+    },
+    "meta": {
+     "x": 297.3,
+     "y": 556.8,
+     "w": 134.2,
+     "h": 20.9,
+     "b": 577.7,
+     "r": 431.5
+    }
+   },
+   "overlaps": [
+    "togglexartLabel 174x19",
+    "togglexcopy 54x35",
+    "togglexartifact 722x3"
+   ],
+   "vw": 844,
+   "vh": 390,
+   "clipped": [
+    "artifact",
+    "footer"
+   ],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 468,
+   "footerUnderSheet": 111.7,
+   "docSH": 826,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 579.7,
+    "floor": 312,
+    "clears": false
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "768x1024",
+  "theme": "light",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 712,
+     "h": 809.9,
+     "b": 917,
+     "r": 740
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 662,
+     "h": 62.3,
+     "b": 190.3,
+     "r": 715
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 662,
+     "h": 33.1,
+     "b": 161.1,
+     "r": 715
+    },
+    "card": {
+     "x": 234.3,
+     "y": 272.8,
+     "w": 299.5,
+     "h": 112.1,
+     "b": 384.9,
+     "r": 533.7
+    },
+    "toggle": {
+     "x": 53,
+     "y": 463.4,
+     "w": 662,
+     "h": 44,
+     "b": 507.4,
+     "r": 715
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 548.1,
+     "w": 171.6,
+     "h": 20.6,
+     "b": 568.7,
+     "r": 224.6
+    },
+    "copy": {
+     "x": 661,
+     "y": 531.4,
+     "w": 54,
+     "h": 54,
+     "b": 585.4,
+     "r": 715
+    },
+    "artifact": {
+     "x": 53,
+     "y": 591.4,
+     "w": 662,
+     "h": 256,
+     "b": 847.4,
+     "r": 715
+    },
+    "status": {
+     "x": 687.5,
+     "y": 557.9,
+     "w": 1,
+     "h": 1,
+     "b": 558.9,
+     "r": 688.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 871.4,
+     "w": 662,
+     "h": 24.6,
+     "b": 896,
+     "r": 715
+    },
+    "meta": {
+     "x": 261,
+     "y": 873.4,
+     "w": 132.5,
+     "h": 20.6,
+     "b": 894,
+     "r": 393.5
+    }
+   },
+   "overlaps": [],
+   "vw": 768,
+   "vh": 1024,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 229.1,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 902.4,
+   "plateUnderDock": 14.6,
+   "sheetTop": 896.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1196,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 896,
+    "floor": 896.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 712,
+     "h": 809.9,
+     "b": 917,
+     "r": 740
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 662,
+     "h": 62.3,
+     "b": 190.3,
+     "r": 715
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 662,
+     "h": 33.1,
+     "b": 161.1,
+     "r": 715
+    },
+    "toggle": {
+     "x": 48,
+     "y": 462,
+     "w": 671.9,
+     "h": 44.7,
+     "b": 506.7,
+     "r": 720
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 548.1,
+     "w": 171.6,
+     "h": 20.6,
+     "b": 568.7,
+     "r": 224.6
+    },
+    "copy": {
+     "x": 661,
+     "y": 531.4,
+     "w": 54,
+     "h": 54,
+     "b": 585.4,
+     "r": 715
+    },
+    "artifact": {
+     "x": 53,
+     "y": 591.4,
+     "w": 662,
+     "h": 256,
+     "b": 847.4,
+     "r": 715
+    },
+    "status": {
+     "x": 687.5,
+     "y": 557.9,
+     "w": 1,
+     "h": 1,
+     "b": 558.9,
+     "r": 688.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 871.4,
+     "w": 662,
+     "h": 24.6,
+     "b": 896,
+     "r": 715
+    },
+    "meta": {
+     "x": 261,
+     "y": 873.4,
+     "w": 132.5,
+     "h": 20.6,
+     "b": 894,
+     "r": 393.5
+    }
+   },
+   "overlaps": [],
+   "vw": 768,
+   "vh": 1024,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 229.1,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 896.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1196,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 896,
+    "floor": 896.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "1024x768",
+  "theme": "light",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 432,
+     "y": 105,
+     "w": 560,
+     "h": 558,
+     "b": 663,
+     "r": 992
+    },
+    "header": {
+     "x": 465,
+     "y": 126,
+     "w": 494,
+     "h": 71.6,
+     "b": 197.6,
+     "r": 959
+    },
+    "title": {
+     "x": 465,
+     "y": 126,
+     "w": 494,
+     "h": 37.4,
+     "b": 163.4,
+     "r": 959
+    },
+    "card": {
+     "x": 557.5,
+     "y": 150.8,
+     "w": 309,
+     "h": 113,
+     "b": 263.8,
+     "r": 866.5
+    },
+    "toggle": {
+     "x": 465,
+     "y": 283.3,
+     "w": 494,
+     "h": 40,
+     "b": 323.3,
+     "r": 959
+    },
+    "artLabel": {
+     "x": 465,
+     "y": 284.3,
+     "w": 179.1,
+     "h": 21.5,
+     "b": 305.8,
+     "r": 644.1
+    },
+    "copy": {
+     "x": 923,
+     "y": 277,
+     "w": 36,
+     "h": 36,
+     "b": 313,
+     "r": 959
+    },
+    "artifact": {
+     "x": 465,
+     "y": 319,
+     "w": 494,
+     "h": 256,
+     "b": 575,
+     "r": 959
+    },
+    "status": {
+     "x": 940.5,
+     "y": 294.5,
+     "w": 1,
+     "h": 1,
+     "b": 295.5,
+     "r": 941.5
+    },
+    "footer": {
+     "x": 465,
+     "y": 599,
+     "w": 494,
+     "h": 43,
+     "b": 642,
+     "r": 959
+    },
+    "meta": {
+     "x": 603.7,
+     "y": 599,
+     "w": 121.5,
+     "h": 43,
+     "b": 642,
+     "r": 725.2
+    }
+   },
+   "overlaps": [
+    "headerxcard 309x47",
+    "togglexartLabel 179x22",
+    "togglexcopy 36x30",
+    "togglexartifact 494x4"
+   ],
+   "vw": 1024,
+   "vh": 768,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 2,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 657.3,
+   "plateUnderDock": 5.7,
+   "sheetTop": null,
+   "footerUnderSheet": null,
+   "docSH": 768,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 642,
+    "floor": 657.3,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 432,
+     "y": 105,
+     "w": 560,
+     "h": 558,
+     "b": 663,
+     "r": 992
+    },
+    "header": {
+     "x": 465,
+     "y": 126,
+     "w": 494,
+     "h": 71.6,
+     "b": 197.6,
+     "r": 959
+    },
+    "title": {
+     "x": 465,
+     "y": 126,
+     "w": 494,
+     "h": 37.4,
+     "b": 163.4,
+     "r": 959
+    },
+    "toggle": {
+     "x": 461.3,
+     "y": 282,
+     "w": 501.4,
+     "h": 40.6,
+     "b": 322.6,
+     "r": 962.7
+    },
+    "artLabel": {
+     "x": 465,
+     "y": 284.3,
+     "w": 179.1,
+     "h": 21.5,
+     "b": 305.8,
+     "r": 644.1
+    },
+    "copy": {
+     "x": 923,
+     "y": 277,
+     "w": 36,
+     "h": 36,
+     "b": 313,
+     "r": 959
+    },
+    "artifact": {
+     "x": 465,
+     "y": 319,
+     "w": 494,
+     "h": 256,
+     "b": 575,
+     "r": 959
+    },
+    "status": {
+     "x": 940.5,
+     "y": 294.5,
+     "w": 1,
+     "h": 1,
+     "b": 295.5,
+     "r": 941.5
+    },
+    "footer": {
+     "x": 465,
+     "y": 599,
+     "w": 494,
+     "h": 43,
+     "b": 642,
+     "r": 959
+    },
+    "meta": {
+     "x": 603.7,
+     "y": 599,
+     "w": 121.5,
+     "h": 43,
+     "b": 642,
+     "r": 725.2
+    }
+   },
+   "overlaps": [
+    "togglexartLabel 179x22",
+    "togglexcopy 36x31",
+    "togglexartifact 494x4"
+   ],
+   "vw": 1024,
+   "vh": 768,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 2,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": null,
+   "footerUnderSheet": null,
+   "docSH": 768,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 642,
+    "floor": 663,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "1440x900",
+  "theme": "dark",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 550.4,
+     "y": 127,
+     "w": 814.4,
+     "h": 646,
+     "b": 773,
+     "r": 1364.8
+    },
+    "header": {
+     "x": 583.4,
+     "y": 148,
+     "w": 748.4,
+     "h": 79.9,
+     "b": 227.9,
+     "r": 1331.8
+    },
+    "title": {
+     "x": 583.4,
+     "y": 148,
+     "w": 748.4,
+     "h": 44,
+     "b": 192,
+     "r": 1331.8
+    },
+    "card": {
+     "x": 795.4,
+     "y": 228.3,
+     "w": 324.5,
+     "h": 114.5,
+     "b": 342.7,
+     "r": 1119.8
+    },
+    "toggle": {
+     "x": 583.4,
+     "y": 361.5,
+     "w": 748.4,
+     "h": 40,
+     "b": 401.5,
+     "r": 1331.8
+    },
+    "artLabel": {
+     "x": 583.4,
+     "y": 409.6,
+     "w": 191.2,
+     "h": 23,
+     "b": 432.5,
+     "r": 774.6
+    },
+    "copy": {
+     "x": 1295.8,
+     "y": 403,
+     "w": 36,
+     "h": 36,
+     "b": 439,
+     "r": 1331.8
+    },
+    "artifact": {
+     "x": 583.4,
+     "y": 445,
+     "w": 748.4,
+     "h": 256,
+     "b": 701,
+     "r": 1331.8
+    },
+    "status": {
+     "x": 1313.3,
+     "y": 420.5,
+     "w": 1,
+     "h": 1,
+     "b": 421.5,
+     "r": 1314.3
+    },
+    "footer": {
+     "x": 583.4,
+     "y": 725,
+     "w": 748.4,
+     "h": 27,
+     "b": 752,
+     "r": 1331.8
+    },
+    "meta": {
+     "x": 819.7,
+     "y": 727,
+     "w": 147.6,
+     "h": 23,
+     "b": 750,
+     "r": 967.3
+    }
+   },
+   "overlaps": [],
+   "vw": 1440,
+   "vh": 900,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 764.6,
+   "plateUnderDock": 8.4,
+   "sheetTop": null,
+   "footerUnderSheet": null,
+   "docSH": 900,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 752,
+    "floor": 764.6,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "exit": {
+   "end": {
+    "t": 5201,
+    "o": 0,
+    "sc": 1,
+    "d": "none"
+   },
+   "lastChange": 511,
+   "tOpaque99": 7,
+   "tInvisible": 94,
+   "tDisplayNone": 511,
+   "minScale": 0.8995,
+   "maxScale": 1,
+   "maxO": 1,
+   "n": 625
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 550.4,
+     "y": 127,
+     "w": 814.4,
+     "h": 646,
+     "b": 773,
+     "r": 1364.8
+    },
+    "header": {
+     "x": 583.4,
+     "y": 148,
+     "w": 748.4,
+     "h": 79.9,
+     "b": 227.9,
+     "r": 1331.8
+    },
+    "title": {
+     "x": 583.4,
+     "y": 148,
+     "w": 748.4,
+     "h": 44,
+     "b": 192,
+     "r": 1331.8
+    },
+    "toggle": {
+     "x": 583.4,
+     "y": 361.5,
+     "w": 748.4,
+     "h": 40,
+     "b": 401.5,
+     "r": 1331.8
+    },
+    "artLabel": {
+     "x": 583.4,
+     "y": 409.6,
+     "w": 191.2,
+     "h": 23,
+     "b": 432.5,
+     "r": 774.6
+    },
+    "copy": {
+     "x": 1295.8,
+     "y": 403,
+     "w": 36,
+     "h": 36,
+     "b": 439,
+     "r": 1331.8
+    },
+    "artifact": {
+     "x": 583.4,
+     "y": 445,
+     "w": 748.4,
+     "h": 256,
+     "b": 701,
+     "r": 1331.8
+    },
+    "status": {
+     "x": 1313.3,
+     "y": 420.5,
+     "w": 1,
+     "h": 1,
+     "b": 421.5,
+     "r": 1314.3
+    },
+    "footer": {
+     "x": 583.4,
+     "y": 725,
+     "w": 748.4,
+     "h": 27,
+     "b": 752,
+     "r": 1331.8
+    },
+    "meta": {
+     "x": 819.7,
+     "y": 727,
+     "w": 147.6,
+     "h": 23,
+     "b": 750,
+     "r": 967.3
+    }
+   },
+   "overlaps": [],
+   "vw": 1440,
+   "vh": 900,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 764.6,
+   "plateUnderDock": 8.4,
+   "sheetTop": null,
+   "footerUnderSheet": null,
+   "docSH": 900,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 752,
+    "floor": 764.6,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "entry": {
+   "end": {
+    "t": 5201,
+    "o": 1,
+    "sc": 1,
+    "d": "flex"
+   },
+   "lastChange": 193,
+   "tOpaque99": 102,
+   "tInvisible": 5,
+   "tDisplayNone": null,
+   "minScale": 0.9,
+   "maxScale": 1.0005,
+   "maxO": 1,
+   "n": 625
+  }
+ },
+ {
+  "vp": "360x780",
+  "theme": "dark",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 304,
+     "h": 565.9,
+     "b": 673,
+     "r": 332
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 254,
+     "h": 55.2,
+     "b": 183.2,
+     "r": 307
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 254,
+     "h": 27.2,
+     "b": 155.2,
+     "r": 307
+    },
+    "card": {
+     "x": 53,
+     "y": 91.3,
+     "w": 254,
+     "h": 170.2,
+     "b": 261.5,
+     "r": 307
+    },
+    "toggle": {
+     "x": 53,
+     "y": 252.4,
+     "w": 254,
+     "h": 44,
+     "b": 296.4,
+     "r": 307
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 250.8,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 270.4,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 253,
+     "y": 233.6,
+     "w": 54,
+     "h": 54,
+     "b": 287.6,
+     "r": 307
+    },
+    "artifact": {
+     "x": 53,
+     "y": 293.6,
+     "w": 254,
+     "h": 256,
+     "b": 549.6,
+     "r": 307
+    },
+    "status": {
+     "x": 279.5,
+     "y": 260.1,
+     "w": 1,
+     "h": 1,
+     "b": 261.1,
+     "r": 280.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 573.6,
+     "w": 254,
+     "h": 78.4,
+     "b": 652,
+     "r": 307
+    },
+    "meta": {
+     "x": 171.4,
+     "y": 573.6,
+     "w": 45.1,
+     "h": 78.4,
+     "b": 652,
+     "r": 216.5
+    }
+   },
+   "overlaps": [
+    "headerxcard 254x55",
+    "cardxtoggle 254x9",
+    "cardxartLabel 163x11",
+    "cardxcopy 54x28",
+    "togglexartLabel 163x18",
+    "togglexcopy 54x35",
+    "togglexartifact 254x3"
+   ],
+   "vw": 360,
+   "vh": 780,
+   "clipped": [
+    "card"
+   ],
+   "titleLines": 1,
+   "metaLines": 4,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 658.6,
+   "plateUnderDock": 14.4,
+   "sheetTop": 652.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 951,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 652,
+    "floor": 652.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 304,
+     "h": 565.9,
+     "b": 673,
+     "r": 332
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 254,
+     "h": 55.2,
+     "b": 183.2,
+     "r": 307
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 254,
+     "h": 27.2,
+     "b": 155.2,
+     "r": 307
+    },
+    "toggle": {
+     "x": 51.1,
+     "y": 251.1,
+     "w": 257.8,
+     "h": 44.7,
+     "b": 295.7,
+     "r": 308.9
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 250.8,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 270.4,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 253,
+     "y": 233.6,
+     "w": 54,
+     "h": 54,
+     "b": 287.6,
+     "r": 307
+    },
+    "artifact": {
+     "x": 53,
+     "y": 293.6,
+     "w": 254,
+     "h": 256,
+     "b": 549.6,
+     "r": 307
+    },
+    "status": {
+     "x": 279.5,
+     "y": 260.1,
+     "w": 1,
+     "h": 1,
+     "b": 261.1,
+     "r": 280.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 573.6,
+     "w": 254,
+     "h": 78.4,
+     "b": 652,
+     "r": 307
+    },
+    "meta": {
+     "x": 171.4,
+     "y": 573.6,
+     "w": 45.1,
+     "h": 78.4,
+     "b": 652,
+     "r": 216.5
+    }
+   },
+   "overlaps": [
+    "togglexartLabel 163x19",
+    "togglexcopy 54x37",
+    "togglexartifact 254x2"
+   ],
+   "vw": 360,
+   "vh": 780,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 4,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 652.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 951,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 652,
+    "floor": 652.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "390x844",
+  "theme": "dark",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 334,
+     "h": 629.9,
+     "b": 737,
+     "r": 362
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 284,
+     "h": 55.2,
+     "b": 183.2,
+     "r": 337
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 284,
+     "h": 27.2,
+     "b": 155.2,
+     "r": 337
+    },
+    "card": {
+     "x": 53,
+     "y": 152.9,
+     "w": 284,
+     "h": 130.7,
+     "b": 283.6,
+     "r": 337
+    },
+    "toggle": {
+     "x": 53,
+     "y": 294.2,
+     "w": 284,
+     "h": 44,
+     "b": 338.2,
+     "r": 337
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 334.4,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 354,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 283,
+     "y": 317.2,
+     "w": 54,
+     "h": 54,
+     "b": 371.2,
+     "r": 337
+    },
+    "artifact": {
+     "x": 53,
+     "y": 377.2,
+     "w": 284,
+     "h": 256,
+     "b": 633.2,
+     "r": 337
+    },
+    "status": {
+     "x": 309.5,
+     "y": 343.7,
+     "w": 1,
+     "h": 1,
+     "b": 344.7,
+     "r": 310.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 657.2,
+     "w": 284,
+     "h": 58.8,
+     "b": 716,
+     "r": 337
+    },
+    "meta": {
+     "x": 171.5,
+     "y": 657.2,
+     "w": 55.5,
+     "h": 58.8,
+     "b": 716,
+     "r": 227
+    }
+   },
+   "overlaps": [
+    "headerxcard 284x30",
+    "togglexartLabel 163x4",
+    "togglexcopy 54x21"
+   ],
+   "vw": 390,
+   "vh": 844,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 3,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 722.6,
+   "plateUnderDock": 14.4,
+   "sheetTop": 716.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1015,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 716,
+    "floor": 716.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 334,
+     "h": 629.9,
+     "b": 737,
+     "r": 362
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 284,
+     "h": 55.2,
+     "b": 183.2,
+     "r": 337
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 284,
+     "h": 27.2,
+     "b": 155.2,
+     "r": 337
+    },
+    "toggle": {
+     "x": 50.9,
+     "y": 292.9,
+     "w": 288.3,
+     "h": 44.7,
+     "b": 337.5,
+     "r": 339.1
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 334.4,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 354,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 283,
+     "y": 317.2,
+     "w": 54,
+     "h": 54,
+     "b": 371.2,
+     "r": 337
+    },
+    "artifact": {
+     "x": 53,
+     "y": 377.2,
+     "w": 284,
+     "h": 256,
+     "b": 633.2,
+     "r": 337
+    },
+    "status": {
+     "x": 309.5,
+     "y": 343.7,
+     "w": 1,
+     "h": 1,
+     "b": 344.7,
+     "r": 310.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 657.2,
+     "w": 284,
+     "h": 58.8,
+     "b": 716,
+     "r": 337
+    },
+    "meta": {
+     "x": 171.5,
+     "y": 657.2,
+     "w": 55.5,
+     "h": 58.8,
+     "b": 716,
+     "r": 227
+    }
+   },
+   "overlaps": [
+    "togglexartLabel 163x3",
+    "togglexcopy 54x20"
+   ],
+   "vw": 390,
+   "vh": 844,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 3,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 716.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1015,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 716,
+    "floor": 716.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "430x932",
+  "theme": "dark",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 374,
+     "h": 717.9,
+     "b": 825,
+     "r": 402
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 324,
+     "h": 55.4,
+     "b": 183.4,
+     "r": 377
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 324,
+     "h": 27.4,
+     "b": 155.4,
+     "r": 377
+    },
+    "card": {
+     "x": 70.6,
+     "y": 212.2,
+     "w": 288.7,
+     "h": 111.1,
+     "b": 323.3,
+     "r": 359.4
+    },
+    "toggle": {
+     "x": 53,
+     "y": 348.1,
+     "w": 324,
+     "h": 44,
+     "b": 392.1,
+     "r": 377
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 433.3,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 452.9,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 323,
+     "y": 416.1,
+     "w": 54,
+     "h": 54,
+     "b": 470.1,
+     "r": 377
+    },
+    "artifact": {
+     "x": 53,
+     "y": 476.1,
+     "w": 324,
+     "h": 256,
+     "b": 732.1,
+     "r": 377
+    },
+    "status": {
+     "x": 349.5,
+     "y": 442.6,
+     "w": 1,
+     "h": 1,
+     "b": 443.6,
+     "r": 350.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 756.1,
+     "w": 324,
+     "h": 47.8,
+     "b": 804,
+     "r": 377
+    },
+    "meta": {
+     "x": 171.8,
+     "y": 760.5,
+     "w": 69.2,
+     "h": 39.2,
+     "b": 799.6,
+     "r": 241
+    }
+   },
+   "overlaps": [],
+   "vw": 430,
+   "vh": 932,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 2,
+   "stageH": 120.7,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 810.6,
+   "plateUnderDock": 14.4,
+   "sheetTop": 804.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1103,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 804,
+    "floor": 804.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 374,
+     "h": 717.9,
+     "b": 825,
+     "r": 402
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 324,
+     "h": 55.4,
+     "b": 183.4,
+     "r": 377
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 324,
+     "h": 27.4,
+     "b": 155.4,
+     "r": 377
+    },
+    "toggle": {
+     "x": 50.6,
+     "y": 346.8,
+     "w": 328.9,
+     "h": 44.7,
+     "b": 391.4,
+     "r": 379.4
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 433.3,
+     "w": 163.2,
+     "h": 19.6,
+     "b": 452.9,
+     "r": 216.2
+    },
+    "copy": {
+     "x": 323,
+     "y": 416.1,
+     "w": 54,
+     "h": 54,
+     "b": 470.1,
+     "r": 377
+    },
+    "artifact": {
+     "x": 53,
+     "y": 476.1,
+     "w": 324,
+     "h": 256,
+     "b": 732.1,
+     "r": 377
+    },
+    "status": {
+     "x": 349.5,
+     "y": 442.6,
+     "w": 1,
+     "h": 1,
+     "b": 443.6,
+     "r": 350.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 756.1,
+     "w": 324,
+     "h": 47.8,
+     "b": 804,
+     "r": 377
+    },
+    "meta": {
+     "x": 171.8,
+     "y": 760.5,
+     "w": 69.2,
+     "h": 39.2,
+     "b": 799.6,
+     "r": 241
+    }
+   },
+   "overlaps": [],
+   "vw": 430,
+   "vh": 932,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 2,
+   "stageH": 120.7,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 804.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1103,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 804,
+    "floor": 804.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "844x390",
+  "theme": "dark",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 36,
+     "y": 78,
+     "w": 772,
+     "h": 234,
+     "b": 312,
+     "r": 808
+    },
+    "header": {
+     "x": 61,
+     "y": 99,
+     "w": 722,
+     "h": 67.8,
+     "b": 166.8,
+     "r": 783
+    },
+    "title": {
+     "x": 61,
+     "y": 99,
+     "w": 722,
+     "h": 34.3,
+     "b": 133.3,
+     "r": 783
+    },
+    "card": {
+     "x": 270.9,
+     "y": 102.6,
+     "w": 302.3,
+     "h": 112.4,
+     "b": 215,
+     "r": 573.1
+    },
+    "toggle": {
+     "x": 61,
+     "y": 234.8,
+     "w": 722,
+     "h": 44,
+     "b": 278.8,
+     "r": 783
+    },
+    "artLabel": {
+     "x": 61,
+     "y": 231.4,
+     "w": 173.8,
+     "h": 20.9,
+     "b": 252.3,
+     "r": 234.8
+    },
+    "copy": {
+     "x": 729,
+     "y": 214.8,
+     "w": 54,
+     "h": 54,
+     "b": 268.8,
+     "r": 783
+    },
+    "artifact": {
+     "x": 61,
+     "y": 274.8,
+     "w": 722,
+     "h": 256,
+     "b": 530.8,
+     "r": 783
+    },
+    "status": {
+     "x": 755.5,
+     "y": 241.3,
+     "w": 1,
+     "h": 1,
+     "b": 242.3,
+     "r": 756.5
+    },
+    "footer": {
+     "x": 61,
+     "y": 554.8,
+     "w": 722,
+     "h": 24.9,
+     "b": 579.7,
+     "r": 783
+    },
+    "meta": {
+     "x": 297.3,
+     "y": 556.8,
+     "w": 134.2,
+     "h": 20.9,
+     "b": 577.7,
+     "r": 431.5
+    }
+   },
+   "overlaps": [
+    "headerxcard 302x64",
+    "togglexartLabel 174x18",
+    "togglexcopy 54x34",
+    "togglexartifact 722x4"
+   ],
+   "vw": 844,
+   "vh": 390,
+   "clipped": [
+    "artifact",
+    "footer"
+   ],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 315.1,
+   "plateUnderDock": -3.1,
+   "sheetTop": 468,
+   "footerUnderSheet": 111.7,
+   "docSH": 826,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 579.7,
+    "floor": 312,
+    "clears": false
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 36,
+     "y": 78,
+     "w": 772,
+     "h": 234,
+     "b": 312,
+     "r": 808
+    },
+    "header": {
+     "x": 61,
+     "y": 99,
+     "w": 722,
+     "h": 67.8,
+     "b": 166.8,
+     "r": 783
+    },
+    "title": {
+     "x": 61,
+     "y": 99,
+     "w": 722,
+     "h": 34.3,
+     "b": 133.3,
+     "r": 783
+    },
+    "toggle": {
+     "x": 55.6,
+     "y": 233.5,
+     "w": 732.8,
+     "h": 44.7,
+     "b": 278.2,
+     "r": 788.4
+    },
+    "artLabel": {
+     "x": 61,
+     "y": 231.4,
+     "w": 173.8,
+     "h": 20.9,
+     "b": 252.3,
+     "r": 234.8
+    },
+    "copy": {
+     "x": 729,
+     "y": 214.8,
+     "w": 54,
+     "h": 54,
+     "b": 268.8,
+     "r": 783
+    },
+    "artifact": {
+     "x": 61,
+     "y": 274.8,
+     "w": 722,
+     "h": 256,
+     "b": 530.8,
+     "r": 783
+    },
+    "status": {
+     "x": 755.5,
+     "y": 241.3,
+     "w": 1,
+     "h": 1,
+     "b": 242.3,
+     "r": 756.5
+    },
+    "footer": {
+     "x": 61,
+     "y": 554.8,
+     "w": 722,
+     "h": 24.9,
+     "b": 579.7,
+     "r": 783
+    },
+    "meta": {
+     "x": 297.3,
+     "y": 556.8,
+     "w": 134.2,
+     "h": 20.9,
+     "b": 577.7,
+     "r": 431.5
+    }
+   },
+   "overlaps": [
+    "togglexartLabel 174x19",
+    "togglexcopy 54x35",
+    "togglexartifact 722x3"
+   ],
+   "vw": 844,
+   "vh": 390,
+   "clipped": [
+    "artifact",
+    "footer"
+   ],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 468,
+   "footerUnderSheet": 111.7,
+   "docSH": 826,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 579.7,
+    "floor": 312,
+    "clears": false
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "768x1024",
+  "theme": "dark",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 712,
+     "h": 809.9,
+     "b": 917,
+     "r": 740
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 662,
+     "h": 62.3,
+     "b": 190.3,
+     "r": 715
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 662,
+     "h": 33.1,
+     "b": 161.1,
+     "r": 715
+    },
+    "card": {
+     "x": 234.3,
+     "y": 272.8,
+     "w": 299.5,
+     "h": 112.1,
+     "b": 384.9,
+     "r": 533.7
+    },
+    "toggle": {
+     "x": 53,
+     "y": 463.4,
+     "w": 662,
+     "h": 44,
+     "b": 507.4,
+     "r": 715
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 548.1,
+     "w": 171.6,
+     "h": 20.6,
+     "b": 568.7,
+     "r": 224.6
+    },
+    "copy": {
+     "x": 661,
+     "y": 531.4,
+     "w": 54,
+     "h": 54,
+     "b": 585.4,
+     "r": 715
+    },
+    "artifact": {
+     "x": 53,
+     "y": 591.4,
+     "w": 662,
+     "h": 256,
+     "b": 847.4,
+     "r": 715
+    },
+    "status": {
+     "x": 687.5,
+     "y": 557.9,
+     "w": 1,
+     "h": 1,
+     "b": 558.9,
+     "r": 688.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 871.4,
+     "w": 662,
+     "h": 24.6,
+     "b": 896,
+     "r": 715
+    },
+    "meta": {
+     "x": 261,
+     "y": 873.4,
+     "w": 132.5,
+     "h": 20.6,
+     "b": 894,
+     "r": 393.5
+    }
+   },
+   "overlaps": [],
+   "vw": 768,
+   "vh": 1024,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 229.1,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 902.4,
+   "plateUnderDock": 14.6,
+   "sheetTop": 896.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1196,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 896,
+    "floor": 896.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 28,
+     "y": 107,
+     "w": 712,
+     "h": 809.9,
+     "b": 917,
+     "r": 740
+    },
+    "header": {
+     "x": 53,
+     "y": 128,
+     "w": 662,
+     "h": 62.3,
+     "b": 190.3,
+     "r": 715
+    },
+    "title": {
+     "x": 53,
+     "y": 128,
+     "w": 662,
+     "h": 33.1,
+     "b": 161.1,
+     "r": 715
+    },
+    "toggle": {
+     "x": 48,
+     "y": 462,
+     "w": 671.9,
+     "h": 44.7,
+     "b": 506.7,
+     "r": 720
+    },
+    "artLabel": {
+     "x": 53,
+     "y": 548.1,
+     "w": 171.6,
+     "h": 20.6,
+     "b": 568.7,
+     "r": 224.6
+    },
+    "copy": {
+     "x": 661,
+     "y": 531.4,
+     "w": 54,
+     "h": 54,
+     "b": 585.4,
+     "r": 715
+    },
+    "artifact": {
+     "x": 53,
+     "y": 591.4,
+     "w": 662,
+     "h": 256,
+     "b": 847.4,
+     "r": 715
+    },
+    "status": {
+     "x": 687.5,
+     "y": 557.9,
+     "w": 1,
+     "h": 1,
+     "b": 558.9,
+     "r": 688.5
+    },
+    "footer": {
+     "x": 53,
+     "y": 871.4,
+     "w": 662,
+     "h": 24.6,
+     "b": 896,
+     "r": 715
+    },
+    "meta": {
+     "x": 261,
+     "y": 873.4,
+     "w": 132.5,
+     "h": 20.6,
+     "b": 894,
+     "r": 393.5
+    }
+   },
+   "overlaps": [],
+   "vw": 768,
+   "vh": 1024,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 1,
+   "stageH": 229.1,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": 896.1,
+   "footerUnderSheet": -0.1,
+   "docSH": 1196,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 896,
+    "floor": 896.1,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ },
+ {
+  "vp": "1024x768",
+  "theme": "dark",
+  "visible": {
+   "boxes": {
+    "plate": {
+     "x": 432,
+     "y": 105,
+     "w": 560,
+     "h": 558,
+     "b": 663,
+     "r": 992
+    },
+    "header": {
+     "x": 465,
+     "y": 126,
+     "w": 494,
+     "h": 71.6,
+     "b": 197.6,
+     "r": 959
+    },
+    "title": {
+     "x": 465,
+     "y": 126,
+     "w": 494,
+     "h": 37.4,
+     "b": 163.4,
+     "r": 959
+    },
+    "card": {
+     "x": 557.5,
+     "y": 150.8,
+     "w": 309,
+     "h": 113,
+     "b": 263.8,
+     "r": 866.5
+    },
+    "toggle": {
+     "x": 465,
+     "y": 283.3,
+     "w": 494,
+     "h": 40,
+     "b": 323.3,
+     "r": 959
+    },
+    "artLabel": {
+     "x": 465,
+     "y": 284.3,
+     "w": 179.1,
+     "h": 21.5,
+     "b": 305.8,
+     "r": 644.1
+    },
+    "copy": {
+     "x": 923,
+     "y": 277,
+     "w": 36,
+     "h": 36,
+     "b": 313,
+     "r": 959
+    },
+    "artifact": {
+     "x": 465,
+     "y": 319,
+     "w": 494,
+     "h": 256,
+     "b": 575,
+     "r": 959
+    },
+    "status": {
+     "x": 940.5,
+     "y": 294.5,
+     "w": 1,
+     "h": 1,
+     "b": 295.5,
+     "r": 941.5
+    },
+    "footer": {
+     "x": 465,
+     "y": 599,
+     "w": 494,
+     "h": 43,
+     "b": 642,
+     "r": 959
+    },
+    "meta": {
+     "x": 603.7,
+     "y": 599,
+     "w": 121.5,
+     "h": 43,
+     "b": 642,
+     "r": 725.2
+    }
+   },
+   "overlaps": [
+    "headerxcard 309x47",
+    "togglexartLabel 179x22",
+    "togglexcopy 36x30",
+    "togglexartifact 494x4"
+   ],
+   "vw": 1024,
+   "vh": 768,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 2,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": 657.3,
+   "plateUnderDock": 5.7,
+   "sheetTop": null,
+   "footerUnderSheet": null,
+   "docSH": 768,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 642,
+    "floor": 657.3,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  },
+  "dismissed": {
+   "boxes": {
+    "plate": {
+     "x": 432,
+     "y": 105,
+     "w": 560,
+     "h": 558,
+     "b": 663,
+     "r": 992
+    },
+    "header": {
+     "x": 465,
+     "y": 126,
+     "w": 494,
+     "h": 71.6,
+     "b": 197.6,
+     "r": 959
+    },
+    "title": {
+     "x": 465,
+     "y": 126,
+     "w": 494,
+     "h": 37.4,
+     "b": 163.4,
+     "r": 959
+    },
+    "toggle": {
+     "x": 461.3,
+     "y": 282,
+     "w": 501.4,
+     "h": 40.6,
+     "b": 322.6,
+     "r": 962.7
+    },
+    "artLabel": {
+     "x": 465,
+     "y": 284.3,
+     "w": 179.1,
+     "h": 21.5,
+     "b": 305.8,
+     "r": 644.1
+    },
+    "copy": {
+     "x": 923,
+     "y": 277,
+     "w": 36,
+     "h": 36,
+     "b": 313,
+     "r": 959
+    },
+    "artifact": {
+     "x": 465,
+     "y": 319,
+     "w": 494,
+     "h": 256,
+     "b": 575,
+     "r": 959
+    },
+    "status": {
+     "x": 940.5,
+     "y": 294.5,
+     "w": 1,
+     "h": 1,
+     "b": 295.5,
+     "r": 941.5
+    },
+    "footer": {
+     "x": 465,
+     "y": 599,
+     "w": 494,
+     "h": 43,
+     "b": 642,
+     "r": 959
+    },
+    "meta": {
+     "x": 603.7,
+     "y": 599,
+     "w": 121.5,
+     "h": 43,
+     "b": 642,
+     "r": 725.2
+    }
+   },
+   "overlaps": [
+    "togglexartLabel 179x22",
+    "togglexcopy 36x31",
+    "togglexartifact 494x4"
+   ],
+   "vw": 1024,
+   "vh": 768,
+   "clipped": [],
+   "titleLines": 1,
+   "metaLines": 2,
+   "stageH": 112,
+   "radii": {
+    "artifact": "6px",
+    "card": "10px",
+    "chip": "9999px",
+    "chipIsGlass": false
+   },
+   "toggleSkin": true,
+   "metaStrings": [
+    "emitted by",
+    "response is not expressed",
+    "compileToEntry() artifact",
+    "eased by"
+   ],
+   "transition": "opacity 0.5s linear(0 0%, 0.28457 4%, 0.6523 8%, 0.87172 12%, 0.96754 16%, 0.99893 20%, 1.00498 24%, 1.00384 28%, 1.00194 32%, 1.00074 36%, 1.0002 40%, 1.00002 44%, 1 48%, 1 52%, 1 56%, 1 60%, 1 64%, ",
+   "dockTop": null,
+   "plateUnderDock": null,
+   "sheetTop": null,
+   "footerUnderSheet": null,
+   "docSH": 768,
+   "slotMarks": 0,
+   "reach": {
+    "scrolls": false,
+    "footerB": 642,
+    "floor": 663,
+    "clears": true
+   },
+   "transportVerbs": [
+    "Pause animation"
+   ]
+  }
+ }
+]
