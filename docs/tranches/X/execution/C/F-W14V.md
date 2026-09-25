@@ -1158,3 +1158,75 @@ SERVED MODEL: claude-opus-5-5. Cross-app / lib / shell family: A2-FO-L1-14ˢ, L1
 - (R-2) The v181 and v87 load intermittents (one each, in different runs).
 - (R-3) Out of scope and unowned by any unit in the plan: F-W14V.md **addendum (d)** (COHESION §0ds, 2026-09-25: every `web/e2e/**` upload moves to `assets/portraits/daraksha.jpg` through one fixture constant) landed after this wave's plan was written, and no unit row carries it. It is for the close/Check to home.
 - **Escalations:** none.
+
+## Close
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · CLOSE SEAT (second sitting), Track C, verify-only, no cure. The spec `F-W14V.md` was read whole at 67 lines, addenda (a)–(g). From the record I read the header through `## Unit plan`, then each receipt's status and commit lines by grep. I also read the late units' receipts: `fourier/evidence/W14V/nav/RECEIPT.md` (`.nav` + `.dm`) and `…/pd/RECEIPT.md` (`.pd`). fourier HEAD = `79ea9f6` (branch `m/w1-bump-migration`, 2 ahead of origin at open). value.js HEAD = `08353549`.
+
+**Crash-recovery.** A killed predecessor close seat left a `## Close` section in this record, uncommitted (⟨`git diff --stat` on this file⟩ → `30 insertions`). I read it whole. It was written before addenda (e)–(g) and before `.nav`, `.dm` and `.pd` landed. It has no gate table and no full-e2e reading, and its "units still owed" line is now stale. Its roster and bounds reading (act 1) and its instrument finding (a sibling's uncommitted `web/src` edits served live by `:3100`) are sound. They are carried below, re-measured at `79ea9f6`, and the section is rewritten in place. fourier's dirty paths all belong to siblings and were not touched: F.CT (`src/fourier_analysis/contours/**`, `bench/contours/harness.py`, `tests/test_contour*.py`, `?? support.py`, `?? test_contour_support.py`) and the 28 `web/e2e/screenshots/f-w14/*.png` (addendum (g), routing 2). The LEDGER was clean.
+
+**Instrument.** ⟨`git diff --quiet HEAD -- web/src api && echo CLEAN`⟩ → `CLEAN` at the start and again after each full run (the `status` line in each run log is empty). So `:3100` served HEAD's `web/src`, and no clean-export `:3199` was needed at this sitting. API `:8000`, mongod `:27018`, preview `:4190` (a sibling's; not stopped).
+
+### Commit roster and bounds (act 1)
+- ⟨`git log --format=%h --grep='X.F.W14V' 7ee9b65..HEAD | wc -l`⟩ → `50`. ⟨`git log --format=%h --grep='W14V' 7ee9b65..HEAD`⟩ → 53. The 3 extra are `330fa09` (`.pd` falsifier, subject "F.W14V.pd"), `79ea9f6` (`.nav` + `.dm`), and `0eaff2b` (addendum (d), the daraksha fixture, landed out-of-loop under §0dv, whose body names the wave). The remaining non-wave commits in `7ee9b65..HEAD` are F.CT siblings: `35b3464` `4c38b12` `94a60bf` `03e5e1c`.
+- The roster, by unit: `.s2` `b7531e7` · `.u1` `2016861` `64a1865` · `.u2` `f980230` `cc08ffd` `ce002d8` · `.u3` `5c8ce49` `59cf617` `c5a88bc` · `.u4` `e38e082` `8e19043` · `.c3` `1ff403d` · `.eq2` `0beb3a2` `0e817fd` · `.p` `8aaf925` `69af796` · `.au0` `a30001d` · `.au1` `48eee99` `cad7518` `f362b2e` · `.au2` `c8bd170` `60cc819` `58f1d75` `e58611d` `1a8112a` · `.au3` `9f59faf` `5b77972` `f20ae5b` `e581e20` `a6fa84c` · `.au4` `d83b01c` `4bdc59d` `fd22fb9` `edc0a08` `d6925e7` `724957f` `1078586` `41387d5` `735c459` `67d5ba8` · `.au5` `2412ea0` `642c87d` `395d638` `ba4efa9` · `.au6` `a591669` `950638c` `6fbbf23` `68eed53` `ef5678e` `82423c4` · `.pd` `330fa09` · `.nav`+`.dm` `79ea9f6`. Self-count: 50 + 1 + 1 = **52**, plus `0eaff2b` (addendum (d)) = 53, matching the grep.
+- **Bounds.** ⟨`for c in $(git log --format=%h --grep='W14V' 7ee9b65..HEAD); do git show --name-only --format= $c | grep -v '^web/'; done`⟩ → only `cc08ffd` (six `api/**` paths plus `src/fourier_analysis/symbolic/latex_rendering.py`) and `f980230` (`api/tests/test_w14v_u2_equation_server.py`). `.u2` owns the `api/**` server limbs (addendum (c)). `latex_rendering.py` is the §0bt adjacent edit `.u2` declares. `330fa09` touches only `web/e2e/f-w14v-pd.spec.ts`. `79ea9f6` touches `AppDock.vue` and `DarkModeToggle.vue` (named by addenda (e)/(f)), plus `f-w14v-nav.spec.ts` and the two owner-ruling re-baselines `f-w14u-shell.spec.ts` and `shell-header.spec.ts`, which the `.nav` receipt names case by case (none deleted). **Landed-wrong: none.**
+- value.js receipt commits: `.nav`/`.dm` `864e0382`; `.pd` `501bca0b` (receipt, 24 frames, the O-84 relay `X-F-BK-DOCK-SUMMARY-SQUARE.md` and its INBOX row) and O-84a `f631a774`; §0ea `08353549` ratifies them as homed.
+
+### E13 mail (act 4)
+⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ over value `V/` and `V/coordination`, glass `BK/coordination` and `BL`, keyframes `V/coordination`, and glass `P/` and `Q/coordination` (the path named "atlas P/coordination" in earlier sweeps does not exist under `atlas/`) → **0 files on every path**. The newest letters in scope, O-84, O-84a, O-77a and glass's I-64, are rowed, and §0ea ratified their homing. **0 UNREAD in scope.**
+
+### Residuals (named owners) and escalations
+- **ESC-u1-1** (F-81 + F-9's final form, the shared animation pane): renaming the easing keys changes persisted data (`api/models/shared.py:69`), and glass 10.1.0 `Timeline` has no transport. **Owner:** the owner's ruling (re-home to `.au3` with O-74a E-3, plus the easing-name migration); glass for the Timeline transport. Not ruled at §0ea.
+- **ESC-u1-2 = ESC-au2-1** (F-79 / L2-15 below sm): the editor dock row needs 243 px and has 167/197/237 px at 360/390/430, so vedit v88 and au2 L2-15 ×3 are RED. **Owner:** the owner's ruling among (a) a glass overflow seat (a new O-row), (b) Delete moves into More tools below sm, (c) an amended lock.
+- **ESC-au3-1** (L1-12, the card-title rung): the specified cure conflicts with the OA-45 type-scale gate. **Owner:** the owner's ruling.
+- **A2-FO-X-7** (the /paper inline search plate at ≥ lg): OPEN, because it conflicts with UIA-F-59 (`.au5`). **Owner:** the owner's ruling.
+- **Honest-RED glass rows, ADOPT-AT-LANDING:**
+  - O-77/O-77a LAYER-HEADER-LABEL (`.s2`; §0dy tightens the bar; glass 10.2.0 W-0.3)
+  - O-84/O-84a DOCK-SUMMARY-SQUARE + METRIC-TOKEN-JOIN (`.pd`, 6 collapsed cells; pulled into 10.2.0 band 0 by §0ea)
+  - MENU-ICON-GAP and MAGNET-STATE-HIDDEN (`.c3`, beside O-76)
+  - TOASTER-OFFSET (`.p` p3)
+  - O-82 POPOVER-ANCHOR (F-177, F-203)
+  - the O-74/O-75 consumer halves (the ˢ rows)
+  - L2-12 collisionPadding, HELD (O-74)
+  - the §11 type rows L2-18ˢ and L3-14, HELD (O-74a E-2)
+  - **Owner:** glass. The next seat is the 10.2.0 repin, which re-reads `f-w14v-pd` and `f-w14v-detached`.
+- **Addendum (g), still owed** (homed by §0ea to "Track C, next seat"):
+  - (1) the stale G-c1 in `f-w14-residuals`, to be re-baselined to u4's first-upload rule;
+  - (2) the 28 uncommitted `web/e2e/screenshots/f-w14/*.png`, to be restored to HEAD or re-captured as a dated capture. They are still ` M` at close.
+  - A verify-only seat does neither. **Owner:** Track C's next cure seat.
+- **Glass questions from `.nav`, not relayed** (recorded, no owner act yet): (i) the dropdown's current row carries `aria-current` but no visible paint (O-59 / UIA-F-128, glass's half); (ii) `--dock-icon-glyph` (20 px) differs from the 24 px faces glass renders.
+- **The `.pd` diagnostic switch:** `FW14V_PD_GLASS_CURE=1` injects the proposed glass rule, in the spec only. It is off by default, so the shipped run reads the true bytes RED. It is a test instrument, not a shim over product paint. I read it as lawful, and the Check should confirm.
+
+### Gates, BEFORE → AFTER (acts 2 and 3; fourier `79ea9f6`; `:3100` → `:8000`)
+| Gate (spec §) | BEFORE (Baseline, `7ee9b65`) | AFTER, this seat, ×2 |
+|---|---|---|
+| vue-tsc (§2) | 0 | ⟨`npx vue-tsc --noEmit`⟩ → exit 0, 0 `error TS` ×2 **GREEN** |
+| vitest (§2) | 86/86 (14 files) | ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)` ×2 **GREEN** |
+| api `owner_required` (`.p` §3) | GREEN | ⟨`MONGO_TEST_URI=… uv run pytest api/tests/conformance/test_identity.py::test_owner_required`⟩ → `1 passed` ×2 **GREEN, unchanged**; ⟨`uv run pytest api/tests`⟩ → `286 passed` |
+| `.s2` `f-w14v-detached` headed (§1 .s2 4) | 5/5 ×2 (landed early, `239845f`) | ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-detached.spec.ts --project=chromium --headed --workers=1`⟩ → `5 passed (16.5s)`, `5 passed (15.3s)` **GREEN** |
+| every unit falsifier (§2), inside the full runs | per receipts | `f-w14v-{u1,u2,u3,u4,eq2,au1,au4,au5,au6,nav}` and `f-w14v-p` p1/p2: all passed in both runs. Honest-RED limbs, stable in both runs: `.c3` c3m/c3g · `.p` p3 @1440/@1024 · `.au2` L2-15 @360/390/430 · `.au3` L1-12 · `.pd` collapsed ×6 (`f-w14v-pd:104`, 1440/1024/390 × L/D; expanded ×6 GREEN) |
+| full e2e `--workers=1` (§2) | named set (F.W14U) | r1 (load 9.5 → ~110): **`33 failed · 3 skipped · 501 passed (33.3m)`** · r2 (load 76 → 110): **`30 failed · 3 skipped · 504 passed (33.4m)`** |
+
+**The full-e2e reading.** ⟨`diff` of the two runs' sorted failure lists⟩ → run 2 is run 1 minus 3 lines. The 30 stable failures are:
+- **The named set, 21** (the same 21 as `.au6` Act 8): contrast-floor `:82` ×2 and `:128`; gallery-admin-a11y ×4; visual-checkpoint `:81 :102 :123`; f-w14-residuals G-c1; f-w14u-d d2; f-w14u-vedit v88; au2 L2-15 ×3; au3 L1-12; c3 c3m/c3g; p p3 ×2.
+- **vc `:199` mobile**: pre-existing, RED at `ba4efa9` (`.au6` R-1). Carried.
+- **`.pd` collapsed ×6**: the new honest-RED DOCK-SUMMARY-SQUARE (O-84/O-84a). This is the expected shape: 6 RED, 6 GREEN.
+- **r119 and r212** (`f-w14u-misc.spec.ts:343 :364`): **outside the set, and attributable by bytes to `79ea9f6` (`.nav`)**. Both assert on `.app-dock [aria-current="page"]` (`:337`), the `aria-current` of the inline tab row that addendum (e) deleted. With the menu closed, the dock now carries no `[aria-current]`, so the count is 0. Alone at HEAD, ⟨`playwright test e2e/f-w14u-misc.spec.ts:343 …:364 --project=chromium --workers=1`⟩ ×2 → `2 failed` ×2. Before `.nav` they were GREEN: `.au6` Act 8 at `82423c4` (not among its 23), and the predecessor close's clean `0eaff2b` export (`2 passed`). The `.nav` receipt re-baselined `f-w14u-shell` s151 and `shell-header` but missed these two oracles. They pin the same route-meta facts (UIA-F-119 and F-212) through the removed row. The cure is a §0bt owner-ruling restatement: read the section from the `nav-trigger`'s accessible name or the open menu's `aria-current` item, keep every URL and label, and delete nothing. **Landed-wrong LW-1**, not cured here.
+
+Run 1 only, each GREEN alone or in run 2:
+- f-w14-uia UIA-F-17 `:162`: the named pre-existing intermittent (`.au6` receipt). It is GREEN in r2; alone after the runs it gave `1 failed`.
+- f-w14u-vedit v87 `:149`: the load intermittent (`.au6` R-2). Alone → `1 passed`.
+- f-w14v-au0 d1440-light: `page.waitForTimeout: Page crashed` at `:237` at load ~110, which is the instrument. Alone → `1 passed (31.0s)`.
+
+⟨`git status --porcelain web/src api`⟩ after each run → empty, so the served bytes were HEAD throughout.
+
+### Landed-wrong, escalations, state
+- **LW-1** (`.nav`, `79ea9f6`): r119/r212 are RED ×2 at HEAD because their oracles still read the deleted tab row. **Owner:** Track C's next cure seat (the `.nav` owner), as a §0bt owner-ruling restatement. This is not a product defect in the dropdown.
+- **Escalations open (the owner's):** ESC-u1-1 · ESC-u1-2 = ESC-au2-1 · ESC-au3-1 · A2-FO-X-7. The §0ea ratification did not rule them.
+- **State (§2: "The row flips CLOSED on a CONFORMANT check").** This seat does not stamp CLOSED or VERIFIED. **Verdict: PARTIAL.** Every planned unit and the late `.nav`/`.dm`/`.pd` are landed, and each row is CURED, ADOPT-AT-LANDING or honest-RED with its relayed id. What remains:
+  - (1) LW-1;
+  - (2) addendum (g)'s G-c1 re-baseline and the 28 PNGs;
+  - (3) the four owner escalations above.
+  - The honest-RED glass rows ride 10.2.0 (O-77a, O-84, O-84a) and the O-74/O-75/O-76/O-82 rows.
+- **Push:** fourier `m/w1-bump-migration` pushed with `330fa09` and `79ea9f6`; value.js pushed with this close.
