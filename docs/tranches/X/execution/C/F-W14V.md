@@ -200,3 +200,79 @@ SERVED MODEL: claude-opus-5-5 · 2026-09-25 · stage/dock rows (addendum (c); F-
 - Neighbours: 87 passed. v88 is ESCALATED (ESC-u1-2); the ux ExportModal case was cured and re-read ×4.
 
 **Commits:** fourier `2016861` (the falsifier), `64a1865` (the cure plus the adjacent restatements), pushed (`7ee9b65..64a1865` on `m/w1-bump-migration`). **Inherited paths:** none. **Status:** PARTIAL (ESC-u1-1, ESC-u1-2).
+
+### F.W14V.u2
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · equation rows (addendum (c); F-W14U.md addendum (h) `.vedit` E-1, `.eq` E-2/E-3/E-4; §0da, §0dp). Writable: `web/src/**`, `web/e2e/**`, `api/**` (server limbs).
+
+**Acts, in order**
+1. Crash-recovery: ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. No inherited paths. fourier HEAD `64a1865`.
+2. Anchors at the bytes. `lib/equation/notation.ts:14-17` → the three hsl literals, as the register says (no drift). The Σ bound: `render_trig_sigma` and its siblings take N = the largest `|n|` of the terms passed. `api/routers/equations.py:127` passed every computed term, so the bound was the requested `n_harmonics`.
+   - **Measured root cause of "Conjectured" (INTENT at the bytes):** ⟨`curl :8000/api/equations/compute` for `x*(pi-x)`, `x`, `x**2`⟩ → all three returned `identified`. ⟨`symbolic_fourier_coefficients` called in the main thread vs. a `threading.Thread`⟩ → main: terms; thread: `ValueError('signal only works in main thread of the main interpreter')` → `None`.
+   - `integration._timeout` arms `SIGALRM`, and `submit_compute_job` runs the job via `asyncio.to_thread`. So the symbolic tier was dead in the API for every expression. The tier label (`notation.ts:55-60`) is honest; the tier assignment was not.
+   - The expanded hover hooks: the cure site is `src/fourier_analysis/symbolic/latex_rendering.py` (outside `api/**`, same repo, same concern). That is the **adjacent edit** below.
+3. Falsifiers authored first:
+   - `api/tests/test_w14v_u2_equation_server.py`: 11 cases. 10 are falsifiers; 1 is the no-Auto control.
+   - `web/e2e/f-w14v-u2.spec.ts`: 5 cases:
+     - e85 light and dark: the ink is `var(--viz|section-color-…)`, the hue is within 30° of the authored 6/224/286, and the glyph is `.katex` with no U+2070–209F;
+     - e201: Σ bound = the Harmonics field = the legend, under Auto and with Auto off;
+     - e253 expanded hover opens `.coeff-popover`;
+     - e253 the tier is "Exact".
+4. **RED ×2 on the pre-cure bytes.**
+   - ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 uv run pytest api/tests/test_w14v_u2_equation_server.py -q`⟩ ×2 → **10 failed, 1 passed** ×2 (the control passes).
+   - ⟨`FW14V_PHASE=before BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-u2.spec.ts --project=chromium --headed --workers=3`⟩ ×2 → **5 failed** ×2. The limbs were: Trig ink `"hsl(6, 72%, 49%)"` (light and dark); Σ bound `Expected: 8 Received: 20`; expanded `.eq-coeff` not found; the badge read `"Conjectured100.0% energy…"`.
+   - A first background run was discarded because it was contaminated: `notation.ts` had been edited while vite served the tree. The file was restored to HEAD bytes for the two counted runs.
+5. Cures.
+   - **Server** (fourier `cc08ffd`):
+     - `api/services/equation_series.py` (new): `compute_series` is module-level, and `ExpressionInvalid` and `parse_function_of_x` moved there from the router. It adds `displayed_n` (min(Parseval effective N, computed N) under `auto_harmonics`, else computed N) and `render_sigma` (Σ over `|n| ≤ shown`).
+     - `api/services/computation.py`: `submit_process_job` runs on a `spawn` `ProcessPoolExecutor`, with the same semaphore, the same timeout and the same 429/504. Each task runs on a worker process's main thread, so the symbolic tier's `SIGALRM` timer is live. `shutdown_process_pool` is wired into the `api/main.py` lifespan.
+     - `api/routers/equations.py`: `/compute` runs `compute_series` in the process pool. `/simplify` now answers `latex_sigma` at the displayed N.
+     - `api/models/equations.py`: `auto_harmonics: bool = False` on both requests (additive; the default keeps the old contract), and `latex_sigma` on `SimplifyResponse`.
+   - **Web** (fourier `ce002d8`):
+     - `notation.ts`: Trig → `var(--viz-fourier)`, Exp → `var(--section-color-2)`, Polar → `var(--section-color-7)`. These are the one palette's `light-dark()` tokens, with the hues kept per §0da (measured within 30° in both themes). `icon` → `glyph` (TeX).
+     - `NotationPills.vue` renders the glyph through `renderLatex(…, { displayMode: false })`.
+     - `EquationView.vue`: the request carries `auto_harmonics`, and `displayKey` and the re-render watch include Auto. `doSimplify` writes `displayLatexSigma` and `result.latex_sigma` from the answer.
+     - `api.ts` / `types.ts`: the contract fields.
+     - `render.ts` `plainLatex`: the hook body may now nest braces two deep (expanded terms hook whole: `\frac{\pi}{2}\cos(2t)`).
+     - `render.test.ts` (new) and `notation.test.ts`: the unit floor.
+   - **F-203:** honest-RED **O-82 POPOVER-ANCHOR** (glass 10.x exports no virtual anchor). No hand-rolled positioning was built, and there is no case for it.
+6. **Instrument (recorded, not smoothed):** the dev API on `:8000` (pid 2546, no `--reload`) was restarted to serve the server bytes.
+   - The first two restarts lacked the harness env, and their runs are discarded: `BLOB_DIR` → seed 500 on read-only `/data`, then `COMPUTE_RATE_LIMIT` → 429s.
+   - It now runs as `scripts/e2e.sh` prescribes: `.env` sourced; `COMPUTE_RATE_LIMIT=1000`, `WRITE_RATE_LIMIT=1000`, `BLOB_DIR=~/.mongo-dev/fourier-blobs` (§0cv), `MONGO_URI=mongodb://localhost:27018/fourier`, `ADMIN_TOKEN=${ADMIN_TOKEN:-dev}`. ⟨`POST :8000/api/sessions`⟩ → 200.
+7. **GREEN ×2 on the settled bytes.**
+   - ⟨`FW14V_PHASE=after BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-u2.spec.ts --project=chromium --headed --workers=3`⟩ ×2 → **5 passed** · **5 passed**.
+   - ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 uv run pytest api/tests -q`⟩ ×2 → **286 passed** · **286 passed** (baseline 275, plus 11 new; `test_owner_required` included).
+   - ⟨`npx vitest run`⟩ → `Test Files 15 passed (15) · Tests 90 passed (90)` (baseline 86/86 + 4 new). ⟨`npx vue-tsc --noEmit; echo $?`⟩ → **0**.
+   - Frames: `web/e2e/screenshots/f-w14v/u2/after-*.png` (6, gitignored). Dark 1440: Σ bound 8 = N 8, and the KaTeX glyphs are on the math baseline.
+8. **Neighbours.** ⟨`playwright test e2e/f-w14u-eq.spec.ts e2e/equation-interaction.spec.ts e2e/f-w14u-vedit.spec.ts --workers=3`⟩ ×2 → 25 passed · 2 failed ×2:
+   - `f-w14u-vedit :198` v88 is the standing **ESC-u1-2** (not this unit's).
+   - q35 read `0.062`, because a₄ = −1/16 is now exact (the symbolic tier) and formats to 2 significant digits as `0.062` (it was spline `0.063`). Its string was widened under §0bt (below). ⟨`-g q35 --workers=1`⟩ ×2 → **1 passed** ×2.
+   - ⟨`f-w14-uia.spec.ts visualization-ux.spec.ts -g "UIA-F-3|equation|Equation|notation|Notation"`⟩ → **10 passed**.
+
+**Adjacent edits (§0bt)**
+- `src/fourier_analysis/symbolic/latex_rendering.py:32-41,68,71,115,144,149`: `_hooked` wraps each expanded term in the Σ renderers' own `\htmlClass{eq-coeff eq-<an|bn|cn|An>}`, with the sign outside so KaTeX keeps the binary spacing. This is the F-253 hover cure's only site (outside `api/**`, same repo, same concern). `render.ts`'s trust set is unchanged (same classes).
+- `api/tests/test_uia_server_rows.py:47-53`: `_coefficient_of` reads through the hook before matching. The F-35 assertion is unchanged.
+- `web/e2e/f-w14u-eq.spec.ts:82`: `/0\.06(25|3)\b/` → `/0\.06(25|2|3)\b/`. This is the string the oracle asserts for copy this unit changed (the exact tier's `0.062`). The `not 0.031` assertion is unchanged.
+
+**Row dispositions (5 ids).** Tally ⟨count of the table's rows⟩ → 5.
+
+| row | disposition | falsifier |
+|---|---|---|
+| F-85 (consumer; ToggleGroup limb already CURED by F-204 `fcc5617`) | **CURED**: glyph and ink on tokens and KaTeX | e85 light/dark RED ×2 → GREEN ×2 |
+| F-241 (glyph + ink limbs; the cap limb is `.srv`'s) | **CURED** | e85 + `notation.test.ts` |
+| F-201 (server limb: the Σ bound) | **CURED**: Σ = the displayed N under Auto and off it | e201 RED ×2 (20 vs 8) → GREEN ×2; api `test_f201_*` RED ×2 → GREEN ×2 |
+| F-253 (server limbs: expanded hover; "Conjectured" polynomial) | **CURED**: hooks in the expanded form; the symbolic tier runs in a worker process, so x(π−x), x and x² are Exact | e253 ×2 RED ×2 → GREEN ×2; api `test_f253_*` RED ×2 → GREEN ×2 |
+| F-203 (primitive limb) | **honest-RED O-82 POPOVER-ANCHOR**. The plate and radius limb stays CURED (`fcc5617` q203) | none (producer) |
+
+**Gates, BEFORE → AFTER:**
+- per-row falsifier: RED (api 10/11 failed ×2; e2e 5/5 failed ×2) → **GREEN ×2** (11/11 · 5/5).
+- api pytest: 275 → **286 ×2**.
+- vue-tsc: 0 → **0**.
+- vitest: 86/86 → **90/90**.
+
+**Residuals.**
+- (R-1) `/equation` still recomputes on a notation change (notation stays in `computeKey`). `/simplify` now carries `latex_sigma`, so it *could* be a re-render. That is left as is: it was not asked, and there is no defect.
+- (R-2) A pathological expression can still hold a pool worker until the outer `compute_timeout_s`. That is unchanged from the thread path; the per-coefficient 5 s alarm now actually fires.
+- (R-3) The Trig glyph `\sin` inherits the item's ink and reads near-foreground on the pressed chip; the label carries the hue. This matches the pre-cure recipe (`.notation-item[data-state=on]`).
+
+**Commits:** fourier `f980230` (falsifiers) · `cc08ffd` (server limbs + 2 adjacent) · `ce002d8` (web + 1 adjacent), pushed (`64a1865..ce002d8` on `m/w1-bump-migration`, ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `ce002d86d365`). **Inherited paths:** none. **Escalations:** none. **Status: DONE** (F-203 honest-RED O-82, as ruled).
