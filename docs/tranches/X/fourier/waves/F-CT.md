@@ -28,3 +28,11 @@ For every image in the set (the private sample first):
 
 ## Gates at close
 `uv run pytest` GREEN ×2 (including the new bench tests on the public set); the api tests GREEN; the bar met ×2 (two consecutive harness runs); the served check (upload, contour, preview, epicycles at `:3100`) reads GREEN on the private sample locally, with the visualisation deleted afterwards. The record holds the metrics table, before and after, with no private pixels.
+
+## ADDENDUM 2026-09-25 (a) — the owner lifts the privacy law: "Public in the repo is fine." (COHESION §0ds)
+- **The PRIVACY LAW above is superseded.** The portrait is now a **public, committed sample**: fourier `assets/portraits/daraksha.jpg` (`4c38b12`), committed by the orchestrator, **not a violation**. Seats must not remove or rewrite it. It was committed with EXIF and GPS stripped: the original carried GPS coordinates and orientation 6, so the orientation is baked into the committed pixels. **Never commit the original `~/.fourier-samples/daraksha.jpeg`** (it still holds GPS). Any copy must go through the stripped, committed file.
+- **Consequences:**
+  - The harness and the committed tests use `assets/portraits/daraksha.jpg` as the **primary** sample, in the public set, and the private-skip gate becomes an ordinary committed test on it.
+  - Evidence frames may stay local (size); committing a small set of before/after overlays to the record is allowed.
+  - The raw phone JPEG's EXIF orientation (6) is a real input case: the pipeline must honour EXIF orientation on upload (the models lens checks `image.py`), and the served check uploads the **original** file from `~/.fourier-samples/` to prove it.
+- **"Use this image for all of our samples going forward":** every fourier test or e2e spec that uploads a sample image moves to `assets/portraits/daraksha.jpg` as its default. This is Track C's `web/e2e/**` (F-W14V.md addendum (d)); F.CT's own tests use it directly.

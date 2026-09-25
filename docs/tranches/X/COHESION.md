@@ -3586,3 +3586,9 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   4. implement-and-measure rounds, each followed by a three-judge vision panel (fidelity, cleanliness, drawability), looping until every judge PASSes every image in the same round with no public-set regression (at most 8 rounds);
   5. close: gates ×2, the local served check, and the record.
 - **PRIVATE-SAMPLE LAW:** fourier-analysis and value.js are both **public**. The portrait lives only at `~/.fourier-samples/daraksha.jpeg`, and every derivative goes under `~/.fourier-samples/evidence/`. None of it is ever committed, pushed, uploaded, deployed or published; records cite numbers only; committed tests use the public set; the private gate skips when the file is absent. **Asked of the owner:** whether it may ever enter a repo or a deployed sample set.
+
+## §0ds — 2026-09-25: owner — "Public in the repo is fine."; the portrait committed with its metadata stripped; the standard sample
+- **Owner, verbatim:** *"Public in the repo is fine."* The private-sample law of §0dr is **lifted**.
+- **Committed:** fourier `assets/portraits/daraksha.jpg` (`4c38b12`, pushed). The original carried **GPS coordinates** and EXIF orientation 6, so it was re-encoded with the orientation baked in and **every EXIF field stripped** (0 tags). The GPS-bearing original stays only at `~/.fourier-samples/` and is never committed.
+- **F-CT.md addendum (a):** it is the primary committed sample. The seats read the spec at start, so the running F.CT workflow picks this up without a restart. EXIF-orientation handling on upload is a named input case.
+- **F-W14V.md addendum (d):** every fourier e2e upload moves to this sample through one fixture constant.
