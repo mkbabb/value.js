@@ -2332,3 +2332,13 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDA (b),
 **Honest-RED set:** P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 (publish half), relieved to X.P.W7P (§0cp 1).
 
 **Verdict: NOT-CONFORMANT.** The row stays `PARTIAL`. 13 claimed GREENs re-run here reproduce. Bounds, masking, families, E-3 and mail all held. The one binding RED waits on the owner's ruling of ESC-W7l3-1. A further repair round cannot cure it without that ruling. **Adjacent edits: none.** `scripts/dev/dev.sh` untouched.
+
+## Repair 2 of the RESUME 5 Close (2026-09-25, repair seat round 2, `claude-opus-5-5`, Track D; answers `## Check 2 of the RESUME 5 Close`)
+
+**Open.** Spec read whole (W7.md; ADDENDA (b), (c), (e)). Crash-recovery: ⟨`git status --porcelain -- docs/tranches/X/execution/D/X-P-W7.md`⟩ → empty. The dirty parse-that paths (`rust/**`, `.cargo/config.toml`, `README.md`) lie outside W7's writable set. They belong to a sibling seat and were not touched.
+
+| Defect | Cure | Commit | Gate re-reading |
+|---|---|---|---|
+| HIGH: L-G1 Firefox large `parseStylesheet` not below the retired parser ×2 | **ESCALATED, not cured.** The Check's cure opens with an owner act ("The owner rules ESC-W7l3-1"). ⟨`grep -c ESC-W7l3-1 docs/tranches/X/COHESION.md`⟩ → `0`, and ⟨`git log --oneline 352aa91a..HEAD -- src bench docs/tranches/X/COHESION.md`⟩ → empty. No ruling exists and no code has moved since Repair 1. Options (i) and (ii) are exclusive owner design choices. If a seat picked one, it would be ruling in the owner's place. Setting a noise band without a ruling would be a masking fallback. | none | Not re-read. ⟨`uptime`⟩ → load averages `47.37 96.42 76.24`, so a Firefox re-read would be VOID under the instrument's spread rule. No cure landed that could move a gate. |
+
+**Verdict.** Cured 0. Escalated 1 (ESC-W7l3-1, to the owner, unchanged from Repair 1). The row stays `PARTIAL`, and X.P.W7P stays blocked on conjunct (ii). **Adjacent edits: none.** `scripts/dev/dev.sh` untouched.
