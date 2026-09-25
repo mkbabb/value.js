@@ -1,0 +1,5 @@
+run2 1440 light EXIT 0
+run2 1440 dark EXIT 0
+run2 390 light EXIT 0
+run2 390 dark EXIT 0
+DONE
