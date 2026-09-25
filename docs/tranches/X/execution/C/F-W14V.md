@@ -276,3 +276,50 @@ SERVED MODEL: claude-opus-5-5 · 2026-09-25 · equation rows (addendum (c); F-W1
 - (R-3) The Trig glyph `\sin` inherits the item's ink and reads near-foreground on the pressed chip; the label carries the hue. This matches the pre-cure recipe (`.notation-item[data-state=on]`).
 
 **Commits:** fourier `f980230` (falsifiers) · `cc08ffd` (server limbs + 2 adjacent) · `ce002d8` (web + 1 adjacent), pushed (`64a1865..ce002d8` on `m/w1-bump-migration`, ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `ce002d86d365`). **Inherited paths:** none. **Escalations:** none. **Status: DONE** (F-203 honest-RED O-82, as ruled).
+
+### F.W14V.u3
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · shell/admin rows (addendum (c); F-W14U.md addendum (h) `.vstage` E-2 F-183 control-state half, the F-149 LOCK, Close-2 LW-1/LW-2/LW-3; §0dp). Writable: `web/src/**`, `web/e2e/**`.
+
+**Acts, in order**
+1. Crash-recovery: ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. No inherited paths. fourier HEAD `ce002d8`.
+2. Anchors at the bytes (INTENT recorded where drifted):
+   - F-183 raw slug: `stores/gallery.ts:373` `toast(\`Published ${slug}\`, …, { action: View })` (the register's `:326` drifted; the View seat is `.shell`'s `b744993`, present). Duplicates: `VisualizationView.vue:231-245` `handlePublish` → `workspace.saveVisualization` POSTs a new draft on every press, then PATCH → public. The control: `CanvasControlsDock.vue:87-92` (`Upload` glyph, no published state; the register's `:92`/`:102-105` drifted). `VisualizationUpdate` (`api/models/visualization.py:198`) patches visibility/title/tags only, so an "Update" of content is not a server verb: the cure keys the published state on the body the piece was published from.
+   - F-149: `GalleryAdminBanner.vue:87` `<section class="admin-banner … rounded-lg border-[1.5px]">` (10 px) around six `Metric posture="cell"` (glass `components/metric/styles.css`: `border-radius: var(--radius-card)` = 16 px). Record's analysis (F-W14U record `:1113`): banner → glass Card, one golden re-cut.
+   - LW: vc `:145 :164 :199`, radius `:105`, `playwright.config.ts:92-101` `webServer` (:4190) all at the named lines.
+3. Baseline (before any edit) ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/visual-checkpoint.spec.ts e2e/f-w13-radius.spec.ts --project=chromium --project=mobile-chromium --workers=1`⟩ → `3 failed · 6 passed`: vc `:145 :164 :199`[mobile-chromium] and radius `:56 :83 :105` **GREEN** (LW-1/LW-2 hold at `ce002d8`, no drift); the 3 RED are vc `:81 :102 :123` (not this unit's; see R-1).
+4. Falsifier authored first: `web/e2e/f-w14v-u3.spec.ts` (2 cases). e183: one POST + one PATCH; toast "Published to the gallery", no slug text, a View action; the control then reads `Published…` and "Publish to Gallery" is gone; pressing it routes to `/v/<slug>` with posts = 1, patches = 1. e149: the banner has `.card`, its radius = `--radius-card`, 6 cells each ≤ the banner radius.
+5. **RED ×2 on the pre-cure bytes** ⟨`FW14V_PHASE=before BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-u3.spec.ts --project=chromium --workers=2`⟩ ×2 → **2 failed** ×2: e183 `getByText('Published to the gallery')` not found (the toast read `Published <slug>`); e149 `the banner is a glass Card: Expected true, Received false`.
+6. Cures.
+   - **F-183** (fourier `c5a88bc`): `stores/workspace.ts` factors `visualizationBody()` (the create body, no visibility; `saveVisualization` spreads it) and records `published = { slug, body }` via `markPublished`; `publishedSlug` is the slug while the working session's body still equals the published one, else null (`reset()` clears it). `stores/gallery.ts` `publish` returns `boolean`, its toast reads `Published “<title>”` or "Published to the gallery" (never the slug) with the View action, and the refetch sits outside the error channel. `VisualizationView.vue` `handlePublish`: a published session routes to `/v/<publishedSlug>` (no POST); a landed publish calls `markPublished`; `:published` passed to the dock. `CanvasControlsDock.vue`: `published` → `GlobeCheck` "Published — open it"; else `Globe` "Publish to Gallery" (the `Upload` glyph retired, the register's distinct-glyph limb).
+   - **F-149** (fourier `59cf617`): `GalleryAdminBanner.vue` root is glass `Card as="section" size="sm"` (the `rounded-lg` dropped; `--radius-card` is Card's), `root` ref reads `$el` for F-192's focus neighbour. The amber register (`.admin-banner`, the consumer's own class) is unchanged.
+   - **vc `:145` re-baseline (the F-149 LOCK grant, diff read first):** ⟨post-cure run⟩ → `457 pixels (ratio 0.01)`; the diff PNG shows exactly the four corners (10 → 16 px) and the "Admin Mode" label ink (now Card's `--card-foreground`). That is the granted change, so the golden is re-cut once ⟨`npx playwright test e2e/visual-checkpoint.spec.ts:145 --project=chromium --update-snapshots`⟩ → `1 passed`, committed with the cure.
+7. **GREEN ×2 on the settled bytes** (`c5a88bc`):
+   - ⟨`FW14V_PHASE=after … e2e/f-w14v-u3.spec.ts --project=chromium --workers=1`⟩ ×2 → **2 passed** · **2 passed**.
+   - ⟨`… e2e/visual-checkpoint.spec.ts:145 :164 :199 e2e/f-w13-radius.spec.ts:105 --project=chromium --project=mobile-chromium --workers=1`⟩ ×2 → **4 passed** · **4 passed** (`:199` runs in mobile-chromium, `@coarse`).
+   - **LW-3:** the `:4190` listener found at open was an orphaned `vite preview` (pid 38086, parent `npm exec`, started 01:31, the `webServer` command left by a killed run, serving a stale `dist/e2e-preview`). It was stopped so the suite's own `webServer` built and served the current bytes. ⟨`… e2e/f-w14u-misc.spec.ts:118 :380 :401 --project=chromium --workers=1`⟩ ×2 → **5 passed** · **5 passed**; ⟨`lsof -iTCP:4190 -sTCP:LISTEN | wc -l`⟩ after each run → `0` (Playwright started and stopped it: managed).
+   - Neighbour regression ⟨`… visual-checkpoint f-w13-radius f-w14u-admin f-w14u-shell f-w14u-gallery f-w14u-vstage f-w14-uia --project=chromium --project=mobile-chromium --workers=3`⟩ (before the re-cut) → `4 failed · 132 passed`: vc `:145` (the re-cut above) and vc `:81 :102 :123` (R-1); every family case GREEN, including f-w14-uia UIA-F-18 on its adjusted copy.
+   - ⟨`npx vue-tsc --noEmit; echo $?`⟩ → `0`, 0 `error TS`. ⟨`npx vitest run`⟩ → `Test Files 15 passed (15)` · `Tests 90 passed (90)`.
+
+**Adjacent edits (§0bt):** `web/e2e/f-w14-uia.spec.ts:310`: UIA-F-18's toast oracle follows the changed copy (`Published ${saved.slug}` → `Published “${saved.title}”`, the stub carries ENTRY's title). The assertion is otherwise unchanged.
+
+**Gate readings BEFORE → AFTER**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| F-183 falsifier (e183) | RED ×2 | GREEN ×2 |
+| F-149 falsifier (e149) | RED ×2 | GREEN ×2 |
+| vc `:145 :164 :199`[mobile-chromium] + f-w13-radius `:105` | GREEN (baseline) | GREEN ×2 (`:145` re-cut, diff described) |
+| f-w14u-misc `:118 ×2 :380 ×2 :401` via `webServer` | orphan preview on :4190 (stale bundle) | 5/5 ×2, preview started and stopped by Playwright |
+| vue-tsc / vitest | 0 / 86 (banked) | 0 / 90 (15 files; u2 added the unit floor) |
+
+**Rows:** F-183 control-state half **CURED** (falsifier ×2). F-149 consumer half **CURED** (×2). The strict concentric law (cell radius = `--radius-ctx` − inset) is glass's half, **O-59**, ADOPT-AT-LANDING: the cells are 16 px in a 16 px Card with a 12 px inset. LW-1/LW-2/LW-3 **VERIFIED** (`a926748` `56e56a3` `0e34595` hold; `:145` re-cut for F-149).
+
+**Residuals**
+- (R-1) vc `:81 :102 :123` are RED at the baseline bytes, both runs. Their oracle `getByRole('button', { name: 'Open img-amber-fox-spiral-one' })` names the card by `image_slug`; since `.gallery` `30346dd` (F-99) the card is named by its title ("Open Amber fox spiral", frame read). This is a stale oracle outside this unit's named set (a different concern: `.gallery`'s F-99 adjacent twins). Routed to the wave close / `.au4` (gallery), not cured here.
+- (R-2) A published session that navigates to its own `/v/<slug>` keeps the Published control, and pressing it there is a same-route push, so nothing happens. The piece is already open; no copy is made.
+- (R-3) Content "Update" in place is not a server verb (`VisualizationUpdate` has no settings fields). An edited session publishes a new piece, as the new content warrants.
+
+**Escalations:** none.
+
+**Commits:** fourier `5c8ce49` (falsifiers) · `59cf617` (F-149 + vc `:145` re-cut) · `c5a88bc` (F-183 + 1 adjacent), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `c5a88bc79577`).
