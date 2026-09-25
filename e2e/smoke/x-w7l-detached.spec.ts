@@ -1,0 +1,253 @@
+// SERVED MODEL: claude-opus-5-5
+import { expect, test, type Page } from "@playwright/test";
+
+/**
+ * X.W7L.a — glass 10.1.0's two additive Configurator primitives, read on
+ * value.js's own shapes (COHESION §0cu OA-69 · §0cz O-75 · §0dd · §0dh; the
+ * shape of fourier's `web/e2e/f-w14v-detached.spec.ts`).
+ *
+ * The census (record § X.W7L.a) found neither glass shape in value.js:
+ *   · 0 `<Configurator>` — the stage-plus-inspector scene is value.js's own
+ *     `.pane-container` grid of region cards (viewSchema `stage`/`inspector`),
+ *     which paints no shell plate, so there is no band for `layout="detached"`
+ *     to remove;
+ *   · 0 `<ConfiguratorLayer>` and 0 section-level actions — the one
+ *     Configurator-shaped population (ConfigSliderPane: /blob, /atmosphere)
+ *     has titled sections whose headers carry no action; its Copy JSON/Reset
+ *     band is PANE-level (A2-VA-L3-2 → glass CardHeader `#actions`, still-live
+ *     at 10.1.0 per X.W7L.v table B), not a section's.
+ * This spec holds both owner laws on those shapes, so a regression fails:
+ *
+ * da  Owner (§0cz): "the background area between the two elements … should not
+ *     be displayed — they should be distinctly there". At 1440×900 and
+ *     1024×768, light and dark, on #/blob (stage Picker + inspector Blob), the
+ *     gutter between the stage card and the inspector card is the PAGE GROUND:
+ *     (1) structurally, every element stacked over the gutter above <body>
+ *     paints nothing (transparent background, no background image, no
+ *     backdrop filter) — no shell plate sits between the two cards; and
+ *     (2) in pixels, with the cards' casts off (box-shadow and filter only),
+ *     the gutter's area median equals the one read with the whole scene grid
+ *     hidden — the page ground — within 4 per channel plus the ground's own
+ *     measured drift between two grid-less reads (the atmosphere is live). A
+ *     plate in the grid survives the first read and not the second; a plate
+ *     on an ancestor that spans the margins too is caught by (1).
+ * db  Owner (§0cu OA-69): "the refresh button should be inline in the section
+ *     when expanded too". In every Configurator-shaped section of /blob and
+ *     /atmosphere, no section action sits on a row of its own: every button in
+ *     a section sits on its header's row (a ConfiguratorLayer's action inside
+ *     its header, outside its trigger), and clicking a layer's header action
+ *     never toggles the layer.
+ */
+
+const FRAMES = "docs/tranches/X/evidence/X-W7L/a-frames";
+const PHASE = process.env.XW7L_PHASE ?? "after";
+
+type Rgb = [number, number, number];
+type Box = { x: number; y: number; w: number; h: number };
+
+const CARD = "[data-slot=card], .card";
+
+/** Open a scene and wait until every region's card is at rest in its wrapper
+ *  (the role-keyed enter travel and its scale are over, and two reads 400 ms
+ *  apart agree), so the gutter is read between cards at their stations. */
+async function openScene(page: Page, hash: string): Promise<void> {
+    await page.goto(`/#/${hash}`, { timeout: 90_000 });
+    await page.locator(".config-console").first().waitFor({ timeout: 60_000 });
+    const read = () =>
+        page.evaluate((card) =>
+            [...document.querySelectorAll(".pane-wrapper")].map((w) => {
+                const c = w.querySelector(card)!.getBoundingClientRect();
+                const r = w.getBoundingClientRect();
+                const inside = c.left >= r.left - 1 && c.right <= r.right + 1 && c.top >= r.top - 1;
+                return inside ? [c.left, c.top, c.right, c.bottom].map(Math.round).join(",") : "moving";
+            }).join("|"),
+        CARD);
+    await expect
+        .poll(async () => {
+            const a = await read();
+            await page.waitForTimeout(400);
+            return a.includes("moving") ? "moving" : a === (await read()) ? "rest" : "moving";
+        }, { timeout: 60_000, intervals: [250], message: "the region cards never came to rest" })
+        .toBe("rest");
+    await page.mouse.move(2, 2);
+}
+
+/** Area median colour of each region (CSS px), read from one screenshot
+ *  clipped to the regions' union (CSS scale). */
+async function medians(page: Page, boxes: Box[]): Promise<Rgb[]> {
+    const x0 = Math.floor(Math.min(...boxes.map((b) => b.x)));
+    const y0 = Math.floor(Math.min(...boxes.map((b) => b.y)));
+    const x1 = Math.ceil(Math.max(...boxes.map((b) => b.x + b.w)));
+    const y1 = Math.ceil(Math.max(...boxes.map((b) => b.y + b.h)));
+    const png = (await page.screenshot({ clip: { x: x0, y: y0, width: x1 - x0, height: y1 - y0 }, scale: "css", timeout: 120_000 })).toString("base64");
+    return page.evaluate(
+        async ({ png, boxes, x0, y0 }) => {
+            const img = new Image();
+            img.src = `data:image/png;base64,${png}`;
+            await img.decode();
+            const c = document.createElement("canvas");
+            c.width = img.width;
+            c.height = img.height;
+            const ctx = c.getContext("2d", { willReadFrequently: true })!;
+            ctx.drawImage(img, 0, 0);
+            return boxes.map(({ x, y, w, h }) => {
+                const d = ctx.getImageData(Math.round(x - x0), Math.round(y - y0),
+                    Math.max(1, Math.round(w)), Math.max(1, Math.round(h))).data;
+                return [0, 1, 2].map((k) => {
+                    const v: number[] = [];
+                    for (let i = k; i < d.length; i += 4) v.push(d[i]!);
+                    v.sort((p, q) => p - q);
+                    return v[v.length >> 1]!;
+                }) as Rgb;
+            });
+        },
+        { png, boxes, x0, y0 },
+    );
+}
+
+for (const scheme of ["light", "dark"] as const) {
+    for (const vp of [
+        { width: 1440, height: 900 },
+        { width: 1024, height: 768 },
+    ]) {
+        test.describe(`da · O-75 — the gutter reads the page ground (${vp.width}×${vp.height} ${scheme})`, () => {
+            test.use({ viewport: vp, colorScheme: scheme });
+            test.setTimeout(420_000);
+
+            test("the stage and the inspector are each their own surface over the page ground", async ({ page }) => {
+                await openScene(page, "blob");
+                const g = await page.evaluate(() => {
+                    const r = (role: string) => document
+                        .querySelector(`.pane-wrapper--${role} :is([data-slot=card], .card)`)!
+                        .getBoundingClientRect();
+                    const stage = r("stage");
+                    const pane = r("inspector");
+                    const beside = pane.left >= stage.right - 0.5;
+                    // The gutter strip, inside the viewport's visible overlap of the two cards.
+                    const top = Math.max(stage.top, pane.top, 0) + 24;
+                    const bottom = Math.min(stage.bottom, pane.bottom, innerHeight) - 24;
+                    const left = Math.max(stage.left, pane.left) + 24;
+                    const right = Math.min(stage.right, pane.right) - 24;
+                    const gap = beside ? pane.left - stage.right : pane.top - stage.bottom;
+                    const box = beside
+                        ? { x: stage.right + 1, y: top, w: Math.max(1, gap - 2), h: bottom - top }
+                        : { x: left, y: stage.bottom + 1, w: right - left, h: Math.max(1, gap - 2) };
+                    const cx = box.x + box.w / 2;
+                    const cy = box.y + box.h / 2;
+                    // Everything stacked over the gutter, top-down, to the page ground.
+                    const stack: { el: string; paints: boolean }[] = [];
+                    for (const el of document.elementsFromPoint(cx, cy)) {
+                        if (el === document.body || el === document.documentElement) break;
+                        const c = getComputedStyle(el);
+                        const alpha = /rgba?\(([^)]+)\)/.exec(c.backgroundColor)?.[1]?.split(",")[3];
+                        const clear = c.backgroundColor === "transparent" || (alpha !== undefined && Number(alpha) === 0);
+                        stack.push({
+                            el: `${el.tagName.toLowerCase()}${el.classList.length ? "." + [...el.classList].slice(0, 2).join(".") : ""}`,
+                            paints: !clear || c.backgroundImage !== "none" || (c.backdropFilter !== "none" && c.backdropFilter !== ""),
+                        });
+                    }
+                    return { beside, gap, box, stack };
+                });
+                expect(g.gap, `a gutter between the stage and the inspector (${g.beside ? "beside" : "below"})`).toBeGreaterThanOrEqual(4);
+                expect(g.box.h, "the gutter has a visible extent to read").toBeGreaterThanOrEqual(1);
+                const plates = g.stack.filter((s) => s.paints).map((s) => s.el);
+                expect(g.stack.length, "the gutter is read over the scene grid, not over a card").toBeGreaterThan(0);
+                expect.soft(plates, `no shell plate is stacked over the gutter (stack: ${g.stack.map((s) => s.el).join(" > ")})`).toEqual([]);
+
+                // The pixels. A card paints nothing outside its box but its
+                // cast, so with the casts off (box-shadow and filter only — no
+                // layout moves) the gutter must read exactly what it reads with
+                // the whole scene grid hidden: the page ground. A shell plate in
+                // the grid survives the first read and not the second. The
+                // ground is read twice (the atmosphere is a live field) and its
+                // drift widens the tolerance. The cast read is published, not
+                // judged (a cast is a shade, never a surface).
+                const [withCasts] = await medians(page, [g.box]);
+                await page.screenshot({ path: `${FRAMES}/${PHASE}-da-${vp.width}-${scheme}.png`, timeout: 120_000 });
+                const casts = await page.addStyleTag({ content: ".pane-container, .pane-container * { box-shadow: none !important; filter: none !important; }" });
+                await page.waitForTimeout(300);
+                const [withCards] = await medians(page, [g.box]);
+                await casts.evaluate((el) => (el as Element).remove());
+                await page.addStyleTag({ content: ".pane-container { visibility: hidden !important; }" });
+                await page.waitForTimeout(300);
+                const [ground1] = await medians(page, [g.box]);
+                const [ground2] = await medians(page, [g.box]);
+                const delta = withCards!.map((v, i) => v - ground1![i]!);
+                const spread = Math.max(...delta) - Math.min(...delta);
+                const drift = Math.max(...ground1!.map((v, i) => Math.abs(v - ground2![i]!)));
+                const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+                const reading = `${vp.width}x${vp.height} ${scheme} ${g.beside ? "beside" : "below"} gap=${g.gap.toFixed(1)} gutter=${withCards} casts=${withCasts} ground=${ground1}/${ground2} delta=${delta} spread=${spread} drift=${drift} chroma=${chroma(withCards!)}/${chroma(ground1!)} stack=${g.stack.map((s) => s.el).join(">")} plates=${plates.length}`;
+                test.info().annotations.push({ type: "gutter", description: reading });
+                console.log(`[x-w7l gutter] ${reading}`);
+                expect.soft(spread, `the gutter (${withCards}) is the page ground's colour (${ground1}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4 + 2 * drift);
+                expect.soft(Math.max(...delta.map(Math.abs)), `the gutter (${withCards}) reads the page ground (${ground1}), not a plate over it`).toBeLessThanOrEqual(4 + drift);
+                expect.soft(chroma(withCards!), `the gutter (${withCards}) is no more tinted than the ground (${ground1})`).toBeLessThanOrEqual(chroma(ground1!) + 3 + drift);
+            });
+        });
+    }
+}
+
+for (const scene of ["blob", "atmosphere"] as const) {
+    test.describe(`db · O-68 — a section's action sits on its header row (#/${scene})`, () => {
+        test.use({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
+        test.setTimeout(420_000);
+
+        test("no section action sits on a row of its own, and a layer's header action never toggles it", async ({ page }) => {
+            await openScene(page, scene);
+            await page.screenshot({ path: `${FRAMES}/${PHASE}-db-${scene}-1440-light.png`, timeout: 120_000 });
+            const sections = await page.evaluate(() => {
+                const console_ = document.querySelector(".config-console")!;
+                // A section is a glass ConfiguratorLayer, or one of the
+                // console's titled groups (ConfigSliderPane's section wrapper).
+                const layers = [...console_.querySelectorAll<HTMLElement>('[data-slot="configurator-layer"]')];
+                const groups = [...console_.children].filter(
+                    (el): el is HTMLElement => el instanceof HTMLElement && !!el.querySelector(".config-section-header"),
+                );
+                return [...layers, ...groups.filter((g) => !layers.some((l) => l.contains(g) || g.contains(l)))].map((sec) => {
+                    const header = sec.querySelector<HTMLElement>('[data-slot="configurator-layer-header"], .config-section-header')!;
+                    const trigger = sec.querySelector('[data-slot="configurator-layer-trigger"]');
+                    const h = header.getBoundingClientRect();
+                    const actions = [...sec.querySelectorAll<HTMLElement>('button, [role="button"]')].filter(
+                        (b) => b !== trigger && !(trigger?.contains(b) ?? false),
+                    );
+                    return {
+                        label: (header.textContent ?? "").trim().slice(0, 40),
+                        layer: sec.matches('[data-slot="configurator-layer"]'),
+                        actions: actions.map((b) => {
+                            const r = b.getBoundingClientRect();
+                            const cy = (r.top + r.bottom) / 2;
+                            return {
+                                name: b.getAttribute("aria-label") ?? (b.textContent ?? "").trim(),
+                                inHeader: header.contains(b),
+                                onRow: cy >= h.top && cy <= h.bottom,
+                            };
+                        }),
+                    };
+                });
+            });
+            const census = sections.map((s) => `${s.label}${s.layer ? "(layer)" : ""}:${s.actions.length}`).join(" · ");
+            test.info().annotations.push({ type: "sections", description: census });
+            console.log(`[x-w7l sections #/${scene}] ${census}`);
+            expect(sections.length, "the Configurator-shaped sections are read").toBeGreaterThan(0);
+            for (const s of sections) {
+                for (const a of s.actions) {
+                    expect.soft(a.inHeader, `${s.label}: "${a.name}" sits in the section header, not the body`).toBe(true);
+                    expect.soft(a.onRow, `${s.label}: "${a.name}" sits on the header's row`).toBe(true);
+                }
+            }
+
+            // Clicking a layer's header action never toggles the layer.
+            const layers = page.locator('.config-console [data-slot="configurator-layer"]');
+            for (let i = 0; i < (await layers.count()); i++) {
+                const layer = layers.nth(i);
+                const trigger = layer.locator('[data-slot="configurator-layer-trigger"]');
+                const actions = layer.locator('[data-slot="configurator-layer-actions"] :is(button, [role="button"])');
+                if ((await actions.count()) === 0) continue;
+                const before = await trigger.getAttribute("aria-expanded");
+                await actions.first().click();
+                await page.waitForTimeout(300);
+                await expect.soft(trigger, "the header action does not toggle the layer").toHaveAttribute("aria-expanded", before ?? "true");
+            }
+        });
+    });
+}

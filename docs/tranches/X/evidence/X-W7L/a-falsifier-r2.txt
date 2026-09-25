@@ -1,0 +1,21 @@
+SERVED MODEL: claude-opus-5-5
+[1/6] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the inspector are each their own surface over the page ground
+[smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the inspector are each their own surface over the page ground
+[x-w7l gutter] 1440x900 light beside gap=18.0 gutter=255,145,176 casts=236,119,163 ground=255,145,176/255,145,176 delta=0,0,0 spread=0 drift=0 chroma=110/110 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+[2/6] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the inspector are each their own surface over the page ground
+[smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the inspector are each their own surface over the page ground
+[x-w7l gutter] 1024x768 light beside gap=12.8 gutter=255,150,176 casts=70,51,51 ground=255,150,176/255,150,176 delta=0,0,0 spread=0 drift=0 chroma=105/105 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+[3/6] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the inspector are each their own surface over the page ground
+[smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the inspector are each their own surface over the page ground
+[x-w7l gutter] 1440x900 dark beside gap=18.0 gutter=89,0,27 casts=75,1,25 ground=89,0,27/89,0,27 delta=0,0,0 spread=0 drift=0 chroma=89/89 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+[4/6] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the inspector are each their own surface over the page ground
+[smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the inspector are each their own surface over the page ground
+[x-w7l gutter] 1024x768 dark beside gap=12.8 gutter=92,0,25 casts=61,12,24 ground=92,0,25/92,0,25 delta=0,0,0 spread=0 drift=0 chroma=92/92 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+[5/6] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/blob) › no section action sits on a row of its own, and a layer's header action never toggles it
+[smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/blob) › no section action sits on a row of its own, and a layer's header action never toggles it
+[x-w7l sections #/blob] Geometry:0 · Membrane:0 · Color:0 · Lit Glass:0 · Pointer:0 · Satellites:0 · Tempo:0
+[6/6] [smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/atmosphere) › no section action sits on a row of its own, and a layer's header action never toggles it
+[smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/atmosphere) › no section action sits on a row of its own, and a layer's header action never toggles it
+[x-w7l sections #/atmosphere] Field:0
+  6 passed (1.3m)
+EXIT 0
