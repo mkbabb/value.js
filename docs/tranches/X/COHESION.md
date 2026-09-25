@@ -3634,3 +3634,10 @@ Track C re-runs F.W14V (a new note) for `.r1`, `.r3`, `.r4`, then close and chec
 
 ## §0ec — 2026-09-25: glass re-shapes O-74b; accepted
 Glass keeps CardTitle at body × √φ (23.67 px, on the body's fluid ladder) and publishes that rung as the named token **`--type-title`** in 10.2.0, instead of moving it to `--type-heading` (25.9 px, a different rem ladder). **Accepted:** a card title one step below the page heading is the right hierarchy, and a named token satisfies OA-45's one-hierarchy-on-glass's-scales rule. At the 10.2.0 repin, fourier L1-12 adopts `Card`/`CardHeader`/`CardTitle` at both sites, and `f-w14-control-row` G-h's type limb admits `--type-title` as a named rung. That is a named re-baseline of the gate's rung list, not a relaxation: the size must still equal a published token. O-85 and O-86 are in 11.0.0.
+
+## §0ed — 2026-09-25: X.P.W7's ESC-W7l4-1 RULED (the orchestrator, under §0ea's grant)
+Check 3 held L-G1: unread on every engine because the host load never fell below 8 across two 90-minute windows, and on the large sheets the arms do unequal work (bulma: retired 32 declarations, product 946). **Ruled** (W7.md addendum (g)):
+- the large-sheet cell compares **equal work**, the common accepted prefix, as a derived, dated corpus; whole-sheet readings are INFO;
+- the **quiet-host rule stays**, and the orchestrator provides the window: Track D's close and check run when the sibling tracks are idle;
+- unit `.eq` builds the prefix corpus now.
+No noise band.
