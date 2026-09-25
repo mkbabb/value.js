@@ -721,3 +721,61 @@ SEAT `.au1`, `claude-opus-5-5`, 2026-09-25. Spec `F-W14V.md` read whole, with `A
 **Escalations:** none.
 
 **Commits:** fourier `48eee99` (falsifier), `cad7518` (cure + adjacent oracles), `f362b2e` (vue-tsc adjacent), pushed (`a30001d..f362b2e`). value.js: this record.
+
+### F.W14V.au2
+
+SERVED MODEL: claude-opus-5-5 · workspace /w /v (AUDIT-2 L2-8 L2-15 L2-19 L3-5ˢ L3-7ˢ L1-7 L1-8 L1-11 L1-16ˢ L1-23; cite L1-26 L3-8..L3-11). fourier base `f362b2e`.
+
+**Crash-recovery (Act 0).** ⟨`git status --porcelain | grep 'web/(src|e2e)/'`⟩ → `?? web/e2e/f-w14v-au2.spec.ts` (160 lines) and `?? web/e2e/zz-au2-probe.spec.ts` (33 lines). Both are the dead predecessor seat's (§0dq: "`.au2` died"). I read both whole. The falsifier's L2-8, L2-15 and L2-19 limbs conform and were kept. Its header named X-2/X-3/X-4 limbs that were never written; those were dropped from the header (see residual R-3). I added the 768 width to L2-19 and appended the L3-5ˢ and L1-11 limbs. The probe was a measuring tool; I reused it for Acts 1–2 and deleted it before the last commit. Inherited paths: `web/e2e/f-w14v-au2.spec.ts` (finished, committed `c8bd170`) and `web/e2e/zz-au2-probe.spec.ts` (deleted, never committed).
+
+**Act 1: measured at HEAD (probe, 1 run each).**
+- L2-19: the expanded animation dock's `dock-layer--full` is sw 270 / cw 270 at 390 and 888/888 at 1440. At `69af796`, `.au0` measured 272/266. The `.au1` shell change `cad7518` (gutter and plate width) moved the layer, and the 6 px overflow is gone. There is no `.au2` cure.
+- L3-5ˢ: the ancestry from the first `.configurator-layer` up to `aside.configurator-aside` holds no painted box at 1440, 390 or 768: only `viz-panel-left` (padding 8px, transparent) and the wraps. The consumer Card was deleted at `239845f` (addendum (b)). The two rims left are glass's aside card and glass's layer border. The consumer 8 px inset stays: without glass's flush arm it keeps the layer rim off the aside rim.
+- L2-15: the editor `dock-layer--full` is 243 px of content inside 167 (360), 197 (390) and 237 (430). The plate at 360 is 310 = 24 padding + 113 persistent (`N pts` Metric 67 + Save 40 + gap) + 6 + 167. The row holds Undo, Redo, separator, Delete, View options and More editor tools. At 360, View options and More editor tools are wholly outside the plate.
+- L2-8: glass `DialogContent` `scroll` → `max-h-[calc(100dvh-2rem)] overflow-y-auto` (dist `DialogContent-*.js:118`). ExportModal passes nothing.
+- L1-11: /v loaded has one `input[type=file]`, and it is ImageUpload's (it has no testid). The view's `image-file-input` lives inside the empty-state `v-if`. Two `useImageUpload` instances, with the layer's drop target nested in the view's.
+- Glass 10.1.0: `LabeledFieldLayout = "default" | "horizontal"` (no settings-row arm, so L3-7ˢ is not landed). The Slider types have no scrub session (L1-16 glass half not landed).
+
+**Act 2: falsifier, RED before (`c8bd170`).** ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au2.spec.ts --project=chromium --workers=3 --reporter=line`⟩ ×2 at `f362b2e` → run 1 `5 failed · 7 passed`; run 2 `5 failed · 7 passed`. The five failures are the same in both runs:
+- L2-8: `{"top":-40.7,"bottom":430.7,"h":471.4,"vh":390,"sh":469,"ch":469,"oy":"visible"}`.
+- L2-15 at 360, 390 and 430: scrollers 243/167, 243/197 and 243/237.
+- L1-11: "Replace summons the view's one input" fails.
+
+Green before the cure, on both runs: L2-19 at 360/390/430/768/1440 (`[]`) and L3-5ˢ at 1440 and 390 (`painted: []`). These are recorded as green-before-cure findings, cured earlier at `cad7518` and `239845f`. ⟨`npx vitest run src/lib/niceStep.test.ts`⟩ ×2 → `Cannot find module './niceStep'`, so L1-23 is RED ×2.
+
+**Act 3: cures (one commit per meaning, fourier, pushed `f362b2e..1a8112a` to `origin/m/w1-bump-migration`).**
+- `60cc819` **L2-8 CURED.** `ExportModal.vue:86` `<DialogContent scroll>` uses glass's own arm. The glass default cap is the O-74 ask, ADOPT-AT-LANDING.
+- `58f1d75` **L1-23 CURED.** `web/src/lib/niceStep.ts` `niceStep(raw)` is the one 1-2-5 ladder. `equation/lib/grid.ts` imports it: `niceStep((maxX-minX)/Math.max(4, plotW/60))` gives the same raw step as the deleted `niceStep(range, count)`. `visualization/lib/canvas-drawing/grid.ts` imports it: `niceStep(40/scale)`, with its inline copy deleted. **Location intent:** the register's "L1-24's shared/canvas" does not exist at HEAD (L1-24 belongs to `.au6`). `src/lib/` is the app's home for pure helpers (`time.ts`, `bases.ts`), so the helper went there.
+- `e58611d` **L1-16ˢ, consumer half landed.** `FourierTimeline.vue` moved from `visualization/` to `components/shared/`, and the two importers were updated (AnimationControls, equation ConvergenceTimeline). The naming limb was already cured at UIA-F-239. The session cut (axis and readout only) waits for glass Slider's scrub session: **ADOPT-AT-LANDING** (O-74, L1-16 ask).
+- `1a8112a` **L1-11 CURED.** VisualizationView is the one upload owner. It holds one `useImageUpload` and one `image-file-input`, placed at the view root outside every `v-if`, and it provides `{openPicker, isDragging, preview}` under `IMAGE_UPLOAD_KEY` (read with `useImageUploadContext()`, which throws if the view is absent). ImageUpload is presentation only: its instance, its input and its nested drop target are deleted. The preview clears on a new `imageSlug` in the owner.
+
+**Act 4: the rows with no code landing.**
+- **L2-19: CURED at HEAD by `cad7518`** (`.au1`). The falsifier is GREEN ×2 before and after at 360/390/430/768/1440. No `.au2` edit.
+- **L3-5ˢ: CURED-BY-TWIN** at `239845f` (addendum (b); the `.s` Card was deleted). The falsifier is GREEN ×2 before and after. The second rim (the layer border inside glass's aside card) is the glass ConfiguratorLayer flush arm (O-74 rider): **ADOPT-AT-LANDING**. The consumer 8 px inset is kept until then (see Act 1).
+- **L3-7ˢ: ADOPT-AT-LANDING** (O-74, the LabeledSwitch settings-row arm, absent at glass 10.1.0). The consumer drops `layout="horizontal"` when the arm lands. No consumer re-layout in the meantime (that would be a copied producer geometry).
+- **L1-7: CURED-BY-TWIN** UIA-F-79 (`.u1` `64a1865`, one `ViewLayersMenu` in both docks), cited.
+- **L1-8: ADOPT-AT-LANDING** O-74a E-3 (a glass preset strip or select over one named-curve catalogue, after which "the three consumer copies are retired"). Minting a consumer EasingPresetSelect now would build the copy E-3 retires. `.au0` R-2 homes the row's convergence with `.au3`, and it is cited there.
+- **Cited under earlier ids:** L1-26 (UIA-F-14, `.u1`), L3-8 reset limb (CONFIGURATOR-HEADER-ACTIONS `239845f`; truncation limb O-77 HELD), L3-9 (UIA-F-238/F-85/F-204), L3-10 (UIA-F-169/F-74; `.au0` notes that the phone first-tab limb is still open), L3-11 (UIA-F-69/F-165).
+
+**Act 5: after the cure (final bytes `1a8112a`).**
+- ⟨falsifier⟩ ×2 → run 1 `3 failed · 9 passed (29.6s)`; run 2 `3 failed · 9 passed (27.0s)`. L2-8 now reads `{"top":16,"bottom":374,"h":358,"ch":356,"oy":"auto"}`. L1-11 reads 1 input on /w and 1 on /v, and Replace opens `image-file-input`. L2-19 and L3-5ˢ are green. The 3 failures are L2-15 at 360, 390 and 430 (unchanged 243/167, 243/197, 243/237).
+- ⟨vitest `niceStep.test.ts`⟩ ×2 → `2 passed` on both runs.
+- Neighbours ⟨`playwright test f-w13-image-empty f-w13-image-controls f-w14u-vstage f-w14v-u4 workspace-flow visualization-ux --project=chromium`⟩ → `50 passed (54.2s)`.
+- **vue-tsc** 0 → **0** (⟨`npx vue-tsc --noEmit`⟩ exit 0, 0 `error TS`, run twice on these bytes).
+- **vitest** 90/90 (15 files) → **92/92 (16 files)**, `Test Files 16 passed (16) · Tests 92 passed (92)`.
+
+**Escalation ESC-au2-1: L2-15, the expanded editor dock at 360/390/430. Honest-RED; a ruling is needed.** The register's cure is "Per UIA-F-88: tool count against the dock cap". At the true bytes the full row needs 243 px and has 167/197/237, so it is 76/46/6 px short. The row is 5 tools because `.u1` (F-79 / L1-7, one `ViewLayersMenu` in both docks) put View options back beside F-88's More-tools menu. The consumer levers each collide with a standing ruling:
+- (a) Fold View layers into More editor tools. This frees 46 px, which fits 390 exactly (197/197) and not 360. It moves the off-default dot onto the More-tools trigger, which §0dc / `.c3` rule must be glass's seat (MAGNET-STATE-HIDDEN). It also splits F-79's one component.
+- (b) Drop or move the persistent `N pts` Metric (73 px) when the dock is expanded. This removes information the vedit F-242 unit placed there.
+- (c) Move Delete point into the menu. This demotes a primary editing action.
+
+No single lever clears 360, and every lever is a design ruling, not a defect cure. The glass half is UIA-F-215 (the scroll cue), which the register itself lists under "Still RED". Asked: rule which tools leave the ≤ 390 row, or rule L2-15 honest-RED under UIA-F-215 until the cue lands. The falsifier L2-15 limbs stay committed RED (3 named failures).
+
+**Residuals.**
+- R-1: the glass halves L2-8 (default cap), L3-5 (flush arm), L3-7 (settings-row arm), L1-16 (Slider scrub session) and L1-8 (O-74a E-3) are ADOPT-AT-LANDING.
+- R-2: L3-10's phone first-tab limb is open under F-74 (cited, not taken).
+- R-3: `.au0` routed **X-2** (the More options menu at 1024×768 touches the viewport bottom), **X-3** (the ≥ lg contour-editor aside is one collapsed layer) and **X-4** (768×1024 Controls layers capped at 480 px in a 734 px card; `.viz-panel-left-wrap` `max-width: 480px`, measured 144..624 inside 16..752) to `.au2`. This seat's brief did not list them, so they are left OPEN for the check to home. The predecessor's falsifier header named them, but it had no limbs for them.
+
+**Adjacent edits:** none.
+
+**Commits (fourier):** `c8bd170` (falsifier + vitest), `60cc819` (L2-8), `58f1d75` (L1-23), `e58611d` (L1-16ˢ), `1a8112a` (L1-11), pushed. value.js: this record.
