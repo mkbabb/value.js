@@ -1189,3 +1189,138 @@ SEAT `.paper`, `claude-opus-5-5`, 2026-09-24. Spec `F-W14U.md` Units :8-18 (read
 **Escalations:** none.
 
 **Unit status: DONE** — 18/18 rows dispositioned (16 CURED, 2 SPLIT consumer halves CURED with glass halves routed to O-59); one new glass half named for relay.
+
+### F.W14U.shell
+
+SEAT `claude-opus-5-5`, 2026-09-24 (unit 14 of 15; the lock "after `.d` (AppDock.vue)" is met: `.d` landed `b62821d` and did not touch AppDock, its receipt :180 reading the app dock as `:collapse="false"`, no collapsed form).
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → nothing under this unit's set (`web/src/components/layout/`, `UserSlugBar.vue`, `adminError.ts`, `useToast.ts`, `App.vue`, the spec, its frames); the only dirty paths are 43 `web/e2e/screenshots/f-w14/*.png` (a sibling's frames, not touched) and `?? .worktrees/`. value.js `C/F-W14U.md` clean. **Nothing inherited.** HEAD `cd414b2`.
+
+**Rows (plan row 14, 20):** F-52 F-53 F-54 F-55 F-57ˢ F-121 F-128ˢ F-130ˢ F-150 F-151 F-152 F-153 F-154 F-155 F-214 F-219ˢ F-231 F-232 F-233 F-256, plus the carries homed here: F-144ˢ's consumer half (`.admin` R-3, the AppDock admin badge) and the toast action seat for F-248 / F-183 (`.gallery` R-2, `.vstage` E-2).
+
+**Anchors at true bytes (`cd414b2`).** The register was written before F.W14 `.u`'s `fb8b5df` (UIA-F-28/-29/-30) moved the account group into one `DockTrigger` + glass Popover/DropdownMenu. So the inline-morph rows (F-52/53/54/55/153) are no longer at their cited lines (`UserSlugBar.vue:137-144`, `:160-205`, `:246`, `:255-277` are gone). Their INTENT was read at the true bytes by the falsifier, below. Other drifts: F-57's AppDock sites are `:98,:101,:109` (not `:97,:102,:108`); F-219's literal is `:side-offset="10"` at AppDock `:81`, `:131` and UserSlugBar `:174`, `:197`; F-150's badge is AppDock `:148-150` + `:254-265` (as cited). F-155's "the message appears only on Enter" is **worse** at the bytes: Submit is `:disabled="!canSubmit"`, so a disabled default button blocks implicit submission and a malformed slug shows **no** message at all, Enter included. F-121's cited toast sites in `stores/gallery.ts` are now `:134 :153 :167 :288 :299 :376` (`e.message`), plus `GalleryView.vue:306`. `UserSlugBar.vue:79,:95` read `e.message` = `ApiProblem`'s title.
+
+**Instrument.** `BASE_URL=http://localhost:3100` (the config's default `:3000` is value.js's API: the first run died in `global-seed` on `POST /api/sessions → 404`; re-run on :3100), `MONGO_URI=mongodb://localhost:27018/fourier`, `--project=chromium --headed --workers=4`. Load at open 18.54 / 14.83 / 13.46.
+
+1. **Falsifier `web/e2e/f-w14u-shell.spec.ts`** (new, 23 cases = 19 row cases + 4 frame cases). It banks frames under `FW14U_PHASE` at 1440 and 390, light and dark (dock · login error · About · the nav menu · the account menu; plus the admin-error toast at 1440). Frames are at `web/e2e/screenshots/f-w14u/shell/{before,after}-*.png` (40 files: 21 before, 19 after, since the 1440 nav-menu frame has no menu after F-151; `*.png` gitignored, not force-added).
+   - ⟨`FW14U_PHASE=before npx playwright test e2e/f-w14u-shell.spec.ts --project=chromium --headed --workers=4`⟩ on `cd414b2` ×2 → **17 failed · 6 passed** ×2 (40.8 s · 40.7 s). The 6 greens are s52 ×2 and the 4 frame cases. In run 1, the morph case's locator (`/copy|export/i`) matched a different button first. It was corrected to the exact name `Export` and re-read on the pre-cure bytes: ⟨`-g "morph Export"`⟩ ×3 → **RED** at `:238` (no toast). Run 2 carries the corrected locator.
+   - Pre-cure reasons, per case: s54/s153 faces `["Dark mode"]` (the sun-moon toggle is not a dock face) · s55 ×2: the dock box held, but no alert (the F-155 defect above) · s155 blur: no message · s155 channel: login failure toasted · s232: placeholder `🐌`, face `q-a-l-f` · s121: `Forbidden` in the toast, `Not Found` in the field, `adminError.ts` present · s214: the `Success` title, the error gone by 7 s, morph Export silent · s256: `Success\nPublished! (bright-lattice-heron-fox)`, no View · s57/154/233/219: 18.608 px = body, `<hr>`, no `focus-ring`, 2 GitHub links, 🎉, "Fourier analysis" echo, `hover-card-content`, a 10 px gap · s151: no Sections nav · s128: no visible label at 390, the amber row tint, icon glows, `nav-dropdown` · s231: `Navigate — current section Paper` on `/nope-not-a-route` · s152: `padding-bottom 0px` · s150: the `.admin-badge`.
+
+2. **Cures (one commit, fourier `b744993`).** Each is a root cure on glass's published parts.
+   - **`UserSlugBar.vue`, login and account.**
+     - F-155 + F-232: the shape message and the server's answer are now two slots. The shape message is derived from the field. It shows once the field is left, or on a submit. The server's answer is kept until the slug it answered changes.
+     - Submit is no longer disabled for a malformed slug. A press says why instead of doing nothing, which also restores implicit submission.
+     - One channel: login and Generate failures stay in the field, and neither toasts.
+     - F-121: the login message comes from `problemMessage`. A 404 reads "No account uses that slug — check the four words, or generate a new slug."
+     - F-232: the face reads the slug's first word (`quiet`), not `q-a-l-f`. The placeholder is `your-four-word-slug` (no emoji). The `text-success` override is gone. A persistent `aria-live="polite"` region announces "Slug copied to the clipboard", because the menu closes on select and the icon swap is never heard.
+     - F-219: no `:side-offset` literals.
+     - F-150/F-144: the account menu carries the admin state (a `DropdownMenuLabel` with the Shield glyph, "Admin mode").
+     - The dead `icon-swap` transition CSS is removed (no `<Transition>` used it).
+   - **`AppDock.vue`, the dock.**
+     - F-151: at ≥1024 px the five sections are `DockControl shape="tab"` links (`:as="RouterLink"`). They sit in a `nav` named "Sections". The current one is `aria-current="page"` on glass's `data-active` seat. 1024 px was measured: the inline row takes ≈890 px, which 768 cannot hold.
+     - Below 1024 px there is one `DockTrigger` menu. F-231: the menu is `:modal="false"`, its trigger shows the section's name at 390, and a route outside the five claims none (`activeTab` is `null`, the name is "Navigate", the face is Compass + "Sections"; `/v/` counts as Visualize).
+     - F-128 + F-233: the menu is glass's as published. The `@layer glass-overrides` block (the `min-width`/`padding` literals, the amber row tint, the icon glows, the item gap) is deleted, and so is the trigger glyph's glow.
+     - F-150 + F-144: the tinted admin disc and its `--tier-featured` ink are deleted.
+     - F-57 + F-154 + F-233 + F-219, the About card: it takes `text-small`/`text-caption`, glass `Separator`, one GitHub link with the house `focus-ring`, and the handle as text. The tagline no longer echoes the wordmark ("Orthogonal decomposition, drawn with epicycles."). No emoji, no `hover-card-content`, no 17rem, and glass's own offset. The avatar stays an `<img>` (`alt=""`, since the handle beside it names it) until glass exports Avatar (F-145).
+     - F-152: `.app-header` pads `var(--space-body)` on both block ends.
+   - **`DarkModeToggle.vue`.** F-130's consumer half: the root is `DockControl`, so the dock's hover plate, press, gleam, ring and cell apply. The morph glyph is its content, sized by glass's `.dock-icon-button > svg`. `aria-pressed` passes as an attribute, not as `active`, which would paint the selected seat. The local size, hover, focus and reduced-motion CSS is deleted. Glass's own DarkModeToggle still has no glyph seam (the glass half, O-59).
+   - **`useToast.ts`, the toast policy.**
+     - F-214: no title; the message is the description.
+     - Errors default to `duration: Infinity` and stay until dismissed.
+     - F-256: the `(slug)` suffix option is deleted.
+     - A new `action` seat renders glass `ToastAction` (`altText` = label) and opens a route through the app router. This serves F-248 View and F-183.
+   - **F-121, the one reader.** `adminError.ts` is deleted (`git rm`). Its four importers read `@/lib/api-problem`. `problemMessage` treats a detail or title that is only the HTTP reason phrase for its status ("Forbidden", "Not Found") as no message and returns the caller's fallback. That is the consumer-side mapping the lock names; `errors.py` is not touched.
+
+   - **Adjacent edits (§0bt), each with its reason:**
+     - `web/src/lib/api-problem.ts`: the reason-phrase map in `problemMessage` (`:110-112`, `:122-150`) and its stale "adminError" comment `:103-105`. This is F-121's one reader, and the lock says to map error titles consumer-side.
+     - `stores/gallery.ts:10,134,153,167,288,299,376`: re-point, and the raw `e.message` toasts through `problemMessage` with specific fallbacks. The admin one reads "That admin token was not accepted — check it and try again."
+     - `stores/gallery.ts:373,418` (F-256: `Published <title|slug>` + View).
+     - `GalleryView.vue:9,307` (F-121 raw toast).
+     - `useOffsetPagination.ts:3,122`, `AdminFlaggedPanel.vue:29`, `AdminUserList.vue:37`: the importers of the deleted file.
+     - `GalleryAdminBanner.vue:97-101`: F-150's second "Log out" now reads "Exit admin mode" as its visible name; the aria-label that only it carried is dropped.
+     - `useMorphConfig.ts:10,101,111-115`: F-214's clipboard path reports `!result.ok`.
+     - Oracles:
+       - `e2e/f-w14-uia.spec.ts:311,602` and `f-w14u-gallery.spec.ts:492`: the publish toast copy.
+       - `gallery.spec.ts:125,140,145`: the placeholder copy and the test's title.
+       - `f-w14u-admin.spec.ts:659`: the banner control's name.
+       - `shell-header.spec.ts:57-59,84-86`: the two nav-menu tests set 390 px, where the menu now lives; assertions unchanged.
+     - No assertion was deleted.
+   - ⟨`git commit … -- <19 paths>`⟩ → fourier **`b744993`** (19 files, +799 −407). Pushed: ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `b7449935c87c`.
+
+3. **Falsifier AFTER.** ⟨`FW14U_PHASE=after … e2e/f-w14u-shell.spec.ts --project=chromium --headed --workers=4`⟩ gave 1 failed · 22 passed on the first reading. s54's plate limb had counted glass's own `.dock-plate`, the dock surface itself. The limb was never reached before the cure, because the faces limb failed first. It now skips the dock's own plate: no row's assertion was relaxed. Then ×2 → **23 passed · 23 passed** (12.0 s · 11.8 s).
+
+4. **Gates (settled bytes `b744993`).**
+   - ⟨`npx vue-tsc -b`⟩ ×2 → exit 0 · exit 0.
+   - ⟨`npx vitest run`⟩ ×2 → `14 passed (14)` / `86 passed (86)` ×2.
+   - **UIA-F-51 relay-only:** ⟨`grep -rn "<Toaster" web/src`⟩ → 1 (`App.vue:146`, glass's own `Toaster` as published). No local Toaster override: `useToast.ts` only calls glass's `toast()` with `description`/`tone`/`duration`/`action`.
+   - **Non-regression:**
+     - ⟨`… e2e/f-w14-uia.spec.ts -g "UIA-F-28" --project=chromium`⟩ ×2 → **2 passed** ×2 (F-28/F-29 + F-30).
+     - ⟨`… e2e/coarse-pointer.spec.ts e2e/gallery.spec.ts e2e/shell-header.spec.ts --project=chromium --project=mobile-chromium`⟩ ×2 → **15 passed** ×2. This covers the coarse cell's 44 px shell floor with the dock-face toggle, the gallery.spec login oracle and the shell-header nav at 390.
+     - ⟨`… -g "double-click sends one save|draft row is gone|a192|g103"`⟩ ×2 → **5 passed** ×2 (the edited oracles).
+   - **Wider reading (once, load ≈18):** ⟨`… e2e/f-w14-uia.spec.ts e2e/f-w14-uia-r2.spec.ts e2e/f-w14u-admin.spec.ts e2e/f-w14u-gallery.spec.ts e2e/gallery-admin-a11y.spec.ts --headed --workers=4`⟩ → **96 passed · 5 failed**.
+     - 4 are `gallery-admin-a11y` `aria-hidden-focus` on reka's `<span aria-hidden tabindex=0>` focus guards. That is `.admin` R-1, pre-existing at `30346dd`, not this unit's.
+     - 1 is UIA-F-17's `hover` timeout under load. ⟨`-g "UIA-F-17 " --headed`⟩ ×2 alone → **1 passed** ×2.
+
+5. **Dispositions.**
+
+| row | disposition | falsifier |
+|---|---|---|
+| F-52 | **CURED-BY `fb8b5df`** (F-28 Popover). Verified at the bytes: open focuses the field, Escape and an outside press close, and focus returns to Log in. GREEN before and after, at 1440 and 390, with no hand-rolled close added. | s52 ×2 viewports |
+| F-53 | **CURED-BY `fb8b5df`** (one trigger, content portaled). The dock box is unchanged with the form open, before and after. The case read RED before only on its F-155 error limb. | s55/s53 ×2 viewports |
+| F-54 | **CURED-BY `fb8b5df`** (no plated pill; one Account trigger). Re-asserted with the no-bordered-plate limb. | s54/s153 |
+| F-55 | **CURED-BY `fb8b5df`** (the message is in the popover card). The dock box is unchanged with the error showing. | s55/s53 |
+| F-57ˢ | **Consumer half on the shell CURED**: the About card uses `text-small`/`text-caption`, and every size is below the 18.6 px body. **Tree remainder carried** (R-1). Glass half ROUTED (O-59: DESIGN.md:725-726, dead-name guard). | s57 |
+| F-121 | **CURED** (consumer). One reader, reason phrases mapped, every raw `e.message` toast routed, login 404 wording, `adminError.ts` deleted. The server half (`admin_required` → `admin_forbidden`) was not granted by the lock and is not strictly required now that the consumer maps it, so it stays routed as SERVER. | s121 ×2 cases |
+| F-128ˢ | **Consumer half CURED**: the local current-row tint and its glow are deleted, and `aria-current` is kept. Glass half ROUTED (O-59: `.glass-menu-row[aria-current]` paint). Until glass paints it, the phone menu's current row carries only `aria-current` and the trigger's label. | s128 |
+| F-130ˢ | **Consumer half CURED**: the toggle wears `DockControl`. Glass half ROUTED (O-59: a glyph seam on DarkModeToggle, or a DockControl variant); adopt it at the repin that ships it, then delete the local toggle. | s152/s130 |
+| F-144ˢ | **Consumer half CURED** (the AppDock admin badge is deleted with F-150; carry `.admin` R-3 discharged). Glass half ROUTED (O-59: the `--tier-featured`/`--tier-saved` light arms). | s150/s144 |
+| F-150 | **CURED** | s150/s144 |
+| F-151 | **CURED** (≥1024 inline; menu below) | s151 |
+| F-152 | **CURED** | s152/s130 |
+| F-153 | **CURED**. The stadium plate and pill face were already gone at `fb8b5df`; the last non-dock face, the toggle, is cured here. | s54/s153 |
+| F-154 | **CURED** (Separator, `focus-ring`). The Avatar limb is HELD on glass exporting Avatar (F-145, O-59). | s57 |
+| F-155 | **CURED** | s155 ×2 cases; s55 error limb |
+| F-214 | **CURED** (no title, errors persist, morph copy reports) | s214 ×2 cases |
+| F-219ˢ | **Consumer half CURED** (four `:side-offset="10"` literals dropped). Glass half ROUTED (O-59: mint `--popover-offset`). | s57 (gap ≠ 10) |
+| F-231 | **CURED** (`:modal="false"`, visible label at 390, no false section). The "fix the name with F-119" limb is met: a route outside the five is named "Navigate". | s128/s231 ×2 cases |
+| F-232 | **CURED** | s232 |
+| F-233 | **CURED** (nav overrides and About trims) | s57 + s128 |
+| F-256 | **Publish limb CURED** (`Published <name>` + View). **Logout limb carried** (R-2). | s256 |
+| (carry) F-248/F-183 action seat | **Seat landed** (`useToast` `action` → glass `ToastAction`), and View is wired at both publish sites. F-183's control-state half stays with its owner (`.vstage` E-2). | s256 |
+
+**Tally** (self-count of the table):
+- **Plan rows (20).**
+  - 14 CURED whole:
+    - F-121 F-150 F-151 F-152 F-153 F-155 F-214 F-231 F-232 F-233;
+    - F-52 F-53 F-54 F-55 as CURED-BY `fb8b5df`, verified.
+  - 1 CURED with a limb held on glass: F-154 (Avatar).
+  - 3 SPLIT consumer halves CURED, glass halves ROUTED O-59: F-128 F-130 F-219.
+  - 2 CURED with a limb carried:
+    - F-57: the shell half; the tree remainder is R-1.
+    - F-256: the publish limb; the logout limb is R-2.
+  - That totals 14 + 1 + 3 + 2 = 20.
+- **Carries discharged (2).**
+  - F-144's consumer half (`.admin` R-3).
+  - The toast action seat (`.gallery` R-2 / `.vstage` E-2, the useToast half).
+
+**Residuals (carried by id, each to the owner of its file).**
+- **R-1 · F-57, tree remainder.**
+  - ⟨`grep -rn -E "\btext-(sm|xs)\b" web/src`⟩ → **30 hits in 18 files, 0 in this unit's set**; AppDock's one hit is its own comment naming the retired utilities. Many of the other hits are also comments.
+  - The live `class=`/`@apply` sites sit in files owned by other units in this wave:
+    - `paper/**` (`.paper`), `gallery/*` (`.gallery`/`.admin`), `ContourSettings`/`AnimationControls` (`.vdock`/`.vstage`), `equation/FrequencyGraph` (`.eq`), `shared/CoefficientsSpectrum`;
+    - `morph/HarmonicLevelGrid.vue:287` and `MorphPhaseConfig` (`.misc`, next).
+  - These go to `.misc` for `morph/**` and to the wave close for the rest. The adjacent-line rule excludes another unit's files.
+- **R-2 · F-256, logout limb.**
+  - `stores/auth.ts:60-65` `logout()` swallows every `deleteSession()` failure (`catch { /* Session may already be expired */ }`). The toggle then toasts "Logged out" while a live server session may remain.
+  - The consumer report needs `auth.ts` to tell 401/404 ("already gone") from a real failure and rethrow. `stores/auth.ts` is `.misc`'s file (plan row 15), so this goes to **`.misc`**.
+  - A `catch` in `UserSlugBar.handleLogout` would be dead code today, so none was added.
+- **R-3 · F-128's current-row paint.** The phone menu's current row has no paint until glass paints `.glass-menu-row[aria-current]` (O-59). Frame `after-nav-light-390.png`.
+- **R-4 · the tab-label size.** At 1440 the inline `DockControl shape="tab"` labels use glass's `dock-label` size, a rung below the `DockTrigger` faces' text ("Fourier analysis", "Log in"). Both are glass's own face typography; no local override was written. Name it to glass with the next dock relay if the owner reads it as a mismatch.
+
+**Relay owed:** none new. Every glass half in this unit is already in the O-59 register: `[aria-current]` menu-row paint, the DarkModeToggle glyph seam, `--popover-offset`, the tier light arms, and the DESIGN.md type names. Avatar is F-145's standing ask.
+
+**E13.** Mail in scope was swept at wave open (0 UNREAD). This seat's reading: ⟨`find glass-ui/docs/tranches/BK/coordination value.js/docs/tranches/V/coordination -maxdepth 1 -type f -newermt "2026-09-24 18:00"`⟩ → **0 files** (nothing new since 18:00); the INBOX tail `:538-545` holds O-77 / I-57 (rowed, for glass 10.2.0) and the Track D sweep lines, and **0 UNREAD in F.W14U scope**.
+
+**Escalations:** none.
+
+**Unit status: PARTIAL.** 20/20 rows dispositioned: 18 closed whole or with their glass halves routed. F-57's tree remainder (R-1) and F-256's logout limb (R-2) are carried to the owners of their files. Commit fourier `b744993` (pushed).
