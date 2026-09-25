@@ -3610,3 +3610,6 @@ The owner's frame (1440, dark) shows the five sections as an inline tab row. Tha
 
 ## §0dx — 2026-09-25: owner frames — the playback dock's floating elements, and a dark-mode toggle that is too small
 Two frames on fourier `/visualize` and the app dock. **Homed to F.W14V** (addendum (f)): `.pd` (every playback-dock element inside one glass surface at both postures; the consumer root is cured, a glass geometry fault is relayed as honest-RED with no shim) and `.dm` (the morph glyph at the dock's icon box, with the `.nav` seat).
+
+## §0dy — 2026-09-25: owner frame — "why is this an ellipsis--it should display the full title somehow without overflowing, divine a better way"
+The ConfiguratorLayer header ("Decomposit…" / "basis & resoluti…") is O-77's row, already in glass 10.2.0 (BL band 0). **The owner's bar tightens it:** no truncation of either line. **O-77a** sent (relay `X-F-BK-LAYER-HEADER-LABEL-a.md`): inline when it fits, stacked when it does not (the sub-label on its own line, the actions and chevron fixed on line 1), preferably an intrinsic flex-wrap switch; the label wraps as a last resort; the type registers hold; plus the consumer gate for the 10.2.0 repin. fourier stays honest-RED LAYER-HEADER-LABEL until then, with no consumer override of glass's header classes.
