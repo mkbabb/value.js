@@ -275,7 +275,7 @@ function analyse(d: CensusDump): Analysis {
     for (const [el, list] of byEl) {
         for (let i = 0; i < list.length; i++)
             for (let j = i + 1; j < list.length; j++) {
-                const [a, b] = [list[i], list[j]];
+                const a = list[i]!, b = list[j]!;
                 if (a.owner === b.owner || !overlaps(a, b)) continue;
                 const shared = a.props.filter((p) => b.props.includes(p));
                 if (shared.length)
@@ -288,9 +288,10 @@ function analyse(d: CensusDump): Analysis {
         for (const r of list) groups.set(`${r.phase}|${r.owner}`, [...(groups.get(`${r.phase}|${r.owner}`) ?? []), r]);
         for (const [k, g] of groups) {
             const [phase, owner] = k.split("|");
-            table.push(`| ${phase} | \`${desc(el)}\` | ${owner} | ${g[0].props.join(",")} | ${g.length} | ${g[0].delay}+${g[0].duration} |`);
+            const g0 = g[0]!;
+            table.push(`| ${phase} | \`${desc(el)}\` | ${owner} | ${g0.props.join(",")} | ${g.length} | ${g0.delay}+${g0.duration} |`);
             // a transition re-armed within one window on one property is a re-run
-            if (g.length > 1 && g[0].kind !== "transition") reruns.push(`${phase}: ${desc(el)} — ${owner} ×${g.length}`);
+            if (g.length > 1 && g0.kind !== "transition") reruns.push(`${phase}: ${desc(el)} — ${owner} ×${g.length}`);
         }
         for (const a of tf) {
             for (const anc of d.els[el]?.parents ?? []) {

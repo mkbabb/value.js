@@ -295,7 +295,7 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
     for (const sw of SWITCHES) {
         test(`(2) layer switch ${sw.id}: glass DockCrossfade faces, no consumer keyframes, WebM`, async ({ browser, baseURL }) => {
             const ctx: BrowserContext = await browser.newContext({
-                baseURL,
+                ...(baseURL ? { baseURL } : {}),
                 viewport: { width: sw.width, height: sw.height },
                 colorScheme: "dark",
                 ...(WEBM_DIR ? { recordVideo: { dir: WEBM_DIR, size: { width: sw.width, height: sw.height } } } : {}),
@@ -350,7 +350,7 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
 
     test("(3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census", async ({ browser, baseURL }) => {
         // 2× so the frames resolve the capsule edge the owner's retina frame shows
-        const ctx = await browser.newContext({ baseURL, viewport: { width: 1440, height: 900 }, colorScheme: "dark", deviceScaleFactor: 2 });
+        const ctx = await browser.newContext({ ...(baseURL ? { baseURL } : {}), viewport: { width: 1440, height: 900 }, colorScheme: "dark", deviceScaleFactor: 2 });
         const page = await ctx.newPage();
         await openHome(page, 1440, 900);
         const trigger = page.locator(".glass-dock .view-select-trigger");

@@ -63,7 +63,7 @@ async function bootBlob(page: Page) {
  *  engine's draw count over the same window (corroboration, never the gate). */
 async function motion(page: Page, blob: ReturnType<Page["locator"]>) {
     const drawsBefore = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
-    const frames = [];
+    const frames: ReturnType<typeof decodePng>[] = [];
     for (let i = 0; i < SAMPLES; i++) {
         if (i) await waitMs(page, SPACING_MS);
         frames.push(decodePng(await blob.screenshot({ animations: "allow" })));
