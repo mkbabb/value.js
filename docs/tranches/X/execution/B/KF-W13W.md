@@ -639,3 +639,91 @@ after2-390-light.json:  docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0
 - This record.
 
 **Adjacent edits** (§0bt): `test/demo/instrument/transport-keyboard-propagation.test.ts:1-22` (docblock), `:37-39` (stub comment), `:73` (`#persistent` in the stub), `:130` (field doc), `:207-229` (the describe title and the (1) and (1′) re-seat). The reason: the oracle asserted the retired two-mirror shape of the copy this unit changed.
+
+## Close
+
+**Seat**: `claude-opus-5-5`, 2026-09-24, Track B close seat. VERIFY-ONLY: 0 keyframes.js bytes, 0 glass bytes. keyframes HEAD = origin/master = `574642be` (⟨`git -C keyframes.js status -sb | head -1`⟩ → `## master...origin/master`).
+
+**Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → only the 2 standing inbound mail packets. 0 paths under `demo/**` or `test/demo/**`. value.js: one inherited untracked directory in this seat's set, `keyframes/evidence/W13W/close/`, left by a close seat killed at 18:14 (the glass BL outage log records a subagent session limit at 18:14). Its `run-falsifier.sh` is `.c`'s falsifier, unchanged, and conforms, so this seat kept it. Its partial outputs (8 falsifier JSON, p/e/m logs, and 4 empty `dclose1-*.json` from a server that died mid-run) were not relied on: this seat re-ran every probe on its own server and overwrote them. `scripts/dev/dev.sh` untouched.
+
+**Instrument**: this seat's own dev server, ⟨`npx vite --force --port 5311 --strictPort`⟩ in keyframes.js (clean dep cache, per §0dg). It serves glass `10.1.0` (the `9fa56c26` pin). Headed Chromium, through each unit's own probe, unchanged.
+
+### Commit roster (act 1)
+
+⟨`git show --name-only --format= <sha> | grep -v '^demo/\|^test/demo/'`⟩ → empty for all 5 kf shas. ⟨`git show --name-only --format= <sha> | grep -vc 'keyframes/evidence/W13W/\|execution/B/KF-W13W.md'`⟩ → 0 for all 15 value.js shas.
+
+| unit | keyframes.js | value.js |
+|---|---|---|
+| `.c` | none | `b58d7438` (evidence) · `60b7e18a` (receipt) |
+| `.b` | `82360347` | `ce814103` · `ebbca349` |
+| `.v` | none | `e4c9854a` · `4c431694` |
+| `.p` | `ba530256` | `2c9a42d6` · `093a1221` |
+| `.e` | `6e8fc989` | `78406007` · `a1f62c95` |
+| `.m` | `e97b9e35` | `ddfdf07b` · `49f043a4` · `b92990f9` (self-count erratum) |
+| `.d` | `574642be` | `8cdd425f` · `01584bb0` |
+
+- Every kf path is under `demo/**` or `test/demo/**`.
+- The modified tests (not the new ones) are the declared §0bt adjacents. None lost an assertion. ⟨`expect(` / `it(` counts, parent → commit⟩:
+  - `82360347`: easing-playback-runs 5→5 / 1→1 · spring-derby-truth 47→47 / 9→9 · spring-trace-truth 47→47 / 12→12
+  - `ba530256`: channel-options-render-edge 57→59 / 8→8
+  - `6e8fc989`: playback-ribbon-contract 65→66 / 19→19 · easing-preview-persistence 9→9 / 2→2
+  - `574642be`: transport-keyboard-propagation 19→21 / 5→5
+- ⟨`git grep -nE '\.(skip|only)\(' -- test/demo`⟩ → empty.
+- kf `9fa56c26` (the glass repin) sits between `.e` and `.m`. It is KF.W13X `.g0`'s, not this wave's.
+- **Landed-wrong: 0.**
+
+### Gates, re-run at kf `574642be` (act 2 + act 3)
+
+The spec states its gates as laws (`:449-455`, `:464-467`, `:478-499`, `:501-505`). The §Verification artefacts for this wave are the served probes each unit authored. This seat ran each one unchanged against `http://localhost:5311`, twice. Outputs: `keyframes/evidence/W13W/close/` (`run-falsifier.sh`, `run-units.sh`, `f-run{1,2}-*.json`, `{p,e}-run{1,2}-*.json`, `m-run{1,2}-*.json`, `dclose{1,2}-*.json`, `f-run{1,2}.out`, `units-run{1,2}.out`).
+
+| gate | BEFORE (unit's banked RED) | AFTER run 1 | AFTER run 2 | verdict |
+|---|---|---|---|---|
+| G-W13W-c: census + falsifier RED at pre-cure bytes on every site | — (`.c`, kf `a939e7d6`: L1 437/448 · L2 31/32 · L3 16/16 · L4 16/16 over 1.5 px, ×2 + 390 dark) | census stands (4 law sites) | — | GREEN (banked; the RED-before is `.c`'s, at the pre-cure bytes) |
+| G-W13W-b / G-W13W-v: ball on the curve. ⟨`sh close/run-falsifier.sh N http://localhost:5311`⟩, 1440×900 + 390×844 × light + dark, 16 samples per pair, tolerance 1.5 px | L1 gallery 336/336 over at Open; per-site RED above | 4 configs EXIT 0. Over 1.5 px: gallery 0/448 · mini 0/32 · sampler 0/16 · live ball 0/16. Max 0.90 px (the mini) | same, 0 over on every site in all 4 configs, max 0.90 px | **GREEN ×2** |
+| G-W13W-p: one picker, hierarchy. ⟨`node ../p/probe-picker.mjs`⟩ 1440 light + 390 dark | pills, 0 dividers, 0 headers, truncated names, grey plate (`.p` BEFORE) | gallery + dropdown both: `filterSegmented` true · `dividerBetween` true · 0 stadium plates · tiles 28 / 29 · radius 16px = `--radius-field` · 0 truncated · selected bg `rgba(0,0,0,0)`, outline `solid 1.5px` | identical | **GREEN ×2** |
+| GLASS-SELECT-GREY (O-66) | — | consumer call sites carry no grey class (`.p` act 5, 5 live Selects) | — | **honest-RED (producer), recorded** |
+| G-W13W-e: one eye toggle, out of flow, moves 0 boxes. ⟨`node ../e/gate.mjs`⟩ 1440 light + 390 dark | 3 separate eye sites, inline and in flow (`.e` BEFORE) | 5 preview scenes (cube, square, amiga, easing, spring): 1 eye each, `position: absolute`, hide / show / round trip max 0 px moved. Sequence has no preview and 0 eyes | identical | **GREEN ×2** |
+| G-W13W-m: phone controls and panes centred, on the gutter, no overflow, detents hold. ⟨`node ../m/census.mjs`⟩ 390×844 · 844×390 · 430×932 · 932×430 × light + dark | 106 RED per config (`.m` BEFORE) | 8 configs × 30 states, `red 0` in every config | same, `red 0` in all 8 | **GREEN ×2** |
+| G-W13W-d: collapsed dock, consumer half. ⟨`node ../d/probe-collapsed-dock.mjs` + `node ../d/summarize.mjs dcloseN`⟩ 1440 + 390 × light + dark, 6 scenes | 24 of 48 docks spill (`.d` BEFORE) | 48 docks, 48 collapsed, spill 0 (max 0 px), clipped 0, vertical 0 | identical | **GREEN ×2** |
+| DOCK-COLLAPSED-FORM (O-65) | — | the producer's one-circle summary seat; the plate does not wrap a multi-seat face | — | **honest-RED (producer), recorded** |
+| SIDE-DOCK-EDGE (O-67) | — | 0 side, vertical or canvas docks; 0 clipped: the consumer half is vacuous-GREEN | — | **honest-RED (producer), recorded** |
+| repo: `npm run check` | EXIT 0 (Open) | EXIT 0 (vue-tsc ×2, proof:structure 0 violations) | EXIT 0 | **GREEN ×2** |
+| repo: `npm run test:demo` | 77/77 · 565/565 (Open) | 82/82 files · 587/587 · EXIT 0 | 82/82 · 587/587 · EXIT 0 | **GREEN ×2** |
+
+- ⟨`git -C keyframes.js diff --check HEAD~6 HEAD`⟩ → empty.
+- test:demo ran after the served probes finished and the :5311 server was stopped. Neither run hit the host-load timeout class banked at the Open.
+- Probe note: `.p`'s probe lists 10 headers at the gallery. The first, `ease`, is the stage's selected-curve title; the other 9 are the family headers `.p` banked. The dropdown's 10 are the 9 families plus `Custom`. This matches `.p`'s receipt.
+
+### E13 (act 4)
+
+⟨`find <path> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ over value `V/` and `V/coordination`, glass `BK/coordination` and `BL` (the newest glass tranche; it has no `coordination/`), and keyframes `V/coordination` → 1 file: `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md`. Its last commit is `145f199d`, "docs(BL): outage log — 18:14 subagent session limit…". That is glass's internal cursor, not a letter, and it is not addressed to value.js. atlas has no `P/coordination` directory in this checkout (⟨`find atlas -maxdepth 5 -type d -name coordination`⟩ → empty). **0 unrowed letters addressed to value.js. 0 UNREAD in scope.**
+
+### Residuals, with owners
+
+Each is carried from a unit receipt. None is a W13W law row.
+- **DOCK-COLLAPSED-FORM (O-65)**: glass, relay only. keyframes adopts it at the repin that ships the multi-seat collapsed form.
+- **SIDE-DOCK-EDGE (O-67)**: glass, relay only.
+- **GLASS-SELECT-GREY (O-66)**: glass, relay only.
+- **`.p` R-1..R-3 (glass asks)**: an `EasingPicker` preset-list opt-out, a `ToggleGroup` track/plate opt-out, and a field-look popover trigger. Owner: glass BL (OA-63). The convergence of `curvePlot.ts` and the gallery onto glass's EasingCurve marker API is ADOPT-AT-LANDING (KF.W13X addendum (b), O-74 E-3).
+- **`.e` R-1**: the Spring discrete view's Reveal/Dismiss verb is authored twice. Owner: KF.W13X (AUDIT-2 Lens 1).
+- **`.m` R-1 / R-2**: degenerate landscape detents (A2-KE-L2-3) and the in-flow Sheet growing the document (A2-KE-L2-2). Owner: KF.W13X + BL.
+- **`.d` R-1**: the desktop transport overlaps the stage cards at 1440. Owner: KF.W13X (AUDIT-2 Lens 3).
+- **`.d` R-2 / §0dg**: the shared :5173 still serves a stale glass dep cache. Owner: KF.W13X's first served act. This seat used its own `--force` server and did not touch :5173.
+- **`.b` label-row stacking**: 'Timing-function sweep' sits over 'Sampled curve'. Owner: KF.W13X (OA-69 hierarchy).
+- **`.p` R-5 (process)**: a host-wide `pkill` of vitest may have killed a sibling seat's run. That seat re-runs its own gate.
+- **`.v` note**: `.b`'s receipt names its after frames as committed in `ce814103`. They are gitignored (`*.png`) and exist only locally. This is a record erratum, not a gate: the JSON readings are committed.
+
+**Escalations**: none. **Landed-wrong**: 0. **Adjacent edits (this seat)**: none.
+
+### State
+
+The spec designates no KF.W13W seat to stamp VERIFIED. The four-verb line moves only IMPLEMENTED:
+
+| verb | state |
+|---|---|
+| AUDITED | YES |
+| SPECIFIED | YES |
+| IMPLEMENTED | **YES**: every law gate is GREEN ×2 at kf `574642be`. Honest-RED (producer): DOCK-COLLAPSED-FORM · SIDE-DOCK-EDGE · GLASS-SELECT-GREY |
+| VERIFIED | NO. That stamp belongs to a successor check pass |
+
+**Commits (this seat)**: value.js `d8143eae` (evidence: 2 runners, 46 files: 8 falsifier JSON, 4 p, 4 e, 16 m, 8 d JSON, 4 .out) · this record · the LEDGER row. Push: kf `574642be` is already on origin; value.js pushed after the LEDGER commit.
