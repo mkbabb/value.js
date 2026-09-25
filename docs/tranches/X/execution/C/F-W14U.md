@@ -1672,3 +1672,48 @@ F.W14V "Opens after: F.W14U CLOSED" (`F-W14V.md:4`) — the conjunct is **not GR
 ### Verdict
 
 **NOT-CONFORMANT** — 1 HIGH (C2-1: G-u 230/256, ESC-C-U1 unruled), 0 BLOCKER/CRITICAL; every claimed GREEN reproduces (vue-tsc 0 ×2, vitest 86 ×2, api 275, targeted e2e = named set exactly). LEDGER status stays PARTIAL; event line appended.
+
+## Repair 2
+
+SEAT REPAIR 2 (round 2), `claude-opus-5-5`, 2026-09-24 ~22:20 EDT. Spec `F-W14U.md` read whole (78 lines). Record: `## Repair 1` and `## Check 2` whole, the Close's §(2) and the `.vdock` R-1 residual by `grep -n`/`sed`. fourier HEAD at open `0e34595` = origin.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. value.js record + LEDGER clean at open. Nothing inherited.
+
+**COHESION re-read for ESC-C-U1.** ⟨`git log --oneline 7a9030ff..HEAD -- COHESION.md fourier/waves/`⟩ → empty; ⟨`grep -n "^## §0d" COHESION.md | tail -1`⟩ → `§0dn` (:3538). No ruling on the ESC-C-U1 limbs and no re-home since Check 2.
+
+**What a seat can lawfully take from C2-1.** F-174 is NOT LANDED with no owning unit, but it is not an escalated limb. Its cure (`.vdock` R-1: luminance-key at `web/src/components/visualization/composables/useImageOverlay.ts`) lies inside the wave's `web/**` bounds, and R-1 names the missing piece as a white-ground falsifier, not a ruling. This seat cures it. The other 25 rows are escalated or LOCKed limbs whose cures need the root's rulings (Repair 1 C1-1 gives the per-limb reasons). They stay ESC-C-U1.
+
+### Defect → cure → commit
+
+| # | sev | defect | cure | commit (fourier) |
+|---|---|---|---|---|
+| C2-1 (F-174 limb) | HIGH | F-174 NOT LANDED, no owning unit | **CURED.** `useImageOverlay.ts` luminance-keys each loaded image once: every pixel's alpha is scaled by `1 − L` (Rec. 709 luma), so a white ground keys out and ink stays. The keyed canvas is what the module cache holds. The draw (`globalAlpha 0.28`) is unchanged. It is the multiply that a transparent canvas cannot blend. **Falsifier** `f-w14u-vdock.spec.ts` `v174` (1440, dark). The overlay route serves a white-ground drawing (a black ring on white, made in the page) because the seeded photograph has no white ground (R-1's false GREEN). The case counts canvas pixels at the draw's alpha: pale ones (`min(rgb) ≥ 235`) must be under 0.1% of the canvas, and black ink must be over 1000. ⟨`FW14U_PHASE=before … -g v174`⟩ at pre-cure bytes (the cure diff held aside and re-applied, own file) → **RED** `Received: 458093` slab pixels. ⟨`FW14U_PHASE=after … -g v174 --workers=1`⟩ → **`1 passed (52.6s)` · `1 passed (46.7s)`**. Frames `e2e/screenshots/f-w14u/vdock/{before,after}-v174-overlay-dark-1440.png` (git-ignored `*.png`, as every `.vdock` frame). Contour editor's SVG `<image>` overlay is not the row's surface (register: `BasisCanvas.vue` draw) and was not touched. | `7ee9b65` |
+| C2-1 (25 rows) | HIGH | ESCALATED/PARTIAL/HELD limbs unruled (F-14 BROKEN E-2 …) | **ESCALATED (carried, ESC-C-U1).** Only the root can cure these: it must rule the limbs or re-home them by dated addendum. No ruling or re-home exists through §0dn. Repair 1 C1-1 gives the per-limb reasons none of them is seat-decidable. | — |
+| C2-2 | INFO | Repair 1 cures hold | none | — |
+| C2-3 | INFO | Close 2 full e2e ×2 owed after Repair 1 | none here; still owed to the next Close (this seat's cure moves one file's draw; the specs that reach it were re-run, below) | — |
+
+Pushed: ⟨`git push origin m/w1-bump-migration`⟩ → origin at `7ee9b65`.
+
+### Gate re-reading (fourier `7ee9b65`)
+
+| gate | Check 2 | Repair 2 | reading |
+|---|---|---|---|
+| v174 falsifier | — | **RED → GREEN ×2** | above |
+| specs reaching the overlay (⟨`grep -ln "Image overlay\|showImageOverlay\|/overlay" e2e/*.ts`⟩ → `f-w14-uia`, `f-w14u-vdock`) | — | **`1 failed · 41 passed` ×2** | ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-vdock.spec.ts e2e/f-w14-uia.spec.ts --workers=1 --reporter=line`⟩ run 1 load `81.5 → 211.9`, `1 failed · 41 passed (4.4m)`; run 2 load `211.9 → 48.2`, `1 failed · 41 passed (3.7m)`. Both REDs are f-w14-uia `:162` (F-17), a `Test timeout of 60000ms exceeded` at `locator.hover` on "Play animation". The case never toggles the overlay. Its own budget comment says the budget is sized for loads of 9-15 and was crossed at 44.5. This is `.vdock` R-3, the load-sensitive case. Run alone at HEAD: ⟨`… e2e/f-w14-uia.spec.ts:162 --workers=1`⟩ load `47.8` → **`1 passed (34.3s)`**. The cure does not move it. |
+| `vue-tsc -b` | 0 ×2 | **0 ×2** | ⟨`npx vue-tsc -b`⟩ → `exit 0` · `exit 0` |
+| `vitest` | 86/86 ×2 | **86/86 ×2** | ⟨`npx vitest run`⟩ → `Test Files 14 passed (14)` · `Tests 86 passed (86)` ×2 |
+| G-b api | 275 | not moved (no `api/**` edit) | cites Check 2 |
+| G-u (Close 1) | RED 230/256 | **RED 231/256** | F-174 NOT LANDED → CURED (falsifier ×2). **25 open:** 8 ESCALATED ids + F-77 + 15 PARTIAL + F-149 HELD, all ESC-C-U1 |
+| run dirt | 1 | ⟨`git -C fourier-analysis status --porcelain | wc -l`⟩ → **`1`** (`.worktrees/`) | the run's re-dirtied tracked frames were restored by the CR-1 command |
+
+### Disposition row
+
+| F-174 | **CURED** (Repair 2, `7ee9b65`, v174 RED 458093 → GREEN ×2) | — |
+
+### Escalations
+
+- **ESC-C-U1 (carried):** G-u 25 rows, `.vdock` E-1..E-4, `.vstage` E-1..E-3, `.vedit` E-1/E-2, `.eq` E-2..E-4 and the `.admin` F-149 LOCK. F-174 no longer needs an owner. The root must rule these limbs or re-home them to F.W14V by dated addendum. Until then no seat can cure them.
+
+### State
+
+**F.W14U: PARTIAL.** F-174 is cured. Close 1 reads 231/256 and stays RED on ESC-C-U1. Close 2's full ×2 is still owed to the next Close.
