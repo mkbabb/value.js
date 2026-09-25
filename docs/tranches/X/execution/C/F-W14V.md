@@ -1507,3 +1507,29 @@ greenBeforeCure: none.
 Then Close (full e2e `--workers=1` ×2 in the named set) and Check. L1-12 (O-74b) and F-9 transport (O-86) stay ADOPT-AT-LANDING / honest-RED.
 
 ### RESUME 1 — Unit receipts
+
+### F.W14V.r1
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · addendum (h) item 1 (C3-1 = ESC-u1-2 = ESC-au2-1; A2-FO-L2-15 ⊕ UIA-F-88 / v88). Spec read whole (87 lines); record read header → RESUME 1 plan; COHESION §0eb + §0ec (file end) read.
+
+**Acts, in order**
+1. Crash-recovery ⟨`git -C fourier-analysis status --porcelain`⟩ → only `src/fourier_analysis/contours/*` (F.CT) + `?? .worktrees/`; nothing inside `web/src/**` or `web/e2e/**` → no inherited work.
+2. BEFORE (fourier `a0c61b6`, web = `97325fb`) ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au2.spec.ts e2e/f-w14u-vedit.spec.ts -g "L2-15|v88" --project=chromium --workers=1`⟩ → `4 failed`. The measurement: `[au2] L2-15@360 {"n":6,"out":["View options","More editor tools"],"scrollers":["dock-layer dock-layer--full dock-run is-active 243/167"]}` · `@390 … 243/197` · `@430 … 243/237`; v88: `"More editor tools"` clipped. RED.
+3. Anchors at true bytes: `EditorControlsDock.vue` row = Undo · Redo · `DockSeparator` · Delete point (`is-rose`) · `ViewLayersMenu` · More editor tools. Glass 10.1.0 `menu` exports `DropdownMenuSub`/`SubTrigger`/`SubContent`/`Separator` (⟨`grep -o 'DropdownMenuSub[A-Za-z]*' dist/menu.js`⟩). `DropdownMenuItem` has no destructive variant, so the "destructive tone" is the dock's own rose (`tool-row is-rose`, the same `--tool-hue`/`--menu-row-bg` tokens Smooth/Simplify wear). **The "confirm path"**: at the bytes, Delete point has no dialog; its path is `emit('delete')` → `editorRef.deleteSelected()` (an undoable history step), gated by `:disabled="!canDelete"`. Both are kept exactly (the menu item emits the same event and carries the same `disabled`).
+4. Cure (one meaning):
+   - `ViewLayersItems.vue` (new): the label and the two `DropdownMenuCheckboxItem` rows (keep-open on select), lifted out of `ViewLayersMenu.vue`, which now mounts it. One set of rows for both the menu and the submenu (UIA-F-79 standing).
+   - `EditorControlsDock.vue`: `isSm = useMediaQuery("(min-width: 640px)")` (Tailwind `sm` = 40rem). With `isSm` true the row renders Delete + `ViewLayersMenu` as before, so ≥ sm is unchanged. Below `sm`, More editor tools gains `DropdownMenuSeparator` → `DropdownMenuSub` "View options" (Eye glyph; glass `StatusDot` when the view is off its default, the same F-173 mark the trigger wears) → `DropdownMenuSeparator` → "Delete point" (`tool-row is-rose`, `disabled` without a selection) as the last item. Metric and Save in `#persistent` are untouched. No consumer overlay, and no glass class restyled.
+5. Falsifier `e2e/f-w14v-au2.spec.ts` L2-15: added a direct read of the active `.dock-layer--full`, asserting `scrollWidth <= clientWidth` whatever its overflow style. The existing scroller and out-of-plate limbs are kept. The BEFORE reading of that same element was 243/167 · 243/197 · 243/237 (step 2's scroller limb reads the same element), so it is RED at the before bytes.
+6. v88 (`e2e/f-w14u-vedit.spec.ts:198`), **NAMED §0bt OWNER-RULING RE-BASELINE** (addendum (h) 1): the row set `Undo · Redo · Delete point` became `Undo · Redo · More editor tools`. Delete point and View options now assert `toHaveCount(0)` in the row and visible as `menuitem`s inside the menu. The test also asserts that Delete is the last item, that a separator precedes it, that it carries `is-rose`, and that the View options submenu shows the `Image overlay` and `Contour trace` checkbox rows. No assertion was deleted, the clip/scroll limbs are unchanged, and the header doc line is restated.
+7. Frame read: `e2e/screenshots/f-w14u/vedit/after-v88-{dock-expanded,more-menu,view-sub}-390.png` (gitignored instruments). They show the row as `1024 pts · Save | Undo · Redo | ⋮` inside the plate, and a menu with Magnet · Smooth · Simplify · Reset | View options › | Delete point (disabled, no selection), with the submenu showing View layers / Image overlay / ✓ Contour trace.
+
+**Commit**: fourier `e97a959` (pushed, `m/w1-bump-migration`). Pathspec: `EditorControlsDock.vue` `ViewLayersMenu.vue` `ViewLayersItems.vue` `e2e/f-w14v-au2.spec.ts` `e2e/f-w14u-vedit.spec.ts` (5 files, +169/−47). Everything is inside the writable set, so there are no adjacent edits.
+
+**Gates BEFORE → AFTER** (`:3100` vite dev → `:8000`)
+- L2-15 @360/390/430: RED (`243/167 · 243/197 · 243/237`) → GREEN. ⟨`… -g "L2-15|v88" --project=chromium --headed --workers=1`⟩ → `4 passed (28.4s)` · `4 passed (27.1s)` (×2, headed). AFTER reading: `fit [151,151]` at all three widths, `out []`, `scrollers []`.
+- v88: RED → GREEN ×2 (the same runs).
+- f-w14u-vedit ≥ sm editor oracles (whole file) + au2 whole: ⟨`npx playwright test e2e/f-w14u-vedit.spec.ts e2e/f-w14v-au2.spec.ts --project=chromium --headed --workers=1`⟩ → `25 passed (2.5m)` · `25 passed (2.6m)` GREEN ×2.
+- vue-tsc ⟨`npx vue-tsc --noEmit; echo $?`⟩ → `0`. vitest ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)`.
+- Neighbour regression (the shared rows): ⟨`… f-w14v-u1 f-w14u-vdock -g "u79|v76" --project=chromium`⟩ → the first run was `1 failed, 2 passed (38.1s)`: u79, on a cold `toBeVisible` of the page at load, the load intermittent Check 2 already named as INFO. The re-runs were `1 passed (8.4s)`, `3 passed (13.2s)` and `3 passed (11.7s)`, so GREEN ×2.
+
+**Residuals**: the glass half, O-85 DOCK-PRIORITY-OVERFLOW (11.0.0 dock band), is ADOPT-AT-LANDING. At its landing, the `isSm` split becomes glass's priority-overflow seat. The menu rows' icon-to-label gap stays MENU-ICON-GAP (O-76a, unchanged; the new rows use the same anatomy as Smooth/Simplify). **Escalations**: none.
