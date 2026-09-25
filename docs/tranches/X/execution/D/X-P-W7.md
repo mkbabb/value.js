@@ -1982,3 +1982,33 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (c)
 **Gate re-readings:** none are owed. The one cure is a ledger cell, which moves no product gate. `src/ bench/ test/` are unchanged since `a1eddca8` (⟨`git status --porcelain -- src bench test`⟩ → empty). Check 2's 10 GREENs stand on the same bytes.
 **Commits:** `635959c7` (LEDGER) · this section. **Adjacent edits:** none. **Out-of-set writes:** none. dev.sh was not touched.
 **Cured:** 1 (C2-2). **Escalated:** 1 (C2-1, ESC-W7l2-1, owner). LEDGER:104 stays **PARTIAL**.
+
+## Check 3 of the RESUME 4 Close (2026-09-24, L-20 fresh adversarial pass 3, `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Read:** W7.md whole (253 lines; ADDENDA (b), (c), (d) bind); from this record `## RESUME 4 — Open` through `## RESUME 4 Unit plan`, `## RESUME 4 Close`, `## Check 1`/`## Repair 1`/`## Check 2`/`## Repair 2 of the RESUME 4 Close`. **Crash-recovery:** ⟨`git status --porcelain -- src bench test docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md package.json CHANGELOG.md`⟩ → empty; ⟨`git log --oneline 07a9042e..HEAD`⟩ → empty (HEAD = Repair 2's `07a9042e`); bbnf-lang worktree clean, HEAD = `origin/x-p-w7-typescript` = `89fae4826`. No inherited partial work.
+
+### Axes
+1. **Claimed GREENs reproduce (9 re-run):** ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 07a9042e`, `srcDirty ""`, `bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product <scratch>/eq2.json`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 92 (ASCII-only sources 1 · CP-CASE 4)` both (= 88 F-b-4 §16 + 4 CP-CASE §17); ⟨`npx vitest run test/css`⟩ → `6 passed · 62 passed`; ⟨`npm run -s test:css-equivalence`⟩ → exit 0, `Tests 19 passed (19)`, ⟨`grep -cE "DEFECTS? [1-9]"`⟩ → `0`; ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit | grep -c "error TS"`⟩ → `0`; K2-b `deepFreeze` → `0`; L-G3 instrument grep → `0`. Timing ⟨`node bench/paired/browser.mjs w7r4c3 firefox,webkit,chromium 2 rej,large 11 product parseStylesheet`⟩ (load `7.84` → `12.41`, recorded; record moved to scratchpad `c3/`, ⟨`git status --porcelain bench | wc -l`⟩ → `0`): Chromium rej **.525 / .548**, large **.339 / .357**; WebKit rej **.763 / .75**, large **.571 / .571** (all 11/11 < 1); Firefox rej **x1.008 / x1.015 → `RED`** (4/11 rounds < 1 in each rep); Firefox large **x0.917 / x1 → `RED`** (5/11 < 1 in rep 2).
+2. **File bounds:** no commit since Check 2 other than Repair 2 (`635959c7` LEDGER 1 line; `07a9042e` this record). Earlier commits verified in set by Checks 1/2. ⟨`git log 4ffbe7de..HEAD -- scripts/dev/dev.sh`⟩ → empty. **Held.**
+3. **Masking:** no product byte moved since Check 2; none found. **None.**
+4. **Families:** whole (unchanged since Check 2).
+5. **E-3:** ⟨`git diff --stat 13106615..HEAD -- docs/tranches/X/parse-that/waves/ docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty. **Held.**
+6. **Mail:** ⟨`grep -cE '\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`. **Clean.**
+7. **Four-verb line:** LEDGER:104 `PARTIAL — ESC-W7l2-1 unruled`; stale tail gone. **Lawful.**
+8. **Goal at the bytes:** `.cp` met (Check 2 probe; bytes unchanged). "Faster than the retired parser on every engine" **NOT MET**: Firefox rej `parseStylesheet` x1.008 / x1.015 here; 12 of 16 clean reps across five seats > 1.
+9. **Published figures:** 92 / 62 / 19 / 0 and the Chromium/WebKit bands reproduce; Firefox rej reproduces in Repair 1's and Check 2's band (.975–1.04).
+10. **Honest-RED adjudication:**
+   - **Firefox rej `parseStylesheet` (L-G1):** no relief in the spec — ADDENDUM (c) refuses record-instead-of-gate; ADDENDUM (b) routes an uncured cause to the owner "as a measured decision, never as a quiet relaxation". ⟨`grep -c ESC-W7l2-1 docs/tranches/X/COHESION.md`⟩ → `0` (last section still §0dp): **unruled**. Not producer-owned (cure surface = value.js actions + bbnf-lang emitter, Track D's own); no successor wave routed. **Unrelieved RED.**
+   - **Firefox large `parseStylesheet`:** x1.000 in one rep here (R-l2-2 noise watch; receipt 1.03–1.13, Close/Checks .93–.995). Same relief status as above (none); it rides ESC-W7l2-1's ruling.
+   - **Release gates** P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half: relieved to X.P.W7P by ADDENDUM 2026-09-24 §1 (OTP-keyed). **Relieved.**
+
+### Register (severity · claim · receipt · cure)
+- **C3-1 HIGH** · L-G1 (ADDENDA (b)/(c)) RED on Firefox rej `parseStylesheet`, no spec relief · `product firefox|rej|parseStylesheet RED x1.008 x1.015`; ESC-W7l2-1 0 hits in COHESION · the owner rules ESC-W7l2-1 (profile `bench/records/2026-09-24-x-p-w7-profile-l2-b.json`); a Track D RESUME executes it and re-reads L-G1 ×2 on every engine.
+- **C3-2 MINOR** · Firefox large `parseStylesheet` read x1.000 in one rep (not < 1.00), the R-l2-2 noise-distance cell · `product firefox|large|parseStylesheet RED x0.917 x1` · re-read under the ESC-W7l2-1 execution unit; no separate cure.
+- **C3-3 INFO** · Repair 2 is accurate; no product byte moved; LEDGER row consistent · none.
+
+**Honest-RED set:** none admissible (release gates relieved to X.P.W7P; Firefox rej `parseStylesheet` unrelieved).
+
+**Successor conjuncts.** X.P.W7P opens when the owner supplies an npm OTP (not met; LEDGER:105 `GATE-KEYED`) **and** X.P.W7 has CLOSED its engineering gates (RED, C3-1). **X.P.W7P lawfully blocked.**
+
+**Verdict: NOT-CONFORMANT.** 9 claimed GREENs reproduce; L-G1 Firefox rej `parseStylesheet` fails, held by the unruled ESC-W7l2-1. LEDGER:104 stays `PARTIAL` (no status edit; one event line appended). **Adjacent edits: none. Out-of-set writes: none.** `scripts/dev/dev.sh` untouched.
