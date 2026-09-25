@@ -146,28 +146,40 @@ function parseScopePrelude(source: string): Pick<Extract<StylesheetItem, { kind:
     };
 }
 
-function parseStyleBody(body: string): ParseResult<Pick<StyleRule, "declarations" | "children">> {
+/**
+ * A style rule (`prelude { body }`), built once and frozen as it is built — or the refusal its body or
+ * its selector list ends on (the body is read first). X.P.W7 `.l4`: no intermediate body record, no
+ * `success` wrapper around it, no spread of it into the rule.
+ */
+function styleRule(source: string, prelude: string, body: string): StyleRule | ParseResult<never> {
+    let declarations: readonly Declaration[];
+    let children: StylesheetItem[] | undefined;
     const plain = parseDeclarations(body);
-    if (plain.ok) return success(Object.freeze({ declarations: plain.value }));
-    const rows = blocks(`${body};`);
-    if (!rows.ok) return rows as ParseResult<Pick<StyleRule, "declarations" | "children">>;
-    const declarations: Declaration[] = [];
-    const children: StylesheetItem[] = [];
-    for (const row of rows.value) {
-        if (row.body === null) {
-            const parsed = parseDeclarations(`${row.prelude};`);
-            if (!parsed.ok) return parsed as ParseResult<Pick<StyleRule, "declarations" | "children">>;
-            declarations.push(...parsed.value);
-            continue;
+    if (plain.ok) declarations = plain.value;
+    else {
+        const rows = blocks(`${body};`);
+        if (!rows.ok) return rows as ParseResult<never>;
+        const list: Declaration[] = [];
+        const nested: StylesheetItem[] = [];
+        for (const row of rows.value) {
+            if (row.body === null) {
+                const parsed = parseDeclarations(`${row.prelude};`);
+                if (!parsed.ok) return parsed as ParseResult<never>;
+                list.push(...parsed.value);
+                continue;
+            }
+            const parsed = parseItems(`${row.prelude}{${row.body}}`);
+            if (!parsed.ok) return parsed as ParseResult<never>;
+            nested.push(...parsed.value);
         }
-        const parsed = parseItems(`${row.prelude}{${row.body}}`);
-        if (!parsed.ok) return parsed as ParseResult<Pick<StyleRule, "declarations" | "children">>;
-        children.push(...parsed.value);
+        declarations = Object.freeze(list);
+        if (nested.length > 0) children = Object.freeze(nested) as StylesheetItem[];
     }
-    return success(Object.freeze({
-        declarations: Object.freeze(declarations),
-        ...(children.length === 0 ? {} : { children: Object.freeze(children) }),
-    }));
+    const selectors = splitTopLevel(prelude, ",");
+    if (!selectors) return failure(source, "css_syntax", ["selector list"]);
+    return Object.freeze(children === undefined
+        ? { kind: "style", selectors: Object.freeze(selectors), declarations }
+        : { kind: "style", selectors: Object.freeze(selectors), declarations, children });
 }
 
 function parseFunctionPrelude(source: string): ParseResult<Readonly<{
@@ -329,11 +341,9 @@ function parseItems(source: string): ParseResult<Stylesheet> {
             continue;
         }
         if (row.body === null) return failure(source, "css_syntax", ["style body"]);
-        const body = parseStyleBody(row.body);
-        if (!body.ok) return body as ParseResult<Stylesheet>;
-        const selectors = splitTopLevel(prelude, ",");
-        if (!selectors) return failure(source, "css_syntax", ["selector list"]);
-        result.push(Object.freeze({ kind: "style", selectors: Object.freeze(selectors), ...body.value }));
+        const rule = styleRule(source, prelude, row.body);
+        if ("ok" in rule) return rule;
+        result.push(rule);
     }
     return success(Object.freeze(result));
 }

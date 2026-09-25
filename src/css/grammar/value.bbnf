@@ -36,7 +36,8 @@ call       = ( callName - colorHead ) , /\(\s*/ >> ( commaList ? ) << close ;
 callName   = /(?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\()/ ;
 
 // `1.` is not a number (css-syntax-3 §4.3.12, PB-12): a numeric is never followed by a `.`.
-numeric    = /[+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?[%a-zA-Z-]*(?![\w\\.])/ ;
+// Its two groups, the number and the unit, are the action's arguments (a `groups` leaf: no re-split).
+numeric    = /([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)([%a-zA-Z-]*)(?![\w\\.])/ ;
 operator   = /<=|>=|==|!=|[+*<>=:;]|-(?![\w-])/ ;
 identTerm  = /[-_a-zA-Z][-_a-zA-Z\d]*(?![\w(-])/ ;
 

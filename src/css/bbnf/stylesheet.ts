@@ -32,10 +32,10 @@ const list = <T>(first: T, rest: Rest<unknown>, at: number): T[] => {
     for (const pair of rest) out.push(pair[at] as T);
     return out;
 };
-/** `list`, its empty items dropped. */
-const nonEmpty = (first: string, rest: Rest<unknown>, at: number): string[] => {
+/** `first`, then `rest` (the grammar discards the separators: `sep >> item`), empty items dropped. */
+const nonEmpty = (first: string, rest: readonly string[]): string[] => {
     const out: string[] = first ? [first] : [];
-    for (const pair of rest) { const item = pair[at] as string; if (item) out.push(item); }
+    for (const item of rest) if (item) out.push(item);
     return out;
 };
 
@@ -55,9 +55,10 @@ export const stylesheetActions = {
     spaceRun: { kind: "text", fn: trim },
     argRun: { kind: "text", fn: trim },
     syntaxPart: { kind: "text", fn: trim },
-    commaItems: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => nonEmpty(first, rest, 1) },
-    semiItems: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => nonEmpty(first, rest, 1) },
-    spaceItems: { kind: "map", fn: ([, rest]: readonly [unknown, Rest<string>]) => nonEmpty("", rest, 0) },
+    commaItems: { kind: "map", fn: ([first, rest]: readonly [string, readonly string[]]) => nonEmpty(first, rest) },
+    semiItems: { kind: "map", fn: ([first, rest]: readonly [string, readonly string[]]) => nonEmpty(first, rest) },
+    // `ws >> ( spaceRun << ws ) *`: the runs themselves (a `+` run of non-space text is never empty).
+    spaceItems: { kind: "map", fn: (runs: string[]) => runs },
     syntaxAlts: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => list(first, rest, 1) },
     timelineArgs: { kind: "map", fn: ([, rest]: readonly [unknown, Rest<string>]) => column<string>(rest, 0) },
     listComma: { kind: "span", fn: (_: string, start: number): CommaSpan => ({ comma: start }) },
@@ -71,16 +72,16 @@ export const stylesheetActions = {
     // Rule lists.
     preludeRun: { kind: "text", fn: same },
     semiTail: { kind: "map", fn: (): null => null },
-    blockTail: { kind: "text", fn: inner },
+    // A block's body is read as text once: `blockTail = "{" >> blockBody << "}"` keeps it, no second copy.
+    blockBody: { kind: "text", fn: same },
     ruleBlock: { kind: "map", fn: ([prelude, body]: readonly [string, string | null]): RuleBlock => ({ prelude: prelude.trim(), body }) },
     openComment: { kind: "span", fn: (_: unknown, start: number): ListFault => ({ expected: "closing comment", start }) },
     openBlock: { kind: "span", fn: ([prelude]: readonly [string, string, string], start: number): ListFault =>
         ({ expected: "closing brace", start: start + prelude.length }) },
     openRule: { kind: "span", fn: (_: unknown, start: number): ListFault => ({ expected: "rule", start }) },
-    ruleList: { kind: "map", fn: ([, rest, fault]: readonly [unknown, Rest<unknown>, ListFault | undefined]) => ({
-        blocks: column<RuleBlock>(rest, 0),
-        fault,
-    }) },
+    // `ruleGap >> ( ( ruleBlock << ruleGap ) * , fault ? )`: the gaps are discarded where they stand, so the
+    // blocks arrive as one list, the rule list's own.
+    ruleList: { kind: "map", fn: ([blocks, fault]: readonly [RuleBlock[], ListFault | undefined]) => ({ blocks, fault }) },
 
     // At-rule preludes.
     atKeyframes: { kind: "map", fn: at("keyframes") },

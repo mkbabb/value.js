@@ -21,11 +21,11 @@ textBody   = ( /[^()"']+/ | quoted | textGroup ) * ;
 
 // ── top-level lists ──────────────────────────────────────────────────────────────────
 commaRun   = ( /[^(),"']+/ | quoted | textGroup ) * ;
-commaItems = commaRun , ( "," , commaRun ) * ;
+commaItems = commaRun , ( "," >> commaRun ) * ;
 semiRun    = ( /[^();"']+/ | quoted | textGroup ) * ;
-semiItems  = semiRun , ( ";" , semiRun ) * ;
+semiItems  = semiRun , ( ";" >> semiRun ) * ;
 spaceRun   = ( /[^()\s"']+/ | quoted | textGroup ) + ;
-spaceItems = ws , ( spaceRun , ws ) * ;
+spaceItems = ws >> ( spaceRun << ws ) * ;
 // The trailing text of a production, possibly empty (`?`: a regex leaf fails at end of input).
 restText   = /[\s\S]+/ ? ;
 
@@ -48,7 +48,7 @@ ruleBlock    = ( preludeRun , ( semiTail | blockTail ) ) - openComment ;
 openComment  = /\/\*[\s\S]*/ ;
 openBlock    = preludeRun , "{" , restText ;
 openRule     = /[\s\S]+/ ;
-ruleList     = ruleGap , ( ruleBlock , ruleGap ) * , ( openComment | openBlock | openRule ) ? ;
+ruleList     = ruleGap >> ( ( ruleBlock << ruleGap ) * , ( openComment | openBlock | openRule ) ? ) ;
 
 // ── at-rule preludes (a rule's trimmed prelude) ───────────────────────────────────────
 atPrelude        = atKeyframes | atProperty | atFunction | atScope | atStartingStyle

@@ -47,11 +47,12 @@ function identScalar(token: string, color: (token: string) => ColorNode): ValueN
     return key === "transparent" || typeof NAMED_COLORS[key] === "string" ? colorScalar(color(token)) : keyword(token);
 }
 
-const NUMERIC = /^([+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?)(.*)$/;
-
-/** A number with its unit, spelled as authored (`%` and dimension units alike). */
-function numericScalar(token: string): ValueNode {
-    const [, digits = "", unit = ""] = NUMERIC.exec(token) ?? [];
+/**
+ * A number with its unit, spelled as authored (`%` and dimension units alike). The leaf (`value.bbnf`
+ * `numeric`) captured the number and the unit as its two groups, so nothing here re-splits the text
+ * (X.P.W7 `.l4`, as `.k2` did for `tokenQuantity`).
+ */
+function numericScalar(digits: string, unit: string): ValueNode {
     const value = Number(digits);
     return Number.isFinite(value)
         ? scalar({ type: "number", value, unit })
@@ -60,13 +61,21 @@ function numericScalar(token: string): ValueNode {
 
 const isRefused = (v: unknown): v is Refused => typeof v === "object" && v !== null && (v as { kind?: unknown }).kind === "refused";
 
-/** `first ( sep item ) *` as the list it separates — or the one item, when there is no separator. */
+/**
+ * `first ( sep item ) *` as the list it separates — or the one item, when there is no separator; the
+ * first refused item, in order, when there is one. Every value runs this three times (comma, slash,
+ * space) and almost every level holds one item: that level allocates nothing, and a real list is
+ * built in one array, in one pass (X.P.W7 `.l4`: no spread copy, no `find` closure per level).
+ */
 function listOf(separator: "comma" | "slash" | "space") {
     return ([first, rest]: readonly [ValueNode, readonly ValueNode[]]): ValueNode => {
-        const items = [first, ...rest];
-        const refusal = items.find(isRefused);
-        if (refusal !== undefined) return refusal;
-        return items.length === 1 ? first : Object.freeze({ kind: "list", separator, items: Object.freeze(items) as readonly CssValue[] });
+        if (rest.length === 0 || isRefused(first)) return first;
+        const items: CssValue[] = [first];
+        for (const item of rest) {
+            if (isRefused(item)) return item;
+            items.push(item);
+        }
+        return Object.freeze({ kind: "list", separator, items: Object.freeze(items) as readonly CssValue[] });
     };
 }
 
@@ -164,7 +173,7 @@ function linearFn([first, rest]: readonly [CssLinearStop | Refused, readonly (Cs
  * puts it (positional sequences: an unmatched optional keeps its `undefined` slot).
  */
 export const valueActions = {
-    numeric: { kind: "map", fn: numericScalar },
+    numeric: { kind: "groups", fn: numericScalar },
     string: { kind: "map", fn: keyword },
     operator: { kind: "map", fn: keyword },
     identTerm: { kind: "map", fn: (token: string) => identScalar(token, keywordColor) },

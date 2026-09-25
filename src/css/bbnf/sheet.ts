@@ -8,18 +8,16 @@
 import { FAIL, parser } from "./load";
 import type { CommaSpan, ListFault, RuleBlock } from "./stylesheet";
 
-type EntryName = keyof typeof parser.entries;
-const read = <T>(name: EntryName, source: string): T | null => {
-    const value = parser.entries[name](source);
-    return value === FAIL ? null : (value as T);
-};
-const matches = (name: EntryName, source: string): boolean => parser.entries[name](source) !== FAIL;
+// Each reader calls its own entry, named statically (X.P.W7 `.l4`, as `index.ts` since `.k`): no entry is
+// looked up by a runtime key and no call site is shared by every reader, so each site stays monomorphic.
+const E = parser.entries;
+const answer = <T>(value: unknown): T | null => (value === FAIL ? null : (value as T));
 
 export type { ListFault, RuleBlock };
 
 /** A rule list: its blocks, and the fault it ends on (an unclosed comment, block or prelude). */
 export function ruleList(source: string): Readonly<{ blocks: readonly RuleBlock[]; fault?: ListFault }> {
-    const parsed = read<{ blocks: readonly RuleBlock[]; fault?: ListFault }>("ruleList", source);
+    const parsed = answer<{ blocks: readonly RuleBlock[]; fault?: ListFault }>(E.ruleList(source));
     // `ruleList` ends in a catch-all fault arm, so every input is one: a miss is a grammar defect.
     if (parsed === null) throw new Error("stylesheet.bbnf `ruleList` refused an input it must accept");
     return parsed;
@@ -34,14 +32,14 @@ export type AtPrelude = Readonly<{
 }>;
 
 /** An at-rule's prelude, by kind; `null` for a prelude that is not an at-rule (a style rule). */
-export const atPrelude = (prelude: string): AtPrelude | null => read<AtPrelude>("atPrelude", prelude);
+export const atPrelude = (prelude: string): AtPrelude | null => answer<AtPrelude>(E.atPrelude(prelude));
 
 /** `@property`'s name is a `<custom-property-name>`. */
-export const isPropertyName = (name: string): boolean => matches("propertyName", name);
+export const isPropertyName = (name: string): boolean => E.propertyName(name) !== FAIL;
 
 /** A `syntax` descriptor's text without its enclosing quotes. */
 export function syntaxText(serialized: string): string {
-    const parsed = read<string>("syntaxText", serialized);
+    const parsed = answer<string>(E.syntaxText(serialized));
     // Every part of `syntaxText` is optional and its core stops only before a final quote: a miss
     // is a grammar defect, never input.
     if (parsed === null) throw new Error("stylesheet.bbnf `syntaxText` refused an input it must accept");
@@ -49,34 +47,34 @@ export function syntaxText(serialized: string): string {
 }
 
 /** A `syntax` descriptor's `|`-separated components, trimmed (empty components kept). */
-export const syntaxComponents = (syntax: string): readonly string[] | null => read<string[]>("syntaxAlts", syntax);
+export const syntaxComponents = (syntax: string): readonly string[] | null => answer<string[]>(E.syntaxAlts(syntax));
 
 /** `@scope`'s prelude: the root and limit groups' text; `null` when it is not a scope prelude. */
 export const scopePrelude = (text: string): Readonly<{ root?: string; limit?: string }> | null =>
-    read<{ root?: string; limit?: string }>("scopePrelude", text);
+    answer<{ root?: string; limit?: string }>(E.scopePrelude(text));
 
 /** `@function`'s signature: its name and the parameter list's text. */
 export const functionHead = (prelude: string): Readonly<{ name: string; params: string }> | null =>
-    read<{ name: string; params: string }>("functionHead", prelude);
+    answer<{ name: string; params: string }>(E.functionHead(prelude));
 
 /** One `@function` parameter: its head text and, when a `:` is present, its default text. */
 export const functionParam = (row: string): Readonly<{ head: string; default?: string }> | null =>
-    read<{ head: string; default?: string }>("functionParam", row);
+    answer<{ head: string; default?: string }>(E.functionParam(row));
 
 /** A parameter head: `<custom-property-name> <syntax>?`. */
 export const paramHead = (head: string): Readonly<{ name: string; syntax?: string }> | null =>
-    read<{ name: string; syntax?: string }>("paramHead", head);
+    answer<{ name: string; syntax?: string }>(E.paramHead(head));
 
 /** One declaration: `name: value !important?` (a standard name lowercased, a `--*` name kept as authored; value trimmed, flag removed). */
 export const declaration = (row: string): Readonly<{ name: string; value: string; important: boolean }> | null =>
-    read<{ name: string; value: string; important: boolean }>("declaration", row);
+    answer<{ name: string; value: string; important: boolean }>(E.declaration(row));
 
 /**
  * The offset of the comma that closes an EMPTY item of a top-level comma list (the comma after
  * it, or the last comma when the list ends empty); `undefined` when every item is non-empty.
  */
 export function emptyListComma(source: string): number | undefined {
-    const parts = read<readonly CommaSpan[]>("commaSpans", source);
+    const parts = answer<readonly CommaSpan[]>(E.commaSpans(source));
     if (!parts) return undefined;
     let item = "";
     let last: number | undefined;
@@ -95,13 +93,13 @@ export function emptyListComma(source: string): number | undefined {
 
 /** `scroll(…)` / `view(…)`'s argument runs; `null` when the text is not that function. */
 export const timelineArgs = (kind: "scroll" | "view", source: string): readonly string[] | null =>
-    read<string[]>(kind === "scroll" ? "scrollFn" : "viewFn", source);
+    answer<string[]>(kind === "scroll" ? E.scrollFn(source) : E.viewFn(source));
 
 /** The text opens a timeline (`auto`, `none`, a `--name`, `scroll(`, `view(`). */
-export const opensTimeline = (token: string): boolean => matches("timelineLead", token);
+export const opensTimeline = (token: string): boolean => E.timelineLead(token) !== FAIL;
 
 /** `auto` or a length-percentage — a timeline inset or a range offset. */
-export const isTimelineLength = (token: string): boolean => matches("timelineLength", token);
+export const isTimelineLength = (token: string): boolean => E.timelineLength(token) !== FAIL;
 
 /** A `<dashed-ident>` (`--name`). */
-export const isDashedIdent = (token: string): boolean => matches("dashedIdent", token);
+export const isDashedIdent = (token: string): boolean => E.dashedIdent(token) !== FAIL;
