@@ -22,6 +22,8 @@ const list = <T>(first: T, rest: Rest<unknown>, at: number): T[] => [first, ...r
 const trim = (text: string): string => text.trim();
 const same = (text: string): string => text;
 const inner = (text: string): string => text.slice(1, -1);
+/** A declaration's property name: `--*` kept as authored, any other name ASCII-lowercased. */
+const declarationName = (name: string): string => (name.startsWith("--") ? name : name.toLowerCase());
 const at = (kind: string) => ([, rest]: readonly [string, string]) => ({ at: kind, name: kind, rest: rest.trim() });
 
 /** `stylesheet.bbnf`'s semantic actions, by production. */
@@ -86,7 +88,9 @@ export const stylesheetActions = {
     paramHead: { kind: "map", fn: ([name, syntax]: readonly [string, string | undefined]) => ({ name, syntax }) },
 
     // Declarations.
-    declName: { kind: "map", fn: (token: string) => token.trim().toLowerCase() },
+    // A standard property name is ASCII case-insensitive (folded); a custom property name
+    // (`--*`) is case-sensitive and kept as authored (css-variables-1 §2: `--Foo` ≠ `--foo`).
+    declName: { kind: "map", fn: (token: string) => declarationName(token.trim()) },
     declValue: { kind: "text", fn: trim },
     declImportant: { kind: "map", fn: (): true => true },
     declaration: { kind: "map", fn: ([name, , value, important]: readonly [string, string, string, true | undefined]) =>

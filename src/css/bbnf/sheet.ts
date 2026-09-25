@@ -67,7 +67,7 @@ export const functionParam = (row: string): Readonly<{ head: string; default?: s
 export const paramHead = (head: string): Readonly<{ name: string; syntax?: string }> | null =>
     read<{ name: string; syntax?: string }>("paramHead", head);
 
-/** One declaration: `name: value !important?` (name lowercased; value trimmed, flag removed). */
+/** One declaration: `name: value !important?` (a standard name lowercased, a `--*` name kept as authored; value trimmed, flag removed). */
 export const declaration = (row: string): Readonly<{ name: string; value: string; important: boolean }> | null =>
     read<{ name: string; value: string; important: boolean }>("declaration", row);
 

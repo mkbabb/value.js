@@ -1599,3 +1599,19 @@ The §5-era SH-1 row above (the `.j` escalation, routed UNADJUDICATED; §0w rule
 | **adjudication** | **Spec-correct on the sound side; accepted (COHESION §0ck 1).** The grammar's productions admit these code units; 0.1.4's ASCII-only first-character table refused them before the grammar was consulted (F-b-3/F-b-4). `.t` (c) cures the routing at the root (flag-aware FIRST sets with a non-ASCII bit); `.v` adopts it. Stock-ASCII routing is never reproduced to keep a number. |
 | **consumer direction** | **WIDENS** for the readers (a value instead of `null`); **NARROWS the refusal** for the entries (the diagnostic names the offending component, not the whole source). No accepted source changes its value. |
 | **gate reading** | `.v` V-1 / `.e` E-3: the adopted module against the oracle reads 0 mismatches outside exactly these 88 rows (`bench/paired/equiv.mjs product` lists each mismatch with its `nonAscii` class). |
+
+## §17 — X.P.W7.cp: custom property names keep their case, rowed as the oracle's defect (SERVED MODEL: claude-opus-5-5 · 2026-09-24) — DATED, BESIDE (E-3)
+
+Ruled by W7.md ADDENDUM (d) 1 (COHESION §0dj): the fix goes in value.js `src/**`, and the frozen oracle's disagreement is a ruled divergence row, like F-b-4 (§16).
+
+| field | reading |
+|---|---|
+| **class** | **CP-CASE** (`parseStylesheet` and its readers/collectors): a `--*` declaration name spelled with an upper-case letter. |
+| **spec** | css-variables-1 §2: custom property names are **case-sensitive** (`--Foo` and `--foo` are distinct). Standard property names stay ASCII case-insensitive. |
+| **cure (value.js `src/`)** | `src/css/bbnf/stylesheet.ts`, the `declName` action, the one place a declaration name was folded: `--*` is kept as authored, any other name is ASCII-lowercased (`declarationName`). The grammar is unchanged. Pinned by `test/css/custom-property-case.test.ts` (`--MyVar` survives; `--MyVar` ≠ `--myvar` in `collectDeclarations`; `COLOR` → `color`; keyframe declarations). |
+| **what diverges** | The retired hand parser and the frozen golden oracle (`bench/paired/oracle/golden.ndjson.gz`, frozen by `.o`) lowercased every declaration name, so `--rotationX` read as `--rotationx`. HEAD returns `--rotationX`. |
+| **oracle rows** | 4 of 1,376,531, all from one real keyframes.js sheet (`--rotationX: 360deg`): `reader:declaration` 1 · `collect:parseStylesheet(sheet)` 1 · `collect:collectStyleRules` 1 · `collect:collectDeclarations` 1. `bench/paired/equiv.mjs` classes each as `cpCase` (lowercasing exactly the `--*` name strings makes the row equal the golden row). |
+| **sheet differential** | `bench/css-equivalence/stylesheet.measure.test.ts` class **SH-2** (HEAD accepts, a `--*` name has an upper-case letter, and folding exactly those names makes HEAD deep-equal to the hybrid): 1 of 32,021 sheets. STYLESHEET DEFECTS stays 0. |
+| **adjudication** | **The oracle's defect, spec-correct on HEAD's side** (ADDENDUM (d) 1). |
+| **consumer direction** | **CHANGES a value:** a declaration name that used to come back lowercased now comes back as authored. Consumers that matched on the lowercased spelling of a mixed-case custom property must match the authored spelling. CHANGELOG `[Unreleased]` records it. |
+| **gate reading** | V-1 / L-G2 now reads 92 = 88 F-b-4 (§16) + 4 CP-CASE, and nothing else. |

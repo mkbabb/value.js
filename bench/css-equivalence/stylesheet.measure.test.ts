@@ -111,6 +111,30 @@ function withoutUnmatchedDelimiters(sheet: string): string | null {
     return [...sheet].filter((_, i) => !drop.has(i)).join("");
 }
 
+/**
+ * SH-2 · CUSTOM-PROPERTY CASE (css-variables-1 §2 — "custom property names are case-sensitive":
+ * `--Foo` and `--foo` are distinct). The retired layer ASCII-lowercased every declaration name, so it
+ * read `--MyVar` as `--myvar`; HEAD keeps a `--*` name as authored and folds only standard names
+ * (X.P.W7.cp, W7.md ADDENDUM (d) 1; the retired layer's defect, DIVERGENCE-LEDGER §17). The class
+ * governs a cell only when HEAD accepts the sheet, some `--*` declaration name in it carries an upper-
+ * case letter, and folding exactly those names makes HEAD's value deep-equal to the hybrid's: the case
+ * is then the whole of the difference.
+ */
+function foldCustomPropertyNames(node: unknown): unknown {
+    if (Array.isArray(node)) return node.map(foldCustomPropertyNames);
+    if (node === null || typeof node !== "object") return node;
+    const entries = Object.entries(node).map(([key, value]) => [key, foldCustomPropertyNames(value)] as const);
+    const out: Record<string, unknown> = Object.fromEntries(entries);
+    if ("important" in out && typeof out.name === "string" && out.name.startsWith("--")) out.name = out.name.toLowerCase();
+    return out;
+}
+const hasUpperCustomProperty = (node: unknown): boolean =>
+    Array.isArray(node)
+        ? node.some(hasUpperCustomProperty)
+        : node !== null && typeof node === "object" && (
+            ("important" in node && "name" in node && typeof node.name === "string" && node.name.startsWith("--") && node.name !== node.name.toLowerCase())
+            || Object.values(node).some(hasUpperCustomProperty));
+
 const SHEET_CLASSES: Readonly<Record<string, (sheet: string, after: ParseResult<Stylesheet>) => boolean>> = {
     "SH-1": (sheet, after) => {
         if (after.ok) return false;
@@ -119,6 +143,11 @@ const SHEET_CLASSES: Readonly<Record<string, (sheet: string, after: ParseResult<
         const a = hybrid.parseStylesheet(repaired);
         const b = parseStylesheet(repaired);
         return isDeepStrictEqual(a, b) || (!a.ok && !b.ok);
+    },
+    "SH-2": (sheet, after) => {
+        if (!after.ok || !hasUpperCustomProperty(after.value)) return false;
+        const before = hybrid.parseStylesheet(sheet);
+        return before.ok && isDeepStrictEqual(before, { ...after, value: foldCustomPropertyNames(after.value) });
     },
 };
 
