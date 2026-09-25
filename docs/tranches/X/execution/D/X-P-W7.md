@@ -2167,3 +2167,87 @@ Seat `claude-opus-5-5`, 2026-09-25, Track D. Governing text: W7.md (260 lines, r
 **Residuals.** Firefox large `parseStylesheet` (ESC-W7l3-1 below). `gen-grammar.mjs --check` in CI waits for X.P.W7P's 0.2.0 pin (§0cp). The probe cuts under `bench/records/2026-09-25-x-p-w7-l3-probes/` are probes only, never shipped.
 
 **ESCALATION ESC-W7l3-1 (to the owner, via the orchestrator; ADDENDUM (b): "a cause it cannot cure … returns ESCALATED with the per-rule profile").** `.l3`'s charge is cured: the refusal cost is found (speculative prelude values, the prelude re-scan, and the refused record's freezes), cured once for every engine (emitter `f0059db14` + actions `f7b087a4`, `1e04369b`), and Firefox rej `parseStylesheet` moved from x1.038 to .915–.984. The cell that stays RED is **Firefox large `parseStylesheet`** (median ≈ 1.04 over 12 clean reps; it read .932–.995 at the RESUME 4 close and 1.033–1.127 at `.l2`: it sits within about ±6% of the retired parser). It is **not a refusal cost** — 57 discarded values per pass. The profile puts SpiderMonkey's extra share in the accepted sheet's own work: the rule-list scans, the value lists, and the stylesheet layer's assembly (glue 7.3 vs 3.5 ms on V8). The profile is `bench/records/2026-09-24-x-p-w7-profile-l3-val.json`, the phase split is `…-bisect-l3-large-1.json`, and the reads are listed above. Six levers were measured and none separates from noise on this cell with the others held: the four refused at `.g`, (b)'s uniform scan (shipped), the list readers (shipped, 5/5 reps below the product in `list4`), the atPrelude head guard, and the unfrozen envelope. The owner decides: (i) a further unit for SpiderMonkey's accepted-sheet cost, scoped to the stylesheet layer (`src/css/stylesheet.ts`, `rules.ts`) and the value lists, with a Firefox-only profiler; or (ii) read Firefox large at a stated noise band. Relief is not taken here (§0di, §0dq).
+
+## RESUME 5 Close (2026-09-25, close seat `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 260 lines; ADDENDUM (e) at `:255` binds). From this record: header, `## RESUME 5 — Open` through `## RESUME 5 Unit plan`, and the `.l3` receipt (the last section). Every earlier section stands (E-3). **Crash-recovery:** ⟨`git status --porcelain -- src bench test scripts/gen-grammar.mjs docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md package.json package-lock.json`⟩ → empty; ⟨`git -C ../bbnf-lang-x-p-w7-typescript status --porcelain | wc -l`⟩ → `0`; ⟨`git rev-parse HEAD origin/x-p-w7-typescript`⟩ → `f0059db14…` both. parse-that master's dirty `rust/**`, `README.md`, `.cargo/config.toml` rows are outside this wave's sets (untouched). **No inherited partial work.**
+
+### Act 1: commit roster, and whether `.l3` stayed in its writable set
+⟨`git show --stat --format= <c>`⟩ per commit:
+
+| Commit | Paths touched | In set? |
+|---|---|---|
+| bbnf-lang `f0059db14` (deferred text values + re-entered text runs kept; = origin) | `typescript/{README.md, src/analysis/{index,reentry}.ts, src/emit.ts, src/gen.ts, test/reentry.test.ts}` | yes (`typescript/**`; `gen.ts` the named §0bt adjacent edit, inside the set) |
+| value.js `31121b23` (re-emission) | `src/css/bbnf/generated/grammar.{js,d.ts}` | yes (via `gen-grammar.mjs`; `--check` current, below) |
+| value.js `f7b087a4` (refused record plain) | `src/css/bbnf/{color,value}.ts`, `test/css/bbnf-refusal.test.ts` | yes (`.k2` grant + `test/css/**`) |
+| value.js `1e04369b` (readers' lists in one pass) | `src/css/bbnf/stylesheet.ts`, `test/css/bbnf-refusal.test.ts` | yes |
+| value.js `1a9501c8` (records) | 45 paths; ⟨`git show --name-only --format= 1a9501c8 \| grep -vc '^bench/'`⟩ → `0` | yes (`bench/**`) |
+| value.js `e393a7a8` (receipt) | this record | yes |
+
+**Landed wrong: none.** No `package.json`/lockfile, `ci.yml`, `src/css/result.ts`, bbnf-lang master, PR #1 or `scripts/dev/dev.sh` path in any commit. ⟨`git log --oneline e393a7a8..HEAD`⟩ at open → empty.
+
+### Act 2: the gates re-read by this seat (RESUME rule: the gates `.l3` turns plus stay-GREEN and `.cp`'s ADDENDUM (d) gates; older unit gates cited from `## Check 3 of the RESUME 4 Close`)
+
+**Correctness, gates and size** (final bytes: bbnf-lang `f0059db14`, value.js src at `1e04369b`, HEAD `e393a7a8`).
+- ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead e393a7a8…`, `srcDirty ""`, `bankedManifestOk 79/79`, `retiredAt 2155142b…`.
+- **L-G2 / V-1** ⟨`node bench/paired/equiv.mjs product <scratch>`⟩ ×2 (load 26.69 → 30.49) → `compared 1376531/1376531 rows · mismatches 92 (ASCII-only sources 1 · CP-CASE 4)` both = 88 F-b-4 + 4 CP-CASE. **GREEN ×2.**
+- **L-G3** ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`; ⟨`node bench/paired/instrument.mjs`⟩ (emitter linked) → `"plainEqualsShipped":true`, `"shippedInstrumentTokens":[]`. **GREEN.**
+- **K2-b** ⟨`grep -rn deepFreeze src | wc -l`⟩ → `0`; **V-8** ⟨`grep -rnE 'GRAMMAR_MODULES|new ParserState|reset\(\)' src/css/bbnf --exclude-dir=generated | wc -l`⟩ → `0`. **GREEN.**
+- **E-4** ⟨`node scripts/gen-grammar.mjs --check`⟩ ×2, `node_modules/@mkbabb/bbnf-lang` linked to the worktree (`npm run -s build` exit 0; worktree `status --porcelain | wc -l` → `0` after) → `grammar.js is current (sha256 0b33024a890599da…)` both; ⟨`git status --porcelain src/css/bbnf/generated | wc -l`⟩ → `0`. Link removed, 0.1.4 restored (⟨`grep '"version"' node_modules/@mkbabb/bbnf-lang/package.json`⟩ → `0.1.4`). **GREEN ×2.**
+- **E-2** ⟨`node bench/paired/audit.mjs`⟩ (linked emitter; load 42.65 → 42.48) → `rules 160 · sources 29944 · sheets 4 · checks 200137551 · violations 0 · modeCalls 4791680 · modeDiffs 0`. **GREEN.**
+- **E-1/E-3/E-5** ⟨`npx vitest run`⟩ ×2 in the bbnf-lang worktree `typescript/` → `Test Files 21 passed (21) · Tests 299 passed (299)` both; ⟨`npx tsc --noEmit -p . | grep -c 'error TS'`⟩ → `0`. **GREEN ×2.**
+- **E-6** ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js | wc -c`⟩ → `92127`; `| gzip | wc -c` → `12902` (ceilings 125,646 / 14,517). **GREEN.**
+- **`.cp` pins (ADDENDUM (d))** ⟨`npx vitest run test/css/custom-property-case.test.ts`⟩ ×2 → `Tests 4 passed (4)` both. **GREEN ×2.**
+- ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`; ⟨`… | grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `28 MIRROR-DEFECTS 0` (no non-zero line). ⟨`npx vitest run test/css`⟩ → `Test Files 7 passed (7) · Tests 75 passed (75)`. **GREEN.**
+- ⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit | grep -c 'error TS'`⟩ → `0 · 0 · 0`. **GREEN.**
+- ⟨`npx vitest run`⟩ → `Test Files 2 failed | 70 passed (72) · Tests 2 failed | 958 passed (960)`: `test/spectrum-luma.test.ts` C-5 BORN-RED and `demo/test/shell/reka-binding-idiom.test.ts` NG-6, the foreign pair. **GREEN** (0 CSS failures).
+- **L-6** ⟨`git diff HEAD --stat -- package.json package-lock.json | wc -l`⟩ → `0`. **Held.**
+
+**Timing** (load recorded in every log; the host carried the other three tracks' fleets throughout, 1-minute load 19.6–43.2; no quiet window reached). Records moved to scratchpad `w7l3close/` (`l3close-r{1,2}`, `l3close-ff-r3`, `l3close-node-r{1,2}` + logs); ⟨`git status --porcelain bench | wc -l`⟩ → `0`. Firefox 150.0.2 · WebKit 26.4 · Chromium 148.0.7778.96 (the `.l2`/`.l3` pins). Set-aside cells are counted and never claimed.
+- **browsers, read 1** ⟨`node bench/paired/browser.mjs l3close-r1 firefox,webkit,chromium 2 whole,acc,rej,large 11 product`⟩ (load 42.58 → 32.06; 8 set-aside reps, every row with ≥ 1 clean rep): ⟨`grep -E '^product' | grep -c '<1 '`⟩ → **66/66**. Firefox **rej parseStylesheet .896 · .939**, **large parseStylesheet .938 · .967**; WebKit rej .709 · .691, large .60 · .571; Chromium rej .477 · .486, large .338 · .341.
+- **browsers, read 2** ⟨same, tag `l3close-r2`⟩ (load 34.53 → 19.58, peak 33 in between; **57 set-aside reps**, every row with ≥ 1 clean rep, several Firefox rows with exactly one): **65/66**. Firefox **rej .933 · .94 (+1 SA .956)**; **large .975 · 1.007 → RED**; WebKit rej .702 · .692, large .556 · .577; Chromium rej .458 · .473, large .327 · .316.
+- **Firefox re-read** ⟨`node bench/paired/browser.mjs l3close-ff-r3 firefox 4 large,rej 11 product parseStylesheet`⟩ (load 27.98 → 37.80): rej **.989 · .959 · .966 · .952** clean (2 SA .944, .906); large **1.04 · 1.176 · 1.013 · 1.013** clean (4 SA 1.028 · 1.142 · .997 · 1.075) → **RED**.
+- **node, read 1** ⟨`node --expose-gc bench/paired/isolated.mjs l3close-node-r1 product 3 11 whole,acc,rej,large`⟩ (load 19.58 → 30.46; 21 set-aside reps): `whole-7/7`, `accepted-7/7`, `rejected-7/7` all `GREEN`; whole medians color .656 · scalar .569 · value .378 · values .385 · keyframe .703 · timing .64 · stylesheet .56 (ceilings .90/.81/.57/.58/.78/.87/.85: **inside**); rej stylesheet .566; large .393.
+- **node, read 2** ⟨same, tag `l3close-node-r2`⟩ (load 30.46 → 28.76; 42 set-aside reps): all three 7/7 `GREEN`; whole .677 · .608 · .395 · .405 · .682 · .628 · .591 (inside); acc keyframe .626; rej stylesheet .546; large .605 (clean .366 · .844).
+- (The instrument's `O-2` line reads `DOES NOT HOLD` in both node reads: it is `.o`'s stock-reproduction check, meaningful only on the stock product; recorded, not a W7 regression.)
+- **Reading.** `.l3`'s charge holds on this seat's reads: **Firefox rej parseStylesheet** is below the retired parser in all 8 clean reps (.896–.989). **Firefox large parseStylesheet** stays at noise distance and reads RED: .938 · .967 (r1), .975 · 1.007 (r2), 1.013–1.176 (ff-r3); 8 clean reps, median ≈ 1.01. Every node, Chromium and WebKit cell is below 1 in both reads.
+
+### Acts 3 and 4: verification artefacts and E13
+- The spec names no Verification Artefacts clause beyond its gates. This seat's paired records are in scratchpad `w7l3close/`; `.l3`'s banked records (`1a9501c8`) stand as the records of record.
+- E13 ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/`, glass `BK/coordination/` + `BL/` (⟨`ls -td glass-ui/docs/tranches/B*/ | head -3`⟩ → `BL BK BJ`), keyframes.js `V/coordination/`, atlas `P/coordination/` → `0 · 0 · 0 · 1 · 0 · 0`. The one file is `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (11:10): glass's own formation cursor, not mail and not addressed to Track D or W7's scope. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. **0 UNREAD in scope.**
+
+### Gate table, BEFORE → AFTER (BEFORE = RESUME 5 Baseline; AFTER = this seat's reads)
+
+| Gate | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|
+| L-G1 Firefox rej parseStylesheet | x1.038 (born-RED) | .896 · .939 · .933 · .94 · .989 · .959 · .966 · .952 (8/8 clean reps < 1) | **GREEN ×2** |
+| L-G1 Firefox large parseStylesheet | VOID (load 37) | .938 · .967 (r1) · .975 · 1.007 (r2) · 1.04 · 1.176 · 1.013 · 1.013 (ff-r3) | **RED** (noise distance) → ESC-W7l3-1 |
+| L-G1 Firefox, other 20 rows | GREEN | < 1 in both reads (r2 on thin clean samples, load-reported) | **GREEN ×2** |
+| L-G1 WebKit 22 rows | GREEN | 22/22 < 1, both reads (rej .69–.71, large .556–.60) | **GREEN ×2** |
+| L-G1 Chromium 22 rows | GREEN | 22/22 < 1, both reads (rej .458–.486, large .316–.341) | **GREEN ×2** |
+| L-G1 node whole/acc/rej/large | GREEN | 7/7 · 7/7 · 7/7, both reads; large .393 / .605 | **GREEN ×2** |
+| whole-7/7 inside ceilings | GREEN | keyframe .703 / .682 (.78) · stylesheet .56 / .591 (.85) · value .378 / .395 (.57) | **GREEN ×2** |
+| L-G2 V-1 | 92 = 88 + 4 | 92 = 88 F-b-4 + 4 CP-CASE ×2 | **GREEN ×2** |
+| L-G3 | 0 | 0; `plainEqualsShipped true` | **GREEN** |
+| `.cp` pins (ADDENDUM (d)) | 4/4 | 4/4 ×2 | **GREEN ×2** |
+| stay-GREEN: css-equiv · test/css · npm test · vue-tsc · `--check` · K2-b · V-8 | GREEN | 19/19, 28× MIRROR-DEFECTS 0 · 7/75 · 958/960 (foreign pair) · 0/0/0 · current ×2 (`0b33024a…`, linked) · 0 · 0 | **GREEN** |
+| E-1/E-3/E-5 · E-2 · E-6 | GREEN | 21/299 ×2, tsc 0 · 200,137,551 checks, 0 violations, 0 modeDiffs · 92,127 / 12,902 B | **GREEN** |
+| P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half | relieved | relieved by citation to X.P.W7P (§0cp 1), GATE-KEYED on the owner's OTP | **relieved → X.P.W7P** |
+
+### Residuals (named owners)
+- **R-l3-1: Firefox (SpiderMonkey) large parseStylesheet** stays at noise distance above the retired parser: 8 clean reps here, .938–1.176, median ≈ 1.01; the receipt's 12 clean reps median ≈ 1.04. It is not a refusal cost (57 discarded values per pass). The per-rule profile (`2026-09-24-x-p-w7-profile-l3-val.json`, `bisect-l3-large-1.json`) places the gap in the accepted sheet's own scans, value lists and the stylesheet-layer glue. Owner: **the owner, via ESC-W7l3-1**.
+- **The release chain:** P-6, E-8, V-9 and its CI step (`gen-grammar.mjs --check` on the installed pin), Z-1, Z-3's publish half, and the bbnf-lang PR #1 merge. Owner: **X.P.W7P**, GATE-KEYED on the owner's npm one-time password.
+- **Load.** No quiet window was reached this sitting (19.6–43.2). Read 2 has 57 set-aside browser reps and node read 2 has 42; the verdicts rest on clean reps only. Owner: whichever seat executes ESC-W7l3-1's ruling, which re-reads Firefox large on a quiet host.
+- **Foreign test rows** (not W7's): `spectrum-luma` C-5 BORN-RED, `reka-binding-idiom` NG-6. Owners: their Track A/B units.
+
+### Escalations
+- **ESC-W7l3-1** (the `.l3` receipt) is carried open, and this seat's reads confirm it: the refusal cost is cured on every engine, and Firefox large parseStylesheet stays RED at noise distance. The owner chooses: (i) a further unit on SpiderMonkey's accepted-sheet cost, scoped to `src/css/stylesheet.ts`, `rules.ts` and the value lists; or (ii) a stated noise band for this cell. ⟨`grep -n ESC-W7l3-1 docs/tranches/X/COHESION.md | wc -l`⟩ → `0` (unruled). No relief is taken here.
+- **ESC-W7p-1 / e-1 / v-1 / z-1** stay with X.P.W7P.
+- This seat raises no new escalation. **Adjacent edits: none. Out-of-set writes: none.** `scripts/dev/dev.sh` untouched.
+
+### Four-verb line
+W7.md has no §State clause and designates no seat to stamp a verb. ADDENDA (b), (c) and (e) bind L-G1 on every engine ×2, and Firefox large parseStylesheet reads RED in 2 of this seat's 3 Firefox reads. X.P.W7 is therefore **not IMPLEMENTED**. It stays **PARTIAL**, and VERIFIED is not stamped. It moves to IMPLEMENTED once ESC-W7l3-1 is ruled and executed.
+
+**Verdict: PARTIAL.** `.l3` found the refusal cost and cured it in set: speculative prelude values, the prelude re-scan, and the refused record's freezes. Firefox rej parseStylesheet went from x1.038 to .896–.989. Node, Chromium and WebKit are below the retired parser on every cell, twice. Firefox is below it on 21 of 22 rows. Firefox large parseStylesheet stays RED at noise distance, and ESC-W7l3-1 holds it for the owner.
+
+**Commits (this seat):** this RESUME 5 Close, plus the LEDGER status cell.
