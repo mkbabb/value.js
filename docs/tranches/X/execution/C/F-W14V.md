@@ -1340,3 +1340,79 @@ ESC-u1-1 · ESC-u1-2 = ESC-au2-1 · ESC-au3-1 · A2-FO-X-7 (C1-5).
 - C1-1, C1-2, C1-3 and C1-4 are cured. C1-5 is escalated to the owner.
 - fourier commits: `a262e97` `bdf7064` `97325fb`.
 - The LEDGER row stays **PARTIAL**, because the four owner escalations are open. The next act is Check 2.
+
+## Check 2
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · FRESH ADVERSARIAL CHECK (L-20 pass 2), Track C, verify-only, no cure. Spec read whole (67 lines, addenda (a)–(g)); record read header → `## Unit plan`, `## Close`, `## Check 1`, `## Repair 1`; escalation receipts located by grep. fourier HEAD = `a0c61b6` (F.CT, touches `src/`/`tests/`/`bench` only; web/api = `97325fb`). ⟨`git diff --quiet HEAD -- web api && echo CLEAN`⟩ → `CLEAN`, so `:3100` serves HEAD. Servers `:3100` `:8000` `:27018` `:4190` listening. Crash-recovery: ⟨`git status --porcelain` on this record and LEDGER⟩ → clean.
+
+**Verdict: NOT-CONFORMANT.** Repair 1's four cures reproduce, and every claimed GREEN reproduces. The owner-held escalations still leave REDs that the spec's bytes do not relieve.
+
+### Gates reproduced (this seat)
+- vue-tsc ⟨`npx vue-tsc --noEmit`⟩ → exit 0 · **GREEN**
+- vitest ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)` · **GREEN**
+- api ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 uv run pytest api/tests/conformance/test_identity.py::test_owner_required`⟩ → `1 passed` · **GREEN, unchanged**
+- `.s2` ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-detached.spec.ts --project=chromium --headed --workers=1`⟩ → `5 passed (17.3s)` · **GREEN**
+- C1-1 and C1-2 ⟨`… e2e/f-w14u-misc.spec.ts e2e/f-w14-residuals.spec.ts -g "r119|r212|G-c1" --project=chromium --workers=1`⟩ → `3 passed (9.0s)` · `3 passed (9.2s)` · **GREEN ×2**
+- C1-3 ⟨`… e2e/visual-checkpoint.spec.ts:199 --project=mobile-chromium --workers=1`⟩ → `1 passed (2.2s)` · `1 passed (3.2s)` · **GREEN ×2**
+- C1-4 ⟨`git status --porcelain web`⟩ → empty (the 23 f-w14 PNGs are at HEAD) · **HELD**
+- The owner-held REDs ⟨`… e2e/f-w14v-au2.spec.ts e2e/f-w14v-au3.spec.ts -g "L2-15|L1-12" --project=chromium`⟩ → `4 failed` (L2-15 @360/390/430, L1-12). ⟨`… e2e/f-w14u-vedit.spec.ts -g v88`⟩ → `1 failed`. **RED, reproduced.**
+- The full e2e (≈33 min per run) was not re-run. Repair 1 left no `web/src` delta, and every outside-set member of the Close's reading was reproduced individually above.
+
+### Axes
+- (2) **Bounds HELD.** ⟨`git show --stat` on `a262e97` `bdf7064` `97325fb`⟩ → `web/e2e/f-w14u-misc.spec.ts`, `web/e2e/f-w14-residuals.spec.ts`, and one golden PNG. All are in `web/e2e/**` (addendum (c) bounds). ⟨`git log --name-only 4bd63b08..HEAD | grep -c scripts/dev/dev.sh`⟩ → `0`.
+- (3) **Masking HELD.** ⟨`git diff 7e72a98..97325fb -- web/e2e | grep -E '^\+.*(\.skip|fixme|catch)'`⟩ → ∅. The removed lines were read one by one, and each has a stronger or equal replacement:
+  - r119/r212: count 1 plus label becomes the accessible name plus one current row; count 0 becomes the bare name plus 0 current rows.
+  - G-c1: "the bar is visible" on the first upload becomes the stage dot-ring visible and the bar count 0. A new replace limb asserts that the bar is visible and then gone.
+  - The golden re-cut was bisected by bytes to an intended `.eq2` change, and the diff is described.
+- (4) **Families HELD.** One commit per defect.
+- (5) **E-3 HELD.** ⟨`git diff --stat 4bd63b08..HEAD -- <registry/adjudicated> F-W14V.md CONFORMANCE-2026-08-03.md`⟩ → only `F-W14V.md +19`, insertions only (the dated addenda (f)(g)). Repair 1 restored the dated f-w14 evidence rather than rewriting it.
+- (6) **Mail clean.** ⟨`find` over value V/ and V/coordination, glass BK/coordination and BL, and keyframes V/coordination, `-newer INBOX.md`⟩ → ∅. 0 UNREAD in scope.
+- (7) **Four-verb line.** LEDGER `:90` = PARTIAL. It is lawful and does not move (see State).
+- (8) **Goal at the bytes.** Met for `.s2`, `.p` p1/p2, `.nav`, `.dm`, and addendum (g) routings 1 and 2. **Not met** for the addendum-(c)/(e) register rows held by escalation (below).
+- (9) **Figures.** Every Repair 1 figure reproduces: 2/2 → GREEN, G-c1 GREEN, vc `:199` GREEN, 23 PNGs restored.
+
+### Register (severity · claim · receipt · cure)
+- **C2-1 HIGH (by the spec's own weight) · L2-15 ×3 and vedit v88 are RED, and the spec gives them no relief (ESC-u1-2 = ESC-au2-1).**
+  - A2-FO-L2-15 is weighted **HIGH** in the register (`relay/X-ALL-BK-AUDIT-2.md:54`). Its glass half, the overflow cue (UIA-F-215), is relayed and ADOPT-AT-LANDING. Its consumer half, the tool count against the dock cap, is RED.
+  - Every consumer lever collides with a standing ruling, so the seat lawfully escalated. No seat is at fault. But an owner-held escalation is not one of §2's three dispositions, and axis 10 admits no "awaiting ruling" relief.
+  - **Receipt:** `4 failed` and `1 failed` above.
+  - **Cure:** the owner rules (a) a glass dock overflow seat as a new O-row, which makes it ADOPT-AT-LANDING; (b) Delete moves into More tools below sm, with v88 restated; or (c) an amended lock. Then the owning seat acts, GREEN ×2.
+- **C2-2 MEDIUM · L1-12 is RED (ESC-au3-1), and its relay was never sent.**
+  - The `.au3` receipt names option (a), a dated addendum beside O-74 asking glass to put `.card-title` on a named rung. That option would make L1-12 ADOPT-AT-LANDING with a relayed id. The receipt leaves it "for the wave check or root to send".
+  - ⟨`grep -rln -i card-title docs/tranches/X/relay ../glass-ui/docs/tranches/BK/coordination`⟩ → ∅, so it was not sent.
+  - **Receipt:** `f-w14v-au3.spec.ts:119` `failed`.
+  - **Cure:** root sends the O-74 addendum, or the owner rules (b). Either one relieves this.
+- **C2-3 MEDIUM · G-u is 254/256 (ESC-u1-1, F-81 + F-9's final form).**
+  - Two things block it: a persisted easing-key migration (`api/models/shared.py:69`), and glass `Timeline` has no transport. Neither is relayed as an O-row.
+  - **Cure:** the owner rules the migration or the re-home to `.au3` / O-74a E-3; the glass transport ask goes out as an O-row.
+- **C2-4 LOW · A2-FO-X-7 is OPEN** (the /paper search plate at ≥ lg, a LOW row, which conflicts with UIA-F-59).
+  - **Cure:** the owner rules.
+- **INFO · the F.W14 frame specs default `FW14_PHASE ?? "after"`** (Repair 1 observation). Every full run therefore rewrites dated `after-*` frames in the working tree. This is a different wave's instrument and does not block. It is recorded for the owner.
+- **INFO · the load intermittents** (UIA-F-17, v87, au0 d1440-light) do not block.
+
+### Honest-RED adjudication (axis 10)
+**Relieved by spec, owner = glass (ADOPT-AT-LANDING):**
+- `.c3` c3m/c3g: MAGNET-STATE-HIDDEN / MENU-ICON-GAP (add. (a), O-76 addendum)
+- `.p` p3 ×2: TOASTER-OFFSET (§1 `.p` 2)
+- `.pd` collapsed ×6: O-84/O-84a (add. (f); §0ea puts them in 10.2.0 band 0)
+- O-77/O-77a LAYER-HEADER-LABEL (add. (b))
+- O-82 F-177/F-203 (add. (c))
+- L2-12, and L2-18ˢ/L3-14 HELD (O-74/O-74a E-2)
+- the O-74/O-75 ˢ halves
+
+**Relieved as F.W14U's inherited named set** (§2):
+- contrast-floor ×3
+- gallery-admin-a11y ×4
+- vc `:81 :102 :123`
+- f-w14u-d d2
+
+**Not relieved** (C2-1..C2-4): L2-15 ×3 · vedit v88 · L1-12 · G-u 254/256 (F-81) · A2-FO-X-7.
+
+### Successors
+⟨`grep -rln 'Opens after.*W14V' docs/tranches/X`⟩ → only the execution records `C/F-W14V.md` and `C/F-W14U.md` (quotes, not specs). No wave spec gates on F.W14V CLOSED, so no successor is blocked.
+
+### State
+**NOT-CONFORMANT.** LEDGER `:90` stays PARTIAL.
+- Every seat-curable defect is cured.
+- What remains is owner-held: C2-1 and C2-3 wait on the owner's rulings. C2-2 closes by root's O-74 addendum or the owner's ruling (b). C2-4 waits on the owner's ruling.
+- The next act after those is the owning seat's cure, then Check 3.
