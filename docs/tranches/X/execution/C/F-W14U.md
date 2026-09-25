@@ -1865,3 +1865,47 @@ F.W14V "Opens after: F.W14U CLOSED" (`F-W14V.md:4`) is **not GREEN**, so F.W14V 
 ### Verdict
 
 **NOT-CONFORMANT.** One HIGH (C1R-1: the close is incomplete, killed mid-run) and no BLOCKER or CRITICAL. The three readings the close did claim reproduce. The LEDGER status is not set to CLOSED. An event line is appended.
+
+## Repair 1 — RESUME 1
+
+SEAT REPAIR (round 1 of the RESUME 1 close), `claude-opus-5-5`, 2026-09-24 ~23:05–23:50 EDT. Spec `F-W14U.md` read whole (89 lines, addenda through (h)). Record: `## RESUME 1 — Open` through `## Check 1 — RESUME 1`. fourier HEAD ⟨`git rev-parse --short HEAD`⟩ → `7ee9b65` (unchanged; this seat writes no fourier byte).
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. value.js: this record and LEDGER clean at open (Check 1 committed the killed close section as found). Nothing inherited.
+
+### Defect → cure
+
+| # | defect | cure | commit |
+|---|---|---|---|
+| C1R-1 (HIGH) | the RESUME 1 close was killed after §(3); no Close 2, no Close 3, no gate table, no state | this seat completes §(4) onward at the bytes: the full e2e `--workers=1` ×2 with load, vue-tsc ×2, vitest ×2, the gate table and the state (below). Verify-only: nothing in fourier moves | this record |
+| C1R-2 (INFO) | goal looks met on the bytes | none owed; re-read below | — |
+| C1R-3 (INFO) | orphaned `vite preview :4190` from the killed run | ⟨`ps -o pid,ppid,command -p 52290,52243`⟩ → the chain `51799` (`sh -c "npx vite build … && npx vite preview … --port 4190"`, **ppid 1**) → `52243` (npm exec) → `52290` (vite preview). ⟨`kill 52290 52243 51799`⟩ → ⟨`ps -p …`⟩ empty. Both full runs below then built and served their own `:4190` instrument from the Playwright `webServer` (LW-3, `playwright.config.ts:92-102`) | — (process act) |
+
+### (4) Close 2 — full e2e `--workers=1` ×2, with load
+
+- **Run 1.** ⟨`FW14_PHASE=urep-r1 BASE_URL=http://localhost:3100 npx playwright test --workers=1 --reporter=line`⟩, load (1/5/15-min) `74.99 73.35 88.94` at 23:10:19 → `13.32 19.97 45.98` at 23:27:20 → **`11 failed · 3 skipped · 387 passed (17.0m)`**. The 11: contrast-floor `:82` ×2 (light, dark) and `:128` · gallery-admin-a11y `:91 :103 :114 :125` · visual-checkpoint `:81 :102 :123` (the named baseline set, 10 of its 11; fullscreen `:40` passed) **plus f-w14-uia `:162` (UIA-F-17)**.
+- **Run 2.** ⟨`FW14_PHASE=urep-r2 …` same command⟩, load `13.01 19.12 44.48` at 23:27:57 → `8.30 10.43 22.76` at 23:41:58 → **`10 failed · 3 skipped · 388 passed (14.0m)`**. The 10 are the named set exactly as run 1 read it (fullscreen `:40` passed again). `:162` passed.
+- **UIA-F-17 alone.** ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14-uia.spec.ts:162 --project=chromium --workers=1`⟩ ×2 at load `8.22` · `11.02` → `1 passed (23.0s)` · `1 passed (23.3s)`.
+- **What the run-1 RED is, at the bytes.** Its `error-context.md` reads `locator.hover: Test timeout of 60000ms exceeded … waiting for getByRole('button', { name: 'Play animation' })`, and the page snapshot at failure holds `button "Pause animation" [pressed]`; the failure frame shows the trace fully drawn and the transport showing Pause. So the case did not merely run slow: **after the test's keyboard pause (asserted at `f-w14-uia.spec.ts:181`), the clock was playing again**, and the helper's hover target no longer existed. A candidate cause is in `web/src/components/visualization/composables/useWorkspaceLoader.ts:152-189`: the watch on `[store.epicycleData, store.basesData]` calls `anim.play()` on every later data arrival when `!anim.playing` (`:185-186`), which overrides the user-intent flag `playing` (`stores/animation.ts:128`, `:205-215`) when a late `basesData` lands after a pause — a window that only opens under host load. **This is a candidate, not a measured root cause:** it is not reproduced at load ≈10, and no falsifier yet reads it RED. It is not a registered defect of Check 1, and it is not in the named baseline set or the honest-RED ids; it is carried to the next Check and the root below (R-1).
+- Artifacts: the run-1 failure context is banked at the seat scratchpad (`r1-uia-f17/`); `web/test-results/` now holds run 2's.
+
+### (5) Close 3 — types and units
+
+⟨`npx vue-tsc -b` ×2⟩ → `exit 0` · `exit 0`. ⟨`npx vitest run` ×2⟩ → `Test Files 14 passed (14) · Tests 86 passed (86)` ×2.
+
+### Gate table (the Close, completed)
+
+| gate | reading | state |
+|---|---|---|
+| Close 1 — all 256 UIA-F rows dispositioned | 231 closed here; 25 routed by id to F.W14V `.u` (addendum (h), `## Close — RESUME 1` §(2)); 0 unrouted | **CONFORMANT-HONEST-RED** (routed) |
+| Close 2 — full e2e `--workers=1` ×2 with load, REDs ⊆ named set ∪ honest-RED | run 2: `10 failed`, the named set exactly; run 1 (load 75→13): the named set + **UIA-F-17 `:162`** (GREEN in run 2 and ×2 alone) | run 2 **within set**; run 1 **one case outside** (R-1) |
+| Close 3 — `vue-tsc -b` 0, vitest GREEN | exit 0 ×2 · 86/86 ×2 | **GREEN** |
+| honest-RED ids | DOCK-COLLAPSED-FORM (O-65) · GLASS-SELECT-GREY (O-66) · SIDE-DOCK-EDGE (O-67) · GLASS-VEIL-GREY (O-62) · DOCK-TRIGGER-CLIP (O-63) · DOCK-SCROLL-MORPH (O-55) · O-82 POPOVER-ANCHOR (with F.W14V `.u`) | producer-owned, carried |
+| E13 | `## Close — RESUME 1` §(3): 0 UNREAD; ⟨`grep -nE '\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md \| wc -l`⟩ re-read at this seat → `0` | **HELD** |
+
+### Residual
+
+- **(R-1) UIA-F-17 `f-w14-uia.spec.ts:162` RED at high load (run 1, load ≈75).** The paused clock resumed on its own (snapshot `Pause animation [pressed]`); candidate cause `useWorkspaceLoader.ts:185-186` (data-arrival auto-play overriding a user pause), unconfirmed. Not a masking-grade budget question (the 60 s budget was not the limit: the Play control ceased to exist). Owner for a ruling: the next Check (L-20 pass 2) and the root. If ruled in scope, the cure is `web/**` (a born-RED falsifier that pauses, then forces a late `basesData` arrival, and asserts the clock stays paused), inside this wave's bounds.
+
+### State
+
+The RESUME 1 Close is **completed** by this seat: Close 1 CONFORMANT-HONEST-RED by citation, Close 3 GREEN ×2, Close 2 within the named set in run 2 and one case outside it in run 1 (R-1). The status is **not** set to CLOSED here; it is left to the Check to rule R-1. LEDGER: an event line is appended.
