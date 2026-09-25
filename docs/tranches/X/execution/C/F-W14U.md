@@ -1765,3 +1765,23 @@ F.W14V "Opens after: F.W14U CLOSED" (`F-W14V.md:4`) — **not GREEN**; F.W14V is
 ### Verdict
 
 **NOT-CONFORMANT** — 1 HIGH (C3-1: G-u 231/256, ESC-C-U1 unruled), 0 BLOCKER/CRITICAL; every claimed GREEN reproduces (vue-tsc 0 ×2, vitest 86 ×2, api 275, v174 ×2). LEDGER status stays PARTIAL; event line appended.
+
+## RESUME 1 — Open (COHESION §0dp + addendum (h))
+
+SEAT 0 (OPEN, RESUME), `claude-opus-5-5`, 2026-09-24 (execution under the owner's begin-word of 2026-09-17).
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only; fourier HEAD ⟨`git rev-parse --short HEAD`⟩ → `7ee9b65` (Repair 2's cure, the Check 3 tree). value.js: nothing dirty inside this seat's set. **Nothing inherited.**
+
+**Precondition.** ESC-C-U1 is RULED at COHESION §0dp and `F-W14U.md` ADDENDUM (h) (`:80-89`, read whole): the 26 open G-u rows and the Close-2 outside-set REDs (vc `:145 :164 :199` [mobile-chromium], f-w13-radius `:105`, the `:4190` preview instrument, LW-1..LW-3) are **re-homed whole, by id, to F.W14V `.u`**. F.W14U closes CONFORMANT-HONEST-RED once its record cites F.W14V `.u` for them. The honest-RED set is O-55 / O-62 / O-63 plus the named baseline set (O-82 POPOVER-ANCHOR for F-177/F-203 rides F.W14V `.u`).
+
+**Units already done (commits verified).** ⟨`git -C fourier-analysis log --oneline -60 | grep -o "F.W14U\.[a-z0-9]*" | sort | uniq -c`⟩ → `.a2 .admin .b .c1 .c2 .d .eq .gallery .misc .paper .s(×2) .shell .srv .t .vdock .vedit .vstage`, one or more commits each. `.a` has no fourier commit by design (value.js receipt only, record `:246`). Every unit has its receipt in this record (`:77`–`:1328`, plus `## F.W14U.c1` `:683`, `## F.W14U.c2` `:747`, `.a2` `:965`). **No unit is owed**, so nothing is re-dispatched.
+
+**E13 Step-0 mail sweep (2026-09-24).** Paths: value.js `V/` and `V/coordination/` · glass `BK/coordination/` (⟨`ls -td glass-ui/docs/tranches/*/`⟩ → `BL/ BK/ BJ/`; BL has no `coordination/`, so BK stays the mail path, BL swept too) · keyframes `V/coordination/` · atlas `P/coordination/`. ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path except `glass BL/PLAN.md`, which is glass's own plan and not mail addressed to value.js. The two newer-today glass BK files (`valuejs-outbound-2026-09-24-{slides-repin,popover-anchor}.md`) are value.js OUTBOUND. **0 unrowed, 0 UNREAD.**
+
+**Baseline.** No unit is owed, so no born-RED gate is re-run at this open. The banked readings are cited: Check 3 (`:1721`) at fourier `7ee9b65` → vue-tsc 0 ×2 · vitest 86/86 ×2 · api 275 · v174 GREEN ×2 · G-u 231/256 with 25 rows ESC-C-U1 (now ruled and re-homed). The full e2e `--workers=1` ×2 is still owed to the Close.
+
+**Unit plan (RESUME 1).** groups `[]`. alreadyDone: `.s .t .d .a .b .srv .vdock .vstage .vedit .eq .gallery .admin .paper .shell .misc .c1 .c2 .a2`. **Next:** a Close (verify seat) that (1) cites F.W14V `.u` by id for the 26 rows (addendum (h)) and the LW-1..LW-3 REDs, (2) re-reads full e2e `--workers=1` ×2 with load, where REDs must stay within the named set plus the honest-RED ids plus the re-homed ids, (3) re-reads vue-tsc 0 and vitest; then an L-20 check.
+
+## RESUME 1 — Unit receipts
+
+(none owed)
