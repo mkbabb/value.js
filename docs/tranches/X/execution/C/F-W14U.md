@@ -1785,3 +1785,83 @@ SEAT 0 (OPEN, RESUME), `claude-opus-5-5`, 2026-09-24 (execution under the owner'
 ## RESUME 1 — Unit receipts
 
 (none owed)
+
+## Close — RESUME 1
+
+SEAT CLOSE (RESUME 1, verify-only, cures nothing), `claude-opus-5-5`, 2026-09-24 ~22:40 EDT. Spec `F-W14U.md` read whole (89 lines: Units · Close · addenda §0cq, (b)..(h)). Record: header through `## Unit plan`, `## Close`, `## Repair 1`, `## Check 3`, `## RESUME 1 — Open` (plan `groups []`). fourier HEAD ⟨`git rev-parse --short HEAD`⟩ → `7ee9b65` = ⟨`git log origin/m/w1-bump-migration -1`⟩ `7ee9b65`.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. value.js: this record + LEDGER clean at open. Nothing inherited.
+
+### (1) Commit roster and bounds
+
+⟨`git log --oneline 67ad614..HEAD | wc -l`⟩ → `21` = the first Close's 17 (roster and bounds read there, `## Close` §(1), no landed-wrong by bounds) + the four repair commits, each read here by ⟨`git show --stat`⟩:
+
+| seat | fourier | paths | bounds |
+|---|---|---|---|
+| Repair 1 C1-2 (LW-1) | `a926748` | `web/e2e/f-w13-radius.spec.ts` + 2 checkpoint PNGs | `web/**`, §0bt oracle re-seat (declared) |
+| Repair 1 C1-2 (LW-2) | `56e56a3` | 1 checkpoint PNG | `web/**` |
+| Repair 1 C1-3 (LW-3) | `0e34595` | `web/e2e/f-w14u-misc.spec.ts`, `web/playwright.config.ts` | `web/**` |
+| Repair 2 C2-1 (F-174) | `7ee9b65` | `web/e2e/f-w14u-vdock.spec.ts`, `web/src/.../composables/useImageOverlay.ts` | `web/**` |
+
+RESUME 1 dispatched no unit (`groups []`), so no commit is owed past `7ee9b65`. **No landed-wrong.**
+
+### (2) G-u — the register (Close 1), under addendum (h)
+
+230 rows closed at the first Close + F-174 CURED by Repair 2 (falsifier `v174` RED → GREEN ×2, reproduced ×2 at Check 3) = **231/256 closed here**. The remaining **25 rows are re-homed whole, by id, to F.W14V `.u`** by COHESION §0dp / `F-W14U.md` addendum (h) (`:80-89`), which says F.W14U "closes CONFORMANT-HONEST-RED once its record cites F.W14V `.u` for these rows". Cited by id:
+- `.vdock` E-1 **F-81** (+ F-9's final form) · E-2 **F-14 (BROKEN)**, F-93, F-182, F-244 (the single live stage moves into the takeover) · E-3 **F-79** + F-77 consumer half (one `ViewLayersMenu`) · E-4 **F-173** (the d2 setup lines, §0bt).
+- `.vstage` E-1 **F-68** (+ F-168 stage limb, F-170 legend limb) · E-2 **F-183** · E-3 **F-74** (the neighbour oracles at 390).
+- `.vedit`/`.eq` E-1 **F-85**, **F-241** (glyph + ink, `lib/equation/notation.ts` hsl literals onto palette tokens) · `.vedit` E-2 **F-177** + `.eq` E-3 **F-203** (anchoring: honest-RED **O-82 POPOVER-ANCHOR**, no hand-rolled positioning) · `.eq` E-2/E-4 **F-201**, **F-253** (server limbs, "Conjectured" tier).
+- PARTIAL limbs carried with them: F-71 F-146 F-172 F-238 F-239 (plus the PARTIAL ids above) · HELD **F-149** consumer half (LOCK) · F-77 consumer half.
+- Close 2 outside-set items: vc `:145 :164 :199` [mobile-chromium], f-w13-radius `:105` (LW-1, LW-2) and the `:4190` instrument (LW-3) — also cured by Repair 1 (`a926748` `56e56a3` `0e34595`, GREEN ×2 in Repair 1's targeted set) and re-homed for any residual diff reading to F.W14V `.u`.
+- Addendum (e) (AUDIT-2, 56 rows), the `.s` completion (`.s2`) and `.c3`: F.W14V, by addendum (f) and §0dc (not owed here).
+
+**G-u: CONFORMANT-HONEST-RED** — 231/256 closed in F.W14U; 25 routed by id to F.W14V `.u`; 0 unrouted.
+
+### (3) E13
+
+⟨`find <path> -maxdepth 1 -type f -newermt "2026-09-24 22:30"`⟩ → value.js `V/` none · `V/coordination/` `INBOX.md` (last commit `952a05cb` rows I-61, O-82 confirmed) · glass `BK/coordination/` `valuejs-outbound-2026-09-24-popover-anchor.md` (value.js's own O-82, outbound; confirmed by I-61) · glass `BL/` (newest, ⟨`ls -td glass-ui/docs/tranches/*/`⟩ → `BL/ BK/ BJ/`; no `coordination/`) `FORMATION-PROGRESS.md`, `PLAN.md` (glass-internal) · keyframes `V/coordination/` none · atlas `P/coordination/` absent at the bytes (`No such file or directory`; nothing addressed). ⟨`grep -nE '\| *UNREAD *\|' INBOX.md`⟩ → 0. **0 UNREAD in scope.**
+
+## Check 1 — RESUME 1 (L-20 pass 1)
+
+SEAT CHECK (L-20 pass 1 of the RESUME 1 close, verify-only, cures nothing), `claude-opus-5-5`, 2026-09-24 ~22:46 EDT. Spec `F-W14U.md` read whole (89 lines, addenda through (h)). Record: `## Close`, `## Check 3`, `## RESUME 1 — Open`, `## RESUME 1 — Unit receipts`, `## Close — RESUME 1`. fourier HEAD ⟨`git rev-parse --short HEAD`⟩ → `7ee9b65` = ⟨`git ls-remote origin m/w1-bump-migration`⟩ `7ee9b65d`; ⟨`git log 7ee9b65..HEAD`⟩ → empty.
+
+**Crash-recovery / the close as found.** ⟨`git diff --stat docs/tranches/X/execution/C/F-W14U.md`⟩ at this seat's open → `+35`, uncommitted: the `## Close — RESUME 1` section, last written 22:45:25 (⟨`stat -f %Sm`⟩), ending after its §(3) E13. It has no gate table, no Close 2 (full e2e ×2) or Close 3 (vue-tsc, vitest) reading, no state line and no verdict. The LEDGER row was not moved (still `OPEN … Close owed`, ⟨`grep -n '^| F.W14U' LEDGER.md`⟩ `:88`) and no event line was appended. Its full e2e run started at ~22:43 (an orphaned `vite preview :4190`, ppid 1, started 22:43) and stopped after 4 results (`test-results/`: contrast-floor ×3 plus f-w14-admin-table, stamped 22:44-22:45). **Reading: the close seat was killed mid-run.** This seat commits that section as found, with this Check, so that nothing is lost. It does not complete the close.
+
+### Axes
+
+| axis | reading |
+|---|---|
+| (1) claimed GREENs | The close claims three readings, and all three reproduce. **§(1) bounds**: ⟨`git show --stat` a926748 56e56a3 0e34595 7ee9b65⟩ gives the four repair commits inside `web/**`, matching its table. **§(2) G-u citation**: its 25 ids equal F-W14V.md addendum (c) `:47-48` ("unit `.u`: F.W14U's 26 open rows"; F-174 has been CURED since, so 25 remain), and the union is 231 + 25 = 256. **§(3) E13**: ⟨`grep -nE '\| *UNREAD *\|' V/coordination/INBOX.md`⟩ → 0. The close claims **nothing** on Close 2 or Close 3. |
+| (2) bounds | No fourier commit since `7ee9b65` (Check 3 held it). The value.js side is the record only. `scripts/dev/dev.sh` was not touched by this wave. **HELD.** |
+| (3) masking | There is no new diff since Check 3's `0e34595..7ee9b65` reading (none found). **HELD.** |
+| (4) families | No commit in RESUME 1. **HELD.** |
+| (5) E-3 | ⟨`git diff --stat 71ef200e^..HEAD -- V/megatranche/registry/adjudicated/ X/audit/UI-AUDIT-fourier.md X/fourier/waves/`⟩ → `F-W14U.md +31` · `F-W14V.md +48`, 79 insertions and 0 deletions. These are root COHESION addenda (§0cz..§0dp), not this wave's writes. **HELD.** |
+| (6) mail | 0 UNREAD (above). **HELD.** |
+| (7) four-verb | The line did not move. The LEDGER still reads `OPEN … Close owed`, and the close wrote no state. Unmoved is lawful, but it means the close is not complete. |
+| (8) goal at the bytes | Close 1 is **MET by citation**: 231 rows closed, and 25 rows are routed by id to F.W14V `.u` under addendum (h) `:80-89`. Close 3 is **GREEN at this seat**: ⟨`npx vue-tsc -b` ×2⟩ → `exit 0` · `exit 0`; ⟨`npx vitest run` ×2⟩ → `Test Files 14 passed (14)` · `Tests 86 passed (86)` ×2. Close 2 was **measured once here, not by the close.** ⟨`FW14_PHASE=ucheck-r1 BASE_URL=http://localhost:3100 npx playwright test --workers=1 --reporter=line`⟩, load `94.11 → 51.78` (1-min average) → **`12 failed · 3 skipped · 386 passed (20.6m)`**. The 12 are contrast-floor `:82` ×2 and `:128`, gallery-admin-a11y `:91 :103 :114 :125`, vc `:81 :102 :123`, fullscreen `:40` (the named baseline set of 11), plus f-w14-uia `:162` UIA-F-17 (a `Test timeout of 60000ms` at `locator.hover`). ⟨the same case alone, `--workers=1`, ×2⟩ → `1 passed (19.3s)` · `1 passed (17.1s)`. It is load-bound: the case's own budget comment sizes 60 s at 3.5× a 17.2 s run measured at load 9-15, and this run started at load 94. None of the re-homed outside-set oracles (vc `:145 :164 :199`, f-w13-radius `:105`, `:4190`) is RED. Run dirt: ⟨`git status --porcelain`⟩ → `?? .worktrees/` only. |
+| (9) figures | The close published no Close 2 or Close 3 figures, so nothing is there to reproduce. The figures it did publish (21 commits, 231/256, 0 UNREAD) reproduce. |
+
+### (10) Honest-RED adjudication (as it would stand at a completed close)
+
+| RED gate | relief at the spec bytes | verdict |
+|---|---|---|
+| G-u, 25 rows (F-14 BROKEN, F-68, F-74, F-79, F-81, F-85, F-173, F-183, F-77ˢ, the PARTIAL set, F-149ˢ) | addendum (h) `:80-89` re-homes them by id to F.W14V `.u` (F-W14V.md `:47-48`); O-82 POPOVER-ANCHOR for F-177/F-203 | **RELIEVED (routed)** |
+| named baseline set: contrast-floor `:82`×2 `:128` · gallery-admin-a11y ×4 · vc `:81 :102 :123` · fullscreen `:40` | Close 2 "within the named baseline set" | **RELIEVED** |
+| DOCK-COLLAPSED-FORM (O-65) · GLASS-SELECT-GREY (O-66) · SIDE-DOCK-EDGE (O-67) · GLASS-VEIL-GREY (O-62) · DOCK-TRIGGER-CLIP (O-63) · DOCK-SCROLL-MORPH (O-55) | honest-RED ids named in the spec addenda and carried from F.W14; producer-owned | **RELIEVED** |
+| f-w14-uia `:162` UIA-F-17 (this seat's run 1 only) | not RED by the spec: a load timeout that passes ×2 alone | INFO (a completed close must read it again under its own load) |
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1R-1 | **HIGH** | The RESUME 1 close is incomplete. Its seat was killed after §(3). It published no Close 2 reading (the full e2e `--workers=1` ×2 with load that the spec requires), no Close 3 reading, no gate table, no state and no LEDGER move, and the section was left uncommitted. The spec's Close is therefore not published, so no verdict can be ratified. | the uncommitted `+35` diff at this seat's open; file mtime 22:45:25; an orphan `vite preview :4190` (ppid 1); `test-results/` held 4 entries; LEDGER `:88` `OPEN … Close owed` | A fresh Close seat (a close retry at RESUME 1, verify-only) completes §(4) onward: full e2e ×2 with load, vue-tsc and vitest ×2, the honest-RED set, and the state. It may cite this Check's run as corroboration only. |
+| C1R-2 | INFO | On the bytes the goal looks met. Close 1 holds by citation, Close 3 is GREEN ×2, and one Close 2 run falls inside the named set apart from the load-bound UIA-F-17, which passes ×2 alone. | §(8) | none; expected CONFORMANT-HONEST-RED at a completed close |
+| C1R-3 | INFO | An orphaned `vite preview --outDir dist/e2e-preview --port 4190` (pid 52290, ppid 1) from the killed run is still listening. `reuseExistingServer: true` reuses it, and it was built from HEAD `7ee9b65`. | `ps -o ppid= -p 52290` | The next close may stop it by pid before its runs so that the suite rebuilds its own instrument. |
+
+### Successors
+
+F.W14V "Opens after: F.W14U CLOSED" (`F-W14V.md:4`) is **not GREEN**, so F.W14V is lawfully blocked until a completed close is checked CONFORMANT(-HONEST-RED). ⟨`grep -n "Opens after" fourier/waves/*.md | grep W14U`⟩ → `F-W14V.md:4` only.
+
+### Verdict
+
+**NOT-CONFORMANT.** One HIGH (C1R-1: the close is incomplete, killed mid-run) and no BLOCKER or CRITICAL. The three readings the close did claim reproduce. The LEDGER status is not set to CLOSED. An event line is appended.
