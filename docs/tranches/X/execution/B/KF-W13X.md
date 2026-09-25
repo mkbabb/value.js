@@ -620,3 +620,43 @@ SERVED MODEL: claude-opus-5-5 (unit `.springd`, G6; writable `demo/scenes/spring
 **Residuals.** The caption at 360 clears the sheet by 0.1 px (reachable, touching): the plate itself runs under the peek — KFA-216's host root. The accent Dismiss twin in the controls pane (`SpringScene.vue` ribbon) still duplicates the stage verb (not G6). `Alert`/`Skeleton` are imported from glass's root entry (10.1.0 publishes no subpath for either) — a relay ask for subpaths belongs to the close's accretion.
 
 **Escalations:** none. **kf commits:** `dade65bd` (1). **value.js:** `e4d8782e` (evidence) + this receipt. Not pushed (the push rides the wave close).
+
+### .sequence
+
+SERVED MODEL: claude-opus-5-5 (G7 `.sequence`, Track B). Writable: kf `demo/scenes/sequence/**` · `test/demo/**`; value.js own receipt + `keyframes/evidence/W13X/sequence/**`.
+
+**Act 0 — crash recovery.** ⟨`git -C keyframes.js status --porcelain | grep -E 'demo/scenes/sequence|test/demo'`⟩ → 8 inherited paths from a killed predecessor `.sequence` seat (index-staged `D` SequenceAxis.vue + SequencePlayhead.vue; `M` SequenceTarget.{vue,css} · sequenceMotion.ts · useSequenceDemo.ts · sequence-instrument-truth.test.ts; `??` sequence-stage-truth.test.ts) plus its uncommitted value.js evidence `W13X/sequence/**` (seq.mjs probe, before ×2 at the clean HEAD, after-r1, a crashed after-r2, unit-before ×2). Every hunk read whole and judged against the rows: conforming. Finished: one unused import (`withSetup`, TS6133 in `npm run check`) removed from the new test; one stray blank line in SequenceTarget.vue. No hunk rewritten. The crashed after-r2 was re-run (below).
+
+**Act 1 — BEFORE (inherited, at kf `dade65bd`, predecessor's own `vite` :5199).** ⟨`BASE=… TAG=before RUN=1|2 TIMING=1 node seq.mjs`⟩ ×2, 1440/390 × light/dark: stage axes/playheads/`@ms` leaves **1/1/5**; plate `border 1px solid`, radius **0px**, tinted gradient; rail `/ 0.08`; header lines at 390 **3**, status badge present; play plateau **283–285 ms** (KFA-47); end balls all at the rail end (`560/560`, UIA-KF-214); reel over-card **+28.2…+28.9 px** (KFA-48), reel plateau **~1950 ms**, max jump **484.9 px** backwards (KFA-107/108); boot re-raster `any` **22889 px** (KFA-161). Falsifier ⟨`vitest run sequence-stage-truth.test.ts`⟩ at the HEAD bytes → `Tests 9 failed | 1 passed (10)` ×2 (`unit-before-r1/r2.log`).
+
+**Act 2 — the cure, one commit (the rows share SequenceTarget.{vue,css} + useSequenceDemo.ts; one meaning: the stage is the subject).** kf **`e4142dd9`**:
+- A2-KE-L3-7: the pane owns timing → SequenceAxis.vue + SequencePlayhead.vue deleted, `@ms` row labels deleted; each lane shows its index only.
+- UIA-KF-210/211: header = h2 + ONE clock Metric + the reel Button; the `stagger × N` caption and the ready/playing badge deleted; `flex-nowrap`.
+- UIA-KF-212/312: the `.seq-stage` plate (0px radius, 1px border, tinted wash) dropped — the Card is the only frame (glass 10.1.0 publishes no nested-radius relay, so no local formula); rail `--rail-tint: 18%`.
+- UIA-KF-214: `--row-span = ROW_DURATION / duration`; the ball's translate is `(row-start + ball-p·row-span)` of the time column.
+- KFA-48: `--seq-room` = the springs' crest (read off both curves) past the last end time; the time column is `100cqw/(1+room)`.
+- KFA-47: `--ball-p` declares only 0%/100% (one spring segment); fade/pop keep their 70% stop.
+- KFA-107/108: the reel is three phases on the ball's master pose (rewind → overshoot glide → return), child animations no longer borrowed; hand-back seeks `sequence.time` (values already on screen).
+- KFA-162/220: `playHeldByReel = wasPlaying` after the pause; settle resumes; a Pause mid-reel cancels; the reel status is the Button's `loading`/`aria-busy`.
+- KFA-161: the lane drop fills `backwards` only.
+- UIA-KF-315: the card's bound `lg:max-w-3xl → lg:max-w-5xl` (lanes 560 → 716 px at 1440); the 36 px scrub ball left the stage at .s2.
+- KFA-160: ruled INTENDED (the row's own fix shape (b)): Play from the settled end is the transport restart, as on every scene; documented at the branch.
+- Adjacent edits: none. `sequence-instrument-truth.test.ts` re-seated (its subject SequenceAxis was deleted): N-1's terminal now read on the pane's master slider `aria-valuetext` = `${d} ms of ${d} ms`; the three-rect equality became the one-time-column invariant plus `existsSync(...) === false` for both deleted files. No assertion dropped without its re-seat.
+
+**Act 3 — AFTER (own server: vite API `createServer({cacheDir: <scratch>, optimizeDeps.force})` on :5241, glass `10.1.0`).** after-r1 (predecessor, same bytes) + after-r2 (this seat): axes/playheads/`@ms` **0/0/0** ×4 configs ×2; inline editors (`role=slider` in card) **0** (G-W13V-s1 held); plate border **0**; rail `/ 0.18`; header lines **1** at 1440 and 390; badge **false**; play plateau **0 ms**; end balls at their own end times (1440: 289.9/373.7/457.4/541.2/625 of 716.4); reel plateau **0**, over-card **−22.7…−24.5 px** (inside the stage), max step 43–55 px, `endVsBefore` 0×5; boot re-raster `any` **0 px**. Frames: `W13X/sequence/frames/{before,after}-*`. Falsifier ⟨`npx vitest run --project demo sequence-stage-truth sequence-instrument-truth`⟩ → `Tests 15 passed (15)`; GREEN in both full runs below.
+
+**Gates.** ⟨`npm run check`⟩ EXIT 0 ×2 (BEFORE this seat's fix: EXIT 2, TS6133 in the inherited test). ⟨`npm run test:demo`⟩ run 1 `93 passed / 655 passed`; run 2 `1 failed | 654` = `preview-toggle.test.ts (5)` 5000 ms timeout (not a sequence file, a load flake); run 3 `93 / 655` GREEN. ⟨`npx eslint demo/scenes/sequence <2 tests>`⟩ EXIT 0.
+
+**Dispositions (33 = KFA 16 + UIA-KF 16 + A2 1; self-count below).**
+- CURED `e4142dd9`: A2-KE-L3-7 · KFA-47 · KFA-48 · KFA-49 · KFA-105 · KFA-107 · KFA-108 · KFA-161 · KFA-162 · KFA-219 · KFA-220 · UIA-KF-030(B) · UIA-KF-210 · UIA-KF-211 · UIA-KF-212 · UIA-KF-214 · UIA-KF-312 · UIA-KF-314 · UIA-KF-315 · UIA-KF-316 (20).
+- CURED (compound): UIA-KF-029(B) — the scale×translate half was KFA-3 (`28e97ec3`, X.KF.W13V.k); the ball-off-gate half is UIA-KF-214's time geometry here (rest balls on their gates, served).
+- INTENDED: KFA-160 (fix shape (b), documented at the branch).
+- CURED-ON-STAGE by `.s2` (`a939e7d6`), residual RE-HOMED → `.timeline` (the editors now live in `timeline/components/SequenceLanes.vue`, outside this unit's set): KFA-159 · KFA-217 · UIA-KF-031(B) · UIA-KF-098 · UIA-KF-099 · UIA-KF-213 · UIA-KF-313 · UIA-KF-317 (8). On the stage: 0 sliders, 0 scrub ball, 0 handles (served). The pane already reads the lane axis once per press (031's cause); 317's motion preview and non-monotonic order, 099's hand-rolled sliders vs glass `<Slider :marks>`, 313's focus shape and 213/159's thumb inset are the pane's to measure.
+- RE-HOMED → `.scene`: KFA-106 · KFA-190. The 229 px slide is gone (nav cube→sequence: 1–2 moving frames, ≤9 px, at first card paint, before and after alike); what remains is the scene/transition layout commit (`demo/app/transition/**`, shell), not a sequence byte.
+- HELD → `.dh` (addendum (e), design hierarchy of Sequence): KFA-218 (owner-call row: whether the ignition spans the header chrome).
+
+Self-count ⟨`sed -n "/^\*\*Dispositions/,/^Self-count/p" | grep -oE "(KFA|UIA-KF|A2-KE)-…" | sort -u | grep -v "^KFA-3$" | wc -l`⟩ → **33** (KFA-3 is a cited prior cure, not a row of this unit), ×2 identical.
+
+**Residuals / notes.** (1) The served KFA-162 scenario in `seq.mjs` could not drive Reset→Play through the collapsed transport dock (clock stayed at 1940 before and after — an instrument limit, noted in the probe's own header); KFA-162 rests on the mounted falsifier (RED→GREEN ×2). (2) The h2 keeps its pre-existing `truncate`; "Sequence" never overflows at 360+, but `.dh`'s "no ellipsis in effect" predicate owns that call. (3) 390 `docSH 1015 > vh 844`: A2-KE-L2-2, `.mobile`'s gate, not this unit's. (4) `.sq` (addendum (e)) is the same squared-plate defect as UIA-KF-212: the plate is gone at `e4142dd9`; `.sq` may cite this. (5) kf commits are local (origin/master is 37 behind HEAD, the wave's close pushes).
+
+**Commits.** kf `e4142dd9`; value.js: this record + `keyframes/evidence/W13X/sequence/**` (hash in the LEDGER/return).
