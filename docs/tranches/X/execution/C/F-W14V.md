@@ -1436,3 +1436,38 @@ SERVED MODEL: claude-opus-5-5 · 2026-09-25 · REPAIR SEAT round 2, Track C. Spe
 
 ### State
 **NOT-CONFORMANT, unchanged.** LEDGER `:90` stays PARTIAL. Next: the owner rules C2-1, C2-3 and C2-4, and root sends the O-74 `.card-title` addendum and the Timeline transport O-row. Then the owning seats cure, then Check 3.
+
+## Check 3
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · FRESH ADVERSARIAL CHECK (L-20 pass 3), Track C, verify-only, no cure. Spec read whole (67 lines, addenda (a)–(g)); record read header → `## Unit plan`, `## Check 2`, `## Repair 2`. Crash-recovery: fourier dirty = `src/fourier_analysis/contours/*` only (F.CT, outside this wave's set, untouched); ⟨`git diff --quiet HEAD -- web api && echo CLEAN`⟩ → `CLEAN` (web/api = `97325fb`; ⟨`git log 97325fb..HEAD -- web api`⟩ → ∅). ⟨`git log af9a711a..HEAD`⟩ in value.js → ∅: nothing moved since Repair 2. No owner ruling on C2-1/C2-3/C2-4 in COHESION (last §0ea `08353549`, which does not touch them); ⟨`grep -rln -i card-title docs/tranches/X/relay ../glass-ui/docs/tranches/BK/coordination`⟩ → ∅ (the O-74 `.card-title` addendum is still unsent).
+
+**Verdict: NOT-CONFORMANT (unchanged from Check 2).** Every claimed GREEN reproduces; the owner-held REDs are still unrelieved by the spec's bytes.
+
+### Gates reproduced (this seat)
+- vue-tsc ⟨`npx vue-tsc --noEmit`⟩ → exit 0 · GREEN
+- vitest ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)` · GREEN
+- api ⟨`MONGO_TEST_URI=… uv run pytest …test_identity.py::test_owner_required`⟩ → `1 passed` · GREEN
+- `.s2` ⟨`… f-w14v-detached.spec.ts --project=chromium --headed --workers=1`⟩ → `5 passed (19.2s)` · GREEN
+- C1-1/C1-2 ⟨`… -g "r119|r212|G-c1"`⟩ → `3 passed (11.6s)` · GREEN
+- C1-3 ⟨`… visual-checkpoint.spec.ts:199 --project=mobile-chromium`⟩ → `1 passed (3.6s)` · GREEN
+- Owner-held ⟨`… f-w14v-au2 f-w14v-au3 f-w14u-vedit -g "L2-15|L1-12|v88"`⟩ → `5 failed` (v88 `:198`, L2-15 @360/390/430 `:104`, L1-12 `:119`) · RED, reproduced
+- Full e2e not re-run (web/api bytes unmoved since Check 2; every outside-set member read individually above).
+
+### Axes
+(2) bounds HELD — no new commit; ⟨`git log --name-only 4bd63b08..HEAD | grep -c scripts/dev/dev.sh`⟩ → `0`. (3) masking HELD (no new diff). (4) families HELD. (5) E-3 HELD — ⟨`git diff --stat 4bd63b08..HEAD -- registry/adjudicated F-W14V.md CONFORMANCE-2026-08-03.md`⟩ → `F-W14V.md +19` insertions only (dated addenda). (6) mail clean — ⟨`find` four paths `-newer INBOX.md`⟩ → ∅. (7) LEDGER `:90` PARTIAL, does not move. (8) goal met for `.s2` `.p` p1/p2 `.nav` `.dm` (g); NOT met for the held register rows. (9) Repair 2's figures (`5 failed`, 0 cures) reproduce.
+
+### Register (severity · claim · receipt · cure)
+- **C3-1 HIGH (= C2-1) · L2-15 ×3 + vedit v88 RED, no spec relief (ESC-u1-2 = ESC-au2-1; A2-FO-L2-15 weighted HIGH).** Receipt: `5 failed` above. Cure: owner rules (a) glass dock-overflow O-row → ADOPT-AT-LANDING, (b) Delete into More tools below sm + v88 restated, or (c) amended lock; owning seat then GREEN ×2.
+- **C3-2 MEDIUM (= C2-2) · L1-12 RED; the O-74 `.card-title` addendum is still unsent.** Receipt: `f-w14v-au3.spec.ts:119` failed; relay grep ∅. Cure: root sends the O-74 addendum (→ ADOPT-AT-LANDING) or owner rules (b).
+- **C3-3 MEDIUM (= C2-3) · G-u 254/256 (F-81 + F-9 final form, ESC-u1-1).** Cure: owner rules the easing-key migration (`api/models/shared.py:69`) or the re-home; root sends the glass Timeline-transport O-row.
+- **C3-4 LOW (= C2-4) · A2-FO-X-7 OPEN** (conflicts with UIA-F-59). Cure: owner ruling.
+- INFO · FW14_PHASE default (another wave's instrument) and the load intermittents: non-blocking, as Check 2.
+
+### Honest-RED adjudication (axis 10)
+Relieved (unchanged from Check 2): `.c3` MAGNET-STATE-HIDDEN/MENU-ICON-GAP (add. (a), O-76a) · `.p` p3 TOASTER-OFFSET · `.pd` ×6 O-84/O-84a (add. (f), §0ea 10.2.0) · O-77/O-77a LAYER-HEADER-LABEL · O-82 F-177/F-203 · L2-12, L2-18ˢ/L3-14 HELD (O-74a E-2) · O-74/O-75 ˢ halves · F.W14U inherited named set (contrast-floor ×3, gallery-admin-a11y ×4, vc `:81 :102 :123`, f-w14u-d d2). **Not relieved:** L2-15 ×3 · v88 · L1-12 · G-u 254/256 · A2-FO-X-7.
+
+### Successors
+⟨`grep -rln 'Opens after.*W14V' docs/tranches/X --include=*.md`⟩ → execution records only; no wave spec gates on F.W14V CLOSED, so no successor is blocked.
+
+### State
+**NOT-CONFORMANT.** LEDGER `:90` stays PARTIAL. The wave cannot converge by another check or a repair seat; the next act is the owner's rulings (C3-1, C3-3, C3-4) and root's two relays (O-74 `.card-title` addendum; Timeline-transport O-row), then the owning seats' cures, then Check 4.
