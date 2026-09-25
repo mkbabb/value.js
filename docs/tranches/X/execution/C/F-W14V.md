@@ -494,3 +494,58 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), Track C, 2026-09-25. Sco
 - `web/e2e/visual-checkpoint.spec.ts:194`, plus its golden, re-baselined after the diff was read.
 
 **Commits:** fourier `0beb3a2` (the falsifier) · `0e817fd` (the move plus the adjacent oracle edits), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `0e817fde4ddf`). value.js: this record.
+
+### F.W14V.p
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), Track C, 2026-09-25. Scope: F-W14V.md §1 `.p` (:21-24), COHESION §0cz. Writable: fourier `web/src/**`, `web/e2e/**`, `api/**` (not needed: the server half is unchanged).
+
+**Acts, in order**
+1. **Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain | grep -E '^.. (web/src|web/e2e|api)/'`⟩ → empty. Nothing inherited. fourier HEAD at open = `0e817fd` (`.eq2`).
+2. **Measured the anchors at the true bytes.**
+   - `api/routers/visualizations.py:176` → `return errors.owner_required(detail="A session is required to publish.")`, reached only when `resolve_session` returns None. `api/dependencies.py:209-211`: that happens only when **no** `X-Session-Token` header is sent (a bad token is a 401 "Invalid or expired session" instead).
+   - `VisualizationView.vue:236-253` `handlePublish`: when signed out it already stopped before the round trip with `toast("Log in to publish to the gallery.", "info")`, a dead-end toast (UIA-F-95, `.vstage`).
+   - **The owner frame's cause, reproduced:** a remembered slug with no token (`fourier-user-slug` set, `fourier-user-token` absent). `isLoggedIn` is true, so the save goes out with no session. The real API answers 401 `urn:contract:owner-required`. `workspace.saveVisualization` writes it into `store.error`, and the loader's channel (`useWorkspaceLoader.ts:194`) raises the raw toast "A session is required to publish." over the pane's bottom edge. Frame: the p2 RED failure shot (the owner frame, byte for byte in layout).
+   - The shell's existing inline sign-in is `UserSlugBar.vue`'s `Popover` (the "Log in" `DockTrigger` in `AppDock.vue:166`), with its open state held in a local `showLogin`.
+   - **Glass Toaster, READ-ONLY:** ⟨`cat dist/components/toast/Toaster.vue.d.ts`⟩ → props `{ position?: "top-left"|"top-center"|"top-right"|"bottom-left"|"bottom-center"|"bottom-right" }` only. The viewport (`dist/toast-DVOwo6GB.js:214-240`) is `fixed top-0 z-toast flex max-h-screen w-full` + `p-4` + `md:max-w-[420px]`, with a per-position edge class. ⟨`grep -n 'offset\|props\|position' glass-ui/src/components/toast/Toaster.vue`⟩ at glass `bc2acc13` (10.1.0) → `:19` `defineProps<{ position?: ToasterPosition }>` only. **No offset prop, no offset token.** `App.vue:146` mounts `<Toaster />` (default `bottom-right`).
+3. **Falsifier `web/e2e/f-w14v-p.spec.ts`** (fourier `8aaf925`), served from :3100 against the API on :8000. Sign-in is the real `POST /api/sessions`; only the save and the lift are fulfilled, so a run leaves no public piece behind.
+   - **p1:** signed out at 1440. Publish must open `#user-slug-input`, focused; 1.5 s later there must be no "session is required" and no "Log in to publish" text; 0 POSTs before sign-in. Then "Generate a new slug", and "Published to the gallery" must appear: 1 POST carrying the new `fourier-user-token` and 1 PATCH.
+   - **p2:** a remembered slug with no token. The save's POST goes to the **real** API, and the spec asserts one 401 from it. The same assertions as p1 follow: the inline sign-in, never the raw toast, and a resume after sign-in.
+   - **p3 @1440×900 and @1024×768:** the success toast's box and `.viz-configurator .configurator-aside` must not intersect.
+   - **RED ×2 on `0e817fd`:** ⟨`FW14V_PHASE=before BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-p.spec.ts --project=chromium --workers=2`⟩ → `4 failed`. p1 `#user-slug-input … element(s) not found`. p2 hover timed out: the first draft seeded a bogus token, and the page did not load ("Invalid or expired session"), which is not the owner's shape. p2 was redrawn to the no-token shape and not counted from this run. p3 @1440 `Received: 36872.125`, @1024 `Received: 36872.125`. Run 2 (`-g 'p1|p2|1440'`, `--workers=1`) → `3 failed`: p1 the same; p3 @1440 the same. The redrawn p2 ×2 (`-g p2`, two runs) → `1 failed` each: `#user-slug-input … not found`, and the failure shot shows the raw toast "A session is required to publish." over the pane.
+4. **The cure** (fourier `69af796`):
+   - `stores/auth.ts`: `requestSignIn()` sets `signInRequested` and returns a promise. `endSignInRequest()` settles it with `isLoggedIn`. A second request supersedes the first, which settles `false`. `forgetUser()` ends the local account state, and `logout` now shares it.
+   - `UserSlugBar.vue` watches `signInRequested` (immediate) and opens its own popover. `closeLogin()` (called on success, dismiss and Escape) calls `endSignInRequest()`.
+   - `lib/api-problem.ts`: `isOwnerRequired(e)`, true for `ApiProblem.is("urn:contract:owner-required")`.
+   - `stores/workspace.ts` `saveVisualization` rethrows that typed problem rather than writing `error`, so the loader channel never toasts it.
+   - `VisualizationView.vue` `handlePublish`: when signed out it awaits `signInToPublish()` (which closes an open takeover first) and resumes on `true`. `saveSignedIn()` handles the stale shape: on `owner-required` it calls `auth.forgetUser()`, asks for the sign-in, and saves once more on `true`.
+   - The "Log in to publish" toast and the view's now-unused `useToast` are removed.
+   - **The server contract is unchanged** (no `api/**` edit).
+5. **Toast placement: measured, and not cured (see ESC-p-1).** The spec's mechanism, "glass's Toaster offset", is absent at glass 10.1.0 (act 2). Glass's only placement input is `position`, and it cannot clear the pane. At 1024×768 the Configurator is stacked: the aside is `{x 8, y 400, w 1008, h 356}`, full width at the page's bottom. At 390 glass's viewport is `top-0 w-full` for every position (its `sm:` edges). So every bottom position overlaps the aside at 1024, and every top position covers the app dock, which is also where the inline sign-in anchors. No consumer overlay or position was substituted.
+6. **Gates after the cure.**
+   - ⟨`FW14V_PHASE=after … f-w14v-p.spec.ts -g 'p1|p2' --workers=1`⟩ → `2 passed (20.5s)`. ⟨`FW14V_PHASE=after … f-w14v-p.spec.ts --workers=1`⟩ (full file) → p1 and p2 passed, and `2 failed` for p3 @1440 (`toast {x 1036, y 789, w 388, h 95} over aside {x 1008, y 100, w 424, h 788}`, `Received: 36872.125`) and p3 @1024 (`toast {x 620, y 657} over aside {x 8, y 400, w 1008, h 356}`, `Received: 36872.125`). **p1 and p2 GREEN ×2. p3 RED ×3 at @1440 and ×2 at @1024, unchanged by this cure, as expected.**
+   - ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 .venv/bin/python -m pytest api/tests/conformance/test_identity.py::test_owner_required -q`⟩ ×2 → `1 passed in 0.27s`, then `1 passed in 0.23s`. **GREEN unchanged.**
+   - ⟨`npx vue-tsc --noEmit`⟩ → exit 0. ⟨`npx vitest run`⟩ → `Test Files 15 passed (15)` · `Tests 90 passed (90)`.
+   - Neighbours: ⟨`playwright test f-w14u-vstage f-w14v-u3 f-w14-uia -g 'e95|e183|UIA-F-18' --workers=3`⟩ → `3 passed (19.3s)`. e95 was restated first (see Adjacent edits). ⟨`git status --porcelain`⟩ after the runs → only this unit's edits and `?? .worktrees/`, with no tracked frames rewritten.
+
+**Gates BEFORE → AFTER**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| e2e: a signed-out Publish reaches the inline sign-in, never the raw toast (p1 signed out; p2 the owner frame's slug-without-session shape against the real 401) | **RED ×2** (no sign-in; p2 shows the raw toast over the pane) | **GREEN ×2** (the sign-in opens and is focused, no toast, and the publish resumes with the new session: 1 POST, 1 PATCH) |
+| a toast never overlaps the controls pane (p3 @1440, @1024) | **RED** (36872 px² at both) | **RED ×3 / ×2, honest-RED TOASTER-OFFSET** (ESC-p-1). Glass 10.1.0 has no Toaster offset |
+| api `test_owner_required` (MONGO_TEST_URI :27018) | GREEN | **GREEN ×2, unchanged** |
+| vue-tsc | 0 | 0 |
+| vitest | 90/90 | 90/90 |
+
+**Residuals**
+- (R-1) The takeover path (a signed-out Publish from inside the fullscreen takeover closes the takeover, then opens the sign-in) is in the bytes but unmeasured. No gate names it. A focus return from the closing dialog could land on its trigger rather than on the sign-in field. This is proposed for `.au2` (workspace) or the close check.
+- (R-2) A stale token (present but unknown to the server) makes every read on `/v/<slug>` fail with "Invalid or expired session" (`dependencies.py:219`), so the piece does not open. Measured by accident in the first p2 draft. This is a different concern from the publish path and is not this unit's. It is proposed for `.au2` (L2-8 area) or a new AUDIT row.
+- (R-3) Frames were written git-ignored under `web/e2e/screenshots/f-w14v/p/`: `{before,after}-p1-signin-1440`, `-p2-signin-1440`, `-p1-published-1440`, `-p3-toast-{1440,1024}`. The before/after p2 frames show the raw toast over the pane (before) and the focused sign-in popover (after).
+
+**Escalations**
+- **ESC-p-1 TOASTER-OFFSET.** The spec's cure ("their placement uses glass's Toaster offset, not a consumer overlay"; the lock "toast placement via glass Toaster offset") names a glass seat that does not exist at 10.1.0: the Toaster's only input is `position`, and there is no offset prop or token (act 2). Glass's `position` alone cannot clear the pane (act 5: bottom positions overlap the stacked aside at 1024; top positions cover the app dock and the sign-in's anchor; below `sm` every position is `top-0 w-full`). No consumer substitute was made. **Asks:** (a) glass: an additive Toaster offset (a prop or a `--toaster-offset-*` token set, e.g. inline-end/block-end) so a consumer can seat toasts clear of a region, in the 10.x minor. The relay letter is owed by seat 0 (value.js `relay/` and glass are outside this seat's writable set). (b) Ruling sought: confirm honest-RED TOASTER-OFFSET with ADOPT-AT-LANDING (the ESC-c3-1 analogue). The falsifier p3 is committed and stands RED until then.
+
+**Adjacent edits** (COHESION §0bt):
+- `web/e2e/f-w14u-vstage.spec.ts:28-29, :274, :290-293`: e95 (UIA-F-95 ⊕ F-245). It asserted one toast containing "log in", which is the copy and behaviour this unit retired. It now asserts 0 toasts and the sign-in field shown, and still 0 POSTs. The title and header line follow.
+
+**Commits:** fourier `8aaf925` (the falsifier) · `69af796` (the cure plus 1 adjacent), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `69af79642e9e`). value.js: this record.
