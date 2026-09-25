@@ -2287,3 +2287,14 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDA (b),
 **Honest-RED set:** P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 (publish half), relieved to X.P.W7P (§0cp 1).
 
 **Verdict: NOT-CONFORMANT.** The row stays `PARTIAL`. Every claimed GREEN that this seat re-ran reproduces (15). No write out of bounds, no masking, E-3 held, mail clean. The one binding RED (Firefox large parseStylesheet) waits on the owner's ruling of ESC-W7l3-1. **Adjacent edits: none.** `scripts/dev/dev.sh` untouched.
+
+## Repair 1 of the RESUME 5 Close (2026-09-25, repair seat round 1, `claude-opus-5-5`, Track D; answers `## Check 1 of the RESUME 5 Close`)
+
+**Open.** Spec read whole (W7.md; ADDENDA (b), (c), (e)). Crash-recovery: ⟨`git status --porcelain -- docs/tranches/X/execution/D/X-P-W7.md docs/tranches/X/execution/LEDGER.md`⟩ → empty. The dirty `rust/**`, `.cargo/config.toml`, `README.md` paths in parse-that lie outside W7's writable set (a sibling seat's). Not touched.
+
+| Defect | Cure | Commit | Gate re-reading |
+|---|---|---|---|
+| HIGH: L-G1 Firefox large `parseStylesheet` not below the retired parser ×2 | **ESCALATED, not cured.** The Check's own cure starts with an owner act: "The owner rules ESC-W7l3-1". ⟨`grep -c ESC-W7l3-1 docs/tranches/X/COHESION.md`⟩ → `0`, so no ruling exists. Option (i) (a SpiderMonkey accepted-sheet unit) and option (ii) (a stated noise band) are exclusive design choices. Picking either one without the owner would be the "quiet relaxation" ADDENDUM (b) forbids for (ii), or an unauthorized unit scope for (i). ADDENDA (c)/(e) refuse recording in place of gating. | none | No cure landed, so no gate moved. The cell stays at the RESUME 5 Close's reading (8 clean reps .938–1.176, median ≈ 1.01): **RED**. |
+| INFO: 26 vs 28 `MIRROR-DEFECTS 0` lines | None needed (a count of reporter lines; 19/19 pass, no non-zero line). | none | — |
+
+**Verdict.** Cured 0. Escalated 1 (ESC-W7l3-1, to the owner). The row stays `PARTIAL`, and X.P.W7P stays blocked on conjunct (ii). **Adjacent edits: none.** `scripts/dev/dev.sh` untouched.
