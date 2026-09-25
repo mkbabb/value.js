@@ -1,0 +1,269 @@
+[
+ {
+  "config": "p390",
+  "route": "home",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [],
+  "topDockT": 49,
+  "sw": 390,
+  "vw": 390,
+  "cover": false
+ },
+ {
+  "config": "p390",
+  "route": "cube",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [],
+  "topDockT": 49,
+  "sw": 390,
+  "vw": 390,
+  "cover": false
+ },
+ {
+  "config": "p390",
+  "route": "amiga",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [],
+  "topDockT": 49,
+  "sw": 390,
+  "vw": 390,
+  "cover": false
+ },
+ {
+  "config": "p390",
+  "route": "square",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [],
+  "topDockT": 49,
+  "sw": 390,
+  "vw": 390,
+  "cover": false
+ },
+ {
+  "config": "p390",
+  "route": "easing",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [],
+  "topDockT": 49,
+  "sw": 390,
+  "vw": 390,
+  "cover": false
+ },
+ {
+  "config": "p390",
+  "route": "spring",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [],
+  "topDockT": 49,
+  "sw": 390,
+  "vw": 390,
+  "cover": false
+ },
+ {
+  "config": "p390",
+  "route": "sequence",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [],
+  "topDockT": 49,
+  "sw": 390,
+  "vw": 390,
+  "cover": false
+ },
+ {
+  "config": "l844",
+  "route": "home",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [
+   "Pause the title anim[758,146,812,200]"
+  ],
+  "glass": [],
+  "topDockT": 38,
+  "sw": 844,
+  "vw": 844,
+  "cover": false
+ },
+ {
+  "config": "l844",
+  "route": "cube",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[779,50,823,94]"
+  ],
+  "topDockT": 38,
+  "sw": 844,
+  "vw": 844,
+  "cover": false
+ },
+ {
+  "config": "l844",
+  "route": "amiga",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[779,50,823,94]"
+  ],
+  "topDockT": 38,
+  "sw": 844,
+  "vw": 844,
+  "cover": false
+ },
+ {
+  "config": "l844",
+  "route": "square",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[779,50,823,94]"
+  ],
+  "topDockT": 38,
+  "sw": 844,
+  "vw": 844,
+  "cover": false
+ },
+ {
+  "config": "l844",
+  "route": "easing",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[779,50,823,94]"
+  ],
+  "topDockT": 38,
+  "sw": 844,
+  "vw": 844,
+  "cover": false
+ },
+ {
+  "config": "l844",
+  "route": "spring",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[779,50,823,94]"
+  ],
+  "topDockT": 38,
+  "sw": 844,
+  "vw": 844,
+  "cover": false
+ },
+ {
+  "config": "l844",
+  "route": "sequence",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[779,50,823,94]"
+  ],
+  "topDockT": 38,
+  "sw": 844,
+  "vw": 844,
+  "cover": false
+ },
+ {
+  "config": "l932",
+  "route": "home",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [
+   "Pause the title anim[846,165,900,219]"
+  ],
+  "glass": [],
+  "topDockT": 38,
+  "sw": 932,
+  "vw": 932,
+  "cover": false
+ },
+ {
+  "config": "l932",
+  "route": "cube",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[867,89,911,133]",
+   "Sheet position[21,89,911,133]"
+  ],
+  "topDockT": 38,
+  "sw": 932,
+  "vw": 932,
+  "cover": false
+ },
+ {
+  "config": "l932",
+  "route": "amiga",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[867,89,911,133]",
+   "Sheet position[21,89,911,133]"
+  ],
+  "topDockT": 38,
+  "sw": 932,
+  "vw": 932,
+  "cover": false
+ },
+ {
+  "config": "l932",
+  "route": "square",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[867,89,911,133]",
+   "Sheet position[21,89,911,133]"
+  ],
+  "topDockT": 38,
+  "sw": 932,
+  "vw": 932,
+  "cover": false
+ },
+ {
+  "config": "l932",
+  "route": "easing",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[867,89,911,133]",
+   "Sheet position[21,89,911,133]"
+  ],
+  "topDockT": 38,
+  "sw": 932,
+  "vw": 932,
+  "cover": false
+ },
+ {
+  "config": "l932",
+  "route": "spring",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [],
+  "glass": [
+   "Close[867,89,911,133]",
+   "Sheet position[21,89,911,133]"
+  ],
+  "topDockT": 38,
+  "sw": 932,
+  "vw": 932,
+  "cover": false
+ },
+ {
+  "config": "l932",
+  "route": "sequence",
+  "meta": "width=device-width, initial-scale=1.0",
+  "consumer": [
+   "Reset the sequence i[823,159,877,213]"
+  ],
+  "glass": [
+   "Close[867,89,911,133]",
+   "Sheet position[21,89,911,133]"
+  ],
+  "topDockT": 38,
+  "sw": 932,
+  "vw": 932,
+  "cover": false
+ }
+]
