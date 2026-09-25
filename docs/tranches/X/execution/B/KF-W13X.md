@@ -213,3 +213,49 @@ SERVED MODEL: claude-opus-5-5 (unit `.x`, G1, measure-first; **zero product byte
 - Several rows rest on the frames: X-2's thumbnail spill, X-7's label/value overlap, X-8's overlap, and X-10's dark contrast. Each owning unit re-derives its falsifier at the bytes.
 - X-5 is routed to `.timeline` and not to `.keyframes` as the brief suggested, because `CSSPasteDialog.vue` lives in `timeline/**` (file ownership, Unit plan).
 - The `.transport` channel Select is absent on square, easing and sequence (1 channel). That is expected, not a row.
+
+### .r
+
+SERVED MODEL: claude-opus-5-5. Unit `.r`, the `[real-cube]` intermittent (KFA-17/C6-3, KF-W13.md:517 k4, §0cw item 5). Writable set only; no inherited edits (⟨`git status --porcelain`⟩ in kf → only two untracked coordination files outside the set). No retries-to-green: the roster ran exactly twice, after the cure.
+
+**Act 1 — instrument the clock seam (measure first).** An init-script tracer (scratchpad `r/instr-init.js`, run by `r/instr.mjs`, which replays the oracle's exact sequence) finds the cube group through the served Vue tree (`#app._vnode` → the component exposing `autoPlays` → `facility.identity`), wraps `play/pause/resume/stop/settle/reset/setChildTime` and `playback.stop/loop`, and logs each rAF `{group started/paused/lastTickTime, per child [startTime, pausedTime, paused, started, t]}`.
+- ⟨`node r/instr.mjs L1..L6.json`⟩ + ⟨`S1..S4`⟩ + ⟨`t1`⟩ at load 150–190 → the oracle's pause lands **20050–20455 ms after the autoplay** in 10 of 11 runs (its Play wait times out at 8 s, then navToScene's second wait at 12 s). That is 4 × the channels' 5000 ms default (`animationOptionsStore.ts:42-48`: 5s, infinite, **alternate**). Measured phase into iteration 4: 388 · 275 · 62 · 455 · 50 · 79 · 291 · 66 · 140 ms. So the pause lands within a few frames of the 4th wrap, and under load it can land ON the wrap tick.
+
+**Act 2 — the mechanism, named.** On the wrap tick `onEnd` clears the child's `startTime` (`frame.ts` onEnd). `group.pause()` (`group/lifecycle.ts` pause) still writes `pausedTime = lastTickTime` onto that unanchored child. At resume the lazy start's `begin()` anchors a FRESH `startTime` at the resume clock, and then `advanceBody` applies the pause offset (`startTime += t − pausedTime`) on top of it. Local time comes out as −(paused span) and counts up from there. The rest the oracle read, "held 0", is the reversed 4th iteration's `effectiveT` at its end (`duration − t = 0`). The paused span is the oracle's ~1.2 s rest sample. That gives **0 → −1266.7 → −25.1**, and nothing is painted while local < 0, so the nodes read {1,1,1}.
+- **The recorded failures predate KFA-181.** Both came at KF.W13U (`KF-W13U.md:775`, `:1261`). KFA-181 (`5ae589ab`, KF.W13V.k) carries a non-final wrap's anchor forward, so `begin()` now takes the carried anchor, and that anchor predates the pause. This took the cube's infinite channels off the fresh-anchor path by accident. It explains why KF.W13V read 4/4 and BEFORE read ×2 without the mechanism being known.
+- **The defect survived at `574642be`.** Any child that reaches the lazy start with no carried anchor, such as a finished finite channel in a still-running group, still went negative by exactly the paused span.
+
+**Act 3 — falsifier, then cure.** `test/group/playhead-origin.test.ts` has 2 cases:
+- **Case 1, the recorded cube path.** Three 5000 ms alternate infinite channels on a 16.7 ms clock, paused on Rotations' 4th wrap tick and resumed 1266.7 ms later. ⟨worktree at `5ae589ab^`: `npx vitest run --project library test/group/playhead-origin.test.ts`⟩ ×2 → `expected -1266.7000000000007 to be close to 90.1…` (**born-RED ×2**, the recorded value exactly), then −25.1 on the next read. At HEAD it is GREEN, carried by KFA-181.
+- **Case 2, an unanchored finite child.** ⟨same, at `574642be`⟩ ×2 → `expected -1266.6999999999998 to be +0` (**RED ×2 at HEAD**).
+- **Cure** (`src/animation/engine/play-lifecycle/frame.ts`, `begin()`): when `begin()` takes a fresh anchor (`carried === undefined`), it sets `pausedTime = 0`. A fresh anchor is this frame's clock, so a pause recorded before it spans no local time. A carried anchor predates the pause and keeps its offset. There is no clamp, no try/catch and no widened tolerance.
+- ⟨`npx vitest run --project library test/group/playhead-origin.test.ts`⟩ ×2 → `Tests 2 passed (2)` ×2.
+- **Commit `2706a61d`** (kf; the cure and falsifier in one family).
+
+**Act 4 — served proof.** ⟨`npm run gh-pages`⟩ → `✓ built in 10.29s`, EXIT 0.
+- **The forced served landing.** ⟨`node r/wrapPause.mjs`⟩ ×2 pauses the served cube ON the tick that wraps Rotations (`startTime` undefined, iteration 1). → `slider rest 5000 -> 5000; play -> 4856.2 -> 3632.4; negative=false` and `… 4846.9 -> 3653.5; negative=false`. The playhead is continuous: the reversed iteration counts down from its end.
+- **The roster.** ⟨`KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --only=subject-animates`⟩ ×2 (load 74.6 · 64.3) → `✓ [real-cube] … playhead held 394.6 … 394.6 → 402.6 → 1665.9 … nodes {"bob":40,"pose":1,"spin":40}`, `run-demo-roster — PASS`, EXIT 0. Run 2: `held 264.8 → 272.3 → 1528.9`, PASS, EXIT 0.
+
+**Gates BEFORE → AFTER**
+
+| gate | BEFORE | AFTER | reading |
+|---|---|---|---|
+| mechanism isolated from the trace 0 → −1266.7 → −25.1 | inferred (KF.W13V) | named: a pause on the wrap tick, then a fresh anchor plus the stale pause offset (acts 1–2); reproduced to the decimal in case 1 | **GREEN** |
+| falsifier RED then GREEN ×2 | — | case 1 RED ×2 at `5ae589ab^`; case 2 RED ×2 at `574642be` → GREEN ×2 at `2706a61d` | **GREEN** |
+| subject-animates `[real-cube]` on gh-pages after the cure | PASS ×2 (proves nothing) | PASS ×2, run once each, no retries | **GREEN** |
+| `npm run check` | EXIT 0 | vue-tsc app + test, then `proof:structure — PASS … (0 violations across R1–R6)`, EXIT 0 | **GREEN** |
+| `npm run test:demo` | 82 files · 587/587 | `Test Files 82 passed (82)` · `Tests 587 passed (587)`, EXIT 0 | **GREEN** |
+| (floor) `vitest --project library` | — | `115 passed \| 5 skipped (120)` · `1264 passed \| 2 expected fail \| 14 skipped (1280)`, EXIT 0 | GREEN |
+
+**Residuals.** The instrument found two more defects. They are not the recorded trace and not in `.r`'s ruled scope. They are filed as rows with evidence, and neither is cured here:
+- **R-r-1 STRANDED-GROUP-PREFIRST-PAUSE (MEDIUM).** A pause that lands after the autoplay PLAY but before the group's first rAF tick leaves the group permanently unplayable:
+  1. `group.started` is still false, so `lifecycle.pause` is a no-op, and the adapter's `suspend()` takes its `else group.playback.stop()` arm (`demo/state/scenePlaybackAdapters.ts:91-92`).
+  2. The next Play calls `adapter.resume()` → `group.play()` → `beginPlay`, which returns the still-held `_playingPromise` and never re-arms the loop.
+  3. Forced served repro: ⟨`node r/edge.mjs`⟩ (Pause pressed in the MutationObserver microtask after the flip) → `frames=301 min=0 last=0`. The transport reads "Pause" and the cube is frozen at 0. Against the oracle this would read 0 → 0 → 0 (`engineWrote=false`), a second possible `[real-cube]` RED.
+  4. The seam spans `src/animation/group/lifecycle.ts` and `demo/state/scenePlaybackAdapters.ts`, which is outside `.r`'s set. Routed to the close / `.cube`.
+- **R-r-2 CUBE-AUTOPLAY-FIRST-FRAME-THROW (MEDIUM).** The autoplay's first group frame threw in 3 of 10 loaded runs (L2, L4, S4): `Uncaught BrowserScalarResolutionError: Could not resolve "var(--rotationX)" for "transform"`.
+  - `RAFPlayback`'s `failFrame` then ends the loop. The cube held its first tick (`lastTickTime` stayed at 132.1 / 113.3 / 220.4 for ~20 s) while the transport read "Pause".
+  - `--rotationX` is declared only in scoped `CubeTarget.css:86`. The first frame resolves it before the style reaches the target.
+  - `[real-cube]` still passes, because the later Play restarts the loop. The cure belongs to the cube target/mount ordering, which is outside `.r`'s set. Routed to `.cube`.
+
+**Adjacent edits:** none. **Escalations:** none. Instrument scripts (scratchpad, not committed): `r/instr-init.js`, `r/instr.mjs`, `r/edge-init.js`, `r/edge.mjs`, `r/wrap-init.js`, `r/wrapPause.mjs`.
