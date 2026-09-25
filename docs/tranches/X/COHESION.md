@@ -3566,3 +3566,12 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - The vc and radius diffs are read first: an owner-ruled change is re-baselined with the diff described; anything else is cured.
   - The :4190 preview is managed by `webServer`.
 - **The Track C chassis** now reads F.W14U as "no unit owed; close and check". F.W14V's order is `.s2` (verify; the glass half landed at `239845f`) → `.u` → `.c3` → `.eq2` → `.p` → `.au0`…. **Track C is resumed.**
+
+## §0dq — 2026-09-25: the weekly usage limit stopped every track; the owner says "re-deploy all workflows"; ESC-W7l2-1 ruled
+- **All four tracks returned with seats dead on the weekly usage limit** ("resets Sep 27 at 1am ET"). Where each stopped:
+  - **A:** X-W12 **CLOSED** (honest-RED, with the rows re-homed to X-W12U `.p`/`.b`); X-W7L `.m` dead before it started.
+  - **B:** KF.W13U, W13R, W13V and W13W all **CLOSED**; KF.W13X died at `.mobile`.
+  - **C:** F.W14U **CLOSED**. In F.W14V, `.s2`, `.u2`–`.u4`, `.eq2`, `.au0` and `.au1` are DONE; `.u1` is PARTIAL; `.c3` and `.p` are ESCALATED (to be ruled when the check returns); `.au2` died.
+  - **D:** X.P.W7 is NOT-CONFORMANT after `.l2`. (a) and (b) landed; node, Chromium and WebKit are 22/22 ×2; Firefox rejected `parseStylesheet` is 1.02–1.08.
+- **Ruled, ESC-W7l2-1:** no relief. Unit **`.l3`** profiles and cures Firefox's refusal path (W7.md addendum (e)), then `.cp`.
+- **The owner ordered a redeploy.** All four tracks are resumed on their run ids. If the account limit still holds, the seats fail fast and the tracks are resumed again after the reset.
