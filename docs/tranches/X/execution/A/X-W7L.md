@@ -87,3 +87,71 @@ Seat 1 (RESUME after §0dq), 2026-09-25, `claude-opus-5-5`, HEAD `059ec6af` (bra
 **Gates BEFORE → AFTER.** L1 RED (`^7.0.0`) → GREEN (`10.1.0` exact in package.json, lock and node_modules; pushed) · L2 RED (6/51 files drift) → GREEN (intent landed; 6 roots resolved) · L3 no-such-script → typecheck 0 ×2 · lint 0 ×2 · L4 945/947 (C-5, NG-6) → 958/960 ×2 (C-5, NG-6 only) · L5 0 ×2 → 0 ×2 · L6 cited (X-W7R 10.0.1: 71 failed) → 79 failed = 45 pre-existing + 34 regressions, each classified with its cause and routed · L7 cited → headed ×2 `"pass": true` on the real GPU.
 
 **Commits.** `c8a4959d` (repin + migration, predecessor seat) · `cd3cc3d1` (e2e typing, predecessor seat) · this receipt + evidence (below). No `src/**` edit: the migration named no library consumer site. **Adjacent edits:** none.
+
+### X.W7L.i
+
+Seat 0, 2026-09-25, `claude-opus-5-5`, HEAD `aff70fa8` at open (branch `tranche-u`, glass 10.1.0 installed).
+
+**Crash-recovery.** ⟨`git status --porcelain | grep -E 'demo/|test/|src/color|relay/|evidence/X-W7L|A/X-W7L|INBOX'`⟩ → empty. There was no inherited partial work in this unit's writable set.
+
+**Acts, in order.**
+1. **Reproduced ESC-W7Rm-1 at 10.1.0** (served `:9000` by `vite --port 9000`, headed Chromium, 1440). ⟨`node docs/tranches/X/evidence/X-W7L/i-ink-probe.mjs light … "#/?space=oklch&color=oklch(0.55 0.18 260)"`⟩ → `Error: Ink certification failed: contrast_unreachable at certify (demo/color-session/ink.ts:66:24) at certifyAccentInk`, then `Cannot read properties of undefined (reading 'currentView')`, and the boot dies (`i-repro-10.1.0-precure-urlblue.json`). The spec's anchors (`ink.ts:116`, `operations.ts:260`) had drifted. At the true bytes the throw is `ink.ts:66` (`certify`) ← `certifyAccentInk` ← `useContrastSafeColor` (`safeAccentCss`), and `src/color/operations.ts:260` is `return err({ code: "contrast_unreachable" })` in `safeAccentColor`, reached when neither L=0 nor L=1 clears `minimumRatio`.
+   - **Plates, composites and the sought ink.** The sought ink is the resting-plate accent (`--accent-live`) and the muted rung (`--ink-muted`), each at `floor + CERTIFY_HEADROOM` = 4.5 + 1.25 = **5.75:1**. The plates are glass 10.1.0's veil ladder: `--glass-veil-ink` `oklch(0.28 0.035 70)` light / `oklch(0.17 0.03 70)` dark; base 0.14 / 0.18; step 0.04 (`tokens/glass.css`, `tokens/dark-arm.css`). Read live, `--glass-plate-resting` = `color(srgb 0.20397 0.148263 0.0829736 / 0.14)`. An opaque surface admits at most max((Y+.05)/.05, 1.05/(Y+.05)), which is ≥ 4.58 everywhere but < 5.75 for composite Y 0.133–0.238. The dark veil puts mid-ambient plates there, so the 5.75 target is unreachable while the 4.5 floor is not.
+2. **The veil, measured against the 7.0.0 reading** (I-55 consumed: 10.1.0 does not change the veil). The 7.0.0 tree `c8a4959d^` (`git archive` + `npm ci` → glass `7.0.0`) was served on `:9007`, 1440, and measured by the same probe (`i-before-7.0.0-*.json` vs `i-after-10.1.0-*.json`, 9×9 luminance grid per surface):
+
+   | surface (light) | 7.0.0 background | 10.1.0 background | composite Y median, 7.0.0 → 10.1.0 |
+   |---|---|---|---|
+   | `.dock-plate`, home | `color(srgb 0.931227 0.845921 0.816039 / 0.5392)` | `color(srgb 0.204 0.148 0.083 / 0.102)` | 0.5843 → 0.3821 |
+   | `.dock-plate`, URL colour | α 0.5392 frost | α 0.102 veil | 0.4372 → 0.1919 |
+   | `.glass-resting` cards, home | α 0.663 | α 0.141 | 0.4257 / 0.6636 → 0.1692 / 0.2965 |
+   | `[data-surface="veil"]` console, home | α 0.443 | α 0.059 | 0.7848 → 0.1672 |
+
+   The seat brief's reference `color(srgb 0.916 0.870 0.829 / 0.328)` (O-62, read at `:5173`, 2026-09-23) is the same cream family. Today's 7.0.0 dock reads α 0.539 at 1440 with the dock expanded. Dark 7.0.0 → 10.1.0: dock Y 0.0753 → 0.0602, and every dark plate stays dark.
+3. **The real composite, measured.**
+   - *Oracle.* ⟨`node …/i-composite-oracle.mjs {light,dark}`⟩ paints each rung token over solid grey grounds (6 greys × 3 rungs × 2 schemes = 36 pixels), and the pixel is Chromium's source-over, e.g. light resting over rgb(186) → rgb(167 165 163).
+   - *Ground.* ⟨`node …/i-ground-probe.mjs light <url>`⟩ hides the plates and samples the painted ground under each box. At the URL colour the ground Y is 0.224 under the dock and 0.216–0.229 under the cards, against the instrument's referent `--ink-ambient-l` 0.61 → Y 0.227: the field-mean ground holds there. At home the ground under the plates is 0.30–0.45 against the referent's 0.49, the spatial spread of the aurora field (see residuals).
+4. **Cure at the root (`c8cbbe10`).** `src/color/**` was not touched: `safeAccentColor`'s `contrast_unreachable` is correct for the ratio it is asked for, so the defect was the instrument's demand and model in `demo/color-session/`.
+   - *Search* (`ink.ts` `certify`): `floor + headroom` is the preferred target. Where it is `contrast_unreachable`, the search bisects (10 steps, 1.2e-3) in `[floor, floor + headroom)` for the highest ratio the surface admits, and returns that ink, the best certified value, never below the floor. Any other issue code, or an unreachable floor, still throws. That is a loud defect, not a mask, and no try/catch was added anywhere.
+   - *Model* (`ink.ts` `resolveSurfaceLightness`, `producerRungTint`, `composite`):
+     - The 7.0.0 constants (card tint at α 0.65/0.80, `FLOATING_TINT_L`) are replaced by glass 10.1.0's published ladder: quiet −1, resting 0, floating +1, chrome = `--glass-veil-dock` −1.
+     - Every translucent rung composites source-over in sRGB through `mixColors(…, { space: "rgb" })`.
+     - The veil is still quiet-over-resting-over-ground; the well is unchanged (opaque, demo-owned).
+     - `SurfaceTint` is now `{ color (opaque), alpha }`.
+   - *Live probe* (`useContrastSafeColor.ts`): tints carry their sRGB colour, not an L. The chrome probe reads `.dock-plate`: at 10.x `.glass-dock` computes `rgba(0, 0, 0, 0)` (measured), so the live chrome read had been silently falling back to the static model.
+   - Callers pass the floor, and the headroom is applied inside `certify`.
+5. **Contract tests (L9).** New `test/ink-real-composite.test.ts` has 16 cases:
+   - the static model equals the installed glass token bytes (ink, base, step; light and dark);
+   - 8 browser-oracle composites within ΔL 0.004, and all 36 oracle rows measured within ΔL 0.00144 by a one-off check;
+   - the ESC-W7Rm-1 sweep: every surface × ambient 0→1 step 0.025 × 5 picks × both schemes × text and graphics floors, plus the muted rung, all ≥ floor with no throw, and a guard case proving the 5.75 band is live;
+   - the best-certified ceiling: within 0.05 of the surface's black/white maximum, where exercised;
+   - fidelity.
+
+   In `test/ink.test.ts`, the veil-bound oracle's producer literal moves from the 7.0.0 card tint to the 10.1.0 veil ink. The assertion is unchanged and GREEN. `test/**` is inside this unit's writable set.
+6. **L8, served `:9000`, headed, 1440, ×2** (⟨`node …/i-L8-instrument-run.mjs {light,dark} i-L8-<scheme>-r{1,2}.json`⟩):
+   - *Leg (a)*: the app's own instrument across 10 routes: home, the URL colour `oklch(0.55 0.18 260)`, atmosphere, extract, gradient, mix, generate, palettes, blob, and the owner brick URL. Each run → `inkErrors` 0 and `could not be loaded` 0 on every route.
+   - *Leg (b)*: `resolveSurfaceLightnessLive` + `certifyAccentInk` + `resolveMutedInk` driven in-page on every plate (page, resting, floating, chrome, veil, well) × 21 ambients × 5 picks → **126/126 completed on each of the 6 plates**, 0 threw, in light r1, light r2, dark r1 and dark r2.
+7. **Frames at 1440, light and dark, before (7.0.0) and after (10.1.0).** `i-before-7.0.0-{light,dark}-{home,urlblue}.png` and `i-after-10.1.0-{light,dark}-{home,urlblue}.png`. The after URL-colour frame boots; before the cure, that route died at boot.
+8. **Relay (`2b860dcd`).** O-62 addendum (a), `docs/tranches/X/relay/X-ALL-BK-GLASS-VEIL-GREY-ADDENDUM-2026-09-25-W7L-I.md`, plus an INBOX row. No surface is AA-unreachable. The addendum carries the measured headroom band and register loss. The mirror into glass BK/coordination rides the live glass session, because glass-ui is READ-ONLY from here.
+
+**Gates BEFORE → AFTER.**
+- **L8:** was unmeasurable (the instrument threw `contrast_unreachable`, boot dead on the URL colour) → **GREEN ×2**: 6/6 plates, 126/126 each, light and dark, 0 ink errors across 10 routes.
+- **L9:** was `Tests 20 passed (20)` (floor, no real-composite cases) → ⟨`npx vitest run test/ink-real-composite.test.ts test/ink.test.ts`⟩ ×2 → `Tests 5 failed | 31 passed (36)` both runs. The new real-composite file is 16/16 ×2. The 5 RED are the pre-existing register cases, carried as honest-RED **INK-VEIL-MIDBAND** (below), not as instrument failures.
+- **Frames:** 4 before + 4 after → GREEN.
+- **`npm test` floor:** ⟨`npx vitest run`⟩ ×2:
+  - r1 → `Tests 7 failed | 969 passed (976)`: C-5, NG-6, and the 5 INK-VEIL-MIDBAND.
+  - r2 → `Tests 7 failed | 961 passed | 8 skipped (976)`: the same 5 + NG-6 + C-5; plus 2 file-level load flakes, `palette-card-layout` and `plate-mass`, the same two the `.m` receipt classified as load flakes.
+- **Typecheck and lint:** `vue-tsc` demo 0 · `vue-tsc` test 0 · `eslint --max-warnings=0` on the 4 touched files → 0.
+
+**Honest-RED — INK-VEIL-MIDBAND** (5 cases in `test/ink.test.ts`: `stays QUIETER …` light and dark; T-35 `owner brick certifies CHROMATIC` light and dark; `the cusp walk lands the MOST chromatic`). These assert a register (the pick's chroma voice, and a de-emphasis step between the foreground and the plate) that holds only on a light plate.
+- On glass 10.1.0's ladder the resting plate at the owner ambient 0.5103 falls from L ≈ 0.81 to 0.48 (light) and 0.45 (dark), where the only clearing ink is near-white: brick C 0.021 / 0.040 against a floor of ≥ 0.0455.
+- At ambient 0.63 the plate sits in the dead band, and the muted rung must reach the extreme: L 0.046 in light, 0.9998 in dark.
+- AA holds in every case. These are register losses the veil forces, not instrument defects, and no ink can satisfy both constraints on that surface.
+- The assertions are kept (none deleted, none skipped). They are relayed in the O-62 addendum and re-read at the 10.2.0 repin (I-56 follow-up unit).
+
+**Residuals (named, routed).**
+- **RES-i-1 (the ground's spatial spread).** The instrument's ground is the field palette's mean L (M-15, `--ink-ambient-l`). At the URL colour it matches the painted ground under every plate (Y 0.227 vs 0.216–0.229). At home the painted ground under the plates is Y 0.30–0.45 against the referent's 0.49 (`i-ground-10.1.0-light-home.json`). On 7.0.0's thick frost that spread was damped by α 0.54–0.66; on the 10.1.0 veil (α 0.06–0.14) it reaches the composite nearly whole. The model is exact on a known ground (36/36 oracle pixels; dock at the URL colour modelled 0.1916 vs measured 0.1919), so what remains is the ground referent, not the composite. Routed to the 10.2.0 re-read unit (I-56), where the veil fix changes the damping. This unit did not change the M-15 referent contract.
+- **Non-certified dock inks** ("Home" `color(srgb 0 0 0 / 0.8)`, "@mbabb" `oklab(0.216 … / 0.7)`) compute to about 4.05:1 and 2.8:1 on the URL-colour dock composite. They are not instrument call sites; they go in the O-62 addendum for the recut's own check, and to `.v` / X-W12U for the consumer halves.
+
+**Commits.** `c8cbbe10` (the cure, contract tests, and the oracle literal; one commit with `npm test` at the floor above) · `2b860dcd` (O-62 addendum (a) + INBOX row) · this receipt + `docs/tranches/X/evidence/X-W7L/i-*` (probes, readings, frames).
+- **Adjacent edits:** none.
+- **Escalations:** none.

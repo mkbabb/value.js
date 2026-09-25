@@ -1,0 +1,85 @@
+{
+ "scheme": "light",
+ "url": "http://localhost:9000/#/?space=oklch&color=oklch(0.55%200.18%20260)",
+ "at": "2026-09-25T16:35:13.539Z",
+ "ambientL": "0.6100",
+ "modelGroundY": 0.227,
+ "rows": [
+  {
+   "sel": ".dock-plate",
+   "box": [
+    480,
+    10,
+    479,
+    61
+   ],
+   "composite": {
+    "Ymin": 0,
+    "Ymed": 0.1919,
+    "Ymax": 0.1946
+   },
+   "ground": {
+    "Ymin": 0,
+    "Ymed": 0.2237,
+    "Ymax": 0.2273
+   }
+  },
+  {
+   "sel": "[data-surface=\"veil\"]",
+   "box": [
+    220,
+    512,
+    469,
+    190
+   ],
+   "composite": {
+    "Ymin": 0.0051,
+    "Ymed": 0.1276,
+    "Ymax": 0.7987
+   },
+   "ground": {
+    "Ymin": 0.2041,
+    "Ymed": 0.2292,
+    "Ymax": 0.2292
+   }
+  },
+  {
+   "sel": ".glass-resting",
+   "box": [
+    199,
+    112,
+    512,
+    609
+   ],
+   "composite": {
+    "Ymin": 0.0026,
+    "Ymed": 0.128,
+    "Ymax": 0.8139
+   },
+   "ground": {
+    "Ymin": 0.1743,
+    "Ymed": 0.224,
+    "Ymax": 0.2292
+   }
+  },
+  {
+   "sel": ".glass-resting",
+   "box": [
+    729,
+    112,
+    512,
+    609
+   ],
+   "composite": {
+    "Ymin": 0.01,
+    "Ymed": 0.1691,
+    "Ymax": 0.7618
+   },
+   "ground": {
+    "Ymin": 0.2044,
+    "Ymed": 0.216,
+    "Ymax": 0.2701
+   }
+  }
+ ]
+}

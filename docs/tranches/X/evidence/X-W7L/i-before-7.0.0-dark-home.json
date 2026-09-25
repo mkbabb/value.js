@@ -1,0 +1,296 @@
+{
+ "scheme": "dark",
+ "url": "http://localhost:9007/",
+ "at": "2026-09-25T16:33:47.987Z",
+ "errors": [
+  "[error] [value.js] value.js dev is MISCONFIGURED: http://localhost:9007 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev",
+  "[warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"
+ ],
+ "glass": {
+  "dark": true,
+  "ambientL": "0.3000",
+  "inkMuted": "oklch(72.931087783317% 0.003821851545 41.86844006185deg)",
+  "accentLive": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+  "tokens": {
+   "--glass-plate-resting": {
+    "css": "rgba(0, 0, 0, 0)",
+    "rgba": {
+     "a": 0
+    }
+   },
+   "--glass-plate-floating": {
+    "css": "rgba(0, 0, 0, 0)",
+    "rgba": {
+     "a": 0
+    }
+   },
+   "--glass-plate-quiet": {
+    "css": "rgba(0, 0, 0, 0)",
+    "rgba": {
+     "a": 0
+    }
+   },
+   "--glass-plate-chassis": {
+    "css": "rgba(0, 0, 0, 0)",
+    "rgba": {
+     "a": 0
+    }
+   },
+   "--card": {
+    "css": "rgb(53, 42, 34)",
+    "rgba": {
+     "r": 53,
+     "g": 42,
+     "b": 34,
+     "a": 1
+    }
+   },
+   "--background": {
+    "css": "rgb(11, 10, 9)",
+    "rgba": {
+     "r": 11,
+     "g": 10,
+     "b": 9,
+     "a": 1
+    }
+   },
+   "--well-bg": {
+    "css": "oklab(0.345295 0.0103877 0.0175526)",
+    "rgba": {
+     "r": 66,
+     "g": 55,
+     "b": 47,
+     "a": 1
+    }
+   }
+  },
+  "glassLevel": "1",
+  "veilInk": "",
+  "els": [
+   {
+    "sel": ".dock-plate",
+    "cls": "dock-plate",
+    "box": [
+     480,
+     10,
+     479,
+     61
+    ],
+    "bg": "color(srgb 0.390298 0.334077 0.29024 / 0.5776)",
+    "bgRgba": {
+     "r": 100.6,
+     "g": 85,
+     "b": 74.6,
+     "a": 0.576
+    },
+    "backdrop": "blur(7px) saturate(1.3) brightness(1.14)"
+   },
+   {
+    "sel": ".glass-dock",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-conten",
+    "box": [
+     480,
+     10,
+     479,
+     61
+    ],
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgRgba": {
+     "a": 0
+    },
+    "backdrop": "none"
+   },
+   {
+    "sel": "[data-surface=\"veil\"]",
+    "cls": "glass-quiet card rounded-card text-card-foreground scrollbar-hidden sliders-cons",
+    "box": [
+     220,
+     512,
+     469,
+     190
+    ],
+    "bg": "color(srgb 0.28241 0.241436 0.210106 / 0.56)",
+    "bgRgba": {
+     "r": 71.3,
+     "g": 62.4,
+     "b": 53.5,
+     "a": 0.561
+    },
+    "backdrop": "blur(7px) saturate(1.35) brightness(1.16)"
+   },
+   {
+    "sel": ".glass-resting",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden relative f",
+    "box": [
+     199,
+     112,
+     512,
+     609
+    ],
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "bgRgba": {
+     "r": 78.4,
+     "g": 67.7,
+     "b": 59.8,
+     "a": 0.753
+    },
+    "backdrop": "none"
+   },
+   {
+    "sel": ".glass-resting",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden about-card",
+    "box": [
+     729,
+     112,
+     512,
+     609
+    ],
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "bgRgba": {
+     "r": 78.4,
+     "g": 67.7,
+     "b": 59.8,
+     "a": 0.753
+    },
+    "backdrop": "none"
+   },
+   {
+    "sel": ".glass-quiet",
+    "cls": "glass-quiet card rounded-card text-card-foreground scrollbar-hidden sliders-cons",
+    "box": [
+     220,
+     512,
+     469,
+     190
+    ],
+    "bg": "color(srgb 0.28241 0.241436 0.210106 / 0.56)",
+    "bgRgba": {
+     "r": 71.3,
+     "g": 62.4,
+     "b": 53.5,
+     "a": 0.561
+    },
+    "backdrop": "blur(7px) saturate(1.35) brightness(1.16)"
+   },
+   {
+    "sel": "[data-slot=card]",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden relative f",
+    "box": [
+     199,
+     112,
+     512,
+     609
+    ],
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "bgRgba": {
+     "r": 78.4,
+     "g": 67.7,
+     "b": 59.8,
+     "a": 0.753
+    },
+    "backdrop": "none"
+   },
+   {
+    "sel": "[data-slot=card]",
+    "cls": "glass-quiet card rounded-card text-card-foreground scrollbar-hidden sliders-cons",
+    "box": [
+     220,
+     512,
+     469,
+     190
+    ],
+    "bg": "color(srgb 0.28241 0.241436 0.210106 / 0.56)",
+    "bgRgba": {
+     "r": 71.3,
+     "g": 62.4,
+     "b": 53.5,
+     "a": 0.561
+    },
+    "backdrop": "blur(7px) saturate(1.35) brightness(1.16)"
+   },
+   {
+    "sel": "[data-slot=card]",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden about-card",
+    "box": [
+     729,
+     112,
+     512,
+     609
+    ],
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "bgRgba": {
+     "r": 78.4,
+     "g": 67.7,
+     "b": 59.8,
+     "a": 0.753
+    },
+    "backdrop": "none"
+   }
+  ]
+ },
+ "pixels": [
+  {
+   "Ymin": 0.0743,
+   "Yp10": 0.0753,
+   "Ymed": 0.0753,
+   "Yp90": 0.0865,
+   "Ymax": 0.8742
+  },
+  {
+   "Ymin": 0.0743,
+   "Yp10": 0.0753,
+   "Ymed": 0.0753,
+   "Yp90": 0.0865,
+   "Ymax": 0.8742
+  },
+  {
+   "Ymin": 0.0103,
+   "Yp10": 0.0603,
+   "Ymed": 0.0604,
+   "Yp90": 0.5047,
+   "Ymax": 0.8039
+  },
+  {
+   "Ymin": 0.0021,
+   "Yp10": 0.0076,
+   "Ymed": 0.0604,
+   "Yp90": 0.3784,
+   "Ymax": 1
+  },
+  {
+   "Ymin": 0.041,
+   "Yp10": 0.041,
+   "Ymed": 0.0521,
+   "Yp90": 0.6535,
+   "Ymax": 0.8742
+  },
+  {
+   "Ymin": 0.0103,
+   "Yp10": 0.0603,
+   "Ymed": 0.0604,
+   "Yp90": 0.5047,
+   "Ymax": 0.8039
+  },
+  {
+   "Ymin": 0.0021,
+   "Yp10": 0.0076,
+   "Ymed": 0.0604,
+   "Yp90": 0.3784,
+   "Ymax": 1
+  },
+  {
+   "Ymin": 0.0103,
+   "Yp10": 0.0603,
+   "Ymed": 0.0604,
+   "Yp90": 0.5047,
+   "Ymax": 0.8039
+  },
+  {
+   "Ymin": 0.041,
+   "Yp10": 0.041,
+   "Ymed": 0.0521,
+   "Yp90": 0.6535,
+   "Ymax": 0.8742
+  }
+ ]
+}

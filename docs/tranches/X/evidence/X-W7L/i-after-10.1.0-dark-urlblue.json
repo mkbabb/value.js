@@ -1,0 +1,333 @@
+{
+ "scheme": "dark",
+ "url": "http://localhost:9000/#/?space=oklch&color=oklch(0.55%200.18%20260)",
+ "at": "2026-09-25T16:34:28.357Z",
+ "errors": [
+  "[error] [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev",
+  "[warning] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"
+ ],
+ "glass": {
+  "dark": true,
+  "ambientL": "0.3000",
+  "inkMuted": "oklch(71.276294300865% 0.003821851545 41.86844006185deg)",
+  "accentLive": "oklch(71.318763945019% 0.149730898733 260deg)",
+  "tokens": {
+   "--glass-plate-resting": {
+    "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+    "rgba": {
+     "r": 22.2,
+     "g": 11.1,
+     "b": 0,
+     "a": 0.18
+    }
+   },
+   "--glass-plate-floating": {
+    "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "rgba": {
+     "r": 22.8,
+     "g": 13.7,
+     "b": 0,
+     "a": 0.22
+    }
+   },
+   "--glass-plate-quiet": {
+    "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+    "rgba": {
+     "r": 21.2,
+     "g": 14.2,
+     "b": 0,
+     "a": 0.141
+    }
+   },
+   "--glass-plate-chassis": {
+    "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.1)",
+    "rgba": {
+     "r": 19.6,
+     "g": 9.8,
+     "b": 0,
+     "a": 0.102
+    }
+   },
+   "--card": {
+    "css": "rgb(53, 42, 34)",
+    "rgba": {
+     "r": 53,
+     "g": 42,
+     "b": 34,
+     "a": 1
+    }
+   },
+   "--background": {
+    "css": "rgb(11, 10, 9)",
+    "rgba": {
+     "r": 11,
+     "g": 10,
+     "b": 9,
+     "a": 1
+    }
+   },
+   "--well-bg": {
+    "css": "oklab(0.345295 0.0103877 0.0175526)",
+    "rgba": {
+     "r": 66,
+     "g": 55,
+     "b": 47,
+     "a": 1
+    }
+   }
+  },
+  "glassLevel": "1",
+  "veilInk": "oklch(0.17 0.03 70)",
+  "els": [
+   {
+    "sel": ".dock-plate",
+    "cls": "dock-plate",
+    "box": [
+     480,
+     10,
+     479,
+     61
+    ],
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+    "bgRgba": {
+     "r": 21.2,
+     "g": 14.2,
+     "b": 0,
+     "a": 0.141
+    },
+    "backdrop": "blur(16px) saturate(1.3) brightness(1.14)"
+   },
+   {
+    "sel": ".glass-dock",
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "box": [
+     480,
+     10,
+     479,
+     61
+    ],
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgRgba": {
+     "a": 0
+    },
+    "backdrop": "none"
+   },
+   {
+    "sel": "[data-surface=\"veil\"]",
+    "cls": "glass-quiet card sliders-console rounded-panel",
+    "box": [
+     220,
+     512,
+     469,
+     190
+    ],
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.1)",
+    "bgRgba": {
+     "r": 19.6,
+     "g": 9.8,
+     "b": 0,
+     "a": 0.102
+    },
+    "backdrop": "blur(14px) saturate(1.5)"
+   },
+   {
+    "sel": ".glass-resting",
+    "cls": "glass-resting card relative flex flex-col rounded-card min-w-0 flex-none lg:flex",
+    "box": [
+     199,
+     112,
+     512,
+     609
+    ],
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+    "bgRgba": {
+     "r": 22.2,
+     "g": 11.1,
+     "b": 0,
+     "a": 0.18
+    },
+    "backdrop": "none"
+   },
+   {
+    "sel": ".glass-resting",
+    "cls": "glass-resting card about-card pane-row-follow flex flex-col w-full mx-auto overf",
+    "box": [
+     729,
+     112,
+     512,
+     609
+    ],
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+    "bgRgba": {
+     "r": 22.2,
+     "g": 11.1,
+     "b": 0,
+     "a": 0.18
+    },
+    "backdrop": "none"
+   },
+   {
+    "sel": ".glass-quiet",
+    "cls": "glass-quiet card sliders-console rounded-panel",
+    "box": [
+     220,
+     512,
+     469,
+     190
+    ],
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.1)",
+    "bgRgba": {
+     "r": 19.6,
+     "g": 9.8,
+     "b": 0,
+     "a": 0.102
+    },
+    "backdrop": "blur(14px) saturate(1.5)"
+   },
+   {
+    "sel": ".glass-quiet",
+    "cls": "glass-quiet liquid-enter [--glass-specular-intensity-hover:0] w-full px-4 py-3 g",
+    "box": [
+     754,
+     277,
+     462,
+     79
+    ],
+    "bg": "oklab(0.345295 0.0103877 0.0175526)",
+    "bgRgba": {
+     "r": 66,
+     "g": 55,
+     "b": 47,
+     "a": 1
+    },
+    "backdrop": "blur(14px) saturate(1.5)"
+   },
+   {
+    "sel": "[data-slot=card]",
+    "cls": "glass-resting card relative flex flex-col rounded-card min-w-0 flex-none lg:flex",
+    "box": [
+     199,
+     112,
+     512,
+     609
+    ],
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+    "bgRgba": {
+     "r": 22.2,
+     "g": 11.1,
+     "b": 0,
+     "a": 0.18
+    },
+    "backdrop": "none"
+   },
+   {
+    "sel": "[data-slot=card]",
+    "cls": "glass-quiet card sliders-console rounded-panel",
+    "box": [
+     220,
+     512,
+     469,
+     190
+    ],
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.1)",
+    "bgRgba": {
+     "r": 19.6,
+     "g": 9.8,
+     "b": 0,
+     "a": 0.102
+    },
+    "backdrop": "blur(14px) saturate(1.5)"
+   },
+   {
+    "sel": "[data-slot=card]",
+    "cls": "glass-resting card about-card pane-row-follow flex flex-col w-full mx-auto overf",
+    "box": [
+     729,
+     112,
+     512,
+     609
+    ],
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+    "bgRgba": {
+     "r": 22.2,
+     "g": 11.1,
+     "b": 0,
+     "a": 0.18
+    },
+    "backdrop": "none"
+   }
+  ]
+ },
+ "pixels": [
+  {
+   "Ymin": 0.0453,
+   "Yp10": 0.0453,
+   "Ymed": 0.0459,
+   "Yp90": 0.0472,
+   "Ymax": 1
+  },
+  {
+   "Ymin": 0.0453,
+   "Yp10": 0.0453,
+   "Ymed": 0.0459,
+   "Yp90": 0.0472,
+   "Ymax": 1
+  },
+  {
+   "Ymin": 0.0051,
+   "Yp10": 0.0152,
+   "Ymed": 0.0154,
+   "Yp90": 0.1648,
+   "Ymax": 0.7987
+  },
+  {
+   "Ymin": 0.0026,
+   "Yp10": 0.0069,
+   "Ymed": 0.0323,
+   "Yp90": 0.3266,
+   "Ymax": 0.8139
+  },
+  {
+   "Ymin": 0.0224,
+   "Yp10": 0.0242,
+   "Ymed": 0.0294,
+   "Yp90": 0.0482,
+   "Ymax": 0.7885
+  },
+  {
+   "Ymin": 0.0051,
+   "Yp10": 0.0152,
+   "Ymed": 0.0154,
+   "Yp90": 0.1648,
+   "Ymax": 0.7987
+  },
+  {
+   "Ymin": 0.041,
+   "Yp10": 0.041,
+   "Ymed": 0.041,
+   "Yp90": 0.041,
+   "Ymax": 0.7885
+  },
+  {
+   "Ymin": 0.0026,
+   "Yp10": 0.0069,
+   "Ymed": 0.0323,
+   "Yp90": 0.3266,
+   "Ymax": 0.8139
+  },
+  {
+   "Ymin": 0.0051,
+   "Yp10": 0.0152,
+   "Ymed": 0.0154,
+   "Yp90": 0.1648,
+   "Ymax": 0.7987
+  },
+  {
+   "Ymin": 0.0224,
+   "Yp10": 0.0242,
+   "Ymed": 0.0294,
+   "Yp90": 0.0482,
+   "Ymax": 0.7885
+  }
+ ]
+}

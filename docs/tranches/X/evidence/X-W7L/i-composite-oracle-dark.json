@@ -1,0 +1,186 @@
+{
+ "scheme": "dark",
+ "at": "2026-09-25T16:27:25.799Z",
+ "rows": [
+  {
+   "ground": 60,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "pixel": [
+    55,
+    53,
+    52
+   ]
+  },
+  {
+   "ground": 60,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+   "pixel": [
+    53,
+    52,
+    50
+   ]
+  },
+  {
+   "ground": 60,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "pixel": [
+    52,
+    50,
+    47
+   ]
+  },
+  {
+   "ground": 100,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "pixel": [
+    89,
+    88,
+    86
+   ]
+  },
+  {
+   "ground": 100,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+   "pixel": [
+    86,
+    84,
+    82
+   ]
+  },
+  {
+   "ground": 100,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "pixel": [
+    83,
+    81,
+    78
+   ]
+  },
+  {
+   "ground": 128,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "pixel": [
+    113,
+    112,
+    110
+   ]
+  },
+  {
+   "ground": 128,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+   "pixel": [
+    109,
+    107,
+    105
+   ]
+  },
+  {
+   "ground": 128,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "pixel": [
+    105,
+    103,
+    100
+   ]
+  },
+  {
+   "ground": 160,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "pixel": [
+    141,
+    139,
+    138
+   ]
+  },
+  {
+   "ground": 160,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+   "pixel": [
+    135,
+    134,
+    132
+   ]
+  },
+  {
+   "ground": 160,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "pixel": [
+    130,
+    128,
+    125
+   ]
+  },
+  {
+   "ground": 186,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "pixel": [
+    163,
+    162,
+    160
+   ]
+  },
+  {
+   "ground": 186,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+   "pixel": [
+    157,
+    155,
+    153
+   ]
+  },
+  {
+   "ground": 186,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "pixel": [
+    150,
+    148,
+    146
+   ]
+  },
+  {
+   "ground": 220,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+   "pixel": [
+    193,
+    191,
+    190
+   ]
+  },
+  {
+   "ground": 220,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+   "pixel": [
+    185,
+    183,
+    181
+   ]
+  },
+  {
+   "ground": 220,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "pixel": [
+    177,
+    174,
+    172
+   ]
+  }
+ ]
+}
