@@ -269,3 +269,86 @@ Seat `claude-opus-5-5`, 2026-09-25 (resumed seat; HEAD at open `08353549`, at co
 **Escalations.** None. **Adjacent edits:** none. **Inherited paths:** `e2e/smoke/x-w7l-detached.spec.ts` (kept), `e2e/smoke/x-w7l-zprobe.spec.ts` (removed from the tree; scratch), and `a-frames/*.png` (re-shot by r2).
 
 **Commits.** `00d63cd3`: the falsifier plus its evidence (13 files). This receipt is a separate commit (pathspec: the record).
+
+## Close
+
+Close seat, 2026-09-25, `claude-opus-5-5`, VERIFY-ONLY, HEAD `6005a704` at open (branch `tranche-u`; `origin/tranche-u` = `b15a8aba`, 20 behind HEAD, 0 ahead). Spec `waves/W7L.md` read whole (42 lines). Of this record: the header through `## Unit plan`, and the four unit receipts located by grep. Load average 36–156 during the gates (four live tracks).
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ → no path inside this wave's writable set is dirty. Dirty paths outside it (`CARRY-LEDGER.md`, `F-W14V.md`, `X-P-W7.md`, two W4 PNGs, `scripts/dev/dev.sh`, untracked `audit-2/`, keyframes evidence, a root `reach`) belong to other seats and were left alone. No inherited work.
+
+### Act 1: commit roster and bounds
+
+⟨`git log --grep='X.W7L\|X-W7L' fed9dd4d^..HEAD`⟩ plus ⟨`git show --stat` on each⟩:
+
+| commit | unit | paths | in bounds |
+|---|---|---|---|
+| `fed9dd4d` | open | record · LEDGER · INBOX | yes |
+| `c8a4959d` | `.m` | 49 `demo/**` · 7 `e2e/smoke/**` · `package.json` · `package-lock.json` (58) | yes; 0 `src/**` |
+| `cd3cc3d1` | `.m` | 3 `e2e/smoke/**` | yes |
+| `9c7e1ab3` | `.m` | record · 14 `evidence/X-W7L/m-*` | yes |
+| `aff70fa8` | `.m` | LEDGER (own row) | yes |
+| `c8cbbe10` | `.i` | `demo/color-session/ink.ts` · `useContrastSafeColor.ts` · `test/ink-real-composite.test.ts` · `test/ink.test.ts` | yes; 0 `src/**` |
+| `2b860dcd` | `.i` | `relay/X-ALL-BK-GLASS-VEIL-GREY-ADDENDUM-2026-09-25-W7L-I.md` · INBOX (+1) | yes |
+| `3ca75e36` | `.i` | record · 30 `evidence/X-W7L/i-*` | yes |
+| `1639d84b` | `.v` | 23 `evidence/X-W7L/v-*` · INBOX (+1) | yes; 0 product |
+| `f5ca36e4` | `.v` | record | yes |
+| `00d63cd3` | `.a` | `e2e/smoke/x-w7l-detached.spec.ts` · 12 `evidence/X-W7L/a-*` | yes; 0 `demo/**` |
+| `6005a704` | `.a` | record | yes |
+
+0 landed-wrong: every path is inside the spec's §1 Bounds and the unit plan's writable set. No `glass-ui/**`, no `scripts/dev/dev.sh`.
+
+### Act 2: every spec gate re-run by this seat
+
+Evidence: `docs/tranches/X/evidence/X-W7L/close/` (`gates.txt`, `smoke-lists.txt`, `L8-*`, `D1-*`).
+
+| gate | BEFORE (baseline, `e44bd32c`, glass 7.0.0) | AFTER (this seat, HEAD `6005a704`, glass 10.1.0) | reading |
+|---|---|---|---|
+| L1 pin exact | RED `^7.0.0` / 7.0.0 | ⟨`grep -n '"@mkbabb/glass-ui"' package.json`⟩ → `89: "@mkbabb/glass-ui": "10.1.0"`; lock `node_modules/@mkbabb/glass-ui` `"version": "10.1.0"`; installed ⟨`node -p require(...).version`⟩ → `10.1.0`. Pushed at Act 7. | **GREEN** |
+| L2 banked patch intent | RED (6/51 drift) | ⟨`git apply --check --reverse m-repin-10.0.1-migration.patch`⟩ → 21 files do not reverse, run twice. Each of the 21 was changed in `c8a4959d` and by no later commit (⟨`git log c8a4959d..HEAD -- <f>`⟩ → 0 for all 21). So they differ only by the 10.1.0 re-spelling and the six hand resolutions, as `.m` recorded. ⟨`grep -rn 'show-close' demo --include='*.vue' \| wc -l`⟩ → 0. | **GREEN** |
+| L3 check (typecheck + lint) | no `check` script | ⟨`npm run typecheck`⟩ EXIT 0 ×2 (lib + demo + test vue-tsc + e2e tsc). ⟨`npm run lint`⟩ EXIT 0 ×2. | **GREEN ×2** |
+| L4 `npm test` | 945/947 (C-5, NG-6) | ⟨`npx vitest run`⟩ r1 `8 failed \| 979 passed (987)`, r2 `7 failed \| 980 passed (987)`. The steady 7 are C-5, NG-6 and the 5 INK-VEIL-MIDBAND cases in `test/ink.test.ts`. r1's eighth is `generate-rail` EC-10, which passes in r2; it is the baseline's load-flake class. | **GREEN at the floor** (only banked honest-RED ids) |
+| L5 vue-tsc demo | 0 ×2 | EXIT 0 ×2 (the demo leg of L3) | **GREEN ×2** |
+| L6 smoke `--workers=1` | cited (X-W7R 71/281) | r1 (full) ⟨`VJS_E2E_PORT=5371 npx playwright test --project=smoke --project=smoke-admin --project=smoke-mobile --project=smoke-reactivity --workers=1`⟩ → `94 failed · 2 skipped · 1 did not run · 217 passed` of 314 (1.4 h; load 37–156). Rerun ⟨`--last-failed`⟩ → `79 failed · 15 passed` (38.8 m). Those 15 are load flakes. The steady 79 are classified in the next table. | **GREEN by classification** (the spec's "or each failure classified with its cause") |
+| L7 D1 headed real GPU ×2 | cited | ⟨`PROBE_HEADED=1 node …/scene-swap-budget.mjs`⟩, renderer `ANGLE Metal Renderer: Apple M5 Max`. r1 `pass: true`, 4/4 hops. r2 `pass: false` because a sibling seat rebuilt the shared `dist/gh-pages` mid-run: all 4 hops read `animated: false`, and the next serve logged `dist/gh-pages missing — building` (`D1-r2-contamination-serve-log.txt`). This seat then built its own bundle into the scratchpad, served it on :8095 and ran r3 and r4: both `pass: true`, 4/4 hops (over32Ratio .026/.012/.012/.012 and .026/.012/0/.011, at load 142 and 156). | **GREEN ×2** (r3, r4 on an uncontested bundle; r1 also green) |
+| L8 ink instrument, every plate ×2 | unmeasurable (throw) | ⟨`node i-L8-instrument-run.mjs {light,dark}`⟩ ×2 on served :9000, headed. Each of the 4 runs: 6/6 plates at 126/126 completed, 0 threw; 10 routes, 0 ink errors, 0 scene-load failures. | **GREEN ×2** |
+| L9 certified-ink contract | 20/20 (floor) | ⟨`npx vitest run test/ink-real-composite.test.ts test/ink.test.ts`⟩ ×2 → `5 failed \| 31 passed (36)` both runs. `ink-real-composite` is 16/16 ×2. `ink.test.ts` is 15/20: the 5 are INK-VEIL-MIDBAND, relayed as O-62 addendum (a) (`2b860dcd`). | **GREEN (new cases) + honest-RED INK-VEIL-MIDBAND (relayed)** |
+| L10 glass-row re-read | rows open | ⟨`node v-probe.ts http://localhost:9000`⟩ ×2 + ⟨`v-summarize.mjs`⟩, compared with the banked `v-summary.txt`. Every categorical reading matches: dock widths 479→56, 479.5→302→479.5, blur 0, scaledText 0, glass/dock forced layout 0 ms, and every row field. Only timing figures differ (morph settle 22–123 ms; O-80 p95 61.9–62 vs 58.3–58.4, load-bound per RES-v-1). | **GREEN ×2** (the instrument reproduces `.v`'s marks) |
+| L11 `#actions` / `detached` + falsifier | RED | ⟨`npx playwright test e2e/smoke/x-w7l-detached.spec.ts --project=smoke --workers=1`⟩ → `6 passed` ×2 | **GREEN ×2** |
+
+**L6: the 79 steady failures, by class** (counted with ⟨`grep -cE <class> steady-full.txt`⟩ on the rerun list; they sum to 79):
+
+| class | n | tests | cause (measured) | owner |
+|---|---|---|---|---|
+| pre-existing | 41 | the `.m` 45-list, less 2 that now pass (o18 graph nodes light, o9 Extract) and 2 that flaked | they fail on 7.0.0 too (`m-smoke-classification.md`) | standing honest-RED set (X-W7R / X-W12U) |
+| C-TRIGGER-PAINT | 8 | w12-text-trigger ×8 | as in `.m`: the rest trigger paints a backdrop blur | X-W12U (`.v` row) |
+| C-CARD-STAMP | 3 | o7 census light, dark, 390 | as in `.m`: 8.0.0 retired `data-tier` and grain | X-W12U |
+| C-DOCK-IDLE | 2 | BR-10 rtl, o14 ramp light (o14 ramp dark flaked to pass) | as in `.m`: the 3600 ms idle | X-W12U |
+| C-DOCK-PAINT | 2 | o15b settled rest, w12-dock DOCK-TRIGGER-CLIP | as in `.m` | X-W12U (`.v` DOCK rows) |
+| C-DIALOG | 2 | w7-inspector-rows tag, publish/unpublish | as in `.m` | X-W12U |
+| C-LETTER | 1 | views/gradient aurora | as in `.m`: an E-3 dated letter names 7.0.0 | X-W12U / an addendum beside the letter |
+| ex-C-INK, now past the crash | 6 | o18 markdown About light and dark; o18 W6.5 IDENTITY; webgl-blob chroma ×2; reactivity-instant | The `.i` cure removed the throw (0 `contrast_unreachable`), so these now reach their assertions. **About prose ink `rgb(28 25 23)` on plate ground `rgb(101 99 97)` = 2.91:1 (< 4.5)**. IDENTITY accent C 0.0070 < 0.0372 (0.35× the pick): the INK-VEIL-MIDBAND near-white ink. Blob painted chroma off by 0.041 (tolerance 0.04). Spectrum-drag readout median 546.8 ms (≤ 50). | RES-close-1 / -2 below |
+| C-SEQ (sequence-bound) | 14 | views/gradient ×7, o9 Mix→Palettes empty, o14 T-10 letterform, mix flow, webgl view-switch, a11y C4 handle ring, o27 BR-1 ring layer | Most fail at the dock's view `Select`: "element is not stable" / "waiting for … 'Select view' … stable". They are steady in sequence (full run and rerun). In isolation at HEAD (⟨`-g '<garbage input\|C4\|BR-1\|mix flow\|spectrum-drag\|view switch>'`⟩, :5392) garbage, C4 and BR-1 **pass**. Mix flow, view-switch and spectrum-drag fail in isolation both at HEAD **and on the pre-`.i` tree** (`git archive c8cbbe10^` built in scratch, :5391). That tree carries the same product bytes as `.m`'s run, where mix flow and view-switch passed, so they are not a `.i` regression. | RES-close-3 below |
+
+### Act 3: verification artefacts
+
+The spec names frames at 1440 light and dark before (7.0.0) and after (10.1.0) for `.i`. ⟨`ls docs/tranches/X/evidence/X-W7L/i-{before-7.0.0,after-10.1.0}-*.png`⟩ → 8 files: home and URL colour, light and dark, each before and after. They are present and committed in `3ca75e36`. The `.a` frames (`a-frames/`, 6) are committed in `00d63cd3`.
+
+### Act 4: E13 mail
+
+⟨`find <path> -maxdepth 1 -type f -newer docs/tranches/V/coordination/INBOX.md`⟩ over value `V/` and `V/coordination`, glass `BK/coordination` and `BL` (the newest glass tranche), keyframes `V/coordination`, and atlas `P/coordination` → 0 files on every path. The newest rowed inbound letters are I-64 and I-65 (glass, 2026-09-25). **0 UNREAD in scope.**
+
+### Residuals (named owners)
+
+- **RES-close-1 (ABOUT-PROSE-VEIL).** On glass 10.1.0, the markdown About body's prose ink `rgb(28 25 23)` sits on a plate that composites to `rgb(101 99 97)`, which is **2.91:1, below AA** (o18 markdown About, light and dark, steady ×2). This ink is not an instrument call site, so the 10.1.0 veil darkens the plate under uncertified ink. The O-62 addendum (a) does not name this surface. **Owed:** O-62 addendum (b) beside O-62, with this surface and its composite. Owner: X-W12U (consumer half) and the 10.2.0 repin re-read unit (§ADDENDUM I-56). Honest-RED id: ABOUT-PROSE-VEIL.
+- **RES-close-2 (ex-C-INK assertions).** IDENTITY accent C 0.0070 is INK-VEIL-MIDBAND (already relayed in O-62 (a)). webgl-blob chroma is off by 0.041 against a 0.04 tolerance. The spectrum-drag readout median is 546.8 ms against 50 ms, and it fails in isolation on the pre-`.i` tree too. Owner: X-W12U (`.p` for the budget) and the 10.2.0 re-read.
+- **RES-close-3 (C-SEQ, 14).** Dock view-`Select` "not stable" and focus-ring failures that are steady in sequence but pass in isolation (3 of 3 probed). Mix flow, view-switch and spectrum-drag fail in isolation at both HEAD and pre-`.i`. None is attributed to this wave's commits. Owner: X-W12U `.m` (the dock-idle / e2e `expandDock` class; carrying the dock-motion flake from X-W12 Check 4 m-2).
+- **RES-close-4 (shared `dist/gh-pages`).** D1 on the shared bundle is contaminated whenever a sibling seat rebuilds it (this seat's r2). Future D1 reads should serve a private build (`--outDir` in scratch, `PERF_PORT`/`PROBE_BASE`), as r3 and r4 did. Owner: the gate harness (X-W8).
+- Carried unchanged: RES-m-1 (dead `--glass-tint-*` pins, X-W12U), RES-m-2 (card grain, X-W12U), RES-i-1 (the ground's spatial spread, the 10.2.0 re-read), RES-v-1..3, RES-a-1/-2 (X-W12U), INK-VEIL-MIDBAND (O-62 (a); the 10.2.0 re-read), C-5 / NG-6 (standing).
+
+### Escalations
+
+None. Landed-wrong: none. Adjacent edits: none. This seat wrote only the record, `evidence/X-W7L/close/` and its LEDGER row.
+
+### State
+
+`X-W7L`: **IMPLEMENTED** 2026-09-17 (the tranche clock). The pin reads `10.1.0` exact on `tranche-u`, committed and pushed. No row reads "hold on 7.0.0". Per §2, the row flips CLOSED only on a CONFORMANT check. This seat does not stamp VERIFIED.

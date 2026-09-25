@@ -1,0 +1,77 @@
+{
+  "gate": "D1",
+  "probe": "scene-swap-budget.mjs",
+  "at": "2026-09-25T20:42:53.968Z",
+  "base": "http://localhost:8091",
+  "prm": false,
+  "headed": true,
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "loadAtLaunch": [
+    100.32,
+    58.28,
+    40.81
+  ],
+  "budget": {
+    "over32Ratio": 0.15,
+    "medianMs": 20
+  },
+  "hops": [
+    {
+      "hop": "→/gradient",
+      "frames": 90,
+      "max": 12,
+      "median": 10,
+      "over32": 0,
+      "over50": 0,
+      "motion": [],
+      "over32Ratio": 0,
+      "budget": true,
+      "animated": false,
+      "motionHonest": false,
+      "pass": false
+    },
+    {
+      "hop": "→/extract",
+      "frames": 90,
+      "max": 12,
+      "median": 10,
+      "over32": 0,
+      "over50": 0,
+      "motion": [],
+      "over32Ratio": 0,
+      "budget": true,
+      "animated": false,
+      "motionHonest": false,
+      "pass": false
+    },
+    {
+      "hop": "→/mix",
+      "frames": 92,
+      "max": 12,
+      "median": 10,
+      "over32": 0,
+      "over50": 0,
+      "motion": [],
+      "over32Ratio": 0,
+      "budget": true,
+      "animated": false,
+      "motionHonest": false,
+      "pass": false
+    },
+    {
+      "hop": "→/generate",
+      "frames": 89,
+      "max": 12,
+      "median": 10,
+      "over32": 0,
+      "over50": 0,
+      "motion": [],
+      "over32Ratio": 0,
+      "budget": true,
+      "animated": false,
+      "motionHonest": false,
+      "pass": false
+    }
+  ],
+  "pass": false
+}

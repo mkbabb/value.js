@@ -1,0 +1,137 @@
+{
+ "scheme": "light",
+ "at": "2026-09-25T20:44:19.036Z",
+ "routes": [
+  {
+   "route": "/",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)",
+   "inkMuted": "oklch(28.946800213063% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.7900"
+  },
+  {
+   "route": "#/?space=oklch&color=oklch(0.55%200.18%20260)",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(2.289673555642% 0.009339667037 260deg)",
+   "inkMuted": "oklch(2.286842917574% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.6100"
+  },
+  {
+   "route": "#/atmosphere",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(2.289673555642% 0.009339667037 260deg)",
+   "inkMuted": "oklch(2.286842917574% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.6100"
+  },
+  {
+   "route": "#/extract",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(2.289673555642% 0.009339667037 260deg)",
+   "inkMuted": "oklch(2.286842917574% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.6100"
+  },
+  {
+   "route": "#/gradient",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(2.289673555642% 0.009339667037 260deg)",
+   "inkMuted": "oklch(2.286842917574% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.6100"
+  },
+  {
+   "route": "#/mix",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(2.289673555642% 0.009339667037 260deg)",
+   "inkMuted": "oklch(2.286842917574% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.6100"
+  },
+  {
+   "route": "#/generate",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(2.289673555642% 0.009339667037 260deg)",
+   "inkMuted": "oklch(2.286842917574% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.6100"
+  },
+  {
+   "route": "#/palettes",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(2.289673555642% 0.009339667037 260deg)",
+   "inkMuted": "oklch(2.286842917574% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.6100"
+  },
+  {
+   "route": "#/blob",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(2.289673555642% 0.009339667037 260deg)",
+   "inkMuted": "oklch(2.286842917574% 0.003861589952 34.629978305623deg)",
+   "ambient": "0.6100"
+  },
+  {
+   "route": "#/?color=oklch(0.51%200.13%2032)",
+   "inkErrors": 0,
+   "sceneFail": 0,
+   "otherErrors": [],
+   "accentLive": "oklch(99.906294515822% 0.000453260029 32deg)",
+   "inkMuted": "oklch(99.908867198487% 0.000444805122 34.629978305623deg)",
+   "ambient": "0.5700"
+  }
+ ],
+ "plates": {
+  "dark": false,
+  "res": {
+   "page": {
+    "calls": 126,
+    "completed": 126,
+    "threw": [],
+    "L_at_05": 0.5
+   },
+   "resting": {
+    "calls": 126,
+    "completed": 126,
+    "threw": [],
+    "L_at_05": 0.469
+   },
+   "floating": {
+    "calls": 126,
+    "completed": 126,
+    "threw": [],
+    "L_at_05": 0.4621
+   },
+   "chrome": {
+    "calls": 126,
+    "completed": 126,
+    "threw": [],
+    "L_at_05": 0.4785
+   },
+   "veil": {
+    "calls": 126,
+    "completed": 126,
+    "threw": [],
+    "L_at_05": 0.4578
+   },
+   "well": {
+    "calls": 126,
+    "completed": 126,
+    "threw": [],
+    "L_at_05": 0.9133
+   }
+  }
+ }
+}
