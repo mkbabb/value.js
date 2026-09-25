@@ -3575,3 +3575,14 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
   - **D:** X.P.W7 is NOT-CONFORMANT after `.l2`. (a) and (b) landed; node, Chromium and WebKit are 22/22 ×2; Firefox rejected `parseStylesheet` is 1.02–1.08.
 - **Ruled, ESC-W7l2-1:** no relief. Unit **`.l3`** profiles and cures Firefox's refusal path (W7.md addendum (e)), then `.cp`.
 - **The owner ordered a redeploy.** All four tracks are resumed on their run ids. If the account limit still holds, the seats fail fast and the tracks are resumed again after the reset.
+
+## §0dr — 2026-09-25: owner — "re-deploy all workflows" plus a fifth for fourier's contour tour; F.CT minted; the private-sample law
+- **Owner, verbatim:** *"Continue. Re-deploy all workflows. And add another for the fourier analysis contour tour selection and refinement thereof. We'll use this image for all of our samples going forward, the image of my fiancee, Daraksha … The contour extraction bar should be set against this, and our other test images, until perfection."*
+- **Tracks A–D were resumed** on their run ids (a new session; the earlier tasks had ended with the process).
+- **F.CT minted** (`fourier/waves/F-CT.md`), running as a **fifth workflow by the owner's explicit order**, an exception to the 4-workflow cap for this wave only (`wf_57c58aa4-43e`; its chassis copy is `execution/chassis/fourier-contour-tour.js`). The stages are:
+  1. a bench harness in fourier `bench/contours/`, with the metrics and the bar;
+  2. four diagnosis lenses: selection, tour, refinement, models;
+  3. one ordered cure plan;
+  4. implement-and-measure rounds, each followed by a three-judge vision panel (fidelity, cleanliness, drawability), looping until every judge PASSes every image in the same round with no public-set regression (at most 8 rounds);
+  5. close: gates ×2, the local served check, and the record.
+- **PRIVATE-SAMPLE LAW:** fourier-analysis and value.js are both **public**. The portrait lives only at `~/.fourier-samples/daraksha.jpeg`, and every derivative goes under `~/.fourier-samples/evidence/`. None of it is ever committed, pushed, uploaded, deployed or published; records cite numbers only; committed tests use the public set; the private gate skips when the file is absent. **Asked of the owner:** whether it may ever enter a repo or a deployed sample set.
