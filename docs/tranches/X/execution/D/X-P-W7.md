@@ -1793,3 +1793,91 @@ Seat `claude-opus-5-5`, 2026-09-24, Track D. Governing text: W7.md (247 lines, r
 **Residuals.** ESC-W7l2-1 (above): Firefox rej and large `parseStylesheet`, caused by SpiderMonkey's value-grammar and action cost, outside `.l2`'s grant. Firefox rej `parseCssValue` at noise distance (one rep 1.014 quiesced).
 
 **Adjacent edits: none. Out-of-set writes: none.** Status: **ESCALATED** (every stay-GREEN gate GREEN; L-G1 RED on Firefox's two §0di cells only).
+
+## RESUME 4 Close (2026-09-24, close seat `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 253 lines; ADDENDUM (c) at `:231` and ADDENDUM (d) at `:249` bind). From this record: header, `## RESUME 4 — Open` through `## RESUME 4 Unit plan`, and the `.l2` receipt (the last section). Every earlier section stands (E-3). **Crash-recovery:** ⟨`git status --porcelain -- src bench test scripts/gen-grammar.mjs docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md package.json package-lock.json`⟩ → empty; ⟨`git -C ../bbnf-lang-x-p-w7-typescript status -sb`⟩ → `## x-p-w7-typescript...origin/x-p-w7-typescript`, clean; ⟨`git rev-parse HEAD origin/x-p-w7-typescript`⟩ → `89fae4826…` both. parse-that master's dirty `rust/**`, `README.md`, `.cargo/config.toml` are outside every W7 set (siblings'; untouched). **No inherited partial work.**
+
+### Act 1: commit roster, and whether `.l2` stayed in its writable set
+⟨`git show --stat --format= <c>`⟩ per commit:
+
+| Commit | Paths touched | In set? |
+|---|---|---|
+| bbnf-lang `d08694061` (static classification + emission) | `typescript/src/analysis/{bulk,index}.ts`, `typescript/src/emit.ts`, `typescript/test/bulk.test.ts` | yes (`typescript/**`; L-10 family whole) |
+| bbnf-lang `89fae4826` (fallback (b), uniform; = origin) | `typescript/src/emit.ts`, `typescript/test/bulk.test.ts` | yes |
+| value.js `9c1bf596` (re-emission on `d08694061`) | `src/css/bbnf/generated/grammar.{js,d.ts}` | yes (via `gen-grammar.mjs`) |
+| value.js `a2a50158` (re-emission on `89fae4826`) | `src/css/bbnf/generated/grammar.{js,d.ts}` | yes |
+| value.js `94dc825b` (records + `bench/paired/audit.mjs`) | 13 paths under `bench/` | yes (`bench/**`) |
+| value.js `c418c907` (receipt) | this record | yes |
+
+**Landed wrong: none.** No `package.json`/lockfile, `ci.yml`, `rust/**`, bbnf-lang master, PR #1 or `scripts/dev/dev.sh` path in any commit. ⟨`git log --oneline c418c907..HEAD`⟩ at open → empty (no later W7 commit).
+**Receipt wording (not a landed-wrong):** the receipt's "0 → 20 `bulk` hits in `analysis/`" is the baseline command's count over `typescript/src` (⟨`grep -rniE bulk typescript/src | wc -l`⟩ → `20`); under `src/analysis` alone it is `10` (`bulk.ts`, `index.ts`; the other 10 are in `emit.ts`). The property and its test stand either way.
+
+### Act 2: the gates re-read by this seat (RESUME rule: the gates `.l2` turns plus stay-GREEN; older unit gates cited from `## Check 3`)
+
+**Correctness, gates and size** (final bytes: bbnf-lang `89fae4826`, value.js `a2a50158`).
+- Classification (L-10) ⟨`grep -rniE bulk typescript/src | wc -l`⟩ → `20` (baseline `0`); ⟨`grep -n 'toEqual' test/bulk.test.ts`⟩ → `:48` `["balanced","blockBody","preludeRun","ruleGap","textBody"]`, `:51` token runs `["argRun","colonRun","commaRun","semiRun","spaceRun"]`. **GREEN.**
+- L-G2 / V-1 ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead c418c907`, `srcDirty ""`, `bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product <scratch>`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 88 (ASCII-only sources 0)` both (= F-b-4). **GREEN ×2.**
+- L-G3 ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`; ⟨`node bench/paired/instrument.mjs`⟩ (emitter linked) → `"plainEqualsShipped":true`, `"shippedInstrumentTokens":[]`. **GREEN.**
+- K2-b ⟨`grep -rn deepFreeze src | wc -l`⟩ → `0`; V-8 greps (`GRAMMAR_MODULES|new ParserState|reset()` outside `generated/`; `[xX]` inside `/…/i`) → `0` · `0`. **GREEN.**
+- E-4 ⟨`node scripts/gen-grammar.mjs --check`⟩ ×2 with `node_modules/@mkbabb/bbnf-lang` linked to the worktree (rebuilt, `npm run build` exit 0, worktree clean after) → `grammar.js is current (sha256 777f0045…)` both; a regeneration leaves ⟨`git status --porcelain src/css/bbnf/generated | wc -l`⟩ → `0`. Link removed, 0.1.4 restored (⟨`grep '"version"'`⟩ → `0.1.4`). **GREEN.**
+- E-2 ⟨`node bench/paired/audit.mjs`⟩ (the banked driver, linked emitter) → `rules 160 · checks 200082572 · violations 0 · modeCalls 4791680 · modeDiffs 0`. **GREEN.**
+- E-1/E-3/E-5 ⟨`npx vitest run`⟩ ×2 in the worktree → `Test Files 20 passed (20) · Tests 292 passed (292)` both; ⟨`npx tsc --noEmit -p .`⟩ → 0. **GREEN.**
+- E-6 ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js | wc -c`⟩ → `89097`; `| gzip | wc -c` → `12617` (ceilings 125,646 / 14,517). **GREEN.**
+- ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`, `26× MIRROR-DEFECTS 0` (the line count varies with the suite's output; no non-zero line). ⟨`npx vitest run test/css`⟩ → `5 passed · 58 passed`. **GREEN.**
+- ⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit`⟩ → `0 · 0 · 0`. **GREEN.**
+- ⟨`npx vitest run`⟩ → `Tests 2 failed | 941 passed (943)`: `spectrum-luma` C-5 BORN-RED and `reka-binding-idiom` NG-6, the foreign pair. **GREEN** (0 CSS failures).
+- L-6 ⟨`git diff HEAD --stat -- package.json package-lock.json`⟩ → empty. **Held.**
+
+**Timing.** Load was quiesced for the whole sitting (9–16; sibling fleets idle), recorded in every log. Records moved to scratchpad `w7l2close/` (`l2close-r{1,2}`, `l2close-node-r{1,2}`, logs); ⟨`git status --porcelain bench | wc -l`⟩ → `0`. Firefox 150.0.2 · WebKit 26.4 · Chromium 148.0.7778.96 (the `.l2` pins).
+- **browsers, read 1** ⟨`node bench/paired/browser.mjs l2close-r1 firefox,webkit,chromium 2 whole,acc,rej,large 11 product`⟩ (load `11.68` → `9.39`; 5 set-aside cells, every one with a clean sibling rep, all < 1):
+  - Chromium 22/22 rows < 1 in both reps (rej parseStylesheet **.529 / .523**; large .341 / .343). ⟨`grep -E '^product (webkit|chromium)' | grep -vc '<1'`⟩ → `0`.
+  - WebKit 22/22 (rej parseStylesheet .75 / .75; large .568 / .564).
+  - Firefox 19/22: clean RED **rej parseStylesheet 1.035 / 1.034** (3/11 rounds below 1) · rej parseCssValue **1.009** / .92 · rej parseCssValues **1.034** / .913. **large parseStylesheet .956 / .995** · whole parseStylesheet .946 / .914 · acc parseStylesheet .785 / .772.
+- **browsers, read 2** ⟨same, tag `l2close-r2`⟩ (load `8.96` → `9.84`; 0 set aside): Chromium 22/22 (rej .522 / .533; large .329 / .335) · WebKit 22/22 (rej .771 / .758; large .571 / .611) · Firefox **21/22**: clean RED **rej parseStylesheet 1.029 / 1.01** only; large **.932 / .979**; whole parseStylesheet .96 / .925; rej parseCssValue .912 / .916; rej parseCssValues .905 / .893.
+- **node, read 1** ⟨`node --expose-gc bench/paired/isolated.mjs l2close-node-r1 product 3 11 whole,acc,rej,large`⟩ (load `9.21` → `9.48`): whole medians color .613 · scalar .538 · value .374 · values .377 · keyframe .67 · timing .63 · stylesheet .588 (ceilings .90/.81/.57/.58/.78/.87/.85); acc keyframe .588; rej stylesheet .558; large .383. `whole-7/7`, `accepted-7/7`, `rejected-7/7` all `GREEN` (1 cell set aside, rej parseCssValue rep x0.476 at spread 1.687, reported; 3 clean reps .41–.45).
+- **node, read 2** ⟨same, tag `l2close-node-r2`⟩ (load `9.36` → `8.83`): whole .605 · .531 · .362 · .368 · .683 · .609 · .547; acc keyframe .584; rej stylesheet .557; large .374. All three 7/7 verdicts `GREEN` (5 set-aside reps in rej parseCssValues / parseStylesheet, every one < 1, reported).
+- **Reading.** On quiet load, the RED that stands on Firefox is **rej parseStylesheet** (1.01–1.035, four clean reps, two reads). **Firefox large parseStylesheet reads below 1 in all four of this seat's reps (.932–.995)**, but only by .005–.07, and the `.l2` receipt read it 1.033 / 1.127 (ff-r3) and 1.043 (ff-r4) quiesced; this seat does not call it closed (noise distance, R-l2-2). Firefox rej parseCssValue/Values read 1.009 / 1.034 in one rep of read 1 and .89–.92 in all others (noise distance, as at `.l`'s close). The Chromium cost the receipt charged to (b) (rej ×1.06–1.11) is not reproduced on quiet load: .522–.533 against the RESUME 4 baseline .529 / .539.
+
+### Acts 3 and 4: verification artefacts and E13
+- The spec names no Verification Artefacts clause beyond its gates. This seat's paired records are in scratchpad `w7l2close/`; `.l2`'s banked records (`94dc825b`: `browser-l2-{probe,static-r1,final-r1,final-r2,final-ff-r2..r4}`, `l2-final-node-r1..r3`, `profile-l2-{p1,b}`, `bench/paired/audit.mjs`) stand as the records of record.
+- E13 ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/`, glass `BK/coordination/` + `BL/` (⟨`ls -td glass-ui/docs/tranches/B*/ | head -3`⟩ → `BL BK BJ`), keyframes.js `V/coordination/`, atlas `P/coordination/` → **0** files on every path. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. **0 UNREAD in scope.**
+
+### Gate table, BEFORE → AFTER (BEFORE = RESUME 4 Baseline; AFTER = this seat's two reads)
+
+| Gate | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|
+| `.l2` classification property | 0 hits | 20 (src), test names the 5 bulk + 5 token rules | **GREEN** |
+| L-G1 Firefox rej parseStylesheet | 1.184 / 1.103 | **1.035 / 1.034 · 1.029 / 1.01** | **RED ×2** (at 1.01–1.04) |
+| L-G1 Firefox large parseStylesheet | 1.316 / 1.279 | .956 / .995 · .932 / .979 (receipt, quiesced: 1.033 / 1.127 · .946 / 1.043) | GREEN here ×2; noise distance across seats |
+| L-G1 Firefox rej parseCssValue / Values | noise distance | 1.009 / .92 · 1.034 / .913 (r1); .912 / .916 · .905 / .893 (r2) | noise distance (one rep each > 1) |
+| L-G1 Firefox, other 17 rows | GREEN (`.g`) | < 1 in both reads | **GREEN ×2** |
+| L-G1 WebKit 22 rows | GREEN | 22/22 < 1, both reads (large .56–.61) | **GREEN ×2** |
+| L-G1 Chromium 22 rows | GREEN (rej .529/.539) | 22/22 < 1, both reads (rej .52–.53, large .33–.34) | **GREEN ×2** |
+| L-G1 node whole/acc/rej/large | GREEN | 7/7 · 7/7 · 7/7 · large .383 / .374, both reads | **GREEN ×2** |
+| whole-7/7 inside ceilings | GREEN | keyframe .67 / .683 (.78) · stylesheet .588 / .547 (.85) | **GREEN ×2** |
+| L-G2 V-1 | 88 = F-b-4 | 88 = F-b-4 ×2 | **GREEN ×2** |
+| L-G3 | 0 | 0; `plainEqualsShipped true` | **GREEN** |
+| stay-GREEN: css-equiv · test/css · npm test · vue-tsc · `--check` · K2-b · V-8 | GREEN | 19/19, MIRROR-DEFECTS 0 · 58/58 · 941/943 (foreign pair) · 0/0/0 · current ×2 (linked) · 0 · 0 | **GREEN** |
+| E-1/E-3/E-5 · E-2 · E-6 | GREEN | 292/292 ×2, tsc 0 · 200,082,572 checks, 0 violations, 0 modeDiffs · 89,097 / 12,617 B | **GREEN** |
+| P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half | relieved | relieved by citation to X.P.W7P (§0cp 1), GATE-KEYED on the owner's OTP | **relieved → X.P.W7P** |
+| `.cp` (ADDENDUM (d): custom-property case, easing presets) | not in the RESUME 4 plan | not dispatched: ⟨`git log --all --grep='W7.cp'`⟩ → 0; no `.cp` receipt | **OWED** |
+
+### Residuals (named owners)
+- **R-l2-1: Firefox (SpiderMonkey) rej parseStylesheet** stays above the retired parser, 1.01–1.035 on quiet load in all four of this seat's reps (1.017–1.078 in the receipt). The per-rule profile (`profile-l2-b.json`) places the remainder in the value grammar under `valueTop` and in value.js's action bodies, not in the class runs §0di ruled on. Owner: **the owner, via ESC-W7l2-1**.
+- **R-l2-2: Firefox large parseStylesheet and rej parseCssValue/Values sit at noise distance.** Large reads .93–.995 here and 1.03–1.13 in the receipt; rej parseCssValue/Values reads 1.009 / 1.034 in one rep and ≤ .92 in the rest. Neither is claimed closed. Owner: the unit that executes ESC-W7l2-1's ruling, which re-reads them.
+- **R-l2-3: `.cp` owed** (ADDENDUM (d), COHESION §0dj): custom-property names lowercased (css-variables-1 §2), and easing presets' descriptions and bounce curves missing in 4.x. ADDENDUM (d) places it after `.l2`, but the RESUME 4 plan did not list it and no seat has run it. Owner: **the next Track D RESUME of X.P.W7 (`[X.P.W7.cp]`)**.
+- **The release chain:** P-6, E-8, V-9 and its CI step, Z-1, Z-3's publish half, `--check` on the installed pin, the bbnf-lang PR #1 merge. Owner: X.P.W7P, GATE-KEYED on the owner's npm one-time password.
+- **Foreign test rows** (not W7's): `spectrum-luma` C-5 BORN-RED, `reka-binding-idiom` NG-6. Owners: their Track A/B units.
+
+### Escalations
+- **ESC-W7l2-1** (the `.l2` receipt) is carried open, confirmed by this seat's reads: both forms that ADDENDUM (c) admits are shipped, and Firefox rej parseStylesheet stays RED. The owner's choice: open a unit on the action and value-mode construction cost under SpiderMonkey (value.js's `src/css/bbnf` actions plus the emitter's value-mode construction), or rule on the Firefox cells. ⟨`grep -n ESC-W7l2-1 COHESION.md`⟩ → 0 hits (unruled).
+- **ESC-W7p-1 / e-1 / v-1 / z-1** stay with X.P.W7P.
+- This seat raises no new escalation. **Adjacent edits: none. Out-of-set writes: none.** `scripts/dev/dev.sh` untouched.
+
+### Four-verb line
+W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (c) binds L-G1 on every engine, and Firefox rej parseStylesheet reads RED twice here. ADDENDUM (d)'s `.cp` is also owed. X.P.W7 is therefore **not IMPLEMENTED**: it stays **PARTIAL**, and VERIFIED is not stamped. It moves to IMPLEMENTED once ESC-W7l2-1 is ruled and executed and `.cp` lands.
+
+**Verdict: PARTIAL.** `.l2` delivered the static bulk-text classification and the uniform negated-run scan, both in set, with every stay-GREEN gate GREEN. Chromium, WebKit and node are below the retired parser on every cell, twice. Firefox is below it on 21 of 22 rows in read 2, and rej parseStylesheet stays RED at 1.01–1.04.
+
+**Commits (this seat):** this RESUME 4 Close, plus the LEDGER row cell.
