@@ -352,3 +352,53 @@ None. Landed-wrong: none. Adjacent edits: none. This seat wrote only the record,
 ### State
 
 `X-W7L`: **IMPLEMENTED** 2026-09-17 (the tranche clock). The pin reads `10.1.0` exact on `tranche-u`, committed and pushed. No row reads "hold on 7.0.0". Per §2, the row flips CLOSED only on a CONFORMANT check. This seat does not stamp VERIFIED.
+
+## Check 1
+
+L-20 pass 1, fresh adversarial check, VERIFY-ONLY. 2026-09-25, `claude-opus-5-5`, HEAD `9e3174d3` (= `origin/tranche-u` contains it). Spec `waves/W7L.md` read whole (42 lines). Of this record: header through `## Unit plan`, the `.i`/`.a` receipts by grep and sed range, and `## Close`. Load average 45–68 (four live tracks).
+
+**Crash-recovery.** ⟨`git status --porcelain -- docs/tranches/X/execution/A/X-W7L.md docs/tranches/X/execution/LEDGER.md`⟩ → empty. The dirty `evidence/X-W7L/a-frames/*.png` pre-date this seat (the falsifier re-shoots them on every run; C1-2 below). This seat writes only this section and its LEDGER cell and event line.
+
+### Axes
+
+| # | axis | reading (⟨cmd⟩ → output) | verdict |
+|---|---|---|---|
+| 1 | claimed GREENs reproduce | L1 ⟨`grep -n '"@mkbabb/glass-ui"' package.json`⟩ → `89: "10.1.0"`; lock `node_modules/@mkbabb/glass-ui` → `"version": "10.1.0"`; ⟨`node -p require(…/glass-ui/package.json).version`⟩ → `10.1.0`; ⟨`git branch -r --contains 9e3174d3`⟩ → `origin/tranche-u`. L2 ⟨`git apply --check --reverse m-repin-10.0.1-migration.patch 2>&1 \| grep -c 'patch failed\|does not apply'`⟩ → 42 (= 21 files × 2 lines, as the close says); `show-close` in demo → 0; `:global(.dark)` in demo → 0. L3 ⟨`npm run typecheck`⟩ → EXIT 0; ⟨`npm run lint`⟩ → EXIT 0. L4 ⟨`npx vitest run`⟩ ×2 → `8 failed \| 971 passed \| 8 skipped (987)` both; the non-timeout failures are exactly the banked 7 (C-5, NG-6, INK-VEIL-MIDBAND ×5); the 8th group is `generate-rail` EC-10 `Test timed out in 5000ms` plus `palette-card-layout`/`plate-mass` `page.goto: Timeout 30000ms` (browser harness, whose skips account for the 8 skipped); EC-10 alone ⟨`--reporter=verbose`⟩ → ✓ 3789 ms. L5 = the demo leg of L3, EXIT 0. L9 ⟨`npx vitest run test/ink-real-composite.test.ts test/ink.test.ts`⟩ ×2 → 5 failed / 31 passed both, the 5 = INK-VEIL-MIDBAND by name. L11 ⟨`VJS_E2E_PORT=5417 npx playwright test e2e/smoke/x-w7l-detached.spec.ts --project=smoke --workers=1`⟩ ×2 → `6 passed (3.4m)`, `6 passed (2.7m)`. L6 (1.4 h full smoke), L7 (headed real-GPU D1) and L8/L10 (served `:9000` headed) are cited from `evidence/X-W7L/close/` (`gates.txt`, `smoke-lists.txt`, `D1-r{1,3,4}.json`, `L8-*-r{1,2}.json`), not re-run (§5.2 parsimony). | reproduced (L4 with the load-timeout caveat C1-3) |
+| 2 | bounds | ⟨`git show --stat`⟩ on all 13 wave commits (`fed9dd4d`…`9e3174d3`): `package.json`, lock, `demo/**` (49 + 2 in `.i`), `e2e/smoke/**`, `test/ink*.test.ts`, `relay/` addendum, INBOX, LEDGER, record, `evidence/X-W7L/**`. 0 `src/**`, 0 `glass-ui/**`. ⟨`git diff --stat fed9dd4d^..HEAD -- scripts/dev/dev.sh`⟩ → empty. | HELD |
+| 3 | no masking | ⟨`git diff fed9dd4d^..HEAD -- demo e2e test src \| grep -E '^\+.*(\.skip\|fixme\|\.only\(\|try \{\|catch *\(\|allowlist\|!important\|node_modules)'`⟩ → only (a) the PRM overlay carve-out's pre-existing `!important` moved into `@layer base` (I-56 trap 1, the producer's own MIGRATION rule), (b) the falsifier's measurement style tags (casts off / grid hidden to read the ground, fourier's shape), (c) test reads of glass dist token files. 4 removed `expect(` lines, all in `extract-controls.test.ts`, each replaced at equal strength by the `aria-disabled` reading glass 10.1.0 DockControl stamps. The `.i` search keeps the floor a hard throw; only the headroom became a preference, which the spec names as the bug. The 5 INK-VEIL-MIDBAND assertions are kept RED, not narrowed. | HELD |
+| 4 | commit families | `.m` repin + migration in one commit (`c8a4959d`, pin/lock/install move with the migration); e2e typing separate (`cd3cc3d1`); `.i` model + tests one commit (`c8cbbe10`); relay separate; each receipt separate. One meaning per commit. | HELD |
+| 5 | E-3 | ⟨`git show --stat --format= <each wave commit> -- docs/tranches/X/waves docs/tranches/V/megatranche docs/tranches/X/COHESION*`⟩ → empty for all 13. The `waves/` diffs over the range (`W12U.md` +4, `W7L-evidence/dock-ellipse/*`) are other seats' commits. O-62 is untouched; the addendum sits beside it. | HELD |
+| 6 | mail | ⟨`find <6 paths> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path (value V/ + V/coordination, glass BK/coordination + BL (newest by `ls -t`), keyframes V/coordination, atlas P/coordination). ⟨`grep -nE '\| *UNREAD' INBOX.md`⟩ → 1 hit, line 406, a 2026-09-22 prose sweep line, not a row. | CLEAN |
+| 7 | four-verb line | OPEN → `.m` DONE → IMPLEMENTED (close) → CLOSED only on this check. No seat stamped CLOSED early. | LAWFUL |
+| 8 | goal at the bytes | pin `10.1.0` exact, committed and pushed; no row reads "hold on 7.0.0"; `contrast_unreachable` cured in the instrument (floor still throws only when unreachable); every glass-owned row re-read at 10.1.0 (`.v`); `.a` adopts nothing because value.js has no glass Configurator shape (census 0, falsifier discriminates: planted RED 6/6). | MET |
+| 9 | published figures | 21 non-reversing files, 5/31 ink, 6/6 falsifier, typecheck/lint 0 all reproduce. The vitest 7/980 steady reproduces as 8/971 at this seat's load, the delta being harness timeouts only (C1-3). | REPRODUCE |
+
+### Axis 10: honest-RED adjudication (at the spec bytes)
+
+| RED | gate | relief (spec bytes) | owner named in the register | verdict |
+|---|---|---|---|---|
+| INK-VEIL-MIDBAND (5 `test/ink.test.ts` register cases) | L9, L4 | producer-owned: the glass 10.1.0 veil puts light plates' composite in Y 0.133–0.238 (the model matches Chromium within ΔL 0.0015). §2: "GREEN ×2 or carries a named honest-RED with a relayed id" — relayed as O-62 addendum (a) (`2b860dcd`). ADDENDUM I-56: the veil fix ships in 10.2.0, and the re-read of certified ink there "is a follow-up unit". | O-62 (a); the 10.2.0 re-read unit | RELIEVED |
+| L6 smoke, 79 steady | L6 | the gate's own text: "GREEN or each failure classified with its cause". 41 pre-existing on 7.0.0; 24 repin classes (TRIGGER-PAINT, CARD-STAMP, DOCK-IDLE, DOCK-PAINT, DIALOG, LETTER) = consumer halves, which `.v` hands to X-W12U ("X-W12U then cures the consumer halves on 10.1.0"); 14 C-SEQ, 3 of 3 probed pass alone, the other 3 also fail on the pre-`.i` tree. | X-W12U (and the standing sets) | RELIEVED |
+| ABOUT-PROSE-VEIL (2.91:1, o18 About, inside L6) | L6 | classified with a measured cause (uncertified prose ink under the 10.1.0 veil). AA stays reachable there (a light ink clears 4.5:1), so `.i` step 3's "AA unreachable → O-62 addendum" clause does not strictly bind; it is a consumer half by `.v`'s routing. | X-W12U + the 10.2.0 re-read (RES-close-1) | RELIEVED, with C1-1 |
+| C-5, NG-6 | L4 | standing honest-RED set, banked before this wave (X-W7 Check 1: owned by X-W8 `.i`, COHESION §0z E2). | X-W8 `.i` | RELIEVED |
+
+No RED gate is left without relief.
+
+### Defect register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | MINOR | ABOUT-PROSE-VEIL is an AA regression that the repin introduced on a shipping surface. Its O-62 addendum (b) is recorded as "owed" but has not been sent, and `waves/W12U.md` does not carry the row. Its only carriers are this record and the LEDGER cell. | ⟨`grep -n 'O-62 (b)\|ABOUT-PROSE' waves/W12U.md INBOX.md`⟩ → 0 | X-W12U's open seat folds ABOUT-PROSE-VEIL into its register, and either certifies the prose ink or sends O-62 (b) beside O-62 before X-W12U closes. Mitigated: the owner is named in RES-close-1 and in the LEDGER status cell. |
+| C1-2 | MINOR | `e2e/smoke/x-w7l-detached.spec.ts:42,166,197` writes screenshots into the committed evidence dir `evidence/X-W7L/a-frames/` on every smoke run, so each run dirties E-3 evidence. Six of those PNGs are dirty in the tree now. | ⟨`git status --porcelain -- docs/tranches/X/evidence/X-W7L`⟩ → 5–6 ` M a-frames/*.png` | The e2e-owning successor (X-W12U or X-W8) sends the frames to `test-results/` (or gates them behind an env var). The dirty PNGs are not committed. Mitigated: the assertions do not read the frames. |
+| C1-3 | INFO | vitest at load 47–68 read `8 failed` ×2, not 7. The extras are harness timeouts in files this wave never touched (`generate-rail` 5 s test timeout, which passes alone in 3789 ms; `palette-card-layout`/`plate-mass` 30 s `page.goto`). This is the baseline's own load-flake class. | L4 row above | none (environmental) |
+| C1-4 | INFO | L6 (1.4 h), L7 (headed GPU) and L8/L10 (headed `:9000`) are cited from the close's banked evidence, not re-run by this seat. | `evidence/X-W7L/close/` | none |
+| C1-5 | INFO | The spec's `npm run check` has no script. The seats read it as `typecheck` + `lint`, and the baseline records that reading. | baseline L3 | a spelling erratum for the spec's author (addendum-beside) |
+
+### Successors ("Opens after" conjuncts)
+
+- **X-W12U** (`W12U.md:4` "X-W12 CLOSED"; §0dm orders it after X-W7L): X-W12 CLOSED is GREEN (LEDGER :38, Check 4). X-W7L CLOSED turns GREEN with this check. **X-W12U may open.**
+- **X-W8** ("W4·W5·W6·W7", and blocked by X-W12, X-W12U and X-W7L): X-W12U is QUEUED, so **X-W8 stays lawfully blocked** on X-W12U.
+
+### Verdict
+
+**CONFORMANT-HONEST-RED.** 0 BLOCKER, 0 CRITICAL, 0 HIGH. 2 MINOR, each mitigated and owner-named; 3 INFO. Every claimed GREEN this seat re-ran reproduces (8 gates: L1, L2, L3 typecheck, L3 lint, L4, L5, L9, L11). Honest-RED set: INK-VEIL-MIDBAND (O-62 (a), 10.2.0 re-read) · ABOUT-PROSE-VEIL (X-W12U) · L6 smoke 79 classified (X-W12U, standing) · C-5/NG-6 (X-W8 `.i`). The LEDGER row moves to CLOSED 2026-09-17 (honest-RED).
