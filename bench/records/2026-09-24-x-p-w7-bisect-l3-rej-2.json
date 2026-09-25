@@ -1,0 +1,60 @@
+{
+ "tag": "l3-rej-2",
+ "instrument": "bench/paired/bisect.mjs (X.P.W7.l)",
+ "cls": "rej",
+ "rounds": 11,
+ "probes": [
+  "retired",
+  "product",
+  "ruleList",
+  "retiredFault",
+  "productFault",
+  "ruleListFault",
+  "wrapperFault",
+  "failureFault",
+  "retiredBlocks",
+  "productBlocks"
+ ],
+ "valuejsHead": "cf50270bab4d70637ddb31f0b5564b8117671383",
+ "uptimeStart": "9:59  up 1 day,  8:02, 4 users, load averages: 15.70 20.83 19.55",
+ "versions": {
+  "firefox": "150.0.2"
+ },
+ "results": {
+  "firefox": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 34.5,
+    "product": 32.5,
+    "ruleList": 6.5,
+    "retiredFault": 12.5,
+    "productFault": 15,
+    "ruleListFault": 5.5,
+    "wrapperFault": 5.5,
+    "failureFault": 10,
+    "retiredBlocks": 22,
+    "productBlocks": 19
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.968,
+    "ruleList": 0.178,
+    "retiredFault": 0.349,
+    "productFault": 0.441,
+    "ruleListFault": 0.145,
+    "wrapperFault": 0.159,
+    "failureFault": 0.278,
+    "retiredBlocks": 0.594,
+    "productBlocks": 0.524
+   }
+  }
+ },
+ "uptimeEnd": "9:59  up 1 day,  8:02, 4 users, load averages: 18.29 21.29 19.72"
+}

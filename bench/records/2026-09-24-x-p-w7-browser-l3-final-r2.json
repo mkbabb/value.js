@@ -1,0 +1,4813 @@
+{
+ "tag": "l3-final-r2",
+ "instrument": "bench/paired/browser.mjs (X.P.W7.g)",
+ "arms": [
+  "retired",
+  "product"
+ ],
+ "reps": 2,
+ "rounds": 11,
+ "floors": {
+  "chromium": 20,
+  "webkit": 20,
+  "firefox": 100
+ },
+ "spreadRule": 1.6,
+ "valuejsHead": "99b28da7ab7a8154f9e03e6704f11d51c10e3d18",
+ "uptimeStart": "10:17  up 1 day,  8:20, 4 users, load averages: 13.31 16.68 18.47",
+ "versions": {
+  "firefox": "150.0.2",
+  "webkit": "26.4",
+  "chromium": "148.0.7778.96"
+ },
+ "cells": [
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:17  up 1 day,  8:20, 4 users, load averages: 13.31 16.68 18.47",
+   "uptimeAfter": "10:17  up 1 day,  8:20, 4 users, load averages: 13.21 16.60 18.43",
+   "entry": "parseCssColor",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.368,
+   "retiredMs": 123,
+   "ratio": {
+    "product": {
+     "paired": 0.824,
+     "below1": 11,
+     "ofMins": 0.825
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:17  up 1 day,  8:20, 4 users, load averages: 13.21 16.60 18.43",
+   "uptimeAfter": "10:18  up 1 day,  8:20, 4 users, load averages: 12.79 16.46 18.37",
+   "entry": "parseCssScalar",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.277,
+   "retiredMs": 161,
+   "ratio": {
+    "product": {
+     "paired": 0.615,
+     "below1": 11,
+     "ofMins": 0.613
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:20, 4 users, load averages: 12.79 16.46 18.37",
+   "uptimeAfter": "10:18  up 1 day,  8:20, 4 users, load averages: 12.79 16.46 18.37",
+   "entry": "parseCssValue",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.235,
+   "retiredMs": 106,
+   "ratio": {
+    "product": {
+     "paired": 0.574,
+     "below1": 11,
+     "ofMins": 0.571
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:20, 4 users, load averages: 12.79 16.46 18.37",
+   "uptimeAfter": "10:18  up 1 day,  8:20, 4 users, load averages: 12.97 16.43 18.35",
+   "entry": "parseCssValues",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.317,
+   "retiredMs": 114,
+   "ratio": {
+    "product": {
+     "paired": 0.594,
+     "below1": 11,
+     "ofMins": 0.558
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:20, 4 users, load averages: 12.97 16.43 18.35",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 12.89 16.36 18.31",
+   "entry": "parseKeyframeSelector",
+   "class": "whole",
+   "n": 29944,
+   "k": 8,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.069,
+   "retiredMs": 90,
+   "ratio": {
+    "product": {
+     "paired": 0.911,
+     "below1": 11,
+     "ofMins": 0.908
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 12.89 16.36 18.31",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 12.89 16.36 18.31",
+   "entry": "parseTimingFunction",
+   "class": "whole",
+   "n": 29944,
+   "k": 8,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.212,
+   "retiredMs": 111,
+   "ratio": {
+    "product": {
+     "paired": 0.838,
+     "below1": 11,
+     "ofMins": 0.837
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 12.89 16.36 18.31",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 12.58 16.24 18.26",
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.367,
+   "retiredMs": 192,
+   "ratio": {
+    "product": {
+     "paired": 0.881,
+     "below1": 11,
+     "ofMins": 0.797
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 12.58 16.24 18.26",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 12.21 16.10 18.20",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "n": 6460,
+   "k": 16,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.108,
+   "retiredMs": 107,
+   "ratio": {
+    "product": {
+     "paired": 0.832,
+     "below1": 11,
+     "ofMins": 0.814
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 12.21 16.10 18.20",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 12.19 16.03 18.16",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "n": 7460,
+   "k": 16,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.178,
+   "retiredMs": 165,
+   "ratio": {
+    "product": {
+     "paired": 0.675,
+     "below1": 11,
+     "ofMins": 0.669
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 12.19 16.03 18.16",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 12.19 16.03 18.16",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "n": 13023,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.206,
+   "retiredMs": 104,
+   "ratio": {
+    "product": {
+     "paired": 0.423,
+     "below1": 11,
+     "ofMins": 0.433
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 11.86 15.90 18.10",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 11.86 15.90 18.10",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "n": 13023,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.231,
+   "retiredMs": 111,
+   "ratio": {
+    "product": {
+     "paired": 0.439,
+     "below1": 11,
+     "ofMins": 0.433
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": false,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 11.86 15.90 18.10",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 11.71 15.80 18.05",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "n": 56,
+   "k": 8192,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.73,
+   "retiredMs": 127,
+   "ratio": {
+    "product": {
+     "paired": 0.817,
+     "below1": 11,
+     "ofMins": 0.847
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 1,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 11.71 15.80 18.05",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 11.71 15.80 18.05",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "n": 56,
+   "k": 8192,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.217,
+   "retiredMs": 120,
+   "ratio": {
+    "product": {
+     "paired": 0.835,
+     "below1": 11,
+     "ofMins": 0.826
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 11.71 15.80 18.05",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 11.09 15.60 17.97",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "n": 509,
+   "k": 256,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.151,
+   "retiredMs": 153,
+   "ratio": {
+    "product": {
+     "paired": 0.632,
+     "below1": 11,
+     "ofMins": 0.637
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 11.09 15.60 17.97",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 11.40 15.59 17.95",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "n": 2503,
+   "k": 8,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.476,
+   "retiredMs": 166,
+   "ratio": {
+    "product": {
+     "paired": 0.793,
+     "below1": 11,
+     "ofMins": 0.772
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 11.40 15.59 17.95",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 11.21 15.48 17.90",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "n": 23484,
+   "k": 8,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.241,
+   "retiredMs": 171,
+   "ratio": {
+    "product": {
+     "paired": 0.789,
+     "below1": 11,
+     "ofMins": 0.791
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 11.21 15.48 17.90",
+   "uptimeAfter": "10:18  up 1 day,  8:21, 4 users, load averages: 12.32 15.64 17.94",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "n": 22484,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.22,
+   "retiredMs": 127,
+   "ratio": {
+    "product": {
+     "paired": 0.592,
+     "below1": 11,
+     "ofMins": 0.568
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:18  up 1 day,  8:21, 4 users, load averages: 12.32 15.64 17.94",
+   "uptimeAfter": "10:19  up 1 day,  8:21, 4 users, load averages: 12.32 15.64 17.94",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "n": 16921,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.151,
+   "retiredMs": 98,
+   "ratio": {
+    "product": {
+     "paired": 0.77,
+     "below1": 11,
+     "ofMins": 0.785
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:21, 4 users, load averages: 12.32 15.64 17.94",
+   "uptimeAfter": "10:19  up 1 day,  8:21, 4 users, load averages: 11.97 15.51 17.88",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "n": 16921,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.137,
+   "retiredMs": 194,
+   "ratio": {
+    "product": {
+     "paired": 0.784,
+     "below1": 11,
+     "ofMins": 0.764
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:21, 4 users, load averages: 11.97 15.51 17.88",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 11.33 15.32 17.80",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "n": 29888,
+   "k": 16,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.145,
+   "retiredMs": 184,
+   "ratio": {
+    "product": {
+     "paired": 0.896,
+     "below1": 11,
+     "ofMins": 0.89
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 10.98 15.18 17.74",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 10.98 15.18 17.74",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "n": 29435,
+   "k": 8,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.368,
+   "retiredMs": 105,
+   "ratio": {
+    "product": {
+     "paired": 0.868,
+     "below1": 11,
+     "ofMins": 0.884
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 10.98 15.18 17.74",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 11.95 15.31 17.77",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.206,
+   "retiredMs": 116,
+   "ratio": {
+    "product": {
+     "paired": 0.901,
+     "below1": 11,
+     "ofMins": 0.935
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 11.95 15.31 17.77",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 11.47 15.16 17.70",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 32,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.147,
+   "retiredMs": 189,
+   "ratio": {
+    "product": {
+     "paired": 0.953,
+     "below1": 8,
+     "ofMins": 0.927
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 11.47 15.16 17.70",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 11.67 15.14 17.68",
+   "entry": "parseCssScalar",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.168,
+   "retiredMs": 199,
+   "ratio": {
+    "product": {
+     "paired": 0.626,
+     "below1": 11,
+     "ofMins": 0.6
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 11.67 15.14 17.68",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 11.54 15.05 17.63",
+   "entry": "parseCssValue",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.265,
+   "retiredMs": 106,
+   "ratio": {
+    "product": {
+     "paired": 0.617,
+     "below1": 11,
+     "ofMins": 0.612
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 11.54 15.05 17.63",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 11.54 15.05 17.63",
+   "entry": "parseCssValues",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.462,
+   "retiredMs": 114,
+   "ratio": {
+    "product": {
+     "paired": 0.626,
+     "below1": 11,
+     "ofMins": 0.575
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 11.54 15.05 17.63",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 11.65 15.02 17.61",
+   "entry": "parseKeyframeSelector",
+   "class": "whole",
+   "n": 29944,
+   "k": 8,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.179,
+   "retiredMs": 98,
+   "ratio": {
+    "product": {
+     "paired": 0.889,
+     "below1": 10,
+     "ofMins": 0.895
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 11.65 15.02 17.61",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 11.28 14.88 17.54",
+   "entry": "parseTimingFunction",
+   "class": "whole",
+   "n": 29944,
+   "k": 8,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.103,
+   "retiredMs": 114,
+   "ratio": {
+    "product": {
+     "paired": 0.833,
+     "below1": 11,
+     "ofMins": 0.832
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 11.28 14.88 17.54",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 10.86 14.74 17.48",
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.162,
+   "retiredMs": 195,
+   "ratio": {
+    "product": {
+     "paired": 0.851,
+     "below1": 10,
+     "ofMins": 0.849
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 10.86 14.74 17.48",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 10.86 14.74 17.48",
+   "entry": "parseCssColor",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.191,
+   "retiredMs": 121,
+   "ratio": {
+    "product": {
+     "paired": 0.778,
+     "below1": 11,
+     "ofMins": 0.8
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 10.86 14.74 17.48",
+   "uptimeAfter": "10:19  up 1 day,  8:22, 4 users, load averages: 10.71 14.64 17.43",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "n": 7460,
+   "k": 16,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.108,
+   "retiredMs": 169,
+   "ratio": {
+    "product": {
+     "paired": 0.677,
+     "below1": 11,
+     "ofMins": 0.677
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:19  up 1 day,  8:22, 4 users, load averages: 10.71 14.64 17.43",
+   "uptimeAfter": "10:20  up 1 day,  8:22, 4 users, load averages: 10.49 14.53 17.37",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "n": 13023,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.274,
+   "retiredMs": 205,
+   "ratio": {
+    "product": {
+     "paired": 0.421,
+     "below1": 11,
+     "ofMins": 0.426
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:22, 4 users, load averages: 10.49 14.53 17.37",
+   "uptimeAfter": "10:20  up 1 day,  8:22, 4 users, load averages: 10.85 14.54 17.36",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "n": 13023,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.142,
+   "retiredMs": 111,
+   "ratio": {
+    "product": {
+     "paired": 0.451,
+     "below1": 11,
+     "ofMins": 0.443
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:22, 4 users, load averages: 10.85 14.54 17.36",
+   "uptimeAfter": "10:20  up 1 day,  8:22, 4 users, load averages: 10.85 14.54 17.36",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "n": 56,
+   "k": 8192,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.196,
+   "retiredMs": 116,
+   "ratio": {
+    "product": {
+     "paired": 0.828,
+     "below1": 11,
+     "ofMins": 0.841
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:22, 4 users, load averages: 10.85 14.54 17.36",
+   "uptimeAfter": "10:20  up 1 day,  8:22, 4 users, load averages: 10.86 14.48 17.32",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "n": 509,
+   "k": 256,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.478,
+   "retiredMs": 164,
+   "ratio": {
+    "product": {
+     "paired": 0.607,
+     "below1": 11,
+     "ofMins": 0.599
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:22, 4 users, load averages: 10.86 14.48 17.32",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 11.12 14.47 17.30",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "n": 2503,
+   "k": 8,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.303,
+   "retiredMs": 170,
+   "ratio": {
+    "product": {
+     "paired": 0.803,
+     "below1": 11,
+     "ofMins": 0.803
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 11.12 14.47 17.30",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 11.51 14.50 17.29",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "n": 6460,
+   "k": 16,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.202,
+   "retiredMs": 119,
+   "ratio": {
+    "product": {
+     "paired": 0.781,
+     "below1": 11,
+     "ofMins": 0.817
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 11.51 14.50 17.29",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 12.11 14.57 17.30",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "n": 22484,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.213,
+   "retiredMs": 118,
+   "ratio": {
+    "product": {
+     "paired": 0.623,
+     "below1": 11,
+     "ofMins": 0.63
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.11 14.57 17.30",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 12.11 14.57 17.30",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "n": 16921,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.13,
+   "retiredMs": 94,
+   "ratio": {
+    "product": {
+     "paired": 0.728,
+     "below1": 11,
+     "ofMins": 0.717
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.11 14.57 17.30",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 11.94 14.49 17.26",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "n": 16921,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.132,
+   "retiredMs": 96,
+   "ratio": {
+    "product": {
+     "paired": 0.722,
+     "below1": 11,
+     "ofMins": 0.736
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 11.94 14.49 17.26",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 11.94 14.49 17.26",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "n": 29888,
+   "k": 8,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.076,
+   "retiredMs": 94,
+   "ratio": {
+    "product": {
+     "paired": 0.905,
+     "below1": 11,
+     "ofMins": 0.891
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 11.94 14.49 17.26",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 11.62 14.39 17.20",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "n": 29435,
+   "k": 16,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.1,
+   "retiredMs": 216,
+   "ratio": {
+    "product": {
+     "paired": 0.879,
+     "below1": 9,
+     "ofMins": 0.871
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.69 14.56 17.25",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 12.69 14.56 17.25",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.194,
+   "retiredMs": 113,
+   "ratio": {
+    "product": {
+     "paired": 0.94,
+     "below1": 9,
+     "ofMins": 0.926
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.69 14.56 17.25",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 12.24 14.44 17.19",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "n": 23484,
+   "k": 8,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.259,
+   "retiredMs": 169,
+   "ratio": {
+    "product": {
+     "paired": 0.79,
+     "below1": 11,
+     "ofMins": 0.785
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.24 14.44 17.19",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 12.54 14.46 17.18",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 16,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.468,
+   "retiredMs": 103,
+   "ratio": {
+    "product": {
+     "paired": 1,
+     "below1": 5,
+     "ofMins": 0.957
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.54 14.46 17.18",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 12.54 14.46 17.18",
+   "entry": "parseCssColor",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.1,
+   "retiredMs": 31,
+   "ratio": {
+    "product": {
+     "paired": 0.758,
+     "below1": 11,
+     "ofMins": 0.733
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.54 14.46 17.18",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 12.54 14.46 17.18",
+   "entry": "parseCssScalar",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.1,
+   "retiredMs": 41,
+   "ratio": {
+    "product": {
+     "paired": 0.561,
+     "below1": 11,
+     "ofMins": 0.575
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.17 14.35 17.13",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 12.17 14.35 17.13",
+   "entry": "parseCssValue",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.073,
+   "retiredMs": 111,
+   "ratio": {
+    "product": {
+     "paired": 0.464,
+     "below1": 11,
+     "ofMins": 0.455
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 12.17 14.35 17.13",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 11.76 14.23 17.07",
+   "entry": "parseCssValues",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.088,
+   "retiredMs": 119,
+   "ratio": {
+    "product": {
+     "paired": 0.467,
+     "below1": 11,
+     "ofMins": 0.469
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 11.76 14.23 17.07",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 11.76 14.23 17.07",
+   "entry": "parseKeyframeSelector",
+   "class": "whole",
+   "n": 29944,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.136,
+   "retiredMs": 23,
+   "ratio": {
+    "product": {
+     "paired": 0.87,
+     "below1": 11,
+     "ofMins": 0.864
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:20  up 1 day,  8:23, 4 users, load averages: 11.76 14.23 17.07",
+   "uptimeAfter": "10:20  up 1 day,  8:23, 4 users, load averages: 11.76 14.23 17.07",
+   "entry": "parseTimingFunction",
+   "class": "whole",
+   "n": 29944,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.138,
+   "retiredMs": 29,
+   "ratio": {
+    "product": {
+     "paired": 0.724,
+     "below1": 11,
+     "ofMins": 0.724
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.76 14.23 17.07",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.38 14.11 17.01",
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.07,
+   "retiredMs": 58,
+   "ratio": {
+    "product": {
+     "paired": 0.661,
+     "below1": 11,
+     "ofMins": 0.649
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.38 14.11 17.01",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.38 14.11 17.01",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "n": 6460,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.125,
+   "retiredMs": 17,
+   "ratio": {
+    "product": {
+     "paired": 0.765,
+     "below1": 11,
+     "ofMins": 0.75
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.38 14.11 17.01",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.38 14.11 17.01",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "n": 7460,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.2,
+   "retiredMs": 22,
+   "ratio": {
+    "product": {
+     "paired": 0.636,
+     "below1": 11,
+     "ofMins": 0.65
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.38 14.11 17.01",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.38 14.11 17.01",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "n": 13023,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.157,
+   "retiredMs": 55,
+   "ratio": {
+    "product": {
+     "paired": 0.357,
+     "below1": 11,
+     "ofMins": 0.373
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.38 14.11 17.01",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "n": 13023,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.086,
+   "retiredMs": 61,
+   "ratio": {
+    "product": {
+     "paired": 0.361,
+     "below1": 11,
+     "ofMins": 0.362
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "n": 56,
+   "k": 2048,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.294,
+   "retiredMs": 18,
+   "ratio": {
+    "product": {
+     "paired": 0.667,
+     "below1": 11,
+     "ofMins": 0.647
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "n": 509,
+   "k": 32,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.136,
+   "retiredMs": 24,
+   "ratio": {
+    "product": {
+     "paired": 0.455,
+     "below1": 11,
+     "ofMins": 0.455
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "n": 2503,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.087,
+   "retiredMs": 25,
+   "ratio": {
+    "product": {
+     "paired": 0.56,
+     "below1": 11,
+     "ofMins": 0.565
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "uptimeAfter": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "n": 23484,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.143,
+   "retiredMs": 22,
+   "ratio": {
+    "product": {
+     "paired": 0.762,
+     "below1": 11,
+     "ofMins": 0.714
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:23, 4 users, load averages: 11.35 14.06 16.97",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.24 13.99 16.93",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "n": 22484,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.107,
+   "retiredMs": 30,
+   "ratio": {
+    "product": {
+     "paired": 0.567,
+     "below1": 11,
+     "ofMins": 0.571
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.24 13.99 16.93",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.24 13.99 16.93",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "n": 16921,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.127,
+   "retiredMs": 56,
+   "ratio": {
+    "product": {
+     "paired": 0.564,
+     "below1": 11,
+     "ofMins": 0.564
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.24 13.99 16.93",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.24 13.99 16.93",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "n": 16921,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.109,
+   "retiredMs": 57,
+   "ratio": {
+    "product": {
+     "paired": 0.569,
+     "below1": 11,
+     "ofMins": 0.545
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.24 13.99 16.93",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.14 13.93 16.89",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "n": 29888,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.136,
+   "retiredMs": 23,
+   "ratio": {
+    "product": {
+     "paired": 0.833,
+     "below1": 11,
+     "ofMins": 0.864
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.14 13.93 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.14 13.93 16.89",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "n": 29435,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.111,
+   "retiredMs": 28,
+   "ratio": {
+    "product": {
+     "paired": 0.75,
+     "below1": 11,
+     "ofMins": 0.741
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.14 13.93 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.14 13.93 16.89",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.156,
+   "retiredMs": 35,
+   "ratio": {
+    "product": {
+     "paired": 0.694,
+     "below1": 11,
+     "ofMins": 0.75
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.14 13.93 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.14 13.93 16.89",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.111,
+   "retiredMs": 38,
+   "ratio": {
+    "product": {
+     "paired": 0.564,
+     "below1": 11,
+     "ofMins": 0.556
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.14 13.93 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.45 13.94 16.88",
+   "entry": "parseCssScalar",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.1,
+   "retiredMs": 42,
+   "ratio": {
+    "product": {
+     "paired": 0.571,
+     "below1": 11,
+     "ofMins": 0.575
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.45 13.94 16.88",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.45 13.94 16.88",
+   "entry": "parseCssValue",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.073,
+   "retiredMs": 113,
+   "ratio": {
+    "product": {
+     "paired": 0.458,
+     "below1": 11,
+     "ofMins": 0.455
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.45 13.94 16.88",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.33 13.88 16.84",
+   "entry": "parseCssValues",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.089,
+   "retiredMs": 116,
+   "ratio": {
+    "product": {
+     "paired": 0.469,
+     "below1": 11,
+     "ofMins": 0.464
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.33 13.88 16.84",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.33 13.88 16.84",
+   "entry": "parseKeyframeSelector",
+   "class": "whole",
+   "n": 29944,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.091,
+   "retiredMs": 23,
+   "ratio": {
+    "product": {
+     "paired": 0.833,
+     "below1": 11,
+     "ofMins": 0.864
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.33 13.88 16.84",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.33 13.88 16.84",
+   "entry": "parseTimingFunction",
+   "class": "whole",
+   "n": 29944,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.143,
+   "retiredMs": 30,
+   "ratio": {
+    "product": {
+     "paired": 0.724,
+     "below1": 11,
+     "ofMins": 0.714
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.33 13.88 16.84",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.39 13.85 16.81",
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.069,
+   "retiredMs": 60,
+   "ratio": {
+    "product": {
+     "paired": 0.667,
+     "below1": 11,
+     "ofMins": 0.655
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.39 13.85 16.81",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.39 13.85 16.81",
+   "entry": "parseCssColor",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.103,
+   "retiredMs": 30,
+   "ratio": {
+    "product": {
+     "paired": 0.75,
+     "below1": 11,
+     "ofMins": 0.759
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.39 13.85 16.81",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.39 13.85 16.81",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "n": 7460,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.143,
+   "retiredMs": 23,
+   "ratio": {
+    "product": {
+     "paired": 0.652,
+     "below1": 11,
+     "ofMins": 0.667
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 11.39 13.85 16.81",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 11.39 13.85 16.81",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "n": 13023,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.113,
+   "retiredMs": 57,
+   "ratio": {
+    "product": {
+     "paired": 0.351,
+     "below1": 11,
+     "ofMins": 0.358
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "n": 13023,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.067,
+   "retiredMs": 62,
+   "ratio": {
+    "product": {
+     "paired": 0.359,
+     "below1": 11,
+     "ofMins": 0.35
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "n": 56,
+   "k": 2048,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.222,
+   "retiredMs": 19,
+   "ratio": {
+    "product": {
+     "paired": 0.632,
+     "below1": 11,
+     "ofMins": 0.667
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "n": 509,
+   "k": 32,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.13,
+   "retiredMs": 24,
+   "ratio": {
+    "product": {
+     "paired": 0.458,
+     "below1": 11,
+     "ofMins": 0.435
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "n": 2503,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.125,
+   "retiredMs": 24,
+   "ratio": {
+    "product": {
+     "paired": 0.583,
+     "below1": 11,
+     "ofMins": 0.542
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 12.08 13.95 16.83",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.59 14.23 16.91",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "n": 6460,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.313,
+   "retiredMs": 18,
+   "ratio": {
+    "product": {
+     "paired": 0.722,
+     "below1": 11,
+     "ofMins": 0.75
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.59 14.23 16.91",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.59 14.23 16.91",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "n": 22484,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.179,
+   "retiredMs": 30,
+   "ratio": {
+    "product": {
+     "paired": 0.552,
+     "below1": 11,
+     "ofMins": 0.571
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.59 14.23 16.91",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.59 14.23 16.91",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "n": 16921,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.164,
+   "retiredMs": 58,
+   "ratio": {
+    "product": {
+     "paired": 0.579,
+     "below1": 11,
+     "ofMins": 0.564
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.59 14.23 16.91",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "n": 16921,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.091,
+   "retiredMs": 58,
+   "ratio": {
+    "product": {
+     "paired": 0.569,
+     "below1": 11,
+     "ofMins": 0.564
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "n": 29888,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.045,
+   "retiredMs": 22,
+   "ratio": {
+    "product": {
+     "paired": 0.864,
+     "below1": 11,
+     "ofMins": 0.818
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "n": 29435,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.192,
+   "retiredMs": 27,
+   "ratio": {
+    "product": {
+     "paired": 0.778,
+     "below1": 11,
+     "ofMins": 0.769
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.125,
+   "retiredMs": 33,
+   "ratio": {
+    "product": {
+     "paired": 0.697,
+     "below1": 11,
+     "ofMins": 0.719
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "n": 23484,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.105,
+   "retiredMs": 20,
+   "ratio": {
+    "product": {
+     "paired": 0.8,
+     "below1": 11,
+     "ofMins": 0.789
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.62 14.23 16.89",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.33 14.16 16.85",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.088,
+   "retiredMs": 36,
+   "ratio": {
+    "product": {
+     "paired": 0.571,
+     "below1": 11,
+     "ofMins": 0.559
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.33 14.16 16.85",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.33 14.16 16.85",
+   "entry": "parseCssColor",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.058,
+   "retiredMs": 21.1,
+   "ratio": {
+    "product": {
+     "paired": 0.519,
+     "below1": 11,
+     "ofMins": 0.522
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.33 14.16 16.85",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.33 14.16 16.85",
+   "entry": "parseCssScalar",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.133,
+   "retiredMs": 26.3,
+   "ratio": {
+    "product": {
+     "paired": 0.446,
+     "below1": 11,
+     "ofMins": 0.439
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.33 14.16 16.85",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 13.33 14.16 16.85",
+   "entry": "parseCssValue",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.133,
+   "retiredMs": 83.4,
+   "ratio": {
+    "product": {
+     "paired": 0.341,
+     "below1": 11,
+     "ofMins": 0.337
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 13.33 14.16 16.85",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 14.91 14.47 16.95",
+   "entry": "parseCssValues",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.022,
+   "retiredMs": 113.5,
+   "ratio": {
+    "product": {
+     "paired": 0.353,
+     "below1": 11,
+     "ofMins": 0.352
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:21  up 1 day,  8:24, 4 users, load averages: 14.91 14.47 16.95",
+   "uptimeAfter": "10:21  up 1 day,  8:24, 4 users, load averages: 14.91 14.47 16.95",
+   "entry": "parseKeyframeSelector",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.035,
+   "retiredMs": 20.6,
+   "ratio": {
+    "product": {
+     "paired": 0.62,
+     "below1": 11,
+     "ofMins": 0.614
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 14.91 14.47 16.95",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 14.91 14.47 16.95",
+   "entry": "parseTimingFunction",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.023,
+   "retiredMs": 30.4,
+   "ratio": {
+    "product": {
+     "paired": 0.564,
+     "below1": 11,
+     "ofMins": 0.565
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 14.91 14.47 16.95",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 16.68 14.84 17.06",
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.045,
+   "retiredMs": 51.9,
+   "ratio": {
+    "product": {
+     "paired": 0.499,
+     "below1": 11,
+     "ofMins": 0.495
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 16.68 14.84 17.06",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 16.68 14.84 17.06",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "n": 6460,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.032,
+   "retiredMs": 34.7,
+   "ratio": {
+    "product": {
+     "paired": 0.481,
+     "below1": 11,
+     "ofMins": 0.481
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 16.68 14.84 17.06",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 16.68 14.84 17.06",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "n": 7460,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.072,
+   "retiredMs": 21.5,
+   "ratio": {
+    "product": {
+     "paired": 0.454,
+     "below1": 11,
+     "ofMins": 0.447
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 16.68 14.84 17.06",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 16.68 14.84 17.06",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "n": 13023,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.029,
+   "retiredMs": 52.5,
+   "ratio": {
+    "product": {
+     "paired": 0.279,
+     "below1": 11,
+     "ofMins": 0.278
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 16.68 14.84 17.06",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "n": 13023,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.028,
+   "retiredMs": 55.1,
+   "ratio": {
+    "product": {
+     "paired": 0.274,
+     "below1": 11,
+     "ofMins": 0.274
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "n": 56,
+   "k": 2048,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.045,
+   "retiredMs": 20.4,
+   "ratio": {
+    "product": {
+     "paired": 0.558,
+     "below1": 11,
+     "ofMins": 0.571
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "n": 509,
+   "k": 64,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.027,
+   "retiredMs": 33.9,
+   "ratio": {
+    "product": {
+     "paired": 0.503,
+     "below1": 11,
+     "ofMins": 0.495
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "n": 2503,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.067,
+   "retiredMs": 19.9,
+   "ratio": {
+    "product": {
+     "paired": 0.536,
+     "below1": 11,
+     "ofMins": 0.505
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "n": 23484,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.071,
+   "retiredMs": 20.5,
+   "ratio": {
+    "product": {
+     "paired": 0.537,
+     "below1": 11,
+     "ofMins": 0.536
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:24, 4 users, load averages: 20.87 15.74 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "n": 22484,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.089,
+   "retiredMs": 19.9,
+   "ratio": {
+    "product": {
+     "paired": 0.45,
+     "below1": 11,
+     "ofMins": 0.448
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "n": 16921,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.044,
+   "retiredMs": 43.6,
+   "ratio": {
+    "product": {
+     "paired": 0.406,
+     "below1": 11,
+     "ofMins": 0.4
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "n": 16921,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.061,
+   "retiredMs": 43.2,
+   "ratio": {
+    "product": {
+     "paired": 0.404,
+     "below1": 11,
+     "ofMins": 0.39
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "n": 29888,
+   "k": 8,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.068,
+   "retiredMs": 30.3,
+   "ratio": {
+    "product": {
+     "paired": 0.63,
+     "below1": 11,
+     "ofMins": 0.631
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "n": 29435,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.044,
+   "retiredMs": 21,
+   "ratio": {
+    "product": {
+     "paired": 0.568,
+     "below1": 11,
+     "ofMins": 0.568
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.36 15.93 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.17 15.98 17.43",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.103,
+   "retiredMs": 25.8,
+   "ratio": {
+    "product": {
+     "paired": 0.474,
+     "below1": 11,
+     "ofMins": 0.469
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.17 15.98 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.17 15.98 17.43",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.179,
+   "retiredMs": 24.3,
+   "ratio": {
+    "product": {
+     "paired": 0.341,
+     "below1": 11,
+     "ofMins": 0.335
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.17 15.98 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.17 15.98 17.43",
+   "entry": "parseCssScalar",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.064,
+   "retiredMs": 25.8,
+   "ratio": {
+    "product": {
+     "paired": 0.458,
+     "below1": 11,
+     "ofMins": 0.45
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.17 15.98 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 21.17 15.98 17.43",
+   "entry": "parseCssValue",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.038,
+   "retiredMs": 83.4,
+   "ratio": {
+    "product": {
+     "paired": 0.349,
+     "below1": 11,
+     "ofMins": 0.333
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 21.17 15.98 17.43",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "entry": "parseCssValues",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.034,
+   "retiredMs": 86,
+   "ratio": {
+    "product": {
+     "paired": 0.342,
+     "below1": 11,
+     "ofMins": 0.344
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "entry": "parseKeyframeSelector",
+   "class": "whole",
+   "n": 29944,
+   "k": 8,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.106,
+   "retiredMs": 30.4,
+   "ratio": {
+    "product": {
+     "paired": 0.637,
+     "below1": 11,
+     "ofMins": 0.642
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "entry": "parseTimingFunction",
+   "class": "whole",
+   "n": 29944,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.08,
+   "retiredMs": 22.8,
+   "ratio": {
+    "product": {
+     "paired": 0.569,
+     "below1": 11,
+     "ofMins": 0.564
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.097,
+   "retiredMs": 40.4,
+   "ratio": {
+    "product": {
+     "paired": 0.488,
+     "below1": 11,
+     "ofMins": 0.49
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "entry": "parseCssColor",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.085,
+   "retiredMs": 22.2,
+   "ratio": {
+    "product": {
+     "paired": 0.523,
+     "below1": 11,
+     "ofMins": 0.519
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 20.59 15.95 17.41",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "entry": "parseCssScalar",
+   "class": "acc",
+   "n": 7460,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.053,
+   "retiredMs": 31.1,
+   "ratio": {
+    "product": {
+     "paired": 0.465,
+     "below1": 11,
+     "ofMins": 0.454
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "entry": "parseCssValue",
+   "class": "acc",
+   "n": 13023,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.06,
+   "retiredMs": 39,
+   "ratio": {
+    "product": {
+     "paired": 0.28,
+     "below1": 11,
+     "ofMins": 0.276
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "entry": "parseCssValues",
+   "class": "acc",
+   "n": 13023,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.056,
+   "retiredMs": 40.8,
+   "ratio": {
+    "product": {
+     "paired": 0.282,
+     "below1": 11,
+     "ofMins": 0.278
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "entry": "parseKeyframeSelector",
+   "class": "acc",
+   "n": 56,
+   "k": 4096,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.082,
+   "retiredMs": 29.9,
+   "ratio": {
+    "product": {
+     "paired": 0.575,
+     "below1": 11,
+     "ofMins": 0.579
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "entry": "parseTimingFunction",
+   "class": "acc",
+   "n": 509,
+   "k": 64,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.102,
+   "retiredMs": 24.9,
+   "ratio": {
+    "product": {
+     "paired": 0.494,
+     "below1": 11,
+     "ofMins": 0.511
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.91 15.88 17.38",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 18.95 15.75 17.33",
+   "entry": "parseStylesheet",
+   "class": "acc",
+   "n": 2503,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.077,
+   "retiredMs": 29.3,
+   "ratio": {
+    "product": {
+     "paired": 0.503,
+     "below1": 11,
+     "ofMins": 0.491
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 18.95 15.75 17.33",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 18.95 15.75 17.33",
+   "entry": "parseCssColor",
+   "class": "acc",
+   "n": 6460,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.076,
+   "retiredMs": 25.5,
+   "ratio": {
+    "product": {
+     "paired": 0.494,
+     "below1": 11,
+     "ofMins": 0.486
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 18.95 15.75 17.33",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 18.95 15.75 17.33",
+   "entry": "parseCssScalar",
+   "class": "rej",
+   "n": 22484,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.042,
+   "retiredMs": 36.7,
+   "ratio": {
+    "product": {
+     "paired": 0.442,
+     "below1": 11,
+     "ofMins": 0.435
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 18.95 15.75 17.33",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 18.95 15.75 17.33",
+   "entry": "parseCssValue",
+   "class": "rej",
+   "n": 16921,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.079,
+   "retiredMs": 49.2,
+   "ratio": {
+    "product": {
+     "paired": 0.417,
+     "below1": 11,
+     "ofMins": 0.423
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 18.95 15.75 17.33",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "entry": "parseCssValues",
+   "class": "rej",
+   "n": 16921,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.134,
+   "retiredMs": 48.9,
+   "ratio": {
+    "product": {
+     "paired": 0.411,
+     "below1": 11,
+     "ofMins": 0.398
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "entry": "parseKeyframeSelector",
+   "class": "rej",
+   "n": 29888,
+   "k": 8,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.08,
+   "retiredMs": 34,
+   "ratio": {
+    "product": {
+     "paired": 0.634,
+     "below1": 11,
+     "ofMins": 0.629
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "entry": "parseTimingFunction",
+   "class": "rej",
+   "n": 29435,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.128,
+   "retiredMs": 22.1,
+   "ratio": {
+    "product": {
+     "paired": 0.566,
+     "below1": 11,
+     "ofMins": 0.548
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.122,
+   "retiredMs": 25.7,
+   "ratio": {
+    "product": {
+     "paired": 0.465,
+     "below1": 11,
+     "ofMins": 0.441
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "entry": "parseCssColor",
+   "class": "rej",
+   "n": 23484,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.167,
+   "retiredMs": 32.1,
+   "ratio": {
+    "product": {
+     "paired": 0.526,
+     "below1": 11,
+     "ofMins": 0.527
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "uptimeAfter": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.179,
+   "retiredMs": 24,
+   "ratio": {
+    "product": {
+     "paired": 0.349,
+     "below1": 11,
+     "ofMins": 0.339
+    }
+   }
+  }
+ ],
+ "uptimeEnd": "10:22  up 1 day,  8:25, 4 users, load averages: 19.44 15.90 17.37",
+ "summary": {
+  "product": {
+   "firefox|whole|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.368,
+      "paired": 0.824
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.191,
+      "paired": 0.778
+     }
+    ],
+    "ratios": [
+     0.824,
+     0.778
+    ],
+    "median": 0.801,
+    "allBelow1": true
+   },
+   "firefox|whole|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.277,
+      "paired": 0.615
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.168,
+      "paired": 0.626
+     }
+    ],
+    "ratios": [
+     0.615,
+     0.626
+    ],
+    "median": 0.621,
+    "allBelow1": true
+   },
+   "firefox|whole|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.235,
+      "paired": 0.574
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.265,
+      "paired": 0.617
+     }
+    ],
+    "ratios": [
+     0.574,
+     0.617
+    ],
+    "median": 0.595,
+    "allBelow1": true
+   },
+   "firefox|whole|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.317,
+      "paired": 0.594
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.462,
+      "paired": 0.626
+     }
+    ],
+    "ratios": [
+     0.594,
+     0.626
+    ],
+    "median": 0.61,
+    "allBelow1": true
+   },
+   "firefox|whole|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.069,
+      "paired": 0.911
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.179,
+      "paired": 0.889
+     }
+    ],
+    "ratios": [
+     0.911,
+     0.889
+    ],
+    "median": 0.9,
+    "allBelow1": true
+   },
+   "firefox|whole|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.212,
+      "paired": 0.838
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.103,
+      "paired": 0.833
+     }
+    ],
+    "ratios": [
+     0.838,
+     0.833
+    ],
+    "median": 0.835,
+    "allBelow1": true
+   },
+   "firefox|whole|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.367,
+      "paired": 0.881
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.162,
+      "paired": 0.851
+     }
+    ],
+    "ratios": [
+     0.881,
+     0.851
+    ],
+    "median": 0.866,
+    "allBelow1": true
+   },
+   "firefox|acc|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.108,
+      "paired": 0.832
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.202,
+      "paired": 0.781
+     }
+    ],
+    "ratios": [
+     0.832,
+     0.781
+    ],
+    "median": 0.806,
+    "allBelow1": true
+   },
+   "firefox|acc|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.178,
+      "paired": 0.675
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.108,
+      "paired": 0.677
+     }
+    ],
+    "ratios": [
+     0.675,
+     0.677
+    ],
+    "median": 0.676,
+    "allBelow1": true
+   },
+   "firefox|acc|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.206,
+      "paired": 0.423
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.274,
+      "paired": 0.421
+     }
+    ],
+    "ratios": [
+     0.423,
+     0.421
+    ],
+    "median": 0.422,
+    "allBelow1": true
+   },
+   "firefox|acc|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.231,
+      "paired": 0.439
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.142,
+      "paired": 0.451
+     }
+    ],
+    "ratios": [
+     0.439,
+     0.451
+    ],
+    "median": 0.445,
+    "allBelow1": true
+   },
+   "firefox|acc|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 8192,
+      "clean": false,
+      "spread": 1.73,
+      "paired": 0.817
+     },
+     {
+      "rep": 0,
+      "attempt": 1,
+      "k": 8192,
+      "clean": true,
+      "spread": 1.217,
+      "paired": 0.835
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 8192,
+      "clean": true,
+      "spread": 1.196,
+      "paired": 0.828
+     }
+    ],
+    "ratios": [
+     0.835,
+     0.828
+    ],
+    "median": 0.831,
+    "allBelow1": true
+   },
+   "firefox|acc|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 256,
+      "clean": true,
+      "spread": 1.151,
+      "paired": 0.632
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 256,
+      "clean": true,
+      "spread": 1.478,
+      "paired": 0.607
+     }
+    ],
+    "ratios": [
+     0.632,
+     0.607
+    ],
+    "median": 0.619,
+    "allBelow1": true
+   },
+   "firefox|acc|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.476,
+      "paired": 0.793
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.303,
+      "paired": 0.803
+     }
+    ],
+    "ratios": [
+     0.793,
+     0.803
+    ],
+    "median": 0.798,
+    "allBelow1": true
+   },
+   "firefox|rej|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.241,
+      "paired": 0.789
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.259,
+      "paired": 0.79
+     }
+    ],
+    "ratios": [
+     0.789,
+     0.79
+    ],
+    "median": 0.79,
+    "allBelow1": true
+   },
+   "firefox|rej|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.22,
+      "paired": 0.592
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.213,
+      "paired": 0.623
+     }
+    ],
+    "ratios": [
+     0.592,
+     0.623
+    ],
+    "median": 0.607,
+    "allBelow1": true
+   },
+   "firefox|rej|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.151,
+      "paired": 0.77
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.13,
+      "paired": 0.728
+     }
+    ],
+    "ratios": [
+     0.77,
+     0.728
+    ],
+    "median": 0.749,
+    "allBelow1": true
+   },
+   "firefox|rej|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.137,
+      "paired": 0.784
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.132,
+      "paired": 0.722
+     }
+    ],
+    "ratios": [
+     0.784,
+     0.722
+    ],
+    "median": 0.753,
+    "allBelow1": true
+   },
+   "firefox|rej|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.145,
+      "paired": 0.896
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.076,
+      "paired": 0.905
+     }
+    ],
+    "ratios": [
+     0.896,
+     0.905
+    ],
+    "median": 0.901,
+    "allBelow1": true
+   },
+   "firefox|rej|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.368,
+      "paired": 0.868
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.1,
+      "paired": 0.879
+     }
+    ],
+    "ratios": [
+     0.868,
+     0.879
+    ],
+    "median": 0.873,
+    "allBelow1": true
+   },
+   "firefox|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.206,
+      "paired": 0.901
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.194,
+      "paired": 0.94
+     }
+    ],
+    "ratios": [
+     0.901,
+     0.94
+    ],
+    "median": 0.92,
+    "allBelow1": true
+   },
+   "firefox|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 32,
+      "clean": true,
+      "spread": 1.147,
+      "paired": 0.953
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.468,
+      "paired": 1
+     }
+    ],
+    "ratios": [
+     0.953,
+     1
+    ],
+    "median": 0.976,
+    "allBelow1": false
+   },
+   "webkit|whole|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.1,
+      "paired": 0.758
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.103,
+      "paired": 0.75
+     }
+    ],
+    "ratios": [
+     0.758,
+     0.75
+    ],
+    "median": 0.754,
+    "allBelow1": true
+   },
+   "webkit|whole|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.1,
+      "paired": 0.561
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.1,
+      "paired": 0.571
+     }
+    ],
+    "ratios": [
+     0.561,
+     0.571
+    ],
+    "median": 0.566,
+    "allBelow1": true
+   },
+   "webkit|whole|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.073,
+      "paired": 0.464
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.073,
+      "paired": 0.458
+     }
+    ],
+    "ratios": [
+     0.464,
+     0.458
+    ],
+    "median": 0.461,
+    "allBelow1": true
+   },
+   "webkit|whole|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.088,
+      "paired": 0.467
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.089,
+      "paired": 0.469
+     }
+    ],
+    "ratios": [
+     0.467,
+     0.469
+    ],
+    "median": 0.468,
+    "allBelow1": true
+   },
+   "webkit|whole|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.136,
+      "paired": 0.87
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.091,
+      "paired": 0.833
+     }
+    ],
+    "ratios": [
+     0.87,
+     0.833
+    ],
+    "median": 0.851,
+    "allBelow1": true
+   },
+   "webkit|whole|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.138,
+      "paired": 0.724
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.143,
+      "paired": 0.724
+     }
+    ],
+    "ratios": [
+     0.724,
+     0.724
+    ],
+    "median": 0.724,
+    "allBelow1": true
+   },
+   "webkit|whole|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.07,
+      "paired": 0.661
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.069,
+      "paired": 0.667
+     }
+    ],
+    "ratios": [
+     0.661,
+     0.667
+    ],
+    "median": 0.664,
+    "allBelow1": true
+   },
+   "webkit|acc|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.125,
+      "paired": 0.765
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.313,
+      "paired": 0.722
+     }
+    ],
+    "ratios": [
+     0.765,
+     0.722
+    ],
+    "median": 0.744,
+    "allBelow1": true
+   },
+   "webkit|acc|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.2,
+      "paired": 0.636
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.143,
+      "paired": 0.652
+     }
+    ],
+    "ratios": [
+     0.636,
+     0.652
+    ],
+    "median": 0.644,
+    "allBelow1": true
+   },
+   "webkit|acc|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.157,
+      "paired": 0.357
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.113,
+      "paired": 0.351
+     }
+    ],
+    "ratios": [
+     0.357,
+     0.351
+    ],
+    "median": 0.354,
+    "allBelow1": true
+   },
+   "webkit|acc|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.086,
+      "paired": 0.361
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.067,
+      "paired": 0.359
+     }
+    ],
+    "ratios": [
+     0.361,
+     0.359
+    ],
+    "median": 0.36,
+    "allBelow1": true
+   },
+   "webkit|acc|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2048,
+      "clean": true,
+      "spread": 1.294,
+      "paired": 0.667
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2048,
+      "clean": true,
+      "spread": 1.222,
+      "paired": 0.632
+     }
+    ],
+    "ratios": [
+     0.667,
+     0.632
+    ],
+    "median": 0.649,
+    "allBelow1": true
+   },
+   "webkit|acc|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 32,
+      "clean": true,
+      "spread": 1.136,
+      "paired": 0.455
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 32,
+      "clean": true,
+      "spread": 1.13,
+      "paired": 0.458
+     }
+    ],
+    "ratios": [
+     0.455,
+     0.458
+    ],
+    "median": 0.457,
+    "allBelow1": true
+   },
+   "webkit|acc|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.087,
+      "paired": 0.56
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.125,
+      "paired": 0.583
+     }
+    ],
+    "ratios": [
+     0.56,
+     0.583
+    ],
+    "median": 0.572,
+    "allBelow1": true
+   },
+   "webkit|rej|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.143,
+      "paired": 0.762
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.105,
+      "paired": 0.8
+     }
+    ],
+    "ratios": [
+     0.762,
+     0.8
+    ],
+    "median": 0.781,
+    "allBelow1": true
+   },
+   "webkit|rej|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.107,
+      "paired": 0.567
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.179,
+      "paired": 0.552
+     }
+    ],
+    "ratios": [
+     0.567,
+     0.552
+    ],
+    "median": 0.559,
+    "allBelow1": true
+   },
+   "webkit|rej|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.127,
+      "paired": 0.564
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.164,
+      "paired": 0.579
+     }
+    ],
+    "ratios": [
+     0.564,
+     0.579
+    ],
+    "median": 0.571,
+    "allBelow1": true
+   },
+   "webkit|rej|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.109,
+      "paired": 0.569
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.091,
+      "paired": 0.569
+     }
+    ],
+    "ratios": [
+     0.569,
+     0.569
+    ],
+    "median": 0.569,
+    "allBelow1": true
+   },
+   "webkit|rej|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.136,
+      "paired": 0.833
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.045,
+      "paired": 0.864
+     }
+    ],
+    "ratios": [
+     0.833,
+     0.864
+    ],
+    "median": 0.849,
+    "allBelow1": true
+   },
+   "webkit|rej|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.111,
+      "paired": 0.75
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.192,
+      "paired": 0.778
+     }
+    ],
+    "ratios": [
+     0.75,
+     0.778
+    ],
+    "median": 0.764,
+    "allBelow1": true
+   },
+   "webkit|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.156,
+      "paired": 0.694
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.125,
+      "paired": 0.697
+     }
+    ],
+    "ratios": [
+     0.694,
+     0.697
+    ],
+    "median": 0.696,
+    "allBelow1": true
+   },
+   "webkit|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.111,
+      "paired": 0.564
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.088,
+      "paired": 0.571
+     }
+    ],
+    "ratios": [
+     0.564,
+     0.571
+    ],
+    "median": 0.567,
+    "allBelow1": true
+   },
+   "chromium|whole|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.058,
+      "paired": 0.519
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.085,
+      "paired": 0.523
+     }
+    ],
+    "ratios": [
+     0.519,
+     0.523
+    ],
+    "median": 0.521,
+    "allBelow1": true
+   },
+   "chromium|whole|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.133,
+      "paired": 0.446
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.064,
+      "paired": 0.458
+     }
+    ],
+    "ratios": [
+     0.446,
+     0.458
+    ],
+    "median": 0.452,
+    "allBelow1": true
+   },
+   "chromium|whole|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.133,
+      "paired": 0.341
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.038,
+      "paired": 0.349
+     }
+    ],
+    "ratios": [
+     0.341,
+     0.349
+    ],
+    "median": 0.345,
+    "allBelow1": true
+   },
+   "chromium|whole|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.022,
+      "paired": 0.353
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.034,
+      "paired": 0.342
+     }
+    ],
+    "ratios": [
+     0.353,
+     0.342
+    ],
+    "median": 0.348,
+    "allBelow1": true
+   },
+   "chromium|whole|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.035,
+      "paired": 0.62
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.106,
+      "paired": 0.637
+     }
+    ],
+    "ratios": [
+     0.62,
+     0.637
+    ],
+    "median": 0.629,
+    "allBelow1": true
+   },
+   "chromium|whole|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.023,
+      "paired": 0.564
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.08,
+      "paired": 0.569
+     }
+    ],
+    "ratios": [
+     0.564,
+     0.569
+    ],
+    "median": 0.567,
+    "allBelow1": true
+   },
+   "chromium|whole|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.045,
+      "paired": 0.499
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.097,
+      "paired": 0.488
+     }
+    ],
+    "ratios": [
+     0.499,
+     0.488
+    ],
+    "median": 0.493,
+    "allBelow1": true
+   },
+   "chromium|acc|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.032,
+      "paired": 0.481
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.076,
+      "paired": 0.494
+     }
+    ],
+    "ratios": [
+     0.481,
+     0.494
+    ],
+    "median": 0.487,
+    "allBelow1": true
+   },
+   "chromium|acc|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.072,
+      "paired": 0.454
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.053,
+      "paired": 0.465
+     }
+    ],
+    "ratios": [
+     0.454,
+     0.465
+    ],
+    "median": 0.46,
+    "allBelow1": true
+   },
+   "chromium|acc|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.029,
+      "paired": 0.279
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.06,
+      "paired": 0.28
+     }
+    ],
+    "ratios": [
+     0.279,
+     0.28
+    ],
+    "median": 0.28,
+    "allBelow1": true
+   },
+   "chromium|acc|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.028,
+      "paired": 0.274
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.056,
+      "paired": 0.282
+     }
+    ],
+    "ratios": [
+     0.274,
+     0.282
+    ],
+    "median": 0.278,
+    "allBelow1": true
+   },
+   "chromium|acc|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2048,
+      "clean": true,
+      "spread": 1.045,
+      "paired": 0.558
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4096,
+      "clean": true,
+      "spread": 1.082,
+      "paired": 0.575
+     }
+    ],
+    "ratios": [
+     0.558,
+     0.575
+    ],
+    "median": 0.567,
+    "allBelow1": true
+   },
+   "chromium|acc|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 64,
+      "clean": true,
+      "spread": 1.027,
+      "paired": 0.503
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 64,
+      "clean": true,
+      "spread": 1.102,
+      "paired": 0.494
+     }
+    ],
+    "ratios": [
+     0.503,
+     0.494
+    ],
+    "median": 0.498,
+    "allBelow1": true
+   },
+   "chromium|acc|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.067,
+      "paired": 0.536
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.077,
+      "paired": 0.503
+     }
+    ],
+    "ratios": [
+     0.536,
+     0.503
+    ],
+    "median": 0.52,
+    "allBelow1": true
+   },
+   "chromium|rej|parseCssColor": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.071,
+      "paired": 0.537
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.167,
+      "paired": 0.526
+     }
+    ],
+    "ratios": [
+     0.537,
+     0.526
+    ],
+    "median": 0.532,
+    "allBelow1": true
+   },
+   "chromium|rej|parseCssScalar": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.089,
+      "paired": 0.45
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.042,
+      "paired": 0.442
+     }
+    ],
+    "ratios": [
+     0.45,
+     0.442
+    ],
+    "median": 0.446,
+    "allBelow1": true
+   },
+   "chromium|rej|parseCssValue": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.044,
+      "paired": 0.406
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.079,
+      "paired": 0.417
+     }
+    ],
+    "ratios": [
+     0.406,
+     0.417
+    ],
+    "median": 0.411,
+    "allBelow1": true
+   },
+   "chromium|rej|parseCssValues": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.061,
+      "paired": 0.404
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.134,
+      "paired": 0.411
+     }
+    ],
+    "ratios": [
+     0.404,
+     0.411
+    ],
+    "median": 0.407,
+    "allBelow1": true
+   },
+   "chromium|rej|parseKeyframeSelector": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.068,
+      "paired": 0.63
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 8,
+      "clean": true,
+      "spread": 1.08,
+      "paired": 0.634
+     }
+    ],
+    "ratios": [
+     0.63,
+     0.634
+    ],
+    "median": 0.632,
+    "allBelow1": true
+   },
+   "chromium|rej|parseTimingFunction": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.044,
+      "paired": 0.568
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.128,
+      "paired": 0.566
+     }
+    ],
+    "ratios": [
+     0.568,
+     0.566
+    ],
+    "median": 0.567,
+    "allBelow1": true
+   },
+   "chromium|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.103,
+      "paired": 0.474
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.122,
+      "paired": 0.465
+     }
+    ],
+    "ratios": [
+     0.474,
+     0.465
+    ],
+    "median": 0.47,
+    "allBelow1": true
+   },
+   "chromium|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.179,
+      "paired": 0.341
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.179,
+      "paired": 0.349
+     }
+    ],
+    "ratios": [
+     0.341,
+     0.349
+    ],
+    "median": 0.345,
+    "allBelow1": true
+   }
+  }
+ }
+}
