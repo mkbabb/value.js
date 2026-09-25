@@ -3623,3 +3623,11 @@ Homed to KF.W13X as `.sq` (the Sequence stage's hard-cornered bordered box insid
 - **D2 keeps O-65's design questions** (collapsed-form anatomy beyond content sizing). Only the two mechanical cures move.
 - **Relayed live to glass-ui-f3.** The 10.2.0 tag still waits on D3 converging plus the owner's in-session go.
 - **The rest of the session's frame rulings are ratified as homed:** §0dw `.nav` and §0dx `.dm` (landed at fourier `79ea9f6`); §0dx `.pd` (honest-RED until 10.2.0); §0dy O-77a (10.2.0 W-0.3); §0dz KF.W13X `.sq` and `.dh` (Track B, next); F-W14V (g) G-c1 and the 28 PNGs (Track C, next seat).
+
+## §0eb — 2026-09-25: F.W14V's four owner-held escalations RULED (the orchestrator, under §0ea's grant)
+Check 3 held C3-1..C3-4 for the owner. Ruled, in full in F-W14V.md addendum (h):
+- **L2-15/v88:** Delete and View options go into More editor tools below sm, and the row is cured now; glass gets O-85 DOCK-PRIORITY-OVERFLOW (11.0 dock band).
+- **L1-12:** glass puts `.card-title` on `--type-heading` (O-74b, asked for 10.2.0); ADOPT-AT-LANDING.
+- **F-81:** one easing catalogue now, by a server-side migration with no aliases (`api/**` granted); the Timeline transport is glass O-86 (11.0), ADOPT-AT-LANDING.
+- **X-7 against F-59:** the results live inside the sidebar with wrapped titles, satisfying both rows.
+Track C re-runs F.W14V (a new note) for `.r1`, `.r3`, `.r4`, then close and check.
