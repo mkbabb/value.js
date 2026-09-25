@@ -2685,3 +2685,45 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDA (b),
 Repair rounds cannot converge this row. Every further check/repair cycle adds load and moves no byte.
 
 **Verdict:** 0 cured, 1 escalated. The row stays PARTIAL.
+
+## Check 3 of the RESUME 6 Close (2026-09-25, L-20 fresh adversarial pass 3, `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Read:** W7.md whole (268 lines; ADDENDUM (f) `:262` binds); this record's header, `## RESUME 6 — Open` through `## RESUME 6 Unit plan`, `## RESUME 6 Close`, Checks 1–2 and Repairs 1–2 of the RESUME 6 Close. **Crash-recovery:** ⟨`git status --porcelain -- src bench test/css package.json package-lock.json docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md`⟩ → empty; bbnf-lang worktree ⟨`git log --oneline -1`; `status --porcelain | wc -l`⟩ → `f0059db14`, `0`; parse-that master's dirt (`rust/**`, `README.md`, `.cargo/config.toml`, untracked `docs/**`) is outside the set and was not touched. ⟨`git log --oneline ead7ed1a..HEAD`⟩ → empty, so no byte has moved since Repair 2. Host: ⟨`uptime`⟩ → `load averages: 56.15 54.01 53.17`.
+
+### Axes
+1. **Claimed GREENs reproduce: 13 re-run, 0 fail.**
+   - L-G2 ⟨`node bench/paired/equiv.mjs product <scratch>/eq{1,2}.json`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 92 (ASCII-only sources 1 · CP-CASE 4)` both times.
+   - L-G3 ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`. K2-b ⟨`grep -rn deepFreeze src | wc -l`⟩ → `0`. V-8 → `0`.
+   - E-6 ⟨`npx esbuild --minify …grammar.js | wc -c`; `| gzip | wc -c`⟩ → `92300` / `13002`.
+   - `.cp` pins → `Tests 4 passed (4)`; ⟨`grep -n V-A64 CHANGELOG.md`⟩ → `:11`.
+   - ⟨`npx vitest run test/css`⟩ → `8 passed (8) · 86 passed (86)`.
+   - ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`; ⟨`grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `29 MIRROR-DEFECTS 0` (no other value).
+   - vue-tsc lib/demo/test → `0 · 0 · 0`.
+   - bbnf-lang ⟨`npx vitest run`⟩ → `21 passed (21) · 299 passed (299)`; ⟨`npx tsc --noEmit -p .`⟩ → `0`.
+   - L-6 ⟨`git diff HEAD --stat -- package.json package-lock.json | wc -l`⟩ → `0`.
+   - E-2 and E-4 stand as the Close and Check 1 read them; no byte has moved.
+2. **Writes in bounds.** Every commit since Check 2 (`ead7ed1a`) touches the record only. `.l4`'s commits are as Check 1 read them. ⟨`git log 82d5c74d..HEAD --oneline -- scripts/dev/dev.sh | wc -l`⟩ → `0`. **0 landed-wrong.**
+3. **No masking.** ⟨`git show 5d46e376 -- src test/css | grep -nE '^\+.*(try|catch|\.skip|allow|userAgent|navigator)'`⟩ → 1 hit, `:4161`. It is a comment line ("Each reader calls its own **entry**, …"), where `try` matches inside "entry". It is not a try block. 0 real hits.
+4. **Families** not split.
+5. **E-3.** ⟨`git diff 82d5c74d..HEAD --stat -- docs/tranches/X/parse-that/waves docs/tranches/V/megatranche/registry/adjudicated | wc -l`⟩ → `0`.
+6. **Mail.** ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`.
+7. **Four-verb line.** PARTIAL, which is lawful.
+8. **Goal at the bytes: NOT MET as read.** L-G1 has no GREEN read on `5d46e376` on any engine. Firefox large was born-RED at ×1.056.
+9. **Figures reproduce:** 1,376,531 / 92 = 88 + 4 · 92,300 / 13,002 · 8/86 · 19/19 · 21/299.
+10. **Honest-RED adjudication.** L-G1 (every engine × acc/rej/large, ×2, on the final bytes) has **no spec relief**:
+    - It is not producer-owned: the emitter and the actions belong to this wave.
+    - It is not routed to a successor: W7P takes only the release acts (§0cp).
+    - ADDENDUM (f) refuses a noise band, and (f) 3 permits recording an unread cell, never closing on one.
+    - ⟨`grep -n "ESC-W7l4-1\|R-l4-2" docs/tranches/X/COHESION.md`⟩ → 0 hits, so it is still unruled.
+    - No L-G1 read was taken at load 53–56; it would be a voided cell (R-l-2).
+    - Relieved: P-6 · E-8 · V-9 + the CI step · Z-1 · Z-3's publish half (ADDENDUM 2026-09-24 §1 → X.P.W7P).
+
+### Register
+| # | Severity | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| C3-1 | HIGH | L-G1 is still unread on the final bytes on every engine. The last Firefox-large read is RED (×1.056), and no spec relief applies. This is unchanged from C1-1 and C2-1. The Close and Repairs 1–2 state it honestly (PARTIAL; ESC-W7l4-1 carried). | Checks 1–2; Repairs 1–2; this check's `uptime` 56.15/54.01/53.17; COHESION has 0 hits for ESC-W7l4-1 / R-l4-2 | Either the quiet-host L-G1 ×2 read on all four engines with the sibling fleets paused (R-l4-1), or the owner's ruling on ESC-W7l4-1 / R-l4-2. No repair seat can cure it. |
+| C3-2 | INFO | The masking grep's single hit is the substring `try` inside "entry" in a comment. | axis 3 | none |
+
+**Honest-RED set:** none admissible. **Successors:** X.P.W7P "Opens when" needs the owner's npm OTP **and** "X.P.W7 has CLOSED its engineering gates". Both are RED, so W7P is lawfully blocked.
+
+**Verdict: NOT-CONFORMANT.** The LEDGER row stays PARTIAL, and an event line is appended. The check/repair cycles cannot converge this row; the next move is the orchestrator's or the owner's (ESC-W7l4-1).
