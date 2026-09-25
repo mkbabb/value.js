@@ -1,0 +1,61 @@
+{
+ "tag": "t3",
+ "instrument": "bench/paired/phases.mjs (X.P.W7.l4)",
+ "rounds": 11,
+ "arms": [
+  "retired",
+  "product"
+ ],
+ "sheets": 4,
+ "values": 16469,
+ "results": [
+  {
+   "engine": "firefox",
+   "phase": "sheet",
+   "k": 4,
+   "msPerPass": {
+    "retired": 37.75,
+    "product": 40
+   },
+   "ratio": {
+    "product": 1.383
+   },
+   "uptime": [
+    "12:38  up 1 day, 10:40, 3 users, load averages: 57.01 45.18 53.97",
+    "12:38  up 1 day, 10:41, 3 users, load averages: 59.65 46.32 54.22"
+   ]
+  },
+  {
+   "engine": "firefox",
+   "phase": "values",
+   "k": 1,
+   "msPerPass": {
+    "retired": 185,
+    "product": 71
+   },
+   "ratio": {
+    "product": 0.366
+   },
+   "uptime": [
+    "12:38  up 1 day, 10:40, 3 users, load averages: 57.01 45.18 53.97",
+    "12:38  up 1 day, 10:41, 3 users, load averages: 58.64 46.33 54.17"
+   ]
+  },
+  {
+   "engine": "firefox",
+   "phase": "rules",
+   "k": 16,
+   "msPerPass": {
+    "retired": 10.313,
+    "product": 10.125
+   },
+   "ratio": {
+    "product": 0.717
+   },
+   "uptime": [
+    "12:38  up 1 day, 10:40, 3 users, load averages: 57.01 45.18 53.97",
+    "12:38  up 1 day, 10:41, 3 users, load averages: 60.03 46.82 54.30"
+   ]
+  }
+ ]
+}

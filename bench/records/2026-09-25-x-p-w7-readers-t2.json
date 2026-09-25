@@ -1,0 +1,61 @@
+{
+ "tag": "t2",
+ "instrument": "bench/paired/readers.mjs (X.P.W7.l4)",
+ "counts": {
+  "ruleList": 117,
+  "atPrelude": 1011,
+  "splitTopLevel;": 913,
+  "declaration": 1972,
+  "splitTopLevel,": 907,
+  "emptyListComma": 10,
+  "parseCssValue": 1972
+ },
+ "results": [
+  {
+   "engine": "node",
+   "msPerPass": {
+    "whole": 9.062,
+    "R:whole": 27.846,
+    "R:ruleList": 21.48,
+    "R:splitTopLevel;": 0.951,
+    "R:splitTopLevel,": 0.771,
+    "R:parseCssValue": 3.989,
+    "ruleList": 2.892,
+    "atPrelude": 0.084,
+    "splitTopLevel;": 0.27,
+    "declaration": 0.349,
+    "splitTopLevel,": 0.169,
+    "emptyListComma": 0.004,
+    "parseCssValue": 1.592
+   },
+   "remainder": 3.702,
+   "uptime": [
+    "12:40  up 1 day, 10:42, 3 users, load averages: 55.78 48.97 54.31",
+    "12:40  up 1 day, 10:43, 3 users, load averages: 52.92 48.49 54.11"
+   ]
+  },
+  {
+   "engine": "firefox",
+   "msPerPass": {
+    "whole": 8.125,
+    "R:whole": 9,
+    "R:ruleList": 4.5,
+    "R:splitTopLevel;": 0.25,
+    "R:splitTopLevel,": 0.25,
+    "R:parseCssValue": 4.625,
+    "ruleList": 2.875,
+    "atPrelude": 0.125,
+    "splitTopLevel;": 0.25,
+    "declaration": 0.375,
+    "splitTopLevel,": 0.25,
+    "emptyListComma": 0,
+    "parseCssValue": 2.375
+   },
+   "remainder": 1.875,
+   "uptime": [
+    "12:40  up 1 day, 10:43, 3 users, load averages: 52.92 48.49 54.11",
+    "12:40  up 1 day, 10:43, 3 users, load averages: 48.82 47.75 53.78"
+   ]
+  }
+ ]
+}
