@@ -644,3 +644,80 @@ Count (self-count, from the table above): `.au1` 8+2 X · `.au2` 14 register (10
 **Escalations:** none.
 
 **Commits:** fourier `a30001d` (the instrument), pushed. value.js: this record.
+
+### F.W14V.au1
+
+SEAT `.au1`, `claude-opus-5-5`, 2026-09-25. Spec `F-W14V.md` read whole, with `AUDIT-2-fourier.md` Lens 2 (`:83-107`) plus Routing (`:131-145`) and the L3-6 row (`:120`), F-W14U.md addendum (e), and COHESION §0j…§0dp (no ruling after §0dp). Rows (the `.au0` Act 6 map): L2-1, L2-2ˢ, L2-3, L2-4, L2-5, L2-16, L3-6ˢ, L2-17, X-1, X-5. Writable: `web/src/**`, `web/e2e/**`.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain | grep -E 'web/(src|e2e)/'`⟩ → empty. There was no inherited partial work. HEAD = `a30001d`. Servers: node `:3100` (vite), api `:8000`, mongod `:27018`.
+
+**Anchors re-read at the true bytes** (INTENT kept where the lines had drifted): `style.css:106-108` body `padding-bottom: env(safe-area-inset-bottom)` (unmoved); `App.vue:124` h-dvh shell (unmoved); `index.html:5` `viewport-fit=cover` (unmoved); `VisualizationView.vue` tab strip `:369` (the register gave `:267`) and `isDesktop = useMediaQuery("(min-width: 1024px)")` `:106` (register `:74`); `EquationView.vue` strip `:396` (register `:347`) and `isDesktop` `:72` (register `:60`); `.controls-overlay` `:823` (au0 gave `:816`); the paper ToC plate `PaperToc.vue:401` (the register cited `PaperView.vue:528-540`, where only the floating bar's mount remains, `:399-411`); the modal Like `GalleryCardModal.vue:260` (register `:353`); the About link `AppDock.vue:113` (register `:95-110`). The /equation disclosure limb of L2-17 is gone: `CollapsibleSection.vue` is absent at HEAD (L1-20), and its triggers are now glass `ConfiguratorLayer`s (`.eq2`). Those triggers are measured in the falsifier and are ≥ 44 px both before and after.
+
+**Root causes measured** (not just the register's symptoms):
+- **X-1:** glass splits the Configurator on `@container (inline-size >= 64rem)` over its shell (`configurator/styles.css`), but the host gated on the viewport (`min-width: 1024px`). The shell sits inside the page margin, so at 1024 viewport the host hid the tabs while glass stacked the grid: the stage was 288 tall and the aside x−stage.r was −1008.
+- **L2-1:** the register's cause is the body padding. A second cause surfaced once that padding was gone: /gallery's document measured 1031/844 (portrait) and 574/390 (landscape). The falsifier's own "past the fold" readout named `span.sr-only` (b = 976, 1031). A gallery card's `sr-only` label is `position: absolute` with no positioned ancestor, so it was laid out against the document instead of `<main>`.
+- **X-5:** the layer is 316 px wide. The run of faces is 334/324/346/347/330 px on /gallery, /paper, /visualize, /equation and /morph, and it overflows in both the logged-in and logged-out states at 360. The nav trigger's label is the only variable face.
+
+**Act 1: the falsifier** (`web/e2e/f-w14v-au1.spec.ts`, fourier `48eee99`). It has 15 tests, one limb per row, with CDP `Emulation.setSafeAreaInsetsOverride` (portrait T47/B34 at 390; landscape L47/R47/B21 at 844×390). The L2-1 test first asserts that the override actually reads through `env()` (34 and 21).
+- **BEFORE** ran on a clean worktree of HEAD `a30001d`, served by its own vite on `:3101` against the same `:8000`. The first attempt on `:3100` was discarded: vite HMR had applied my in-progress edits mid-run.
+- ⟨`BASE_URL=http://localhost:3101 npx playwright test e2e/f-w14v-au1.spec.ts --project=chromium --workers=2`⟩ ×2 → r1 `14 failed · 1 passed (3.1m)`, r2 `14 failed · 1 passed (3.8m)`. The one GREEN is the X-5 @390 guard limb (it fits at 390, as `.au0` measured). It was green before, and that is on file.
+- BEFORE figures (r2 = r1):
+
+| Row | BEFORE (a30001d) |
+|---|---|
+| L2-1 | docSH 878/844 (`/paper`, `/v`) and 1031/844 (`/gallery`) portrait; 411/390 and 574/390 landscape; scrollY 34 / 21 / 187 / 184 |
+| L2-2ˢ | animation dock bottom 817 in the stage and 832 in fullscreen, against 810 (844−34) |
+| L2-3 | Gallery tab [16..], search input [16..528], card [25..]; /v and /equation "Controls" tab [12..109]; /equation layer trigger [26..818]; /paper ToC title [13..773] and "Search paper" [777..831], against [47..797] |
+| L2-4 | /v tab row present (x 12, y 88); stage 0 tall under the Controls tab; aside beside the stage −1; the animation dock hidden |
+| L2-5 | strip centre off the column centre by 74.5 / 89.5 / 109.5 px (360/390/430), strip left 12 against column 16, on /v and /equation |
+| L2-16 | band minus tallest control 18; ToC plate bottom 425 (> 369), left 13 (< 47), right 841 (> 797) |
+| L3-6ˢ | 1440 gutters {visualize 8, equation 8, gallery 16}; 390 {16, 16, 16, extractor 8, notFound 16, paper 8} |
+| L2-17 | modal Like 34 tall; About link 19.6 |
+| X-1 | 1024×768: no tab row, aside − stage.r = −1008, stage 288 tall |
+| X-5 | 360: dock layer 334/316 · 324/316 · 346/316 · 347/316 · 330/316 across the five sections |
+
+**Act 2: the cure** (fourier `cad7518`, one commit, 22 files).
+- **L2-1:** the body padding is deleted (`style.css`). `<main>` becomes `relative` (`App.vue`), so it is the containing block of what it scrolls.
+- **L2-3:** the `.app-shell` class carries `padding-inline: env(safe-area-inset-left, 0px) env(safe-area-inset-right, 0px)`.
+- **L2-2ˢ:** `.controls-overlay` bottom is `calc(0.75rem + env(safe-area-inset-bottom, 0px))`. The < 900 arm no longer re-sets the bottom. The same overlay teleports into the takeover, which covers fullscreen.
+- **X-1 + L2-4 — `web/src/composables/useWorkspaceForm.ts`:** `split` when the Configurator shell's content box is ≥ 64rem (glass's own threshold). Otherwise `rail` on `(orientation: landscape) and (min-width: 640px)`, otherwise `sheet`. /v and /equation replace `!isDesktop` with `tabbed` (= sheet). Each view's `@media (max-width: 1023px)` sheet rules are re-keyed to `[data-form="sheet"]`.
+  - The new `[data-form="rail"]` rules lay the stage (flex 1) and the aside (`clamp(16rem, 38%, 22rem)`) in a row, with glass's detached gap.
+  - On /equation the rail puts `.eq-card` and `.eq-plot-card` side by side. The divider moves to the left edge.
+  - Short landscape tightens `.app-header` to `--space-residue`. This is the "compact app dock": glass owns the dock's size and ships no compact arm.
+  - **INTENT recorded:** the register's arm is `(orientation: landscape) and (max-height: 500px)`. X-1's cure (with L2-4) needs the same side-by-side at 1024×768, so the rail is every landscape form narrower than glass's split.
+- **L2-5:** `web/src/components/layout/WorkspaceTabs.vue` is one bar for both views, centred on the column in `--page-gutter`, with no band. Of the register's two arms I took "centred on its axis": glass `SegmentedTabs` has no full-width prop, and no consumer restyle of its internals is lawful.
+- **L2-16:** the ToC plate is `w-[calc(100vw - 1rem - env(left) - env(right))]` and `max-h-[min(70dvh, 32rem, calc(var(--reka-popover-content-available-height) - env(bottom) - 0.5rem))]`. The short-landscape `.floating-toc` padding-top is `--space-residue`. Page chip against the plate: "apart" or "plate on top" both before and after. The chip-z limb was not reproduced, so there is nothing to cure.
+- **L3-6ˢ:** `:root { --page-gutter: 1rem }` is read by the /v and /equation Configurator margins (8 px at desktop before), the gallery column and its sections (GalleryView, InfiniteGrid, DraftsSection, FeaturedCarousel, AdminBanner, the three admin panels), `.paper-layout` (px-2/sm:px-6 before), `.extractor-page` (padding-inline) and NotFoundCard.
+- **L2-17:** the modal `.like-btn` `min-height: 1.5rem` literal is deleted. Glass Button carries `data-control-target`, and its coarse floor is `--touch-target`. The About link is `.about-link` (flex row) with `min-block-size: var(--touch-target)` under `(pointer: coarse)`.
+- **X-5:** `.nav-trigger-label` is `display: none` below 24rem. The glyph and chevron stay, and the accessible name ("Navigate — current section …") still carries the section.
+- **Adjacent edits (§0bt):**
+  - `web/e2e/f-w14u-eq.spec.ts:394-395`: q253 locates the strip row by `.workspace-tabs`, because the `lg:hidden` wrapper it named is retired.
+  - `web/e2e/f-w14v-u4.spec.ts:257-260`: u238, the same.
+  - Both stay GREEN, with their assertions unchanged (⟨`-g "q253|u238"`⟩ → `3 passed`).
+  - `web/e2e/f-w14v-au0.spec.ts:119,154` (fourier `f362b2e`): the plates typed as `Plate[]`, with the `Omit<ViewMetrics>` cast dropped. That was the one vue-tsc error at `a30001d` (TS2352). No assertion changed.
+
+**Gates, BEFORE → AFTER:**
+- **Per-row falsifier with CDP insets:** RED ×2 (14/15) → **GREEN ×2** on `:3100` against `:8000` at the committed bytes: ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au1.spec.ts --project=chromium --workers=2`⟩ → r1 `15 passed (1.3m)` exit 0; r2 `15 passed (1.3m)` exit 0.
+- **vue-tsc:** 1 error at `a30001d` (the `.au0` TS2352) → **0**: ⟨`npx vue-tsc --noEmit; echo $?`⟩ → exit 0, 0 `error TS`.
+- **vitest:** **GREEN**: ⟨`npx vitest run`⟩ → `Test Files 15 passed (15) · Tests 90 passed (90)`.
+- **Frames read** (scratchpad, not committed):
+  - 844×390 /v: the rail, stage 64–385 beside the aside, dock above the inset.
+  - 844×390 /equation: stage beside the Function layer.
+  - 1024×768 /v: the rail, a full-height stage (it was a 288 px strip).
+  - 390 /v: the strip centred on the column.
+- **Regression sweep:** full chromium e2e on the cured tree, ⟨`npx playwright test --project=chromium --workers=2`⟩ → `19 failed · 3 skipped · 436 passed (16.4m)`. Every failure was re-run on the HEAD `a30001d` worktree (`:3101`) and is the same failure there:
+  - contrast-floor ×3, f-w14-residuals G-c1, f-w14-uia UIA-F-17, f-w14u-d d2, f-w14u-vedit v88 (L2-15, `.au2`), f-w14v-c3 c3g/c3m (MAGNET-STATE-HIDDEN / MENU-ICON-GAP) and gallery-admin-a11y ×4 → `13 failed · 57 passed` at HEAD, the identical 13.
+  - f-w14v-p p3 ×2 (TOASTER-OFFSET, ESC-p-1) and visual-checkpoint items 1·6·7 / 2 / 5 also fail at HEAD.
+  - The one failure green at HEAD, equation-interaction, is a load flake: ⟨`--workers=1`⟩ ×2 on the cured tree → `1 passed` ×2.
+  - f-w14v-eq2 flaked under 3 workers (the compute outran its timeouts) and is `6 passed` at `--workers=1`.
+  - The tracked `web/e2e/screenshots/f-w14/*.png` the sweep rewrote were restored to HEAD (they are artefacts of this seat's run, not committed).
+
+**Residuals and honest-RED (glass halves, ADOPT-AT-LANDING):**
+- L2-2 glass half: the bottom-dock `--safe-block-end` root token (O-74 new ask). The consumer adds `env()` on `.controls-overlay` until it lands.
+- L3-6 glass half: a layout-gutter token, with O-68 (absent at glass 10.1.0; ⟨`grep -r gutter dist`⟩ → carousel/turn only). `--page-gutter` is the one consumer line that will read it.
+- L2-4 "compact app dock": glass GlassDock has no compact or density arm. The consumer tightened only its own header band (76 → 68 px). The dock's 60 px stays glass's.
+- O-77 LAYER-HEADER-LABEL shows in the rail ("De…", "Conto…"), cited, not a new row.
+
+**Escalations:** none.
+
+**Commits:** fourier `48eee99` (falsifier), `cad7518` (cure + adjacent oracles), `f362b2e` (vue-tsc adjacent), pushed (`a30001d..f362b2e`). value.js: this record.
