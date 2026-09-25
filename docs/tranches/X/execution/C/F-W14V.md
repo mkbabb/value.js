@@ -62,3 +62,44 @@ The order is strictly serial, one unit at a time (addendum (c) + §0dp): `.s2` (
 ˢ = consumer half (the glass half rides O-74/O-75 and is ADOPT-AT-LANDING).
 
 ## Unit receipts
+
+### F.W14V.s2
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · verify-only (addendum (b), COHESION §0dd/§0dh). Writable: `web/e2e/**`.
+
+**Acts, in order**
+1. Crash-recovery: ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only; nothing inherited in `web/e2e/**`.
+2. Addendum (b) anchors at fourier `7ee9b65`:
+   - ⟨`git merge-base --is-ancestor 239845f HEAD`⟩ → IN_HEAD.
+   - ⟨`grep '"@mkbabb/glass-ui"' web/package.json`⟩ → `"10.1.0"` exact; installed `node_modules/@mkbabb/glass-ui/package.json` `"version": "10.1.0"`.
+   - Anchor drift, recorded: the view is `web/src/components/visualization/VisualizationView.vue` (not `src/views/`). ⟨`grep -n 'layout="detached"'`⟩ → `:361` `<Configurator scroll-mode="auto" layout="detached" class="viz-configurator glass-opaque" …>`.
+   - No `.s` Card wrap: ⟨`grep -n 'Card' VisualizationView.vue`⟩ → only `NotFoundCard` (`:15 :376 :391`) and comments `:489 :674` that name the deleted wrap. There is no `<Card` in the aside.
+3. <lg sheet form: ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-s.spec.ts -g "G-s" --project=chromium --headed --workers=1`⟩ ×2 → `6 passed (13.6s)` ×2. That covers the 390 sheet (plain column, no card, no shadow, inside the viewport and the shell) in light and dark, plus the detached aside card at 1440/1024. **GREEN ×2.**
+4. `glass-opaque` on `.viz-configurator` (`:361`, rule notes `:347-360`): its `--glass-level: 0` is inherited by glass's two detached cards. The shell itself paints nothing. Measured from the run: `getComputedStyle(.viz-configurator).backgroundColor` = `rgba(0, 0, 0, 0)` and the `[data-slot="configurator"]` grid = `rgba(0, 0, 0, 0)` at all four viewport/scheme cells. **No band.** No consumer rule paints the shell: the `:579-662` rules set only margin, aside bands and flex, and `display:none` on the inactive mobile stage.
+5. Instrument edit (this unit's one commit, fourier **`b7531e7`**, `web/e2e/f-w14v-detached.spec.ts` +16/−0): the `da` test now also publishes its measured medians, the shell's computed paint and the O-77 clipped-label list, as a `test.info()` annotation and a console line. These are readings only. No assertion or threshold changed. It was added so the table below is read from the run, not transcribed.
+6. Falsifier ×2 at `b7531e7` bytes: ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-detached.spec.ts --project=chromium --headed --workers=1 --reporter=line`⟩ → run 1 `5 passed (21.1s)` exit 0; run 2 `5 passed (21.1s)` exit 0. The two runs before the O-77 reading was added gave `5 passed (21.1s)` / `5 passed (20.6s)`, with identical medians.
+
+**Gutter table** (area medians, sRGB; ground = the page margin left of the Configurator). Identical in all 4 runs:
+
+| viewport | scheme | layout | gap px | gutter | ground | Δ (gutter−ground) | spread | chroma g/ground |
+|---|---|---|---|---|---|---|---|---|
+| 1440×900 | light | beside | 13.0 | 217,216,215 | 228,227,225 | −11,−11,−10 | 1 | 2/3 |
+| 1024×768 | light | below | 13.0 | 214,213,211 | 229,229,227 | −15,−16,−16 | 1 | 3/2 |
+| 1440×900 | dark | beside | 13.0 | 31,30,29 | 25,24,22 | +6,+6,+7 | 1 | 2/3 |
+| 1024×768 | dark | below | 13.0 | 32,31,30 | 24,23,22 | +8,+8,+8 | 0 | 2/2 |
+
+Reading: the gutter is the page ground, shifted by a neutral shade. Light is darker because of the two cards' casts. Dark is lighter because of the dark-scheme lift. The channel spread is ≤1 (oracle ≤4), and the gutter is no more tinted than the ground. The owner-frame plate read `242,232,219` over `227,227,225` (light) and `66,49,37` over `25,24,23` (dark), which is a warm tint with a spread of 23 or more. That plate is absent. At 1024×768 the shell's own margins put the Configurator under its lg band, so the pane stacks **below** the stage. The measured gutter there is the vertical seam, as the falsifier specifies.
+
+**O-77 LAYER-HEADER-LABEL: honest-RED, recorded, no override.** Measured from the run (leaf text in `.configurator-layer-trigger` with `scrollWidth > clientWidth`):
+- 1440×900, light and dark: `Decomposition(184>175)` and `basis & resolution(119>113)`, clipped ×2.
+- 1024×768 (stacked, full-width aside): `none`.
+
+The glass half is asked at O-77 (§0dh). No consumer width, label or font override was made. The aside band stays `:614-623` as `.s` set it.
+
+**Gates, BEFORE → AFTER**
+- `f-w14v-detached.spec.ts` (headed chromium, :3100): 5/5 ×2 (baseline, the `239845f` early cure) → **5/5 GREEN ×2** at `b7531e7`.
+- Gutter px table, 1440×900 + 1024×768, light + dark: gutter = page ground → **GREEN**, table above.
+- <lg sheet form (`f-w14u-s.spec.ts` G-s, 390 L+D): → **GREEN ×2** (6/6).
+- O-77 LAYER-HEADER-LABEL: → **honest-RED recorded** (measured above; glass-owned).
+
+**Commits:** fourier `b7531e7` (e2e reading). **Adjacent edits:** none. **Inherited paths:** none. **Residuals:** O-77 (glass). **Escalations:** none. The CONFIGURATOR-DETACHED and CONFIGURATOR-HEADER-ACTIONS cures (`239845f`) were verified and not redone.
