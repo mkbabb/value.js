@@ -3554,3 +3554,15 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 - **Held from merge, for the owner:** the feedback-coder constellation layout moved (glass's `seedField` draw order changed), which needs a design re-tune or a glass fix. The monochrome FourierField is a library redesign. slides also carries a consumer "glass bridge" in `deck.css`.
 - **O-81**, sent and mirrored: DOCK-END-INSET · DOCK-FIRST-EXPAND · DOCK-MOBILE-SCALE-COARSE · DATA-REVEAL-COLLISION · SEEDFIELD-DRAW-ORDER.
 - **All repins are now PRs or branches:** atlas #1 · speedtest #1 · slides #1 · bbnf-buddy local `glass-10.1` (waits for 10.2.0's menu fix) · chicago done in place. The three tranche apps are on 10.1.0 (value.js at X-W7L).
+
+## §0dp — 2026-09-24 late: Track C returned; F.W14 CLOSED; F.W14U's ESC-C-U1 ruled, with 26 rows re-homed to F.W14V `.u`; O-82
+- **F.W14 CLOSED**, CONFORMANT-HONEST-RED (`.s2` landed: the admin golden re-baselined after the diff was read, and the seed is keyed per run).
+- **F.W14U is NOT-CONFORMANT after 2 repairs**, on G-u: 230/256. It has 26 open rows under unruled unit escalations, plus four Close-2 REDs outside the named set (vc ×3 at mobile, f-w13-radius) that follow the owner-ruled layout changes, and an unmanaged preview instrument.
+- **Ruled (F-W14U.md addendum (h)):**
+  - The bounds asks are granted as one F.W14V unit, `.u` (`web/**`, and `api/**` for the server limbs).
+  - F-14 BROKEN: the single live stage moves into the takeover.
+  - F-173: a d2 setup change, under the ADJACENT-LINE RULE.
+  - The anchor rows are honest-RED with **O-82 POPOVER-ANCHOR**, sent.
+  - The vc and radius diffs are read first: an owner-ruled change is re-baselined with the diff described; anything else is cured.
+  - The :4190 preview is managed by `webServer`.
+- **The Track C chassis** now reads F.W14U as "no unit owed; close and check". F.W14V's order is `.s2` (verify; the glass half landed at `239845f`) → `.u` → `.c3` → `.eq2` → `.p` → `.au0`…. **Track C is resumed.**
