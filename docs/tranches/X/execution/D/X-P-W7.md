@@ -2648,3 +2648,22 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDA (b),
 - (ii) the owner's ruling on R-l4-2: whether the large cell must compare equal work.
 
 **Verdict:** 0 cured, 1 escalated. The row stays PARTIAL.
+
+## Check 2 of the RESUME 6 Close (2026-09-25, L-20 fresh adversarial pass 2, `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Read:** W7.md whole (268 lines; ADDENDUM (f) `:262` binds); this record's header, `## RESUME 6 — Open` through `## RESUME 6 Unit plan`, `## RESUME 6 Close`, `## Check 1 of the RESUME 6 Close`, `## Repair 1 of the RESUME 6 Close` (the last section). **Crash-recovery:** ⟨`git status --porcelain -- src bench test/css package.json package-lock.json docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md`⟩ → empty; bbnf-lang worktree ⟨`git log --oneline -1`; `status --porcelain | wc -l`⟩ → `f0059db14`, `0`; parse-that master's dirt (`rust/**`, `README.md`, `.cargo/config.toml`, untracked `docs/**`) is outside the set, untouched. ⟨`git log --oneline 893c225a..HEAD`⟩ → empty (no byte moved since Repair 1). Host: ⟨`uptime`⟩ → 1-min 44.12 at open, 55.13 mid-check.
+
+### Axes
+1. **Claimed GREENs reproduce (14 re-run, 0 fail).** L-G2 ⟨`node bench/paired/equiv.mjs product <scratch>/eq{1,2}.json`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 92 (ASCII-only sources 1 · CP-CASE 4)` both · L-G3 ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0` · K2-b ⟨`grep -rn deepFreeze src | wc -l`⟩ → `0` · V-8 → `0` · E-6 ⟨`npx esbuild --minify …grammar.js | wc -c`; `| gzip | wc -c`⟩ → `92300` / `13002` · `.cp` pins ⟨`npx vitest run test/css/custom-property-case.test.ts`⟩ → `Tests 4 passed (4)`; ⟨`grep -n V-A64 CHANGELOG.md`⟩ → `:11` · ⟨`npx vitest run test/css`⟩ → `8 passed (8) · 86 passed (86)` · ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`, ⟨`grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `28 MIRROR-DEFECTS 0` (only value) · vue-tsc lib/demo/test → `0 · 0 · 0` · bbnf-lang ⟨`npx vitest run`⟩ → `21 passed (21) · 299 passed (299)`; ⟨`npx tsc --noEmit -p .`⟩ → `0`. E-2/E-4/npm test stand as Check 1 and the Close read them (no byte moved).
+2. **Writes in bounds.** ⟨`git show --stat 2015419a 214e1fc1 ae00cd6d 893c225a`⟩ → the record and LEDGER only; `.l4`'s `5d46e376`/`daa8e85a`/`ef91a5a3` as Check 1 read them (in set, §0bt adjacent `.bbnf` edits declared). ⟨`git log 82d5c74d..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → `0`. **0 landed-wrong.**
+3. **No masking:** no new diff since Check 1's grep (0 hits). 4. **Families** not split. 5. **E-3:** ⟨`git diff 82d5c74d..HEAD --stat -- docs/tranches/X/parse-that/waves docs/tranches/V/megatranche/registry/adjudicated`⟩ → empty. 6. **Mail:** ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. 7. **Four-verb:** PARTIAL, lawful. 8. **Goal at the bytes:** NOT MET as read — L-G1 has no GREEN read on `5d46e376` on any engine; Firefox large was born-RED ×1.056. 9. **Figures reproduce:** 1,376,531 / 92 = 88 + 4 · 92,300 / 13,002 · 8/86 · 19/19 · 21/299.
+10. **Honest-RED adjudication.** L-G1 (every engine × acc/rej/large, ×2, on the final bytes): **no spec relief** — not producer-owned, not routed to a successor (W7P takes the release acts only, §0cp), and ADDENDUM (f) refuses a noise band; (f) 3 lets an unread cell be recorded, never closed on. ⟨`grep -n "ESC-W7l4-1\|R-l4-2" docs/tranches/X/COHESION.md`⟩ → 0 hits (unruled). Relieved: P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half (ADDENDUM 2026-09-24 §1 → X.P.W7P). No L-G1 read was taken here: at load 44–55 it would be a voided cell (R-l-2).
+
+### Register
+| # | Severity | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| C2-1 | HIGH | L-G1 is still unread on the final bytes on every engine; the last Firefox-large read is RED (×1.056); no spec relief. Unchanged from C1-1; the Close and Repair 1 state it honestly (PARTIAL, ESC-W7l4-1 carried). | Check 1 C1-1; Repair 1; this check's `uptime` 44.12 / 55.13; COHESION 0 hits for ESC-W7l4-1 | The quiet-host L-G1 ×2 read on all four engines with the sibling fleets paused (R-l4-1), or the owner's ruling on ESC-W7l4-1 / R-l4-2. |
+
+**Honest-RED set:** none admissible. **Successors:** X.P.W7P "Opens when" = owner OTP **and** "X.P.W7 has CLOSED its engineering gates" — both RED; W7P lawfully blocked.
+
+**Verdict: NOT-CONFORMANT.** LEDGER row stays PARTIAL; an event line is appended.
