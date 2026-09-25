@@ -161,3 +161,55 @@ Register self-count: KFA 183 · UIA-KF 257 (⟨`node assign.mjs`⟩ stderr → `
 
 ## Unit receipts
 
+
+### .x
+
+SERVED MODEL: claude-opus-5-5 (unit `.x`, G1, measure-first; **zero product bytes**)
+
+**Crash recovery.** ⟨`git status --porcelain -- docs/tranches/X/keyframes/evidence/W13X/x docs/tranches/X/execution/B/KF-W13X.md`⟩ → empty, and the evidence directory did not exist yet. **Inherited: none.**
+
+**Instrument (addendum (d)).** Private dev server: ⟨`npx vite --config <scratchpad>/vite.x.config.ts --force --port 5194 --strictPort`⟩. The wrapper config imports kf's `vite.config.ts` unchanged and sets only `cacheDir` to a scratchpad folder, so neither the shared :5173 server nor its cache is touched. The log reads `Forced re-optimization of dependencies`. ⟨`grep -l actionsWhen <cache>/deps/*.js`⟩ → `@mkbabb_glass-ui.js`; ⟨installed `package.json`⟩ → `"version": "10.1.0"`. **Glass 10.1.0 is what the page is served.** kf is at `574642be`.
+
+**Acts, in order:**
+1. `discover.mjs`: the surface roster per scene at 390. Cube, amiga and square have Controls/Keyframes/Timeline plus a disabled facet. easing adds Curve and spring adds Physics. sequence has only Timeline enabled.
+2. `docsh.mjs`, runs 1 and 2 (84 cells each). ⟨`cmp` of the per-cell projection⟩ → `RUNS-IDENTICAL`. Probe defect found and fixed: runs 1 and 2 clicked the Controls item even though it is pressed by default at 1024, which toggled the pane off. The fixed probe re-ran 1024x768 twice (runs 3 and 4 → `states 14 rest RED 0 open RED 0` ×2).
+3. `safearea.mjs`, runs 1 and 2 (21 states each). ⟨`diff`⟩ → `SA-IDENTICAL`.
+4. `views.mjs`: light run 1, dark run 1, and run 2 in both themes (108 states per run). ⟨`diff`⟩ → identical except the 1024 v4 cell. That cell errored in run 1 because of the same toggle defect (diagnosed by `timing-1024.mjs`: the trigger's hit-test landed on the stage grid, because the pane had been toggled off). In run 2 and in `views-desktop-v4-run1` it reads `small 10 occl 3 tiny 3` ×2.
+5. `timeline-1024.mjs`, runs 1 and 2. ⟨`diff`⟩ → `TL-IDENTICAL`. At 1024x768 the expanded card is at x −289..77, both 1.1 s and 4.1 s after the press.
+6. `overlays.mjs`: light run 1, dark run 1, and run 2 in both themes, on every scene (504 states per run). ⟨node compare⟩ → `rows 504 504 diffs 0`.
+7. Commit **`59ff15d5`** (value.js): `docs/tranches/X/keyframes/evidence/W13X/x/**`. It holds the probes, the JSON and logs, `ROWS.md` and 206 frames (18 MB). The 162 unflagged overlay frames stay in the scratchpad.
+
+**Gate readings (BEFORE — this unit measures; it does not cure):**
+- **G `A2-KE-X-n` minted and routed**: **13 rows, GREEN.**
+  - `.timeline`: X-1, X-2, X-3 and X-5.
+  - `.keyframes`: X-4 (same identity as KFE-ORPHAN).
+  - `.controls`: X-6.
+  - `.matrix`: X-7.
+  - `.springd`: X-8.
+  - `.home`: X-9 and X-10.
+  - `.overlays`: X-11.
+  - `.dock`: X-12 and X-13.
+  - The table is in `evidence/W13X/x/ROWS.md`. Self-count: 4+1+1+1+1+2+1+2 = 13.
+  - Every view addendum (b) names was read:
+    - the expanded timeline;
+    - KeyframesAddDialog: unreachable at runtime, so the row is X-4;
+    - the CSS paste dialog;
+    - the timing-function detail editor;
+    - the Matrix Controls facet;
+    - the spring discrete Entry view;
+    - toasts;
+    - `App.skeleton.vue`.
+  - Coverage: 6 widths × 2 themes, and the overlays on all 7 routes.
+- **G docSH == innerHeight BEFORE**: **banked GREEN** (the BEFORE is recorded ×2). The reading itself is RED: 60 of 84 cells at rest and 60 with a surface open. Every scene route below 1024 fails in both themes. Home at every width and every scene at 1024x768 pass. The excess is the in-flow sheet, `position: relative`: 171 px at rest at 360/390/430, 204 px at 844x390 and 172 px at 768x1024, rising to +523 px with a tall surface open. This is `.mobile`'s consumer gate. The glass half is A2-KE-L2-2, BL, ADOPT-AT-LANDING.
+- **G L2-15 safe-area BEFORE via `Emulation.setSafeAreaInsetsOverride`**: **banked GREEN** (×2).
+  - The meta lacks `viewport-fit=cover`.
+  - Under the override, Chromium resolves `env()` to the injected insets: the top dock moves 31 → 49 px at p390.
+  - In-band controls: p390 has 1 on each of the 5 scene routes (the in-flow sheet). l844 has 4/4/4/8/2/3 on cube/amiga/square/easing/spring/sequence and 1 on home: the sheet handle spans 21..823 and Close spans 779..823, inside the 47 px notch bands. p390 with no inset has 0.
+  - This is the BEFORE for `.mobile`'s L2-15 cure. The glass dock `env()` ask is O-74 E-4.
+
+**Adjacent edits:** none. **Escalations:** none.
+
+**Residuals / notes for the cure units:**
+- Several rows rest on the frames: X-2's thumbnail spill, X-7's label/value overlap, X-8's overlap, and X-10's dark contrast. Each owning unit re-derives its falsifier at the bytes.
+- X-5 is routed to `.timeline` and not to `.keyframes` as the brief suggested, because `CSSPasteDialog.vue` lives in `timeline/**` (file ownership, Unit plan).
+- The `.transport` channel Select is absent on square, easing and sequence (1 channel). That is expected, not a row.
