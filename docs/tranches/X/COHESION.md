@@ -3607,3 +3607,6 @@ headless software-GL recorded beside. X-W6: `.d` `.e` `.h` DONE; `.i` escalated.
 
 ## §0dw — 2026-09-25: owner frame on the fourier dock — "this should be a dropdown, not expanded out into paper, visualize, etc."
 The owner's frame (1440, dark) shows the five sections as an inline tab row. That row is UIA-F-151's ≥1024 limb (fourier b744993). **Ruled (owner DESIGN-RULING):** the section nav is one `DockTrigger` dropdown at every width, and F-151's tab limb is reversed. It is homed to F.W14V as unit `.nav` (F-W14V.md addendum (e)): delete the `inlineNav` media split, keep F-231/X-5, and re-baseline the tests that pinned the tab row as named owner-ruling edits. It is consumer-only: glass's `DockTrigger` dropdown is used as published, so no relay is needed.
+
+## §0dx — 2026-09-25: owner frames — the playback dock's floating elements, and a dark-mode toggle that is too small
+Two frames on fourier `/visualize` and the app dock. **Homed to F.W14V** (addendum (f)): `.pd` (every playback-dock element inside one glass surface at both postures; the consumer root is cured, a glass geometry fault is relayed as honest-RED with no shim) and `.dm` (the morph glyph at the dock's icon box, with the `.nav` seat).
