@@ -1416,3 +1416,23 @@ SERVED MODEL: claude-opus-5-5 · 2026-09-25 · FRESH ADVERSARIAL CHECK (L-20 pas
 - Every seat-curable defect is cured.
 - What remains is owner-held: C2-1 and C2-3 wait on the owner's rulings. C2-2 closes by root's O-74 addendum or the owner's ruling (b). C2-4 waits on the owner's ruling.
 - The next act after those is the owning seat's cure, then Check 3.
+
+## Repair 2
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · REPAIR SEAT round 2, Track C. Spec read whole (67 lines); record read at `## Check 2` only. Crash-recovery: ⟨`git status --porcelain` in fourier-analysis⟩ → only `src/fourier_analysis/contours/*` dirty (F.CT, outside this wave's set, untouched); nothing dirty in `web/` or `api/`. ⟨`git diff --quiet HEAD -- web api && echo CLEAN`⟩ → `CLEAN`, web/api = `97325fb`.
+
+**Outcome: 0 cured, 4 escalated, 0 fourier commits.** Every Check 2 defect at ≥ LOW has its cure behind an owner ruling or a root mail act. None has a cure inside `web/**` / `api/**` that does not override a standing ruling or lock, and a consumer override would be a masking cure.
+
+### Defect → disposition
+- **C2-1 HIGH · L2-15 ×3 + vedit v88 → ESCALATED (owner).** The consumer levers (drop a tool below sm, move Delete into More tools, amend the lock) each collide with a standing ruling (ESC-u1-2 = ESC-au2-1). The cure menu is (a) a glass dock overflow O-row, (b) Delete into More tools below sm with v88 restated, or (c) an amended lock. All three are rulings. The owning seat cures after the ruling.
+- **C2-2 MEDIUM · L1-12 → ESCALATED (root mail).** The cure is the O-74 addendum asking glass to put `.card-title` on a named type rung. That is a relay write (value `docs/tranches/X/relay/` plus glass `BK/coordination/`), outside this wave's §File Bounds, and Check 2 assigns it to root. The alternative is owner option (b). No consumer type override was made.
+- **C2-3 MEDIUM · G-u 254/256 (F-81 + F-9 final form) → ESCALATED (owner + root mail).** Renaming the easing keys changes persisted data (`api/models/shared.py:69`) and needs a migration ruling. The glass `Timeline` transport needs an O-row, which root sends.
+- **C2-4 LOW · A2-FO-X-7 → ESCALATED (owner).** It conflicts with UIA-F-59, so it needs a ruling.
+- **INFO · FW14_PHASE default** is another wave's instrument. It is routed to the owner and left untouched.
+
+### Gate re-reading (this seat, at `97325fb`)
+- ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au2.spec.ts e2e/f-w14v-au3.spec.ts e2e/f-w14u-vedit.spec.ts -g "L2-15|L1-12|v88" --project=chromium --workers=1`⟩ → `5 failed`: v88, L2-15 @360/390/430, and L1-12 `:119`. This matches Check 2's `4 failed` + `1 failed`. **RED, owner-held.**
+- The web and api bytes did not move, so no other gate could have moved, and Check 2's GREEN readings stand (vue-tsc 0, vitest 116/116, api owner_required 1 passed, `.s2` 5/5, C1-1..C1-4).
+
+### State
+**NOT-CONFORMANT, unchanged.** LEDGER `:90` stays PARTIAL. Next: the owner rules C2-1, C2-3 and C2-4, and root sends the O-74 `.card-title` addendum and the Timeline transport O-row. Then the owning seats cure, then Check 3.
