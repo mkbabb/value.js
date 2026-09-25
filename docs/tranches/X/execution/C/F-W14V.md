@@ -323,3 +323,76 @@ SERVED MODEL: claude-opus-5-5 · 2026-09-25 · shell/admin rows (addendum (c); F
 **Escalations:** none.
 
 **Commits:** fourier `5c8ce49` (falsifiers) · `59cf617` (F-149 + vc `:145` re-cut) · `c5a88bc` (F-183 + 1 adjacent), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `c5a88bc79577`).
+
+### F.W14V.u4
+
+SEAT `.u4`, `claude-opus-5-5`, 2026-09-25. Spec `F-W14V.md` read whole (48 L) and `F-W14U.md` addenda (g)(h) (`:71-89`). Record: header through `## Unit plan`, u1–u3 receipts (by grep). The `.vstage` receipt in `C/F-W14U.md` (`:528-600`, E-1/E-3 and the PARTIAL residuals R-1..R-4) and the register rows (`audit/UI-AUDIT-fourier.md` :142 :145 :148 :227 :249 :251 :253 :324 :325). COHESION §0da, §0db, §0dp (grep-located; no later ruling touches these rows).
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. Nothing inherited in `web/src/**` or `web/e2e/**`.
+
+**Anchors at the true bytes (fourier `c5a88bc`).**
+- F-68 / F-168 stage limb: `BasisCanvas.vue:584` `class="canvas-container cartoon-card"`. Probe at 1440 and 390: 1 stamp in the stage, border 2px, radius 16px, the three-layer offset shadow, bg `rgb(253, 245, 236)`. BasisCanvas mounts only in the stage (⟨`grep -rn '<BasisCanvas' src`⟩ → `VisualizationView.vue:418`).
+- F-170 legend: `BasisCanvas.vue:228` (epicycles) and `:411` (bases) draw `N = ${level}`. For epicycles, level counts circles, up to `components.length`: measured `N = 401` with Harmonics 200 (2N + 1). For bases, the level runs through `levels`, which are 1…N (`workspace.ts:370`).
+- F-74: `VisualizationView.vue:106` `mobileView` defaults to `"controls"`, and nothing flips it on upload (the watcher was withdrawn at `.vstage` act 6).
+- F-71: `animate-spin` 0 across `src` (every carried ring site was retired by `.vedit`, `.eq`, `.gallery` and `.admin`). During the first upload at 1440 there were two marks: the drop-target Button's glass dot ring (`[data-slot=dot-ring]`) and the aside's "Uploading the image" Progress (`ImageUpload.vue:125`). DotRing is not exported by glass 10.1.0 (⟨`grep -c DotRing dist/index.d.ts`⟩ → 0). That is F-72 / O-59.
+- F-146: on `/v` load the dev guard fired `[Tooltip] … not an HTML element` and `… not focusable`, plus `<Transition> renders non-element root node` (PopperRoot). The sites were `AnimationControls.vue:184` (a Tooltip on the ⋮ SVG), `EditorControlsDock.vue:187`, `ViewLayersMenu.vue:55` (same shape, u1's new file), `AnimationControls.vue:149` (a comment node was the Tooltip slot's first child), `CoefficientsSpectrum.vue:139` (Tooltips as TransitionGroup children, on non-focusable rows) and `:180` (a Tooltip around a `v-if` Button).
+- F-172 non-colour limb: the magnet's on-state was the glyph's hue only (`EditorControlsDock.vue:196` `.is-on`). The field read `0`.
+- F-238: role=status, the Progress row, ToggleGroup and tab-strip limbs were cured at `.vstage`. The lone reset row was discharged by `.a2` (CONFIGURATOR-HEADER-ACTIONS CURED, `C/F-W14U.md:1001`).
+- F-239: `GlassTimeline.vue` (importers `AnimationControls.vue:10` and `ConvergenceTimeline.vue:25`); the caret plate at `:312-322` (its own popover fill, border, shadow and `--radius-sm`). At 390 the expanded canvas dock spans x 27–365, y 137–193, over the legend (canvas x 16, top at page y ~139).
+
+**Acts.**
+1. **Falsifier** `web/e2e/f-w14v-u4.spec.ts` has 11 cases: u68 ×{1440,390}, u170, u74, u71 ×{1440,390}, u146, u172, u238, u239, u239b. Canvas text is read through a `fillText` recorder (init script), so the legend is measured as drawn. Frames go under `web/e2e/screenshots/f-w14v/u4/` (gitignored).
+2. **RED ×2 on the pre-cure bytes, final spec** (`src/**` at HEAD; my `src` edits were parked as a patch and the files restored by exact path; nothing else moved). ⟨`FW14V_PHASE=before BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-u4.spec.ts --project=chromium --workers=3 --reporter=line`⟩ ×2 → **9 failed · 2 passed**, both runs. The 9 are u68 ×2, u170, u74, u71@1440, u146, u172, u239 and u239b. The two that read green before the cure:
+   - **u71@390** (at HEAD the sheet was in front, and its bar was the one visible mark).
+   - **u238**. An earlier draft of u238 read the aside's upload bar during the sidebar's entrance, RED ×2 (`u4-before-{1,2}`, 10 failed · 1 passed). Once u238 waits for the sidebar to settle before reading, it passes on the pre-cure bytes. F-238's limbs had already landed (`.vstage` + `.a2`), and u238 is its verification.
+3. **Cures** (fourier `8e19043`):
+   - `BasisCanvas.vue` (F-68 ⊕ F-168): the root drops `cartoon-card`, so the stage cell is the surface. The epicycles legend reads `k of M circles` (F-170), and the bases legend keeps `N = level` because that level is the Harmonics N. The legend's top comes from a stage-set `--legend-inset-top` (F-239), read on every resize.
+   - `labels.ts`: `drawBasisLabels(…, top = 16)`.
+   - `style.css`: `@property --legend-inset-top` is registered as a `<length>`, so the computed value is px.
+   - `VisualizationView.vue` (F-74, re-landed per E-3): the upload watcher shows the canvas after an upload finishes. It also puts the stage in front at the first upload's start (F-71), so the mark the person started stays in view. The stage sets `--legend-inset-top: 16px`, and below 40rem it sets `calc(0.5rem + var(--dock-h) + 1rem)` (glass's dock token).
+   - `ImageUpload.vue` (F-71 ⊕ F-238): the aside's bar shows only for a replace upload (`replacing` is read at the upload's start), so the first upload has one mark, glass's dot ring on the stage button.
+   - F-146: the Tooltips are gone from the three bare-SVG dropdown triggers (each trigger's `aria-label` names it; wrapping the trigger would overwrite the menu's `data-state`, the `.eq` R-2 finding). The comment is moved out of the play Tooltip's slot. Coefficient rows are `<li>` children of `TransitionGroup tag="ul"`, and each described row takes `tabindex="0"`. "Show more" carries its `v-if` on the Tooltip.
+   - `EditorControlsDock.vue` (F-172 non-colour limb): `magnetReadout` makes radius 0 read "Off". The glyph's Fourier hue stays (§0da).
+   - F-239: `GlassTimeline.vue` → `FourierTimeline.vue` (both importers updated). The caret is `glass-floating` at `--radius-panel`, the same plate as the convergence plot readout.
+4. **GREEN ×2 on the settled bytes** (the committed tree). ⟨`FW14V_PHASE=after BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-u4.spec.ts --project=chromium --workers=2 --reporter=line`⟩ ×2 → **11 passed (28.9s) · 11 passed (28.2s)**. Frames read: `after-u239-dock-expanded-390` shows the legend ("ℱ Epicycles / 10 of 401 circles") under the expanded dock, the stage with no stamp, and the hues intact.
+5. **Adjacent edits (§0bt)**, each under F-74's concern:
+   - `e2e/f-w14u-s.spec.ts:28-33`, `e2e/f-w14-veil.spec.ts:35-40` and `e2e/f-w14-control-row.spec.ts:229-234`: E-3's three neighbour oracles, cured at the cause. Below lg, after the upload, the setup waits for the canvas front, then selects Controls. Assertions are unchanged.
+   - `e2e/f-w14u-d.spec.ts:35-43`: a 4th oracle of the same shape, found by the neighbour run. Its mobile cell clicked Canvas after waiting on the sheet's "Replace image". It is restated to assert that the Canvas tab is selected and the dock is visible. Assertions are unchanged.
+   - `e2e/f-w14-veil.spec.ts:157`: the stage sample moves from `.canvas-container.cartoon-card` (the class F-68 deletes) to the canvas element. `painted()` composites the ancestors, so it reads the same stage surface.
+6. **Neighbours (non-regression)**, final bytes. ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14u-s e2e/f-w14-veil e2e/f-w14-control-row e2e/f-w14u-vstage e2e/f-w14u-vedit e2e/f-w14v-u1 e2e/f-w14v-u3 e2e/f-w14u-vdock e2e/f-w14u-d e2e/f-w13-image-empty e2e/f-w13-image-controls e2e/visualization-ux e2e/f-w14v-detached --project=chromium --workers=2`⟩ ×2 → **6 failed · 82 passed** (4.6m), then **5 failed · 83 passed** (3.7m). The REDs:
+   - f-w14u-d d1/d2 @390: the 4th F-74 oracle, cured in act 5. ⟨`… f-w14u-d.spec.ts --workers=1`⟩ → 390 cells GREEN.
+   - f-w14u-d d2 @1440 light/dark: **pre-existing**. With `src/**` at HEAD `c5a88bc` (patch parked, files restored) ⟨`… -g "1440.*d2" --workers=1`⟩ ×2 → `2 failed`, then `1 failed · 1 passed`. The same flake reads on the cured bytes. The canvas dock stays `expanded` after `traceOff`'s pointer dismissal. That is not this unit's cause: the ViewLayersMenu edit, reverted alone, reads the same.
+   - vedit `:198` v88: the standing **ESC-u1-2**.
+   - vdock `:279` v181: run 1 only, a 120 s click timeout under the two-worker load. Not reproduced in run 2.
+   The neighbour runs rewrote 19 tracked frames under `web/e2e/screenshots/f-w14/`. They were restored by exact path (⟨`git status --porcelain web/e2e/screenshots | awk … | xargs git checkout HEAD --`⟩ → 0 dirty).
+
+**Row dispositions (9 ids).** Tally ⟨count of the table's rows⟩ → 9.
+| row | disposition | evidence |
+|---|---|---|
+| F-68 | **CURED** (E-1 granted by addendum (h)) | u68 ×{1440,390} RED ×2 → GREEN ×2 |
+| F-168 | **CURED**. Stage limb via F-68; the error limb was cured at `.vstage` (GREEN-BEFORE-CURE e168) | u68 |
+| F-170 | **CURED**. Legend limb: circles named, and the bases N is the Harmonics N. Chooser limb cured at `.vstage` | u170 RED ×2 (`N = 401` > 200) → GREEN ×2 |
+| F-74 | **CURED** (E-3). Watcher re-landed; the 3 named oracles plus f-w14u-d's mobile cell cured at the setup | u74 RED ×2 → GREEN ×2 |
+| F-71 | **CURED** (consumer): one visible busy mark per flight, no retired ring anywhere. Glass half (the exported dot ring, F-72) **ADOPT-AT-LANDING O-59** | u71@1440 RED ×2 → GREEN ×2; u71@390 green-before ×2 and GREEN after ×2 |
+| F-146 | **CURED** (consumer): 0 guard warnings, 0 non-element-root warnings on load. The PopperRoot warning's source was the TransitionGroup of Tooltips, so no glass probe is owed | u146 RED ×2 → GREEN ×2 |
+| F-172 | **CURED**, non-colour limb (the magnet reads Off / its radius). The colour limb was REVERSED by the owner (§0da); hues untouched | u172 RED ×2 → GREEN ×2 |
+| F-238 | **CURED** (verified). Limbs landed at `.vstage` and `.a2`; u4's F-71 cure also removes the first upload's aside bar | u238 green-before ×2, GREEN ×2 |
+| F-239 | **CURED**: rename, caret plate, 390 legend. The media half was cured at `.vstage` | u239 + u239b RED ×2 → GREEN ×2 |
+
+**G-u (the 25 re-homed rows, with u1–u3).** Taking u1 (9 ids: F-14 F-93 F-182 F-244 F-81 F-79 F-77ˢ F-173 F-177), u2 (5), u3 (2) and u4 (9) → 25 = the open set. **Dispositioned: 254/256.** Still owed are u1's **ESC-u1-1** (F-81, easing-name migration and no glass transport) and **ESC-u1-2** (F-79's editor mount at 390 / v88). Both escalations are u1's and await the orchestrator. This unit's 9 are all dispositioned. **G-u is RED at 254/256 on u1's two escalations**, not on any u4 row.
+
+**Gates BEFORE → AFTER.**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| falsifier `f-w14v-u4` | 9 failed · 2 passed ×2 (pre-cure bytes) | **11/11 ×2** |
+| G-u | 231/256 banked + u1–u3 | **254/256** (u4's 9 closed; ESC-u1-1, ESC-u1-2 open) |
+| `vue-tsc -b` | 0 (banked) | ⟨`npx vue-tsc -b; echo $?`⟩ → 0, after every landing and on the committed bytes |
+| `vitest` | 86/86 banked (90/90 at u3's tree) | ⟨`npx vitest run`⟩ ×2 → `Test Files 15 passed (15) · Tests 90 passed (90)` ×2 |
+
+**Residuals.**
+- (R-1) f-w14u-d d2 @1440: pre-existing at `c5a88bc` (act 6). The canvas dock can stay expanded after `traceOff`'s pointer dismissal; the file's owner is closed. Carried to the wave Close.
+- (R-2) F-71's single idiom waits on glass exporting the dot ring (F-72, O-59). Until then the consumer marks are glass's Button dot ring (an action in flight) and glass's indeterminate Progress (a stage or layer in flight), one per flight.
+
+**Escalations:** none.
+
+**Commits:** fourier `e38e082` (falsifier) and `8e19043` (cures + 5 adjacent oracle files; the rename is recorded as R100), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `8e19043b703e`).
