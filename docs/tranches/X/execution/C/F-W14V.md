@@ -779,3 +779,76 @@ No single lever clears 360, and every lever is a design ruling, not a defect cur
 **Adjacent edits:** none.
 
 **Commits (fourier):** `c8bd170` (falsifier + vitest), `60cc819` (L2-8), `58f1d75` (L1-23), `e58611d` (L1-16ˢ), `1a8112a` (L1-11), pushed. value.js: this record.
+
+### F.W14V.au3
+
+SERVED MODEL: claude-opus-5-5 · equation and morph (AUDIT-2 L1-5 L1-6 L1-12 L1-13; cite L1-15 L1-20 L3-15; the easing pickers = L1-8 per `.au0` R-2, O-74a E-3). fourier base `1a8112a`.
+
+**Act 0: crash recovery and baseline.** ⟨`git -C fourier-analysis status --porcelain | grep -E '^.. web/(src|e2e)/'`⟩ → empty. No predecessor partial work, nothing inherited. ⟨`npx vue-tsc --noEmit; echo $?`⟩ → 0. ⟨`npx vitest run`⟩ → `16 passed (16)` · `92 passed (92)`. Servers :3100 (vite dev), :8000 (uvicorn), :27018 (mongod) are listening.
+
+**Act 1: anchors re-read at `1a8112a`.**
+- L1-5: `EquationPanel.vue:37-62` has its own `fetchSimplified` (notation, budget, fetch, energy, abort guard) and a FadingScroll + `v-html` body. `EquationView.vue` `doSimplify` + `simplifyGeneration` (`:290-325`) is the twin. `EquationResult.vue` holds the Copy, the named `tabindex=0` region and the `safe center` fix. **OPEN.**
+- L1-6: `visualization/CoefficientsPanel.vue` (21 lines) and `equation/EqCoefficientsPanel.vue` (99 lines) are both ConfiguratorLayer + CoefficientsSpectrum. The #graph fill left at UIA-F-169, so they differ only in sub, empty text and the note. **OPEN.**
+- L1-12: at the true bytes 2 of the 4 sites are already gone. `EquationPanel` has used glass `CardTitle` since `.vedit`, and `CollapsibleSection.vue` is absent (L1-20). The two left are `HarmonicLevelGrid.vue:3` `.card-title` (margin `--space-body`) and `MorphPhaseConfig.vue:8` `.config-card-title` (margin `--space-residue`). **OPEN.**
+- L1-13: ⟨`grep -rn cartoon-card web/src`⟩ → live wearers are `HarmonicLevelGrid.vue:2`, `MorphPhaseConfig.vue:3`, `MorphShapePreview.vue:18` and `gallery/BatchActionBar.vue:107`, plus the `@utility` at `style.css:255`. The other hits are prose: EquationView, BasisCanvas and AdminAuditLog moved at `.eq2`/`.u4`/F.W14U. **OPEN** (4 wearers + 1 utility).
+
+**Act 2: falsifier, RED before (`9f59faf`).** The new files are `web/e2e/f-w14v-au3.spec.ts` (7 tests) and `web/src/components/equation/composables/useSimplifiedSeries.test.ts` (vitest). ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au3.spec.ts --project=chromium --workers=1 --reporter=line`⟩ ×2 at `1a8112a` → `7 failed` on both runs, with the same reasons each time:
+- L1-5: `the panel has the series' Copy` (count 0).
+- L1-6: `one component mounts both (read src/components/visualization/CoefficientsPanel.vue | src/components/equation/EqCoefficientsPanel.vue)`, read off `__vueParentComponent.type.__file` on the dev server.
+- L1-12: `Settle Out is a glass CardTitle in a glass Card`.
+- L1-13 /morph: `no element wears .cartoon-card`.
+- L1-13 /equation and /visualize: `a probe paints no stamp` (a probe `div.cartoon-card` computes `border-top-width: 2px`).
+- L1-13 Surface: `data-slot` is not `surface`.
+
+⟨`npx vitest run …/useSimplifiedSeries.test.ts`⟩ ×2 → `Cannot find module './useSimplifiedSeries'`, so it is RED ×2. `a6fa84c` later changed the L1-12 measure from the title-to-next gap to the rung itself (size, the title's block margins, the header's inset), because the gap differs by anatomy between a card with a description and one without. At the before bytes it stays RED on its first assertion (not glass).
+
+**Act 3: cures (fourier).**
+- `5b77972` **L1-13 CURED.**
+  - The D.W4.a `@utility cartoon-card` and its two comment blocks leave `style.css`. A one-paragraph retirement note takes their place, and the `@property --legend-inset-top` block between them is kept.
+  - The three MorphPhaseConfig cards and HarmonicLevelGrid move to glass `Card`, keeping their family inset. FMD-15's `role="group"` moves to an inner host because glass Card binds its own `role`: `card-*.js` `mergeProps($attrs, {role: selected ? "option" : undefined})`, so a passed role is dropped (measured in the bundle).
+  - The morph control moves to glass `Surface as="button"` (`data-slot="surface"`). Its hover keeps only the app's state vocabulary (border mix + scale). The cartoon-stamp growth it composed is gone with the class, and no glass shadow is overridden.
+  - BatchActionBar moves to `Card size="sm" shadow` inside a sticky `role="group"` host, following AdminAuditLog's toolbar precedent.
+  - Wearers go 4 → 0, and the probe paints `0px`.
+- `f20ae5b` **L1-6 CURED.** `shared/CoefficientsPanel.vue` has props `components`, `sub?` (the harmonic count when absent, which keeps FR-EQC-12/D3), `renderedTerms?` (the FR-EQC-1 / UIA-F-35 note) and `emptyText?`, and it forwards `#graph`. /visualize passes `sub="Fourier spectrum"` and /equation passes `renderedTerms`. Both twin files are deleted. **Location intent:** the register names `shared/CoefficientsPanel.vue`, which is used as named.
+- `e581e20` **L1-5 CURED.**
+  - `components/equation/composables/useSimplifiedSeries.ts` owns the whole flow: the POST, `latex`/`latexSigma`/`energy`, `loading`, the named `error` (an abort is never named), the L·M-2 generation rule and the L·M-7 dispose abort.
+  - /equation's `doSimplify` keeps only its display key, `result.latex_sigma`, the cache write and the banner. The route's three display refs are the composable's, seeded from the cache.
+  - EquationPanel keeps its debounced drive, and its body is `<EquationResult :latex dense>`. It inherits Copy LaTeX, the named keyboard region and the safe-centre fix.
+  - EquationResult's region is now glass `FadingScroll` (it renders `tabindex=0` and `role=region` when named). This is required to keep UIA-F-83's end-cue oracle (`f-w14u-vedit` v83, `.fading-scroll` count 1 with `data-fade-end`) through the merge. Without it, the merged renderer would drop the panel's cue. `/equation` gains the same cue.
+  - **Adjacent edits:** `web/e2e/f-w14u-vedit.spec.ts:130` and `:608` read the series at `.eq-scroll-region .katex`, because the panel's `.eq-katex` host is gone.
+
+**Act 4: gates AFTER.**
+- Falsifier: ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au3.spec.ts --project=chromium --workers=1 --reporter=line`⟩ ×2 at `a6fa84c` → run 1 `1 failed · 6 passed`, run 2 `1 failed · 6 passed`. **L1-5, L1-6, L1-13 ×4 GREEN ×2.** L1-12 is RED ×2 and ESCALATED (below).
+- vitest: ⟨`npx vitest run …/useSimplifiedSeries.test.ts`⟩ ×2 → `5 passed` ×2.
+- **vue-tsc 0 → 0** (⟨`npx vue-tsc --noEmit; echo $?`⟩ ×2 → 0).
+- **vitest 92/92 (16 files) → 97/97 (17 files)** ×2.
+- Neighbours, one reading each on the final bytes:
+  - ⟨`… f-w14u-vedit f-w14u-eq f-w14v-u2 equation-interaction`⟩ → `31 passed · 1 failed`. The failure is vedit v88 = L2-15, the `.au2` honest-RED ESC-au2-1.
+  - ⟨`… f-w14u-misc f-w14-control-row f-w14v-eq2 f-w14u-eq f-w14-uia equation-interaction`⟩ → `79 passed · 1 failed`. The failure is control-row G-h, on the CardTitle attempt that is now withdrawn (see ESC-au3-1).
+  - ⟨`… f-w14-control-row f-w14u-misc f-w14v-au3 f-w14u-admin gallery-admin-a11y f-w14u-vstage visualization-ux f-w14v-au2 f-w14u-vedit --workers=2`⟩ on the final morph bytes → `117 passed · 9 failed`. The nine are L2-15 ×4 (vedit v88 plus au2 360/390/430, ESC-au2-1), L1-12 ×1 (ESC-au3-1), and gallery-admin-a11y ×4 `aria-hidden-focus` on reka focus guards (F.W14U `.admin` R-1, the named set). **G-h control-row is GREEN on the final bytes.**
+- Frames written by the neighbour specs (15 `e2e/screenshots/f-w14/after-page-*.png`) were restored to HEAD. They came from this seat's runs and are not cure evidence.
+
+**Citations.**
+- **L1-8 (the easing pickers): ADOPT-AT-LANDING, O-74a E-3.** `EasingPicker.vue` and `MorphPhaseConfig.vue`'s Select converge on glass's EasingCurve marker/preset API when E-3 lands, per the lock. They are unchanged here, with no consumer EasingPresetSelect (the copy E-3 retires). This agrees with the `.au2` receipt.
+- **L1-15: HELD, BL-FW14H-1/-2.** `components/ui/SliderControl.vue` retires onto glass LabeledSlider when the thumb+fill and inline-value arms land. This is a cite, not an ask.
+- **L1-20: CURED-BY-TWIN** (UIA-F-114, F-171). ⟨`ls web/src/components/ui`⟩ → `SliderControl.vue tooltip`; `CollapsibleSection.vue` is absent.
+- **L3-15: CURED-BY-TWIN** per `.au0` (UIA-F-115, F-254, F-162, F-234, F-211, F-206, F-119), cited.
+
+**Escalation ESC-au3-1: L1-12, the card-title rung. The specified cure conflicts with the OA-45 type-scale gate; a ruling is needed.**
+- **The cure as specified:** glass `Card` + `CardHeader` + `CardTitle` (+ `CardDescription`) at the two surviving sites.
+- **It landed and was measured:** every /morph title became a glass CardTitle, and the au3 L1-12 falsifier went GREEN. But `f-w14-control-row` G-h (the OA-45 "one card hierarchy on glass's scales" gate, green before) went RED: `morph: off the type scale` → `Settle Out=23.6694px, Morph=23.6694px, Settle In=23.6694px, Harmonic Levels=23.6694px`.
+- **Cause, at glass 10.1.0 bytes:** `dist/components/card/styles.css` `.card-title{font-size: calc(var(--type-body) * 1.272)}`. That is 23.67 px, between glass's own `--type-subheading` 20.352 and `--type-heading` 25.888 (measured on /morph at 1440), so the producer's CardTitle sits off its own named type scale. The old titles sat on `--type-heading`.
+- **Not substituted:** restyling CardTitle's size would restyle glass (lock), and masking the G-h limb would be a workaround. So the CardTitle adoption was withdrawn before commit, and the titles keep their hand-set `--type-heading` rung inside the new glass Card (L1-13). L1-12 stays **OPEN**: the au3 L1-12 falsifier is RED ×2, and G-h is GREEN.
+- **Ask (rule one):**
+  - (a) Glass puts `.card-title` on a named rung (`--type-heading`, or a named card-title token on the scale). A dated addendum beside O-74 records this, and L1-12 is ADOPT-AT-LANDING, with the consumer adopting CardTitle the day it lands.
+  - (b) The owner rules CardTitle's 23.67 px acceptable, and G-h's type limb admits the CardTitle rung. The consumer then adopts now.
+- Relay: glass is READ-ONLY and the value.js coordination letters are outside this seat's writable set, so the O-74 addendum is for the wave check or root to send.
+
+**Residuals.**
+- R-1: L1-12 (ESC-au3-1).
+- R-2: L2-15 ×4 and gallery-admin-a11y ×4 are REDs outside this unit (the ESC-au2-1 and F.W14U `.admin` R-1 named set).
+- R-3: `f-w14u-admin.spec.ts:414/432/515` still offer `.cartoon-card.sticky` as a fallback after `[data-admin-toolbar]`. It now matches nothing and is harmless, so it was left untouched (it is not this unit's oracle).
+
+**Adjacent edits:** `web/e2e/f-w14u-vedit.spec.ts:130`, `:608` (L1-5, see Act 3).
+
+**Commits (fourier `m/w1-bump-migration`, pushed to `a6fa84c`):** `9f59faf` (falsifier + vitest), `5b77972` (L1-13), `f20ae5b` (L1-6), `e581e20` (L1-5), `a6fa84c` (L1-12 falsifier measure). value.js: this record.
