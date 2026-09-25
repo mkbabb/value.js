@@ -549,3 +549,98 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), Track C, 2026-09-25. Sco
 - `web/e2e/f-w14u-vstage.spec.ts:28-29, :274, :290-293`: e95 (UIA-F-95 ⊕ F-245). It asserted one toast containing "log in", which is the copy and behaviour this unit retired. It now asserts 0 toasts and the sign-in field shown, and still 0 POSTs. The title and header line follow.
 
 **Commits:** fourier `8aaf925` (the falsifier) · `69af796` (the cure plus 1 adjacent), pushed (⟨`git ls-remote origin m/w1-bump-migration`⟩ → `69af79642e9e`). value.js: this record.
+
+### F.W14V.au0
+
+SEAT `.au0`, `claude-opus-5-5`, 2026-09-25. Spec `F-W14V.md` read whole (48 lines), with F-W14U.md addendum (e) (`:60-65`), `audit/AUDIT-2-fourier.md` read whole (180 lines; 62 rows, `9c7552d3`), and COHESION §0cy · §0cz · §0da..§0dp. Measure only: no `web/src` write. Writable set: `web/e2e/**`.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain | grep web/e2e`⟩ → empty. There was no inherited partial work. fourier HEAD = `69af796` (the `.p` close), branch `m/w1-bump-migration`. Servers: ⟨`lsof -iTCP -sTCP:LISTEN`⟩ → node `:3100` (vite), python `:8000` (api), mongod `:27018`.
+
+**Act 1: the re-baseline (addendum (e) bullet 2).** The register audited `798c98f` plus the dirty vdock files (they landed as `7ad6be2`). Each named citation was re-read at fourier HEAD `69af796` with ⟨`grep -n` / `sed -n`⟩ on the true bytes. Where an anchor drifted, the INTENT is recorded at the true bytes.
+
+| Row | Register citation | At HEAD `69af796` (true bytes) | Reading |
+|---|---|---|---|
+| L1-7 | `CanvasControlsDock.vue:70-92`; `EditorControlsDock.vue:191-211` | `CanvasControlsDock.vue:79-85` `<ViewLayersMenu side="bottom" …>`; `EditorControlsDock.vue:184-190` `<ViewLayersMenu side="top" …>`; one component, `ViewLayersMenu.vue` (`.u1` `64a1865`) | the two popovers are now one component: **CURED-BY-TWIN** UIA-F-79 (`.u1`, CURED at ≥ sm) |
+| L1-8 | `EasingPicker.vue:1-56`; `MorphPhaseConfig.vue:58-110`, `:168`; `lib/easings.ts:186-193`, `:202-240`, `:305`, `:310` | `EasingPicker.vue:1-116` (116 lines; `DropdownMenuRadioGroup` `:83-114`); `MorphPhaseConfig.vue:58-112` (`<Select>` … `</Select>`), `:168` `const presets = EASING_PRESETS`; `lib/easings.ts:186-193` (EASING_PRESETS, unmoved), `:204-215` ANIMATION_EASINGS + `:217-225` names/guard, `:305` getEasingSVGPath, `:310` easingCurvePath | two catalogs, two helpers, two choosers still: **OPEN** |
+| L1-26 | `FullscreenViewer.vue:54-56`, `:89` | no second stage: `FullscreenViewer.vue:44-49` docblock (an empty host); `VisualizationView.vue:452-545` `<Teleport v-else :to="fsHost" :disabled="!stageInTakeover">` re-hosts the one stage | **CURED-BY-TWIN** UIA-F-14 (`.u1` `64a1865`) |
+| L2-2 | `VisualizationView.vue:600-606`, `:731-733`; `FullscreenViewer.vue:250-257` | `VisualizationView.vue:816-818` `.controls-overlay { … bottom: 0.75rem }` and `:1006` (the < sm arm, `bottom: 0.75rem`); FullscreenViewer's `.fs-controls` is deleted (`:192`), and in fullscreen the same `.controls-overlay` is teleported. ⟨`grep -rn 'env(safe-area' web/src`⟩ → `style.css:107` and `PaperView.vue:631` only | **OPEN** (consumer half); glass half O-74 (`--safe-block-end`) |
+| L2-8 | `ExportModal.vue:81` (bare; HEAD `:49`) | `ExportModal.vue:81` `<DialogContent>`, still bare (no `scroll`), in a 134-line file | **OPEN** |
+| L2-12 | glass `PopoverContent`/`DropdownMenuContent` with no collisionPadding | glass 10.1.0 dist: ⟨`grep -lo collisionPadding dist/*.js`⟩ → `select-fy3vtArm.js` only | **HELD** (glass, UIA-F-56/F-219 · O-74) |
+| L2-19 | `AnimationControls.vue:221-222` (dirty) | `AnimationControls.vue:216-218` `width: min(var(--animation-dock-max-width, 960px), calc(100dvw - 1rem))` | **OPEN** (runtime in Act 3: still 6 px) |
+| L3-7 | `ExportModal.vue:94-100` (dirty) | `ExportModal.vue:95-100`: six `<LabeledSwitch … layout="horizontal" />` | **OPEN**; glass half O-74 (the LabeledSwitch settings-row arm) |
+
+**Act 2: the instrument.** `web/e2e/f-w14v-au0.spec.ts` (committed in fourier `a30001d` and pushed; ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `a30001d003e9`). It only measures. Each view is framed, and the spec records page errors, console errors, document overflow, every open plate's box and its distance to each viewport edge, and the horizontal scrollers inside the docks. It asserts one thing: the DropdownMenu-parts error is absent. Matrix: {1440×900, 390×844, 768×1024, 1024×768} × {light, dark}, plus the logged-in shell in light at 360×780 and 430×932. Phone widths carry the register's portrait insets (top 47, bottom 34) through CDP `Emulation.setSafeAreaInsetsOverride`. Frames go to `web/e2e/screenshots/f-w14v/au0/` (146 PNG, git-ignored by `web/.gitignore` `*.png`). Metrics go to the scratchpad (`$AU0_METRICS`), not to the repo.
+- ⟨`BASE_URL=http://localhost:3100 AU0_METRICS=…/r1 npx playwright test e2e/f-w14v-au0.spec.ts --project=chromium --headed --workers=2 --reporter=line`⟩ → run 1 `10 passed (2.1m)` exit 0; run 2 (`…/r2`) `10 passed (2.1m)` exit 0.
+- **Double-run.** A python diff of r1 against r2 over 719 keys (state, docScrollH, plate boxes, dock scrollers) → **0 diffs**. Views: 142 framed and 8 absent per run. The absences are by design: the nav dropdown at 1440/1024 (the inline Sections nav shows there instead) and the floating ToC at 1440/1024 (the desktop drawer shows instead). The Canvas tab took one press in every tabbed cell.
+- **Instrument history.** Three earlier attempts were instrument faults, not product findings: (a) at 768 the workspace is tabbed, so the width < 640 guess never pressed Canvas; (b) a `count()` raced the tablist before it hydrated; (c) the phone inline search opens from the floating bar's Search control. After each fix the spec detects the form it meets.
+
+**Act 3: the DropdownMenu-parts re-check (L3 m-dark, the in-flight dock).** Runtime: ⟨r1/r2 `errors`⟩ → **0 page errors, 0 console errors, 0 "DropdownMenu parts must be used within DropdownMenu"** across 10 cells × 2 runs. The m390-dark cell opens the playback dock and its ⋮ menu. Source: the two radio groups (`SpeedSelect.vue:45-60`, `EasingPicker.vue:83-114`) mount only inside `AnimationControls.vue:186-208` `<DropdownMenu>` → `<DropdownMenuContent>` (`:202-207`). **NOT REPRODUCING at HEAD.** The Lens 3 error was the in-flight vdock edit, which landed as `7ad6be2`.
+
+**Act 4: the unread views, measured (r1 = r2).** Figures are read from the settled JSON. Plates are `x,y w×h` with right/bottom gaps.
+
+| View | 1440×900 | 390×844 (inset 34) | 768×1024 | 1024×768 | Note |
+|---|---|---|---|---|---|
+| document height vs viewport | 900/900 | **878/844** on every route | 1024/1024 | 768/768 | L2-1 reproduces at HEAD; also 814/780 at 360 and 966/932 at 430 (logged in) |
+| About | 251,64 336×126 | 28,64 336×114 (L 28, R 26) | 128,64 | 53,64 | fits |
+| Inline login | 784,64 336×106 | **0**,64 336×132 (flush left) | 231,64 | 566,64 | L2-12 |
+| Nav dropdown | inline nav | 101,64 150×246 | 329,64 154×252 | inline nav | fits |
+| Account menu (logged in) | — | 360: **0**,64 293×164; 430: 13,64 | — | — | L2-12; menu rows have no icon gap (X-6) |
+| Floating ToC | drawer | 13,144 374×512, **R 3** | 13,144 752×512, **R 3** | drawer | L2-16 now also at tablet |
+| Inline paper search | results plate 193–577 (outside the sidebar) | opened from the bar | full-width | results plate 48–406 | X-7 |
+| View options | 535,149 166×148 | **0**,195 194×153 (flush left) | 237,195 | 562,161 | L2-12 |
+| Equation (Σ) panel | 17,160 448×240 | 25,200 340×265 | 25,200 448×266 | 17,172 448×238 | fits |
+| Export | 464,210 512×479 | 20,111 350×623 (fits in portrait) | 128,278 512×468 | 256,147 512×474 | L3-7 stacked labels at 390 (frame) |
+| More options (⋮) | 790,222 180×605, B 73 | 149,150 204×617, B 77 | 521,314 210×633, B 77 | 805,367 175×401, **B 0** | X-2 |
+| Collapsed playback dock | `animation-dock` 145/102 | 144/110 | 146/110 | 142/102 | L2-13 overflow at every width, not only phones |
+| Expanded playback dock layer | fits | **272/266** | **650/644** | fits | L2-19 (6 px) persists |
+| Editor dock layer (collapsed / expanded) | 243/185 / fits | 257/183 / **257/193** | 257/186 / 257/255 | 243/181 / fits | L2-15 still scrolls at 390 (64 px hidden; the register had 432/183 at 360) |
+| Fullscreen | 0,0 full | full | full | full | the collapsed dock's speed readout paints outside its plate (frame d1440 fullscreen); L2-13 |
+| Contour editor | pane = one collapsed Contour layer, about 720 of 790 px empty | stage runs under the 34 px inset | — | — | X-3 |
+| Audit Log | framed (the Lens 3 frames were blank) | framed | framed | framed | X-8 |
+| /morph | framed | dark framed | framed | framed | L3-15 cite |
+
+**Act 5: new findings (`A2-FO-X-n`).** Each one was read from the frames and the settled metrics of both runs.
+
+| ID | Sev | View | Finding (measured) | Owner | Unit |
+|---|---|---|---|---|---|
+| A2-FO-X-1 | HIGH | /visualize 1024×768 | At exactly lg width the workspace stacks. The stage is a 1000×285 strip (y 100–385), the playback dock covers its lower half, and the controls sit in a centred column of about 464 px inside a 1000 px card (frames `t1024-*-workspace`, `t1024-light-more-options`). Tablet landscape gets neither the side-by-side form nor a usable stage. | CONSUMER `VisualizationView.vue` side-by-side gate (with L2-4) | `.au1` |
+| A2-FO-X-2 | MEDIUM | /visualize ⋮ More options, 1024×768 | The menu reaches the viewport bottom (175×401 at y 367, bottom gap **0**), and the Easing rows below Sine are cut at the edge (frame `t1024-light-more-options`). | GLASS collisionPadding (L2-12, O-74) + CONSUMER `AnimationControls.vue:202` placement | `.au2` (cite L2-12) |
+| A2-FO-X-3 | MEDIUM | contour-editor mode ≥ lg | The inspector holds a single collapsed Contour layer, leaving about 720 of the aside's 790 px empty while the editor is the task (frame `d1440-*-contour-editor`). | CONSUMER `VisualizationView.vue` (editor-mode layers) | `.au2` |
+| A2-FO-X-4 | MEDIUM | /w Controls tab 768×1024 (and 1024 stacked) | The layers sit in a column of about 464 px centred in a 734 px card, with dead gutters of about 135 px on each side and about 225 px of empty card below (frame `t768-*-workspace-controls-tab`). | CONSUMER sheet-form width (glass Configurator sheet arm if the cap is glass's) | `.au2` |
+| A2-FO-X-5 | LOW | logged-in shell 360 | The app dock's layer overflows 334/316 (an 18 px sideways pan) once the Account group mounts. 430 fits. | CONSUMER `AppDock.vue` account group (+ O-65 collapsed form) | `.au1` |
+| A2-FO-X-6 | LOW | Account menu (logged in) | "Copy your slug" and "Log out" have no icon-to-label gap, and at 360 the menu is flush left (x 0) (frame `m360-light-loggedin-account`). | GLASS `DropdownMenuItem` icon gap (MENU-ICON-GAP, O-76 addendum (a), ESC-c3-1) + L2-12 | `.au6` (cite) |
+| A2-FO-X-7 | LOW | /paper inline search ≥ lg | The results plate breaks out of the 270 px sidebar (x 193–577 against the sidebar's 183–453) over the article's first column (frame `d1440-light-paper-inline-search`). | CONSUMER `PaperSearch` (with L1-1/L1-3) | `.au5` |
+| A2-FO-X-8 | LOW | admin Audit Log 1440 | Two filter fields about 620 px wide for short tokens. The "IP hash" header wraps to two lines while Target holds about 1100 px. The action chips are solid saturated green and red, against the F-197 neutral-cue precedent (frame `d1440-*-audit-log`). | CONSUMER `AdminAuditLog.vue` | `.au4` |
+
+**Act 6: row → unit map (62 register rows + 8 X rows).** Dispositions at HEAD `69af796`: **CURED-BY-TWIN** (F.W14U or F.W14V cured it under its UIA twin, which is cited and not redone), **OPEN** (owed by the unit), **HELD** (glass ruling or producer landing; ADOPT-AT-LANDING). Twin statuses were read from the `F-W14U.md` / `F-W14V.md` record tables with ⟨`grep "^| F-NNN "`⟩.
+
+| Unit | OPEN | CURED-BY-TWIN (twin, status) | HELD |
+|---|---|---|---|
+| `.au1` safe area / mobile shell | L2-1 (878/844 · 814/780 · 966/932), L2-2ˢ, L2-3 (⟨`grep safe-area-inset-left\|right web/src`⟩ → 0), L2-4, L2-5 (F-238 cured the opaque strip only), L2-16 (R 3 at 390 and 768), L3-6ˢ (+O-68), L2-17, **X-1**, **X-5** | — | glass halves L2-2 (`--safe-block-end`), L3-6 (gutter token) |
+| `.au2` workspace /w /v | L2-8, L2-15 (257/193 at 390; F-88 consumer CURED, scroll remains), L2-19 (272/266, 650/644), L3-5ˢ, L3-7ˢ, L1-11, L1-16ˢ (F-239 naming CURED; the session gap is glass's), L1-23, L3-9 (Basis wraps 3+2 at 1440), L3-10 (the Image-layer share is cured by F-169/F-74; the tablet/phone first-tab limb is OPEN), **X-2**, **X-3**, **X-4** | L1-7 (F-79 CURED `.u1`), L1-26 (F-14 CURED `.u1`), L3-8 reset row (CONFIGURATOR-HEADER-ACTIONS `239845f`, addendum (b)), L3-11 (F-69, F-165 CURED; cited, not re-framed) | L3-8 label truncation (O-77 LAYER-HEADER-LABEL); glass halves L3-5, L3-7, L1-16 |
+| `.au3` equation + morph | L1-5, L1-6 (`EqCoefficientsPanel.vue` still present), **L1-8** (moved here from the plan's `.au2` list: it IS the easing-picker row that `.au3` owns with O-74a E-3), L1-12, L1-13 (⟨`grep -rn cartoon-card web/src`⟩ → 17 hits in 11 files, comments included) | L1-20 (`CollapsibleSection.vue` absent at HEAD; F-114, F-171 CURED), L3-15 (F-115, F-254, F-162, F-234, F-211 CURED) | L1-15 (BL-FW14H-1/-2); easing convergence ADOPT-AT-LANDING O-74a E-3 |
+| `.au4` gallery + admin | L1-9, L1-10, L1-27ˢ, L2-9, L2-10, L2-11, L3-1ˢ, L3-2 (F-110 CURED a110 ×2 at F.W14U, but the register saw a regression at 390, so re-measure), L3-3, L3-4, **X-8**; AdminFlaggedPanel cross-cite value X-W12U `.k` | L3-12 (F-99, F-247 CURED), L3-13 (F-189 CURED) | L1-27 Pagination (UIA-F-145), L3-1 SelectTrigger inline arm |
+| `.au5` paper | L1-1, L1-19, **X-7** | L1-3 (F-22 cured at HEAD; F-159, F-64 CURED) | L1-2 TocTree, L1-4 search-engine ruling, L1-18 useScrollTo teleport arm (each with its consumer adopt) |
+| `.au6` cross-app / lib / shell | L1-14ˢ, L1-17, L1-21, L1-22, L1-24, L1-25 (F-212 cured the writer/reader via `meta.tab`, `router/index.ts:124-187`; `AppDock.vue:54` `tabs` is still a second list); one search-with-glyph component for the 4 sites; useSafeStorage cross-cite value X-W12U `.k` | L1-28 consumer half (⟨`grep -rn animate-spin web/src`⟩ → 0; F-71 CURED) | L1-28 DotRing (UIA-F-72), L2-18ˢ + L3-14 (O-74a E-2, §11), **X-6** (MENU-ICON-GAP, O-76 (a)) |
+| glass-only (no unit) | — | — | L2-6, L2-7, L2-12 (login x 0 at 360/390, View options x 0 at 390, account x 0 at 360), L2-13 (collapsed dock 142–146/102–110 at all four widths), L2-14 |
+
+Count (self-count, from the table above): `.au1` 8+2 X · `.au2` 14 register (10 OPEN · 4 CURED-BY-TWIN; L3-8 split, its truncation limb HELD) + 3 X · `.au3` 8 · `.au4` 12 + 1 X · `.au5` 6 + 1 X · `.au6` 9 + 1 X · glass-only 5 → 8+14+8+12+6+9+5 = **62** register rows, plus **8** X rows. CURED-BY-TWIN: L1-3, L1-7, L1-20, L1-26, L3-8 (reset limb), L3-11, L3-12, L3-13, L3-15, plus the L1-28 consumer half = **9 rows + 1 half**. HELD alone (no consumer work): L2-6, L2-7, L2-12, L2-13, L2-14, L1-15, L3-14 = 7 (L2-18ˢ HELD in `.au6`).
+
+**Gates, BEFORE → AFTER:**
+- Re-baselined citations for L1-7 L1-8 L1-26 L2-2 L2-8 L2-12 L2-19 L3-7 at HEAD: register anchors at `798c98f`+dirty → **8/8 re-read at `69af796`** (Act 1). **GREEN.**
+- DropdownMenu-parts runtime error re-checked: raised at L3 (m-dark, in flight) → **0 in 10 cells × 2 runs**; structurally impossible at HEAD (Act 3). **GREEN.**
+- Unread views framed at 1440/390 in both themes, plus 768×1024 and 1024×768, plus the shell at 360/430 light: Lens 3 frames missing or blank → **142 views framed ×2** (and 4 Controls-tab frames), r1 = r2 over 719 keys, `10 passed` ×2 (Acts 2 and 4). **GREEN.**
+- Row → unit map with the F.W14U twin cures cited: none → **62 + 8 rows mapped** (Act 6). **GREEN.**
+- AUDIT-2 register (baseline row): RED 0/56 dispositioned → **62/62 dispositioned** (9 CURED-BY-TWIN + 1 half · 7 HELD alone · the rest OPEN and homed to `.au1`–`.au6`). The OPEN rows are owed by the family units, not by `.au0`.
+
+**Adjacent edits:** none. **src writes:** none (measure only, per the lock).
+
+**Residuals / notes for the family seats:**
+- (R-1) Landscape 844×390 was not in `.au0`'s brief. L2-3, L2-4 and the L2-8 landscape overflow keep the register's measures; `.au1`/`.au2` re-measure landscape with the CDP insets (left 47, right 47, bottom 21).
+- (R-2) One plan correction: L1-8 is the easing-picker row, so it goes to `.au3` (with O-74a E-3), not `.au2` as the Unit plan line 11 listed it. The plan table is not rewritten (E-3); this receipt is the correction.
+- (R-3) Instrument re-use: every family seat can re-run `f-w14v-au0.spec.ts` with `AU0_METRICS` set to read its surface's plates and scrollers before and after a cure. Its only assertion (the DropdownMenu-parts error absent) stays GREEN.
+- (R-4) The `pg 4/110` chip over the phone paper text, and the /morph phone stat strip, are L3-15 citations. They are not new rows.
+
+**Escalations:** none.
+
+**Commits:** fourier `a30001d` (the instrument), pushed. value.js: this record.
