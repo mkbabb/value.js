@@ -972,3 +972,69 @@ SERVED MODEL: claude-opus-5-5 · gallery and admin (AUDIT-2 L1-9 L1-10 L1-27ˢ L
 - `67d5ba8`: L1-27ˢ + L2-10.
 
 value.js: this record.
+
+### F.W14V.au5
+
+SERVED MODEL: claude-opus-5-5. Paper family: A2-FO-L1-1, L1-2ˢ, L1-4ˢ, L1-18ˢ, L1-19; L1-3 cited. fourier `67d5ba8` → `ba4efa9` (pushed; ⟨`git ls-remote origin m/w1-bump-migration`⟩ → `ba4efa9edc82`).
+
+**Act 0: crash recovery and anchors.** ⟨`git status --porcelain`⟩ → `?? .worktrees/` only, so nothing was inherited in `web/src/**` or `web/e2e/**`. Anchors read at the true bytes:
+- `PaperToc.vue` was 909 lines, not 998. It held two hand-rolled trees: rail `:246-330` and floating `:417-468`. They differed in row markup, styles and reach. The rail showed depth 2 only on the active chain; the bar showed every level.
+- `cd414b2` (F.W14U .paper) had already deleted PaperView's inline Chapters list and its IntersectionObserver. So three renderings had become two before this unit. That part is cited, not redone.
+- glass pin: ⟨`grep '"version"' node_modules/@mkbabb/glass-ui/package.json`⟩ → `10.1.0`. Its exports have no `./search` and no TocTree. `useScrollTo(options)` takes `{scrollContainer, totalCount, visibleCount, scrollOffset?, maxAttempts?, treeIndex?}` and has no teleport arm.
+- Baseline gates: ⟨`npx vue-tsc --noEmit`⟩ → exit 0. ⟨`npx vitest run`⟩ → `18 files · 102 passed`.
+
+**Act 1: falsifier authored, RED ×2 on the before bytes** (fourier `2412ea0`, `web/e2e/f-w14v-au5.spec.ts`). ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-au5.spec.ts --project=chromium --workers=1`⟩:
+- **L1-1 RED ×2.** Rail counts `{0:13, 1:51}`; bar counts `{0:13, 1:51, 2:34}`. Depth 0, rail against bar: font 16px vs 18.27px, disclosure `xs` vs `sm`, numeral 11.52px vs 12.18px. Depth 1: font 12.48px vs 14px, indent 10 vs 12.
+- **L1-19 RED ×2.** The `<main>` write log was `[{/morph,400},{/paper,0},{/morph,0}]`, so /morph was restored to 0 instead of 400. Before the /morph probe, the /gallery form of the test logged two `<main>` writes on /paper. Route choice was measured by a probe of `main` scrollHeight/clientHeight: /gallery, /equation, /visualize and /admin fit; /morph is 1330/820.
+
+**Act 2: L1-19 CURED** (`642c87d`).
+- `router/index.ts`: added `RouteMeta.ownsScroll`, and /paper declares it. `App.vue`: the shell skips both the record and the restore when the route owns its scroll. PaperView's section-id restore is now the only mechanism on /paper.
+- **Intent at the true bytes:** the shell restore that was kept was itself broken on back/forward. On popstate, `beforeEach` recomputed `historyKey()` after the history state had already moved to the target entry. The leaving offset was therefore filed under the arriving entry. The key is now captured when an entry is entered, and at setup for the first entry.
+- Result: GREEN ×2.
+
+**Act 3: L1-1 ⊕ L1-2ˢ CURED** (`395d638`). `PaperToc.vue` is deleted and split into three files:
+- **`PaperTocTree.vue` (215 lines).** One recursive `<li v-for>` over the injected model and one row markup at every depth: glass Button `sm`, the numeral, and an `xs` chapter disclosure driven by the model's `isExpanded`/`toggleSection`. One reach: an expanded chapter shows every level below it. One active treatment: `aria-current` in `--toc-accent`, with a chapter current on its chain through `isInActiveChain`. The row style is the drawer's (F.W14.r canon, UIA-F-156/F-147).
+- **`PaperTocDrawer.vue` (296 lines).** The desktop drawer.
+- **`PaperTocBar.vue` (287 lines).** The phone bar. A chosen row emits `navigate`, which closes the Popover.
+- **Intent at the true bytes:** the mobile host stays glass Popover, the UIA-F-67 cure that `.au1` L2-16 tuned, rather than the register's Sheet. It is named `PaperTocBar`, not `PaperTocSheet`.
+- **L1-2ˢ:** `PaperTocTree` is the one seam that glass's TocTree replaces at landing (ADOPT-AT-LANDING).
+- **Adjacent edits (§0bt; no assertion removed):**
+  - `web/src/style.css:331-336`: focus-ring selectors changed to `.toc-link` and `.floating-toc-top`.
+  - `web/scripts/derive-loops.vitest.ts:35-51` BS-1: 6 native `<li v-for>` in PaperToc.vue became 1 in PaperTocTree.vue. The predicate is RED on the before bytes arithmetically: the prior case pinned 6 there. This was not run.
+  - Row selectors moved to `.toc-link[data-depth]`, `.toc-row` and `.toc-list`, scoped to their host, in: `web/e2e/f-w14-residuals.spec.ts:25,63`, `f-w14u-paper.spec.ts:36,118,121,124,136,169,307,347,431,432`, `f-w14u-t.spec.ts:231`, `f-w14-uia.spec.ts:381,386,394` and `paper-performance.spec.ts:99,109,122`.
+- Result: GREEN ×2.
+
+**Act 4: L1-4ˢ CURED as far as glass's API allows** (`ba4efa9`).
+- glass HEAD `src/composables/search/index.ts` exports `useFuzzySearch, buildIndex, searchIndex, fuzzyMatch, clearSearchCache` and is INTERNAL, with no `./search` key at 10.1.0. The paper engine is therefore consumer-owned. It stops shadowing glass's names: `searchIndex` → `searchPaper`, `clearSearchCache` → `clearPaperSearchCache`, `SearchResult` → `PaperSearchResult`.
+- The matcher had already left the fork at `cd414b2` (`wordMatch`); ⟨`grep -rn "prevIdx\|multiTokenFuzzy\|fuzzyMatch" web/src`⟩ → empty.
+- Falsifier `web/e2e/unit/paper-search-owner.vitest.ts`: RED ×2 before, `2 failed`, then GREEN ×2.
+- The publication ruling and the upstreaming of scoring stay glass's (ADOPT-AT-LANDING).
+
+**Act 5: L1-18ˢ ADOPT-AT-LANDING (no code).** At the true bytes, glass 10.1.0 `useScrollTo` cannot host the windowed article. Measured at `dist/sidebar.js:313-360`:
+- It grows a prefix `visibleCount` to `rootIndex + 2`, where fourier windows by offset (`ensureTargetWindow`/`getOffsetFor`).
+- It settles on `document.getElementById`, with no owning-section resolution for cross-reference ids (`★NAV-1`).
+- It scrolls `behavior: "smooth"` with no PRM arm, has no estimate-then-teleport, and uses a fixed `scrollOffset` in place of the scrim clearance.
+- Composing its settle loop now would drop PRM and the far-jump teleport. `useScrollNavigation.ts` therefore stays until glass's teleport arm lands (O-74/O-75 ask).
+
+**L1-3 cited:** the two PaperSearch variants are breakpoint-exclusive (UIA-F-22). L1-1's split keeps exactly one PaperSearch per host (the Drawer's `sidebar` variant and the Bar's `floating` variant), still exclusive through the `isDesktop` v-ifs at `PaperView.vue`. The palette is UIA-F-64, CURED at `cd414b2`.
+
+**Residual, X-7** (routed here by `.au0`, not in this seat's row list): the sidebar results plate runs past the 270 px rail. That is the deliberate UIA-F-59 cure: `PaperSearchDropdown.vue:91-99` says "free to run past the rail, never past the viewport's right margin", with `PANEL_MIN_REM = 24`. Curing X-7 would reverse a prior row's ruling. It is **left OPEN for a ruling**; no code.
+
+**Gates (BEFORE → AFTER, each ×2):**
+
+| Gate | Before | After |
+|---|---|---|
+| L1-1 e2e | RED ×2 | GREEN ×2 |
+| L1-19 e2e | RED ×2 | GREEN ×2 (⟨`playwright test e2e/f-w14v-au5.spec.ts`⟩ → `2 passed` ×2) |
+| L1-4 vitest | RED ×2 | GREEN ×2 |
+| BS-1 derive-loops | RED (arithmetic, not run) | GREEN ×2 (⟨`vitest run e2e/unit/paper-search-owner.vitest.ts scripts/derive-loops.vitest.ts`⟩ → `10 passed` ×2) |
+| vue-tsc | 0 | 0 ×2 |
+| vitest | 102/102 (18 files) | **104/104 (19 files) ×2** |
+
+Neighbour oracles, run once after the cure:
+- ⟨`playwright test f-w14u-paper f-w14-residuals f-w13-radius paper-performance f-w14v-au1 --project=chromium --workers=1`⟩ → `1 failed · 49 passed`. The one failure is f-w14-residuals **G-c1**, the image-sidebar upload case in the named pre-existing set (`.au1` receipt `:709`). Nothing on the paper is touched by it.
+- f-w14-uia "tapping a chapter row…" + f-w14u-t t6 → `3 passed`.
+
+**Commits (fourier):** `2412ea0` (falsifier) · `642c87d` (L1-19) · `395d638` (L1-1 ⊕ L1-2ˢ) · `ba4efa9` (L1-4ˢ). A sibling `35b3464` (F.CT bench) interleaved and was not touched; nor were `bench/` and `tests/test_contour_bench.py`.
+
+**Dispositions:** L1-1 CURED · L1-19 CURED · L1-2ˢ CURED-to-seam + ADOPT-AT-LANDING (TocTree) · L1-4ˢ CURED (names) + ADOPT-AT-LANDING (publication) · L1-18ˢ ADOPT-AT-LANDING (measured) · L1-3 cited · X-7 OPEN for a ruling (conflicts with UIA-F-59). Self-count: 5 rows + 1 cite + 1 X row = 7 dispositions.
