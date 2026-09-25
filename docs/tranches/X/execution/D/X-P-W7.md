@@ -1970,3 +1970,15 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (c)
 **Successor conjuncts.** X.P.W7P "Opens when: the owner supplies an npm one-time password … **and** X.P.W7 has CLOSED its engineering gates". The OTP conjunct is not met (LEDGER:105 `GATE-KEYED`), and the W7-closed conjunct is RED (C2-1). **X.P.W7P is lawfully blocked.**
 
 **Verdict: NOT-CONFORMANT.** 10 claimed GREENs reproduce, and `.cp` is cured and in set. The gate that fails is L-G1 Firefox rej `parseStylesheet`, held by the unruled ESC-W7l2-1. LEDGER:104 stays `PARTIAL`. **Adjacent edits: none. Out-of-set writes: none.** `scripts/dev/dev.sh` untouched.
+
+## Repair 2 of the RESUME 4 Close (2026-09-24, repair seat round 2, `claude-opus-5-5`, Track D; answers `## Check 2 of the RESUME 4 Close`)
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md src bench test`⟩ → empty at open. No inherited partial work. parse-that master's dirty `rust/**`, `README.md` and `.cargo/config.toml` are outside every W7 set; they belong to siblings and were not touched.
+- **C2-1 HIGH, L-G1 Firefox rej `parseStylesheet` → ESCALATED, not cured.** ⟨`grep -c ESC-W7l2-1 docs/tranches/X/COHESION.md`⟩ ×2 → `0 · 0`. The last section is still §0dp, so the owner has not ruled. ADDENDUM (c) has spent both admitted forms: (a) static bulk-run shipped, and (b) uniform negated runs is the shipped fallback. (c) refuses recording the cell instead of gating it. ADDENDUM (b) sends an uncured cause to the owner as a measured decision (`bench/records/2026-09-24-x-p-w7-profile-l2-b.json`: the SpiderMonkey action-body and value-mode construction cost). A repair seat has no lawful cure, since any engine split or relaxation is refused. No product byte changed in this seat, so the Check 2 reading (.975–1.015, 10 of 14 clean reps > 1) stands and was not re-measured. **Stays RED; ESC-W7l2-1 carried to the owner.**
+- **C2-2 MINOR, LEDGER:104 stale tail → CURED.** A minimal in-place edit removed "; ADDENDUM (d) `.cp` (custom-property case, easing presets) not yet run" (C3-3 hygiene: `git diff --numstat` → `1 1`, this seat's line only). ⟨`grep -n "| X.P.W7 |" LEDGER.md | grep -c "not yet run"`⟩ ×2 → `0 · 0`. Commit `635959c7`.
+- **C2-3 INFO** (the filename date on `bench/records/2026-09-23-x-p-w7-cprep1.json`): the file is not renamed (E-3; the record is immutable). This line is the note: that node run was taken on **2026-09-24**, and its contents and load lines stand.
+- **C2-4 / C2-5 INFO:** no cure needed.
+
+**Gate re-readings:** none are owed. The one cure is a ledger cell, which moves no product gate. `src/ bench/ test/` are unchanged since `a1eddca8` (⟨`git status --porcelain -- src bench test`⟩ → empty). Check 2's 10 GREENs stand on the same bytes.
+**Commits:** `635959c7` (LEDGER) · this section. **Adjacent edits:** none. **Out-of-set writes:** none. dev.sh was not touched.
+**Cured:** 1 (C2-2). **Escalated:** 1 (C2-1, ESC-W7l2-1, owner). LEDGER:104 stays **PARTIAL**.
