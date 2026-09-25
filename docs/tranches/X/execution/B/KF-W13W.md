@@ -727,3 +727,78 @@ The spec designates no KF.W13W seat to stamp VERIFIED. The four-verb line moves 
 | VERIFIED | NO. That stamp belongs to a successor check pass |
 
 **Commits (this seat)**: value.js `d8143eae` (evidence: 2 runners, 46 files: 8 falsifier JSON, 4 p, 4 e, 16 m, 8 d JSON, 4 .out) · this record · the LEDGER row. Push: kf `574642be` is already on origin; value.js pushed after the LEDGER commit.
+
+## Check 1
+
+**Seat**: `claude-opus-5-5`, 2026-09-24, Track B, L-20 pass 1 on the Close. FRESH ADVERSARIAL, VERIFY-ONLY: 0 keyframes.js bytes, 0 glass bytes. kf HEAD = origin/master = `574642be`. **Crash-recovery**: ⟨`git -C keyframes.js status --porcelain`⟩ → only the 2 standing inbound mail packets; 0 dirty paths in this seat's set (this record, the LEDGER row). `scripts/dev/dev.sh` untouched.
+
+**Instrument**: this seat's own dev server, ⟨`npx vite --force --port 5327 --strictPort`⟩ in keyframes.js (clean dep cache, glass `10.1.0` served — ⟨`node_modules/@mkbabb/glass-ui/package.json`⟩ → `"version": "10.1.0"`). Each unit's probe run UNCHANGED through copies of the close's two runners in the session scratchpad (the evidence dirs `c p e m d` symlinked read-only; nothing written into `evidence/W13W/`). Headed Chromium.
+
+### Axis 2 · 4 · 5 — bounds, families, E-3
+
+- ⟨`git show --stat` each of kf `82360347 ba530256 6e8fc989 e97b9e35 574642be`⟩ → every path under `demo/**` or `test/demo/**`; one kf commit per unit (7 units, 5 kf-writing; `.c`/`.v` test-free by design). ⟨`git diff --stat a939e7d6 574642be`⟩ → 39 files; the only non-`demo`/`test/demo` rows are `package.json` + `package-lock.json`, both from `9fa56c26` (KF.W13X `.g0`, not this wave).
+- ⟨`git show --name-only` each of the 17 value.js shas `b58d7438`…`6b580562`⟩ → 0 paths outside `keyframes/evidence/W13W/**` or this record; `9977d129` adds only `execution/LEDGER.md`. The Open `ec9617d1` = record + LEDGER + INBOX sweep line + the open probe.
+- The 7 modified pre-existing tests (⟨`git diff --name-status a939e7d6 574642be -- test/demo | grep -c ^M`⟩ → 7) are the declared §0bt adjacents; each diff read: selectors/number formats re-seated to the new geometry, no assertion dropped (e.g. `transport-keyboard-propagation` (1′) now asserts ONE Play, in the persistent seat, outside any layer — stronger, not narrower). The stub's `#persistent` seat is real producer API: ⟨`grep persistent node_modules/@mkbabb/glass-ui/dist/components/dock/GlassDock.vue.d.ts`⟩ → `persistent?: (props…) => any`.
+- Masking scan ⟨`git diff a939e7d6 574642be -- demo test/demo | grep '^+' | grep -E 'try \{|catch|\.skip|\.only|!important|eslint-disable|@ts-ignore|as any'`⟩ → only `try { … } finally` unmount guards in the new tests and one `readdirSync` non-directory skip in `page-gutter.test.ts` (a file-walk, not a defect mask). 0 skip/only, 0 `!important`, 0 copied glass selectors.
+- E-3: ⟨`git diff --stat ec9617d1~1..HEAD -- keyframes/waves/ V/megatranche/registry/adjudicated/`⟩ → `KF-W13.md | 16 +` only, all from COHESION commits `f3ba1045 · 78733097 · 2d8e6eef` (dated addenda-beside, KF.W13X sections); 0 bytes by this wave. Registry untouched.
+- `scripts/dev/dev.sh`: dirty by standing arrangement, in no W13W commit.
+
+### Axis 6 — E13
+
+⟨`find <value V, V/coordination, glass BK/coordination, glass BL, keyframes V/coordination> -maxdepth 1 -type f -newer INBOX.md`⟩ → 1: `glass-ui/…/BL/FORMATION-PROGRESS.md` (last commit `1dea8ac0`, glass's internal cursor, not addressed to value.js). ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → 0. **0 UNREAD in scope.**
+
+### Axis 10 — honest-RED adjudication (at the spec bytes)
+
+| gate | relief at the spec | relay on file | owner in the residual register | ruling |
+|---|---|---|---|---|
+| DOCK-COLLAPSED-FORM | `KF-W13.md:498` names it by id: "producer half … O-65, relay only. Record honest-RED **DOCK-COLLAPSED-FORM** until the pinned glass cures it" | `glass BK/coordination/valuejs-outbound-2026-09-24-dock-collapsed-form.md`; COHESION `:3325` (O-65, sent live) | glass, relay only; adopt at the repin | RELIEVED (producer) |
+| GLASS-SELECT-GREY | `:502` names it by id (O-66); consumer call sites checked: `.p` act 5, 5 live Selects, no grey class or dead prop | `…-2026-09-24-select-grey-dock-motion.md`; COHESION `:3349-3353` | glass, relay only | RELIEVED (producer) |
+| SIDE-DOCK-EDGE | `:505` names it by id (O-67); cure only a consumer clip | `…-2026-09-24-side-dock-edge.md` · `relay/X-ALL-BK-SIDE-DOCK-EDGE.md`; COHESION `:3359` | glass, relay only | RELIEVED (producer). keyframes mounts 0 side/canvas docks (probe `vertical 0`), so the consumer half is vacuous; the id is carried as COHESION `:3359` directs every consumer |
+
+No other gate was left RED. The `.m` R-1/R-2 (A2-KE-L2-3, A2-KE-L2-2), `.d` R-1, `.e` R-1 and the `.b` label stacking are AUDIT-2 / KF.W13X rows by that wave's own scope (`KF-W13.md:521-541`), not W13W law gates.
+
+### Axis 1 · 9 — every claimed GREEN, re-run by this seat (kf `574642be`, :5327, ×2)
+
+| gate | command | run 1 | run 2 | vs Close |
+|---|---|---|---|---|
+| repo check | ⟨`npm run check`⟩ | EXIT 0 (proof:structure 0 violations) | EXIT 0 | reproduces |
+| repo test:demo | ⟨`npm run test:demo`⟩ | 82/82 files · 587/587 · EXIT 0 | 82/82 · 587/587 · EXIT 0 | reproduces |
+| G-W13W-b/v ball on curve | ⟨`sh run-falsifier.sh N http://localhost:5327`⟩, 1440×900 + 390×844 × light + dark | 4/4 configs EXIT 0; over 1.5 px: tiles 0/448 · mini 0/32 · sampler 0/16 · live ball 0/16; max 0.90 px (mini) | identical, max 0.89 px | reproduces (max 0.90) |
+| G-W13W-p picker | ⟨`node ../p/probe-picker.mjs`⟩ 1440 L + 390 D | gallery + dropdown: segmented true · divider true · 0 stadium plates · tiles 28/29 · radius 16px = `--radius-field` · 0 truncated · selected bg `rgba(0, 0, 0, 0)`, outline `solid 1.5px`; headers 10/10 | identical | reproduces |
+| G-W13W-e eye toggle | ⟨`node ../e/gate.mjs`⟩ 1440 L + 390 D | cube · square · amiga · easing · spring: 1 eye each, `absolute`, hide/show/round-trip max 0 px; sequence 0 eyes (no preview) | identical | reproduces |
+| G-W13W-m phone gutter | ⟨`node ../m/census.mjs`⟩ 390×844 · 844×390 · 430×932 · 932×430 × L/D | 8/8 configs `{"states":30,"red":0}` | 8/8 `red 0` | reproduces |
+| G-W13W-d collapsed dock | ⟨`node ../d/probe-collapsed-dock.mjs` + `summarize.mjs dcloseN`⟩ 1440 + 390 × L/D | 4 × (docks 12 · collapsed 12 · vertical 0 · spill 0, max 0 px · clipped 0) = 48/48 | identical | reproduces |
+
+G-W13W-c (census + RED-before at `a939e7d6`) is banked evidence at the pre-cure bytes (`c/run{1,2,3}-*.json`, committed `b58d7438`); read, not re-run (the bytes are gone from HEAD). Its JSON figures match `.c`'s table (L1 437/448 · L2 31/32 · L3 16/16 · L4 16/16 at run 1).
+
+Write-then-measure on the Close's own counts: ⟨`git show --name-only --format= d8143eae | wc -l`⟩ → 46 (8 dclose + 4 e + 10 f [8 JSON + 2 .out] + 16 m + 4 p + 2 units .out + 2 runners), as published. Adjacent-test counts: 7 modified, all declared.
+
+**Gates reproduced: 7 of 7 claimed GREEN, each ×2. Failed: 0.**
+
+### Axis 8 — the goal at the bytes
+
+- One primitive: `demo/utils/curvePlot.ts` `curvePlot()` returns the stroke `d` and `place(p)` from ONE function; overshoot not clamped (`:22`), steps drawn as bisected risers with the ball taking the fired value (`:16-21`). Consumers ⟨`grep -rln curvePlot demo`⟩ → EasingMini · easingMotion · SpringTarget · SpringTrace · EasingCatalogue (+ `design-idioms.css`). ⟨`grep -rn 'progress-rail\|tile-rail' demo/scenes/easing demo/components/EasingCatalogue`⟩ → one comment line only; no rail under a ball.
+- One picker (`EasingCatalogue`) at gallery + dropdown; one eye (`PreviewToggle`) at 5 preview scenes; one gutter token (`--page-gutter`); one Play in `#persistent`. The owner's sentences are met at the served page, not only at the gates.
+
+### Axis 7 — four-verb line; successors
+
+- The Close moved only IMPLEMENTED (AUDITED/SPECIFIED already YES) and left VERIFIED to a check pass: lawful. This pass, CONFORMANT-HONEST-RED, stamps **VERIFIED: YES** (honest-RED set below) and moves the LEDGER to CLOSED.
+- **KF.W13X** "Opens after: KF.W13W" (`KF-W13.md:522`): the one conjunct turns GREEN with this CLOSED. No other successor names KF.W13W. Not blocked. (Its `.g0` repin kf `9fa56c26` already landed inside this wave's window under COHESION §0dd/§0dg; not a W13W write — INFO below.)
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | MINOR | `.p` R-1..R-3 are named "Owner: glass BL (OA-63)", but no letter carries them. R-1 is the `EasingPicker` preset-list opt-out: the Controls-pane editor still shows glass's own preset list beside the one `EasingCatalogue`. R-2 is the `ToggleGroup` track opt-out. R-3 is the field-look popover trigger. AUDIT-2 erratum E-3(b) covers only a preset strip over one catalogue. | ⟨`grep -rlE 'preset[- ]list opt-out\|EasingPicker.*(opt-out\|slot)' glass BK/coordination value V/coordination X/relay`⟩ → none | KF.W13X relays R-1..R-3 in its next BK outbound, beside E-3. No consumer copy. Mitigation: the consumer gate is GREEN at both consumer sites, and the glass half is spec-routed (§0cq OA-63) |
+| C1-2 | MINOR | The `.c` receipt says `b58d7438` holds "8 before frames". `*.png` is gitignored (`.gitignore:34`), so they exist only locally. The Close erratum names this for `.b`'s after frames only. `p/` and `v/` frames were force-added. | ⟨`git ls-files evidence/W13W/c \| grep -c png`⟩ → 0. ⟨`ls c/before`⟩ → 8 files | Add the 8 frames with `git add -f`, as `.p`/`.v` did, or file a dated erratum. The RED-before JSON is committed |
+| C1-3 | INFO | At 1440, the falsifier's moving-tile coverage fell from 25 of 28 (`.v`, before `.p`) to 11 of 28. `.p`'s section headers push tiles below the IO-gated fold. The resting tiles still read 0 over 1.5 px. | `v/v-run1-1440-light.json` mv25 · this seat's `f-run1-1440-light` mv11 | none required. KF.W13X may scroll per section if it re-reads the gallery |
+| C1-4 | INFO | SIDE-DOCK-EDGE is carried as honest-RED in a demo with 0 side or canvas docks. | d probe `vertical 0` ×8 | none. COHESION `:3359` directs every consumer to carry it |
+| C1-5 | INFO | KF.W13X `.g0` (kf `9fa56c26`) landed between `.e` and `.m`, before its "Opens after: KF.W13W" conjunct. | kf log; COHESION §0dd/§0dg | none (orchestrator-ruled; not this wave's) |
+
+0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MEDIUM · 2 MINOR · 3 INFO.
+
+**Honest-RED set (relieved, owner-named):** DOCK-COLLAPSED-FORM (O-65, `:498`) · SIDE-DOCK-EDGE (O-67, `:505`) · GLASS-SELECT-GREY (O-66, `:502`).
+
+### Verdict
+
+**CONFORMANT-HONEST-RED.** All 7 claimed GREENs reproduce ×2. There are 0 writes out of bounds, 0 masks, and 0 split families. E-3 held and 0 mail is UNREAD. Every remaining RED is a producer id that the spec names, with a relay on file. LEDGER → `CLOSED 2026-09-17 (honest-RED: DOCK-COLLAPSED-FORM · SIDE-DOCK-EDGE · GLASS-SELECT-GREY)`.
