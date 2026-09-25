@@ -565,3 +565,58 @@ SERVED MODEL: claude-opus-5-5 (unit `.spring`, G5; writable `demo/scenes/spring/
 - **ESCALATED 1:** KFA-191 (ESC-spring-1).
 - 23 + 18 + 2 + 10 + 1 = **54**.
 - A2-KE-L3-9's lock (addendum (c): a lone-row action rides glass `#actions`; no consumer copy) is met by `ConfiguratorLayer #actions`.
+
+### .springd
+
+SERVED MODEL: claude-opus-5-5 (unit `.springd`, G6; writable `demo/scenes/spring/{StartingStyleTarget.vue,useCompiledEntry.ts}` · `test/demo/**`)
+
+**Crash recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → only the 2 old untracked `docs/tranches/V/coordination/` letters; 0 dirty paths in G6. **Inherited: none.** kf HEAD at open `034c8a44`.
+
+**Instrument.** Private dev server ⟨`npx vite --config <scratchpad>/vite.springd.config.ts --force --port 5196 --strictPort`⟩ (kf `vite.config.ts` unchanged, `cacheDir` in the scratchpad); glass `10.1.0` served (⟨`ls <cache>/deps | grep glass`⟩ → `@mkbabb_glass-ui.js`; installed `"version": "10.1.0"`). The BEFORE is read on a second server (:5197) over ⟨`git archive 034c8a44 | tar -x`⟩ in the scratchpad (node_modules symlinked), so BEFORE ×2 is the pre-cure tree while the cure was being written. Probe `evidence/W13X/springd/springd.mjs` (7 viewports × 2 themes, visible + dismissed, a per-rAF sampler at 1440); the committed served falsifier is `verdict.mjs` (one predicate per row).
+
+**Rows (14):** UIA-KF-037(B) · 038(B) · 096 · 097 · 207 · 208 · 209 · 311 · A2-KE-X-8 · and the five `.spring` re-homed in: KFA-45 · 46 · 158 · 215 · 216.
+
+**Acts.**
+1. BEFORE ×2 (⟨`BASE=:5197 TAG=before RUN=n TIMING=1 node springd.mjs`⟩; ⟨`node verdict.mjs before-rn.json`⟩ → `verdict-before-r{1,2}.log`): RED ×2 on every cure row — e.g. 360 `headerxcard 254x55, cardxtoggle 254x9, …` + card clipped; 844x390 `headerxcard 302x64`, artifact + caption clipped (caption 111.7 px under the sheet); meta column 4 lines at 360; card 114.5–170.2 px in a 112 px stage; dismissed stage 0 marks; card radius 10px, artifact 6px, chip hand-rolled 9999px; verb `btn-playback` 748 px; `emitted by` + `response is not expressed`; 1440 entry motion over at 194/204 ms of 500, exit invisible 99→517 ms (81–83% tail), exit scale dips to 0.8995. One cell per run timed out under host load 80 (r1 1440 light, r2 360 light — the other theme of each cell read RED).
+2. The cure, one kf commit **`dade65bd`** (the timing, the state model and the layout share one composable API change, so they do not split):
+   - `useCompiledEntry.ts`: `entryTiming(response, ζ)` reads the settle span off the solver (last excursion past `1 ± 5e-3` over the `4 × response` window, 480 probes) and emits `springTimingFunction({ …, maxDuration: span })` — the `linear()` is motion end to end and the duration scales with response. The exit is the same spring at `max(ζ, 1)` and has its own span. An `exitAnim` is compiled beside `entryAnim` (`{ enter, exit }`). The composable publishes one `CompiledEntry { timing, result }`, written in the same assignment as the compile, so a drag never shows the card at one spring and the artifact at another; `result` keeps `compileToEntry`'s whole `{ css, eligible, refusals }` (UIA-KF-207's root, `:103-108`).
+   - `StartingStyleTarget.vue`: the plate body scrolls (`overflow-y:auto`, `justify-content: safe center`) instead of clipping; the stage is a grid whose one cell holds the card and its slot (`--entry-card-inline/-block`), padded by the card's 20 px travel; dismissed, the slot wears the dashed progress register + "dismissed"; the verb is a plain glass `Button` at intrinsic width; the artifact is a glass `Collapsible` (trigger `compileToEntry() CSS`, Copy beside it, content the same named region); compiling → glass `Skeleton` (`role=status`), refused → `Alert tone=warning` listing the refusals, mismatched → `Alert tone=destructive`; one caption `eased by <Chip> ζ · in N ms · out M ms`; the header line and the disclaimer are deleted; card on `--radius-card`, artifact on `--radius-field`; the card's transition lists read `--entry-*` (open rule) and `--exit-*` (base rule) bound from `CompiledEntry.timing`; `ENTRY_CONTRACT.durationMs` retired (the duration is no longer a literal).
+3. Unit falsifiers (kf `test/demo/scenes/`): `spring-entry-timing.test.ts` (3: dead tail ≤ 10%, 2× response = 2× time, exit ≠ entry and never past closed) and `spring-entry-states.test.ts` (4: 207 three surfaces, 208 slot, 209 radii + Chip, 097 verb/caption/fold). ⟨`npx vitest run --project demo <file>`⟩ at the pre-cure tree ×2 → `Tests 3 failed (3)` (`expected 0.64 to be ≤ 0.1`; `expected 500 to be ≤ 2`; exit stops deep-equal the entry's) and `Tests 4 failed (4)` (no Skeleton/Alert; no slot; `--radius-md`; `btn-playback`) ×2; at `dade65bd` ×2 → `Tests 7 passed (7)`. The stub demo publishes both generations of the composable's surface, so each RED is an assertion.
+4. `starting-style-artifact.test.ts` re-seated (no assertion removed): the harness reads `entry.value.result`; case (3) now asserts one duration per direction equal to `entryTiming`'s, the card's lists on the custom properties only, and the mounted plate binding them; (6) the mismatch is the destructive Alert; the absent case is the Skeleton; a refused case is added. 13/13.
+5. AFTER ×2 on :5196 (⟨`TAG=after RUN=n TIMING=1 node springd.mjs`⟩ → `verdict-after-r{1,2}.log`): **all 9 served predicates GREEN ×2, 14/14 cells measured each run.** 1440: entry last change 503/518/504/505 ms of 500, exit invisible 439–457 → none 606–625 ms (tail 26–27%), exit min scale 0.9000–0.9002. Frames `frames/{before,after}-<vp>-<theme>-r<n>-{visible,dismissed}.jpg`.
+6. value.js evidence commit **`e4d8782e`**.
+
+**Gates (BEFORE → AFTER, kf `dade65bd`).**
+- **Rows dispositioned ×2**: served predicates RED ×2 (pre-cure tree) → GREEN ×2; unit falsifiers RED ×2 at `034c8a44` → GREEN ×2. **GREEN.**
+- **`npm run check`**: EXIT 0 (vue-tsc app + test, `proof:structure — PASS: scope=src clean (0 violations across R1–R6)`). **GREEN.**
+- **`npm run test:demo` ×2**: `Test Files 92 passed (92)` · `Tests 645 passed (645)` ×2 (unit open 90/637; +2 files, +8 cases). Honest note: the first two full runs, taken while the BEFORE browser runs and two dev servers shared a host at load 80, read 6 and 2 `Test timed out in 5000ms` in unrelated files (chrome-dock-triggers, mbabb-menu-*, channel-options-render-edge, easing-picker-hierarchy, hero-wave-pause); ⟨those 6 files alone⟩ → `31 passed`; the two quiet re-runs above are the reading.
+- `npm run lint`: the 4 pre-existing `orbital-drag` no-cycles (`.cube`'s); this unit adds none.
+
+**Dispositions — 14 rows.**
+| row | disposition | reading |
+|---|---|---|
+| UIA-KF-037 (B) | **CURED** `dade65bd` | 0 overlaps / 0 clipped / caption reachable, 7 vp × 2 themes ×2 (BEFORE 26 and 23 failing cells) |
+| A2-KE-X-8 | **CURED** `dade65bd` | no card-over-header at 360/390/430/844; meta 1 line (BEFORE 4 at 360). The row's docSH-with-Controls limb is the in-flow sheet (`.mobile`'s gate, A2-KE-L2-2) |
+| KFA-158 | **CURED** `dade65bd` | card ≤ stage in every cell (BEFORE 114.5–170.2 in 112) |
+| UIA-KF-208 | **CURED** `dade65bd` | dismissed stage marks the slot (dashed + "dismissed") |
+| UIA-KF-209 | **CURED** `dade65bd` | card 16px (`--radius-card`), artifact `--radius-field`, preset label glass `Chip` |
+| UIA-KF-207 | **CURED** `dade65bd` | Skeleton / warning Alert with refusals / destructive Alert (unit falsifier) |
+| UIA-KF-096 | **CURED** `dade65bd` | settle-span duration; no dead tail; response expressed; disclaimer deleted |
+| KFA-45 | **CURED** `dade65bd` | entry moves across 503–518 of 500 ms (BEFORE 194); exit tail 27% (BEFORE 81%) |
+| KFA-215 | **CURED** `dade65bd` | exit on its own critically damped curve; scale ≥ 0.9 (BEFORE 0.8995) |
+| UIA-KF-097 | **CURED** `dade65bd`, one limb re-homed | intrinsic verb (83.8–135.9 px across both AFTER runs, BEFORE 748), folded artifact, one caption. The limb "highlight the artifact with the editor's code tokens" is Monaco's tokenizer in `demo/components/instrument/keyframes/**` → **RE-HOMED → `.keyframes`** (a shared highlighter seam; loading Monaco on the spring stage to colour 20 lines is not a cure here) |
+| UIA-KF-038 (B) | **RE-HOMED → `.spring`** | BEFORE served: Entry at rest shows `Pause animation`. The status and the Entry channel's progress/paint are `useSpringDemo.ts:637-686` (`advanceSelectedChannel`, the facility) and `SpringScene.vue:213-240`; no byte of G6 decides them |
+| KFA-46 | **RE-HOMED → `.spring`** (loop) | `.spring` sent it here on `useCompiledEntry.ts:53-60` (no target). Binding a target alone paints nothing: the engine paints on `at(p, true)` / the play machine, and the only writer of `entryAnim.t` is `useSpringDemo.ts:654-657`. It has now bounced G5 → G6 → G5; **the close must rule its home** (the fix shape's "declare Entry non-transportable" is the facility's too) |
+| UIA-KF-311 | **RE-HOMED → `.spring`** | `demo/styles/design-idioms.css:44` `--controls-idle-opacity: 0.35` (shared idiom, not G6) |
+| KFA-216 | **RE-HOMED → `.spring`** (host) | ⟨`dockclear.mjs`⟩ @390: easing plate bottom 737 vs dock top 722 — the same 15 px as spring; every `h-full` stage plate underlaps, so the root is the shared stage host's block size, not this card |
+
+**Self-count:** CURED 10 (037 · X-8 · KFA-158 · 208 · 209 · 207 · 096 · KFA-45 · KFA-215 · 097) + RE-HOMED 4 (038 · KFA-46 · 311 · KFA-216) = **14**.
+
+**Adjacent edits (§0bt):**
+- `demo/scenes/spring/useSpringDemo.ts:632,697-699` — the call site forwards `compiledEntry` (the composable's return shape changed from `css` to `entry`); `dade65bd`.
+- `demo/scenes/spring/useSpringLinearStops.ts:15-20` — the consumer paragraph named `StartingStyleTarget.vue` as a live reader; it no longer is; `dade65bd`.
+- `test/demo/scenes/starting-style-artifact.test.ts` — inside `test/demo/**`.
+
+**Residuals.** The caption at 360 clears the sheet by 0.1 px (reachable, touching): the plate itself runs under the peek — KFA-216's host root. The accent Dismiss twin in the controls pane (`SpringScene.vue` ribbon) still duplicates the stage verb (not G6). `Alert`/`Skeleton` are imported from glass's root entry (10.1.0 publishes no subpath for either) — a relay ask for subpaths belongs to the close's accretion.
+
+**Escalations:** none. **kf commits:** `dade65bd` (1). **value.js:** `e4d8782e` (evidence) + this receipt. Not pushed (the push rides the wave close).
