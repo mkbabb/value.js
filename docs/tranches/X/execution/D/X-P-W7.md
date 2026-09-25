@@ -2012,3 +2012,60 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDUM (c)
 **Successor conjuncts.** X.P.W7P opens when the owner supplies an npm OTP (not met; LEDGER:105 `GATE-KEYED`) **and** X.P.W7 has CLOSED its engineering gates (RED, C3-1). **X.P.W7P lawfully blocked.**
 
 **Verdict: NOT-CONFORMANT.** 9 claimed GREENs reproduce; L-G1 Firefox rej `parseStylesheet` fails, held by the unruled ESC-W7l2-1. LEDGER:104 stays `PARTIAL` (no status edit; one event line appended). **Adjacent edits: none. Out-of-set writes: none.** `scripts/dev/dev.sh` untouched.
+
+## RESUME 5 — Open (2026-09-25, seat 0, `claude-opus-5-5`, Track D; COHESION §0dq + W7.md ADDENDUM (e))
+
+- **Mode:** RESUME 5. ⟨`grep -n "| X.P.W7 |" LEDGER.md`⟩ → `:105` status `PARTIAL — ESC-W7l2-1 unruled …` (not CLOSED); this record exists (2014 lines before this section). Governing text: W7.md read whole (260 lines; ADDENDUM (e) at `:255` binds — ESC-W7l2-1 RULED: no relief, no engine split; unit `.l3` profiles and cures Firefox's refusal path, then `.cp`) and COHESION §0dq (`:3570`, the file end). Read from this record: `## RESUME 4 — Open` through `## RESUME 4 Unit plan`, `## Repair 1 of the RESUME 4 Close` (the `.cp` receipt) and `## Check 3 of the RESUME 4 Close` (the last section).
+- **alreadyDone: `.o .p .t .e .v .k .k2 .g .l .l2 .cp`**, verified at the bytes: ⟨`git log --oneline --all | grep -E "^(eeed0116|628d23b6|a1eddca8|9c1bf596)"`⟩ → all four present (`.cp` = `eeed0116` cure + pinned test · `628d23b6` CHANGELOG migration note citing V-A64 · `a1eddca8` records; `.l2` re-emission `9c1bf596`); bbnf-lang ⟨`git -C ../bbnf-lang-x-p-w7-typescript log --oneline -3`⟩ → `89fae4826` (`.l2` (b)) · `d08694061` (`.l2` (a)) · `d81016e96` (`.l`); HEAD = `origin/x-p-w7-typescript` = `89fae4826`. **`.cp` is NOT re-dispatched although §0dq/ADDENDUM (e) sequence it "then `.cp`":** its commits exist (executed at `## Repair 1 of the RESUME 4 Close`, both ADDENDUM (d) halves: case cure + 4/4 pins; easing removal RULED by V-A64 and cited, migration note written) — its gates (pins 4/4 ×2, MIRROR-DEFECTS 0 + CP-CASE row, no L-G1 regression) are re-read by `.l3` as stay-GREEN and by the close. `.z` re-opens only in X.P.W7P.
+- **Crash-recovery:** ⟨`git status --porcelain -- src bench test CHANGELOG.md package.json docs/tranches/X/execution/D docs/tranches/X/parse-that docs/tranches/X/execution/LEDGER.md docs/tranches/V/coordination`⟩ → empty; ⟨`git -C ../bbnf-lang-x-p-w7-typescript status --porcelain`⟩ → empty. HEAD `059ec6af` (§0dq). **No inherited partial work.**
+- **Preconditions:** `.l3` opens on §0dq's ruling (not a predecessor wave): ⟨`grep -n "^## §0dq" COHESION.md`⟩ → `3570`; W7.md:255 ADDENDUM (e) present; `.l2` commits exist (above); the `.l` instrument present (`bench/paired/instrument.mjs`, `bench/paired/profile.mjs`); the `.l2` profile `bench/records/2026-09-24-x-p-w7-profile-l2-b.json` present. Release chain stays X.P.W7P (LEDGER:106 `GATE-KEYED … one-time password`). **MET.** No npm act in this wave.
+
+### E13 Step-0 mail sweep (2026-09-25)
+- ⟨`ls -td glass-ui/docs/tranches/*/ | head -2`⟩ → `BL BK` (BL newest, no `coordination/`; BK stays the mail path, BL root swept).
+- ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` · keyframes.js `V/coordination/` · atlas `P/coordination/` → 0 on every path except glass `BL/FORMATION-PROGRESS.md` (glass's internal resume cursor, not a letter). ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0` (last row I-61).
+- **Result: 0 unrowed · 0 UNREAD in scope.** A dated sweep line was appended to INBOX.md.
+
+## RESUME 5 Baseline (BEFORE, read-only, 2026-09-25; product bytes = `.cp`'s final bytes `eeed0116` on `.l2`'s emission `9c1bf596`, unchanged)
+
+- ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 059ec6af`, `srcDirty ""`, `bankedManifestOk 79/79`, `retiredAt 2155142b`.
+- **RESUME rule:** `.l3` turns L-G1 Firefox rej `parseStylesheet` (and every cell it could move); every other gate is cited from `## Check 3 of the RESUME 4 Close` (V-1 92 = 88 F-b-4 + 4 CP-CASE ×2 · test/css 62/62 · css-equiv 19/19 MIRROR-DEFECTS 0 · vue-tsc lib 0 · bbnf-lang suite + tsc 0 · node whole/acc/rej 7/7).
+- **Load warning:** the shared host ran the other three tracks' redeploy; load rose 18.95 → 37.00 across the read, so Firefox large voided every cell (spread ≥ 1.6×). Recorded as-is, never claimed; `.l3` re-reads quiesced (R-l-2).
+
+| Gate | Command | BEFORE (2 reps, paired median) | Reading |
+|---|---|---|---|
+| L-G1 Firefox rej parseStylesheet | ⟨`node bench/paired/browser.mjs w7r5open firefox,webkit,chromium 2 rej,large 11 product parseStylesheet`⟩ (load 18.95 → 37.00, recorded; record moved to the scratchpad, ⟨`git status --porcelain bench src test \| wc -l`⟩ → `0`) | **x1.038** clean (+4 SA 1.075/1.209/1.345/1.033, spread 2.4–8.2) | **born-RED** (the §0dq band 1.02–1.08) |
+| L-G1 Firefox large parseStylesheet | same | 0 clean; 8 SA (.897–1.407, spread 1.9–6.8) | **VOID** (load); prior band .92–1.13 (R-l2-2 noise watch) |
+| L-G1 WebKit rej / large parseStylesheet | same | .741 / .772 · .581 / .576 | GREEN (stay-GREEN) |
+| L-G1 Chromium rej / large parseStylesheet | same | .562 / .55 · .376 / .368 | GREEN (stay-GREEN) |
+| `.cp` pins (ADDENDUM (d)) | ⟨`npx vitest run test/css/custom-property-case.test.ts`⟩ | `Tests 4 passed (4)` | GREEN (stay-GREEN; cured at `eeed0116`) |
+| K2-b post-hoc walk | ⟨`grep -rn deepFreeze src \| wc -l`⟩ | 0 | stay-GREEN |
+| L-G3 instrument bytes in shipped `generated/` | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | stay-GREEN |
+
+**greenBeforeCure: none.**
+
+## RESUME 5 Unit plan (2026-09-25)
+
+**alreadyDone:** `.o .p .t .e .v .k .k2 .g .l .l2 .cp` (never re-dispatched; `.cp` executed at `## Repair 1 of the RESUME 4 Close`). **`.z`:** re-opens only in X.P.W7P. **Owed:** `[X.P.W7.l3]` alone, then close (which re-reads `.cp`'s ADDENDUM (d) gates). One concurrent. Every seat Opus 5.5 (owner's Opus-only order, 2026-09-23; ADDENDUM (e) "Opus, effort high"). An ESCALATED `.l3` does not halt the wave: the close runs on it.
+
+### Rulings cited (never re-opened)
+§0dq / W7.md ADDENDUM (e) (ESC-W7l2-1 RULED: no relief, no engine split; `.l3` profiles and cures the refusal path) · §0di / ADDENDUM (c) ((c) record-instead-of-gate REFUSED; (a) static + (b) uniform both shipped at `.l2`) · §0cx / ADDENDUM (b) (root cause, one cure every engine, never a post-hoc freeze walk; impasse → ESCALATED with the per-rule profile) · §0dj / ADDENDUM (d) (`.cp`; easing removal = V-A64) · §0cp (release chain → X.P.W7P, OTP-keyed; LEDGER hunk hygiene) · §0ck 1–7 (F-b-4 accepted; positional semantics; bbnf-lang choreography) · §0bt ADJACENT-LINE RULE.
+
+### Locks
+- **L-4 (bbnf-lang):** writes only in `../bbnf-lang-x-p-w7-typescript` on `x-p-w7-typescript`; push the branch only; never local master; PR #1 stays open. Every re-emission of `src/css/bbnf/generated/` goes through `node scripts/gen-grammar.mjs` only (emitter linked from the worktree as `.l`/`.l2` did; restore 0.1.4 after, ⟨`grep '"version"' node_modules/@mkbabb/bbnf-lang/package.json`⟩ → `0.1.4`); `--check` passes after.
+- **L-6 (no npm):** no `npm publish`, no version bump, no dependency move (X.P.W7P); ⟨`git diff HEAD -- package.json package-lock.json`⟩ empty at the end.
+- **L-7 (LEDGER, §0cp 4):** read `git diff` on LEDGER.md before any commit touching it; stage only this seat's hunk.
+- **L-8 (instrument compiled out):** L-G3 stays 0 in shipped `generated/`.
+- **L-9 (one module, every engine):** no engine sniffing, no input-length test, no per-engine branch in emitted or action code; K2-b stays 0 (no post-hoc freeze walk); no try/catch around a defect; the result layer shared with the retired arm (`src/css/result.ts`) moves only if the profile names it, and then for both arms identically (stated in the receipt).
+- **L-11 (refusal discipline, ADDENDUM (e) 2):** a refusal builds no result it discards (no action/freeze on an alternative that has not committed), allocates its failure record lazily (only when read), and re-scans nothing already classified — each named with a test or an audit-build assertion.
+- **Families:** an emitter cure = one bbnf-lang commit (`typescript/src/**` + tests), pushed, + its value.js re-emission commit; an action cure = one value.js `src/css/bbnf/**` commit with its tests; records = one value.js `bench/**` commit.
+
+### `[X.P.W7.l3]` — Firefox's refusal cost, found and cured (W7.md 255–260: ADDENDUM (e); COHESION §0dq)
+- **Writable:** bbnf-lang `typescript/**` on `x-p-w7-typescript` · value.js `src/css/bbnf/**` (`generated/` through `node scripts/gen-grammar.mjs` only) and the freeze helper and its callers under `src/css/**` (the `.k2` grant) · `bench/**` (probes beside `bench/paired/`, records) · `test/css/**` (pins) · this record.
+- **Acts:** (1) profile: ⟨`node bench/paired/profile.mjs l3 node,firefox,chromium,webkit parseStylesheet:rej`⟩ with the `.l` instrument (per-rule counts + time, compiled out) on the rejected corpus, V8 the control; name what a refusal spends that the retired parser does not (speculative node build/freeze on a failing alternative, error/label/expected allocation, memo fills on dead branches, re-scans, `Error` creation); bisect with arms under `_build/`; (2) cure structurally once for every engine per L-11; (3) re-emit if the emitter moved; (4) read the gates quiesced (load recorded; SA cells re-read, never claimed); (5) impasse → ESCALATED with the per-rule profile.
+- **Gates:** L-G1 every entry × {acc, rej} + large sheets < 1.00 paired on node, Chromium, WebKit, Firefox, ×2, re-read quiesced (`bench/paired/isolated.mjs`, `bench/paired/browser.mjs`) · L-G2 V-1 = 88 F-b-4 + 4 CP-CASE exactly ×2 (`bench/paired/equiv.mjs`) · L-G3 0 · stay-GREEN: `.cp` pins 4/4 ×2, `test:css-equivalence` 19/19 MIRROR-DEFECTS 0, `npx vitest run test/css`, `npm test` (foreign failures only), `vue-tsc` 0/0/0, `gen-grammar --check` 0, K2-b 0, E-1..E-7 on the final emitter (E-6 ≤ 125,646 / 14,517), bbnf-lang TS suite ×2 + `tsc --noEmit` 0, whole-7/7 inside ceilings.
+- **Locks:** L-4, L-6, L-7, L-8, L-9, L-11.
+
+### Close (after `.l3`)
+Engineering gates binding (accepted + rejected halves and large sheets under the retired parser on every engine, ×2) plus `.cp`'s ADDENDUM (d) gates re-read. Release gates P-6 · E-8 · V-9 + the CI step · Z-1 · Z-3 (publish half) relieved by citing X.P.W7P (§0cp; OTP-keyed). No `npm publish` in this wave.
+
+## RESUME 5 Unit receipts
