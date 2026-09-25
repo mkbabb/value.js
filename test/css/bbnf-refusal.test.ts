@@ -6,11 +6,15 @@
 // frozen `failure` — so the published refusal is deeply frozen and names exactly the component
 // refused, while the record itself costs no freezes. (The grammar side — a refusal builds no value
 // it discards, and re-scans nothing it has classified — is bbnf-lang's `test/reentry.test.ts`.)
+// The stylesheet readers build each list in one array, in one pass (no mapped copy spread, no
+// filtered copy): their answers are pinned below.
 
 import { describe, expect, it } from "vitest";
 
 import { parseCssColor, parseCssScalar, parseCssValue, parseCssValues, parseKeyframeSelector, parseStylesheet, parseTimingFunction } from "../../src/css/index";
 import { parser } from "../../src/css/bbnf/load";
+import { ruleList } from "../../src/css/bbnf/sheet";
+import { splitTopLevel } from "../../src/css/bbnf/index";
 
 function unfrozenPaths(value: unknown, path = "value", out: string[] = []): string[] {
     if (value === null || typeof value !== "object") return out;
@@ -53,5 +57,22 @@ describe("a refusal publishes one frozen diagnostic", () => {
         const published = parseCssValue("1px @ 2px");
         expect(published.ok).toBe(false);
         expect(published.diagnostics[0]).not.toBe(record);
+    });
+});
+
+describe("the stylesheet readers build each list in one pass", () => {
+    it("drop empty items, keep order, and see through groups and strings", () => {
+        expect(splitTopLevel(" a , , b(c, d) ,'e,f' ,", ",")).toEqual(["a", "b(c, d)", "'e,f'"]);
+        expect(splitTopLevel(";a: 1;; b: (2;3) ;", ";")).toEqual(["a: 1", "b: (2;3)"]);
+        expect(splitTopLevel("  x   y(1 2)  'z w' ", "space")).toEqual(["x", "y(1 2)", "'z w'"]);
+        expect(splitTopLevel("a, (b", ",")).toBeNull();
+    });
+
+    it("answer a rule list's blocks, and on a refused sheet no block", () => {
+        expect(ruleList("a { b: c } @x y; d{}")).toEqual({
+            blocks: [{ prelude: "a", body: " b: c " }, { prelude: "@x y", body: null }, { prelude: "d", body: "" }],
+            fault: undefined,
+        });
+        expect(ruleList("rgb(1 2 3)")).toEqual({ blocks: [], fault: { expected: "rule", start: 0 } });
     });
 });

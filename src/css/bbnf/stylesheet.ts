@@ -17,7 +17,27 @@ export type CommaSpan = Readonly<{ item: string }> | Readonly<{ comma: number }>
 
 /** `( sep item ) *`'s repeated pairs; `at` is the item's slot in each pair. */
 type Rest<T> = readonly (readonly T[])[];
-const list = <T>(first: T, rest: Rest<unknown>, at: number): T[] => [first, ...rest.map((pair) => pair[at] as T)];
+// Each list is built in ONE array, in one pass: no mapped array spread into another, no filtered copy
+// (X.P.W7 `.l3`: an intermediate array is a value built only to be discarded, on every parse — the
+// rule list's blocks on every refused sheet too; SpiderMonkey paid for them on large sheets).
+/** The item at slot `at` of every pair. */
+const column = <T>(rest: Rest<unknown>, at: number): T[] => {
+    const out: T[] = [];
+    for (const pair of rest) out.push(pair[at] as T);
+    return out;
+};
+/** `first`, then the item at slot `at` of every pair. */
+const list = <T>(first: T, rest: Rest<unknown>, at: number): T[] => {
+    const out: T[] = [first];
+    for (const pair of rest) out.push(pair[at] as T);
+    return out;
+};
+/** `list`, its empty items dropped. */
+const nonEmpty = (first: string, rest: Rest<unknown>, at: number): string[] => {
+    const out: string[] = first ? [first] : [];
+    for (const pair of rest) { const item = pair[at] as string; if (item) out.push(item); }
+    return out;
+};
 
 const trim = (text: string): string => text.trim();
 const same = (text: string): string => text;
@@ -35,11 +55,11 @@ export const stylesheetActions = {
     spaceRun: { kind: "text", fn: trim },
     argRun: { kind: "text", fn: trim },
     syntaxPart: { kind: "text", fn: trim },
-    commaItems: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => list(first, rest, 1).filter(Boolean) },
-    semiItems: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => list(first, rest, 1).filter(Boolean) },
-    spaceItems: { kind: "map", fn: ([, rest]: readonly [unknown, Rest<string>]) => rest.map((pair) => pair[0] as string).filter(Boolean) },
+    commaItems: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => nonEmpty(first, rest, 1) },
+    semiItems: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => nonEmpty(first, rest, 1) },
+    spaceItems: { kind: "map", fn: ([, rest]: readonly [unknown, Rest<string>]) => nonEmpty("", rest, 0) },
     syntaxAlts: { kind: "map", fn: ([first, rest]: readonly [string, Rest<string>]) => list(first, rest, 1) },
-    timelineArgs: { kind: "map", fn: ([, rest]: readonly [unknown, Rest<string>]) => rest.map((pair) => pair[0] as string) },
+    timelineArgs: { kind: "map", fn: ([, rest]: readonly [unknown, Rest<string>]) => column<string>(rest, 0) },
     listComma: { kind: "span", fn: (_: string, start: number): CommaSpan => ({ comma: start }) },
     commaSpans: { kind: "map", fn: ([first, rest]: readonly [string, Rest<unknown>]): CommaSpan[] => {
         const parts: CommaSpan[] = [{ item: first }];
@@ -58,7 +78,7 @@ export const stylesheetActions = {
         ({ expected: "closing brace", start: start + prelude.length }) },
     openRule: { kind: "span", fn: (_: unknown, start: number): ListFault => ({ expected: "rule", start }) },
     ruleList: { kind: "map", fn: ([, rest, fault]: readonly [unknown, Rest<unknown>, ListFault | undefined]) => ({
-        blocks: rest.map((pair) => pair[0] as RuleBlock),
+        blocks: column<RuleBlock>(rest, 0),
         fault,
     }) },
 
