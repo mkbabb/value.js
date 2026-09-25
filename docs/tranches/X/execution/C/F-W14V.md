@@ -1567,3 +1567,30 @@ SERVED MODEL: claude-opus-5-5 · 2026-09-25 · addendum (h) item 3(i) (C3-3 = ES
 - The `:8000` uvicorn (no `--reload`, not this seat's process) still runs the pre-cure model until it restarts. The dev db is already migrated and the pre-cure model accepts any `str`, so the two stay consistent.
 
 **Escalations**: none.
+
+### F.W14V.r4
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · addendum (h) item 4 (C3-4, A2-FO-X-7 x UIA-F-59) under COHESION §0eb and §0dy (no ellipsis). Spec read whole (87 lines); record read header → RESUME 1 plan + `.r1`/`.r3` receipts; COHESION §0dy..§0ec (file end) read. Serial after `.r3` (`71e0c6d`): MET.
+
+**Acts, in order**
+1. Crash-recovery ⟨`git -C fourier-analysis status --porcelain | grep -E '^.. web/(src|e2e)/'`⟩ → ∅, so there was no inherited work.
+2. Anchors at true bytes. The inline panel is `PaperSearchDropdown.vue` (portalled to `<body>`, geometry from the field's rect). `measure()` set `width = max(field, min(24rem, reach))`, which is the F-59 breakout. The sidebar column is `PaperTocDrawer.vue` `.sidebar-nav` (`--paper-toc-width: 17rem` = 272 px), with the `sidebar` variant only at ≥ 1024 (`.paper-sidebar` `display:none` below, and the floating bar is `lg:hidden`). The title is `PaperSearchResultRow.vue` `.paper-search-label` with `overflow:hidden; text-overflow:ellipsis; white-space:nowrap`. The F-59 oracle `e2e/f-w14-uia-r2.spec.ts:171` asserted `width >= 22rem`, which is the old breakout (the lock's §0bt case).
+3. Falsifier first, `web/e2e/f-w14v-x7.spec.ts` (new): at 1024×768, 1440×900 and 1920×1080, for the queries "Fourier Transform", "convergence" and "Parseval", the plate's box must lie inside `.sidebar-nav`'s box (1 px tolerance, all four edges). For every `.paper-search-label` it asserts `text-overflow` ≠ ellipsis, `scrollWidth <= clientWidth`, `white-space` not nowrap, and `text-wrap` pretty, and at least one label must span two or more lines. BEFORE ⟨`BASE_URL=http://localhost:3100 npx playwright test e2e/f-w14v-x7.spec.ts --project=chromium --workers=1`⟩ ×2 → `9 failed` · `9 failed`. Reading: plate `{l:27,r:411}` vs nav `{l:16,r:288}` @1024 · `{193,577}` vs `{182,454}` @1440 · `{433,817}` vs `{422,694}` @1920, so the 384 px plate ran 123 px past the column. RED. Committed as fourier `97ff8d7`.
+4. Cure (one meaning, fourier `545bbdc`, 5 files, +55/−18):
+   - `PaperSearch.vue` gains a `column?: HTMLElement | null` prop and forwards it to the dropdown. `PaperTocDrawer.vue` passes its `sidebarNav` ref (`:column="sidebarNav"`). The floating bar (`PaperTocBar.vue`, < lg) passes none and is unchanged.
+   - `PaperSearchDropdown.vue` `measure()`: with a column, `left`/`width` are the column's rect and the height floor is `min(viewport − 8, column.bottom)`, so the plate lives inside the sidebar. Without a column, F-59's content floor (`PANEL_MIN_REM`) and the field anchoring are kept. Top, the gap, the on-screen clip and dismissal are untouched. It still sits on glass's `glass-floating glass-overlay-plate [data-reveal=menu]` plate, and no glass class is restyled.
+   - `PaperSearchResultRow.vue` `.paper-search-label`: the `overflow:hidden; text-overflow:ellipsis; white-space:nowrap` trio is retired for `text-wrap: pretty; overflow-wrap: anywhere`. This is the row's one home, so the ⌘K palette's rows (the same component) wrap too, which is §0dy's no-ellipsis bar.
+   - **Adjacent edit (§0bt, NAMED OWNER-RULING RE-BASELINE)** `web/e2e/f-w14-uia-r2.spec.ts:168-206`: the UIA-F-59 case's width limb `width >= 22rem` (the breakout that addendum (h) 4 rules out) is restated as follows. The panel width equals the column's (±1 px) and lies inside it, and no title is cut (`text-overflow` ≠ ellipsis and `scrollWidth <= clientWidth`, F-59's own symptom asserted directly). The viewport-right, `--radius-card` and menu-plate limbs are kept, and no assertion was deleted. The describe title and a header comment were restated.
+5. Frames (served `:3100` → `:8000`, AFTER, gitignored instruments): `fourier-analysis/web/e2e/screenshots/f-w14v/r4/after-x7-1440-{light,dark}.png`, captured ⟨`node scratchpad/r4-frames.mjs after`⟩ → `light [182,454,182,454,false]` · `dark [182,454,182,454,true]` (plate l/r = nav l/r; `html.dark` confirmed). Frame read: the plate covers exactly the ToC card's width under the field. Titles wrap with a hanging indent after the badge and number ("DEF 2.8.2 Fourier Sine / Transform", "THM 2.9.1 Fourier Transform / of f"), and the article column is fully clear. Both themes are legible, and the mark highlight holds.
+
+**Commits**: fourier `97ff8d7` (the falsifier) and `545bbdc` (the cure plus the named oracle re-baseline), pushed on `m/w1-bump-migration` (⟨`git status -sb`⟩ → level with origin). Pathspec commits only. The F.CT `src/fourier_analysis/contours/*` edits were not touched.
+
+**Gates BEFORE → AFTER** (`:3100` vite dev → `:8000`, chromium, `--workers=1`)
+- The x7 falsifier (plate ⊂ sidebar @1024/1440/1920, three queries): RED `9 failed` ×2 → GREEN. ⟨`… e2e/f-w14v-x7.spec.ts e2e/f-w14-uia-r2.spec.ts --headed`⟩ → `20 passed (28.7s)` · `20 passed (30.8s)`, which is 9 x7 + 11 uia-r2, ×2 headed. An earlier headless run gave `9 passed (15.6s)`.
+- No title ellipsis or clip: the same x7 runs (per-label limbs), GREEN ×2.
+- F-59 oracle (`f-w14-uia-r2` whole file, 11 cases, including F-21 math labels, F-26, F-62 mobile bar and F-63/65 palette): the same runs, GREEN ×2. Before the re-baseline, at the cured bytes, it read `1 failed` (`width 272 < 352`), which confirms that the old limb asserted exactly the breakout.
+- Neighbour: ⟨`… e2e/f-w14u-paper.spec.ts`⟩ → `22 passed (32.8s)` (search panel, No results, badges, marks, rail).
+- vue-tsc ⟨`npx vue-tsc --noEmit; echo $?`⟩ → `0`. vitest ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)`. eslint on the four `src` files → 0 errors.
+
+**Residuals**: none owned. The ⌘K palette's rows now wrap as well, since the row component is shared (§0dy). This is intended, not a regression: the palette oracles F-21/F-63/F-65 are GREEN.
+**Escalations**: none.
