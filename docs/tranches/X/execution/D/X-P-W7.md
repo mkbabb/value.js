@@ -2667,3 +2667,21 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDA (b),
 **Honest-RED set:** none admissible. **Successors:** X.P.W7P "Opens when" = owner OTP **and** "X.P.W7 has CLOSED its engineering gates" — both RED; W7P lawfully blocked.
 
 **Verdict: NOT-CONFORMANT.** LEDGER row stays PARTIAL; an event line is appended.
+
+## Repair 2 of the RESUME 6 Close (2026-09-25, repair seat round 2, `claude-opus-5-5`, Track D; answers `## Check 2 of the RESUME 6 Close`)
+
+**Read:** W7.md ADDENDUM (f) `:262–268` (binds); `## Repair 1` and `## Check 2 of the RESUME 6 Close` (the register). **Crash-recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D`⟩ → empty. The parse-that master's dirty paths (`rust/**`, `README.md`, `.cargo/config.toml`, untracked `docs/**`) are outside this wave's bounds and were left alone. HEAD at open: `73496d36`. ⟨`git log --oneline 73496d36..HEAD`⟩ → empty, so no byte has moved since Check 2.
+
+| # | Defect | Cure | Commit | Gate re-reading |
+|---|---|---|---|---|
+| C2-1 | HIGH: L-G1 is unread on the final bytes `5d46e376` on every engine. The last Firefox-large accepted `parseStylesheet` read is RED (×1.056). | **None possible from this seat: ESCALATED (ESC-W7l4-1, unchanged).** The cure is either measurement or a ruling. Measurement means the L-G1 ×2 read under ADDENDUM (f) 3's quiet-host protocol, at 1-min load < 8 (R-l4-1). A ruling means the owner decides R-l4-2. No product byte is at fault, so no product-byte cure exists. A noise band, or a recorded-not-gated relief, would be a masking fallback, and (f) refuses both. | none | ⟨`uptime`⟩ ×2 at this seat → 1-min **52.59**, **54.81** (5-min 53.4/53.9, 15-min 52.9/53.1). The load is 6.6–6.9× the protocol bar. The four tracks' sibling fleets, this workflow's own seats among them, hold it there. It has stayed at 44–56 through Check 1, Repair 1, Check 2 and now this seat. ⟨`grep -c "ESC-W7l4-1\|R-l4-2" docs/tranches/X/COHESION.md`⟩ → `0` (still unruled). Because of that load, no L-G1 read was taken: it would be a voided cell (R-l-2). |
+
+**Gates a cure could move:** none. No product or bench byte changed. L-G2 (92 = 88 + 4), L-G3 (0), E-4 and the stay-GREEN figures stand as Check 2 re-read them on `5d46e376`.
+
+**Escalation (to the orchestrator, then the owner):** ESC-W7l4-1 needs one of these:
+- (i) a Track-D sitting with the sibling fleets paused, so the L-G1 ×2 read can be taken on node, Chromium, WebKit and Firefox at 1-min load < 8 (R-l4-1);
+- (ii) the owner's ruling on R-l4-2: whether the large cell must compare equal work.
+
+Repair rounds cannot converge this row. Every further check/repair cycle adds load and moves no byte.
+
+**Verdict:** 0 cured, 1 escalated. The row stays PARTIAL.
