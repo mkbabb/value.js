@@ -14,11 +14,18 @@ import { keywordColor } from "./color";
 import type { Actions } from "./generated/grammar";
 import type { Numeric, Quantity } from "./math";
 
-/** A refusal; `span` (source offsets) narrows its diagnostic to the component refused. */
+/**
+ * A refusal; `span` (source offsets) narrows its diagnostic to the component refused. It is the
+ * value grammar's FAILURE RECORD: internal, carried up to its entry and read there exactly once
+ * (`./index` `refusal`) into the published, frozen `failure` — never published itself. So it is a
+ * plain record built in one allocation, not frozen: a refusal pays for its diagnostic once, where it
+ * is published (X.P.W7 `.l3`, COHESION §0dq; SpiderMonkey spent three freezes and a spread on every
+ * refused component before). Results stay built frozen (`test/css/bbnf-frozen.test.ts`).
+ */
 export type Refused = Readonly<{ kind: "refused"; code: ParseIssue["code"]; expected: string; span?: Readonly<{ start: number; end: number }> }>;
 export type ValueNode = CssValue | Refused;
 
-export const refused = (code: ParseIssue["code"], expected: string): Refused => Object.freeze({ kind: "refused", code, expected });
+export const refused = (code: ParseIssue["code"], expected: string): Refused => ({ kind: "refused", code, expected });
 
 /** A colour production's node in a value position: its colour as a scalar, or its refusal. */
 export function colorScalar(node: ColorNode): ValueNode {
@@ -79,7 +86,7 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
 }
 
 export type SelectorNode = KeyframeSelector | Refused;
-const selectorRange = refused("keyframe_selector_invalid", "0%..100%");
+const selectorRange = Object.freeze(refused("keyframe_selector_invalid", "0%..100%")); // shared: frozen once
 /** `from` and `to` (css-animations-1 §3): one shared frozen node each, since a published result is immutable. */
 const FROM: KeyframeSelector = Object.freeze({ kind: "percent", value: 0 });
 const TO: KeyframeSelector = Object.freeze({ kind: "percent", value: 1 });
@@ -102,7 +109,7 @@ function namedSelector([rawName, offset]: readonly [string, Numeric | undefined]
 }
 
 export type TimingNode = CssTimingFunction | Refused;
-const timingRefused = refused("css_syntax", "timing function");
+const timingRefused = Object.freeze(refused("css_syntax", "timing function")); // shared: frozen once
 const numberOf = (q: Numeric | undefined): number | null => (q?.kind === "quantity" && q.type === "number" ? q.value : null);
 
 /**
@@ -168,7 +175,7 @@ export const valueActions = {
     call: { kind: "map", fn: callValue },
     varCall: { kind: "map", fn: callValue },
     badTerm: { kind: "span", fn: (_: string, start: number, end: number): Refused =>
-        Object.freeze({ ...refused("css_syntax", "scalar"), span: Object.freeze({ start, end }) }) },
+        ({ kind: "refused", code: "css_syntax", expected: "scalar", span: { start, end } }) },
     spaceList: { kind: "map", fn: listOf("space") },
     slashList: { kind: "map", fn: listOf("slash") },
     commaList: { kind: "map", fn: listOf("comma") },

@@ -42,7 +42,8 @@ export type ColorNode =
 type Component = Numeric | NoneToken;
 
 const CONTEXT_NODE: ColorNode = Object.freeze({ kind: "context" });
-const invalid = (expected: string): ColorNode => Object.freeze({ kind: "invalid", expected });
+/** The colour grammar's failure record: internal, read once where it is published (`../index`), so not frozen (see `Refused`). */
+const invalid = (expected: string): ColorNode => ({ kind: "invalid", expected });
 /**
  * A colour enters the parse here and only here (a space's factory, or `color-mix()`'s resolution), so
  * it is frozen here, with its channels: every node a parse publishes is built frozen (`../result`).
