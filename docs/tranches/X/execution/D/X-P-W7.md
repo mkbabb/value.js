@@ -2631,3 +2631,20 @@ W7.md has no §State clause and designates no seat to stamp a verb. ADDENDA (b),
 **Honest-RED set:** none admissible (C1-1 unrelieved). **Successors:** X.P.W7P "Opens when" = owner OTP **and** "X.P.W7 has CLOSED its engineering gates" — both conjuncts RED; W7P is lawfully blocked.
 
 **Verdict: NOT-CONFORMANT.** LEDGER row stays PARTIAL; an event line is appended.
+
+## Repair 1 of the RESUME 6 Close (2026-09-25, repair seat round 1, `claude-opus-5-5`, Track D; answers `## Check 1 of the RESUME 6 Close`)
+
+**Read:** W7.md whole (268 lines; ADDENDUM (f) binds); `## Check 1 of the RESUME 6 Close` (the register). **Crash-recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D`⟩ → empty. The parse-that master's dirty paths (rust/**, docs/**) are outside this wave's bounds and were left alone. HEAD at open: `ae00cd6d`.
+
+| # | Defect | Cure | Commit | Gate re-reading |
+|---|---|---|---|---|
+| C1-1 | HIGH: L-G1 not read on the final bytes `5d46e376`; Firefox large accepted `parseStylesheet` born-RED ×1.056 | **None possible from this seat: ESCALATED.** The only cure is measurement under ADDENDUM (f) 3's quiet-host protocol (1-min load < 8), or the owner's ruling on ESC-W7l4-1 / R-l4-2. No product byte is at fault, so there is no product-byte cure. Any code change, noise band or recorded-not-gated relief would be a masking fallback, which (f) refuses. | none | ⟨`uptime`⟩ ×2 at this seat → 1-min **53.74**, **54.05** (5-min 56.9, 15-min 54.0; sibling fleets running). That is 6.7× over the protocol threshold, after two prior 90-min waits that never quieted (min 25.48). No L-G1 cell was read, because a read at this load would be a voided cell (R-l-2). |
+| C1-2 | INFO: the one ASCII-only mismatch is inside the 4 CP-CASE rows | none required | none | not re-run (no byte moved) |
+
+**Gates a cure could move:** none. No product or bench byte changed in this sitting, so L-G2 (92 = 88 + 4), L-G3 (0), E-4 and the stay-GREEN figures stand as Check 1 re-read them on `5d46e376`.
+
+**Escalation (to the orchestrator, then the owner):** ESC-W7l4-1 stands, unchanged. It needs one of the following:
+- (i) a Track-D sitting with the sibling fleets paused, so the host reaches 1-min load < 8 and the L-G1 ×2 read on all four engines can be taken (R-l4-1);
+- (ii) the owner's ruling on R-l4-2: whether the large cell must compare equal work.
+
+**Verdict:** 0 cured, 1 escalated. The row stays PARTIAL.
