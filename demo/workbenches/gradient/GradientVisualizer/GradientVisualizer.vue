@@ -170,7 +170,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                             (v: AcceptableValue) => (type = v as GradientType)
                         "
                     >
-                        <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                             <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -203,7 +203,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                                 (interpolationSpace = v as PickerSpace)
                         "
                     >
-                        <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                             <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -236,7 +236,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                                 (hueMethod = v as HueInterpolationMethod)
                         "
                     >
-                        <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                             <SelectValue />
                         </SelectTrigger>
                         <SelectContent>

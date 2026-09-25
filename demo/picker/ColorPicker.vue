@@ -385,7 +385,7 @@ watch(
 
 // --- The orchestrated open (R.W3 Lane E / E1; retimed S.W3-5; X.W12.b) ---
 // One breath, three beats, SEQUENCED on the overture's glass-token clock:
-// plate-land (`--overture-plate-land` = `--spring-snappy-duration`, the cartoon
+// plate-land (`--overture-plate-land` = `--spring-panel-duration`, the cartoon
 // shadow casting in) → field paint-in (SpectrumCanvas) → the channel stagger,
 // whose base is `--overture-stagger-base` (overture.css): it starts when the
 // plate has LANDED, so the rows never rise inside a plate that is still
@@ -440,7 +440,7 @@ onUnmounted(() => {
        morphs forced a reflow every frame of the swap. Transform only now.
        T.W5-R11 (T-14 / D7): the nudge is a SPATIAL travel — it rides
        `--transition-liquid-spatial` at the spring's OWN clock
-       (`--spring-smooth-duration`), never a bezier on a generic clock; the
+       (`--spring-present-duration`), never a bezier on a generic clock; the
        producer's PRM carve re-aliases the token to `--ease-standard` under
        reduced motion.
        X.W12.b: this rule (0,2,0 scoped) outranked the overture's former
@@ -450,7 +450,7 @@ onUnmounted(() => {
        The landing is now a keyframe (overture.css), which a transition can
        neither outrank nor be triggered by; the slot's vj-enter region rules
        own every swap. */
-    transition: transform var(--spring-smooth-duration) var(--transition-liquid-spatial);
+    transition: transform var(--spring-present-duration) var(--transition-liquid-spatial);
 }
 
 /* T.W4-5 — THE SEAT lives in the colocated grammar sheet (./seat.css —

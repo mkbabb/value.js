@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { useTouchGate } from "@mkbabb/glass-ui";
 import { channelNumber, withChannel } from "../../../color-session/picker-color";
 import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";

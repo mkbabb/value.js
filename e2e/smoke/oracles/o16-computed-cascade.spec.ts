@@ -92,8 +92,8 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber 
  * the RESULT, never trusts the declaration).
  *
  * Row map (t-transitions-liquid §2 · the retune table of record):
- *   R2  pane-swap ENTER  — transform `--spring-snappy` @ the RESOLVED
- *       `--spring-snappy-duration` (own clock)
+ *   R2  pane-swap ENTER  — transform `--spring-panel` @ the RESOLVED
+ *       `--spring-panel-duration` (own clock)
  *   R3  pane-swap LEAVE  — opacity+transform `--ease-out` @ the RESOLVED
  *       `--duration-fast`; STRICTLY shorter than the enter (the exit law,
  *       gate 5)
@@ -108,9 +108,9 @@ test("O-16 computed-cascade — the dist :root 150ms transition-default clobber 
  *       The live rail-item press leg — transform `--spring-press` @ the
  *       RESOLVED `--spring-press-duration` (the rule reads that token).
  *   R8  skeleton settle  — the vj-morph enter family (transform snappy @ the
- *       RESOLVED `--spring-snappy-duration`)
+ *       RESOLVED `--spring-present-duration`)
  *   R11 .pane-shell nudge — transform `--transition-liquid-spatial` @ the
- *       RESOLVED `--spring-smooth-duration` (the rule reads that token)
+ *       RESOLVED `--spring-present-duration` (the rule reads that token)
  *   Resolved-token pattern (§0az): every row measuring a DEMO rule asserts
  *   equality with the token's value resolved by getComputedStyle on the
  *   rule's own element, and the rule reads that token — drift is cured at
@@ -230,10 +230,10 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             // R11 — the live .pane-shell nudge.
             const shell = document.querySelector(".pane-shell");
             const paneShell = shell ? readLegs(shell) : null;
-            // The .pane-shell rule reads `--spring-smooth-duration` /
+            // The .pane-shell rule reads `--spring-present-duration` /
             // `--transition-liquid-spatial`.
             const shellTok = shell
-                ? resolve(shell, "--spring-smooth-duration", "--transition-liquid-spatial")
+                ? resolve(shell, "--spring-present-duration", "--transition-liquid-spatial")
                 : null;
 
             // R9 — RECORDED (handed across to W6-2): the current handle, if
@@ -260,11 +260,11 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         const log = (row: string, v: unknown) =>
             console.log(`[O-16·W5·${scheme}] ${row}: ${JSON.stringify(v)}`);
 
-        // R2 — enter transform: snappy spring @ its OWN clock, the resolved
-        // `--spring-snappy-duration` (0.44s at glass 7.0.0 — never a literal).
+        // R2 — enter transform: the panel spring @ its OWN clock, the resolved
+        // `--spring-panel-duration` (0.45s at glass 10.1.0 — never a literal).
         expect(census.enter, "R2: no pane wrapper child found").toBeTruthy();
         log("R2 enter", census.enter);
-        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-snappy-duration`,
+        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-panel-duration`,
         // read by getComputedStyle on the rule's own element (the live pane under
         // `vj-enter-enter-active`) — never a literal of the producer's clock.
         expect(census.enter!["transform"]?.duration).toBe(
@@ -273,7 +273,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
                     .firstElementChild as HTMLElement;
                 const prev = el.style.getPropertyValue("animation-duration");
                 el.classList.add("vj-enter-enter-active");
-                el.style.setProperty("animation-duration", "var(--spring-snappy-duration)");
+                el.style.setProperty("animation-duration", "var(--spring-panel-duration)");
                 const resolved = getComputedStyle(el).animationDuration;
                 el.style.setProperty("animation-duration", prev);
                 el.classList.remove("vj-enter-enter-active");
@@ -327,9 +327,9 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         expect(census.rail!["transform"]?.timing).toMatch(/^linear\(/);
 
         // R8 — the settle family: vj-morph enter transform snappy @ the
-        // resolved `--spring-snappy-duration` (0.44s at glass 7.0.0).
+        // resolved `--spring-present-duration` (0.44s at glass 7.0.0).
         log("R8 vj-morph enter", census.morph);
-        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-snappy-duration`,
+        // ESC-W5c2-1 (COHESION §0ay): equal to the RESOLVED `--spring-present-duration`,
         // read by getComputedStyle on the rule's own element (the census's
         // `vj-morph-enter-active` probe, through the real cascade).
         expect(census.morph["transform"]?.duration).toBe(
@@ -337,7 +337,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
                 const el = document.createElement("div");
                 el.className = "vj-morph-enter-active";
                 document.body.appendChild(el);
-                el.style.setProperty("animation-duration", "var(--spring-snappy-duration)");
+                el.style.setProperty("animation-duration", "var(--spring-present-duration)");
                 const resolved = getComputedStyle(el).animationDuration;
                 el.remove();
                 return resolved;
@@ -346,7 +346,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
         expect(census.morph["transform"]?.timing).toMatch(/^linear\(/);
 
         // R11 — the shell nudge: `--transition-liquid-spatial` @ the RESOLVED
-        // `--spring-smooth-duration` — the tokens its rule reads (§0az).
+        // `--spring-present-duration` — the tokens its rule reads (§0az).
         expect(census.paneShell, "R11: .pane-shell not found").toBeTruthy();
         log("R11 pane-shell", census.paneShell);
         log("R11 resolved tokens", census.shellTok);
@@ -359,7 +359,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
             "R9 gradient-stop handle",
             census.r9Present
                 ? "present on this view (verify at W6-2 merge)"
-                : "HANDED-ACROSS → W6-2 (T-46); target --spring-snappy @ --spring-snappy-duration; census owns the row at merge",
+                : "HANDED-ACROSS → W6-2 (T-46); target --spring-present @ --spring-present-duration; census owns the row at merge",
         );
 
         // R10 — DISCHARGED BY EXCISION (W0-3 CC-6): no 0.55s scrim exists;

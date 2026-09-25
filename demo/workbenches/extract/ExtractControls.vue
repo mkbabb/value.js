@@ -35,7 +35,7 @@
                     :max="16"
                     :step="1"
                     class="relative w-full"
-                    :style="{ '--slider-track-bg': 'transparent' }"
+                    :style="{ '--glass-slider-track-background': 'transparent' }"
                     @update:model-value="(v: number[] | undefined) => v && $emit('update:k', v[0]!)"
                 />
             </div>
@@ -71,7 +71,7 @@
             <DockSeparator />
 
             <!-- Chroma weight slider. T-44a (T.W6.5 row 9 · §6.7): the former
-                 `--slider-track-bg: var(--muted)` was dark-on-dark against
+                 `--glass-slider-track-background: var(--muted)` was dark-on-dark against
                  the plate ground ("These sliders are un-readable", §0.6
                  t33-audit-11) — the track re-inks with the CONTRACT: the
                  live pick certified against its rung at the WCAG 1.4.11
@@ -87,7 +87,7 @@
                     :max="1.5"
                     :step="0.1"
                     class="flex-1"
-                    :style="{ '--slider-track-bg': trackInk }"
+                    :style="{ '--glass-slider-track-background': trackInk }"
                     @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
                 />
                 <span class="fira-code text-micro plate-ink tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>

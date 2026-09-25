@@ -8,18 +8,23 @@
             <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->
-            <SearchBar
+            <div
                 v-if="subView === 'admin-users'"
-                v-model="pm.usersSearch.value"
-                class="search-seated"
-                aria-label="Search users"
-                placeholder="Search users..."
+                class="input-bar search-seated"
             >
+                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                <input
+                    v-model="pm.usersSearch.value"
+                    type="search"
+                    aria-label="Search users"
+                    placeholder="Search users..."
+                    class="input-bar-field"
+                />
                 <UserSortMenu
                     :sort="pm.userSortMode.value"
                     @update:sort="pm.onUserSortChange"
                 />
-            </SearchBar>
+            </div>
 
             <!-- Users sub-view. X.W7.d (fold W7.68 · L-2): the panel injects the
                  admin port itself — no port member is forwarded as a prop. -->
@@ -58,12 +63,16 @@
                 <!-- X.W5.c2 · gate N15: the names query seats BELOW the
                      Pending | Approved selector (source order, not `order:`). -->
                 <template #query>
-                    <SearchBar
-                        v-model="pm.namesSearch.value"
-                        class="search-seated"
-                        aria-label="Search color names"
-                        placeholder="Search color names..."
-                    />
+                    <div class="input-bar search-seated">
+                        <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                        <input
+                            v-model="pm.namesSearch.value"
+                            type="search"
+                            aria-label="Search color names"
+                            placeholder="Search color names..."
+                            class="input-bar-field"
+                        />
+                    </div>
                 </template>
             </AdminNamesPanel>
 
@@ -80,6 +89,7 @@
 </template>
 
 <script setup lang="ts">
+import { Search } from "@lucide/vue";
 import { inject, computed } from "vue";
 import { Card } from "../../ui/card";
 import { Badge } from "../../ui/badge";
@@ -94,7 +104,6 @@ import {
     AdminTagsPanel,
 } from "../browser/admin";
 import { UserSortMenu } from "../browser/search";
-import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import type { PaneId } from "../../shell/viewSchema";
 

@@ -1,1 +1,1 @@
-export { Input } from "@mkbabb/glass-ui/forms";
+export { Input } from "@mkbabb/glass-ui/input";

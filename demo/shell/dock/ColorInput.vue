@@ -13,7 +13,7 @@
                         contenteditable
                         role="textbox"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
-                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-input px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
@@ -60,7 +60,7 @@
 
                     <!-- Inline send button — T.W5-R5: the spatial hover/press
                          legs come from the producer `btn-interactive` atom
-                         (scale @ --spring-smooth-duration on
+                         (scale @ --spring-present-duration on
                          --transition-liquid-spatial, house press/hover
                          magnitudes + focus register); .send-btn keeps only
                          seat geometry (see the scoped block). -->
@@ -329,7 +329,7 @@ defineExpose({
  * (scale 1.1/0.95 composed into `transform` @ --duration-fast --ease-standard
  * — the F3 spatial-on-bezier stray) is RETIRED onto the producer
  * `btn-interactive` atom (template class): the scale longhand rides
- * --transition-liquid-spatial @ --spring-smooth-duration, press/hover
+ * --transition-liquid-spatial @ --spring-present-duration, press/hover
  * magnitudes + focus ring + disabled opacity are the house registers. This
  * block keeps ONLY the seat geometry — the static translateY(-50%) transform
  * composes cleanly under the atom's `scale` longhand. */
@@ -351,7 +351,7 @@ defineExpose({
     right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
-    @apply text-xs;
+    @apply text-caption;
     line-height: 1;
     padding: 0.2rem 0.4rem;
     border-radius: var(--radius-sm);

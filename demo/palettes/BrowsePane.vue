@@ -7,11 +7,14 @@
                  T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->
-            <SearchBar
-                v-model="pm.searchQuery.value"
-                class="search-seated"
-                placeholder="Search palettes..."
-            >
+            <div class="input-bar search-seated">
+                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                <input
+                    v-model="pm.searchQuery.value"
+                    type="search"
+                    placeholder="Search palettes..."
+                    class="input-bar-field"
+                />
                 <SearchFilterBar
                     :sort="pm.sortMode.value"
                     :tier="pm.tierFilter.value"
@@ -24,7 +27,7 @@
                     @color-search="onColorSearch"
                     @clear-color-search="onClearColorSearch"
                 />
-            </SearchBar>
+            </div>
 
             <div class="grid gap-3 pb-3">
                 <!-- T.W5-R8 (T-14 / D7 · F5): skeleton→content is "ONE
@@ -180,10 +183,9 @@
 
         <!-- X-W7 Repair 1 (§2a · ESC-W7e-AP6): the browse-wall admin delete is the
              fifth destructive seat — confirmed first, composed exactly as the four
-             Admin seats compose it (deliberate rung `:show-close="false"` at the
-             installed glass 7.0.0; the deliberate `dismiss` rung is the glass ≥ 8.0.0 spelling). -->
+             Admin seats compose it (the `dismiss="deliberate"` rung, glass 10.1.0). -->
         <Dialog v-model:open="deleteConfirmOpen">
-            <DialogContent surface="glass" :show-close="false">
+            <DialogContent surface="glass" dismiss="deliberate">
                 <DialogHeader>
                     <DialogTitle>Delete palette?</DialogTitle>
                     <DialogDescription>
@@ -214,7 +216,7 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import { Trash2 } from "@lucide/vue";
+import { Search, Trash2 } from "@lucide/vue";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
@@ -227,7 +229,6 @@ import {
     VersionHistoryDrawer,
     FlagReportDialog,
 } from "./browser/dialog";
-import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import type { Palette, Tag } from "./types";
 import { useDialogBrowseActions } from "./browser/dialog";

@@ -397,35 +397,21 @@
     --shadow-card: var(--shadow-cartoon);
     --shadow-card-hover: var(--shadow-cartoon-hover);
 
-    /* PROJECT OVERRIDE: monospace font for DropdownMenu panels (glass-ui
-     * defaults to `inherit`). The producer consumes this token live —
-     * `dist/components/_shared/menu.css`: `.dropdown-menu-content,
-     * .dropdown-sub-content { font-family: var(--dropdown-menu-font, inherit) }`.
+    /* The DropdownMenu/Select font pins are BOTH deleted — inert declarations,
+     * not a ruled change of voice.
      *
-     * X.W5.b · gate N13 (fold W5F-69 ← ⟨PaletteSlugBar · A-29⟩) — THE SELECT
-     * HALF OF THIS PAIR IS DELETED, AS A RULED CHOICE, NOT AS DRIFT. Measured
-     * 2026-09-19 against the installed producer (@mkbabb/glass-ui 7.0.0):
-     * `--select-font` has ZERO occurrences in the whole package, while
-     * `--dropdown-menu-font` has a live consumer (quoted above). The Select
-     * font seam was removed at the W44 adoption without a note, so the pin
-     * that used to sit on this line had been inert for the whole of glass 7
-     * while two lines of demo/DESIGN.md still documented it as live — the
-     * silent-major-version-drift family A-11 names.
+     * X.W5.b · gate N13 (2026-09-19, glass 7.0.0) deleted the Select half:
+     * `--select-font` had zero occurrences in the installed producer.
      *
-     * N13 is an either/or across three sites and BOTH halves had to move
-     * together; this is the deletion branch, taken here because it is the one
-     * this unit can execute whole: the alternative branch is a glass-ui BH
-     * relay asking for the token back, and a producer ask is a LETTER, never
-     * a local patch (glass-ui is READ-ONLY, always). That relay ask is NOT
-     * discharged by this deletion — it rides fold §6f CE-10 with the
-     * PSC-2/PSC-6/PSC-19 family, and the standing owner feedback is that the
-     * Select font is a TOKEN decision at the producer and not a hardcode. If
-     * the producer restores the seam, the pin returns on this line beside its
-     * sibling; nothing about that is lost by removing an inert declaration
-     * now. The two demo/DESIGN.md lines are corrected in this same commit —
-     * a half-cure would only move the drift from the stylesheet into the
-     * documentation. */
-    --dropdown-menu-font: var(--font-mono);
+     * X-W7L (2026-09-25, glass 10.1.0) deletes the menu half on the same
+     * measurement: `--dropdown-menu-font` has ZERO occurrences in the
+     * installed 10.1.0 package. glass 8.0.0's overlay register (`bca22bd9`,
+     * BK #89 W-OVERLAY) removed the unlayered `.dropdown-menu-content,
+     * .dropdown-sub-content { font-family: var(--dropdown-menu-font) }` block
+     * with no MIGRATION row. A producer seam is a LETTER, never a local patch
+     * (glass-ui is READ-ONLY): the mono-menu ask rides the glass relay with
+     * the Select ask (INBOX, X-W7L). If the producer restores the seam, the pin
+     * returns here. */
 
     /* ── The display-weight pin (T.W4-1 — D2 "non-bold"; the P10 booked swap) ──
      * The owner's non-bold edict for the display voice, pinned at :root the

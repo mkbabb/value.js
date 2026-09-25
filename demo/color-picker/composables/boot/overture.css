@@ -11,11 +11,11 @@
  * chain — cascade order preserved. ═══ */
 
 :root {
-    /* B1 · the plate-land family (--spring-snappy on ITS OWN clock — glass's
-     * `--spring-snappy-duration`, 0.44s × tempo; X.W12.b retired the local
+    /* B1 · the plate-land family (--spring-panel on ITS OWN clock — glass's
+     * `--spring-panel-duration`, 0.45s × tempo; X.W12.b retired the local
      * 440ms copy of it; staggers per the beat sheet: dock +0 · left +40ms ·
      * right +120ms). */
-    --overture-plate-land: var(--spring-snappy-duration);
+    --overture-plate-land: var(--spring-panel-duration);
     --overture-dock-delay: 0ms;
     --overture-left-delay: 40ms;
     --overture-right-delay: 120ms;
@@ -94,7 +94,7 @@
 }
 .overture-appear-active {
     animation: overture-plate-settle var(--overture-plate-land)
-        var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards;
+        var(--spring-panel) var(--overture-appear-delay, 0ms) backwards;
 }
 
 /* ── B1 · the dock voice (the M-14 booked-interim): veiled while the
@@ -125,7 +125,7 @@
  * beat retires; it does not squat on the compositor. */
 .overture-dock-land {
     animation: overture-plate-land var(--overture-plate-land)
-        var(--spring-snappy) var(--overture-dock-delay) backwards;
+        var(--spring-dock) var(--overture-dock-delay) backwards;
 }
 
 /* ── B1 · the picker plate's editorial signature (R.W3 Lane E / E1 beat
@@ -155,7 +155,7 @@
          * box-shadow IS var(--shadow-cartoon) (probed computed-equal), so the
          * release at animationend is seamless. */
         animation: plate-land var(--overture-plate-land, 440ms)
-            var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards;
+            var(--spring-present) var(--overture-appear-delay, 0ms) backwards;
     }
 }
 

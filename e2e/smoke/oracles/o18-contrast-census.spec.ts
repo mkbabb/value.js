@@ -528,7 +528,7 @@ for (const scheme of ["light", "dark"] as const) {
                 const probe = document.createElement("div");
                 probe.style.cssText =
                     "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
-                probe.style.background = "var(--glass-bg-resting)";
+                probe.style.background = "var(--glass-plate-resting)";
                 document.body.appendChild(probe);
                 const tint = resolve(getComputedStyle(probe).backgroundColor);
                 probe.remove();
@@ -849,7 +849,7 @@ for (const scheme of ["light", "dark"] as const) {
                 const probe = document.createElement("div");
                 probe.style.cssText =
                     "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
-                probe.style.background = "var(--glass-bg-resting)";
+                probe.style.background = "var(--glass-plate-resting)";
                 document.body.appendChild(probe);
                 const tint = resolve(getComputedStyle(probe).backgroundColor);
                 probe.remove();
@@ -1155,7 +1155,7 @@ for (const scheme of ["light", "dark"] as const) {
 // 1.4.11 wants ≥3:1 for the control's extent), and the spectrum `.slider-range`
 // is transparent by recipe so no filled/unfilled split reads either. This leg
 // is the cure's BORN-RED gate: born red against the pre-cure `--secondary`
-// track, green against the `--slider-track-bg: var(--ink-muted)` re-ink
+// track, green against the `--glass-slider-track-background: var(--ink-muted)` re-ink
 // (ConfigSliderPane — the SAME certified-material class as the eb7bb2c Extract
 // re-ink). The census extension is the W6.5 precedent (a bounds extension, not
 // a weakening — the GRAPHICS floor is unchanged).

@@ -48,8 +48,8 @@ import {
 // O-18 census enforces the live path in the real browser.
 
 const TIER_BG_TOKEN: Partial<Record<InkSurface, string>> = {
-    resting: "--glass-bg-resting",
-    floating: "--glass-bg-floating",
+    resting: "--glass-plate-resting",
+    floating: "--glass-plate-floating",
     well: "--well-bg",
 };
 

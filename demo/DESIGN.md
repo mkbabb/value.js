@@ -8,7 +8,7 @@ Tokens live in two places, in this cascade order (style.css:1-4):
 
 1. `@import "tailwindcss"` → `@import "tw-animate-css"` → `@import "@mkbabb/glass-ui/styles"` — glass-ui ships the full contract surface (durations, easings, z-tiers, radii, shadows, glass tiers, type scale, layout/sizing — see glass-ui DESIGN.md §Token Architecture). Consume by name, not by re-declaring.
 2. `@import "./animations.css"` — project-specific keyframes + `prefers-reduced-motion` carve-out.
-3. `:root` in `style.css` — the demo's narrow override surface: the font root (`--font-stack-display` → Fraunces — the SOURCE cure, R.W3 Lane A), the accent axis (`--accent-live` + the `--primary` re-point + the glass tint feed), the `--card-edge` hairline mint (§ Depth), `--shadow-cartoon` / `--shadow-cartoon-hover` (heavier rung) with `--shadow-card` routed through cartoon, `--dropdown-menu-font` pinned to mono, the layout tokens (§ Layout), and the `.dark` shadow re-pin. Add new project tokens here under a commented rationale; do NOT spin up a parallel `design-idioms.css` (see § Idioms NOT used).
+3. `:root` in `style.css` — the demo's narrow override surface: the font root (`--font-stack-display` → Fraunces — the SOURCE cure, R.W3 Lane A), the accent axis (`--accent-live` + the `--primary` re-point + the glass tint feed), the `--card-edge` hairline mint (§ Depth), `--shadow-cartoon` / `--shadow-cartoon-hover` (heavier rung) with `--shadow-card` routed through cartoon, the layout tokens (§ Layout), and the `.dark` shadow re-pin. Add new project tokens here under a commented rationale; do NOT spin up a parallel `design-idioms.css` (see § Idioms NOT used).
 
 ## § Type
 
@@ -34,14 +34,15 @@ compiled utilities paint) and are deleted.
   fallback ships and the body paints system-ui). `--font-serif` resolves to the
   body voice via the glass-ui bridge (the demo no longer aliases serif→Fraunces).
 - **Fira Code — the readout/annotation voice.** Numeric readouts, code, admin
-  labels, plate captions/section labels. `--dropdown-menu-font` pins DropdownMenu
-  panels to mono so numeric values read cleanly. **The Select half of that
-  pair is gone** (X.W5.b · gate N13): glass-ui 7.0.0 ships no `--select-font`
-  seam — zero occurrences in the installed package, measured 2026-09-19 —
-  so the demo's pin was inert and this line documented a token that did
-  nothing. Restoring the seam is a producer ask on the glass-ui BH relay
-  (fold §6f CE-10), never a local override; until it lands, Select triggers
-  speak the body voice.
+  labels, plate captions/section labels. **Both menu-font pins are gone.**
+  The Select half went at X.W5.b · gate N13 (glass-ui 7.0.0 ships no
+  `--select-font` seam, measured 2026-09-19). The DropdownMenu half went at
+  X-W7L: glass-ui 8.0.0's overlay register (`bca22bd9`) removed the
+  `--dropdown-menu-font` reader with no MIGRATION row, and 10.1.0 carries
+  zero occurrences (measured 2026-09-25). Restoring either seam is a
+  producer ask on the glass relay (fold §6f CE-10; INBOX X-W7L), never a
+  local override; until it lands, Select triggers and menu panels speak the
+  voice their call site gives them.
   **Mono on a FIELD is a statement about the content, never a default**
   (T.W3-3 / T-12): a prose search field speaks the body voice (the seated
   register strips the producer recipe's baked `--font-mono` — ASK-B's seam
@@ -106,7 +107,7 @@ rung routes to ratification; off-ladder material mints are prohibited
 | **4 · STAGE** | the named near-black pair `--stage`/`--on-stage-chrome` (warm stone, **scheme-invariant** — a photograph's ground never flips) | the extract camera/image stage, its caption veil, on-stage chrome chips |
 
 The PaneHeader veil is rung-1's material at a scroll-earned intensity
-(`--glass-bg-resting` + `--glass-blur-resting` + rest floor — see
+(`--glass-plate-resting` + `--glass-blur-resting` + rest floor — see
 `PaneHeader.vue`; C2's reconciliation, the CC-3 bespoke recipe retired).
 **THE REGISTER LAW (W3-3, landed)**: *fields on paper wear paper; fields on
 glass stay glass.* glass-ui's `.input-bar` is CHROME (rung-3 dock furniture —
@@ -198,7 +199,7 @@ Dark mode lightens the cartoon rung (style.css:146-147) by dropping the shadow-c
 Role-bearing tokens (glass-ui DESIGN.md §Border Radius):
 
 - `rounded-card` (= `--radius-card` = 16 px) — Card surfaces, palette cards, gradient swatch.
-- `rounded-input` (= `--radius-input` = 8 px) — text inputs.
+- `rounded-media` (= `--radius-media` = `--radius`) — text inputs (glass 8.0.0 retired `--radius-input` and its `rounded-input` utility for `--radius-media`).
 - `rounded-pill` / `rounded-full` — chips, slug pills, dock control.
 - `rounded-panel` (= 12 px) — popovers, bulk-action toolbar, eyedropper overlay.
 
@@ -232,7 +233,7 @@ Glass-ui ships two parallel duration token families (DESIGN.md §Duration, §Eas
 
 The two families coexist by design — Family A is the everyday rhythm (where the demo lives); Family B is the celebratory grammar (reserved for staged-reveal sites the demo doesn't yet author).
 
-**§ Easings.** `var(--ease-standard)` (decel cubic, default), `var(--ease-decelerate)` / `var(--ease-accelerate)` (entry/exit), `var(--spring-snappy)` / `var(--spring-smooth)` / `var(--ease-spring)` (spring physics for transforms). The `--motion-ease-*` aliases (`--motion-ease-standard`, etc.) point at the same curves; the unprefixed names are the consumer-facing surface.
+**§ Easings.** `var(--ease-standard)` (decel cubic, default), `var(--ease-decelerate)` / `var(--ease-accelerate)` (entry/exit), the six role springs `var(--spring-press)` · `var(--spring-present)` · `var(--spring-dock)` · `var(--spring-panel)` · `var(--spring-bloom)` · `var(--spring-world)`, each with its own `-duration` clock (spring physics for transforms; glass 8.0.0 retired snappy/smooth/bouncy/gentle). The `--motion-ease-*` aliases (`--motion-ease-standard`, etc.) point at the same curves; the unprefixed names are the consumer-facing surface.
 
 **§ The liquid two-channel law (T.W5 — T-14/D7, the motion table of record).**
 SPATIAL (translate/scale travel) = a spring at ITS OWN clock (`--spring-<name>` @
@@ -247,15 +248,15 @@ cards consume the cartoon register (`cartoon-surface` + `.cartoon-cast` +
 
 | Register (T.W5 row) | Site | Pairing | Status |
 |---|---|---|---|
-| Pane swap ENTER (R2) | `animations.css` `.pane-wrapper--* > .vj-enter-enter-active` | transform `--spring-snappy` @ `--spring-snappy-duration` (PKT-2 arm (i) — the ~0.3s preset unanswered at this cut) | landed |
+| Pane swap ENTER (R2) | `animations.css` `.pane-wrapper--* > .vj-enter-enter-active` | transform `--spring-present` @ `--spring-present-duration` (PKT-2 arm (i) — the ~0.3s preset unanswered at this cut) | landed |
 | Pane swap LEAVE (R3) | same block, leave-active | opacity+transform `--duration-fast` `--ease-out` — the exit law | landed |
 | Card cartoon (R4) | `PaletteCard.vue` root | producer `cartoon-surface` register: translate/scale `--ease-cartoon-punch` @ `--duration-normal`, shadow `--ease-standard`, press squash + lagging caster | landed |
-| Interactive scales (R5) | editor buttons, add-slot, send-btn (`btn-interactive`); `.channel-rail-item` press leg (`--spring-press` @ 0.16s) | `--transition-liquid-spatial` @ `--spring-smooth-duration`; press @ its own clock | landed |
+| Interactive scales (R5) | editor buttons, add-slot, send-btn (`btn-interactive`); `.channel-rail-item` press leg (`--spring-press` @ 0.16s) | `--transition-liquid-spatial` @ `--spring-present-duration`; press @ its own clock | landed |
 | Skeleton settle (R8) | `BrowsePane.vue` state chain; extract already settled (W3-2) | `vj-morph` out-in; stagger dormant on the PKT-4 seams | landed |
-| `.pane-shell` nudge (R11) | `ColorPicker.vue` | `--transition-liquid-spatial` @ `--spring-smooth-duration` | landed |
+| `.pane-shell` nudge (R11) | `ColorPicker.vue` | `--transition-liquid-spatial` @ `--spring-present-duration` | landed |
 | Bare-utility default (R1) | 37-file census | `--duration-fast` + `--ease-standard` via the `@theme` alias (style.css:119) — DEAD until PKT-1 clears the dist `:root` 150ms clobber; NO demo cascade arms-race | producer-gated (O-16 row EXPECTED-RED) |
 | Collapse legs (R6/R7 — Tranche B) | `vj-morph`/`vj-celebrate` `max-height` legs; dock action-bar grid slot | compositor re-cut per the PKT-3 recipe; NEVER retimed on layout properties (PI-5) | PKT-3-gated, untouched |
-| Gradient stop handle (R9) | `GradientStopEditor.vue` | `--spring-snappy` @ `--spring-snappy-duration` — the retime rides INSIDE W6-2's re-author (T-46); W5's O-16 census owns the row's verification | handed across → W6-2 |
+| Gradient stop handle (R9) | `GradientStopEditor.vue` | `--spring-present` @ `--spring-present-duration` — the retime rides INSIDE W6-2's re-author (T-46); W5's O-16 census owns the row's verification | handed across → W6-2 |
 | Dialog scrim (R10) | ~~`PaletteDialog.vue:310`~~ | the 0.55s scrim DIED with the W0-3 CC-6 PaletteDialog excision; the live dialogs are glass-ui re-exports on the producer bloom clock (F6 KEEP) | discharged by excision |
 | **KEEP** — view-accent sweep (F7.3) | `DockViewSelect.vue` `--accent-view` @ `--duration-panel` (0.55s) `--ease-standard` | EFFECTS-on-bezier, correct channel; the 0.55s is a DELIBERATE stately sweep (W7-4's surviving voice) — kept, stated here so it never reads as a stray | KEEP, do not retime |
 | **KEEP** — tracked canvas (F7.4) | `ImageEyedropper.vue` `.eyedropper-canvas` transform `--duration-fast` `--ease-decelerate` | canon "tracked = bezier": a position-TRACKED transform follows the pointer/gesture, it does not travel on its own — a spring here would fight the hand | KEEP, do not retime |
@@ -278,7 +279,7 @@ reveal/dock/tabs registers, the atmosphere arrival fade, and the PRM guard chain
 
 Custom keyframes live in `demo/@/styles/animations.css` (`edit-drawer-in`, with a mobile media-query restate at ≤ 639 px — see comment at animations.css:12-16 for the intentional inheritance break) + colocated `<style scoped>` blocks (per-component animations). Shared keyframes (dialog, floating-panel, card-menu, shimmer) come from `@mkbabb/glass-ui/styles/animations.css`.
 
-**§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-snappy`, `--spring-smooth`) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
+**§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-present`, `--spring-panel`, …) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
 
 **§ Pane-swap transition mode — NOT `out-in` (dev-vs-build divergence).** The
 per-slot `<Transition>` in `demo/shell/PaneSlot.vue` (re-pointed at X.W5.a — the
@@ -394,7 +395,7 @@ Explicit. A change-list reviewer should flag any of these.
 - **No numeric `z-[NN]` literals** in `demo/@/components/custom/` or `demo/color-picker/` — route through `--z-*` tokens via `z-dock`, `z-popover`, etc. Tailwind utilities (post-Lane A) or `z-[var(--z-popover)]` arbitrary reach.
 - **No `100vh`** — use `100dvh` for mobile-safe viewports. The dock-band math depends on this; `100vh` would clip on iOS Safari with the URL bar collapsed.
 - **No hand-rolled Alert** — consume `Alert` / `AlertTitle` / `AlertDescription` from `@components/ui/alert`, which re-exports glass-ui's primitive (B.W2 idiomatic-gestalt finding N1). The barrel exists for ergonomics; the implementation is upstream.
-- **No magic `[var(--…)]` reaches when a Tailwind utility exists** — post-D.W4 Lane A, ~43 sites collapse to first-class utilities (`z-dock` instead of `z-[var(--z-dock)]`, `duration-fast` instead of `duration-[var(--duration-fast)]`, `rounded-input` instead of `rounded-[var(--radius-input)]`). Truly-bespoke residuals (≤ 5) carry an inline rationale.
+- **No magic `[var(--…)]` reaches when a Tailwind utility exists** — post-D.W4 Lane A, ~43 sites collapse to first-class utilities (`z-dock` instead of `z-[var(--z-dock)]`, `duration-fast` instead of `duration-[var(--duration-fast)]`, `rounded-media` instead of `rounded-[var(--radius-media)]`). Truly-bespoke residuals (≤ 5) carry an inline rationale.
 - **No `button:has(> .lucide-x)` or similar markup-coupled selectors** — use role/label or a stable `data-*` (Lane A fix in `PaletteDialog.vue`).
 - **No parallel `design-idioms.css`** — tokens live in `style.css :root` + the glass-ui-published surface; recipes stay colocated in their components' `<style scoped>` blocks. A second CSS file would create a cascade-order split-brain (glass-ui DESIGN.md §Token Architecture → Feature token home rule warns against the same shape; research/Df-styling.md §6 settled the verdict).
 - **No new global utility class for one consumer** — colocate to the component's `<style scoped>` (post-D.W4 Lane A: `.pane-scroll-fade`, the touch-gate cluster, `.palette-tab-content`, `.palette-card-grid` moved out of `style.css`). The shared survivors (`.slug-pill`, `.app-layout`, `.pane-container`, `.underline-tabs`) are true cross-feature recipes; each carries a comment justifying its global residence.

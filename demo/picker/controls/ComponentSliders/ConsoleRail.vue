@@ -88,7 +88,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "../../../ui/tooltip";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { contrastInkFor, resolveMutedInk } from "../../../color-session/ink";

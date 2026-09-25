@@ -3,7 +3,7 @@ import { Copy, Check, Save, RotateCcw } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { computed, TransitionGroup } from "vue";
 import { useClipboard } from "@mkbabb/glass-ui";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../shared/ui/watercolor-dot";
 import type { MixResult } from "./composables/useMixingState";
 import { formatCssCaption } from "../../color-session/format-color";
 

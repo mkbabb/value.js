@@ -83,7 +83,7 @@
 .vj-enter-enter-active {
     transition:
         opacity var(--duration-normal) var(--ease-decelerate),
-        transform var(--spring-smooth-duration) var(--spring-smooth);
+        transform var(--spring-present-duration) var(--spring-present);
 }
 .vj-enter-leave-active {
     transition:
@@ -97,14 +97,14 @@
         rotate(var(--vj-enter-rot, 0deg)) scale(var(--vj-enter-scale, 1));
 }
 .vj-enter-move {
-    transition: transform var(--spring-smooth-duration) var(--spring-smooth);
+    transition: transform var(--spring-present-duration) var(--spring-present);
 }
 
 /* ── Family 2 · morph ── */
 .vj-morph-enter-active {
     transition:
         opacity var(--duration-fast) var(--ease-decelerate),
-        transform var(--spring-snappy-duration) var(--spring-snappy),
+        transform var(--spring-present-duration) var(--spring-present),
         max-height var(--duration-normal) var(--ease-decelerate);
     overflow: hidden;
 }
@@ -135,14 +135,14 @@
     max-height: var(--vj-morph-expanded, none);
 }
 .vj-morph-move {
-    transition: transform var(--spring-snappy-duration) var(--spring-snappy);
+    transition: transform var(--spring-present-duration) var(--spring-present);
 }
 
 /* ── Family 3 · celebration ── */
 .vj-celebrate-enter-active {
     transition:
         opacity var(--duration-fast) var(--ease-decelerate),
-        transform var(--spring-bouncy-duration) var(--spring-bouncy),
+        transform var(--spring-present-duration) var(--spring-present),
         max-height var(--duration-normal) var(--ease-decelerate);
     overflow: hidden;
 }
@@ -228,19 +228,27 @@
 /* -----------------------------------------------------------------------
  * Reduced-motion overlay opacity carve-out (B.W1 Lane B)
  * The global guard above is too blunt for reka-ui Dialog/Sheet/Popover
- * overlays, which drive transitions off [data-state]. This block MUST
- * come after the global guard so its later source order wins the cascade
- * over `transition-duration: 0.01ms` (equal specificity, equal !important).
+ * overlays, which drive transitions off [data-state].
+ * X-W7L (glass 10.0.0 layers every library rule in `@layer components`):
+ * important declarations rank EARLIER layers first, so glass's own PRM
+ * guard (`utilities/a11y-overrides.css`, `transition-duration: 0s
+ * !important` on `*`) now beats any unlayered consumer `!important`. The
+ * carve-out therefore sits in `@layer base` — ordered before `components`
+ * — which is the one place an important declaration outranks both that
+ * layered guard and the unlayered guard above (glass MIGRATION §10.0.0,
+ * "`!important` runs the other way").
  * ----------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-    /* keep state-change opacity fades on overlay primitives — the fade
-     * communicates state without inducing vestibular stress. */
-    [data-state="open"],
-    [data-state="closed"],
-    [data-state="open"]::before,
-    [data-state="closed"]::after {
-        transition-duration: 150ms !important;
-        transition-property: opacity !important;
+@layer base {
+    @media (prefers-reduced-motion: reduce) {
+        /* keep state-change opacity fades on overlay primitives — the fade
+         * communicates state without inducing vestibular stress. */
+        [data-state="open"],
+        [data-state="closed"],
+        [data-state="open"]::before,
+        [data-state="closed"]::after {
+            transition-duration: 150ms !important;
+            transition-property: opacity !important;
+        }
     }
 }
 
@@ -354,14 +362,16 @@
 }
 
 /* T.W5 · R2+R3 (T-14 / D7 — the two-channel law; one moment, one clock):
- * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-snappy`
+ * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-panel`
  * at the spring's OWN clock. The superseded W3-5 retune kept the smooth
  * curve but squeezed it onto `--duration-normal` — the named
  * normalized-spring-on-generic-clock anti-pattern (a spring linear()
  * reaches ~0.5 by ~6% of ANY clock → all travel in the first ~60ms,
  * then dead air; t-transitions-liquid F2). PKT-2 (the ~0.3s preset) is
  * unanswered at this cut, so the swap lands on arm (i) —
- * `--spring-snappy` @ `--spring-snappy-duration` (0.4s true settle);
+ * `--spring-panel` @ `--spring-panel-duration` (0.45s settle at glass 10.1.0;
+ * the panel role is glass's successor for the retired 0.44s `--spring-snappy`
+ * pane clock — X-W7L, mapped by intent per glass MIGRATION §8.0.0);
  * decision recorded on the T.md §7.2 book row.
  * The LEAVE is the exit law: strictly SHORTER than the enter, bezier
  * `--ease-out`, never an overshoot — the outgoing plate is gone before
@@ -375,7 +385,7 @@
 .pane-wrapper--action > .vj-enter-enter-active {
     transition:
         opacity var(--duration-fast) var(--ease-decelerate),
-        transform var(--spring-snappy-duration) var(--spring-snappy);
+        transform var(--spring-panel-duration) var(--spring-panel);
 }
 .pane-wrapper--stage > .vj-enter-leave-active,
 .pane-wrapper--inspector > .vj-enter-leave-active,

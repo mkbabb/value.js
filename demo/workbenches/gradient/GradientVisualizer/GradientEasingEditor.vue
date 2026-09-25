@@ -318,7 +318,7 @@ async function copyLiteral(index: number, css: string) {
     align-items: center;
     justify-content: center;
     padding: 0.3125rem;
-    border-radius: var(--radius-input);
+    border-radius: var(--radius-media);
     color: var(--muted-foreground);
     cursor: pointer;
 }

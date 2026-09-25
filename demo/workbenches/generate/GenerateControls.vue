@@ -18,7 +18,7 @@ import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
 // the marginalia captions below stop floating unassociated and the duplicated
 // literal `aria-label` retires.
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../shared/ui/watercolor-dot";
 import { PaletteColorStrip } from "../../palettes/browser/card";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
 // the chip module + spec; the GenerateControls consume routes through Lane
@@ -244,7 +244,7 @@ defineExpose({ regenerate, save, copyColors });
         <div class="grid grid-cols-2 gap-3">
             <LabeledField label="Preset" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="preset" @update:model-value="onPresetChange">
-                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                    <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <!-- B.W1 width, re-verified at the T-17 chip landing (F7:
@@ -277,7 +277,7 @@ defineExpose({ regenerate, save, copyColors });
 
             <LabeledField label="Harmony" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="harmony" @update:model-value="onHarmonyChange">
-                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                    <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <!-- B.W1 width, re-verified at the T-17 chip landing (F7):
@@ -326,7 +326,7 @@ defineExpose({ regenerate, save, copyColors });
                     :max="12"
                     :step="1"
                     class="relative w-full"
-                    :style="{ '--slider-track-bg': 'transparent' }"
+                    :style="{ '--glass-slider-track-background': 'transparent' }"
                     @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) count = v[0]; }"
                 />
             </div>

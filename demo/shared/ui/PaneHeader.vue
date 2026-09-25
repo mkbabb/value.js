@@ -98,7 +98,7 @@ const { level = 2 } = defineProps<{
     inset: 0 0 -14px 0;
     z-index: -1;
     pointer-events: none;
-    background: var(--glass-bg-resting);
+    background: var(--glass-plate-resting);
     -webkit-backdrop-filter: var(--glass-blur-resting);
     backdrop-filter: var(--glass-blur-resting);
     mask-image: linear-gradient(to bottom, black calc(100% - 14px), transparent);

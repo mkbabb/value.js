@@ -36,7 +36,7 @@
 //
 // The <Transition> below runs `mode="out-in"`: the leaving pane travels out
 // (`--duration-fast`), THEN the incoming pane mounts and travels in
-// (`--spring-snappy`). Measured on this file by the out-in co-mount re-probe
+// (`--spring-panel`). Measured on this file by the out-in co-mount re-probe
 // (`docs/tranches/V/megatranche/workflows/gates/out-in-reprobe.mjs`, RESULTS
 // under `docs/tranches/X/waves/W5/triumvirate/`):
 //   · The default (simultaneous) mode held TWO in-flow panes in one ordinary

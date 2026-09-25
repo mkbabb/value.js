@@ -3,7 +3,7 @@ import { computed, inject, ref, watch, useTemplateRef } from "vue";
 import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from "./";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../shared/ui/watercolor-dot";
 import ActionBarToggle from "./ActionBarToggle.vue";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import SlugEditLayer from "./layers/SlugEditLayer.vue";
@@ -158,12 +158,10 @@ watch(
     <div :class="dockSettle && 'dock-settle'" @animationend.self="dockSettle = false">
         <GlassDock
             ref="dockRef"
-            :collapse-delay="5000"
-            :start-collapsed="false"
+            :collapse="isDesktop ? 'open' : false"
             :fit-content="true"
-            :always-expanded="!isDesktop"
         >
-            <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
+            <DockLayerGroup v-model:active="activeLayer" :show-switcher="false">
                 <!-- Mobile edit layer -->
                 <DockLayer id="mobile-edit" class="justify-center">
                     <WatercolorDot
@@ -367,7 +365,7 @@ watch(
 /* The B3 settle beat — the vj-settle keyframe lives in animations.css
    (keyframes are global); the class is dock-local. */
 .dock-settle {
-    animation: vj-settle var(--spring-snappy-duration) var(--spring-snappy);
+    animation: vj-settle var(--spring-dock-duration) var(--spring-dock);
 }
 
 /* The action-bar toggle slot machine (S.W7-6 boot seat · W6-8 T-29 settle

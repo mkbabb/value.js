@@ -10,9 +10,9 @@
  * `closed` — the click landed on the button but the listbox never opened.
  *
  * The app fix (N.W5 Defect-B): the desktop dock now boots EXPANDED
- * (`Dock.vue` `:start-collapsed="false"`), so the view-select trigger is a
+ * (`Dock.vue` `:collapse="isDesktop ? 'open' : false"`), so the view-select trigger is a
  * top-level reachable control on first paint — exactly as on mobile (where the
- * dock is `always-expanded`). A REAL click then opens the listbox
+ * dock is `:collapse="false"`). A REAL click then opens the listbox
  * deterministically (live-probed: WebGL-off 5/5; SwiftShader-on 3/4, the lone
  * miss being the orthogonal Defect-A WebGL hit-test stall the CI `retries`
  * absorb). This helper is that real-user interaction, factored once:
@@ -36,7 +36,7 @@ import type { Locator, Page } from "@playwright/test";
 /**
  * Ensure the dock is expanded. A real user clicks the collapsed pill before
  * reaching the controls inside it. No-op when the dock is already expanded
- * (mobile `always-expanded`, or desktop's expanded first-paint).
+ * (mobile `:collapse="false"`, or desktop's expanded first-paint).
  */
 export async function expandDock(page: Page): Promise<void> {
     const collapsedPill = page.locator(".glass-dock.collapsed");

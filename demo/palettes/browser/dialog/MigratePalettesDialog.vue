@@ -1,6 +1,6 @@
 <template>
     <Dialog v-model:open="open">
-        <DialogContent class="rounded-dialog max-w-sm">
+        <DialogContent class="max-w-sm">
             <DialogHeader>
                 <!-- T.W4-6 (T-15/F7): dialog headers are title surfaces —
                      display voice at the subheading rung, ≤500 non-bold. -->

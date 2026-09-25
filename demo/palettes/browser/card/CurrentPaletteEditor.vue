@@ -63,7 +63,7 @@
                                      (transition-all + hover:scale-110/active:scale-95 on the
                                      dead 150ms bare-utility default — F3) retire onto the
                                      producer's `btn-interactive` atom: the scale leg rides
-                                     --transition-liquid-spatial @ --spring-smooth-duration
+                                     --transition-liquid-spatial @ --spring-present-duration
                                      (inherited, never re-implemented), press/hover magnitudes
                                      + the house focus register come with it. -->
                                 <button class="btn-interactive p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Save edit" aria-label="Save edit" @click.stop="emit('commitEdit')">
@@ -198,7 +198,7 @@ import {
     Undo2,
 } from "@lucide/vue";
 import type { Palette, PaletteColor } from "../../types";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import ActionFeedback from "./PaletteCard/ActionFeedback.vue";
 import ApiOfflineChip from "../status/ApiOfflineChip.vue";
@@ -285,8 +285,8 @@ function confirmUpdatePalette() {
 <style scoped>
 /* R.W4 Lane A / A3 (U18/U22): the former `.swatch-editing` dashed-outline +
  * `.swatch-cutout` forks are DELETED — the being-edited slot and the edit
- * overlay's FROM slot now consume the glass-ui WatercolorDot ghost variant
- * (the seeded dashed silhouette; one shape source, producer-owned). */
+ * overlay's FROM slot now consume the WatercolorDot ghost variant (relocated from glass-ui into value.js at glass 8.0.0)
+ * (the seeded dashed silhouette; one shape source, `shared/ui/watercolor-dot`). */
 
 /* The add-slot host Button fills with the ghost dot (the dot's own inline style
  * pins position:relative, so it sizes by w/h, never by inset); the Plus glyph is

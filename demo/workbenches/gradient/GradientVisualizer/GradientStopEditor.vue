@@ -660,7 +660,7 @@ function onCaretKeydown(e: KeyboardEvent) {
                        inline `transform` (inline style always outranks the
                        class). Selected/dragging/grabbed (1.25) outranks hover
                        (1.1). T.W5 R9 (ridden here per the cross-wave clause):
-                       the handle's scale settle is SPATIAL — `--spring-snappy` @
+                       the handle's scale settle is SPATIAL — `--spring-present` @
                        its own clock, never the squeezed generic 0.3s — declared in
                        the stylesheet's no-preference block (X.W6.e — e2). */
                     transform: `translate(-50%, -50%) scale(${handleScale(stop.id)})`,
@@ -1036,7 +1036,7 @@ function onCaretKeydown(e: KeyboardEvent) {
     .rail-handle {
         transition:
             box-shadow var(--duration-fast) var(--ease-standard),
-            transform var(--spring-snappy-duration) var(--spring-snappy);
+            transform var(--spring-present-duration) var(--spring-present);
     }
     .rail-caret {
         transition: opacity var(--duration-fast) var(--ease-standard);

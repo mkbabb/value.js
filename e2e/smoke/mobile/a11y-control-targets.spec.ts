@@ -384,7 +384,7 @@ test("A3-coarse · the size axis owns control height AND takes the coarse lift",
     // NOTE, measured at this unit's re-baseline and recorded rather than asserted: at
     // the Pixel-7 project the two probed routes expose ZERO controls that ride the
     // `--control-h-*` axis — the mobile dock substitutes a dropdown trigger
-    // (`dropdown-menu__trigger`) and segmented tabs for the desktop shell's producer
+    // (`menu__trigger`) and segmented tabs for the desktop shell's producer
     // Buttons, and neither carries a producer control-height variable. The fine twin
     // therefore carries the non-empty-population requirement (it measures 4) and this
     // half does not: demanding a population the mobile shell does not render would be

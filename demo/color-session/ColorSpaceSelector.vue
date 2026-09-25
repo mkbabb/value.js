@@ -36,8 +36,6 @@
              rotation utility — re-adding one would shadow the shipped fix. -->
         <SelectTrigger
             aria-label="Select color space"
-            variant="ghost"
-            size="default"
             :style="{ '--space-title-ink': safeAccent }"
             :class="[
                 'space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]',
@@ -145,7 +143,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@mkbabb/glass-ui/select";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../shared/ui/watercolor-dot";
 import { computed, inject } from "vue";
 import { resolveColorSpace } from "./color-model";
 import type { DisplayColorSpace } from "./color-model";
@@ -263,6 +261,18 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
  * transition durations; states still land instantly as ink.
  */
 .space-trigger {
+    /* X-W7L (glass 8.0.0+, `7df2ec26`/`49c38506`): SelectTrigger's
+     * `variant="ghost"` arm is gone with no alias — every trigger composes the
+     * control register (`.control-surface` + `.glass-control-edge` +
+     * `.glass-capsule-hover`). The colour-space TITLE is not a picker plate (the
+     * W4-1 open-state law: all glass belongs to the dropdown, never the title),
+     * so the title owns its bare paint here; unlayered scoped CSS outranks the
+     * library's `@layer components` register at rest and on hover alike.
+     * Measured at 10.1.0 before this rule: a 1px border, three inset rims and
+     * a veil gradient on the title (m-trap-probe). */
+    background: none;
+    border: none;
+    box-shadow: none;
     color: color-mix(in srgb, var(--space-title-ink) 86%, transparent);
     transition: color var(--duration-fast) var(--ease-standard);
     /* T.W4-1 — the ×φ landing (Q11a: the glass-ui ladder is the sizing

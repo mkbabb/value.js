@@ -32,19 +32,20 @@
                  the P3 seated rung / ASK-D). -->
             <!-- X-W4 · A4 (CC-041): the field's NAME, measured desktop-only
                  (`/#/gradient`, smoke 1280×720: `input.input-bar-field` 414.1×26.2,
-                 computed name ""). `placeholder` is not a name. The producer's
-                 `SearchBar` publishes no `label`/`ariaLabel` prop, but it sets
-                 `inheritAttrs: false` and splits ONLY `class` off `$attrs`, spreading
-                 the remainder straight onto its own `<input>` (`dist/search.js`:
-                 `o = computed(() => { let { class: _, ...t } = useAttrs(); return t; })`,
-                 then `b("input", w({…}, o.value, {…}))`), so `aria-label` lands on the
-                 input itself. No producer byte, no wrapper, no copied selector. -->
-            <SearchBar
-                v-model="pm.searchQuery.value"
-                class="search-seated"
-                aria-label="Search your palettes"
-                placeholder="Search your palettes..."
-            />
+                 computed name ""). `placeholder` is not a name, so the
+                 input carries `aria-label` itself. X-W7L (glass 10.1.0): glass 9.0.0
+                 deleted `SearchBar`; the field composes the producer's `.input-bar`
+                 recipe with its own input (glass MIGRATION.md 9.0.0). -->
+            <div class="input-bar search-seated">
+                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                <input
+                    v-model="pm.searchQuery.value"
+                    type="search"
+                    aria-label="Search your palettes"
+                    placeholder="Search your palettes..."
+                    class="input-bar-field"
+                />
+            </div>
 
             <!-- W7-failure-dispositions row 45: an unreadable stored library is
                  announced, never silently replaced. -->
@@ -125,7 +126,7 @@
 
             <!-- Delete all confirmation (Glass 7: ConfirmDialog folded onto the Dialog family) -->
             <Dialog v-model:open="pm.showDeleteAllConfirm.value">
-                <DialogContent surface="glass" :show-close="false">
+                <DialogContent surface="glass" dismiss="deliberate">
                     <DialogHeader>
                         <DialogTitle>Delete all saved palettes?</DialogTitle>
                         <DialogDescription>
@@ -154,7 +155,7 @@ import { inject, reactive, ref, computed, watch, onMounted, nextTick } from "vue
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
-import { Trash2 } from "@lucide/vue";
+import { Search, Trash2 } from "@lucide/vue";
 import { useSortable, insertNodeAt, removeNode } from "@vueuse/integrations/useSortable";
 import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
@@ -170,7 +171,6 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import type { Palette } from "./types";
 import PaletteInspector from "./PaletteInspector.vue";

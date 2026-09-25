@@ -92,7 +92,7 @@
 import { ref, onMounted, onActivated, onBeforeUnmount, onDeactivated, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 
 import { useInertiaGesture } from "./composables/useInertiaGesture";
 import { useImageSampler, type DisplayColorSpace } from "./composables/useImageSampler";
@@ -305,7 +305,7 @@ watch(() => imageUrl, () => { loadAndFit(); });
 .swatch-pulse {
     width: 1.75rem;
     height: 1.75rem;
-    animation: swatch-pop 0.65s var(--ease-spring) forwards;
+    animation: swatch-pop 0.65s var(--spring-present) forwards;
 }
 
 @keyframes swatch-pop {

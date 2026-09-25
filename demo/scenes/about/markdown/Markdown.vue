@@ -238,7 +238,7 @@ onUpdated(() => {
     }
 
     code {
-        @apply text-xs font-mono bg-well rounded;
+        @apply text-caption font-mono bg-well rounded;
     }
 
     /* Inline code — the markdown accent voice (D6, T.W3-5): inline code joins
@@ -363,18 +363,18 @@ onUpdated(() => {
         padding-top: var(--phi-3);
 
         ol {
-            @apply text-sm;
+            @apply text-small;
         }
     }
 
     /* Footnote links */
     .footnote-ref {
-        @apply text-xs;
+        @apply text-caption;
     }
 
     /* Footnote definitions */
     .footnote-item {
-        @apply text-sm;
+        @apply text-small;
     }
 
     /* Tables of contents — T.W3-4 (the F6 ONE-grammar law): the sticky

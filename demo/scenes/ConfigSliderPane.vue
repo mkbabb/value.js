@@ -168,7 +168,7 @@ function resetDefaults() {
                  path, so it no longer floats over the last rows (W6-6). Only
                  shown when there are sliders. -->
             <div v-if="sections.length > 0" class="config-action-bar">
-                <GlassDock :always-expanded="true" :fit-content="true">
+                <GlassDock :collapse="false" :fit-content="true">
                     <Button size="sm" @click="copyAsJson">
                         <Check v-if="jsonCopyStatus === 'success'" class="w-3.5 h-3.5" />
                         <Copy v-else class="w-3.5 h-3.5" />
@@ -202,12 +202,12 @@ function resetDefaults() {
      * `.slider-range` is transparent by recipe so no filled/unfilled split
      * reads either. The W6.5 GRAPHICS cure (T-44a) covered the EXTRACT tracks
      * only. Here the config population re-inks its track via the SAME cure
-     * class (the eb7bb2c-era `--slider-track-bg` feed, no `ui/slider` edit):
+     * class (the eb7bb2c-era `--glass-slider-track-background` feed, no `ui/slider` edit):
      * the certified de-emphasis rung `--ink-muted` (the D6 contract's stamped
      * token — the exact material ExtractControls falls to when no live pick
      * threads) is ≥3:1 on the well by construction. o18-contrast-census's new
      * config GRAPHICS leg is this row's born-RED gate. */
-    --slider-track-bg: var(--ink-muted, var(--muted-foreground));
+    --glass-slider-track-background: var(--ink-muted, var(--muted-foreground));
 }
 .config-console :deep(.configurator-row .font-mono) {
     color: var(--ink-muted, var(--muted-foreground));

@@ -105,7 +105,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                  #description rows already tell the story once, on demand. -->
             <LabeledField label="Color space" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as PickerSpace)">
-                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                    <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -127,7 +127,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
 
             <LabeledField label="Hue method" :control-labelable="false" v-slot="{ labelledBy }">
                 <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => emit('update:hueMethod', v as HueInterpolationMethod)">
-                    <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                    <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -155,7 +155,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             v-slot="{ labelledBy }"
         >
             <Select :model-value="leftoverStrategy" @update:model-value="(v: AcceptableValue) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
-                <SelectTrigger size="sm" :aria-labelledby="labelledBy">
+                <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                     <SelectValue />
                 </SelectTrigger>
                 <SelectContent>

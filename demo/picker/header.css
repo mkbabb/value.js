@@ -46,7 +46,7 @@
 }
 
 /* ── Row B · THE BACKGROUND BAND (§0.8 "background band") ─────────────────
- * The strip's veil: the plate's rung-1 material (`--glass-bg-resting` +
+ * The strip's veil: the plate's rung-1 material (`--glass-plate-resting` +
  * `--glass-blur-resting`, the PaneHeader idiom — DESIGN §Surfaces "the veil is
  * the plate's own rung-1 material at a scroll-earned intensity") at 0 opacity
  * AT REST (the header stays transparent-on-plate — T-23 at-rest STANDS) and
@@ -59,7 +59,7 @@
     inset: 0 0 -12px 0;
     z-index: -1;
     pointer-events: none;
-    background: var(--glass-bg-resting);
+    background: var(--glass-plate-resting);
     -webkit-backdrop-filter: var(--glass-blur-resting);
     backdrop-filter: var(--glass-blur-resting);
     -webkit-mask-image: linear-gradient(

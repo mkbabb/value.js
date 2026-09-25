@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import { Button } from "../../../ui/button";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { formatCssCaption } from "../../../color-session/format-color";
 
 /** The action panel's layout. */

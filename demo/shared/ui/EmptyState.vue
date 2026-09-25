@@ -79,7 +79,7 @@
  */
 import { useTemplateRef } from "vue";
 import { CircleAlert } from "@lucide/vue";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "./watercolor-dot";
 
 withDefaults(
     defineProps<{

@@ -87,11 +87,15 @@ beforeEach(() => {
             disconnect() {}
         },
     );
+    // jsdom ships no `Element.prototype.scrollIntoView`; glass 10.1.0's tab strip
+    // scrolls the pressed tab into view on click (X-W7L).
+    Element.prototype.scrollIntoView = () => {};
     useAdminAuth().login("t");
 });
 afterEach(() => {
     useAdminAuth().logout();
     vi.unstubAllGlobals();
+    delete (Element.prototype as Partial<Element>).scrollIntoView;
     while (mounted.length) mounted.pop()!.unmount();
     document.body.innerHTML = "";
 });

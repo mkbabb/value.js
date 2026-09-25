@@ -2,17 +2,23 @@
     <div class="flex items-center gap-1.5 mb-2 pt-0.5 relative min-h-9">
         <!-- Edit mode: slug input form -->
         <Transition name="vj-morph" mode="out-in">
-        <SearchBar
+        <!-- glass 9.0.0 deleted `SearchBar`; the field composes the producer's
+             `.input-bar` recipe with its own input (glass MIGRATION.md 9.0.0). -->
+        <form
             v-if="slugEditMode"
-            ref="searchBarRef"
             key="slug-edit"
-            tag="form"
-            v-model="slugInput"
-            :icon="LogIn"
-            placeholder="enter slug..."
+            class="input-bar"
             @submit.prevent="onSlugSwitch"
-            @keydown.escape.stop="slugEditMode = false"
         >
+            <LogIn class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+            <input
+                ref="slugInputRef"
+                v-model="slugInput"
+                type="search"
+                placeholder="enter slug..."
+                class="input-bar-field"
+                @keydown.escape.stop="slugEditMode = false"
+            />
             <!-- W5-a11y: icon-only submit / close buttons need accessible names -->
             <Button
                 type="submit"
@@ -35,7 +41,7 @@
             >
                 <XIcon class="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
             </Button>
-        </SearchBar>
+        </form>
 
         <!-- Default mode -->
         <div v-else key="slug-default" class="flex items-center gap-1.5">
@@ -127,7 +133,6 @@
 
 <script setup lang="ts">
 import { ref, nextTick } from "vue";
-import { SearchBar } from "@mkbabb/glass-ui/search";
 import { Button } from "../../../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import {
@@ -161,7 +166,7 @@ const slugMenuOpen = ref(false);
 const slugInput = ref("");
 const slugSwitching = ref(false);
 const slugError = ref("");
-const searchBarRef = ref<InstanceType<typeof SearchBar> | null>(null);
+const slugInputRef = ref<HTMLInputElement | null>(null);
 
 function onCopySlug() {
     if (userSlug) void writeClipboard(userSlug);
@@ -174,7 +179,7 @@ function onStartSlugEdit() {
     setTimeout(() => {
         slugEditMode.value = true;
         nextTick(() => {
-            searchBarRef.value?.inputRef?.focus();
+            slugInputRef.value?.focus();
         });
     }, 50);
 }

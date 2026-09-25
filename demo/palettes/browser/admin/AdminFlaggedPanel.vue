@@ -177,11 +177,10 @@
         />
         </template>
 
-        <!-- X.W7.e (G14): the deliberate rung (Esc · outside, no ✕) is spelled
-             `:show-close="false"` at the installed glass 7.0.0; the `dismiss` axis (rung `deliberate`)
-             is the glass ≥ 8.0.0 spelling. -->
+        <!-- X.W7.e (G14): the deliberate rung (Esc · outside, no ✕) is the
+             `dismiss="deliberate"` rung (glass 10.1.0, X-W7L). -->
         <Dialog v-model:open="confirmOpen">
-            <DialogContent surface="glass" :show-close="false">
+            <DialogContent surface="glass" dismiss="deliberate">
                 <DialogHeader>
                     <DialogTitle>Delete flagged palette?</DialogTitle>
                     <DialogDescription>

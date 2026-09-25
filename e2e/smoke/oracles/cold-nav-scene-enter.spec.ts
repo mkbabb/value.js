@@ -40,7 +40,7 @@ const PANE_CHUNK = /\/(workbenches|scenes|palettes)\/.*Pane\.vue/;
 /**
  * How long a reading may take to come true. The stuck state is permanent (the
  * classes are never removed), so any bound fails it. The bound only has to
- * cover the enter itself (`--spring-snappy`, 0.44 s) plus the software-GL frame
+ * cover the enter itself (`--spring-panel`, 0.45 s) plus the software-GL frame
  * stall at boot: under the suite's swiftshader launch the renderer produced no
  * frame for ~2 s after the pane mounted (rAF 0/s, `document.timeline` frozen),
  * which holds a live transition mid-travel without anything being stuck.

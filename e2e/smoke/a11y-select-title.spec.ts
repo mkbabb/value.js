@@ -66,10 +66,10 @@ import { fileURLToPath } from "node:url";
  * reads ZERO producer-internal slider variables. "Producer-internal" is given a
  * re-runnable definition rather than a list — a variable the producer DECLARES is its
  * own state; one it only READS through `var()` is a consumer feed seam (measured in the
- * receipt: `--slider-range-origin` is declared 3× by the producer; `--slider-track-bg`,
+ * receipt: `--slider-range-origin` is declared 3× by the producer; `--glass-slider-track-background`,
  * `--slider-thumb-bg` and `--slider-thumb-border-color` are declared 0×).
  *
- * `--slider-track-bg`'s consumer reads are NOT this gate's failure: `W4.md:89-90` books
+ * `--glass-slider-track-background`'s consumer reads are NOT this gate's failure: `W4.md:89-90` books
  * them (CC-105) to `X.W4.g`, "never before, never by shim", and that unit is closed. The
  * fence reads the producer-DECLARED set, which is the set CC-046 is about.
  */
@@ -519,8 +519,10 @@ test("B3 · slider seam consumed as published — the A-16 receipt exists and th
     // (ii) Zero consumer reads of a PRODUCER-DECLARED slider variable. The set is read
     // off the installed producer at run time rather than hard-coded, so a producer that
     // grows a new internal grows this fence with it.
+    // glass 10.1.0 ships the slider's stylesheet beside its component
+    // (`dist/components/slider/styles.css`), no longer inside `dist/glass-ui.css` (X-W7L).
     const producerCss = readFileSync(
-        resolve(REPO_ROOT, "node_modules/@mkbabb/glass-ui/dist/glass-ui.css"),
+        resolve(REPO_ROOT, "node_modules/@mkbabb/glass-ui/dist/components/slider/styles.css"),
         "utf8",
     );
     const sliderVars = Array.from(

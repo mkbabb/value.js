@@ -1,11 +1,12 @@
 <template>
     <Dialog :open="open" @update:open="$emit('update:open', $event)">
-        <DialogContent placement="right" class="w-[380px] sm:max-w-[420px] flex flex-col">
+        <SheetContent side="right" class="w-[380px] sm:max-w-[420px] flex flex-col">
             <DialogHeader class="shrink-0">
                 <!-- T.W4-6 (T-15/F7): the producer DialogTitle default is the
                      body-voice `text-subheading` — drawer headers join the
                      display voice (≤500 non-bold), same register as the
-                     dialog headers. Glass 7 folded Sheet onto Dialog placement. -->
+                     dialog headers. Glass 8 folded the side placement into
+                     `<SheetContent side>` (the Drawer/Sheet fold). -->
                 <DialogTitle class="font-display font-medium">Version History</DialogTitle>
                 <DialogDescription>
                     {{ paletteName }} &mdash; {{ total }} version{{ total === 1 ? "" : "s" }}
@@ -99,15 +100,15 @@
                     Load older versions
                 </Button>
             </div>
-        </DialogContent>
+        </SheetContent>
     </Dialog>
 </template>
 
 <script setup lang="ts">
 import { inject, ref, watch } from "vue";
+import { SheetContent } from "@mkbabb/glass-ui/sheet";
 import {
     Dialog,
-    DialogContent,
     DialogDescription,
     DialogHeader,
     DialogTitle,

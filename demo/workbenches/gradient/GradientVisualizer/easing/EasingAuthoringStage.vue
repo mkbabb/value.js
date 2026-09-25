@@ -95,7 +95,6 @@ useMutationObserver(rootEl, syncVbRatio, {
     >
         <EasingPicker
             :model-value="value"
-            :readout="false"
             :playback="false"
             :label="label"
             @update:model-value="onAuthored"

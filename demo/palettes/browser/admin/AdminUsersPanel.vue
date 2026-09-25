@@ -229,11 +229,10 @@
         </div>
 
         <!-- Confirmation dialog (Glass 7: ConfirmDialog folded onto the Dialog family).
-             X.W7.e (G14 · A-3): the deliberate rung — Esc · outside, no ✕. At the
-             installed glass 7.0.0 that rung is spelled `:show-close="false"`; the
-             `dismiss` axis (rung `deliberate`) is glass ≥ 8.0.0 and re-spells at the repin. -->
+             X.W7.e (G14 · A-3): the deliberate rung — Esc · outside, no ✕ — the
+             `dismiss="deliberate"` rung (glass 10.1.0, X-W7L). -->
         <Dialog v-model:open="confirmOpen">
-            <DialogContent surface="glass" :show-close="false">
+            <DialogContent surface="glass" dismiss="deliberate">
                 <DialogHeader>
                     <DialogTitle>{{ confirmTitle }}</DialogTitle>
                     <DialogDescription>

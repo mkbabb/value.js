@@ -50,10 +50,12 @@ describe("ExtractControls", () => {
         expect((rail.element as HTMLElement).style.backgroundImage).toContain("linear-gradient");
     });
 
+    // glass 10.1.0 DockControl: a disabled control stays PRESENT and FOCUSABLE —
+    // it stamps `aria-disabled="true"`, never the native `disabled` (X-W7L).
     it("XW-8: `disabled` reaches all five controls", () => {
         const w = mount(ExtractControls, { props: { ...base, found: null, disabled: true } });
         const buttons = w.findAll("button").filter((b) => b.attributes("title"));
-        expect(buttons.map((b) => [b.attributes("title"), b.attributes("disabled") !== undefined])).toEqual([
+        expect(buttons.map((b) => [b.attributes("title"), b.attributes("aria-disabled") === "true"])).toEqual([
             ["Replace image", true],
             ["Open camera", true],
             ["Reset", true],
@@ -67,12 +69,12 @@ describe("ExtractControls", () => {
         const w = mount(ExtractControls, { props: { ...base, found: null, cameraLive: true } });
         const camera = w.get('button[title="Close camera"]');
         expect(camera.attributes("aria-pressed")).toBe("true");
-        expect(camera.attributes("disabled")).toBeUndefined();
-        expect(w.get('button[title="Replace image"]').attributes("disabled")).toBeDefined();
+        expect(camera.attributes("aria-disabled")).not.toBe("true");
+        expect(w.get('button[title="Replace image"]').attributes("aria-disabled")).toBe("true");
     });
 
     it("R-20: with no image the drop zone is the one intake; the toolbar control is present but stands down", () => {
         const w = mount(ExtractControls, { props: { ...base, hasImage: false, found: null } });
-        expect(w.get('button[title="Upload image"]').attributes("disabled")).toBeDefined();
+        expect(w.get('button[title="Upload image"]').attributes("aria-disabled")).toBe("true");
     });
 });

@@ -143,10 +143,10 @@
 
         <!-- X.W7.e (G14 · W7.93 · D-2): Reject and Delete are irreversible — each
              is confirmed before the command leaves the panel. The deliberate rung
-             (Esc · outside, no ✕) is spelled `:show-close="false"` at the installed
-             glass 7.0.0; the `dismiss` axis (rung `deliberate`) is the glass ≥ 8.0.0 spelling. -->
+             (Esc · outside, no ✕) is the `dismiss="deliberate"` rung
+             (glass 10.1.0, X-W7L). -->
         <Dialog v-model:open="confirmOpen">
-            <DialogContent surface="glass" :show-close="false">
+            <DialogContent surface="glass" dismiss="deliberate">
                 <DialogHeader>
                     <DialogTitle>{{ confirmRequest?.title }}</DialogTitle>
                     <DialogDescription>
