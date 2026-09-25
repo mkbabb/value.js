@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5 — X.W7L.v probe load log
+r1 load 87.68 67.58 54.02
+r1 exit 0
+r2 load 124.01 91.55 65.89
+r2 exit 0

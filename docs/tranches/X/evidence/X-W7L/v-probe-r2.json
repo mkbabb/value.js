@@ -1,0 +1,378 @@
+{
+ "origin": "http://localhost:9000",
+ "at": "2026-09-25T17:00:12.928Z",
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "glassVersionServed": null,
+ "cartoon": {
+  ".cartoon-cast": 6,
+  ".cartoon-surface": 1
+ },
+ "safeAreaRules": {
+  "safe-area-inset": 4
+ },
+ "safeAreaSources": [
+  "demo/styles/foundation.css :: .h-\\[calc\\(100dvh-env\\(safe-area-inset-bottom\\)\\)\\]",
+  "demo/styles/foundation.css :: .pb-\\[env\\(safe-area-inset-bottom\\)\\]",
+  "demo/styles/foundation.css :: .pb-\\[max\\(calc\\(var\\(--dock-margin\\)\\/2\\)\\,env\\(safe-area-inset-bottom\\)\\)\\]",
+  "demo/styles/foundation.css :: .deck-stage"
+ ],
+ "dockPlateLight": {
+  "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+  "backdrop": "blur(16px) saturate(1.2)"
+ },
+ "blobIdleDiffs": [
+  2.434,
+  2.204,
+  1.516
+ ],
+ "o63": {
+  "trigger": {
+   "label": "Select view",
+   "h": 32,
+   "top": 24.7890625,
+   "bottom": 56.7890625,
+   "boxShadow": "none",
+   "outline": "3px 0px"
+  },
+  "clipRow": {
+   "cls": "dock-layer dock-layer--full dock-run is-active",
+   "overflow": "auto hidden",
+   "padBlock": "4px 4px",
+   "top": 14.2890625,
+   "bottom": 67.2890625
+  },
+  "roomAbove": 10.5,
+  "roomBelow": 10.5,
+  "selectOpenRoom": {
+   "top": 24.7890625,
+   "bottom": 56.7890625,
+   "state": "open"
+  },
+  "focusRing": {
+   "tag": "DIV",
+   "label": "Expand dock",
+   "outline": "auto 1px 0px",
+   "boxShadow": "none"
+  }
+ },
+ "dockCollapseMorph": {
+  "frames": 712,
+  "start": {
+   "t": 6.6,
+   "w": 479,
+   "h": 56,
+   "blur": 0,
+   "scaled": 0
+  },
+  "end": {
+   "t": 5935.7,
+   "w": 56,
+   "h": 56,
+   "blur": 0,
+   "scaled": 0
+  },
+  "settleMs": 107.9,
+  "distinctWidths": 2,
+  "widthSeq": [
+   479,
+   56
+  ],
+  "framesBlur": 0,
+  "framesScaledText": 0
+ },
+ "dockToggleSeen": [
+  1,
+  1,
+  1
+ ],
+ "dockMorph": {
+  "first": {
+   "frames": 178,
+   "start": {
+    "t": 2.8,
+    "w": 479.5,
+    "h": 61,
+    "blur": 0,
+    "scaled": 0
+   },
+   "end": {
+    "t": 1507.1,
+    "w": 302,
+    "h": 61,
+    "blur": 0,
+    "scaled": 0
+   },
+   "settleMs": 39,
+   "distinctWidths": 2,
+   "widthSeq": [
+    479.5,
+    302
+   ],
+   "framesBlur": 0,
+   "framesScaledText": 0
+  },
+  "second": {
+   "frames": 182,
+   "start": {
+    "t": 4,
+    "w": 302,
+    "h": 61,
+    "blur": 0,
+    "scaled": 0
+   },
+   "end": {
+    "t": 1504.9,
+    "w": 479.5,
+    "h": 61,
+    "blur": 0,
+    "scaled": 0
+   },
+   "settleMs": 43.6,
+   "distinctWidths": 2,
+   "widthSeq": [
+    302,
+    479.5
+   ],
+   "framesBlur": 0,
+   "framesScaledText": 0
+  },
+  "third": {
+   "frames": 180,
+   "start": {
+    "t": 1.7,
+    "w": 479.5,
+    "h": 61,
+    "blur": 0,
+    "scaled": 0
+   },
+   "end": {
+    "t": 1501.4,
+    "w": 302,
+    "h": 61,
+    "blur": 0,
+    "scaled": 0
+   },
+   "settleMs": 24.4,
+   "distinctWidths": 2,
+   "widthSeq": [
+    479.5,
+    302
+   ],
+   "framesBlur": 0,
+   "framesScaledText": 0
+  }
+ },
+ "o66": {
+  "trigger": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "backdrop": "blur(14px) saturate(1.5)"
+  },
+  "options": {
+   "count": 18,
+   "checked": {
+    "text": "Lablab(92% 88.8 ",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+    "color": "rgb(28, 25, 23)"
+   },
+   "highlighted": {
+    "text": "Lablab(92% 88.8 ",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+    "color": "rgb(28, 25, 23)"
+   },
+   "content": {
+    "text": "RGBrgb(385.3 143",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.22)",
+    "color": "rgb(28, 25, 23)"
+   }
+  }
+ },
+ "o80": {
+  "frames": 428,
+  "p50": 25,
+  "p95": 58.4,
+  "max": 117.5,
+  "loafCount": 34,
+  "topForcedLayout": [
+   {
+    "k": "SpectrumCanvas/SpectrumCanvas.vue?t=1790355133829#",
+    "layout": 15,
+    "d": 457,
+    "n": 11
+   },
+   {
+    "k": "deps/vue.runtime.esm-bundler-DQai_KuN.js?v=85b2c6ec#invoker",
+    "layout": 0,
+    "d": 25,
+    "n": 1
+   },
+   {
+    "k": "color-session/useAtmosphereFrameCoalesce.ts#publish",
+    "layout": 0,
+    "d": 1312,
+    "n": 23
+   }
+  ],
+  "glassDockForcedLayoutMs": 0
+ },
+ "o65": {
+  "expandedAttr": "expanded",
+  "plate": {
+   "l": 569,
+   "r": 871,
+   "w": 302,
+   "h": 61
+  },
+  "visibleSeats": 36,
+  "outsidePlate": [
+   "BUTTON 834..911"
+  ]
+ },
+ "o67": {
+  "docks": 1,
+  "vertical": 0
+ },
+ "dockPlateDark": {
+  "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+  "backdrop": "blur(16px) saturate(1.3) brightness(1.14)"
+ },
+ "coarse390": {
+  "pointerCoarse": true,
+  "controlFloor": "2.75rem",
+  "controlText": "calc(clamp( 0.875rem,0.8rem + 0.25vw,1.25rem ) * 1.5)",
+  "selectView": {
+   "w": 56,
+   "h": 32,
+   "font": "14px",
+   "slop": {
+    "w": "56px",
+    "h": "44px",
+    "inset": "16px -28px -28px 28px"
+   }
+  },
+  "toggleActionBar": {
+   "w": 32.8,
+   "h": 32.8,
+   "font": "16px",
+   "slop": null
+  },
+  "menu": {
+   "w": 40,
+   "h": 32,
+   "font": "16px",
+   "slop": {
+    "w": "44px",
+    "h": "44px",
+    "inset": "16px -24px -28px 20px"
+   }
+  },
+  "spaceTitle": {
+   "w": 70,
+   "h": 52.5,
+   "font": "32.928px",
+   "slop": null
+  },
+  "mixSegment": {
+   "text": "Colors",
+   "h": 26.3,
+   "font": "12.179px"
+  },
+  "generateName": {
+   "h": 30.5,
+   "font": "20.352px"
+  },
+  "headlineLadder": {
+   "rows": [
+    {
+     "text": "Not Found",
+     "size": "13px",
+     "weight": "500"
+    },
+    {
+     "text": "Not Found",
+     "size": "25.888px",
+     "weight": "400"
+    }
+   ],
+   "display1": "clamp(1.618rem,1.2rem + 1.6vw,2.618rem)",
+   "heading": "1.618rem"
+  }
+ },
+ "land844": {
+  "overlayMaxBlock": "min(24rem,60dvh)",
+  "filters": {
+   "trigger": "Filters",
+   "role": "dialog",
+   "y": -252.5,
+   "h": 467.1,
+   "bottomGap": 182.4,
+   "maxH": "none",
+   "clientH": 465,
+   "scrollH": 465,
+   "overflowY": "hidden"
+  },
+  "menu": {
+   "trigger": "Menu",
+   "role": "menu",
+   "y": 69,
+   "h": 234,
+   "bottomGap": 87,
+   "maxH": "234px",
+   "clientH": 232,
+   "scrollH": 269,
+   "overflowY": "auto"
+  },
+  "viewSelect": {
+   "trigger": "Select view",
+   "role": "listbox",
+   "y": 69,
+   "h": 234,
+   "bottomGap": 87,
+   "maxH": "234px",
+   "clientH": 232,
+   "scrollH": 232,
+   "overflowY": "hidden"
+  },
+  "spaceSelect": {
+   "trigger": "Select color space",
+   "role": "listbox",
+   "y": 212.5,
+   "h": 165.6,
+   "bottomGap": 11.9,
+   "maxH": "165.602px",
+   "clientH": 164,
+   "scrollH": 164,
+   "overflowY": "hidden"
+  }
+ },
+ "phone360": {
+  "dock": {
+   "l": 93.6,
+   "r": 266.4
+  },
+  "toggle": {
+   "l": 347.6,
+   "r": 391.6
+  },
+  "clippedPx": 125.2,
+  "layer": {
+   "overflowX": "auto",
+   "scrollW": 351,
+   "clientW": 149
+  }
+ },
+ "l33": {
+  "rows": 3,
+  "sample": {
+   "rowW": 962,
+   "rowH": 58.4,
+   "labelTop": 476.2,
+   "labelBottom": 496.6,
+   "controlTop": 502.6,
+   "sameLine": false
+  }
+ },
+ "condenseRules": {
+  "data-condensed": 6
+ },
+ "pageErrors": []
+}
