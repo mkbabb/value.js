@@ -1909,3 +1909,71 @@ SEAT REPAIR (round 1 of the RESUME 1 close), `claude-opus-5-5`, 2026-09-24 ~23:0
 ### State
 
 The RESUME 1 Close is **completed** by this seat: Close 1 CONFORMANT-HONEST-RED by citation, Close 3 GREEN ×2, Close 2 within the named set in run 2 and one case outside it in run 1 (R-1). The status is **not** set to CLOSED here; it is left to the Check to rule R-1. LEDGER: an event line is appended.
+
+## Check 2 — RESUME 1 (L-20 pass 2)
+
+SEAT CHECK (L-20 pass 2 of the RESUME 1 close, verify-only, cures nothing), `claude-opus-5-5`, 2026-09-24 ~23:44 – 09-25 ~00:30 EDT. Spec `F-W14U.md` read whole (89 lines, addenda through (h)). Record: header through `## Unit plan`, `## RESUME 1 — Open` through `## Repair 1 — RESUME 1`. fourier HEAD ⟨`git rev-parse --short HEAD`⟩ → `7ee9b65` = ⟨`git ls-remote origin m/w1-bump-migration`⟩ `7ee9b65d57`; no fourier commit since Check 3.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → `?? .worktrees/` only. value.js: this record and LEDGER clean at open. Nothing inherited.
+
+### Gates re-run at this seat (write-then-measure)
+
+| gate | command | reading | state |
+|---|---|---|---|
+| Close 2 run 1 | ⟨`MONGO_URI=…27018/fourier FW14_PHASE=uc2-r1 BASE_URL=http://localhost:3100 npx playwright test --workers=1 --reporter=line`⟩, load `8.35 10.12 20.79` (23:44) → peak `23.39` (23:47) → `5.40 7.76 13.43` (23:58) | **`10 failed · 3 skipped · 388 passed (13.9m)`**: contrast-floor `:82` ×2 `:128` · gallery-admin-a11y `:91 :103 :114 :125` · visual-checkpoint `:81 :102 :123` (fullscreen `:40` passed); UIA-F-17 `:162` passed | **within the named set** |
+| Close 2 run 2 | same, `FW14_PHASE=uc2-r2`, load `6.17 7.88 13.44` (23:58) → `8.00 6.97 9.31` (00:12) | **`11 failed · 3 skipped · 387 passed (14.1m)`**: the named set of 11 exactly (the ten above + fullscreen `:40`); `:162` passed | **within the named set** |
+| Close 3 types | ⟨`npx vue-tsc -b` ×2⟩ | `exit 0` · `exit 0` | **GREEN** |
+| Close 3 units | ⟨`npx vitest run` ×2⟩ | `Test Files 14 passed (14) · Tests 86 passed (86)` ×2 | **GREEN** |
+| Close 1 | the 25 ids of `## Close — RESUME 1` §(2) against addendum (h) `:80-89` | 231 + 25 routed = 256, 0 unrouted (Check 1 read the same ids; no fourier commit since) | **routed** |
+
+Every figure the RESUME 1 Close and its Repair published reproduces: vue-tsc 0 ×2, vitest 86/86 ×2, the named set (10 or 11, fullscreen `:40` alternating as it did in Repair 1's runs), the 21-commit roster (⟨`git log --oneline 67ad614..HEAD | wc -l`⟩ unchanged, no commit past `7ee9b65`).
+
+### Axes
+
+| axis | reading |
+|---|---|
+| (1) claimed GREENs | All reproduce (table above). |
+| (2) bounds | No fourier commit since `7ee9b65`. ⟨`git diff 67ad614..HEAD --name-only \| grep -vE '^(web\|api)/'`⟩ → `src/fourier_analysis/symbolic/{latex_format,latex_rendering,simplification}.py` only, each a declared §0bt adjacent edit (F-35/F-83/F-176; Unit plan `.srv` row and the `.vedit` commit body). value.js: `911e08f3` and `92bb3245` touch only this record and LEDGER. `scripts/dev/dev.sh` last commit `85cfea2c` (2026-07-11), pre-wave. **HELD.** |
+| (3) masking | ⟨`git diff 67ad614..HEAD -- web api \| grep -E '^\+.*(test\.skip\|\.skip\(\|test\.fixme\|catch *\(\) *\{ *\}\|node_modules)'`⟩ → 0. No diff since Check 3. **HELD.** |
+| (4) families | No commit in RESUME 1 in fourier; the value.js record commits are one per seat. **HELD.** |
+| (5) E-3 | ⟨`git diff --stat 313b4ca0^..HEAD -- V/megatranche/registry/adjudicated/ X/audit/UI-AUDIT-fourier.md X/fourier/waves/`⟩ → empty. **HELD.** |
+| (6) mail | ⟨`grep -cE '\| *UNREAD *\|' V/coordination/INBOX.md`⟩ → `0`; ⟨`find <value V/coordination, glass BK/coordination, keyframes V/coordination> -newermt "2026-09-24 23:40"`⟩ → none; glass newest dir ⟨`ls -td`⟩ `BL/` (no `coordination/`); atlas `P/coordination` absent. **0 UNREAD.** |
+| (7) four-verb | OPEN → (this Check) CLOSED with honest-RED, lawful after Close 1/2/3 readings. |
+| (8) goal at the bytes | Close 1 met by addendum (h)'s own routing (231 closed + 25 to F.W14V `.u`); Close 2 met ×2 at this seat; Close 3 GREEN ×2. **MET (honest-RED).** |
+| (9) figures | Reproduce (above). |
+
+### R-1 ruled at the bytes (UIA-F-17 `:162`)
+
+R-1 is **a real product defect, not a timing budget, and it predates this wave**. A probe at this seat (scratchpad `probe/r1d.mjs`, headless Chromium on `/v/glowing-staying-sapphire-koala`, load ≈8) pauses the clock by keyboard `PRE` ms after the Pause control appears, then samples the transport every 750 ms:
+- ⟨`PRE=300`⟩ and ⟨`PRE=800`⟩ → at the pause `Pause 0 · Play 1`; 755 ms later `Pause 1 · Play 0` with progress `0.06` climbing to `0.47`: the user's pause is overridden **and the clock is reset**; the companion probe `probe/r1b.mjs` (`PRE=800`) logs every `/api/` response inside the first 400 ms of the load, none after the pause, so the override follows a data write after the fetches settle, not a late fetch (which write is for the cure seat to pin).
+- ⟨`PRE=4000`⟩ → `Pause 0 · Play 1` held for 9 s at progress `0.2`: a late pause holds.
+
+The cause is `useWorkspaceLoader.ts:152-189`: the watch on `[store.epicycleData, store.basesData]` calls `anim.reset(); anim.play()` on a first arrival and `anim.play()` on any later arrival while `!anim.playing` (`:185-186`), so a data write during the load overrides the user's pause. That code dates from `24b81ff` (X·F.W4 `.c` SP-4) and `a17356c`; ⟨`git log 67ad614..7ee9b65 -- …/useWorkspaceLoader.ts web/src/stores/animation.ts`⟩ → none, and the wave's `workspace.ts` hunks only stop rethrowing load errors. UIA-F-17 pauses once progress passes 0.2, which at low load is after the load's last data write, so it passes; at load 75-94 the write lands after the pause (Check 1's run and Repair 1's run 1). This seat's ×2 at load 5-23 read it GREEN both times.
+
+**Ruling.** Close 2 is met ×2 at this seat, within the named set. R-1 is not a regression of this wave, no register row names it (⟨`grep -niE 'pause|auto-?play|resum' UI-AUDIT-fourier.md`⟩ → UIA-F-8's first-click row only) and the spec gives it no honest-RED id, so it is neither laundered as honest nor charged as this wave's HIGH. It is a **MEDIUM latent defect with an owner**: the root homes it in F.W14V `.u` (bounds `web/src/**` + `web/e2e/**`, addendum (h)). Cure: the loader's data watcher respects the user-intent flag (a user pause is never overridden by a data write), with a born-RED falsifier that pauses before the load's last data write (the `PRE=300` shape, or a routed delay on the second write) and asserts the clock stays paused, RED on `7ee9b65`, GREEN ×2.
+
+### (10) Honest-RED adjudication
+
+| RED gate | relief at the spec bytes | owner named | verdict |
+|---|---|---|---|
+| G-u, 25 rows (F-14 BROKEN, F-68, F-74, F-79, F-81, F-85, F-173, F-183, F-201, F-241, F-253, F-77ˢ, F-149ˢ, the PARTIAL limbs F-71 F-146 F-172 F-238 F-239, F-93 F-182 F-244) | addendum (h) `:80-89`: re-homed whole by id to F.W14V `.u`; "F.W14U closes CONFORMANT-HONEST-RED once its record cites F.W14V `.u`" | F.W14V `.u` (cited, `## Close — RESUME 1` §(2)) | **RELIEVED (routed)** |
+| F-177 / F-203 anchoring | addendum (h): O-82 POPOVER-ANCHOR, producer-owned | glass (O-82) via F.W14V `.u` | **RELIEVED (producer)** |
+| named baseline set: contrast-floor `:82`×2 `:128` · gallery-admin-a11y `:91 :103 :114 :125` · visual-checkpoint `:81 :102 :123` · fullscreen `:40` | Close: "REDs stay within the named baseline set" | carried from F.W14 | **RELIEVED** |
+| DOCK-COLLAPSED-FORM (O-65) · GLASS-SELECT-GREY (O-66) · SIDE-DOCK-EDGE (O-67) · CONFIGURATOR-HEADER-ACTIONS (O-68) · GLASS-VEIL-GREY (O-62) · DOCK-TRIGGER-CLIP (O-63) · DOCK-SCROLL-MORPH (O-55) | named by id in addenda §0cq/§0cs/§0ct/(c) and carried; producer-owned | glass | **RELIEVED (producer)** |
+| `.s` completion (`.s2`, O-75) · addendum (e) AUDIT-2 | addendum (f): homed in F.W14V | F.W14V | **RELIEVED (routed)** |
+| UIA-F-17 `:162` | none needed: GREEN ×2 at this seat; R-1 above is a MEDIUM latent defect | F.W14V `.u` (recommended to the root) | not a RED gate here |
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2R-1 | MEDIUM | A user's pause is overridden, and the clock reset, by a data write during the load (`useWorkspaceLoader.ts:185-186`, pre-wave `24b81ff`). It surfaces as UIA-F-17 `:162` RED at load 75-94. | probe `PRE=300/800` → `Pause 1` 755 ms after the pause, progress `0.06→0.47`; `PRE=4000` holds; this seat's ×2 GREEN | the root homes it in F.W14V `.u`; the watcher honours the user-intent flag; a born-RED early-pause falsifier ×2 |
+| C2R-2 | INFO | Repair 1's `### State` says "LEDGER: an event line is appended", but its commit `911e08f3` touches only the record. The line is in the LEDGER (`:803`), committed by another pathspec. | ⟨`git show --stat 911e08f3`⟩ → the record only; ⟨`grep -n 'REPAIR 1 of RESUME 1' LEDGER.md`⟩ → `:803` | none |
+
+### Successors
+
+F.W14V "Opens after: F.W14U CLOSED" (`F-W14V.md:4`, ⟨`grep -n "Opens after" fourier/waves/*.md \| grep W14U`⟩ → that line only) is **GREEN** with this Check's LEDGER move. F.W14V is no longer blocked by this wave.
+
+### Verdict
+
+**CONFORMANT-HONEST-RED.** No BLOCKER, CRITICAL or HIGH. Every claimed GREEN reproduces (vue-tsc 0 ×2, vitest 86/86 ×2, full e2e ×2 within the named set, 231 + 25 routed = 256). Honest-RED set: the 25 G-u rows routed to F.W14V `.u` (addendum (h)), O-82 POPOVER-ANCHOR, the named baseline set, and O-55 / O-62 / O-63 / O-65 / O-66 / O-67 / O-68. LEDGER status set to `CLOSED 2026-09-17 (honest-RED: …)`; an event line is appended.
