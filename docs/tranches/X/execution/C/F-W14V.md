@@ -1594,3 +1594,67 @@ SERVED MODEL: claude-opus-5-5 · 2026-09-25 · addendum (h) item 4 (C3-4, A2-FO-
 
 **Residuals**: none owned. The ⌘K palette's rows now wrap as well, since the row component is shared (§0dy). This is intended, not a regression: the palette oracles F-21/F-63/F-65 are GREEN.
 **Escalations**: none.
+
+## Close
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-25 · CLOSE SEAT of RESUME 1 (third sitting), Track C, verify-only, no cure. Spec `F-W14V.md` read whole (87 lines, addenda (a)–(h) incl. the §0ec amendment). From this record: the header, `## RESUME 1 — Open` through `## RESUME 1 — Unit plan`, the three `.r` receipts (by the returns handed to this seat), the last `## Close` and `## Check 3`. fourier HEAD = `545bbdc` (= origin, `m/w1-bump-migration`); value.js HEAD at open = `a70f0b34`.
+
+**Crash-recovery.** ⟨`git -C fourier-analysis status --porcelain -- web api`⟩ → ∅. fourier dirty = `src/fourier_analysis/contours/{assembly,features,pipeline,structure}.py` + `?? .worktrees/` (F.CT, a sibling's; untouched). No predecessor close section for RESUME 1 existed. No inherited work.
+
+**Instrument (a finding).** The shared `:8000` uvicorn (pid 38613, started `Fri Sep 25 01:31:30`, no `--reload`) predates `71e0c6d`, so it serves the **pre-cure** api model (`easing: str = "sine"`). `:3100` proxies to it. To read HEAD's bytes end to end this seat served its own clean instrument and stopped nothing of anyone else's: api `:8010` (⟨`.venv/bin/uvicorn api.main:app --port 8010`⟩ with `:8000`'s own `MONGO_URI`/`ADMIN_TOKEN`/`BLOB_DIR`/rate-limit env) and vite `:3110` (⟨`VITE_PROXY_API=http://localhost:8010 web/node_modules/.bin/vite web --port 3110 --strictPort`⟩), both from the clean HEAD tree (⟨`git diff --quiet HEAD -- web api`⟩ → clean). Every e2e reading below is `BASE_URL=http://localhost:3110`.
+
+### Commit roster and bounds (act 1)
+- ⟨`git -C fourier-analysis log --oneline 97325fb..HEAD -- web api`⟩ → exactly 5: `.r1` `e97a959` · `.r3` `8022412` `71e0c6d` · `.r4` `97ff8d7` `545bbdc`. Self-count 1 + 2 + 2 = **5**.
+- ⟨`git show --stat` each⟩: `e97a959` → `web/src/components/visualization/{EditorControlsDock,ViewLayersItems,ViewLayersMenu}.vue`, `web/e2e/{f-w14u-vedit,f-w14v-au2}.spec.ts` · `8022412` → `api/tests/test_migrate_animation_easing.py` · `71e0c6d` → `api/models/shared.py`, `api/scripts/{migrate_animation_easing,run_pending_migrations}.py`, `web/src/{composables/useWorkspaceLoader.ts,lib/defaults.ts,lib/draftStorage.ts,lib/easings.ts,lib/types.ts,stores/animation.ts}`, adjacent `web/e2e/{f-w14u-gallery,f-w14u-shell}.spec.ts` (declared, the draft-DB version) · `97ff8d7` → `web/e2e/f-w14v-x7.spec.ts` · `545bbdc` → `web/src/components/paper/{PaperSearch,PaperTocDrawer}.vue`, `…/paper/search/{PaperSearchDropdown,PaperSearchResultRow}.vue`, adjacent `web/e2e/f-w14-uia-r2.spec.ts` (declared, the F-59 width limb). All inside the plan's writable sets (`api/**` granted to `.r3` by (h)(3)(i)). **Landed-wrong: none.**
+- value.js receipts: `3e558b6d` (.r1) · `89c5e266` (.r3) · `a70f0b34` (.r4), each ⟨`git show --stat`⟩ → this record only. `scripts/dev/dev.sh` in none.
+- Spec-letter note (not a defect): (h)(1) says Delete keeps its "confirm path"; at the bytes Delete has no confirm dialog (its path is an undoable `deleteSelected()`), and `.r1` kept that path unchanged. Read as satisfied.
+
+### E13 mail (act 4)
+⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ over value `V/` and `V/coordination`, glass `BK/coordination` and `BL`, keyframes `V/coordination`, glass `P/` and `Q/coordination` → **0 on every path**; ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. The three relays (h) names exist: `X-F-BK-DOCK-PRIORITY-OVERFLOW.md` (O-85) · `X-F-BK-TIMELINE-TRANSPORT.md` (O-86) · `X-F-BK-CARD-TITLE-RUNG.md` (O-74b). **0 UNREAD in scope.**
+
+### Gates, BEFORE → AFTER (acts 2 and 3; fourier `545bbdc`; `:3110` → `:8010`, HEAD bytes)
+| Gate (spec §) | BEFORE (RESUME 1 baseline, `97325fb`) | AFTER, this seat, ×2 |
+|---|---|---|
+| vue-tsc (§2) | 0 | ⟨`npx vue-tsc --noEmit`⟩ → exit 0 ×2 **GREEN** |
+| vitest (§2) | 116/116 | ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)` ×2 **GREEN** |
+| api suite + `owner_required` (`.p` §3) | 286, `owner_required` GREEN | ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 .venv/bin/python -m pytest api/tests -q`⟩ → `294 passed` ×2 (286 + 8 `.r3`); ⟨`… test_identity.py::test_owner_required api/tests/test_migrate_animation_easing.py -q`⟩ → `9 passed` ×2 **GREEN, contract unchanged** |
+| `.r3` legacy doc reads migrated + idempotent ((h)(3)(i)) | RED (`easing: str = "sine"`, no migration, no test) | the 8 migration tests inside the `9 passed` ×2 **GREEN**; dev db dry-run (no writes) ⟨`python -m api.scripts.migrate_animation_easing --dry-run`⟩ ×2 → `scanned 800 · rewritten 11 · already_on_catalogue 789` — see R-1 below |
+| `.r1` L2-15 @360/390/430 `scrollWidth<=clientWidth` + v88 ((h)(1)); ≥ sm editor oracles | RED (4 failed) | inside ⟨`BASE_URL=http://localhost:3110 npx playwright test e2e/f-w14u-vedit.spec.ts e2e/f-w14v-au2.spec.ts e2e/f-w14v-x7.spec.ts e2e/f-w14-uia-r2.spec.ts e2e/f-w14v-detached.spec.ts --project=chromium --headed --workers=1`⟩ → `50 passed (4.4m)` · `50 passed (3.5m)` **GREEN ×2** |
+| `.r4` plate ⊂ `.sidebar-nav` @1024/1440/1920 + no title ellipsis/clip ((h)(4)); F-59 oracle | RED by absence | same two runs (x7 9/9, uia-r2 11/11) **GREEN ×2** |
+| `.s2` `f-w14v-detached` headed (§1 .s2 4) | 5/5 (banked) | same two runs **GREEN ×2** |
+| L1-12 (O-74b) | honest-RED | ADOPT-AT-LANDING at the 10.2.0 repin (`--type-title`, §0ec); not re-landed early — read in the full runs |
+| full e2e `--workers=1` (§2) | Close 2: r1 33 / r2 30 failed (named 21 + vc :199 + `.pd` ×6 + LW-1 + intermittents) | ⟨`FW14_PHASE=w14v-close-r<n> BASE_URL=http://localhost:3110 MONGO_URI=mongodb://127.0.0.1:27018/fourier npx playwright test --workers=1 --reporter=line`⟩ (546 cases): r1 (load 51 → 58) **`24 failed · 3 skipped · 519 passed (40.9m)`** · r2 (load ~58 → 138 peak) **`26 failed · 3 skipped · 517 passed (44.6m)`**; ⟨`git status --porcelain -- web/src api`⟩ after → 0 lines |
+
+**The full-e2e reading.** ⟨`comm -12` of the two runs' sorted failure lists⟩ → **22 stable**:
+- **The named honest-RED set, 21:** contrast-floor `:82` ×2 and `:128` · gallery-admin-a11y ×4 · visual-checkpoint `:81 :102 :123` · au3 L1-12 `:119` (O-74b, ADOPT-AT-LANDING) · c3 c3m/c3g (O-76a) · p p3 @1440/@1024 (TOASTER-OFFSET) · `.pd` collapsed ×6 (O-84/O-84a). Against Close 2's 30 stable, the diff is exactly the cures: v88, L2-15 ×3 (`.r1`), G-c1, r119/r212 and vc `:199` mobile (Repair 1) and f-w14u-d d2 are gone from the stable set.
+- **f-w14-uia UIA-F-17 `:162`**, the named pre-existing load intermittent (F.W14U R-1 MEDIUM, `useWorkspaceLoader` pause override; INFO at Checks 1–2). This sitting it read RED more often than before: alone at HEAD `:3110` 1 of 5 passed (click timeout on the Export control ×3, `Epicycles off removes the chain` 4592/5145 < floor ×2); HEAD web on the shared `:3100` 1 of 3 passed. At the before bytes (clean `git archive 97325fb web` on `:3199` → `:8000`) it passed 2 of 3 (the first a cold-start click timeout). Both failure modes appear at both byte sets, so this is **not attributable** to `.r1`–`.r4` by bytes. It is recorded as R-2 for the Check to weigh, not as a landed-wrong.
+
+Run-only failures, each re-run alone ×2 (⟨`… e2e/equation-interaction.spec.ts:77 e2e/f-w14u-d.spec.ts:136 e2e/f-w14v-au3.spec.ts:146 e2e/visual-baseline.spec.ts:58 e2e/f-w14u-vedit.spec.ts:152 e2e/visualization-ux.spec.ts:332 e2e/f-w14-uia.spec.ts:162 --project=chromium --workers=1`⟩ → `2 failed · 29 passed`, then `1 failed · 30 passed`):
+- r1 only: vedit v87 `:152` (load intermittent, `.au6` R-2) → GREEN ×2 alone · visualization-ux `:332` save_contour_then_recompute (a 30 s `waitForResponse` timeout on `/compute/*` at load ~58) → GREEN ×2 alone.
+- r2 only: f-w14u-d d2 `:136` → GREEN ×2 · au3 L1-13 `:146` → GREEN ×2 · visual-baseline `:58` → GREEN ×2 · equation-interaction `:77` (compute under load) → RED alone in the first re-run, GREEN in the second.
+- The host was shared with a sibling's `bench.contours` fleet (7 processes, ~180 % CPU each) throughout; load 51–138.
+
+### Residuals (named owners) and escalations
+- **R-1 · the shared `:8000` api is stale (pre-`71e0c6d`).** Since `.r3` migrated the dev db (789 → 0), that server has written **11 new visualizations with the legacy `easing: "sine"`** (⟨`find({"animation_settings.easing": {"$nin": <catalogue>}})`⟩ → 11 docs, created 22:33–22:45 UTC). A HEAD api's `AnimationSettings` refuses that key, so those rows would not validate at HEAD until the migration runs again. It is idempotent and registered in `run_pending_migrations`, so a deploy heals it. This is not a product defect. **Owner:** the host/instrument owner of `:8000`, who restarts it at HEAD and re-runs `python -m api.scripts.migrate_animation_easing`. This verify-only seat wrote nothing to the db and ran the migration only with `--dry-run`.
+- **R-2 · UIA-F-17 `:162`** (above): the named pre-existing load intermittent, and it read RED more often at this sitting. It is not attributable to this RESUME's bytes. **Owner:** the Check, to weigh it; the cure seat is F.W14U R-1's recommendation (the `useWorkspaceLoader` pause override), still unhomed.
+- **R-3 · instrument INFO:** the `:8010` api ran from the working tree, so it also imported F.CT's uncommitted `src/fourier_analysis/contours/*` (a sibling's). Its log shows `compute_cache.store failed … InvalidDocument: documents must have only string keys, key was 4` on `/compute/epicycles` (77 by mid-run; logged, the response still 200). `api/services/compute_cache.py` has not been touched since `a2be117`, and no wave commit touches it. **Owner:** F.CT (if its int-keyed payload is the source) or the next fourier api seat.
+- **ADOPT-AT-LANDING / honest-RED, unchanged:**
+  - O-85 DOCK-PRIORITY-OVERFLOW (the glass half of `.r1`)
+  - O-86 TIMELINE-TRANSPORT (F-81 (ii))
+  - O-74b CARD-TITLE-RUNG (L1-12, at the 10.2.0 repin with `--type-title`, §0ec)
+  - O-77/O-77a LAYER-HEADER-LABEL
+  - O-84/O-84a (`.pd` ×6)
+  - O-76a (MENU-ICON-GAP and MAGNET-STATE-HIDDEN)
+  - TOASTER-OFFSET (`.p` p3)
+  - O-82 (F-177, F-203)
+  - L2-12 collisionPadding, L2-18ˢ and L3-14 HELD (O-74a E-2)
+  - the O-74/O-75 ˢ halves
+  - the F.W14U inherited named set
+  - **Owner:** glass.
+- **Escalations:** none new. The four owner-held escalations (C3-1..C3-4) were RULED at §0eb, and each ruling's cure is landed (`.r1` `.r3` `.r4`) or held ADOPT-AT-LANDING (L1-12, O-86).
+
+### Landed-wrong, state
+- **Landed-wrong: none.** Five commits, all in bounds, and every adjacent edit is declared in its receipt.
+- **G-u:** 255/256 dispositioned + one ADOPT-AT-LANDING (F-81 (ii), O-86), per (h)(3).
+- **State.** §State and §2 say: "The row flips CLOSED on a CONFORMANT check". This seat does not stamp VERIFIED or CLOSED. **Verdict: IMPLEMENTED.** Every RESUME 1 unit is landed with its falsifier GREEN ×2 on the served HEAD page. vue-tsc is 0 ×2, vitest 116/116 ×2 and api 294 ×2. The full e2e ×2 stable failures are the named honest-RED set of 21 plus the named intermittent UIA-F-17 (R-2). Next: Check (L-20).
+- **Push:** fourier `m/w1-bump-migration` was already at origin (`545bbdc`; the push is a no-op check). value.js is pushed with this close.
