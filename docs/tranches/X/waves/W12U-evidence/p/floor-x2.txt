@@ -1,0 +1,6 @@
+SERVED MODEL: claude-opus-5-5
+cmd: node probe-floor.mjs x2 (headed, --window-position=2600,200, 1440x900; 2026-09-26 04:08, load avg 44.02 57.48 49.74)
+blank frames 197 p50 10.2 p95 12.0
+app-idle frames 196 p50 10.2 p95 12.0
+blank frames 195 p50 10.2 p95 11.7
+app-idle frames 191 p50 10.2 p95 12.1

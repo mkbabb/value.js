@@ -1,0 +1,211 @@
+SERVED MODEL: claude-opus-5-5
+[WebServer] 
+[WebServer] ./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[WebServer] 
+[WebServer] ./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[WebServer] 
+[WebServer] ./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[WebServer] 
+[WebServer] ./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[WebServer] Found 16 warnings while optimizing generated CSS:
+[WebServer] 
+[WebServer] Issue #1:
+[WebServer] │   }
+[WebServer] │   .z-\[var\(\)\] {
+[WebServer] │     z-index: var();
+[WebServer] ┆                  ^-- Unexpected end of input
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .z-\[var\(--z-\*\)\] {
+[WebServer] 
+[WebServer] Issue #2:
+[WebServer] │   }
+[WebServer] │   .z-\[var\(--z-\*\)\] {
+[WebServer] │     z-index: var(--z-*);
+[WebServer] ┆                      ^-- Unexpected token Delim('*')
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .z-\[var\(--z-background\)\] {
+[WebServer] 
+[WebServer] Issue #3:
+[WebServer] │   }
+[WebServer] │   .size-\[var\(--icon-\*\)\] {
+[WebServer] │     width: var(--icon-*);
+[WebServer] ┆                       ^-- Unexpected token Delim('*')
+[WebServer] ┆
+[WebServer] │     height: var(--icon-*);
+[WebServer] │   }
+[WebServer] 
+[WebServer] Issue #4:
+[WebServer] │   .size-\[var\(--icon-\*\)\] {
+[WebServer] │     width: var(--icon-*);
+[WebServer] │     height: var(--icon-*);
+[WebServer] ┆                        ^-- Unexpected token Delim('*')
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .size-\[var\(--ui-glyph\)\] {
+[WebServer] 
+[WebServer] Issue #5:
+[WebServer] │   }
+[WebServer] │   .\[max-height\:var\(\.\.\.\)\] {
+[WebServer] │     max-height: var(...);
+[WebServer] ┆                     ^-- Unexpected token Delim('.')
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .max-h-0 {
+[WebServer] 
+[WebServer] Issue #6:
+[WebServer] │   }
+[WebServer] │   .rounded-\[var\(\)\] {
+[WebServer] │     border-radius: var();
+[WebServer] ┆                        ^-- Unexpected end of input
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .rounded-\[var\(--radius-card\)\] {
+[WebServer] 
+[WebServer] Issue #7:
+[WebServer] │   }
+[WebServer] │   .rounded-\[var\(--radius-card\/panel\/dialog\/input\/button\/badge\)\] {
+[WebServer] │     border-radius: var(--radius-card/panel/dialog/input/button/badge);
+[WebServer] ┆                                     ^-- Unexpected token Delim('/')
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .rounded-\[var\(--radius-dialog\)\] {
+[WebServer] 
+[WebServer] Issue #8:
+[WebServer] │   }
+[WebServer] │   .text-\[var\(…\)\] {
+[WebServer] │     color: var(…);
+[WebServer] ┆                ^-- Unexpected token Ident("…")
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .text-\[…\] {
+[WebServer] 
+[WebServer] Issue #9:
+[WebServer] │   }
+[WebServer] │   .duration-\[var\(\)\] {
+[WebServer] │     --tw-duration: var();
+[WebServer] ┆                        ^-- Unexpected end of input
+[WebServer] ┆
+[WebServer] │     transition-duration: var();
+[WebServer] │   }
+[WebServer] 
+[WebServer] Issue #10:
+[WebServer] │   .duration-\[var\(\)\] {
+[WebServer] │     --tw-duration: var();
+[WebServer] │     transition-duration: var();
+[WebServer] ┆                              ^-- Unexpected end of input
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .duration-\[var\(--duration-fast\)\] {
+[WebServer] 
+[WebServer] Issue #11:
+[WebServer] │   }
+[WebServer] │   .duration-\[var\(\.\.\.\)\] {
+[WebServer] │     --tw-duration: var(...);
+[WebServer] ┆                        ^-- Unexpected token Delim('.')
+[WebServer] ┆
+[WebServer] │     transition-duration: var(...);
+[WebServer] │   }
+[WebServer] 
+[WebServer] Issue #12:
+[WebServer] │   .duration-\[var\(\.\.\.\)\] {
+[WebServer] │     --tw-duration: var(...);
+[WebServer] │     transition-duration: var(...);
+[WebServer] ┆                              ^-- Unexpected token Delim('.')
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .duration-\[…\] {
+[WebServer] 
+[WebServer] Issue #13:
+[WebServer] │   }
+[WebServer] │   .ease-\[var\(\)\] {
+[WebServer] │     --tw-ease: var();
+[WebServer] ┆                    ^-- Unexpected end of input
+[WebServer] ┆
+[WebServer] │     transition-timing-function: var();
+[WebServer] │   }
+[WebServer] 
+[WebServer] Issue #14:
+[WebServer] │   .ease-\[var\(\)\] {
+[WebServer] │     --tw-ease: var();
+[WebServer] │     transition-timing-function: var();
+[WebServer] ┆                                     ^-- Unexpected end of input
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .ease-\[var\(--ease-standard\)\] {
+[WebServer] 
+[WebServer] Issue #15:
+[WebServer] │   }
+[WebServer] │   .ease-\[var\(\.\.\.\)\] {
+[WebServer] │     --tw-ease: var(...);
+[WebServer] ┆                    ^-- Unexpected token Delim('.')
+[WebServer] ┆
+[WebServer] │     transition-timing-function: var(...);
+[WebServer] │   }
+[WebServer] 
+[WebServer] Issue #16:
+[WebServer] │   .ease-\[var\(\.\.\.\)\] {
+[WebServer] │     --tw-ease: var(...);
+[WebServer] │     transition-timing-function: var(...);
+[WebServer] ┆                                     ^-- Unexpected token Delim('.')
+[WebServer] ┆
+[WebServer] │   }
+[WebServer] │   .ease-accelerate {
+[WebServer] 
+[WebServer] [INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[WebServer]       ╭─[ node_modules/@vueuse/core/dist/index.js:3362:1 ]
+[WebServer]       │
+[WebServer]  3362 │ /* #__PURE__ */
+[WebServer]       │ ───────┬───────  
+[WebServer]       │        ╰───────── comment ignored due to position
+[WebServer]       │ 
+[WebServer]       │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[WebServer] ──────╯
+[WebServer] 
+[WebServer] [plugin builtin:vite-reporter] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] [INVALID_ANNOTATION] A comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[WebServer]       ╭─[ node_modules/@vueuse/core/dist/index.js:5780:23 ]
+[WebServer]       │
+[WebServer]  5780 │ const defaultState = (/* #__PURE__ */ {
+[WebServer]       │                       ───────┬───────  
+[WebServer]       │                              ╰───────── comment ignored due to position
+[WebServer]       │ 
+[WebServer]       │ Help: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[WebServer] ──────╯
+[WebServer] 
+[WebServer] [PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+[WebServer]   - source-export (50%)
+[WebServer]   - unplugin-vue-markdown (37%)
+[WebServer]   - value-defer-glass-fonts (8%)
+[WebServer] See https://rolldown.rs/options/checks#plugintimings for more details.
+[WebServer] 
+Running 1 test using 1 worker
+[1/1] [smoke] › e2e/smoke/w12-drag.spec.ts:77:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[smoke] › e2e/smoke/w12-drag.spec.ts:77:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget
+[w12-drag REAL-GPU] surface: moves=27 frames=91 p50=21.8 p95=40.8 longTasks=1 maxTask=60
+    hot: getBoundingClientRect@:0=91ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=55ms · assignSlots@vue.runtime.esm-bundler-DQai_KuN.js:5163=30ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=27ms · createVNodeWithArgsTransform@vue.runtime.esm-bundler-DQai_KuN.js:6384=26ms · createReactiveObject@vue.runtime.esm-bundler-DQai_KuN.js:1278=22ms
+[w12-drag REAL-GPU] slider L: moves=26 frames=100 p50=11.0 p95=51.2 longTasks=18 maxTask=62
+    hot: getBoundingClientRect@:0=56ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=51ms · createVNodeWithArgsTransform@vue.runtime.esm-bundler-DQai_KuN.js:6384=31ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=28ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=23ms · setStyle@vue.runtime.esm-bundler-DQai_KuN.js:7535=21ms
+[w12-drag REAL-GPU] slider a: moves=30 frames=92 p50=11.0 p95=51.6 longTasks=15 maxTask=58
+    hot: s@class-names-FlXcvRRT-DiIf_etZ.js:145=82ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=48ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=34ms · setStyle@vue.runtime.esm-bundler-DQai_KuN.js:7535=33ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=22ms · mergeProps@vue.runtime.esm-bundler-DQai_KuN.js:6572=20ms
+[w12-drag REAL-GPU] slider b: moves=29 frames=91 p50=11.9 p95=51.9 longTasks=9 maxTask=61
+    hot: s@class-names-FlXcvRRT-DiIf_etZ.js:145=71ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=34ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=33ms · createVNodeWithArgsTransform@vue.runtime.esm-bundler-DQai_KuN.js:6384=30ms · getBoundingClientRect@:0=30ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=27ms
+[w12-drag REAL-GPU] slider alpha: moves=50 frames=151 p50=11.0 p95=20.5 longTasks=0 maxTask=0
+    hot: track@vue.runtime.esm-bundler-DQai_KuN.js:673=129ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=67ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=39ms · set@vue.runtime.esm-bundler-DQai_KuN.js:1028=25ms · setStyle@vue.runtime.esm-bundler-DQai_KuN.js:7535=23ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=21ms
+[w12-drag] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev
+  1) [smoke] › e2e/smoke/w12-drag.spec.ts:77:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget 
+    Error: surface: drag frame p95 over 16.7 ms
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 16.7
+    Received:    40.79999999999927
+    > 130 |             expect(r.p95, `${r.name}: drag frame p95 over ${P95_BUDGET_MS} ms`).toBeLessThanOrEqual(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-drag.spec.ts:130:81
+    Error Context: test-results/w12-drag-w12-drag-—-2-s-dr-5224f-h-slider-holds-frame-budget-smoke/error-context.md
+  1 failed
+    [smoke] › e2e/smoke/w12-drag.spec.ts:77:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget 
+EXIT 1
