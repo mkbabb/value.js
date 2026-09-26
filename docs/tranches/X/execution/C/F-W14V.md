@@ -1778,3 +1778,63 @@ fourier web/api = `05f99a6` (HEAD moved to `603ae37` during the runs by F.CT com
 
 ### State
 C1R1-1 (the only defect at ≥ MEDIUM) is **CURED**: fourier `f024d98` (falsifier) → `2cc409b` (product cure, R-1's pause override) → `8a9a0ac` → `05f99a6` (the `:162` Export path, settled on state). C1R1-2 and C1R1-3 are INFO, with no seat cure. Nothing is escalated. The LEDGER `:90` status stays IMPLEMENTED; an event line is appended. Next: Check 2 (RESUME 1). The seat's instrument (vite `:3120`/`:3121`/`:3122`, api `:8020`) was stopped at its end; nothing of anyone else's was stopped.
+
+## Check 2 (RESUME 1) — L-20 pass 2
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-26 · Track C, fresh adversarial check of Repair 1 (RESUME 1) over the RESUME 1 Close (verify-only; no cure). Spec `F-W14V.md` read whole (87 lines, addenda (a)–(h) + §0ec). Record read: RESUME 1 Open → plan, the last `## Close`, `## Check 1 (RESUME 1)`, `## Repair 1 (RESUME 1)`; prior-sitting d2 dispositions by `grep -n`/`sed`. fourier HEAD `603ae37` (F.CT only past `05f99a6`: ⟨`git diff --stat 05f99a6 HEAD -- web api`⟩ → empty), tree clean (`?? .worktrees/` only).
+
+**Crash-recovery.** value.js: no dirty path at the record or `LEDGER.md`. fourier: ⟨`git status --porcelain`⟩ → `?? .worktrees/` only. No inherited work.
+
+**Instrument.** Own api `:8030` (fourier working tree = HEAD, `:8000`'s `MONGO_URI`/`BLOB_DIR`/rate-limit env; `:8000` pid 38613 not used) and a fresh vite `:3130` (`VITE_PROXY_API=http://localhost:8030`, no HMR cycles). Comparison exports (⟨`git archive <c> web paper assets`⟩): `7ee9b65` (wave before) on `:3131`, `545bbdc` (pre-Repair) on `:3132`. All stopped at seat end. Host load 22 → 43 (siblings' fleets).
+
+### Gates reproduced (fourier web/api = `05f99a6`)
+| Gate | Claim | This seat | Verdict |
+|---|---|---|---|
+| vue-tsc | 0 ×2 | ⟨`npx vue-tsc --noEmit; echo $?`⟩ → `0` · `0` | REPRODUCED |
+| vitest | 116/116 ×2 | ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)` ×2 | REPRODUCED |
+| api suite | 294 ×2 | ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 .venv/bin/python -m pytest api/tests -q`⟩ → `294 passed in 49.81s` · `294 passed in 53.14s` | REPRODUCED |
+| `owner_required` + `.r3` migration tests | 9 passed | ⟨`… pytest api/tests -q -k 'owner_required or migrate_animation_easing'`⟩ → `12 passed, 282 deselected` (the node id is `conformance/test_identity.py`; the earlier-cited path selects nothing) | REPRODUCED |
+| h1 + UIA-F-17 `:162` | GREEN ×10 | ⟨`BASE_URL=http://localhost:3130 npx playwright test e2e/f-w14-uia.spec.ts:162 e2e/f-w14v-hold.spec.ts --project=chromium --workers=1 --repeat-each=5`⟩ → `10 passed (1.9m)`; both GREEN again in the full run | REPRODUCED |
+| paper-performance `:235` (Repair: instrument) | GREEN on a real tree | GREEN in the full run below | REPRODUCED |
+| full e2e `--workers=1` (§2) | 23 stable = named 21 + d2 + `:235` | ⟨`FW14_PHASE=w14v-check2-r1 BASE_URL=http://localhost:3130 MONGO_URI=mongodb://127.0.0.1:27018/fourier npx playwright test --workers=1 --reporter=line`⟩ (547) → **`24 failed · 3 skipped · 520 passed (33.5m)`** = named 21 exactly + f-w14u-d d2 `:136` (1440 light + dark) + **f-w14u-vdock v181 `:279`** | RED outside the set: v181 (C2R1-1) |
+
+**Self-count:** 7 gate rows; 6 reproduced as claimed, 1 (full e2e) RED outside the named and relieved set. I ran the full suite once; the verdict does not depend on a second run.
+
+### v181 read by bytes (the Repair's own mechanism, at its twin call site)
+The full run's v181 failure is `locator.click: Test timeout of 120000ms exceeded` on `.controls-dock-anchor [aria-label='Export frame']` (`tabindex="-1"`, `element is not visible` ×221), at `f-w14u-vdock.spec.ts:258` (`openExport`), called the **second** time at `:315` (`again = await openExport(page)`, right after an export dialog closed). This is C1R1-1's mode 1 exactly: the dialog returns focus to Export frame, the dock holds open for it, and the hold's release collapses the dock under a pointer that is already resting on it. `openExport`'s `expandCanvasDock` (`:66-70`: hover Edit contour, then `waitForTimeout(700)`) enters from inside the dock, so no fresh entry follows. This is the `.u1` `64a1865` path (`:256` comment "X.F.W14V.u1 (UIA-F-182, §0bt)"). Repair 1 cured the path at `:162` only (`05f99a6`), and the twin was left as it was. ⟨`grep -rn "Export frame'\]\").click" web/e2e`⟩ → `f-w14u-vdock.spec.ts:258` · `f-w14v-u1.spec.ts:181,190`.
+
+| Bytes | v181 (⟨`… e2e/f-w14u-vdock.spec.ts -g v181 --repeat-each=4`⟩, each tree's own spec) | Total |
+|---|---|---|
+| `7ee9b65` (wave before; Export via the More-options menu) | `4 passed (1.3m)` | **4/4** |
+| `545bbdc` (pre-Repair) | `1 failed · 3 passed (2.8m)` (the same click timeout) | 3/4 |
+| `05f99a6` (HEAD) | full run `failed`; alone ⟨`… :279 :136`⟩ ×2 → `v181 passed` then `v181 failed`; ⟨`--repeat-each=4`⟩ → `4 passed (59.3s)` | **5/7** |
+
+### Axes
+1. **GREENs reproduce:** HELD for every Repair claim (the table above).
+2. **Bounds:** HELD. ⟨`git log --oneline 545bbdc..HEAD -- web api`⟩ → exactly `f024d98` `8a9a0ac` `2cc409b` `05f99a6`. ⟨`git show --stat`⟩ → `web/e2e/f-w14v-hold.spec.ts` (new), `web/e2e/f-w14-uia.spec.ts`, `web/src/stores/animation.ts`, `web/src/components/visualization/composables/useWorkspaceLoader.ts`, all in `web/src/**`/`web/e2e/**`. value.js `9207d48c` touches the record and `LEDGER.md` only. ⟨`git log --name-only f1ebb210^..HEAD | grep -c scripts/dev/dev.sh`⟩ → `0`.
+3. **Masking:** HELD. ⟨`git diff 545bbdc HEAD -- web api | grep -E '^\+.*(\.skip\(|fixme|try \{|catch|allowlist|\.only\(|waitForTimeout|timeout:)'`⟩ → three h1 lines only: a 30 s `waitForResponse`, a 20 s first-paint wait, and a 1.5 s observation window that asserts the absence of motion. None of the three masks anything. `:162` lost its fixed 800 ms sleep and gained state waits. `2cc409b` is a root cure: the store records the reader's hold, `autoPlay` honours it, and a new drawing releases it. There is no guard around a defect.
+4. **Families:** HELD. Each mode goes falsifier-first (`f024d98` → `2cc409b`), and `:162`'s path is `8a9a0ac` → `05f99a6`, with the first form recorded as insufficient. One meaning per commit.
+5. **E-3:** HELD. ⟨`git diff --stat b60c6b2b..HEAD -- docs/tranches/X/fourier/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/audit/AUDIT-2-fourier.md`⟩ → empty.
+6. **Mail:** HELD. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`; ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → `0` on value `V/` and `V/coordination`, glass `BK/coordination`, and keyframes `V/coordination`.
+7. **Four-verb line:** HELD. LEDGER `:90` reads IMPLEMENTED; the Repair did not stamp it.
+8. **Goal at the bytes:** MET for `.r1`, `.r3`, `.r4` and `.s2` (Check 1 reproduced them; web/api unchanged except the Repair's four commits) and for the R-1 pause hold (h1). NOT met for §2's full-e2e gate (C2R1-1).
+9. **Published figures:** vue-tsc, vitest, api, `:162` and h1 reproduce. The Repair said the full run's stable set is 21 + d2 + `:235`. This seat's full run reads 21 + d2 ×2 + v181: `:235` GREEN (the Repair's instrument claim holds) and v181 RED.
+10. **Honest-RED:** see below.
+
+### Register (severity · claim · receipt · cure)
+- **C2R1-1 · HIGH · §2's full-e2e gate is RED outside the named set at v181 `:279`, and the cause is this wave's own `.u1` path. It is the twin of C1R1-1, which the Repair cured at `:162` only.** No spec id relieves v181, it is not in F.W14U's inherited named set, and the record names no owner for it. By bytes it is 4/4 GREEN before the wave (`7ee9b65`), 3/4 at `545bbdc` and 5/7 at HEAD, with the same click timeout each time it fails. It carries the same weight as C1R1-1: an intermittent the wave introduced, which read RED in the §2 gate. **Receipt:** the full run above and the table. **Cure (Repair seat, `web/e2e/**`):** carry `05f99a6`'s settled-state path to every twin Export-frame entry. That means `f-w14u-vdock.spec.ts` `openExport`/`expandCanvasDock` (`:66-70`, `:256-258`), where the fix is to leave the dock, wait for `collapsed` with no `data-morphing`, re-enter on Edit contour, then wait for `expanded` with no `data-morphing`. Read `f-w14v-u1.spec.ts:181,190` (its local `expandCanvasDock` is hover plus a 700 ms sleep) under the same rule. Extract one shared e2e helper rather than a third copy. No timeout raised, no retry. Then run v181 `--repeat-each≥8` GREEN under load, and read the full e2e ×2 inside the named set. If the release-under-rest behaviour is isolated by a probe, it is a glass hover-model O-row (the Repair's observation), relayed and not shimmed.
+- **C2R1-2 · INFO · a citation.** The Close and Check 1 cite `api/tests/test_identity.py::test_owner_required`. The node lives at `api/tests/conformance/test_identity.py:92`, so that literal path selects nothing (`no tests ran`). The gate is GREEN by `-k` (`12 passed`). The figure stands; only the cited command is wrong.
+- **C2R1-3 · INFO · R-1/C1R1-2 unchanged.** The stale `:8000` (pid 38613) and its legacy-easing writes are the host owner's.
+
+### Honest-RED adjudication (axis 10)
+**Relieved, each owner-named:**
+- **Glass ADOPT-AT-LANDING:** au3 L1-12 `:119` (O-74b, (h)(2) + §0ec) · c3 c3m/c3g (O-76a, add. (a)) · p p3 @1440/@1024 (TOASTER-OFFSET, §1 `.p` 2) · `.pd` collapsed ×6 (O-84/O-84a, add. (f)) · O-77/O-77a LAYER-HEADER-LABEL (add. (b)) · O-82 F-177/F-203 (add. (c)) · O-85 DOCK-PRIORITY-OVERFLOW ((h)(1)) · O-86 TIMELINE-TRANSPORT ((h)(3)(ii)) · L2-12, L2-18ˢ/L3-14 HELD (O-74a E-2).
+- **F.W14U's inherited named set (§2):** contrast-floor `:82` ×2 + `:128` · gallery-admin-a11y ×4 · visual-checkpoint `:81 :102 :123` · f-w14u-d d2 `:136` (relieved as a member at the first sitting's Checks 2–3, `:1281`, `:1407`; RED at the before bytes per Repair 1 R-1).
+
+**Not relieved:** f-w14u-vdock v181 `:279` (C2R1-1).
+
+### Successors
+⟨`grep -rn 'Opens after' docs/tranches/X/fourier/waves/*.md docs/tranches/X/waves/*.md | grep W14V`⟩ → F-W14V's own line only (`F.W14U CLOSED`, MET). ⟨`awk -F'|' '$3 ~ /W14V/' LEDGER.md`⟩ → no row. No successor gates on F.W14V, so none is blocked.
+
+### State
+**NOT-CONFORMANT.** There is 1 HIGH (C2R1-1). Every GREEN the Repair claimed reproduces, and C1R1-1 is cured at `:162` and h1. LEDGER `:90` stays IMPLEMENTED, and only an event line is appended. Next is a Repair seat for C2R1-1 (the twin Export paths, one shared helper), then Check 3. The instrument (`:3130`/`:3131`/`:3132` vite, `:8030` api) was stopped. Nothing of anyone else's was stopped, and nothing was written to fourier.
