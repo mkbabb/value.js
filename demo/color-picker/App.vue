@@ -536,7 +536,7 @@ const { status: linkCopyStatus, copy: copyLink } = useClipboard({ resetMs: 2000 
 const linkCopied = computed(() => linkCopyStatus.value === "success");
 
 const shareLink = async () => {
-    await copyLink(window.location.href);
+    await copyLink(colorUrl.shareHref());
 };
 
 // --- URL sync + persistence precedence (S.W2 · W2-1; re-scoped T.W2 · W2-1;
@@ -548,7 +548,7 @@ const shareLink = async () => {
 // `restoreFromStorage` keeps owning the savedColors restore, skipped whenever
 // the URL seeded the model — the hydrated URL seed must never be overwritten
 // by the stored one.
-useColorUrl({ model, updateModel: patchModelExternal });
+const colorUrl = useColorUrl({ model, updateModel: patchModelExternal });
 if (hydration.source !== "url") restoreFromStorage();
 
 // --- Custom color names ---

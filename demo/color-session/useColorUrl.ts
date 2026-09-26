@@ -84,14 +84,19 @@ export function useColorUrl(options: {
         }
     }
 
-    // Model → URL (debounced, generation-guarded)
-    const syncModelToUrl = debounce(() => {
-        const gen = syncGen;
+    /** The address pair for the model's current colour (one serializer). */
+    const modelQuery = () => {
         const space = model.value.selectedColorSpace;
-
         const color = space === "hex"
               ? colorToHexString(model.value.color)
               : serializePickerColor(model.value.color);
+        return { space, color };
+    };
+
+    // Model → URL (debounced, generation-guarded)
+    const syncModelToUrl = debounce(() => {
+        const gen = syncGen;
+        const { space, color } = modelQuery();
 
         // If generation changed since debounce was scheduled, URL→Model wrote
         // in the interim — skip to avoid circular update
@@ -136,4 +141,15 @@ export function useColorUrl(options: {
             syncModelToUrl();
         },
     );
+
+    /**
+     * UIA-V-23: the share link is built FROM THE MODEL, never read off
+     * `location.href` — the address carries the colour only after a live edit
+     * (a storage-restored boot colour is never written to it), so the copied
+     * link used to hold no colour at all.
+     */
+    const shareHref = (): string =>
+        new URL(router.resolve({ query: { ...route.query, ...modelQuery() } }).href, window.location.href).href;
+
+    return { shareHref };
 }
