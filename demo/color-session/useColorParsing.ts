@@ -48,20 +48,21 @@ export function useColorParsing(deps: {
         }
     };
 
-    let previousInvalid = "";
+    // UIA-V-13: the invalid state is a fact about the CURRENT text, not a
+    // timed flash. It holds for as long as the text it was parsed from stays in
+    // the field (no 2 s auto-clear under unchanged bad text), a repeated Enter
+    // re-parses and re-states it (no swallow-guard), and it is withdrawn only
+    // when the text changes — `clearParseError`, called by the field on edit
+    // and on its blur snap-back — or a parse succeeds.
     let initialParse = true;
     const parseError = ref(false);
-    let parseErrorTimer: ReturnType<typeof setTimeout> | undefined;
-
-    const flashParseError = () => {
-        parseError.value = true;
-        clearTimeout(parseErrorTimer);
-        parseErrorTimer = setTimeout(() => { parseError.value = false; }, 2000);
+    const clearParseError = () => {
+        parseError.value = false;
     };
 
     const parseAndSetColor = (source: string) => {
         const input = source.trim().toLowerCase();
-        if (!input || input === previousInvalid) return;
+        if (!input) return;
         try {
             const parsed = parseColor(input);
             const selected: DisplayColorSpace = parsed.space === "rgb" && input.startsWith("#")
@@ -73,7 +74,6 @@ export function useColorParsing(deps: {
                 return;
             }
             parseError.value = false;
-            previousInvalid = "";
             updateModel({ inputColor: input, color: converted, selectedColorSpace: selected });
             try {
                 const hsv = convertPickerColor(converted, "hsv");
@@ -84,8 +84,7 @@ export function useColorParsing(deps: {
                 // Preserve stable hue for powerless colors.
             }
         } catch {
-            previousInvalid = input;
-            if (!initialParse) flashParseError();
+            if (!initialParse) parseError.value = true;
         } finally {
             initialParse = false;
         }
@@ -141,6 +140,7 @@ export function useColorParsing(deps: {
         parseAndSetColor,
         parseAndSetColorDebounced,
         parseError,
+        clearParseError,
         generateRandomColor,
         astEcho,
         gamutVerdict,

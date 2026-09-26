@@ -159,6 +159,7 @@ const {
     parseAndSetColor,
     parseAndSetColorDebounced,
     parseError,
+    clearParseError,
     updateModel,
 } = inject(COLOR_MODEL_KEY)!;
 
@@ -197,6 +198,7 @@ const onInputBlur = () => {
     // while focused, leaving stale text without this snap-back.
     if (!proposeMode && inputColorRef.value) {
         inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
+        clearParseError();
     }
 };
 const onInputInput = (e: Event) => {
@@ -204,6 +206,8 @@ const onInputInput = (e: Event) => {
     if (proposeMode) {
         proposedName.value = text;
     } else {
+        // UIA-V-13: the verdict belonged to the text just replaced.
+        clearParseError();
         parseAndSetColorDebounced(text);
     }
 };
