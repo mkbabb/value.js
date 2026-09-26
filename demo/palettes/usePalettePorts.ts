@@ -79,7 +79,7 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     });
 
     // --- Auth ---
-    const { isAuthenticated: isAdminAuthenticated, login: adminLogin } = useAdminAuth();
+    const { isAuthenticated: isAdminAuthenticated, login: adminLogin, logout: adminLogout } = useAdminAuth();
     const { userSlug, ensureUser, login: userLogin, logout: userLogout, regenerate: userRegenerate, clearSlug } = useUserAuth();
     const session = useSession();
 
@@ -163,6 +163,8 @@ export function providePalettePorts(deps: PalettePortsDeps) {
     // ── PORT 1 · Session — identity/auth surface ──────────────────────────────
     const sessionPort = {
         isAdminAuthenticated,
+        /** UIA-V-21: the admin identity's exit (both dock twins render it). */
+        adminLogout,
         userSlug,
         userLogout,
         ensureUser,

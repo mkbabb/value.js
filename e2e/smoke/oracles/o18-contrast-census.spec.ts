@@ -1286,7 +1286,7 @@ for (const scheme of ["light", "dark"] as const) {
             await bootAtOwnerColor(page);
             await expandDock(page);
 
-            const pill = page.locator(".slug-pill.gold-shimmer");
+            const pill = page.locator('[data-o18="admin-trigger"]');
             await expect(
                 pill,
                 "the admin branch mounts — if this fails the census is still blind and the row below proves nothing",
@@ -1294,7 +1294,7 @@ for (const scheme of ["light", "dark"] as const) {
 
             const row = await censusElement(
                 page,
-                ".slug-pill.gold-shimmer",
+                '[data-o18="admin-trigger"]',
                 "admin-pill",
             );
             expect(row, "the admin pill is enrolled").not.toBeNull();

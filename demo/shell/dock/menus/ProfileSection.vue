@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from "vue";
 import {
-    Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Moon, Sun,
+    Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Moon, Sun, Shield,
 } from "@lucide/vue";
 import { DockControl, DockSeparator, DockTrigger } from "@mkbabb/glass-ui/dock";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
@@ -115,10 +115,30 @@ function openRepository(): void {
         </template>
 
         <!-- Admin (no slug) -->
+        <!-- UIA-V-21/215/227: the admin identity is a menu, like the user's,
+             with its exits — the inert gold pill it replaces looked like a
+             control, opened nothing, and stranded the admin (no Login, no
+             Sign out) until site data was cleared. -->
         <template v-else-if="pm.isAdminAuthenticated.value">
-            <span class="slug-pill cursor-default whitespace-nowrap gold-shimmer" style="border-color: var(--color-gold); color: var(--color-gold)">
-                admin
-            </span>
+            <DropdownMenu v-model:open="profileMenuOpen">
+                <DockTrigger
+                    for="dropdown"
+                    class="gap-1.5 text-mono-small font-bold whitespace-nowrap gold-shimmer"
+                    style="color: var(--color-gold)"
+                    data-o18="admin-trigger"
+                >
+                    <Shield class="w-3.5 h-3.5" aria-hidden="true" />
+                    admin
+                </DockTrigger>
+                <DropdownMenuContent align="end" class="min-w-menu font-display">
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="emit('startSlugEdit')">
+                        <LogIn class="w-3.5 h-3.5" /> Switch account
+                    </DropdownMenuItem>
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="pm.adminLogout()">
+                        <LogOut class="w-3.5 h-3.5" /> Sign out of admin
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
         </template>
 
         <!-- Not logged in -->

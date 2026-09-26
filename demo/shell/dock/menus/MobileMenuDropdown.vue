@@ -90,6 +90,13 @@ function openRepository(): void {
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span class="slug-pill cursor-default text-muted-foreground whitespace-nowrap" style="border-color: var(--muted-foreground); color: var(--muted-foreground)">admin</span>
                     </DropdownMenuLabel>
+                    <!-- UIA-V-21: the desktop twin's exits, applied here too. -->
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="emit('startSlugEdit')">
+                        <LogIn class="w-3.5 h-3.5" /> Switch account
+                    </DropdownMenuItem>
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="pm.adminLogout()">
+                        <LogOut class="w-3.5 h-3.5" /> Sign out of admin
+                    </DropdownMenuItem>
                 </template>
                 <template v-else>
                     <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="emit('startSlugEdit')">
