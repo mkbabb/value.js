@@ -149,14 +149,15 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
                 const after = choice === "transfer" ? await publishAllLocal() : null;
                 const tally = before ?? after;
                 if (tally) identity.value = { kind: "done", message: `${tallyText(tally)}.` };
-                deps.setActiveView("palettes");
             };
             showMigrateDialog.value = true;
             return { kind: "migrating" };
         }
         try {
+            // UIA-V-519: signing in keeps the user where they are — the forced
+            // jump to Palettes is gone (the admin branch above still opens the
+            // admin's destination).
             await deps.userLogin(value);
-            deps.setActiveView("palettes");
             return { kind: "done" };
         } catch (e) {
             // S.W2 W2-6: branch on the typed `ApiProblem.status`, not `.message`
