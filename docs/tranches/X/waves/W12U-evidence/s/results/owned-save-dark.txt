@@ -1,0 +1,2 @@
+[dark]
+PASS V-110 owned: menu Save=0 dock palette seats=7 save seat=0; foreign: menu Save=1

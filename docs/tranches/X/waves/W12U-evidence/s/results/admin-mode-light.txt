@@ -1,0 +1,3 @@
+[light]
+PASS logged-out /blob→/ gold=0→0
+PASS admin /admin/users→/palettes gold=2→0

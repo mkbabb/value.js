@@ -1,0 +1,7 @@
+[dark]
+PASS V-13 verdict holds under unchanged invalid text enter=1 +2.6s=1 re-enter=1
+PASS V-13 an edit withdraws the verdict after-edit=0
+PASS V-12 propose reached network proposed=true
+PASS V-12 toolbar returns to actions openColorInputVisible=true
+PASS V-12 success announced status=["Name proposed: s1 proposed.","Save edit","Home view"]
+PASS V-12 no colour string left in propose field field=""

@@ -1,0 +1,5 @@
+[844x390 light]
+PASS V-8/V-10 actions layer fits dock=[267,577] bad=[]
+PASS V-9 input mode fits dock=[235,609] bad=[]
+PASS V-79 typing does not resize the dock w 374→374 bad=[]
+PASS V-9 propose mode fits; field not a stub dock=[235,609] field=224 bad=[]

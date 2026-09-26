@@ -1,0 +1,6 @@
+[1440x900 dark]
+PASS V-8/V-10 actions layer fits dock=[569,871] bad=[]
+PASS V-9 input mode fits dock=[537,903] bad=[]
+PASS V-11 dock holds open under the resting pointer collapsed=0 field=true
+PASS V-79 typing does not resize the dock w 366→366 bad=[]
+PASS V-9 propose mode fits; field not a stub dock=[537,903] field=224 bad=[]

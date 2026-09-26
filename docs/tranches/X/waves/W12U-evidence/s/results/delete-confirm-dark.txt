@@ -1,0 +1,3 @@
+[dark]
+PASS V-104 saved: dialog=1 cards 6→open 6→cancel 6→accept 5
+PASS V-111 owned remote: dialog=1 deletes before accept=0 after=1

@@ -1,0 +1,3 @@
+[light]
+PASS 401 token=null loginControls=1
+PASS 403 token=null loginControls=1

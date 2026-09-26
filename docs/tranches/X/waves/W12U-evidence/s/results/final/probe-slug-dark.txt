@@ -1,0 +1,8 @@
+[dark]
+PASS A V-15 pending: layer open + aria-busy busy=1 open=true
+PASS A V-14/20 failure said, layer kept open=true alert="Slug not found."
+PASS B V-16 typo is not an admin token; identity kept adminToken=null slug=test-user alert="Not a slug or admin token."
+PASS C V-21 mobile admin exit row=1 tokenAfter=null
+PASS C V-21 desktop admin exit trigger=1 row=1 tokenAfter=null
+PASS D V-19/83 failed regenerate keeps the identity storedSlug=test-user
+PASS E V-17/251 layer fits 390 and its dock dock=[24,366] outside=[] ctl=Slug or admin token@58-235,Switch to slug@241-285,Cancel@310-354

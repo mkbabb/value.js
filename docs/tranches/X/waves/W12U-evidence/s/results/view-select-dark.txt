@@ -1,0 +1,3 @@
+[dark]
+PASS V-72/216 current view marked {"selected":"Palettes","selSvgs":2,"otherSvgs":0,"sep":1,"rule":0}
+PASS V-226/489 producer separator sep=1 handRule=0

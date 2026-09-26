@@ -1,0 +1,3 @@
+[light]
+PASS admin=false {"seal":true,"ink":true,"inside":true,"gold":false,"iw":22,"sw":40,"color":"oklch(0 0 0)"}
+PASS admin=true {"seal":true,"ink":true,"inside":true,"gold":true,"iw":22,"sw":40,"color":"oklch(0.751 0.147 84.2)"}
