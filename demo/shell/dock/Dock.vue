@@ -330,21 +330,25 @@ watch(
                      ever animates live→view-hue. -->
             <template #collapsed>
                 <div class="dock-seal">
+                    <!-- UIA-V-6: the ink is the wax's SIBLING, stacked over it in the
+                         seal's one grid cell. The dot renders no slot (span > svg
+                         filter host only), so the slotted icon never rendered and
+                         the seal carried no view glyph and no admin gold. -->
                     <WatercolorDot
                         :color="cssColorOpaque"
                         class="dock-seal-wax"
                         seed="top-dock"
-                    >
-                        <Transition name="vj-morph" mode="out-in">
-                            <component
-                                :is="viewManager.currentConfig.value.icon"
-                                :key="viewManager.currentView.value"
-                                class="dock-seal-ink"
-                                :class="isAdminMode && 'gold-shimmer-icon'"
-                                style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
-                            />
-                        </Transition>
-                    </WatercolorDot>
+                    />
+                    <Transition name="vj-morph" mode="out-in">
+                        <component
+                            :is="viewManager.currentConfig.value.icon"
+                            :key="viewManager.currentView.value"
+                            class="dock-seal-ink"
+                            :class="isAdminMode && 'gold-shimmer-icon'"
+                            aria-hidden="true"
+                            style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
+                        />
+                    </Transition>
                 </div>
             </template>
         </GlassDock>
@@ -403,6 +407,14 @@ watch(
        app-wide, so an explicit none is the honest "the rim is DEAD and
        stays dead" declaration, not redundancy. */
     border: none;
+    /* UIA-V-6: the ink regime sits on the seal, inherited by its ink (the
+       wax's sibling), so the admin gold-shimmer-icon's direct colour still
+       wins without a specificity fight. */
+    color: var(--seal-ink, var(--foreground));
+}
+.dock-seal-wax,
+.dock-seal-ink {
+    grid-area: 1 / 1;
 }
 .dock-seal-wax {
     inline-size: 100%;
@@ -421,5 +433,6 @@ watch(
 .dock-seal-ink {
     inline-size: 55%;
     block-size: 55%;
+    pointer-events: none;
 }
 </style>
