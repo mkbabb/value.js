@@ -87,14 +87,22 @@ export interface AdminAccess {
 const SIGNED_OUT: AdminFailure = { kind: "signed-out", message: SIGNED_OUT_MESSAGE };
 
 export function useAdminAccess(): AdminAccess {
-    const { getToken, isAuthenticated } = useAdminAuth();
+    const { getToken, isAuthenticated, logout } = useAdminAuth();
     const denial = shallowRef<AdminFailure | null>(null);
     const access = computed(() => (isAuthenticated.value ? denial.value : SIGNED_OUT));
 
     async function call<T>(op: (token: string) => Promise<T>): Promise<AdminResult<T>> {
-        const result = await adminCall(getToken(), op);
+        const token = getToken();
+        const result = await adminCall(token, op);
         if (result.ok) denial.value = null;
-        else if (result.kind !== "failed") denial.value = { kind: result.kind, message: result.message };
+        else if (result.kind !== "failed") {
+            denial.value = { kind: result.kind, message: result.message };
+            // UIA-V-93: the server's refusal of the HELD token (401 no session,
+            // 403 the bearer compare failed — `api/.../admin/auth.ts`, one token,
+            // no per-route grant) ends the admin session here. A rejected token
+            // used to survive, so a stranded "admin" had no automatic exit.
+            if (token !== null && getToken() === token) logout();
+        }
         return result;
     }
 
