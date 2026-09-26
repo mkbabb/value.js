@@ -1,0 +1,15 @@
+## at the unit's base bytes (23cd3a34 PaletteInspector) — 390 light
+PASS /palettes 6 cards, 0 crossing · PASS /browse 14 cards, 0 crossing (btn 54)
+## at HEAD after s2
+[390x844 light]
+PASS /palettes 6 cards, 0 crossing [] btn 54
+PASS /browse 14 cards, 0 crossing [] btn 54
+[360x780 light]
+PASS /palettes 6 cards, 0 crossing [] btn 54
+PASS /browse 14 cards, 0 crossing [] btn 54
+[390x844 dark]
+PASS /palettes 6 cards, 0 crossing [] btn 54
+PASS /browse 14 cards, 0 crossing [] btn 54
+[360x780 dark]
+PASS /palettes 6 cards, 0 crossing [] btn 54
+PASS /browse 14 cards, 0 crossing [] btn 54
