@@ -1,0 +1,744 @@
+[
+ {
+  "vp": "1440x900",
+  "theme": "light",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 16,
+  "small": 0,
+  "inputW": 69.3,
+  "inputH": 40,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.816,
+  "sliderFill": 0.816,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 439,
+  "stageHalfH": 396,
+  "sheetCard": false,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -304,
+    304
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.216128 0.00350075 0.00518669 / 0.1)|oklab(0.216128 0.00350075 0.00518669 / 0.25)|none|none#rgb(243, 236, 226)|oklab(0.216128 0.00350075 0.00518669 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(243, 236, 226)|oklab(0.216128 0.00350075 0.00518669 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "1024x768",
+  "theme": "light",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 16,
+  "small": 0,
+  "inputW": 50.5,
+  "inputH": 40,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.774,
+  "sliderFill": 0.774,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 312,
+  "stageHalfH": 352,
+  "sheetCard": false,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -197,
+    197
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.216128 0.00350075 0.00518669 / 0.1)|oklab(0.216128 0.00350075 0.00518669 / 0.25)|none|none#rgb(243, 236, 226)|oklab(0.216128 0.00350075 0.00518669 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(243, 236, 226)|oklab(0.216128 0.00350075 0.00518669 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "768x1024",
+  "theme": "light",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 149,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.895,
+  "sliderFill": 0.895,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 384,
+  "stageHalfH": 512,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -240,
+    240
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0 0 0 / 0.1)|oklab(0 0 0 / 0.25)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "430x932",
+  "theme": "light",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 64.5,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.799,
+  "sliderFill": 0.799,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 215,
+  "stageHalfH": 466,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -108,
+    108
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0 0 0 / 0.1)|oklab(0 0 0 / 0.25)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "390x844",
+  "theme": "light",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 54.5,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.774,
+  "sliderFill": 0.774,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 195,
+  "stageHalfH": 422,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -98,
+    98
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0 0 0 / 0.1)|oklab(0 0 0 / 0.25)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "360x780",
+  "theme": "light",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 47,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.752,
+  "sliderFill": 0.752,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 180,
+  "stageHalfH": 390,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -90,
+    90
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0 0 0 / 0.1)|oklab(0 0 0 / 0.25)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "844x390",
+  "theme": "light",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 46.1,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.761,
+  "sliderFill": 0.761,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 422,
+  "stageHalfH": 195,
+  "sheetCard": true,
+  "inViewScrolled": 12,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -325,
+    325
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0 0 0 / 0.1)|oklab(0 0 0 / 0.25)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(243, 236, 226)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": false
+ },
+ {
+  "vp": "1440x900",
+  "theme": "dark",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 16,
+  "small": 0,
+  "inputW": 69.3,
+  "inputH": 40,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.816,
+  "sliderFill": 0.816,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 439,
+  "stageHalfH": 396,
+  "sheetCard": false,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -304,
+    304
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.925196 0.00238398 0.00574207 / 0.1)|oklab(0.925196 0.00238398 0.00574207 / 0.25)|none|none#rgb(63, 55, 49)|oklab(0.925196 0.00238398 0.00574207 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(63, 55, 49)|oklab(0.925196 0.00238398 0.00574207 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "1024x768",
+  "theme": "dark",
+  "pose": 147,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 16,
+  "small": 0,
+  "inputW": 50.5,
+  "inputH": 40,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.774,
+  "sliderFill": 0.774,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 312,
+  "stageHalfH": 352,
+  "sheetCard": false,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -197,
+    197
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.925196 0.00238398 0.00574207 / 0.1)|oklab(0.925196 0.00238398 0.00574207 / 0.25)|none|none#rgb(63, 55, 49)|oklab(0.925196 0.00238398 0.00574207 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(63, 55, 49)|oklab(0.925196 0.00238398 0.00574207 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "768x1024",
+  "theme": "dark",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 149,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.895,
+  "sliderFill": 0.895,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 384,
+  "stageHalfH": 512,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -240,
+    240
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)|oklab(0.999994 0.0000455678 0.0000200868 / 0.25)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "430x932",
+  "theme": "dark",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 64.5,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.799,
+  "sliderFill": 0.799,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 215,
+  "stageHalfH": 466,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -108,
+    108
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)|oklab(0.999994 0.0000455678 0.0000200868 / 0.25)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "390x844",
+  "theme": "dark",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 54.5,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.774,
+  "sliderFill": 0.774,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 195,
+  "stageHalfH": 422,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -98,
+    98
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)|oklab(0.999994 0.0000455678 0.0000200868 / 0.25)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "360x780",
+  "theme": "dark",
+  "pose": 148,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 47,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.752,
+  "sliderFill": 0.752,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 180,
+  "stageHalfH": 390,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -90,
+    90
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)|oklab(0.999994 0.0000455678 0.0000200868 / 0.25)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": true
+ },
+ {
+  "vp": "844x390",
+  "theme": "dark",
+  "pose": 142,
+  "open": true,
+  "cells": 16,
+  "overlap": 0,
+  "uniqueLabels": 16,
+  "labels": "Sx Kyx Kzx Px Kxy Sy Kzy Py Kxz Kyz Sz Pz Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 46.1,
+  "inputH": 60,
+  "inputRadius": 9999,
+  "disc": false,
+  "bogusAttrs": 0,
+  "gridFill": 0.761,
+  "sliderFill": 0.761,
+  "sliderName": "Sx",
+  "readout": "1",
+  "panelName": "Transform matrix",
+  "fixedToggle": 0,
+  "stageHalfW": 422,
+  "stageHalfH": 195,
+  "sheetCard": true,
+  "inViewScrolled": 12,
+  "bounds": {
+   "1": [
+    -1,
+    1
+   ],
+   "3": [
+    -0.005,
+    0.005
+   ],
+   "12": [
+    -325,
+    325
+   ],
+   "15": [
+    0.4,
+    3
+   ]
+  },
+  "selSliderName": "Sy",
+  "selReadout": "1",
+  "selDistinct": true,
+  "sel5": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)|oklab(0.999994 0.0000455678 0.0000200868 / 0.25)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#true",
+  "sel6": "rgba(0, 0, 0, 0)|rgba(0, 0, 0, 0)|none|none#rgb(63, 55, 49)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true,
+  "titleVis": false
+ }
+]
