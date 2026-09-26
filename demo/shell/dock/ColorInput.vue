@@ -213,6 +213,9 @@ const onInputKeydown = (e: KeyboardEvent) => {
         if (proposeMode) {
             submitProposedName();
         } else {
+            // UIA-V-508: Enter commits NOW; the pending debounced parse of the
+            // same text is dropped rather than re-running 2 s later.
+            parseAndSetColorDebounced.cancel();
             parseAndSetColor((e.target as HTMLElement).innerText);
         }
     }
@@ -220,6 +223,7 @@ const onInputKeydown = (e: KeyboardEvent) => {
 
 const onSubmitColor = () => {
     if (inputColorRef.value) {
+        parseAndSetColorDebounced.cancel();
         parseAndSetColor(inputColorRef.value.innerText);
     }
 };
