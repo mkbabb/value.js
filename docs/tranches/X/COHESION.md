@@ -3644,3 +3644,6 @@ No noise band.
 
 ## §0ee — 2026-09-25: `.eq` landed; `.gap` minted
 The equal-work corpus is built (`f4dcbd85`, 0 mismatches ×2). The cuts exposed three places where the product refuses valid CSS: adjacent functions `rotate(0)scale(1.3)`, the unquoted `url(./x.svg)`, and nested `calc(50% - (1em / 2))`. They are homed as X.P.W7 `.gap` (a BBNF grammar cure plus falsifiers), run first in Track D's quiet-host window, before the L-G1 read. W7.md addendum (h).
+
+## §0ef — 2026-09-25: X.P.W7 bytes frozen for the read; X.P.W8 minted
+`.gap2` landed (`08331dfa`). Probing keeps surfacing valid CSS the product refuses, so chasing it before the read never converges. **Ruled:** X.P.W7 freezes at `08331dfa` for the quiet-window L-G1 read. The long tail becomes **X.P.W8, a CSS value conformance sweep** driven by vendored WPT parsing tests (gate V-C: valid cases accepted and round-tripped, invalid ones refused, every miss cured in BBNF or a ruled row). It opens after X.P.W7 closes and re-reads L-G1 at its own close. Spec `parse-that/waves/W8.md`; W7.md addendum (j).

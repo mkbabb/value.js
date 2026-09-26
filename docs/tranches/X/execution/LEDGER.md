@@ -104,6 +104,7 @@ Workflow scripts (session-local, re-creatable from the runbook): `x-begin.js`, `
 | X.P.W6R | §0cg (riders of X.P.W6) | CLOSED 2026-09-17 (honest-RED: P-6 proof:perf = PT-PERF-LOAD) | value.js `1d970c7c` · `6ef57cc8` · `a8f93163` · `afc8034a` · `498a50fb` · `88be2e4a` · close — parse-that `d129a97` · `cb9c0d4` | `parse-that/waves/W6R.md`; record `execution/D/X-P-W6R.md` §Close: 12 gates re-run, 11 GREEN + P-6 perf honest-RED; landed-wrong 0; E13 0 UNREAD |
 | X.P.W7 | §0ch (OA-53: BBNF faster than baseline) | PARTIAL — the quiet-host L-G1 ×2 read on the final bytes (R-l4-1) + ESC-W7l4-1's ruling remain (RESUME 6 Close 2026-09-25, `2015419a`): `.l4` cured the accepted-sheet success path at the root (each node built once; V8 alloc 6,245→4,967 KB/pass); 0 landed-wrong; L-G2 ×2 · L-G3 · E-1..E-6 · css-equiv 19/19 · test/css 8/86 · npm test 0 CSS failures · vue-tsc 0 reproduce; L-G1 UNREAD — two 90-min bounded windows never reached load < 8 (min 26.85 / 25.48); release gates → X.P.W7P (OTP-keyed). Commits: `5d46e376` · `daa8e85a` · `ef91a5a3` · `2015419a` | `parse-that/waves/W7.md` |
 | X.P.W7P | §0cp (release chain) | GATE-KEYED 2026-09-24 on the owner's npm one-time password | `parse-that/waves/W7P.md` |
+| X.P.W8 | §0ef (the valid-CSS long tail from X.P.W7 `.gap`/`.gap2`) | MINTED 2026-09-25; opens after X.P.W7 CLOSED | `parse-that/waves/W8.md` | serial Opus (`.c` WPT corpus → module-family cures → V-C close → quiet-window L-G1) |
 
 ## Beside the tracks (not waves)
 
