@@ -134,13 +134,13 @@
                         <DialogDescription>
                             This will permanently delete
                             <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
-                            from local storage. This cannot be undone.
+                            from this browser. This cannot be undone.
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
                         <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
                         <Button tone="destructive" :disabled="!deleteConfirmTarget" @click="onDeleteConfirm">
-                            <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                            <Trash2 aria-hidden="true" />
                             Delete palette
                         </Button>
                     </DialogFooter>
@@ -152,10 +152,14 @@
                 <DialogContent surface="glass" dismiss="deliberate">
                     <DialogHeader>
                         <DialogTitle>Delete all saved palettes?</DialogTitle>
+                        <!-- X.W12U.s2 · UIA-V-547: the copy names the user's place, not
+                             the mechanism; UIA-V-278: while a search hides some of
+                             them, the dialog says the hidden ones go too. -->
                         <DialogDescription>
                             This will permanently delete {{ pm.savedPalettes.value.length }}
-                            palette{{ pm.savedPalettes.value.length !== 1 ? "s" : "" }}
-                            from local storage. This cannot be undone.
+                            saved palette{{ pm.savedPalettes.value.length !== 1 ? "s" : "" }}
+                            from this browser<template v-if="hiddenBySearch > 0">, including
+                            {{ hiddenBySearch }} your search is hiding</template>. This cannot be undone.
                         </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
@@ -163,7 +167,7 @@
                             Cancel
                         </Button>
                         <Button tone="destructive" @click="pm.onDeleteAllSaved()">
-                            <Trash2 class="w-3.5 h-3.5" />
+                            <Trash2 aria-hidden="true" />
                             Delete all
                         </Button>
                     </DialogFooter>
@@ -213,6 +217,10 @@ const pm = inject(LIBRARY_PORT_KEY)!;
 /** A non-empty query over a non-empty library: the list is filtered, not empty. */
 const searchNarrows = computed(
     () => pm.searchQuery.value.trim() !== "" && pm.savedPalettes.value.length > 0,
+);
+/** Saved palettes a search is hiding — Delete all takes them too (UIA-V-278). */
+const hiddenBySearch = computed(() =>
+    searchNarrows.value ? pm.savedPalettes.value.length - pm.filteredSaved.value.length : 0,
 );
 const colorTarget = inject(COLOR_TARGET_PORT_KEY)!;
 
