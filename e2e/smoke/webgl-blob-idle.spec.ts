@@ -125,6 +125,22 @@ test("hero blob under prefers-reduced-motion: one static frame, then parked (0 i
     await page.emulateMedia({ reducedMotion: "reduce" });
     await bootHero(page);
     await waitMs(page, IDLE_MS);
+    // The PRM hero's static frame lands ~1.5 s after navigation, inside the
+    // boot's own chunk and overture work; under SwiftShader that work can hold
+    // the main thread for seconds (X.W12U.b gate run 5 read 0 frames over the
+    // whole window at 390). A 0-draw window with 0 frames proves nothing, so
+    // the window opens only once the page ticks again (a precondition, not the
+    // gate: the gate is 0 draws over a window that itself shows frames).
+    await expect
+        .poll(
+            async () => {
+                await resetFrames(page);
+                await waitMs(page, 500);
+                return (await readFrames(page)).length;
+            },
+            { timeout: 45_000, message: "the page never resumed ticking after boot" },
+        )
+        .toBeGreaterThanOrEqual(SOFT_CEIL.idleMinFrames);
     const { draws, frames } = await idleWindow(page);
     console.log(`[blob-idle-cost] PRM window=${WINDOW_MS}ms draws=${draws} frames=${frames.length}`);
     expect(frames.length, "the rAF loop stalled").toBeGreaterThanOrEqual(SOFT_CEIL.idleMinFrames);
