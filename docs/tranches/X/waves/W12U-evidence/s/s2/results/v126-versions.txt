@@ -1,0 +1,43 @@
+## HEAD bytes (read at b906c56e before the drawer cure, 1440 light)
+RED  load {"text":"Close Version History Remote 0 — 0 versions"} · RED place [0,1482,380,2004] · RED ordinal (v3/v2/v1) · RED focus (transparentFocus 0×9) · RED revert (still 3 versions) · RED empty (empty = failed = '0 versions') · RED foreign (reverts 3)
+[390x844 light]
+RED  load {"text":"Close Version History Remote 0 — 0 versions"}
+RED  place {"box":[0,2025,380,2562]}
+RED  ordinal {"text":"Close Version History Remote 0 — 3 versions v3 Jul 4, 08:00 PM Remote v2 Revert v2 Jul 4, 08:00 PM Remote v1 Revert v1 Jul 4, 08:00 PM Remote v0 Revert"}
+PASS focus {"transparentFocus":[]}
+RED  revert {"text":"Close Version History Remote 0 — 3 versions v3 Jul 4, 08:00 PM Remote v2 Revert v2 Jul 4, 08:00 PM Remote v1 Revert v1 Jul 4, 08:00 PM Remote v0 Revert"}
+RED  empty {"empty":"Close Version History Remote 0 — 0 versions","failed":"Close Version History Remote 0 — 0 versions"}
+RED  foreign {"reverts":3}
+## cured
+[1440x900 light]
+PASS load {"text":"Close Version history Remote 0 — loading versions…"}
+RED  place {"box":[0,1168,380,1625]}
+PASS ordinal {"text":"Close Version history Remote 0 — 3 versions v12 Jul 4, 08:00 PM Revert Remote v2 v11 Jul 4, 08:00 PM Revert Remote v1 v10 Jul 4, 08:00 PM Revert Remote v0"}
+PASS focus {"transparentFocus":[]}
+PASS revert {"text":"Close Version history Remote 0 — 4 versions v13 (current) Jul 4, 08:00 PM Remote v3 v12 Jul 4, 08:00 PM Revert Remote v2 v11 Jul 4, 08:00 PM Revert Remote v1 v10 Jul 4, 08:00 PM Revert Remote v0"}
+PASS empty {"empty":"Close Version history Remote 0 — 0 versions No versions yet.","failed":"Close Version history Remote 0 — 0 versions The versions could not be read: Service Unavailable Retry"}
+PASS foreign {"reverts":0}
+[390x844 light]
+PASS load {"text":"Close Version history Remote 0 — loading versions…"}
+RED  place {"box":[0,2025,380,2496]}
+PASS ordinal {"text":"Close Version history Remote 0 — 3 versions v12 Jul 4, 08:00 PM Revert Remote v2 v11 Jul 4, 08:00 PM Revert Remote v1 v10 Jul 4, 08:00 PM Revert Remote v0"}
+PASS focus {"transparentFocus":[]}
+PASS revert {"text":"Close Version history Remote 0 — 4 versions v13 (current) Jul 4, 08:00 PM Remote v3 v12 Jul 4, 08:00 PM Revert Remote v2 v11 Jul 4, 08:00 PM Revert Remote v1 v10 Jul 4, 08:00 PM Revert Remote v0"}
+PASS empty {"empty":"Close Version history Remote 0 — 0 versions No versions yet.","failed":"Close Version history Remote 0 — 0 versions The versions could not be read: Service Unavailable Retry"}
+PASS foreign {"reverts":0}
+[1440x900 dark]
+PASS load {"text":"Close Version history Remote 0 — loading versions…"}
+RED  place {"box":[0,1482,380,1939]}
+PASS ordinal {"text":"Close Version history Remote 0 — 3 versions v12 Jul 4, 08:00 PM Revert Remote v2 v11 Jul 4, 08:00 PM Revert Remote v1 v10 Jul 4, 08:00 PM Revert Remote v0"}
+PASS focus {"transparentFocus":[]}
+PASS revert {"text":"Close Version history Remote 0 — 4 versions v13 (current) Jul 4, 08:00 PM Remote v3 v12 Jul 4, 08:00 PM Revert Remote v2 v11 Jul 4, 08:00 PM Revert Remote v1 v10 Jul 4, 08:00 PM Revert Remote v0"}
+PASS empty {"empty":"Close Version history Remote 0 — 0 versions No versions yet.","failed":"Close Version history Remote 0 — 0 versions The versions could not be read: Service Unavailable Retry"}
+PASS foreign {"reverts":0}
+[390x844 dark]
+PASS load {"text":"Close Version history Remote 0 — loading versions…"}
+RED  place {"box":[0,2025,380,2496]}
+PASS ordinal {"text":"Close Version history Remote 0 — 3 versions v12 Jul 4, 08:00 PM Revert Remote v2 v11 Jul 4, 08:00 PM Revert Remote v1 v10 Jul 4, 08:00 PM Revert Remote v0"}
+PASS focus {"transparentFocus":[]}
+PASS revert {"text":"Close Version history Remote 0 — 4 versions v13 (current) Jul 4, 08:00 PM Remote v3 v12 Jul 4, 08:00 PM Revert Remote v2 v11 Jul 4, 08:00 PM Revert Remote v1 v10 Jul 4, 08:00 PM Revert Remote v0"}
+PASS empty {"empty":"Close Version history Remote 0 — 0 versions No versions yet.","failed":"Close Version history Remote 0 — 0 versions The versions could not be read: Service Unavailable Retry"}
+PASS foreign {"reverts":0}

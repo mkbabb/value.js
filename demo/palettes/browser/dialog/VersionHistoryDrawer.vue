@@ -7,90 +7,97 @@
                      display voice (≤500 non-bold), same register as the
                      dialog headers. Glass 8 folded the side placement into
                      `<SheetContent side>` (the Drawer/Sheet fold). -->
-                <DialogTitle class="font-display font-medium">Version History</DialogTitle>
+                <DialogTitle class="font-display font-medium">Version history</DialogTitle>
+                <!-- UIA-V-323: no "0 versions" while the first page is on its way. -->
                 <DialogDescription>
-                    {{ paletteName }} &mdash; {{ total }} version{{ total === 1 ? "" : "s" }}
+                    {{ paletteName }} &mdash;
+                    <template v-if="loading && versions.length === 0">loading versions…</template>
+                    <template v-else>{{ total }} version{{ total === 1 ? "" : "s" }}</template>
                 </DialogDescription>
             </DialogHeader>
 
             <div class="mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin">
-                <!-- Loading -->
-                <div v-if="loading" class="flex items-center justify-center py-8">
-                    <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
-                </div>
+                <!-- UIA-V-323: loading is three rows at row height, not a spinner. -->
+                <template v-if="loading && versions.length === 0">
+                    <Skeleton v-for="i in 3" :key="i" class="h-[4.5rem] w-full rounded-card" />
+                </template>
 
-                <!-- Versions -->
+                <!-- UIA-V-127: a failed read is not an empty history. -->
+                <div v-else-if="loadError" class="flex flex-col items-start gap-2 py-2">
+                    <p role="alert" class="text-caption text-destructive">{{ loadError }}</p>
+                    <Button size="xs" @click="loadVersions(0)">Retry</Button>
+                </div>
+                <p
+                    v-else-if="versions.length === 0"
+                    class="py-2 text-caption text-muted-foreground"
+                >
+                    No versions yet.
+                </p>
+
+                <!-- Versions. X.W12U.s2: each row is a well on the card radius
+                     (UIA-V-321) whose header line holds the label, the time and the
+                     one action (UIA-V-129 · V-576); the palette is its own strip
+                     (UIA-V-320); the name shows only where it differs (UIA-V-573). -->
                 <div
                     v-for="(version, i) in versions"
                     :key="version.hash"
-                    class="group relative rounded-lg border border-border bg-well p-3 transition-colors hover:bg-accent/50"
+                    class="relative rounded-card border border-border bg-well p-3"
                     :class="{ 'ring-2 ring-primary': isCurrent(version) }"
                 >
-                    <!-- Current indicator -->
-                    <div
-                        v-if="isCurrent(version)"
-                        class="absolute -left-px top-3 h-4 w-1 rounded-r bg-primary"
-                    />
-
-                    <!-- Header: version number + timestamp -->
-                    <div class="flex items-center justify-between">
-                        <span class="text-micro font-medium">
-                            v{{ total - i }}
+                    <div class="flex items-center gap-2">
+                        <span class="text-small font-medium">
+                            v{{ version.revisionNo ?? total - i }}
                             <span v-if="isCurrent(version)" class="ml-1 text-primary">(current)</span>
                         </span>
                         <span class="text-micro text-muted-foreground tabular-nums">
                             {{ formatTime(version.createdAt) }}
                         </span>
+                        <!-- UIA-V-128 · V-324: the action is always visible where it
+                             is offered, offered only to the owner, confirmed once,
+                             and pending while the host's revert is in flight. -->
+                        <template v-if="canRevert && !isCurrent(version)">
+                            <Button
+                                v-if="confirming !== version.hash"
+                                emphasis="secondary"
+                                size="xs"
+                                class="ml-auto"
+                                :disabled="pending"
+                                @click="confirming = version.hash"
+                            >
+                                <RotateCcw class="h-3 w-3 shrink-0" aria-hidden="true" />
+                                Revert
+                            </Button>
+                            <span v-else class="ml-auto flex items-center gap-1">
+                                <Button emphasis="text" size="xs" :disabled="pending" @click="confirming = null">
+                                    Keep
+                                </Button>
+                                <Button
+                                    emphasis="primary"
+                                    size="xs"
+                                    :loading="pending"
+                                    @click="$emit('revert', version.hash)"
+                                >
+                                    Revert to v{{ version.revisionNo ?? total - i }}
+                                </Button>
+                            </span>
+                        </template>
                     </div>
 
-                    <!-- Name (if different from current) -->
-                    <div class="mt-1 text-micro text-muted-foreground truncate">
+                    <div
+                        v-if="version.name !== paletteName"
+                        class="mt-1 text-micro text-muted-foreground truncate"
+                    >
                         {{ version.name }}
                     </div>
 
-                    <!-- Color swatches -->
-                    <div class="mt-2 flex -space-x-0.5">
-                        <div
-                            v-for="(c, ci) in version.colors.slice(0, 8)"
-                            :key="ci"
-                            class="h-5 w-5 rounded-full border border-background"
-                            :style="{ backgroundColor: c.css }"
-                        />
-                        <span
-                            v-if="version.colors.length > 8"
-                            class="flex h-5 items-center px-1 text-micro text-muted-foreground"
-                        >
-                            +{{ version.colors.length - 8 }}
-                        </span>
+                    <div class="mt-2 h-5 overflow-hidden rounded-sm">
+                        <PaletteColorStrip :colors="version.colors" />
                     </div>
-
-                    <!-- Fork indicator -->
-                    <div
-                        v-if="version.forkedFromHash"
-                        class="mt-1 text-micro text-muted-foreground"
-                    >
-                        Forked from {{ version.forkedFromHash.slice(0, 8) }}...
-                    </div>
-
-                    <!-- Revert button (hidden for current version) -->
-                    <!-- X.W12.u1 (UIA-V-37): Revert is revealed on hover only where a
-                         fine pointer can hover; on touch it is always shown, so it is
-                         never an invisible hit target. Keyboard focus reveals it too. -->
-                    <Button
-                        v-if="!isCurrent(version)"
-                        emphasis="secondary"
-                        size="xs"
-                        class="mt-2 transition-opacity pointer-fine:opacity-0 pointer-fine:group-hover:opacity-100 focus-visible:opacity-100"
-                        @click="$emit('revert', version.hash)"
-                    >
-                        <RotateCcw class="mr-1 h-3 w-3" />
-                        Revert
-                    </Button>
                 </div>
 
                 <!-- Load more -->
                 <Button
-                    v-if="versions.length < total"
+                    v-if="versions.length > 0 && versions.length < total"
                     emphasis="quiet"
                     size="sm"
                     class="self-center"
@@ -114,16 +121,22 @@ import {
     DialogTitle,
 } from "../../../ui/dialog";
 import { Button } from "../../../ui/button";
-import { Loader2, RotateCcw } from "@lucide/vue";
+import { RotateCcw } from "@lucide/vue";
+import { Skeleton } from "../../../ui/skeleton";
+import PaletteColorStrip from "../card/PaletteColorStrip.vue";
 import { formatTime } from "../dateFormat";
 import { BROWSE_PORT_KEY } from "../../usePalettePorts";
 import type { PaletteVersion } from "../../types";
 
-const { open, paletteSlug, paletteName, currentHash } = defineProps<{
+const { open, paletteSlug, paletteName, currentHash, canRevert = false, pending = false } = defineProps<{
     open: boolean;
     paletteSlug: string;
     paletteName: string;
     currentHash: string | null;
+    /** X.W12U.s2 · UIA-V-324: only the owner is offered Revert (the route is owner-gated). */
+    canRevert?: boolean;
+    /** The host owns the revert request, so it owns its pending state. */
+    pending?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -145,12 +158,18 @@ const pm = inject(BROWSE_PORT_KEY)!;
 const versions = ref<PaletteVersion[]>([]);
 const total = ref(0);
 const loading = ref(false);
+/** UIA-V-127: the last failed page read, said in the drawer (and on the host's rail). */
+const loadError = ref<string | null>(null);
+/** The release whose revert is being confirmed. */
+const confirming = ref<string | null>(null);
 
 async function loadVersions(offset = 0) {
     loading.value = true;
+    loadError.value = null;
     try {
         const result = await pm.versions.fetchVersions(paletteSlug, 20, offset);
         if (!result.ok) {
+            loadError.value = `The versions could not be read: ${result.message}`;
             emit("load-failed", result.message);
             return;
         }
@@ -177,7 +196,21 @@ watch(
         if (isOpen && paletteSlug) {
             versions.value = [];
             total.value = 0;
+            confirming.value = null;
             loadVersions();
+        }
+    },
+);
+
+// UIA-V-126: a revert moves the palette's head (the host hands the drawer the
+// server's palette), so the list is re-read — the new release appears and is
+// the one marked current.
+watch(
+    () => currentHash,
+    (next, prev) => {
+        if (open && next !== prev) {
+            confirming.value = null;
+            loadVersions(0);
         }
     },
 );

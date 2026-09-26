@@ -175,6 +175,8 @@
             :palette-slug="versionPalette.slug"
             :palette-name="versionPalette.name"
             :current-hash="versionPalette.currentHash ?? null"
+            :can-revert="versionPalette.userSlug === pm.userSlug.value"
+            :pending="revertPending"
             @update:open="onVersionsOpenChange"
             @revert="onRevert"
             @load-failed="onVersionsLoadFailed"
@@ -323,10 +325,15 @@ async function onVersions(palette: Palette) {
     versionDrawerOpen.value = true;
 }
 
+/** X.W12U.s2 · UIA-V-324: the revert in flight (the drawer holds its buttons). */
+const revertPending = ref(false);
+
 async function onRevert(hash: string) {
-    if (!versionPalette.value) return;
+    if (!versionPalette.value || revertPending.value) return;
     const slug = versionPalette.value.slug;
+    revertPending.value = true;
     const result = await pm.versions.revert(versionPalette.value, hash);
+    revertPending.value = false;
     if (!result.ok) {
         showVerdict(slug, `Revert failed: ${result.message}`, false);
         return;

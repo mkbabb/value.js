@@ -68,6 +68,9 @@ export interface PaletteVersion {
     hash: string;
     /** The CONTENT identity; `Palette.currentHash` mirrors it (X-W3 · X.W3.2). */
     payloadHash: string;
+    /** The palette-scoped release ordinal the list is sorted by (X.W3.2 · G-7);
+     *  the drawer's `vN` (X.W12U.s2 · UIA-V-575). */
+    revisionNo?: number;
     name: string;
     colors: PaletteColor[];
     parentHash: string | null;

@@ -214,7 +214,9 @@ adminPopulatedTest.describe("G13 · admin rows (Repair 1)", () => {
     });
 });
 
-const VERSIONED = { ...REMOTE, slug: "versioned-one", name: "Versioned One", versionCount: 2, currentHash: "h2" };
+// X.W12U.s2 (UIA-V-324): revert is the OWNER's verb (the route is owner-gated),
+// so the versioned palette belongs to the signed-in fixture user.
+const VERSIONED = { ...REMOTE, slug: "versioned-one", name: "Versioned One", versionCount: 2, currentHash: "h2", userSlug: "test-user" };
 
 function version(hash: string, name: string, parentHash: string | null, depth: number) {
     return {
@@ -273,6 +275,8 @@ userTest.describe("G13 · user rows (Repair 1)", () => {
         const revert = page.getByRole("button", { name: "Revert" });
         await expect(revert).toHaveCount(1);
         await revert.click();
+        // X.W12U.s2 (UIA-V-324): the revert is confirmed once, in the row.
+        await page.getByRole("button", { name: "Revert to v1" }).click();
         // In the drawer: the subject is the server's palette and v1 is current.
         const drawer = page.getByRole("dialog", { name: "Version History" });
         await expect(drawer).toContainText("Versioned Origin — 2 versions");
