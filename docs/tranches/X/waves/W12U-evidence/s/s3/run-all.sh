@@ -1,4 +1,3 @@
-#!/bin/sh
 # SERVED MODEL: claude-opus-5-5
 # X.W12U.s3 — every .s3 falsifier over the gate cells (1440×900, 390×844; light, dark), twice, on the
 # settled bytes; readings into results/final/run{1,2}.txt.

@@ -1,4 +1,3 @@
-#!/bin/sh
 # SERVED MODEL: claude-opus-5-5
 # X.W12U.s3 — run one probe over the gate cells (1440×900 and 390×844, light and dark).
 # Usage: PROBE=probe-x.mjs sh cells.sh
