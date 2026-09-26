@@ -433,8 +433,9 @@ test("easing row carries its live ramp; steps mode lands in the literal", async 
     const consoleErrors = setupEnvNoise(page);
     const main = await openGradient(page);
 
-    // The first row is open on arrival and carries the interval's own ramp
-    // strip (W5-9 — the row's "ball").
+    // The first row, opened on its head (X.W12U.s3 · UIA-V-605: rows rest
+    // closed), carries the interval's own ramp strip (W5-9 — the row's "ball").
+    await main.locator(".interval-head").first().click();
     await expect(
         main.getByRole("img", { name: /Eased ramp for interval/ }).last(),
     ).toBeVisible();

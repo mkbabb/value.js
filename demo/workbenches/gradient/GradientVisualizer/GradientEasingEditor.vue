@@ -63,7 +63,10 @@ const specimenRows = useSpecimenRows(
 );
 
 // ── The accordion ──
-const openInterval = ref<number | null>(0);
+// X.W12U.s3 · UIA-V-605: every interval rests CLOSED — an open first row
+// added ~150 px of ramp, specimens and rail on load and pushed the gradient's
+// CSS output below the fold. A row opens when its head is pressed.
+const openInterval = ref<number | null>(null);
 
 const openIntervalRamp = computed<string | null>(() =>
     openInterval.value === null

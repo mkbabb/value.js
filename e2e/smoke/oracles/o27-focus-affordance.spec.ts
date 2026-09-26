@@ -337,6 +337,12 @@ test("BR-1 forced-colors · EVERY operable control class paints an outline, not 
     for (const view of ["Picker", "Gradient"] as const) {
         await openView(page, view);
         await paneSettled(page);
+        // X.W12U.s3 · UIA-V-605: easing rows rest closed; the rail's controls
+        // are measured on an OPEN row, so open the first one.
+        if (view === "Gradient") {
+            const head = page.locator(".interval-head").first();
+            if ((await head.getAttribute("aria-expanded")) !== "true") await head.click();
+        }
         for (const row of WHCM_ROSTER.filter((r) => r.view === view)) {
             const probe = await focusVisibly(page, row.selector);
             if (!probe.present) {
