@@ -35,15 +35,20 @@ const emit = defineEmits<{
 const pm = inject(LIBRARY_PORT_KEY);
 const savedPalettes = computed(() => pm?.savedPalettes.value ?? []);
 
-// Source guards: remove needs ≥ 1 remaining, add stops at a sensible upper bound.
-const MIN_COLORS = 1;
+// Source guards: remove down to empty, add stops at a sensible upper bound.
+// X.W12U.s3 · UIA-V-597: the lone chip is removable too — an empty selection
+// is a state the pane already speaks (the Selected well's empty face), and
+// `canMix` alone gates the Mix verb.
+const MIN_COLORS = 0;
 const MAX_COLORS = 12;
 const canRemoveColor = computed(() => selectedColors.length > MIN_COLORS);
 const canAddColor = computed(() => selectedColors.length < MAX_COLORS);
 
+// X.W12U.s3 · UIA-V-355: the strip swaps whole source panels, so it is a
+// tablist (glass `semantics="tabs"`) whose tabs control the branch tabpanels.
 const tabOptions = [
-    { label: "Colors", value: "colors" },
-    { label: "Palettes", value: "palettes" },
+    { label: "Colors", value: "colors", controls: "mix-source-colors" },
+    { label: "Palettes", value: "palettes", controls: "mix-source-palettes" },
 ];
 
 // X.W5.d · gate D4 — the mode swap's direction token, read from the strip's
@@ -124,6 +129,7 @@ const swatchKeys = computed(() => {
         <div class="flex items-center justify-center pb-1">
             <SegmentedTabs
                 variant="pill"
+                semantics="tabs"
                 :options="tabOptions"
                 :model-value="mode"
                 @update:model-value="onTabChange"
@@ -143,7 +149,14 @@ const swatchKeys = computed(() => {
              row) is a LIST inside a branch, not the branch swap. -->
         <Transition name="vj-morph" mode="out-in">
             <!-- Colors mode -->
-            <div v-if="mode === 'colors'" key="colors" class="flex flex-col gap-3">
+            <div
+                v-if="mode === 'colors'"
+                id="mix-source-colors"
+                key="colors"
+                role="tabpanel"
+                aria-label="Colors"
+                class="flex flex-col gap-3"
+            >
                 <!-- Selected colors + add button -->
                 <div class="dashed-well">
                     <!-- W5-7: the "N colors" counter died — it restated the
@@ -278,7 +291,14 @@ const swatchKeys = computed(() => {
             </div>
 
             <!-- Palettes mode -->
-            <div v-else key="palettes" class="flex flex-col gap-3">
+            <div
+                v-else
+                id="mix-source-palettes"
+                key="palettes"
+                role="tabpanel"
+                aria-label="Palettes"
+                class="flex flex-col gap-3"
+            >
                 <!-- T.W6.5 · Lane S (R12 — the owner overrule of the D9
                      as-filler deployment; MANDATE §0.6 t33-audit-12
                      "superfluous shadow palettes everywhere"): TRUE EMPTY

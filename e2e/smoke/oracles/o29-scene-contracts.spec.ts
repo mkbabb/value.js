@@ -247,7 +247,8 @@ test("mix canary — one interaction owner, no nested controls, the narration ca
 
     // ONE OWNER: no control in the Mix scene hosts another — in either mode.
     expect.soft(await nestedControls(mix), "colors mode").toEqual([]);
-    await mix.getByRole("button", { name: "Palettes", exact: true }).click();
+    // X.W12U.s3 · UIA-V-355: the source strip is a tablist.
+    await mix.getByRole("tab", { name: "Palettes", exact: true }).click();
     const dawn = mix.getByRole("button", { name: /palette Dawn/ });
     const dusk = mix.getByRole("button", { name: /palette Dusk/ });
     await expect(dawn).toBeVisible();

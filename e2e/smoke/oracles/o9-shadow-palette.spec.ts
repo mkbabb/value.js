@@ -198,9 +198,10 @@ test("O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers", 
     const mixPane = pane(page, "Mix");
     await expect(mixPane).toBeVisible();
 
-    // The pill tab (role=group + aria-pressed buttons).
+    // The pill tablist (X.W12U.s3 · UIA-V-355: the strip swaps panels, so its
+    // segments are tabs, not aria-pressed buttons).
     await mixPane
-        .getByRole("button", { name: "Palettes", exact: true })
+        .getByRole("tab", { name: "Palettes", exact: true })
         .click();
 
     await expect(mixPane.getByRole("status").filter({ visible: true }).first()).toBeVisible();
