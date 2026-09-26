@@ -13,54 +13,59 @@
                 </Button>
             </PopoverTrigger>
 
-            <PopoverContent align="end" class="w-60 p-0">
-                <div class="flex flex-col divide-y divide-border">
+            <!-- X.W12U.s2 · UIA-V-32 (consumer half; A2-VA-L2-1 at 844×390):
+                 the panel is shrunk to fit rather than scrolled — Sort is one
+                 glass ToggleGroup row, Featured and every tag are glass
+                 selectable Chips in one wrapping set (no nested 112 px
+                 scroller), and the glass overlay pad and width are not
+                 overridden. The plate's own block cap is the glass half (O-59). -->
+            <PopoverContent align="end">
+                <div class="filter-panel">
                     <!-- Sort -->
-                    <div class="filter-section">
-                        <div class="section-label">Sort</div>
-                        <RadioGroup :model-value="sort" @update:model-value="(v) => $emit('update:sort', String(v))">
-                            <label v-for="opt in sortOptions" :key="opt.value" class="filter-option">
-                                <RadioGroupItem :value="opt.value" class="shrink-0" />
-                                <component :is="opt.icon" class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-                                <span>{{ opt.label }}</span>
-                            </label>
-                        </RadioGroup>
-                    </div>
+                    <section class="filter-section" aria-labelledby="browse-filter-sort">
+                        <div id="browse-filter-sort" class="section-label">Sort</div>
+                        <ToggleGroup
+                            type="single"
+                            size="sm"
+                            aria-labelledby="browse-filter-sort"
+                            :model-value="sort"
+                            @update:model-value="onSortPick"
+                        >
+                            <ToggleGroupItem v-for="opt in sortOptions" :key="opt.value" :value="opt.value">
+                                {{ opt.label }}
+                            </ToggleGroupItem>
+                        </ToggleGroup>
+                    </section>
 
-                    <!-- Curation tier -->
-                    <div class="filter-section">
-                        <div class="section-label">Tier</div>
-                        <RadioGroup :model-value="tier" @update:model-value="(v) => $emit('update:tier', String(v))">
-                            <label class="filter-option">
-                                <RadioGroupItem value="" class="shrink-0" />
-                                <span>All</span>
-                            </label>
-                            <label class="filter-option">
-                                <RadioGroupItem value="featured" class="shrink-0" />
-                                <Award class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
-                                <span>Featured</span>
-                            </label>
-                        </RadioGroup>
-                    </div>
-
-                    <!-- Tags -->
-                    <div v-if="availableTags.length > 0" class="filter-section">
-                        <div class="section-label">Tags</div>
-                        <div class="max-h-28 overflow-y-auto scrollbar-thin flex flex-col gap-0.5">
-                            <label v-for="tag in availableTags" :key="tag.name" class="filter-option">
-                                <Checkbox
-                                    :model-value="selectedTags.includes(tag.name)"
-                                    @update:model-value="toggleTag(tag.name)"
-                                    class="shrink-0"
-                                />
-                                <span>{{ tag.name }}</span>
-                            </label>
+                    <!-- Curation tier + tags: one set of toggles -->
+                    <section class="filter-section" aria-labelledby="browse-filter-show">
+                        <div id="browse-filter-show" class="section-label">Show</div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <Chip
+                                mode="selectable"
+                                size="sm"
+                                :model-value="tier === 'featured'"
+                                @update:model-value="(on: boolean) => $emit('update:tier', on ? 'featured' : '')"
+                            >
+                                <Award class="h-3.5 w-3.5" aria-hidden="true" />
+                                Featured
+                            </Chip>
+                            <Chip
+                                v-for="tag in availableTags"
+                                :key="tag.name"
+                                mode="selectable"
+                                size="sm"
+                                :model-value="selectedTags.includes(tag.name)"
+                                @update:model-value="toggleTag(tag.name)"
+                            >
+                                {{ tag.name }}
+                            </Chip>
                         </div>
-                    </div>
+                    </section>
 
                     <!-- Find by Color -->
-                    <div class="filter-section">
-                        <div class="section-label">Find by Color</div>
+                    <section class="filter-section" aria-labelledby="browse-filter-color">
+                        <div id="browse-filter-color" class="section-label">Find by Color</div>
                         <div class="flex items-center gap-1.5">
                             <!-- Mini color picker trigger swatch -->
                             <MiniColorPicker
@@ -117,19 +122,19 @@
                         >
                             {{ colorError }}
                         </p>
-                    </div>
+                    </section>
 
                     <!-- Clear all -->
-                    <div v-if="activeFilterCount > 0" class="px-3 py-2">
-                        <Button
-                            size="xs"
-                            class="w-full text-small text-muted-foreground"
-                            @click="onClearAll"
-                        >
-                            <X class="h-3.5 w-3.5 mr-1.5" />
-                            Clear all filters
-                        </Button>
-                    </div>
+                    <Button
+                        v-if="activeFilterCount > 0"
+                        size="xs"
+                        emphasis="text"
+                        class="self-start"
+                        @click="onClearAll"
+                    >
+                        <X class="h-3.5 w-3.5" aria-hidden="true" />
+                        Clear all filters
+                    </Button>
                 </div>
             </PopoverContent>
         </Popover>
@@ -142,13 +147,10 @@ import { Button } from "../../../ui/button";
 import { Input } from "../../../ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import MiniColorPicker from "./MiniColorPicker.vue";
-import { RadioGroup, RadioGroupItem } from "../../../ui/radio-group";
-import { Checkbox } from "../../../ui/checkbox";
+import { Chip } from "@mkbabb/glass-ui/chip";
+import { ToggleGroup, ToggleGroupItem } from "@mkbabb/glass-ui/toggle-group";
 import {
     EllipsisVertical,
-    Clock,
-    TrendingUp,
-    GitFork,
     Award,
     X,
     Loader2,
@@ -179,10 +181,16 @@ const emit = defineEmits<{
 }>();
 
 const sortOptions = [
-    { value: "newest", label: "Newest", icon: Clock },
-    { value: "popular", label: "Most Popular", icon: TrendingUp },
-    { value: "most-forked", label: "Most Forked", icon: GitFork },
+    { value: "newest", label: "Newest" },
+    { value: "popular", label: "Popular" },
+    { value: "most-forked", label: "Most forked" },
 ];
+
+/** A single-choice ToggleGroup may be emptied by re-pressing the held item;
+ *  the wall always has an order, so only a named choice is taken. */
+function onSortPick(v: unknown) {
+    if (typeof v === "string" && v) emit("update:sort", v);
+}
 
 const colorText = ref("");
 const pickerHex = ref("#4488cc");
@@ -277,15 +285,6 @@ function onClearAll() {
 <style scoped>
 @reference "../../../styles/foundation.css";
 
-.filter-section { padding: 0.75rem; }
+.filter-panel { display: flex; flex-direction: column; gap: 0.875rem; }
 .filter-section > .section-label { margin-bottom: 0.375rem; }
-.filter-option {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    font-family: var(--font-serif); font-size: var(--type-small);
-    line-height: var(--leading-small); cursor: pointer;
-    border-radius: var(--radius-md);
-    transition: background-color var(--duration-fast) var(--ease-standard);
-}
-.filter-option:hover { background-color: color-mix(in srgb, var(--accent) 50%, transparent); }
 </style>
