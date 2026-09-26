@@ -53,9 +53,11 @@ function settledCardHeight(page: Page): Promise<number> {
 
 const K_MAX = 16; // ExtractControls.vue — the k slider's `:max`
 /** G20's stated budget: the plate at k = 16 is no taller than the settled
- *  collapsed card it stands for (≈ 95 px) plus a 5 px allowance — pre-cure it
- *  measured 254 px at 390 px and 150 px at 1440 px. */
-const PLATE_BUDGET_PX = 100;
+ *  collapsed card it stands for plus a 5 px allowance — pre-cure it measured
+ *  254 px at 390 px and 150 px at 1440 px. X.W12U.s2: the settled card is read,
+ *  not written as its old ≈ 95 px — below 30rem it now seats its meta cluster
+ *  on its own row (UIA-V-30), so the card the plate stands for is taller there. */
+const PLATE_ALLOWANCE_PX = 5;
 /** N-17's stated tolerance: |loading − settled| height. The residual 2 px is
  *  the edge-width difference (1 px hairline vs the card's 2 px stamp) — the
  *  shell's register, which SP-31 sequences behind X-W10. */
@@ -81,6 +83,7 @@ describe.each([
 
     it("G20 · both plates at k = 16 sit inside the budget, and k does not grow them", async () => {
         const log: Record<string, number> = {};
+        const budget = (await settledCardHeight(seat.page)) + PLATE_ALLOWANCE_PX;
         for (const { file, props } of PLATES) {
             const tag = `${file}${"variant" in props ? `:${props.variant}` : ""}`;
             const atMax = await plateHeight(seat.page, file, { ...props, count: K_MAX });
@@ -88,7 +91,7 @@ describe.each([
             log[`${tag}@16`] = atMax;
             log[`${tag}@1`] = atOne;
             expect(atMax, tag).toBeGreaterThan(0);
-            expect(atMax, tag).toBeLessThanOrEqual(PLATE_BUDGET_PX);
+            expect(atMax, tag).toBeLessThanOrEqual(budget);
             expect(atMax, tag).toBe(atOne);
         }
         console.log(`G20 ${viewport.width} ${JSON.stringify(log)}`);

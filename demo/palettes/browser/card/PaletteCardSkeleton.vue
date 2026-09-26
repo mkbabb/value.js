@@ -30,6 +30,15 @@
                 :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.22}s` }"
             />
         </div>
+        <!-- X.W12U.s2 (N-17 after UIA-V-30): below 30rem the settled card
+             seats its meta cluster (tags, vote) on its own row beneath the
+             name, so the silhouette carries that row too. -->
+        <div class="skeleton-meta-row" aria-hidden="true">
+            <Skeleton
+                class="text-mono-small h-[calc(1lh+0.25rem)] w-10 rounded-sm"
+                :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.34}s` }"
+            />
+        </div>
     </div>
 </template>
 
@@ -108,7 +117,19 @@ const { count = 5, variant = "shadow" } = defineProps<{
  * demo re-declaration of the producer keyframes. PRM stillness rides the
  * producer's media query (parked at the 0.55 trough). */
 [data-slot="palette-card-skeleton"] {
+    container: palette-card-skeleton / inline-size;
     --pulse-aura-opacity-max: 0.75;
     --animate-ambient-pulse-easing: var(--ease-standard);
+}
+
+/* The meta row of a narrow settled card (PaletteInspector's < 30rem rule). */
+.skeleton-meta-row {
+    display: none;
+    padding: 0 0.75rem 0.5rem;
+}
+@container palette-card-skeleton (width < 30rem) {
+    .skeleton-meta-row {
+        display: flex;
+    }
 }
 </style>
