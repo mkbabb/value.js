@@ -1067,7 +1067,7 @@ SERVED MODEL: claude-opus-5-5 (G13 `.amiga`, Track B). Writable: kf `demo/scenes
 | painted attitudes across Home (KFA-130) | 1 (snap) | 30–32 |
 | canvas diff after a missed drag, then Home + Reset (UIA-KF-197) | 0.047–0.137 (the room stays rotated) | 0.0009–0.004 |
 | frames over 20 ms in 3.4 s of play (KFA-127) | 0–1 of 333–335 | 0 of 334–335 |
-Frames: `frames/{before,after}-r{1,2}/<cell>-{rest.png,playing.jpg,focus.jpg,after-miss-home.png}`.
+Frames: `frames/{before,after}-r{1,2}/<cell>-{rest,playing,focus,after-miss-home}.jpg` (the probe writes the canvas clips as PNG for the pixel reads; `*.png` is repo-ignored, so they are committed as JPEG copies).
 
 **Falsifiers BEFORE → AFTER (kf).** The final test files were run against the BEFORE scene bytes (each `demo/scenes/amiga/*` file restored from `2f9bf36c` in place, `AmigaTarget.vue` absent, then the HEAD copies put back; ⟨`git status --porcelain demo/scenes/amiga`⟩ → empty after): ⟨`npx vitest run --project demo test/demo/scenes/amiga-w13x.test.ts test/demo/scenes/amiga-room.test.ts`⟩ → `vitest-before-r{1,2}.log`: **`Tests 18 failed (18)` ×2**, 18 `AssertionError` lines each, no crash. At HEAD → `vitest-after-r{1,2}.log`: **`Tests 18 passed (18)` ×2**.
 
