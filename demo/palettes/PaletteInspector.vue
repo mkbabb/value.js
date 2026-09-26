@@ -489,6 +489,28 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
     min-inline-size: 0;
 }
 
+/* X.W12U.s2 · UIA-V-30 (+ A2-VA-L3-8): below 30rem of card the head row holds
+ * only name + colour count + menu — the meta cluster (tags, vote) takes its own
+ * row beneath the name, so the name (the row's primary) is no longer squeezed
+ * to a few characters by the meta and the count is never under a chip. The
+ * card is the container, so its children are re-placed rather than its
+ * template re-written. The aside layout keeps its own template. */
+@container palette-card (width < 30rem) {
+    .palette-card:not([data-layout="aside"]) > .palette-meta {
+        grid-area: auto;
+        grid-row: 3;
+        grid-column: 2 / 4;
+        justify-self: start;
+        margin-inline-start: 0.75rem;
+        padding-block-end: 0.5rem;
+    }
+    .palette-card:not([data-layout="aside"]) > .palette-card__detail {
+        grid-area: auto;
+        grid-row: 4;
+        grid-column: 1 / -1;
+    }
+}
+
 /* The hover register (G11 · PC-4): a designed ELEVATION shift on the
  * producer's own cartoon ladder — the card rises one step (`translate` 0 -2px)
  * and its cel cast deepens md → lg (`--shadow-cartoon-lg`), exactly the
