@@ -1,0 +1,17 @@
+## HEAD bytes
+[390x844 light]
+RED  500 "→ BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. Failed to load palettes: Internal Server Error Retry My Palettes Save, organize, and share your colors. Start "
+RED  abort "→ BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. Failed to load palettes: Backend unreachable — working locally. Retry My Palettes Save, organize, and share yo"
+## cured
+[1440x900 light]
+PASS 500 "→ Browse Tools Login @mbabb BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. Internal Server Error Retry My Palettes Save, organize, and share your colors. Start"
+PASS abort "backend offline — saved locally BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. The palette service is not answering. Retry My Palettes Save, organize, and shar"
+[390x844 light]
+PASS 500 "→ BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. Internal Server Error Retry My Palettes Save, organize, and share your colors. Start a new palette No saved pa"
+PASS abort "→ BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. The palette service is not answering. Retry My Palettes Save, organize, and share your colors. Start a new pal"
+[1440x900 dark]
+PASS 500 "→ Browse Tools Login @mbabb BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. Internal Server Error Retry My Palettes Save, organize, and share your colors. Start"
+PASS abort "backend offline — saved locally BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. The palette service is not answering. Retry My Palettes Save, organize, and shar"
+[390x844 dark]
+PASS 500 "→ BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. Internal Server Error Retry My Palettes Save, organize, and share your colors. Start a new palette No saved pa"
+PASS abort "→ BROWSE Browse view Browse Discover palettes from the community. Couldn't load palettes. The palette service is not answering. Retry My Palettes Save, organize, and share your colors. Start a new pal"

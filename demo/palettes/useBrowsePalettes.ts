@@ -2,7 +2,7 @@ import { ref, type Ref } from "vue";
 import { useFilteredList } from "./useFilteredList";
 import { useSession } from "../platform/auth/useSession";
 import { usePaletteStore } from "./usePaletteStore";
-import { admitRecoveryProbe } from "../platform/transport/availability";
+import { admitRecoveryProbe, ApiUnavailableError } from "../platform/transport/availability";
 import {
     listPalettes,
     votePalette,
@@ -93,7 +93,13 @@ export function useBrowsePalettes(deps: {
         } catch (e) {
             if (gen !== loadGeneration) return;
             // Row 12: the pane renders `browseError` (the wall's error plate).
-            browseError.value = `Failed to load palettes: ${failureOf(e, "backend unreachable")}`;
+            // X.W12U.s2 · UIA-V-305: the plate's headline already says the load
+            // failed, so the detail is the reason alone; and the public wall has
+            // no local copy, so the latch's "working locally" is not said here.
+            browseError.value =
+                e instanceof ApiUnavailableError
+                    ? "The palette service is not answering."
+                    : failureOf(e, "backend unreachable");
             nextCursor.value = null;
             hasMore.value = false;
         } finally {
