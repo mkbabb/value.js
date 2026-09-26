@@ -1122,3 +1122,109 @@ Self-count ⟨`sed -n '/^\*\*Dispositions (27)/,/^Self-count/p' KF-W13X.md | gre
 - Not in any row, noticed: at 390 the framed room leaves the upper third of the stage empty (a portrait width limits the sweep fit).
 
 **value.js:** this receipt + `keyframes/evidence/W13X/amiga/**`. That is the probe `amiga.mjs`; the served logs and JSON `{before,after}-r{1,2}`; the vitest logs `vitest-{before,after}-r{1,2}.log`; and the frames `frames/{before,after}-r{1,2}/`. One pathspec commit.
+
+### .square
+
+SERVED MODEL: claude-opus-5-5 (G14 `.square`, Track B). Writable: kf `demo/scenes/square/**` · `test/demo/**`; value.js this receipt + `keyframes/evidence/W13X/square/**`. Locks: none beyond standing law.
+
+**Crash recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ → only the 2 old untracked coordination letters; nothing under `demo/scenes/square` or `test/demo`. **Inherited: none.** kf HEAD at open `f80858ee`.
+
+**Instrument.** Private dev server ⟨`npx vite --config <scratchpad>/square/vite.s.config.ts --force --port 5231 --strictPort`⟩ (the wrapper imports kf's `vite.config.ts` unchanged and sets only `cacheDir` in the scratchpad) → `ready`; installed glass `"version": "10.1.0"`. Headed Chromium, DPR 1, cells 1440×900 and 390×844 in light and dark (the dynamic scenarios run in the two light cells; the static reads in all four).
+
+**Rows (29).** KFA 17: KFA-4(B) · 34 · 90 · 91 · 92 · 93 · 94 · 96 · 97 · 98 · 145 · 146 · 147 · 148 · 186 · 206 · 207. UIA-KF 12: UIA-KF-026(B) · 064 · 088 · 089 · 090 · 199 · 200 · 292 · 293 · 294 · 295 · 296. No AUDIT-2 row is routed to G14; A2-KE-L1-18 (the shared `SubjectAxes` seat) stays with the close, as `.amiga` recorded.
+
+**Falsifiers (committed).**
+- value.js `evidence/W13X/square/square.mjs`: the served predicates. It reads the field layers, the registered travel, the ring's lightness, the badge and the legend's cover in every cell. In the light cells it also drives: the far corner by the box's own End key; a held far drag (the tether's visible samples along its path, the mode); a flick (every frame the box still moves after release, and its mode); a hand's diagonal with ±1 px jitter (width pop per frame, shear, anisotropy, and frames with both channels pinned); a tap; Play from rest (fill step per frame, dropped frames, minimum chroma over one tour); a grab mid-tour (the largest one-frame scale step; the rest pose and fill 2.6 s later; Home); Play → takeover → Escape → Home; a tumble from a fresh reload (first sweep frame, rest vs marker end, overshoot); the bloom 350 ms in (a running box-shadow transition's destination); Play 420 ms into a tumble; and, at 1440 light, the shared Keyframes and Timeline panes.
+- kf `test/demo/scenes/square-w13x.test.ts`: 11 cases. The composable cases run on the real `useSquareDemo` with rAF as a controllable queue: KFA-34 · KFA-92 · KFA-186 · KFA-94/UIA-KF-199 · KFA-90/91 · KFA-98/207/97. The mounted cases run on `SquareScene` with the scene's playback adapter registered on the machine, as the App does: KFA-93/UIA-KF-293 · KFA-147 · KFA-96 · UIA-KF-026. The instrument case: UIA-KF-088.
+
+**Served BEFORE (kf `f80858ee` scene bytes, READ-ONLY) → AFTER (kf `cb4bde80`), each ×2.** ⟨`BASE=http://localhost:5231 RUN=before-r{1,2} node square.mjs`⟩ → `before-r{1,2}.{log,json}`. BEFORE was served by writing each `demo/scenes/square/*` file from `f80858ee` in place; ⟨`git checkout HEAD -- demo/scenes/square`⟩ put the HEAD bytes back, and ⟨`git status --porcelain demo/scenes/square | wc -l`⟩ → `0`. Then ⟨`RUN=after-r{1,2}`⟩ → `after-r{1,2}.{log,json}`. Every verdict reads the same in r1 and r2; ranges give both runs. Unmarked cells are 1440 light.
+| predicate (row) | BEFORE r1 / r2 | AFTER r1 / r2 |
+|---|---|---|
+| `--square-travel` as the springs read it (UIA-KF-296) | `clamp(4rem, 21svi, 6.875rem)` (token stream → the 110 px fallback) | `190.48px` · 390: `86.224px` |
+| End key: box centre offset / ring margin to the plate's right edge (UIA-KF-090 / 296) | 110 px / 214 px · 390: 110 / **−17** (overruns) | 190 / 133 · 390: 86 / 17 |
+| tether samples visible at a held far drag (KFA-4) | 3/61 · 390: 29/61 | 31/61 · 390: 25/61 (the field is ~half as wide) |
+| field layers (UIA-KF-088 / 090) | one layer, vertical lines only, the whole plate (876 px) | two layers (V + H), the envelope (381 · 390: 172 px) |
+| hand's diagonal: max width pop per frame (KFA-34) | 22.4–25.4 px · 390: 15.0–15.7 | 0.40–0.42 · 390: 0.49–0.52 |
+| … max shear / frame-one shear / frames with both pinned (KFA-92 / 186) | 12.4–14.8° / 4.0–4.2° / 76–84 | 1.18–1.20° / 0.09–0.10° / 0 |
+| held drag frames not in `drag` · flick frames still moving but not in `drag` (KFA-93 / UIA-KF-293) | 89/89–90/90 · 27/27–28/28 | 0/89 · 0/26–0/28 |
+| a tap: frames in `drag` or `--dragging` (KFA-147) | 0–1 · 390: 1 / 1 | 0 · 0 |
+| Play from rest: first-move fill jump (ΔE oklab) / max per-frame step (KFA-90 / 206) | 0.444 / 0.444 | 0 / 0.037–0.044 |
+| minimum chroma over one tour (KFA-91) | 0.006–0.013 | 0.137 |
+| frames over 30 ms in Play's first 400 ms (KFA-146) | 0 | 0 |
+| grab mid-tour: largest one-frame scale step (KFA-94) | 4.1–9.0 % · 390: 0.8–3.7 % | 0.4–0.6 % · 390: 0.1–0.3 % |
+| … 2.6 s after release: rotation / fill ΔE from rest; after Home (UIA-KF-199) | −177° … 160° / 0.09–0.22; Home leaves it | 0° / 0; 0° |
+| Play → takeover → Escape: fill ΔE / rotation / translate (UIA-KF-026) | 0.444 / 118–133° / 77–92 px | 0 / 0 / 0 |
+| … then Home: rotation (UIA-KF-026) | unchanged (118–133°) | 0° |
+| … the badge and mode after Escape | `settled` · `idle` (the audit's stuck "tracking" did not reproduce) | `settled` · `idle` |
+| … the ribbon's `aria-valuenow` after Escape (UIA-KF-026, the scrubber limb) | 714–746 | 705–716 (unchanged: see RE-HOMED) |
+| tumble: first sweep frame ΔE (KFA-98) / marker end minus visible rest (KFA-97) / overshoot (KFA-207) | 0.444 / +1163 to +1174 ms / 38.4° | 0 / −91 to −102 ms / 5.5° |
+| bloom colour vs the box's fill, 350 ms into a tumble (KFA-97) | 0.444 (fixed violet) | 0.003 |
+| Play 420 ms into a tumble: frames still marked after 300 ms (KFA-96) | 40/40–41/41 | 0/40–0/41 |
+| rest ring lightness, dark (UIA-KF-292) | L 0.147 (a near-black bezel) | L 0.466 (light: 0.983 → 0.778) |
+| status badge width (UIA-KF-064) | 64 px (not stretched) | 64 px |
+| 390: the legend covered by the sheet (UIA-KF-089) | not covered (hint rows at 687–726 of 844) | not covered |
+| Timeline pane: orphan-wrapped action rows · Clear-all enabled on an empty timeline · `.demo-box` count (UIA-KF-200 / 295 / 294) | 1 · enabled · 2 | 1 · enabled · 2 (not this unit's bytes) |
+Frames: `frames/{before,after}-r{1,2}/<cell>-{rest,end,drag-held,after-takeover,after-home,after-escape,pane-keyframes,pane-timeline}.jpg`.
+
+**Falsifiers BEFORE → AFTER (kf).** The final test file was run against the BEFORE scene bytes (each `demo/scenes/square/*` file written from `f80858ee` in place), then against HEAD: ⟨`npx vitest run --project demo test/demo/scenes/square-w13x.test.ts`⟩ → `vitest-before-r{1,2}.log`: **`Tests 11 failed (11)` ×2**, 11 `AssertionError` lines in each run and no crash. At HEAD → `vitest-after-r{1,2}.log`: **`Tests 11 passed (11)` ×2**.
+
+**Acts, in order (kf, each a pathspec commit; `npm run check` EXIT 0 at the loop commit's state and at HEAD):**
+1. **`3ba58d53` — KFA-90 · KFA-91 · KFA-206, the tour's colour** (`squareMotion.ts`). The 0 % and 100 % stops are the rest token `--subject-teal` (they were `--rainbow-violet`, so Play from rest and Reset both showed a one-frame colour snap). The rainbow now rides the three corners: violet → blue → cyan, with its hues kept. `SQUARE_TOUR_OPTIONS.colorSpace = "oklch"` stops the oklab chord from going through grey. KFA-206's "flash then go" was this fill: the seek paint at t = 0 is now the rest identity. Its will-change hint, one frame ahead of the clock, is a pre-promotion (KFA-146's own fix shape), so it is left in place.
+2. **`ac7f3987` — one paint authority, and every edge of the FSM taken** (`useSquareDemo.ts` · `useSquareTumble.ts` · `SquareScene.vue` · `square-editor-seam.test.ts`).
+   - KFA-34/92/186: the mass is `rotate(h) scale(1+s, 1/(1+s)) skewX(lean) rotate(−h)`, built from one low-passed velocity (τ 70 ms). It is rotation-equivariant, so a trailing edge is the same shape in every direction. Both channels saturate softly with tanh (caps 6° and 8 %).
+   - KFA-94: a takeover seats on `lastPaint`, the renderer's own numbers, not a decomposed matrix. A scale carrier takes over the painted nested `d` and decays it (τ 120 ms).
+   - UIA-KF-199: `returnHome` sends the spin to the nearest upright turn and blends the tour colour back to teal on the same leg.
+   - KFA-96: Play's rising edge runs `yieldToTour` (stop the loop, halt the spin mod 360, end the sweep and its marker) and cancels the envelope tour.
+   - UIA-KF-026: an engine paint while the group is not touring (a seek, or Reset's rewind) seats the springs on that pose and reads `settled`. The playing edge's fall from `playback` adopts the pose the engine left.
+   - KFA-98: the tumble leaves from the painted fill.
+   - KFA-97: the marker ends with the sweep's 180 ms landing pulse, and the spin's settle thresholds are in degrees (0.1°, 1°/s).
+   - KFA-207: ζ goes from 0.58 to 0.8.
+   - KFA-93/UIA-KF-293: `idle` is decided in one place (the settled read), and never while a pointer holds the box. The release no longer sets `idle`.
+   - KFA-147: the drag visuals (mode, `--dragging`, tether) arm past the house 12 px threshold.
+3. **`618a408e` — the envelope is the plate's, and the field draws it** (`SquareScene.css` · `SquareInstrument.vue` · `SquareScene.vue`).
+   - UIA-KF-296: `@property --square-travel { syntax: "<length>" }`. Unregistered, the springs' read parsed a token stream and fell back to 110 px at every width.
+   - UIA-KF-090/KFA-4: the plate is the size container, and the new `.square-arena` layer resolves `--square-size` and `--square-travel` against it (`cqmin`). Travel is the plate's half-extent less the swollen box, its ring and a 1 rem gutter. A ResizeObserver on the arena replaces the window `resize` listener.
+   - UIA-KF-088: the field is two layers, one idiom class each, sized to the envelope.
+   - UIA-KF-292: the ring mixes `--border`.
+   - KFA-97: the bloom takes `--subject-fill`.
+4. **`cb4bde80` — the falsifiers** (`test/demo/scenes/square-w13x.test.ts`).
+
+**Adjacent edits (§0bt):** none. Every path is in `demo/scenes/square/**` or `test/demo/**`. `square-editor-seam.test.ts` was edited where it encoded a contract the cure changed (act 2). The engine-pump case now names the touring predicate it depends on and adds the non-touring arm (settled). The dispose case passes the new `motion` var and asserts `--spring-tilt` is written before it is removed. No assertion was deleted.
+
+**Dispositions (29).**
+- **CURED (20):** KFA-34 · KFA-92 · KFA-186 · KFA-94 · KFA-96 · KFA-98 · KFA-97 · KFA-207 · KFA-93 · KFA-147 · UIA-KF-199 · UIA-KF-293 (`ac7f3987`; KFA-97's bloom tone also `618a408e`) · KFA-90 · KFA-91 · KFA-206 (`3ba58d53`) · KFA-4(B) · UIA-KF-088 · UIA-KF-090 · UIA-KF-292 · UIA-KF-296 (`618a408e`). Each row has its served before/after in the table above. Every row with a mounted or composable case in `square-w13x.test.ts` also reads RED ×2 → GREEN ×2 there. The CSS rows (KFA-4 · UIA-KF-090 · 292 · 296) are falsified by the served predicates alone, ×2 each way.
+- **SPLIT: one limb cured here, the other homed (2):**
+  - UIA-KF-026(B). The scene limb is CURED (`ac7f3987`): after Escape the box is at the rest identity (fill ΔE 0, rotation 0, translate 0), the badge reads `settled`, the mode is `idle`, and Home keeps it (it used to chase back to 118–133°). The scrubber limb goes to **the close**. The ribbon's `aria-valuenow` still reads 705–716 ms after Reset (BEFORE 714–746), while the group has rewound. `stop()` → `reset()` → the child's `settle()` sets `_playback.t = 0` (`src/animation/engine/play-lifecycle/transport.ts:89-99`), so the clock is right. What does not re-derive is the ribbon's read (`railT = gestureT ?? currentT`, `demo/components/playback/PlaybackRibbon.vue:250`), which is `.transport`'s file and is closed.
+  - UIA-KF-064. The stretch limb is NOT REPRODUCED: the badge is 64 px wide, ×2 each way, in all 4 cells. The glass `Badge` adoption is **ADOPT-AT-LANDING on O-59**. Glass `Badge` has no soft or tinted tone (UIA-KF-201, ROUTED-GLASS O-59), and adopting a solid tone now would lose the AA status tint. No consumer copy is built. The sequence badge half belongs to `.sequence` (closed) → the close.
+- **RE-HOMED (4):**
+  - KFA-145 → **the close (library)**: the loop-boundary clamp and the discarded overshoot, `src/animation/engine/play-lifecycle/frame.ts:130-135` and `:64-79`. That is `src/animation/**`, `.r`'s set, which is closed. It is the same family as `.amiga`'s KFA-68.
+  - UIA-KF-200 → **the close**, which owns `.timeline`'s Timeline pane (closed). Served ×2 each way: 1 orphan-wrapped action row ("Add CSS" alone under Snapshot/Import/Export). The Keyframes pane reads 0 at these bytes.
+  - UIA-KF-295 → **the close**, which owns `.timeline`: "Clear all keyframes" (`KeyframeTimeline.vue:139-148`) is enabled on an empty timeline, ×2 each way.
+  - UIA-KF-294 → **the close**, which owns `.timeline`'s preview. A second `.demo-box` exists in the DOM on the Timeline tab (2, ×2 each way). The pane frame shows no preview well at 1440, so the clip itself was not seen at these bytes. The clone and its well belong to the timeline, not the scene.
+- **NOT REPRODUCED / NOT A DEFECT, measured (3):**
+  - KFA-146: 0 frames over 30 ms in Play's first 400 ms, ×2 each way, in both light cells. The audit named no cause ("Unproven"), and the play edge's colour flash, its only visible companion, is cured with KFA-90.
+  - KFA-148: not a defect. The tumble stays an off-transport egg, as designed (`SquareScene.vue`'s own T.A13 note). The fix shape lets the owner "leave it as an egg and just resolve the collision". The collision is KFA-96, which is cured: Play retires the spin loop, 0/40 frames stay marked.
+  - UIA-KF-089: at 390, in both themes and both runs each way, the legend and its hint rows (y 687–726 of 844) are not covered by any overlay. The in-flow sheet from `.mobile` sits below the stage. The row's premise, a drawer over a full-bleed stage, no longer holds at these bytes.
+
+Self-count: the plan's `.square` ids against the ids this block names (it also cites KFA-68 and UIA-KF-201 as references). ⟨`grep '^- \*\*\.square\*\*' KF-W13X.md | grep -oE '(KFA|UIA-KF)-[0-9]+' | sort -u > plan.ids; sed -n '/^### \.square/,$p' KF-W13X.md | sed -n '/^\*\*Dispositions (29)/,/^Self-count/p' | grep -oE '(KFA|UIA-KF)-[0-9]+' | sort -u | comm -12 - plan.ids | wc -l`⟩ → see the gate line below (run twice at the settled bytes).
+
+**Gates (BEFORE `f80858ee` → AFTER `cb4bde80`).**
+- **KFA 17 + UIA-KF 12 dispositioned ×2**: 29 rows by the self-count above. ⟨run twice⟩ → plan `29`, dispositioned ∩ plan `29`, ×2. Every served verdict agrees run to run, and every falsifier reads RED ×2 → GREEN ×2. **GREEN.**
+- **`npm run check` 0**: ×2 at HEAD → `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` · EXIT 0 ×2. It was also EXIT 0 at the state of `ac7f3987`, the loop commit, before the stylesheet landed. **GREEN.**
+- **`npm run test:demo` green**: ×2 → `Test Files 110 passed (110)` · `Tests 704 passed (704)` · EXIT 0 ×2. At `.amiga`'s close it was 109/693; the difference is +1 file and +11 tests, all this unit's. **GREEN.**
+- (floor) ⟨`npm run lint`⟩ → `✔ no dependency violations found (436 modules, 1588 dependencies cruised)` · EXIT 0. ⟨`npx eslint demo/scenes/square test/demo/scenes/square-w13x.test.ts test/demo/scenes/square-editor-seam.test.ts`⟩ → EXIT 0, no output. ⟨`git diff --check`⟩ → clean.
+
+**Commits (keyframes.js, local and not pushed; the wave's close pushes):** `3ba58d53` · `ac7f3987` · `618a408e` · `cb4bde80`. Each is `git commit … -- <paths>` with a pathspec. `SquareScene.vue`'s arena markup belongs to the envelope family, so it was held out of `ac7f3987` (committed without the wrapper) and landed with the stylesheet in `618a408e`. Neither sha splits a family.
+
+**Escalations:** none.
+
+**Residuals (named, not cured here):**
+- UIA-KF-026's scrubber limb: the ribbon's `currentT` is not re-derived on a group stop (→ the close, `.transport`'s file).
+- UIA-KF-064: glass `Badge` adoption waits on O-59's soft tone (ADOPT-AT-LANDING). The sequence half → the close.
+- KFA-145: the engine's loop-boundary clamp (→ the close, library).
+- UIA-KF-200 · 294 · 295: the shared Timeline pane (→ the close).
+- A2-KE-L1-18: the shared `SubjectAxes` seat stays with the close, as `.amiga` recorded. The square's two `role="slider"` per-axis children were left as they are, because `amiga-paused-pose.test.ts`'s D-2 case reads the square's subject bytes as its exemplar, and the extraction is the close's.
+- Noticed, not in any row: the published `.stage-field-x` idiom (`design-idioms.css:285-291`, `.lib`'s) draws lines at 0/25/50/75 % and no closing 100 % line, so the envelope field has no right edge at x = +1, while `-y` has its baseline. That belongs to the idiom (→ the close, `.lib`), not a scene fix.
+- Probe limits, stated: the tap predicate (KFA-147) samples per rAF and caught the one-frame flash in 3 of 4 BEFORE light-cell reads (1440 r1 read 0), so the mounted case is the firm falsifier. The bloom read takes a running box-shadow transition's destination value, because the 160 ms `box-shadow` transition on `.demo-box` trails a per-frame fill.
+
+**value.js:** this receipt + `keyframes/evidence/W13X/square/**`. That is the probe `square.mjs`; the served logs and JSON `{before,after}-r{1,2}`; the vitest logs `vitest-{before,after}-r{1,2}.log`; and the frames `frames/{before,after}-r{1,2}/`. One pathspec commit.
