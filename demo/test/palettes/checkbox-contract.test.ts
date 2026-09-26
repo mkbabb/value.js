@@ -14,7 +14,7 @@
 // so the port is SUPPLIED here — the two members the leaf reads — rather than
 // wrapping the SFC in its parent.
 import { flushPromises, mount, type VueWrapper } from "@vue/test-utils";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ref } from "vue";
 
 import SearchFilterBar from "../../palettes/browser/search/SearchFilterBar.vue";
@@ -43,7 +43,30 @@ function boxFor(name: string): HTMLElement {
     return box;
 }
 
+/** X.W12U.s2 (UIA-V-32): the search filter's tags are glass selectable Chips
+ *  (a pressed button), no longer checkbox rows — the ledger contract is the same. */
+function chipFor(name: string): HTMLElement {
+    const chip = [...document.body.querySelectorAll<HTMLElement>("button[data-mode=selectable]")].find(
+        (b) => b.textContent?.trim() === name,
+    );
+    if (!chip) throw new Error(`no chip rendered for tag "${name}"`);
+    return chip;
+}
+
 describe("G2 · SearchFilterBar — one click, one update:selectedTags", () => {
+    // jsdom ships no `ResizeObserver` (the glass ToggleGroup measures itself).
+    beforeEach(() => {
+        vi.stubGlobal(
+            "ResizeObserver",
+            class {
+                observe() {}
+                unobserve() {}
+                disconnect() {}
+            },
+        );
+    });
+    afterEach(() => vi.unstubAllGlobals());
+
     async function mountBar(selectedTags: string[]) {
         const w = mount(SearchFilterBar, {
             props: { sort: "newest", tier: "", selectedTags, availableTags: TAGS },
@@ -57,20 +80,20 @@ describe("G2 · SearchFilterBar — one click, one update:selectedTags", () => {
 
     it("reflects the prop-driven initial state", async () => {
         await mountBar(["warm"]);
-        expect(boxFor("warm").getAttribute("data-state")).toBe("checked");
-        expect(boxFor("cool").getAttribute("data-state")).toBe("unchecked");
+        expect(chipFor("warm").getAttribute("aria-pressed")).toBe("true");
+        expect(chipFor("cool").getAttribute("aria-pressed")).toBe("false");
     });
 
     it("ticking an unselected tag emits exactly one next array, with the tag added", async () => {
         const w = await mountBar(["warm"]);
-        boxFor("cool").click();
+        chipFor("cool").click();
         await flushPromises();
         expect(w.emitted("update:selectedTags")).toEqual([[["warm", "cool"]]]);
     });
 
     it("unticking a selected tag emits exactly one next array, with the tag removed", async () => {
         const w = await mountBar(["warm", "cool"]);
-        boxFor("warm").click();
+        chipFor("warm").click();
         await flushPromises();
         expect(w.emitted("update:selectedTags")).toEqual([[["cool"]]]);
     });
