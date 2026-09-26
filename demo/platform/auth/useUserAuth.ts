@@ -106,22 +106,22 @@ export function useUserAuth() {
     }
 
     /**
-     * Atomically replace the current slug: revoke old session, register new one.
-     * The slug ref transitions directly from old → new with no null gap, avoiding UI flash.
+     * Replace the current slug: ISSUE the new session first, then revoke the old
+     * one, then persist. UIA-V-19/83: the retired order revoked and wiped the
+     * stored identity before asking for the new one, so a failed issue signed
+     * the user out while every surface still showed the old slug. Now a failure
+     * leaves the old slug, token and session exactly as they were.
      */
     async function regenerate(): Promise<string> {
+        const res = await createSession();
+        if (!res.userSlug) throw new Error("Server did not return a user slug");
+        // The old token is still the transport's until `persist` below, so this
+        // revokes the OLD session.
         try {
             await deleteSession();
         } catch {
             // Old session may already be expired
         }
-        // Clear storage + token but DON'T null the slug ref yet (avoids UI flash).
-        safeRemoveItem(localStorage, SLUG_KEY);
-        clearPersistedToken();
-
-        // Register new user — persist() updates the slug ref atomically.
-        const res = await createSession();
-        if (!res.userSlug) throw new Error("Server did not return a user slug");
         persist(res.userSlug, res.token);
         return res.userSlug;
     }
