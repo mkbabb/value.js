@@ -20,7 +20,8 @@ import {
     Palette,
     Search,
     Camera,
-    Shield,
+    Users,
+    Type,
     Tag,
     Home,
     Sparkles,
@@ -232,13 +233,15 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     "admin-users": {
         label: "Users",
         regions: [{ role: "stage", pane: "admin-users", label: "Users" }],
-        icon: Shield,
+        // UIA-V-493: Users is its own glyph, not the admin mode's Shield.
+        icon: Users,
         accentHueShift: 0,
     },
     "admin-names": {
         label: "Names",
         regions: [{ role: "stage", pane: "admin-names", label: "Names" }],
-        icon: Tag,
+        // UIA-V-488 · V-493: Names and Tags were both `Tag`; Names is a type glyph.
+        icon: Type,
         accentHueShift: 0,
     },
     "admin-audit": {
