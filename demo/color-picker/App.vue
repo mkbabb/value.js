@@ -507,14 +507,24 @@ const { regions, sceneActions, bindPane, commitEdit, cancelEdit } = usePaneRoute
 const ROUTE_TITLE_ID = "route-title";
 const route = useRoute();
 const routeAnnouncement = ref("");
+function readablePath(path: string): string {
+    try {
+        return decodeURIComponent(path);
+    } catch {
+        // a malformed escape is read as typed — the announcement never throws
+        return path;
+    }
+}
 watch(
-    () => [viewManager.currentView.value, route.fullPath] as const,
+    () => [viewManager.currentView.value, route.path] as const,
     ([view, path]) => {
         const label = viewManager.viewMap[view].label;
+        // X.W12U.s3 · UIA-V-657: the miss is announced once — the address as
+        // a person typed it (decoded, without the query's colour state) — and
+        // the H1 already names the view, so "Not Found" is not repeated and
+        // the "showing the … scene" clause is gone.
         routeAnnouncement.value =
-            view === "not-found"
-                ? `Not Found. ${path} could not be opened — showing the ${label} scene.`
-                : `${label} view`;
+            view === "not-found" ? `${readablePath(path)} could not be opened.` : `${label} view`;
     },
     { immediate: true },
 );
