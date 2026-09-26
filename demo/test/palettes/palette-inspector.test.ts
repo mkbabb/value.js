@@ -114,8 +114,9 @@ describe("the selected entity rides X-W4's typed SceneActionSet", () => {
 
     it("an owned remote palette offers its owner's verbs", () => {
         const { wrapper, registry } = mountInspector(REMOTE_OWNED, { isOwned: true });
+        // X.W12U.s1 (UIA-V-110): no `save` — it made silent duplicate copies.
         expect(verbs(registry)).toEqual([
-            "delete", "export", "fork", "rename", "save", "tags", "versions", "visibility", "vote",
+            "delete", "export", "fork", "rename", "tags", "versions", "visibility", "vote",
         ]);
         expect(registry.value[0]?.isPublic).toBe(true);
         wrapper.unmount();

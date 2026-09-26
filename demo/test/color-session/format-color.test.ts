@@ -140,10 +140,12 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
 
     /** [OM-14 id, file under demo/, the routed expression at the site, occurrences]. */
     const SITES: readonly (readonly [string, string, string, number])[] = [
-        // §2.A — visible text (17; A2 is the 4dp INCONSIST row, not a raw-12 site)
+        // §2.A — visible text (16 since UIA-V-12; A2 is the 4dp INCONSIST row, not a raw-12 site)
         ["A1", "color-session/ColorSpaceSelector.vue", "formatSpecimen(color, entry.id)", 1],
         ["A3", CI, '{{ formatColor(currentPhysicalColor, "caption") }}', 1],
-        ["A4-A6·A8", CI, "innerText = formatCssCaption(formattedCurrentColor.value)", 4],
+        // X.W12U.s1 (UIA-V-12): the propose-success write is retired — it put the
+        // colour string into the name field (the defect); three repaint sites remain.
+        ["A4-A6·A8", CI, "innerText = formatCssCaption(formattedCurrentColor.value)", 3],
         ["A7", CI, "innerText = formatCssCaption(text)", 1],
         ["A9", CI, "{{ formatCssCaption(currentColorMeta.css) }}", 1],
         ["A10", EXW, ">{{ formatCssCaption(session.dominant.value.serialized) }}<", 1],
@@ -171,8 +173,8 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         ["WB", "picker/ColorPicker.vue", "updateModel({ inputColor: formatCssCaption(formattedCurrentColor.value) })", 1],
     ];
 
-    it("the census is the OM-14 denominator: 17 text + 10 ARIA + 1 write-back = 28", () => {
-        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(28);
+    it("the census is the OM-14 denominator: 16 text + 10 ARIA + 1 write-back = 27 (UIA-V-12 retired one text site)", () => {
+        expect(SITES.reduce((n, [, , , count]) => n + count, 0)).toBe(27);
     });
     for (const [id, file, expression, count] of SITES) {
         it(`${id} · ${file} reads through format-color`, () => {
