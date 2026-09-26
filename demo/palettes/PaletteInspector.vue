@@ -352,7 +352,8 @@ function offeredCommands(): { [V in PaletteSceneVerb]?: SceneCommand } {
     const commands: { [V in PaletteSceneVerb]?: SceneCommand } = {
         export: () => exportAs("json"),
     };
-    if (k === "temporary" || remote) commands.save = () => emit("save", p);
+    // UIA-V-110: an owned remote palette is not offered Save (the menu's gate).
+    if (k === "temporary" || (remote && !owned)) commands.save = () => emit("save", p);
     if (k === "saved") commands.publish = () => emit("publish", p);
     if (!remote || owned) commands.rename = () => startRenaming();
     if (remote && owned) {

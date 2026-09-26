@@ -11,9 +11,11 @@
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
 
-            <!-- Save (temporary + remote) -->
+            <!-- Save (temporary + another user's remote). UIA-V-110: an owned
+                 remote palette is already the user's — Save made silent duplicate
+                 copies, and said the same thing as Remix. -->
             <DropdownMenuItem
-                v-if="paletteKind === 'temporary' || paletteKind === 'remote'"
+                v-if="paletteKind === 'temporary' || (paletteKind === 'remote' && !isOwned)"
                 class="gap-2 cursor-pointer"
                 @click="$emit('action', 'save')"
             >
