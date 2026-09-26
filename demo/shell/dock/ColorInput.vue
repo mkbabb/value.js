@@ -143,6 +143,11 @@ const { proposeMode } = defineProps<{
     proposeMode?: boolean;
 }>();
 
+const emit = defineEmits<{
+    /** A name proposal succeeded (UIA-V-12); the parent leaves propose mode. */
+    proposed: [name: string];
+}>();
+
 const {
     currentPhysicalColor,
     cssColor,
@@ -236,12 +241,15 @@ async function submitProposedName() {
     try {
         await session.ensureSession();
         const cssStr = serializePickerColor(currentPhysicalColor.value);
-        await proposeColorName(proposedName.value.trim().toLowerCase(), cssStr);
+        const name = proposedName.value.trim().toLowerCase();
+        await proposeColorName(name, cssStr);
         proposedName.value = "";
-        // Signal parent to exit propose mode
-        if (inputColorRef.value) {
-            inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
-        }
+        // UIA-V-12: the parent owns the toolbar mode, so the success is a
+        // signal, not a local repaint — writing the colour string into the
+        // propose-mode field is what left "lab(...)" sitting in the name slot.
+        // The mode watch below repaints the colour when the parent leaves
+        // propose.
+        emit("proposed", name);
     } catch (e: any) {
         console.warn("[ColorInput] Failed to propose name:", e?.message);
     } finally {

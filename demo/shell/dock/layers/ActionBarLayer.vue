@@ -88,6 +88,18 @@ const toggleLabel = computed(() => {
 // consumer copy of producer motion (SS-6/S-17).
 const activeSubLayer = computed(() => (showInput.value ? "input" : "actions"));
 
+// UIA-V-12: a successful propose returns the bar to its seats and says so. The
+// returned "Open color input" toggle is the sighted signal; the status line is
+// the announced one (the same visually-hidden idiom as the seat row's).
+const proposedMessage = ref("");
+function onProposed(name: string) {
+    toolbarMode.value = "actions";
+    proposedMessage.value = `Name proposed: ${name}.`;
+}
+watch(toolbarMode, (mode) => {
+    if (mode !== "actions") proposedMessage.value = "";
+});
+
 defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
 
@@ -106,6 +118,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
                     :edit-target="editTarget"
                     :propose-mode="toolbarMode === 'propose'"
                     class="min-w-0"
+                    @proposed="onProposed"
                 />
             </DockLayer>
         </DockCrossfade>
@@ -132,6 +145,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
                 </Transition>
             </DockControl>
         </template>
+        <p v-if="proposedMessage" class="sr-only" role="status">{{ proposedMessage }}</p>
     </div>
 </template>
 
