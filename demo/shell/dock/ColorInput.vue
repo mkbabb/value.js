@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 gap-y-2 p-0 m-0">
+    <div class="color-input-face grid grid-cols-1 gap-y-2 p-0 m-0">
         <Popover
             trigger="hover"
             :close-delay="0"
@@ -305,6 +305,19 @@ defineExpose({
 
 <style scoped>
 @reference "../../styles/foundation.css";
+
+/* UIA-V-9 · V-79 · A2-VA-X-13: the field has an inline-size contract. The span
+ * is content-sized (nowrap), so the face's min-content was the typed text: the
+ * dock grew to it on every keystroke (a 50 px stub when empty) and, below sm,
+ * pushed Back and the arm toggle out of the aperture. Size containment on the
+ * inline axis takes the text out of the measure, and the face states its own
+ * width: 40% of the viewport between an 8rem floor and a 14rem cap — at 360 it
+ * leaves Back, both separators and the arm toggle inside the dock; at 1440 it
+ * is the cap. The text ellipsizes inside a width that no keystroke moves. */
+.color-input-face {
+    contain: inline-size;
+    inline-size: clamp(8rem, 40vw, 14rem);
+}
 
 .color-input {
     border-color: var(--input);
