@@ -2774,3 +2774,44 @@ Seat `claude-opus-5-5`, 2026-09-25, Track D, single seat. Governing text: W7.md 
   - `url(./…svg)`, an unquoted url. Both arms refuse it.
   - The product alone refuses `calc(50% - (1em / 2))`, a nested parenthesised calc sum, at bulma declaration 946.
   - If the product cures these, the common prefix does not move, because the retired arm still refuses them. The dated corpus stays valid.
+
+## .gap receipt (orchestrator seat, §0ee)
+
+Seat `claude-opus-5-5`, 2026-09-25, Track D, single seat. Governing text: W7.md read whole, ADDENDUM (h) (COHESION §0ee) the unit; this record from `### X.P.W7.l4` on, incl. the `.eq` receipt. Owner law: CSS grammar only in BBNF, no hand-scanner patch.
+
+**Emitter pin.** As `.l`–`.l4`: `node_modules/@mkbabb/bbnf-lang` (0.1.4) moved aside, the bbnf-lang worktree's `typescript/` (`f0059db14` = origin, `npm run build`, worktree clean before and after) linked for the unit's life, restored at the end (⟨`grep '"version"' …`⟩ → `0.1.4`). ⟨`git archive HEAD src …` into scratch; `node scripts/gen-grammar.mjs --check`⟩ → `current (sha256 c1c91dad…)`: the pinned emitter reproduces HEAD's emission byte for byte before any change.
+
+**The grammar changes (`src/css/grammar/value.bbnf`, rule by rule; actions in `src/css/bbnf/value.ts`).**
+1. **`termSep`** `/\s+|(?=[:;])|(?<=[:;])/` → `/\s+|(?=[:;])|(?<=[:;])|(?<=\))(?=[a-zA-Z_-][\w-]*\()/`: a `<function-token>` may stand directly against a `)` (css-syntax-3 §4; css-transforms-1 `<transform-list>`). `rotate(0)scale(1.3)` reads as `rotate(0) scale(1.3)` does. Only a function token: a first cut `(?<=[:;)])` (any token after `)`) moved 2,231 oracle rows, mostly fuzz like `oklch(…)n`, and was narrowed.
+2. **`urlCall = /url(?=\()/i , /\(\s*/ >> urlBody << close`** with **`urlBody`** = css-syntax-3 §4.3.6's url code points (no whitespace, quote, `(`, `)`, `\` except a valid escape, or non-printable), and **`urlHead = /url\((?!\s*["')])/i`** added to `call`'s exclusion (`callName - ( colorHead | urlHead )`): the unquoted form is one `<url-token>`, never a component-value list. A bad url (`url(a b)`, `url(a(b)`, `url(a"b)`) is refused (§4.3.14). `url("…")` stays a `call` with a string. `url()` keeps its prior path (refused `function argument`); see Open. Action `urlValue`: `{ kind: "call", name, args: [keyword(url)] }`.
+3. **`mathCall`** (css-values-4 math names: calc min max clamp round mod rem sin cos tan asin acos atan2 atan pow sqrt hypot log exp abs sign) over **`mathComma` / `mathSlash` / `mathSpace`** (the value lists' shape; actions `listOf` reused) with **`mathTerm = group | valueTerm`** and **`group = /\(\s*/ >> mathComma << close`**: css-values-4 §10.1 `( <calc-sum> )`. A group stands only inside a math function (a bare `(1px)`, `var (--a)`, `foo((1px))` stay refused). A first cut admitting `group` as a general `valueTerm` accepted prose like `var (--a)` and was narrowed. Action `groupValue`: a call with the EMPTY name, which `serializeCssValue` already spells `( … )`; `src/value.ts` documents the convention on `CssCall`.
+4. `valueTerm` gains `urlCall | mathCall` before `call`. A math call whose body fails falls through to `call` exactly as before, so refusal diagnostics outside the three forms are unchanged (the standing 92 rows below are identical row for row).
+- Re-emitted ⟨`node scripts/gen-grammar.mjs`⟩ → `sha256 6eba8334ffec8f56107596eb97f3b9c25e13080a3411d33990c22c0c72fb187f`. The emitter is unchanged; no producer row.
+
+**Falsifiers** — `test/css/bbnf-gap.test.ts` (14 tests; each form parses to its value and round-trips `parse → serializeCssValue → parse` deep-equal; each corpus declaration parses inside `parseStylesheet`; guards: `rgb(1 2 3)x`, `rotate(0)1px`, the bad urls, `calc(50% - ())`, the unclosed group, the bare group stay refused). WPT-derived: the vendored corpus is css-color parsing only; its five nested-parenthesis calc inputs (`calc(50deg + (sign(1em - 10px) * 10deg))` … `calc(50% + (sign(100em - 1px) * 10%))`, read from `color-valid-hsl.html` and `color-computed-color-mix-function.html` through `loadWptCases`) are asserted; no transform or url() case exists in it.
+- **RED before:** the file run against HEAD `521edaba`'s `src/` (a `git archive` copy) → `Tests 11 failed | 3 passed (14)` (the 3 passing are the stay-refused guards).
+- **GREEN after ×2:** ⟨`npx vitest run test/css`⟩ → `Test Files 9 passed (9) · Tests 100 passed (100)` ×2.
+
+**Gates (final bytes, value.js `79a457d0`).**
+- **L-G2** ⟨`node bench/paired/equiv.mjs product`⟩ ×2 (after ⟨`node bench/paired/build.mjs`⟩, `bankedManifestOk 79/79`) → `compared 1376531/1376531 rows · mismatches 255 (ASCII-only sources 159 · CP-CASE 4)` both reads, rows identical. **255 = 88 F-b-4 + 4 CP-CASE + 163 GAP.** The standing 92 are present with identical arm values (92/92); no standing row gone.
+- **Prefix equivalence** → `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2. **GREEN.** The retired arm still refuses the three forms, so the cut does not move and `bench/corpus/large-prefix-2026-09-25/` is not regenerated (E-3).
+- **L-G3** ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`; ⟨`node bench/paired/instrument.mjs`⟩ → `"plainEqualsShipped":true`, `"shippedInstrumentTokens":[]`. **GREEN.**
+- **E-4** `--check` ×2 → `current (sha256 6eba8334…)` both. **E-2** ⟨`node bench/paired/audit.mjs`⟩ → `rules 169 · sources 29944 · sheets 4 · checks 322949685 · violations 0 · modeDiffs 0`. **E-6** minified 97,876 B / gzip 13,595 B (ceilings 125,646 / 14,517; was 92,300 / 13,002). **K2-b** 0 · **V-8** 0. **GREEN.**
+- ⟨`npm run -s test:css-equivalence`⟩ → first read `4 failed | 15 passed`: MIS_ACCEPT 4 (assay, `url(/)` family) + 6 (real, nested calc groups), exactly the ruled forms. `bench/css-equivalence/w6-classes.ts` gains two mechanism classes (repair, never match): **GAP-URL** (the url spelled `url("…")`, the incumbent must then agree) and **GAP-GRP** (each outermost `()` block spelled `0`). Re-read → `Tests 19 passed (19)`, every entry MIRROR-DEFECTS 0 (assay GAP-URL 4, real GAP-GRP 6); stylesheet `STYLESHEET DEFECTS 0`. **GREEN.**
+- ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit | grep -c 'error TS'`⟩ → `0 · 0`; ⟨`npx eslint src/css test/css`⟩ → exit 0; ⟨`npm run build`⟩ → `built`, exit 0. **GREEN.**
+- ⟨`npx vitest run`⟩ → `9 failed | 982 passed | 10 skipped`: `test/ink.test.ts` ×5, `spectrum-luma` C-5 BORN-RED, `generate-rail` EC-10 ×2, `reka-binding-idiom` NG-6 (all foreign, as `.l4`), plus `demo/test/palettes/{plate-mass,palette-card-layout}` Playwright-harness `Hook timed out in 60000ms` at load 55–184 (foreign, environmental). **0 CSS failures.**
+- **L-6** `package*.json` diff 0. **No timing claim**: no bench was timed; L-G1 ×2 on the final bytes is owed in the orchestrator's quiet window (R-l4-1).
+
+**The named equivalence delta (ruled beside F-b-4; DIVERGENCE-LEDGER §18).** 163 new rows, none non-ASCII, each on exactly one of the three forms:
+- **GAP-URL 79** (18 sources: `url(/)`, `url( / )`, `url(//)`, `url( \t/ )`, and sheets carrying `@import url(x.css)` / `@namespace svg url(…)`): 8 rows now accepted; 71 still refused with the diagnostic moved (to the first component no production reads, e.g. `@import`, or to `syntax_mismatch` in `coerceToSyntax`).
+- **GAP-GRP 83** (8 sources: real `calc(100dvh - (var(…) + …))`, `max(2rem, calc((100dvw - min(…)) / 2))`, `repeating-linear-gradient(… calc(100% / (var(--tick-count, 4) * 4)))`, `scaleX(calc(… min(1, …, (1 - var(--playhead-p)) * 18)))`, `translateX(calc((…) * 100cqw))`, a `radial-gradient` with `calc((1 - var(…)))`, and the sheets incl. bulma's `calc(50% - (1em / 2))`): 15 accepted, 68 moved.
+- **GAP-ADJ 1** (`collect:parseStylesheet(sheet)` on the monaco sheet, `translate(0%)scaleX(1)`: now accepted whole).
+- Sections: `entry:parseCssValue(s)` 24+24 · `public:coerceToSyntax(<…>)` 11 × 10 · `collect:parseStylesheet(sheet)` 5.
+
+**Commits:** value.js `79a457d0` (grammar + actions + re-emission + `CssCall` doc + pins + value-differential classes + CHANGELOG `[Unreleased]` + DIVERGENCE-LEDGER §18) · this receipt. bbnf-lang, parse-that: none.
+
+**Open (named owners).**
+- **A fourth valid form refused (new, measured):** with url cured, the keyframes-js-index sheet now stops at `[rail]` — a `[]` simple block / grid line name (css-syntax-3 §5.4.8; css-grid-2 `<line-names>`). Out of `.gap`'s three; owner: the orchestrator (a later BBNF unit).
+- **`url()` (empty `<url-token>`)** is valid per css-syntax-3 and still refused as before (kept out to hold the delta to the named forms). Same owner.
+- `calc(1px*2)` (no whitespace around `*`) is still refused in a value position (the math grammar accepts it in colour channels); not one of the three. Same owner.
+- **R-l4-1**: L-G1 ×2 on all four engines (accepted, rejected, `large-eq`) on these final bytes, in the orchestrator's quiet window.
