@@ -24,12 +24,15 @@ import {
     computed,
     inject,
     onActivated,
+    reactive,
     shallowRef,
+    toRaw,
     useTemplateRef,
     watch,
 } from "vue";
 import { Blob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/blob";
+import { BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 import type { OklchStop } from "@mkbabb/glass-ui/color";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
@@ -146,7 +149,12 @@ watch(cssColorOpaqueFrame, (css) => reseedHeroStops(css), { immediate: true });
 // PRODUCER (communiqué §1.4). See the P6-B1-kin fission-amp package bracket.
 const HERO_FISSION_AMP = 0.6;
 
-const heroConfig = computed<BlobConfig>(() => ({
+type HeroGeometryKey = "bodyRadius" | "orbitRadius" | "satelliteRadius" | "eccentricity";
+/** The hero's value for a geometry atom: its register at the shipped default, scaled by the live app value. */
+const heroScale = (key: HeroGeometryKey, hero: number): number =>
+    hero * (appBlobConfig.geometry[key] / BLOB_CONFIG_DEFAULTS.geometry[key]);
+
+const heroRegister = computed<BlobConfig>(() => ({
     ...appBlobConfig,
     // The HERO geometry register (seed w6-blob-redress §What-was-built): the
     // shipped default hides the satellite show (orbitRadius 0.17 < bodyRadius
@@ -154,12 +162,19 @@ const heroConfig = computed<BlobConfig>(() => ({
     // bodyRadius: 0.325; the frozen orbit/satellite/eccentricity bytes preserve
     // the established morphology. The dual-engine alpha-component witness,
     // not the nominal 0.65 diameter, closes the rendered 0.66 ±0.015 contract.
+    //
+    // UIA-V-47: the register is a SCALE over the app config, not a pin. The
+    // literals used to overwrite four of the Blob pane's five Geometry sliders
+    // every frame (the only blob on the page ignored them). At the shipped
+    // defaults each ratio reproduces the frozen bytes exactly (0.22 → 0.325,
+    // 0.17 → 0.4, 0.082 → 0.09, 0.05 → 0.03); a slider now moves the hero
+    // in proportion.
     geometry: {
         ...appBlobConfig.geometry,
-        bodyRadius: 0.325,
-        orbitRadius: 0.4,
-        satelliteRadius: 0.09,
-        eccentricity: 0.03,
+        bodyRadius: heroScale("bodyRadius", 0.325),
+        orbitRadius: heroScale("orbitRadius", 0.4),
+        satelliteRadius: heroScale("satelliteRadius", 0.09),
+        eccentricity: heroScale("eccentricity", 0.03),
     },
     // WR-2 / T-49c — arm the fission register (sized calm; the mood coupling
     // scales it ×0.4 at rest). `...appBlobConfig.surface` keeps every other
@@ -173,6 +188,38 @@ const heroConfig = computed<BlobConfig>(() => ({
     // DPR ≤ 2 clamp still applies above it). lg+ keeps the app config's rung.
     quality: isLgViewport.value ? appBlobConfig.quality : "half",
 }));
+
+// UIA-V-47: the producer's config contract is ONE LIVE OBJECT — `<Blob>` hands
+// the object it received at setup to its renderer and satellite engine, which
+// read it in place every frame (exactly how the app config the Blob pane's
+// sliders mutate is consumed). A computed that returns a NEW object per change
+// therefore reached the engine once: every later geometry/membrane/surface
+// value was dropped. The hero keeps one reactive config and writes each
+// register change INTO it, atom by atom.
+const heroConfig = reactive(
+    Object.fromEntries(
+        Object.entries(heroRegister.value).map(([atom, value]) => [
+            atom,
+            value !== null && typeof value === "object" && !Array.isArray(value)
+                ? { ...toRaw(value) }
+                : value,
+        ]),
+    ),
+) as BlobConfig;
+watch(
+    heroRegister,
+    (next) => {
+        for (const atom of Object.keys(next) as (keyof BlobConfig)[]) {
+            const value = next[atom];
+            if (value !== null && typeof value === "object" && !Array.isArray(value)) {
+                Object.assign(heroConfig[atom] as object, value);
+            } else {
+                (heroConfig as Record<keyof BlobConfig, unknown>)[atom] = value;
+            }
+        }
+    },
+    { deep: true },
+);
 
 // --- X.W12.d · G-3 (§0cb): THE PARK IS THE PRODUCER'S `settled` SEAM ---
 // The W3-3 idle-gate parked the bead on a WALL CLOCK: 2 s after the last
