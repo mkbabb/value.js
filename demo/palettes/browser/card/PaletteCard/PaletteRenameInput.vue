@@ -12,22 +12,26 @@
                 ref="inputRef"
                 v-model="localName"
                 placeholder="Palette name..."
+                aria-label="Palette name"
                 class="input-bar-field"
                 @keydown.escape.stop="$emit('cancel')"
             />
-            <button
-                type="submit"
-                class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-            >
-                <Check class="w-3.5 h-3.5 text-muted-foreground" />
-            </button>
-            <button
+            <!-- X.W12U.s2 · UIA-V-99: named glass squares at the control floor,
+                 not 18 px unnamed raw buttons. -->
+            <Button type="submit" icon-only size="xs" emphasis="quiet" aria-label="Save name" class="shrink-0">
+                <Check class="w-3.5 h-3.5" aria-hidden="true" />
+            </Button>
+            <Button
                 type="button"
-                class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                icon-only
+                size="xs"
+                emphasis="quiet"
+                aria-label="Cancel rename"
+                class="shrink-0"
                 @click="$emit('cancel')"
             >
-                <XIcon class="w-3.5 h-3.5 text-muted-foreground" />
-            </button>
+                <XIcon class="w-3.5 h-3.5" aria-hidden="true" />
+            </Button>
         </form>
     </div>
 </template>
@@ -35,6 +39,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, useTemplateRef } from "vue";
 import { Check, X as XIcon, Pencil } from "@lucide/vue";
+import { Button } from "../../../../ui/button";
 
 const { name } = defineProps<{
     name: string;

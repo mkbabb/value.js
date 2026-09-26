@@ -141,15 +141,20 @@
                 "
                 size="sm"
                 class="flex-1"
+                aria-label="New palette name"
                 @keydown.enter="saveCurrentPalette"
             />
+            <!-- X.W12U.s2 · UIA-V-99 · V-276: a named glass square — no per-instance
+                 size, radius or border overrides. -->
             <Button
                 icon-only
-                class="h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+                size="sm"
+                aria-label="Save palette"
+                class="shrink-0"
                 :disabled="savedColorStrings.length === 0"
                 @click="saveCurrentPalette"
             >
-                <Check class="w-4 h-4 text-foreground" />
+                <Check class="w-4 h-4" aria-hidden="true" />
             </Button>
         </div>
         <div
@@ -159,20 +164,8 @@
             <span class="text-mono-small text-muted-foreground italic">
                 "{{ duplicateTarget.name }}" already exists.
             </span>
-            <Button
-                size="sm"
-                class="h-6 px-2 text-caption cursor-pointer font-display rounded-full"
-                @click="confirmUpdatePalette"
-            >
-                Update
-            </Button>
-            <Button
-                size="sm"
-                class="h-6 px-2 text-caption cursor-pointer font-display rounded-full"
-                @click="duplicateTarget = null"
-            >
-                Cancel
-            </Button>
+            <Button size="sm" @click="confirmUpdatePalette">Update</Button>
+            <Button size="sm" emphasis="text" @click="duplicateTarget = null">Cancel</Button>
         </div>
     </div>
 </template>
