@@ -40,6 +40,4 @@ export {
     useDialogBrowseActions,
 } from "./dialog";
 
-export { PaletteSlugBar } from "./slug";
-
 export { ApiOfflineChip } from "./status";

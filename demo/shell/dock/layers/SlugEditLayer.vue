@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, nextTick, inject, useTemplateRef } from "vue";
-import { LogIn, ArrowRight, RefreshCw, X as XIcon, Loader2 } from "@lucide/vue";
+import { LogIn, ArrowRight, X as XIcon, Loader2 } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
 import { writeClipboard } from "@mkbabb/glass-ui";
@@ -36,35 +36,35 @@ function normalizeTokenInput(raw: string): string {
     return token;
 }
 
+/**
+ * UIA-V-14/15/16/20: the submit AWAITS the switch and reads its outcome. The
+ * layer holds its pending state (spinner, aria-busy) for the whole request,
+ * closes only on success (or when the migrate dialog takes over), and on
+ * failure stays open with the typed text and the reason, announced. A string
+ * that is not slug-shaped is offered to the server as a token; the session port
+ * asks the server before it touches the user identity.
+ */
 async function onSlugSubmit() {
     const raw = slugInput.value.trim();
-    if (!raw) return;
-    slugSwitching.value = true;
+    if (!raw || slugSwitching.value) return;
     slugError.value = "";
-    try {
-        const normalized = normalizeTokenInput(raw).toLowerCase();
-        const isAdmin = !looksLikeSlug(normalized);
+    const normalized = normalizeTokenInput(raw).toLowerCase();
+    const isAdmin = !looksLikeSlug(normalized);
 
-        if (looksLikeSlug(normalized) && normalized === pm.userSlug.value) {
-            slugError.value = "Already signed in.";
-            slugSwitching.value = false;
+    if (!isAdmin && normalized === pm.userSlug.value) {
+        slugError.value = "Already signed in.";
+        return;
+    }
+
+    slugSwitching.value = true;
+    try {
+        const outcome = await pm.onSlugSwitch(isAdmin ? normalizeTokenInput(raw) : normalized, isAdmin);
+        if (outcome.kind === "failed") {
+            slugError.value = outcome.message;
             return;
         }
-
-        pm.onSlugSwitch(isAdmin ? normalizeTokenInput(raw) : normalized, isAdmin);
         slugInput.value = "";
         slugEditMode.value = false;
-    } catch (e: unknown) {
-        // X-W4 Repair 1 (Check 1 defect 4) — D2's gate command scopes
-        // `demo/shell/dock/**`, so a type-level `any` in this file is inside the
-        // gate's letter even though the armed file list names seven others. The
-        // narrowing is the sibling's own idiom (`useSlugMigration.ts:85-88`):
-        // an `Error` carries the message, anything else carries none.
-        const msg = e instanceof Error ? e.message : "";
-        if (msg.includes("409")) slugError.value = "Already signed in.";
-        else if (msg.includes("404")) slugError.value = "Slug not found.";
-        else if (msg.includes("429")) slugError.value = "Too many attempts.";
-        else slugError.value = msg || "Login failed";
     } finally {
         slugSwitching.value = false;
     }
@@ -79,22 +79,40 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
 
 <template>
     <form
-        class="flex items-center gap-1.5"
+        class="slug-form flex items-center gap-1.5 min-w-0"
+        :aria-busy="slugSwitching"
         @submit.prevent="onSlugSubmit"
     >
         <LogIn class="w-4 h-4 text-muted-foreground shrink-0" />
         <!-- X-W4 · A4 (CC-041): the field's NAME. `placeholder` is not a name —
              it is prompt text that vanishes at the first keystroke, and the §6
              census rule ranks it nowhere. The prompt stays (it carries the format
-             hint); the name is now the field's own. -->
+             hint); the name is now the field's own.
+             UIA-V-17/247: the field takes the room the row leaves (flex-1
+             min-w-0), not a fixed 160 px that truncated the prompt and every
+             real slug and pushed Cancel past a 390 dock. -->
         <input
             ref="slugInputRef"
             v-model="slugInput"
             aria-label="Slug or admin token"
-            placeholder="enter slug or token..."
-            class="slug-input text-mono-small bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground"
+            placeholder="slug or token"
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            :aria-invalid="slugError ? 'true' : undefined"
+            :aria-describedby="slugError ? 'slug-edit-error' : undefined"
+            class="slug-input text-mono-small bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground"
+            @input="slugError = ''"
             @keydown.escape.stop="slugEditMode = false"
         />
+        <!-- UIA-V-248/14: the reason a submit did not switch, rendered and
+             announced (it used to be written to refs no template bound). -->
+        <span
+            v-if="slugError"
+            id="slug-edit-error"
+            role="alert"
+            class="slug-error text-caption text-destructive truncate"
+        >{{ slugError }}</span>
         <!-- W6-8 register pass: native `title` retired dock-wide — icon-only
              controls carry aria-label (the UA tooltip slab is a foreign
              register on the liquid-glass dock). -->
@@ -102,7 +120,7 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
             compact
             type="submit"
             class="slug-control"
-            aria-label="Switch to slug"
+            :aria-label="slugSwitching ? 'Signing in…' : 'Switch to slug'"
             :disabled="!slugInput.trim() || slugSwitching"
         >
             <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin" />
@@ -110,16 +128,10 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
         </DockControl>
     </form>
 
+    <!-- UIA-V-17/250/513: the login layer carries no identity-destroying act.
+         "Generate new slug" lives in the profile menu only (Regenerate slug),
+         where its verdict renders; the layer is field, submit and Cancel. -->
     <DockSeparator />
-
-    <DockControl
-        compact
-        class="slug-control"
-        aria-label="Generate new slug"
-        @click="slugEditMode = false; pm.onRegenerateSlug()"
-    >
-        <RefreshCw class="w-3.5 h-3.5" />
-    </DockControl>
 
     <DockControl
         compact
@@ -163,5 +175,13 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
 
 .slug-input {
     min-block-size: var(--control-h-xs);
+}
+
+/* The layer's row may shrink its field; the reason never outgrows half of it. */
+.slug-form {
+    flex: 1 1 auto;
+}
+.slug-error {
+    max-inline-size: 50%;
 }
 </style>

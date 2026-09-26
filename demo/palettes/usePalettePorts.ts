@@ -16,6 +16,7 @@ import { useAdminFlagged } from "./useAdminFlagged";
 import { useAdminTags } from "./useAdminTags";
 import { useVersionHistory } from "./useVersionHistory";
 import { useTagEdit } from "./useTagEdit";
+import { getAdminTags } from "./api";
 import type { ComputedRef } from "vue";
 import type { ViewId } from "../shell/useViewManager";
 
@@ -142,6 +143,11 @@ export function providePalettePorts(deps: PalettePortsDeps) {
         userLogin,
         userRegenerate,
         adminLogin,
+        // UIA-V-16/21: the cheapest admin read is the token's check — the
+        // server answers 401/403 for anything it did not issue.
+        verifyAdminToken: async (token) => {
+            await getAdminTags(token);
+        },
         clearUserSlug: clearSlug,
         ensureSession,
         setActiveView: depsSwitchView,

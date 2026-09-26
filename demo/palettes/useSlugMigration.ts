@@ -2,7 +2,6 @@ import { ref, shallowRef, type Ref, type ComputedRef } from "vue";
 import { ApiProblem } from "../platform/transport/api-problem";
 import type { Palette } from "./types";
 import type { ViewId } from "../shell/useViewManager";
-import type { PaletteSlugBar } from "./browser/slug";
 
 /**
  * The slug-migration composable's dependency contract.
@@ -31,6 +30,12 @@ export interface SlugMigrationDeps {
     userLogin: (slug: string) => Promise<void>;
     userRegenerate: () => Promise<string>;
     adminLogin: (token: string) => void;
+    /**
+     * UIA-V-16/21: the server's word on an admin token, asked BEFORE the user
+     * identity is cleared. Resolves when the token is accepted; rejects with the
+     * server's `ApiProblem` (401/403 = not a token) otherwise.
+     */
+    verifyAdminToken: (token: string) => Promise<void>;
     clearUserSlug: () => void;
     ensureSession: () => Promise<void>;
     setActiveView: (id: ViewId) => void;
@@ -50,6 +55,20 @@ export type IdentityState =
     | { readonly kind: "done"; readonly message: string }
     | { readonly kind: "failed"; readonly message: string };
 
+/**
+ * UIA-V-14/15/20: the slug switch's outcome, returned to the layer that asked.
+ * The layer awaits it — it shows its pending state for the whole request, closes
+ * on `done`/`migrating`, and renders `failed` under its field. (The retired path
+ * wrote the copy to a `PaletteSlugBar` ref that no template ever bound, so every
+ * failure was silent, and the layer had already closed.)
+ */
+export type SlugSwitchOutcome =
+    | { readonly kind: "done" }
+    | { readonly kind: "migrating" }
+    | { readonly kind: "failed"; readonly message: string };
+
+const NOT_A_SLUG_OR_TOKEN = "Not a slug or admin token.";
+
 function messageOf(e: unknown, fallback: string): string {
     return e instanceof Error && e.message ? e.message : fallback;
 }
@@ -59,7 +78,6 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
     const showMigrateDialog = ref(false);
     const migrateMode = ref<"switch" | "regenerate">("switch");
     const pendingMigrateAction = ref<((choice: "publish" | "transfer" | "discard") => Promise<void>) | null>(null);
-    const slugBarRef = ref<InstanceType<typeof PaletteSlugBar> | null>(null);
     const identity = shallowRef<IdentityState | null>(null);
 
     /**
@@ -100,12 +118,27 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         }
     }
 
-    async function onSlugSwitch(value: string, isAdmin: boolean) {
+    async function onSlugSwitch(value: string, isAdmin: boolean): Promise<SlugSwitchOutcome> {
         if (isAdmin) {
+            // UIA-V-16/21: a token is the SERVER's to accept. The identity is
+            // cleared only after it says yes — a mistyped slug no longer logs the
+            // user out into an unverified gold "admin".
+            try {
+                await deps.verifyAdminToken(value);
+            } catch (e) {
+                const status = e instanceof ApiProblem ? e.status : undefined;
+                if (status === 401 || status === 403) {
+                    return { kind: "failed", message: NOT_A_SLUG_OR_TOKEN };
+                }
+                return {
+                    kind: "failed",
+                    message: `The admin token could not be checked: ${messageOf(e, "backend unreachable")}`,
+                };
+            }
             deps.clearUserSlug();
             deps.adminLogin(value);
             deps.setActiveView("palettes");
-            return;
+            return { kind: "done" };
         }
 
         if (deps.savedPalettes.value.length > 0) {
@@ -119,11 +152,12 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
                 deps.setActiveView("palettes");
             };
             showMigrateDialog.value = true;
-            return;
+            return { kind: "migrating" };
         }
         try {
             await deps.userLogin(value);
             deps.setActiveView("palettes");
+            return { kind: "done" };
         } catch (e) {
             // S.W2 W2-6: branch on the typed `ApiProblem.status`, not `.message`
             // substrings — the server titles ("Already logged in as this user",
@@ -131,10 +165,10 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
             // "429", so those branches matched nothing and the authored copy below
             // never showed.
             const status = e instanceof ApiProblem ? e.status : undefined;
-            if (status === 409) slugBarRef.value?.setError("Already signed in as this slug.");
-            else if (status === 404) slugBarRef.value?.setError("Slug not found.");
-            else if (status === 429) slugBarRef.value?.setError("Too many attempts.");
-            else slugBarRef.value?.setError((e instanceof Error ? e.message : "") || "Login failed");
+            if (status === 409) return { kind: "failed", message: "Already signed in as this slug." };
+            if (status === 404) return { kind: "failed", message: "Slug not found." };
+            if (status === 429) return { kind: "failed", message: "Too many attempts." };
+            return { kind: "failed", message: messageOf(e, "Login failed") };
         }
     }
 
@@ -172,7 +206,6 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
     return {
         showMigrateDialog,
         migrateMode,
-        slugBarRef,
         identity,
         dismissIdentity: () => {
             identity.value = null;
