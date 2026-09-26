@@ -1314,3 +1314,98 @@ Self-count ⟨`sed -n '/^### .controls/,$p' KF-W13X.md | grep -E '^\| (KFA|UIA-K
 5. The fixed-width Back, the subheading title and the caption line make the detail pane taller: 474 → 537 px at 1440. The height is the same on every open.
 
 **Escalations:** none.
+
+### .overlays
+
+SERVED MODEL: claude-opus-5-5 (seat `.overlays`, G16)
+
+**Open.** ⟨`git -C keyframes.js status --porcelain`⟩ → 0 dirty paths under `demo/components/instrument/shell/{SharePopover.vue,useShareState.ts,KeyboardShortcutsModal.vue,groupShortcuts.ts}` or `test/demo/**`: nothing inherited. kf HEAD `876a413f`. Rulings read: COHESION §0cw…§0ef (no ruling on ESC-dock-1 found: ⟨`grep -n ESC-dock-1 COHESION.md`⟩ → 0 hits).
+
+**Instrument.** Private dev server ⟨`npx vite --config <scratchpad>/overlays/vite.o.config.ts --force --port 5246 --strictPort`⟩ (only `cacheDir` moves) → `ready`; glass `10.1.0`. Headed Chromium, reducedMotion reduce, 1440×900 light and 390×844 dark (touch). Probes (committed, value.js `917ab9ab`): `evidence/W13X/overlays/overlays.mjs` (16 rows) and `tooltips.mjs` (the critic gap). Frames are local under `overlays/frames/{before,after}-r{1,2}/` and `frames/tooltips-before-r{1,2}/` (`*.png` is gitignored, `.gitignore:34`).
+
+**Rows in scope (self-count 18).** The plan's 15 UIA-KF (016, 059, 070, 071, 072, 140, 141, 142, 143, 145, 147, 224, 249, 250, 251) + A2-KE-L2-12 + UIA-KF-139 (RE-HOMED in from `.dock`) + UIA-KF-248 (the SharePopover Input limb of `.dock`'s ESC-dock-1). Plus the critic gap: tooltips.
+
+**Acts, in order.**
+1. **BEFORE, served** ⟨`BASE=http://localhost:5246 RUN=before-r{1,2} node overlays.mjs`⟩ at the kf `876a413f` bytes → 35 lines each, **RED 32 · GREEN 3**; r1 ≡ r2 (⟨`diff <(cut -c1-45 …r1) <(cut -c1-45 …r2)`⟩ → SAME). The GREENs: L2-12 at 1440 (x 397, the gutter defect is phone-only) and UIA-KF-249 at both configs (see residual 4). The probe's final form (a touch context TAPS the trigger; 141's bar is ≥ 95 % of the inner width) was re-run on the HEAD bytes, swapped in from `git show HEAD:<path>` and restored afterwards, so BEFORE and AFTER read the same instrument.
+2. **Critic gap: tooltips, captured** ⟨`RUN=before-r{1,2} node tooltips.mjs`⟩ → r1 ≡ r2 (SAME). 7 routes × 2 themes at 1440. Readings:
+   - The **transport band's glass Tooltip works on every route** (`bottom-band glass-tooltip 3/3` or `2/2`, 0 missing). It is the glass surface, it stays inside the viewport and it clears on leave (`stuck-after-leave 0`). Frame: `tooltip-{light,dark}-cube-bottom-Pause_animation.png`.
+   - The **top dock has no glass Tooltip.** On every scene route, 0 of 6 items show one, and its icon-only surface items (Controls / Keyframes / Timeline / Scene facet / Curve / Physics) carry a native `title` instead (4 per scene; 9 on /spring, adding the heatmap caption and the three preset blurbs; 6 on /sequence, adding its two in-card buttons).
+   - **Judged:** this is the same defect class as UIA-KF-224, an unstyled, delayed OS tooltip beside glass tooltips. The sites and their owners are:
+     - `ChromeDock.vue:494` and `MbabbMenu.vue:187`: `.dock`
+     - `SequenceTarget.vue:57`: `.sequence`
+     - `SequenceTimeline.vue:24` and `TimelineHoverPreview.vue:156`: `.timeline`
+     - `SpringHeatmap.vue:138` and `SpringPhysicsFacet.vue:110`: `.spring`
+     - `RibbonBar.vue:47,63,77`: `.mobile`
+     - `MatrixEditor.vue:48`: `.matrix`
+     - `ChannelOptions.vue:70`: `.controls`
+
+     Those units have already run, so these sites are handed to the close (residual 1). This unit cured only its own two sites (224).
+3. **Falsifier written:** `test/demo/instrument/overlays-w13x.test.ts`, with 12 cases on the real SharePopover, useShareState and KeyboardShortcutsModal. ⟨`npx vitest run --project demo <file>` ×2 at the HEAD bytes⟩ → `Tests 12 failed (12)` ×2, all AssertionError or TypeError (no crash). The TypeError is case 6's missing "Copy link" button.
+4. **Cure: Share** (`SharePopover.vue`, `useShareState.ts`), landed as kf **`60cc7704`**:
+   - The popover opens on a named primary `Copy link` Button, then a `Separator`, then a `LabeledField` "Load from link" holding the full-width Input and a labelled `Load` button.
+   - Width is `--dock-panel-width` and `collision-padding="16"`.
+   - `loadError` feeds the Input's `invalid` skin and the error slot, and it clears on the next edit (a `flush: "sync"` watch).
+   - A successful load clears `loadHashInput`.
+   - `shareState` and `loadFromInput` report completion, and the popover emits `done`.
+   - The `hover:opacity-50` fade is deleted.
+   - **Adjacent edits (§0bt):**
+     - `demo/app/dock/MbabbMenu.vue:65`: `@done="open = false"` on the SharePopover. This is UIA-KF-070's named twin call site, "MbabbMenu.vue:50-51".
+     - `test/demo/app/mbabb-menu-share-keyboard.test.ts:83-90,102,112`: the oracle's field selector follows the field's new name, and its focus assertion follows the new focus target (`Copy link`). No assertion was deleted.
+   - A first attempt at the oval (`shrink-0` on the trigger) measured inert: the producer Button's own `max-width: 100%` resolves against the host's 28 px slot, served `28x36`. It was withdrawn before the commit, so no dead class landed.
+5. **Cure: Keyboard shortcuts** (`KeyboardShortcutsModal.vue`), landed as kf **`b6da2664`**:
+   - FadingScroll gains `relative` and `scrollbar-hidden`, and at md and up its cap is `md:max-h-[calc(100dvh-12rem)]`.
+   - The list becomes `md:columns-2` with groups set to `break-inside-avoid`, and DialogContent is `max-w-md md:max-w-2xl`.
+   - The headings drop `sticky top-0 bg-popover -mx-2 py-1` and go from muted to foreground.
+   - The title is `Keyboard shortcuts` and the description is `Grouped by area.`.
+   - The rows drop `rounded-md`.
+6. **Falsifier committed** as kf **`de006ee2`**. ⟨×2⟩ → `Tests 12 passed (12)` ×2.
+7. **AFTER, served** ⟨`RUN=after-r{1,2} node overlays.mjs`⟩ at kf `de006ee2` → **RED 4 · GREEN 31**; r1 ≡ r2 (SAME). The 4 REDs are UIA-KF-140's slot limb and UIA-KF-145, at both configs. Both are carried, not cured (below).
+8. **Gates** (logs in the seat scratchpad):
+   - ⟨`npm run check` ×2⟩ → EXIT 0 ×2, ending `proof:structure — PASS: scope=src clean (0 violations across R1–R6)`.
+   - ⟨`npm run test:demo` ×2⟩ → `Test Files 112 passed (112)` · `Tests 728 passed (728)` ×2.
+   - The before-this-unit reading was 111 files and 716 tests (the `.controls` receipt); this unit adds 1 file and 12 tests.
+
+**Gate readings BEFORE → AFTER:**
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| critic gap: tooltips | uncaptured (`CRITIC-GAPS-UNCAPTURED`, KF-W13V `:322`) | **captured ×2 and judged** (act 2) |
+| served overlays probe | RED 32 / 35 ×2 | RED 4 / 35 ×2 (both carried rows) |
+| vitest falsifier | 12 failed ×2 | 12 passed ×2 |
+| `npm run check` | EXIT 0 | EXIT 0 ×2 |
+| `test:demo` | 111 files / 716 tests (the prior unit's AFTER) | 112 files / 728 tests ×2 |
+
+**Dispositions (the served reading is ×2; each vitest case is RED ×2, then GREEN ×2):**
+
+| row | disposition | evidence |
+|---|---|---|
+| UIA-KF-016 (B)[S] | **CURED** (consumer half) `b6da2664`; glass half (the `.fading-scroll` root's `position`/`overscroll-behavior`) relay-only **O-59** | dialog scroll 1223/681 → 803/803 (1440) and 1178/612 → 593/593 (390); wheel past the end gives scrollTop 541 → 0 and 566 → 0; vitest (8) |
+| UIA-KF-059 | **RE-HOMED → `.home`** | the toast templates are `transport/components/DemoGlobalChrome.vue:27-58` (G18), and the `.home` row is "critic gap: toasts" |
+| UIA-KF-070 | **CURED** `60cc7704` (+ adjacent `MbabbMenu.vue:65`) | after copy and after load: menu open, body `pointer-events:none`, focus stranded → menu closed, `auto`, focus `@mbabb menu`, at 1440 and 390; at 390 the trigger reopens the menu by tap and by Enter; vitest (6) |
+| UIA-KF-071 | **CURED** `60cc7704` | buttons `(icon),(icon)` → `Copy link`, `Load`; the field is labelled "Load from link"; vitest (3) |
+| UIA-KF-072 | **CURED** `b6da2664` | heading `sticky` on `rgb(253,245,236)` / `rgb(53,42,34)` → `static` on transparent; vitest (9) |
+| UIA-KF-139 | **CURED** `b6da2664` (the three consumer limbs: `:162` plate, `:109` title, and `:136` focus). The focus limb was already met at BEFORE: focus lands on the dialog's BUTTON, not the region. The clipped FadingScroll outline is glass, relay-only **O-59** | title "Keyboard Shortcuts" → "Keyboard shortcuts"; vitest (9)(10) |
+| UIA-KF-140 | **SPLIT.** Fade limb **CURED** `60cc7704`. The oval limb is **CARRIED with ESC-dock-1**: the host slot `MbabbMenu.vue:65` `w-7` caps the Button through its own `max-width:100%`, and the row says the limb is "moot if the row becomes a plain item" (UIA-KF-056's restructure, which `.dock` escalated and nobody has ruled) | served `28x36` (1440) / `44x54` (390) unchanged; `hover:opacity-50` → absent; vitest (7) |
+| UIA-KF-141 | **CURED** `60cc7704` | field 178/264 → 246/248 px of the inner width (390: 142/264 → 246/248); the width token replaces `w-72` |
+| UIA-KF-142 | **CURED** `60cc7704` | `aria-invalid` null → `true`; described-by "" → "This link's shared state could not be read."; cleared on edit; vitest (2) |
+| UIA-KF-143 | **RE-HOMED → `.scene`** | the cure site is `demo/app/scene/router.ts:46-60` (G19) |
+| UIA-KF-145 [S] | **ADOPT-AT-LANDING on O-59** (consumer half) | glass 10.1.0's `formatComboParts` has no alias parts (⟨`grep alias dist/composables/keyboard/*.d.ts`⟩ → 0). `delete` → `⌫` on Mac, which is the Mac Backspace key, so the consumer's cure ("delete KEY_ALIASES and render the producer's alias parts") has no producer seam yet. Served caps `["⌫","Backspace"]` are unchanged. Nothing was copied |
+| UIA-KF-147 [S] | **CURED** (consumer half) `b6da2664`; glass `.kbd` `--type-micro` relay-only **O-59** | port 1119/540 → 684/684 at 1440×900 (all 22 rows visible); vitest (12) |
+| UIA-KF-224 | **CURED** (the SharePopover sites) `60cc7704`; SequenceTarget's sites are `.sequence`'s (see residual 1) | native titles in the popover 2 → 0; vitest (4) |
+| UIA-KF-248 (ESC-dock-1 limb) | **CURED** `60cc7704` | focus on open `INPUT` → `BUTTON:Copy link`, so no heavy field ring at open; vitest (5) |
+| UIA-KF-249 | **CURED** `60cc7704` | vitest (1) RED → GREEN (the composable kept the paste). The served reading was GREEN at BEFORE too, because a restore remounts the menu's SharePopover. The defect was latent in the composable, not visible on the page |
+| UIA-KF-250 | **CURED** `b6da2664` | `scrollbar-width` `auto` → `none`; vitest (11) |
+| UIA-KF-251 | **CURED** `b6da2664` | description → "Grouped by area."; row radius 6px → 0px; title sentence case; vitest (10). The optional coarse-pointer note was not taken |
+| A2-KE-L2-12 | **CURED** (consumer half) `60cc7704`. The glass default `collisionPadding` is relay-only (O-74). The overlap with the menu is UIA-KF-056's (ESC-dock-1) | 390: x 0 → 16. The popover still sits over its own menu's rows (the frame shows it), and that is 056's |
+
+Self-count: CURED 13 (016, 070, 071, 072, 139, 141, 142, 147, 224, 248, 249, 250, 251; 016, 147 and L2-12's consumer halves are counted here) + L2-12 = **14** · SPLIT-partial 1 (140) · RE-HOMED 2 (059, 143) · ADOPT-AT-LANDING 1 (145) = **18** ✓.
+
+**Commits.** keyframes.js, local and not pushed (the wave's close pushes): `60cc7704` (Share) · `b6da2664` (the shortcuts dialog) · `de006ee2` (the falsifiers). value.js: `917ab9ab` (the evidence), plus this receipt.
+
+**Residuals.**
+1. **Native `title` tooltips outside G16** (the critic-gap judgement, act 2): `ChromeDock.vue:494` (the top dock's surface items: every scene route) · `MbabbMenu.vue:187` · `SequenceTarget.vue:57` · `SequenceTimeline.vue:24` · `TimelineHoverPreview.vue:156` · `SpringHeatmap.vue:138` · `SpringPhysicsFacet.vue:110` · `RibbonBar.vue:47,63,77` · `MatrixEditor.vue:48` · `ChannelOptions.vue:70`. The cure is the glass `Tooltip` with `aria-label` kept (UIA-KF-224's shape). The owning units have run, so the close routes these.
+2. **ESC-dock-1 is still unruled** (UIA-KF-056 · KFA-114 · 140's oval limb · L2-12's overlap). Its cure (the Share row as a plain menuitem, with the share surface anchored to the @mbabb trigger) needs `MbabbMenu.vue` beyond an adjacent line. Grant it to `.overlays`, or `SharePopover.vue` to `.dock`, per `.dock`'s ask. SharePopover now emits `done` and exposes `open`, and both are ready for either form.
+3. UIA-KF-145 waits on glass O-59's alias parts. The glass halves of 016, 139 and 147 ride O-59, and L2-12's rides O-74.
+4. UIA-KF-249 read GREEN served at BEFORE (see its row); only the vitest case is its born-RED witness.
+
+**Escalations:** none. The one out-of-set edit is the §0bt adjacent line `MbabbMenu.vue:65`, listed above.
