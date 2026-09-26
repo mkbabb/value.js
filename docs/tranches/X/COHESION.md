@@ -3641,3 +3641,6 @@ Check 3 held L-G1: unread on every engine because the host load never fell below
 - the **quiet-host rule stays**, and the orchestrator provides the window: Track D's close and check run when the sibling tracks are idle;
 - unit `.eq` builds the prefix corpus now.
 No noise band.
+
+## §0ee — 2026-09-25: `.eq` landed; `.gap` minted
+The equal-work corpus is built (`f4dcbd85`, 0 mismatches ×2). The cuts exposed three places where the product refuses valid CSS: adjacent functions `rotate(0)scale(1.3)`, the unquoted `url(./x.svg)`, and nested `calc(50% - (1em / 2))`. They are homed as X.P.W7 `.gap` (a BBNF grammar cure plus falsifiers), run first in Track D's quiet-host window, before the L-G1 read. W7.md addendum (h).
