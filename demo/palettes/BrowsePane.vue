@@ -23,6 +23,7 @@
                     @update:sort="pm.onSortChange"
                     @update:tier="onTierChange"
                     @update:selected-tags="onTagsChange"
+                    :color-active="colorSearchParams !== null"
                     @clear-filters="onClearFilters"
                     @color-search="onColorSearch"
                     @clear-color-search="onClearColorSearch"
@@ -83,7 +84,8 @@
                     v-else
                     key="wall"
                     :empty="displayedBrowse.length === 0"
-                    empty-text="No palettes published yet."
+                    :empty-text="narrowed ? 'No palettes match.' : 'No palettes published yet.'"
+                    :empty-hint="narrowed ? 'Nothing on the wall matches your search and filters.' : 'Publish one of yours from My Palettes.'"
                     :grid-class="
                         'transition-opacity duration-fast ' +
                         (pm.sortLoading.value ? 'opacity-50' : '')
@@ -114,6 +116,13 @@
                         @flag="(p) => onFlag(p)"
                         @edit-tags="(p) => onEditTags(p)"
                     />
+                    <!-- X.W12U.s2 · UIA-V-122: a search that matches nothing says
+                         so, and offers the way out. -->
+                    <template v-if="narrowed" #emptyAction>
+                        <Button size="sm" class="font-display" @click="onClearNarrowing">
+                            Clear search and filters
+                        </Button>
+                    </template>
                 </PaletteCardGrid>
                 </Transition>
 
@@ -515,6 +524,21 @@ function onClearFilters() {
 // --- Color search ---
 
 const colorSearchParams = ref<{ L: number; a: number; b: number } | null>(null);
+
+/** X.W12U.s2 · UIA-V-122: the wall is narrowed by a query, a tier, tags or a
+ *  colour — an empty result then means "nothing matches", not "nothing exists". */
+const narrowed = computed(
+    () =>
+        pm.searchQuery.value.trim() !== "" ||
+        pm.tierFilter.value !== "" ||
+        pm.selectedTags.value.length > 0 ||
+        colorSearchParams.value !== null,
+);
+
+function onClearNarrowing() {
+    pm.searchQuery.value = "";
+    onClearFilters();
+}
 
 /** Browse palettes with optional client-side color distance filter applied */
 const displayedBrowse = computed(() => {

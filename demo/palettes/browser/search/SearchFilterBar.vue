@@ -164,11 +164,14 @@ import {
     pickerColorToHex,
 } from "../../../color-session/picker-color";
 
-const { sort, tier, selectedTags, availableTags } = defineProps<{
+const { sort, tier, selectedTags, availableTags, colorActive = false } = defineProps<{
     sort: string;
     tier: string;
     selectedTags: string[];
     availableTags: Tag[];
+    /** The host owns the colour query (X.W12U.s2 · UIA-V-122: it can clear it
+     *  from the empty wall), so whether one is active is read, not kept here. */
+    colorActive?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -194,7 +197,6 @@ function onSortPick(v: unknown) {
 
 const colorText = ref("");
 const pickerHex = ref("#4488cc");
-const colorSearchActive = ref(false);
 const miniPickerOpen = ref(false);
 const searching = ref(false);
 const colorError = ref("");
@@ -210,7 +212,6 @@ function applyColorSearchFromPicker(hex: string) {
     colorText.value = hex;
     miniPickerOpen.value = false;
     const lab = hexToOklab(hex);
-    colorSearchActive.value = true;
     emit("colorSearch", lab.L, lab.a, lab.b);
 }
 
@@ -218,7 +219,7 @@ const activeFilterCount = computed(() => {
     let count = 0;
     if (tier) count++;
     count += selectedTags.length;
-    if (colorSearchActive.value) count++;
+    if (colorActive) count++;
     return count;
 });
 
@@ -266,15 +267,13 @@ async function applyColorSearch() {
     searching.value = true;
     try {
         const lab = color ? colorToOklab(color) : hexToOklab(pickerHex.value);
-        colorSearchActive.value = true;
-        emit("colorSearch", lab.L, lab.a, lab.b);
+            emit("colorSearch", lab.L, lab.a, lab.b);
     } finally {
         searching.value = false;
     }
 }
 
 function onClearAll() {
-    colorSearchActive.value = false;
     colorText.value = "";
     colorError.value = "";
     emit("clearColorSearch");
