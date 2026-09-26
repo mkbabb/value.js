@@ -76,6 +76,7 @@ function onSlotSettled(e: TransitionEvent) {
     <div
         class="action-bar-toggle-slot"
         :class="{ 'is-visible': visible, 'is-live': slotLive, 'is-settled': settled }"
+        :inert="!visible"
         @transitionend.self="onSlotSettled"
     >
         <div class="action-bar-toggle-inner">
@@ -89,7 +90,6 @@ function onSlotSettled(e: TransitionEvent) {
                 :class="{ 'is-active': active }"
                 aria-label="Toggle action bar"
                 :aria-pressed="active"
-                :tabindex="visible ? 0 : -1"
                 @click="emit('toggle')"
             >
                 <component :is="icon" class="w-6 h-6" :style="{ color: accent }" />
