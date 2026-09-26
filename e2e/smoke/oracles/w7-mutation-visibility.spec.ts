@@ -192,6 +192,8 @@ userTest.describe("G13 · library rows", () => {
         await expect(page.locator("[data-palette-name]").filter({ hasText: "Wide Library" })).toBeVisible();
         await page.getByRole("button", { name: "Palette menu" }).first().click();
         await page.getByRole("menuitem", { name: /Delete/ }).click();
+        // UIA-V-104 (X.W12U.s1): one saved palette's delete is confirmed first.
+        await page.getByRole("dialog").getByRole("button", { name: "Delete palette" }).click();
         await expect(page.locator("[data-palette-name]").filter({ hasText: "Wide Library" })).toHaveCount(0);
     });
 });

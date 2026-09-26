@@ -116,13 +116,36 @@
                         :css-color="cssColorOpaque"
                         draggable
                         @click="pm.toggleExpand(palette.id)"
-                        @delete="(p) => pm.onDelete(p)"
+                        @delete="(p) => onRequestDelete(p)"
                         @publish="(p) => onPublish(p)"
                         @rename="(p, name) => pm.onRenameSaved(p, name)"
                         @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
                     />
                 </PaletteCardGrid>
             </div>
+
+            <!-- UIA-V-104: deleting ONE saved palette is confirmed like deleting all
+                 of them (the card menu and the dock's Delete seat both land here);
+                 it used to destroy the palette on the click, with no message. -->
+            <Dialog v-model:open="deleteConfirmOpen">
+                <DialogContent surface="glass" dismiss="deliberate">
+                    <DialogHeader>
+                        <DialogTitle>Delete palette?</DialogTitle>
+                        <DialogDescription>
+                            This will permanently delete
+                            <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
+                            from local storage. This cannot be undone.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
+                        <Button tone="destructive" :disabled="!deleteConfirmTarget" @click="onDeleteConfirm">
+                            <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                            Delete palette
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
 
             <!-- Delete all confirmation (Glass 7: ConfirmDialog folded onto the Dialog family) -->
             <Dialog v-model:open="pm.showDeleteAllConfirm.value">
@@ -151,7 +174,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, reactive, ref, computed, watch, onMounted, nextTick } from "vue";
+import { inject, reactive, ref, shallowRef, computed, watch, onMounted, nextTick } from "vue";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
@@ -204,6 +227,32 @@ const rampTitleVars = {
 } as const;
 
 const cardRefs = reactive<Record<string, InstanceType<typeof PaletteInspector>>>({});
+
+// UIA-V-104: one saved palette's delete is confirmed first. The name is kept for
+// the leave transition; the target is TAKEN before the delete runs and dropped
+// on any dismissal — one acceptance, exactly one delete (Browse's idiom).
+const deleteConfirmOpen = ref(false);
+const deleteConfirmName = ref("");
+const deleteConfirmTarget = shallowRef<Palette | null>(null);
+watch(
+    deleteConfirmOpen,
+    (open) => {
+        if (!open) deleteConfirmTarget.value = null;
+    },
+    { flush: "sync" },
+);
+function onRequestDelete(palette: Palette) {
+    deleteConfirmName.value = palette.name;
+    deleteConfirmTarget.value = palette;
+    deleteConfirmOpen.value = true;
+}
+function onDeleteConfirm() {
+    const target = deleteConfirmTarget.value;
+    if (!target) return;
+    deleteConfirmTarget.value = null;
+    deleteConfirmOpen.value = false;
+    pm.onDelete(target);
+}
 
 // Drag-to-reorder
 const sortableGridRef = ref<InstanceType<typeof PaletteCardGrid> | null>(null);

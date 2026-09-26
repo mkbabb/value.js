@@ -47,5 +47,7 @@ test("delete an owned remote palette DELETEs /palettes/<slug>", async ({
     await expect(main).toBeVisible();
     await main.getByRole("button", { name: "Palette menu" }).first().click();
     await page.getByRole("menuitem", { name: /^Delete$/ }).click();
+    // UIA-V-111 (X.W12U.s1): the owner's delete is confirmed first.
+    await page.getByRole("dialog").getByRole("button", { name: "Delete palette" }).click();
     await expect.poll(() => deleteCalled).toBe(true);
 });

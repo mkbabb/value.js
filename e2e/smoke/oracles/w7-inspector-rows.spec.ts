@@ -119,6 +119,8 @@ userTest.describe("G13 · the six inspector rows — a failure is rendered where
     userTest("delete — a refused delete is said on the inspector, and the palette stays", async ({ page }) => {
         await wallFailing(page, "DELETE", "owned-one");
         await menu(page, /^Delete$/);
+        // UIA-V-111 (X.W12U.s1): the owner's delete is confirmed first.
+        await page.getByRole("dialog").getByRole("button", { name: "Delete palette" }).click();
         await expect(verdict(page, "Delete failed: Server exploded")).toBeVisible();
         await expect(card(page)).toBeVisible();
     });

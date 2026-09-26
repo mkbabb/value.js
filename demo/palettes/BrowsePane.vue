@@ -101,7 +101,7 @@
                         show-slug
                         @click="pm.toggleExpand(palette.slug)"
                         @save="(p) => onSave(p)"
-                        @delete="(p) => onDeleteOwned(p)"
+                        @delete="(p) => onRequestDeleteOwned(p)"
                         @vote="(p) => onVote(p)"
                         @rename="(p, name) => onRename(p, name)"
                         @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
@@ -416,6 +416,15 @@ watch(
     },
     { flush: "sync" },
 );
+
+// UIA-V-111: the owner's delete of a published palette goes through the same
+// confirm — it removes the palette for every viewer too, and it used to run on
+// the menu click.
+function onRequestDeleteOwned(palette: Palette) {
+    deleteConfirmName.value = palette.name;
+    deleteConfirmAct.value = () => void onDeleteOwned(palette);
+    deleteConfirmOpen.value = true;
+}
 
 function onAdminDelete(palette: Palette) {
     deleteConfirmName.value = palette.name;
