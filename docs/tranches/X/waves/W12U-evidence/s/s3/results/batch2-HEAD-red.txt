@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+[1440x900 light]
+RED  420 {"tablist":false,"tabs":0,"panels":0}
+RED  418 {"disabled":false,"ariaBusy":null,"dataLoading":null}
+RED  634 {"subjectFont":"\"Fira Code\""}
+RED  419 {"tag":"BODY","label":"→NamesTools admin  @mbabb Name"}
+RED  635 {"trio":true,"clear":false}
+[1440x900 light]
+RED  H2 {"prompt":"Tap to sample","want":"Click to sample"}
+RED  588 {"firstAddPops":true,"repeatAddPops":false}
+[1440x900 light]
+RED  605 {"heads":1,"open":1,"ramps":1}
+[1440x900 light]
+RED  606 /gradient {"loading":true,"errorPlate":false}
+RED  616 /atmosphere {"loading":true,"errorPlate":false}
