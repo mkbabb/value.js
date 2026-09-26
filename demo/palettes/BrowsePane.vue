@@ -184,7 +184,6 @@
             v-if="flagPalette"
             :open="flagDialogOpen"
             :palette-name="flagPalette.name"
-            :palette-slug="flagPalette.slug"
             :pending="flagPending"
             :error="flagError"
             @update:open="onFlagOpenChange"

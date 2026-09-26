@@ -1,6 +1,10 @@
 <template>
     <Dialog :open="open" @update:open="$emit('update:open', $event)">
-        <DialogContent class="sm:max-w-md">
+        <!-- X.W12U.s2 · UIA-V-327 · V-328 · V-330: the palette dialogs' confirm
+             idiom — the glass surface, one dismiss (Cancel, Esc, outside; no ✕),
+             locked while the report is in flight; `scroll` caps it to the
+             viewport (A2-VA-X-10: 509 px tall in a 390 px landscape). -->
+        <DialogContent surface="glass" :dismiss="pending ? 'locked' : 'deliberate'" scroll>
             <DialogHeader>
                 <!-- T.W4-6 (T-15/F7): the producer DialogTitle default is the
                      body-voice `text-subheading` — the demo's dialog headers
@@ -26,10 +30,12 @@
                     </div>
                 </RadioGroup>
 
-                <textarea
+                <!-- UIA-V-131: the glass Textarea, not a hand-rolled field. -->
+                <Textarea
                     v-model="detail"
+                    aria-label="Additional details"
                     placeholder="Additional details (optional)..."
-                    class="h-20 rounded-media border border-input bg-background px-3 py-2 text-small resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                    :rows="3"
                     maxlength="500"
                 />
 
@@ -37,7 +43,7 @@
             </div>
 
             <DialogFooter>
-                <Button emphasis="text" @click="$emit('update:open', false)">
+                <Button emphasis="text" :disabled="pending" @click="$emit('update:open', false)">
                     Cancel
                 </Button>
                 <Button
@@ -64,11 +70,12 @@ import {
 } from "../../../ui/dialog";
 import { Button } from "../../../ui/button";
 import { RadioGroup, RadioGroupItem } from "../../../ui/radio-group";
+import { Textarea } from "@mkbabb/glass-ui/textarea";
 
-const { open, paletteName, paletteSlug, pending = false, error = null } = defineProps<{
+// UIA-V-580: the dead `paletteSlug` prop is gone — the host owns the request.
+const { open, paletteName, pending = false, error = null } = defineProps<{
     open: boolean;
     paletteName: string;
-    paletteSlug: string;
     /** X.W12.u1 (UIA-V-39): the host owns the request, so it owns the pending state. */
     pending?: boolean;
     /** The last failed report's message, shown beside the kept form. */
