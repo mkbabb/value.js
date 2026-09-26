@@ -21,11 +21,9 @@ import type { SceneActionSet } from "../../../color-session/keys";
 import GenericActionBar from "./GenericActionBar.vue";
 import ColorInput from "../ColorInput.vue";
 import { DockControl, DockCrossfade, DockLayer, DockSeparator } from "@mkbabb/glass-ui/dock";
-import type { EditTarget } from "../../../color-session/color-model";
 
-const { actionSet, editTarget } = defineProps<{
+const { actionSet } = defineProps<{
     actionSet: SceneActionSet;
-    editTarget: EditTarget | null;
 }>();
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
@@ -115,7 +113,6 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
             <DockLayer v-if="inputArm" id="input">
                 <ColorInput
                     ref="colorInputRef"
-                    :edit-target="editTarget"
                     :propose-mode="toolbarMode === 'propose'"
                     class="min-w-0"
                     @proposed="onProposed"

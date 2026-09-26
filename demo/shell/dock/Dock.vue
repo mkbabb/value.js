@@ -205,7 +205,7 @@ watch(
                         ><ArrowLeft class="w-6 h-6"
                     /></DockControl>
                     <DockSeparator />
-                    <ActionBarLayer :action-set="actionSet" :edit-target="editTarget" />
+                    <ActionBarLayer :action-set="actionSet" />
                 </DockLayer>
 
                 <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
