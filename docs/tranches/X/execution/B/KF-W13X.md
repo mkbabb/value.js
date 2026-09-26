@@ -1578,3 +1578,4 @@ Self-count ⟨`sed -n "/^\*\*Dispositions (51 ids)/,/^Self-count/p" KF-W13X.md |
 - **A2-KE-X-9 → a new glass O-row at the close:** the Toaster viewport needs a chrome inset / safe offset (below `sm` it pins to `top-0` over the top dock whatever the `position`), and the close badge should sit inside the plate.
 - **A2-KE-L1-12** (re-homed to the close by `.transport`): its provide site is `App.vue:191` (G18). It is untouched here because the rule is one commit by one seat with `.controls`' arms.
 - The re-homed rows (§ table) carry their measured anchors at `11eb0028`.
+- **Frames:** the PNG frames sit on disk under `evidence/W13X/home/frames/` but are not committed, because `.gitignore:34` ignores `*.png`. What the repository carries are the probes and their double-run readings; the frames can be regenerated with the committed probes.
