@@ -2,8 +2,15 @@
     <div class="flex items-center gap-1.5">
         <Popover>
             <PopoverTrigger as-child>
-                <Button icon-only aria-label="Filters" class="relative h-8 w-8">
-                    <EllipsisVertical class="h-4 w-4 text-muted-foreground" />
+                <!-- X.W12U.s2 · UIA-V-118 · V-310: the filter glyph, on the glass
+                     sm square (no h/w override), seated inside the search bar. -->
+                <Button
+                    icon-only
+                    size="sm"
+                    :aria-label="activeFilterCount > 0 ? `Filters, ${activeFilterCount} active` : 'Filters'"
+                    class="relative"
+                >
+                    <ListFilter class="h-4 w-4 text-muted-foreground" aria-hidden="true" />
                     <span
                         v-if="activeFilterCount > 0"
                         class="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-micro font-bold text-primary-foreground"
@@ -149,7 +156,7 @@ import TagChipSet from "./TagChipSet.vue";
 import { Chip } from "@mkbabb/glass-ui/chip";
 import { ToggleGroup, ToggleGroupItem } from "@mkbabb/glass-ui/toggle-group";
 import {
-    EllipsisVertical,
+    ListFilter,
     Award,
     X,
     Loader2,

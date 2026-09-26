@@ -64,7 +64,7 @@ describe("G2 · SearchFilterBar — one click, one update:selectedTags", () => {
             attachTo: document.body,
         });
         mounted.push(w);
-        await w.get("[aria-label=Filters]").trigger("click");
+        await w.get("[aria-label^=Filters]").trigger("click");
         await flushPromises();
         return w;
     }
