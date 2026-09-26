@@ -1228,3 +1228,89 @@ Self-count: the plan's `.square` ids against the ids this block names (it also c
 - Probe limits, stated: the tap predicate (KFA-147) samples per rAF and caught the one-frame flash in 3 of 4 BEFORE light-cell reads (1440 r1 read 0), so the mounted case is the firm falsifier. The bloom read takes a running box-shadow transition's destination value, because the 160 ms `box-shadow` transition on `.demo-box` trails a per-frame fill.
 
 **value.js:** this receipt + `keyframes/evidence/W13X/square/**`. That is the probe `square.mjs`; the served logs and JSON `{before,after}-r{1,2}`; the vitest logs `vitest-{before,after}-r{1,2}.log`; and the frames `frames/{before,after}-r{1,2}/`. One pathspec commit.
+
+### .controls
+
+SERVED MODEL: claude-opus-5-5 (unit `.controls`, G15)
+
+**Open.** ⟨`git -C keyframes.js status --porcelain`⟩ → 0 dirty paths under `demo/components/instrument/transport/channel-controls/**` or `test/demo/**`: nothing inherited. kf HEAD `cb4bde80`. ⟨`ls keyframes.js/src/components`⟩ → `No such file or directory`: the plan's `src/components/keyboard/**` does not exist in keyframes.js (the Esc registry is glass's `keyboard.js`), so G15's writable set is `channel-controls/**` + `test/demo/**`. Spec read whole (`KF-W13.md:521-558`); this record's header through `## Unit plan`; COHESION §0cw → §0ef (nothing rules on G15).
+
+**Instrument.** Private dev server ⟨`npx vite --config <scratchpad>/controls/vite.c.config.ts --force --port 5236 --strictPort`⟩ (kf's `vite.config.ts` unchanged; only `cacheDir` moves to the scratchpad) → `ready`; `node_modules/@mkbabb/glass-ui/package.json` `"version": "10.1.0"`. Headed Chromium, DPR 1. Probes (committed, READ-ONLY): `controls.mjs` (7 cells: cube 1440 light/dark · 390 light/dark · 844×390 light; amiga 1440 light · 390 dark), `panes.mjs` (cube 1440: first Keyframes switch, first Timeline switch, '2' on a closed rail), `rail.mjs` (cube 1440 light · 390 dark: tabpanel names, the expanded-timeline rail). `summarize.mjs` projects each run onto its verdict columns.
+
+**Probe corrections, stated (not re-baselines of a cure):** (1) `u171_marked` first looked for an `<svg>`; glass 10.1.0 marks the selected item with a dot span (frame `blend-open`) — widened before the AFTER runs; BEFORE's `false` is that defect, the mark half is booked LANDED-BY the repin below. (2) `panes.mjs`' first draft clicked the collapsed top dock and never switched surfaces; those runs were discarded and BEFORE re-run after "Expand dock" (`k1xx_switched true` ×2). (3) `rail.mjs` BEFORE ran with HEAD's `ChannelControls.vue` bytes written back for the two runs (⟨`git show HEAD:<path> > <path>`⟩, then the cured copy restored, ⟨`cmp`⟩ → `RESTORED`) — no stash.
+
+**Acts, in order:**
+1. **BEFORE, served ×2** ⟨`BASE=:5236 RUN=before-r{1,2} node controls.mjs`⟩ → `before-r{1,2}.json`; ⟨`diff before-r1.sum before-r2.sum`⟩ → identical except `k209_doubleExposure` 10/11 on two cells (a frame-count of a live fade). Readings (1440 light unless named): title `cubic-bézier` 32.9 px = 2.26× the label, 2 lines; notice beside the title, 2 lines; Back RIGHT of the title (`u080_backLeftOfTitle false`); both Backs carry `h-auto p-1`; the drill row a raw `<button>` with `.kf-focus-ring`, text `advanced`; header inside the scroller (`u036_headerInScroller true`, all 7 cells); `k101` scrollTop 39.5 open / 253 close (363 at phone); `k209` 10 double-exposure frames; `k36` card min height at close **28 px**; peek → `triggerAfterPeek "cubic-bezier"`, gold label (`u165_unchanged false`, all cells); layer title `advanced` 16.4 px/500 vs labels 14.5 px/500; cube: no reason, z-index live; amiga: `weight 1.00` label, label track 81.7 → 82.3 px after 3 steps, z-index label alpha 1 vs blend 0.45, blend items bare words; rejected duration: 120 chars, 4 lines, pane +96 px (6 lines/+122 at 390, 12/+254 at 844). 390/844: Back not hit-testable (`u036_backHit false`).
+2. **BEFORE, mounted:** wrote `test/demo/instrument/channel-options-w13x.test.ts` (cases 1-11) ⟨`npx vitest run --project demo <file>` ×2⟩ → `Tests 11 failed (11)` ×2 (`vitest-before-r{1,2}.log`: AssertionError / "Unable to get", no crash). Case (8)'s expected copy was tightened after these runs ("Use a time like 500ms or 2s" → "Try 500ms or 2s"); both differ from the engine message the BEFORE bytes render, so the RED stands.
+3. **BEFORE, panes ×2** ⟨`node panes.mjs`⟩ → `panes-before-r{1,2}.json`: `k118_maxScrollLeft 240` ×2 · `k119_blankFrames 3` ×2 · `k117_maxGapMs 12, blankFrames 0` ×2. **BEFORE, rail ×2** ⟨`node rail.mjs`⟩ → `rail-before-r{1,2}.json`: tabpanel names `[null]` · placeholder `true` · bouncing `1`, both cells ×2.
+4. **Cure — the card (A2-KE-L1-7 and its symptom rows).** `ChannelOptions.vue` 978 → 403 lines, a composition of: `ChannelOptionsForm.vue` (the five fields + `commitOption`; it resolves its own store key, never mutating a prop; `REJECTED` maps each field to a short line), `EasingField.vue` (label + pencil + the one picker popover; no gold label; `custom` for a draft kind), `SubPaneHeader.vue` (Back first at glass `size="sm"`, `text-subheading` title, caption line; exposes `backControl` / `reveal`), `composables/usePaneStack.ts` (one drill-in owner: `push` / `back` / `onRowTransitionEnd`; the leaving pane stays mounted until its row's `grid-template-rows` ends, or at once when the row does not animate; every focus `preventScroll`; the opener is handed in). `useTimingFunctionEditor.ts` loses `advancedOpen` / `detailPanelDismissed` / `showDetailPanel`; `beginEdit` never persists, `peekQuad` seats a named curve, `markAuthored` / `caption` tell the truth. `TimingFunctionPanel.vue` is the picker body only. `useEasingPickerSeat.ts` gains the shared `nameForQuad` (A2-KE-L1-5's seam). The KFA-209 stagger and the `.subpane-body` scroller are the card's CSS. Drilling in raises `isControlsPanelOpen` (the fact the mobile sheet's detent rides) and reveals the header on arrival. → kf **`4c727a4f`**.
+5. **Cure — the layer pane** (`LayerConfigPanel.vue`): static `weight` + `LabeledField`/`Slider` + tabular `<output>`; z-index `disabled` on `!blendAvailable || !enabled` at the row AND the stepper; blend items' `#description`. → kf **`7ad81a32`**.
+6. **Cure — the host** (`ChannelControls.vue`, `useKeyframesPaneReveal.ts`): the reveal focus `{ preventScroll: true }`; the timeline module fetched at the idle warm or first ask and rendered synchronously (`shallowRef` + `<component :is>`, replacing `defineAsyncComponent`); the rail placeholder deleted; tabpanels named from `SURFACE_META`. → kf **`64062263`**.
+7. Case (12) (KFA-118) added; RED ×2 against the pre-cure `focus()` line written back for the two runs (`vitest-before-k118-r{1,2}.log`: `expected [ undefined ] to deeply equal [ { preventScroll: true } ]`), then restored. Falsifier file → kf **`876a413f`**.
+8. **AFTER** (kf `876a413f`) — served ×2 ⟨`controls.mjs` · `panes.mjs` · `rail.mjs`, RUN=after-r{1,2}⟩ → ⟨`diff after-r1.sum after-r2.sum`⟩ → **SUM-IDENTICAL**; panes and rail r1 = r2. Mounted ×2 → `Tests 12 passed (12)` ×2. Evidence → value.js **`e55ecaa4`**.
+
+**Dispositions (31 rows: KFA 8 · UIA-KF 21 · A2-KE-L1-7 · A2-KE-X-6).** Readings are BEFORE → AFTER, each ×2 (r1 = r2).
+
+| row | disposition | reading |
+|---|---|---|
+| KFA-116 | **RE-HOMED → `.mobile` + `.transport`** | the cause is `AnimationControlsGroup.css:51-57,64-66` (G17's track transition) and `controls-pane/ControlsPaneWrapper.css:92-93,:133` (G3's clip + fixed width); no byte of it is in G15 |
+| KFA-117 | **NOT-REPRODUCED ×2** | `panes.mjs` first Keyframes switch: max frame gap 12 ms, 0 blank frames (BEFORE ×2 and AFTER ×2) |
+| KFA-118 | **CURED** `64062263` | `k118_maxScrollLeft` 240 → 0; vitest (12) RED → GREEN |
+| KFA-119 | **CURED** `64062263` | `k119_blankFrames` 3 → 0 |
+| KFA-169 | **RE-HOMED → `.mobile`** | `ControlsPaneWrapper.css:108-111` vs `AnimationControlsGroup.css:57` |
+| KFA-170 | **RE-HOMED → `.mobile`** | `ControlsPaneWrapper/useControlsLayout.ts:31-38` |
+| KFA-171 | **RE-HOMED → `.mobile`** | `ControlsPaneWrapper.css:55-76, 95-100` |
+| KFA-223 | **RE-HOMED → `.transport`** | the scene pill; the audit routes it to the transport seat |
+| UIA-KF-015 (B)[S] | **RE-HOMED → `.transport`** (consumer half) · glass half relay-only **O-59** | the consumer site is `AnimationControlsGroup/useControlsKeyboardShortcuts.ts:95` (G17); the plan's `src/components/keyboard/**` does not exist in kf; glass 10.1.0 `dist/keyboard.js:100` still guards only `defaultPrevented` |
+| UIA-KF-036 (B) | **CURED** (header) `4c727a4f` · plot-below-the-fold limb **RE-HOMED → `.mobile`** | `u036_headerInScroller` true → false 7/7; `u036_backHit` false → true at 390/844. At 390 the plot still ends at y 973 of 844: the sheet rests at OPEN_SNAP and FULL is `ControlsPaneWrapper`'s local `atFull` (the store fact only reaches OPEN) |
+| UIA-KF-079 | **CURED** `4c727a4f` | title 2.26× → 1.40× the label, 2 → 1 line; the caption sits under the title, 2 → 1 line |
+| UIA-KF-080 | **CURED** `4c727a4f` | one `SubPaneHeader` for both panes; Back left of the title false → true (detail). The in-card editor is kept (no ruling moves it into a separate pane); EasingSidebar's second host is A2-KE-L1-5's consumer end (below) |
+| UIA-KF-081 | **CURED** `7ad81a32` | label `weight 1.00` → `weight`; label track 81.7 → 82.3 px per value step → constant; vitest (9) |
+| UIA-KF-082 | **CURED** `4c727a4f` + `7ad81a32` | cube: reason false → true, z-index disabled false → true; vitest (10) |
+| UIA-KF-115 | **CURED-PRIOR** (X.KF.W13V.c, OA-47) | `u115_same` true 7/7 at BEFORE: the easing label has the duration label's size, ink and x |
+| UIA-KF-116 | **ADOPT-AT-LANDING** on **O-59** (the glass half) · the Curve-facet limb **RE-HOMED → `.easing`** (closed; carried to the close) | glass 10.1.0 `EasingPicker` declares `initial playback label surface class modelValue` and no prop that hides its PRESET row. No consumer copy |
+| UIA-KF-117 | **CURED-PRIOR** (OA-34, the gutters) · the card-in-sheet limb **RE-HOMED → `.mobile`** | gutters 16/16 at 390 (BEFORE ×2). "No Card inside the Sheet" is a ruling about every card the drawer hosts, not about this one card |
+| UIA-KF-163 | **RE-HOMED → `.easing` / `.spring`** | the divergent widgets are `EasingSidebar.vue:190-197` and SpringScene's; `ChannelOptionsForm` is now a standalone options subset they can mount |
+| UIA-KF-165 | **CURED** `4c727a4f` | the trigger after a peek went `cubic-bezier` + gold → unchanged, no gold (7/7); vitest (5) |
+| UIA-KF-166 [S] | **CURED** (consumer) `4c727a4f` · glass half (label alignment) relay-only **O-59** | error text 120 chars → 15 chars ("Try 500ms or 2s"); lines 4/6/12 → 1/1/1; the pane grows 96/122/254 → 27/24/25 px (1440/390/844); vitest (8) |
+| UIA-KF-167 [S] | **ADOPT-AT-LANDING** on **O-59** | the same missing glass prop as 116 |
+| UIA-KF-168 | **CURED** `4c727a4f` | the caption reads `edited` after the first authored emit; a departure reads "… has no cubic-bézier form — starting from your last custom curve"; vitest (6)(7) |
+| UIA-KF-169 | **CURED** `7ad81a32` | z-index label alpha 1 → 0.45 (= blend's); vitest (11) |
+| UIA-KF-171 | **CURED** (descriptions) `7ad81a32` · the mark **LANDED-BY** the glass 10.x repin | `u171_described` false → true; `u171_marked` true after (a dot indicator, see Probe corrections) |
+| UIA-KF-269 | **CURED** `4c727a4f` | raw `<button>` + `.kf-focus-ring` → a glass Button; `h-auto p-1` on both Backs → none; vitest (1) |
+| UIA-KF-270 | **CURED** `4c727a4f` | the multi-target reason is the pane's caption, and z-index is disabled with its siblings |
+| UIA-KF-271 | **CURED** `4c727a4f` | the gold label is gone; the trigger reads `custom` + the stored glyph; vitest (6) |
+| UIA-KF-272 | **CURED** `4c727a4f` | the card's minimum height at close 28 → 366 px (484 at phone); a reopen matches the first open ×2 |
+| UIA-KF-273 | **CURED** `4c727a4f` | `advanced` 16.4 px/500 → `layer` 20.4 px/600 over 14.5 px/500 rows, plus a caption line |
+| A2-KE-L1-7 | **CURED** `4c727a4f` | 978 → 403 lines + 4 focused modules (no shared/ dir). The ribbon-mount limb is A2-KE-L1-24's (`.transport`); "EasingSelect on EasingCurve" is A2-KE-L1-6's (`.lib`) |
+| A2-KE-X-6 | **CURED** (header) `4c727a4f` · plot-in-view **RE-HOMED → `.mobile`** | header and Back visible and hit-testable at 390/844 ×2; the plot is below the sheet's OPEN detent (the same limb as UIA-KF-036); tinyText is not re-measured here |
+
+Self-count ⟨`sed -n '/^### .controls/,$p' KF-W13X.md | grep -E '^\| (KFA|UIA-KF|A2-KE)-' | wc -l`⟩ → **31** ×2. CURED 19 (KFA-118 · 119 · UIA-KF-036 · 079 · 080 · 081 · 082 · 165 · 166 · 168 · 169 · 171 · 269 · 270 · 271 · 272 · 273 · A2-KE-L1-7 · X-6) + CURED-PRIOR 2 (115 · 117) + NOT-REPRODUCED 1 (KFA-117) + RE-HOMED 7 (KFA-116 · 169 · 170 · 171 · 223 · UIA-KF-015 · 163) + ADOPT-AT-LANDING 2 (116 · 167) = **31**.
+
+**Rows re-homed IN to `.controls` by earlier seats (not in the 31):**
+- CURED `4c727a4f`: **KFA-36** (card minimum height at close 28 → 366 px; vitest (3)) · **KFA-101** (scrollTop open 39.5 → 0, close 253/363 → 0; vitest (4)) · **KFA-150** (the title: 1 line, subheading rung) · **KFA-209** (double-exposure frames 10 → 0) · **UIA-KF-054**'s ChannelOptions limb (`:87/:831` passed `e.message` verbatim → the short per-field line).
+- CURED `64062263`: **UIA-KF-061** rail limb + **UIA-KF-282** (placeholder `true` → `false`, bouncing 1 → 0, 1440 light + 390 dark) · **UIA-KF-275** tabpanel limb (tabpanel names `[null]` → `["Controls"]` / `["Timeline"]`).
+- PARTIAL: **A2-KE-L1-5**. The shared `nameForQuad` sits beside `useEasingPickerSeat` and the card's editor uses it. `EasingSidebar.vue:143/:169`'s twin is `.easing`'s file (G10, closed), so its deletion is carried to the close.
+- LANDED-BY the glass 10.x repin: **UIA-KF-108**'s pane-Select limb. The card has no consumer `font-bold`, and the SelectItem dot is the only mark (frame `blend-open`).
+- NOT TAKEN, carried to the close: **UIA-KF-161** hosting (the matrix body is rendered by `CubeScene.vue`'s `h()`, which is `.cube`'s file) · **A2-KE-L1-10 / ESC-mobile-1** (per-channel state lives in `instrument/keyframes/**` and in AnimationControlsGroup's registry as well as here, so one owner cannot cure it).
+
+**Adjacent edits (§0bt):** `test/demo/instrument/channel-options-render-edge.test.ts` (in G15's `test/demo/**` set, same concern). Case (4) now asserts that the preset is SEATED and the store untouched on open, where it used to assert the UIA-KF-165 rewrite. Case (6) reads `custom` for a `cubic-bezier(…)` literal (UIA-KF-271). Both changes are in `4c727a4f`.
+
+**Gates.**
+- G "KFA 8 + UIA-KF 21 + A2-KE-L1-7 + .x timing-function rows dispositioned ×2": **GREEN**. 31/31, self-count 31 ×2; the dispositions rest on served runs r1 = r2 (`SUM-IDENTICAL`).
+- G "`npm run check` 0": BEFORE EXIT 0 (the wave floor) → AFTER ⟨`npm run check` ×2⟩ `check r1 EXIT 0` · `check r2 EXIT 0` (`check-after-r{1,2}.log`: vue-tsc app + test, `proof:structure — PASS … 0 violations`). **GREEN**.
+- G "test:demo green": the last seat's `110/704` → ⟨`npm run test:demo` ×2⟩ `Test Files 111 passed (111)` · `Tests 716 passed (716)` ×2 (`testdemo-after-r{1,2}.log`). **GREEN**.
+- Also measured: ⟨`npm run lint`⟩ → `✔ no dependency violations found (444 modules, 1607 dependencies cruised)`, and eslint on `demo` is clean.
+
+**Commits (keyframes.js, local and not pushed; the wave's close pushes):** `4c727a4f` (the card) · `7ad81a32` (the layer pane) · `64062263` (the host) · `876a413f` (the falsifiers). Each was made with `git commit … -- <paths>` as a pathspec commit.
+
+**value.js:** `e55ecaa4` (the evidence: probes, logs, JSON, and frames `before-r1` / `after-r1`) plus this receipt.
+
+**Residuals.**
+1. At 390 and 844 the editor's plot sits below the sheet's OPEN detent. The FULL detent is local state in `ControlsPaneWrapper`, so this goes to `.mobile` (UIA-KF-036 / X-6).
+2. UIA-KF-116 / 167 wait on glass O-59 (a prop that hides EasingPicker's preset row).
+3. UIA-KF-015's glass half (O-59) and its consumer site (`.transport`).
+4. The picker seats `Custom` in its own preset select for a peeked `ease-in-out`. It did the same at BEFORE (`data-preset="custom"`), because the glass preset names do not include every demo name. This is not a regression and is not a row here.
+5. The fixed-width Back, the subheading title and the caption line make the detail pane taller: 474 → 537 px at 1440. The height is the same on every open.
+
+**Escalations:** none.
