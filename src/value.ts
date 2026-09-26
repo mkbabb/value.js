@@ -27,6 +27,10 @@ export type CssScalar = Readonly<{
         | Readonly<{ type: "color"; value: AnyColor }>;
 }>;
 
+/**
+ * A function and its comma-separated arguments. The EMPTY `name` is a `()` simple block
+ * (css-syntax-3 §5.4.8), e.g. the group in `calc(50% - (1em / 2))`, serialized `( … )`.
+ */
 export type CssCall = Readonly<{
     kind: "call";
     name: string;

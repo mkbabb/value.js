@@ -15,10 +15,13 @@ valueTop   = ws >> commaList << ws ;
 commaList  = slashList , ( comma >> slashList ) * ;
 slashList  = spaceList , ( slash >> spaceList ) * ;
 spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
-// Juxtaposed terms are separated by whitespace, or stand directly against a `:`/`;` token.
-termSep    = /\s+|(?=[:;])|(?<=[:;])/ ;
+// Juxtaposed terms are separated by whitespace, or stand directly against a `:`/`;` token, or are
+// adjacent functions: css-syntax-3 §4 ends a function at its `)` token and the next `<function-token>`
+// starts the next component with no whitespace between them (`rotate(0)scale(1.3)` —
+// css-transforms-1 `<transform-list> = <transform-function>+`; X.P.W7 `.gap`).
+termSep    = /\s+|(?=[:;])|(?<=[:;])|(?<=\))(?=[a-zA-Z_-][\w-]*\()/ ;
 
-valueTerm  = colorCall | varCall | call | numeric | string | operator | identTerm | badTerm ;
+valueTerm  = colorCall | varCall | urlCall | mathCall | call | numeric | string | operator | identTerm | badTerm ;
 // A component no production above reads (`@` in `calc(1px @ 2px)`). It is matched only to be
 // REFUSED — its action answers `css_syntax` expecting a scalar, with the diagnostic spanning exactly
 // this run — so a malformed value names its offending component rather than the whole input.
@@ -32,8 +35,28 @@ varBody    = commaList << ( /\s*,/ ? ) ;
 // A colour function is a colour, never a generic call: `rgb(1)` is a malformed colour.
 colorCall  = relativeColor | rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | oklchFn | colorFn | hex ;
 colorHead  = /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(/i ;
-call       = ( callName - colorHead ) , /\(\s*/ >> ( commaList ? ) << close ;
+call       = ( callName - ( colorHead | urlHead ) ) , /\(\s*/ >> ( commaList ? ) << close ;
 callName   = /(?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\()/ ;
+
+// An unquoted url is ONE token, css-syntax-3 §4.3.6 `<url-token>`: `url(` not followed (after
+// whitespace) by a quote reads its body whole — never as a component value list — up to its `)`,
+// whitespace allowed only at either end; a quote, `(`, whitespace inside or a non-printable makes it
+// a `<bad-url-token>` (§4.3.14), refused. `url("…")` is a `<function-token>` and stays a `call`.
+urlHead    = /url\((?!\s*["')])/i ;
+urlCall    = /url(?=\()/i , /\(\s*/ >> urlBody << close ;
+urlBody    = /(?:[^\s"'()\\\x00-\x08\x0b\x0e-\x1f\x7f]|\\[^\n\r\f])+/ ;
+
+// A math function (css-values-4 §10) reads its arguments as a call does, and admits a `()` simple
+// block as a term: §10.1 `<calc-value> = … | ( <calc-sum> )` (`calc(50% - (1em / 2))`). The group is
+// a call with the EMPTY name, which the serializer spells `( … )`; its body is never empty. A group
+// stands only inside a math function or another group, never as a bare component value.
+mathCall   = /(?:calc|min|max|clamp|round|mod|rem|sin|cos|tan|asin|acos|atan2|atan|pow|sqrt|hypot|log|exp|abs|sign)(?=\()/i ,
+             /\(\s*/ >> mathComma << close ;
+mathComma  = mathSlash , ( comma >> mathSlash ) * ;
+mathSlash  = mathSpace , ( slash >> mathSpace ) * ;
+mathSpace  = mathTerm , ( termSep >> mathTerm ) * ;
+mathTerm   = group | valueTerm ;
+group      = /\(\s*/ >> mathComma << close ;
 
 // `1.` is not a number (css-syntax-3 §4.3.12, PB-12): a numeric is never followed by a `.`.
 // Its two groups, the number and the unit, are the action's arguments (a `groups` leaf: no re-split).

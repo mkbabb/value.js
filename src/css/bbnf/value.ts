@@ -94,6 +94,12 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     return callNode(name, body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]));
 }
 
+/** An unquoted url (`value.bbnf` `urlCall`, a `<url-token>`): a `url` call whose one argument is the url as authored. */
+const urlValue = ([name, url]: readonly [string, string]): CssCall => callNode(name, Object.freeze([keyword(url)]));
+
+/** A `()` simple block (`value.bbnf` `group`): a call with the empty name, its arguments read as a call's are. */
+const groupValue = (body: ValueNode): ValueNode => callValue(["", body]);
+
 export type SelectorNode = KeyframeSelector | Refused;
 const selectorRange = Object.freeze(refused("keyframe_selector_invalid", "0%..100%")); // shared: frozen once
 /** `from` and `to` (css-animations-1 §3): one shared frozen node each, since a published result is immutable. */
@@ -183,6 +189,12 @@ export const valueActions = {
         (v.kind === "color" || v.kind === "context" || v.kind === "invalid" ? colorScalar(v) : v) },
     call: { kind: "map", fn: callValue },
     varCall: { kind: "map", fn: callValue },
+    urlCall: { kind: "map", fn: urlValue },
+    mathCall: { kind: "map", fn: callValue },
+    mathSpace: { kind: "map", fn: listOf("space") },
+    mathSlash: { kind: "map", fn: listOf("slash") },
+    mathComma: { kind: "map", fn: listOf("comma") },
+    group: { kind: "map", fn: groupValue },
     badTerm: { kind: "span", fn: (_: string, start: number, end: number): Refused =>
         ({ kind: "refused", code: "css_syntax", expected: "scalar", span: { start, end } }) },
     spaceList: { kind: "map", fn: listOf("space") },

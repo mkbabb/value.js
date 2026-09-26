@@ -101,6 +101,27 @@ function emptyCommaParts(input: string): Edit[] {
     return edits.filter((e, i) => edits.findIndex((o) => o.start === e.start) === i);
 }
 
+/** Every outermost `()` simple block (a `(` that opens no function), as the span it covers through its `)`. */
+function simpleBlocks(input: string): Edit[] {
+    const tokens: Token[] = tokenize(input);
+    const edits: Edit[] = [];
+    for (let i = 0; i < tokens.length; i++) {
+        const t = tokens[i]!;
+        if (t.kind !== "punct" || t.text !== "(") continue;
+        let depth = 1;
+        let j = i + 1;
+        for (; j < tokens.length && depth > 0; j++) {
+            const u = tokens[j]!;
+            if (u.kind === "function" || (u.kind === "punct" && u.text === "(")) depth += 1;
+            else if (u.kind === "punct" && u.text === ")") depth -= 1;
+        }
+        if (depth !== 0) continue;
+        edits.push({ start: t.start, end: tokens[j - 1]!.end, text: "0" });
+        i = j - 1;
+    }
+    return edits;
+}
+
 /**
  * The classes, in resolution order. Each `id` is the ruling that owns the mechanism; the ledger row
  * (§15) carries its spec citation and consumer direction.
@@ -143,6 +164,24 @@ export const W6_CLASSES: readonly W6Class[] = [
         id: "C5-MIX",
         governs: "MIS_ACCEPT",
         edits: (input) => callSpans(input, COLOUR5_HEADS).map((s) => ({ start: s.start, end: s.end, text: "red" })),
+    },
+    {
+        // GAP-URL (X.P.W7 `.gap`, COHESION §0ee; W7.md ADDENDUM (h) 2): an unquoted `url(…)` is ONE
+        // `<url-token>` (css-syntax-3 §4.3.6). The incumbent reads its body as component values and
+        // refuses it. Repair: the url spelled as a string, `url("…")` — the incumbent must then agree.
+        id: "GAP-URL",
+        governs: "MIS_ACCEPT",
+        edits: (input) =>
+            [...input.matchAll(/url\(\s*((?:[^\s"'()\\]|\\[^\n\r\f])+)\s*\)/gi)]
+                .map((m) => ({ start: m.index, end: m.index + m[0].length, text: `url(${JSON.stringify(m[1])})` })),
+    },
+    {
+        // GAP-GRP (X.P.W7 `.gap`, COHESION §0ee; W7.md ADDENDUM (h) 3): a `()` group inside a math
+        // function, css-values-4 §10.1 `<calc-value> = … | ( <calc-sum> )`. The incumbent has no group
+        // term. Repair: each outermost group spelled `0` — the incumbent must then agree.
+        id: "GAP-GRP",
+        governs: "MIS_ACCEPT",
+        edits: simpleBlocks,
     },
     {
         // SC-2 (COHESION §0bx; W6.md `.b`): `display-p3-linear` (css-color-4 §10.5). Repair: the space

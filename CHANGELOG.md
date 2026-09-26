@@ -5,6 +5,7 @@
 ### Fixed
 
 - `./css`: custom property names keep their authored case (css-variables-1 §2: `--MyVar` and `--myvar` are distinct declarations). `parseStylesheet`, `collectKeyframes`, `collectStyleRules` and `collectDeclarations` used to lowercase every declaration name, which merged differently-cased custom properties. Standard property names are still ASCII-lowercased. (X.P.W7.cp)
+- `./css`: `parseCssValue` / `parseCssValues` / `parseStylesheet` accept three valid forms they refused (X.P.W7 `.gap`, all in the BBNF grammar `src/css/grammar/value.bbnf`). **Adjacent functions** with no whitespace, `rotate(0)scale(1.3)` (css-syntax-3 §4; css-transforms-1 `<transform-list>`), read as the space list `rotate(0) scale(1.3)` reads. An **unquoted url**, `url(./x.svg)`, is one `<url-token>` (css-syntax-3 §4.3.6): a `url` call whose one argument is the url as authored (keyword `./x.svg`); a bad url such as `url(a b)`, which used to read as a two-item list, is now refused (§4.3.14). A **group inside a math function**, `calc(50% - (1em / 2))` (css-values-4 §10.1 `( <calc-sum> )`), is a call with the empty name (`name: ""`), serialized `( … )`; a bare `( … )` outside a math function is still refused.
 
 ### Migration
 
