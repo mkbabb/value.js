@@ -11,15 +11,31 @@ import {
     percentile,
     waitMs,
 } from "../perf/frame-budget";
-import { decodePng, meanAbsDiff } from "../fixtures/frame-diff";
-import { PARK_SETTLE_MS, seatFootprintPx, BEAD_RATIO } from "../fixtures/blob-timing";
+import {
+    instrumentWebglDraws,
+    GOO_BLOB_TESTID,
+    lastCanvasDrawCount,
+} from "../fixtures/webgl-appearance";
+
+/**
+ * THE SEAT FORMULA (T.W4-5 · D8) — the e2e mirror of the ONE cqi footprint law
+ * (`ColorPicker.vue .pane-shell{--blob-fp: clamp(7rem, 22cqi, 11rem)}`),
+ * computed at the test's own viewport (PI-4). Moved here from the retired
+ * W3-3 timing fixture (X.W12U.b); the 390 leg carries its own copy.
+ */
+function seatFootprintPx(paneWidthPx: number, remPx = 16): number {
+    return Math.min(Math.max(0.22 * paneWidthPx, 7 * remPx), 11 * remPx);
+}
+/** Visible bead = 2·bodyRadius·fp (bodyRadius 0.26 — the HERO register). */
+const BEAD_RATIO = 0.52;
 
 /**
  * T.W4-5 · O-12 — THE BLOB SEAT SET (SYNTHESIS §6.1 O-12; D8 + the PI-3/PI-4
  * riders). Minted in the SAME commit as the seat formula (PI-4's law); the
  * mobile width bound lives in `mobile/blob-presence-mobile.spec.ts`
  * (formula-derived there — the fifth row of this set); the park timing
- * constants live in the ONE fixture (`fixtures/blob-timing.ts`).
+ * constants (the shared timing fixture) retired with the W3-3
+ * wall-clock park (X.W12U.b, COHESION §0dm).
  *
  *   1 · SEAT IDENTITY — `--blob-seat` resolves 0 (Q3 "Flush.") and the
  *       wrapper sits wholly inside the card (containment identity:
@@ -27,10 +43,20 @@ import { PARK_SETTLE_MS, seatFootprintPx, BEAD_RATIO } from "../fixtures/blob-ti
  *   2 · OCCLUSION — `elementFromPoint` across the bead's arc never resolves
  *       into the dock (the chrome band): the bead never enters chrome in
  *       paint (Q3b's two readings never conflict).
- *   3 · HOVER-MOOD FLOOR — hover-in from the parked rest state produces a
- *       visible response: mean abs 8-bit frame diff over the bead's box
- *       ≥ 6/255 within 400ms (the D4 metric family) — the wake+curious
- *       demo beat; the engine's hero-scale legibility floor rides P6.
+ *   3 · IDLE FRAME COST (X.W12U.b, COHESION §0dm, ESC-W12d-1; restates the
+ *       HOVER-MOOD FLOOR "the PARKED bead answers a hover ≥ 6/255 within
+ *       400 ms"). Both halves of that premise are gone at HEAD: the hero no
+ *       longer parks (the owner's live blob; the loop rides the producer's
+ *       `settled` gate), and the hero is an inert ornament with no pointer
+ *       host (`HeroBlob.vue:2-10`: `pointer-events-none`, no pressLabel), so
+ *       the wake+curious beat has no trigger (baseline read 1.21/255). The
+ *       leg now bounds what the live bead COSTS at the seat: over an idle
+ *       window it draws (> 0), at most one draw per displayed frame (+1 edge
+ *       race; measured at 1440: draws 28/20/23 = frames 28/20/23), and idle
+ *       p50 holds the §6.2 13 ms on a real GPU (measured headed, hero live:
+ *       10.2 ms) or the SOFT_CEIL guard on SwiftShader. The bead's visible
+ *       motion at idle and under a resting pointer is the live-blob gate's
+ *       (`w12-picker-blob.spec.ts`). Evidence: `W12U-evidence/b/`.
  *   4 · HOVER-ACTIVE BUDGET — sustained-pointermove frame p50 ≤ 20ms (the
  *       NEW §6.2 row; renderer-aware: asserted on real GPU, hang-guarded on
  *       SwiftShader — the idle-frame-budget shape).
@@ -58,12 +84,23 @@ const BLOB_CANVAS = '[data-testid="goo-blob-canvas"]';
 // quality-ladder margin) and below full-res, so a re-regression to the low-res
 // emerge frame reds here while healthy boot stays green.
 const BACKING_RATIO_FLOOR = 0.6;
+/** Margin after the emerge settle for the backing re-measure (X.W12U.b). */
+const BACKING_SETTLE_MS = 1_500;
+
+/** X.W12U.b — the idle window (leg 3). */
+const IDLE_MS = 2_000;
+const WINDOW_MS = 3_000;
+const EDGE_SLACK = 1;
 
 async function bootWithBlob(page: import("@playwright/test").Page) {
     await page.goto("/");
     await expect(mainPane(page)).toBeVisible();
     const blob = page.locator(BLOB_CANVAS).last();
-    await expect(blob).toBeAttached({ timeout: 15_000 });
+    // Arrival is harness latency, not a seat reading: the canvas mounts behind
+    // the overture beat DAG and the async HeroBlob chunk (the b2bb8aab h1
+    // precedent measured 17.1 s cold). X.W12U.b read it absent at 15 s on a
+    // warm :9000 at host load ~57 with the picker otherwise rendered.
+    await expect(blob).toBeAttached({ timeout: 45_000 });
     // Wait out the emerge pose (the W2-4 settle-stamp discipline).
     const pane = await page
         .locator(".pane-wrapper--stage")
@@ -81,6 +118,7 @@ async function bootWithBlob(page: import("@playwright/test").Page) {
 test("O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc", async ({
     page,
 }) => {
+    test.setTimeout(90_000); // the 45 s arrival bound (bootWithBlob) + the leg
     const { fp } = await bootWithBlob(page);
 
     // --blob-seat resolves 0 (the Q3 ruling, mechanically).
@@ -131,37 +169,50 @@ test("O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by 
     }
 });
 
-test("O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms", async ({
+test("O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget", async ({
     page,
 }) => {
-    test.setTimeout(60_000);
-    const { blob } = await bootWithBlob(page);
+    test.setTimeout(90_000);
+    await instrumentWebglDraws(page);
+    await installFrameCollector(page);
+    await bootWithBlob(page);
+    const soft = isSoftwareGL(await detectRenderer(page));
+    // The bead must have drawn before its idle cost means anything.
+    await expect
+        .poll(() => lastCanvasDrawCount(page, GOO_BLOB_TESTID), { timeout: 45_000 })
+        .toBeGreaterThan(0);
 
-    // Park the blob (true idle past the park latency).
-    await waitMs(page, PARK_SETTLE_MS);
-
-    const before = decodePng(await blob.screenshot());
-    // Hover-in at the bead center (the wake + curious beat).
-    // X-W1 · G-1 — under `exactOptionalPropertyTypes` an explicit `undefined`
-    // is not an omitted key; the intent here IS the default centre position.
-    await blob.hover({ force: true });
-    await waitMs(page, 400);
-    const after = decodePng(await blob.screenshot());
-
-    const diff = meanAbsDiff(before, after);
+    await waitMs(page, IDLE_MS);
+    const before = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
+    await resetFrames(page);
+    await waitMs(page, WINDOW_MS);
+    const draws = (await lastCanvasDrawCount(page, GOO_BLOB_TESTID)) - before;
+    const frames = await readFrames(page);
+    const p50 = percentile(frames, 50);
     console.log(
-        `[o12-hover] mean abs frame diff over the bead box: ${diff.toFixed(2)}/255`,
+        `[o12-idle-cost] renderer=${soft ? "SOFTWARE-GL" : "REAL-GPU"} window=${WINDOW_MS}ms draws=${draws} frames=${frames.length} p50=${p50.toFixed(1)}ms (gate ≤${GATE.idleP50Ms}ms real-GPU)`,
     );
+    expect(draws, "the idle bead drew nothing — the live hero parked").toBeGreaterThan(0);
     expect(
-        diff,
-        `hover response ${diff.toFixed(2)}/255 < the 6/255 floor — the approach beat is sub-JND (D4 family)`,
-    ).toBeGreaterThanOrEqual(6);
+        draws,
+        `the bead drew ${draws} times over ${frames.length} displayed frames — more than one draw per frame`,
+    ).toBeLessThanOrEqual(frames.length + EDGE_SLACK);
+    if (soft) {
+        expect(frames.length, "the rAF loop stalled").toBeGreaterThanOrEqual(SOFT_CEIL.idleMinFrames);
+        expect(p50, `software-GL idle p50 ${p50.toFixed(1)}ms over the hang guard`).toBeLessThanOrEqual(
+            SOFT_CEIL.idleP50Ms,
+        );
+    } else {
+        expect(p50, `idle p50 ${p50.toFixed(1)}ms over the §6.2 ≤${GATE.idleP50Ms}ms gate with the bead live`).toBeLessThanOrEqual(
+            GATE.idleP50Ms,
+        );
+    }
 });
 
 test("O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms", async ({
     page,
 }) => {
-    test.setTimeout(60_000);
+    test.setTimeout(90_000);
     await installFrameCollector(page);
     const { blob } = await bootWithBlob(page);
     const renderer = await detectRenderer(page);
@@ -205,10 +256,13 @@ test("O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 �
 test("O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)", async ({
     page,
 }) => {
+    test.setTimeout(90_000); // the 45 s arrival bound (bootWithBlob) + the leg
     const { blob } = await bootWithBlob(page);
     // Let the emerge re-measure seam (pause()/resume() at the `blob-emerge`
-    // animationend) settle the backing against the untransformed box.
-    await waitMs(page, PARK_SETTLE_MS);
+    // animationend) settle the backing against the untransformed box. The
+    // wait was the retired park latency; it is the settle margin alone now
+    // (bootWithBlob already polled the canvas to its settled footprint).
+    await waitMs(page, BACKING_SETTLE_MS);
 
     const renderer = await detectRenderer(page);
     const m = await blob.evaluate((el) => {

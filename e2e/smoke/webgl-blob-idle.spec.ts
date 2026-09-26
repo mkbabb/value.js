@@ -5,90 +5,132 @@ import {
     lastCanvasDrawCount,
 } from "./fixtures/webgl-appearance";
 import { decodePng } from "./fixtures/frame-diff";
+import {
+    GATE,
+    SOFT_CEIL,
+    detectRenderer,
+    isSoftwareGL,
+    installFrameCollector,
+    resetFrames,
+    readFrames,
+    percentile,
+    waitMs,
+} from "./perf/frame-budget";
 import { convertColor, mapColorToGamut } from "../../dist/subpaths/color.js";
 import { parseCssColor } from "../../dist/subpaths/css.js";
 
 /**
- * W3-3 (S.W3) — the blob idle-gate proof (perf-transitions P0-2; §6.2 "0
- * un-gated idle rAF"; §6.1 hard-gate item 5).
+ * X.W12U.b (COHESION §0dm, ESC-W12d-1) — THE LIVE HERO'S IDLE FRAME COST.
  *
- * The hero blob's WebGL render loop costs ~7ms on EVERY mounted frame, even
- * fully idle — the picker default-view floor sits at 54fps vs the blob-off
- * 85fps. `HeroBlob.vue` drives the renderer's existing `paused` seam after N ms
- * of no colour/pointer activity so the loop PARKS (the substrate's `manual`
- * suspend). This spec proves the park with the buffer-/timing-independent
- * draw-call oracle: after N ms of true idle the blob's WebGL draw count
- * PLATEAUS. A live un-gated loop would keep adding draws (the audit measured a
- * continuous per-frame tax); a parked loop adds ~zero.
+ * W3-3 parked the hero on a wall clock (2 s idle → sleepy, +3.3 s → the
+ * substrate's manual `paused`), and this spec asserted the park as a draw
+ * plateau. The owner's live blob supersedes that contract (W12.md addendum
+ * (f)): the park now rides the producer's `settled` demand gate, so a
+ * fission-armed hero keeps drawing at idle, and the idle CPU the park bought
+ * is spent only while the engine moves. `HERO_FISSION_AMP` is not tuned to
+ * pass anything here. The gate is therefore a COST, not a stillness:
  *
- * N — THE IDLE THRESHOLD — mirrors `HeroBlob.vue`'s `BLOB_IDLE_MS`. Per §6.1 the
- * idle sampling window MUST EXCEED N, else the sample straddles the still-live
- * pre-park window and the ≤13ms idle gate fails on correct true-idle behaviour.
- * We anchor the idle countdown with one interaction, wait PAST N for the park,
- * THEN sample the draw count over a window that itself exceeds N.
- *
- * Keep this constant in lock-step with `HeroBlob.vue`'s `BLOB_IDLE_MS`.
- *
- * W6-4 (S.W6): the park now completes at N + SLEEPY_POSE_MS (2000 + 700 =
- * 2700ms — HeroBlob first poses the blob sleepy, THEN freezes that frame).
- * PARK_SETTLE_MS = N + 1500 = 3500ms keeps 800ms slack past park completion.
+ *   1 · LIVE — over an idle window with no input the hero draws (> 0).
+ *   2 · ONE DRAW PER FRAME — the hero's draw calls never outrun the displayed
+ *       frames (the collector's rAF ticks) over the same window, +1 for the
+ *       window-edge read race. Measured (headless SwiftShader, :9000, x3
+ *       windows each): 1440 draws 28/20/23 = frames 28/20/23; 390 draws
+ *       37/44/39 = frames 37/44/39 (`W12U-evidence/b/probe-idle-cost.mjs`).
+ *       A second loop, a multi-pass regression or an uncoalesced redraw
+ *       doubles the ratio and reds here on any renderer.
+ *   3 · CADENCE — idle frame p50 ≤ the §6.2 13 ms on a real GPU (measured
+ *       headed, live hero: p50 10.2 ms, p95 ≤ 12.0 ms, identical to the PRM
+ *       run — the live hero adds nothing measurable to an idle main-thread
+ *       frame); under SwiftShader the SOFT_CEIL hang guard (the live hero's
+ *       software draw runs p50 58-158 ms there — a software-raster floor,
+ *       not the gate; see `perf/frame-budget.ts`).
+ *   4 · PRM PARKS — under prefers-reduced-motion the producer renders one
+ *       static frame and parks: 0 draws over the idle window (measured 0/0/0
+ *       at 1440 and at 390).
  */
-// T.W4-5 (PI-4): the park-latency contract lives in the ONE shared fixture.
-import {
-    PARK_SETTLE_MS,
-    SAMPLE_WINDOW_MS,
-    PARKED_DRAW_SLACK,
-} from "./fixtures/blob-timing";
 
-/** Read-only wall-clock wait (the reactivity/safari-spec `performance.now()` idiom). */
-async function waitMs(page: import("@playwright/test").Page, ms: number): Promise<void> {
-    const start = await page.evaluate(() => performance.now());
-    await page.waitForFunction(
-        (a) => performance.now() - a.start >= a.ms,
-        { start, ms },
-        { timeout: ms + 3_000, polling: 250 },
-    );
-}
+/** Idle before the window: past the first draw's boot beats. */
+const IDLE_MS = 2_000;
+/** The sampled idle window. */
+const WINDOW_MS = 3_000;
+/** The window-edge race between the draw read and the frame read. */
+const EDGE_SLACK = 1;
 
-test("hero blob parks its WebGL loop after N ms idle (0 un-gated idle rAF)", async ({
-    page,
-}) => {
+async function bootHero(page: import("@playwright/test").Page) {
     await instrumentWebglDraws(page);
+    await installFrameCollector(page);
     await page.goto("/");
-
-    await expect(page.getByTestId(GOO_BLOB_TESTID).last()).toBeAttached();
-
-    // Warm-up: the blob must actually render before a plateau means anything.
+    await expect(page.getByTestId(GOO_BLOB_TESTID).last()).toBeAttached({ timeout: 45_000 });
+    // The hero must actually render before its idle cost means anything.
     await expect
         .poll(() => lastCanvasDrawCount(page, GOO_BLOB_TESTID), {
-            timeout: 10_000,
-            message: "goo-blob never drew — cannot measure the idle-gate",
+            timeout: 45_000,
+            message: "goo-blob never drew — cannot measure its idle cost",
         })
         .toBeGreaterThan(0);
+}
 
-    // Anchor the idle countdown: one spectrum interaction changes the colour,
-    // which resets HeroBlob's idle timer (its `watch(cssColorOpaque)` activity
-    // signal) AND wakes the blob live. From here we do NOT interact again.
-    const spectrum = page.getByRole("img", { name: /Color spectrum/ }).last();
-    await expect(spectrum).toBeVisible();
-    const box = await spectrum.boundingBox();
-    if (!box) throw new Error("spectrum canvas not laid out");
-    await page.mouse.click(box.x + box.width * 0.5, box.y + box.height * 0.5);
-
-    // Wait past N (+ margin) with no further activity — the loop parks.
-    await waitMs(page, PARK_SETTLE_MS);
-
-    // Sample the draw count across a window that EXCEEDS N (§6.1): a parked loop
-    // adds ~0 draws; an un-gated loop would add hundreds.
+/** Blob draws and displayed frames over one idle window. */
+async function idleWindow(page: import("@playwright/test").Page) {
     const before = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
-    await waitMs(page, SAMPLE_WINDOW_MS);
-    const after = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
+    await resetFrames(page);
+    await waitMs(page, WINDOW_MS);
+    const draws = (await lastCanvasDrawCount(page, GOO_BLOB_TESTID)) - before;
+    const frames = await readFrames(page);
+    return { draws, frames };
+}
 
+test("hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park)", async ({
+    page,
+}) => {
+    test.setTimeout(90_000);
+    await bootHero(page);
+    const soft = isSoftwareGL(await detectRenderer(page));
+
+    // Idle = no input at all. The old spectrum-click anchor reset HeroBlob's
+    // wall-clock idle timer, which is retired; a colour change now only
+    // re-inks the app, and under SwiftShader that recolour holds the main
+    // thread for seconds (probe-click-stall.mjs: 0 frames for 5 s after one
+    // click; headed GPU: one 122 ms gap), which would read as the hero's cost.
+    await waitMs(page, IDLE_MS);
+
+    const { draws, frames } = await idleWindow(page);
+    const p50 = percentile(frames, 50);
+    console.log(
+        `[blob-idle-cost] renderer=${soft ? "SOFTWARE-GL" : "REAL-GPU"} window=${WINDOW_MS}ms ` +
+            `draws=${draws} frames=${frames.length} p50=${p50.toFixed(1)}ms`,
+    );
+
+    expect(draws, "the idle hero drew nothing — the live blob parked (the retired wall-clock park)").toBeGreaterThan(0);
     expect(
-        after - before,
-        `blob drew ${after - before} frames over ${SAMPLE_WINDOW_MS}ms of true idle — the render loop is NOT parked (W3-3 idle-gate regressed)`,
-    ).toBeLessThanOrEqual(PARKED_DRAW_SLACK);
+        draws,
+        `the hero drew ${draws} times over ${frames.length} displayed frames — more than one draw per frame`,
+    ).toBeLessThanOrEqual(frames.length + EDGE_SLACK);
+    if (soft) {
+        expect(frames.length, "the rAF loop stalled").toBeGreaterThanOrEqual(SOFT_CEIL.idleMinFrames);
+        expect(p50, `software-GL idle p50 ${p50.toFixed(1)}ms over the hang guard`).toBeLessThanOrEqual(
+            SOFT_CEIL.idleP50Ms,
+        );
+    } else {
+        expect(p50, `idle p50 ${p50.toFixed(1)}ms over the §6.2 ≤${GATE.idleP50Ms}ms gate with the hero live`).toBeLessThanOrEqual(
+            GATE.idleP50Ms,
+        );
+    }
 });
+
+test("hero blob under prefers-reduced-motion: one static frame, then parked (0 idle draws)", async ({
+    page,
+}) => {
+    test.setTimeout(90_000);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await bootHero(page);
+    await waitMs(page, IDLE_MS);
+    const { draws, frames } = await idleWindow(page);
+    console.log(`[blob-idle-cost] PRM window=${WINDOW_MS}ms draws=${draws} frames=${frames.length}`);
+    expect(frames.length, "the rAF loop stalled").toBeGreaterThanOrEqual(SOFT_CEIL.idleMinFrames);
+    expect(draws, `the PRM hero drew ${draws} times over ${WINDOW_MS}ms of idle — it is not parked`).toBe(0);
+});
+
 
 /**
  * X.W6.h · h1 — "hero blob carries current chroma" (CC-061 · MT-F032), the
@@ -120,6 +162,8 @@ test("hero blob parks its WebGL loop after N ms idle (0 un-gated idle rAF)", asy
  * −0.173, so the band cannot pass the defect the row names.
  */
 const H1_DELTA_C = 0.04;
+/** Past the producer's autonomic sleepy arc (idle > 6 s) — see the wait. */
+const REST_MS = 6_100;
 const CORE_DISK = 0.15;
 
 const H1_SEEDS = [
@@ -180,8 +224,12 @@ for (const seed of H1_SEEDS) {
         }, GOO_BLOB_TESTID);
         expect(["srgb", "display-p3"]).toContain(space.buffer);
         const bufferGamut = space.buffer as "srgb" | "display-p3";
-        // A settled frame: past the park, the sleepy pose is frozen.
-        await waitMs(page, PARK_SETTLE_MS);
+        // The rest pose h1 has always read: past the producer's autonomic
+        // sleepy arc (`idleMs > 6e3`, glass blob.js). The bead is live now (no
+        // frozen frame), and the core-disk reading is steady from ~3 s on
+        // (`W12U-evidence/b/probe-h1-live.mjs`: 3.0/6.1/9.0/12.0 s agree to
+        // ±0.001 C per seed).
+        await waitMs(page, REST_MS);
         const img = decodePng(await blob.screenshot());
         const cx = img.width / 2;
         const cy = img.height / 2;

@@ -10,75 +10,71 @@ import {
     percentile,
     waitMs,
 } from "./frame-budget";
+import {
+    instrumentWebglDraws,
+    GOO_BLOB_TESTID,
+    lastCanvasDrawCount,
+} from "../fixtures/webgl-appearance";
 
 /**
- * S.W3 ORACLE — TRANSITION FAMILY (c): IDLE PICKER (blob mounted).
+ * S.W3 ORACLE — TRANSITION FAMILY (c): IDLE PICKER, THE HERO LIVE.
  *
- * §6.2 gate: idle picker frame p50 ≤ 13 ms (with the blob mounted; the blob-off
- * floor is 11.5 ms). Baseline: 18.6 ms p50 (54 fps) — the hero blob's WebGL loop
- * cost ~7 ms on EVERY mounted frame, even fully idle. Cured by W3-3: HeroBlob
- * parks the renderer's `paused` seam after N ms of no colour/pointer activity, so
- * an idle picker runs at the display's vsync floor (measured on the built bundle,
- * real GPU: 8.3 ms p50 — the blob adds ~0 to an idle frame once parked).
+ * §6.2 gate: idle picker frame p50 ≤ 13 ms with the blob mounted (the blob-off
+ * floor is 11.5 ms). W3-3 met it by PARKING the hero on a wall clock (2 s idle →
+ * sleepy, +3.3 s → the substrate's `paused`), and this spec waited out that
+ * park before sampling. X.W12U.b (COHESION §0dm, ESC-W12d-1) restates it: the
+ * owner's live blob supersedes the park, the loop now rides the producer's
+ * `settled` demand gate, and a fission-armed hero keeps drawing at idle. So the
+ * idle window is sampled WITH the hero live, and the spec asserts that it is
+ * live (the draw oracle, > 0) at the same time as the budget it must hold:
  *
- * ─── N — THE IDLE THRESHOLD ───────────────────────────────────────────────────
- * N === HeroBlob.vue BLOB_IDLE_MS === 2000 ms (kept in lock-step with the
- * blob-park draw-plateau oracle, webgl-blob-idle.spec.ts). Per §Hard-gate 5
- * the idle SAMPLING WINDOW MUST EXCEED N — else the sample straddles the still-
- * live pre-park window and the ≤13 ms idle gate fails on correct true-idle
- * behaviour. We anchor the idle countdown with ONE interaction, wait PAST N for
- * the park, THEN sample the frame cadence over a window that itself exceeds N.
- * The `expect(SAMPLE_WINDOW_MS).toBeGreaterThan(N)` below makes the > N contract
- * a runtime assertion, not just a comment.
- * ──────────────────────────────────────────────────────────────────────────────
+ *   · one blob draw per displayed frame at most (+1 window-edge read race);
+ *   · real GPU: idle p50 ≤ the §6.2 13 ms, unchanged. Measured headed on the
+ *     M5 Max with the hero live: p50 10.2 ms, p95 ≤ 12.0 ms, identical to the
+ *     PRM run (`W12U-evidence/b/probe-idle-cost.mjs`);
+ *   · SwiftShader: the SOFT_CEIL hang guard + liveness floor, with p50 logged
+ *     against the gate (the live hero's software draw runs p50 58-158 ms there,
+ *     a software-raster floor; see `frame-budget.ts`).
  *
- * RENDERER-AWARE. On a real GPU we assert the exact §6.2 ≤13 ms; on the standing
- * SwiftShader harness (idle floor ~40 ms — a software compositor cap, unrelated
- * to the park) we assert a thrash ceiling + the > N window and LOG p50 against
- * the gate. The park itself is proven engine-independently by the draw-plateau
- * oracle; this spec measures the idle-frame CADENCE the park unlocks.
+ * The picker lives at "/" (the old `/#/picker` address resolves to Not Found
+ * at HEAD — the router's catch-all, measured at this unit's baseline).
  */
-// T.W4-5 (PI-4): the park-latency contract lives in the ONE shared fixture.
-import {
-    BLOB_IDLE_MS as N,
-    PARK_SETTLE_MS,
-    SAMPLE_WINDOW_MS,
-} from "../fixtures/blob-timing";
 
-test("idle picker frame budget: p50 ≤ 13ms with the blob mounted, window > N (built-bundle gate)", async ({
+const IDLE_MS = 2_000;
+const WINDOW_MS = 3_000;
+const EDGE_SLACK = 1;
+
+test("idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate)", async ({
     page,
 }) => {
-    // The > N contract (§Hard-gate 5), asserted at runtime — not just prose.
-    expect(
-        SAMPLE_WINDOW_MS,
-        "idle sampling window must exceed the W3-3 idle threshold N",
-    ).toBeGreaterThan(N);
-
+    test.setTimeout(90_000);
+    await instrumentWebglDraws(page);
     await installFrameCollector(page);
-    await page.goto("/#/picker");
+    await page.goto("/");
 
     const renderer = await detectRenderer(page);
     const soft = isSoftwareGL(renderer);
 
-    // The blob must be mounted for this to mean anything (the gate is
-    // "with the blob mounted").
-    await expect(page.getByTestId("goo-blob-canvas").last()).toBeAttached();
+    // The gate is "with the blob mounted" — and now with it drawing.
+    await expect(page.getByTestId(GOO_BLOB_TESTID).last()).toBeAttached({ timeout: 45_000 });
+    await expect
+        .poll(() => lastCanvasDrawCount(page, GOO_BLOB_TESTID), {
+            timeout: 45_000,
+            message: "goo-blob never drew — the idle budget would be measured without the hero",
+        })
+        .toBeGreaterThan(0);
 
-    // Anchor the idle countdown: ONE spectrum interaction changes the colour
-    // (resets HeroBlob's idle timer AND wakes the blob live). From here we do
-    // NOT interact again, so after N ms the loop parks.
-    const spectrum = page.getByRole("img", { name: /Color spectrum/ }).last();
-    await expect(spectrum).toBeVisible();
-    const box = await spectrum.boundingBox();
-    if (!box) throw new Error("spectrum canvas not laid out");
-    await page.mouse.click(box.x + box.width * 0.5, box.y + box.height * 0.5);
+    // Idle = no input at all. The old spectrum-click anchor reset HeroBlob's
+    // wall-clock idle timer, which is retired; a colour change now only
+    // re-inks the app, and under SwiftShader that recolour holds the main
+    // thread for seconds (probe-click-stall.mjs: 0 frames for 5 s after one
+    // click; headed GPU: one 122 ms gap), which would read as the hero's cost.
+    await waitMs(page, IDLE_MS);
 
-    // Wait PAST N (+ margin) with no further activity — the loop parks.
-    await waitMs(page, PARK_SETTLE_MS);
-
-    // Sample the idle frame cadence over a window that EXCEEDS N.
+    const drawsBefore = await lastCanvasDrawCount(page, GOO_BLOB_TESTID);
     await resetFrames(page);
-    await waitMs(page, SAMPLE_WINDOW_MS);
+    await waitMs(page, WINDOW_MS);
+    const draws = (await lastCanvasDrawCount(page, GOO_BLOB_TESTID)) - drawsBefore;
     const frames = await readFrames(page);
 
     const p50 = percentile(frames, 50);
@@ -87,23 +83,23 @@ test("idle picker frame budget: p50 ≤ 13ms with the blob mounted, window > N (
     console.log(
         `[frame-budget:idle] renderer=${soft ? "SOFTWARE-GL" : "REAL-GPU"} ` +
             `(${renderer})\n` +
-            `  N=${N}ms window=${SAMPLE_WINDOW_MS}ms (> N ✓) frames=${frames.length} ` +
+            `  hero live: draws=${draws} over frames=${frames.length} window=${WINDOW_MS}ms ` +
             `p50=${p50.toFixed(1)}ms p95=${p95.toFixed(1)}ms\n` +
-            `  §6.2 GATE: idle p50 ≤ ${GATE.idleP50Ms}ms (blob mounted)` +
-            `${soft ? "  [asserted on real GPU — see w3-frame-budget-measure.md]" : ""}`,
+            `  §6.2 GATE: idle p50 ≤ ${GATE.idleP50Ms}ms (hero live)` +
+            `${soft ? "  [asserted on real GPU — probe-idle-cost.mjs GPU=1]" : ""}`,
     );
 
     expect(frames.length, "no idle frames sampled — collector dead").toBeGreaterThan(0);
+    expect(draws, "the idle hero drew nothing — the budget was read with the hero parked").toBeGreaterThan(0);
+    expect(
+        draws,
+        `the hero drew ${draws} times over ${frames.length} displayed frames — more than one draw per frame`,
+    ).toBeLessThanOrEqual(frames.length + EDGE_SLACK);
 
     if (soft) {
-        // Software-GL: a liveness floor + a loose HANG guard only. The per-frame
-        // idle p50 under software raster is dominated by the aurora WebGL surface
-        // (25-100 ms run-to-run), not the parked blob — so the ≤13 ms cadence gate
-        // is asserted on hardware, and here we only prove the rAF loop keeps
-        // ticking (not frozen) and doesn't run into a multi-hundred-ms hang.
         expect(
             frames.length,
-            `only ${frames.length} idle frames over ${SAMPLE_WINDOW_MS}ms — the rAF loop stalled`,
+            `only ${frames.length} idle frames over ${WINDOW_MS}ms — the rAF loop stalled`,
         ).toBeGreaterThanOrEqual(SOFT_CEIL.idleMinFrames);
         expect(
             p50,
@@ -112,7 +108,7 @@ test("idle picker frame budget: p50 ≤ 13ms with the blob mounted, window > N (
     } else {
         expect(
             p50,
-            `idle picker frame p50 ${p50.toFixed(1)}ms over the §6.2 ≤${GATE.idleP50Ms}ms gate (blob mounted) — the idle-gate is not parking the WebGL loop`,
+            `idle picker frame p50 ${p50.toFixed(1)}ms over the §6.2 ≤${GATE.idleP50Ms}ms gate with the hero live`,
         ).toBeLessThanOrEqual(GATE.idleP50Ms);
     }
 });
