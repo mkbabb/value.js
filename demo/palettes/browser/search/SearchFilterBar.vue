@@ -91,8 +91,11 @@
                                     size="sm"
                                     placeholder="#hex, hsl(...)"
                                     aria-label="Search by CSS color"
+                                    :aria-invalid="colorError ? true : undefined"
+                                    :aria-describedby="colorError ? colorErrorId : undefined"
                                     class="w-full pr-16 font-mono truncate"
                                     @keydown.enter="applyColorSearch"
+                                    @update:model-value="colorError = ''"
                                 />
                                 <button
                                     :disabled="searching"
@@ -104,6 +107,16 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- X.W12U.s2 · UIA-V-33: a query the parser refuses is said
+                             under the field, and nothing is searched. -->
+                        <p
+                            v-if="colorError"
+                            :id="colorErrorId"
+                            role="alert"
+                            class="mt-1.5 text-caption text-destructive"
+                        >
+                            {{ colorError }}
+                        </p>
                     </div>
 
                     <!-- Clear all -->
@@ -124,7 +137,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, useId } from "vue";
 import { Button } from "../../../ui/button";
 import { Input } from "../../../ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
@@ -141,7 +154,13 @@ import {
     Loader2,
 } from "@lucide/vue";
 import type { Tag } from "../../types";
-import { parseColorIn } from "../../../color-session/color-utils";
+import { parseCssColor } from "@mkbabb/value.js/css";
+import type { AnyColor } from "@mkbabb/value.js/color";
+import {
+    convertPickerColor,
+    parsePickerColor,
+    pickerColorToHex,
+} from "../../../color-session/picker-color";
 
 const { sort, tier, selectedTags, availableTags } = defineProps<{
     sort: string;
@@ -170,6 +189,8 @@ const pickerHex = ref("#4488cc");
 const colorSearchActive = ref(false);
 const miniPickerOpen = ref(false);
 const searching = ref(false);
+const colorError = ref("");
+const colorErrorId = useId();
 
 function onPickerHexUpdate(hex: string) {
     pickerHex.value = hex;
@@ -202,20 +223,41 @@ function toggleTag(name: string) {
 }
 
 function hexToOklab(hex: string): { L: number; a: number; b: number } {
-    const [L, a, b] = parseColorIn(hex, "oklab").channels;
+    return colorToOklab(parsePickerColor(hex));
+}
+
+function colorToOklab(color: AnyColor): { L: number; a: number; b: number } {
+    const [L, a, b] = convertPickerColor(color, "oklab").channels;
     if (L === "none" || a === "none" || b === "none") {
-        throw new Error("Hex color produced missing OKLab channels");
+        throw new Error("Color produced missing OKLab channels");
     }
     return { L, a, b };
 }
 
+/**
+ * X.W12U.s2 · UIA-V-33: the typed field takes any CSS colour its placeholder
+ * advertises (hex, hsl(), oklch(), a named colour …), parsed by the library.
+ * A refused query is said on the field and emits nothing; an accepted one
+ * moves the swatch to the colour being searched. An empty field searches the
+ * swatch's colour.
+ */
 async function applyColorSearch() {
     if (searching.value) return;
+    const text = colorText.value.trim();
+    let color: AnyColor | null = null;
+    if (text) {
+        const parsed = parseCssColor(text);
+        if (!parsed.ok) {
+            colorError.value = `“${text}” is not a CSS color.`;
+            return;
+        }
+        color = parsed.value;
+        pickerHex.value = pickerColorToHex(color).slice(0, 7);
+    }
+    colorError.value = "";
     searching.value = true;
     try {
-        const text = colorText.value.trim();
-        const hex = text.startsWith("#") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;
-        const lab = hexToOklab(hex);
+        const lab = color ? colorToOklab(color) : hexToOklab(pickerHex.value);
         colorSearchActive.value = true;
         emit("colorSearch", lab.L, lab.a, lab.b);
     } finally {
@@ -226,6 +268,7 @@ async function applyColorSearch() {
 function onClearAll() {
     colorSearchActive.value = false;
     colorText.value = "";
+    colorError.value = "";
     emit("clearColorSearch");
     emit("clearFilters");
 }

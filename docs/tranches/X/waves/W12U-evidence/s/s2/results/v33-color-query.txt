@@ -1,0 +1,6 @@
+[390x844 light]
+PASS (a) hsl(0 100% 50%) → {"swatch":"rgb(255, 0, 0)","invalid":null,"alert":"","badge":"1"}
+PASS (b) nope → {"swatch":"rgb(68, 136, 204)","invalid":"true","alert":"“nope” is not a CSS color.","badge":""}
+[390x844 dark]
+PASS (a) hsl(0 100% 50%) → {"swatch":"rgb(255, 0, 0)","invalid":null,"alert":"","badge":"1"}
+PASS (b) nope → {"swatch":"rgb(68, 136, 204)","invalid":"true","alert":"“nope” is not a CSS color.","badge":""}
