@@ -1,0 +1,11 @@
+## HEAD bytes
+[1440x900 light]
+RED  /browse {"tabs":60,"focused":false}
+RED  /palettes {"tabs":60,"focused":false}
+## cured
+[1440x900 light]
+PASS /browse {"tabs":6,"focused":true,"ringed":true,"selected":true,"current":"true"}
+PASS /palettes {"tabs":17,"focused":true,"ringed":true,"selected":true,"current":"true"}
+[1440x900 dark]
+PASS /browse {"tabs":6,"focused":true,"ringed":true,"selected":true,"current":"true"}
+PASS /palettes {"tabs":17,"focused":true,"ringed":true,"selected":true,"current":"true"}

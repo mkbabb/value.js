@@ -11,17 +11,25 @@
          semantics are omitted because inner interactive controls must be
          reachable. The root is the `palette-card` inline-size container the
          meta cluster's declared collapse priority reads (A-20's ruled
-         consumer interim). -->
+         consumer interim).
+         X.W12U.s2 · UIA-V-31: the card is selectable by keyboard — it is a
+         tab stop wearing the glass focus ring, Enter/Space on the card itself
+         selects it (its inner controls keep their own keys and tab stops), and
+         the selection is exposed as `aria-current`. -->
     <div
         ref="rootEl"
-        class="palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+        class="palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer focus-ring"
         :data-layout="layout"
         :data-selected="expanded ? '' : undefined"
         role="article"
+        tabindex="0"
         :aria-label="`Palette: ${palette.name}`"
+        :aria-current="expanded ? 'true' : undefined"
         v-bind="press.handlers"
         :style="press.pressStyle.value"
         @click="$emit('click')"
+        @keydown.enter.self.prevent="$emit('click')"
+        @keydown.space.self.prevent="$emit('click')"
     >
         <!-- X.W7.c (G11): the cel cast is the ROOT's own box-shadow — the
              producer's `.shadow-cartoon-md` stamp (below) — so it follows the
