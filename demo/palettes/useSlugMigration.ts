@@ -78,6 +78,12 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
     const showMigrateDialog = ref(false);
     const migrateMode = ref<"switch" | "regenerate">("switch");
     const pendingMigrateAction = ref<((choice: "publish" | "transfer" | "discard") => Promise<void>) | null>(null);
+    /** X.W12U.s2 · UIA-V-133: the dialog stays open while the chosen action
+     *  runs (`migrating` = the choice in flight) and keeps a failure on screen. */
+    const migrating = ref<"publish" | "transfer" | "discard" | null>(null);
+    const migrateError = ref<string | null>(null);
+    /** The slug a switch is headed for (UIA-V-335: the dialog names it). */
+    const migrateTarget = ref<string | null>(null);
     const identity = shallowRef<IdentityState | null>(null);
 
     /**
@@ -143,6 +149,8 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
 
         if (deps.savedPalettes.value.length > 0) {
             migrateMode.value = "switch";
+            migrateTarget.value = value;
+            migrateError.value = null;
             pendingMigrateAction.value = async (choice) => {
                 const before = choice === "publish" ? await publishAllLocal() : null;
                 await deps.userLogin(value);
@@ -178,6 +186,8 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         if (identity.value?.kind === "pending") return;
         if (deps.savedPalettes.value.length > 0) {
             migrateMode.value = "regenerate";
+            migrateTarget.value = null;
+            migrateError.value = null;
             pendingMigrateAction.value = async (choice) => {
                 const tally = choice === "publish" ? tallyText(await publishAllLocal()) : null;
                 await regenerate(tally);
@@ -188,25 +198,43 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         }
     }
 
+    /**
+     * UIA-V-133: the dialog closes only when the chosen action has settled
+     * well. A failure keeps it open with the reason in it (Row 42: rendered,
+     * not logged) and the choice can be made again; the pending action is
+     * kept for that retry.
+     */
     async function onMigrateRespond(choice: "publish" | "transfer" | "discard") {
         const action = pendingMigrateAction.value;
-        pendingMigrateAction.value = null;
-        if (action) {
-            try {
-                await action(choice);
-            } catch (e) {
-                // Row 42 (SURFACE): the migration's failure is rendered, not logged.
-                identity.value = {
-                    kind: "failed",
-                    message: `The migration did not complete: ${messageOf(e, "backend unreachable")}`,
-                };
-            }
+        if (!action || migrating.value) return;
+        migrating.value = choice;
+        migrateError.value = null;
+        try {
+            await action(choice);
+            pendingMigrateAction.value = null;
+            showMigrateDialog.value = false;
+        } catch (e) {
+            migrateError.value = `The migration did not complete: ${messageOf(e, "backend unreachable")}`;
+        } finally {
+            migrating.value = null;
         }
+    }
+
+    /** UIA-V-586: a dialog dismissed without a choice drops its closure, so a
+     *  later Regenerate cannot run a stale switch. */
+    function onMigrateDismiss() {
+        if (migrating.value) return;
+        pendingMigrateAction.value = null;
+        migrateError.value = null;
+        showMigrateDialog.value = false;
     }
 
     return {
         showMigrateDialog,
         migrateMode,
+        migrating,
+        migrateError,
+        migrateTarget,
         identity,
         dismissIdentity: () => {
             identity.value = null;
@@ -214,5 +242,6 @@ export function useSlugMigration(deps: SlugMigrationDeps) {
         onSlugSwitch,
         onRegenerateSlug,
         onMigrateRespond,
+        onMigrateDismiss,
     };
 }

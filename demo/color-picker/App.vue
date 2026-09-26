@@ -165,10 +165,14 @@
 
     <!-- Global modals -->
     <MigratePalettesDialog
-        v-model:open="paletteManager.migration.showMigrateDialog.value"
+        :open="paletteManager.migration.showMigrateDialog.value"
         :count="paletteManager.library.savedPalettes.value.length"
         :mode="paletteManager.migration.migrateMode.value"
+        :target="paletteManager.migration.migrateTarget.value"
+        :migrating="paletteManager.migration.migrating.value"
+        :error="paletteManager.migration.migrateError.value"
         @respond="paletteManager.migration.onMigrateRespond"
+        @dismiss="paletteManager.migration.onMigrateDismiss"
     />
 </template>
 
