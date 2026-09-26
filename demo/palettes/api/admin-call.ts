@@ -15,6 +15,7 @@
  */
 import { computed, shallowRef, type ComputedRef, type ShallowRef } from "vue";
 import { ApiProblem } from "../../platform/transport/api-problem";
+import { isBackendUnreachable } from "../../platform/transport/availability";
 import { useAdminAuth } from "../../platform/auth/useAdminAuth";
 
 export type AdminFailureKind = "signed-out" | "denied" | "failed";
@@ -30,6 +31,7 @@ export type AdminResult<T> =
 
 export const SIGNED_OUT_MESSAGE = "Admin sign-in required.";
 const DENIED_MESSAGE = "This admin token is not permitted to do that.";
+const UNREACHABLE_MESSAGE = "The palette service is not answering.";
 
 /** Classify a thrown transport failure into the one failure register. */
 export function adminFailureOf(error: unknown): AdminFailure {
@@ -38,6 +40,10 @@ export function adminFailureOf(error: unknown): AdminFailure {
         if (error.status === 403) return { kind: "denied", message: DENIED_MESSAGE };
         return { kind: "failed", message: error.detail ?? error.title };
     }
+    // X.W12U.s3 · UIA-V-628: the latch's own sentence ("… working locally") is
+    // the palette editor's offline register. No admin list has a local mode,
+    // so an admin plate says the reason alone (the V-305 wording).
+    if (isBackendUnreachable(error)) return { kind: "failed", message: UNREACHABLE_MESSAGE };
     if (error instanceof Error && error.message) return { kind: "failed", message: error.message };
     return { kind: "failed", message: "Backend unreachable" };
 }
