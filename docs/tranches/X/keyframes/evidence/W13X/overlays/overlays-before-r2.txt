@@ -1,0 +1,35 @@
+GREEN A2-KE-L2-12 1440x900-light popover x[397.0,685.0] of 1440 (>=16 gutter)
+RED   UIA-KF-141 1440x900-light field 178.0 of 264.0 inner
+RED   UIA-KF-071 1440x900-light buttons ["(icon)","(icon)"]
+RED   UIA-KF-248 1440x900-light focus on open INPUT:Share URL or hash to load
+RED   UIA-KF-224 1440x900-light native title attrs in popover 2
+RED   UIA-KF-140 1440x900-light trigger 28x36 no-fade
+RED   UIA-KF-142 1440x900-light aria-invalid=null described=""
+RED   UIA-KF-070 1440x900-light after copy: menu true body-pe none focus Share animation
+RED   UIA-KF-070 1440x900-light after load (link 2942 ch): menu true body-pe none focus null
+GREEN UIA-KF-249 1440x900-light field on reopen after a load: ""
+RED   UIA-KF-016 1440x900-light dialog scroll 1223/681 port position static
+RED   UIA-KF-072 1440x900-light heading sticky bg rgb(253, 245, 236)
+RED   UIA-KF-139 1440x900-light focus on open BUTTON · title "Keyboard Shortcuts"
+RED   UIA-KF-147 1440x900-light port 1119/540 (all rows visible without scrolling)
+RED   UIA-KF-250 1440x900-light port scrollbar-width auto gutter auto
+RED   UIA-KF-251 1440x900-light desc "Every shortcut registered in this session, grouped by register." · row radius 6px bg rgba(0, 0, 0, 0)
+RED   UIA-KF-145 1440x900-light Delete caps ["⌫","Backspace"]
+RED   UIA-KF-016 1440x900-light after wheel past end: dialog scrollTop 541
+RED   A2-KE-L2-12 390x844-dark popover x[0.0,288.0] of 390 (>=16 gutter)
+RED   UIA-KF-141 390x844-dark field 142.0 of 264.0 inner
+RED   UIA-KF-071 390x844-dark buttons ["(icon)","(icon)"]
+RED   UIA-KF-248 390x844-dark focus on open INPUT:Share URL or hash to load
+RED   UIA-KF-224 390x844-dark native title attrs in popover 2
+RED   UIA-KF-140 390x844-dark trigger 44x54 no-fade
+RED   UIA-KF-142 390x844-dark aria-invalid=null described=""
+RED   UIA-KF-070 390x844-dark after copy: menu true body-pe none focus Share animation
+RED   UIA-KF-070 390x844-dark after load (link 2942 ch): menu true body-pe none focus null
+GREEN UIA-KF-249 390x844-dark field on reopen after a load: ""
+RED   UIA-KF-016 390x844-dark dialog scroll 1178/612 port position static
+RED   UIA-KF-072 390x844-dark heading sticky bg rgb(53, 42, 34)
+RED   UIA-KF-139 390x844-dark focus on open BUTTON · title "Keyboard Shortcuts"
+RED   UIA-KF-250 390x844-dark port scrollbar-width auto gutter auto
+RED   UIA-KF-251 390x844-dark desc "Every shortcut registered in this session, grouped by register." · row radius 6px bg rgba(0, 0, 0, 0)
+RED   UIA-KF-145 390x844-dark Delete caps ["⌫","Backspace"]
+RED   UIA-KF-016 390x844-dark after wheel past end: dialog scrollTop 566

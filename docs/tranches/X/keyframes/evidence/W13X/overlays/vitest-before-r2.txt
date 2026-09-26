@@ -1,0 +1,27 @@
+     × (1) UIA-KF-249 — a successful load clears the field 19ms
+     × (2) UIA-KF-142 — a refused load marks the field and names the reason; typing clears it 1116ms
+     × (3) UIA-KF-071 — 'Copy link' is the named primary; the load path is labelled 66ms
+     × (4) UIA-KF-224 — no native title tooltip in the popover 68ms
+     × (5) UIA-KF-248 — the popover opens on its primary action, not on the paste field 1064ms
+     × (6) UIA-KF-070 — a copy and a successful load each emit done 57ms
+     × (7) UIA-KF-140 — the trigger has no recede fade 6ms
+     × (8) UIA-KF-016 — the port is the sr-only spans' containing block 21ms
+     × (9) UIA-KF-072 · 139 — group headings carry no sticky opaque plate 17ms
+     × (10) UIA-KF-251 · 139 — sentence-case title, one-line description, no dead row radius 15ms
+     × (11) UIA-KF-250 — the port hides the platform scrollbar 19ms
+     × (12) UIA-KF-147 — two columns at >= md 15ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected undefined to be true // Object.is equality
+AssertionError: expected null to be 'true' // Object.is equality
+AssertionError: expected '' to be 'Copy link' // Object.is equality
+AssertionError: expected 2 to be +0 // Object.is equality
+AssertionError: expected '' to be 'Copy link' // Object.is equality
+TypeError: Cannot read properties of undefined (reading 'click')
+AssertionError: expected true to be false // Object.is equality
+AssertionError: expected "fading-scroll fading-scroll--y max-h-[var(--panel-max-h)] min-h-0" to contain "relative"
+AssertionError: expected [ '-mx-2', 'sticky', 'bg-popover' ] to deeply equal []
+AssertionError: expected 'Keyboard Shortcuts' to be 'Keyboard shortcuts' // Object.is equality
+AssertionError: expected "fading-scroll fading-scroll--y max-h-[var(--panel-max-h)] min-h-0" to contain "scrollbar-hidden"
+AssertionError: expected "grid gap-4" to contain "md:columns-2"
+ Test Files  1 failed (1)
+      Tests  12 failed (12)
