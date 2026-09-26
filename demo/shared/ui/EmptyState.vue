@@ -18,6 +18,22 @@
         </p>
         <slot name="action" />
     </div>
+    <!-- X.W12U.s3 · UIA-V-635: a FILTERED zero is its own register — the
+         query found nothing, the collection is not empty — so it never wears
+         the true-empty ghost trio (the one voice of TRUE empty, below). A plain
+         statement one rung under the empty headline, plus the host's way out. -->
+    <div
+        v-else-if="variant === 'filtered'"
+        ref="root"
+        class="flex flex-col items-center justify-center gap-2.5 py-6 text-center"
+        role="status"
+        data-empty-register="filtered"
+    >
+        <p class="font-display text-subheading text-foreground max-w-[30ch] text-balance leading-snug">
+            <slot>{{ message }}</slot>
+        </p>
+        <slot name="action" />
+    </div>
     <div v-else ref="root" class="flex flex-col items-center justify-center gap-2.5 py-8 text-center" role="status">
         <!-- N-3, RE-AIMED (T.W6.5 · Lane S — R12, MANDATE §0.6
              t33-audit-08 "bring that iconset with the dashes back"): the
@@ -85,7 +101,7 @@ withDefaults(
     defineProps<{
         message?: string | undefined;
         /** The two plate species — `empty` invitation vs `error` statement. */
-        variant?: "empty" | "error" | undefined;
+        variant?: "empty" | "filtered" | "error" | undefined;
         /** Optional mono how-to line under the display line (empty variant). */
         hint?: string | undefined;
         /** The machine truth (error variant) — the caught message, in Fira. */

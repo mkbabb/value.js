@@ -17,7 +17,7 @@
         </div>
 
         <!-- X.W7.d (S-13): the tag write's one visible result. -->
-        <div aria-live="polite" data-admin-notice="tags">
+        <div aria-live="polite" data-admin-notice="tags" class="contents">
             <ActionFeedback
                 v-if="tagsApi.notice.value"
                 :key="tagsApi.notice.value.seq"
@@ -45,7 +45,15 @@
              never the narrower field clipping its own placeholder. -->
         <!-- UIA-V-652: the create row stands only over a readable list — it
              leaves with the error plate and is inert while the list loads. -->
-        <div v-if="!tagsApi.access.value && !tagsApi.loadError.value" class="flex flex-wrap sm:flex-nowrap items-center gap-2">
+        <!-- X.W12U.s3 · UIA-V-439: the row is a FORM — Enter in either field
+             submits — and its primary is a labelled "Add tag" at the fields'
+             own sm rung, not a faint unlabeled 28 px "+". -->
+        <form
+            v-if="!tagsApi.access.value && !tagsApi.loadError.value"
+            class="flex flex-wrap sm:flex-nowrap items-center gap-2"
+            aria-label="New tag"
+            @submit.prevent="canCreate && tagsApi.createTag()"
+        >
             <!-- S.W5-3 (S-17/F-7): glass-ui Input pills, sm rung; the pair
                  sized honestly (name vs category was ~5×; the category well
                  no longer clips its own placeholder). -->
@@ -69,17 +77,16 @@
                 :disabled="tagsApi.loading.value"
                 class="flex-1 min-w-0 sm:flex-none sm:w-36 font-mono"
             />
-            <!-- W5-a11y: icon-only create tag button needs accessible name -->
             <Button
-                emphasis="secondary"
-                size="xs" icon-only
-                aria-label="Create tag"
-                :disabled="tagsApi.loading.value || !tagsApi.newName.value.trim() || !tagsApi.newCategory.value.trim() || !!tagsApi.newNameProblem.value || tagsApi.creating.value"
-                @click="tagsApi.createTag()"
+                type="submit"
+                size="sm"
+                class="shrink-0 gap-1.5"
+                :disabled="!canCreate"
             >
-                <Plus class="h-3 w-3" aria-hidden="true" />
+                <Plus class="h-3.5 w-3.5" aria-hidden="true" />
+                Add tag
             </Button>
-        </div>
+        </form>
         <!-- W7.80 (ATP-10): the contract problem is shown before any request. -->
         <p
             v-if="!tagsApi.access.value"
@@ -187,7 +194,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, inject, onMounted, ref, shallowRef, watch } from "vue";
 import {
     Dialog,
     DialogContent,
@@ -207,6 +214,16 @@ import { ADMIN_PORT_KEY } from "../../usePalettePorts";
 // D.W3 Lane B: route through pm.tags sub-object (was: direct getAdminTags/createTag/deleteTag)
 const pm = inject(ADMIN_PORT_KEY)!;
 const tagsApi = pm.tags;
+
+// UIA-V-439: one gate for the button and for Enter (the form's submit).
+const canCreate = computed(
+    () =>
+        !tagsApi.loading.value &&
+        !!tagsApi.newName.value.trim() &&
+        !!tagsApi.newCategory.value.trim() &&
+        !tagsApi.newNameProblem.value &&
+        !tagsApi.creating.value,
+);
 
 onMounted(() => tagsApi.loadTags());
 

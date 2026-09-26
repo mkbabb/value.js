@@ -7,8 +7,7 @@
     <div
         data-slot="admin-list-skeleton"
         class="skeleton-ink-register flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge"
-        role="status"
-        aria-label="Loading"
+        aria-hidden="true"
     >
         <Skeleton class="w-8 h-8 rounded-full shrink-0" />
         <div class="flex-1 min-w-0 flex flex-col gap-1.5">

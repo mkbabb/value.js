@@ -49,7 +49,8 @@ test("admin tag create POSTs /admin/tags with name+category", async ({ page }) =
         .filter({ visible: true })
         .fill("ew3-cat");
     await main
-        .getByRole("button", { name: "Create tag" })
+        // X.W12U.s3 · UIA-V-439: the create verb is the labelled "Add tag".
+        .getByRole("button", { name: "Add tag" })
         .filter({ visible: true })
         .click();
     await expect.poll(() => captured.body?.name).toBe("ew3-tag");

@@ -77,7 +77,8 @@ test.describe("G14 · N-6 — destructive Admin seats fire nothing until accepte
             }),
         );
         await page.goto("/#/admin/names");
-        await page.getByRole("button", { name: /^Approved/ }).filter({ visible: true }).click();
+        // X.W12U.s3 · UIA-V-420: Pending | Approved is a tablist.
+        await page.getByRole("tab", { name: /^Approved/ }).filter({ visible: true }).click();
         await assertDeliberate(page, ledger, "Delete color name Oxblood", "Delete name", "DELETE /admin/colors/a1");
     });
 

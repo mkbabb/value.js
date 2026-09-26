@@ -114,7 +114,16 @@ export function useAdminFlagged(deps: {
         }
     }
 
+    // X.W12U.s3 · UIA-V-644: one register for the act family — every verdict
+    // names the palette as its row shows it (the name, quoted), falling back
+    // to the slug only for a palette that no longer exists.
+    function rowLabel(paletteSlug: string): string {
+        const name = items.value.find((i) => i.paletteSlug === paletteSlug)?.palette?.name;
+        return name ? `“${name}”` : paletteSlug;
+    }
+
     async function dismiss(paletteSlug: string) {
+        const label = rowLabel(paletteSlug);
         const result = await call((token) => dismissFlags(token, paletteSlug));
         if (result.ok) {
             items.value = items.value.filter((i) => i.paletteSlug !== paletteSlug);
@@ -127,15 +136,15 @@ export function useAdminFlagged(deps: {
             // emptied last page.
             void loadFlagged();
         }
-        settle(result, `Dismissed the reports on ${paletteSlug}`, "Could not dismiss the reports");
+        settle(result, `Dismissed the reports on ${label}`, "Could not dismiss the reports");
         return result;
     }
 
     async function deletePalette(paletteSlug: string) {
-        const label = items.value.find((i) => i.paletteSlug === paletteSlug)?.palette?.name ?? paletteSlug;
+        const label = rowLabel(paletteSlug);
         const result = await deps.deletePalette(paletteSlug);
         if (result.ok) removeRow(paletteSlug);
-        settle(result, `Deleted “${label}”`, "Could not delete the palette");
+        settle(result, `Deleted ${label}`, "Could not delete the palette");
         return result;
     }
 

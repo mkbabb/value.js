@@ -13,13 +13,24 @@
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button emphasis="secondary" size="xs" icon-only aria-label="Refresh flagged palettes" :disabled="!!flagged.access.value" @click="flagged.loadFlagged()">
-                <RefreshCw class="h-3 w-3" aria-hidden="true" />
+            <!-- X.W12U.s3 · UIA-V-645 (the Users recipe, V-49): busy while a read
+                 runs (disabled, the glyph turning), and stood down while the
+                 error plate's Retry is the recovery. -->
+            <Button
+                v-if="!flagged.loadError.value"
+                emphasis="secondary"
+                size="xs"
+                icon-only
+                aria-label="Refresh flagged palettes"
+                :disabled="!!flagged.access.value || flagged.loading.value"
+                @click="flagged.loadFlagged()"
+            >
+                <RefreshCw class="h-3 w-3" :class="flagged.loading.value && 'animate-spin'" aria-hidden="true" />
             </Button>
         </div>
 
         <!-- X.W7.d (S-13): the moderation act's one visible result. -->
-        <div aria-live="polite" data-admin-notice="flagged">
+        <div aria-live="polite" data-admin-notice="flagged" class="contents">
             <ActionFeedback
                 v-if="flagged.notice.value"
                 :key="flagged.notice.value.seq"
@@ -42,7 +53,7 @@
         />
 
         <!-- W5-1 + F-13: flagged rows load as row shadows, one grammar. -->
-        <div v-else-if="firstLoad" class="grid gap-2" aria-label="Loading flagged palettes">
+        <div v-else-if="firstLoad" class="grid gap-2" role="status" aria-label="Loading flagged palettes">
             <AdminListSkeleton v-for="i in 2" :key="i" />
         </div>
 
@@ -79,8 +90,16 @@
         >
             <!-- Palette header row -->
             <div class="flex items-center gap-3 px-3 py-2.5">
-                <!-- Color swatches -->
-                <div class="flex -space-x-1 shrink-0">
+                <!-- Color swatches. X.W12U.s3 · UIA-V-646: the cluster is one
+                     fixed column (five 20 px dots, 4 px overlap = 5.25rem), so
+                     every name shares one left edge whatever the colour count;
+                     a deleted palette holds the column with a dashed ghost. -->
+                <div class="flex -space-x-1 shrink-0 w-[5.25rem]">
+                    <div
+                        v-if="!item.palette"
+                        class="h-5 w-5 rounded-full border border-dashed border-muted-foreground/60"
+                        aria-hidden="true"
+                    />
                     <div
                         v-for="(c, i) in (item.palette?.colors ?? []).slice(0, 5)"
                         :key="i"
@@ -125,7 +144,7 @@
                     <Button
                         emphasis="secondary"
                         size="xs"
-                        class="px-2 text-caption font-display"
+                        class="px-2"
                         :aria-label="`Dismiss reports on ${item.palette?.name ?? item.paletteSlug}`"
                         @click="flagged.dismiss(item.paletteSlug)"
                     >

@@ -31,7 +31,7 @@
             <AdminUsersPanel v-if="subView === 'admin-users'" />
 
             <!-- X.W7.d (S-13): the moderation act's one visible result. -->
-            <div v-if="subView === 'admin-names'" aria-live="polite" data-admin-notice="names">
+            <div v-if="subView === 'admin-names'" aria-live="polite" data-admin-notice="names" class="contents">
                 <ActionFeedback
                     v-if="pm.namesNotice.value"
                     :key="pm.namesNotice.value.seq"
@@ -54,11 +54,13 @@
                 :approved-error="pm.approvedLoadError.value"
                 :access="pm.namesAccess.value"
                 :filtered="pm.namesSearch.value.trim() !== ''"
+                :busy-ids="pm.busyNameIds.value"
                 @approve="pm.onApproveColor"
                 @reject="pm.onRejectColor"
                 @delete="pm.onDeleteColor"
                 @retry-pending="pm.loadColorQueue"
                 @retry-approved="pm.loadApprovedColors"
+                @clear-search="pm.namesSearch.value = ''"
             >
                 <!-- X.W5.c2 · gate N15: the names query seats BELOW the
                      Pending | Approved selector (source order, not `order:`). -->

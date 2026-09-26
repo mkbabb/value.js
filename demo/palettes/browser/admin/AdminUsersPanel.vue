@@ -40,7 +40,10 @@
 
         <!-- X.W7.d (S-13 · W7.64): every mutation's ONE visible result, in an
              always-mounted live region — never a 3 s unannounced flourish. -->
-        <div aria-live="polite" data-admin-notice="users">
+        <!-- X.W12U.s3 · UIA-V-625: the region stays mounted for the announcement
+             but generates no box (`contents`), so at rest it takes no grid gap
+             and the toolbar-to-list spacing is the one rung. -->
+        <div aria-live="polite" data-admin-notice="users" class="contents">
             <ActionFeedback
                 v-if="notice"
                 :key="notice.seq"
@@ -63,7 +66,7 @@
         />
         <!-- W5-1 + F-13: rows load as row-shaped shadows in the ONE loading
              grammar — never a centered generic spinner. -->
-        <div v-else-if="loading" class="grid gap-3" aria-label="Loading users">
+        <div v-else-if="loading" class="grid gap-3" role="status" aria-label="Loading users">
             <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
         <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
@@ -85,6 +88,7 @@
              filtered-zero register the audit and names panels speak). -->
         <EmptyState
             v-else-if="users.length === 0 && pm.usersSearch.value.trim()"
+            variant="filtered"
             :message="`No users match “${pm.usersSearch.value.trim()}”.`"
         >
             <template #action>
@@ -152,7 +156,7 @@
                             size="xs"
                             class="px-2 cursor-pointer font-display text-caption"
                             :aria-label="`Delete all palettes of ${user.slug}`"
-                            @click="onDeletePalettesClick(user.slug)"
+                            @click="onDeletePalettesClick(user.slug, user.paletteCount ?? 0)"
                         >
                             <Trash2 class="w-3 h-3 mr-1" aria-hidden="true" />
                             Delete all palettes
@@ -172,7 +176,7 @@
                 </div>
                 <!-- Expandable user palettes -->
                 <div v-if="expandedUserSlug === user.slug" class="border-t border-border bg-muted/30 px-3 py-3">
-                    <div v-if="loadingUserPalettes" class="grid gap-2" aria-label="Loading palettes">
+                    <div v-if="loadingUserPalettes" class="grid gap-2" role="status" aria-label="Loading palettes">
                         <AdminListSkeleton v-for="i in 2" :key="i" />
                     </div>
                     <!-- W7.86: a failed read is an error, never "No palettes." -->
@@ -243,7 +247,7 @@
                             class="slug-pill inline-block align-middle mx-0.5"
                             :style="{ color: safeAccent, borderColor: safeAccent }"
                         >{{ confirmSlug }}</span>
-                        <template v-if="confirmSlug"> and all associated data. This cannot be undone.</template>
+                        <template v-if="confirmTail">{{ confirmTail }}</template>
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter>
@@ -304,15 +308,25 @@ const emptyCount = pm.emptyUserCount;
 
 const pruning = ref(false);
 
-// W5-12 (F-13): tail-priority slug split — the last 6 chars carry the
+// W5-12 (F-13): tail-priority slug split — the kept tail carries the
 // distinguishing suffix (prune candidates read `…-33` vs `…-77`, never two
 // identical `empty-ghost…` stubs).
+// X.W12U.s3 · UIA-V-413: the tail is cut at a HYPHEN, never mid-word — the
+// shortest hyphen-led suffix of at least SLUG_TAIL characters
+// (`eager-mapping-ember-sparrow` keeps `-sparrow`, `verdant-tidal-moss-owl`
+// keeps `-moss-owl`). A slug with no such boundary is not split.
 const SLUG_TAIL = 6;
+function slugCut(slug: string): number {
+    for (let i = slug.lastIndexOf("-"); i > 0; i = slug.lastIndexOf("-", i - 1)) {
+        if (slug.length - i >= SLUG_TAIL) return i;
+    }
+    return slug.length;
+}
 function slugHead(slug: string): string {
-    return slug.length > SLUG_TAIL ? slug.slice(0, -SLUG_TAIL) : slug;
+    return slug.slice(0, slugCut(slug));
 }
 function slugTail(slug: string): string {
-    return slug.length > SLUG_TAIL ? slug.slice(-SLUG_TAIL) : "";
+    return slug.slice(slugCut(slug));
 }
 
 // Confirmation dialog state
@@ -320,6 +334,7 @@ const confirmOpen = ref(false);
 const confirmTitle = ref("");
 const confirmDescription = ref("");
 const confirmSlug = ref<string | null>(null);
+const confirmTail = ref<string | null>(null);
 const confirmLabel = ref("Confirm");
 const confirmDestructive = ref(false);
 const confirmIcon = shallowRef<Component>(Trash2);
@@ -330,6 +345,8 @@ function showConfirm(opts: {
     description: string;
     label: string;
     slug?: string;
+    /** The sentence after the slug pill (X.W12U.s3 · UIA-V-622: said per act, never a shared "and all associated data"). */
+    tail?: string;
     destructive?: boolean;
     icon?: Component;
     action: () => void;
@@ -337,6 +354,7 @@ function showConfirm(opts: {
     confirmTitle.value = opts.title;
     confirmDescription.value = opts.description;
     confirmSlug.value = opts.slug ?? null;
+    confirmTail.value = opts.tail ?? null;
     confirmLabel.value = opts.label;
     confirmDestructive.value = opts.destructive ?? false;
     confirmIcon.value = opts.icon ?? Trash2;
@@ -380,6 +398,8 @@ function onPruneClick() {
         description: `This permanently deletes every user with 0 palettes on the server, and their sessions — not only the users shown here. ${n} of the ${pm.adminUsers.value.length} loaded users ${n === 1 ? "is" : "are"} empty. This cannot be undone.`,
         label: "Prune",
         destructive: true,
+        // UIA-V-622: the commit wears its trigger's glyph.
+        icon: Eraser,
         action: async () => {
             pruning.value = true;
             try {
@@ -395,11 +415,15 @@ function onPruneClick() {
 // undocumented, un-undoable fast path on the two most destructive actions
 // in the app (a shift-clicking power user and a shift-holding accident were
 // the same event). No special-case danger affordances (§No-workaround).
-function onDeletePalettesClick(slug: string) {
+// X.W12U.s3 · UIA-V-622: each confirm names its object as the list shows it
+// and quantifies the effect — the bulk delete says how many palettes and that
+// the user stays; the palette delete names the palette, not its slug.
+function onDeletePalettesClick(slug: string, count: number) {
     showConfirm({
         title: "Delete all palettes?",
-        description: "This will permanently delete all palettes for",
+        description: `This permanently deletes the ${count} palette${count === 1 ? "" : "s"} of`,
         slug,
+        tail: ". The user stays. This cannot be undone.",
         label: "Delete all palettes",
         destructive: true,
         action: () => void pm.onDeleteUserPalettes(slug),
@@ -409,8 +433,9 @@ function onDeletePalettesClick(slug: string) {
 function onDeleteUserClick(slug: string) {
     showConfirm({
         title: "Delete user?",
-        description: "This will permanently delete user",
+        description: "This permanently deletes the user",
         slug,
+        tail: ". This cannot be undone.",
         label: "Delete user",
         destructive: true,
         icon: UserX,
@@ -423,8 +448,7 @@ function onDeleteUserClick(slug: string) {
 function onDeletePaletteClick(palette: Palette) {
     showConfirm({
         title: "Delete palette?",
-        description: "This will permanently delete the palette",
-        slug: palette.slug,
+        description: `This permanently deletes “${palette.name}”. This cannot be undone.`,
         label: "Delete palette",
         destructive: true,
         action: () => void pm.onAdminDeletePalette(palette),

@@ -63,8 +63,9 @@ adminPopulatedTest.describe("G13 · admin rows", () => {
     adminPopulatedTest("flag dismiss — the row leaves and the verdict is announced", async ({ page }) => {
         await page.goto("/#/admin/flagged");
         await page.getByRole("button", { name: "Dismiss" }).first().click();
-        await expect(verdict(page, "flagged")).toContainText("Dismissed the reports on sunset-riot-9a3f");
-        await expect(page.getByText("Sunset Riot")).toHaveCount(0);
+        // X.W12U.s3 · UIA-V-644: the verdict names the palette as its row did.
+        await expect(verdict(page, "flagged")).toContainText("Dismissed the reports on “Sunset Riot”");
+        await expect(page.getByRole("button", { name: "Dismiss reports on Sunset Riot" })).toHaveCount(0);
     });
 
     adminPopulatedTest("tag delete — the chip leaves and the verdict is announced", async ({ page }) => {
