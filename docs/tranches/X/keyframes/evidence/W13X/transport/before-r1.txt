@@ -1,0 +1,28 @@
+RED   KFA-166 1440x900-light dock expanded after 10 s idle: true
+GREEN UIA-KF-018 1440x900-light dock tab stops ["Pause animation","Select animation","Reset animation"] · BODY hits 1
+RED   UIA-KF-256 1440x900-light trigger font 20.352px h 38.5 row 40.0 dock-label true
+RED   UIA-KF-257 1440x900-light 'Select animation' tooltips 1 · wrapper 'relative flex items-center gap-1.5'
+RED   UIA-KF-152 1440x900-light listbox bottom 769.0 vs dock top 764.6
+RED   KFA-167 1440x900-light per-row --dot-p ["0.31585999999999914","0.31585999999999914","0.31585999999999914"]
+RED   UIA-KF-151 1440x900-light rows [{"dot":"0.31585999999999914","status":null,"bold":true,"ind":false},{"dot":"0.31585999999999914","status":null,"bold":false,"ind":false},{"dot":"0.31585999999999914","status":null,"bold":false,"ind":false}]
+RED   KFA-54 1440x900-light after 7 s: open true dock expanded false listbox x 658.0 → 711.0
+RED   KFA-174 1440x900-light cube paused: thumb 4900/5000 -> 4900 400 ms after Reverse
+RED   KFA-104 1440x900-light spring: select 'Entry' — dock Play animation -> Pause animation
+GREEN UIA-KF-154 1440x900-light collapsed(true) '' vs expanded(true) ''
+GREEN UIA-KF-225 1440x900-light square: stage-card bottom 763.3 vs dock top 764.6
+RED   UIA-KF-051 1440x900-light easing: ribbon btn-playback 2, Play twin true
+GREEN UIA-KF-225 1440x900-light easing: stage-card bottom 763.3 vs dock top 764.6
+RED   UIA-KF-155 1440x900-light easing: ribbon Play bg oklch(0.56 0.17 295) fg oklch(0.985 0.005 296)
+RED   KFA-166 390x844-dark dock expanded after 10 s idle: true
+NOTE  UIA-KF-018 390x844-dark not read: the controls Sheet opens modal at boot and traps Tab (Close does not release it) — .mobile / SHEET-POSITION, not the transport
+RED   UIA-KF-256 390x844-dark trigger font 16px h 32.0 row 44.0 dock-label true
+RED   UIA-KF-257 390x844-dark 'Select animation' tooltips 1 · wrapper 'relative flex items-center gap-1.5'
+RED   UIA-KF-152 390x844-dark listbox bottom 732.5 vs dock top 722.6
+RED   KFA-167 390x844-dark per-row --dot-p ["0.32","0.32","0.32"]
+RED   UIA-KF-151 390x844-dark rows [{"dot":"0.32","status":null,"bold":true,"ind":false},{"dot":"0.32","status":null,"bold":false,"ind":false},{"dot":"0.32","status":null,"bold":false,"ind":false}]
+RED   KFA-54 390x844-dark after 7 s: open true dock expanded false listbox x 143.0 → 182.0
+GREEN UIA-KF-154 390x844-dark collapsed(true) '' vs expanded(true) ''
+RED   UIA-KF-225 390x844-dark square: stage-card bottom 727.5 vs dock top 722.6
+RED   UIA-KF-051 390x844-dark easing: ribbon btn-playback 2, Play twin true
+RED   UIA-KF-225 390x844-dark easing: stage-card bottom 727.5 vs dock top 722.6
+RED   UIA-KF-155 390x844-dark easing: ribbon Play bg oklch(0.74 0.13 305) fg oklch(0.24 0.03 302)
