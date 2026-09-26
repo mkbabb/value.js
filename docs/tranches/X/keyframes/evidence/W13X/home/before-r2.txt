@@ -1,0 +1,83 @@
+GREEN UIA-KF-059 1440x900-light toast roots ["toast"] (glass primitive = 'toast')
+GREEN UIA-KF-100 1440x900-light tones ["success","destructive","info"] · distinct plate colours 3/3
+GREEN UIA-KF-218 1440x900-light description contrast [10.01,9.38,10.15]
+GREEN UIA-KF-220 1440x900-light close control per toast [true,true,true]
+RED   A2-KE-X-9 1440x900-light toasts over a dock 0/3 (top 0 · transport 0) · close outside the plate 3 · boxes [[1036,545.1,388,113],[1036,658.1,388,113],[1036,771,388,113]]
+GREEN KFA-180 1440x900-light first painted check frame opacity 0.473582 at 152.8 ms
+RED   KFA-63 1440x900-light check opacity @600/1000 ms [0,0] · label @3100 ms 'Copied to clipboard' · check @3100 0
+RED   UIA-KF-298 1440x900-light @80 ms check 0 clip 1 · check held [0,0]
+RED   KFA-178 1440x900-light inline opacity range [-0.181831, 0.473582] over 300 writes
+RED   KFA-179 1440x900-light clipboard opacity during the copied window [1,1]
+RED   UIA-KF-301 1440x900-light re-hover 2.4 s after the copy: tooltip 'CopiedCopied' on surface color(srgb 0.20397 0.148263 0.0829736 / 0.18) · 'Copied' frames right after the click 0
+RED   KFA-124 1440x900-light second click @117 ms: after it the check dips to 0.368783 @154.8 ms and re-enters to >= 0.9: false
+GREEN A2-KE-X-10 1440x900-light skeleton region vs the ground beside it: mean luminance delta -37.5 levels (visible >= 8) · box [91.2,175,1257.6,550]
+GREEN KFA-205 1440x900-light a loading indicator is painted while the chunk loads: true
+GREEN UIA-KF-124 1440x900-light plate is a glass card true · plate fill color(srgb 0.20397 0.148263 0.0829736 / 0.14) (alpha 0.14)
+GREEN UIA-KF-234 1440x900-light sheen covers 99.5 % of the plate at alpha 0.08
+NOTE  KFA-200/KFA-28 1440x900-light served dot opacity changes: the WAAPI lane bakes steps(4) into linear ramps (KFA-28), so the step quantum is unreadable on the page; KFA-200 is judged by test/demo/instrument/typing-dots-quantum.test.ts. distinct change frames 366 over 4.8 s (one shared 150 ms grid = 32) · frames where >1 dot steps together 362
+GREEN UIA-KF-059 1440x900-dark toast roots ["toast"] (glass primitive = 'toast')
+GREEN UIA-KF-100 1440x900-dark tones ["success","destructive","info"] · distinct plate colours 3/3
+GREEN UIA-KF-218 1440x900-dark description contrast [11.7,12.89,12.49]
+GREEN UIA-KF-220 1440x900-dark close control per toast [true,true,true]
+RED   A2-KE-X-9 1440x900-dark toasts over a dock 0/3 (top 0 · transport 0) · close outside the plate 3 · boxes [[1036,545.1,388,113],[1036,658.1,388,113],[1036,771,388,113]]
+GREEN KFA-180 1440x900-dark first painted check frame opacity 0.564253 at 73.2 ms
+RED   KFA-63 1440x900-dark check opacity @600/1000 ms [0,0] · label @3100 ms 'Copied to clipboard' · check @3100 0
+RED   UIA-KF-298 1440x900-dark @80 ms check 0.996107 clip 1 · check held [0,0]
+RED   KFA-178 1440x900-dark inline opacity range [-0.182623, 1.18209] over 310 writes
+RED   KFA-179 1440x900-dark clipboard opacity during the copied window [1,1]
+RED   UIA-KF-301 1440x900-dark re-hover 2.4 s after the copy: tooltip 'CopiedCopied' on surface color(srgb 0.0927547 0.0503523 0.00879371 / 0.22) · 'Copied' frames right after the click 0
+RED   KFA-124 1440x900-dark second click @147 ms: after it the check dips to 0.392237 @152.7 ms and re-enters to >= 0.9: false
+GREEN A2-KE-X-10 1440x900-dark skeleton region vs the ground beside it: mean luminance delta 15.1 levels (visible >= 8) · box [91.2,175,1257.6,550]
+GREEN KFA-205 1440x900-dark a loading indicator is painted while the chunk loads: true
+GREEN UIA-KF-124 1440x900-dark plate is a glass card true · plate fill color(srgb 0.0927547 0.0503523 0.00879371 / 0.18) (alpha 0.18)
+GREEN UIA-KF-234 1440x900-dark sheen covers 99.5 % of the plate at alpha 0.08
+GREEN UIA-KF-059 390x844-dark toast roots ["toast"] (glass primitive = 'toast')
+GREEN UIA-KF-100 390x844-dark tones ["success","destructive","info"] · distinct plate colours 3/3
+GREEN UIA-KF-218 390x844-dark description contrast [11.7,12.89,12.49]
+GREEN UIA-KF-220 390x844-dark close control per toast [true,true,true]
+RED   A2-KE-X-9 390x844-dark toasts over a dock 1/3 (top 1 · transport 0) · close outside the plate 3 · boxes [[16,228.5,358,106.2],[16,122.2,358,106.2],[16,16,358,106.2]]
+GREEN KFA-180 390x844-dark first painted check frame opacity 0.488489 at 80.7 ms
+RED   KFA-63 390x844-dark check opacity @600/1000 ms [0,0] · label @3100 ms 'Copied to clipboard' · check @3100 0
+RED   UIA-KF-298 390x844-dark @80 ms check 0 clip 1 · check held [0,0]
+RED   KFA-178 390x844-dark inline opacity range [-0.182208, 1.17918] over 308 writes
+RED   KFA-179 390x844-dark clipboard opacity during the copied window [1,1]
+RED   UIA-KF-301 390x844-dark re-hover 2.4 s after the copy: tooltip 'CopiedCopied' on surface color(srgb 0.0927547 0.0503523 0.00879371 / 0.22) · 'Copied' frames right after the click 0
+RED   KFA-124 390x844-dark second click @182 ms: after it the check dips to 0.349029 @198.6 ms and re-enters to >= 0.9: false
+GREEN A2-KE-X-10 390x844-dark skeleton region vs the ground beside it: mean luminance delta 9.4 levels (visible >= 8) · box [44,123,302,597.9]
+GREEN KFA-205 390x844-dark a loading indicator is painted while the chunk loads: true
+GREEN UIA-KF-124 390x844-dark plate is a glass card true · plate fill color(srgb 0.0927547 0.0503523 0.00879371 / 0.18) (alpha 0.18)
+GREEN UIA-KF-234 390x844-dark sheen covers 99.0 % of the plate at alpha 0.08
+GREEN UIA-KF-231 390x844-dark skeleton box [44,123,302,597.9] over top dock false · over transport false
+GREEN UIA-KF-059 390x844-light toast roots ["toast"] (glass primitive = 'toast')
+GREEN UIA-KF-100 390x844-light tones ["success","destructive","info"] · distinct plate colours 3/3
+GREEN UIA-KF-218 390x844-light description contrast [10.01,9.38,10.15]
+GREEN UIA-KF-220 390x844-light close control per toast [true,true,true]
+RED   A2-KE-X-9 390x844-light toasts over a dock 1/3 (top 1 · transport 0) · close outside the plate 3 · boxes [[16,228.5,358,106.2],[16,122.2,358,106.2],[16,16,358,106.2]]
+GREEN KFA-180 390x844-light first painted check frame opacity 0.564253 at 70.3 ms
+RED   KFA-63 390x844-light check opacity @600/1000 ms [0,0] · label @3100 ms 'Copied to clipboard' · check @3100 0
+RED   UIA-KF-298 390x844-light @80 ms check 1 clip 1 · check held [0,0]
+RED   KFA-178 390x844-light inline opacity range [-0.182544, 1.18152] over 309 writes
+RED   KFA-179 390x844-light clipboard opacity during the copied window [1,1]
+RED   UIA-KF-301 390x844-light re-hover 2.4 s after the copy: tooltip 'CopiedCopied' on surface color(srgb 0.20397 0.148263 0.0829736 / 0.18) · 'Copied' frames right after the click 0
+RED   KFA-124 390x844-light second click @200 ms: after it the check dips to 0.392237 @210.8 ms and re-enters to >= 0.9: false
+GREEN A2-KE-X-10 390x844-light skeleton region vs the ground beside it: mean luminance delta -37.6 levels (visible >= 8) · box [44,123,302,597.9]
+GREEN KFA-205 390x844-light a loading indicator is painted while the chunk loads: true
+GREEN UIA-KF-124 390x844-light plate is a glass card true · plate fill color(srgb 0.20397 0.148263 0.0829736 / 0.14) (alpha 0.14)
+GREEN UIA-KF-234 390x844-light sheen covers 99.0 % of the plate at alpha 0.08
+GREEN UIA-KF-231 390x844-light skeleton box [44,123,302,597.9] over top dock false · over transport false
+GREEN UIA-KF-059 1024x768-light toast roots ["toast"] (glass primitive = 'toast')
+GREEN UIA-KF-100 1024x768-light tones ["success","destructive","info"] · distinct plate colours 3/3
+GREEN UIA-KF-218 1024x768-light description contrast [10.01,9.38,10.15]
+GREEN UIA-KF-220 1024x768-light close control per toast [true,true,true]
+RED   A2-KE-X-9 1024x768-light toasts over a dock 0/3 (top 0 · transport 0) · close outside the plate 3 · boxes [[620,421.9,388,110],[620,531.9,388,110],[620,642,388,110]]
+GREEN KFA-180 1024x768-light first painted check frame opacity 0.595664 at 174.3 ms
+RED   KFA-63 1024x768-light check opacity @600/1000 ms [0,0] · label @3100 ms 'Copied to clipboard' · check @3100 0
+RED   UIA-KF-298 1024x768-light @80 ms check 0 clip 1 · check held [0,0]
+RED   KFA-178 1024x768-light inline opacity range [-0.182585, 0.84397] over 299 writes
+RED   KFA-179 1024x768-light clipboard opacity during the copied window [1,1]
+RED   UIA-KF-301 1024x768-light re-hover 2.4 s after the copy: tooltip 'CopiedCopied' on surface color(srgb 0.20397 0.148263 0.0829736 / 0.18) · 'Copied' frames right after the click 0
+RED   KFA-124 1024x768-light second click @116 ms: after it the check dips to 0.392237 @149.5 ms and re-enters to >= 0.9: false
+GREEN A2-KE-X-10 1024x768-light skeleton region vs the ground beside it: mean luminance delta -36.2 levels (visible >= 8) · box [41,146,942.1,476.1]
+GREEN KFA-205 1024x768-light a loading indicator is painted while the chunk loads: true
+GREEN UIA-KF-124 1024x768-light plate is a glass card true · plate fill color(srgb 0.20397 0.148263 0.0829736 / 0.14) (alpha 0.14)
+GREEN UIA-KF-234 1024x768-light sheen covers 99.4 % of the plate at alpha 0.08
