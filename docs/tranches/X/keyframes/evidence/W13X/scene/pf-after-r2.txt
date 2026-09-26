@@ -1,0 +1,1 @@
+RED   KFA-22 home Play: max rAF gap 296 ms · first per-frame spin steps after arrival [0.3,0.3,2.1,1.1,0.3,0.3,0.3,0.3] deg · max step in the first 12 moving frames 2.1 deg (steady ≈3.8)

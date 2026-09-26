@@ -1,0 +1,2 @@
+RED   UIA-KF-143 garbage ?state= on load → toasts []
+RED   UIA-KF-143 valid ?state= on load (payload built by the page: true) → toasts []

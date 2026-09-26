@@ -1,0 +1,3 @@
+RED   KFA-106 nav cube->sequence (hash): card x frames 207, moving frames 3, x span 9.600000000000023 px (first 559.9 -> last 550.4) · VT calls 0
+RED   KFA-190 placeholder frames during the arrival 5
+RED   UIA-KF-125 in-app arrival: VT calls 0 · skeleton frames 5 (the VT's new capture is the resolved scene only when none)
