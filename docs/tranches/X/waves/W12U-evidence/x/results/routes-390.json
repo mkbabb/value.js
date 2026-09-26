@@ -1,0 +1,1870 @@
+[
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/",
+  "m": {
+   "hash": "#/",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 8532,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 13,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24",
+     "Select color space:55x30"
+    ]
+   },
+   "minFs": 10.648,
+   "at11": {
+    "mn": 1
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Home",
+    "H3 25.888px/400 92.0%,88.8,20.0",
+    "H2 25.888px/400 About the color spac",
+    "H2 20.352px/600 Basic Information",
+    "H2 20.352px/600 Components",
+    "H2 20.352px/600 Key Properties"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Reset color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Random color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Palettes",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x527",
+    "16+358x7829"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/palettes",
+  "m": {
+   "hash": "#/palettes",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 1731,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 18,
+    "of": 27,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Palettes",
+    "H3 25.888px/400 92.0%,88.8,20.0",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Reset color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Random color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Palettes",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x527",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/browse",
+  "m": {
+   "hash": "#/browse",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 2321,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 26,
+    "of": 44,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search palettes...:216x32",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 14
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Browse",
+    "H2 25.888px/400 Browse",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x1117",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/extract",
+  "m": {
+   "hash": "#/extract",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 1679,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 11,
+    "of": 21,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Number of colors:12x24",
+     "Chroma weight:12x24",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "label.fira-code.text-micro": 1,
+    "span.fira-code.text-micro": 1,
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Extract",
+    "H2 25.888px/400 Extract",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x476",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/mix",
+  "m": {
+   "hash": "#/mix",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 1162,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 13,
+    "of": 18,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24",
+     "Palettes:66x26",
+     "From palettes6:324x26"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.text-micro.text-muted-foreground": 1
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Mix",
+    "H3 25.888px/400 92.0%,88.8,20.0",
+    "H2 25.888px/400 Mix"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Clear",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Mix",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy result",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x527",
+    "16+358x459"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/generate",
+  "m": {
+   "hash": "#/generate",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 1689,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 30,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "Palette name:267x31",
+     "Color count:12x24",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Generate",
+    "H2 25.888px/400 Generate",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Regenerate",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Save palette",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy colors",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x485",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/gradient",
+  "m": {
+   "hash": "#/gradient",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 1468,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 10,
+    "of": 19,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Gradient",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Reset — unavailable",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy CSS — unavailable",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Seed from palette — unavailable",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x265",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/atmosphere",
+  "m": {
+   "hash": "#/atmosphere",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 3,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Atmosphere"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x265"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/blob",
+  "m": {
+   "hash": "#/blob",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 968,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 11,
+    "of": 13,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Blob",
+    "H3 25.888px/400 92.0%,88.8,20.0"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Reset color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Random color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Palettes",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x527",
+    "16+358x265"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/users",
+  "m": {
+   "hash": "#/admin/users",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 4119,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:216x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 25.888px/400 Users 47"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x3959"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/names",
+  "m": {
+   "hash": "#/admin/names",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 3870,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:159x26",
+     "Search color names:268x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 25.888px/400 Names 47"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x3711"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/audit",
+  "m": {
+   "hash": "#/admin/audit",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 2000,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x1841"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/flagged",
+  "m": {
+   "hash": "#/admin/flagged",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 4338,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x4178"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/tags",
+  "m": {
+   "hash": "#/admin/tags",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 25.888px/400 Tags"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x576"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/no-such-page",
+  "m": {
+   "hash": "#/no-such-page",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 3,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Not Found",
+    "H2 25.888px/400 Not Found"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x306"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/",
+  "m": {
+   "hash": "#/",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 8532,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 13,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24",
+     "Select color space:55x30"
+    ]
+   },
+   "minFs": 10.648,
+   "at11": {
+    "mn": 1
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Home",
+    "H3 25.888px/400 92.0%,88.8,20.0",
+    "H2 25.888px/400 About the color spac",
+    "H2 20.352px/600 Basic Information",
+    "H2 20.352px/600 Components",
+    "H2 20.352px/600 Key Properties"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Reset color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Random color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Palettes",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x527",
+    "16+358x7829"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/palettes",
+  "m": {
+   "hash": "#/palettes",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 1731,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 18,
+    "of": 27,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Palettes",
+    "H3 25.888px/400 92.0%,88.8,20.0",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Reset color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Random color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Palettes",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x527",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/browse",
+  "m": {
+   "hash": "#/browse",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 2321,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 26,
+    "of": 44,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search palettes...:216x32",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x24",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 14
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Browse",
+    "H2 25.888px/400 Browse",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x1117",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/extract",
+  "m": {
+   "hash": "#/extract",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 1679,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 11,
+    "of": 21,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Number of colors:12x24",
+     "Chroma weight:12x24",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "label.fira-code.text-micro": 1,
+    "span.fira-code.text-micro": 1,
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Extract",
+    "H2 25.888px/400 Extract",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x476",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/mix",
+  "m": {
+   "hash": "#/mix",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 1162,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 13,
+    "of": 18,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24",
+     "Palettes:66x26",
+     "From palettes6:324x26"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.text-micro.text-muted-foreground": 1
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Mix",
+    "H3 25.888px/400 92.0%,88.8,20.0",
+    "H2 25.888px/400 Mix"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Clear",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Mix",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy result",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x527",
+    "16+358x459"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/generate",
+  "m": {
+   "hash": "#/generate",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 1689,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 30,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "Palette name:267x31",
+     "Color count:12x24",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Generate",
+    "H2 25.888px/400 Generate",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Regenerate",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Save palette",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy colors",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x485",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/gradient",
+  "m": {
+   "hash": "#/gradient",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 1468,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 10,
+    "of": 19,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "Search your palettes:268x32",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Gradient",
+    "H2 25.888px/400 My Palettes6 (6 save"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Reset — unavailable",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy CSS — unavailable",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Seed from palette — unavailable",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x265",
+    "16+358x1028"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/atmosphere",
+  "m": {
+   "hash": "#/atmosphere",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 3,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Atmosphere"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x265"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/blob",
+  "m": {
+   "hash": "#/blob",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 968,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 11,
+    "of": 13,
+    "list": [
+     "Select view:56x32",
+     "Toggle action bar:33x33",
+     "Menu:40x32",
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Blob",
+    "H3 25.888px/400 92.0%,88.8,20.0"
+   ]
+  },
+  "seats": [
+   {
+    "l": "Reset color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Copy color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Random color",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Palettes",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   },
+   {
+    "l": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "slop6": false
+   }
+  ],
+  "layout": {
+   "panes": [
+    "16+358x527",
+    "16+358x265"
+   ],
+   "dock": {
+    "w": 173,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 149
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/users",
+  "m": {
+   "hash": "#/admin/users",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x150"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/names",
+  "m": {
+   "hash": "#/admin/names",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 3871,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:159x26",
+     "Search color names:268x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 25.888px/400 Names 47"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x3711"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/audit",
+  "m": {
+   "hash": "#/admin/audit",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 2000,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x1841"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/flagged",
+  "m": {
+   "hash": "#/admin/flagged",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 4337,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x4178"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/tags",
+  "m": {
+   "hash": "#/admin/tags",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 25.888px/400 Tags"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x576"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/no-such-page",
+  "m": {
+   "hash": "#/no-such-page",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 3,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Not Found",
+    "H2 25.888px/400 Not Found"
+   ]
+  },
+  "seats": [],
+  "layout": {
+   "panes": [
+    "16+358x306"
+   ],
+   "dock": {
+    "w": 132,
+    "h": 60,
+    "state": null,
+    "sw": 351,
+    "cw": 108
+   }
+  }
+ }
+]

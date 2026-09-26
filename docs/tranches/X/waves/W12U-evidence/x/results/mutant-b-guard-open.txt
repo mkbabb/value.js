@@ -1,0 +1,10 @@
+SERVED MODEL: claude-opus-5-5
+# mutant B (installAdminGuard not registered; guard fails open) — expect token-less arms RED
+  1) [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 light › token-less deep link fail-closes to Not Found at the typed address 
+    Error: expect(locator).toBeVisible() failed
+  2) [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 light › token-less in-app hash navigation fail-closes the same way 
+    Error: expect(locator).toBeVisible() failed
+  3) [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 dark › token-less deep link fail-closes to Not Found at the typed address 
+    Error: expect(locator).toBeVisible() failed
+  4) [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 dark › token-less in-app hash navigation fail-closes the same way 
+    Error: expect(locator).toBeVisible() failed
