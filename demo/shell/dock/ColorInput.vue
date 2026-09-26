@@ -12,6 +12,9 @@
                         ref="inputColorRef"
                         contenteditable
                         role="textbox"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocorrect="off"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
                         class="color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
