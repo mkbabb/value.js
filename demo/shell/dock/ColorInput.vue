@@ -118,7 +118,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onMounted, ref, useTemplateRef, watch } from "vue";
+import { computed, inject, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from "vue";
 import { writeClipboard } from "@mkbabb/glass-ui";
 import {
     Popover,
@@ -284,11 +284,31 @@ watch(() => proposeMode, (propose) => {
     }
 });
 
-// Sync displayed text when not focused (only in color mode)
-watch(formattedCurrentColor, (text) => {
-    if (!proposeMode && !inputIsFocused.value && inputColorRef.value) {
-        inputColorRef.value.innerText = formatCssCaption(text);
+// Sync displayed text when not focused (only in color mode).
+// X.W12U.p (W12U.md addendum (c) 3): this is the dock seat a colour drag
+// re-renders on every input. An `innerText` write REPLACES the text node — a
+// childList mutation inside the dock run, which glass's `useDockRun` roving
+// MutationObserver answers with a `syncRoving` pass each input. The caption is
+// therefore painted at most once per frame (latest text wins) and in place on
+// the existing text node (a characterData write: no node churn, no roving pass).
+let captionFrame: number | null = null;
+const paintCaption = () => {
+    captionFrame = null;
+    const el = inputColorRef.value;
+    if (proposeMode || inputIsFocused.value || !el) return;
+    const text = formatCssCaption(formattedCurrentColor.value);
+    const node = el.firstChild;
+    if (node instanceof Text && node === el.lastChild) {
+        if (node.data !== text) node.data = text;
+    } else {
+        el.textContent = text;
     }
+};
+watch(formattedCurrentColor, () => {
+    if (captionFrame === null) captionFrame = requestAnimationFrame(paintCaption);
+});
+onBeforeUnmount(() => {
+    if (captionFrame !== null) cancelAnimationFrame(captionFrame);
 });
 
 onMounted(() => {
