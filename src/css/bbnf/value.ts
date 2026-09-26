@@ -94,8 +94,21 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     return callNode(name, body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]));
 }
 
-/** An unquoted url (`value.bbnf` `urlCall`, a `<url-token>`): a `url` call whose one argument is the url as authored. */
-const urlValue = ([name, url]: readonly [string, string]): CssCall => callNode(name, Object.freeze([keyword(url)]));
+/**
+ * An unquoted url (`value.bbnf` `urlCall`, a `<url-token>`): a `url` call whose one argument is the url
+ * as authored; the empty `url()` is the call with no arguments, which the serializer spells `url()`.
+ */
+const urlValue = ([name, url]: readonly [string, string | undefined]): CssCall =>
+    callNode(name, url === undefined ? NO_ARGS : Object.freeze([keyword(url)]));
+
+/**
+ * A grid `<line-names>` block (`value.bbnf` `lineNames`): one keyword, spelled canonically — its
+ * identifiers as authored, single-spaced, inside `[` `]` — so it serializes to text that reads back equal.
+ */
+const lineNamesValue = (token: string): CssScalar => {
+    const names = token.slice(1, -1).trim();
+    return keyword(names === "" ? "[]" : `[${names.split(/\s+/).join(" ")}]`);
+};
 
 /** A `()` simple block (`value.bbnf` `group`): a call with the empty name, its arguments read as a call's are. */
 const groupValue = (body: ValueNode): ValueNode => callValue(["", body]);
@@ -190,6 +203,7 @@ export const valueActions = {
     call: { kind: "map", fn: callValue },
     varCall: { kind: "map", fn: callValue },
     urlCall: { kind: "map", fn: urlValue },
+    lineNames: { kind: "map", fn: lineNamesValue },
     mathCall: { kind: "map", fn: callValue },
     mathSpace: { kind: "map", fn: listOf("space") },
     mathSlash: { kind: "map", fn: listOf("slash") },

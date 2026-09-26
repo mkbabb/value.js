@@ -184,6 +184,26 @@ export const W6_CLASSES: readonly W6Class[] = [
         edits: simpleBlocks,
     },
     {
+        // GAP-URL0 (X.P.W7 `.gap2`; W7.md ADDENDUM (i) 2): the empty `url()` is a `<url-token>` with
+        // empty contents (css-syntax-3 §4.3.6). The incumbent refuses a call with no argument. Repair:
+        // the url spelled as the empty string, `url("")` — the incumbent must then agree.
+        id: "GAP-URL0",
+        governs: "MIS_ACCEPT",
+        edits: (input) =>
+            [...input.matchAll(/url\(\s*\)/gi)].map((m) => ({ start: m.index, end: m.index + m[0].length, text: 'url("")' })),
+    },
+    {
+        // GAP-LN (X.P.W7 `.gap2`; W7.md ADDENDUM (i) 1): grid line names, css-grid-2 §7.2
+        // `<line-names> = '[' <custom-ident>* ']'`. The incumbent has no `[]` term. Repair: each block
+        // (the grammar's own `lineNames` shape: identifiers alone) spelled as the ident `x` — the
+        // incumbent must then agree.
+        id: "GAP-LN",
+        governs: "MIS_ACCEPT",
+        edits: (input) =>
+            [...input.matchAll(/\[\s*(?:(?:-?[a-zA-Z_]|--)[\w-]*(?:\s+(?:-?[a-zA-Z_]|--)[\w-]*)*)?\s*\]/g)]
+                .map((m) => ({ start: m.index, end: m.index + m[0].length, text: "x" })),
+    },
+    {
         // SC-2 (COHESION §0bx; W6.md `.b`): `display-p3-linear` (css-color-4 §10.5). Repair: the space
         // spelled `display-p3` — the incumbent must then read the colour.
         id: "SC-2",

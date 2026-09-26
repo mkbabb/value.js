@@ -21,7 +21,7 @@ spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
 // css-transforms-1 `<transform-list> = <transform-function>+`; X.P.W7 `.gap`).
 termSep    = /\s+|(?=[:;])|(?<=[:;])|(?<=\))(?=[a-zA-Z_-][\w-]*\()/ ;
 
-valueTerm  = colorCall | varCall | urlCall | mathCall | call | numeric | string | operator | identTerm | badTerm ;
+valueTerm  = colorCall | varCall | urlCall | mathCall | call | numeric | string | lineNames | operator | identTerm | badTerm ;
 // A component no production above reads (`@` in `calc(1px @ 2px)`). It is matched only to be
 // REFUSED — its action answers `css_syntax` expecting a scalar, with the diagnostic spanning exactly
 // this run — so a malformed value names its offending component rather than the whole input.
@@ -42,8 +42,10 @@ callName   = /(?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\()/ ;
 // whitespace) by a quote reads its body whole — never as a component value list — up to its `)`,
 // whitespace allowed only at either end; a quote, `(`, whitespace inside or a non-printable makes it
 // a `<bad-url-token>` (§4.3.14), refused. `url("…")` is a `<function-token>` and stays a `call`.
-urlHead    = /url\((?!\s*["')])/i ;
-urlCall    = /url(?=\()/i , /\(\s*/ >> urlBody << close ;
+// The body may be empty: `url()` is a `<url-token>` with empty contents (§4.3.6), valid to parse
+// (it computes to an invalid image at use time); X.P.W7 `.gap2`.
+urlHead    = /url\((?!\s*["'])/i ;
+urlCall    = /url(?=\()/i , /\(\s*/ >> ( urlBody ? ) << close ;
 urlBody    = /(?:[^\s"'()\\\x00-\x08\x0b\x0e-\x1f\x7f]|\\[^\n\r\f])+/ ;
 
 // A math function (css-values-4 §10) reads its arguments as a call does, and admits a `()` simple
@@ -54,7 +56,11 @@ mathCall   = /(?:calc|min|max|clamp|round|mod|rem|sin|cos|tan|asin|acos|atan2|at
              /\(\s*/ >> mathComma << close ;
 mathComma  = mathSlash , ( comma >> mathSlash ) * ;
 mathSlash  = mathSpace , ( slash >> mathSpace ) * ;
-mathSpace  = mathTerm , ( termSep >> mathTerm ) * ;
+mathSpace  = mathTerm , ( mathSep >> mathTerm ) * ;
+// css-values-4 §10.1: `+` and `-` must be surrounded by whitespace; `*` and `/` need none. A `/` is
+// already the slash list's separator; a `*` may stand directly against the terms on either side
+// (`calc(1px*2)` reads as `calc(1px * 2)` does). `calc(1px+2px)` stays refused (X.P.W7 `.gap2`).
+mathSep    = termSep | /\s*(?=\*)|(?<=\*)/ ;
 mathTerm   = group | valueTerm ;
 group      = /\(\s*/ >> mathComma << close ;
 
@@ -63,6 +69,11 @@ group      = /\(\s*/ >> mathComma << close ;
 numeric    = /([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)([%a-zA-Z-]*)(?![\w\\.])/ ;
 operator   = /<=|>=|==|!=|[+*<>=:;]|-(?![\w-])/ ;
 identTerm  = /[-_a-zA-Z][-_a-zA-Z\d]*(?![\w(-])/ ;
+// css-grid-2 §7.2 `<line-names> = '[' <custom-ident>* ']'` (`grid-template-columns: [rail] 1fr [end]`):
+// a `[]` simple block (css-syntax-3 §5.4.8) holding only whitespace-separated identifiers — never a
+// general `[]` block (`[1px]`, `[a, b]`, `["a"]`, `[[a]]` stay refused). One term, whose action spells
+// it canonically, `[a b]` (X.P.W7 `.gap2`).
+lineNames  = /\[\s*(?:(?:-?[a-zA-Z_]|--)[\w-]*(?:\s+(?:-?[a-zA-Z_]|--)[\w-]*)*)?\s*\]/ ;
 
 // A single scalar — `parseCssScalar`: a colour, a number with its unit, a string, an
 // operator token or a keyword.

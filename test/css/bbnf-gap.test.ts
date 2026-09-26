@@ -11,6 +11,13 @@
 //   3. Nested parentheses in math (`calc(50% - (1em / 2))`): css-values-4 §10.1
 //      `<calc-value> = … | ( <calc-sum> )`; a `()` simple block (css-syntax-3 §5.4.8) is a call with
 //      the empty name, which the serializer spells `( … )`.
+// X.P.W7 `.gap2` (W7.md ADDENDUM (i)) — three more valid forms `.gap` surfaced, cured the same way:
+//   4. Grid line names (`grid-template-columns: [rail] 1fr [end]`): css-grid-2 §7.2
+//      `<line-names> = '[' <custom-ident>* ']'`, one keyword spelled canonically `[a b]`; a general
+//      `[]` block stays refused.
+//   5. The empty `url()`: css-syntax-3 §4.3.6, a `<url-token>` with empty contents.
+//   6. `*` with no whitespace in math (`calc(1px*2)`): css-values-4 §10.1 requires whitespace only
+//      around `+` and `-`.
 // The WPT cases are read from the vendored `wpt/` files (`./wpt-cases`); the corpus holds css-color
 // parsing tests only, so its nested-parenthesis calc inputs are the WPT-derived cases here (no
 // transform or url() case exists in it).
@@ -134,5 +141,82 @@ describe("3 · nested parentheses in math (css-values-4 §10.1 `( <calc-sum> )`)
 
     it("parses the bulma declaration inside a sheet", () => {
         expect(parseStylesheet(".a { left: calc(50% - (1em / 2)); }").ok).toBe(true);
+    });
+});
+
+describe("4 · grid line names (css-grid-2 §7.2 <line-names> = '[' <custom-ident>* ']')", () => {
+    it("reads `[rail] 1fr [end]` with each block one keyword, spelled canonically", () => {
+        expect(roundTrip("[rail] 1fr [end]")).toEqual(space(kw("[rail]"), num(1, "fr"), kw("[end]")));
+        expect(roundTrip("[  a   b ] auto")).toEqual(space(kw("[a b]"), kw("auto")));
+        expect(roundTrip("[--x -y _z] 1fr")).toEqual(space(kw("[--x -y _z]"), num(1, "fr")));
+        //  `<custom-ident>*`: the empty block is valid.
+        expect(roundTrip("[] 1fr")).toEqual(space(kw("[]"), num(1, "fr")));
+    });
+
+    it("reads line names inside repeat(), beside strings (grid-template) and after subgrid", () => {
+        expect(roundTrip("repeat(auto-fill, [col-start] minmax(8rem, 1fr) [col-end])")).toEqual(call("repeat",
+            kw("auto-fill"), space(kw("[col-start]"), call("minmax", num(8, "rem"), num(1, "fr")), kw("[col-end]"))));
+        expect(roundTrip('[header-left] "head head" 30px [header-right] / 1fr')).toEqual(slash(
+            space(kw("[header-left]"), kw('"head head"'), num(30, "px"), kw("[header-right]")), num(1, "fr")));
+        expect(roundTrip("subgrid [a] [b c]")).toEqual(space(kw("subgrid"), kw("[a]"), kw("[b c]")));
+    });
+
+    it("refuses any `[]` block that is not identifiers alone", () => {
+        for (const source of ["[1px]", "[a, b]", '["a"]', "[[a]]", "[a/b]", "[a", "a]", "[a]b", "[a](b)", "[a;b]", "[a()]"]) {
+            expect(parseCssValue(source).ok, source).toBe(false);
+        }
+    });
+
+    it("parses the keyframes corpus declaration inside a sheet", () => {
+        const sheet = parseStylesheet(".a { grid-template-columns:[rail] var(--rail-track) [stage] minmax(0, 1fr); }");
+        expect(sheet.ok).toBe(true);
+    });
+});
+
+describe("5 · the empty url() (css-syntax-3 §4.3.6 <url-token> with empty contents)", () => {
+    it("reads `url()` as the url call with no arguments, spelled `url()`", () => {
+        expect(roundTrip("url()")).toEqual(call("url"));
+        expect(roundTrip("url(   )")).toEqual(call("url"));
+        expect(roundTrip("URL() no-repeat")).toEqual(space(call("URL"), kw("no-repeat")));
+    });
+
+    it("keeps a bad url refused, and a function that needs an argument still needs one", () => {
+        expect(parseCssValue("url( a b )").ok).toBe(false);
+        expect(parseCssValue("url(()").ok).toBe(false);
+        expect(parseCssValue("rotate()").ok).toBe(false);
+    });
+
+    it("parses the declaration inside a sheet", () => {
+        expect(parseStylesheet(".a { background-image: url(); }").ok).toBe(true);
+    });
+});
+
+describe("6 · `*` with no whitespace in math (css-values-4 §10.1)", () => {
+    it("reads `calc(1px*2)` as `calc(1px * 2)` reads", () => {
+        const value = roundTrip("calc(1px*2)");
+        expect(value).toEqual(call("calc", space(num(1, "px"), kw("*"), num(2))));
+        expect(value).toEqual(roundTrip("calc(1px * 2)"));
+        expect(roundTrip("calc(1px *2)")).toEqual(value);
+        expect(roundTrip("calc(1px* 2)")).toEqual(value);
+    });
+
+    it("reads the corpus spellings, groups and functions against `*`, and `/` unspaced", () => {
+        expect(roundTrip("calc(2*var(--spacing)*-1)")).toEqual(call("calc", space(
+            num(2), kw("*"), call("var", kw("--spacing")), kw("*"), num(-1))));
+        expect(roundTrip("calc((1px + 2px)*3)")).toEqual(call("calc", space(
+            call("", space(num(1, "px"), kw("+"), num(2, "px"))), kw("*"), num(3))));
+        expect(roundTrip("min(10px*2, 3em)")).toMatchObject({ kind: "call", name: "min", args: [space(num(10, "px"), kw("*"), num(2)), num(3, "em")] });
+        expect(roundTrip("calc(4px/2)")).toEqual(call("calc", slash(num(4, "px"), num(2))));
+    });
+
+    it("still requires whitespace around `+` and `-`, and admits `*` only inside math", () => {
+        expect(parseCssValue("calc(1px+2px)").ok).toBe(false);
+        expect(parseCssValue("calc(1px+ 2px)").ok).toBe(false);
+        expect(parseCssValue("foo(1*2)").ok).toBe(false);
+        expect(parseCssValue("1px*2").ok).toBe(false);
+    });
+
+    it("parses the corpus declaration inside a sheet", () => {
+        expect(parseStylesheet(".a { margin-inline: calc(2*var(--spacing)*-1); }").ok).toBe(true);
     });
 });
