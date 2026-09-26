@@ -1658,3 +1658,76 @@ Run-only failures, each re-run alone ×2 (⟨`… e2e/equation-interaction.spec.
 - **G-u:** 255/256 dispositioned + one ADOPT-AT-LANDING (F-81 (ii), O-86), per (h)(3).
 - **State.** §State and §2 say: "The row flips CLOSED on a CONFORMANT check". This seat does not stamp VERIFIED or CLOSED. **Verdict: IMPLEMENTED.** Every RESUME 1 unit is landed with its falsifier GREEN ×2 on the served HEAD page. vue-tsc is 0 ×2, vitest 116/116 ×2 and api 294 ×2. The full e2e ×2 stable failures are the named honest-RED set of 21 plus the named intermittent UIA-F-17 (R-2). Next: Check (L-20).
 - **Push:** fourier `m/w1-bump-migration` was already at origin (`545bbdc`; the push is a no-op check). value.js is pushed with this close.
+
+## Check 1 (RESUME 1) — L-20 pass 1
+
+SERVED MODEL: claude-opus-5-5 · 2026-09-26 · Track C, fresh adversarial check of the RESUME 1 Close (verify-only; no cure). Spec `F-W14V.md` read whole (87 lines, addenda (a)–(h) + the §0ec amendment). Record read: header → Unit plan, RESUME 1 Open → plan, the last `## Close`, and Check 2/3 honest-RED sections by `sed` range. fourier HEAD = `fbfdf3a` (F.CT only past `545bbdc`: ⟨`git diff --quiet 545bbdc HEAD -- web api`⟩ → clean, so the wave's web/api bytes = `545bbdc`).
+
+**Crash-recovery.** ⟨`git status --porcelain`⟩ (value.js) → no dirty path under `execution/C/F-W14V.md` or `LEDGER.md`. fourier dirty = F.CT's `src/fourier_analysis/contours/*`, `tests/test_contour_*` + `?? .worktrees/` (a sibling's; untouched).
+
+**Instrument.** A clean export ⟨`git archive 545bbdc | tar -x`⟩ into the scratchpad (`fw14v-chk/`, `web/node_modules` symlinked): api `:8020` (⟨`PYTHONPATH=<export>/src:<export> … uvicorn api.main:app --port 8020`⟩ with `:8000`'s env; `fourier_analysis.__file__` → the export, so F.CT's dirty `src/` is NOT imported — R-3 does not recur) and vite `:3120` (`VITE_PROXY_API=http://localhost:8020`). `:8000` (pid 38613) is still the stale pre-`71e0c6d` server (R-1). Host shared: load 3.3 at open, 23–35 from 00:28 (sibling `sci-report`/`glass-ui` scratch fleets).
+
+### Gates reproduced (this seat, fourier web/api = `545bbdc`, clean export, `:3120` → `:8020`)
+| Gate | Close claim | This seat | Verdict |
+|---|---|---|---|
+| vue-tsc (§2) | 0 ×2 | ⟨`npx vue-tsc --noEmit; echo $?`⟩ → `0` · `0` | REPRODUCED |
+| vitest (§2) | 116/116 ×2 | ⟨`npx vitest run`⟩ → `Test Files 20 passed (20)` · `Tests 116 passed (116)` ×2 | REPRODUCED |
+| api suite (§2, `.r3`) | 294 ×2 | ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 python -m pytest api/tests -q`⟩ → `294 passed in 26.77s` · `294 passed in 27.95s` | REPRODUCED |
+| `owner_required` contract (`.p` §3) + `.r3` legacy-doc/idempotence tests ((h)(3)(i)) | 9 passed ×2 | ⟨`… test_identity.py::test_owner_required api/tests/test_migrate_animation_easing.py -q`⟩ → `9 passed in 0.90s` | REPRODUCED |
+| `.r1` L2-15 ×3 + v88 + ≥sm vedit · `.r4` x7 ×9 + F-59 (uia-r2) · `.s2` detached ×5 | 50 passed ×2 headed | ⟨`BASE_URL=http://localhost:3120 npx playwright test e2e/f-w14u-vedit.spec.ts e2e/f-w14v-au2.spec.ts e2e/f-w14v-x7.spec.ts e2e/f-w14-uia-r2.spec.ts e2e/f-w14v-detached.spec.ts --project=chromium --headed --workers=1 --reporter=line`⟩ → `50 passed (2.5m)` exit 0 · `50 passed (2.7m)` exit 0 | REPRODUCED |
+| full e2e `--workers=1` (§2) | r1 `24 failed` · r2 `26 failed`; 22 stable = named 21 + UIA-F-17 `:162` | not re-run whole (host load 23–35 from 00:28; ~45 min a run); the one unnamed stable member, UIA-F-17 `:162`, bisected by bytes below | see C1R1-1 |
+
+**Self-count:** 5 gate rows reproduced (vue-tsc · vitest · api suite · contract/migration · targeted headed set, each ×2); 0 claimed GREEN failed to reproduce.
+
+### UIA-F-17 `:162` read by bytes (the Close's R-2, left to this Check)
+Three clean exports served side by side, same host, same db, same window (load 20–29): `7ee9b65` (the wave's true before bytes = F.W14U close) on `:3122`, `97325fb` (RESUME 1 base, after `.u1`) on `:3121`, `545bbdc` (HEAD) on `:3120`; each runs its own tree's spec. ⟨`BASE_URL=http://localhost:<port> npx playwright test e2e/f-w14-uia.spec.ts:162 --project=chromium --workers=1 --repeat-each=<3|4> --reporter=line`⟩:
+
+| Bytes | Runs → result | Total |
+|---|---|---|
+| `7ee9b65` (before the wave) | `3 passed` · `4 passed` · `4 passed` | **11/11 GREEN** |
+| `97325fb` (after `.u1`, before `.r*`) | `2 failed 1 passed` · `3 passed` · `1 failed 3 passed` | **7/10**, every failure `locator.click: Test timeout of 60000ms exceeded` on `.controls-dock-anchor [aria-label='Export frame']`, log `element is not visible` ×~100 |
+| `545bbdc` (HEAD) | `3 failed` (load ~30: 1 click timeout + 2 `Epicycles off removes the chain` 4954 < 37840 and 5350 < 16940) · `1 failed 2 passed` · `3 passed` · `4 passed` | **9/13** |
+
+The click-timeout mode appears only after `64a1865` (`.u1`), whose §0bt edit moved the case's Export path from the More-options menu to a hover on the canvas dock, then `waitForTimeout(800)`, then a click on `Export frame` (⟨`git show 64a1865 -- web/e2e/f-w14-uia.spec.ts`⟩). The button resolves with `tabindex="-1"` and stays not visible: the dock has not expanded under a pointer that is already over it (no fresh `pointerenter` after the previous export's dialog closes). The pixel-floor mode (the clock not held across four exports) is F.W14U R-1's `useWorkspaceLoader` pause override, which is older. The Close compared HEAD with `97325fb` and called `:162` "not attributable by bytes". That holds for `.r1`–`.r4`, but not for the wave: `7ee9b65` is the wave's before, and it is GREEN 11/11.
+
+### Axes
+1. **GREENs reproduce:** HELD. 5/5 rows above, each ×2.
+2. **Bounds:** HELD. ⟨`git show --stat --format= e97a959 8022412 71e0c6d 97ff8d7 545bbdc`⟩ → only `web/src/**`, `web/e2e/**` and `api/{models,scripts,tests}/**` (`api/**` granted to `.r3` by (h)(3)(i)); the adjacent e2e edits are declared in their receipts. value.js commits `f1ebb210` `3e558b6d` `89c5e266` `a70f0b34` `f1e410b5` → the record, `LEDGER.md`, and one `INBOX.md` sweep line. `scripts/dev/dev.sh` is in none of them.
+3. **Masking:** HELD. ⟨`git diff 97325fb 545bbdc -- web api | grep -E '^\+.*(\.skip\(|fixme|try \{|catch|except|allowlist|\.only\()'`⟩ → ∅. The three removed `expect` lines are the two §0bt re-baselines, both named in their commits: v88's row set becomes the menu set, and every moved control is still asserted; F-59's `>= 22rem` limb becomes column width plus inside-column plus no-title-cut. Neither is narrowed.
+4. **Commit families:** HELD. `.r1` is 1 commit, `.r3` is falsifier then cure, `.r4` is falsifier then cure; one meaning per commit.
+5. **E-3:** HELD. ⟨`git diff --stat e58a785c..HEAD -- docs/tranches/X/fourier/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/audit/AUDIT-2-fourier.md`⟩ → `F-W14V.md | 1 +`, which is `b60c6b2b` (the orchestrator's dated §0ec amendment, beside (h)); no wave commit touches these paths.
+6. **Mail:** HELD. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`; ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on value `V/` and `V/coordination`, glass `BK/coordination` and keyframes `V/coordination`; the only hit is glass `BL/FORMATION-PROGRESS.md`, glass's internal cursor, not a letter.
+7. **Four-verb line:** HELD. LEDGER `:90` reads IMPLEMENTED; the Close did not stamp VERIFIED or CLOSED.
+8. **Goal at the bytes:** MET for `.r1`, `.r3` and `.r4` (the falsifiers above and the api tests read the ruled shapes). `.s2` detached is 5/5 ×2. Not met for §2's close gate; see C1R1-1.
+9. **Published figures:** the counts for vue-tsc, vitest, api, the 9 contract/migration tests and the targeted 50 reproduce exactly. The Close's R-2 claim that `:162` is "not attributable by bytes" does not hold at the wave's scope (see above).
+10. **Honest-RED:** see below.
+
+### Register (severity · claim · receipt · cure)
+- **C1R1-1 · HIGH · §2's full-e2e gate is RED outside the named set, and the cause is in this wave.** UIA-F-17 `:162` is RED in both Close full runs (22 stable = 21 named + `:162`). No spec id relieves it. The F.W14U named set it inherits is 10 cases, and `:162` was that close's run-only intermittent, not a member. The record names no cure owner ("Owner: the Check, to weigh it … still unhomed"). The byte read above puts the new failure mode at `.u1` `64a1865`: `7ee9b65` is 11/11 GREEN, while `97325fb` is 7/10 and HEAD is 9/13 under the same load. That turns an old, rare intermittent into a regression this wave landed. **Receipt:** the table above and the Close's full-run lists. **Cure (Repair seat, `web/e2e/**` + `web/src/**`):** read `64a1865`'s Export path at the root. Either the canvas dock does not expand under a pointer that is already resting over it after the Export dialog closes (a product cure, or a glass relay if it is the dock's hover model), or the case's own path must wait for the expanded state. In the second case the path asserts `Export frame` visible, and gets there by moving the pointer off the dock and back on, never by a longer timeout. The same seat homes F.W14U R-1's pause override, the second failure mode, so that each export first asserts the `Play animation` state. The gate is `:162` alone at `--repeat-each=10` GREEN at load ≥ 20, then full e2e ×2 inside the named 21. No skip and no retry.
+- **C1R1-2 · INFO · R-1 has grown.** The stale `:8000` (pid 38613, pre-`71e0c6d`) keeps writing legacy easings into the shared dev db: ⟨`count_documents({'animation_settings.easing': {'$nin': <catalogue>, '$exists': true}})`⟩ → **20** of 829 (the Close read 11). A HEAD api refuses those rows until the idempotent migration runs again, and `run_pending_migrations` does that on deploy. **Owner:** the host/instrument owner (restart `:8000` at HEAD, re-run `python -m api.scripts.migrate_animation_easing`). This is not a product defect.
+- **C1R1-3 · INFO · spec letter.** (h)(1) says Delete keeps its "confirm path". At the bytes Delete has none: it is an undoable `deleteSelected()`, which `.r1` kept unchanged. The Close already noted this. Read as satisfied.
+
+### Honest-RED adjudication (axis 10)
+**Relieved, each with an owner named in the Close's residual register** (21 stable cases plus the non-e2e rows):
+
+| Relief | Items | Spec basis |
+|---|---|---|
+| Glass, ADOPT-AT-LANDING | au3 L1-12 `:119` (O-74b) | (h)(2) + §0ec, the 10.2.0 repin with `--type-title` |
+| | `.c3` c3m/c3g (O-76a, MAGNET-STATE-HIDDEN / MENU-ICON-GAP) | add. (a) |
+| | `.p` p3 @1440/@1024 (TOASTER-OFFSET) | §1 `.p` 2 |
+| | `.pd` collapsed ×6 (O-84/O-84a) | add. (f) |
+| | O-77/O-77a LAYER-HEADER-LABEL | add. (b) |
+| | O-82 F-177/F-203 | add. (c) |
+| | O-85 DOCK-PRIORITY-OVERFLOW (the glass half of `.r1`) | (h)(1) |
+| | O-86 TIMELINE-TRANSPORT (F-81 (ii); G-u 255/256 + 1) | (h)(3)(ii) |
+| | L2-12, and L2-18ˢ/L3-14 HELD (O-74a E-2) | |
+| | the O-74/O-75 ˢ halves | |
+| F.W14U's inherited named set | contrast-floor `:82` ×2 + `:128` · gallery-admin-a11y ×4 · visual-checkpoint `:81 :102 :123` | §2 "the named honest-RED set" |
+
+**Not relieved:** UIA-F-17 `:162` (C1R1-1).
+
+### Successors
+⟨`grep -n 'Opens after' docs/tranches/X/fourier/waves/*.md | grep W14V`⟩ → only F-W14V's own line (`F.W14U CLOSED`, MET). ⟨`awk -F'|' '$3 ~ /W14V/' LEDGER.md`⟩ → no row gates on F.W14V. No successor is blocked; F-CT cites (d) only for the sample image.
+
+### State
+**NOT-CONFORMANT**: 1 HIGH (C1R1-1). The LEDGER `:90` status stays IMPLEMENTED, and only an event line is appended. The next act is a Repair seat for C1R1-1 (the `.u1` Export path, plus F.W14U R-1's pause override), then Check 2. The instrument (`:3120`/`:3121`/`:3122` vite and `:8020` api from the scratchpad exports) was stopped at this seat's end. Nothing of anyone else's was stopped, and nothing was written to fourier.
