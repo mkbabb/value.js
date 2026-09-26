@@ -50,17 +50,15 @@
                                 <Award class="h-3.5 w-3.5" aria-hidden="true" />
                                 Featured
                             </Chip>
-                            <Chip
-                                v-for="tag in availableTags"
-                                :key="tag.name"
-                                mode="selectable"
-                                size="sm"
-                                :model-value="selectedTags.includes(tag.name)"
-                                @update:model-value="toggleTag(tag.name)"
-                            >
-                                {{ tag.name }}
-                            </Chip>
                         </div>
+                        <TagChipSet
+                            v-if="availableTags.length > 0"
+                            class="mt-2"
+                            label="Tags"
+                            :tags="availableTags"
+                            :selected="selectedTags"
+                            @toggle="(name: string) => toggleTag(name)"
+                        />
                     </section>
 
                     <!-- Find by Color -->
@@ -147,6 +145,7 @@ import { Button } from "../../../ui/button";
 import { Input } from "../../../ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import MiniColorPicker from "./MiniColorPicker.vue";
+import TagChipSet from "./TagChipSet.vue";
 import { Chip } from "@mkbabb/glass-ui/chip";
 import { ToggleGroup, ToggleGroupItem } from "@mkbabb/glass-ui/toggle-group";
 import {

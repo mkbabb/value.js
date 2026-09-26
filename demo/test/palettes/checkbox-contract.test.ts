@@ -33,18 +33,9 @@ afterEach(() => {
     document.body.innerHTML = "";
 });
 
-/** The box for `name`, found by its row label inside the teleported popover. */
-function boxFor(name: string): HTMLElement {
-    const row = [...document.body.querySelectorAll("label")].find(
-        (l) => l.textContent?.includes(name),
-    );
-    const box = row?.querySelector<HTMLElement>("[data-slot=checkbox]");
-    if (!box) throw new Error(`no checkbox rendered for tag "${name}"`);
-    return box;
-}
-
-/** X.W12U.s2 (UIA-V-32): the search filter's tags are glass selectable Chips
- *  (a pressed button), no longer checkbox rows — the ledger contract is the same. */
+/** X.W12U.s2 (UIA-V-32 · V-125): both tag surfaces render the one TagChipSet —
+ *  glass selectable Chips (a pressed button), no longer checkbox rows; the
+ *  ledger contract is the same. */
 function chipFor(name: string): HTMLElement {
     const chip = [...document.body.querySelectorAll<HTMLElement>("button[data-mode=selectable]")].find(
         (b) => b.textContent?.trim() === name,
@@ -129,14 +120,14 @@ describe("G2 · TagEditPopover — one click, one saveTags", () => {
     it("reflects the prop-driven initial state", async () => {
         mountPopover(["warm"]);
         await flushPromises();
-        expect(boxFor("warm").getAttribute("aria-checked")).toBe("true");
-        expect(boxFor("cool").getAttribute("aria-checked")).toBe("false");
+        expect(chipFor("warm").getAttribute("aria-pressed")).toBe("true");
+        expect(chipFor("cool").getAttribute("aria-pressed")).toBe("false");
     });
 
     it("ticking a tag emits one update:tags and makes one saveTags call with it added", async () => {
         const { w, saveTags } = mountPopover(["warm"]);
         await flushPromises();
-        boxFor("cool").click();
+        chipFor("cool").click();
         await flushPromises();
         expect(w.emitted("update:tags")).toEqual([[["warm", "cool"]]]);
         expect(saveTags).toHaveBeenCalledTimes(1);
@@ -146,7 +137,7 @@ describe("G2 · TagEditPopover — one click, one saveTags", () => {
     it("unticking a tag makes one saveTags call with it removed", async () => {
         const { w, saveTags } = mountPopover(["warm", "cool"]);
         await flushPromises();
-        boxFor("warm").click();
+        chipFor("warm").click();
         await flushPromises();
         expect(w.emitted("update:tags")).toEqual([[["cool"]]]);
         expect(saveTags).toHaveBeenCalledTimes(1);
