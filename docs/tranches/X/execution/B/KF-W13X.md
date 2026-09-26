@@ -1036,3 +1036,89 @@ Self-count ⟨`sed -n "/^\*\*Dispositions (18/,/^Self-count/p" KF-W13X.md | grep
 - Probe note: `matrix.mjs` gained its `title=` read after the BEFORE runs; at BEFORE the string did not exist in `demo/**` (the `git grep` above), so the metric could only read false there.
 
 **value.js:** this receipt + `keyframes/evidence/W13X/matrix/**` (probes `matrix.mjs` · `tweens.mjs` · `contrast.mjs` · `reach.mjs`; logs + JSON; frames `before-r{1,2}` · `after-r{1,2}` · `tweens-{before,after}-r1` every 3rd frame), one pathspec commit.
+
+### .amiga
+
+SERVED MODEL: claude-opus-5-5 (G13 `.amiga`, Track B). Writable: kf `demo/scenes/amiga/**` · `test/demo/**`; value.js this receipt + `keyframes/evidence/W13X/amiga/**`. Locks: none beyond standing law.
+
+**Crash recovery.** ⟨`git -C keyframes.js status --porcelain | grep -E 'demo/scenes/amiga|test/demo'`⟩ → empty. **Inherited: none.** kf HEAD at open `2f9bf36c`.
+
+**Instrument.** Private dev server ⟨`npx vite --config <scratchpad>/amiga/vite.a.config.ts --force --port 5214 --strictPort`⟩ (the wrapper imports kf's `vite.config.ts` unchanged and sets only `cacheDir` in the scratchpad) → `ready`; installed glass `"version": "10.1.0"`. Headed Chromium, DPR 1.
+
+**Rows (27).** KFA 17: KFA-19 · 20 · 64 · 65 · 66 · 67 · 68 · 69 · 125 · 126 · 127 · 128 · 129 · 130 · 194 · 195 · 196. UIA-KF 8: UIA-KF-023(B) · 024(B) · 194 · 195 · 196 · 197 · 198 · 291. AUDIT-2 2: A2-KE-L1-16 · L1-18.
+
+**Falsifiers (committed).**
+- value.js `evidence/W13X/amiga/amiga.mjs` — the served predicates, 4 cells per run (1440×900 and 390×844, light and dark): stage chrome (`rounded-card`, radius, hairline), the per-axis nodes (sliders, focusable sliders, read-outs), the focus indicator after a real Tab walk, the ball's height fraction and white-tile luma p95 (in-page PNG decode of a canvas clip), a 3.4 s per-rAF trace of the dev probe (the Y apexes, frames over 20 ms), the pose 2.5 s after Reset while playing and after Pause mid-flight, the painted yaw values across one ArrowRight, the painted attitudes across Home, and the canvas pixel diff after a background (missed) drag followed by Home + Reset.
+- kf `test/demo/scenes/amiga-w13x.test.ts` — 13 cases through the mounted scene (the Three.js room is the one double, as in `amiga-paused-pose.test.ts`): KFA-19 · KFA-65 · KFA-20 · KFA-130 · UIA-KF-197 (Home) · KFA-128 · KFA-66 · KFA-126/UIA-KF-023 (pause edge) · UIA-KF-023/197 (stop edge) · KFA-125/196 · UIA-KF-291 · KFA-129 (on `useSphereSpin`).
+- kf `test/demo/scenes/amiga-room.test.ts` — 6 cases on the real `useAmigaThree` in jsdom (doubled: the WebGL renderer, the 2D context as a recorder, glass's `resolveCanvasColor` as a per-theme token table): KFA-64 · KFA-194 · KFA-67/UIA-KF-195 · KFA-195 (texture) · KFA-195 (the rig) · UIA-KF-196.
+
+**Served BEFORE (kf `2f9bf36c`, READ-ONLY) → AFTER (kf `adb15bf0`, the settled scene bytes), each ×2.** ⟨`BASE=http://localhost:5214 RUN=before-r{1,2} node amiga.mjs`⟩ → `before-r{1,2}.{log,json}`; ⟨`RUN=after-r{1,2}`⟩ → `after-r{1,2}.{log,json}`. Every verdict below reads the same in r1 and r2 (the traces' float noise is in the third decimal).
+| predicate (row) | BEFORE r1 / r2 (all 4 cells unless named) | AFTER r1 / r2 |
+|---|---|---|
+| stage chrome (UIA-KF-194) | `rounded-card` true · radius 16px · inset 1px hairline | false · 0px · none |
+| focus after a real Tab walk, 1440 (UIA-KF-024) | outline `none` · shadow = the 5 % hairline only | the house ring: `0 0 0 2px` ink/0.3 + `0 0 8px` ink/0.15 |
+| per-axis nodes (UIA-KF-291) | 2 `role=slider`, 0 focusable, 0 read-outs | 0 sliders · 2 `role=status` read-outs |
+| ball height / stage height (UIA-KF-196) | 0.149 at 1440 · 0.076 at 390 | 0.206–0.207 · 0.083 |
+| white-tile luma p95 in the ball, dark (KFA-195) | 181 / 180 | 255 |
+| Y apexes over 3.4 s of play (KFA-66) | e.g. `[2, 0, 2, 0]` (every other hop ≈ 0) | `[2, 2, 2, 2]` |
+| pose 2.5 s after Reset while playing (UIA-KF-023) | px 0 · spin 0 · **py −2.21 … −3.68** (stranded) | px 0 · py 0 · spin 0 |
+| pose 2.5 s after Pause mid-flight (KFA-126) | frozen (px 2.81–2.88, py −2.24 … −2.88; 1 distinct py) | home (0, 0, 0; 72–74 distinct py on the way) |
+| painted yaw values across one ArrowRight (KFA-20) | 1 (0 → 0.393 in one frame) | 59, landing on 0.393 |
+| painted attitudes across Home (KFA-130) | 1 (snap) | 30–32 |
+| canvas diff after a missed drag, then Home + Reset (UIA-KF-197) | 0.047–0.137 (the room stays rotated) | 0.0009–0.004 |
+| frames over 20 ms in 3.4 s of play (KFA-127) | 0–1 of 333–335 | 0 of 334–335 |
+Frames: `frames/{before,after}-r{1,2}/<cell>-{rest.png,playing.jpg,focus.jpg,after-miss-home.png}`.
+
+**Falsifiers BEFORE → AFTER (kf).** The final test files were run against the BEFORE scene bytes (each `demo/scenes/amiga/*` file restored from `2f9bf36c` in place, `AmigaTarget.vue` absent, then the HEAD copies put back; ⟨`git status --porcelain demo/scenes/amiga`⟩ → empty after): ⟨`npx vitest run --project demo test/demo/scenes/amiga-w13x.test.ts test/demo/scenes/amiga-room.test.ts`⟩ → `vitest-before-r{1,2}.log`: **`Tests 18 failed (18)` ×2**, 18 `AssertionError` lines each, no crash. At HEAD → `vitest-after-r{1,2}.log`: **`Tests 18 passed (18)` ×2**.
+
+**Acts, in order (kf, each a pathspec commit; `npm run check` EXIT 0 after each landing):**
+1. **`5451ca99` — A2-KE-L1-16, the Scene → Target seam** (`AmigaScene.vue` · `AmigaTarget.vue` · `amigaKeys.ts`). The 616-line scene becomes the thin scene that owns the demo (provided under `AMIGA_DEMO_KEY`), the facility and the shell contract; the stage (room, compose, gesture, a11y subject) moves whole into `AmigaTarget.vue`, which injects the demo, as Easing/Spring/Sequence/Cube do. No behaviour change (the existing amiga suites 21/21).
+2. **`9ca1c3e7` — the gesture** (`useSphereSpin.ts` rewritten · `AmigaTarget.vue` · `useAmigaThree.ts`; the existing tests' ticks take the frame time). KFA-19: one attitude quaternion; every drag delta a rotation about the SCREEN axis perpendicular to the drag (camera space), premultiplied. KFA-65: the compose is `qSpin · attitude`, and a world delta joins as `frame⁻¹ · D · frame` (`getFrame`). KFA-20: a nudge is a stiff decay coast (friction 12) seeded with `v = step·k`, so its total travel is the step, and the remainder lands on settle. KFA-128: the present loop hands `onFrame(now)` its rAF timestamp, and the coast steps on it. KFA-129: the release impulse is the least-squares slope of the 100 ms flick window (sample times still floored at one 240 Hz period, L-M1/C-8). KFA-130: Home slerps home over 320 ms, ease-out; a snap only under reduced motion. UIA-KF-197: Home also arcs the orbit camera to the framed home view (`homeView`, spherical, frame clock).
+3. **`90840a33` — the transport's edges** (`AmigaTarget.vue` · `useAmigaDemo.ts`). UIA-KF-023 / KFA-126: a pause (playing falls) or a stop/Reset (started falls — `useAnimationGroupActions.reset` calls `group.stop()`) hands the stage to HOME, and a pose change seen on that edge frame is the transport's, never a user scrub; the stop edge also calls `homeView`. KFA-66: the Y loop's 0 % and 100 % stops are the apex, so every hop is the same fall to the same apex; entering from rest is the continuity lanes' job (T.A8).
+4. **`f26fdece` — the room** (`useAmigaThree.ts` · `utils.ts` · `AmigaTarget.vue`; paused-pose's room double keeps the real geometry helpers). KFA-64: the back wall's bottom edge is the floor line. KFA-194: two side walls, from the back wall to the ball's plane; the room is ruled unit squares (`ruledPanel`). KFA-67 / UIA-KF-195: grid and shadow are the theme's ink (`--foreground` via the scene's `resolveColor`), its lightness choosing per-theme strength, re-inked on glass's `onFlipSettled`. KFA-195: the checker texture is tagged sRGB. KFA-125: `contactShadowScale` clamps the penumbra to the floor edge. UIA-KF-196: the camera frames the bounce envelope (the D-6 sweep fit and the floor-slam fit at the D-11 lift, ×1.04), and a resize re-frames.
+5. **`40b76423` — the stage chrome and the subject's a11y** (`AmigaTarget.vue`; paused-pose's D-2 case reads the read-outs). UIA-KF-194: `rounded-card`, the inset hairline and its forced-colors outline arm are gone; the canvas fills the scene root as cube's stage does. UIA-KF-024: that hairline was the scoped box-shadow that out-ranked the ring on source order; the house ring paints. UIA-KF-291: the two `role=slider` spans become read-only `role=status` read-outs.
+6. **`25d3abc8` — UIA-KF-197, the orbit's coast** (`useAmigaThree.ts`). The first AFTER run still read the room rotated after Home (canvas diff 0.129 at 1440 light): an orbit released moments earlier was still coasting on OrbitControls' damping tail, which carried the camera off home after the arc landed. One undamped `controls.update()` spends the tail before the arc is taken (the controls' own consumption path, not a private field). The runs above are after this act.
+7. **`adb15bf0` — KFA-195, the rig** (`useAmigaThree.ts`). The sRGB tag alone left dark white p95 at 182 (measured between acts): the root is the light rig under physical units (r155+). Lambert divides by π, so the 1.6 fill lit a white tile to ~0.5 linear, and the key spot (decay 2, ~13 u away) arrived at 0.7/13²: no highlight. Now the key has no falloff (decay 0) and the fill is 2.4 → p95 255, and the key reaches the ball (room falsifier: fill + key irradiance > 0.9, key > 0.2).
+8. **`f80858ee` — the falsifiers** (`test/demo/scenes/amiga-w13x.test.ts` · `amiga-room.test.ts`).
+
+**Adjacent edits (§0bt):** none. Every path touched is in `demo/scenes/amiga/**` or `test/demo/**`. The existing suites `amiga-sphere-spin.test.ts` and `amiga-paused-pose.test.ts` were edited where they encoded a contract a cure changed; these edits are named in acts 2, 4 and 5. The D-2 slider assertion now reads the two read-outs. The nudge and Home assertions are read after the glide lands. No assertion was deleted without a replacement.
+
+**Dispositions (27).**
+- **CURED (19):** KFA-19 · KFA-65 · KFA-20 · KFA-128 · KFA-129 · KFA-130 (`9ca1c3e7`) · KFA-66 · KFA-126 · UIA-KF-023(B) (`90840a33`) · KFA-64 · KFA-194 · KFA-67 · KFA-125 (`f26fdece`) · KFA-195 (`f26fdece` texture + `adb15bf0` rig) · UIA-KF-197 (`9ca1c3e7` Home + `90840a33` Reset + `25d3abc8` the coast) · UIA-KF-194 · UIA-KF-024(B) · UIA-KF-291 (`40b76423`) · A2-KE-L1-16 (`5451ca99`). Each row: served before/after in the table above, and its falsifier RED ×2 → GREEN ×2.
+- **SPLIT: the limb cured here, the other limb homed (2):**
+  - UIA-KF-195. The tokens limb is CURED (`f26fdece`; grid and shadow from the ink per theme, re-inked on a flip). The "one grid substrate" limb goes to **the close as an owner DESIGN-RULING**. Keeping only the room grid would mean an opaque canvas over the shell's `.grid-background` paper, and that reverses the standing T.A10 / W6-H ruling that the canvas composites over the shell paper (`AmigaTarget.vue` style block). The §0dm law forbids treating that as a cure.
+  - UIA-KF-196. The framing limb is CURED (`f26fdece`; ball 0.149 → 0.206 of the stage at 1440). The limb "collapse the controls by default on immersive scenes" is the shell pane's default (`EditorShell`, G3 `.mobile`, closed) → **the close**. At 390 the portrait width limits the authored sweep fit (0.076 → 0.083), and that is by design (D-6: the camera scales, never the arc).
+- **RE-HOMED (4):**
+  - KFA-68 → **the close (library)**. `src/animation/group/lifecycle.ts:180-185` `reset()` repaints only children with `anim.started`, so a stage scrubbed before any Play cannot be reset. The scene sees no transport edge (started stays false), and `src/animation/**` is `.r`'s set, which is closed.
+  - KFA-69 → **`.scene`**. `demo/composables/scene-facility/index.ts:107` seeks one child per scrub, so X, Y and Spin fall out of phase. The group-level seek, and the transport's per-child comment at `useAnimationGroupPlayback.ts:133-147` (`.transport`), sit outside this set.
+  - UIA-KF-198 → **the close** (the shell sheet, `.mobile`, closed). Measured here: the probe found no "Controls panel" toggle at 390 in either BEFORE or AFTER run. In the AFTER 390 frame (`after-r1/390x844-light-playing.jpg`) the peeking sheet's top (y ≈ 695) sits below the room's floor (y ≈ 615). So the stage-covering sheet does not reproduce at these bytes. The toggle's cross-breakpoint meaning is still the shell's to rule.
+  - A2-KE-L1-18 → **the close**. The shared `SubjectAxes` seat (a component or composable, plus the hiding class in `design-idioms.css`, `.lib`) sits outside every scene unit's set, and its second consumer is `SquareScene.vue` / `useSquareKeyboard.ts` (`.square`). Amiga's copy is now read-outs where the square's are inert sliders (UIA-KF-291). The extraction should adopt that contract, and the square's inert sliders are named for `.square`.
+- **NOT REPRODUCED / NOT A DEFECT, measured (2):**
+  - KFA-127. Long frames: 0–1 of 333–335 frames over 20 ms at BEFORE ×2, and 0 at AFTER ×2 (headed, 1440 and 390, both themes). There is no visible snap, and the audit named no cause.
+  - KFA-196. The shadow "drop-out" is the apex fade and the audit's own crop. Its opacity is `lerp(0.5, 0.12, t)` ≥ 0.12 by construction; the falsifier asserts > 0.05 at a wall apex; and the full-canvas playing frames show it. The dark-ground invisibility was real, and it is cured with KFA-67.
+
+Self-count ⟨`sed -n '/^\*\*Dispositions (27)/,/^Self-count/p' KF-W13X.md | grep -oE '(KFA|UIA-KF)-[0-9]+|A2-KE-L1-1[68]' | sort -u | wc -l`⟩ → see the gate line below (run twice at the settled bytes).
+
+**Gates (BEFORE `2f9bf36c` → AFTER `f80858ee`).**
+- **KFA 17 + UIA-KF 8 + A2-KE-L1-16/L1-18 dispositioned ×2**: 27 rows by the self-count above, ⟨run twice⟩ → `27` ×2, and the sorted id list equals the plan's 27. Every served verdict agrees run to run (`before-r1 ≡ r2`, `after-r1 ≡ r2` to the third decimal), and every falsifier is RED ×2 → GREEN ×2. **GREEN.**
+- **`npm run check` 0**: ×2 at the settled bytes → `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` · EXIT 0 ×2 (also EXIT 0 after every landing). **GREEN.**
+- **`npm run test:demo` green**: ×2 → `Test Files 109 passed (109)` · `Tests 693 passed (693)` · EXIT 0 ×2 (107/675 at `.matrix`'s close; +2 files, +18 tests, all this unit's). **GREEN.**
+- (floor) ⟨`npm run lint`⟩ → `✔ no dependency violations found (436 modules, 1588 dependencies cruised)`. ⟨`npx eslint` on the touched files⟩ → EXIT 0. ⟨`git diff --check 2f9bf36c HEAD -- demo/scenes/amiga test/demo`⟩ → clean.
+
+**Commits (keyframes.js, local and not pushed; the wave's close pushes):** `5451ca99` · `9ca1c3e7` · `90840a33` · `f26fdece` · `40b76423` · `25d3abc8` · `adb15bf0` · `f80858ee`. Each is `git commit … -- <paths>` with a pathspec.
+
+**Escalations:** none.
+
+**Residuals (named, not cured here):**
+- KFA-68: the library's `reset()` skips never-started children (→ the close).
+- KFA-69: the group-level seek (→ `.scene`).
+- UIA-KF-195: the one-grid-substrate DESIGN-RULING (→ the close, owner).
+- UIA-KF-196: the immersive-scene controls default (→ the close).
+- UIA-KF-198: the sheet toggle's meaning (→ the close).
+- A2-KE-L1-18: the shared `SubjectAxes` seat, and the square's inert sliders (→ the close, and `.square`).
+- Probe limits, stated:
+  - At 390 the 60-press Tab walk did not reach the canvas in any run, so UIA-KF-024 is read at 1440 only.
+  - `shadowDelta`, the luma under the rested ball against the floor beside it, is noise-level in both arms (±10). The shadow rows are judged by the room falsifier (the ink stops) and by the frames, not by that number.
+- Not in any row, noticed: at 390 the framed room leaves the upper third of the stage empty (a portrait width limits the sweep fit).
+
+**value.js:** this receipt + `keyframes/evidence/W13X/amiga/**`. That is the probe `amiga.mjs`; the served logs and JSON `{before,after}-r{1,2}`; the vitest logs `vitest-{before,after}-r{1,2}.log`; and the frames `frames/{before,after}-r{1,2}/`. One pathspec commit.

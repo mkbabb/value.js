@@ -1,0 +1,300 @@
+[
+ {
+  "cfg": "1440x900-light",
+  "canvas": {
+   "w": 878,
+   "h": 646,
+   "top": 127,
+   "bottom": 773,
+   "vh": 900
+  },
+  "roundedCard": true,
+  "radius": "16px",
+  "hairline": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+  "sliders": 2,
+  "slidersFocusable": 0,
+  "readouts": 0,
+  "focus": {
+   "outline": "none 3px",
+   "shadow": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+   "visible": true
+  },
+  "bootPlaying": false,
+  "ballFrac": 0.149,
+  "ball": {
+   "h": 96,
+   "w": 98,
+   "white95": 250,
+   "white995": 250
+  },
+  "restPose": {
+   "px": 0,
+   "py": 0,
+   "spin": 0,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  "apexes": [
+   2,
+   0,
+   2,
+   0
+  ],
+  "longFrames": 0,
+  "frames": 335,
+  "minPy": -3.997,
+  "afterReset": {
+   "px": 0,
+   "py": -3.558,
+   "spin": 0,
+   "playing": false
+  },
+  "afterPause": {
+   "px": 2.882,
+   "py": -2.867,
+   "spin": 1.81,
+   "playing": false,
+   "moved": 1
+  },
+  "shadowDelta": 3.9,
+  "nudge": {
+   "distinctYaw": 1,
+   "end": 0.393
+  },
+  "home": {
+   "distinctPitch": 1,
+   "distinctYaw": 1,
+   "end": [
+    0,
+    0
+   ]
+  },
+  "missDrag": {
+   "movedDiff": 0.0445,
+   "restoredDiff": 0.0473
+  }
+ },
+ {
+  "cfg": "1440x900-dark",
+  "canvas": {
+   "w": 878,
+   "h": 646,
+   "top": 127,
+   "bottom": 773,
+   "vh": 900
+  },
+  "roundedCard": true,
+  "radius": "16px",
+  "hairline": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+  "sliders": 2,
+  "slidersFocusable": 0,
+  "readouts": 0,
+  "focus": {
+   "outline": "none 3px",
+   "shadow": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+   "visible": true
+  },
+  "bootPlaying": false,
+  "ballFrac": 0.149,
+  "ball": {
+   "h": 96,
+   "w": 98,
+   "white95": 181,
+   "white995": 187
+  },
+  "restPose": {
+   "px": 0,
+   "py": 0,
+   "spin": 0,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  "apexes": [
+   1.998,
+   0,
+   2,
+   0
+  ],
+  "longFrames": 0,
+  "frames": 335,
+  "minPy": -3.976,
+  "afterReset": {
+   "px": 0,
+   "py": -2.493,
+   "spin": 0,
+   "playing": false
+  },
+  "afterPause": {
+   "px": 2.81,
+   "py": -2.235,
+   "spin": 1.766,
+   "playing": false,
+   "moved": 1
+  },
+  "shadowDelta": -0.3,
+  "nudge": {
+   "distinctYaw": 1,
+   "end": 0.393
+  },
+  "home": {
+   "distinctPitch": 1,
+   "distinctYaw": 1,
+   "end": [
+    0,
+    0
+   ]
+  },
+  "missDrag": {
+   "movedDiff": 0.1014,
+   "restoredDiff": 0.0948
+  }
+ },
+ {
+  "cfg": "390x844-light",
+  "canvas": {
+   "w": 334,
+   "h": 630,
+   "top": 107,
+   "bottom": 737,
+   "vh": 844
+  },
+  "roundedCard": true,
+  "radius": "16px",
+  "hairline": "color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 1px inset",
+  "sliders": 2,
+  "slidersFocusable": 0,
+  "readouts": 0,
+  "focus": "unreached",
+  "bootPlaying": false,
+  "ballFrac": 0.076,
+  "ball": {
+   "h": 48,
+   "w": 50,
+   "white95": 250,
+   "white995": 250
+  },
+  "restPose": {
+   "px": 0,
+   "py": 0,
+   "spin": 0,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  "apexes": [
+   1.999,
+   0,
+   1.999,
+   0
+  ],
+  "longFrames": 0,
+  "frames": 334,
+  "minPy": -3.977,
+  "afterReset": {
+   "px": 0,
+   "py": -2.479,
+   "spin": 0,
+   "playing": false
+  },
+  "afterPause": {
+   "px": 2.856,
+   "py": -2.634,
+   "spin": 1.794,
+   "playing": false,
+   "moved": 1
+  },
+  "shadowDelta": -2.6,
+  "nudge": {
+   "distinctYaw": 1,
+   "end": 0.393
+  },
+  "home": {
+   "distinctPitch": 1,
+   "distinctYaw": 1,
+   "end": [
+    0,
+    0
+   ]
+  },
+  "missDrag": {
+   "movedDiff": 0.0516,
+   "restoredDiff": 0.0513
+  },
+  "panelToggle": "absent"
+ },
+ {
+  "cfg": "390x844-dark",
+  "canvas": {
+   "w": 334,
+   "h": 630,
+   "top": 107,
+   "bottom": 737,
+   "vh": 844
+  },
+  "roundedCard": true,
+  "radius": "16px",
+  "hairline": "color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 1px inset",
+  "sliders": 2,
+  "slidersFocusable": 0,
+  "readouts": 0,
+  "focus": "unreached",
+  "bootPlaying": false,
+  "ballFrac": 0.076,
+  "ball": {
+   "h": 48,
+   "w": 50,
+   "white95": 180,
+   "white995": 186
+  },
+  "restPose": {
+   "px": 0,
+   "py": 0,
+   "spin": 0,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  "apexes": [
+   1.999,
+   0,
+   2,
+   0
+  ],
+  "longFrames": 0,
+  "frames": 335,
+  "minPy": -3.988,
+  "afterReset": {
+   "px": 0,
+   "py": -2.209,
+   "spin": 0,
+   "playing": false
+  },
+  "afterPause": {
+   "px": 2.81,
+   "py": -2.235,
+   "spin": 1.766,
+   "playing": false,
+   "moved": 1
+  },
+  "shadowDelta": -0.5,
+  "nudge": {
+   "distinctYaw": 1,
+   "end": 0.393
+  },
+  "home": {
+   "distinctPitch": 1,
+   "distinctYaw": 1,
+   "end": [
+    0,
+    0
+   ]
+  },
+  "missDrag": {
+   "movedDiff": 0.137,
+   "restoredDiff": 0.1371
+  },
+  "panelToggle": "absent"
+ }
+]
