@@ -107,11 +107,17 @@ const scheduleSpectrumUpdate = (event: PointerEvent) => {
     }
 };
 
+// X.W12U.p — the surface's rect is read ONCE per drag (at pointerdown) and
+// held until the drag ends. Read inside the rAF update instead, it forced a
+// synchronous style+layout every frame against the previous frame's recolour
+// (the drag's own writes), before this frame's writes dirtied it again.
+let dragRect: DOMRect | null = null;
+
 const updateSpectrumColor = (
     coords: { clientX: number; clientY: number },
 ) => {
     if (!spectrumRef.value) return;
-    const rect = spectrumRef.value.getBoundingClientRect();
+    const rect = dragRect ?? spectrumRef.value.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) return;
 
     const x = clamp(coords.clientX - rect.left, 0, rect.width);
@@ -149,6 +155,7 @@ const handleSpectrumDown = (event: PointerEvent) => {
     capturedPointerId = event.pointerId;
     capturedElement = el;
     isDragging.value = true;
+    dragRect = spectrumRef.value?.getBoundingClientRect() ?? null;
 
     debug.setGauge("spec.isDragging", true);
     debug.setGauge("spec.capturedPid", event.pointerId);
@@ -196,6 +203,7 @@ const stopDragging = () => {
         cancelAnimationFrame(spectrumRafId);
         spectrumRafId = null;
     }
+    dragRect = null;
     isDragging.value = false;
 };
 
