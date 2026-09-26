@@ -87,11 +87,16 @@
             />
         </Transition>
 
-        <!-- Action feedback -->
+        <!-- Action feedback. UIA-V-107: each verdict is its own chip (keyed by
+             `feedbackSeq`), so its dismissal clock starts with it — the first
+             verdict's timer used to kill a second one 1.7 s in. An error holds
+             until the next verdict replaces it. -->
         <ActionFeedback
+            :key="feedbackSeq"
             :message="feedbackMessage"
             :variant="feedbackVariant"
             :visible="feedbackVisible"
+            :auto-dismiss-ms="feedbackVariant === 'error' ? 0 : 2500"
             @update:visible="feedbackVisible = $event"
         />
 
@@ -219,8 +224,10 @@ const renaming = ref(false);
 const feedbackMessage = ref("");
 const feedbackVariant = ref<"success" | "error">("success");
 const feedbackVisible = ref(false);
+const feedbackSeq = ref(0);
 
 function showFeedback(message: string, variant: "success" | "error") {
+    feedbackSeq.value += 1;
     feedbackMessage.value = message;
     feedbackVariant.value = variant;
     feedbackVisible.value = true;
