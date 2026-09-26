@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, inject } from "vue";
 import {
-    Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical, Moon, Sun,
+    Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical,
 } from "@lucide/vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
-    DropdownMenu, DropdownMenuContent, DropdownMenuItem,
+    DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,
 } from "../../../ui/dropdown-menu";
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
@@ -131,17 +131,18 @@ function openRepository(): void {
                     GitHub
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
-                    <!-- W6-8: native `title` retired (the row's own "Dark mode"
-                         text is the accessible name; the glyph is decorative).
-                         V-W44: Glass 7's DarkModeToggle is a native interactive
-                         theme command (no `passive` mode) — nesting it inside
-                         this already-clickable row would double-toggle, so the
-                         decorative state glyph is a plain theme-reflecting icon. -->
-                    <Moon v-if="isDark" class="aspect-square w-4" aria-hidden="true" />
-                    <Sun v-else class="aspect-square w-4" aria-hidden="true" />
+                <!-- UIA-V-254 · V-268: the theme row is a CHECKBOX item — its state is
+                     announced (menuitemcheckbox, aria-checked) and drawn by the
+                     producer's indicator, not a static "Dark mode" label whose
+                     only state was a sun/moon glyph pushing the label off its column. -->
+                <DropdownMenuCheckboxItem
+                    class="text-small cursor-pointer"
+                    :model-value="isDark"
+                    @update:model-value="toggleDark()"
+                    @select.prevent
+                >
                     Dark mode
-                </DropdownMenuItem>
+                </DropdownMenuCheckboxItem>
             </DropdownMenuContent>
         </DropdownMenu>
     </div>
