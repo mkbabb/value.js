@@ -1,0 +1,6 @@
+[390x844 light]
+PASS card 0 [{"box":[33,411,241,501],"card":[33,279,357,409],"inside":true,"gap":2,"ovl":208},{"box":[33,413,241,505],"card":[33,279,357,409],"inside":true,"gap
+PASS card 4 [{"box":[33,652,241,741],"card":[33,747,357,877],"inside":true,"gap":6,"ovl":208},{"box":[33,651,241,743],"card":[33,747,357,877],"inside":true,"gap
+[390x844 dark]
+PASS card 0 [{"box":[33,412,241,502],"card":[33,279,357,409],"inside":true,"gap":3,"ovl":208},{"box":[33,413,241,505],"card":[33,279,357,409],"inside":true,"gap
+PASS card 4 [{"box":[33,651,241,742],"card":[33,747,357,877],"inside":true,"gap":5,"ovl":208},{"box":[33,651,241,743],"card":[33,747,357,877],"inside":true,"gap
