@@ -4,12 +4,11 @@
             <slot name="trigger" />
         </DropdownMenuTrigger>
 
-        <DropdownMenuContent align="end" class="w-48 text-small">
-            <!-- Header: palette name -->
-            <DropdownMenuLabel class="font-display font-bold truncate max-w-[180px]">
-                {{ palette.name }}
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
+        <!-- X.W12U.s2 · UIA-V-112 · V-289 · V-538: the menu sizes to its rows
+             under the glass overlay minimum (no fixed w-48 / text-small), in
+             the glass item register; the palette's name — printed beside the
+             trigger — is not repeated as a truncated display-serif header. -->
+        <DropdownMenuContent align="end">
 
             <!-- Save (temporary + another user's remote). UIA-V-110: an owned
                  remote palette is already the user's — Save made silent duplicate
@@ -19,7 +18,7 @@
                 class="gap-2 cursor-pointer"
                 @click="$emit('action', 'save')"
             >
-                <Bookmark class="h-4 w-4" />
+                <Bookmark class="h-4 w-4 shrink-0" />
                 Save
             </DropdownMenuItem>
 
@@ -32,13 +31,9 @@
                 :disabled="apiOffline"
                 @click="$emit('action', 'publish')"
             >
-                <Globe class="h-4 w-4" />
+                <Globe class="h-4 w-4 shrink-0" />
                 Publish
-                <span
-                    v-if="apiOffline"
-                    class="ml-auto fira-code text-mono-caption opacity-55 tracking-wide"
-                    style="font-variant: small-caps"
-                >offline</span>
+                <DropdownMenuShortcut v-if="apiOffline">offline</DropdownMenuShortcut>
             </DropdownMenuItem>
 
             <!-- S.W5 · Q1 (RATIFIED WIRE, full-idiomatic): the VISIBILITY
@@ -53,12 +48,9 @@
                 :disabled="apiOffline"
                 @click="$emit('action', isPublic ? 'makePrivate' : 'makePublic')"
             >
-                <component :is="isPublic ? EyeOff : Globe" class="h-4 w-4" />
+                <component :is="isPublic ? EyeOff : Globe" class="h-4 w-4 shrink-0" />
                 {{ isPublic ? "Make private" : "Publish" }}
-                <span
-                    class="ml-auto fira-code text-mono-caption opacity-55 tracking-wide"
-                    style="font-variant: small-caps"
-                >{{ apiOffline ? "offline" : isPublic ? "public" : "private" }}</span>
+                <DropdownMenuShortcut>{{ apiOffline ? "offline" : isPublic ? "public" : "private" }}</DropdownMenuShortcut>
             </DropdownMenuItem>
 
             <!-- Fork/remix (remote palettes) -->
@@ -67,7 +59,7 @@
                 class="gap-2 cursor-pointer"
                 @click="$emit('action', 'fork')"
             >
-                <GitFork class="h-4 w-4" />
+                <GitFork class="h-4 w-4 shrink-0" />
                 Remix
             </DropdownMenuItem>
 
@@ -77,7 +69,7 @@
                 class="gap-2 cursor-pointer"
                 @click="$emit('action', 'rename')"
             >
-                <Pencil class="h-4 w-4" />
+                <Pencil class="h-4 w-4 shrink-0" />
                 Rename
             </DropdownMenuItem>
 
@@ -87,7 +79,7 @@
                 class="gap-2 cursor-pointer"
                 @click="$emit('action', 'editTags')"
             >
-                <Tag class="h-4 w-4" />
+                <Tag class="h-4 w-4 shrink-0" />
                 Edit Tags
             </DropdownMenuItem>
 
@@ -97,37 +89,39 @@
                 class="gap-2 cursor-pointer"
                 @click="$emit('action', 'versions')"
             >
-                <History class="h-4 w-4" />
+                <History class="h-4 w-4 shrink-0" />
                 Versions
-                <!-- inline count: dropdown-item sidebar count, not a heading-level count indicator; kept as caption span per exception -->
-                <span class="ml-auto text-caption text-muted-foreground">{{ palette.versionCount }}</span>
+                <!-- UIA-V-288: the count is the item's trailing shortcut (upright). -->
+                <DropdownMenuShortcut>{{ palette.versionCount }}</DropdownMenuShortcut>
             </DropdownMenuItem>
 
             <DropdownMenuSeparator />
 
-            <!-- Export sub-menu -->
-            <DropdownMenuSub>
+            <!-- Export. UIA-V-113: on a coarse pointer or a narrow viewport a
+                 cascading sub lands on its parent, so the formats are a labelled
+                 group in the root menu there; elsewhere they cascade.
+                 UIA-V-288: no text-caption on the rows (it is italic). -->
+            <DropdownMenuGroup v-if="inlineExport">
+                <DropdownMenuLabel>Export</DropdownMenuLabel>
+                <template v-for="fmt in EXPORTS" :key="fmt.action">
+                    <DropdownMenuSeparator v-if="fmt.rule" />
+                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', fmt.action)">
+                        {{ fmt.label }}
+                    </DropdownMenuItem>
+                </template>
+            </DropdownMenuGroup>
+            <DropdownMenuSub v-else>
                 <DropdownMenuSubTrigger class="gap-2 cursor-pointer" @click.prevent>
-                    <Download class="h-4 w-4" />
+                    <Download class="h-4 w-4 shrink-0" />
                     Export
                 </DropdownMenuSubTrigger>
-                <DropdownMenuSubContent class="text-caption">
-                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportJSON')">
-                        JSON
-                    </DropdownMenuItem>
-                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportCSS')">
-                        CSS Custom Properties
-                    </DropdownMenuItem>
-                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportTailwind')">
-                        Tailwind Config
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportSVG')">
-                        SVG Swatch
-                    </DropdownMenuItem>
-                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportPNG')">
-                        PNG Swatch
-                    </DropdownMenuItem>
+                <DropdownMenuSubContent>
+                    <template v-for="fmt in EXPORTS" :key="fmt.action">
+                        <DropdownMenuSeparator v-if="fmt.rule" />
+                        <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', fmt.action)">
+                            {{ fmt.label }}
+                        </DropdownMenuItem>
+                    </template>
                 </DropdownMenuSubContent>
             </DropdownMenuSub>
 
@@ -137,7 +131,7 @@
                 class="gap-2 cursor-pointer text-destructive focus:text-destructive"
                 @click="$emit('action', 'delete')"
             >
-                <Trash2 class="h-4 w-4" />
+                <Trash2 class="h-4 w-4 shrink-0" />
                 Delete
             </DropdownMenuItem>
 
@@ -147,26 +141,24 @@
                 class="gap-2 cursor-pointer text-muted-foreground"
                 @click="$emit('action', 'flag')"
             >
-                <Flag class="h-4 w-4" />
+                <Flag class="h-4 w-4 shrink-0" />
                 Report
             </DropdownMenuItem>
 
             <!-- Admin section -->
             <template v-if="isAdmin && paletteKind === 'remote'">
                 <DropdownMenuSeparator />
-                <DropdownMenuLabel class="text-mono-caption uppercase tracking-wider text-muted-foreground">
-                    Admin
-                </DropdownMenuLabel>
+                <DropdownMenuLabel>Admin</DropdownMenuLabel>
                 <DropdownMenuItem class="gap-2 cursor-pointer" @click="$emit('action', 'feature')">
-                    <Star v-if="palette.tier !== 'featured'" class="h-4 w-4" />
-                    <StarOff v-else class="h-4 w-4" />
+                    <Star v-if="palette.tier !== 'featured'" class="h-4 w-4 shrink-0" />
+                    <StarOff v-else class="h-4 w-4 shrink-0" />
                     {{ palette.tier === 'featured' ? 'Unfeature' : 'Feature' }}
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     class="gap-2 cursor-pointer text-destructive focus:text-destructive"
                     @click="$emit('action', 'adminDelete')"
                 >
-                    <Trash2 class="h-4 w-4" />
+                    <Trash2 class="h-4 w-4 shrink-0" />
                     Delete (admin)
                 </DropdownMenuItem>
             </template>
@@ -176,15 +168,18 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { useMediaQuery } from "@vueuse/core";
 import type { Palette } from "../../../types";
 import type { PaletteKind } from "../../../utils";
 import { useApiClient } from "../../../../platform/transport/useApiClient";
 import {
     DropdownMenu,
     DropdownMenuContent,
+    DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
+    DropdownMenuShortcut,
     DropdownMenuSub,
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
@@ -217,6 +212,17 @@ const { palette } = defineProps<{
 // injected api-client seam (S.W2 W2-4), not a hard module-singleton import.
 const { availability } = useApiClient();
 const apiOffline = computed(() => availability.value === "unavailable");
+
+/** The export formats, one list for both presentations (UIA-V-113). */
+const EXPORTS = [
+    { action: "exportJSON", label: "JSON", rule: false },
+    { action: "exportCSS", label: "CSS Custom Properties", rule: false },
+    { action: "exportTailwind", label: "Tailwind Config", rule: false },
+    { action: "exportSVG", label: "SVG Swatch", rule: true },
+    { action: "exportPNG", label: "PNG Swatch", rule: false },
+] as const;
+
+const inlineExport = useMediaQuery("(pointer: coarse), (max-width: 40rem)");
 
 // Q1: the canonical remote state is `(visibility, tier)` — an absent
 // visibility on an in-browse row means public (the browse feed is the
