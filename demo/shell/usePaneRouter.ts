@@ -245,6 +245,44 @@ export const PANE_CACHE_MAX: Record<RegionRole, number> = (() => {
 //     itself, never a Vue-internal field of the wrapper).
 export const PANE_LOAD_DELAY_MS = 200;
 
+/**
+ * X.W12U.s3 · UIA-V-606 / V-616 — the plate phase's way out. A chunk that
+ * never settles (a stalled dev server, a hung network) used to hold "Loading
+ * the scene…" forever: `defineAsyncComponent` had an `errorComponent` but no
+ * `timeout`, so the error plate (and its recovery action) was unreachable for
+ * a load that neither resolved nor rejected. Past this bound the wrapper's
+ * loader rejects with the typed `PaneChunkError` — the one failure class the
+ * region's `ErrorBoundary` lets `PaneErrorPlate` own (Vue's own `timeout`
+ * option throws a bare Error, which the boundary latches as an "unexpected
+ * error" with the raw message). The underlying load keeps running (one shared
+ * `loadOnce`), so a late chunk still publishes the resolved pane.
+ */
+export const PANE_LOAD_TIMEOUT_MS = 20_000;
+
+function withinLoadBound<T>(pane: string, load: Promise<T>): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
+        const timer = setTimeout(
+            () =>
+                reject(
+                    new PaneChunkError(pane, {
+                        cause: new Error(`pane chunk not settled after ${PANE_LOAD_TIMEOUT_MS} ms`),
+                    }),
+                ),
+            PANE_LOAD_TIMEOUT_MS,
+        );
+        load.then(
+            (value) => {
+                clearTimeout(timer);
+                resolve(value);
+            },
+            (cause: unknown) => {
+                clearTimeout(timer);
+                reject(cause);
+            },
+        );
+    });
+}
+
 /** The name every lazy pane's plate phase carries — `PaneSlot`'s `<KeepAlive>` excludes it. */
 export const PANE_PLATE_PHASE = "PanePlatePhase";
 
@@ -300,7 +338,7 @@ function lazyPane<T extends Component>(
             },
         ));
     const plate = defineAsyncComponent({
-        loader: () => loadOnce().then(() => PaneLoadingPlate),
+        loader: () => withinLoadBound(pane, loadOnce()).then(() => PaneLoadingPlate),
         loadingComponent: PaneLoadingPlate,
         errorComponent: PaneErrorPlate,
         delay: PANE_LOAD_DELAY_MS,
