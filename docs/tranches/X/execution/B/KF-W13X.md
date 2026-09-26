@@ -1579,3 +1579,140 @@ Self-count ⟨`sed -n "/^\*\*Dispositions (51 ids)/,/^Self-count/p" KF-W13X.md |
 - **A2-KE-L1-12** (re-homed to the close by `.transport`): its provide site is `App.vue:191` (G18). It is untouched here because the rule is one commit by one seat with `.controls`' arms.
 - The re-homed rows (§ table) carry their measured anchors at `11eb0028`.
 - **Frames:** the PNG frames sit on disk under `evidence/W13X/home/frames/` but are not committed, because `.gitignore:34` ignores `*.png`. What the repository carries are the probes and their double-run readings; the frames can be regenerated with the committed probes.
+
+### .scene
+
+SERVED MODEL: claude-opus-5-5. Unit `.scene` (G19): the scene swap, transition and lifecycle. Brief rows: KFA-24 · 25 · 26 · 75 · 76 · 77 · 79 · 80 · 137 · 184 · 201 · A2-KE-L1-13 · L1-14. Rows re-homed here by other units: KFA-106 · 190 (`.sequence`) · KFA-81 stall limb · UIA-KF-053 (`.cube`) · KFA-69 (`.amiga`) · UIA-KF-143 (`.overlays`) · UIA-KF-067 1440 limb · KFA-22 · 70 · 71 · 72 · 199 · UIA-KF-125 (`.home`) · UIA-KF-132 (`.dock`, ESC-dock-3) · the stale `warmScene` docblock (`.dock`). Crash recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → 0 dirty paths in the writable set (only the two untracked coordination letters, outside the set). Nothing inherited.
+
+**Instruments.** A private dev server on the after bytes, ⟨`npx vite --force --port 5291`⟩ → glass `10.1.0` (`node_modules/@mkbabb/glass-ui/package.json`). A second private server on the BEFORE bytes: a detached worktree at kf `551ad1da` (scratchpad `kf-scene-before`, node_modules symlinked), ⟨`npx vite --force --port 5292`⟩. Neither is the shared :5173. Probes (committed at `evidence/W13X/scene/`): `scene.mjs` + `instr.js` (an init script that wraps `document.startViewTransition` to record each call, its `ready`/`finished` times, the menus visible at capture and the named groups, and samples every rAF: skeleton present and its opacity, controls pane, dock Scene label, stage box, visible listbox, `:active-view-transition`). The cold swap holds `AmigaScene.vue` for 2000 ms and `EasingScene.vue` / `SpringScene.vue` for 800 / 1200 ms. Also `rehomed.mjs`, `playfreeze.mjs` and `deeplink.mjs`. Headed Chromium, 1440×900 light ×2 on each side, and 390×844 dark ×1 on each side. Every before/after pair was read with the same probe bytes: after the last change to an instrument, both sides were re-run.
+
+**Act 1 — measure (BEFORE, kf `551ad1da`, :5292).** ⟨`BASE=http://localhost:5292 RUN=before-r{1,2} node scene.mjs`⟩ → RED on the same seven rows both times:
+- KFA-25: skeleton 107/226 and 99/207 frames.
+- KFA-76: a stall on a visible frame, 274 / 256 ms.
+- KFA-26: one listbox visible at capture; the only named group is `scene-subject`.
+- KFA-201: a listbox at capture.
+- KFA-24: the hash nav makes 0 VT calls (skeleton 2 / 1 frames); back makes 0 VT calls.
+- KFA-79: the skeleton's first painted frame is at opacity 1.
+- KFA-80: skeleton stage `[43,106,1354,688]` → settled `[518,127,878,646]`.
+
+GREEN on both runs: KFA-75 (pane absent 0 frames) · KFA-77 (the dock label does not change inside the capture, so the row is latent) · KFA-137 (sheen `oklab(… / 0.08)`, alpha 0.08) · KFA-184 (pane width constant at 475). 390 dark (`before-390`): the same seven RED, except KFA-80 GREEN (stage `[0,74,390,696]` → `[0,107,390,630]`, full-bleed both).
+
+**Act 2 — the mechanism, at the true bytes.** Every anchor was re-read at `551ad1da`; the audit's line numbers had drifted, so each is cited by intent.
+- **The capture.** `useSceneTransition.runSceneSwitch` wrapped only the synchronous `mutate(id)`. The new-state capture was therefore the keyed `<Suspense>` fallback (KFA-25), and the chunk's evaluation and the scene's mount ran on visible frames after the fade (KFA-76). The pick closes the Scene Select in the same event, so the old-state capture carried the open listbox (KFA-26/201).
+- **The route.** `useSceneMachineRouterBinding`'s `router.afterEach` dispatched `NAVIGATE` directly, so a hash or back/forward change never reached the transition (KFA-24).
+- **The fallback.** `App.skeleton.vue` had no appear delay (KFA-79).
+- **The layout.** KFA-80's geometry jump is the pane column. On a hard load there is no source scene, so the pane (rendered from `resolvedScene.api?.tabsContent`, `App.vue`) does not exist until the scene mounts.
+
+**Act 3 — the cures (kf).**
+- **`a8aa8162`** — KFA-79. `App.skeleton.vue`: `.scene-skeleton` gets `animation: scene-skeleton-appear var(--duration-fast) var(--ease-out) 150ms both` (from `opacity: 0`). Under PRM, `animation-duration: 0s`: the threshold is kept and the fade is dropped.
+- **`2bd65e16`** — KFA-77 (and KFA-26's chrome half). The pill `div` in `ChromeDock.vue` and in `TransportDock.vue` gets class `dock-vt-group` with `view-transition-name: chrome-dock` / `transport-dock`. These are plain names: no demo `::view-transition-*` CSS is added, and the UA default group morphs the pill between the two widths.
+- **`86b8878a`** — the swap and the contract. Two meanings, one commit, because both live in `scenes.ts` and `App.vue` and a pathspec commit takes whole files. Seven changes:
+  - `scenes.ts` gains `loadScene(id)` (the same thunk `defineAsyncComponent` wraps) and `warmScenesAtIdle()`. `warmScene` now rides `loadScene`.
+  - `useSceneTransition({ mutate, sceneHost, whenSceneReady })` works in this order:
+    1. `onMounted(warmScenesAtIdle)`;
+    2. `await Promise.allSettled([loadScene(id), settleClosingOverlays()])` (one rAF, then the `finished` of every finite animation under `[data-state="closed"]`);
+    3. a generation guard;
+    4. `viewTransition(async () => { const ready = whenSceneReady(id); mutate(id); await ready; await nextTick(); })`.
+  - `useSceneMachineShellBinding` gains `whenSceneReady(id)`: one waiter, released by a newer switch and resolved inside `markSceneReady`.
+  - The route reader runs `opts.getRunSceneSwitch()(scene)` for every non-initial navigation. `from === START_LOCATION` still dispatches `NAVIGATE`, because the first load has no source scene.
+  - `router.ts` toasts the deep link's verdict, using the Share popover's own copy and tones (UIA-KF-143).
+  - A2-KE-L1-13:
+    - `SceneExposedApi.tabsTrigger` and `headerLeft` are deleted;
+    - `SceneDescriptor.showStartScreen` and `gridBackground` are deleted;
+    - the cube has one load path (static `CubeScene` on the cube and home descriptors), and `App.vue`'s `activeSceneComponent` reads `currentScene.value.component`.
+  - A2-KE-L1-14:
+    - one `HOME_SCENE_ID` (`@state`; `scenes.ts`, `router.ts` and `App.vue` import it);
+    - the descriptor ids are the `*_SCENE_ID` constants;
+    - the local `SCENE_ID` aliases are gone (cube, easing, sequence);
+    - `ChannelHandle extends SurfaceChannelLike` (the state layer cannot import the facility; a type import would head a runtime cycle), and `TransportChannel = Pick<ChannelHandle, …>`.
+- **`b2180040`** — the falsifier `test/demo/app/scene-swap-w13x.test.ts`.
+
+**Adjacent edits (§0bt)**, each the minimum the cure needs, in the same concern:
+- `demo/app/App.vue`: the `@state` import of `HOME_SCENE_ID`; the removed static `CubeScene` import; `activeSceneComponent`; `useSceneMachineRouterBinding({ getRunSceneSwitch })`; `whenSceneReady` destructured and passed. These are the wiring of the swap and the one load path.
+- `demo/app/App.skeleton.vue:41-62`: the KFA-79 appear.
+- `demo/app/dock/ChromeDock.vue` (pill class + 8-line scoped rule) and `demo/components/instrument/transport/TransportDock.vue` (the same): the KFA-77 names.
+- `demo/components/instrument/transport/transportSource.ts:20-30`: the `Pick<>` (L1-14).
+- `demo/scenes/cube/useCubeDemo.ts` (the alias removed and renamed at 6 uses), `demo/scenes/cube/CubeScene.vue:52-57`, `demo/scenes/easing/EasingScene.vue:20-22,84,141` and `demo/scenes/sequence/SequenceScene.vue:10-12,33`: the L1-14 aliases.
+- `scripts/lib/demo-driver.mjs:246-260`: the e2e manifest parser now resolves an identifier `id` exactly as it resolves `superKey`. It threw `descriptor without an id` on `id: CUBE_SCENE_ID`, which the full `test:demo` caught through `occlusion-easing-subject.test.ts`. This is an instrument read of the file changed here, not a gate relaxation.
+- `test/demo/scenes/cube-scene.test.ts:27,110-114`: the alias assertion is re-expressed on the one constant (`sceneMap.get(CUBE_SCENE_ID)` id and superKey), since the alias it compared no longer exists.
+- `test/demo/app/home-pick-carry.test.ts:4-6`: the import moves to `@state`.
+
+**Act 4 — falsifiers RED → GREEN ×2.**
+- **Served, the brief rows.** ⟨`RUN=after-r{1,2} node scene.mjs`⟩ on :5291, both runs:
+  - KFA-25: skeleton 0/226 and 0/224;
+  - KFA-76: 0 stalls on a visible frame; the largest interval inside the cross-fade is 32 / 30 ms;
+  - KFA-26/201: 0 listboxes at capture; named groups `["chrome-dock","scene-subject","transport-dock"]`;
+  - KFA-77: the label changes inside the capture, and the chrome is in its own group;
+  - KFA-24: hash 1 VT call, back 1 VT call, 0 skeleton;
+  - KFA-79: first frame opacity 0;
+  - KFA-80: RED on both runs (see the escalation).
+  - An intermediate reading of KFA-77, taken with the swap cure but before `2bd65e16`, was RED: the label changed inside an unnamed capture. That is the latent row made live, and why the names land.
+  - 390 dark, after ×1 (`after-390`): 11/11 GREEN. KFA-75 at 390 is `open before and after: false` (the phone sheet is closed), so its predicate does not apply there.
+  - A mid-transition frame (`frames/after-r1/pick-vt-mid-1440x900-light.png`, on disk) shows the cube dissolving into the Amiga stage under a clean `Amiga` dock label.
+- **Served, the re-homed rows** (⟨`rehomed.mjs`⟩, cube → sequence by hash):
+  - before ×2: KFA-106 moving frames 1 / 3 (x span 5.3 / 9.6 px); KFA-190 placeholder frames 12 / 5; UIA-KF-125 VT calls 0 with a skeleton;
+  - after ×2: moving frames 0 / 0 (span 0); placeholder frames 0 / 0; VT calls 1 with no skeleton.
+  - ⟨`deeplink.mjs`⟩ (UIA-KF-143): before ×2 `toasts []` for both a garbage and a valid `?state=`; after ×2 `Invalid shared state…` and `State restored!…`.
+- **Unit.** ⟨`npx vitest run --project demo test/demo/app/scene-swap-w13x.test.ts`⟩:
+  - in the before worktree ×2: **4 failed | 1 passed** — AssertionError ×4 (`[] to deeply equal ['square']`; `vi.fn() … not be called … called 1 times`; `undefined to be AsyncComponentWrapper`; `… not to include 'showStartScreen'`) plus the old signature's `TypeError … reading 'value'`;
+  - ⟨`vue-tsc --noEmit -p tsconfig.test.json`⟩ in the before worktree ×2: EXIT 2, including `TS2344` on the exact `SceneExposedApi` key set;
+  - after: 5/5, inside the full `test:demo` runs below.
+  - The `ChannelHandle`/`TransportChannel` type limb is structurally equal before and after, so no falsifier can separate it. It is a refactor, recorded as such.
+
+**Gates (kf, final bytes `b2180040`).**
+
+| gate | BEFORE (`551ad1da`) | AFTER |
+|---|---|---|
+| `npm run check` | EXIT 0 (baseline) | EXIT 0 (vue-tsc app + test; `proof:structure PASS`), after the last code edit |
+| `npm run lint` | EXIT 0 (the `.cube` seat cured the 4 cycles earlier) | `✔ no dependency violations found (442 modules, 1603 dependencies cruised)` + eslint clean |
+| `npm run test:demo` | 116 files / 746 tests (the `.home` close) | runs 1 and 4: **117 passed / 751 passed**, EXIT 0. Runs 2 and 3: 750/751, the one failure both times `hero-wave-pause.test.ts` "Test timed out in 5000ms" at host load 57-61. That file mounts `EditorStartScreen` only, touches nothing here, and passes in isolation ×2 at the after bytes. It is a load-timing miss, not an assertion, and is disclosed rather than counted green. |
+
+**Dispositions (brief, 13).**
+
+| row | disposition | evidence |
+|---|---|---|
+| KFA-24 | **CURED** `86b8878a` | hash / back: 0 → 1 VT call, ×2 |
+| KFA-25 | **CURED** `86b8878a` | skeleton frames 107 / 99 → 0 / 0 |
+| KFA-26 | **CURED** `86b8878a` + `2bd65e16` | listbox at capture 1 → 0; chrome groups above `scene-subject` |
+| KFA-75 | **CURED-PRIOR** (X.KF.W13U.d5's `resolvedScene` commit point) | pane absent 0 frames at before and after, ×2 |
+| KFA-76 | **SPLIT** | The cross-fade limb is **CURED** `86b8878a`: 274 / 256 ms visible stalls → 0; the chunk is resolved before the swap and warmed at idle. The mount-cost limb (the destination scene's synchronous init, 275-290 ms on the dev server, now spent while the platform holds the old paint) is the fix shape's third arm, "defer heavy scene init past first paint", in each scene's own files → **CARRIED to the close**. It is not measured on gh-pages here. |
+| KFA-77 | **CURED** `2bd65e16` | latent at before; live at the intermediate state (RED); GREEN ×2 after |
+| KFA-79 | **CURED** `a8aa8162` | first frame opacity 1 → 0, ×2 |
+| KFA-80 | **ESCALATED** (ESC-scene-1) | RED ×2 before and after at 1440 (GREEN at 390) |
+| KFA-137 | **CURED-BY-REPIN** (glass 10.1.0: the sheen reads `oklab(… / 0.08)`) | alpha 0.08, ×2 before |
+| KFA-184 | **NOT REPRODUCED** | pane width constant at 475 across the resolve, ×2 before and after |
+| KFA-201 | **CURED** `86b8878a` | listbox at capture 1 → 0; after-paint rows 0 |
+| A2-KE-L1-13 | **CURED** `86b8878a` | unit cases 3-5 RED → GREEN; `TS2344` RED ×2 |
+| A2-KE-L1-14 | **CURED** `86b8878a` | single `HOME_SCENE_ID`; ids === superKey; aliases 0 (⟨`grep -rn '\bSCENE_ID\b' demo test | grep -v _SCENE_ID`⟩ → one comment line in `useAmigaDemo.ts:312`); the `Pick<>` |
+
+**Dispositions (re-homed here, 15 ids on 12 rows).**
+
+| row | disposition | evidence / reason |
+|---|---|---|
+| KFA-106 | **CURED** `86b8878a` | card moving frames 1 / 3 → 0 / 0: the capture now waits for the committed layout |
+| KFA-190 | **CURED** `86b8878a` | placeholder frames 12 / 5 → 0 / 0 |
+| UIA-KF-125 | **SPLIT** | The in-app limb is **CURED** `86b8878a`: 0 → 1 VT call carrying the resolved scene; skeleton 0. On a no-VT engine the key flip now mounts the preloaded scene, so the spring fades it in. The hard-load limb (no source scene; skeleton → scene) is **CARRIED** with ESC-scene-1. |
+| UIA-KF-143 | **CURED** `86b8878a` | `toasts []` → the destructive and success toasts, ×2 each |
+| UIA-KF-067 (1440) | **ESCALATED** with KFA-80 (ESC-scene-1) | the same pane-column geometry |
+| KFA-22 | **SPLIT** | The ~176° leap is **NOT REPRODUCED** ×2 at before (⟨`playfreeze.mjs`⟩: max step in the first 12 moving frames 1.6 / 10.0°; `.r`'s `2706a61d` fresh-anchor cure predates this). The freeze limb is **CARRIED to the close**: the rAF gap is 316 / 307 ms before and 234 / 296 ms after. Its root is the CubeScene remount across `AnimationControlsGroup :key="superKey"` (`EditorShell`, G3), not a G19 byte. |
+| KFA-70 · 71 · 72 · 199 | **CARRIED with KFA-22's freeze limb** | their fix shapes "fall out of" it. They were not measured one by one. |
+| KFA-81 (stall limb) | **CARRIED to the close** | the engine warm-up before SCENE_READY is `src/animation/load-engine.ts`'s import (library). `warmScenesAtIdle` warms scene chunks, not the engine. |
+| KFA-69 | **CARRIED to the close** | A group-level seek needs a phase-locked opt from `AmigaScene` (G13) and the transport's per-child scrub law (`useAnimationGroupPlayback.ts`, G17, "must NOT drag its siblings"). That is a cross-unit design act; only `scene-facility/index.ts:115` is G19's. |
+| UIA-KF-053 | **CARRIED to the close** | the shared StageLegend / StageWhisper registry across the cube, amiga and easing scene shells is owner-golden gated (DESIGN.md §7-8); it lives in scene files outside G19 |
+| UIA-KF-132 | **HELD** on ESC-dock-3 (owner design act: the Home glyph) | not ruled; no byte |
+| stale `warmScene` docblock | **CURED** `86b8878a` | it now names the dock's menu-open warm |
+
+Self-count ⟨`sed -n '/^### .scene/,$p' KF-W13X.md | grep -E '^\| (KFA|UIA-KF|A2-KE|stale)' | cut -d'|' -f2 | tr '·' '\n' | grep -cE 'KFA|UIA|A2-KE|stale'`⟩ → **25** disposition rows ×2 (13 brief + 12 re-homed). The KFA-70 · 71 · 72 · 199 row carries 4 ids, so there are **28 ids** (13 brief + 15 re-homed).
+
+**Escalation ESC-scene-1 — KFA-80 and UIA-KF-067 (1440).** On a hard load the fallback fills the whole stage slot (`[43,106,1354,688]`), and the resolved layout then opens a 475 px pane column (stage `[518,127,878,646]`).
+- The ruled fix shape: derive rail presence from the static scene descriptor, and give the skeleton the scene host's gutter.
+- Why it cannot land here:
+  - rail presence varies by scene (sequence is panel-less, `useSceneMachineShellBinding` "sequence → []"), so it would be a per-scene static flag on the descriptor, which is the §0cd ruling's forbidden "static per-scene surface table";
+  - the pane and rail consumers (`EditorShell`, `AnimationControlsGroup(.css)`) are G3 / G17 files, and the change is not an adjacent line;
+  - the scenes' own gutters differ per scene (`SpringScene` `px-6 lg:px-8`, and others), so no single skeleton gutter matches.
+- **Ask:** rule whether a descriptor-level `hasControlsPane` (or a shell-level pane model that mounts the pane chrome independently of `sceneRef`, UIA-KF-067's fix) is admissible under §0cd, and name the seat that holds `EditorShell` + `AnimationControlsGroup` for it.
+- No shim was built.
+
+**Residuals.** One is in the probe, not the product. The controls pane's own values, where a field differs between scenes, cross-fade in place inside root: `alternate`/`normal` is visible superimposed at the mid-transition frame, in the same box. That is a cross-dissolve, not KFA-77's offset double exposure, and it is recorded rather than cured.
+
+**Scratch:** the before worktree `kf-scene-before` and the two private servers (:5291, :5292) are torn down at the seat's end. Commits: kf `a8aa8162` · `2bd65e16` · `86b8878a` · `b2180040`; value.js evidence `b2986706`. kf is not pushed (the close pushes).
