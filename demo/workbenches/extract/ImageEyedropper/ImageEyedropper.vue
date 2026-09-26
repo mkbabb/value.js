@@ -15,11 +15,16 @@
                 <DockSeparator />
 
                 <!-- Sampled color swatch + label -->
+                <!-- X.W12U.s3 · UIA-V-588: each Add / Apply REMOUNTS the swatch
+                     (the key is the confirmation count), so every confirmation
+                     replays the pop from its first frame; nothing waits on an
+                     `animationend` the dot never delivered (the class used to
+                     stay on, and a repeat Add gave no feedback). -->
                 <WatercolorDot
                     v-if="sampledColor"
+                    :key="confirmations"
                     :color="sampledColor"
-                    :class="['shrink-0 transition-transform', swatchPulse ? 'swatch-pulse' : 'w-7 h-7']"
-                    @animationend="swatchPulse = false"
+                    :class="['shrink-0 transition-transform', confirmations > 0 ? 'swatch-pulse' : 'w-7 h-7']"
                 />
                 <!-- Not-yet-sampled slot — the shipped ghost variant (A3, U18):
                      the seeded silhouette the sampled color will fill. -->
@@ -32,7 +37,7 @@
                 />
 
                 <span class="text-mono-small text-muted-foreground truncate select-all">
-                    {{ formattedColor ? formatCssCaption(formattedColor) : 'Tap to sample' }}
+                    {{ formattedColor ? formatCssCaption(formattedColor) : samplePrompt }}
                 </span>
 
                 <!-- Spacer -->
@@ -91,6 +96,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onActivated, onBeforeUnmount, onDeactivated, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "@lucide/vue";
+import { useMediaQuery } from "@vueuse/core";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 
@@ -123,7 +129,12 @@ const pinned = ref(false);
 let justUnpinned = false;
 
 // Swatch pulse animation
-const swatchPulse = ref(false);
+// UIA-V-588: the count of confirmed Add / Apply acts — the swatch's key.
+const confirmations = ref(0);
+// X.W12U.s3 · UIA-V-H2: the prompt names the gesture the pointer has —
+// "Tap" on a coarse pointer, "Click" on a fine one.
+const coarsePointer = useMediaQuery("(pointer: coarse)");
+const samplePrompt = computed(() => (coarsePointer.value ? "Tap to sample" : "Click to sample"));
 
 // --- Image sampler (offscreen canvas + sampleAt + formatInColorSpace) ---
 const sampler = useImageSampler({
@@ -212,14 +223,14 @@ function onTransitionEnd() {
 function onAddToPalette() {
     if (sampledColor.value) {
         emit("addToPalette", sampledColor.value);
-        swatchPulse.value = true;
+        confirmations.value++;
     }
 }
 
 function onApplyColor() {
     if (sampledColor.value) {
         emit("pick", sampledColor.value);
-        swatchPulse.value = true;
+        confirmations.value++;
     }
 }
 
