@@ -1,6 +1,12 @@
 <template>
     <Popover :open="open" @update:open="$emit('update:open', $event)">
-        <PopoverTrigger as-child>
+        <!-- UIA-V-28 · A2-VA-X-4: a host that opens the editor from elsewhere
+             (a card menu, the inspector, a dock seat) passes the element it
+             belongs to; the content places against it. A PopoverContent with
+             neither a trigger nor an anchor resolved against a null reference
+             and painted at the viewport's corner, or above it. -->
+        <PopoverAnchor v-if="anchor" :reference="anchor" />
+        <PopoverTrigger v-else as-child>
             <slot name="trigger" />
         </PopoverTrigger>
         <PopoverContent align="start" class="w-52 p-0">
@@ -49,15 +55,18 @@
 <script setup lang="ts">
 import { inject, onMounted, watch } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
+import { PopoverAnchor } from "reka-ui";
 import { Checkbox } from "../../../ui/checkbox";
 import { Loader2 } from "@lucide/vue";
 import { paletteETag } from "../../api";
 import { BROWSE_PORT_KEY } from "../../usePalettePorts";
 
-const { open, paletteSlug, currentTags } = defineProps<{
+const { open, paletteSlug, currentTags, anchor = null } = defineProps<{
     open: boolean;
     paletteSlug: string;
     currentTags: string[];
+    /** The element the editor belongs to, when it has no trigger slot. */
+    anchor?: HTMLElement | null;
 }>();
 
 const emit = defineEmits<{

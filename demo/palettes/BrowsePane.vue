@@ -155,6 +155,7 @@
             :open="tagEditOpen"
             :palette-slug="tagEditPalette.slug"
             :current-tags="tagEditPalette.tags ?? []"
+            :anchor="tagEditAnchor"
             @update:open="tagEditOpen = $event"
             @update:tags="onTagsUpdated"
         />
@@ -440,7 +441,12 @@ async function adminDelete(palette: Palette) {
 const tagEditOpen = ref(false);
 const tagEditPalette = ref<Palette | null>(null);
 
+// UIA-V-28 · A2-VA-X-4: the editor places against the card it edits, whichever
+// control asked for it (card menu, inspector command, dock seat).
+const tagEditAnchor = shallowRef<HTMLElement | null>(null);
+
 function onEditTags(palette: Palette) {
+    tagEditAnchor.value = cardRefs[palette.slug]?.rootEl ?? null;
     tagEditPalette.value = palette;
     tagEditOpen.value = true;
 }

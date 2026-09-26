@@ -13,6 +13,7 @@
          meta cluster's declared collapse priority reads (A-20's ruled
          consumer interim). -->
     <div
+        ref="rootEl"
         class="palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
         :data-layout="layout"
         :data-selected="expanded ? '' : undefined"
@@ -130,6 +131,7 @@ import {
     onDeactivated,
     onScopeDispose,
     ref,
+    useTemplateRef,
     watch,
 } from "vue";
 import { Button } from "../ui/button";
@@ -224,7 +226,11 @@ function showFeedback(message: string, variant: "success" | "error") {
     feedbackVisible.value = true;
 }
 
-defineExpose({ showFeedback });
+// UIA-V-28 · A2-VA-X-4: the card's own box, for a host that places an overlay
+// against it (the tag editor). The template's leading comment makes the root a
+// fragment in dev, so the public `$el` is not this element.
+const rootEl = useTemplateRef<HTMLElement>("rootEl");
+defineExpose({ showFeedback, rootEl });
 
 const { openIndex: openPopoverIndex, onOpenChange: onPopoverOpenChange } = useHoverPopover();
 
