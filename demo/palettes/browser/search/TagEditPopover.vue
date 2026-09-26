@@ -18,6 +18,16 @@
                     <Loader2 class="h-4 w-4 animate-spin text-muted-foreground" />
                 </div>
 
+                <!-- X.W12U.s2 · UIA-V-124: an unreachable catalog is not an empty
+                     one — the failure is said, with a Retry, and the save-error
+                     line below is left to save failures. -->
+                <div v-else-if="catalogFailed" class="flex flex-col items-start gap-2 py-1">
+                    <p role="alert" class="text-caption text-destructive">
+                        {{ tagEdit.error.value }}
+                    </p>
+                    <Button size="xs" @click="tagEdit.loadAllTags(true)">Retry</Button>
+                </div>
+
                 <!-- Empty -->
                 <div v-else-if="tagEdit.allTags.value.length === 0" class="text-caption text-muted-foreground italic py-2">
                     No tags available.
@@ -41,7 +51,7 @@
                 </div>
 
                 <p
-                    v-if="tagEdit.error.value"
+                    v-if="tagEdit.error.value && !catalogFailed"
                     role="alert"
                     class="mt-2 text-caption text-destructive"
                 >
@@ -53,9 +63,10 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, watch } from "vue";
+import { computed, inject, onMounted, watch } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import { PopoverAnchor } from "reka-ui";
+import { Button } from "../../../ui/button";
 import { Checkbox } from "../../../ui/checkbox";
 import { Loader2 } from "@lucide/vue";
 import { paletteETag } from "../../api";
@@ -77,6 +88,11 @@ const emit = defineEmits<{
 // D.W3 Lane B: route through pm.tagEdit sub-object (was: direct getTags/updatePalette)
 const pm = inject(BROWSE_PORT_KEY)!;
 const tagEdit = pm.tagEdit;
+
+/** The catalog never arrived: the error is the load's, not a save's. */
+const catalogFailed = computed(
+    () => !tagEdit.loaded.value && tagEdit.error.value !== null,
+);
 
 async function onToggle(name: string, checked: boolean) {
     const updated = checked
