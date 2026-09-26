@@ -1,0 +1,14 @@
+     × the transport's useDragCapture twin is gone; both former consumers ride useDragScrub 7ms
+     × all six minis share useLiveMini and none re-implements the watch(live) block 4ms
+     × useLiveMini seats before the first play, follows `live`, and stops on unmount 0ms
+     × tab-idiom.css is retired; its panel-enter rule lives in design-idioms.css on data-surface-panel 1ms
+     × every surface panel carries the attribute the rule keys on 1ms
+     × the idiom recipes with no consumer are deleted (.reverse-badge, .progress-bar, .progress-dot) 3ms
+     × the two never-read description tables are deleted 17ms
+     × the demo's own copyText helper is deleted; no demo file writes the clipboard bare 2ms
+     × a refused write resolves to a named failure and raises a destructive toast (no unhandled rejection) 420ms
+     × the labeled-field grid floors its label column at the one --pane-label-col token 1ms
+     × the playback components read cross-cutting composables from demo/composables 0ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  11 failed (11)
