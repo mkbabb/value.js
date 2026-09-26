@@ -8,7 +8,7 @@
  * consumers — the drawer pages through `fetchVersions`. The copy is deleted;
  * one state machine remains, in the drawer (X-W4's file).
  */
-import { listVersions, revertPalette, forkPalette } from "./api";
+import { listVersions, revertPalette, forkPalette, paletteETag } from "./api";
 import type { Palette, PaletteVersion } from "./types";
 
 export interface VersionsPage {
@@ -43,7 +43,9 @@ export interface UseVersionHistory {
         limit?: number,
         offset?: number,
     ) => Promise<VersionsResult>;
-    revert: (slug: string, hash: string) => Promise<RevertResult>;
+    /** Revert `palette` to the release `hash`; the held palette is the
+     *  If-Match validator's source (X.W12U.s2 · UIA-V-38). */
+    revert: (palette: Palette, hash: string) => Promise<RevertResult>;
     fork: (slug: string, name?: string, forkSlug?: string) => Promise<ForkResult>;
 }
 
@@ -65,9 +67,12 @@ export function useVersionHistory(): UseVersionHistory {
         }
     }
 
-    async function revert(slug: string, hash: string): Promise<RevertResult> {
+    async function revert(palette: Palette, hash: string): Promise<RevertResult> {
         try {
-            return { ok: true, palette: await revertPalette(slug, hash) };
+            return {
+                ok: true,
+                palette: await revertPalette(palette.slug, hash, paletteETag(palette)),
+            };
         } catch (e) {
             return { ok: false, message: messageOf(e, "The revert did not reach the server.") };
         }

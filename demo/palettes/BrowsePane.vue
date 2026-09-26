@@ -318,7 +318,7 @@ async function onVersions(palette: Palette) {
 async function onRevert(hash: string) {
     if (!versionPalette.value) return;
     const slug = versionPalette.value.slug;
-    const result = await pm.versions.revert(slug, hash);
+    const result = await pm.versions.revert(versionPalette.value, hash);
     if (!result.ok) {
         showVerdict(slug, `Revert failed: ${result.message}`, false);
         return;
