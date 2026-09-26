@@ -2,7 +2,7 @@
 import { ArrowLeft, Shield } from "@lucide/vue";
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
 import {
-    Select, SelectContent, SelectGroup, SelectItem, SelectValue,
+    Select, SelectContent, SelectGroup, SelectItem, SelectSeparator, SelectValue,
 } from "../../ui/select";
 import { computed, inject } from "vue";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
@@ -110,16 +110,18 @@ const viewRing = computed(() => {
                     :key="entry.id"
                     :value="entry.id"
                     class="py-1.5 px-2.5"
-                    hide-indicator
                 >
-                    <!-- W6-4 (T-10) — the INK menu: icon + label, both the
+                    <!-- UIA-V-72 · V-216: the current view wears the producer's
+                         selected indicator (its check). `hide-indicator` stripped
+                         it, and no row was highlighted on open either, so the
+                         list said nothing about where the user is.
+                         W6-4 (T-10) — the INK menu: icon + label, both the
                          popover foreground. P4-R4 (T-40a): the current
                          entry's `font-semibold` selection marker is RETIRED
                          (the ColorSpaceSelector precedent — the owner's
                          "dropdown options should not be bold"): EVERY option
                          computes 400, selection speaks reka's `aria-selected`
-                         + the producer's glass-quiet highlighted-on-open row,
-                         never weight. The one chromatic row is Palettes (Q5
+                         + the producer's selected indicator, never weight. The one chromatic row is Palettes (Q5
                          RULED): its label letterforms wear the guarded ramp —
                          the nav row whose destination IS color data. The W7-4
                          legend (per-row hue + dot swatch column) died here. -->
@@ -136,7 +138,8 @@ const viewRing = computed(() => {
 
                 <!-- Admin mode toggle separator + entry (single derived row, not two duplicated branches) -->
                 <template v-if="pm.isAdminAuthenticated.value">
-                    <div class="border-t border-border my-1"></div>
+                    <!-- UIA-V-226 · V-489: the producer's separator, not a hand-rolled rule. -->
+                    <SelectSeparator />
                     <SelectItem
                         value="__admin_toggle__"
                         class="py-1.5 px-2.5"
