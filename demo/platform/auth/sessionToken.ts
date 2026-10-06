@@ -35,9 +35,9 @@ export interface PersistedToken {
  * anonymous one. Returns null when neither backend holds a token.
  */
 export function loadPersistedToken(): PersistedToken | null {
-    const user = safeGetItem(localStorage, USER_TOKEN_KEY);
+    const user = safeGetItem("local", USER_TOKEN_KEY);
     if (user) return { token: user, persistent: true };
-    const anon = safeGetItem(sessionStorage, ANON_SESSION_KEY);
+    const anon = safeGetItem("session", ANON_SESSION_KEY);
     if (anon) return { token: anon, persistent: false };
     return null;
 }
@@ -50,18 +50,18 @@ export function loadPersistedToken(): PersistedToken | null {
  */
 export function persistToken(token: string, persistent: boolean): void {
     if (persistent) {
-        safeSetItem(localStorage, USER_TOKEN_KEY, token);
-        safeRemoveItem(sessionStorage, ANON_SESSION_KEY);
+        safeSetItem("local", USER_TOKEN_KEY, token);
+        safeRemoveItem("session", ANON_SESSION_KEY);
     } else {
-        safeSetItem(sessionStorage, ANON_SESSION_KEY, token);
+        safeSetItem("session", ANON_SESSION_KEY, token);
     }
     setSessionToken(token);
 }
 
 /** The ONE clear path: drop both backends and null the canonical cell. */
 export function clearPersistedToken(): void {
-    safeRemoveItem(localStorage, USER_TOKEN_KEY);
-    safeRemoveItem(sessionStorage, ANON_SESSION_KEY);
+    safeRemoveItem("local", USER_TOKEN_KEY);
+    safeRemoveItem("session", ANON_SESSION_KEY);
     setSessionToken(null);
 }
 

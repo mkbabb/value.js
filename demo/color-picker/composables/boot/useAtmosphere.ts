@@ -31,6 +31,7 @@ import {
 } from "@mkbabb/glass-ui/aurora";
 import { resolveCalibratedAtmosphere } from "./atmosphere-calibration";
 import { debounce } from "../../../shared/utils";
+import { safeSetItem } from "../../../platform/storage/useSafeStorage";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "../../../scenes/atmosphere/aurora-atoms";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
@@ -275,13 +276,8 @@ export function useAtmosphere(
         }
     });
     const persistGround = debounce(
-        (record: GroundRecord) => {
-            try {
-                localStorage.setItem(GROUND_STORE_KEY, JSON.stringify(record));
-            } catch {
-                /* private-mode */
-            }
-        },
+        (record: GroundRecord) =>
+            safeSetItem("local", GROUND_STORE_KEY, JSON.stringify(record)),
         200,
     );
     watch(

@@ -38,6 +38,7 @@ import {
 // The persisted color-state projection key — single-sourced (U-F48), shared
 // with useColorPersistence. boot→lib is a legal DOWN import.
 import { COLOR_STORE_KEY } from "../../../color-session/useColorPersistence";
+import { safeGetItem } from "../../../platform/storage/useSafeStorage";
 
 export type BootSeedSource = "url" | "storage" | "default";
 
@@ -75,7 +76,7 @@ function readUrlSeed(): { space: string; color: string } | null {
 /** Shape-validated read of the persisted input color (string, non-empty). */
 function readStoredSeed(): string | null {
     try {
-        const raw = localStorage.getItem(COLOR_STORE_KEY);
+        const raw = safeGetItem("local", COLOR_STORE_KEY);
         if (!raw) return null;
         const parsed: unknown = JSON.parse(raw);
         if (typeof parsed !== "object" || parsed === null) return null;

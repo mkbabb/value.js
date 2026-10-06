@@ -1,6 +1,7 @@
 import { watch, type ShallowRef, type ComputedRef } from "vue";
 import { useStorage } from "@vueuse/core";
 import { debounce } from "../shared/utils";
+import { safeGetItem } from "../platform/storage/useSafeStorage";
 import { serializePickerColor, type PickerColor } from "./picker-color";
 import type { ColorModel } from "./color-model";
 import { defaultColorModel } from "./color-model";
@@ -50,12 +51,7 @@ export function useColorPersistence(deps: {
     // Capture whether a persisted color-state exists BEFORE useStorage seeds the
     // default — the restore only fires for a genuine prior session (a fresh cold
     // load with no URL color keeps the default).
-    let hadPersistedColor = false;
-    try {
-        hadPersistedColor = localStorage.getItem(COLOR_STORE_KEY) !== null;
-    } catch {
-        /* private-mode */
-    }
+    const hadPersistedColor = safeGetItem("local", COLOR_STORE_KEY) !== null;
 
     const colorStore = useStorage<PersistedColorState>(COLOR_STORE_KEY, {
         inputColor: defaultColorModel.inputColor,

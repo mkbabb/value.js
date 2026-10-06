@@ -18,7 +18,7 @@ let _adminToken: Ref<string | null> | null = null;
 
 function getAdminToken(): Ref<string | null> {
     if (!_adminToken) {
-        _adminToken = ref<string | null>(safeGetItem(localStorage, STORAGE_KEY));
+        _adminToken = ref<string | null>(safeGetItem("local", STORAGE_KEY));
     }
     return _adminToken;
 }
@@ -34,12 +34,12 @@ export function useAdminAuth() {
 
     function login(token: string) {
         adminToken.value = token;
-        safeSetItem(localStorage, STORAGE_KEY, token);
+        safeSetItem("local", STORAGE_KEY, token);
     }
 
     function logout() {
         adminToken.value = null;
-        safeRemoveItem(localStorage, STORAGE_KEY);
+        safeRemoveItem("local", STORAGE_KEY);
     }
 
     function getToken(): string | null {

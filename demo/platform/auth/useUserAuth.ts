@@ -28,7 +28,7 @@ let _registrationCancelled = false;
 
 function getUserSlug(): Ref<string | null> {
     if (!_userSlug) {
-        _userSlug = ref<string | null>(safeGetItem(localStorage, SLUG_KEY));
+        _userSlug = ref<string | null>(safeGetItem("local", SLUG_KEY));
     }
     return _userSlug;
 }
@@ -36,14 +36,14 @@ function getUserSlug(): Ref<string | null> {
 /** Persist the user's slug (localStorage) + token (the persistent adapter case). */
 function persist(slug: string, token: string) {
     getUserSlug().value = slug;
-    safeSetItem(localStorage, SLUG_KEY, slug);
+    safeSetItem("local", SLUG_KEY, slug);
     persistToken(token, true);
 }
 
 /** Clear the user's slug (localStorage) + token (both backends + canonical cell). */
 function clearAuth() {
     getUserSlug().value = null;
-    safeRemoveItem(localStorage, SLUG_KEY);
+    safeRemoveItem("local", SLUG_KEY);
     clearPersistedToken();
 }
 
