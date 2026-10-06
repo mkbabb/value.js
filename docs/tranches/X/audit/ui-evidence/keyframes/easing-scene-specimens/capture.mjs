@@ -10,7 +10,7 @@ const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height:
 const FAMILIES = ["Standard", "Sine", "Quad", "Cubic", "Expo", "Circ", "Back", "Bounce", "Steps", "All"];
 const log = { ...tree(), when: new Date().toISOString(), runs: [] };
 const ONLY = process.argv[2];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const r = (e) => { if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.x), Math.round(b.y), Math.round(b.width), Math.round(b.height)]; };
   const grid = document.querySelector(".specimen-tile")?.parentElement, drawer = document.querySelector(".specimen-drawer");

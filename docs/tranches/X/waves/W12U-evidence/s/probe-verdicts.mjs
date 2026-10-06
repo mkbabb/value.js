@@ -8,7 +8,7 @@ import { prepare } from "../x/seed-x.mjs";
 const theme = process.argv[2] ?? "light";
 const OWNED = { slug: "owned-one", name: "Owned One", colors: [{ css: "#e11d48", position: 0 }, { css: "#2563eb", position: 1 }], userSlug: "test-user", voteCount: 3, voted: false, isLocal: false, visibility: "public", tags: [], versionCount: 2, currentHash: "h2", createdAt: "2026-07-10T00:00:00.000Z", updatedAt: "2026-07-10T00:00:00.000Z" };
 const PROBLEM = { status: 500, contentType: "application/problem+json", body: JSON.stringify({ type: "about:blank", title: "Server exploded", status: 500 }) };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme });
 await prepare(ctx, { theme, user: true });
 const p = await ctx.newPage();

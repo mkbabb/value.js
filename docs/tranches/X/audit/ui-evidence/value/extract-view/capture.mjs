@@ -63,7 +63,7 @@ const STATES = {
     zoom: [async (page) => { await openDropper(page); const c = page.locator(".glass-floating [class*=cursor-]").first(); const b = await c.boundingBox(); await page.mouse.move(b.x + b.width * 0.5, b.y + b.height * 0.5); for (let i = 0; i < 6; i++) { await page.mouse.wheel(0, -120); await page.waitForTimeout(80); } await page.waitForTimeout(900); return "wheel zoom x6"; }],
 };
 
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const VPS = [{ name: "1440", w: 1440, h: 900 }, { name: "390", w: 390, h: 844 }];
 for (const [state, [fn, opts = {}]] of Object.entries(STATES)) for (const vp of VPS) for (const theme of ["light", "dark"]) {
     const tag = `${state}__${vp.name}__${theme}`;

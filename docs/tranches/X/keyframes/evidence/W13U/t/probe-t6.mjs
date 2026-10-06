@@ -3,7 +3,7 @@
 // sampling (pointer fraction, aria-valuenow, aria-valuemax, cube rotateX) per step. Flags a step whose playhead strays >10% from the pointer.
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
 const base = process.argv[2] || 'http://localhost:5173/'; const N = +(process.argv[3] || 6);
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const S = '[role=slider][aria-label="Scrub animation timeline"]';
 const res = [];
 for (let n = 0; n < N; n++) {

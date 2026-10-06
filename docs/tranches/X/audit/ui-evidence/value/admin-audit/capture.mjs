@@ -11,7 +11,7 @@ const ALL = Array.from({ length: 47 }, (_, i) => ({
   id: `a${i}`, timestamp: new Date(Date.UTC(2026, 8, 23, 14, 0) - i * 3.7e6).toISOString(),
   action: ACTIONS[i % ACTIONS.length], target: TARGETS[i % TARGETS.length], actorSlug: "admin", ipHash: "abc" }));
 const log = [];
-let browser = await chromium.launch({ headless: false });
+let browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const B = (e) => { const r = e.getBoundingClientRect(); return [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height)]; };
   const cs = (e) => { if (!e) return null; const c = getComputedStyle(e); return { box: B(e), r: c.borderRadius, h: c.height, fs: c.fontSize, ff: c.fontFamily.split(",")[0], fw: c.fontWeight, bg: c.backgroundColor, bd: `${c.borderTopWidth} ${c.borderTopColor}`, color: c.color, cls: (e.className?.toString?.() || "").slice(0, 160) }; };
@@ -28,7 +28,7 @@ const measure = (page) => page.evaluate(() => {
   return { inputs, refresh, rows, badge, pager, count, header, empties, pane: cs(scroller), paneScroll: scroller && [scroller.scrollHeight, scroller.clientHeight], doc, active: document.activeElement?.getAttribute('aria-label') || document.activeElement?.tagName };
 });
 async function run({ vp, theme, state }) {
-  if (!browser.isConnected()) browser = await chromium.launch({ headless: false });
+  if (!browser.isConnected()) browser = await chromium.launch({ channel: "chrome", headless: true });
   const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 2 });
   await ctx.addInitScript(([t, signedOut]) => { try {
     localStorage.setItem("vueuse-color-scheme", t);

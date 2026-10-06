@@ -1,7 +1,7 @@
 // FRESH CONFIRM probe (READ-ONLY on app; no regenerate, no login submit).
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 async function run(label, opts, fn) {
   const ctx = await b.newContext(opts.ctx);
   await ctx.addInitScript((o) => { localStorage.setItem("vueuse-color-scheme", o.theme); if (o.slug) localStorage.setItem("palette-user-slug", o.slug); }, opts);

@@ -5,7 +5,7 @@ import { execSync } from "node:child_process";
 const D = "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg";
 const K = "/Users/mkbabb/Programming/keyframes.js";
 const out = { khead: execSync(`git -C ${K} rev-parse --short HEAD`).toString().trim(), kdirty: execSync(`git -C ${K} status --porcelain | wc -l`).toString().trim(), runs: {} };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const snap = (p) => p.evaluate(() => { const t = document.body.innerText;
   const btn = document.querySelector('[aria-label^="Play the reel"]');
   const dock = [...document.querySelectorAll('button[aria-label="Play animation"],button[aria-label="Pause animation"]')].find(x => x.getBoundingClientRect().width === 40);

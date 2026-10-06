@@ -12,7 +12,7 @@ writeFileSync(OUT + "tree-state.txt",
   `glass HEAD ${sh("git -C /Users/mkbabb/Programming/glass-ui rev-parse --short HEAD")} dirty ${sh("git -C /Users/mkbabb/Programming/glass-ui status --porcelain | wc -l")}\n${new Date().toString()}\n`);
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const metrics = {}; const errors = []; const blocked = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 async function measure(page) {
   return page.evaluate(() => {

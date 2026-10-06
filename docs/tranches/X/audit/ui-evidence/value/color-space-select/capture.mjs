@@ -6,7 +6,7 @@ const BASE = process.env.BASE ?? "http://localhost:9000/#/";
 const VPS = [["1440", 1440, 900], ["390", 390, 844]];
 const THEMES = ["light", "dark"];
 const report = {};
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const [vn, w, h] of VPS) for (const theme of THEMES) {
   const key = `${vn}-${theme}`; const r = (report[key] = { console: [] });
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: theme, deviceScaleFactor: 2 });

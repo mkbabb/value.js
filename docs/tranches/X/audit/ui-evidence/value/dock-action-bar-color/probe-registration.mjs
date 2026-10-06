@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const BASE = "http://localhost:9000";
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const res = {};
 for (const vp of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) for (const r of ["mix", "generate", "gradient"]) {
   const ctx = await browser.newContext({ viewport: vp, colorScheme: "light" }); const page = await ctx.newPage();

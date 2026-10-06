@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 const [w = "1440", scheme = "light"] = process.argv.slice(2);
 const out = new URL(".", import.meta.url).pathname;
 const routes = ["/", "/palettes", "/browse", "/extract", "/mix", "/generate", "/gradient", "/atmosphere", "/blob"];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: +w, height: 900 }, colorScheme: scheme, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
 await page.goto("http://localhost:9000/", { waitUntil: "networkidle" }).catch(() => {});

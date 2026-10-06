@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const res = {};
 for (const [tag, vp] of [["1440", { width: 1440, height: 900 }], ["390", { width: 390, height: 844 }]]) {
   const ctx = await b.newContext({ viewport: vp, colorScheme: "light", hasTouch: tag === "390" });

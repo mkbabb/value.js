@@ -9,7 +9,7 @@ const rev = (t) => ({ sha: execSync(`git -C ${t} rev-parse --short HEAD`).toStri
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const ONLY = process.argv[2];
 const log = { kf: rev(TREE), glass: rev(GUI), when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const CSS = `@keyframes demo {
   0% { transform: rotate(0deg) scale(1); background-color: #e11d48; }
   50% { transform: rotate(180deg) scale(1.2); background-color: #10b981; }

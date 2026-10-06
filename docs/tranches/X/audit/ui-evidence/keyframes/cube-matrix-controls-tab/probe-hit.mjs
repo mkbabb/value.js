@@ -1,6 +1,6 @@
 // hit-test probe: what element receives a pointer at each matrix cell's centre — READ-ONLY
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
 await page.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" }); await page.waitForTimeout(3500);

@@ -7,7 +7,7 @@ const OUT = new URL(".", import.meta.url).pathname;
 const IMG = "/Users/mkbabb/Programming/fourier-analysis/assets/animals/golden-retriever.webp";
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const metrics = {}; const log = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function measure(page) {

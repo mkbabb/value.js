@@ -8,7 +8,7 @@ const OUT = new URL(".", import.meta.url).pathname; const RUN = process.env.RUN 
 const BASE = process.env.BASE || "http://localhost:5246"; const FR = `${OUT}frames/tooltips-${RUN}/`; fs.mkdirSync(FR, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const lines = []; const L = (s) => { lines.push(s); console.log(s); };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light", "dark"]) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme, reducedMotion: "reduce" }); const p = await ctx.newPage();
   for (const route of ["", "cube", "amiga", "square", "easing", "spring", "sequence"]) {

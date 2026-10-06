@@ -4,7 +4,7 @@ import { execSync } from "node:child_process";
 const OUT = new URL(".", import.meta.url).pathname;
 const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const out = { sha: execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
 const p = await ctx.newPage();
 await p.goto("http://localhost:5173/#/amiga", { waitUntil: "networkidle" }); await p.waitForTimeout(3500);

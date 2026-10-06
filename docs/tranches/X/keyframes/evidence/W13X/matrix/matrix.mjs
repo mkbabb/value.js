@@ -11,7 +11,7 @@ const VPS = (process.env.VPS || "1440x900,1024x768,768x1024,430x932,390x844,360x
 const THEMES = (process.env.THEMES || "light,dark").split(",");
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const rows = [];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 // In-page reader. Cells = `.matrix-grid > *`; each holds one <input> and one `.matrix-axis-label` (kept across the cure).
 const read = () => {
   const vw = innerWidth, vh = innerHeight;

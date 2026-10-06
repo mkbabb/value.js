@@ -7,7 +7,7 @@ const KF = "/Users/mkbabb/Programming/keyframes.js";
 const khead = execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim();
 const kdirty = execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim();
 mkdirSync(OUT + "frames", { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const logs = [];

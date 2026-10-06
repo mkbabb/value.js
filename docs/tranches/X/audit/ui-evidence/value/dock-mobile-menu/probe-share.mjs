@@ -1,7 +1,7 @@
 // focused probe: does "Share color" flip to "Copied!" on the mobile menu? (READ-ONLY)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light", "dark"]) {
   const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, colorScheme: theme, permissions: ["clipboard-read", "clipboard-write"] });
   await ctx.addInitScript((t) => { localStorage.setItem("vueuse-color-scheme", t); }, theme);

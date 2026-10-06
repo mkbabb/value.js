@@ -13,5 +13,5 @@ const r = await withBrowser(async (b) => {
     return { cls: s.className, rules, rect: [r.top, r.bottom, r.height].map(Math.round), bottom: cs.bottom, top: cs.top, height: cs.height, blockSize: cs.blockSize, position: cs.position, translate: cs.translate, transform: cs.transform, inlineStyle: s.getAttribute("style"), detentT: cs.getPropertyValue("--detent-t"), band: getComputedStyle(document.documentElement).getPropertyValue("--dock-band-reserve-stable"), region: reg && { h: Math.round(reg.getBoundingClientRect().height), sh: reg.scrollHeight, oy: getComputedStyle(reg).overflowY }, vh: innerHeight };
   });
   return { peek: await read() };
-}, { launch: { headless: false } });
+}, { launch: { channel: "chrome", headless: true } });
 console.log(JSON.stringify(r.value ?? r, null, 1));

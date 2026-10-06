@@ -55,7 +55,7 @@ async function diff(page, a, b) {
   }, [a.toString("base64"), b.toString("base64")]);
 }
 
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light", "dark"]) for (const [vk, vp] of Object.entries(VPS)) {
   const tag = `${vk === "d" ? 1440 : 390}-${theme}`;
   if (ONLY && !ONLY.includes(tag)) continue;

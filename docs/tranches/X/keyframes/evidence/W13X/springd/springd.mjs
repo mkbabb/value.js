@@ -9,7 +9,7 @@ const VPS = (process.env.VPS || "1440x900,360x780,390x844,430x932,844x390,768x10
 const THEMES = (process.env.THEMES || "light,dark").split(",");
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const rows = [];
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
 // In-page reader: named boxes, pairwise overlaps, clip, radii, line counts.
 const measure = () => {
   const vis = (e) => { if (!e) return false; const s = getComputedStyle(e); const r = e.getBoundingClientRect(); return s.display !== "none" && s.visibility !== "hidden" && +s.opacity > 0.01 && r.width > 0 && r.height > 0; };

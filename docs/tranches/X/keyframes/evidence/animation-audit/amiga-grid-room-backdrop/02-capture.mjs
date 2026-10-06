@@ -5,7 +5,7 @@ const D = new URL(".", import.meta.url).pathname;
 const K = "/Users/mkbabb/Programming/keyframes.js";
 const kstate = () => ({ khead: execSync(`git -C ${K} rev-parse --short HEAD`).toString().trim(), kdirty: execSync(`git -C ${K} status --porcelain | wc -l`).toString().trim(), at: new Date().toISOString() });
 const out = { start: kstate() };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const errs = []; p.on("pageerror", e => errs.push(String(e))); p.on("console", m => { if (m.type() === "error" || m.type() === "warning") errs.push(m.type() + ": " + m.text().slice(0, 200)); });
 await p.goto("http://localhost:5173/#/amiga");

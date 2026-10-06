@@ -18,7 +18,7 @@ const treeState = () => ({ sha: execSync(`git -C ${tree} rev-parse --short HEAD`
 
 async function withPage(seg, fn) {
   for (let attempt = 0; attempt < 3; attempt++) {
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch({ channel: "chrome", headless: true });
     let closed = false;
     browser.on("disconnected", () => { closed = true; });
     const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 2, hasTouch: vp.w < 500 });

@@ -1,6 +1,6 @@
 // READ-ONLY: type-scale + trigger open-state probe
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light","dark"]) {
  const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
  await ctx.addInitScript((t) => { try { localStorage.setItem("vueuse-color-scheme", t); } catch {} }, theme);

@@ -4,7 +4,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
 const OUT = process.argv[2] || "run"; fs.mkdirSync(OUT + "/frames", { recursive: true });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" });
 await p.waitForSelector(".cube"); await p.waitForTimeout(3000);

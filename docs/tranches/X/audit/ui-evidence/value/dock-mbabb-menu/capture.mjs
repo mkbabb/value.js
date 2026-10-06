@@ -8,7 +8,7 @@ const repo = "/Users/mkbabb/Programming/value.js";
 const sha = execSync(`git -C ${repo} rev-parse --short HEAD`).toString().trim();
 const dirty = execSync(`git -C ${repo} status --porcelain`).toString().split("\n").filter(Boolean).length;
 const log = { url: URL_, sha, dirty, at: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const probe = async (page) => page.evaluate(() => {

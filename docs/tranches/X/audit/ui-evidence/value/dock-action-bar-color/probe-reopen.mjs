@@ -4,7 +4,7 @@ import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const BASE = "http://localhost:9000";
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const st = (page) => page.evaluate(() => { const g = (s) => { const e = document.querySelector(s); if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.x), Math.round(b.right)]; }; return { pressed: document.querySelector('[aria-label="Toggle action bar"]')?.getAttribute("aria-pressed"), dock: g(".glass-dock"), back: g('[aria-label="Back"]'), row: g('[data-testid="scene-action-row"]'), collapsed: !!document.querySelector(".glass-dock.collapsed"), hash: location.hash }; });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const out = [];
 for (let trial = 0; trial < 3; trial++) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" }); const page = await ctx.newPage();

@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 await ctx.addInitScript(() => { try { localStorage.setItem("vueuse-color-scheme", "light"); } catch {} });
 const p = await ctx.newPage();

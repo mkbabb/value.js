@@ -5,7 +5,7 @@ import fs from "node:fs"; import { execSync } from "node:child_process";
 const D = new URL(".", import.meta.url).pathname;
 const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`).toString().trim();
 const out = { khead: kf("rev-parse --short HEAD"), kdirty: kf("status --porcelain | wc -l"), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const [label, thr] of [["unthrottled", null], ["fast3g", { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8, uploadThroughput: 750e3 / 8 }], ["slow3g", { offline: false, latency: 400, downloadThroughput: 500e3 / 8, uploadThroughput: 500e3 / 8 }]]) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
   const page = await ctx.newPage(); const cdp = await ctx.newCDPSession(page);

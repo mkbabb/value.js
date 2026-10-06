@@ -10,7 +10,7 @@ writeFileSync(OUT + "tree-state.txt",
   `glass HEAD ${sh("git -C /Users/mkbabb/Programming/glass-ui rev-parse --short HEAD")} dirty ${sh("git -C /Users/mkbabb/Programming/glass-ui status --porcelain | wc -l")}\n${new Date().toString()}\n`);
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const metrics = {};
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const measure = (page) => page.evaluate(() => {
   const box = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); const cs = getComputedStyle(el);
     return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height), radius: cs.borderRadius, bg: cs.backgroundColor, color: cs.color, border: cs.border, pad: cs.padding, font: cs.fontSize + " " + cs.fontWeight + " " + cs.fontFamily.slice(0, 28), shadow: cs.boxShadow.slice(0, 80), bdf: cs.backdropFilter, outline: cs.outlineStyle + " " + cs.outlineWidth + " " + cs.outlineColor, trans: cs.translate }; };

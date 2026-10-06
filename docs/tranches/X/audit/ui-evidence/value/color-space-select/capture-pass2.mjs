@@ -4,7 +4,7 @@ import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const BASE = "http://localhost:9000/#/";
 const rep = {};
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const [vn, w, h, theme] of [["1440", 1440, 900, "light"], ["1440", 1440, 900, "dark"], ["390", 390, 844, "light"], ["390", 390, 844, "dark"]]) {
   const key = `${vn}-${theme}`; const r = (rep[key] = { console: [] });
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: theme, deviceScaleFactor: 2 });

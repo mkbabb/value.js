@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5 — KF.W13X.x · why "Edit easing curve" is not clickable at 1024x768 (views.mjs v4 ERR x both themes). READ-ONLY.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.env.BASE || "http://localhost:5194"; const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 for (const [w, h] of [[1024, 768], [1440, 900]]) {
   const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2 }); const p = await ctx.newPage();
   await p.goto(`${BASE}/#/cube`); await sleep(3200);

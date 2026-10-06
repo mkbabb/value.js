@@ -4,7 +4,7 @@ import { createRequire } from "node:module";
 const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
 const BASE = process.argv[2]; const TAG = process.argv[3] || "before";
 const OUT = new URL("./frames/", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false }); const out = {};
+const b = await chromium.launch({ channel: "chrome", headless: true }); const out = {};
 for (const [route, w, h, theme] of [["cube", 1440, 900, "light"], ["cube", 1440, 900, "dark"], ["cube", 1024, 768, "light"], ["", 1440, 900, "light"], ["", 1024, 768, "light"]]) {
   const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme, reducedMotion: "reduce" }); const p = await ctx.newPage();
   await p.goto(`${BASE}/#/${route}`); await p.waitForSelector(".cube-side"); await p.waitForTimeout(2500);

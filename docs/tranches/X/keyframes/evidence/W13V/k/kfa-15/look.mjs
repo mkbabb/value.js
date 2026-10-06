@@ -1,6 +1,6 @@
 // SERVED MODEL: claude-opus-5-5
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.goto("http://localhost:5173/#/cube"); await p.waitForTimeout(3500);
 const r = await p.evaluate(() => { const e = [...document.querySelectorAll("button,[role=tab],[role=option]")].find((e) => e.offsetParent && /^keyframes$/i.test((e.getAttribute("aria-label") || e.textContent).trim())); if (!e) return null; const b = e.getBoundingClientRect(); return { tag: e.tagName, role: e.getAttribute("role"), x: b.x + b.width / 2, y: b.y + b.height / 2, w: b.width, op: getComputedStyle(e).opacity }; });

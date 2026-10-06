@@ -6,7 +6,7 @@
 // argv: base tag route
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
 const [base = 'http://localhost:5173/', tag = 'dev', route = 'cube'] = process.argv.slice(2);
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const out = {};
 for (const scheme of ['light', 'dark']) {
   const p = await b.newPage({ viewport: { width: 1440, height: 900 }, colorScheme: scheme });

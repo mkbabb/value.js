@@ -11,7 +11,7 @@ const kdirty = execSync(`git -C ${KF} status --porcelain | wc -l`).toString().tr
 fs.mkdirSync(OUT + "frames", { recursive: true });
 for (const f of fs.readdirSync(OUT + "frames")) fs.unlinkSync(OUT + "frames/" + f);
 
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/#/square");
 await p.waitForSelector(".demo-box", { timeout: 20000 });

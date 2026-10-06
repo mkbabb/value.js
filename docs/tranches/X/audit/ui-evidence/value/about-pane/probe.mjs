@@ -4,7 +4,7 @@ import { execSync } from "node:child_process";
 const BASE = process.argv[2] ?? "http://localhost:9000";
 const repo = "/Users/mkbabb/Programming/value.js";
 const out = { sha: execSync(`git -C ${repo} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${repo} status --porcelain`).toString().trim().split("\n").filter(Boolean).length };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 const p = await ctx.newPage();
 await p.goto(`${BASE}/#/`, { waitUntil: "load", timeout: 90000 });

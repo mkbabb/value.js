@@ -20,7 +20,7 @@ const probe = `(() => { let f = [], on = false; const tick = () => { if (!on) re
     lbl: tab ? (tab.textContent || '').trim().slice(0, 24) : '', panes, scene, hash: location.hash });
   requestAnimationFrame(tick); };
   window.__sw = { start() { f = []; on = true; requestAnimationFrame(tick); }, stop() { on = false; return f; } }; })();`;
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 160)));
 await p.addInitScript(probe);

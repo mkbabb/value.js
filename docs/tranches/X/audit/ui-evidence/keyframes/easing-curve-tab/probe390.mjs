@@ -1,7 +1,7 @@
 // probe390 — READ-ONLY: can the 390 drawer reach the ribbon's Play? what intercepts it?
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: "light" });
 const p = await ctx.newPage(); await p.goto("http://localhost:5173/#/easing", { waitUntil: "networkidle" }); await p.waitForTimeout(3500);
 const errs=[]; p.on("pageerror", e => errs.push(String(e).slice(0,200))); await p.screenshot({ path: OUT + "P0-390-boot-390-light.png" }); console.log("names", JSON.stringify(await p.evaluate(() => [...document.querySelectorAll("button")].map(b => b.getAttribute("aria-label")).filter(Boolean).slice(0, 8)))); { const top = p.locator(".glass-dock").first(); const bb = await top.boundingBox(); if (bb) { await p.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2); await p.waitForTimeout(900); } } await p.getByRole("button", { name: "Controls panel" }).first().click({ timeout: 8000 }); await p.waitForTimeout(1500);

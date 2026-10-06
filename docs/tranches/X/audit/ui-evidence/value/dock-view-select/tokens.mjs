@@ -1,6 +1,6 @@
 // token/computed-style probe for dock-view-select (read-only)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [w,h,mob] of [[1440,900,false],[390,844,true]]) {
   const ctx = await b.newContext({ viewport:{width:w,height:h}, isMobile:mob, hasTouch:mob, deviceScaleFactor:2 });
   const p = await ctx.newPage(); await p.goto("http://localhost:9000/#/", {waitUntil:"networkidle"}); await p.waitForTimeout(2000);

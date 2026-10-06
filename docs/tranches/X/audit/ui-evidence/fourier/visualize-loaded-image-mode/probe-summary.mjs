@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { readFileSync, writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const slug = readFileSync(OUT + "slug.txt", "utf8").trim();
-const b = await chromium.launch({ headless: false }); const page = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+const b = await chromium.launch({ channel: "chrome", headless: true }); const page = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
 await page.goto("http://localhost:3100/w/" + slug, { waitUntil: "networkidle" }); await page.locator(".play-control").waitFor(); await page.waitForTimeout(2500);
 const r = await page.evaluate(() => {
   const dock = document.querySelector(".controls-overlay .glass-dock"); const d = dock.getBoundingClientRect();

@@ -10,7 +10,7 @@ const BASE = arg("base", "http://localhost:5173"), W = +arg("w", 1440), H = +arg
 const THEME = arg("theme", "light"), FRAMES = arg("frames", null);
 if (FRAMES) mkdirSync(FRAMES, { recursive: true });
 const SCENES = ["cube", "square", "amiga", "easing", "spring", "sequence"];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: THEME });
 const page = await ctx.newPage();
 const out = { viewport: `${W}x${H}`, theme: THEME, scenes: {} };

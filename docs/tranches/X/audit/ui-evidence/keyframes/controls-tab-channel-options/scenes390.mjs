@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { execSync } from "node:child_process"; import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const tree = () => ({ sha: execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length });
-const browser = await chromium.launch({ headless: false }); const log = { ...tree(), frames: [] };
+const browser = await chromium.launch({ channel: "chrome", headless: true }); const log = { ...tree(), frames: [] };
 for (const theme of ["light", "dark"]) for (const sc of ["amiga", "square", "easing", "spring"]) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: theme });
   await ctx.addInitScript((t) => { try { localStorage.setItem("vueuse-color-scheme", t); } catch {} }, theme);

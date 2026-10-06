@@ -9,7 +9,7 @@ const rev = (t) => ({ sha: execSync(`git -C ${t} rev-parse --short HEAD`).toStri
   dirty: execSync(`git -C ${t} status --porcelain`).toString().trim().split("\n").filter(Boolean).length });
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const log = { kf: rev(TREE), glass: rev(GUI), when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const r = (el) => { if (!el) return null; const b = el.getBoundingClientRect(); const c = getComputedStyle(el);
     return { x: Math.round(b.x), y: Math.round(b.y), w: Math.round(b.width), h: Math.round(b.height), radius: c.borderTopLeftRadius, bg: c.backgroundColor, shadow: c.boxShadow.slice(0, 90), font: c.fontSize + " " + c.fontWeight + " " + c.fontFamily.slice(0, 24), color: c.color, cls: (el.className?.baseVal ?? el.className ?? "").toString().slice(0, 140) }; };

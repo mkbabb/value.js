@@ -7,7 +7,8 @@
 import { chromium } from "@playwright/test";
 const origin = process.argv[2] ?? "http://localhost:9000";
 const headed = process.argv[3] === "headed";
-const browser = await chromium.launch({ headless: !headed });
+// COHESION §0ei: no window. `headed` now selects real Chrome in new headless mode on the GPU (ANGLE Metal).
+const browser = await chromium.launch({ headless: true, ...(headed ? { channel: "chrome" } : {}) });
 const out = {};
 for (const scheme of ["light", "dark"]) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme, reducedMotion: "reduce" });

@@ -15,6 +15,6 @@ export default defineConfig({
     webServer: [{ command: "npx vite --port 9000 --strictPort", port: 9000, reuseExistingServer: true }],
     projects: [{
         name: "o12-gpu-headed",
-        use: { baseURL: ORIGIN, browserName: "chromium", channel: "chromium", headless: false, viewport: { width: 1280, height: 720 } },
+        use: { baseURL: ORIGIN, browserName: "chromium", channel: "chrome", headless: true, viewport: { width: 1280, height: 720 } },
     }],
 });

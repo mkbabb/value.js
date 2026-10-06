@@ -47,7 +47,7 @@ const MEASURE = (root) => {
     };
 };
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: THEME });
 const page = await ctx.newPage();
 const out = { viewport: `${W}x${H}`, theme: THEME, sites: {} };

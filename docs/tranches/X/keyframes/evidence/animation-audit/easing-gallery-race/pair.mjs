@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const a = "data:image/png;base64," + readFileSync(OUT + "11-dip-clipped.png").toString("base64");
 const b = "data:image/png;base64," + readFileSync(OUT + "11-dip-cv-visible.png").toString("base64");
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage();
 await page.setContent("<canvas id=c></canvas>");
 const png = await page.evaluate(async ([a, b]) => { const Z=2; const cv=document.getElementById("c"); cv.width=520*Z; cv.height=220*Z+20; const g=cv.getContext("2d"); g.imageSmoothingEnabled=false; g.fillStyle="#222"; g.fillRect(0,0,cv.width,cv.height);

@@ -43,7 +43,7 @@ mkdirSync(OUT, { recursive: true });
 const OWNER_COLOR = "lab(38%25 32 24)"; // the owner reference (O-18 literal), URL-encoded %
 const HOME = (extra = "") => `${BASE}/#/?space=lab&color=${OWNER_COLOR}${extra}`;
 
-const browser = await chromium.launch({ headless: false, channel: "chromium" });
+const browser = await chromium.launch({ headless: true, channel: "chrome" });
 const report = [];
 const log = (s) => { console.log(s); report.push(s); };
 

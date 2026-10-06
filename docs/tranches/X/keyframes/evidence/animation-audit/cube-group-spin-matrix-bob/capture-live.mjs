@@ -11,7 +11,7 @@ const khead = execSync(`git -C ${kf} rev-parse --short HEAD`).toString().trim();
 const kdirty = execSync(`git -C ${kf} status --porcelain | wc -l`).toString().trim();
 const log = { khead, kdirty, startedAt: new Date().toISOString(), console: [], errors: [] };
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 page.on("console", (m) => { if (m.type() === "error" || m.type() === "warning") log.console.push(`${m.type()}: ${m.text()}`.slice(0, 300)); });

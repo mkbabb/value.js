@@ -1,7 +1,7 @@
 // Probe: undelayed upload on mobile → how long does the Progress persist; mobile tab after upload; speed readout overflow.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [vp, size] of [["m", { width: 390, height: 844 }], ["d", { width: 1440, height: 900 }]]) {
   const ctx = await b.newContext({ viewport: size, deviceScaleFactor: 2, hasTouch: vp === "m", isMobile: vp === "m", colorScheme: "light" });
   const p = await ctx.newPage();

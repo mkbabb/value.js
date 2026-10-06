@@ -1,6 +1,6 @@
 // read-only: icon size + hover computed style of the drop-target button at both viewports
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [w,h,m] of [[1440,900,false],[390,844,true]]) {
   const ctx = await b.newContext({ viewport: { width: w, height: h }, isMobile: m, hasTouch: m });
   const p = await ctx.newPage(); await p.goto("http://localhost:3100/visualize", { waitUntil: "networkidle" }); await p.waitForTimeout(600);

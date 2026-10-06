@@ -5,7 +5,7 @@ import fs from 'node:fs'; import { execSync } from 'node:child_process';
 const HERE = new URL('.', import.meta.url).pathname;
 const base = (process.argv[2] || 'http://localhost:5173').replace(/\/$/, ''); const tag = process.argv[3] || 'dev';
 const load = execSync('uptime').toString().trim().split('averages: ')[1];
-const b = await chromium.launch({ headless: false }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+const b = await chromium.launch({ channel: "chrome", headless: true }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.mouse.move(1300, 450); await p.goto(`${base}/#/cube`, { waitUntil: 'load' }); await p.waitForTimeout(6000);
 const rest = await p.evaluate(() => { const e = document.querySelector('.controls-layout'); const s = e && getComputedStyle(e); return e ? { transition: s.transition, tProp: s.transitionProperty, tDur: s.transitionDuration, tEase: s.transitionTimingFunction.slice(0, 40), cols: s.gridTemplateColumns, springDock: getComputedStyle(document.documentElement).getPropertyValue('--spring-dock').slice(0, 40), springSmooth: getComputedStyle(document.documentElement).getPropertyValue('--spring-smooth') } : null; });
 const legs = {};

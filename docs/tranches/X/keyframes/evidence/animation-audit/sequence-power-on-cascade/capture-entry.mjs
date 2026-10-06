@@ -6,7 +6,7 @@ import fs from "node:fs"; import path from "node:path"; import { execSync } from
 const OUT = path.dirname(new URL(import.meta.url).pathname);
 const KF = "/Users/mkbabb/Programming/keyframes.js";
 const meta = { khead: execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim(), kdirty: execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim() };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 await page.goto("http://localhost:5173/#/cube", { waitUntil: "load" });

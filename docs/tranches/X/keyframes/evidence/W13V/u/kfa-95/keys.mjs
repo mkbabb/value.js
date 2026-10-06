@@ -5,7 +5,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
 const tag = process.argv[2] || "run"; const OUT = new URL(`./${tag}/`, import.meta.url).pathname; fs.mkdirSync(OUT, { recursive: true });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const res = {};
 const scrubNow = (p) => p.evaluate(() => { const t = [...document.querySelectorAll('[role=slider][aria-label*="crub"]')].find((x) => x.offsetParent); return t ? +t.getAttribute("aria-valuenow") : null; });
 { const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); const p = await ctx.newPage();

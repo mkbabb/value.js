@@ -1,6 +1,6 @@
 // fresh load, playing: where does the drag rotation land? (orbit container vs .cube vs nowhere)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" }); await p.waitForTimeout(3000);
 const st = () => p.evaluate(() => ({ orbit: document.querySelector(".idle-hover").parentElement.getAttribute("style") || "", cube: (document.querySelector(".cube").style.transform || "").slice(0, 70), pose: (document.querySelector(".cube-pose").style.transform||"").slice(0,70), lit0: document.querySelector(".cube .cube-side").style.getPropertyValue("--lit") }));

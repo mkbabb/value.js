@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5 — OA-33 gate: one trailing control; Share/shortcuts/theme work from the dropdown; Escape returns focus.
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
 const base = process.argv[2] || 'http://localhost:5173/'; const tag = process.argv[3] || 'x';
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } }); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 140)));
 await p.goto(base + '#/cube', { waitUntil: 'networkidle' }); await p.waitForTimeout(2500);
 const dock = p.locator('[data-dock-tether=top] .glass-dock');

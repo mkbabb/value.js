@@ -9,7 +9,7 @@ const tree = () => ({ sha: execSync(`git -C ${TREE} rev-parse --short HEAD`).toS
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const log = { ...tree(), when: new Date().toISOString(), runs: [] };
 const ONLY = process.argv[2];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const r = (e) => { if (!e) return null; const b = e.getBoundingClientRect(); return [b.x, b.y, b.width, b.height].map(Math.round); };
   const st = (e, ps) => { if (!e) return null; const s = getComputedStyle(e); return Object.fromEntries(ps.map(p => [p, s[p]])); };

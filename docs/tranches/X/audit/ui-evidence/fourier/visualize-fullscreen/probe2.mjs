@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { readFileSync, writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const slug = readFileSync(OUT + "../visualize-view-options-popover/seed.txt", "utf8").trim();
-const b = await chromium.launch({ headless: false }); const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); const page = await ctx.newPage();
+const b = await chromium.launch({ channel: "chrome", headless: true }); const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); const page = await ctx.newPage();
 await page.goto(`http://localhost:3100/w/${slug}`, { waitUntil: "networkidle" }); await page.locator(".controls-dock-anchor").waitFor(); await page.waitForTimeout(1500);
 await page.locator(".controls-dock-anchor .glass-dock").first().hover(); await page.waitForTimeout(700); await page.locator("[aria-label='Fullscreen']").click(); await page.mouse.move(5, 450); await page.waitForTimeout(3000);
 const r = await page.evaluate(() => { const d = document.querySelector("[data-slot=dialog-content] .animation-dock"); const box = (e) => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return { tag: e.tagName, cls: e.className?.toString().slice(0, 70), x: Math.round(r.x), w: Math.round(r.width), pos: cs.position, ov: cs.overflow, txt: e.textContent.trim().slice(0, 12) }; };

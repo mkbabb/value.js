@@ -5,7 +5,7 @@ import { createRequire } from "node:module";
 const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
 const BASE = process.argv[2]; const TAG = process.argv[3] || "before";
 const OUT = new URL("./frames/", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 const R = (v) => Math.round(v * 100) / 100;
 const out = {};
 // per-rAF sampler of an element's inline/computed transform for `ms`

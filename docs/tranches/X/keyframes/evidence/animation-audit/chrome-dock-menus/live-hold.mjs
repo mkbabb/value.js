@@ -7,7 +7,7 @@ import fs from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname + "live-hold/";
 const KF = "/Users/mkbabb/Programming/keyframes.js";
 const k = () => ({ head: execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim(), at: new Date().toISOString() });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const res = {};
 const cases = {
   "share-popover": { open: async (p) => p.locator('[data-dock-tether="top"] .glass-dock [aria-label="Share animation"]').click(), content: ".glass-reveal[data-state]", cast: true },

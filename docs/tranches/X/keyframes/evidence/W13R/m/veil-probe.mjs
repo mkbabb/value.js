@@ -48,7 +48,7 @@ const out = await withBrowser(async (browser) => {
   if (dock) { const [x, y, w, h] = dock.rect; fs.writeFileSync(path.join(here, `${label}-dock-plate.png`), await page.screenshot({ clip: { x, y, width: w, height: h } })); }
   await ctx.close();
   return { url, label, htmlDark, when: new Date().toISOString(), rows };
-}, { launch: { headless: false }, label: "veil-probe" });
+}, { launch: { channel: "chrome", headless: true }, label: "veil-probe" });
 fs.writeFileSync(path.join(here, `${label}.json`), JSON.stringify(out, null, 2));
 const v = out.value ?? out;
 console.log(JSON.stringify({ label, htmlDark: v.htmlDark, n: v.rows?.length }));

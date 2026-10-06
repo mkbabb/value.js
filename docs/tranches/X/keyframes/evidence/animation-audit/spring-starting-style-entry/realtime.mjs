@@ -5,7 +5,7 @@ import fs from "node:fs";
 const D = "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry";
 const SC = `${D}/R-screencast`; fs.mkdirSync(SC, { recursive: true });
 const out = {};
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await page.goto("http://localhost:5173/#/spring", { waitUntil: "networkidle" });
 await page.waitForTimeout(2500);

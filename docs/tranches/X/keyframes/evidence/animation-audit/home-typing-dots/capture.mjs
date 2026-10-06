@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { writeFileSync } from "node:fs";
 const D = new URL(".", import.meta.url).pathname;
 const N = 48, CYCLE = 1200, BASE = 2 * CYCLE; // seek window = the 3rd iteration of dot 0 (all delays elapsed)
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 await page.goto("http://localhost:5173/", { waitUntil: "domcontentloaded" });

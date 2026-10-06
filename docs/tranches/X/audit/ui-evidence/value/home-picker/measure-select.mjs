@@ -1,6 +1,6 @@
 // measure the space-select popover box at 390 + 1440 (read-only)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [w, h] of [[390, 844], [1440, 900]]) {
   const ctx = await b.newContext({ viewport: { width: w, height: h } });
   const p = await ctx.newPage();

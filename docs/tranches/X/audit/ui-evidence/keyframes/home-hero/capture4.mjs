@@ -4,7 +4,7 @@ import { execSync } from "node:child_process";
 const OUT = new URL(".", import.meta.url).pathname;
 const TREE = "/Users/mkbabb/Programming/keyframes.js";
 console.log("sha", execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(), "dirty", execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length);
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const pick of ["Matrix", "Hover"]) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, colorScheme: "light" });
   const page = await ctx.newPage();

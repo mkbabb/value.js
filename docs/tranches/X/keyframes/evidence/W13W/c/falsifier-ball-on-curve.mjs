@@ -90,7 +90,7 @@ const measure = (pairsSrc) => {
     });
 };
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: THEME });
 const page = await ctx.newPage();
 if (FRAMES) mkdirSync(FRAMES, { recursive: true });

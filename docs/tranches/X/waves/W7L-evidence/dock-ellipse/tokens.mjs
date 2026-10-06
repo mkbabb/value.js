@@ -1,6 +1,6 @@
 // Does calc(var(--dock-control-size)/2 + var(--dock-padding-block)) equal the plate's half block size? (candidate cap-rest length)
 import { chromium } from "playwright";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [url, w, route] of [["http://localhost:9000/", 1440, "/atmosphere"], ["http://localhost:9000/", 390, "/"], ["http://localhost:5173/", 1440, null]]) {
   const p = await (await b.newContext({ viewport: { width: w, height: 900 } })).newPage();
   await p.goto(url, { waitUntil: "networkidle" }).catch(() => {}); await p.waitForTimeout(3000);

@@ -1,7 +1,7 @@
 // Probe: GitHub row activation by keyboard (Enter) and by clicking the row's padding outside the <a>.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 const page = await ctx.newPage();
 const popups = []; ctx.on("page", p => popups.push(p.url()));

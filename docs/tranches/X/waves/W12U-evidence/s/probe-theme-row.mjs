@@ -6,7 +6,7 @@
 import { chromium } from "@playwright/test";
 import { prepare } from "../x/seed-x.mjs";
 const theme = process.argv[2] ?? "light";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const out = [];
 for (const [W, H, trig] of [[390, 844, "Menu"], [1440, 900, "@mbabb"]]) {
     const phone = W < 1024;

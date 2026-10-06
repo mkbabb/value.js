@@ -1,6 +1,6 @@
 // read-only probe: what paints the gray slab inside the Profile/@mbabb/Login capsules (light, 1440)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const browser = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, colorScheme: "light" });
 await ctx.addInitScript(() => { try { localStorage.setItem("vueuse-color-scheme", "light"); } catch {} });
 const page = await ctx.newPage();

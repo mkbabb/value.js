@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 const BASE = "http://localhost:9000";
 const NOW = "2026-09-20T00:00:00.000Z";
 const pal = { name: "Harbour Dusk", slug: "harbour-dusk", userSlug: "test-user", tags: ["a"], versionCount: 1, voteCount: 1, visibility: "public", tier: "standard", colors: [{css:"#123",position:0}], createdAt: NOW, updatedAt: NOW, isLocal: false };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
 await page.route((u) => /^\/(palettes|sessions|colors|admin|users)(\/|$)/.test(u.pathname) && !/\.\w+$/.test(u.pathname), (r) => {
   const p = new URL(r.request().url()).pathname;

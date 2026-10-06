@@ -2,7 +2,7 @@
 // No reduced motion (under PRM the scene clock does not start, so the question cannot be asked). TAG=<before|after> RUN=<n> node play.mjs
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.env.BASE || "http://localhost:5251"; const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 for (const [w, h] of [[1440, 900], [390, 844]]) {
   const touch = w < 1024; const p = await (await b.newContext({ viewport: { width: w, height: h }, isMobile: touch, hasTouch: touch })).newPage();
   await p.goto(`${BASE}/#/cube`); await sleep(3500);

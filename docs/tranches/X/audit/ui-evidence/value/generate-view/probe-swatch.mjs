@@ -1,6 +1,6 @@
 // read-only DOM probe of the generate swatch row
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await (await b.newContext({ viewport: { width: 1440, height: 900 }, permissions: ["clipboard-read", "clipboard-write"] })).newPage();
 await p.goto("http://localhost:9000/#/generate", { waitUntil: "domcontentloaded" });
 await p.locator("[data-generate-plate]").waitFor({ timeout: 45000 }); await new Promise(r => setTimeout(r, 3000));

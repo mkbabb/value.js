@@ -1,6 +1,6 @@
 // Pass 5: rest-state fill of the transport's Select/Reset faces, light vs dark (no hover; pointer parked at 0,0).
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme });
   await ctx.addInitScript((t) => { try { localStorage.setItem("vueuse-color-scheme", t); } catch {} }, theme);

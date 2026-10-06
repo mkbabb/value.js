@@ -4,7 +4,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.env.BASE || "http://localhost:5251"; const TAG = process.env.TAG || "before"; const RUN = process.env.RUN || "1";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [w, h, scheme] of [[1440, 900, "light"], [390, 844, "dark"]]) {
   const touch = w < 1024; const p = await (await b.newContext({ viewport: { width: w, height: h }, isMobile: touch, hasTouch: touch, colorScheme: scheme, reducedMotion: "reduce" })).newPage();
   await p.goto(`${BASE}/#/sequence`); await sleep(3500);

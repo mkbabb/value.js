@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import fs from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 for (const d of ["live", "step"]) fs.mkdirSync(OUT + d, { recursive: true });
-const browser = await chromium.launch({ headless: false, args: ["--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist"] });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const errs = [];
 page.on("pageerror", e => errs.push("pageerror: " + e.message.slice(0, 200)));

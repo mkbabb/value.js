@@ -1,7 +1,7 @@
 // Read-only probe: Metric label/value type at 1440 fine pointer vs 390 coarse pointer.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { writeFileSync } from "node:fs";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const out = {};
 for (const [vp, size, touch] of [["d", { width: 1440, height: 900 }, false], ["m", { width: 390, height: 844 }, true]]) {
   const ctx = await browser.newContext({ viewport: size, deviceScaleFactor: 2, hasTouch: touch, isMobile: touch });

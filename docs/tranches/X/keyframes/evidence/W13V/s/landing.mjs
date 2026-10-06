@@ -5,7 +5,7 @@ import { createRequire } from "node:module";
 const require = createRequire("/Users/mkbabb/Programming/value.js/package.json");
 const { chromium } = require("playwright");
 const [base = "http://localhost:5173/", vps = "390x844,360x740,1440x900", th = "light,dark", shot] = process.argv.slice(2);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of th.split(",")) for (const vp of vps.split(",")) {
     const [w, h] = vp.split("x").map(Number);
     const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme });

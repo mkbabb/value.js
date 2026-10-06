@@ -3,7 +3,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
 const base = process.argv[2] ?? "http://localhost:5173"; const label = process.argv[3] ?? "dev";
-const b = await chromium.launch({ headless: false }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+const b = await chromium.launch({ channel: "chrome", headless: true }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.mouse.move(1300, 200); await p.goto(`${base}/#/cube`, { waitUntil: "load" }); await p.waitForTimeout(6000);
 await p.evaluate(() => { const d = document.querySelector('[data-dock-tether="bottom"] .glass-dock'); window.__f = [];
   const f = () => { const els = [d, ...d.querySelectorAll(".dock-plate, .dock-layers, .dock-layer, .dock-layer button, .dock-layer .dock-label")];

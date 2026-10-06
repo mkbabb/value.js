@@ -5,7 +5,7 @@
 import { chromium } from "playwright";
 import { writeFileSync } from "node:fs";
 const [scheme, url, out] = process.argv.slice(2);
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme })).newPage();
 await page.goto(url, { waitUntil: "networkidle" });
 await page.waitForTimeout(3500);

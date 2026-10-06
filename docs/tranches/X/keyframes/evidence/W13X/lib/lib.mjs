@@ -12,7 +12,7 @@ const BASE = process.env.BASE || "http://localhost:5311";
 const CFGS = (process.env.CFGS || "cube-1440x900-light,cube-1440x900-dark,cube-390x844-light,cube-390x844-dark,amiga-1440x900-light").split(",");
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const rows = [];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 
 const HELPERS = () => {
   const card = () => [...document.querySelectorAll("[data-channel-options], .panel-row")].map((e) => e.closest(".card") || e.parentElement.closest("div")).find((c) => c && c.getBoundingClientRect().height > 0);

@@ -4,7 +4,7 @@ import { writeFileSync, readFileSync } from "node:fs";
 const BASE = "http://localhost:3100";
 const OUT = new URL(".", import.meta.url).pathname;
 const slug = readFileSync(OUT + "../visualize-view-options-popover/seed.txt", "utf8").trim();
-const R = {}; const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const R = {}; const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const st = (page) => page.evaluate(() => ({ view: localStorage.getItem("fourier_visualizer_view_state"), dlg: !!document.querySelector("[data-slot=dialog-content]"),
   editorShellInDlg: !!document.querySelector("[data-slot=dialog-content] .editor-shell"),
   dock: (() => { const d = document.querySelector(".controls-dock-anchor .glass-dock"); if (!d) return null; const r = d.getBoundingClientRect(); return [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height), d.className.includes("expanded") ? "expanded" : "collapsed"]; })(),

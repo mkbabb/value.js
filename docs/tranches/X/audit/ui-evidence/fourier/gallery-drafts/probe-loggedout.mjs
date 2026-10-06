@@ -3,7 +3,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { writeFileSync } from "node:fs";
 const BASE = "http://localhost:3100"; const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light", deviceScaleFactor: 2 });
 const page = await ctx.newPage(); const posts = [];
 await page.route("**/api/**", (r) => { const q = r.request(); if (q.method() === "GET") return r.continue(); posts.push(q.method() + " " + new URL(q.url()).pathname);

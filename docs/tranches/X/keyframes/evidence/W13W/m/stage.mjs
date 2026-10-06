@@ -5,7 +5,7 @@
 // Usage: node stage.mjs W H [light|dark]
 import { chromium } from "playwright";
 const [W, H, THEME] = [+process.argv[2], +process.argv[3], process.argv[4] || "light"];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await (await b.newContext({ viewport: { width: W, height: H }, colorScheme: THEME, hasTouch: true, isMobile: true, deviceScaleFactor: 2 })).newPage();
 for (const s of ["cube", "square", "amiga", "easing", "spring", "sequence"]) {
   await p.goto(`http://localhost:5173/#/${s}`, { waitUntil: "networkidle" }); await p.waitForTimeout(2000);

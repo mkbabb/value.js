@@ -100,7 +100,7 @@ const STATES = {
     retry: [async (page) => { await page.getByRole("button", { name: "Retry" }).click(); await page.waitForTimeout(1500); return "retry clicked while still aborted"; }, { mode: "error" }],
 };
 
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const VPS = [{ name: "1440", w: 1440, h: 900 }, { name: "390", w: 390, h: 844 }];
 for (const [state, [fn, opts]] of Object.entries(STATES))
     for (const vp of VPS)

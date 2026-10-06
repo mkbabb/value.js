@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import fs from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const jobs = JSON.parse(process.argv[2]);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1600, height: 1000 }, deviceScaleFactor: 1 });
 for (const { dir, crop, tileW = 260, filter } of jobs) {
   let files = fs.readdirSync(OUT + dir).filter(f => /^f\d+\.png$/.test(f)).sort();

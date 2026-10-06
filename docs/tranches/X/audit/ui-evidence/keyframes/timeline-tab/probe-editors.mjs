@@ -1,5 +1,5 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false }); const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); const page = await ctx.newPage();
+const b = await chromium.launch({ channel: "chrome", headless: true }); const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); const page = await ctx.newPage();
 await page.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" }); await page.waitForTimeout(3000);
 const d = await page.locator(".glass-dock").first().boundingBox(); await page.mouse.move(d.x + d.width / 2, d.y + d.height / 2); await page.waitForTimeout(1000);
 await page.locator('[aria-label="Controls tab"]').first().click(); await page.waitForTimeout(600); await page.getByRole("option", { name: /^Timeline/ }).click(); await page.waitForTimeout(2000);

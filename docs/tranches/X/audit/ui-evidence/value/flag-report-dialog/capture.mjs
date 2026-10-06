@@ -75,7 +75,7 @@ async function openReport(page) {
   return page.locator('[role="menuitem"]', { hasText: "Report" }).first();
 }
 
-const browser = await chromium.launch({ headless: false, args: ["--ignore-gpu-blocklist", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist", "--enable-gpu"] });
 const VPS = [{ tag: "1440", w: 1440, h: 900 }, { tag: "390", w: 390, h: 844 }];
 for (const vp of VPS) for (const theme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 2, hasTouch: vp.w < 600 });

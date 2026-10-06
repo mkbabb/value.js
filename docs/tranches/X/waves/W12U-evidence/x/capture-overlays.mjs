@@ -45,7 +45,7 @@ const STEPS = [
     { id: "dock-color-input", route: "/", act: (p) => p.getByRole("button", { name: "Open color input" }).first().click() },
 ];
 
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const res = [];
 for (const tag of TAGS) {
     const [w, h] = VIEWPORTS[tag];

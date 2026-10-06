@@ -14,7 +14,7 @@ const gdirty = execSync("git -C /Users/mkbabb/Programming/glass-ui status --porc
 const log = [];
 const note = (m) => { log.push(m); console.log(m); };
 note(`value.js ${sha} dirty=${dirty} · glass-ui ${gsha} dirty=${gdirty} · url=${URL_} · ${new Date().toISOString()}`);
-const browser = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 const VPS = [{ n: "1440", w: 1440, h: 900, mobile: false }, { n: "390", w: 390, h: 844, mobile: true }];
 
 const box = (el) => { const b = el.getBoundingClientRect(); return { x: Math.round(b.x), y: Math.round(b.y), w: Math.round(b.width), h: Math.round(b.height) }; };

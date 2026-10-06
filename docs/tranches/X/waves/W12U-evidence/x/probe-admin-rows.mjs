@@ -15,7 +15,7 @@ import { prepare } from "./seed-x.mjs";
 const [W, H] = [Number(process.argv[2] ?? 360), Number(process.argv[3] ?? 780)];
 const theme = process.argv[4] ?? "light";
 const phone = W < 900;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: W, height: H }, colorScheme: theme, isMobile: phone, hasTouch: phone });
 await prepare(ctx, { theme, admin: true });
 const p = await ctx.newPage();

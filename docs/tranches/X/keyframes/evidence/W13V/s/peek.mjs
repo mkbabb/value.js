@@ -4,7 +4,7 @@ import { createRequire } from "node:module";
 const require = createRequire("/Users/mkbabb/Programming/value.js/package.json");
 const { chromium } = require("playwright");
 const [url, w, h, out, click] = process.argv.slice(2);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: +w, height: +h }, colorScheme: process.env.THEME || "light" });
 const p = await ctx.newPage();
 await p.goto(url, { waitUntil: "networkidle" }); await p.waitForTimeout(2500);

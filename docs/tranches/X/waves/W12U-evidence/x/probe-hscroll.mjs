@@ -8,7 +8,7 @@ import { prepare } from "./seed-x.mjs";
 
 const [W, H] = [Number(process.argv[2] ?? 390), Number(process.argv[3] ?? 844)];
 const ROUTES = (process.argv[4] ?? "/,/admin/users").split(",");
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: W, height: H }, isMobile: true, hasTouch: true });
 await prepare(ctx, { admin: true, palettes: true });
 const p = await ctx.newPage();

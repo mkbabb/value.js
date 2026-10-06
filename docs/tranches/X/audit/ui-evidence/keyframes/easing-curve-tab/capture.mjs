@@ -9,7 +9,7 @@ const rev = (t) => ({ sha: execSync(`git -C ${t} rev-parse --short HEAD`).toStri
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const ONLY = process.argv[2];
 const log = { kf: rev(TREE), glass: rev(GUI), glassConsumed: "7.0.0 (keyframes.js node_modules pin)", when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const vis = (e) => { const b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0; };
   const r = (e) => { if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.x), Math.round(b.y), Math.round(b.width), Math.round(b.height)]; };

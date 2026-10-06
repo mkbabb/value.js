@@ -2,7 +2,7 @@
 // computed ink/background of each dock control + the plate at seeked times.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/", { waitUntil: "networkidle" }); await p.waitForTimeout(2500);
 const cdp = await p.context().newCDPSession(p); await cdp.send("Animation.enable");

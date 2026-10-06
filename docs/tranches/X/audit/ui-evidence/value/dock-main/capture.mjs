@@ -15,7 +15,7 @@ const meta = {
 };
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 
 async function ctx(vp, theme, { admin = false, offline = false } = {}) {
   const c = await browser.newContext({ viewport: VPS[vp], deviceScaleFactor: 2, colorScheme: theme });

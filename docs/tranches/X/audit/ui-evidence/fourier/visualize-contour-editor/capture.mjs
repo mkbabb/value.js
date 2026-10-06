@@ -13,7 +13,7 @@ const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const ONLY = process.argv[2];
 const metrics = {}; const errors = [];
 let slug = existsSync(OUT + "slug.txt") ? readFileSync(OUT + "slug.txt", "utf8").trim() : null;
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 async function measure(page) {
   return page.evaluate(() => {

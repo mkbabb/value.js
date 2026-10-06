@@ -1,6 +1,6 @@
 // Read-only probe: which ancestor scrolls horizontally on 390px after the Audit Log tab click.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, hasTouch: true, isMobile: true });
 const page = await ctx.newPage();
 await page.route("**/api/**", (r) => r.request().method() !== "GET" && /\/api\/admin\//.test(r.request().url()) ? r.abort() : r.fallback());

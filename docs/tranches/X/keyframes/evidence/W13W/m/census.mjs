@@ -20,7 +20,7 @@ const BASE = arg("base", "http://localhost:5173"), W = +arg("w", 390), H = +arg(
 const OUT = arg("out", null), FRAMES = arg("frames", null);
 if (FRAMES) mkdirSync(FRAMES, { recursive: true });
 const SCENES = ["cube", "square", "amiga", "easing", "spring", "sequence"];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: THEME, hasTouch: true, isMobile: true, deviceScaleFactor: 3 });
 const page = await ctx.newPage();
 const READ = () => {

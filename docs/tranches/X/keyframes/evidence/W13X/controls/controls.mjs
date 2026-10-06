@@ -13,7 +13,7 @@ const CFGS = (process.env.CFGS || "cube-1440x900-light,cube-1440x900-dark,cube-3
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const r1 = (v) => Math.round(v * 10) / 10;
 const rows = [];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 
 // ── in-page helpers: the ACTIVE channel's card is the one whose main row has a height ──
 const HELPERS = () => {

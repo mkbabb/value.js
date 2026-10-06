@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5 — X.KF.W13U.d4: keyboard reach of the Share row (Enter opens, focus handed
 // to the popover field, Escape unwinds to the @mbabb trigger) + the pointer path's parity (open, trigger re-press closes).
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 const errs = []; p.on('pageerror', (e) => errs.push(String(e).slice(0, 120)));
 await p.goto((process.argv[2] || 'http://localhost:5173/') + '#/cube', { waitUntil: 'networkidle' }); await p.waitForTimeout(2500);

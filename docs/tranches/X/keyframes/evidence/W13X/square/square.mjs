@@ -11,7 +11,7 @@ const CFGS = (process.env.CFGS || "1440x900-light,1440x900-dark,390x844-light,39
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const r3 = (v) => Math.round(v * 1000) / 1000;
 const rows = [];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 
 // ── in-page helpers, installed once per page ──
 const HELPERS = () => {

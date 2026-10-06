@@ -11,7 +11,7 @@ const THEME = arg("theme", "light"), FRAMES = arg("frames", null);
 const SCENES = arg("scenes", "cube,square,amiga,easing,spring,sequence").split(",");
 if (FRAMES) mkdirSync(FRAMES, { recursive: true });
 const mobile = W < 768;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: THEME, deviceScaleFactor: 2, isMobile: mobile, hasTouch: mobile });
 const page = await ctx.newPage();
 const out = { viewport: `${W}x${H}`, theme: THEME, scenes: {} };

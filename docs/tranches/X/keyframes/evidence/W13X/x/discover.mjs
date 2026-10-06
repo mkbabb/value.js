@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.env.BASE || "http://localhost:5194";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
 const p = await ctx.newPage();
 const labels = () => p.evaluate(() => [...document.querySelectorAll("button,[role=button],[role=combobox],[role=tab],[role=switch]")].filter((e) => { if (e.closest("[inert]")) return false; const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; }).map((e) => (e.getAttribute("aria-label") || e.textContent.trim().replace(/\s+/g, " ").slice(0, 24))).filter(Boolean));

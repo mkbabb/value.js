@@ -14,7 +14,7 @@ const P = (id, name, colors) => ({ id, name, slug: name.toLowerCase().replace(/\
 const PALETTES = [P("p-1", "Sunset Coast", ["#ff6b35", "#f7c59f", "#efefd0", "#004e89", "#1a659e"]), P("p-2", "Forest Floor", ["#2d4a22", "#5b7c3a", "#a3b18a", "#dad7cd"]), P("p-3", "Neon Arcade", ["oklch(0.7 0.3 330)", "oklch(0.8 0.2 190)", "oklch(0.9 0.2 110)", "#111", "#fff", "#7f5af0"]), P("p-4", "Quiet Greys", ["#f5f5f4", "#a8a29e", "#57534e"])];
 const seed = `(() => { try { if (sessionStorage.getItem('__audit_seeded')) return; sessionStorage.setItem('__audit_seeded','1'); localStorage.clear(); localStorage.setItem('vueuse-color-scheme', ${JSON.stringify(theme)}); localStorage.setItem('color-palettes', ${JSON.stringify(JSON.stringify({ version: 1, palettes: PALETTES }))}); localStorage.setItem('color-picker', ${JSON.stringify(JSON.stringify({ inputColor: "oklch(0.65 0.2 30)", savedColors: ["#e63946", "#f1faee", "#a8dadc", "#457b9d"] }))}); } catch (e) {} })();`;
 const log = [];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: vp, colorScheme: theme, deviceScaleFactor: 1, hasTouch: vpName === "390" });
 await ctx.addInitScript(seed);
 const page = await ctx.newPage();

@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 // KF.W13R.v — KFA-168 host read: glass spring tokens on :root at 10.0.1 + the computed transition of .controls-layout (AnimationControlsGroup.css:57).
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+const b = await chromium.launch({ channel: "chrome", headless: true }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.goto((process.argv[2] ?? "http://localhost:5173") + "/#/cube", { waitUntil: "load" }); await p.waitForTimeout(4000);
 console.log(JSON.stringify(await p.evaluate(() => { const r = getComputedStyle(document.documentElement);
   const names = ["--spring-smooth", "--spring-snappy", "--spring-present", "--spring-panel", "--spring-press", "--spring-dock", "--duration-slow"];

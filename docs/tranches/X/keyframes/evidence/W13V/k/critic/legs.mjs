@@ -6,7 +6,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL("./legs/", import.meta.url).pathname;
 import fs from "node:fs"; fs.mkdirSync(OUT, { recursive: true });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const res = [];
 for (const [name, url, vp, scheme] of [
   ["cube-dark", "#/cube", { width: 1440, height: 900 }, "dark"],

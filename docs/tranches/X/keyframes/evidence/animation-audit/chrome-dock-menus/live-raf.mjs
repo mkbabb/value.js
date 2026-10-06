@@ -5,7 +5,7 @@ import { execSync } from "node:child_process";
 import fs from "node:fs";
 const KF = "/Users/mkbabb/Programming/keyframes.js";
 const k = () => `${execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim()} dirty=${execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim()}`;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const T = { "scene-select": '[aria-label="Scene"][role=combobox]', "mbabb-menu": '[aria-label="@mbabb menu"]', "share-popover": '[data-dock-tether="top"] .glass-dock [aria-label="Share animation"]', "shortcuts-modal": '[aria-label="Show keyboard shortcuts"]', "controls-select": '[aria-label="Controls tab"]' };
 const res = {};
 for (const [name, sel] of Object.entries(T)) {

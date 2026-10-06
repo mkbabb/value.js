@@ -10,7 +10,7 @@ const kfHead = execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim()
 const kfDirty = execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim();
 const CLIP = { x: 660, y: 150, width: 600, height: 600 };
 const log = { kfHead, kfDirty, when: new Date().toISOString(), phases: {} };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 async function fresh() {
   const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
   await p.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" });

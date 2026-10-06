@@ -12,7 +12,7 @@
 import { chromium } from "@playwright/test";
 import { prepare } from "../x/seed-x.mjs";
 const theme = process.argv[2] ?? "light";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const out = [];
 const arm = (n, ok, d) => out.push(`${ok ? "PASS" : "RED "} ${n} ${d}`);
 async function page(opts, vp = { width: 390, height: 844 }, mobile = true) {

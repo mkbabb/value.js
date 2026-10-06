@@ -5,7 +5,7 @@ import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const sha = execSync("git -C /Users/mkbabb/Programming/keyframes.js rev-parse --short HEAD").toString().trim();
 const dirty = execSync("git -C /Users/mkbabb/Programming/keyframes.js status --porcelain").toString().trim().split("\n").filter(Boolean).length;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const res = { sha, dirty, runs: {} };
 for (const theme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: theme });

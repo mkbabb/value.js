@@ -1,7 +1,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { writeFileSync } from "node:fs";
 const D = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const t0 = Date.now();
 await page.goto("http://localhost:5173/", { waitUntil: "domcontentloaded" });

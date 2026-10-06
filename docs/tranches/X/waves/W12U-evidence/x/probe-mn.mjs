@@ -3,7 +3,7 @@
 // (`mn` 10.648 px) is KaTeX MathML inside `span.katex-mathml` (the a11y copy).
 // Usage: node probe-mn.mjs
 import { chromium } from "@playwright/test";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 390, height: 844 } });
 await p.goto("http://localhost:9000/#/", { timeout: 90000 });
 await p.waitForTimeout(4000);

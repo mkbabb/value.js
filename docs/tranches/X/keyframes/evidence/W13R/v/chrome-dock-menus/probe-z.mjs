@@ -1,7 +1,7 @@
 // z-order probe: which element paints at points just inside each overlay's top edge.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const out = {};
 for (const [name, sel] of [["scene-select", '[aria-label="Scene"][role=combobox]'], ["mbabb-menu", '[aria-label="@mbabb menu"]'], ["share-popover", '[data-dock-tether="top"] .glass-dock [aria-label="Share animation"]']]) {
   const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });

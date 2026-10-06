@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
 const D = new URL(".", import.meta.url).pathname; fs.mkdirSync(`${D}organic/stills`, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage(); const cdp = await ctx.newCDPSession(page); await cdp.send("Network.setCacheDisabled", { cacheDisabled: true });
 await page.addInitScript(() => { window.__log = []; let last = "";

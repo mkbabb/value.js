@@ -2,7 +2,7 @@
 // TAG=<before|after> RUN=<n> node stall.mjs
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.env.BASE || "http://localhost:5251"; const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
 await p.goto(`${BASE}/#/cube`); await sleep(3500);
 const bt = p.locator('[data-dock-tether=top] .glass-dock.collapsed [aria-label="Expand dock"]').first(); if (await bt.count()) { await bt.click().catch(() => {}); await sleep(700); }

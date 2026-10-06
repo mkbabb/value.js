@@ -5,7 +5,7 @@ import { execSync } from "node:child_process";
 const OUT = new URL(".", import.meta.url).pathname;
 const sha = execSync("git -C /Users/mkbabb/Programming/value.js rev-parse --short HEAD").toString().trim();
 const dirty = execSync("git -C /Users/mkbabb/Programming/value.js status --porcelain | wc -l").toString().trim();
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
 await ctx.addInitScript(`if(!sessionStorage.getItem('s')){sessionStorage.setItem('s','1');localStorage.setItem('color-palettes', JSON.stringify({version:1,palettes:[{id:'p1',name:'Sunset Coast',slug:'sunset-coast',colors:[{css:'#ff6b35',position:0},{css:'#004e89',position:1}],createdAt:'2026-09-20T12:00:00.000Z',updatedAt:'2026-09-20T12:00:00.000Z',isLocal:true,visibility:'private',tags:[]}]}))}`);
 const p = await ctx.newPage();

@@ -6,7 +6,7 @@ const OUT = new URL(".", import.meta.url).pathname;
 const sha = execSync("git -C /Users/mkbabb/Programming/value.js rev-parse --short HEAD").toString().trim();
 const dirty = execSync("git -C /Users/mkbabb/Programming/value.js status --porcelain | wc -l").toString().trim();
 console.log(`value.js ${sha} dirty=${dirty} ${new Date().toISOString()}`);
-const browser = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 for (const theme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, colorScheme: theme });
   await ctx.addInitScript((t) => { try { localStorage.setItem("vueuse-color-scheme", t); } catch {} }, theme);

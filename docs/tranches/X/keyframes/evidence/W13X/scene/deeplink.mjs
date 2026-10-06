@@ -3,7 +3,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.env.BASE || "http://localhost:5291";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const toasts = async (url) => { const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); const p = await ctx.newPage();
   await p.goto(`${BASE}/#/`); await sleep(1500); // a real payload: the app's own share encoding of its state
   const good = Buffer.from(encodeURIComponent(JSON.stringify({ activeScene: "cube" }))).toString("base64"); // the app's own encoding (hashSharing.encodeStateToHash)

@@ -7,7 +7,7 @@ const KF = "/Users/mkbabb/Programming/keyframes.js";
 const kf = () => ({ head: execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim(), at: new Date().toISOString() });
 const R = { kfBefore: kf() };
 fs.mkdirSync(`${OUT}/arm`, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const logs = []; page.on("console", (m) => logs.push({ t: Date.now(), s: `${m.type()}: ${m.text()}`.slice(0, 200) }));

@@ -7,7 +7,7 @@ const OUT = new URL(".", import.meta.url).pathname; const RUN = process.env.RUN 
 const BASE = process.env.BASE || "http://localhost:5246"; const FR = `${OUT}frames/${RUN}/`; fs.mkdirSync(FR, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const lines = []; const R = (id, bad, msg) => { const l = `${bad ? "RED  " : "GREEN"} ${id} ${msg}`; lines.push(l); console.log(l); };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 async function page(w, h, theme) {
   const touch = w < 1024;
   const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme, reducedMotion: "reduce", isMobile: touch, hasTouch: touch });

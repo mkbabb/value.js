@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { writeFileSync, readFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const slug = readFileSync(OUT + "../visualize-view-options-popover/seed.txt", "utf8").trim();
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light", deviceScaleFactor: 2 });
 const page = await ctx.newPage(); const log = [];
 page.on("response", async (r) => { if (r.url().includes("simplif")) { try { const j = await r.json(); log.push("resp " + r.url().split("/api")[1] + " latexLen=" + (j.latex||"").length + " terms~" + ((j.latex||"").match(/[+-]/g)||[]).length + " tail=" + (j.latex||"").slice(-60)); } catch {} } });

@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const c = JSON.parse(readFileSync(OUT + "capture.json"));
 const clip = c.clip;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 800, height: 600 }, deviceScaleFactor: 1 });
 await page.setContent("<canvas id=c></canvas>");
 for (const [tag, list] of [["A", c.framesA], ["D", c.framesD]]) {

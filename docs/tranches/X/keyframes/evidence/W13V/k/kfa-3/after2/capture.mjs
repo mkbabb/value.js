@@ -12,7 +12,7 @@ const log = { khead0: khead(), kdirty0: kdirty(), steps: [] };
 const dirs = ["seek", "live", "scrub"];
 for (const d of dirs) mkdirSync(OUT + d, { recursive: true });
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const consoleMsgs = [];

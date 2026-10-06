@@ -9,7 +9,7 @@ const BASE = "http://localhost:5173";
 const rev = () => { const sha = execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(); const dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length; return `${sha}+${dirty}dirty`; };
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const ONLY = process.argv[2], ONLYT = process.argv[3];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const px = (e) => { if (!e) return null; const b = e.getBoundingClientRect(), c = getComputedStyle(e); return { x: Math.round(b.x), y: Math.round(b.y), w: Math.round(b.width), h: Math.round(b.height), radius: c.borderTopLeftRadius, bg: c.backgroundColor, color: c.color, font: c.fontFamily.split(",")[0] + " " + c.fontSize + "/" + c.lineHeight + " " + c.fontWeight, pad: c.padding, border: c.borderTopWidth + " " + c.borderTopColor, shadow: c.boxShadow.slice(0, 90), backdrop: c.backdropFilter, opacity: c.opacity, z: c.zIndex }; };
   const tl = document.querySelector("[data-sonner-toaster]");

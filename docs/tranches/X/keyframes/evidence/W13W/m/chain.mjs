@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 // X.KF.W13W.m — ancestor chain of each scene's stage panel (box + inline padding), 390x844.
 import { chromium } from "playwright";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await (await b.newContext({ viewport: { width: +(process.argv[2] || 390), height: +(process.argv[3] || 844) }, hasTouch: true, isMobile: true })).newPage();
 for (const [s, sel] of [["square", ".square-stage"], ["easing", ".easing-target"], ["spring", ".spring-target"], ["sequence", ".seq-target"], ["cube", ".stage-cell > *"], ["amiga", ".amiga-canvas"]]) {
   await p.goto(`http://localhost:5173/#/${s}`, { waitUntil: "networkidle" }); await p.waitForTimeout(1500);

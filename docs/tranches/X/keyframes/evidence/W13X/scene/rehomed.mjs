@@ -6,7 +6,7 @@ const OUT = new URL(".", import.meta.url).pathname; const INSTR = fs.readFileSyn
 const BASE = process.env.BASE || "http://localhost:5291";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const R = (id, bad, msg) => console.log(`${bad ? "RED  " : "GREEN"} ${id} ${msg}`);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" }); await ctx.addInitScript(INSTR);
 const p = await ctx.newPage(); await p.goto(`${BASE}/#/cube`); await sleep(4500);
 const card = () => p.evaluate(() => { const e = document.querySelector(".scene-host > *:not(.scene-skeleton)"); const r = e?.getBoundingClientRect(); return r ? Math.round(r.x) : null; });

@@ -10,7 +10,7 @@ const sha = execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim();
 const dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const log = { sha, dirty, when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const SEL = "[role=dialog]:has(h2:text-is('Keyboard Shortcuts'))";
 const ksm = (page) => page.evaluate(() => {
   const dlg = [...document.querySelectorAll("[role=dialog]")].find(d => d.querySelector("h2")?.textContent.trim() === "Keyboard Shortcuts");

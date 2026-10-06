@@ -1,7 +1,7 @@
 // 390 overflow: are the trailing controls reachable when logged in / admin / login form open?
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const size = { width: 390, height: 844 };
 async function report(page, tag) {
   const r = await page.evaluate(() => {

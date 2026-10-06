@@ -1,6 +1,6 @@
 // Probe: 390 drawer state across open / tab-switch. READ-ONLY.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false }); const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }); const page = await ctx.newPage();
+const b = await chromium.launch({ channel: "chrome", headless: true }); const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }); const page = await ctx.newPage();
 await page.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" }); await page.waitForTimeout(3000);
 const st = async (n) => console.log(n, JSON.stringify(await page.evaluate(() => { const d = document.querySelector(".controls-drawer-content"); const p = document.querySelector(".controls-pane"); const cp = [...document.querySelectorAll("button")].find(b => b.getAttribute("aria-label") === "Controls panel"); const r = (e) => e ? [e.getBoundingClientRect().y, e.getBoundingClientRect().height].map(Math.round) : null; return { drawer: r(d), pane: r(p), cpExpanded: cp?.getAttribute("aria-expanded"), cpPressed: cp?.getAttribute("aria-pressed"), cpState: cp?.dataset.state }; })));
 const hd = async () => { const d = await page.locator(".glass-dock").first().boundingBox(); await page.mouse.move(d.x + d.width / 2, d.y + d.height / 2); await page.waitForTimeout(1000); };

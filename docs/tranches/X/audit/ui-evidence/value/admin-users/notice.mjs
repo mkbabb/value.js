@@ -15,7 +15,7 @@ const USERS = [
   { slug: "audit-mock-empty-owl-zz02", createdAt: "2026-09-19T00:00:00Z", paletteCount: 0 },
 ];
 const res = { sha, dirty, runs: {} };
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const [tag, w, h, theme] of [["1440", 1440, 900, "light"], ["390", 390, 844, "dark"]]) {
   const key = `${tag}-${theme}`; const r = (res.runs[key] = { blocked: [], errors: [] });
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: theme, deviceScaleFactor: w < 500 ? 2 : 1 });

@@ -10,7 +10,7 @@ const sh = (c) => execSync(c).toString().trim();
 const tree = () => `${sh("git -C /Users/mkbabb/Programming/value.js rev-parse --short HEAD")} dirty=${sh("git -C /Users/mkbabb/Programming/value.js status --porcelain | wc -l")}`;
 const log = [];
 const zone = (p) => p.locator("[role=button][aria-label='Upload image'],[role=button][aria-label='Sample colors']").first();
-const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const [vn, w, h, theme] of [["1440", 1440, 900, "light"], ["390", 390, 844, "dark"]]) {
     const T = `${vn}__${theme}`;
     const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme, deviceScaleFactor: 1, hasTouch: vn === "390" });

@@ -1,7 +1,7 @@
 // probe: which rule paints (or fails to paint) the back button's focus-visible ring. READ-ONLY.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, colorScheme: "light" });
 const p = await ctx.newPage(); await p.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" }); await p.waitForTimeout(3500);
 await p.getByRole("button", { name: "Edit easing curve" }).first().click(); await p.waitForTimeout(1200);

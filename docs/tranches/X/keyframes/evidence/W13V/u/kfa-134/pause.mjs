@@ -4,7 +4,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
 const tag = process.argv[2] || "run"; const OUT = new URL(`./${tag}/`, import.meta.url).pathname; fs.mkdirSync(OUT, { recursive: true });
-const b = await chromium.launch({ headless: false }); const res = [];
+const b = await chromium.launch({ channel: "chrome", headless: true }); const res = [];
 for (const vp of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
   const ctx = await b.newContext({ viewport: vp, deviceScaleFactor: 2 }); const p = await ctx.newPage();
   await p.goto("http://localhost:5173/"); await p.waitForTimeout(3500);

@@ -1,7 +1,7 @@
 // home-picker probe: DOM discovery only (no captures). READ-ONLY on the app.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const URL = "http://localhost:9000/#/";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const p = await ctx.newPage();
 const errs = [];

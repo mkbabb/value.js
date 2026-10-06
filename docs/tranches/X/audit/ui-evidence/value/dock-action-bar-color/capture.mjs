@@ -56,7 +56,7 @@ async function openBar(page) {
   return true;
 }
 
-const browser = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 for (const scheme of ["light", "dark"]) for (const [vk, vp] of Object.entries(VIEWPORTS)) {
   const tag = `${scheme}-${vk}`;
   if (ONLY && !ONLY.includes(tag)) continue;

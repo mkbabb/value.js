@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5 — KF.W13X.x · settle check for the expanded timeline at 1024x768 and 768x1024 (is the pane off-screen after 1.1 s AND after 4 s?). READ-ONLY.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.env.BASE || "http://localhost:5194"; const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 for (const [w, h] of [[1024, 768], [768, 1024], [1440, 900]]) {
   const touch = w < 1024; const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, isMobile: touch, hasTouch: touch }); const p = await ctx.newPage();
   await p.goto(`${BASE}/#/cube`); await sleep(3200);

@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { execSync } from "node:child_process"; import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const sha = execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(); const dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
-const browser = await chromium.launch({ headless: false }); const res = { sha, dirty, when: new Date().toISOString() };
+const browser = await chromium.launch({ channel: "chrome", headless: true }); const res = { sha, dirty, when: new Date().toISOString() };
 const fresh = async () => { const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, colorScheme: "light" }); const page = await ctx.newPage(); await page.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" }); await page.mouse.move(1435, 450); await page.waitForTimeout(3500); return { ctx, page }; };
 const play = (page) => page.evaluate(() => [...document.querySelectorAll("#controls-ribbon-target button")].map(b => b.textContent.trim()).join("|"));
 const err = (page) => page.evaluate(() => [...document.querySelectorAll(".controls-pane [aria-invalid=true]")].filter(e => e.getBoundingClientRect().width).map(e => e.value));

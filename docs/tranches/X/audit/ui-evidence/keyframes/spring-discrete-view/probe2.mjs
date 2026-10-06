@@ -8,7 +8,7 @@ const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const tree = () => ({ sha: execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length });
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const res = { ...tree(), when: new Date().toISOString(), runs: [] };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const away = (page, vp) => page.mouse.move(VPS[vp].width - 4, VPS[vp].height / 2);
 const setCss = (page, v) => page.evaluate((v) => { const el = document.querySelector(".discrete-card"); let inst = el.__vueParentComponent; const seen = []; while (inst) { seen.push(inst.type?.__name || inst.type?.name); const d = inst.setupState?.demo || inst.props?.demo || inst.exposed?.demo; if (d?.compiledEntryCss) { d.compiledEntryCss.value = v; return seen.join(">"); } const r = inst.setupState?.demo; inst = inst.parent; } return "notfound " + seen.join(">"); }, v);
 for (const [vp, theme] of [["1440", "light"], ["1440", "dark"], ["390", "light"], ["390", "dark"]]) {

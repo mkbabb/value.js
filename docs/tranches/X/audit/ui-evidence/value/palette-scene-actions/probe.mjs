@@ -8,7 +8,7 @@ const dirty = execSync(`git -C ${VJ} status --porcelain`).toString().trim().spli
 const now = new Date().toISOString();
 const OWNED = { slug: "owned-one", name: "Owned One", colors: [{ css: "#e11d48", position: 0 }, { css: "#2563eb", position: 1 }, { css: "#facc15", position: 2 }], userSlug: "test-user", voteCount: 3, voted: false, isLocal: false, visibility: "public", tags: ["warm"], versionCount: 2, currentHash: "h2", createdAt: now, updatedAt: now };
 const isApi = (u) => { const url = new URL(u); if (/\/(@fs|@id|@vite|node_modules)\//.test(url.pathname)) return false; if (/\.(ts|js|mjs|vue|css|svg|png|woff2|glsl|json)$/.test(url.pathname)) return false; return url.port === "3000" || /(^|\/)(palettes|sessions|colors|users|api)(\/|$)/.test(url.pathname); };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const res = { head, dirty };
 for (const vp of [{ width: 390, height: 844, tag: "390" }, { width: 1440, height: 900, tag: "1440" }]) {
   const ctx = await browser.newContext({ viewport: vp, colorScheme: "light", deviceScaleFactor: 2, hasTouch: vp.width === 390 });

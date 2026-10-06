@@ -1,6 +1,6 @@
 // SERVED MODEL: claude-opus-5-5
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.goto('http://localhost:5173/#/cube', { waitUntil: 'networkidle' }); await p.waitForTimeout(2000);
 const out = {};

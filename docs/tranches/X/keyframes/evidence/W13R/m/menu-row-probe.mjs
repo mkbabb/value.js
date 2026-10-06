@@ -22,5 +22,5 @@ const r = await withBrowser(async (browser) => {
   });
   await ctx.close();
   return out;
-}, { launch: { headless: false } });
+}, { launch: { channel: "chrome", headless: true } });
 console.log(JSON.stringify(r.value ?? r));

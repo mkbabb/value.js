@@ -8,7 +8,7 @@ const BASE = process.env.BASE || "http://localhost:5199";
 const TAG = process.env.TAG || "before"; const RUN = process.env.RUN || "1";
 const VPS = (process.env.VPS || "1440x900,390x844").split(","); const THEMES = (process.env.THEMES || "light,dark").split(",");
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
 const rows = [];
 // Static read of the stage: timing marks on the stage, playhead/axis geometry, header, plate, rails, balls.
 const measure = () => {

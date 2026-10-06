@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 // X-W12 Repair 1 probe (read-only). BASE=http://localhost:<port> node probe-prof.mjs
 import { chromium } from "@playwright/test";
-const browser = await chromium.launch({ headless: false, args: ["--window-position=2600,200"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--window-position=2600,200"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 const page = await ctx.newPage();
 await page.addInitScript(() => localStorage.setItem("vueuse-color-scheme", "dark"));

@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const CSS = `@keyframes demo { 0% { transform: rotate(0deg); } 50% { transform: rotate(90deg); } 100% { transform: rotate(180deg); } }`;
-const b = await chromium.launch({ headless: false }); const res = {};
+const b = await chromium.launch({ channel: "chrome", headless: true }); const res = {};
 for (const [vp, W, H] of [["1440", 1440, 900], ["390", 390, 844]]) {
   const ctx = await b.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 2 }); const page = await ctx.newPage();
   await page.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" }); await page.waitForTimeout(3000);

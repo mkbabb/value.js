@@ -7,7 +7,7 @@ const OUT = new URL(".", import.meta.url).pathname; const RUN = process.env.RUN 
 const BASE = process.env.BASE || "http://localhost:5261"; const FR = `${OUT}frames/${RUN}/`; fs.mkdirSync(FR, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const R = (id, bad, msg) => console.log(`${bad ? "RED  " : "GREEN"} ${id} ${msg}`);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 async function page(route, w, h, theme, prm = "reduce") {
   const touch = w < 1024;
   const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme, reducedMotion: prm, isMobile: touch, hasTouch: touch });

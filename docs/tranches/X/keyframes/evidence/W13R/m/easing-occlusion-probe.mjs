@@ -18,5 +18,5 @@ const r = await withBrowser(async (b) => {
     await p.waitForTimeout(700);
   }
   return out;
-}, { launch: { headless: false } });
+}, { launch: { channel: "chrome", headless: true } });
 console.log(JSON.stringify(r.value ?? r, null, 0));

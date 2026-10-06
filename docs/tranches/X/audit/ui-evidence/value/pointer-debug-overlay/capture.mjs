@@ -31,7 +31,7 @@ const probe = (p) => p.evaluate(() => {
         text: o.innerText.slice(0, 400),
     };
 });
-const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const vp of [{ n: "1440", w: 1440, h: 900 }, { n: "390", w: 390, h: 844 }]) for (const theme of ["light", "dark"]) {
     const tagB = `${vp.n}__${theme}`;
     if (only && !tagB.startsWith(only)) continue;

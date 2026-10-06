@@ -3,7 +3,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.env.BASE || "http://localhost:5291";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
 const p = await ctx.newPage(); await p.goto(`${BASE}/#/`); await sleep(5000);
 const play = p.locator('[data-dock-tether=bottom] [aria-label="Play animation"]').first();

@@ -1,6 +1,6 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const out = {};
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.goto("http://localhost:9000/#/", { waitUntil: "networkidle" });
 await p.waitForTimeout(2500);

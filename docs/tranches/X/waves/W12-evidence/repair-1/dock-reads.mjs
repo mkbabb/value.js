@@ -18,7 +18,7 @@ const ROUTES = ["/", "/palettes", "/browse", "/gradient", "/mix", "/extract", "/
 const THEMES = ["light", "dark"];
 const rows = [];
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 
 async function open(vp, theme, route) {
     const ctx = await browser.newContext({ viewport: vp, colorScheme: theme });

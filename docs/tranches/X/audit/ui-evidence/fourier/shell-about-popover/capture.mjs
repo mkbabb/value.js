@@ -8,7 +8,7 @@ const repo = "/Users/mkbabb/Programming/fourier-analysis";
 const sha = execSync(`git -C ${repo} rev-parse --short HEAD`).toString().trim();
 const dirty = execSync(`git -C ${repo} status --porcelain | wc -l`).toString().trim();
 const meta = { sha, dirty, at: new Date().toISOString(), url: URL_, runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const [vw, vh] of [[1440, 900], [390, 844]]) {
   for (const theme of ["light", "dark"]) {
     const ctx = await browser.newContext({ viewport: { width: vw, height: vh }, deviceScaleFactor: 2, hasTouch: vw < 500, isMobile: false });

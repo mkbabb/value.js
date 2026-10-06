@@ -11,7 +11,7 @@ const dirty = execSync(`git -C ${REPO} status --porcelain`).toString().trim().sp
 const isApi = (url) => { const p = url.pathname; if (/\/(@fs|@id|@vite|node_modules|src|demo)\//.test(p)) return false; if (/\.\w+$/.test(p)) return false; return /^\/(palettes|sessions|colors|admin|users|tags)(\/|$)/.test(p); };
 const out = { head: sha, dirty, frames: [] };
 const ONLY = process.env.ONLY;
-const browser = await chromium.launch({ headless: false, args: ["--ignore-gpu-blocklist", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist", "--enable-gpu"] });
 for (const vp of [{ tag: "1440", w: 1440, h: 900 }, { tag: "390", w: 390, h: 844 }]) for (const theme of ["light", "dark"]) {
   const tag = `${vp.tag}-${theme}`; if (ONLY && !ONLY.split(",").includes(tag)) continue;
   let tags = [{ name: "warm", category: "mood" }, { name: "calm", category: "mood" }, { name: "autumn", category: "season" }];

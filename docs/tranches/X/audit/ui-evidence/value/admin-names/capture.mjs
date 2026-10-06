@@ -89,7 +89,7 @@ for (const vp of VPS) for (const theme of ["light", "dark"]) {
   ctxTag = `${vp.tag}-${theme}`; if (only && only !== ctxTag) continue;
   const errs = []; const S = mkStore();
   const UDD = "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/admin-names-profile";
-  const ctx = await chromium.launchPersistentContext(UDD, { headless: false, args: ["--ignore-gpu-blocklist", "--enable-gpu"], viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 2, hasTouch: vp.w < 600 });
+  const ctx = await chromium.launchPersistentContext(UDD, { channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist", "--enable-gpu"], viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 2, hasTouch: vp.w < 600 });
   const browser = { close: async () => {} };
   ctx.on("close", () => console.log("CONTEXT-CLOSED", ctxTag, new Date().toISOString()));
   ctx.setDefaultNavigationTimeout(600000); ctx.setDefaultTimeout(60000);

@@ -6,7 +6,7 @@ const BASE = process.env.BASE || "http://localhost:5196";
 const VPS = (process.env.VPS || "360x780,390x844,430x932,844x390,768x1024,1024x768").split(",");
 const THEMES = (process.env.THEMES || "light,dark").split(",");
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of THEMES) for (const vpS of VPS) {
   const [w, h] = vpS.split("x").map(Number); const touch = w < 1024;
   const ctx = await b.newContext({ viewport: { width: w, height: h }, isMobile: touch, hasTouch: touch, colorScheme: theme });

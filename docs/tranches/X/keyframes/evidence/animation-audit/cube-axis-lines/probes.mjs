@@ -6,7 +6,7 @@ const OUT = "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/eviden
 const KF = "/Users/mkbabb/Programming/keyframes.js";
 const stamp = () => ({ head: execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim(), t: new Date().toISOString() });
 const R = { stamp0: stamp() };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 async function fresh(opts = {}) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, ...opts });
   const page = await ctx.newPage();

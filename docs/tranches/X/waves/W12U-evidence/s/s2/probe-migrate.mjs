@@ -11,7 +11,7 @@ import { prepare } from "../../x/seed-x.mjs";
 const [W, H] = [Number(process.argv[2] ?? 390), Number(process.argv[3] ?? 844)];
 const theme = process.argv[4] ?? "light";
 const phone = W < 1024;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: W, height: H }, colorScheme: theme, isMobile: phone, hasTouch: phone });
 await prepare(ctx, { theme, palettes: true });
 await ctx.route("**/sessions/login", async (r) => { await new Promise((res) => setTimeout(res, 1200)); r.fulfill({ status: 404, contentType: "application/problem+json", body: JSON.stringify({ type: "about:blank", title: "User not found", status: 404 }) }); });

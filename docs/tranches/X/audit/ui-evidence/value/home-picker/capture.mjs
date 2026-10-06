@@ -8,7 +8,7 @@ const URL = "http://localhost:9000/#/";
 const sh = (c) => execSync(c, { cwd: "/Users/mkbabb/Programming/value.js" }).toString().trim();
 const tree = () => `${sh("git rev-parse --short HEAD")} dirty=${sh("git status --porcelain | wc -l").trim()}`;
 const manifest = [];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light", "dark"]) for (const [vw, vh] of [[1440, 900], [390, 844]]) {
   const tag = `${vw}-${theme}`;
   const ctx = await b.newContext({ viewport: { width: vw, height: vh }, deviceScaleFactor: 2, colorScheme: theme, hasTouch: vw < 500, isMobile: false });

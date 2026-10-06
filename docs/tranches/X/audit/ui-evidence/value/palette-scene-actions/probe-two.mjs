@@ -9,7 +9,7 @@ const now = new Date().toISOString();
 const STORE = { version: 1, palettes: [{ id: "saved-1", name: "Sunset Harbor", slug: "sunset-harbor", colors: ["#f97316", "#e11d48", "#7c3aed"].map((css, i) => ({ css, position: i })), createdAt: now, updatedAt: now, isLocal: true }] };
 const OWNED = { slug: "owned-one", name: "Owned One", colors: [{ css: "#e11d48", position: 0 }, { css: "#2563eb", position: 1 }], userSlug: "test-user", voteCount: 3, voted: false, isLocal: false, visibility: "public", tags: [], versionCount: 2, createdAt: now, updatedAt: now };
 const isApi = (u) => { const url = new URL(u); if (/\/(@fs|@id|@vite|node_modules)\//.test(url.pathname)) return false; if (/\.(ts|js|mjs|vue|css|svg|png|woff2|glsl|json)$/.test(url.pathname)) return false; return url.port === "3000" || /(^|\/)(palettes|sessions|colors|users|api)(\/|$)/.test(url.pathname); };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
 await ctx.addInitScript((store) => { localStorage.setItem("vueuse-color-scheme", "light"); localStorage.setItem("color-palettes", JSON.stringify(store)); localStorage.setItem("palette-user-slug", "test-user"); localStorage.setItem("palette-user-token", "test-user-token"); sessionStorage.setItem("palette-session-token", "test-user-token"); }, STORE);
 const page = await ctx.newPage(); page.setDefaultTimeout(6000); page.setDefaultNavigationTimeout(60000);

@@ -4,7 +4,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { execSync } from "node:child_process";
 const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`).toString().trim();
 console.log("khead", kf("rev-parse --short HEAD"), "kdirty", kf("status --porcelain").split("\n").filter(Boolean).length);
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await page.addInitScript(() => { window.__v = (sel) => [...document.querySelectorAll(sel)].find((e) => e.checkVisibility()); });
 const errs = []; page.on("console", (m) => { if (m.type() === "error" || m.type() === "warning") errs.push(m.text().slice(0, 200)); });

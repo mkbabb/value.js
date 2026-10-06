@@ -12,7 +12,7 @@ const store = { version: 1, palettes: [
   mk(3, "Ink", ["#111827", "#374151", "#9ca3af"]),
 ]};
 const log = [];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const vp of [{ w: 1440, h: 900, n: "1440" }, { w: 390, h: 844, n: "390" }]) {
   for (const theme of ["light", "dark"]) {
     const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 2 });

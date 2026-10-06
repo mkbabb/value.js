@@ -9,7 +9,7 @@ const RUN = process.env.RUN || "run"; const THEME = process.env.THEME || "light"
 const FR = `${OUT}frames/tweens-${RUN}/`; fs.mkdirSync(FR, { recursive: true });
 const BASE = process.env.BASE || "http://localhost:5196";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: THEME });
 await ctx.addInitScript((t) => { try { if (!sessionStorage.getItem("__m")) { localStorage.clear(); sessionStorage.setItem("__m", "1"); } localStorage.setItem("vueuse-color-scheme", t); } catch {} }, THEME);
 const p = await ctx.newPage();

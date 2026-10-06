@@ -15,7 +15,7 @@ const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.j
 const [base = "http://127.0.0.1:5271/", tag = "run", scene = "cube", cfgs = "1440x900:light,1440x900:dark,390x844:light,390x844:dark"] = process.argv.slice(2);
 mkdirSync(new URL("./frames/", import.meta.url), { recursive: true });
 const HARDFAIL = "@keyframes x { 0% { transform: rotate( ; ) } }";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const cfg of cfgs.split(",")) {
     const [vp, scheme] = cfg.split(":"); const [w, h] = vp.split("x").map(Number);
     const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: scheme, deviceScaleFactor: 1, permissions: ["clipboard-read", "clipboard-write"] });

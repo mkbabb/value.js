@@ -6,7 +6,7 @@
 import { chromium } from "@playwright/test";
 import { prepare } from "../x/seed-x.mjs";
 const theme = process.argv[2] ?? "light";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const out = [];
 const gold = (p) => p.evaluate(() => document.querySelectorAll(".glass-dock .gold-shimmer-icon").length);
 const visit = async (p, route) => { await p.evaluate((r) => { location.hash = r; }, route); await p.waitForTimeout(1800); };

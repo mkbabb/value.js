@@ -7,7 +7,7 @@ import fs from "node:fs";
 import { execSync } from "node:child_process";
 const KF = "/Users/mkbabb/Programming/keyframes.js";
 const kf = { head: execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim() };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 await page.addInitScript(() => {
@@ -56,7 +56,7 @@ fs.writeFileSync(new URL("./probe-vt-binding.json", import.meta.url), JSON.strin
 console.log(JSON.stringify(out, null, 1));
 await b.close();
 // Unhooked raw check in a clean context
-const b2 = await chromium.launch({ headless: false });
+const b2 = await chromium.launch({ channel: "chrome", headless: true });
 const p2 = await (await b2.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
 await p2.goto("http://localhost:5173/#/cube");
 const raw2 = await p2.evaluate(() => { const s = document.startViewTransition; try { s(() => {}); return "no throw"; } catch (e) { return String(e); } });

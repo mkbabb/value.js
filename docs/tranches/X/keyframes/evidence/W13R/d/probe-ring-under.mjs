@@ -1,6 +1,6 @@
 // SERVED MODEL: claude-opus-5-5 — KF.W13R.d: what paints under the open Scene glyph's ring (the .d2 gh open-clause diffOutside), dev vs gh.
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
-const base = process.argv[2]; const b = await chromium.launch({ headless: false }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+const base = process.argv[2]; const b = await chromium.launch({ channel: "chrome", headless: true }); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 for (const s of ['cube', 'square']) {
   await p.goto('about:blank'); await p.goto(base + '#/' + s, { waitUntil: 'networkidle' });
   await p.hover('[data-dock-tether=top] .glass-dock'); await p.waitForTimeout(2500);

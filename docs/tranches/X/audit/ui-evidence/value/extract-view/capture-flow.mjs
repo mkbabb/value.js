@@ -18,7 +18,7 @@ const probe = (p) => p.evaluate(() => {
         active: document.activeElement && (document.activeElement.tagName + " " + (document.activeElement.getAttribute("aria-label") || document.activeElement.getAttribute("title") || "")),
         els: [...q("[role=button][aria-label]"), ...q("[data-slot=shadow-palette]"), ...q("[data-o18=extract-k-rail]"), ...q("[role=slider]"), ...q("[title='Upload image'],[title='Open camera'],[title='Reset']"), ...q(".font-display.text-display"), ...q(".glass-floating"), ...q(".glass-floating button"), ...q(".loupe"), ...q(".swatch-pulse"), ...q("[data-slot=palette-inspector],[data-slot=palette-card]"), ...q("article"), ...q("article button")] };
 });
-const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const vp of [{ n: "1440", w: 1440, h: 900 }, { n: "390", w: 390, h: 844 }]) for (const theme of ["light", "dark"]) {
     const tagB = `${vp.n}__${theme}`;
     if (only && !tagB.startsWith(only)) continue;

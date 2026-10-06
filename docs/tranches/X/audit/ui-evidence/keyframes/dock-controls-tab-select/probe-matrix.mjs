@@ -8,7 +8,7 @@ const sha = execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim();
 const dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const log = { sha, dirty, when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const trig = (page) => page.evaluate(() => { const t = document.querySelector('[aria-label="Controls tab"]'); if (!t) return null; const c = getComputedStyle(t);
   return { text: t.textContent.trim(), w: Math.round(t.getBoundingClientRect().width), outline: c.outlineStyle + " " + c.outlineWidth + " " + c.outlineColor, shadow: c.boxShadow.slice(0, 120), bg: c.backgroundColor, border: c.borderTopWidth + " " + c.borderTopColor, fv: t.matches(":focus-visible"), f: t.matches(":focus"), state: t.getAttribute("data-state"), expanded: t.getAttribute("aria-expanded"),
     options: [...document.querySelectorAll("[role=option]")].map(o => o.textContent.trim() + (o.getAttribute("aria-selected") === "true" ? "*" : "")), channel: (document.querySelector('[aria-label="Select animation"]') || {}).textContent?.trim() }; });

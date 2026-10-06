@@ -3,7 +3,7 @@
 import { chromium } from "@playwright/test";
 const N = Number(process.env.N ?? 5);
 const WAIT = Number(process.env.WAIT ?? 0);
-const browser = await chromium.launch({ headless: process.env.HEADED !== "1", channel: "chromium", args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
+const browser = await chromium.launch({ headless: true /* COHESION §0ei: HEADED=1 no longer opens a window */, channel: "chromium", args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
 let bad = 0;
 for (let i = 0; i < N; i++) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });

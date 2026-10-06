@@ -1,6 +1,6 @@
 // Probe: duplicate listbox/option ids when both PaperSearch instances are mounted (mobile). Read-only.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [name, vp] of [["m", { width: 390, height: 844 }], ["d", { width: 1440, height: 900 }]]) {
   const ctx = await b.newContext({ viewport: vp, isMobile: name === "m", hasTouch: name === "m" });
   const p = await ctx.newPage();

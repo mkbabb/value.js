@@ -53,7 +53,7 @@ async function shot(page, name, extra = {}) {
   log.push({ frame: `${name}.png`, head: sha, ...extra }); console.log("captured", name);
 }
 const card = (page, name) => page.locator(`[role="article"][aria-label="Palette: ${name}"]`).first();
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 for (const leg of legs) {
   if (leg === "browse-delete") for (const vp of VPS) for (const theme of ["light", "dark"]) {

@@ -2,7 +2,7 @@
 // KF.W13R.v — the capture scripts' selector census at 10.0.1 (do the 7.0.0-era hooks still exist?), headed, one read.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const base = process.argv[2] ?? "http://localhost:5173";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto(`${base}/#/cube`, { waitUntil: "load" }); await page.waitForTimeout(4000);
 const r = await page.evaluate(() => {

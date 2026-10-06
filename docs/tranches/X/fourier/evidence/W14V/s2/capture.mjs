@@ -6,7 +6,7 @@ const require = createRequire("/Users/mkbabb/Programming/fourier-analysis/web/pa
 const { chromium } = require("@playwright/test");
 const [phase, out] = process.argv.slice(2);
 fs.mkdirSync(out, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const [w, h, scheme] of [[1440, 900, "light"], [1440, 900, "dark"], [390, 844, "light"], [390, 844, "dark"]]) {
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: scheme });
     const page = await ctx.newPage();

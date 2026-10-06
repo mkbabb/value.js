@@ -5,7 +5,7 @@ import fs from 'node:fs';
 const base = process.argv[2] || 'http://localhost:5173/'; const tag = process.argv[3] || 'before';
 const sampler = fs.readFileSync(new URL('./sampler.js', import.meta.url), 'utf8');
 fs.mkdirSync(`webm-${tag}`, { recursive: true });
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const out = {};
 async function run(name, act) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, recordVideo: { dir: `webm-${tag}`, size: { width: 1440, height: 900 } } });

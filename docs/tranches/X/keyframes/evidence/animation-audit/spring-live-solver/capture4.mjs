@@ -6,7 +6,7 @@ import { execSync } from "node:child_process";
 const OUT = new URL(".", import.meta.url).pathname;
 const kf = () => ({ head: execSync("git -C /Users/mkbabb/Programming/keyframes.js rev-parse --short HEAD").toString().trim(),
   dirty: +execSync("git -C /Users/mkbabb/Programming/keyframes.js status --porcelain | wc -l").toString().trim() });
-const browser = await chromium.launch({ headless: false, args: ["--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const cdp = await ctx.newCDPSession(page);

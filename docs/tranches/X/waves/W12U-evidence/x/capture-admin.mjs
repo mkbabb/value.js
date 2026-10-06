@@ -17,7 +17,7 @@ const FR = process.argv[4];
 if (FR) mkdirSync(FR, { recursive: true });
 const ROUTES = ["/admin/users", "/admin/names", "/admin/audit", "/admin/flagged", "/admin/tags"];
 
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const res = [];
 for (const tag of TAGS) {
     const [w, h] = VIEWPORTS[tag];

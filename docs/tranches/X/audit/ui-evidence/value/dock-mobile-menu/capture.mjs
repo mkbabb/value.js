@@ -9,7 +9,7 @@ const dirty = execSync("git -C /Users/mkbabb/Programming/value.js status --porce
 const log = [];
 const note = (m) => { log.push(m); console.log(m); };
 note(`tree ${sha} dirty=${dirty} url=${URL_} at ${new Date().toISOString()}`);
-const browser = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 const VPS = [{ n: "390", w: 390, h: 844, mobile: true }, { n: "1440", w: 1440, h: 900, mobile: false }];
 async function measure(page) {
   return page.evaluate(() => {

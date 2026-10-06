@@ -4,7 +4,7 @@ import fs from "node:fs"; import { execSync } from "node:child_process";
 const OUT = new URL(".", import.meta.url).pathname;
 const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`).toString().trim();
 console.log("stamp", kf("rev-parse --short HEAD"), kf("status --porcelain | wc -l"));
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/#/amiga");
 await p.waitForFunction(() => !!window.__kfAmigaProbe, null, { timeout: 20000 });

@@ -1,6 +1,6 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const D = "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const logs=[]; p.on("console", m => logs.push(m.type()+": "+m.text())); p.on("pageerror", e=>logs.push("pageerror: "+e.message));
 await p.goto("http://localhost:5173/#/sequence", { waitUntil: "networkidle" });

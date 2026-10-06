@@ -1,7 +1,7 @@
 // Read-only probe: the phase Chip's inline tone style + paint during a morph; which element scrolls /morph.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { writeFileSync } from "node:fs";
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
 await page.goto("http://localhost:3100/morph", { waitUntil: "networkidle" }); await page.waitForTimeout(1200);

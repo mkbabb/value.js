@@ -4,7 +4,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import fs from "node:fs";
 const base = process.argv[2] ?? "http://localhost:5173"; const label = process.argv[3] ?? "dev";
 const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 await page.mouse.move(720, 600); await page.goto(`${base}/#/cube`, { waitUntil: "load" }); await page.waitForTimeout(4000);
 const box = await page.locator('[data-dock-tether="top"] .glass-dock').boundingBox();

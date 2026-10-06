@@ -1,6 +1,6 @@
 // probe2 — READ-ONLY: the 'Controls tab' control + the duration field DOM.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
 const p = await ctx.newPage(); await p.goto("http://localhost:5173/#/easing", { waitUntil: "networkidle" }); await p.waitForTimeout(3500);
 const o = await p.evaluate(() => { const e = [...document.querySelectorAll("[aria-label='Controls tab']")]; const f = document.querySelector(".duration-field");

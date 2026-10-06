@@ -5,7 +5,7 @@ import fs from "node:fs"; import { execSync } from "node:child_process";
 const OUT = new URL(".", import.meta.url).pathname; const KF = "/Users/mkbabb/Programming/keyframes.js";
 const khead = execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim();
 const kdirty = execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim();
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/#/square"); await p.waitForSelector(".demo-box"); await p.waitForTimeout(2500);
 const C = await p.evaluate(() => { const r = document.querySelector(".demo-box").getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; });

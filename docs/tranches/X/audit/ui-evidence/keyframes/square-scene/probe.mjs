@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { execSync } from "node:child_process"; import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const sha = execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(); const dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
 const page = await ctx.newPage(); await page.goto("http://localhost:5173/#/square", { waitUntil: "networkidle" }); await page.waitForTimeout(3500);
 const st = () => page.evaluate(() => { const bx = document.querySelector(".square-stage .demo-box"); const cs = getComputedStyle(bx); return { badge: document.querySelector(".square-telemetry .status-badge")?.textContent.trim(), tether: getComputedStyle(document.querySelector(".square-tether")).opacity, bg: cs.backgroundColor, fill: cs.getPropertyValue("--subject-fill").trim().slice(0, 40), tf: cs.transform.slice(0, 50), mode: bx.dataset.squareMode, demoBoxes: document.querySelectorAll(".demo-box").length }; });

@@ -6,7 +6,7 @@
 import { chromium } from "@playwright/test";
 import { prepare } from "./seed-x.mjs";
 const [W, H, R] = [Number(process.argv[2] ?? 768), Number(process.argv[3] ?? 1024), process.argv[4] ?? "/admin/tags"];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: W, height: H } });
 await prepare(ctx, { admin: true, palettes: true });
 const p = await ctx.newPage();

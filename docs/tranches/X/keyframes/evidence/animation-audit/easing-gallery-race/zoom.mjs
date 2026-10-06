@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const idx = [60, 61, 62, 97];
 const srcs = idx.map(i => "data:image/png;base64," + readFileSync(`${OUT}frames/A-${String(i).padStart(4,"0")}.png`).toString("base64"));
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 800, height: 600 }, deviceScaleFactor: 1 });
 await page.setContent("<canvas id=c></canvas>");
 const png = await page.evaluate(async (srcs) => {

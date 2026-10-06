@@ -3,7 +3,7 @@
 import { chromium } from "playwright";
 const [url = "http://localhost:9000/", label = "value-light-1440", width = "1440", scheme = "light", anchor = "Login"] = process.argv.slice(2);
 const out = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: +width, height: 900 }, colorScheme: scheme, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
 await page.goto(url, { waitUntil: "networkidle" }).catch(() => {});

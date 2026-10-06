@@ -1,6 +1,6 @@
 // READ-ONLY probe: does keyboard Enter on the GitHub menu row open the link (as-child on a glass item with no asChild prop)?
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
 await ctx.route("https://github.com/**", (r) => r.fulfill({ status: 200, body: "stub" }));
 const p = await ctx.newPage();

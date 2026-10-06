@@ -7,7 +7,7 @@ import { chromium } from "@playwright/test";
 import { prepare } from "../x/seed-x.mjs";
 const theme = process.argv[2] ?? "light";
 const pal = (slug, name, userSlug) => ({ slug, name, colors: [{ css: "#e11d48", position: 0 }, { css: "#2563eb", position: 1 }], userSlug, voteCount: 1, voted: false, isLocal: false, visibility: "public", tags: [], versionCount: 1, currentHash: "h1", createdAt: "2026-07-10T00:00:00.000Z", updatedAt: "2026-07-10T00:00:00.000Z" });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme });
 await prepare(ctx, { theme, user: true });
 const p = await ctx.newPage();

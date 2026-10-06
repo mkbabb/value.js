@@ -8,7 +8,7 @@ const CSS = readFileSync(TREE + "/node_modules/vue-sonner/lib/index.css", "utf8"
 const tree = execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim() + "+" + execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length + "dirty";
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const out = { tree, runs: [] };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const m = (page) => page.evaluate(() => { const d = document.querySelector(".glass-dock")?.getBoundingClientRect(); return [...document.querySelectorAll("[data-sonner-toast]")].map(t => { const r = t.getBoundingClientRect(), c = getComputedStyle(t); const ov = d && !(r.right < d.left || r.left > d.right || r.bottom < d.top || r.top > d.bottom); return { type: t.getAttribute("data-type"), text: t.textContent.trim().slice(0, 60), rect: [r.x, r.y, r.width, r.height].map(Math.round), radius: c.borderTopLeftRadius, bg: c.backgroundColor, fg: c.color, backdrop: c.backdropFilter, iconColor: t.querySelector("[data-icon] svg") ? getComputedStyle(t.querySelector("[data-icon] svg")).color : null, overlapsDock: ov, inViewport: r.top >= 0 && r.bottom <= innerHeight }; }); });
 for (const vp of ["1440", "390"]) for (const theme of ["light", "dark"]) {
   const tag = `${vp}-${theme}`; const run = { tag, frames: [] };

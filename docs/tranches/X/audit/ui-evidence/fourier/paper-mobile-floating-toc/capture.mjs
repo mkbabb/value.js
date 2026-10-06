@@ -11,7 +11,7 @@ writeFileSync(OUT + "tree-state.txt",
 const VPS = { m: { width: 390, height: 844 }, d: { width: 1440, height: 900 } };
 const metrics = {};
 const log = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const measure = (page) => page.evaluate(() => {
   const box = (el) => { if (!el) return null; const r = el.getBoundingClientRect(); const cs = getComputedStyle(el);
     return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height), radius: cs.borderRadius, bg: cs.backgroundColor, color: cs.color, border: cs.borderBottom, pad: cs.padding, font: cs.fontSize + " " + cs.fontWeight + " " + cs.fontFamily.slice(0, 24), shadow: cs.boxShadow.slice(0, 90), bdf: cs.backdropFilter, outline: cs.outlineStyle + " " + cs.outlineWidth + " " + cs.outlineColor, cls: (el.className?.toString?.() || "").slice(0, 110) }; };

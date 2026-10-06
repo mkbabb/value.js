@@ -29,7 +29,8 @@
 //         PROBE_PRM=1 forces `prefers-reduced-motion: reduce` (gate D5's run):
 //         the frame arm is still read; the motion arm then asserts every
 //         observed region transition computes ≈0 duration instead.
-//         PROBE_HEADED=1 launches HEADED Chromium on the host GPU (X.W5.d2 ·
+//         PROBE_HEADED=1 reads the host GPU (since COHESION §0ei: real Chrome in
+//         new headless mode on ANGLE Metal, no window; was headed Chromium) (X.W5.d2 ·
 //         COHESION §0ax ESC-W5t-1: the reading OF RECORD for D1; headless
 //         Chromium rasterises and runs WebGL on the software path, SwiftShader,
 //         a cost class the user never sees). The instrument, the hops, the
@@ -137,7 +138,8 @@ function read() {
 }
 
 const loadAtLaunch = loadavg().map((l) => Number(l.toFixed(2)));
-const browser = await chromium.launch({ headless: !HEADED });
+// COHESION §0ei: no window. PROBE_HEADED=1 reads the host GPU through real Chrome in new headless mode (ANGLE Metal).
+const browser = await chromium.launch({ headless: true, ...(HEADED ? { channel: "chrome" } : {}) });
 const ctx = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     colorScheme: "light",

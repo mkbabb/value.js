@@ -16,7 +16,7 @@ const theme = process.argv[4] ?? "light";
 const FR = process.argv[5];
 if (FR) mkdirSync(FR, { recursive: true });
 const phone = W < 900;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 let red = 0, n = 0;
 for (const [item, card] of [["Edit Tags", 0], [/Versions/, 0], ["Edit Tags", 4], [/Versions/, 4]]) {
     const ctx = await b.newContext({ viewport: { width: W, height: H }, colorScheme: theme, isMobile: phone, hasTouch: phone });

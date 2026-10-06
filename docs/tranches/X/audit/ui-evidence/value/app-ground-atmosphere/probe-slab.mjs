@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const out = {};
 for (const [scheme, from, to, pt] of [["dark", "/", "/palettes", [985, 500]], ["light", "/gradient", "/atmosphere", [900, 500]]]) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme });

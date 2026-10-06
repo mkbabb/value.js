@@ -10,7 +10,7 @@ const dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().sp
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const ONLY = process.argv[2]; const ONLYT = process.argv[3];
 const log = { sha, dirty, when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const px = (e) => { const b = e.getBoundingClientRect(), c = getComputedStyle(e); return { x: Math.round(b.x), y: Math.round(b.y), w: Math.round(b.width), h: Math.round(b.height), radius: c.borderTopLeftRadius, bg: c.backgroundColor, color: c.color, font: c.fontFamily.split(",")[0] + " " + c.fontSize + " " + c.fontWeight, pad: c.padding, border: c.borderTopWidth + " " + c.borderTopColor, shadow: c.boxShadow.slice(0, 60), backdrop: c.backdropFilter }; };
   const out = { hash: location.hash, theme: document.documentElement.className.slice(0, 40) };

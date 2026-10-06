@@ -12,7 +12,7 @@ const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`)
 const stamp = { kfHead: kf("rev-parse --short HEAD"), kfDirty: kf("status --porcelain | wc -l"), at: new Date().toISOString() };
 console.log("stamp", stamp);
 
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const p = await ctx.newPage();
 await p.goto("http://localhost:5173/#/amiga");

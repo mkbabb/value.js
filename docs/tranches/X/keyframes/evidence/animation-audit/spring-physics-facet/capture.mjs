@@ -9,7 +9,7 @@ const khead = () => execSync(`git -C ${KF} rev-parse --short HEAD`).toString().t
 const meta = { start: new Date().toISOString(), khead0: khead(), phases: {} };
 const CLIP = { x: 72, y: 130, width: 1300, height: 580 }; // facet + stage (trace) region
 
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const p = await ctx.newPage();
 const errs = []; p.on("console", m => { if (m.type() === "error") errs.push(m.text().slice(0, 200)); });

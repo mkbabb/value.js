@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 const OUT = new URL(".", import.meta.url).pathname;
 const now = "2026-09-20T12:00:00.000Z";
 const FIX = [["neon-arcade-c3","Neon Arcade",["#ff00ff","#00ffee","#eeee00","#111111","#ffffff","#7f5af0"]],["forest-floor-b2","Forest Floor",["#2d4a22","#5b7c3a","#a3b18a","#dad7cd"]]].map(([slug,name,c])=>({slug,name,userSlug:"ada",colors:c.map((css,position)=>({css,position})),createdAt:now,updatedAt:now,isLocal:false,visibility:"public",tier:"standard",voteCount:2,tags:["a"]}));
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const vp of [{n:"1440",w:1440,h:900},{n:"390",w:390,h:844}]) {
 const ctx = await b.newContext({ viewport: { width: vp.w, height: vp.h }, hasTouch: vp.n==="390" });
 const p = await ctx.newPage();

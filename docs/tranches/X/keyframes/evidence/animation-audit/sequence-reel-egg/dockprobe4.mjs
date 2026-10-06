@@ -1,6 +1,6 @@
 // After a reel the dock collapses to its summary layer; press the VISIBLE (hit-testable) Play and read the master.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const st = (p) => p.evaluate(() => { const t = document.body.innerText; return (t.match(/CLOCK\s*([\d.]+)/)?.[1]) + " " + (t.match(/\b(READY|PLAYING|PAUSED)\b/)?.[1]); });
 const hitPlay = (p) => p.evaluate(() => { for (const x of document.querySelectorAll('button[aria-label="Play animation"],button[aria-label="Pause animation"]')) { const r = x.getBoundingClientRect(); if (r.width && x.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2))) return { x: r.x + r.width / 2, y: r.y + r.height / 2, w: r.width }; } return null; });
 for (const mode of ["scrub-reel-held-play", "played-reel-then-play"]) {

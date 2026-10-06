@@ -10,7 +10,7 @@ const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height:
 const log = { ...tree(), when: new Date().toISOString(), runs: [] };
 const LOGF = "capture-log" + (process.argv[2] ? "-" + process.argv[2] : "") + ".json";
 const ONLY = process.argv[2];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const r = (e) => { if (!e) return null; const b = e.getBoundingClientRect(); return [b.x, b.y, b.width, b.height].map(Math.round); };
   const ae = document.activeElement;

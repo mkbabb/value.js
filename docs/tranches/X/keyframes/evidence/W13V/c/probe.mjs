@@ -48,7 +48,7 @@ const r = await withBrowser(async (b) => {
     const sheet = document.querySelector("[data-slot=sheet-content]");
     return { clicked: CLICKED, vw: innerWidth, vh: innerHeight, card: R(card), wrapper: R(wrapper), pane: R(pane), paneScrollH: pane?.scrollHeight ?? null, sheet: R(sheet), menubarBand: R(band), rows, sepBeforeEasing };
   }, clicked);
-}, { launch: { headless: false } });
+}, { launch: { channel: "chrome", headless: true } });
 const v = r.value ?? r;
 if (out) fs.writeFileSync(out, JSON.stringify(v, null, 1));
 console.log(JSON.stringify(v));

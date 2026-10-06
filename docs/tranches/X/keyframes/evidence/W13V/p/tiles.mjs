@@ -16,7 +16,7 @@ const require = createRequire("/Users/mkbabb/Programming/value.js/package.json")
 const { chromium } = require("playwright");
 const [base = "http://localhost:5173/", vps = "1440x900,390x844", th = "light,dark"] = process.argv.slice(2);
 const ROUTES = ["", "cube", "amiga", "square", "easing", "spring", "sequence"];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 let p1 = 0, p2 = 0, tiles = 0;
 const seen = new Map();
 const read = (p) => p.evaluate(() => {

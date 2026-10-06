@@ -17,7 +17,7 @@ const arm = (n, ok, d) => out.push(`${ok ? "PASS" : "RED "} ${n} ${d}`);
 const src = readFileSync(new URL("../../../../../../demo/shell/dock/ColorInput.vue", import.meta.url), "utf8");
 const dead = (src.match(/\beditTarget\b|\bcssColorOpaque\b|\bcanProposeName\b/g) ?? []).length;
 arm("V-509 no dead prop/injections in ColorInput.vue", dead === 0, `hits=${dead}`);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const expand = async (p) => { const c = p.locator(".glass-dock.collapsed"); if (await c.count()) { await c.click(); await p.waitForTimeout(1200); } };
 {
     const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme });

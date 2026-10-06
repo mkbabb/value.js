@@ -35,7 +35,7 @@ const measure = (page) => page.evaluate(() => {
     active: document.activeElement?.getAttribute('aria-label') || document.activeElement?.tagName,
   };
 });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of THEMES) {
   const t0 = Date.now();
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme, deviceScaleFactor: 2 });

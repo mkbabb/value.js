@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 import fs from "node:fs";
 const [url, label, scheme = "light", ws = "390,480,560,640,768,900,1024,1180,1280,1440"] = process.argv.slice(2);
 const out = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const rows = [];
 for (const w of ws.split(",").map(Number)) {
   const ctx = await browser.newContext({ viewport: { width: w, height: 900 }, colorScheme: scheme, deviceScaleFactor: 2 });

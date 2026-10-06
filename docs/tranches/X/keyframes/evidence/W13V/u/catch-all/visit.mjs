@@ -6,7 +6,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import fs from "node:fs";
 const tag = process.argv[2] || "run"; const BASE = process.argv[3] || "http://localhost:5173/"; const OUT = new URL(`./${tag}/`, import.meta.url).pathname; fs.mkdirSync(OUT, { recursive: true });
 const links = ["#/nope", "#/starting-style", "#/cube/extra", "#/CUBE", "#/nope?anim=Matrix", "#/nope?state=MTIz", "#/%E2%9C%93", "#//"];
-const b = await chromium.launch({ headless: false }); const res = [];
+const b = await chromium.launch({ channel: "chrome", headless: true }); const res = [];
 for (const [vpName, vp, scheme] of [["1440-light", { width: 1440, height: 900 }, "light"], ["1440-dark", { width: 1440, height: 900 }, "dark"], ["390-light", { width: 390, height: 844 }, "light"]]) {
   for (const [i, link] of links.entries()) {
     if (vpName !== "1440-light" && i > 1) continue; // the full link set at 1440 light; two links on the other legs

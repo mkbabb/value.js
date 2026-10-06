@@ -85,7 +85,7 @@ async function shot(p, name, vp, theme, errs, note = "") {
   console.log("captured", f);
 }
 
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const vp of VPS) for (const theme of THEMES) {
   // A · empty / typed / focus / admin-typed / admin-submitted / malformed slug
   {

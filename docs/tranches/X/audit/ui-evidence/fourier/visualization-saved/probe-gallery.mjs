@@ -4,7 +4,7 @@ const BASE = "http://localhost:3100"; const OUT = new URL(".", import.meta.url).
 const IMG = "sheer-waiting-salmon-dolphin", CH = "55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65", VSLUG = "amber-quiet-river-fox";
 const now = new Date().toISOString();
 const VIZ = { slug: VSLUG, owner_slug: "calm-bright-owl-lake", visibility: "public", content_hash: "x", image_slug: IMG, contour_hash: CH, active_bases: ["fourier-epicycles"], n_harmonics: 37, set_hash: "y", fork_of: null, fork_count: 0, version_count: 1, title: "Golden retriever", tags: [], views: 12, likes: 3, tier: process.env.TIER || "featured", pinned: false, created_at: now, updated_at: now, deleted_at: null };
-const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const log = [];
 for (const [vp, size] of [["d", { width: 1440, height: 900 }], ["m", { width: 390, height: 844 }]]) for (const theme of ["light", "dark"]) {
   const tag = `${vp}-${theme}`;

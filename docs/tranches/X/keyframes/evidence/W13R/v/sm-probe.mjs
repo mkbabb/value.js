@@ -45,6 +45,6 @@ const out = await withBrowser(async (browser) => {
     let scrolled = null; if (g1.pane && g1.pane.scrollH > g1.pane.clientH + 8 && g1.touchPointInViewport) { await touchSwipe(page, { x: g1.pane.cx, y: g1.pane.cy }, { x: g1.pane.cx, y: g1.pane.cy - 180 }); await page.waitForTimeout(500); scrolled = await page.evaluate(() => document.querySelector(".controls-pane")?.scrollTop ?? 0); }
     res.M1 = { handle: h, peek: g0, afterExpand: g1, scrollTopAfterSwipe: scrolled }; await ctx.close(); }
   return res;
-}, { launch: { headless: false }, label: "sm-probe" });
+}, { launch: { channel: "chrome", headless: true }, label: "sm-probe" });
 const v = out.value ?? out; fs.writeFileSync(path.join(here, `sm-${label}.json`), JSON.stringify(v, null, 2));
 console.log(JSON.stringify({ S4: { reachedAt: v.S4?.reachedAt, ring: v.S4?.ring }, M1: { peek: v.M1?.peek, afterExpand: v.M1?.afterExpand, scrolled: v.M1?.scrollTopAfterSwipe } }));

@@ -1,6 +1,6 @@
 // read-only: stub ITEMS-shaped list, log errors, DOM counts over time
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 const p = await ctx.newPage();
 const E = { slug: "amber-fox-spiral-one-0", owner_slug: "amber-fox-12", visibility: "public", content_hash: "c0ffee00", image_slug: "img-a-0", contour_hash: "deadbeef", active_bases: ["fourier-epicycles"], n_harmonics: 64, set_hash: "x", fork_of: null, fork_of_hash: null, fork_count: 0, version_count: 1, title: "A", description: null, tags: [], palette_slug: null, views: 12, likes: 3, tier: "normal", pinned: false, created_at: "2026-09-01T10:00:00Z", updated_at: "2026-09-01T10:00:00Z", deleted_at: null };

@@ -4,7 +4,7 @@
 // argv: base tag scheme(light|dark) routes(comma)
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
 const [base = 'http://localhost:5173/', tag = 'dev', scheme = 'light', routes = 'cube,,easing,spring,amiga,square,sequence'] = process.argv.slice(2);
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, colorScheme: scheme });
 const res = {};
 for (const r of routes.split(',')) {

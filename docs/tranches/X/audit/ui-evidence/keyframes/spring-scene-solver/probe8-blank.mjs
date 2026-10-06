@@ -2,7 +2,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { execSync } from "node:child_process";
 const OUT = new URL(".", import.meta.url).pathname;
 const tree = () => execSync(`git -C /Users/mkbabb/Programming/keyframes.js rev-parse --short HEAD`).toString().trim() + " dirty=" + execSync(`git -C /Users/mkbabb/Programming/keyframes.js status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["dark", "light"]) {
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme });
 await ctx.addInitScript((t) => { try { localStorage.setItem("vueuse-color-scheme", t); } catch {} }, theme);

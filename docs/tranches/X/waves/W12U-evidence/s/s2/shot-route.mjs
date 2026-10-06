@@ -4,7 +4,7 @@ import { chromium } from "@playwright/test";
 import { prepare } from "../../x/seed-x.mjs";
 const [route, W, H, theme, outp, seed = "both"] = [process.argv[2], Number(process.argv[3]), Number(process.argv[4]), process.argv[5], process.argv[6], process.argv[7]];
 const phone = W < 900;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: W, height: H }, colorScheme: theme, isMobile: phone, hasTouch: phone });
 await prepare(ctx, { theme, user: true, palettes: seed !== "browse", browse: seed !== "palettes" ? "ok" : null });
 const p = await ctx.newPage();

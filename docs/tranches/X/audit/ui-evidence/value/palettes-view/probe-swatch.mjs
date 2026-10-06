@@ -1,7 +1,7 @@
 // Probe: do the WatercolorDot swatches / add-slot render as buttons with names and live click handlers?
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
 await ctx.addInitScript(`(() => { try { if (sessionStorage.getItem('s')) return; sessionStorage.setItem('s','1'); localStorage.clear(); localStorage.setItem('vueuse-color-scheme','light'); localStorage.setItem('color-picker', JSON.stringify({ inputColor: 'oklch(0.65 0.2 30)', savedColors: ['#e63946','#f1faee','#a8dadc','#457b9d'] })); } catch (e) {} })();`);
 const page = await ctx.newPage();

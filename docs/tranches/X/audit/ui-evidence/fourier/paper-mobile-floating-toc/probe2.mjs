@@ -1,6 +1,6 @@
 // UIA-F probe 2 — result select via mouse click and via keyboard Enter at 390 (root-cause split). Read-only.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const mode of ["click", "enter"]) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();

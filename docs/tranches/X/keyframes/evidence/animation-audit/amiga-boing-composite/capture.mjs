@@ -9,7 +9,7 @@ const kdirty = () => execSync(`git -C ${KF} status --porcelain | wc -l`).toStrin
 const log = { khead0: khead(), kdirty0: kdirty(), phases: {} };
 const save = () => writeFileSync(OUT + "capture.json", JSON.stringify(log, null, 1));
 
-const browser = await chromium.launch({ headless: false, args: ["--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const consoleMsgs = [];

@@ -3,7 +3,7 @@
 // and how many frames the settle spans. usage: node sweep.mjs <baseUrl>
 import { createRequire } from "node:module";
 const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
-const b = await chromium.launch({ headless: false }); const out = [];
+const b = await chromium.launch({ channel: "chrome", headless: true }); const out = [];
 for (let run = 0; run < 3; run++) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
   await ctx.addInitScript(() => { window.__f = []; const tick = () => { const s = document.querySelector(".cube-side"); if (s) window.__f.push(getComputedStyle(document.querySelector(".graph")).transform); if (window.__f.length < 60) requestAnimationFrame(tick); }; requestAnimationFrame(tick); });

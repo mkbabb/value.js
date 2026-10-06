@@ -5,7 +5,7 @@ import fs from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const dir = OUT + "frames/"; fs.mkdirSync(dir, { recursive: true });
 const live = OUT + "live/"; fs.mkdirSync(live, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const gpu = [];

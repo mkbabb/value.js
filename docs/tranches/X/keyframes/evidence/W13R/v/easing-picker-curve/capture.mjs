@@ -8,7 +8,7 @@ const kdirty = () => execSync(`git -C ${KF} status --porcelain | wc -l`).toStrin
 const OUT = process.cwd();
 for (const d of ["drag", "live", "panel-open", "panel-close", "tfp"]) fs.mkdirSync(`${OUT}/${d}`, { recursive: true });
 const meta = { started: new Date().toISOString(), khead: khead(), kdirty: kdirty(), parts: {} };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const p = await ctx.newPage();
 const raf = () => p.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));

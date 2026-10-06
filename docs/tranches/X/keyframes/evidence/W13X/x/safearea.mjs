@@ -8,7 +8,7 @@ const BASE = process.env.BASE || "http://localhost:5194";
 const ROUTES = (process.env.ROUTES || "home,cube,amiga,square,easing,spring,sequence").split(",");
 const CONFIGS = [["p390", [390, 844], { top: 47, bottom: 34, left: 0, right: 0 }], ["p390-noinset", [390, 844], { top: 0, bottom: 0, left: 0, right: 0 }], ["l844", [844, 390], { top: 0, bottom: 21, left: 47, right: 47 }]];
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
 const rows = [];
 for (const [name, vp, ins] of CONFIGS) for (const route of ROUTES) {
   const ctx = await b.newContext({ viewport: { width: vp[0], height: vp[1] }, deviceScaleFactor: 2, hasTouch: true, isMobile: true });

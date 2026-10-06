@@ -143,7 +143,7 @@ async function live(p, openAct, closeAct, sel, name) {
   return { hold, rafFrames: d.length, rafOver20: over.length, rafMax: +Math.max(...d).toFixed(1), rafOverList: over.slice(0, 12).map((x) => +x.toFixed(1)) };
 }
 
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const SEL_POP = { content: ".glass-reveal[data-state]" };
 const esc = (p) => async () => p.keyboard.press("Escape");
 

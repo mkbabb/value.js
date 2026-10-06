@@ -18,7 +18,7 @@ const ov = () => { const vw = innerWidth, vh = innerHeight; const out = [];
     out.push({ role: e.getAttribute("role") || e.getAttribute("data-slot"), w: +r.width.toFixed(1), h: +r.height.toFixed(1), gutL: +r.left.toFixed(1), gutR: +(vw - r.right).toFixed(1), gutT: +r.top.toFixed(1), gutB: +(vh - r.bottom).toFixed(1), scrolls: e.scrollHeight > e.clientHeight + 2, kids: kids.length, small, clippedKids }); }
   return out; };
 const rows = [];
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const theme of THEMES) for (const vpS of VPS) {
   const [w, h] = vpS.split("x").map(Number); const touch = w < 1024;
   const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, isMobile: touch, hasTouch: touch, colorScheme: theme });

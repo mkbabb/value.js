@@ -7,7 +7,7 @@ const sampler = fs.readFileSync(new URL('../d/sampler.js', import.meta.url), 'ut
 const pane = `(() => { const f = []; let on = true; const tick = () => { if (!on) return;
   const tab = [...document.querySelectorAll('[data-dock-tether=top] button,[data-dock-tether=top] [role=combobox]')].some(b => /controls/i.test(b.getAttribute('aria-label') || b.textContent || ''));
   f.push(tab ? 1 : 0); requestAnimationFrame(tick); }; window.__pane = { start() { f.length = 0; on = true; requestAnimationFrame(tick); }, stop() { on = false; return f; } }; })();`;
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 160)));
 await p.addInitScript(sampler); await p.addInitScript(pane);

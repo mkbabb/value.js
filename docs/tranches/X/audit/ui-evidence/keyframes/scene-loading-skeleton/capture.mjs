@@ -11,7 +11,7 @@ const dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().sp
 const BASE = "http://localhost:5173/";
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const log = { tree: TREE, sha, dirty, when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 async function ctxFor(vpKey, theme) {
   const ctx = await browser.newContext({ viewport: VPS[vpKey], deviceScaleFactor: 2, colorScheme: theme, hasTouch: vpKey === "m", isMobile: vpKey === "m" });

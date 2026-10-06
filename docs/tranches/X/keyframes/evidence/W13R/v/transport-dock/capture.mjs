@@ -11,7 +11,7 @@ const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`)
 const prov = () => ({ khead: kf("rev-parse --short HEAD"), kdirty: kf("status --porcelain").split("\n").filter(Boolean).length, at: new Date().toISOString() });
 const P0 = prov();
 for (const d of ["rt", "step"]) fs.mkdirSync(OUT + d, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await ctx.addInitScript({ path: OUT + "clock-shim.js" });
 const page = await ctx.newPage();

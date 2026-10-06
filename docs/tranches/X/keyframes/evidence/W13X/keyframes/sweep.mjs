@@ -7,7 +7,7 @@
 // Per rAF for 1.4 s after the edit: the bar's painted width (getBoundingClientRect) — >0 iff the sweep shows.
 import { createRequire } from "node:module";
 const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto((process.argv[3] || "http://localhost:5173/") + "#/" + (process.argv[2] || "cube"), { waitUntil: "load" });
 await p.waitForTimeout(3500);

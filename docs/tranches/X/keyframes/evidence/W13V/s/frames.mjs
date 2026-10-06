@@ -7,7 +7,7 @@ const require = createRequire("/Users/mkbabb/Programming/value.js/package.json")
 const { chromium } = require("playwright");
 const [base = "http://localhost:5173/", outDir = ".", tag = "x", sc = "home,cube,amiga,square,easing,spring,sequence", vps = "1440x900,390x844", th = "light", open = "0"] = process.argv.slice(2);
 fs.mkdirSync(outDir, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of th.split(",")) for (const vp of vps.split(",")) for (const scene of sc.split(",")) {
     const [w, h] = vp.split("x").map(Number);
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: theme });

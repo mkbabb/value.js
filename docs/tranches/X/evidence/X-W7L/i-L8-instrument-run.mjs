@@ -13,7 +13,7 @@ const BASE = "http://localhost:9000/";
 const REPO = "/Users/mkbabb/Programming/value.js";
 const ROUTES = ["", "#/?space=oklch&color=" + encodeURIComponent("oklch(0.55 0.18 260)"), "#/atmosphere", "#/extract",
     "#/gradient", "#/mix", "#/generate", "#/palettes", "#/blob", "#/?color=" + encodeURIComponent("oklch(0.51 0.13 32)")];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme });
 const routes = [];
 for (const r of ROUTES) {

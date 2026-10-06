@@ -1,6 +1,6 @@
 // finds the CSS rules painting the hovered row's box-shadow + 390 token readback (read-only)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [w,h,mob] of [[1440,900,false],[390,844,true]]) {
   const ctx = await b.newContext({ viewport:{width:w,height:h}, isMobile:mob, hasTouch:mob, deviceScaleFactor:2 });
   const p = await ctx.newPage(); await p.goto("http://localhost:9000/#/", {waitUntil:"load", timeout:60000}); await p.waitForTimeout(3500);

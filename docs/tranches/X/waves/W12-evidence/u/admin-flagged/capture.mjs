@@ -76,7 +76,7 @@ async function shot(page, name, extra = {}, full = false) {
   manifest.frames.push({ file, head: sha, dirty, ...extra, metrics: await metrics(page) });
   console.log("captured", file);
 }
-const browser = await chromium.launch({ headless: false, args: ["--ignore-gpu-blocklist", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist", "--enable-gpu"] });
 const VPS = [{ tag: "1440", w: 1440, h: 900 }, { tag: "390", w: 390, h: 844 }].filter((v) => !process.env.VP || process.env.VP === v.tag);
 for (const vp of VPS) for (const theme of ["light", "dark"].filter((t) => !process.env.THEME || process.env.THEME === t)) {
   const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 2, hasTouch: vp.w < 600 });

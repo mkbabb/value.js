@@ -15,7 +15,7 @@ const isApi = (u) => { const url = new URL(u); if (/\/(@fs|@id|@vite|node_module
 const themes = process.argv[2] ? [process.argv[2]] : ["light", "dark"];
 const vps = process.argv[3] ? [process.argv[3]] : ["1440", "390"];
 const VP = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const frames = [];
 async function shot(page, name, state, extra) { const p = `${OUT}${name}.png`; await page.waitForTimeout(450); await page.screenshot({ path: p }); frames.push({ file: name + ".png", state, head, dirty, ...(extra ? { extra } : {}) }); }
 const popMetrics = (page) => page.evaluate(() => {

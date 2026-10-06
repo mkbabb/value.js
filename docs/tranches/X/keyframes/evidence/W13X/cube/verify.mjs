@@ -4,7 +4,7 @@
 import { createRequire } from "node:module";
 const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
 const BASE = process.argv[2]; const TAG = process.argv[3] || "run";
-const b = await chromium.launch({ headless: false }); const R = (v) => Math.round(v * 1000) / 1000;
+const b = await chromium.launch({ channel: "chrome", headless: true }); const R = (v) => Math.round(v * 1000) / 1000;
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 await ctx.addInitScript(() => {
   window.__lt = []; try { new PerformanceObserver((l) => { for (const e of l.getEntries()) window.__lt.push([Math.round(e.startTime), Math.round(e.duration)]); }).observe({ type: "long-animation-frame", buffered: true }); } catch {}

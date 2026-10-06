@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 const OUT = new URL(".", import.meta.url).pathname;
 const now = "2026-09-20T12:00:00.000Z";
 const FIX = [["sunset-coast-a1","Sunset Coast",["#ff6b35","#f7c59f","#efefd0","#004e89","#1a659e"],{tags:["warm","ocean"],voteCount:12,tier:"featured"}],["forest-floor-b2","Forest Floor",["#2d4a22","#5b7c3a","#a3b18a","#dad7cd"],{tags:["nature"],voteCount:4}]].map(([slug,name,c,x])=>({slug,name,userSlug:"ada",colors:c.map((css,position)=>({css,position})),createdAt:now,updatedAt:now,isLocal:false,visibility:"public",tier:"standard",voteCount:2,tags:[],...x}));
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, deviceScaleFactor: 2, colorScheme: "dark" });
 await ctx.addInitScript(() => { try { localStorage.setItem('vueuse-color-scheme','dark'); } catch {} });
 const p = await ctx.newPage();

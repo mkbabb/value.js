@@ -7,7 +7,7 @@ const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const sha = execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim();
 const dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
 const log = { sha, dirty, when: new Date().toISOString(), steps: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const info = (page) => page.evaluate(() => { const t = document.querySelector('[aria-label="Controls tab"]'); const c = t && getComputedStyle(t);
   const lb = document.querySelector("[role=listbox]"); const content = lb && (lb.closest("[data-reka-popper-content-wrapper] > *") || lb.parentElement);
   return { trig: t && { text: t.textContent.trim(), fv: t.matches(":focus-visible"), shadow: c.boxShadow.slice(0, 60) }, channel: (document.querySelector('[aria-label="Select animation"]') || {}).textContent?.trim(),

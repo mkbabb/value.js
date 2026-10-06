@@ -4,7 +4,7 @@ import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const BASE = "http://localhost:9000";
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const st = (page) => page.evaluate(() => { const t = document.querySelector('[aria-label="Toggle action bar"]'); const d = document.querySelector(".glass-dock").getBoundingClientRect(); return { pressed: t?.getAttribute("aria-pressed"), dockW: Math.round(d.width), backVisible: !!document.querySelector('[aria-label="Back"]')?.closest(".is-active,[data-active-layer],[aria-hidden=false]"), activeLayers: [...document.querySelectorAll("[data-layer]")].map(e=>e.getAttribute("data-layer")+":"+(e.getAttribute("inert")===null?"live":"inert")).join(" ") , openPoppers: document.querySelectorAll("[data-reka-popper-content-wrapper]").length }; });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const out = [];
 for (const target of ["Generate", "Gradient", "Mix", "Palettes"]) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" }); const page = await ctx.newPage();

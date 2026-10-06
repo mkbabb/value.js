@@ -2,7 +2,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { execSync } from "node:child_process";
 import { writeFileSync } from "node:fs";
 const K="/Users/mkbabb/Programming/keyframes.js";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await (await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })).newPage();
 await p.goto("http://localhost:5173/#/sequence"); await p.waitForSelector(".seq-stage"); await p.waitForTimeout(2500);
 const g = await p.evaluate(() => {

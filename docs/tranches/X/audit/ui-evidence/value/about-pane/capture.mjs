@@ -15,7 +15,7 @@ const meta = { base: BASE, sha, dirty, at: new Date().toISOString(), runs: {} };
 const VIEWPORTS = [ { tag: "1440", w: 1440, h: 900 }, { tag: "390", w: 390, h: 844 } ];
 const THEMES = ["light", "dark"];
 
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 async function measure(page) {
   return page.evaluate(() => {

@@ -5,7 +5,7 @@
 import { chromium } from "@playwright/test";
 import { prepare } from "../x/seed-x.mjs";
 const theme = process.argv[2] ?? "light";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, colorScheme: theme, isMobile: true, hasTouch: true });
 await prepare(ctx, { theme });
 await ctx.route("**/sessions/login", (r) => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ token: "t2", userSlug: "brave-quiet-amber-fox" }) }));

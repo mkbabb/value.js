@@ -3,7 +3,7 @@
 import { createRequire } from "node:module";
 const require = createRequire("/Users/mkbabb/Programming/value.js/package.json");
 const { chromium } = require("playwright");
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
 const base = process.argv[2] || "http://localhost:5173/";
 await p.goto(base + "#/easing", { waitUntil: "networkidle" }); await p.waitForTimeout(2300);

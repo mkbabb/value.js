@@ -1,5 +1,5 @@
 import { chromium } from "playwright";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await (await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" })).newPage();
 await p.goto("http://localhost:9000/#/?space=oklch&color=" + encodeURIComponent("oklch(0.55 0.18 260)"), { waitUntil: "networkidle" });
 await p.waitForTimeout(3000);

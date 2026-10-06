@@ -74,7 +74,7 @@ function parseRgb(str) {
     return relLum(p[0], p[1], p[2]);
 }
 
-const browser = await chromium.launch({ headless: false, channel: "chromium" });
+const browser = await chromium.launch({ headless: true, channel: "chrome" });
 const out = [];
 const log = (s) => { console.log(s); out.push(s); };
 

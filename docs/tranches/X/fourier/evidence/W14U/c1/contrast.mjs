@@ -13,7 +13,7 @@ const lum = ([r, g, b]) => {
     return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
 };
 const ratio = (a, b) => { const x = lum(a), y = lum(b); return +(((Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05)).toFixed(2)); };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const out = {};
 for (const scheme of ["light", "dark"]) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme, deviceScaleFactor: 1 });

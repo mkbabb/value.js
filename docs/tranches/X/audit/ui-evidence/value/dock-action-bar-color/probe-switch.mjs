@@ -4,7 +4,7 @@ import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const BASE = "http://localhost:9000";
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const geo = (page) => page.evaluate(() => { const r = (s) => { const e = document.querySelector(s); if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.x), Math.round(b.right)]; }; return { dock: r(".glass-dock"), back: r('[aria-label="Back"]'), row: r('[data-testid="scene-action-row"]'), tools: r('[aria-label="Toggle action bar"]'), hash: location.hash, seats: [...document.querySelectorAll("[data-scene-action]")].map((s) => s.dataset.sceneAction.split(".")[0]).join(",") }; });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const res = {};
 for (const vp of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
   const ctx = await browser.newContext({ viewport: vp, colorScheme: "light" }); const page = await ctx.newPage();

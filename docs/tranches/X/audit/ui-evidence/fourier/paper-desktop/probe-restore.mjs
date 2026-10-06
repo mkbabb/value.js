@@ -1,7 +1,7 @@
 // Scroll-restoration probe: SPA nav (router push) vs full nav, and the sessionStorage key across mount.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 const page = await ctx.newPage();
 await page.goto("http://localhost:3100/paper", { waitUntil: "networkidle" });

@@ -1,6 +1,6 @@
 // SERVED MODEL: claude-opus-5-5
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false, args: ["--window-position=2600,200"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--window-position=2600,200"] });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 const rd = async (label) => {
   const f = await p.evaluate(() => new Promise((res) => { const t = []; let last = performance.now(); const s = last; const tick = (n) => { t.push(n - last); last = n; if (n - s < 2000) requestAnimationFrame(tick); else res(t.slice(1)); }; requestAnimationFrame(tick); }));

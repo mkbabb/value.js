@@ -8,7 +8,7 @@ const { chromium } = require("@playwright/test");
 const [phase, out] = process.argv.slice(2);
 fs.mkdirSync(out, { recursive: true });
 const SLUG = process.env.SLUG ?? "stormy-starting-nectar-bison";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const table = {};
 for (const scheme of ["light", "dark"]) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme });

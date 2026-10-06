@@ -23,8 +23,8 @@ export default defineConfig({
     use: {
         baseURL: `http://localhost:${PORT}`,
         browserName: "chromium",
-        channel: "chromium",
-        headless: false,
+        channel: "chrome",
+        headless: true,
         viewport: { width: 1440, height: 900 },
     },
 });

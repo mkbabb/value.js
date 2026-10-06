@@ -26,7 +26,7 @@ const PIXEL_PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAD
 
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const metrics = {}; const errors = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 async function measure(page) {
   return page.evaluate(() => {

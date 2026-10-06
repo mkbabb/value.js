@@ -6,7 +6,7 @@ const OUT = "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/eviden
 const KF = "/Users/mkbabb/Programming/keyframes.js";
 const kf = () => ({ head: execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim() });
 const R = { kfBefore: kf() };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const p = await ctx.newPage();
 await p.goto("http://localhost:5173/", { waitUntil: "load" }); await p.waitForSelector(".hero-aurora canvas"); await p.waitForTimeout(5000);

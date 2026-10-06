@@ -1,7 +1,7 @@
 // timeline-panel — probe2: reach the Timeline tab via the top dock Control-tab select.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await page.goto("http://localhost:5173/#/cube", { waitUntil: "load" });
 await page.waitForTimeout(5000);

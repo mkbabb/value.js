@@ -4,7 +4,7 @@ import { chromium } from "@playwright/test";
 import { prepare } from "../../x/seed-x.mjs";
 const [W, H, theme, outp] = [Number(process.argv[2]), Number(process.argv[3]), process.argv[4], process.argv[5]];
 const phone = W < 900;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: W, height: H }, colorScheme: theme, isMobile: phone, hasTouch: phone });
 await prepare(ctx, { theme, user: true, browse: "ok" });
 await ctx.route("**/tags*", (r) => r.fulfill({ status: 200, contentType: "application/json", headers: { "access-control-allow-origin": "*" },

@@ -115,7 +115,7 @@ async function esc(page, n = 1) { for (let i = 0; i < n; i++) { await page.keybo
 const jsClick = (page, sel) => page.evaluate((s) => { const el = typeof s === "string" ? document.querySelector(s) : null; if (!el) return false; el.click(); return true; }, sel);
 const clickText = (page, txt) => page.evaluate((t) => { const b = [...document.querySelectorAll("button")].find((x) => x.textContent.includes(t)); if (!b) return false; b.click(); return true; }, txt);
 const popGeom = (page) => page.evaluate(() => [...document.querySelectorAll('[data-slot="popover-content"]')].map((p) => { const s = getComputedStyle(p); const r = p.getBoundingClientRect(); return { top: Math.round(r.top), bottom: Math.round(r.bottom), vh: innerHeight, overflowY: s.overflowY, maxH: s.maxHeight, scrollH: p.scrollHeight, clientH: p.clientHeight, docScrollable: document.scrollingElement.scrollHeight > innerHeight }; }));
-const browser = await chromium.launch({ headless: false, args: ["--ignore-gpu-blocklist", "--enable-gpu"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist", "--enable-gpu"] });
 const VPS = [{ tag: "1440", w: 1440, h: 900 }, { tag: "390", w: 390, h: 844 }];
 for (const vp of VPS) for (const theme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 2, hasTouch: vp.w < 600 });

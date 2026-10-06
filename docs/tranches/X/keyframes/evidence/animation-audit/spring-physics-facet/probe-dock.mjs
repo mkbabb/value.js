@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; fs.mkdirSync(OUT + "H_dock_after_facet", { recursive: true });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/#/spring", { waitUntil: "networkidle" }); await p.waitForTimeout(2000);
 const st = () => p.evaluate(() => ({ btns: [...document.querySelectorAll('button[aria-label$=" animation"]')].map(e => { const r = e.getBoundingClientRect(); return e.getAttribute("aria-label").split(" ")[0] + "@" + Math.round(r.x) + ":" + getComputedStyle(e).visibility[0] + ":" + (+getComputedStyle(e.closest(".dock-layer") || e).opacity).toFixed(2); }).join(" "), layers: [...document.querySelectorAll(".dock-layer")].map(e => e.className.replace(/\s+/g, ".").slice(0, 60) + ":" + (+getComputedStyle(e).opacity).toFixed(2)).join(" | "), anims: document.getAnimations().map(a => (a.animationName || a.transitionProperty) + ":" + a.playState).join(",") }));

@@ -13,7 +13,7 @@ writeFileSync(OUT + "tree-state.txt", `start ${process.argv[2] || 'all'} ${tree(
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const ONLY = process.argv[2]; // optional "d-light" etc.
 const metrics = {}; const errors = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 async function measure(page) {
   return page.evaluate(() => {

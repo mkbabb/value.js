@@ -3,7 +3,7 @@
 import { chromium } from "@playwright/test";
 import { prepare } from "../../x/seed-x.mjs";
 const [route, W, H, opts] = [process.argv[2], Number(process.argv[3] ?? 1440), Number(process.argv[4] ?? 900), JSON.parse(process.argv[5] ?? "{}")];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: W, height: H } });
 await prepare(ctx, opts);
 const p = await ctx.newPage();

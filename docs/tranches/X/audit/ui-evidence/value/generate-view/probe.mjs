@@ -7,7 +7,7 @@ const tree = () => `${execSync("git -C /Users/mkbabb/Programming/value.js rev-pa
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 import { existsSync, readFileSync } from "node:fs";
 const log = existsSync(OUT + "probe-log.json") ? JSON.parse(readFileSync(OUT + "probe-log.json")) : { tree: tree(), at: new Date().toISOString(), res: {} };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light", "dark"]) for (const [w, h] of [[1440, 900], [390, 844]]) {
   const tag = `${w}-${theme}`; if (process.env.ONLY && process.env.ONLY !== tag) continue; const R = (log.res[tag] = { errs: [], net: [] });
   const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, colorScheme: theme, hasTouch: w < 500, permissions: ["clipboard-read", "clipboard-write"] });

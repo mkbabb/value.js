@@ -4,7 +4,7 @@ import fs from "node:fs"; import path from "node:path"; import { execSync } from
 const OUT = path.dirname(new URL(import.meta.url).pathname) + "/interact";
 const kf = "/Users/mkbabb/Programming/keyframes.js";
 const r = { khead: execSync(`git -C ${kf} rev-parse --short HEAD`).toString().trim(), kdirty: execSync(`git -C ${kf} status --porcelain | wc -l`).toString().trim() };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const playBtns = () => page.evaluate(() => [...document.querySelectorAll('button[aria-label="Play animation"],button[aria-label="Pause animation"]')].map((b) => { const x = b.getBoundingClientRect(); return { label: b.getAttribute("aria-label"), vis: x.width > 0 && getComputedStyle(b).visibility !== "hidden" && +getComputedStyle(b).opacity > 0.1, rect: [x.x, x.y, x.width, x.height].map(Math.round) }; }));

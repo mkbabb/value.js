@@ -1,7 +1,7 @@
 // READ-ONLY probe: where the BatchActionBar sits when the operator selects a row deep in the list. GETs only.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const [vp, size] of [["d", { width: 1440, height: 900 }], ["m", { width: 390, height: 844 }]]) {
   const page = await (await browser.newContext({ viewport: size, deviceScaleFactor: 2, isMobile: vp === "m", hasTouch: vp === "m" })).newPage();
   await page.route("**/api/**", (r) => r.request().method() !== "GET" && /\/api\/admin\//.test(r.request().url()) ? r.abort() : r.fallback());

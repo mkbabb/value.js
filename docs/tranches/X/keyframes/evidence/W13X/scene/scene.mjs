@@ -8,7 +8,7 @@ const INSTR = fs.readFileSync(`${OUT}instr.js`, "utf8");
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const R = (id, bad, msg) => console.log(`${bad ? "RED  " : "GREEN"} ${id} ${msg}`);
 const hold = (p, re, ms = 800) => p.route(re, async (r) => { await sleep(ms); await r.continue().catch(() => {}); });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const [w, h, theme] = (process.env.CFG || "1440x900-light").split(/[x-]/).map((v, i) => (i < 2 ? +v : v));
 const cfg = `${w}x${h}-${theme}`; const touch = w < 1024;
 const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme, isMobile: touch, hasTouch: touch });

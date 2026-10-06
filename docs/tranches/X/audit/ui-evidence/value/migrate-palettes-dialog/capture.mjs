@@ -108,7 +108,7 @@ async function shot(p, name, vp, theme, errs, note = "") {
   console.log("captured", f);
 }
 
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ONLY = process.env.ONLY; const BLOCKS = (process.env.BLOCKS ?? "ABC").split("");
 for (const vp of VPS) for (const theme of THEMES) {
   if (ONLY && ONLY !== `${vp.tag}-${theme}`) continue;

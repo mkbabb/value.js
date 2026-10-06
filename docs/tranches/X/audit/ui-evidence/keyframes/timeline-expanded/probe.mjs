@@ -4,7 +4,7 @@ import { execSync } from "node:child_process"; import { writeFileSync } from "no
 const OUT = new URL(".", import.meta.url).pathname; const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const rev = () => ({ sha: execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length });
 const CSS = `@keyframes demo {\n 0% { transform: rotate(0deg); }\n 35% { transform: rotate(90deg) scale(1.2); }\n 70% { transform: rotate(200deg) scale(.8); }\n 100% { transform: rotate(360deg); }\n}`;
-const browser = await chromium.launch({ headless: false }); const res = { kf: rev(), runs: [] };
+const browser = await chromium.launch({ channel: "chrome", headless: true }); const res = { kf: rev(), runs: [] };
 for (const [vp, W, H] of (process.argv[2] === "390" ? [["390", 390, 844]] : process.argv[2] === "1440" ? [["1440", 1440, 900]] : [["1440", 1440, 900], ["390", 390, 844]])) for (const theme of ["light", "dark"]) {
   const tag = `${vp}-${theme}`; const r = { tag };
   const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 2, colorScheme: theme });

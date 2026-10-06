@@ -2,7 +2,7 @@
 // usage: node pause.mjs <baseUrl>   (4 cold loads; LoAF duration max in the 800 ms after the click)
 import { createRequire } from "node:module";
 const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
-const b = await chromium.launch({ headless: false }); const out = [];
+const b = await chromium.launch({ channel: "chrome", headless: true }); const out = [];
 for (let i = 0; i < 4; i++) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
   await ctx.addInitScript(() => { window.__lt = []; new PerformanceObserver((l) => { for (const e of l.getEntries()) window.__lt.push([e.startTime, e.duration]); }).observe({ type: "long-animation-frame", buffered: true }); });

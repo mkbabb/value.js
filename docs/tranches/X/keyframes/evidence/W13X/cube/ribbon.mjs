@@ -3,7 +3,7 @@
 import { createRequire } from "node:module";
 const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
 const BASE = process.argv[2]; const TAG = process.argv[3] || "before"; const OUT = new URL("./frames/", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false }); const out = {};
+const b = await chromium.launch({ channel: "chrome", headless: true }); const out = {};
 for (const theme of ["light", "dark"]) {
   const p = await (await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme })).newPage();
   await p.goto(BASE + "/#/cube"); await p.waitForSelector(".cube-side"); await p.waitForTimeout(2500);

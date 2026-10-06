@@ -19,7 +19,7 @@ function mintPng(px, w = 2, h = 2) {
     return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk("IHDR", ihdr), chunk("IDAT", deflateSync(Buffer.from(raw))), chunk("IEND", Buffer.alloc(0))]);
 }
 const PNG = mintPng([[220, 40, 40], [40, 200, 90], [50, 90, 220], [240, 210, 60]]);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: W, height: H }, colorScheme: theme, isMobile: phone, hasTouch: phone });
 await prepare(ctx, { theme });
 const p = await ctx.newPage();

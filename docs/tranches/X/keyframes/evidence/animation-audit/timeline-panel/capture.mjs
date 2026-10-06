@@ -10,7 +10,7 @@ const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`)
 const prov = () => ({ khead: kf("rev-parse --short HEAD"), kdirty: kf("status --porcelain").split("\n").filter(Boolean).length, at: new Date().toISOString() });
 const log = { prov0: prov() };
 const mk = (d) => { fs.mkdirSync(OUT + d, { recursive: true }); return OUT + d + "/"; };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const cdp = await page.context().newCDPSession(page);
 // three KeyframeTimeline instances mount (one per channel, two display:none) — always address the VISIBLE one.

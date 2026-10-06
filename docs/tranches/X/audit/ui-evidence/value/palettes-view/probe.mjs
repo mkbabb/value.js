@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const BASE = process.argv[2] ?? "http://localhost:9000";
 const route = process.argv[3] ?? "/#/palettes";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 if (process.env.SEED) await ctx.addInitScript(process.env.SEED);
 const p = await ctx.newPage();

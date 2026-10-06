@@ -8,7 +8,7 @@ const require = createRequire("/Users/mkbabb/Programming/fourier-analysis/web/pa
 const { chromium } = require("@playwright/test");
 const [phase, out] = process.argv.slice(2);
 fs.mkdirSync(out, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const probes = [];
 for (const scheme of ["light", "dark"]) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme, deviceScaleFactor: 1 });

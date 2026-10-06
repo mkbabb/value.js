@@ -5,7 +5,7 @@ import { execSync } from "node:child_process";
 import fs from "node:fs";
 const KF = "/Users/mkbabb/Programming/keyframes.js";
 const k = () => `${execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim()} dirty=${execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim()}`;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 // KF.W13R.v adaptation (recorded): share-popover + shortcuts-modal are no longer dock triggers at kf d54a6ab8 (OA-33 folded them into the @mbabb menu), so the 10.0.1 read keeps the three dock-trigger overlays.
 const T = { "scene-select": '[aria-label="Scene"][role=combobox]', "mbabb-menu": '[aria-label="@mbabb menu"]', "controls-select": '[aria-label="Controls tab"]' };
 const res = {};

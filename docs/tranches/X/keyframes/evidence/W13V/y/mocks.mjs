@@ -21,7 +21,7 @@ const SHOTS = [
   ["spring", "pane", "1440x900"], ["spring", "pane", "390x844"], ["spring", "stage", "390x844"],
   ["easing", "stage", "1440x900"], ["easing", "stage", "390x844"], ["sequence", "stage", "1440x900"], ["sequence", "stage", "390x844"],
 ];
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [scene, mode, vp] of SHOTS) {
   const [w, h] = vp.split("x").map(Number);
   const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: "light" });

@@ -2,7 +2,7 @@
 // KF.W13U.w probe 1 — discriminate the engine's .cube write from the idle bob.
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
 const base = process.argv[2] || 'http://localhost:5173/';
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0,200)));
 p.on('console', m => { if (m.type()==='error'||m.type()==='warning') errs.push('console:'+m.text().slice(0,200)); });

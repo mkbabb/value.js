@@ -6,7 +6,7 @@
 import { chromium } from "@playwright/test";
 import { prepare } from "../x/seed-x.mjs";
 const theme = process.argv[2] ?? "light";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const out = [];
 for (const admin of [false, true]) {
     const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme });

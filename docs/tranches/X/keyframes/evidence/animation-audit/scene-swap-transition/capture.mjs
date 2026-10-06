@@ -203,7 +203,7 @@ async function seekVT(page, dir, N, action) {
 }
 
 const MODE = process.argv[2] || "all";
-const browser = await chromium.launch({ headless: false, args: ["--window-size=1460,1000"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--window-size=1460,1000"] });
 const seq = [["Amiga", "amiga"], ["Square", "square"], ["Easing", "easing"], ["Spring", "spring"], ["Sequence", "sequence"], ["Cube", "cube"]];
 async function boot(cf) {
     const { ctx, page } = await newPage(browser, cf);

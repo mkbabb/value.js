@@ -9,7 +9,7 @@ import { decodePng, meanAbsDiff } from "../../../../../e2e/smoke/fixtures/frame-
 
 const [origin = "http://localhost:9000", out = "v-probe.json"] = process.argv.slice(2);
 const res: Record<string, any> = { origin, at: new Date().toISOString() };
-const browser = await chromium.launch({ channel: "chromium", headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const errors: string[] = [];
 const settle = (p: Page, ms: number) => p.waitForTimeout(ms);
 

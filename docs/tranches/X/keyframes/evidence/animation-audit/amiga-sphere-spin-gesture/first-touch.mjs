@@ -1,7 +1,7 @@
 // Is the P1 stall (rAF dt 167–200 ms around the first pointerdown) the scene or the harness?
 // Fresh page each: (a) Playwright mouse, no screencast; (b) Playwright mouse + screencast; (c) raw CDP + screencast.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const mode of ["pw-nocast", "pw-cast", "cdp-cast"]) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
   const page = await ctx.newPage(); await page.goto("http://localhost:5173/#/amiga"); await page.waitForTimeout(3500);

@@ -4,7 +4,7 @@ import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const ALL = Array.from({ length: 47 }, (_, i) => ({ id: `a${i}`, timestamp: new Date(Date.UTC(2026, 8, 23, 14) - i * 3.7e6).toISOString(), action: ["approve-color","delete-color","delete-user","delete-palette","impersonate","reject-color"][i % 6], target: ["color:ocean-mist-7f3a","user:azure-fox-01","palette:sunset-drift-9c21b4e7d0a1","color:very-long-colour-name-that-keeps-going-and-going-8812ff","user:quiet-river-bright-owl"][i % 5] }));
 const out = { errs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: "light", deviceScaleFactor: 2 });
 await ctx.routeWebSocket(/:9000\//, () => {}).catch(() => {});
 await ctx.addInitScript(() => { try { if (!sessionStorage.getItem("__s")) { localStorage.setItem("vueuse-color-scheme", "light"); localStorage.setItem("palette-admin-token", "dev"); sessionStorage.setItem("__s", "1"); } } catch {} });

@@ -3,7 +3,7 @@
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
 import fs from 'node:fs';
 const base = process.argv[2] || 'http://localhost:5173/'; const tag = process.argv[3] || 'x';
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 async function crop(reducedMotion) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, reducedMotion });
   const p = await ctx.newPage(); await p.goto(base + '#/cube', { waitUntil: 'networkidle' }); await p.waitForTimeout(3000);

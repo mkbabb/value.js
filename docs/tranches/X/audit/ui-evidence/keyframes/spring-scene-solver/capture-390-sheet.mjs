@@ -6,7 +6,7 @@ const OUT = new URL(".", import.meta.url).pathname;
 const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const tree = () => ({ sha: execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(), dirty: execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length });
 const log = { ...tree(), when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light", "dark"]) {
   const run = { tag: `390-${theme}`, ...tree(), frames: [], notes: {} };
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: theme });

@@ -16,7 +16,7 @@ const ov = () => { const vw = innerWidth, vh = innerHeight; const out = [];
     out.push({ role: e.getAttribute("role") || e.getAttribute("data-slot") || e.tagName, w: +r.width.toFixed(1), h: +r.height.toFixed(1), gutL: +r.left.toFixed(1), gutR: +(vw - r.right).toFixed(1), gutT: +r.top.toFixed(1), gutB: +(vh - r.bottom).toFixed(1), sh: e.scrollHeight, ch: e.clientHeight, ovY: s.overflowY }); }
   const se = document.scrollingElement; return { ov: out, docSH: se.scrollHeight, ih: vh, docSW: se.scrollWidth, vw }; };
 const rows = [];
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const theme of THEMES) for (const vpS of VPS) {
   const [w, h] = vpS.split("x").map(Number); const touch = w < 1024;
   const ctx = await b.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, isMobile: touch, hasTouch: touch, colorScheme: theme, permissions: ["clipboard-read", "clipboard-write"] });

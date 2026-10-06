@@ -32,7 +32,7 @@ const BASE = "http://localhost:8630";
 const OUT = "docs/tranches/T/audit/pi/w8/palettes";
 mkdirSync(OUT, { recursive: true });
 
-const browser = await chromium.launch({ headless: false, channel: "chromium" });
+const browser = await chromium.launch({ headless: true, channel: "chrome" });
 const report = [];
 const log = (s) => {
     console.log(s);

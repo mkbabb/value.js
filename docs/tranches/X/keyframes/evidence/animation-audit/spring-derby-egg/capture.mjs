@@ -13,7 +13,7 @@ const KDIRTY = execSync("git -C /Users/mkbabb/Programming/keyframes.js status --
 const dir = path.join(OUT, `run${RUN}`);
 fs.mkdirSync(dir, { recursive: true });
 
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const consoleErr = [];

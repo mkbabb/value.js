@@ -7,7 +7,7 @@ const OUT = new URL(".", import.meta.url).pathname; const RUN = process.env.RUN 
 const BASE = process.env.BASE || "http://localhost:5271"; const FR = `${OUT}frames/${RUN}/`; fs.mkdirSync(FR, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const R = (id, bad, msg) => console.log(`${bad ? "RED  " : "GREEN"} ${id} ${msg}`);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const read = (p) => p.evaluate(() => { const box = (e) => { if (!e) return null; const r = e.getBoundingClientRect(); return r.width ? [r.x, r.y, r.width, r.height].map((v) => +v.toFixed(1)) : null; };
   const play = document.querySelector('[data-dock-tether=bottom] [aria-label="Play animation"], [data-dock-tether=bottom] [aria-label="Pause animation"]');
   return { skeleton: box(document.querySelector(".scene-skeleton__plate") || document.querySelector(".scene-skeleton")), pane: box(document.querySelector(".controls-pane-wrapper")),

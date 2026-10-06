@@ -39,7 +39,7 @@ const MOCK_PALETTES = [
 
 let browser = null;
 async function ensureBrowser() {
-  if (!browser || !browser.isConnected()) browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+  if (!browser || !browser.isConnected()) browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
   return browser;
 }
 

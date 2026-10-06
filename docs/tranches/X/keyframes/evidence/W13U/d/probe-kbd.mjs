@@ -1,6 +1,6 @@
 // SERVED MODEL: claude-opus-5-5 — keyboard reach of the Share / Dark mode rows inside the @mbabb menu.
 import { chromium } from '/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs';
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.goto((process.argv[2]||'http://localhost:5173/') + '#/cube', { waitUntil: 'networkidle' }); await p.waitForTimeout(2500);
 await p.locator('[data-dock-tether=top] .glass-dock').hover(); await p.waitForTimeout(1200);

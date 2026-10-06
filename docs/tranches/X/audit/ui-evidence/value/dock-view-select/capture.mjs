@@ -4,7 +4,7 @@ import fs from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const BASE = process.env.BASE || "http://localhost:9000/";
 const results = [];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const probe = async (page) => page.evaluate(() => {
   const cs = (el, props) => { if (!el) return null; const s = getComputedStyle(el); const o = {}; for (const p of props) o[p] = s.getPropertyValue(p); const r = el.getBoundingClientRect(); o.rect = [r.x, r.y, r.width, r.height].map(Math.round); return o; };
   const trig = document.querySelector('[aria-label="Select view"]');

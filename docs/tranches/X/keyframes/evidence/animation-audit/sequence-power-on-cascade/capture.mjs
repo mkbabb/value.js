@@ -49,7 +49,7 @@ async function newPage(browser, stretch) {
   return { ctx, page };
 }
 
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 if (mode === "all" || mode === "A") {
   const dir = path.join(OUT, "A-screencast"); fs.mkdirSync(dir, { recursive: true });

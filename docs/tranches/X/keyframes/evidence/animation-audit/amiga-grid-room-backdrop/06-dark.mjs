@@ -3,7 +3,7 @@ import { execSync } from "node:child_process";
 const D = new URL(".", import.meta.url).pathname;
 const K = "/Users/mkbabb/Programming/keyframes.js";
 const ks = () => execSync(`git -C ${K} rev-parse --short HEAD`).toString().trim() + " dirty=" + execSync(`git -C ${K} status --porcelain | wc -l`).toString().trim();
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, colorScheme: "dark" });
 await p.goto("http://localhost:5173/#/amiga"); await p.waitForTimeout(3500);
 let bg = await p.evaluate(() => [getComputedStyle(document.body).backgroundColor, document.documentElement.className]);

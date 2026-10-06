@@ -17,7 +17,7 @@ const label = process.argv[4] ?? "run";
 const frameDir = process.argv[5];
 const falsify = process.argv[6] === "1";
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: w, height: h } });
 await page.goto(base.replace(/#.*$/, "") + "#/sequence", { waitUntil: "networkidle" });
 await page.waitForTimeout(2500);

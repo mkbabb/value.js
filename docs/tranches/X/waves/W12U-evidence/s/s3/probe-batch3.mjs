@@ -10,7 +10,7 @@ import { prepare } from "../../x/seed-x.mjs";
 const [W, H] = [Number(process.argv[2] ?? 1440), Number(process.argv[3] ?? 900)];
 const theme = process.argv[4] ?? "light";
 const phone = W < 900;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const out = [];
 const push = (ok, id, v) => out.push(`${ok ? "PASS" : "RED "} ${id} ${typeof v === "string" ? v : JSON.stringify(v)}`);
 const open = async (route, opts = {}) => {

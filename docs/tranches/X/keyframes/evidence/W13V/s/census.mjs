@@ -23,7 +23,8 @@ const EDITOR_SEL = [
     ".monaco-editor", ".cm-editor",
 ].join(",");
 
-const browser = await chromium.launch({ headless: !headed });
+// COHESION §0ei: no window. `headed` now selects real Chrome in new headless mode on the GPU (ANGLE Metal).
+const browser = await chromium.launch({ headless: true, ...(headed ? { channel: "chrome" } : {}) });
 const rows = [];
 for (const vp of VIEWPORTS) {
     for (const scene of SCENES) {

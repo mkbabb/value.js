@@ -1,7 +1,7 @@
 // read-only: the EMPTY state via a stubbed empty list (live data stopped being empty mid-audit: 3 public rows appeared)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const [vp, w, h] of [["d", 1440, 900], ["m", 390, 844]]) for (const theme of ["light", "dark"]) {
   const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme, deviceScaleFactor: 2, isMobile: vp === "m", hasTouch: vp === "m" });
   const p = await ctx.newPage();

@@ -4,7 +4,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import fs from "node:fs";
 const base = process.argv[2] ?? "http://localhost:5173"; const label = process.argv[3] ?? "dev"; const OUT = new URL(".", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false }); const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
+const b = await chromium.launch({ channel: "chrome", headless: true }); const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 await p.goto(`${base}/#/easing`, { waitUntil: "load" }); await p.waitForTimeout(4500);
 const read = () => p.evaluate(() => { const pk = document.querySelector('[data-slot="easing-picker"]'); if (!pk) return null; const pr = pk.getBoundingClientRect();
   const svgs = [...pk.querySelectorAll("svg")].map((s) => { const r = s.getBoundingClientRect(); const cs = getComputedStyle(s); return { slot: s.getAttribute("data-slot") || s.parentElement?.getAttribute("data-slot"), vb: s.getAttribute("viewBox"), rect: [r.x, r.y, r.width, r.height].map((v) => +v.toFixed(1)), overflow: cs.overflow }; });

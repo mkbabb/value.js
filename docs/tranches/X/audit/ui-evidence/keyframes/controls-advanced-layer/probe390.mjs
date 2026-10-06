@@ -1,7 +1,7 @@
 // 390 reach probe — READ-ONLY: where is the advanced row on mobile and what covers it.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
 await page.goto("http://localhost:5173/#/amiga", { waitUntil: "networkidle" }); await page.waitForTimeout(3500);

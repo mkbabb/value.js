@@ -1,6 +1,6 @@
 // read-only: resolve --ui-scale / --button-size / height at 390 coarse
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
 const p = await ctx.newPage(); await p.goto("http://localhost:3100/visualize", { waitUntil: "networkidle" }); await p.waitForTimeout(600);
 console.log(JSON.stringify(await p.evaluate(() => { const bt = document.querySelector(".drop-target-button"); const s = getComputedStyle(bt);

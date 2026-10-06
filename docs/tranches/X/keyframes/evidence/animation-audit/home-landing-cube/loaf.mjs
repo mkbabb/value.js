@@ -5,7 +5,7 @@ import path from "node:path";
 import { execSync } from "node:child_process";
 const OUT = path.dirname(new URL(import.meta.url).pathname);
 const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`).toString().trim();
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const runs = [];
 for (let run = 0; run < 2; run++) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });

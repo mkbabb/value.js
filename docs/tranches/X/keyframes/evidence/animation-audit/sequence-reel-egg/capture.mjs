@@ -7,7 +7,7 @@ const D = "/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence
 const K = "/Users/mkbabb/Programming/keyframes.js";
 const meta = { khead: execSync(`git -C ${K} rev-parse --short HEAD`).toString().trim(),
   kdirty: execSync(`git -C ${K} status --porcelain | wc -l`).toString().trim(), at: new Date().toISOString() };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const logs = []; p.on("console", m => { if (m.type() !== "debug") logs.push(m.type() + ": " + m.text()); });
 p.on("pageerror", e => logs.push("pageerror: " + e.message));

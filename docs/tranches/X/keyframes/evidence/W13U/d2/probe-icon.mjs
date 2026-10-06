@@ -9,7 +9,7 @@ import fs from 'node:fs';
 const base = process.argv[2] || 'http://localhost:5173/'; const tag = process.argv[3] || 'run';
 const reduce = process.argv[4] === 'reduce';
 const RING = 6;
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: reduce ? 'reduce' : 'no-preference' });
 const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 160)));
 const out = { base, reduce, scenes: {} };

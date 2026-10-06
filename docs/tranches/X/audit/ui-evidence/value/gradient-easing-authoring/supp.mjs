@@ -7,7 +7,7 @@ const sha = execSync("git -C /Users/mkbabb/Programming/value.js rev-parse --shor
 const dirty = execSync("git -C /Users/mkbabb/Programming/value.js status --porcelain | wc -l").toString().trim();
 const legs = (process.argv[2] ?? "1440-light,390-light,1440-dark").split(",");
 const out = [];
-const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const leg of legs) {
   const [w, theme] = leg.split("-"); const vp = w === "390" ? { width: 390, height: 844 } : { width: 1440, height: 900 };
   const ctx = await b.newContext({ viewport: vp, colorScheme: theme, hasTouch: w === "390" });

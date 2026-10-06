@@ -1,6 +1,6 @@
 // read-only probe: configurator shadow/radius + canvas offset (no interaction)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const theme of ["light","dark"]) {
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme });
 const p = await ctx.newPage(); await p.goto("http://localhost:3100/visualize", { waitUntil: "networkidle" }); await p.waitForTimeout(800);

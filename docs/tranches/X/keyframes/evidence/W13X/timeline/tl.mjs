@@ -10,7 +10,7 @@ const CSS = `@keyframes probe {
   100% { transform: rotateX(180deg); opacity: 1; }
 }`;
 const out = {};
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu"] });
 const cfgs = [["1440", 1440, 900, "light"], ["1440d", 1440, 900, "dark"], ["390", 390, 844, "light"], ["390d", 390, 844, "dark"], ...(process.env.TABLET ? [["768", 768, 1024, "light"]] : [])].filter((c) => !ONLY || ONLY.split(",").includes(c[0]));
 const measure = (p) => p.evaluate(() => {
   const vis = (e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };

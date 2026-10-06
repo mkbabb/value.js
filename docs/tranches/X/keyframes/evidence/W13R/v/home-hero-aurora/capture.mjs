@@ -10,7 +10,7 @@ const kfState = () => ({
   at: new Date().toISOString(),
 });
 const R = { kfBefore: kfState() };
-const browser = await chromium.launch({ headless: false, args: ["--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--ignore-gpu-blocklist"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const logs = [];

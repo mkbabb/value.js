@@ -9,7 +9,7 @@ const OUT = new URL(".", import.meta.url).pathname;
 const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`).toString().trim();
 const prov = () => ({ khead: kf("rev-parse --short HEAD"), kdirty: kf("status --porcelain").split("\n").filter(Boolean).length, at: new Date().toISOString() });
 for (const d of ["seek", "rt"]) fs.mkdirSync(OUT + d, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const AWAY = [1300, 860];
 await page.mouse.move(...AWAY);

@@ -1,5 +1,5 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
 await p.goto("http://localhost:9000/#/gradient", { waitUntil: "commit", timeout: 240000 });
 await p.locator(".specimen-tile").first().waitFor({ timeout: 90000 }); await p.waitForTimeout(1500);

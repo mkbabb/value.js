@@ -27,7 +27,7 @@ const SET = process.env.SET || "full"; const PFX = SET === "nf" ? "nf-" : "";
 if (SET === "nf") for (const it of ITEMS) if (it.tier === "featured") it.tier = "normal";
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const metrics = {}; const errors = []; const blocked = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 async function measure(page) {
   return page.evaluate(() => {

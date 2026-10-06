@@ -1,6 +1,6 @@
 // read-only: drop a NON-image (.txt) on the empty stage — isImageFile() rejects it client-side, so no upload/API write happens.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 const p = await ctx.newPage(); const reqs = [];
 p.on("request", (r) => { if (r.method() !== "GET") reqs.push(r.method() + " " + r.url()); });

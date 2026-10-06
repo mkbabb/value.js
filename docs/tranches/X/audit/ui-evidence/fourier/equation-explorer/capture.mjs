@@ -12,7 +12,7 @@ writeFileSync(OUT + "tree-state.txt",
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const ONLY = process.env.ONLY; // e.g. "d-light"
 const metrics = {}; const errors = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 const measure = (page) => page.evaluate(() => {
   const q = (s, r = document) => r.querySelector(s);

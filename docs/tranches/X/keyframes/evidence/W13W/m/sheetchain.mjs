@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 // X.KF.W13W.m — the Sheet body's inline inset chain (card -> sheet), with each box's padding.
 import { chromium } from "playwright";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [w, h] of [[390, 844], [844, 390]]) {
   const p = await (await b.newContext({ viewport: { width: w, height: h }, hasTouch: true, isMobile: true })).newPage();
   await p.goto(`http://localhost:5173/#/${process.argv[2] || "cube"}`, { waitUntil: "networkidle" }); await p.waitForTimeout(1800);

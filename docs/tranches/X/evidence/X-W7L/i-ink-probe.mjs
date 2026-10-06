@@ -3,7 +3,8 @@
 import { chromium } from "playwright";
 import { writeFileSync } from "node:fs";
 const [scheme = "light", out = "/dev/stdout", url = "http://localhost:9000/", shot] = process.argv.slice(2);
-const browser = await chromium.launch({ headless: !!process.env.PROBE_HEADLESS ? true : false });
+// COHESION §0ei: no window. The real-GPU read is real Chrome in new headless mode (ANGLE Metal); PROBE_HEADLESS=1 keeps the headless shell.
+const browser = await chromium.launch({ headless: true, ...(process.env.PROBE_HEADLESS ? {} : { channel: "chrome" }) });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: scheme });
 const page = await ctx.newPage();
 const errors = [];

@@ -1,6 +1,6 @@
 // Why does the dock Play not start the master after a reel? Probe hit-testing + both Play buttons.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/#/sequence", { waitUntil: "networkidle" }); await p.waitForTimeout(2200);
 const st = () => p.evaluate(() => { const t = document.body.innerText; return (t.match(/CLOCK\s*([\d.]+)/)?.[1]) + " " + (t.match(/\b(READY|PLAYING|PAUSED)\b/)?.[1]); });

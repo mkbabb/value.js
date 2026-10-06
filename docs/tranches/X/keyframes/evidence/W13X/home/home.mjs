@@ -13,7 +13,7 @@ const BASE = process.env.BASE || "http://localhost:5271"; const FR = `${OUT}fram
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const R = (id, bad, msg) => console.log(`${bad ? "RED  " : "GREEN"} ${id} ${msg}`);
 const N = (id, msg) => console.log(`NOTE  ${id} ${msg}`);
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
 async function page(route, w, h, theme, prm = "no-preference") {
   const touch = w < 1024;
   const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme, reducedMotion: prm, isMobile: touch, hasTouch: touch, permissions: ["clipboard-read", "clipboard-write"] });

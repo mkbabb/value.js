@@ -1,6 +1,6 @@
 // read-only: log the gallery list request URL + whether the route stub fires
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: "block" });
 const p = await ctx.newPage(); let hit = 0;
 await p.route("**/api/visualizations**", (r) => { hit++; console.log("ROUTE", r.request().url()); r.fulfill({ status: 200, contentType: "application/json", body: '{"items":[],"next_cursor":null,"has_more":false}' }); });

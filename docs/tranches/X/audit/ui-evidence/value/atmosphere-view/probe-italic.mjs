@@ -1,6 +1,6 @@
 // READ-ONLY probe (atmosphere-view): which ancestor sets font-style: italic on the pane; 390 load retry.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const [tag, vp] of [["1440", { width: 1440, height: 900 }]]) {
   const ctx = await b.newContext({ viewport: vp, colorScheme: "light", hasTouch: tag === "390" });
   const page = await ctx.newPage();

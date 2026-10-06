@@ -8,7 +8,7 @@ const arg = (k, d) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ?
 const BASE = arg("base", "http://127.0.0.1:5293"), W = +arg("w", 1440), H = +arg("h", 900);
 const THEME = arg("theme", "light"), SCENE = arg("scene", "cube"), FRAMES = arg("frames", null);
 if (FRAMES) mkdirSync(FRAMES, { recursive: true });
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: THEME, deviceScaleFactor: 2 });
 const page = await ctx.newPage();
 await page.goto(`${BASE}/#/${SCENE}`, { waitUntil: "networkidle" });

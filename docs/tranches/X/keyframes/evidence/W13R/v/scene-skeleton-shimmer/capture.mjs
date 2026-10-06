@@ -9,7 +9,7 @@ const kf = (c) => execSync(`git -C /Users/mkbabb/Programming/keyframes.js ${c}`)
 const meta = { khead: kf("rev-parse --short HEAD"), kdirty: kf("status --porcelain | wc -l"), started: new Date().toISOString() };
 const N = Number(process.env.N || 48);
 
-const browser = await chromium.launch({ headless: false, args: ["--window-size=1440,1000"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--window-size=1440,1000"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const page = await ctx.newPage();
 const logs = []; page.on("console", (m) => logs.push(`${m.type()}: ${m.text()}`.slice(0, 300)));

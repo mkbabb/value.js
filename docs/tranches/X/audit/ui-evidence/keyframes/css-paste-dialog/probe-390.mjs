@@ -4,7 +4,7 @@ import { execSync } from "node:child_process"; import { writeFileSync } from "no
 const OUT = new URL(".", import.meta.url).pathname; const TREE = "/Users/mkbabb/Programming/keyframes.js";
 const sha = execSync(`git -C ${TREE} rev-parse --short HEAD`).toString().trim(), dirty = execSync(`git -C ${TREE} status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
 const theme = process.argv[2] || "light"; const out = { sha, dirty, theme, steps: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: theme });
 await ctx.addInitScript((t) => { try { localStorage.setItem("vueuse-color-scheme", t); } catch {} }, theme);
 const page = await ctx.newPage();

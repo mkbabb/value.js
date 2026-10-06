@@ -10,7 +10,7 @@ const base = process.argv[2] || 'http://localhost:5173/'; const tag = process.ar
 const out = { base };
 const fnFor = (n) => n === 'step-start' ? E.steppedEase(1, 'jump-start') : n === 'step-end' ? E.steppedEase(1, 'jump-end') : E.easing(n);
 const maxErr = (d, fn) => { const pts = d.replace(/^M /, '').split(' L ').map(s => s.split(',').map(Number)); const n = pts.length - 1; let m = 0; pts.forEach(([x, y], i) => { const t = i / n; m = Math.max(m, Math.abs(x - t), Math.abs(y - (1 - fn(t)))); }); return { n, m }; };
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 const errs = []; p.on('pageerror', e => errs.push(String(e).slice(0, 120)));
 await p.goto(base + '#/cube', { waitUntil: 'networkidle' }); await p.waitForTimeout(2000);

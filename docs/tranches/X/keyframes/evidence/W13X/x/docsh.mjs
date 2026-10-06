@@ -9,7 +9,7 @@ const ROUTES = (process.env.ROUTES || "home,cube,amiga,square,easing,spring,sequ
 const VPS = (process.env.VPS || "360x780,390x844,430x932,844x390,768x1024,1024x768").split(",");
 const THEMES = (process.env.THEMES || "light,dark").split(",");
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const b = await chromium.launch({ headless: false, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--use-angle=metal", "--enable-gpu", "--ignore-gpu-blocklist"] });
 const rows = [];
 const read = (p) => p.evaluate(() => { const se = document.scrollingElement; window.scrollTo(0, 1e6); const maxY = scrollY; window.scrollTo(0, 0);
   const sheet = [...document.querySelectorAll("[data-slot=sheet-content]")].find((e) => e.getBoundingClientRect().height > 0);

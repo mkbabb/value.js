@@ -1,5 +1,5 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 p.on("pageerror", e => console.log("PAGEERROR", e.message, "\n", (e.stack || "").split("\n").slice(0, 8).join("\n")));
 p.on("console", m => { if (["error", "warning"].includes(m.type())) console.log(m.type(), m.text().slice(0, 300)); });

@@ -10,7 +10,7 @@ import { chromium } from "@playwright/test";
 import { prepare } from "./seed-x.mjs";
 
 const theme = process.argv[2] ?? "light";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 let red = 0;
 for (const [W, H] of [[844, 390], [360, 780]]) {
     const ctx = await b.newContext({ viewport: { width: W, height: H }, colorScheme: theme, isMobile: true, hasTouch: true });

@@ -5,7 +5,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { writeFileSync, readFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const slug = readFileSync(OUT + "../visualize-view-options-popover/seed.txt", "utf8").trim();
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const out = {};
 for (const theme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: theme, deviceScaleFactor: 2, hasTouch: true, isMobile: true });

@@ -5,7 +5,7 @@ const OUT = path.dirname(new URL(import.meta.url).pathname);
 const repo = "/Users/mkbabb/Programming/value.js";
 const sha = execSync(`git -C ${repo} rev-parse --short HEAD`).toString().trim();
 const dirty = execSync(`git -C ${repo} status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
-const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const res = { sha, dirty, at: new Date().toISOString() };
 for (const theme of ["light", "dark"]) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme });

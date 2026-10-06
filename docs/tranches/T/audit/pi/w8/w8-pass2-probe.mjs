@@ -42,7 +42,7 @@ const SEEDS = {
     neutral: "#808080",
 };
 
-const browser = await chromium.launch({ headless: false, channel: "chromium" });
+const browser = await chromium.launch({ headless: true, channel: "chrome" });
 const report = [];
 const log = (s) => {
     console.log(s);

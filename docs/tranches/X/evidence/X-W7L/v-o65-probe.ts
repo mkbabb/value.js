@@ -4,7 +4,7 @@
 import { chromium } from "@playwright/test";
 import { writeFileSync } from "node:fs";
 const [origin = "http://localhost:9000", out = "v-o65.json"] = process.argv.slice(2);
-const browser = await chromium.launch({ channel: "chromium", headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" })).newPage();
 await page.goto(origin + "/");
 await page.locator("main").first().waitFor({ state: "visible", timeout: 30000 });

@@ -55,7 +55,7 @@ async function census(page) {
   });
 }
 
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const [vn, w, h] of VPS) for (const theme of THEMES) {
   const key = `${vn}-${theme}`; const r = (report[key] = { console: [], routes: {}, views: {}, switches: [], idle: [], stress: {} });
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: theme, deviceScaleFactor: 1, recordVideo: { dir: OUT + "video", size: { width: w, height: h } } });

@@ -2,7 +2,7 @@
 // KFA-12 companion: during a dock scene pick, how many ::view-transition-* animations run?
 // (Same page/instrument as the audit's probe-vt-binding.mjs; headed, 1440x900.)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const page = await (await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })).newPage();
 await page.goto("http://localhost:5173/#/cube"); await page.waitForTimeout(3500);
 await page.evaluate(() => { window.__vt = 0; const tick = () => { window.__vt = Math.max(window.__vt, document.getAnimations().filter((a) => a.effect?.pseudoElement?.includes("view-transition")).length); requestAnimationFrame(tick); }; requestAnimationFrame(tick); });

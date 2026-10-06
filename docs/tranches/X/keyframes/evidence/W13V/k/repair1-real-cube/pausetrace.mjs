@@ -6,7 +6,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const url = process.argv[2] || "http://localhost:5173/";
 const runs = +(process.argv[3] || 6);
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (let r = 0; r < runs; r++) {
     const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
     await p.goto(`${url}#/cube`, { waitUntil: "load" });

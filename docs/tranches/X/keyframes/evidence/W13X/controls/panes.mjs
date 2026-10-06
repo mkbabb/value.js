@@ -6,7 +6,7 @@ import fs from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const RUN = process.env.RUN || "run";
 const BASE = process.env.BASE || "http://localhost:5236";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const rows = []; const b = await chromium.launch({ headless: false });
+const rows = []; const b = await chromium.launch({ channel: "chrome", headless: true });
 const REC = () => { window.__rec = (ms) => new Promise((res) => { const out = []; const t0 = performance.now(); let last = t0;
   const f = (t) => { // the painted content of the visible controls host's scroller: its visible, non-inactive children (tabpanels and the timeline's in-place slot)
     const host = [...document.querySelectorAll(".controls-surface")].find((h) => h.getBoundingClientRect().width > 0 && getComputedStyle(h).visibility !== "hidden");

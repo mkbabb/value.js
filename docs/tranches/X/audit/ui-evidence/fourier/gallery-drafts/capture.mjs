@@ -26,7 +26,7 @@ const DRAFTS = [mk("img-amber-fox-spiral", ["fourier-epicycles", "chebyshev"], 3
   mk("img-coral-knot", [], 60 * 26, 340)];
 const VPS = { d: { width: 1440, height: 900 }, m: { width: 390, height: 844 } };
 const metrics = {}; const errors = []; const posts = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 
 async function measure(page) {
   return page.evaluate(() => {

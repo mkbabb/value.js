@@ -6,7 +6,7 @@ import fs from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname; const RUN = process.env.RUN || "run";
 const BASE = process.env.BASE || "http://localhost:5236"; const FR = `${OUT}frames/${RUN}/`; fs.mkdirSync(FR, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const rows = []; const b = await chromium.launch({ headless: false });
+const rows = []; const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const cfg of ["1440x900-light", "390x844-dark"]) {
   const [vp, theme] = cfg.split("-"); const [w, h] = vp.split("x").map(Number); const touch = w < 1024;
   const ctx = await b.newContext({ viewport: { width: w, height: h }, colorScheme: theme, isMobile: touch, hasTouch: touch }); const p = await ctx.newPage(); const row = { cfg };

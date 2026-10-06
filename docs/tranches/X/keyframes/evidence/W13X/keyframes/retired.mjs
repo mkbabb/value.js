@@ -11,7 +11,7 @@ const [base = "http://localhost:5173/", vps = "1440x900,390x844"] = process.argv
 const SCENES = ["home", "cube", "amiga", "square", "easing", "spring", "sequence"];
 const count = (p) => p.evaluate(() => document.querySelectorAll(".progress-bar").length + document.querySelectorAll("pre[contenteditable]").length);
 let surfaces = 0;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 let fails = 0;
 for (const vp of vps.split(",")) {
     const [w, h] = vp.split("x").map(Number);

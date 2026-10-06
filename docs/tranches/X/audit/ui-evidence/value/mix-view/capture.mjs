@@ -203,7 +203,7 @@ const FLOWS = {
     },
 };
 
-const launch = () => chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const launch = () => chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 let browser = await launch();
 const VPS = [{ name: "1440", w: 1440, h: 900 }, { name: "390", w: 390, h: 844 }];
 for (const [flow, fn] of Object.entries(FLOWS))

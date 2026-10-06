@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
 const vp = process.argv[2] || "1440";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: vp === "390" ? { width: 390, height: 844 } : { width: 1440, height: 900 }, colorScheme: "light" });
 const page = await ctx.newPage();
 await page.goto("http://localhost:5173/#/spring", { waitUntil: "networkidle" });

@@ -1,7 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 // KFA-21: the controls pane's bucket for each Amiga channel after a cold load (fresh context) + a pick of each channel.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const page = await (await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })).newPage();
 await page.goto("http://localhost:5173/#/amiga"); await page.waitForSelector("canvas.amiga-canvas"); await page.waitForTimeout(2500);
 const sel = page.locator('[aria-label="Select animation"]').first();

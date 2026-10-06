@@ -20,7 +20,7 @@ if (FR) mkdirSync(FR, { recursive: true });
 const ROUTES = ["/", "/palettes", "/browse", "/extract", "/mix", "/generate", "/gradient", "/atmosphere", "/blob",
     "/admin/users", "/admin/names", "/admin/audit", "/admin/flagged", "/admin/tags", "/no-such-page"];
 
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const res = [];
 for (const tag of TAGS) {
     const [w, h] = VIEWPORTS[tag];

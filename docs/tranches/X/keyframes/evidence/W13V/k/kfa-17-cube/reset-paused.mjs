@@ -3,7 +3,7 @@
 // (aria-valuenow) → Play → read it every 100 ms for 1.5 s. Signature of the defect: a readout frozen at the
 // paused value after Reset, then a NEGATIVE / restarting playhead after Play with the nodes unpainted.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto(process.argv[2] || "http://localhost:5173/#/cube"); await p.waitForTimeout(4000);
 const slider = () => p.evaluate(() => { const s = document.querySelector('[role="slider"]'); return s ? +(+s.getAttribute("aria-valuenow")).toFixed(1) : null; });

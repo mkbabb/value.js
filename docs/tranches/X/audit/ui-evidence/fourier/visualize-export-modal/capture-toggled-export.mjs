@@ -2,7 +2,7 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
 const slug = process.env.SEED || "smoky-nesting-ruby-cat";
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light", deviceScaleFactor: 1, acceptDownloads: true });
 await ctx.addInitScript(() => { try { localStorage.setItem("vueuse-color-scheme", "light"); localStorage.setItem("fourier_visualizer_view_state", JSON.stringify({ editing: false, overlay: false, equation: false })); } catch {} });
 const page = await ctx.newPage();

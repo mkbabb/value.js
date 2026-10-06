@@ -4,7 +4,7 @@ import { writeFileSync, readFileSync } from "node:fs";
 const BASE = "http://localhost:3100";
 const OUT = new URL(".", import.meta.url).pathname;
 const slug = readFileSync(OUT + "../visualize-view-options-popover/seed.txt", "utf8").trim();
-const R = {}; const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const R = {}; const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 // ---- desktop
 {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });

@@ -1,6 +1,6 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const logs = [];
 page.on("console", m => { if (m.type()==="error"||m.type()==="warning") logs.push(m.type()+": "+m.text().slice(0,200)); });

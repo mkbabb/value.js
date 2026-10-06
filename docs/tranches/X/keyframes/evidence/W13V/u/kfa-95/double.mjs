@@ -12,7 +12,7 @@ const init = () => { window.__kl = []; const add = EventTarget.prototype.addEven
   EventTarget.prototype.addEventListener = function (t, fn, o) {
     if (this === window && t === "keydown" && typeof fn === "function") { const w = function (e) { const pre = e.defaultPrevented; const a = document.activeElement; window.__kl.push({ key: e.key, pre, role: a?.getAttribute?.("role") || a?.tagName }); return fn.call(this, e); }; return add.call(this, t, w, o); }
     return add.call(this, t, fn, o); }; };
-const b = await chromium.launch({ headless: false }); const res = { base: BASE };
+const b = await chromium.launch({ channel: "chrome", headless: true }); const res = { base: BASE };
 const scrub = (p) => p.evaluate(() => { const t = [...document.querySelectorAll('[role=slider][aria-label*="crub"]')].find((x) => x.offsetParent); return t ? { now: +t.getAttribute("aria-valuenow"), max: +t.getAttribute("aria-valuemax") } : null; });
 { const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); await ctx.addInitScript(init); const p = await ctx.newPage();
   await p.goto(BASE + "#/square"); await p.waitForTimeout(4500); await p.keyboard.press("Escape"); await p.waitForTimeout(500);

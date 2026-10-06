@@ -4,7 +4,7 @@ import { writeFileSync } from "node:fs";
 const OUT = new URL(".", import.meta.url).pathname;
 const now = new Date().toISOString();
 const store = { version: 1, palettes: [{ id: "local-1", name: "Sunset Drift", slug: "sunset-drift", colors: ["#ff6b6b","#feca57","#48dbfb"].map((css, position) => ({ css, position })), createdAt: now, updatedAt: now, isLocal: true }] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const res = [];
 for (const theme of ["light", "dark"]) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: theme, deviceScaleFactor: 2 });

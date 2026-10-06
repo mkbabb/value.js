@@ -6,7 +6,7 @@ const OUT = new URL(".", import.meta.url).pathname;
 const sh = (c) => execSync(c).toString().trim();
 const tree = `${sh("git -C /Users/mkbabb/Programming/value.js rev-parse --short HEAD")} dirty=${sh("git -C /Users/mkbabb/Programming/value.js status --porcelain | wc -l")}`;
 const res = { tree };
-const b = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const vp of [{ n: "1440", w: 1440, h: 900 }, { n: "390", w: 390, h: 844 }]) {
     const ctx = await b.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: "light", hasTouch: vp.n === "390" });
     ctx.setDefaultTimeout(240000); ctx.setDefaultNavigationTimeout(420000);

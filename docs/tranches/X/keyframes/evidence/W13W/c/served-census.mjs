@@ -31,7 +31,7 @@ const nearest = (pts) => pts.map((p) => {
     }
     return { ...p, nearestPath: who, dist: best === Infinity ? null : +best.toFixed(1) };
 });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const page = await b.newPage({ viewport: { width: 1440, height: 900 } });
 const res = {};
 for (const r of ROUTES) {

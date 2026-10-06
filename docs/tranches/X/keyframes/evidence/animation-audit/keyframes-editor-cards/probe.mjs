@@ -2,7 +2,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { execSync } from "node:child_process";
 const OUT = new URL(".", import.meta.url).pathname;
 const kf = execSync("git -C /Users/mkbabb/Programming/keyframes.js rev-parse --short HEAD").toString().trim() + " dirty=" + execSync("git -C /Users/mkbabb/Programming/keyframes.js status --porcelain | wc -l").toString().trim();
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const logs=[]; p.on("console", m => { if (m.type()==="error"||m.type()==="warning") logs.push(m.type()+": "+m.text().slice(0,160)); });
 await p.goto("http://localhost:5173/#/" + (process.argv[2]||"cube"), { waitUntil: "load" });

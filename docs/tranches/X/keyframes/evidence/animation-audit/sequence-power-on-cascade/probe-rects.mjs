@@ -1,6 +1,6 @@
 // Probe: where does the playhead track land in the stage grid (rest state)?
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })).newPage();
 await page.goto("http://localhost:5173/#/sequence", { waitUntil: "load" });
 await page.waitForSelector('.seq-stage:not(.is-powering-on) .seq-row', { timeout: 10000 });

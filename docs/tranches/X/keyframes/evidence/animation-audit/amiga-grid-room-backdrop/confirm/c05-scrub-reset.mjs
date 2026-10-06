@@ -4,7 +4,7 @@ const D = new URL(".", import.meta.url).pathname;
 const K = "/Users/mkbabb/Programming/keyframes.js";
 const ks = () => execSync(`git -C ${K} rev-parse --short HEAD`).toString().trim() + " dirty=" + execSync(`git -C ${K} status --porcelain | wc -l`).toString().trim();
 const out = { k0: ks() };
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await p.goto("http://localhost:5173/#/amiga"); await p.waitForTimeout(3500);
 const rect = { x: 518, y: 127, width: 878, height: 646 };

@@ -1,7 +1,7 @@
 // type into the readout contenteditable; capture result (read-only on the app tree; state is in-page only)
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = "/Users/mkbabb/Programming/value.js/docs/tranches/X/audit/ui-evidence/value/home-picker";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 const p = await ctx.newPage();
 await p.goto("http://localhost:9000/#/", { waitUntil: "load", timeout: 60000 });

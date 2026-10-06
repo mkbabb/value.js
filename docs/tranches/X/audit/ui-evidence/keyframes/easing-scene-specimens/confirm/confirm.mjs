@@ -7,7 +7,7 @@ const KF = "/Users/mkbabb/Programming/keyframes.js";
 const sha = execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim();
 const dirty = execSync(`git -C ${KF} status --porcelain`).toString().trim().split("\n").filter(Boolean).length;
 const log = { sha, dirty, at: new Date().toISOString() };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 async function open(w, h, scheme) {
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: 2, colorScheme: scheme });
   const page = await ctx.newPage();

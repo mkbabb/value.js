@@ -1,6 +1,6 @@
 // Probe 4 — is the Home-key engine paint (magenta fill + 1-frame snap) from a handler ABOVE the box? Block bubbling above the box and compare.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 for (const block of [false, true]) {
   const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
   await p.goto("http://localhost:5173/#/square"); await p.waitForSelector(".demo-box"); await p.waitForTimeout(2500);

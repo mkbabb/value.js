@@ -11,7 +11,7 @@ const tree = () => ({ sha: execSync(`git -C ${TREE} rev-parse --short HEAD`).toS
 const VPS = { "1440": { width: 1440, height: 900 }, "390": { width: 390, height: 844 } };
 const ONLY = process.argv[2];
 const log = { ...tree(), when: new Date().toISOString(), runs: [] };
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const measure = (page) => page.evaluate(() => {
   const vis = (e) => { const b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0; };
   const r = (e) => { if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.x), Math.round(b.y), Math.round(b.width), Math.round(b.height)]; };

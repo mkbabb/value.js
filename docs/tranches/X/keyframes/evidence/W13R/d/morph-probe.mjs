@@ -7,7 +7,7 @@ const base = (process.argv[2] || 'http://localhost:5173').replace(/\/$/, ''); co
 const sampler = fs.readFileSync(HERE + 'sampler.js', 'utf8'); const vdir = `${HERE}webm-${tag}`; fs.mkdirSync(vdir, { recursive: true });
 const SELS = { top: '[data-dock-tether="top"] .glass-dock', bottom: '[data-dock-tether="bottom"] .glass-dock' };
 const load = execSync('uptime').toString().trim().split('averages: ')[1];
-const b = await chromium.launch({ headless: false, args: ['--ignore-gpu-blocklist'] });
+const b = await chromium.launch({ channel: "chrome", headless: true, args: ['--ignore-gpu-blocklist'] });
 const out = { base, tag, load, renderer: null, tokens: null, ctx: {} };
 async function ctxRun(name, hash, dockKey, act) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, recordVideo: { dir: vdir, size: { width: 1440, height: 900 } } });

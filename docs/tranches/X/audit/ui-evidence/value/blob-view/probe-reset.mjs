@@ -3,7 +3,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 import { execSync } from "node:child_process"; import { writeFileSync } from "node:fs";
 const OUT = "/Users/mkbabb/Programming/value.js/docs/tranches/X/audit/ui-evidence/value/blob-view";
 const tree = () => execSync("git rev-parse --short HEAD; git status --porcelain | wc -l", { cwd: "/Users/mkbabb/Programming/value.js" }).toString().trim().replace(/\s+/g, " dirty=");
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2, colorScheme: "light" });
 const p = await ctx.newPage(); const log = { tree: tree() };
 await p.goto("http://localhost:9000/#/blob", { waitUntil: "load", timeout: 90000 }); await p.waitForTimeout(5000);

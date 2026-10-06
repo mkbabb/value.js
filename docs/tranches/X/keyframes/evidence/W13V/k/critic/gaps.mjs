@@ -11,7 +11,7 @@ import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwr
 const base = (process.argv[2] || "http://localhost:5173/").replace(/#.*$/, "");
 const tag = process.argv[3] || "run1";
 const OUT = new URL("./gaps/", import.meta.url).pathname;
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const out = {};
 // sample(selector, props, ms): per-rAF [t, ...props] of the FIRST visible match, started now

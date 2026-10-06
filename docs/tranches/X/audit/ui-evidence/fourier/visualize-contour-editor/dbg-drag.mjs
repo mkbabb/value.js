@@ -1,6 +1,6 @@
 // probe: does a point drag register (position + undo enablement)? client-side only, no save.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
 const page = await ctx.newPage();
 await page.goto("http://localhost:3100/w/lofty-winding-steel-beetle", { waitUntil: "networkidle" });

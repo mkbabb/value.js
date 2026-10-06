@@ -1,7 +1,7 @@
 // hit-test probe: what receives a tap on drawer controls under the transport dock; pane scroll reach.
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 import { writeFileSync } from "node:fs";
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: "light" });
 const page = await ctx.newPage();
 await page.goto("http://localhost:5173/#/cube", { waitUntil: "networkidle" }); await page.mouse.move(5, 200); await page.waitForTimeout(4200);

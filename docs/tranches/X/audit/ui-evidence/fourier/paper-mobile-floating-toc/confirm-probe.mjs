@@ -1,7 +1,7 @@
 // CONFIRM seat probe (read-only): does the HIDDEN sidebar PaperSearch instance also kill in-field taps (caret tap, Expand) on mobile?
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
 const OUT = new URL(".", import.meta.url).pathname;
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, hasTouch: true, isMobile: true });
 const page = await ctx.newPage();
 const state = () => page.evaluate(() => ({ st: Math.round(document.querySelector(".paper-scroll").scrollTop), searchBar: !!document.querySelector(".floating-toc-bar--search"), q: document.querySelector(".floating-toc-bar--search .paper-search-input")?.value ?? null, modal: !!document.querySelector(".paper-search-modal, [role=dialog]"), panels: document.querySelectorAll(".paper-search-results").length }));

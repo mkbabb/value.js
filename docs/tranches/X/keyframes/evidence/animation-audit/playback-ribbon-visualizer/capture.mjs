@@ -8,7 +8,7 @@ const khead = () => execSync(`git -C ${KF} rev-parse --short HEAD`).toString().t
 const meta = { start: new Date().toISOString(), khead0: khead() };
 for (const d of ["rest", "kbd", "live", "drag", "balldrag", "reverse"]) fs.mkdirSync(OUT + d, { recursive: true });
 
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const logs = [];
 p.on("console", m => { if (m.type() === "error" || m.type() === "warning") logs.push(m.type() + ": " + m.text().slice(0, 240)); });

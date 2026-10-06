@@ -36,7 +36,7 @@ async function read(page) {
 }
 
 const out = [];
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 for (const vp of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
     for (const state of ["anon-deeplink", "anon-hashnav", "admin-deeplink", "admin-hashnav", "admin-refused"]) {
         const ctx = await browser.newContext({ viewport: vp });

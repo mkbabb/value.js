@@ -1,5 +1,5 @@
 import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
 p.on("request", (r) => { if (/palettes|tags|colors|3000/.test(r.url()) && !/\.(ts|vue|js|css)(\?|$)/.test(r.url())) console.log("REQ", r.method(), r.url()); });
 p.on("response", async (r) => { if (/\/palettes\?/.test(r.url())) console.log("RESP", r.status(), (await r.text()).slice(0, 400)); });

@@ -6,7 +6,7 @@ const OUT = new URL(".", import.meta.url).pathname;
 const KF = "/Users/mkbabb/Programming/keyframes.js";
 const head = execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim();
 const dirty = execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim();
-const browser = await chromium.launch({ headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 await page.addInitScript(() => { window.__lt = []; try { new PerformanceObserver((l) => { for (const e of l.getEntries()) window.__lt.push([Math.round(e.startTime), Math.round(e.duration)]); }).observe({ type: "longtask", buffered: true }); } catch {} });
 await page.goto("http://localhost:5173/", { waitUntil: "networkidle" });

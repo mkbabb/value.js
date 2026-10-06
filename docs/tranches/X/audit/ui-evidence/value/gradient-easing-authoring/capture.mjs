@@ -38,7 +38,7 @@ async function metrics(page) {
 }
 
 const log = [];
-const browser = await chromium.launch({ headless: false, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--enable-gpu", "--ignore-gpu-blocklist"] });
 for (const vp of VPS) for (const theme of ["light", "dark"]) {
   const tag = `${vp.name}-${theme}`; if (only && !tag.includes(only)) continue;
   const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, colorScheme: theme, deviceScaleFactor: 1, hasTouch: vp.name === "390" });

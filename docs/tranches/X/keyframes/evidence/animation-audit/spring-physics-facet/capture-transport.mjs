@@ -5,7 +5,7 @@ const OUT = new URL(".", import.meta.url).pathname; const KF = "/Users/mkbabb/Pr
 const khead = () => execSync(`git -C ${KF} rev-parse --short HEAD`).toString().trim() + " dirty=" + execSync(`git -C ${KF} status --porcelain | wc -l`).toString().trim();
 const CLIP = { x: 72, y: 130, width: 1300, height: 580 };
 for (const d of ["E2_play", "G2_scrub"]) fs.mkdirSync(OUT + d, { recursive: true });
-const b = await chromium.launch({ headless: false });
+const b = await chromium.launch({ channel: "chrome", headless: true });
 const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
 const p = await ctx.newPage();
 await p.goto("http://localhost:5173/#/spring", { waitUntil: "networkidle" }); await p.waitForTimeout(2000);

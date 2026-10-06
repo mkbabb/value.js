@@ -7,7 +7,7 @@ import { decodePng, meanAbsDiff } from "./e2e/smoke/fixtures/frame-diff.ts";
 
 const [origin, label, out] = process.argv.slice(2);
 const res: Record<string, unknown> = { origin, label, at: new Date().toISOString() };
-const browser = await chromium.launch({ channel: "chromium", headless: false });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
 const errors: string[] = [];
 page.on("pageerror", (e) => errors.push(String(e.message).slice(0, 200)));
