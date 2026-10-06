@@ -1768,3 +1768,79 @@ Self-count ⟨`sed -n '/^### .lib/,$p' KF-W13X.md | grep -oE '^\| A2-KE-L[0-9]-[
 **Residuals / for the close.** L1-4 whole; L1-6's trigger-glyph and SpringTrace limbs (+ ADOPT-AT-LANDING for EasingTarget/`curvePlot.ts`); L1-15's seven limbs; L1-22's O-row (focus register) and L2-14's glass floor (both on AUDIT-2's GLASS table) plus the ppmycota 16 px link target; L1-18's `SubjectAxes` hiding class (`.amiga` → the close) is not this unit's row and was not touched. Re-homed-to-`.lib` items closed here: the `.progress-bar` recipe + `:18` prose (`.keyframes`), `.progress-dot` + `DESIGN.md:125` (`.transport`). Not taken (not in this unit's brief; left for the close as their seats routed them): KFA-32 / UIA-KF-262 (veil material-register member), UIA-KF-106's `--slider-range-bg` limb, the `.stage-field-x` closing 100 % line (`.square`'s note). E13: no mail read or sent by this unit (the close's sweep).
 
 **Scratch.** The `b2180040` worktree and both private servers (:5310, :5311) are torn down. Commits: kf `734b6ed7` · `1f3aab5c` · `38f5e77c` · `d63ed374` · `88bbb271` · `9660f8ef` · `1961be80`; value.js evidence `docs/tranches/X/keyframes/evidence/W13X/lib/**` + this receipt.
+
+### .sections
+
+SERVED MODEL: claude-opus-5-5 (unit `.sections`, G21 — the section-header rows: addendum (c) `#actions` + `detached`, A2-KE-L1-8, A2-KE-L3-15, A2-KE-L3-17, and the RibbonBar limbs re-homed here)
+
+**Open.** Crash recovery ⟨`git -C keyframes.js status --porcelain | grep -E 'demo/scenes|controls-pane|test/demo'`⟩ → empty: **nothing inherited in kf.** One inherited value.js path in the common writable set: `evidence/W13X/sections/` (untracked: `sections.mjs`, `probe.json`, 8 `frames/probe/*.png`) — a killed predecessor's probe. Read whole and judged: its predicates (da shaped as fourier `f-w14v-detached.spec.ts` `da`; db shaped as its `db`; ribbon rows; one stage header; dialog ring) match the spec, so it was kept and finished. Its `probe.json` (db RED by a driver timeout, not a reading) and `frames/probe/` were deleted. Two instrument defects were fixed: (1) the transport dock idles to its summary layer (the full layer is `visibility:hidden` + `inert`), so `pickAnimation` first moves the pointer into the summary layer; the dialog cell does the same for the top dock; (2) db read the first `Transform matrix` layer in the DOM, which is one of three mounts (two hidden, ⟨peek⟩ → widths `0 / 371.2 / 0`), so it now reads the visible one. kf HEAD at open `1961be80`, glass `10.1.0` (⟨`grep '"version"' node_modules/@mkbabb/glass-ui/package.json`⟩ → `"10.1.0"`).
+
+**Instruments.** (1) The served probe `evidence/W13X/sections/sections.mjs`. It ran against a private server per byte state with its own dep cache (vite `createServer({cacheDir: <scratch>, optimizeDeps.force})`; never :5173). BEFORE ran in a scratch worktree at `1961be80` on :5332; AFTER ran in a scratch worktree at the committed `b857284e` on :5331. (2) The falsifier `test/demo/scenes/sections-w13x.test.ts`, 7 groups.
+- **§0ei disclosure.** The first BEFORE pass (`before-r{1,2}`, `before-dialog-r{1,2}`) ran headed Chromium (`headless: false`), the inherited launch line. This breaks owner law §0ei (2026-10-06). The launch was converted to `channel: "chrome", headless: true`, and every reading below was re-taken headless (`before-hl-*`, `before-db-*`, `after-*`). The headed JSON/logs are kept for disclosure only; their frames are deleted. Each headed reading equals its headless twin.
+- **Frames.** The probe runs with `reducedMotion: "reduce"`, and under it the scene stages paint no subject in a still frame (before and after alike). So the visual pairs for the header migration were taken once more with `REDUCED=no-preference` (`frames/{before,after}-frames/`, 20 cells each: spring, spring Entry, sequence, easing and square × 1440/390 × light/dark).
+
+**Census (addendum (c)).** ⟨`grep -rn -i -E '(>|")\s*(reset|refresh|reseed|restart|replay)\b|RotateCcw|RefreshCw|RotateCw' demo/scenes demo/components/instrument/transport/controls-pane`⟩ found two section actions. (1) The cube's matrix **Reset**: `CubeScene.vue:148-157` `ribbonContent`, sitting ALONE in a second ribbon card under the Transform matrix editor. (2) Spring's **Write physics to keyframes** (`RefreshCw`), already in `ConfiguratorLayer #actions` (`.spring` `4a840a23`, A2-KE-L3-9). The scene-level RESETs in `use{Easing,Spring,Sequence}Demo.ts` are machine dispatches, not section rows. **Detached read:** ⟨`grep -rn '<Configurator\b' demo`⟩ → 0 mounts (the demo mounts `ConfiguratorLayer` only, at `MatrixEditor.vue` and `SpringPhysicsFacet.vue`), which agrees with addendum (d).
+
+**Acts, in commit order (kf).**
+1. **`6624f9a5`, addendum (c), `#actions`.** MatrixEditor's `Transform matrix` `ConfiguratorLayer` gets an `#actions` slot holding a glass `Button` (quiet, sm, icon-only, `aria-label="Reset matrix"`, `RotateCcw`) under a glass `Tooltip`. `@click.stop` raises the restored `resetMatrix` emit, which had no raiser since ME-39 and now has one. `CubeScene` binds it with `onResetMatrix: resetMatrix` and deletes `ribbonContent` with its `Button`/`RotateCcw` imports and its `defineExpose` entry. `RibbonBar` draws no card when a scene's slot renders nothing (`.ribbon-bar:has(.ribbon-slot:empty) { display: none }`): the slot leaves only Vue's comment anchors, which `:empty` ignores. **Adjacent:** `test/demo/scenes/matrix-editor.test.ts:25-26,134-143`, the mount wears the app's `TooltipProvider` (the `.spring` `b7d8a69a` idiom), with assertions unchanged. The commit carries RibbonBar's (c) hunks only; its row cures are act 2.
+2. **`36bb9173`, A2-KE-L3-15 · UIA-KF-179 (ribbon limb) · UIA-KF-175 · UIA-KF-173 (naming limb).** These are RibbonBar only.
+   - **Timeline row:** Snapshot leads, labelled. Import, Add CSS and Export become named `iconOnly` commands ("Import CSS, replacing the timeline", "Add CSS, merging into the timeline", "Export CSS"; the dialogs' own titles confirm replace vs merge, `KeyframeTimeline.vue:470-492`). `flex-wrap` is removed.
+   - **Apply CSS:** `:aria-pressed="Boolean(activeKeyframesRef?.cssApplied)"`.
+   - **Clipboard pair:** "Copy keyframes" and "Copy compiled CSS". Both write the clipboard (`KeyframesStringControls.vue:293-305`), source vs compiled.
+   - **Adjacent:** `test/demo/instrument/ribbon-keyframes-hierarchy.test.ts:52`, the label oracle re-pointed to the new names (the assertion is kept).
+3. **`6933aeb5`, A2-KE-L1-8.** New `demo/scenes/SceneStageHeader.vue`:
+   - The title is glass `CardTitle as="h2"` at `text-display`, or the `#title` slot where it animates (Easing).
+   - `#readouts` holds the stage's own readouts (Sequence keeps glass `Metric`). `#aside` is the other slot.
+   - `status` renders the one `.status-badge` span as `role="status"`.
+   - Each stage keeps its placement through `class` / `idClass` / `asideClass`.
+   - The five sites migrate: `SpringTarget`, `SequenceTarget`, `EasingTarget`, `SquareInstrument`, and `StartingStyleTarget`, whose `CardHeader`/`CardTitle` imports go.
+   - Easing's scoped `.gallery-id` rule became its `idClass` utilities, because it now renders out of the file's scope. Square's title rule reaches it with `:deep()`.
+   - **Adjacent:** `test/demo/scenes/spring-solver-truth.test.ts:430-445` (18) KFA-213, re-pointed. The stage header's `:status` reads `stateLabel` and never `liveSettled`; the shared badge's class reads `status`. The assertions are kept.
+4. **`b857284e`, the falsifier** `sections-w13x.test.ts`.
+
+**Concurrency (measured, disclosed).** During this sitting a sibling Track B seat (`.sq`/`.dh`, addendum (e); value.js `d2140f3e`) edited kf in parallel, including `demo/scenes/spring/SpringTarget.vue`: the sweep/figure hunks `:99-101`, `:262-274`, `:287`, `:295`. That file is a dirty path shared with this unit. Committing it with a pathspec would have swept the sibling's partial work into a `.sections` commit, so act 3 was built in a **private index**:
+- ⟨`GIT_INDEX_FILE=<scratch> git read-tree HEAD` + `update-index --cacheinfo`⟩ took the six single-owner files from the work tree, plus `SpringTarget.vue` as HEAD with only this unit's hunks applied (⟨`git apply --unidiff-zero`⟩ of hunks `-52/-55/-65/-97/-307`).
+- The tree was typechecked in a worktree at the commit object (⟨`vue-tsc -p tsconfig.json`⟩ EXIT 0, ⟨`-p tsconfig.test.json`⟩ EXIT 0).
+- It was then landed with a compare-and-swap ⟨`git update-ref HEAD <new> 36bb9173`⟩, and the shared index entries for those eight paths were set to the committed blobs.
+- **After:** ⟨`git status --porcelain`⟩ shows `SpringTarget.vue` M with the sibling's hunks only, and nothing of this unit's.
+
+No sibling path was staged, reset or restored.
+
+**Gates, BEFORE → AFTER (each ×2, the two runs identical in verdict).**
+
+| gate | BEFORE (`1961be80`, :5332 headless) | AFTER (`b857284e`, :5331 headless) |
+|---|---|---|
+| **db**, the lone-row Reset in its section header (⟨`ONLY=db node sections.mjs`⟩, cube × 1440/390 × L/D) | **RED 4/4 ×2**: `Reset` inHeader false, onRow false; ribbon card 1 button (64 / 72 px) | **GREEN 4/4 ×2**: `Reset matrix` inHeader true, onRow true; ribbon card none; cell `1 → 2 → 1` after the header press; layer stays `aria-expanded="true"` |
+| **da**, the stage/pane gutter is the page ground (spring, sequence, easing, cube × 1440×900/1024×768 × L/D) | **NONE 16/16 ×2** (gap 72–84.2 px, channel spread 0) | **NONE 16/16 ×2**, unchanged |
+| **L3-15**, ribbons on one row (cube Keyframes/Timeline × 1440/390 × L/D) | Keyframes GREEN 4/4; **Timeline RED 4/4 ×2** (`[Snapshot, Import, Export] + [Add CSS]` at 1440; `[Snapshot, Import] + [Export, Add CSS]` at 390); Apply `aria-pressed` null | **GREEN 8/8 ×2**; Apply `aria-pressed="false"` |
+| **L1-8**, one stage header per stage (spring, spring Entry, sequence, easing, square × 1440/390 × L/D) | **RED 20/20 ×2**: `[data-scene-stage-header]` 0, badge outside a shared header 1 at spring and square | **GREEN 20/20 ×2**: 1 header, 0 badges outside |
+| **L3-17**, a pointer-opened dialog paints no ring (Keyboard shortcuts, Clear all × 1440 × L/D) | **RING 4/4 ×2** (Close / Cancel focused, `:focus-visible`, `outline solid 2px`) | **RING 4/4 ×2**, unchanged (owner = glass, below) |
+| falsifier ⟨`vitest run --project demo test/demo/scenes/sections-w13x.test.ts`⟩ | **13 failed / 41 ×2** | **42 passed / 42 ×2** (the census gains one case, `SceneStageHeader.vue`) |
+| ⟨`npm run check`⟩ (committed bytes) | — | **EXIT 0 ×2** (`proof:structure — PASS … 0 violations`) |
+| ⟨`npm run test:demo`⟩ (committed bytes) | — | **119 files / 804 tests passed ×2**, EXIT 0 |
+| ⟨`npm run lint`⟩ (committed bytes) | — | EXIT 0, `no dependency violations found (444 modules, 1615 dependencies cruised)` |
+| header frames, pixel diff before ↔ after (`REDUCED=no-preference`, 20 cells) | — | ≤ 75 px over 16/255 per cell (moving balls and the dock glyph); the migration is visually neutral |
+
+Logs: `evidence/W13X/sections/{before-hl,before-db,after,after-db}-r{1,2}.{log,json}`, `vitest-{before,after}-r{1,2}.log`, `gates.txt`. Frames: `frames/{before-hl-r1,after-r1,before-db-r1,after-db-r1,before-frames,after-frames}/`.
+
+**Dispositions.**
+
+| row | disposition | evidence |
+|---|---|---|
+| addendum (c), the cube matrix **Reset** (lone ribbon card) | **CURED** `6624f9a5` | db RED 4/4 ×2 → GREEN 4/4 ×2; falsifier (1)(2) |
+| addendum (c), spring **Write physics to keyframes** | **CURED-PRIOR** `.spring` `4a840a23` (already in `#actions`) | census; falsifier (1) GREEN at both byte states |
+| addendum (c), **`layout="detached"`** | **NOT ADOPTED, measured: no band.** The demo mounts no glass `Configurator`; every stage/pane gutter reads the page ground (NONE 16/16 ×2 at 1440×900 and 1024×768, L/D, before and after) | da; falsifier (3) (vacuous census; it binds the first `Configurator` a later unit introduces) |
+| **A2-KE-L1-8** (KF.W13X + BL) | **SPLIT.** **Consumer half CURED** `6933aeb5` (one `SceneStageHeader`, 5 sites, the badge markup authored once). **Glass half ADOPT-AT-LANDING on O-59** (UIA-KF-201: glass `Badge` has no soft status tone; adopting a solid tone now would lose the AA status tint, the `.square` ruling). The row's "delete the badge idiom CSS" limb (`design-idioms.css:262-288`) lands with that adoption; no consumer copy | L1-8 RED 20/20 ×2 → GREEN 20/20 ×2; falsifier (4); frames ≤ 75 px diff |
+| **A2-KE-L3-15** | **CURED** `36bb9173` (Timeline: one row, Snapshot leads). Keyframes limb **CURED-PRIOR** `.mobile` `9da0f718` (UIA-KF-319) | ribbon RED 4/8 ×2 → GREEN 8/8 ×2; falsifier (5) |
+| **A2-KE-L3-17** (either owner per UIA-KF-253) | **RELAY → glass, honest-RED.** UIA-KF-253 is ROUTED-GLASS on **O-59** (`relay/X-ALL-BK-UI-AUDIT.md:207`), and the amendment rides **O-74** (`relay/X-ALL-BK-AUDIT-2.md:74`). The owner is glass Dialog's initial-focus policy: one producer rule serves every dialog. The consumer `onOpenAutoFocus` alternative would be one patch per dialog at `MbabbMenu.vue` (`.dock`) and `KeyboardShortcutsModal.vue` (`.overlays`), outside G21 and a local copy of a policy glass holds. No consumer shim | RING 4/4 ×2 before and after (Close / Cancel `:focus-visible`, `outline solid 2px`) |
+| UIA-KF-179 (re-homed by `.timeline`) | **SPLIT.** Ribbon limb **CURED** `36bb9173` (one row with a lead; Import ↔ Add CSS named replace ↔ merge). The "two toolbars for one instrument" limb (folding the ribbon into the timeline card's own header) is **RE-HOMED → the close**: its cure site is `timeline/**` (G8), outside G21 | falsifier (5) |
+| UIA-KF-172 (re-homed by `.keyframes`) | **SPLIT.** The 3+1 wrap limb is **CURED-PRIOR** `9da0f718`. The "two stacked cartoon cards" limb (fold the four verbs into the editor card's header, `ce6091d2`) is **RE-HOMED → the close**: its cure site is `instrument/keyframes/**` (G9), outside G21 | ribbon Keyframes one row ×2 |
+| UIA-KF-175 (re-homed by `.keyframes`) | **CURED** `36bb9173` (`aria-pressed`). The rainbow-vivid skin is kept: it is the app's identity hue (§0dm law), not a defect | falsifier (6); `pressed "false"` served |
+| UIA-KF-173 duplicate-action limb (re-homed by `.keyframes`) | **SPLIT.** Naming limb **CURED** `36bb9173` ("Copy keyframes" / "Copy compiled CSS"). The "different animation names in the two outputs" limb lives in `KeyframesStringControls.vue` (`.keyframes`) and is **RE-HOMED → the close** | falsifier (7) |
+| UIA-KF-274 (re-homed by `.keyframes`) | **DESIGN-RULING (owner), not cured.** The four icon inks (rainbow gradient, gold, emerald, default) are identity colours, and neutralising them is an owner ruling under §0dm, never a cure | — |
+
+Self-count ⟨`sed -n '/^### \.sections/,$p' KF-W13X.md | grep -cE '^\| (addendum|\*\*A2|UIA)'`⟩ → **11** rows = addendum (c) 3 + AUDIT-2 3 (L1-8, L3-15, L3-17) + re-homed-in 5 (UIA-KF-179, 172, 175, 173, 274). CURED or CURED-limb 6 (the Reset, L1-8 consumer half, L3-15, 179 ribbon limb, 175, 173 naming limb) · CURED-PRIOR 2 (spring Write physics; 172 wrap limb) · NOT ADOPTED (measured) 1 · RELAY honest-RED 1 · DESIGN-RULING 1. Limbs RE-HOMED → the close: 3 (179 two-toolbars, 172 two-cards, 173 output names). ADOPT-AT-LANDING O-59: 1 (the L1-8 badge tone and the idiom CSS's deletion).
+
+**Residuals.** (1) L3-17 RING holds until glass's Dialog initial-focus policy lands (O-59 / O-74). (2) The badge idiom CSS stays until glass Badge ships a soft tone (O-59). (3) The three re-homed limbs go to the close. (4) Not run by this unit: kf e2e roster and gh-pages, which are the close's gates.
+
+**Scratch.** Both worktrees (`1961be80`, `b857284e`) and the private servers (:5330, :5331, :5332) are torn down, and the dep caches lived in scratch. Commits: kf `6624f9a5` · `36bb9173` · `6933aeb5` · `b857284e`; value.js evidence `docs/tranches/X/keyframes/evidence/W13X/sections/**` and this receipt. kf is not pushed by this unit.
