@@ -1,0 +1,4 @@
+QUIET firefox 12:20:36 7.11
+QUIET webkit 12:24:25 6.66
+QUIET chromium 12:25:30 6.92
+DONE

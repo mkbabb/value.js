@@ -1,0 +1,21 @@
+SERVED MODEL: claude-opus-5-5
+# X.P.W7 L-G1 close evidence — sha256 MANIFEST (banked 2026-10-06 by Repair 1 of the RESUME 7 Close; answers C1-2)
+# close/  = the RESUME 7 Close reads of record on frozen 08331dfa (start 1-min load 6.60-7.79); byte copies of the session scratchpad r7/
+# check1/ = Check 1 loaded reads (load 36-131), supplementary, never gate reads (W7.md ADDENDUM (f) 3)
+# regenerate: shasum -a 256 close/* check1/*
+575deb11178f0c3d334cd3ec0b548c7296c7c4b532c54c2d4962d948dbf0856d  close/2026-09-23-x-p-w7-r7close-node-r1.json
+30c8b8addd08c6811bbeb0f41790631ecbdf4d99fb2167c604caaf1f666b48e7  close/2026-09-23-x-p-w7-r7close-node-r2.json
+809fe196bffdaf879c66323ae6c3e4235369efb820b4d2305bb37c810ad16207  close/2026-09-24-x-p-w7-browser-r7close-br-r1.json
+a5bb2e0735108fd45d5eb447f5606b9c1ca0170e3c622f89321510350d8f9744  close/2026-09-24-x-p-w7-browser-r7close-br-r2-chromium.json
+0efdecb89545be946a45526f14dbac2eb6c8ed4bd9fdb9343cb49579a62b6d30  close/2026-09-24-x-p-w7-browser-r7close-br-r2-firefox.json
+a6c1d8902bdc0473a331117bc382517a4c425e6515c943d9401f6df459f41f48  close/2026-09-24-x-p-w7-browser-r7close-br-r2-webkit.json
+d0e09a1e480890a2845568a4de40ecbb248fb042f047bc0c9bebc8550aca5c26  close/2026-09-24-x-p-w7-browser-r7close-br-r3-chromium.json
+5b9f58c185100e8f1c8c6c7c1d38b5ca652077ee880fcf948fbe86cfa94672d2  close/2026-09-24-x-p-w7-browser-r7close-br-r3-firefox.json
+e8e3efc530544693fc12f021378619cd35125cb6ff57f032db5061a28d383ae2  close/2026-09-24-x-p-w7-browser-r7close-br-r3-webkit.json
+50d4f9105fd15e8ab278d0f34bd2d26df8f8d1f94462dd98c1d197e62180b9df  close/load.txt
+4c6ca438566091f5bcb591f9d522103a6cf0247abf1c81f3730ee64decf5c008  close/status.txt
+987a8f96d37a045ac4d6c64154ee4d451e6f7fb956be2d63be8c453c5f23ae0f  check1/2026-09-23-x-p-w7-c1-node-r1.json
+9de130fef24b799f50c9547f773471d5e98009689e95891f43a8d9e17001842f  check1/2026-09-24-x-p-w7-browser-c1-br-r1-chromium.json
+8c8d70d5d3e3b65c85c7446a7279865d32e5e43f28fc9eff3fe245de848ed271  check1/2026-09-24-x-p-w7-browser-c1-br-r1-firefox.json
+d16923f230d3892d4fb21ddc4991f68205b171631d85637cb09118dd3b1c7aaf  check1/2026-09-24-x-p-w7-browser-c1-br-r1-webkit.json
+488eef19085404350a48cd8aaeb5a2308fddc9066e0aae4c25394f0996aa49e9  check1/status.txt
