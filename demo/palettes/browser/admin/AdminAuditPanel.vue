@@ -35,7 +35,7 @@
             <!-- X.W12U.s3 · UIA-V-638: nor over an empty plate, which already
                  says there is nothing (the count only repeated it). -->
             <span v-if="!audit.access.value && !firstLoad && !audit.loadError.value && audit.entries.value.length > 0" class="text-mono-small text-muted-foreground">
-                {{ audit.total.value }} entr{{ audit.total.value === 1 ? "y" : "ies" }}
+                {{ audit.pager.total }} entr{{ audit.pager.total === 1 ? "y" : "ies" }}
             </span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
             <!-- X.W12U.s3 · UIA-V-428 (the Users recipe, V-49): busy while a read
@@ -141,14 +141,7 @@
         </div>
 
         <!-- Pagination -->
-        <PaginationBar
-            :page="audit.page.value"
-            :page-count="audit.pageCount.value"
-            :has-next="audit.hasNext.value"
-            :has-prev="audit.hasPrev.value"
-            @prev="audit.prevPage"
-            @next="audit.nextPage"
-        />
+        <PaginationBar :pager="audit.pager" />
         </template>
     </div>
 </template>
@@ -171,7 +164,7 @@ const pm = inject(ADMIN_PORT_KEY)!;
 const audit = pm.audit;
 
 const reloadFiltered = debounce(() => {
-    audit.page.value = 1;
+    audit.pager.page = 1;
     audit.loadAuditLog();
 }, 300);
 watch([audit.actionFilter, audit.targetFilter], () => reloadFiltered());

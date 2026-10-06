@@ -161,7 +161,7 @@ describe("UIA-V-176 · a dismiss refills the page, so page 2 skips no report", (
         await ports.admin.flagged.dismiss("p-01");
         await flushPromises();
         const seen = new Set(ports.admin.flagged.items.value.map((i) => i.paletteSlug));
-        ports.admin.flagged.nextPage();
+        ports.admin.flagged.pager.next();
         await flushPromises();
         for (const i of ports.admin.flagged.items.value) seen.add(i.paletteSlug);
         // every report still in the queue was shown on page 1 or page 2

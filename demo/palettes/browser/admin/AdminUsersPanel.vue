@@ -232,6 +232,9 @@
             </div>
         </div>
 
+        <!-- A2-VA-X-12: the roster's other pages. -->
+        <PaginationBar v-if="!loading && !access && !loadError" :pager="pm.usersPager" />
+
         <!-- Confirmation dialog (Glass 7: ConfirmDialog folded onto the Dialog family).
              X.W7.e (G14 · A-3): the deliberate rung — Esc · outside, no ✕ — the
              `dismiss="deliberate"` rung (glass 10.1.0, X-W7L). -->
@@ -286,6 +289,7 @@ import { PaletteSpecimen } from "../card";
 import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
+import PaginationBar from "./PaginationBar.vue";
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
 // X.W7.d (fold W7.68 · L-2 · W7.67 · L-1): the panel reads the admin users

@@ -6,16 +6,16 @@
  *
  * Migration source: `palette-browser/AdminAuditPanel.vue` (D.W3 Lane B).
  */
-import { ref, computed, type Ref } from "vue";
+import { ref, type Ref } from "vue";
 import { getAuditLog, type AuditLogOptions } from "./api";
 import type { AuditEntry } from "./types";
+import { usePager, type Pager } from "./usePager";
 import { useAdminAccess, latestRequest, type AdminFailure } from "./api/admin-call";
 
 export interface UseAdminAudit {
     entries: Ref<AuditEntry[]>;
-    total: Ref<number>;
-    page: Ref<number>;
-    pageSize: number;
+    /** The one pager (`usePager`): page, total, next/prev → reload. */
+    pager: Pager;
     loading: Ref<boolean>;
     /** W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel. */
     loadError: Ref<string | null>;
@@ -23,12 +23,7 @@ export interface UseAdminAudit {
     access: Ref<AdminFailure | null>;
     actionFilter: Ref<string>;
     targetFilter: Ref<string>;
-    pageCount: Ref<number>;
-    hasNext: Ref<boolean>;
-    hasPrev: Ref<boolean>;
     loadAuditLog: (opts?: AuditLogOptions) => Promise<void>;
-    nextPage: () => void;
-    prevPage: () => void;
 }
 
 export function useAdminAudit(): UseAdminAudit {
@@ -37,24 +32,18 @@ export function useAdminAudit(): UseAdminAudit {
     const reads = latestRequest();
 
     const entries = ref<AuditEntry[]>([]);
-    const total = ref(0);
-    const page = ref(1);
-    const pageSize = 20;
+    const pager = usePager(20, () => loadAuditLog());
     const loading = ref(false);
     const loadError = ref<string | null>(null);
     const actionFilter = ref("");
     const targetFilter = ref("");
 
-    const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)));
-    const hasNext = computed(() => page.value < pageCount.value);
-    const hasPrev = computed(() => page.value > 1);
-
     async function loadAuditLog(opts: AuditLogOptions = {}) {
         const ticket = reads.issue();
         loading.value = true;
         const merged: AuditLogOptions = {
-            limit: pageSize,
-            offset: (page.value - 1) * pageSize,
+            limit: pager.pageSize,
+            offset: pager.offset,
             ...(actionFilter.value ? { action: actionFilter.value } : {}),
             ...(targetFilter.value ? { target: targetFilter.value } : {}),
             ...opts,
@@ -64,42 +53,21 @@ export function useAdminAudit(): UseAdminAudit {
         loading.value = false;
         if (result.ok) {
             entries.value = result.value.data;
-            total.value = result.value.total;
+            pager.total = result.value.total;
             loadError.value = null;
         } else if (result.kind === "failed") {
             loadError.value = result.message;
         }
     }
 
-    function nextPage() {
-        if (hasNext.value) {
-            page.value++;
-            loadAuditLog();
-        }
-    }
-
-    function prevPage() {
-        if (hasPrev.value) {
-            page.value--;
-            loadAuditLog();
-        }
-    }
-
     return {
         entries,
-        total,
-        page,
-        pageSize,
+        pager,
         loading,
         loadError,
         access,
         actionFilter,
         targetFilter,
-        pageCount,
-        hasNext,
-        hasPrev,
         loadAuditLog,
-        nextPage,
-        prevPage,
     };
 }

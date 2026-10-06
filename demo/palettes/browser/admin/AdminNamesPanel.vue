@@ -114,6 +114,8 @@
                         </template>
                     </AdminListItem>
                 </div>
+                <!-- A2-VA-X-12: the queue's other pages. -->
+                <PaginationBar v-if="!loadingPending && !pendingError" :pager="pendingPager" />
             </div>
 
             <div
@@ -180,6 +182,7 @@
                         </template>
                     </AdminListItem>
                 </div>
+                <PaginationBar v-if="!loadingApproved && !approvedError" :pager="approvedPager" />
             </div>
         </Transition>
 
@@ -229,10 +232,14 @@ import { formatCssCaption } from "../../../color-session/format-color";
 import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
+import PaginationBar from "./PaginationBar.vue";
+import type { Pager } from "../../usePager";
 
 const {
     pendingItems,
     approvedItems,
+    pendingPager,
+    approvedPager,
     loadingPending,
     loadingApproved,
     pendingError = null,
@@ -243,6 +250,9 @@ const {
 } = defineProps<{
     pendingItems: ProposedColorName[];
     approvedItems: ProposedColorName[];
+    /** A2-VA-X-12: each list's pager — its `total` is the list, not the page. */
+    pendingPager: Pager;
+    approvedPager: Pager;
     loadingPending: boolean;
     loadingApproved: boolean;
     /** W5-5 (F-2): surfaced load failures — error ≠ empty. */
@@ -345,16 +355,23 @@ function onDeleteClick(item: ProposedColorName) {
 
 const namesTab = ref<string>("pending");
 
+// A2-VA-X-12: a list's count is the SERVER's total — the loaded page's length
+// read "50 Approved" of 120. While a query narrows the page, the count is
+// what the query shows.
+function listCount(items: readonly ProposedColorName[], pager: Pager): number {
+    return filtered ? items.length : pager.total;
+}
+
 // UIA-V-414: a list's count speaks only once that list resolved — never a
 // "0" while it loads or over its load-error plate.
 const namesTabOptions = computed(() => [
     {
-        label: loadingPending || pendingError ? "Pending" : `Pending · ${pendingItems.length}`,
+        label: loadingPending || pendingError ? "Pending" : `Pending · ${listCount(pendingItems, pendingPager)}`,
         value: "pending",
         controls: "admin-names-pending",
     },
     {
-        label: loadingApproved || approvedError ? "Approved" : `Approved · ${approvedItems.length}`,
+        label: loadingApproved || approvedError ? "Approved" : `Approved · ${listCount(approvedItems, approvedPager)}`,
         value: "approved",
         controls: "admin-names-approved",
     },

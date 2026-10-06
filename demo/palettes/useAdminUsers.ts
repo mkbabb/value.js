@@ -1,4 +1,4 @@
-import { ref, computed, shallowRef, type Ref } from "vue";
+import { ref, computed, shallowRef, watch, type Ref } from "vue";
 import {
     listUsers,
     impersonateUser,
@@ -12,6 +12,8 @@ import {
 import { useAdminAccess, useAdminNotice, latestRequest, type AdminResult } from "./api/admin-call";
 import { admitRecoveryProbe } from "../platform/transport/availability";
 import type { Palette, User } from "./types";
+import { usePager } from "./usePager";
+import { debounce } from "../shared/utils";
 
 /**
  * The admin users domain — the roster, the one expanded user's palettes, and
@@ -36,8 +38,11 @@ export function useAdminUsers(deps: {
     const { notice, settle, dismiss: dismissNotice } = useAdminNotice();
 
     const adminUsers = ref<User[]>([]);
-    /** The server's roster total (the page holds at most `PAGE_SIZE` of it). */
-    const adminUsersTotal = ref(0);
+    // A2-VA-X-12: the roster is PAGED. It used to fetch one 50-row page and
+    // offer no way to the rest, so 120 users read "120 users" above 50 rows.
+    const usersPager = usePager(50, () => loadAdminUsers());
+    /** The server's roster total (the page holds at most one page of it). */
+    const adminUsersTotal = computed(() => usersPager.total);
     const loadingUsers = ref(false);
     // W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel.
     const usersLoadError = ref<string | null>(null);
@@ -50,8 +55,6 @@ export function useAdminUsers(deps: {
     const loadingUserPalettes = ref(false);
     const userPalettesError = ref<string | null>(null);
     const palettesRead = latestRequest();
-
-    const PAGE_SIZE = 50;
 
     const filteredAdminUsers = computed(() => {
         const q = deps.searchQuery.value.toLowerCase();
@@ -83,6 +86,19 @@ export function useAdminUsers(deps: {
         () => adminUsers.value.filter((u) => !(u.paletteCount ?? 0)).length,
     );
 
+    // The search re-reads the roster from its first page, once typing rests.
+    // Only a roster that has been read re-reads: the query is typed in the
+    // admin pane, but this composable is built with the ports, before any
+    // admin is signed in.
+    let rosterRequested = false;
+    const reloadForQuery = debounce(() => {
+        usersPager.page = 1;
+        void loadAdminUsers();
+    }, 300);
+    watch(deps.searchQuery, () => {
+        if (rosterRequested) reloadForQuery();
+    });
+
     function onUserSortChange(value: string) {
         userSortMode.value = value as "slug" | "newest" | "palettes";
     }
@@ -98,15 +114,25 @@ export function useAdminUsers(deps: {
     }
 
     async function loadAdminUsers() {
+        rosterRequested = true;
         const ticket = rosterRead.issue();
         loadingUsers.value = true;
-        const result = await call((token) => listUsers(token, PAGE_SIZE));
+        // The query is the SERVER's (`q`): a page-local filter would search
+        // only the 50 rows on screen and call that the roster.
+        const q = deps.searchQuery.value.trim() || undefined;
+        const result = await call((token) =>
+            listUsers(token, usersPager.pageSize, usersPager.offset, q),
+        );
         if (!rosterRead.isCurrent(ticket)) return;
         loadingUsers.value = false;
         if (result.ok) {
             adminUsers.value = result.value.data;
-            adminUsersTotal.value = result.value.total;
             usersLoadError.value = null;
+            // Emptying the last page must not strand the roster past its end.
+            if (usersPager.settle(result.value.total, adminUsers.value.length)) {
+                await loadAdminUsers();
+                return;
+            }
             // W7.65: the refresh reaches the open disclosure too.
             if (expandedUserSlug.value !== null) await readUserPalettes(expandedUserSlug.value);
         } else if (result.kind === "failed") {
@@ -219,7 +245,9 @@ export function useAdminUsers(deps: {
         const result = await call((token) => deleteUser(token, slug));
         if (result.ok) {
             adminUsers.value = adminUsers.value.filter((u) => u.slug !== slug);
-            adminUsersTotal.value = Math.max(0, adminUsersTotal.value - 1);
+            if (usersPager.settle(usersPager.total - 1, adminUsers.value.length)) {
+                void loadAdminUsers();
+            }
             closeDisclosureOf(slug);
         }
         settle(result, `Deleted user ${slug}`, "Could not delete the user");
@@ -252,6 +280,7 @@ export function useAdminUsers(deps: {
         dismissNotice,
         adminUsers,
         adminUsersTotal,
+        usersPager,
         loadingUsers,
         usersLoadError,
         userSortMode,

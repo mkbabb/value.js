@@ -9,7 +9,7 @@
                 v-if="!flagged.access.value && !firstLoad && !flagged.loadError.value"
                 class="text-mono-small text-muted-foreground"
             >
-                {{ flagged.total.value }} flagged
+                {{ flagged.pager.total }} flagged
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
@@ -186,14 +186,7 @@
         </div>
 
         <!-- Pagination -->
-        <PaginationBar
-            :page="flagged.page.value"
-            :page-count="flagged.pageCount.value"
-            :has-next="flagged.hasNext.value"
-            :has-prev="flagged.hasPrev.value"
-            @prev="flagged.prevPage"
-            @next="flagged.nextPage"
-        />
+        <PaginationBar :pager="flagged.pager" />
         </template>
 
         <!-- X.W7.e (G14): the deliberate rung (Esc · outside, no ✕) is the

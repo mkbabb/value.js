@@ -9,7 +9,7 @@
  * `palette-browser/PaletteDialog/composables/useDialogModalStack.ts` (the
  * user-facing `flagPalette` report).
  */
-import { ref, computed, type Ref, type ShallowRef } from "vue";
+import { ref, type Ref, type ShallowRef } from "vue";
 import {
     getFlaggedPalettes,
     dismissFlags,
@@ -24,6 +24,7 @@ import {
     type AdminResult,
 } from "./api/admin-call";
 import type { FlaggedPalette } from "./types";
+import { usePager, type Pager } from "./usePager";
 import { ApiProblem } from "../platform/transport/api-problem";
 
 /** The report verdict — W7.22: an API failure is a failure, never a success. */
@@ -33,9 +34,8 @@ export type ReportResult =
 
 export interface UseAdminFlagged {
     items: Ref<FlaggedPalette[]>;
-    total: Ref<number>;
-    page: Ref<number>;
-    pageSize: number;
+    /** The one pager (`usePager`): page, total, next/prev → reload. */
+    pager: Pager;
     loading: Ref<boolean>;
     /** W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel. */
     loadError: Ref<string | null>;
@@ -44,14 +44,9 @@ export interface UseAdminFlagged {
     /** S-13: the last moderation act's one visible verdict. */
     notice: ShallowRef<AdminNotice | null>;
     dismissNotice: () => void;
-    pageCount: Ref<number>;
-    hasNext: Ref<boolean>;
-    hasPrev: Ref<boolean>;
     loadFlagged: () => Promise<void>;
     dismiss: (paletteSlug: string) => Promise<AdminResult<unknown>>;
     deletePalette: (paletteSlug: string) => Promise<AdminResult<unknown>>;
-    nextPage: () => void;
-    prevPage: () => void;
     report: (paletteSlug: string, reason: string, detail?: string) => Promise<ReportResult>;
 }
 
@@ -68,31 +63,24 @@ export function useAdminFlagged(deps: {
     const reads = latestRequest();
 
     const items = ref<FlaggedPalette[]>([]);
-    const total = ref(0);
-    const page = ref(1);
-    const pageSize = 20;
+    const pager = usePager(20, () => loadFlagged());
     const loading = ref(false);
     const loadError = ref<string | null>(null);
-
-    const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)));
-    const hasNext = computed(() => page.value < pageCount.value);
-    const hasPrev = computed(() => page.value > 1);
 
     async function loadFlagged() {
         const ticket = reads.issue();
         loading.value = true;
-        const offset = (page.value - 1) * pageSize;
-        const result = await call((token) => getFlaggedPalettes(token, pageSize, offset));
+        const result = await call((token) =>
+            getFlaggedPalettes(token, pager.pageSize, pager.offset),
+        );
         if (!reads.isCurrent(ticket)) return;
         loading.value = false;
         if (result.ok) {
             items.value = result.value.data;
-            total.value = result.value.total;
             loadError.value = null;
             // W7.72 (AF-28): emptying the last page must not strand the panel on
             // an offset past the end — clamp and re-read the last real page.
-            if (items.value.length === 0 && page.value > pageCount.value) {
-                page.value = pageCount.value;
+            if (pager.settle(result.value.total, items.value.length)) {
                 await loadFlagged();
             }
         } else if (result.kind === "failed") {
@@ -107,11 +95,7 @@ export function useAdminFlagged(deps: {
 
     function removeRow(paletteSlug: string) {
         items.value = items.value.filter((i) => i.paletteSlug !== paletteSlug);
-        total.value = Math.max(0, total.value - 1);
-        if (items.value.length === 0 && page.value > pageCount.value) {
-            page.value = pageCount.value;
-            void loadFlagged();
-        }
+        if (pager.settle(pager.total - 1, items.value.length)) void loadFlagged();
     }
 
     // X.W12U.s3 · UIA-V-644: one register for the act family — every verdict
@@ -148,20 +132,6 @@ export function useAdminFlagged(deps: {
         return result;
     }
 
-    function nextPage() {
-        if (hasNext.value) {
-            page.value++;
-            loadFlagged();
-        }
-    }
-
-    function prevPage() {
-        if (hasPrev.value) {
-            page.value--;
-            loadFlagged();
-        }
-    }
-
     /** User-facing flag/report — no admin token required. */
     async function report(
         paletteSlug: string,
@@ -184,22 +154,15 @@ export function useAdminFlagged(deps: {
 
     return {
         items,
-        total,
-        page,
-        pageSize,
+        pager,
         loading,
         loadError,
         access,
         notice,
         dismissNotice,
-        pageCount,
-        hasNext,
-        hasPrev,
         loadFlagged,
         dismiss,
         deletePalette,
-        nextPage,
-        prevPage,
         report,
     };
 }

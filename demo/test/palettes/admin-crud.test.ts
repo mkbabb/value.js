@@ -192,16 +192,16 @@ describe("N-16 · a paged read cannot be overwritten by an older one", () => {
         await flushPromises();
         const audit = ports.admin.audit;
 
-        audit.page.value = 3;
+        audit.pager.page = 3;
         const third = audit.loadAuditLog();
-        audit.page.value = 2;
+        audit.pager.page = 2;
         await audit.loadAuditLog();
         slow.resolve(json({ data: [entry("p3")], total: 100, limit: 20, offset: 40 }));
         await third;
         await flushPromises();
 
         expect(audit.entries.value.map((e) => e.id)).toEqual(["p2"]);
-        expect(audit.page.value).toBe(2);
+        expect(audit.pager.page).toBe(2);
         expect(audit.loading.value).toBe(false);
         expect(wrapper.text()).toContain("user=p2");
         expect(wrapper.text()).not.toContain("user=p3");

@@ -48,6 +48,8 @@
                 v-if="subView === 'admin-names'"
                 :pending-items="pm.filteredColorQueue.value"
                 :approved-items="pm.filteredApproved.value"
+                :pending-pager="pm.queuePager"
+                :approved-pager="pm.approvedPager"
                 :loading-pending="pm.loadingColorQueue.value"
                 :loading-approved="pm.loadingApproved.value"
                 :pending-error="pm.queueLoadError.value"
@@ -156,7 +158,9 @@ const adminCount = computed(() => {
             // UIA-V-414: nor over the queue's load-error plate.
             return pm.loadingColorQueue.value || pm.namesAccess.value || pm.queueLoadError.value
                 ? null
-                : pm.filteredColorQueue.value.length;
+                : pm.namesSearch.value.trim() !== ""
+                  ? pm.filteredColorQueue.value.length
+                  : pm.queuePager.total;
         default: return null;
     }
 });
