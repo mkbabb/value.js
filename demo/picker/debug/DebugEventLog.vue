@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import type { PointerDebugEvent } from "../composables/usePointerDebug";
+import type { PointerDebugEvent } from "./usePointerDebug";
 
 const { events } = defineProps<{
     events: readonly PointerDebugEvent[];

@@ -71,7 +71,7 @@
 <script setup lang="ts">
 import { ref, inject } from "vue";
 import { ChevronDown } from "@lucide/vue";
-import { POINTER_DEBUG_KEY, TIMESTAMP_GAUGES } from "../composables/usePointerDebug";
+import { POINTER_DEBUG_KEY, TIMESTAMP_GAUGES } from "./usePointerDebug";
 import DebugEventLog from "./DebugEventLog.vue";
 
 const debug = inject(POINTER_DEBUG_KEY)!;

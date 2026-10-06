@@ -38,7 +38,7 @@ import { clamp } from "@mkbabb/value.js/math";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { useTouchGate } from "@mkbabb/glass-ui";
 import { channelNumber, withChannel } from "../../../color-session/picker-color";
-import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
+import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSpectrumPlateStyle } from "./composables/useSpectrumPlateStyle";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 
@@ -237,12 +237,12 @@ onUnmounted(() => {
 
 .spectrum-picker {
     border-radius: var(--radius-xl);
-    box-shadow: 0px 0px 0px 0px transparent;
-    transition: box-shadow var(--duration-normal) var(--ease-standard);
+    /* X-DS pass 1 (V1-27): the original's signature (684c818f) — the hard
+     * offset tinted by the live colour — stands AT REST again; it was hover-only
+     * since the 03b9daed decomposition. One layer, zero blur, same direction as
+     * the card's own stamp. */
+    box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
     overflow: visible;
-    &:hover {
-        box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
-    }
 }
 
 /* R.W3 Lane E / E1 — beat two: the field paints in ~180ms after the plate
@@ -272,7 +272,6 @@ onUnmounted(() => {
     width: 1.75rem;
     height: 1.75rem;
     border: 2px solid var(--dot-border, var(--background));
-    box-shadow: var(--shadow-sm);
     /* The wet-edge filter is the WatercolorDot's own internalised per-instance
        <filter> (glass-ui superset) — no global #watercolor-filter override here. */
     &:hover {

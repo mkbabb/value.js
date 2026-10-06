@@ -110,7 +110,9 @@
         <!-- T21 (R.W4 Lane E): the mounted-but-display:none EditDrawer is
              DELETED — the edit UX lives in the dock; the commit/cancel state
              machine below stays (keyboard + dock consumers). -->
-        <PointerDebugOverlay />
+        <!-- A2-VA-L1-24: the instrument's overlay is a lazy chunk, fetched only
+             under `debug=1`; it never rides the production picker bundle. -->
+        <PointerDebugOverlay v-if="pointerDebug.state.enabled" />
     </div>
 </template>
 
@@ -142,7 +144,7 @@ import { OVERTURE_KEY } from "../color-picker/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { COLOR_TARGET_PORT_KEY } from "../palettes/usePalettePorts";
 
-import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
+import { usePointerDebug, POINTER_DEBUG_KEY } from "./debug/usePointerDebug";
 import { useHeaderCondense } from "./composables/useHeaderCondense";
 import "./seat.css";
 import "./header.css";
@@ -150,7 +152,9 @@ import "./header.css";
 import { writeClipboard } from "@mkbabb/glass-ui";
 import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders/ComponentSliders.vue";
-import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
+const PointerDebugOverlay = defineAsyncComponent(
+    () => import("./debug/PointerDebugOverlay.vue"),
+);
 
 const emit = defineEmits<{
     reset: [];

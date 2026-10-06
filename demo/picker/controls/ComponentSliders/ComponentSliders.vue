@@ -99,7 +99,7 @@ import { PICKER_CHANNELS, channelNumber, normalizedChannel } from "../../../colo
 import { clamp } from "@mkbabb/value.js/math";
 import { spectrumFieldIsLight } from "../spectrumLuma";
 import { readoutDecimals } from "../../display/ColorComponentDisplay/readoutReservation";
-import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
+import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSliderTouchGates } from "./composables/useSliderTouchGates";
 import { useSliderAnnouncements } from "./composables/useSliderAnnouncements";
 import ConsoleRail from "./ConsoleRail.vue";
