@@ -1876,3 +1876,65 @@ fourier web/api = `14fdfc6` (HEAD; ⟨`git diff --stat 05f99a6 HEAD -- web api`�
 
 ### State
 C2R1-1 (the only defect at ≥ MEDIUM) is **CURED** by fourier `14fdfc6` (pushed to `origin/m/w1-bump-migration`). C2R1-2 is corrected in this receipt. C2R1-3 stays with the host owner. Nothing is escalated. The residual R-1 (d2 `:136`, the glass hold that is not released after an outside-click menu close) stands as Repair 1 named it and is relieved. LEDGER `:90` stays IMPLEMENTED, and an event line is appended. Next is Check 3 (RESUME 1).
+
+## Check 3 (RESUME 1) — L-20 pass 3
+
+SERVED MODEL: claude-opus-5-5 · 2026-10-06 · Track C, fresh adversarial check of Repair 2 (RESUME 1) over the RESUME 1 Close (verify-only; no cure). Spec `F-W14V.md` read whole (87 lines, addenda (a)–(h) + §0ec). Record read: RESUME 1 Open → plan, the last `## Close`, `## Check 2 (RESUME 1)`, `## Repair 2 (RESUME 1)` by `sed` range. COHESION §0ei (2026-10-06 owner law: no visible browser) read. fourier HEAD `e9fc236`; web/api = `14fdfc6` (⟨`git log --oneline 14fdfc6..HEAD -- web api`⟩ → ∅; `983cbbf`/`e9fc236` are deploy/scripts, `2935a81` F.CT).
+
+**Crash-recovery.** value.js: no dirty path at the record or `LEDGER.md`. fourier at open: ⟨`git diff --quiet HEAD -- web api`⟩ → `CLEAN`; dirt = F.CT `src/…/contours/*`, `pyproject.toml`, `uv.lock`, `bench/contours/*`, `?? .worktrees/` (siblings'; untouched). No inherited work.
+
+**Instrument.** The host had restarted (no listener on `:3100`/`:8000`/`:27018`). This seat started the dev mongod with its logged options (⟨`mongod --bind_ip 127.0.0.1 --port 27018 --dbpath ~/.mongo-dev/fourier --logpath ~/.mongo-dev/logs/fourier.log --logappend`⟩), its own api `:8050` (fourier tree, `MONGO_URI=…:27018/fourier`, the dev `BLOB_DIR`, `ADMIN_TOKEN=e2e-admin-token`, compute/write rate limits 1000) and vite `:3150` (`VITE_PROXY_API=http://localhost:8050`), all headless. **Mid-run contamination, measured:** at 12:41 (the run began 12:30) a sibling seat executing §0ei item 4 rewrote `web/playwright.config.ts` (`chromium-headed` → `chrome-gpu`, new-headless real Chrome), `web/e2e/fixtures/gpu.ts` (new), `f-w14-dpr`, `f-w14v-detached`, `f-w14v-eq2` specs and four dpr PNGs, all uncommitted (⟨`git status --porcelain -- web`⟩). `web/src` and `api` stayed clean, so the product bytes served were HEAD's throughout.
+
+### Gates reproduced (fourier web/api = `14fdfc6`)
+| Gate | Claim (Repair 2) | This seat | Verdict |
+|---|---|---|---|
+| vue-tsc | 0 ×2 | ⟨`npx vue-tsc --noEmit; echo $?`⟩ → `0` · `0` | REPRODUCED |
+| vitest | 116/116 ×2 | ⟨`npx vitest run`⟩ → `20 passed (20)` · `116 passed (116)` ×2 | REPRODUCED |
+| api suite | 294 ×2 | ⟨`MONGO_TEST_URI=mongodb://127.0.0.1:27018 .venv/bin/python -m pytest api/tests -q`⟩ → `294 passed in 38.61s` · `294 passed in 30.64s` | REPRODUCED |
+| `owner_required` contract + `.r3` migration (C2R1-2 path) | `1 passed` ×2; 9 with migration | ⟨`… pytest "api/tests/conformance/test_identity.py::test_owner_required" api/tests/test_migrate_animation_easing.py -q`⟩ → `9 passed in 0.99s` | REPRODUCED |
+| v181 + u182 + UIA-F-17 `:162` (C2R1-1 cure) | 16/16 ×2 under load | ⟨`BASE_URL=http://localhost:3150 npx playwright test e2e/f-w14u-vdock.spec.ts:282 e2e/f-w14v-u1.spec.ts:169 e2e/f-w14-uia.spec.ts:162 --project=chromium --workers=1 --repeat-each=4`⟩ → `12 passed (4.6m)`; all three GREEN again in the full run | REPRODUCED |
+| full e2e `--workers=1` (§2) | 21 stable = the named set; r2 + d2 | ⟨`FW14_PHASE=w14v-check3-r1 BASE_URL=http://localhost:3150 MONGO_URI=mongodb://127.0.0.1:27018/fourier npx playwright test --workers=1 --reporter=line`⟩ (547) → **`25 failed · 3 skipped · 519 passed (28.2m)`** = the named 21 exactly + 4 × `f-w14-dpr.spec.ts:227` G-p (`[chromium-headed]`, `Error: Project "chromium-headed" not found in the worker process`) | REPRODUCED inside the named set; the 4 are instrument (below) |
+| dpr G-p @gpu ×4 (re-read headless, §0ei) | GREEN in Repair 2's runs | ⟨`… npx playwright test e2e/f-w14-dpr.spec.ts --project=chrome-gpu -g "G-p" --workers=1`⟩ → `4 passed (39.9s)` · `4 passed (1.0m)` | GREEN ×2 (supplementary) |
+
+**The 4 dpr failures are the instrument, not the bytes.** The error is Playwright's own project-identity check: the runner was started with HEAD's config (`chromium-headed`), and the worker that forked at `[539/547]` loaded the sibling's rewritten config, which no longer has that project. No dpr assertion executed. The product bytes are HEAD's, and no wave commit touches `f-w14-dpr.spec.ts` or `playwright.config.ts` (⟨`git log --oneline 97325fb..HEAD -- web/e2e/f-w14-dpr.spec.ts web/playwright.config.ts`⟩ → ∅). Under §0ei this seat may not launch HEAD's headed project, so the four were re-read on the sibling's headless real-GPU `chrome-gpu` project against HEAD's served `web/src`: GREEN ×2. Repair 2 r1/r2 and Check 2 had them GREEN as well.
+
+**Self-count:** 7 gate rows; 6 reproduced as claimed, and 1 supplementary row is GREEN ×2. The full e2e was run once. Its stable set equals Repair 2's stable set (⟨`sort | uniq -c` of the failure list⟩: contrast-floor `:82` ×2 `:128` · au3 `:119` · c3 `:128 :138` · p `:130` ×2 · pd `:104` ×6 · gallery-admin-a11y `:91 :103 :114 :125` · visual-checkpoint `:81 :102 :123` = 21). d2 `:136` is GREEN in this run.
+
+### Axes
+1. **GREENs reproduce:** HELD (the table above).
+2. **Bounds:** HELD. ⟨`git log --oneline 05f99a6..HEAD -- web api`⟩ → `14fdfc6` only. ⟨`git show --stat 14fdfc6`⟩ → `web/e2e/{f-w14-uia,f-w14u-vdock,f-w14v-u1}.spec.ts`, `web/e2e/fixtures/canvas-dock.ts` (new), all in `web/e2e/**`. value.js `82c2f3e9` → the record and `LEDGER.md` only. ⟨`git log --name-only --format= 964a4aea..HEAD | grep -c scripts/dev/dev.sh`⟩ → `0`.
+3. **Masking:** HELD. The diff (read whole) moves `05f99a6`'s settled-state path into one helper and adds one fresh entry before the leave (measured in Repair 2). It raises no timeout and adds no retry, skip, `try`, or allowlist, and it removes no assertion. It drops one fixed `waitForTimeout(700)` in favour of state waits. Each call site still ends in the Export-frame click and the dialog's own assertions.
+4. **Families:** HELD. One meaning, one commit (`14fdfc6`), plus its receipt `82c2f3e9`.
+5. **E-3:** HELD. ⟨`git diff --stat b60c6b2b..HEAD -- docs/tranches/X/fourier/waves/F-W14V.md docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/audit/AUDIT-2-fourier.md`⟩ → empty.
+6. **Mail:** HELD. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`; ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → `0` on value `V/` and `V/coordination`, glass `BK/coordination`, and keyframes `V/coordination` (glass's newest tranche, `BL`, has no `coordination/`).
+7. **Four-verb line:** HELD. LEDGER `:90` reads IMPLEMENTED, and neither Repair stamped it.
+8. **Goal at the bytes:** MET. `.s2` (detached GREEN in the full run), `.r1` (L2-15/v88), `.r3` (catalogue `Literal`, migration, legacy-doc test), `.r4` (x7, uia-r2) and the R-1 pause hold (h1) are all GREEN in the full run. Every remaining RED is a glass ADOPT-AT-LANDING or F.W14U's inherited named set.
+9. **Published figures:** Repair 2's figures reproduce (vue-tsc, vitest, api 294, `owner_required` path, v181/u182/`:162`, the stable 21).
+10. **Honest-RED:** below.
+
+### Register (severity · claim · receipt · cure)
+- **C3R1-1 · INFO · mid-run instrument contamination by a sibling's uncommitted §0ei conversion.** The receipt is the 4 dpr `[chromium-headed]` "project not found" failures in the full run; no wave byte is involved. Re-read headless on real GPU: GREEN ×2. **Cure:** none for this wave. The §0ei root-fix seat owns the config conversion. Until it commits, any full-suite reading on fourier must start after that commit lands.
+- **C3R1-2 · INFO · R-1/C2R1-3 grew.** The dev db holds **26** documents with the legacy `easing: "sine"` (⟨`$group animation_settings.easing`⟩ → `sine 26 · ease-in-out-sine 887`), up from 11 at Close. A pre-`71e0c6d` api wrote them. `run_pending_migrations` (registered) heals them at the next migration run. **Owner:** the host/instrument owner. This seat did not write to the db.
+- **C3R1-3 · INFO · §0ei supersedes this wave's "headed" instrument wording.** The wave's `--headed` readings (Close, Repairs) were lawful under §0be when they were taken. A future re-read uses the headless real-GPU project.
+
+### Honest-RED adjudication (axis 10)
+**Relieved, each owner-named (the 21 stable REDs and the held rows):**
+- **Glass ADOPT-AT-LANDING, owner glass:**
+  - au3 L1-12 `:119`: O-74b CARD-TITLE-RUNG, (h)(2) + §0ec, at the 10.2.0 repin.
+  - c3 c3m/c3g `:128 :138`: O-76a MAGNET-STATE-HIDDEN / MENU-ICON-GAP, add. (a).
+  - p p3 `:130` @1440/@1024: TOASTER-OFFSET, §1 `.p` 2.
+  - `.pd` collapsed `:104` ×6: O-84/O-84a, add. (f), now also folded into O-88 DOCK-COLLAPSE-MOTION at §0el.
+  - Held rows with no RED test: O-77/O-77a LAYER-HEADER-LABEL (add. (b)), O-82 F-177/F-203 (add. (c)), O-85 DOCK-PRIORITY-OVERFLOW ((h)(1)), O-86 TIMELINE-TRANSPORT ((h)(3)(ii)), and L2-12, L2-18ˢ/L3-14 HELD (O-74a E-2).
+- **F.W14U's inherited named set (§2), owner per F.W14U's register:**
+  - contrast-floor `:82` ×2 + `:128`
+  - gallery-admin-a11y `:91 :103 :114 :125`
+  - visual-checkpoint `:81 :102 :123`
+  - f-w14u-d d2 `:136`, which is GREEN in this run and remains relieved (Repair 1 R-1).
+
+**Not relieved:** none.
+
+### Successors
+⟨`grep -rn 'Opens after' docs/tranches/X/fourier/waves/*.md | grep W14V`⟩ → only F-W14V's own line (`F.W14U CLOSED`, MET). No wave declares F.W14V in its "Opens after", so no successor is blocked.
+
+### State
+**CONFORMANT-HONEST-RED.** There are 0 BLOCKER/CRITICAL/HIGH/MEDIUM findings. Every GREEN Repair 2 claimed reproduces. The full e2e's only failures are the named and relieved set of 21, plus 4 instrument-contaminated dpr cases, which are GREEN ×2 on re-read. LEDGER `:90` is set to `CLOSED 2026-09-17 (honest-RED: …)`, and an event line is appended. The instrument (`:8050` api, `:3150` vite) was stopped at seat end. The dev mongod `:27018` this seat started ends with the seat (the host had none running at open). Nothing of anyone else's was stopped, and nothing was written to fourier.
