@@ -3072,3 +3072,33 @@ SERVED MODEL: claude-opus-5-5. Read: W7.md whole (303 lines, ADDENDA (a)–(j));
 - **X-W11** (value.js publish) rides X.P.W7P; unchanged.
 
 **Counts (self-count):** gates reproduced 13 (11 correctness/stay-GREEN rows + L-G1 WebKit + L-G1 Chromium); not reproduced 1 (L-G1 Firefox); L-G1 node read with 2 rows voided. Defect rows 5: HIGH 1 · MINOR 1 · INFO 3. This seat moved 0 product bytes; its bench records went to the scratchpad `c1/` (⟨`git status --porcelain bench src | wc -l`⟩ → `0`).
+
+## Repair 1 of the RESUME 7 Close (2026-10-06, repair seat round 1, `claude-opus-5-5`, Track D; answers `## Check 1 of the RESUME 7 Close`)
+
+SERVED MODEL: claude-opus-5-5. Read: W7.md whole (303 lines, ADDENDA (a)–(j)); of this record the section headings, the RESUME 7 Close header and `## Check 1 of the RESUME 7 Close` whole. Crash-recovery: ⟨`git status --porcelain -- src bench test/css docs/tranches/X/parse-that/evidence/W7 docs/tranches/X/execution/D`⟩ → empty at open; nothing inherited. parse-that's dirty paths are master's standing dirt, untouched. Product bytes: ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json | wc -l`⟩ → `0` at open and at close of this sitting (frozen, §0ef). This seat moved 0 product bytes.
+
+**Outcome: 1 cured (C1-2), 1 ESCALATED (C1-1), 3 INFO with nothing owed.** The row stays IMPLEMENTED; this repair does not stamp CLOSED.
+
+| id | severity | cure | commit | gate re-reading |
+|---|---|---|---|---|
+| C1-2 | MINOR | The close's nine L-G1 records are banked as byte copies under `docs/tranches/X/parse-that/evidence/W7/l-g1-close/close/` (2 node, 1 three-engine r1, 3 r2, 3 r3, plus the close's `load.txt` and `status.txt`); Check 1's four loaded records under `check1/` as supplementary; this sitting's wait log under `repair1/`; one `MANIFEST.sha256` over all of it. | `dac0c9741` (records + manifest), and this section's commit (wait log + manifest refresh) | ⟨`cd close && shasum -a 256 2026-*.json \| cut -c1-8`⟩ → `575deb11 30c8b8ad 809fe196 a5bb2e07 0efdecb8 a6c1d890 d0e09a1e 5b9f58c1 e8e3efc5`, the nine prefixes Check 1 lists. ⟨`tail -n +7 MANIFEST.sha256 \| shasum -a 256 -c - \| grep -c OK`⟩ → `19` ×2 (11 close + 5 check1 + 3 repair1). |
+| C1-1 | HIGH (unreproduced gate; no product defect) | **Not cured: ESCALATED (ESC-W7r7-1).** The cure is a re-read on a quiet host, and the host did not quiet inside ADDENDUM (f) 3's 90-minute bound. No read was launched, so no figure is claimed. See below. | none | none taken |
+| C1-3 | INFO | Ruled an adjacent edit by Check 1. | n/a | n/a |
+| C1-4 | INFO | Homed to X.P.W8's bench unit by Check 1 (bytes frozen; E-3). | n/a | n/a |
+| C1-5 | INFO | None owed. | n/a | n/a |
+
+### ESC-W7r7-1 (C1-1): the quiet-host re-read is still unread; the cure lies outside what a seat can do
+- **The act taken.** `repair1/run.sh.txt`: build the paired bench, then for each of Firefox ×2 and node ×2 wait for ⟨`sysctl -n vm.loadavg`⟩ 1-min < 8 (30 s poll, bound 90 minutes from 14:13), read only if quiet.
+- **The measurement.** 22 samples from 14:25:49 to 15:53:38: minimum **217.03**, maximum **617.52**, never below 8 (`repair1/load.txt`). ⟨`uptime`⟩ at open 14:13 → `380.29 385.07 288.00`; at 16:08 → `223.19 296.74 327.82`. 18 cores (⟨`sysctl -n hw.ncpu`⟩). The bench build alone took 12 minutes (14:13 → `BUILT 14:25:49`). A process census at 15:03 read 130 `Code Helper (Plugin)`, 42 `chrome-headless-shell`, 39 `vitest-vscode`: sibling fleets, not this track.
+- **What was not done.** The seat stopped its waiter at 16:08:46 (`repair1/status.txt`), 115 minutes after open. 0 Firefox reads and 0 node reads were launched: ⟨`ls bench/records | grep -c rp1`⟩ → `0`. A read at load 200–600 would be a recorded read and never a gate read (ADDENDUM (f) 3), and Check 1 already holds one such read; a second adds nothing and costs the siblings CPU.
+- **Why this is an escalation and not a cure.** ADDENDUM (g) 2 names the owner of this read: "The seats cannot quiet the host; the orchestrator can. The L-G1 ×2 read on all four engines is taken in an orchestrator-scheduled window with the sibling tracks idle, as Track D's last act." The close seat got that window at 11:59–12:26 (start loads 6.60–7.79). Check 1 and this repair were both dispatched while the other tracks ran. No path in the wave's File Bounds lowers the host's load.
+- **What the next sitting owes, exactly.** On the frozen `08331dfa`, with the sibling tracks idle and start load < 8 recorded per rep:
+  - ⟨`node bench/paired/browser.mjs <tag>-r{1,2}-firefox firefox 2 whole,acc,rej,large-eq,large 11 product`⟩ ×2;
+  - ⟨`node --expose-gc bench/paired/isolated.mjs <tag>-node-r{1,2} product 3 11 whole,acc,rej,large-eq,large`⟩ ×2 (the two rows Check 1's loaded node read voided: `whole parseCssValue`, `acc parseKeyframeSelector`);
+  - bank the records under `evidence/W7/l-g1-close/` and extend `MANIFEST.sha256`.
+  - 22/22 gated rows < 1 on each read closes C1-1. A quiet clean cell ≥ 1.0 is a cure unit (ADDENDUM (g)), never a noise band.
+- **The standing evidence, now committed.** The close's two quiet Firefox records (`close/…br-r2-firefox.json` `0efdecb8`, `close/…br-r3-firefox.json` `5b9f58c1`) read 22 gated rows below 1 each, as Check 1 re-derived from their bytes. That is the close's claim; it is not this seat's independent reproduction.
+
+**Gates a cure could move:** none. The only commits are evidence files and this record. ⟨`git status --porcelain -- src bench test/css | wc -l`⟩ → `0`.
+**Adjacent edits:** none. **Mail:** no new mail read in scope this sitting; Check 1 read `UNREAD` = 0.
+**Counts (self-count):** defect rows answered 5: cured 1 (C1-2) · escalated 1 (C1-1) · nothing owed 3 (C1-3, C1-4, C1-5). Files banked 19 (11 close + 5 check1 + 3 repair1) + 1 manifest. Reads launched 0. Product bytes moved 0.
