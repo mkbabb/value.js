@@ -1,0 +1,126 @@
+{
+ "run": "after-db-r1",
+ "base": "http://localhost:5331",
+ "da": [],
+ "db": [
+  {
+   "cfg": "cube-1440x900-light",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset matrix",
+      "inHeader": true,
+      "onRow": true
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": null,
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset matrix",
+     "inHeader": true,
+     "onRow": true
+    }
+   ],
+   "ribbonCard": null,
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "GREEN"
+  },
+  {
+   "cfg": "cube-390x844-light",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset matrix",
+      "inHeader": true,
+      "onRow": true
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": null,
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset matrix",
+     "inHeader": true,
+     "onRow": true
+    }
+   ],
+   "ribbonCard": null,
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "GREEN"
+  },
+  {
+   "cfg": "cube-1440x900-dark",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset matrix",
+      "inHeader": true,
+      "onRow": true
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": null,
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset matrix",
+     "inHeader": true,
+     "onRow": true
+    }
+   ],
+   "ribbonCard": null,
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "GREEN"
+  },
+  {
+   "cfg": "cube-390x844-dark",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset matrix",
+      "inHeader": true,
+      "onRow": true
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": null,
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset matrix",
+     "inHeader": true,
+     "onRow": true
+    }
+   ],
+   "ribbonCard": null,
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "GREEN"
+  }
+ ],
+ "ribbon": [],
+ "header": [],
+ "dialog": []
+}

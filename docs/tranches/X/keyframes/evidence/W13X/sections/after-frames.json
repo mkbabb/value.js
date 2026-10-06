@@ -1,0 +1,210 @@
+{
+ "run": "after-frames",
+ "base": "http://localhost:5331",
+ "da": [],
+ "db": [],
+ "ribbon": [],
+ "header": [
+  {
+   "cfg": "spring-1440x900-light",
+   "headers": 1,
+   "titles": [
+    "Spring"
+   ],
+   "statusInHeader": 1,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "spring-Entry-1440x900-light",
+   "headers": 1,
+   "titles": [
+    "@starting-style"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "sequence-1440x900-light",
+   "headers": 1,
+   "titles": [
+    "Sequence"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "easing-1440x900-light",
+   "headers": 1,
+   "titles": [
+    "ease"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "square-1440x900-light",
+   "headers": 1,
+   "titles": [
+    "Transform"
+   ],
+   "statusInHeader": 1,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "spring-390x844-light",
+   "headers": 1,
+   "titles": [
+    "Spring"
+   ],
+   "statusInHeader": 1,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "spring-Entry-390x844-light",
+   "headers": 1,
+   "titles": [
+    "@starting-style"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "sequence-390x844-light",
+   "headers": 1,
+   "titles": [
+    "Sequence"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "easing-390x844-light",
+   "headers": 1,
+   "titles": [
+    "ease"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "square-390x844-light",
+   "headers": 1,
+   "titles": [
+    "Transform"
+   ],
+   "statusInHeader": 1,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "spring-1440x900-dark",
+   "headers": 1,
+   "titles": [
+    "Spring"
+   ],
+   "statusInHeader": 1,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "spring-Entry-1440x900-dark",
+   "headers": 1,
+   "titles": [
+    "@starting-style"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "sequence-1440x900-dark",
+   "headers": 1,
+   "titles": [
+    "Sequence"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "easing-1440x900-dark",
+   "headers": 1,
+   "titles": [
+    "ease"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "square-1440x900-dark",
+   "headers": 1,
+   "titles": [
+    "Transform"
+   ],
+   "statusInHeader": 1,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "spring-390x844-dark",
+   "headers": 1,
+   "titles": [
+    "Spring"
+   ],
+   "statusInHeader": 1,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "spring-Entry-390x844-dark",
+   "headers": 1,
+   "titles": [
+    "@starting-style"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "sequence-390x844-dark",
+   "headers": 1,
+   "titles": [
+    "Sequence"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "easing-390x844-dark",
+   "headers": 1,
+   "titles": [
+    "ease"
+   ],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  },
+  {
+   "cfg": "square-390x844-dark",
+   "headers": 1,
+   "titles": [
+    "Transform"
+   ],
+   "statusInHeader": 1,
+   "statusOutside": 0,
+   "L1_8": "GREEN"
+  }
+ ],
+ "dialog": []
+}

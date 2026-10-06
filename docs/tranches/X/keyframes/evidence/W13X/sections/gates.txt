@@ -1,0 +1,17 @@
+SERVED MODEL: claude-opus-5-5 — X.KF.W13X.sections floor gates on the committed bytes (kf b857284e, scratch worktree)
+== check-after-r1
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT 0
+== check-after-r2
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT 0
+== testdemo-after-r1
+ Test Files  119 passed (119)
+      Tests  804 passed (804)
+EXIT 0
+== testdemo-after-r2
+ Test Files  119 passed (119)
+      Tests  804 passed (804)
+EXIT 0
+== lint-after
+✔ no dependency violations found (444 modules, 1615 dependencies cruised)

@@ -1,0 +1,170 @@
+{
+ "run": "before-frames",
+ "base": "http://localhost:5332",
+ "da": [],
+ "db": [],
+ "ribbon": [],
+ "header": [
+  {
+   "cfg": "spring-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-Entry-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "sequence-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "easing-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "square-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-Entry-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "sequence-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "easing-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "square-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-Entry-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "sequence-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "easing-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "square-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-Entry-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "sequence-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "easing-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "square-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  }
+ ],
+ "dialog": []
+}
