@@ -1,0 +1,160 @@
+{
+  "base": "http://localhost:9000",
+  "routes": [
+    "/#/",
+    "/#/palettes",
+    "/#/browse",
+    "/#/extract",
+    "/#/mix",
+    "/#/generate",
+    "/#/gradient",
+    "/#/atmosphere",
+    "/#/blob"
+  ],
+  "results": [
+    {
+      "name": "picker-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "palettes-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "browse-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "extract-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "mix-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "generate-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "gradient-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "atmosphere-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "blob-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "picker-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "palettes-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "browse-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "extract-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "mix-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "generate-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "gradient-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "atmosphere-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "blob-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "picker-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "palettes-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "browse-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "extract-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "mix-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "generate-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "gradient-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "atmosphere-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "blob-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "picker-390-dark.png",
+      "ok": true
+    },
+    {
+      "name": "palettes-390-dark.png",
+      "ok": true
+    },
+    {
+      "name": "browse-390-dark.png",
+      "ok": true
+    },
+    {
+      "name": "extract-390-dark.png",
+      "ok": true
+    },
+    {
+      "name": "mix-390-dark.png",
+      "ok": true
+    },
+    {
+      "name": "generate-390-dark.png",
+      "ok": true
+    },
+    {
+      "name": "gradient-390-dark.png",
+      "ok": true
+    },
+    {
+      "name": "atmosphere-390-dark.png",
+      "ok": true
+    },
+    {
+      "name": "blob-390-dark.png",
+      "ok": true
+    }
+  ]
+}
