@@ -1,0 +1,2175 @@
+{
+  "tool": "ds-census",
+  "at": "2026-10-06T16:51:25.481Z",
+  "static": {
+    "totals": {
+      "boxShadowDecls": 8,
+      "boxShadowLayers": 8,
+      "insetLayers": 1,
+      "textShadow": 0,
+      "filterDropShadow": 3,
+      "filterBlur": 0,
+      "backdropBlur": 0,
+      "gradients": 9,
+      "infiniteAnimations": 2,
+      "keyframes": 4,
+      "twShadow": 1,
+      "twDropShadow": 0,
+      "twBackdropBlur": 0,
+      "twGradient": 0,
+      "twLoopAnimate": 0
+    },
+    "sites": [
+      {
+        "file": "web/src/components/admin/AdminUserTable.vue",
+        "line": 176,
+        "kind": "gradient",
+        "text": "background-image: linear-gradient("
+      },
+      {
+        "file": "web/src/components/equation/ConvergencePlot.vue",
+        "line": 645,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 4px 12px color-mix(in srgb, var(--foreground) 8%, transparent);"
+      },
+      {
+        "file": "web/src/components/equation/EquationView.vue",
+        "line": 753,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 4px 12px color-mix(in srgb, var(--foreground) 8%, transparent);"
+      },
+      {
+        "file": "web/src/components/equation/EquationView.vue",
+        "line": 812,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);"
+      },
+      {
+        "file": "web/src/components/equation/convergence/ConvergenceLegend.vue",
+        "line": 96,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 4px color-mix(in srgb, var(--viz-amber) 40%, transparent);"
+      },
+      {
+        "file": "web/src/components/gallery/GalleryCard.vue",
+        "line": 233,
+        "kind": "gradient",
+        "text": "background-image: linear-gradient("
+      },
+      {
+        "file": "web/src/components/morph/HarmonicLevelGrid.vue",
+        "line": 338,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-red) 15%, transparent);"
+      },
+      {
+        "file": "web/src/components/paper/PaperArticleWindow.vue",
+        "line": 153,
+        "kind": "tw:shadow",
+        "text": "max-w-full rounded-lg shadow-sm"
+      },
+      {
+        "file": "web/src/components/paper/PaperView.vue",
+        "line": 514,
+        "kind": "gradient",
+        "text": "background: linear-gradient("
+      },
+      {
+        "file": "web/src/components/paper/PaperView.vue",
+        "line": 526,
+        "kind": "gradient",
+        "text": "background: linear-gradient("
+      },
+      {
+        "file": "web/src/components/paper/PaperView.vue",
+        "line": 548,
+        "kind": "gradient",
+        "text": "radial-gradient(circle at center, color-mix(in srgb, var(--background) 92%, transparent), color-mix(in srgb, var(--background) 98%, transparent) 68%),"
+      },
+      {
+        "file": "web/src/components/ui/SliderControl.vue",
+        "line": 315,
+        "kind": "gradient",
+        "text": "--glass-slider-track-background: linear-gradient("
+      },
+      {
+        "file": "web/src/components/visualization/AnimationControls.vue",
+        "line": 229,
+        "kind": "gradient",
+        "text": "--dock-control-active-bg: linear-gradient(135deg, hsl(0 75% 62% / 0.55), hsl(35 85% 58% / 0.5), hsl(55 80% 55% / 0.45), hsl(140 50% 50% / 0.45), hsl(210 65% 58%"
+      },
+      {
+        "file": "web/src/components/visualization/AnimationControls.vue",
+        "line": 231,
+        "kind": "animation:infinite",
+        "text": "animation: rainbow-drift 2.5s var(--ease-standard) infinite;"
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 445,
+        "kind": "gradient",
+        "text": "linear-gradient(color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px),"
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 446,
+        "kind": "gradient",
+        "text": "linear-gradient(90deg, color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px),"
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 506,
+        "kind": "filter:drop-shadow",
+        "text": "filter: drop-shadow(0 0 2px color-mix(in srgb, var(--contour-stroke) 30%, transparent));"
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 511,
+        "kind": "animation:infinite",
+        "text": "animation: golden-shimmer 1.2s ease-in-out infinite;"
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 515,
+        "kind": "filter:drop-shadow",
+        "text": "0%, 100% { filter: drop-shadow(0 0 2px color-mix(in srgb, var(--contour-stroke) 30%, transparent)); }"
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 516,
+        "kind": "filter:drop-shadow",
+        "text": "50% { filter: drop-shadow(0 0 5px color-mix(in srgb, var(--contour-stroke) 50%, transparent)); }"
+      },
+      {
+        "file": "web/src/components/visualization/ImageUpload.vue",
+        "line": 175,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 0 2px var(--focus-ring-color);"
+      },
+      {
+        "file": "web/src/components/visualization/VisualizationView.vue",
+        "line": 967,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 0 2px var(--focus-ring-color);"
+      },
+      {
+        "file": "web/src/components/visualization/VisualizationView.vue",
+        "line": 977,
+        "kind": "box-shadow(inset)",
+        "text": "box-shadow: inset 0 0 0 2px var(--focus-ring-color);"
+      }
+    ]
+  },
+  "computed": {
+    "base": "http://localhost:3199",
+    "routes": [
+      "/paper",
+      "/gallery",
+      "/equation",
+      "/morph",
+      "/w/",
+      "/v/elegant-passing-mauve-swift",
+      "/no-such-route"
+    ],
+    "sum": {
+      "boxShadowEls": 286,
+      "boxShadowLayers": 716,
+      "multiLayerShadowEls": 228,
+      "insetHighlightLayers": 190,
+      "textShadowEls": 0,
+      "filterDropShadowEls": 0,
+      "filterBlurEls": 0,
+      "backdropBlurEls": 206,
+      "controlGradientEls": 0,
+      "loopingAnimations": 0
+    },
+    "perPage": {
+      "/paper|light|1440": {
+        "totals": {
+          "elements": 321,
+          "boxShadowEls": 4,
+          "boxShadowLayers": 7,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "nav.sidebar-nav.scrollbar-thin",
+              "n": 1,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.08) 3px 3px 0px 0px"
+            },
+            {
+              "el": "article.paper-article.leading-relaxed",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px"
+            },
+            {
+              "el": "div.theorem-block.theorem-block--theorem",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0.04) 0px 1px 3px 0px, rgba(0, 0, 0, 0.03) 0px 1px 2px 0px"
+            },
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) "
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "blur(10px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|light|1440": {
+        "totals": {
+          "elements": 118,
+          "boxShadowEls": 10,
+          "boxShadowLayers": 15,
+          "multiLayerShadowEls": 5,
+          "insetHighlightLayers": 5,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.gallery-card.deferred-section.w-full",
+              "n": 5,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px"
+            },
+            {
+              "el": "div.badge-atom.justify-center.whitespace-nowrap",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.badge-atom.justify-center.whitespace-nowrap",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|light|1440": {
+        "totals": {
+          "elements": 309,
+          "boxShadowEls": 33,
+          "boxShadowLayers": 91,
+          "multiLayerShadowEls": 29,
+          "insetHighlightLayers": 25,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 26,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 16,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.cartoon-card.px-3.py-2",
+              "n": 3,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 3,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "div.cartoon-card.relative.eq-card",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.07) "
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.07) "
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) "
+            },
+            {
+              "el": "span.legend-dot.legend-dot--golden",
+              "n": 1,
+              "v": "color(srgb 0.616 0.394333 0.084 / 0.4) 0px 0px 4px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 16,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 16,
+              "v": "blur(17.75px) saturate(1.605)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "blur(10px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|light|1440": {
+        "totals": {
+          "elements": 131,
+          "boxShadowEls": 28,
+          "boxShadowLayers": 71,
+          "multiLayerShadowEls": 23,
+          "insetHighlightLayers": 18,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 21,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 5,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px"
+            },
+            {
+              "el": "div.cartoon-card.config-card",
+              "n": 3,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "button.morph-button.cartoon-card",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.cartoon-card.levels-card",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 12,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|light|1440": {
+        "totals": {
+          "elements": 42,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 7,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "div.canvas-container.cartoon-card",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/v/elegant-passing-mauve-swift|light|1440": {
+        "totals": {
+          "elements": 42,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 7,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "div.canvas-container.cartoon-card",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|light|1440": {
+        "totals": {
+          "elements": 18,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|light|390": {
+        "totals": {
+          "elements": 139,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 1,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "article.paper-article.leading-relaxed",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px"
+            },
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) "
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "blur(10px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|light|390": {
+        "totals": {
+          "elements": 116,
+          "boxShadowEls": 10,
+          "boxShadowLayers": 15,
+          "multiLayerShadowEls": 5,
+          "insetHighlightLayers": 5,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.gallery-card.deferred-section.w-full",
+              "n": 5,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px"
+            },
+            {
+              "el": "div.badge-atom.justify-center.whitespace-nowrap",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.badge-atom.justify-center.whitespace-nowrap",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|light|390": {
+        "totals": {
+          "elements": 167,
+          "boxShadowEls": 22,
+          "boxShadowLayers": 62,
+          "multiLayerShadowEls": 20,
+          "insetHighlightLayers": 18,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 19,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 13,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.cartoon-card.px-3.py-2",
+              "n": 2,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 2,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 13,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 13,
+              "v": "blur(17.75px) saturate(1.605)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 2,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|light|390": {
+        "totals": {
+          "elements": 129,
+          "boxShadowEls": 28,
+          "boxShadowLayers": 71,
+          "multiLayerShadowEls": 23,
+          "insetHighlightLayers": 18,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 21,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 5,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px"
+            },
+            {
+              "el": "div.cartoon-card.config-card",
+              "n": 3,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "button.morph-button.cartoon-card",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.cartoon-card.levels-card",
+              "n": 1,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 12,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|light|390": {
+        "totals": {
+          "elements": 42,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 1,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            }
+          ],
+          "inset": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/v/elegant-passing-mauve-swift|light|390": {
+        "totals": {
+          "elements": 42,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 1,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            }
+          ],
+          "inset": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|light|390": {
+        "totals": {
+          "elements": 16,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|dark|1440": {
+        "totals": {
+          "elements": 321,
+          "boxShadowEls": 4,
+          "boxShadowLayers": 7,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "nav.sidebar-nav.scrollbar-thin",
+              "n": 1,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.08) 3px 3px 0px 0px"
+            },
+            {
+              "el": "article.paper-article.leading-relaxed",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px"
+            },
+            {
+              "el": "div.theorem-block.theorem-block--theorem",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0.15) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px 0px"
+            },
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06)"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "blur(10px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|dark|1440": {
+        "totals": {
+          "elements": 118,
+          "boxShadowEls": 10,
+          "boxShadowLayers": 15,
+          "multiLayerShadowEls": 5,
+          "insetHighlightLayers": 5,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.gallery-card.deferred-section.w-full",
+              "n": 5,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px"
+            },
+            {
+              "el": "div.badge-atom.justify-center.whitespace-nowrap",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.badge-atom.justify-center.whitespace-nowrap",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|dark|1440": {
+        "totals": {
+          "elements": 309,
+          "boxShadowEls": 33,
+          "boxShadowLayers": 91,
+          "multiLayerShadowEls": 29,
+          "insetHighlightLayers": 25,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 26,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 16,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.cartoon-card.px-3.py-2",
+              "n": 3,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 3,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8p"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "div.cartoon-card.relative.eq-card",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.11)"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.11)"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06)"
+            },
+            {
+              "el": "span.legend-dot.legend-dot--golden",
+              "n": 1,
+              "v": "color(srgb 0.9109 0.72621 0.4291 / 0.4) 0px 0px 4px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 16,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 16,
+              "v": "blur(17.75px) saturate(1.8)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "blur(10px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|dark|1440": {
+        "totals": {
+          "elements": 131,
+          "boxShadowEls": 28,
+          "boxShadowLayers": 71,
+          "multiLayerShadowEls": 23,
+          "insetHighlightLayers": 18,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 21,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 5,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8p"
+            },
+            {
+              "el": "div.cartoon-card.config-card",
+              "n": 3,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "button.morph-button.cartoon-card",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.cartoon-card.levels-card",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 12,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|dark|1440": {
+        "totals": {
+          "elements": 42,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 7,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "div.canvas-container.cartoon-card",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/v/elegant-passing-mauve-swift|dark|1440": {
+        "totals": {
+          "elements": 42,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 7,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "div.canvas-container.cartoon-card",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|dark|1440": {
+        "totals": {
+          "elements": 18,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|dark|390": {
+        "totals": {
+          "elements": 139,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 1,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "article.paper-article.leading-relaxed",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px"
+            },
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06)"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "div.overlay-page.glass-wash.fira-code",
+              "n": 1,
+              "v": "blur(10px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|dark|390": {
+        "totals": {
+          "elements": 116,
+          "boxShadowEls": 10,
+          "boxShadowLayers": 15,
+          "multiLayerShadowEls": 5,
+          "insetHighlightLayers": 5,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.gallery-card.deferred-section.w-full",
+              "n": 5,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px"
+            },
+            {
+              "el": "div.badge-atom.justify-center.whitespace-nowrap",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.badge-atom.justify-center.whitespace-nowrap",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|dark|390": {
+        "totals": {
+          "elements": 167,
+          "boxShadowEls": 22,
+          "boxShadowLayers": 62,
+          "multiLayerShadowEls": 20,
+          "insetHighlightLayers": 18,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 19,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 13,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.cartoon-card.px-3.py-2",
+              "n": 2,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 2,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8p"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 13,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 13,
+              "v": "blur(17.75px) saturate(1.8)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 2,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "input#fn-expression.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#fn-domain-start.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|dark|390": {
+        "totals": {
+          "elements": 129,
+          "boxShadowEls": 28,
+          "boxShadowLayers": 71,
+          "multiLayerShadowEls": 23,
+          "insetHighlightLayers": 18,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 21,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 5,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8p"
+            },
+            {
+              "el": "div.cartoon-card.config-card",
+              "n": 3,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "button.morph-button.cartoon-card",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.cartoon-card.levels-card",
+              "n": 1,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 12,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 4,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "span.glass-chip.glass-capsule.accent-tone",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|dark|390": {
+        "totals": {
+          "elements": 42,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 1,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            }
+          ],
+          "inset": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/v/elegant-passing-mauve-swift|dark|390": {
+        "totals": {
+          "elements": 42,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 1,
+          "insetHighlightLayers": 1,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            }
+          ],
+          "inset": [
+            {
+              "el": "section.configurator.glass-floating.rounded-panel",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|dark|390": {
+        "totals": {
+          "elements": 16,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      }
+    }
+  }
+}

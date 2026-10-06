@@ -1,0 +1,562 @@
+{
+  "tool": "ds-census",
+  "at": "2026-10-06T16:54:15.576Z",
+  "static": {
+    "totals": {
+      "boxShadowDecls": 10,
+      "boxShadowLayers": 12,
+      "insetLayers": 0,
+      "textShadow": 2,
+      "filterDropShadow": 0,
+      "filterBlur": 0,
+      "backdropBlur": 0,
+      "gradients": 2,
+      "infiniteAnimations": 4,
+      "keyframes": 8,
+      "twShadow": 5,
+      "twDropShadow": 0,
+      "twBackdropBlur": 3,
+      "twGradient": 0,
+      "twLoopAnimate": 1
+    },
+    "sites": [
+      {
+        "file": ".worktrees/ds-orig/web/src/components/layout/AppHeader.vue",
+        "line": 34,
+        "kind": "tw:backdrop-blur",
+        "text": "app-header sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/60"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/layout/AppHeader.vue",
+        "line": 38,
+        "kind": "tw:shadow",
+        "text": "logo-icon flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm transition-all duration-300 group-hover:scale-105 gro"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/layout/DarkModeToggle.vue",
+        "line": 224,
+        "kind": "animation:infinite",
+        "text": "animation: spin-rays 240s linear infinite;"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/layout/DarkModeToggle.vue",
+        "line": 235,
+        "kind": "animation:infinite",
+        "text": "animation: gentle-pulse 6s ease-in-out alternate infinite;"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/layout/DarkModeToggle.vue",
+        "line": 272,
+        "kind": "animation:infinite",
+        "text": "animation: star-twinkle 2s steps(5, end) infinite alternate;"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/paper/PaperSection.vue",
+        "line": 40,
+        "kind": "gradient",
+        "text": "background: linear-gradient("
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/paper/PaperView.vue",
+        "line": 121,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/paper/PaperView.vue",
+        "line": 126,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/AnimationControls.vue",
+        "line": 78,
+        "kind": "gradient",
+        "text": "background: linear-gradient("
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/AnimationControls.vue",
+        "line": 97,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/AnimationControls.vue",
+        "line": 104,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/AnimationControls.vue",
+        "line": 118,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/BasisCanvas.vue",
+        "line": 255,
+        "kind": "tw:shadow",
+        "text": "overflow-hidden rounded-xl border border-border bg-card transition-all duration-200 hover:shadow-sm"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/ContourSettings.vue",
+        "line": 125,
+        "kind": "tw:animate-loop",
+        "text": "h-3.5 w-3.5 animate-spin"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/ImageUpload.vue",
+        "line": 112,
+        "kind": "box-shadow",
+        "text": "box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/ImageUpload.vue",
+        "line": 58,
+        "kind": "tw:shadow",
+        "text": "flex items-center gap-1.5 rounded-md bg-background/90 px-3 py-1.5 text-xs font-medium shadow-sm backdrop-blur-sm fira-code"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/ImageUpload.vue",
+        "line": 58,
+        "kind": "tw:backdrop-blur",
+        "text": "flex items-center gap-1.5 rounded-md bg-background/90 px-3 py-1.5 text-xs font-medium shadow-sm backdrop-blur-sm fira-code"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/ImageUpload.vue",
+        "line": 65,
+        "kind": "tw:shadow",
+        "text": "flex items-center gap-1.5 rounded-md bg-background/90 px-3 py-1.5 text-xs font-medium opacity-0 transition-all duration-200 group-hover:opacity-100 shadow-sm ba"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/ImageUpload.vue",
+        "line": 65,
+        "kind": "tw:backdrop-blur",
+        "text": "flex items-center gap-1.5 rounded-md bg-background/90 px-3 py-1.5 text-xs font-medium opacity-0 transition-all duration-200 group-hover:opacity-100 shadow-sm ba"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/components/visualization/VisualizationView.vue",
+        "line": 77,
+        "kind": "animation:infinite",
+        "text": "animation: spin 0.7s linear infinite;"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/style.css",
+        "line": 157,
+        "kind": "text-shadow",
+        "text": "text-shadow:"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/style.css",
+        "line": 167,
+        "kind": "text-shadow",
+        "text": "text-shadow:"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/style.css",
+        "line": 246,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/style.css",
+        "line": 251,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/style.css",
+        "line": 325,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06),"
+      },
+      {
+        "file": ".worktrees/ds-orig/web/src/style.css",
+        "line": 330,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35),"
+      }
+    ]
+  },
+  "computed": {
+    "base": "http://localhost:3199",
+    "routes": [
+      "/paper",
+      "/visualize"
+    ],
+    "sum": {
+      "boxShadowEls": 16,
+      "boxShadowLayers": 32,
+      "multiLayerShadowEls": 16,
+      "insetHighlightLayers": 0,
+      "textShadowEls": 4,
+      "filterDropShadowEls": 0,
+      "filterBlurEls": 0,
+      "backdropBlurEls": 8,
+      "controlGradientEls": 0,
+      "loopingAnimations": 0
+    },
+    "perPage": {
+      "/paper|light|1440": {
+        "totals": {
+          "elements": 2691,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 1,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.logo-icon.flex.h-8",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            },
+            {
+              "el": "a.router-link-active.router-link-exact-active.nav-tab",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            }
+          ],
+          "inset": [],
+          "textShadow": [
+            {
+              "el": "h1.cm-serif.text-4xl.font-bold",
+              "n": 1,
+              "v": "rgb(191, 188, 176) 1px 1px 0px, rgb(180, 177, 167) 2px 2px 0px, rgb(163, 161, 153) 3px 3px 0px, rgba(0, 0, 0, 0.08) 3px 3px 1px, rgba(0, 0, 0, 0.06) 1px 1px 4px, rgba(0, 0, 0, 0.1) 2px 2px 4px"
+            }
+          ],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/visualize|light|1440": {
+        "totals": {
+          "elements": 23,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.logo-icon.flex.h-8",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            },
+            {
+              "el": "a.router-link-active.router-link-exact-active.nav-tab",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|light|390": {
+        "totals": {
+          "elements": 2691,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 1,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.logo-icon.flex.h-8",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            },
+            {
+              "el": "a.router-link-active.router-link-exact-active.nav-tab",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            }
+          ],
+          "inset": [],
+          "textShadow": [
+            {
+              "el": "h1.cm-serif.text-4xl.font-bold",
+              "n": 1,
+              "v": "rgb(191, 188, 176) 1px 1px 0px, rgb(180, 177, 167) 2px 2px 0px, rgb(163, 161, 153) 3px 3px 0px, rgba(0, 0, 0, 0.08) 3px 3px 1px, rgba(0, 0, 0, 0.06) 1px 1px 4px, rgba(0, 0, 0, 0.1) 2px 2px 4px"
+            }
+          ],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/visualize|light|390": {
+        "totals": {
+          "elements": 23,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.logo-icon.flex.h-8",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            },
+            {
+              "el": "a.router-link-active.router-link-exact-active.nav-tab",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|dark|1440": {
+        "totals": {
+          "elements": 2691,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 1,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.logo-icon.flex.h-8",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            },
+            {
+              "el": "a.router-link-active.router-link-exact-active.nav-tab",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            }
+          ],
+          "inset": [],
+          "textShadow": [
+            {
+              "el": "h1.cm-serif.text-4xl.font-bold",
+              "n": 1,
+              "v": "rgb(48, 45, 44) 1px 1px 0px, rgb(40, 38, 36) 2px 2px 0px, rgb(32, 30, 29) 3px 3px 0px, rgba(0, 0, 0, 0.25) 3px 3px 1px, rgba(0, 0, 0, 0.2) 1px 1px 4px, rgba(0, 0, 0, 0.35) 2px 2px 4px"
+            }
+          ],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/visualize|dark|1440": {
+        "totals": {
+          "elements": 23,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.logo-icon.flex.h-8",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            },
+            {
+              "el": "a.router-link-active.router-link-exact-active.nav-tab",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|dark|390": {
+        "totals": {
+          "elements": 2691,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 1,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.logo-icon.flex.h-8",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            },
+            {
+              "el": "a.router-link-active.router-link-exact-active.nav-tab",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            }
+          ],
+          "inset": [],
+          "textShadow": [
+            {
+              "el": "h1.cm-serif.text-4xl.font-bold",
+              "n": 1,
+              "v": "rgb(48, 45, 44) 1px 1px 0px, rgb(40, 38, 36) 2px 2px 0px, rgb(32, 30, 29) 3px 3px 0px, rgba(0, 0, 0, 0.25) 3px 3px 1px, rgba(0, 0, 0, 0.2) 1px 1px 4px, rgba(0, 0, 0, 0.35) 2px 2px 4px"
+            }
+          ],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/visualize|dark|390": {
+        "totals": {
+          "elements": 23,
+          "boxShadowEls": 2,
+          "boxShadowLayers": 4,
+          "multiLayerShadowEls": 2,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 1,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.logo-icon.flex.h-8",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            },
+            {
+              "el": "a.router-link-active.router-link-exact-active.nav-tab",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "header.app-header.sticky.top-0",
+              "n": 1,
+              "v": "blur(12px)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      }
+    }
+  }
+}
