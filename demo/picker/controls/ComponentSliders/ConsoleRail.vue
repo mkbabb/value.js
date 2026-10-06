@@ -72,7 +72,7 @@
                          card is #2). -->
                     <TooltipContent :side="isLgViewport ? 'left' : 'bottom'" class="max-w-56">
                         <p class="font-display text-small font-semibold">{{ componentDescription(component) }}</p>
-                        <p class="fira-code text-mono-caption opacity-60 mt-0.5">{{ currentColorRanges[component] }}</p>
+                        <p class="font-mono text-mono-caption opacity-60 mt-0.5">{{ currentColorRanges[component] }}</p>
                     </TooltipContent>
                 </Tooltip>
             </TooltipProvider>
@@ -87,7 +87,7 @@ import {
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "../../../ui/tooltip";
+} from "@mkbabb/glass-ui/tooltip";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";

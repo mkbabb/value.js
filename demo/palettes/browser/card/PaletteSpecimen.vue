@@ -61,7 +61,7 @@
                 :title="`${palette.forkCount} remix${palette.forkCount === 1 ? '' : 'es'}`"
             >
                 <GitFork class="w-3 h-3" aria-hidden="true" />
-                <span class="fira-code">{{ formatCount(palette.forkCount ?? 0).text }}</span>
+                <span class="font-mono">{{ formatCount(palette.forkCount ?? 0).text }}</span>
             </span>
             <span
                 v-if="(palette.versionCount ?? 0) > 1"
@@ -70,7 +70,7 @@
                 :title="`${palette.versionCount} versions`"
             >
                 <History class="w-3 h-3" aria-hidden="true" />
-                <span class="fira-code">{{ formatCount(palette.versionCount ?? 0).text }}</span>
+                <span class="font-mono">{{ formatCount(palette.versionCount ?? 0).text }}</span>
             </span>
         </div>
     </div>
@@ -78,7 +78,7 @@
 
 <script setup lang="ts">
 import { Award, GitFork, History } from "@lucide/vue";
-import { Badge } from "../../../ui/badge";
+import { Badge } from "@mkbabb/glass-ui/badge";
 import type { Palette } from "../../types";
 import { formatCount } from "../../../color-session/format-color";
 import PaletteColorStrip from "./PaletteColorStrip.vue";

@@ -269,8 +269,8 @@
 <script setup lang="ts">
 import { inject, ref, shallowRef, watch, type Component } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
-import { Button } from "../../../ui/button";
-import { Badge } from "../../../ui/badge";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Badge } from "@mkbabb/glass-ui/badge";
 import {
     Dialog,
     DialogContent,

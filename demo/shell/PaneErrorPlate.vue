@@ -62,8 +62,8 @@ export class PaneChunkError extends Error {
 
 <script setup lang="ts">
 import { RotateCcw } from "@lucide/vue";
-import { Button } from "../ui/button";
-import { Card } from "../ui/card";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Card } from "@mkbabb/glass-ui/card";
 import EmptyState from "../shared/ui/EmptyState.vue";
 
 /** `defineAsyncComponent` hands its `errorComponent` the loader's error; the

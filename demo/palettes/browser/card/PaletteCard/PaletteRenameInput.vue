@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, useTemplateRef } from "vue";
 import { Check, X as XIcon, Pencil } from "@lucide/vue";
-import { Button } from "../../../../ui/button";
+import { Button } from "@mkbabb/glass-ui/button";
 
 const { name } = defineProps<{
     name: string;

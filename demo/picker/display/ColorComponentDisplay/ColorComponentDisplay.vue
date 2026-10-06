@@ -28,7 +28,7 @@
                     :aria-label="`${component} component value`"
                     :class="[
                         'readout-fig',
-                        formatted[component]?.monospace && 'fira-code',
+                        formatted[component]?.monospace && 'font-mono',
                     ]"
                     @input="
                         (e) => {
@@ -54,7 +54,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { CardTitle } from "../../../ui/card";
+import { CardTitle } from "@mkbabb/glass-ui/card";
 import {
     READOUT_MEASURE_EM,
     readoutDecimals,

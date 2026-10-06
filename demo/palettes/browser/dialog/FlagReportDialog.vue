@@ -67,9 +67,9 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "../../../ui/dialog";
-import { Button } from "../../../ui/button";
-import { RadioGroup, RadioGroupItem } from "../../../ui/radio-group";
+} from "@mkbabb/glass-ui/dialog";
+import { Button } from "@mkbabb/glass-ui/button";
+import { RadioGroup, RadioGroupItem } from "@mkbabb/glass-ui/radio-group";
 import { Textarea } from "@mkbabb/glass-ui/textarea";
 
 // UIA-V-580: the dead `paletteSlug` prop is gone — the host owns the request.

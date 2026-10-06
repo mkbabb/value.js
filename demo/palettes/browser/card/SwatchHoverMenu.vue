@@ -38,8 +38,8 @@
 </template>
 
 <script setup lang="ts">
-import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
-import { Button } from "../../../ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
+import { Button } from "@mkbabb/glass-ui/button";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { formatCssCaption } from "../../../color-session/format-color";
 

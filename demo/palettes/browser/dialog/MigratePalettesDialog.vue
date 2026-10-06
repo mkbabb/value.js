@@ -58,8 +58,8 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "../../../ui/dialog";
-import { Button } from "../../../ui/button";
+} from "@mkbabb/glass-ui/dialog";
+import { Button } from "@mkbabb/glass-ui/button";
 import { Globe, ArrowRightLeft, SkipForward } from "@lucide/vue";
 
 export type MigrateChoice = "publish" | "transfer" | "discard";

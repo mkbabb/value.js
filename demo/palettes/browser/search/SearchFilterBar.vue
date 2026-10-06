@@ -148,9 +148,9 @@
 
 <script setup lang="ts">
 import { ref, computed, useId } from "vue";
-import { Button } from "../../../ui/button";
-import { Input } from "../../../ui/input";
-import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Input } from "@mkbabb/glass-ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import MiniColorPicker from "./MiniColorPicker.vue";
 import TagChipSet from "./TagChipSet.vue";
 import { Chip } from "@mkbabb/glass-ui/chip";

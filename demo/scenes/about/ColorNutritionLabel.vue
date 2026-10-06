@@ -172,9 +172,9 @@ import { computed, ref, inject } from "vue";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { contrastInkFor } from "../../color-session/ink";
-import { Separator } from "../../ui/separator";
+import { Separator } from "@mkbabb/glass-ui/separator";
 import { ArrowRight } from "@lucide/vue";
-import { Alert, AlertTitle, AlertDescription } from "../../ui/alert";
+import { Alert, AlertTitle, AlertDescription } from "@mkbabb/glass-ui";
 import type { ColorModel } from "../../color-session/color-model";
 import { SPACE_CATALOG } from "../../color-session/space-catalog";
 

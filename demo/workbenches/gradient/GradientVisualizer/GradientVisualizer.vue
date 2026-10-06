@@ -6,8 +6,8 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "../../../ui/select";
-import { Slider } from "../../../ui/slider";
+} from "@mkbabb/glass-ui/select";
+import { Slider } from "@mkbabb/glass-ui/slider";
 import { Check, Copy } from "@lucide/vue";
 import { useClipboard } from "@mkbabb/glass-ui";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition

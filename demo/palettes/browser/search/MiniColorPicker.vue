@@ -45,7 +45,7 @@
                     class="block h-6 w-6 rounded-full border-2 border-border shrink-0 shadow-cartoon-sm"
                     :style="{ backgroundColor: currentHex }"
                 />
-                <span class="fira-code text-caption flex-1 truncate text-muted-foreground">
+                <span class="font-mono text-caption flex-1 truncate text-muted-foreground">
                     {{ currentHex }}
                 </span>
                 <Button
@@ -62,8 +62,8 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, useTemplateRef, onScopeDispose } from "vue";
-import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
-import { Button } from "../../../ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
+import { Button } from "@mkbabb/glass-ui/button";
 
 const { open, hex } = defineProps<{
     open: boolean;

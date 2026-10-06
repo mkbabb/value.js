@@ -155,9 +155,9 @@
 
 <script setup lang="ts">
 import { computed, inject, onMounted, onScopeDispose, watch } from "vue";
-import { Button } from "../../../ui/button";
-import { Input } from "../../../ui/input";
-import { Badge } from "../../../ui/badge";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Input } from "@mkbabb/glass-ui/input";
+import { Badge } from "@mkbabb/glass-ui/badge";
 import { RefreshCw } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";

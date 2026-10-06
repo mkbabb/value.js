@@ -100,8 +100,8 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Separator } from "../../ui/separator";
-import { Card, CardContent } from "../../ui/card";
+import { Separator } from "@mkbabb/glass-ui/separator";
+import { Card, CardContent } from "@mkbabb/glass-ui/card";
 import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import ColorNutritionLabel from "./ColorNutritionLabel.vue";

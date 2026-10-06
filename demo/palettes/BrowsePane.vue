@@ -228,8 +228,8 @@ import {
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
 import { Search, Trash2 } from "@lucide/vue";
-import { Card } from "../ui/card";
-import { Button } from "../ui/button";
+import { Card } from "@mkbabb/glass-ui/card";
+import { Button } from "@mkbabb/glass-ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
 import { PaletteCardGrid, PaletteCardSkeleton } from "./browser/card";

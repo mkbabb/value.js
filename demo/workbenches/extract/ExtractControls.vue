@@ -77,7 +77,7 @@
                  live pick certified against its rung at the WCAG 1.4.11
                  graphics floor (the O-18 graphics leg is its born-RED gate). -->
             <div data-o18="extract-kc" class="flex items-center gap-1.5 flex-1 min-w-0">
-                <label class="fira-code text-micro plate-ink whitespace-nowrap" title="Chroma weight">kC</label>
+                <label class="font-mono text-micro plate-ink whitespace-nowrap" title="Chroma weight">kC</label>
                 <Slider
                     aria-label="Chroma weight"
                     variant="spectrum"
@@ -90,7 +90,7 @@
                     :style="{ '--glass-slider-track-background': trackInk }"
                     @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
                 />
-                <span class="fira-code text-micro plate-ink tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
+                <span class="font-mono text-micro plate-ink tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
             </div>
 
             <DockSeparator />
@@ -111,7 +111,7 @@
 import { computed } from "vue";
 import { Upload, Camera, RotateCcw } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
-import { Slider } from "../../ui/slider";
+import { Slider } from "@mkbabb/glass-ui/slider";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { GRAPHICS_CONTRAST_FLOOR } from "../../color-session/ink";
 

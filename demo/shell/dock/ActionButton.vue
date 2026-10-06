@@ -51,7 +51,7 @@ import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from "../../ui/popover";
+} from "@mkbabb/glass-ui/popover";
 import { useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
 const dock = useOptionalDockContext();

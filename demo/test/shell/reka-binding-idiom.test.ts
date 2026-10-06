@@ -43,7 +43,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import { Checkbox } from "../../ui/checkbox";
+import { Checkbox } from "@mkbabb/glass-ui/checkbox";
 
 describe("NG-6 · the reka binding-correctness canary", () => {
     it("the RENDERED EFFECT follows the model binding — the idiom itself", () => {

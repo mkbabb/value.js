@@ -66,8 +66,8 @@ export const FAILURE_REPORTER_KEY: InjectionKey<FailureReporter> = Symbol("failu
 <script setup lang="ts">
 import { ref, nextTick, onErrorCaptured, useTemplateRef, inject, watch } from "vue";
 import { RotateCcw } from "@lucide/vue";
-import { Button } from "../ui/button";
-import { Card } from "../ui/card";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Card } from "@mkbabb/glass-ui/card";
 import EmptyState from "../shared/ui/EmptyState.vue";
 import { PaneChunkError } from "../shell/PaneErrorPlate.vue";
 

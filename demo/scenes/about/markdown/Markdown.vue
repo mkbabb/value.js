@@ -32,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { Alert, AlertDescription, AlertTitle } from "../../../ui/alert";
-import { Skeleton } from "../../../ui/skeleton";
+import { Alert, AlertDescription, AlertTitle } from "@mkbabb/glass-ui";
+import { Skeleton } from "@mkbabb/glass-ui";
 import "../../../styles/foundation.css";
 import "../../../styles/utils.css";
 import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";

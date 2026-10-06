@@ -2,10 +2,10 @@
 import { inject, computed, watch, ref, TransitionGroup } from "vue";
 import { Plus, X, ChevronDown } from "@lucide/vue";
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../ui/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { WatercolorDot } from "../../shared/ui/watercolor-dot";
-import { Button } from "../../ui/button";
+import { Button } from "@mkbabb/glass-ui/button";
 import { PaletteColorStrip } from "../../palettes/browser/card";
 import EmptyState from "../../shared/ui/EmptyState.vue";
 import type { Palette } from "../../palettes/types";
@@ -260,7 +260,7 @@ const swatchKeys = computed(() => {
                                 <PaletteColorStrip :colors="palette.colors" />
                                 <div class="px-3 py-2 flex items-center justify-between gap-2">
                                     <span class="text-small font-display font-semibold truncate">{{ palette.name }}</span>
-                                    <span class="fira-code text-micro text-muted-foreground shrink-0">{{ palette.colors.length }}</span>
+                                    <span class="font-mono text-micro text-muted-foreground shrink-0">{{ palette.colors.length }}</span>
                                 </div>
                                 <!-- Clickable swatches -->
                                 <div class="px-3 pb-3 flex flex-wrap gap-1.5">
@@ -358,7 +358,7 @@ const swatchKeys = computed(() => {
                                 >{{ palette.name }}</span
                             >
                             <span
-                                class="fira-code text-micro text-muted-foreground shrink-0"
+                                class="font-mono text-micro text-muted-foreground shrink-0"
                                 >{{ palette.colors.length }}</span
                             >
                         </span>

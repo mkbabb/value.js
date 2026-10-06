@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from "../../../ui/button";
+import { Button } from "@mkbabb/glass-ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -45,7 +45,7 @@ import {
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
-} from "../../../ui/dropdown-menu";
+} from "@mkbabb/glass-ui/menu";
 import { EllipsisVertical, Clock, ArrowDownAZ, Palette } from "@lucide/vue";
 
 defineProps<{

@@ -167,7 +167,7 @@
                                 <!-- the caption register (format-color): the readout
                                      and its title read the same bounded spelling. -->
                                 <code
-                                    class="fira-code text-mono-small plate-ink truncate select-all"
+                                    class="font-mono text-mono-small plate-ink truncate select-all"
                                     :title="formatCssCaption(session.dominant.value.serialized)"
                                     >{{ formatCssCaption(session.dominant.value.serialized) }}</code
                                 >

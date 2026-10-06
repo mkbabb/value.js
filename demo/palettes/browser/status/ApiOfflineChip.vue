@@ -11,7 +11,7 @@
     <span
         v-if="misconfigured"
         role="alert"
-        class="api-offline-chip api-misconfig-chip fira-code"
+        class="api-offline-chip api-misconfig-chip font-mono"
     >
         <span class="misconfig-dot" aria-hidden="true"></span>
         dev misconfigured — run `npm run dev`
@@ -19,7 +19,7 @@
     <span
         v-else-if="offline"
         role="status"
-        class="api-offline-chip fira-code"
+        class="api-offline-chip font-mono"
     >
         <span class="offline-dot" aria-hidden="true"></span>
         backend offline — saved locally

@@ -6,10 +6,10 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "../../ui/select";
-import { Slider } from "../../ui/slider";
-import { Button } from "../../ui/button";
-import { Badge } from "../../ui/badge";
+} from "@mkbabb/glass-ui/select";
+import { Slider } from "@mkbabb/glass-ui/slider";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Badge } from "@mkbabb/glass-ui/badge";
 import { RefreshCw, Save, Copy, Check } from "@lucide/vue";
 import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition

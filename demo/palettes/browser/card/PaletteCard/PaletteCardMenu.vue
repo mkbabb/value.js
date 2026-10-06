@@ -184,7 +184,7 @@ import {
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
-} from "../../../../ui/dropdown-menu";
+} from "@mkbabb/glass-ui/menu";
 import {
     Trash2,
     Globe,

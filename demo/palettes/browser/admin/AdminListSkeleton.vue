@@ -19,5 +19,5 @@
 </template>
 
 <script setup lang="ts">
-import { Skeleton } from "../../../ui/skeleton";
+import { Skeleton } from "@mkbabb/glass-ui";
 </script>

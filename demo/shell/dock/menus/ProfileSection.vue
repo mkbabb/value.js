@@ -8,8 +8,8 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,
-} from "../../../ui/dropdown-menu";
-import { Avatar, AvatarImage } from "../../../ui/avatar";
+} from "@mkbabb/glass-ui/menu";
+import { Avatar, AvatarImage } from "@mkbabb/glass-ui";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
 import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
 

@@ -107,7 +107,7 @@
                             />
                             <span
                                 v-if="row.specimen"
-                                class="specimen-caption fira-code text-mono-caption lowercase truncate"
+                                class="specimen-caption font-mono text-mono-caption lowercase truncate"
                                 :data-specimen-form="row.specimen.form"
                                 :data-out-of-gamut="String(row.specimen.outOfGamut)"
                                 :style="{ '--specimen-char-budget': SPECIMEN_CHAR_BUDGET }"

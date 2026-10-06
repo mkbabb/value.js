@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, computed } from "vue";
-import { Card } from "../../ui/card";
+import { Card } from "@mkbabb/glass-ui/card";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import MixSourceSelector from "./MixSourceSelector.vue";
 import MixConfigBar from "./MixConfigBar.vue";

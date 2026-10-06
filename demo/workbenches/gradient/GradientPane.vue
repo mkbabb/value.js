@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useTemplateRef } from "vue";
-import { Card } from "../../ui/card";
+import { Card } from "@mkbabb/glass-ui/card";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import type { GradientSceneTarget } from "../../color-session/keys";
 import GradientVisualizer from "./GradientVisualizer/GradientVisualizer.vue";

@@ -11,7 +11,7 @@
          lives untouched in availability.ts — this lamp only READS the latch. -->
     <span
         v-if="lamp"
-        class="dock-status-lamp fira-code"
+        class="dock-status-lamp font-mono"
         :data-variant="lamp.variant"
         :role="lamp.role"
     >

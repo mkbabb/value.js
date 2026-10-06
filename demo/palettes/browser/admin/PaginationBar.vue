@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from "../../../ui/button";
+import { Button } from "@mkbabb/glass-ui/button";
 import { ChevronLeft, ChevronRight } from "@lucide/vue";
 
 defineProps<{

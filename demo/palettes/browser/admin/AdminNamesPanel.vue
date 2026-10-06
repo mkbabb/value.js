@@ -222,7 +222,7 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import { Button } from "../../../ui/button";
+import { Button } from "@mkbabb/glass-ui/button";
 import { Check, X as XIcon, Trash2 } from "@lucide/vue";
 import type { ProposedColorName } from "../../../color-session/color-names";
 import { formatCssCaption } from "../../../color-session/format-color";

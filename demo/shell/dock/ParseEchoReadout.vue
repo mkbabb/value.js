@@ -8,7 +8,7 @@
          computeds, which no `v-if` can catch. The producers are total as of
          this unit (gate N4), so the decoration goes: what renders here always
          renders. -->
-    <div class="fira-code text-mono-small flex flex-col items-center gap-1">
+    <div class="font-mono text-mono-small flex flex-col items-center gap-1">
         <div class="flex flex-wrap justify-center gap-x-2 gap-y-0.5">
             <!-- D6 (T.W3-5 / A11Y-F4): the `/70` alpha-post-multiply on an
                  already-below-floor muted ink is DEAD — both spans wear the

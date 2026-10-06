@@ -60,9 +60,9 @@
 
 <script setup lang="ts">
 import { computed, inject, onMounted, ref, watch } from "vue";
-import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import { PopoverAnchor } from "reka-ui";
-import { Button } from "../../../ui/button";
+import { Button } from "@mkbabb/glass-ui/button";
 import TagChipSet from "./TagChipSet.vue";
 import { Loader2 } from "@lucide/vue";
 import { paletteETag } from "../../api";

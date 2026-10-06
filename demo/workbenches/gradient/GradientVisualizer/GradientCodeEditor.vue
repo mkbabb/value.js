@@ -104,7 +104,7 @@ onMounted(() => render(modelValue));
         <p
             v-if="parseVerdict"
             data-testid="gradient-parse-verdict"
-            class="fira-code text-mono-small text-destructive"
+            class="font-mono text-mono-small text-destructive"
             role="status"
         >
             {{ parseVerdict }}

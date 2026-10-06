@@ -7,9 +7,9 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,
-} from "../../../ui/dropdown-menu";
+} from "@mkbabb/glass-ui/menu";
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
-import { Avatar, AvatarImage } from "../../../ui/avatar";
+import { Avatar, AvatarImage } from "@mkbabb/glass-ui";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
 import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
 

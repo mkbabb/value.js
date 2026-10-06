@@ -59,10 +59,9 @@ Use glass-ui's named utilities — `.text-display-*`, `.text-title`, `.text-head
 `.section-label` — instead of raw `text-2xl` etc. The φ-ratio scale (glass-ui
 DESIGN.md §Typography → Size tokens) is the canonical step ladder; display rungs
 are viewport-fluid `clamp()`s by design (no `sm:` responsive type pairs).
-Project-specific font aliases (`utils.css:4-11`) expose `.fraunces` + `.fira-code`
-for one-off opt-in (markdown code, the picker's component readout).
+Mono and display faces are named by the `font-mono` / `font-display` tokens
+only (the `.fira-code` / `.fraunces` alias classes retired at X.W12U.k, A2-VA-L1-23).
 
-The `.section-subtitle` recipe (utils.css:18-27) is a single-line caption variant of glass-ui's `.section-label` with muted half-opacity + line-clamp — consumed by the gradient / mix / generate control bars.
 
 ### The card-lock law (NORMATIVE — R.W3 Lane A / A6, U31)
 
@@ -394,7 +393,7 @@ Explicit. A change-list reviewer should flag any of these.
 - **No `:deep()` for shadcn internals** — use role/label selectors or `data-*` attributes. (`PaletteCard.vue`'s `.featured-badge :deep(svg)` is the post-D.W4 Lane A survivor, scoped to the badge wrapper — no further `:deep()` reaches into reka-ui markup.)
 - **No numeric `z-[NN]` literals** in `demo/@/components/custom/` or `demo/color-picker/` — route through `--z-*` tokens via `z-dock`, `z-popover`, etc. Tailwind utilities (post-Lane A) or `z-[var(--z-popover)]` arbitrary reach.
 - **No `100vh`** — use `100dvh` for mobile-safe viewports. The dock-band math depends on this; `100vh` would clip on iOS Safari with the URL bar collapsed.
-- **No hand-rolled Alert** — consume `Alert` / `AlertTitle` / `AlertDescription` from `@components/ui/alert`, which re-exports glass-ui's primitive (B.W2 idiomatic-gestalt finding N1). The barrel exists for ergonomics; the implementation is upstream.
+- **No hand-rolled Alert** — consume `Alert` / `AlertTitle` / `AlertDescription` from `@mkbabb/glass-ui` (the `demo/ui/*` re-export shims retired at X.W12U.k, A2-VA-L1-8) (B.W2 idiomatic-gestalt finding N1). The barrel exists for ergonomics; the implementation is upstream.
 - **No magic `[var(--…)]` reaches when a Tailwind utility exists** — post-D.W4 Lane A, ~43 sites collapse to first-class utilities (`z-dock` instead of `z-[var(--z-dock)]`, `duration-fast` instead of `duration-[var(--duration-fast)]`, `rounded-media` instead of `rounded-[var(--radius-media)]`). Truly-bespoke residuals (≤ 5) carry an inline rationale.
 - **No `button:has(> .lucide-x)` or similar markup-coupled selectors** — use role/label or a stable `data-*` (Lane A fix in `PaletteDialog.vue`).
 - **No parallel `design-idioms.css`** — tokens live in `style.css :root` + the glass-ui-published surface; recipes stay colocated in their components' `<style scoped>` blocks. A second CSS file would create a cascade-order split-brain (glass-ui DESIGN.md §Token Architecture → Feature token home rule warns against the same shape; research/Df-styling.md §6 settled the verdict).

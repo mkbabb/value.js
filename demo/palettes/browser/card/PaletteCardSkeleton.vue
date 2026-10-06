@@ -86,7 +86,7 @@
  * component, whose <Transition mode="out-in"> leave never completes. The
  * template now opens on its element; the note lives here.
  */
-import { Skeleton } from "../../../ui/skeleton";
+import { Skeleton } from "@mkbabb/glass-ui";
 
 const { count = 5, variant = "shadow" } = defineProps<{
     count?: number;

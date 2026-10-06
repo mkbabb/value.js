@@ -179,9 +179,9 @@
 
 <script setup lang="ts">
 import { inject, reactive, ref, shallowRef, computed, watch, onMounted, nextTick } from "vue";
-import { Card } from "../ui/card";
-import { Button } from "../ui/button";
-import { Badge } from "../ui/badge";
+import { Card } from "@mkbabb/glass-ui/card";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Badge } from "@mkbabb/glass-ui/badge";
 import { Search, Trash2 } from "@lucide/vue";
 import { useSortable, insertNodeAt, removeNode } from "@vueuse/integrations/useSortable";
 import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";

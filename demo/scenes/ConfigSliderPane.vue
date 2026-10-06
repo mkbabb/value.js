@@ -13,9 +13,9 @@
 // (rebuilt at N.W5.B) additionally drives the default slot with its enum-atom
 // Select rows (harmony / arrangement / medium / motion) above the sliders.
 
-import { Button } from "../ui/button";
-import { Card } from "../ui/card";
-import { Slider } from "../ui/slider";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Card } from "@mkbabb/glass-ui/card";
+import { Slider } from "@mkbabb/glass-ui/slider";
 import { Check, Copy, RotateCcw } from "@lucide/vue";
 import { GlassDock } from "@mkbabb/glass-ui/dock";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";

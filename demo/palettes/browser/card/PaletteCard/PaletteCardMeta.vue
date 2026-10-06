@@ -67,7 +67,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { Heart } from "@lucide/vue";
-import { Popover, PopoverContent, PopoverTrigger } from "../../../../ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import type { Palette } from "../../../types";
 import { formatCount } from "../../../../color-session/format-color";
 

@@ -120,7 +120,7 @@
                          never a silent bare slug with an empty strip. -->
                     <span
                         v-if="!item.palette"
-                        class="fira-code text-mono-caption text-muted-foreground opacity-70 tracking-wide"
+                        class="font-mono text-mono-caption text-muted-foreground opacity-70 tracking-wide"
                         style="font-variant: small-caps"
                     >palette deleted</span>
                     <span v-else-if="item.palette.userSlug" class="text-mono-caption text-muted-foreground truncate">
@@ -230,8 +230,8 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import { Button } from "../../../ui/button";
-import { Badge } from "../../../ui/badge";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Badge } from "@mkbabb/glass-ui/badge";
 import { RefreshCw, Trash2 } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";

@@ -203,9 +203,9 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import { Button } from "../../../ui/button";
-import { Input } from "../../../ui/input";
-import { Skeleton } from "../../../ui/skeleton";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Input } from "@mkbabb/glass-ui/input";
+import { Skeleton } from "@mkbabb/glass-ui";
 import { Plus, RefreshCw, Trash2, X } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";

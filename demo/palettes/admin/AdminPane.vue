@@ -93,8 +93,8 @@
 <script setup lang="ts">
 import { Search } from "@lucide/vue";
 import { inject, computed } from "vue";
-import { Card } from "../../ui/card";
-import { Badge } from "../../ui/badge";
+import { Card } from "@mkbabb/glass-ui/card";
+import { Badge } from "@mkbabb/glass-ui/badge";
 
 import { ADMIN_PORT_KEY } from "../usePalettePorts";
 import ActionFeedback from "../browser/card/PaletteCard/ActionFeedback.vue";

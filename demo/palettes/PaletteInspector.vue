@@ -147,7 +147,7 @@ import {
     useTemplateRef,
     watch,
 } from "vue";
-import { Button } from "../ui/button";
+import { Button } from "@mkbabb/glass-ui/button";
 import { MoreHorizontal, GripVertical } from "@lucide/vue";
 import type { Palette, PaletteColor } from "./types";
 import { getPaletteKind, type PaletteKind } from "./utils";

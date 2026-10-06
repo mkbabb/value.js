@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { inject } from "vue";
-import { Card } from "../../ui/card";
+import { Card } from "@mkbabb/glass-ui/card";
 import ExtractWorkbench from "./ExtractWorkbench.vue";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import { COLOR_TARGET_PORT_KEY } from "../../palettes/usePalettePorts";

@@ -82,7 +82,7 @@
                             "
                         />
                     </div>
-                    <span class="channel-meter fira-code" aria-live="off">{{
+                    <span class="channel-meter font-mono" aria-live="off">{{
                         meterText(component)
                     }}</span>
                 </div>
@@ -93,8 +93,8 @@
 
 <script setup lang="ts">
 import { computed, inject, onDeactivated, ref, watch } from "vue";
-import { Card } from "../../../ui/card";
-import { Slider } from "../../../ui/slider";
+import { Card } from "@mkbabb/glass-ui/card";
+import { Slider } from "@mkbabb/glass-ui/slider";
 import { PICKER_CHANNELS, channelNumber, normalizedChannel } from "../../../color-session/picker-color";
 import { clamp } from "@mkbabb/value.js/math";
 import { spectrumFieldIsLight } from "../spectrumLuma";

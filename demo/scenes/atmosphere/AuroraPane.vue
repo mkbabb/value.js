@@ -21,7 +21,7 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "../../ui/select";
+} from "@mkbabb/glass-ui/select";
 import type { AcceptableValue } from "reka-ui";
 import type {
     AuroraHarmony,

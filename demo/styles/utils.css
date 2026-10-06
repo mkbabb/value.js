@@ -1,31 +1,5 @@
 /* Fonts loaded via <link> tags in index.html to avoid render-blocking @import */
 
-/* Project-specific font aliases */
-.fraunces {
-    font-family: var(--font-display);
-    font-optical-sizing: auto;
-}
-
-.fira-code {
-    font-family: var(--font-mono);
-}
-
-/* Shared single-line caption recipe — `.section-label` (glass-ui typography)
- * extended with muted half-opacity and a one-line clamp. Consumed by the
- * control-bar components (gradient / mix / generate). The standard `line-clamp`
- * drives modern engines; `-webkit-line-clamp` + `-webkit-box` remain the
- * Safari support floor. */
-.section-subtitle {
-    font-family: var(--font-mono);
-    font-size: var(--type-caption);
-    color: color-mix(in srgb, var(--muted-foreground) 50%, transparent);
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-}
-
 /* `.pastel-rainbow-text` EXCISED (S.W5-7 · Q4 RATIFIED EXCISE 2026-07-05;
  * the `--accent-live` ramp alternative NOT taken): the fixed six-hue candy
  * ramp failed contrast at every stop over the light header wash (≈1.1–1.5:1),

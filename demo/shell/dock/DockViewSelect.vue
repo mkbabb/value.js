@@ -3,7 +3,7 @@ import { ArrowLeft, Shield } from "@lucide/vue";
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectSeparator, SelectValue,
-} from "../../ui/select";
+} from "@mkbabb/glass-ui/select";
 import { computed, inject } from "vue";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
 import type { ViewEntry } from "./composables/useDockAdminMode";

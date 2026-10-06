@@ -26,6 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import { Card } from "../ui/card";
-import { Skeleton } from "../ui/skeleton";
+import { Card } from "@mkbabb/glass-ui/card";
+import { Skeleton } from "@mkbabb/glass-ui";
 </script>

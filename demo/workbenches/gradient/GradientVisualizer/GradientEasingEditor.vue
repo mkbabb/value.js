@@ -132,7 +132,7 @@ async function copyLiteral(index: number, css: string) {
                 :aria-controls="`easing-interval-${row.index}`"
                 @click="toggleInterval(row.index)"
             >
-                <span class="fira-code text-mono-small text-muted-foreground shrink-0">{{ row.label }}</span>
+                <span class="font-mono text-mono-small text-muted-foreground shrink-0">{{ row.label }}</span>
                 <!-- The specimen label (t-easing-pane §7): endpoint dots +
                      the interval-true micro glyph + the curve's name. -->
                 <span class="specimen-dots shrink-0" aria-hidden="true">
@@ -144,7 +144,7 @@ async function copyLiteral(index: number, css: string) {
                 </svg>
                 <!-- text-mono-SMALL: curve identifiers are case-sensitive;
                      text-mono-caption would uppercase them (P1-7). -->
-                <span class="fira-code text-mono-small text-muted-foreground truncate flex-1 min-w-0">{{ row.name }}</span>
+                <span class="font-mono text-mono-small text-muted-foreground truncate flex-1 min-w-0">{{ row.name }}</span>
                 <ChevronDown
                     class="interval-chevron w-4 h-4 shrink-0 text-muted-foreground"
                     :class="openInterval === row.index ? 'rotate-180' : ''"
@@ -185,7 +185,7 @@ async function copyLiteral(index: number, css: string) {
                      precedent) AND visually unifies the rail with the canvas
                      plate below it. -->
                 <div class="readout-rail flex items-center gap-1.5 rounded-md bg-well px-2 py-1">
-                    <code class="fira-code text-mono-small text-muted-foreground truncate flex-1 min-w-0" :title="row.css">{{ row.css }}</code>
+                    <code class="font-mono text-mono-small text-muted-foreground truncate flex-1 min-w-0" :title="row.css">{{ row.css }}</code>
                     <button
                         type="button"
                         class="rail-btn shrink-0"

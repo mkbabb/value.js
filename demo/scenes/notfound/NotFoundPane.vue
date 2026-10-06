@@ -50,8 +50,8 @@ import { computed, inject } from "vue";
 import { useRoute } from "vue-router";
 import { Home } from "@lucide/vue";
 
-import { Card } from "../../ui/card";
-import { Button } from "../../ui/button";
+import { Card } from "@mkbabb/glass-ui/card";
+import { Button } from "@mkbabb/glass-ui/button";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import EmptyState from "../../shared/ui/EmptyState.vue";
 import { VIEW_MANAGER_KEY } from "../../shell/useViewManager";

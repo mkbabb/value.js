@@ -16,7 +16,7 @@
                         autocapitalize="off"
                         autocorrect="off"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
-                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
@@ -105,7 +105,7 @@
                 </p>
                 <Separator class="my-2" />
 
-                <div class="fira-code w-full flex justify-center">
+                <div class="font-mono w-full flex justify-center">
                     {{ formatColor(currentPhysicalColor, "caption") }}
                 </div>
 
@@ -124,14 +124,14 @@ import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from "../../ui/popover";
+} from "@mkbabb/glass-ui/popover";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "../../ui/tooltip";
-import { Separator } from "../../ui/separator";
+} from "@mkbabb/glass-ui/tooltip";
+import { Separator } from "@mkbabb/glass-ui/separator";
 import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
 import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "../../color-session/color-names";

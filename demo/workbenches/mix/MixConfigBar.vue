@@ -6,16 +6,15 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "../../ui/select";
-import { Button } from "../../ui/button";
+} from "@mkbabb/glass-ui/select";
+import { Button } from "@mkbabb/glass-ui/button";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
 // (`@mkbabb/glass-ui/labeled-field`, 7.0.0). `controlLabelable: false` drops the
 // invalid `for` on a non-labelable composite root, and the slot's `labelledBy`
 // names the reka combobox through `aria-labelledby` — so the caption that used to
 // float unassociated above each trigger IS the trigger's accessible name, and the
 // duplicated literal `aria-label` retires. Imported at the subpath the demo already
-// consumes producer families through (dock / aurora / search / tabs / easing);
-// `demo/ui/**` is X-W8's surface and is untouched.
+// consumes producer families through (dock / aurora / search / tabs / easing).
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import { Blend } from "@lucide/vue";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";

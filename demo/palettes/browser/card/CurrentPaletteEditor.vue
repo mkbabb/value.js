@@ -174,14 +174,14 @@
 import { inject, ref, toRef, TransitionGroup } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import { formatCssCaption } from "../../../color-session/format-color";
-import { Input } from "../../../ui/input";
-import { Button } from "../../../ui/button";
+import { Input } from "@mkbabb/glass-ui/input";
+import { Button } from "@mkbabb/glass-ui/button";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "../../../ui/tooltip";
+} from "@mkbabb/glass-ui/tooltip";
 import {
     Plus,
     Pencil,
