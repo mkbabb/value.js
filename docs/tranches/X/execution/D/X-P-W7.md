@@ -3007,3 +3007,68 @@ None. ESC-W7l4-1 is discharged: ADDENDUM (g) ruled the equal-work cell and the q
 
 ### Four-verb line
 W7.md has no §State clause and designates no seat to stamp VERIFIED. Every engineering gate binding this wave reads GREEN on the frozen bytes, and L-G1 ×2 is read on all four engines on a quiet host. X.P.W7 moves to **IMPLEMENTED**. VERIFIED is not stamped here; the L-20 check reads it, and the release gates ride X.P.W7P.
+
+## Check 1 of the RESUME 7 Close (2026-10-06, L-20 fresh adversarial pass 1, `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+SERVED MODEL: claude-opus-5-5. Read: W7.md whole (303 lines, ADDENDA (a)–(j)); of this record the header, `## RESUME 7 — Open` through `## RESUME 7 Close`. Crash-recovery: ⟨`git status --porcelain -- docs/tranches/X/execution/`⟩ → empty; nothing inherited. Product bytes: ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json`⟩ → empty (frozen, §0ef).
+
+**Verdict: NOT-CONFORMANT, on one conjunct only.** Every correctness and stay-GREEN gate the close claims reproduces (11). L-G1 reproduces on WebKit and Chromium and reads no cell ≥ 1 on node, but **L-G1 Firefox could not be re-read by this seat**: the host never quieted (1-min load 8.8 at open, 17–68 through a 35-minute bounded wait, 37–131 during the reads, 414–465 after; sibling fleets), and the one read taken at load 37–67 is not a gate read under ADDENDUM (f) 3. No product defect, no out-of-set write, no masking found. The row stays IMPLEMENTED.
+
+### Reproduced (this seat's own runs, frozen bytes)
+| Gate | Command | Read | Verdict |
+|---|---|---|---|
+| test/css | ⟨`npx vitest run test/css`⟩ ×2 | `Test Files 9 passed (9) · Tests 111 passed (111)` ×2 | reproduces |
+| css-equivalence | ⟨`npm run -s test:css-equivalence`⟩ | exit 0 · `Tests 19 passed (19)` · ⟨`grep -oE 'MIRROR-DEFECTS [0-9]+' \| sort \| uniq -c`⟩ → `27 MIRROR-DEFECTS 0` | reproduces (line count 27 here vs the close's 24; every line reads 0) |
+| vue-tsc lib / demo / test | ⟨`npx vue-tsc -p tsconfig.<p>.json --noEmit \| grep -c 'error TS'`⟩ | `0 · 0 · 0` | reproduces |
+| build | ⟨`npm run build`⟩ | `✓ built in 2.79s` | reproduces |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | reproduces |
+| E-6 size | ⟨`npx esbuild --minify …/grammar.js \| wc -c`⟩ · ⟨`… \| gzip \| wc -c`⟩ | `98922` · `13786` | reproduces |
+| E-4 drift ×2 | the close's invocation (worktree CLI `f0059db14`, 0 dirty, 24 entries, `--check`) | `grammar.js is current (sha256 96c3fa63…)` ×2, exit 0; `src` 0 dirty | reproduces |
+| L-G2 / V-1 ×2 | ⟨`node bench/paired/equiv.mjs product <scratch>/eq{1,2}.json`⟩ | `compared 1376531/1376531 rows · mismatches 396 (ASCII-only sources 300 · CP-CASE 4)` ×2; ⟨`cmp`⟩ identical, 2,678,541 B | reproduces |
+| Prefix equivalence ×2 | same runs | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | reproduces |
+| B-1 | ⟨`node bench/paired/prefix.mjs check`⟩ | `PREFIX CORPUS RED`; cuts 115/174 · 1/629 · 403/650 · 5/1651 and retired refusals 357 · 3 · 1016 · 32 as frozen; product refusals `-` · 78 · `-` · `-` | reproduces as described |
+| Frozen bytes / L-6 | the diff above | empty | reproduces |
+| L-G1 WebKit | ⟨`node bench/paired/browser.mjs c1-br-r1-webkit webkit 2 whole,acc,rej,large-eq,large 11 product`⟩ | 22/22 `<1`, 2 set-aside attempts, load 36.2 → 39.1 | reproduces ×1 (loaded) |
+| L-G1 Chromium | same, `chromium` | 22/22 `<1`, 0 set-aside, load 39.1 → 46.8 | reproduces ×1 (loaded) |
+| L-G1 node | ⟨`node --expose-gc bench/paired/isolated.mjs c1-node-r1 product 3 11 …`⟩ | load 46.8 → 131.6 → 61.2: 20/22 rows clean and < 1; `whole parseCssValue` and `acc parseKeyframeSelector` had 0 clean reps of 12 (every attempt < 1: 24 attempts, .322–.668); `large-eq` .527; 0 attempts ≥ 1 on any gated row | no cell ≥ 1; 2 rows voided by load |
+
+### L-G1 Firefox: not reproduced at this clock (C1-1)
+- **The wait.** A waiter polled ⟨`sysctl -n vm.loadavg`⟩ every 30 s from load 8.82 for 35 minutes: 21.6 · 26.9 · 24.9 · 20.9 · 18.9 · 17.5 · 24.2 · 31.6 · 23.7 · 28.3 · 60.0 · 29.9 · 41.1 · 26.0 · 44.7 · 68.5. It never read below 8. The reads were then taken at load and labelled so; the second round was stopped when the load passed 400.
+- **The loaded read** ⟨`node bench/paired/browser.mjs c1-br-r1-firefox firefox 2 whole,acc,rej,large-eq,large 11 product`⟩, load 66.9 → 36.2: 18 of 22 gated rows `<1`. The four others:
+  - `rej parseKeyframeSelector`: clean reps **1.033** and .922 (set aside .918, .697).
+  - `rej parseStylesheet`: 0 clean reps of 8 (1.222 · 1.023 · .926 · 1.093 · .597 · .872 · .954 · .852).
+  - `acc parseCssColor`: 0 clean of 8 (.739–1.082). `rej parseCssScalar`: 0 clean of 8 (.612–.855).
+  - `large-eq` .594 clean (set aside .436–.816); `acc parseStylesheet` .748 · .752; `whole parseStylesheet` .87 · .892.
+- **What this is.** ADDENDUM (f) 3 makes a read at 1-min load ≥ 8 a recorded read, never a gate read, and ADDENDUM (g) 2 puts the quiet read in an orchestrator window with the sibling tracks idle. No such window existed at this check. So the loaded read neither confirms nor refutes the close; the one clean 1.033 was taken at load ~50, where the instrument set aside 73 of 106 gated Firefox attempts.
+- **What the close's own evidence shows (axis 9).** The seven records the close cites are in the session scratchpad `r7/` and were re-derived here from their bytes: each of the six quiet browser records and both node records reads 22 gated rows `allBelow1`, 0 otherwise; `uptimeStart` 1-min 7.79 · 7.78 · 6.60 (r2) and 7.11 · 6.66 · 6.92 (r3), node 6.66 · 7.41; Firefox `large-eq` .483 · .512 / .484 · .504, rej `parseStylesheet` .845 · .85 / .824 · .838, rej `parseKeyframeSelector` .869 · .908 / .865 · .898. Every published figure matches the record bytes.
+- **Ruling by this seat.** The bar is "every claimed GREEN reproduces when the check runs the gate". For Firefox it did not, for a reason outside the product. This seat does not stamp CLOSED on a cell family that seven sittings fought, on a read it could not take; it also finds no defect to cure. The owed act is a re-read, not a repair of bytes.
+
+### Axes
+1. **GREENs reproduce:** 13 reproduced (table above); L-G1 Firefox ×2 not reproduced (C1-1); L-G1 node 2 rows voided by load, 0 attempts ≥ 1.
+2. **Bounds.** ⟨`git show --stat --format= <c>`⟩ on `eeed0116 628d23b6 f4dcbd85 4a4db5f5 79a457d0 2a2130cf 08331dfa 4a4aff04 01ed56bd fe74f3d4 c3e1db44`: every path is inside the addenda's grants except `src/value.ts` in `79a457d0` (LW-1). 0 paths under `scripts/dev/dev.sh`, `node_modules`, `.github`, the registry or `parse-that/waves/`. **LW-1 ruled an adjacent edit (INFO):** +4 lines, a doc comment on `CssCall` stating that the empty `name` is the `()` group `.gap` introduced; same repo, same concern, 0 behaviour bytes (§0bt). It should have been labelled in `.gap`'s receipt; this entry is that label.
+3. **Masking.** ⟨`git show <c> -- src test bench ':!src/css/bbnf/generated' | grep -nE '^\+.*(try *\{|catch *\(|\.skip|\.todo|skipIf|allowlist|ALLOW)'`⟩ on the four byte-moving commits → 1 hit, `bench/paired/prefix.mjs` `try { … } finally { globalThis.__recording = false; }` (a flag reset, no catch). The `w6-classes.ts` rows (`GAP-URL`, `GAP-GRP`, `GAP-URL0`, `GAP-LN`) are the named ruled deltas ADDENDA (h)/(i) order, each a repair-class edit after which the incumbent must agree, listed in DIVERGENCE-LEDGER §18/§18-A. None found.
+4. **Commit families.** Each unit is one product commit plus its receipt commit; open, close and LEDGER rows are separate docs commits. Not split.
+5. **E-3.** The W7.md commits in the window (`0b3e41c3 521edaba 3d06dc97 887d4329`) are the orchestrator's dated addenda (g)–(j), appended; no wave commit touches the spec, the adjudicated registry or a conformance artefact. The dated prefix corpus is unregenerated (B-1).
+6. **Mail.** ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on five paths; glass `BL/` 2 (`FORMATION-PROGRESS.md`, `PLAN.md`: glass's own formation log, nothing addressed to this wave).
+7. **Four-verb line.** PARTIAL → IMPLEMENTED at `c3e1db44`, by the close, lawful. CLOSED is not stamped by this check.
+8. **Goal criterion** (R-3: faster than the retired parser on every bench entry, each half, each engine): met on the close's quiet records; this seat confirms it on WebKit and Chromium and sees nothing ≥ 1 on node; Firefox is the open conjunct (C1-1).
+9. **Published figures.** Reproduce from the settled bytes (correctness gates re-run; L-G1 figures re-derived from the seven records).
+10. **Honest-RED.** The release gates P-6 · E-8 · V-9 + its CI step · Z-1 · Z-3's publish half are relieved by the spec's own routing (ADDENDUM 2026-09-24 §1: "X.P.W7's close relieves … by citing X.P.W7P"); owner named: X.P.W7P, keyed on the owner's npm one-time password. Whole-sheet `large` is INFO by ADDENDUM (g) 1, not a RED. No other gate is RED.
+
+### Register (severity · claim · receipt · cure)
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | HIGH by the bar's second conjunct (an unreproduced gate; no product defect found) | L-G1 Firefox ×2 does not reproduce at this check: the host never read 1-min load < 8, and the loaded read has `rej parseKeyframeSelector` clean 1.033 and three rows with 0 clean reps | § "L-G1 Firefox" above; scratchpad `c1/br-r1-firefox.log`, record sha256 n/a (loaded, supplementary) | No byte moves. Re-read L-G1 ×2 on Firefox (and node, for the 2 voided rows) on the frozen `08331dfa` in an orchestrator window with the sibling tracks idle (ADDENDUM (g) 2), start load < 8, load per rep recorded. GREEN ×2 there closes this row; a quiet cell ≥ 1.0 is a cure unit (ADDENDUM (g)), never a band. |
+| C1-2 | MINOR | The close's L-G1 evidence of record is unbanked: the seven JSON records sit only in the session scratchpad (`r7/`), which does not outlive the session; the record cites figures no committed file carries | ⟨`ls bench/records \| grep -c r7close`⟩ → `0`; ⟨`shasum -a 256 r7/2026-*.json`⟩ → node-r1 `575deb11…` · node-r2 `30c8b8ad…` · br-r1 `809fe196…` · r2 chromium `a5bb2e07…` firefox `0efdecb8…` webkit `a6c1d890…` · r3 chromium `d0e09a1e…` firefox `5b9f58c1…` webkit `e8e3efc5…` | Bank the nine files (seven records + the two this repair re-reads) under `docs/tranches/X/parse-that/evidence/W7/l-g1-close/` with a sha256 MANIFEST, in the repair's commit. Mitigation now: the hashes above and this seat's re-derivation. |
+| C1-3 | INFO | LW-1: `src/value.ts:30-33` (`79a457d0`), an unlabelled adjacent doc comment | axis 2 | Ruled adjacent here; nothing owed. |
+| C1-4 | INFO | B-1: `prefix.mjs check` reads RED on the manifest's historical `refusal.product` datum while every cut and retired refusal is the frozen one | table above | X.P.W8 (bench unit): `check` compares the cut and the retired refusals, and reports the product datum. Not this wave (bytes frozen; E-3). |
+| C1-5 | INFO | `MIRROR-DEFECTS 0` prints on 27 lines here against the close's 24; all read 0 | table above | None. |
+
+**Honest-RED set (relieved, owner named):** P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half → X.P.W7P (ADDENDUM 2026-09-24 §1).
+
+### Successors
+- **X.P.W8** ("Opens after: X.P.W7 CLOSED"): conjunct RED; lawfully blocked until C1-1's re-read.
+- **X.P.W7P** ("the owner supplies an npm one-time password … **and** X.P.W7 has CLOSED its engineering gates"): the engineering conjunct is RED on C1-1 alone; the OTP conjunct is the owner's. Lawfully blocked on both.
+- **X-W11** (value.js publish) rides X.P.W7P; unchanged.
+
+**Counts (self-count):** gates reproduced 13 (11 correctness/stay-GREEN rows + L-G1 WebKit + L-G1 Chromium); not reproduced 1 (L-G1 Firefox); L-G1 node read with 2 rows voided. Defect rows 5: HIGH 1 · MINOR 1 · INFO 3. This seat moved 0 product bytes; its bench records went to the scratchpad `c1/` (⟨`git status --porcelain bench src | wc -l`⟩ → `0`).
