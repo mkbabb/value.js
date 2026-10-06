@@ -556,3 +556,14 @@ KF.W13V ended NOT-CONFORMANT after 2 repairs, and its check says the loop is dry
   - **Guard:** identity colours, type and motion are kept (§0dm law: removing them is an owner DESIGN-RULING, never a cure).
   - **Falsifier:** served geometric predicates per view (no square-cornered bordered box within the card; the primary subject's area ≥ each other region; no `text-overflow: ellipsis` in effect; a single label register per sequence row). RED at the before bytes, GREEN after, ×2 on dev and ×2 on gh-pages.
 - **Order:** `.sq` then `.dh`, next in Track B's KF.W13X run, ahead of the remaining register rows (owner-frame priority).
+
+## KF.W13X — ADDENDUM 2026-10-06 (f) (COHESION §0ep): `.sq` and `.dh` landed; three leftovers homed
+- **Landed** (kf `cd8386cf`, pushed; value.js `885e90efa` receipt, brief `execution/B/KF-W13X-dh-brief.md`, evidence `keyframes/evidence/W13X/sq-dh/`):
+  - `.sq`: the root was `.seq-stage { border-radius: calc(var(--radius-card) - 1rem) }`, which is 0 px, under a tinted border and a wash. It was already deleted by `.sequence` at `e4142dd9`, verified against the owner-frame bytes.
+  - `.dh`: Sequence and Easing panes on `ConfiguratorLayer`; `EasingPicker surface="bare"`; Spring's rail and trace as one figure; one register per lane label.
+  - Falsifiers: 18 cells RED → GREEN ×2 dev and ×2 gh; `check` clean ×2; `test:demo` 119/804 ×2.
+  - Glass-owned ellipsis honest-RED: O-77a, O-89 (both 10.2.0).
+- **`.pc`: the pane is cut by the rail's scroll port.** At 1440×900 and 1024×768 the Easing and Spring pane cards are cut square by `.controls-surface`, with the Easing duration row and the Spring heatmap below the fold. Cure in `ControlsPaneWrapper`: the pane scrolls inside its own rounded surface, or sizes to the content with the rail scrolling as one piece; the card's corners are never clipped square. Falsifier: at both sizes the pane's last control is reachable and no card edge is clipped (the corner pixels show the radius).
+- **KFA-218 RULED: not a defect.** The sequence stage chrome (header, READY chip, master clock) stays present and still before the stage ignites and does **not** join a boot cascade. Under the owner's de-slop ruling (§0ek: no ornament or motion without meaning), chrome is stable and only the stage's subject animates. Dispositioned RULED-AS-DESIGNED.
+- **UIA-KF-098 and UIA-KF-317, the remaining limbs:** unit `.dh2`, the same method as `.dh` (brief first, served predicates ×2 dev and ×2 gh), with the X-DS canon (§0ek) binding.
+- **Order:** `.pc` → `.dh2`, then the wave's remaining units and close. Browsers headless only (§0ei).
