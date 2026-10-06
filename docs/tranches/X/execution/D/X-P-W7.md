@@ -2854,3 +2854,57 @@ Seat `claude-opus-5-5`, 2026-09-25, Track D, single seat. Governing text: W7.md 
 - Further valid forms refused, measured by probe: `attr(data-x type(<length>))` (css-values-5 `attr()` with `type()`), `element(#a)` (css-images-4), `U+0025-00FF` (a `<urange>`, `@font-face` descriptor only). Same owner.
 - **Pre-existing looseness, not widened in kind:** `coerceToSyntax(…, "<custom-ident>")` accepts any keyword scalar, so a lone `[a]` block matches as a string (`"a"`) or an operator (`*`) already does. Same owner.
 - **R-l4-1**: L-G1 ×2 on all four engines on these final bytes, in the orchestrator's quiet window.
+
+## RESUME 7 — Open (2026-10-06, seat 0, `claude-opus-5-5`, Track D; COHESION §0ed/§0ee/§0ef + W7.md ADDENDA (g)(h)(i)(j))
+
+- **Ruling cited (never re-opened):** ESC-W7l4-1 RULED at COHESION §0ed (W7.md ADDENDUM (g)): the large cell of record is the equal-work `large-eq` prefix cell, whole-sheet `large` is INFO, and the quiet-host L-G1 ×2 read (1-min load < 8) is taken in the orchestrator's window as Track D's last act. §0ee (ADDENDUM (i)) homed `.gap2`. §0ef (ADDENDUM (j)) **froze X.P.W7's product bytes at `08331dfa`**, and the valid-CSS long tail is X.P.W8. No owner-gated item remains open in this wave's scope. `npm publish` stays with X.P.W7P (OTP-keyed); this wave never publishes.
+- **LEDGER row (read):** `PARTIAL`, the RESUME 6 Close `2015419a`; not CLOSED, so this is RESUME MODE.
+- **alreadyDone (each commit verified by ⟨`git log -1 <sha>`⟩):** `.o .p .t .e .v .k .k2 .g .l .l2 .l3` (prior RESUME receipts) · `.l4` `5d46e376` `daa8e85a` `ef91a5a3` · `.cp` `eeed0116` (+ V-A64 `628d23b6`) · `.eq` `f4dcbd85` `4a4db5f5` · `.gap` `79a457d0` `2a2130cf` · `.gap2` `08331dfa` `4a4aff04`. **0 units owed**; none is re-dispatched.
+- **Frozen bytes hold:** ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json`⟩ → empty, and ⟨`git status --porcelain src test/css bench`⟩ → empty. parse-that is unmoved at `cb9c0d4` (W6R `.p`). Nothing in this seat's writable set was dirty, so no work was inherited.
+- **Mail (E13 Step-0, four paths).** value `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` (BL is now the newest tranche dir; it has no `coordination/`) · keyframes `V/coordination/` · atlas `P/coordination/`.
+  - ⟨`find … -maxdepth 1 -type f -newer INBOX.md`⟩ → only glass `BL/FORMATION-PROGRESS.md` and `BL/PLAN.md`: glass's own formation log (critic pass 6, fix 7), with nothing addressed to value.js.
+  - The `valuejs-outbound-*` letters in glass BK are value.js's own outbound relays (O-78 and others), not inbound.
+  - ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → `0`. **0 UNREAD**; a dated sweep line is appended to INBOX.md.
+
+## RESUME 7 Baseline (BEFORE, read-only, 2026-10-06; product bytes = `08331dfa`, frozen per §0ef)
+
+No unit is owed, so this banks the state the close inherits. **No L-G1 cell is read or claimed here**: L-G1 ×2 on all four engines is the close's act in the orchestrator's quiet window.
+
+| Gate | Command | Read | Verdict |
+|---|---|---|---|
+| Host load (L-13 precondition) | ⟨`sysctl -n vm.loadavg`⟩ | `{ 4.60 5.48 7.64 }` → `{ 3.65 5.18 7.46 }` → `{ 4.77 5.23 7.36 }` | 1-min < 8: **a quiet window is open now** (the first since RESUME 6's two 90-min windows read min 26.85 / 25.48). The close records load per rep. |
+| L-G3 (instrument compiled out) | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | GREEN (stay-GREEN, not born-RED) |
+| test/css | ⟨`npx vitest run test/css`⟩ | `Test Files 9 passed (9) · Tests 111 passed (111)` | GREEN = `.gap2`'s 111/111 |
+| Prefix corpus check | ⟨`node bench/paired/prefix.mjs check`⟩ | exit 1, `PREFIX CORPUS RED (regenerated cut ≠ frozen)` | see B-1 |
+| L-G1 acc / rej / `large-eq` ×4 engines | (close) | not read | owed: the close, quiet window |
+| L-G2 396 · prefix equivalence 0 | (close) | not read | owed: the close, re-read on `08331dfa` |
+
+**B-1 (INFO, the close must cite it; not a cut move).**
+- ⟨`node bench/paired/prefix.mjs check`⟩ prints, for each of the 4 sheets, the **same cut as frozen**:
+  - value-js-index: 115 rules / 13,471 B / 357 decls
+  - keyframes-js-index: 1 / 61 / 2
+  - monaco: 403 / 45,938 / 1,016
+  - bulma: 5 / 1,689 / 30
+- Retired refusals are unchanged: 357 · 3 · 1,016 · 32.
+- **Only the manifest's `refusal.product` record moved.** The frozen MANIFEST (`productAt 0b3e41c3`, before `.gap`) records product refusals 357 · 3 · 1,016 · 946. The regenerated values are `-` · 78 · `-` · `-`, because `.gap`/`.gap2` made the product accept `rotate(0)scale(1.3)`, the unquoted `url(./…)`, `translate(0%)scaleX(1)` and nested `calc(…(…))`, which is ADDENDA (h)/(i)'s intended effect.
+- `check` compares the whole manifest except `productAt`/`productSrcDirty`, so this datum turns it RED, while the timed prefix bytes and cut points are the frozen ones.
+- Per E-3 the dated corpus is never rewritten, and (h)/(i) already ruled it "NOT regenerated". The close's equal-work read stands on the unmoved cut. Any change to how `check` treats a historical product record is X.P.W8's (or a later bench unit's), not this wave's, because the bytes are frozen.
+
+**greenBeforeCure:** none. No unit is owed, so nothing is born-RED-then-cured in this sitting.
+
+## RESUME 7 Unit plan (2026-10-06)
+
+- **Units owed: 0. groups: `[]`.** Every unit's commits exist (see the RESUME 7 Open), so no unit is re-dispatched. `.z` re-opens only in X.P.W7P (OTP-keyed).
+- **The close's acts (ADDENDUM (g) 2, (j); orchestrator note), on the frozen `08331dfa`:**
+  1. L-G1 ×2 on node, Chromium, WebKit and Firefox: the accepted, the rejected, and the `large-eq` equal-work cell of record (whole-sheet `large` = INFO). Read only at 1-min load < 8, with load recorded per rep and a bounded wait of up to 60 min. An unread cell is never claimed.
+  2. L-G2 ×2 = 396 (92 standing + 163 §18 + 141 §18-A, named).
+  3. Prefix equivalence 0 ×2.
+  4. L-G3 0.
+  5. Stay-GREEN (test/css 111, css-equivalence 19/19, vue-tsc 0, build).
+  6. Cite B-1.
+- Then the L-20 check. If an engine's `large-eq` cell reads ≥ 1.0 on a quiet host, that is a real defect for a cure unit (ADDENDUM (g); no noise band, (f)), not a ruling.
+- Never `npm publish` (X.P.W7P).
+
+## RESUME 7 Unit receipts
+
+(none: 0 units owed)
