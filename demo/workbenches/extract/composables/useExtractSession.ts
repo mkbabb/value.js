@@ -33,6 +33,7 @@ import {
 import type { QuantizedColor } from "@mkbabb/value.js/quantize";
 import { serializeCssColor } from "@mkbabb/value.js/css";
 import { useImageQuantize, type QuantizeOutcome } from "./useImageQuantize";
+import { debounce } from "../../../shared/utils";
 import { usePaletteStore } from "../../../palettes/usePaletteStore";
 import type { Palette, PaletteColor } from "../../../palettes/types";
 import { paletteRail } from "../../../color-session/palette-rail";
@@ -61,8 +62,6 @@ function createExtractSession() {
     const paletteName = ref("Extracted Palette");
     /** XW-22: the latest run developed, and found no opaque pixel to sample. */
     const barren = ref(false);
-
-    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
     const presentedPalette = computed<PalettePresentation>(() => {
         const value: PresentedColor[] = [];
@@ -184,10 +183,7 @@ function createExtractSession() {
         return outcome;
     }
 
-    function debouncedReQuantize() {
-        if (debounceTimer) clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => void runQuantize(), 300);
-    }
+    const debouncedReQuantize = debounce(() => void runQuantize(), 300);
 
     // XW-19: an intake is identified; a slower earlier read can never
     // overwrite the preview of a later file, so preview and palette always
@@ -234,8 +230,7 @@ function createExtractSession() {
     // X.W5.a · gate N1 — the DEACTIVATION contract (see PaneSlot's header).
     // A pending re-quantize must not fire into a parked pane.
     function cancelPendingQuantize() {
-        if (debounceTimer) clearTimeout(debounceTimer);
-        debounceTimer = null;
+        debouncedReQuantize.cancel();
     }
 
     /** The last holder parked or left: nothing runs into an unseen pane. */

@@ -21,6 +21,7 @@ import type { ColorModel } from "../../color-session/color-model";
 import type { ColorPicker } from "../../picker";
 import type { ViewManager } from "../../shell/useViewManager";
 import { parsePickerColor, serializePickerColor } from "../../color-session/picker-color";
+import { debounce } from "../../shared/utils";
 import { providePalettePorts, type PalettePorts } from "../../palettes/usePalettePorts";
 
 export function usePaletteWiring(
@@ -160,12 +161,9 @@ export function usePaletteWiring(
     }, { immediate: true });
 
     // (3) Debounced server-side search: reload browse when search query changes
-    let searchDebounce: ReturnType<typeof setTimeout>;
+    const reloadBrowse = debounce(() => ports.browse.loadRemotePalettes(true), 400);
     watch(ports.browse.searchQuery, () => {
-        if (viewManager.currentView.value === "browse") {
-            clearTimeout(searchDebounce);
-            searchDebounce = setTimeout(() => ports.browse.loadRemotePalettes(true), 400);
-        }
+        if (viewManager.currentView.value === "browse") reloadBrowse();
     });
 
     // (4) Hide admin views when admin logs out

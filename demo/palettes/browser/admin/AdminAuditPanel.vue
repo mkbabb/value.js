@@ -164,23 +164,21 @@ import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatTime } from "../dateFormat";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
+import { debounce } from "../../../shared/utils";
 
 // D.W3 Lane B: route through pm.audit sub-object (was: direct getAuditLog)
 const pm = inject(ADMIN_PORT_KEY)!;
 const audit = pm.audit;
 
-let filterTimeout: ReturnType<typeof setTimeout>;
-watch([audit.actionFilter, audit.targetFilter], () => {
-    clearTimeout(filterTimeout);
-    filterTimeout = setTimeout(() => {
-        audit.page.value = 1;
-        audit.loadAuditLog();
-    }, 300);
-});
+const reloadFiltered = debounce(() => {
+    audit.page.value = 1;
+    audit.loadAuditLog();
+}, 300);
+watch([audit.actionFilter, audit.targetFilter], () => reloadFiltered());
 
 // W7.70 (AAP-20): a debounce pending at unmount must not write the singleton
 // port's page or fire a request after the panel is gone.
-onScopeDispose(() => clearTimeout(filterTimeout));
+onScopeDispose(() => reloadFiltered.cancel());
 
 const filtered = computed(() => !!(audit.actionFilter.value || audit.targetFilter.value));
 
