@@ -127,6 +127,13 @@ const TRACK = {
       ],
       "note": "RESUME 2026-09-24 on COHESION §0dp + F-W14U.md ADDENDUM (h) (binding; ESC-C-U1 RULED): every unit is alreadyDone (never re-dispatched); NO unit is owed; return groups: [] and let the close and the check adjudicate: the 26 open G-u rows and the Close-2 outside-set REDs (vc :145 :164 :199, f-w13-radius :105, the :4190 preview instrument) are RE-HOMED whole by id to F.W14V .u; the honest-RED set is O-55/62/63 + the named baseline set; the row reads CLOSED on a CONFORMANT check. EARLIER: ALSO §0cv: [F.W14U.b] api/**: a missing blob answers 404 or a typed error, never 500; a content-addressed upload re-stores a missing blob; falsifier in the api tests. ALSO §0cq (2026-09-24): F-W14U.md ADDENDUM adds units BEFORE the family units: [F.W14U.s] (the Configurator controls pane detached: inset gutter, four --radius-card corners, own shadow) → [F.W14U.t] (paper ToC hideable: slides under the paper into an edge drawer that expands back to its place; PaperSidebar + MobileFloatingToc become one component) → [F.W14U.d] (collapsed dock consumer half; O-65). HOST NOTE 2026-09-24 (§0cn, after the reboot): fourier's dev mongod is on :27018 (~/.mongo-dev/fourier); :27017 is value.js's docker mongo. The fourier API on :8000 already runs with MONGO_URI=mongodb://localhost:27018/fourier + scripts/e2e.sh's env; any fourier API or e2e.sh launch MUST export MONGO_URI=mongodb://localhost:27018/fourier (e2e.sh defaults to :27017, which is value.js's DB — never point fourier there). Logs in ~/.dev-logs/. AUTHORITY: COHESION §0cl + F-W14U.md (READ whole; it IS the spec) + the .u receipt in execution/C/F-W14.md + docs/tranches/X/audit/UI-AUDIT-fourier.md. The owner, verbatim (OA-37): a full UI audit of every page; fourier 'UI elements are malformed' (OA-42..45, OA-50). Open seat: list every owed UIA-F row by id, group by page family (register sections), mint one unit per family with DISJOINT file sets; groups with disjoint sets may run in parallel, BROKEN rows first. Per row: served-page frame before, root cure (glass idiom, no local glass copies), falsifier RED->GREEN x2, frame after, disposition. GLASS rows relay-only (O-59/O-63). api/** granted for F-35, F-83, F-112, F-39, F-46 server half. Close: 256/256 dispositioned; full e2e --workers=1 x2 with load; vue-tsc 0; vitest green. Every seat Opus 5.5; ESCALATED units do not halt the wave"
     },
+    "F.REL": {
+      "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-REL.md",
+      "after": [
+        "F.W14V"
+      ],
+      "note": "AUTHORITY: COHESION §0em + F-REL.md (READ whole) + the hotfix receipt docs/tranches/X/fourier/evidence/deploy-hotfix-2026-10-06/RECEIPT.md. Precondition beyond F.W14V: F.CT phase 2 CLOSED (read docs/tranches/X/execution/C/F-CT.md '## Phase 2'); if it is not closed, return blocked with that reason. Strictly serial: [F-REL.m] baked models + FOURIER_MODEL_DIR + typed 500 with CORS -> [F-REL.c] CORS complete (PATCH, If-Match, Idempotency-Key; expose ETag) -> [F-REL.h] health-gated zero-downtime host deploy, cure why master fails the host health check -> [F-REL.g] merge m/w1-bump-migration to master (no force), master e2e GREEN with the named honest-RED set explicit -> [F-REL.d] deploy SPA + API and verify production headlessly (daraksha upload, EXIF-6 original, contours, preview, publish/remix/diff, edit/delete, gallery). Owner authorized push and deploy. Browsers HEADLESS only (§0ei). Every seat Opus 5.5; ESCALATED units do not halt the wave"
+    },
     "F.W14V": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W14V.md",
       "after": [
@@ -181,7 +188,8 @@ const TRACK = {
     ["F.W13"],
     ["F.W14"],
     ["F.W14U"],
-    ["F.W14V"]
+    ["F.W14V"],
+    ["F.REL"]
   ]
 }
 
