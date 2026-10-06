@@ -2,7 +2,7 @@
  * useViewAccents — the view-accent token WRITER (S.W7 · W7-4; slimmed at
  * T.W6 · W6-4).
  *
- * Consumes the pure resolver (`./view-accents` — rotate → C-floor →
+ * Consumes the pure resolver (`color-session/view-accent` — rotate → C-floor →
  * gamut-map → L re-guard → WCAG ≥3:1, all library ops) and writes the result
  * onto the document root as STATIC tokens, per accent change:
  *
@@ -52,8 +52,8 @@ import {
     bumpProbeEpochOnMount,
     resolveSurfaceLightnessLive,
 } from "../../../color-session/useContrastSafeColor";
+import { contrastInkFor } from "../../../color-session/ink";
 import { resolveViewAccent } from "../../../color-session/view-accent";
-import { resolveSealInk } from "./view-accents";
 
 export interface UseViewAccentsOptions {
     /** The rAF-coalesced live OPAQUE colour — the seal-ink (wax) source. */
@@ -172,7 +172,7 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
     watch(
         cssColorOpaque,
         (css) => {
-            const ink = resolveSealInk(css);
+            const ink = contrastInkFor(css);
             if (ink) {
                 document.documentElement.style.setProperty("--seal-ink", ink);
             }
