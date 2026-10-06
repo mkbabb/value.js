@@ -2908,3 +2908,102 @@ No unit is owed, so this banks the state the close inherits. **No L-G1 cell is r
 ## RESUME 7 Unit receipts
 
 (none: 0 units owed)
+
+## RESUME 7 Close (2026-10-06, close seat `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 303 lines; ADDENDA (g)–(j) bind: `large-eq` is the large cell of record, whole `large` is INFO, bytes frozen at `08331dfa`, L-13 quiet host). From this record: the header, `## RESUME 7 — Open` through `## RESUME 7 Unit receipts`, and the last close (`## RESUME 6 Close`). **Crash-recovery:** ⟨`git status --porcelain -- src bench test/css docs/tranches/X/execution/D/X-P-W7.md package.json package-lock.json`⟩ → empty at open. parse-that's dirty paths (`.cargo/config.toml`, `README.md`, `rust/**`, untracked `docs/**`) are master's standing dirt, outside this seat's set, untouched. No inherited work.
+
+### Act 1: commit roster, and whether each unit stayed in its writable set
+⟨`git show --stat --format= <c>`⟩ per commit. The `.l4` commits were verified by the RESUME 6 Close (0 landed-wrong); they are re-listed, not re-judged.
+
+| Commit | Paths touched | In set? |
+|---|---|---|
+| `eeed0116` `.cp` | `src/css/bbnf/{sheet,stylesheet}.ts`, `test/css/custom-property-case.test.ts`, `bench/paired/equiv.mjs`, `bench/css-equivalence/stylesheet.measure.test.ts`, `parse-that/DIVERGENCE-LEDGER.md` | yes (ADDENDUM (d): value.js `src/**` + pinned tests + the ruled divergence row) |
+| `628d23b6` V-A64 | `CHANGELOG.md` | yes (ADDENDUM (d) 2: the CHANGELOG migration note) |
+| `f4dcbd85` `.eq` | `bench/corpus/large-prefix-2026-09-25/**` (MANIFEST + 4 sheets), `bench/paired/{bench,browser-page,browser,common,equiv,isolated,prefix}.mjs` | yes (ADDENDUM (g) 1: derived dated corpus + paired bench wiring) |
+| `79a457d0` `.gap` | `src/css/grammar/value.bbnf`, `src/css/bbnf/value.ts`, `src/css/bbnf/generated/grammar.{js,d.ts}`, `test/css/bbnf-gap.test.ts`, `bench/css-equivalence/w6-classes.ts`, `parse-that/DIVERGENCE-LEDGER.md`, `CHANGELOG.md`, **`src/value.ts`** (+4, a doc comment on `CssCall`) | yes, with one note: `src/value.ts:30-33` is outside ADDENDUM (h)'s literal grant (`src/css/grammar/*.bbnf` + actions + `test/css/**`). It is comment-only, same repo, same concern (the `CssCall` shape now carries a `()` group as the empty name), and the receipt names it (`CssCall` doc) but not under an "adjacent edits" label. **LW-1 (INFO).** |
+| `08331dfa` `.gap2` | `src/css/grammar/value.bbnf`, `src/css/bbnf/value.ts`, `src/css/bbnf/generated/grammar.{js,d.ts}`, `test/css/bbnf-gap.test.ts`, `bench/css-equivalence/w6-classes.ts`, `parse-that/DIVERGENCE-LEDGER.md`, `CHANGELOG.md` | yes |
+| `4a4db5f5` · `2a2130cf` · `4a4aff04` · `01ed56bd` | this record (+ INBOX sweep line, LEDGER row in `01ed56bd`) | yes |
+
+**Landed wrong:** none that moves bytes outside a grant; LW-1 is the single undeclared adjacent line (a doc comment). No `package*.json`, `ci.yml`, bbnf-lang, parse-that or `scripts/dev/dev.sh` path in any commit.
+
+### Act 2a: L-G1 ×2 on the frozen bytes — the quiet-host read (ADDENDA (f) 3, (g) 2, (j))
+Bytes: value.js src = `08331dfa` (⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 01ed56bd…`, `srcDirty ""`, `retiredAt 2155142b…`, `bankedManifestOk 79/79`). Engines: node v26.0.0 (V8) · Firefox 150.0.2 · WebKit 26.4 · Chromium 148.0.7778.96. Every record was moved to the scratchpad after its read (⟨`git status --porcelain bench src | wc -l`⟩ → `0`).
+
+**The quiet-host protocol.** A detached waiter (scratchpad `r7/r2.sh`, `r7/r3b.sh`) polled ⟨`sysctl -n vm.loadavg`⟩ every 30 s and started each engine's read only when the 1-minute load was **below 8** (bound 60 min per engine); ⟨`cat r7/status`⟩ → `QUIET firefox 12:03:28 7.79 · QUIET webkit 12:13:27 7.78 · QUIET chromium 12:14:34 6.60 · QUIET node 12:18:52 7.41` (read 2) and `QUIET firefox 12:20:36 7.11 · QUIET webkit 12:24:25 6.66 · QUIET chromium 12:25:30 6.92` (read 3). The load during each read is recorded from the instrument's per-cell `uptime` (the paired browser itself pushes Firefox's reads up; sibling projects' Playwright ran on the host).
+
+| Read | Command | Start → range of 1-min load | Gated cells < 1 | Set-aside reps | Worst gated clean ratio |
+|---|---|---|---|---|---|
+| node r1 | ⟨`node --expose-gc bench/paired/isolated.mjs r7close-node-r1 product 3 11 whole,acc,rej,large-eq,large`⟩ | 6.66 → 6.25–8.01 | `whole-7/7` · `accepted-7/7` · `rejected-7/7` GREEN; `large-eq` .489 · .483 · .482 GREEN (23/23 rows, 3 reps each) | 3 | keyframe whole .699 |
+| node r2 | same, tag `r7close-node-r2` (waiter, quiet at 7.41) | 7.41 → 6.31–8.56 | `whole-7/7` · `accepted-7/7` · `rejected-7/7` GREEN; `large-eq` .476 · .538 · .500 GREEN | 6 | keyframe whole .699 |
+| browsers r2 | ⟨`node bench/paired/browser.mjs r7close-br-r2-<e> <e> 2 whole,acc,rej,large-eq,large 11 product`⟩, one engine at a time | Firefox 7.79 → 7.79–14.8 · WebKit 7.78 → 6.55–7.78 · Chromium 6.60 → 6.6–8.87 | Firefox 22/22 · WebKit 22/22 · Chromium 22/22 | 7 · 0 · 0 | Firefox keyframe whole .913 · WebKit keyframe rej .864 · Chromium keyframe whole .649 |
+| browsers r3 | same, tag `r7close-br-r3-<e>` | Firefox 7.11 → 6.72–9.19 · WebKit 6.66 → 6.31–7.33 · Chromium 6.92 → 6.92–8.49 | Firefox 22/22 · WebKit 22/22 · Chromium 22/22 | 2 · 0 · 0 | Firefox keyframe whole .909 · WebKit keyframe rej .857 · Chromium keyframe rej .631 |
+| browsers r1 (supplementary) | ⟨`node bench/paired/browser.mjs r7close-br-r1 firefox,webkit,chromium 2 whole,acc,rej,large-eq,large 11 product`⟩, all three in one run | 7.60 → 7.36–20.94 (WebKit/Chromium ran at 11.7–16.3: **not a quiet read**, kept as supplementary) | 66/66 | 10 | Firefox keyframe rej .897 · WebKit .864 · Chromium .636 |
+
+- **Every row has a clean rep in every read** (⟨per-file count of rows with 0 clean reps⟩ → `0` in all 7 records). Two rep positions were fully set aside and are disclosed: r1 Firefox acc `parseStylesheet` rep 0 (4 attempts .676/.931/.736/.762, all < 1; rep 1 clean .69) and r2 Firefox whole `parseCssScalar` rep 0 (4 attempts .614–.672; rep 1 clean .632).
+- **The cells the earlier sittings fought, on the frozen bytes:** Firefox `large-eq` .483 · .512 (r2) / .484 · .504 (r3); Firefox rej `parseStylesheet` .845 · .85 / .824 · .838; Firefox acc `parseStylesheet` .669 · .683 / .678 · .641; Firefox rej `parseCssColor` .793 · .774 (r3); WebKit `large-eq` .364 · .368 / .381 · .409; Chromium `large-eq` .465 · .476 / .481 · .473.
+- **whole-7/7 inside the ceilings** (node medians, r1 / r2): color .604/.589 (≤ .90) · scalar .552/.523 (≤ .81) · value .343/.361 (≤ .57) · values .333/.352 (≤ .58) · keyframe .676/.693 (≤ .78) · timing .611/.597 (≤ .87) · stylesheet .491/.468 (≤ .85). **GREEN ×2.**
+- **INFO, never folded in (ADDENDUM (g) 1):** whole-sheet `large` reads Firefox 1.68–1.947, WebKit 1.056–1.2, Chromium .51–.574, node .584–.639. On the whole sheets the product now reads far past the retired parser's refusal points (`.gap`/`.gap2`'s accepted forms; B-1), so this measures unequal work, as ruled.
+- (The instrument's `O-2 … DOES NOT HOLD` line is `.o`'s stock-reproduction check applied to the product arm; it is not an L-G1 reading.)
+
+**L-G1 verdict: GREEN ×2 on node, Chromium, WebKit and Firefox** — accepted, rejected and `large-eq` halves, every entry, each read started on a quiet host (1-min load < 8) with load recorded per cell.
+
+### Act 2b: correctness, stay-GREEN, size (frozen bytes `08331dfa`)
+- **L-G2 / V-1** ⟨`node bench/paired/equiv.mjs product <scratch>/eq{1,2}.json`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 396 (ASCII-only sources 300 · CP-CASE 4)` both; ⟨`cmp eq1.json eq2.json`⟩ → identical (2,678,541 B each). 396 = 92 standing (88 F-b-4 + 4 CP-CASE) + 163 §18 + 141 §18-A, the count `.gap2` named. (The script exits 1 because the ruled rows are non-zero; that is its contract, not a new row.) **GREEN ×2.**
+- **Prefix equivalence** (same runs) → `equal-work prefixes (vs retired) · sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2. **GREEN ×2.**
+- **B-1 cited.** ⟨`node bench/paired/prefix.mjs check`⟩ prints the frozen cuts unchanged (monaco 403/650 rules · 45,938 B · 1,016 decls; bulma 5/1,651 · 1,689 B · 30 decls; retired refusals 1,016 · 32); only the historical `refusal.product` datum differs, as the RESUME 7 Baseline recorded. Not regenerated (E-3; ADDENDA (h)/(i)).
+- **L-G3** ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`. **GREEN.** (`instrument.mjs` needs the emitter linked into `node_modules`; this seat leaves `node_modules` at 0.1.4 and cites `.gap2`'s `plainEqualsShipped true` on the same bytes.)
+- **E-4 drift, ×2.** `gen-grammar.mjs` resolves `bbnf` from `node_modules` (0.1.4, no bin), so this seat ran the identical invocation against the worktree's CLI without touching `node_modules`: ⟨`npx esbuild src/css/bbnf/actions.ts --bundle --platform=node --format=esm --outfile=<scratch>/actions.mjs` then `node ../bbnf-lang-x-p-w7-typescript/typescript/dist/cli.js gen src/css/grammar/css.bbnf --actions <scratch>/actions.mjs --out src/css/bbnf/generated/grammar.js --entries <gen-grammar.mjs's 24> --check`⟩ ×2 → `grammar.js is current (sha256 96c3fa63…)` both, exit 0; ⟨`git status --porcelain src | wc -l`⟩ → `0`. (Worktree `f0059db14`, 0 dirty, `dist/cli.js` built 2026-09-25 20:04, after the commit.) **GREEN ×2.**
+- ⟨`npx vitest run test/css`⟩ ×2 → `Test Files 9 passed (9) · Tests 111 passed (111)` both. **GREEN ×2.**
+- ⟨`npm run -s test:css-equivalence`⟩ → `Tests 19 passed (19)`, exit 0; ⟨`grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `24 MIRROR-DEFECTS 0` (no other value). **GREEN.**
+- ⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit | grep -c 'error TS'`⟩ → `0 · 0 · 0`. **GREEN.**
+- ⟨`npm run build`⟩ → `✓ built in 2.53s`, exit 0. **GREEN.**
+- **E-6** ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js | wc -c`⟩ → `98922`; `| gzip | wc -c` → `13786` (ceilings 125,646 / 14,517). **GREEN.**
+- **K2-b · V-8** → `0` · `0`. **Frozen bytes** ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json | wc -l`⟩ → `0`. **L-6** held.
+- **E-2 routing audit** (`audit.mjs`, needs the linked emitter) not re-run: the bytes are the ones `.gap2` audited (`325,136,977 checks · 0 violations · 0 modeDiffs`) and are unmoved.
+
+### Act 3: §Verification Artefacts
+W7.md has no §Verification Artefacts clause. The artefacts its gates name were run above: the paired node instrument (`isolated.mjs`) ×2, the paired browser instrument (`browser.mjs`) ×2 quiet + 1 supplementary, the frozen oracle and prefix leg (`equiv.mjs`) ×2, the drift check ×2.
+
+### Act 4: E13 mail sweep
+⟨`ls -td glass-ui/docs/tranches/*/ | head -3`⟩ → `BL BK BJ`. ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ over value.js `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` · keyframes.js `V/coordination/` · atlas `P/coordination/` → 0 on every path. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. **0 UNREAD in scope.**
+
+### Act 5: gate table, BEFORE → AFTER
+BEFORE = the RESUME 7 Baseline and the RESUME 6 Close; AFTER = this seat's reads on the frozen bytes `08331dfa`.
+
+| Gate | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|
+| L-G1 Firefox `large-eq` (cell of record) | UNREAD (never read quiet; whole-sheet `large` was x1.056 at load 25–44) | .483 · .512 / .484 · .504 (starts 7.79 / 7.11) | **GREEN ×2** |
+| L-G1 Firefox rej / acc `parseStylesheet` | rej 1.017–1.078 (RESUME 5) → .915–.984; UNREAD on final bytes | rej .845 · .85 / .824 · .838; acc .669 · .683 / .678 · .641 | **GREEN ×2** |
+| L-G1 Firefox, all 22 gated cells | UNREAD on the final bytes | 22/22 · 22/22 (worst keyframe whole .913) | **GREEN ×2** |
+| L-G1 WebKit, 22 cells | UNREAD on the final bytes | 22/22 · 22/22 (worst .864; `large-eq` .364–.409; load 6.31–7.78) | **GREEN ×2** |
+| L-G1 Chromium, 22 cells | UNREAD on the final bytes | 22/22 · 22/22 (worst .649) | **GREEN ×2** |
+| L-G1 node, whole/acc/rej 7/7 + `large-eq` | UNREAD on the final bytes | GREEN · GREEN (3 reps × 11 rounds each; worst .699) | **GREEN ×2** |
+| whole-7/7 inside ceilings | UNREAD on the final bytes | every entry far inside (node r1/r2) | **GREEN ×2** |
+| whole-sheet `large` | — | Firefox 1.68–1.95 · WebKit 1.06–1.2 · Chromium .51–.57 · node .58–.64 | **INFO** (unequal work, ADDENDUM (g)) |
+| L-G2 V-1 | 396 (`.gap2`) | 396 ×2, JSON identical | **GREEN ×2** |
+| Prefix equivalence | 0 ×2 (`.gap2`) | 528 rows · 1,405 decls · 0 refused · 0 mismatches ×2 | **GREEN ×2** |
+| Prefix corpus `check` | RED on the historical product datum (B-1) | same; cuts unmoved | **INFO** (B-1; E-3) |
+| L-G3 | 0 | 0 | **GREEN** |
+| E-4 drift | current (`96c3fa63…`) | current ×2 | **GREEN ×2** |
+| test/css | 9/111 | 9/111 ×2 | **GREEN ×2** |
+| test:css-equivalence | 19/19, MIRROR-DEFECTS 0 | 19/19, every line 0 | **GREEN** |
+| vue-tsc lib/demo/test · build | 0/0/0 · built | 0/0/0 · built | **GREEN** |
+| E-6 size | ≤ ceilings | 98,922 / 13,786 B | **GREEN** |
+| K2-b · V-8 · L-6 | 0 · 0 · held | 0 · 0 · held | **GREEN** |
+| P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half | cited to X.P.W7P | unchanged | **cited to X.P.W7P** (OTP-keyed) |
+
+### Commit roster (X.P.W7, all sittings since the RESUME 6 Close)
+value.js `eeed0116` (`.cp`) · `628d23b6` (V-A64) · `f4dcbd85` `4a4db5f5` (`.eq`) · `79a457d0` `2a2130cf` (`.gap`) · `08331dfa` `4a4aff04` (`.gap2`) · `01ed56bd` (RESUME 7 open) · this Close's commit. Earlier: `.o`…`.l4` per the prior closes (`.l4` `5d46e376` `daa8e85a` `ef91a5a3`). bbnf-lang: `x-p-w7-typescript` at `f0059db14` (= origin; none this sitting). parse-that: none this sitting (`x-p-w7` unchanged since `.p`).
+
+### Residuals (named owners)
+- **The release chain:** P-6, E-8, V-9 and its CI step, Z-1, Z-3's publish half, the bbnf-lang PR #1 merge, and restoring `gen-grammar.mjs --check` through `node_modules` (it needs the published 0.2.0 bin). **Owner:** X.P.W7P, GATE-KEYED on the owner's npm one-time password.
+- **B-1, the prefix `check` script compares a historical product datum.** **Owner:** X.P.W8 (or a later bench unit), never this wave (bytes frozen; E-3).
+- **The valid-CSS long tail** (`[top]auto[stage]1fr`, `attr(… type(<length>))`, `element(#a)`, `U+0025-00FF`, loose `<custom-ident>`). **Owner:** X.P.W8 (ADDENDUM (j)), which re-reads L-G1 at its own close.
+- **LW-1 (INFO):** `src/value.ts:30-33` (`79a457d0`), a `CssCall` doc comment outside `.gap`'s literal grant and not labelled an adjacent edit. No byte change to behaviour. **Owner:** the L-20 check, to rule it an adjacent edit or a finding.
+
+### Escalations
+None. ESC-W7l4-1 is discharged: ADDENDUM (g) ruled the equal-work cell and the quiet-window read, and this seat took that read on a quiet host.
+
+### Four-verb line
+W7.md has no §State clause and designates no seat to stamp VERIFIED. Every engineering gate binding this wave reads GREEN on the frozen bytes, and L-G1 ×2 is read on all four engines on a quiet host. X.P.W7 moves to **IMPLEMENTED**. VERIFIED is not stamped here; the L-20 check reads it, and the release gates ride X.P.W7P.
