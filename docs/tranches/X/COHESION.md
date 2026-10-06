@@ -3681,3 +3681,12 @@ X-DS's canon is amended to match (X-DS.md addendum (a)); the running workflow's 
 
 ## §0el — 2026-10-06: OWNER — "the shrunken and dock animations, and all facilities thereof--are still broken in the demos. Mark and communicate."
 **Marked:** the collapsed dock renders as a square tile with an orphan glyph (frame `waves/owner-2026-10-06/dock-collapsed-broken.png`), and the collapse/expand motion and its facilities are broken across the demos. Relayed as **O-88 DOCK-COLLAPSE-MOTION**: one witnessed unit covering the form, the morph, every trigger, `#persistent`, keyboard, a11y, menus from a collapsed dock, the side variant, 390 and coarse pointers, with a born-RED witness in glass's demo. It folds O-55, O-65, O-83 and O-84/84a, and asks for 10.2.0. **Consumers:** each app's dock specs carry the row **DOCK-COLLAPSE-MOTION honest-RED** until the repin, with no local shim; X-DS critics cite O-88 for any dock-collapse finding and do not cure it locally.
+
+## §0em — 2026-10-06: the fourier production hotfix landed; F.REL minted
+- The hotfix seat cured the empty `VITE_API_URL` (master `ad62881`; live Cloudflare `db51e089` from `9eed6ae`; a post-deploy smoke), and uploads now work in production.
+- It measured four deeper production faults:
+  - master CI red on e2e since J, so the live SPA is June's;
+  - the host API stuck at `f2fe447` since 2026-05-31, because every master push fails its health check and rolls back with about 3 minutes of outage;
+  - contour extraction 500 on a read-only `$HOME` model cache;
+  - a CORS gap (`PATCH`, `If-Match`, `Idempotency-Key`; `ETag` not exposed).
+- **Minted F.REL** (`fourier/waves/F-REL.md`), Track C, after F.W14V and F.CT phase 2: baked models with a configurable model dir, complete CORS, a health-gated zero-downtime host deploy, master green via the m/w1 merge, then deploy and verify in production. Added to Track C's chassis.
