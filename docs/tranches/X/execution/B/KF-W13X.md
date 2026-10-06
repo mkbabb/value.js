@@ -1844,3 +1844,54 @@ Self-count ⟨`sed -n '/^### \.sections/,$p' KF-W13X.md | grep -cE '^\| (addendu
 **Residuals.** (1) L3-17 RING holds until glass's Dialog initial-focus policy lands (O-59 / O-74). (2) The badge idiom CSS stays until glass Badge ships a soft tone (O-59). (3) The three re-homed limbs go to the close. (4) Not run by this unit: kf e2e roster and gh-pages, which are the close's gates.
 
 **Scratch.** Both worktrees (`1961be80`, `b857284e`) and the private servers (:5330, :5331, :5332) are torn down, and the dep caches lived in scratch. Commits: kf `6624f9a5` · `36bb9173` · `6933aeb5` · `b857284e`; value.js evidence `docs/tranches/X/keyframes/evidence/W13X/sections/**` and this receipt. kf is not pushed by this unit.
+
+### KF.W13X.sq+dh (orchestrator seat, §0dz)
+
+**Scope.** KF-W13 addendum (e): `.sq` (the Sequence stage's squared, bordered plate in the owner frame `owner-2026-09-25/sequence-square-frame.png`) and `.dh` (the design hierarchy of Easing, Spring and Sequence). Brief: `execution/B/KF-W13X-dh-brief.md`. It was written from the served before frames, and its text landed in the same value.js commit as this receipt, after the cures were drafted. Seat: single, `claude-opus-5-5`, alongside Track B's `.sections` and X-DS units in the same repo.
+
+**`.sq` root cause.** A consumer rule, not glass. `SequenceTarget.css` `.seq-stage` (through kf `dade65bd`) carried `border-radius: calc(var(--radius-card) - 1rem)`, a "concentric" formula that resolves to **0 px** because the card radius is itself 1 rem. It sat under `border: 1px solid color-mix(… var(--ball-tone) 16%, var(--border))` and a tinted gradient wash. The result was a second, hard-cornered frame inside the rounded Card. Track B's `.sequence` unit deleted the plate at kf `e4142dd9` (UIA-KF-212/312: the Card is the only frame). This seat verified that cure against the owner-frame bytes and made no further `.sq` edit. No glass relay: the plate should not exist, so no radius token was missing.
+
+**`.dh` cures** (kf `cd8386cf`, pushed; 8 files):
+- **Spring:**
+  - The response is one `<figure data-subject>`: the target rail, then the trace its balls ride. It takes the card's free height (plot box `8rem` fixed → `flex: 1`, floored at 8rem).
+  - The stray "Timing-function sweep" readout row is deleted. Its value is now the first clause of the trace's one muted legend (`sweep 0.000 · ζ 0.86 · peak 1.005`), and the legend row wraps at phone width.
+  - The heatmap legend wraps; it was clipped to "…set by damping alon" at 1440.
+  - The title no longer declares an ellipsis.
+- **Easing:** the pane is a glass `ConfiguratorLayer` "Easing" holding the editor and the duration. `EasingPicker` is on `surface="bare"`, so the pane Card is the one plate.
+- **Sequence:**
+  - The Timeline pane is a `ConfiguratorLayer` "Sequence" with the reset in `#actions` (addendum (c)) and the count as one caption.
+  - Each lane label is one register.
+  - Lane pitch is 1 rem on desktop.
+  - The title no longer declares an ellipsis.
+- Identity colours, type and motion are untouched (§0dm).
+
+**Falsifiers.** Served predicates from `evidence/W13X/sq-dh/pred.js`, run by `measure.mjs` in headless Chrome (`channel: "chrome"`). Results are in `sq-dh/results/*.json`; frames are in `sq-dh/*.png`. The grid is 18 cells: 3 views × 1440×900 / 1024×768 / 390×844 × light/dark. Every pass ran ×2 on dev and ×2 on a gh-pages build, and r1 equalled r2 in every pair.
+
+| Bytes | Cells | P1 square box | P2 primary ≥ each region | P3 ellipsis (consumer) | P3 (glass-owned) | P4 one register per row |
+|---|---|---|---|---|---|---|
+| `.sq` before, kf `dade65bd` (owner-frame bytes), Sequence | 6 | **RED 6** | GREEN | RED 6 | 0 | RED 6 |
+| `.dh` before, kf `1961be80` | 18 | GREEN | **RED 6** (Spring, all cells) | **RED 12** (Sequence + Spring titles; Spring heatmap legend truncated at 1440) | 6 | **RED 4** (Sequence pane, 1440/1024) |
+| after, kf `b857284e` + this seat's 8 files (= `cd8386cf`'s content; `95c81b7b` between them is script-only) | 18 | GREEN | GREEN | GREEN | **RED 12** | GREEN |
+
+- **P3 glass-owned, honest-RED (no shim):**
+  - `ConfiguratorLayer`'s label `truncate` is O-77a, due in 10.2.0. It shows on 12 cells now because Easing and Sequence joined Spring under the layer anatomy.
+  - `EasingPicker.vue:574`'s literal chip `truncate` is **O-89**, filed here: `relay/X-KF-BK-EASING-PICKER-LITERAL-ELLIPSIS.md`, glass mirror `valuejs-outbound-2026-10-06-easing-picker-literal-ellipsis.md`, INBOX row at value `d2140f3e`, sent live to `glass-ui-81` (`glass-ui-40` was unreachable; no reply yet). At the after bytes the chip sits below the rail's fold in the measured cells.
+  - Both are ADOPT-AT-LANDING.
+- **Diagnostics (not spec predicates), unchanged before → after:**
+  - 8 cells (Easing and Spring at 1440/1024): the pane card is cut square by the rail's scroll port, `.controls-surface` (the X.KF.W13V.c C1-1 scroller; shell-owned, see Open).
+  - 6 cells (Easing): family-filter tabs run past the card inside glass `FadingScroll axis="x"`, by design.
+
+**Gates.** kf working tree at `b857284e` + these 8 files (+ Track B's unstaged `demo-driver.mjs`): `npm run check` 0 ×2; `test:demo` 119 files / 804 tests GREEN ×2; eslint clean on the changed files. A scratch tree of exactly HEAD + these files: check 0 ×2 and 772/772 tests, with 2 suite files unable to resolve a `vi.mock` path through the scratch tree's symlinked `node_modules` (both pass in the repo). Not re-run after Track B's later commits.
+
+**Rows held to `.dh` by earlier units.** None was cured here; each stays OPEN.
+- KFA-218 (whether the ignition spans the header chrome): an owner call.
+- UIA-KF-098's remaining limb (the reel sits in the stage header): the reel is the stage's own verb, and the pane now carries timing and Reset.
+- UIA-KF-317's motion-preview limb.
+
+**Open.**
+1. The rail scroll port cuts the Easing and Spring pane cards square at 1440×900 and 1024×768 (the Easing duration row and the Spring heatmap sit below the fold). The cure belongs to the shell (`ControlsPaneWrapper`, e.g. glass `FadingScroll`), which Track B had dirty.
+2. P3 glass-owned waits on the 10.2.0 repin (O-77a, O-89).
+3. The Sequence header `Metric` gap is O-84a.
+4. The scratch servers (:5181–:5183, :5191–:5193) are torn down; the :5173 dev server was restarted with `vite --force` and left running.
+
+**Commits.** kf `cd8386cf`. value `d2140f3e` (O-89 relay + INBOX) and this receipt's commit.

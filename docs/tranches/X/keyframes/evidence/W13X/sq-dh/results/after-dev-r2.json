@@ -1,0 +1,416 @@
+[
+ {
+  "cell": "sequence@1440/light",
+  "view": "sequence",
+  "vw": 1440,
+  "vh": 900,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 187298,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "sequence@1440/dark",
+  "view": "sequence",
+  "vw": 1440,
+  "vh": 900,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 187298,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "sequence@1024/light",
+  "view": "sequence",
+  "vw": 1024,
+  "vh": 768,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 126240,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "sequence@1024/dark",
+  "view": "sequence",
+  "vw": 1024,
+  "vh": 768,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 126240,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "sequence@390/light",
+  "view": "sequence",
+  "vw": 390,
+  "vh": 844,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 55669,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "sequence@390/dark",
+  "view": "sequence",
+  "vw": 390,
+  "vh": 844,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 55669,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "easing@1440/light",
+  "view": "easing",
+  "vw": 1440,
+  "vh": 900,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.easing-catalogue.min-h-0.w-full",
+  "primaryArea": 417760,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [
+   "CLIP div.glass-quiet.card.cartoon-surface cut 62..684 -> 62..542"
+  ],
+  "esc": [
+   "button.segmented-tab.glass-capsule-hover \"Bounce\"",
+   "button.segmented-tab.glass-capsule-hover \"Steps\""
+  ],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "easing@1440/dark",
+  "view": "easing",
+  "vw": 1440,
+  "vh": 900,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.easing-catalogue.min-h-0.w-full",
+  "primaryArea": 417760,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [
+   "CLIP div.glass-quiet.card.cartoon-surface cut 62..684 -> 62..542"
+  ],
+  "esc": [
+   "button.segmented-tab.glass-capsule-hover \"Bounce\"",
+   "button.segmented-tab.glass-capsule-hover \"Steps\""
+  ],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "easing@1024/light",
+  "view": "easing",
+  "vw": 1024,
+  "vh": 768,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.easing-catalogue.min-h-0.w-full",
+  "primaryArea": 236768,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [
+   "CLIP div.glass-quiet.card.cartoon-surface cut 40..632 -> 40..435"
+  ],
+  "esc": [
+   "button.segmented-tab.glass-capsule-hover \"Expo\"",
+   "button.segmented-tab.glass-capsule-hover \"Circ\"",
+   "button.segmented-tab.glass-capsule-hover \"Back\"",
+   "button.segmented-tab.glass-capsule-hover \"Bounce\"",
+   "button.segmented-tab.glass-capsule-hover \"Steps\""
+  ],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "easing@1024/dark",
+  "view": "easing",
+  "vw": 1024,
+  "vh": 768,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.easing-catalogue.min-h-0.w-full",
+  "primaryArea": 236768,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [
+   "CLIP div.glass-quiet.card.cartoon-surface cut 40..632 -> 40..435"
+  ],
+  "esc": [
+   "button.segmented-tab.glass-capsule-hover \"Expo\"",
+   "button.segmented-tab.glass-capsule-hover \"Circ\"",
+   "button.segmented-tab.glass-capsule-hover \"Back\"",
+   "button.segmented-tab.glass-capsule-hover \"Bounce\"",
+   "button.segmented-tab.glass-capsule-hover \"Steps\""
+  ],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "easing@390/light",
+  "view": "easing",
+  "vw": 390,
+  "vh": 844,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.easing-catalogue.min-h-0.w-full",
+  "primaryArea": 156192,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [
+   "button.segmented-tab.glass-capsule-hover \"Cubic\"",
+   "button.segmented-tab.glass-capsule-hover \"Expo\"",
+   "button.segmented-tab.glass-capsule-hover \"Circ\"",
+   "button.segmented-tab.glass-capsule-hover \"Back\"",
+   "button.segmented-tab.glass-capsule-hover \"Bounce\"",
+   "button.segmented-tab.glass-capsule-hover \"Steps\""
+  ],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "easing@390/dark",
+  "view": "easing",
+  "vw": 390,
+  "vh": 844,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "div.easing-catalogue.min-h-0.w-full",
+  "primaryArea": 156192,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [
+   "button.segmented-tab.glass-capsule-hover \"Cubic\"",
+   "button.segmented-tab.glass-capsule-hover \"Expo\"",
+   "button.segmented-tab.glass-capsule-hover \"Circ\"",
+   "button.segmented-tab.glass-capsule-hover \"Back\"",
+   "button.segmented-tab.glass-capsule-hover \"Bounce\"",
+   "button.segmented-tab.glass-capsule-hover \"Steps\""
+  ],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "spring@1440/light",
+  "view": "spring",
+  "vw": 1440,
+  "vh": 900,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "figure.spring-figure.m-0.flex",
+  "primaryArea": 389276,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [
+   "CLIP div.glass-quiet.card.cartoon-surface cut 62..823 -> 62..542"
+  ],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "spring@1440/dark",
+  "view": "spring",
+  "vw": 1440,
+  "vh": 900,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "figure.spring-figure.m-0.flex",
+  "primaryArea": 389276,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [
+   "CLIP div.glass-quiet.card.cartoon-surface cut 62..823 -> 62..542"
+  ],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "spring@1024/light",
+  "view": "spring",
+  "vw": 1024,
+  "vh": 768,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "figure.spring-figure.m-0.flex",
+  "primaryArea": 221273,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [
+   "CLIP div.glass-quiet.card.cartoon-surface cut 40..785 -> 40..435"
+  ],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "spring@1024/dark",
+  "view": "spring",
+  "vw": 1024,
+  "vh": 768,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "figure.spring-figure.m-0.flex",
+  "primaryArea": 221273,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [
+   "span.configurator-section-label.truncate"
+  ],
+  "clip": [
+   "CLIP div.glass-quiet.card.cartoon-surface cut 40..785 -> 40..435"
+  ],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "spring@390/light",
+  "view": "spring",
+  "vw": 390,
+  "vh": 844,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "figure.spring-figure.m-0.flex",
+  "primaryArea": 153506,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ },
+ {
+  "cell": "spring@390/dark",
+  "view": "spring",
+  "vw": 390,
+  "vh": 844,
+  "P1": true,
+  "square": [],
+  "P2": true,
+  "primary": "figure.spring-figure.m-0.flex",
+  "primaryArea": 153506,
+  "bigger": [],
+  "P3": true,
+  "ell": [],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": true,
+  "reg": []
+ }
+]
