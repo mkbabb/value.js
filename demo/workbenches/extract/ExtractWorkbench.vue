@@ -195,7 +195,12 @@
                     >
                         This image has no opaque pixels to sample.
                     </p>
-                    <ShadowPalette v-else key="shadow" :count="session.colorCount.value" />
+                    <PaletteCardSkeleton
+                        v-else
+                        key="shadow"
+                        variant="instrument"
+                        :count="session.colorCount.value"
+                    />
                 </Transition>
             </div>
         </div>
@@ -227,7 +232,7 @@ import { useCameraCapture } from "./composables/useCameraCapture";
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
-import { PaletteCardSkeleton, ShadowPalette } from "../../palettes/browser/card";
+import { PaletteCardSkeleton } from "../../palettes/browser/card";
 import PaletteInspector from "../../palettes/PaletteInspector.vue";
 
 type DisplayColorSpace = SpaceId | "hex";

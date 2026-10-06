@@ -64,7 +64,7 @@ const PLATE_ALLOWANCE_PX = 5;
 const FIDELITY_TOLERANCE_PX = 4;
 
 const PLATES = [
-    { file: "ShadowPalette.vue", props: {} },
+    { file: "PaletteCardSkeleton.vue", props: { variant: "instrument" } },
     { file: "PaletteCardSkeleton.vue", props: {} },
     { file: "PaletteCardSkeleton.vue", props: { variant: "developing" } },
 ] as const;

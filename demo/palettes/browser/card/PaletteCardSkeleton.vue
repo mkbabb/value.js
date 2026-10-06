@@ -1,39 +1,66 @@
 <template>
     <div
-        data-slot="palette-card-skeleton"
-        class="skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
-        role="status"
-        aria-label="Loading palette"
+        :data-slot="instrument ? 'shadow-palette' : 'palette-card-skeleton'"
+        class="skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden"
+        :class="instrument && 'shadow-palette'"
+        :role="instrument ? undefined : 'status'"
+        :aria-label="instrument ? undefined : 'Loading palette'"
+        :aria-hidden="instrument ? 'true' : undefined"
     >
-        <!-- Shadow color strip — the plate develops left to right. -->
-        <div class="flex h-10 w-full">
-            <Skeleton
-                v-for="i in count"
-                :key="i"
-                class="h-full rounded-none"
-                :class="variant === 'developing' && 'specimen-seg skeleton-seg'"
-                :style="{
-                    width: `${100 / count}%`,
-                    '--i': i - 1,
-                    '--skeleton-shimmer-delay': `${(i - 1) * 0.12}s`,
-                }"
-            />
+        <!-- The strip — the plate develops left to right. The instrument
+             face keeps a hairline of the well ground between its cells so
+             the live-k segmentation reads AT REST (PRM stillness). -->
+        <div class="flex h-10 w-full" :class="instrument && 'gap-px'">
+            <template v-if="instrument">
+                <div
+                    v-for="i in count"
+                    :key="i"
+                    data-slot="shadow-palette-cell"
+                    class="shadow-seg animate-pulse h-full min-w-0 flex-1"
+                    :style="{ animationDelay: `${((i - 1) * 0.12).toFixed(2)}s` }"
+                />
+            </template>
+            <template v-else>
+                <Skeleton
+                    v-for="i in count"
+                    :key="i"
+                    class="h-full rounded-none"
+                    :class="variant === 'developing' && 'specimen-seg skeleton-seg'"
+                    :style="{
+                        width: `${100 / count}%`,
+                        '--i': i - 1,
+                        '--skeleton-shimmer-delay': `${(i - 1) * 0.12}s`,
+                    }"
+                />
+            </template>
         </div>
-        <!-- Shadow metadata row — develops after the strip. -->
+        <!-- The metadata row — develops after the strip. -->
         <div class="px-3 py-2.5 flex items-center gap-2">
-            <Skeleton
-                class="text-subheading h-[1lh] w-32 rounded-md"
-                :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.1}s` }"
-            />
-            <Skeleton
-                class="text-subheading h-[1lh] w-6 rounded-md"
-                :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.22}s` }"
-            />
+            <template v-if="instrument">
+                <div
+                    class="shadow-block-name animate-pulse text-subheading h-[1lh] w-32 rounded-md"
+                    :style="{ animationDelay: `${(count * 0.12 + 0.1).toFixed(2)}s` }"
+                />
+                <div
+                    class="shadow-block-count animate-pulse text-subheading h-[1lh] w-6 rounded-md"
+                    :style="{ animationDelay: `${(count * 0.12 + 0.22).toFixed(2)}s` }"
+                />
+            </template>
+            <template v-else>
+                <Skeleton
+                    class="text-subheading h-[1lh] w-32 rounded-md"
+                    :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.1}s` }"
+                />
+                <Skeleton
+                    class="text-subheading h-[1lh] w-6 rounded-md"
+                    :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.22}s` }"
+                />
+            </template>
         </div>
         <!-- X.W12U.s2 (N-17 after UIA-V-30): below 30rem the settled card
              seats its meta cluster (tags, vote) on its own row beneath the
              name, so the silhouette carries that row too. -->
-        <div class="skeleton-meta-row" aria-hidden="true">
+        <div v-if="!instrument" class="skeleton-meta-row" aria-hidden="true">
             <Skeleton
                 class="text-mono-small h-[calc(1lh+0.25rem)] w-10 rounded-sm"
                 :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.34}s` }"
@@ -86,16 +113,30 @@
  * component, whose <Transition mode="out-in"> leave never completes. The
  * template now opens on its element; the note lives here.
  */
+import { computed } from "vue";
 import { Skeleton } from "@mkbabb/glass-ui";
 
+/*
+ * X.W12U.k (A2-VA-L1-13): the palette-ghost job has ONE component. The
+ * former sibling `ShadowPalette.vue` is the `instrument` variant here — the
+ * R12 species kept whole, not re-designed: Extract's standing k-threaded
+ * undeveloped plate (`data-slot="shadow-palette"`, the o9 oracle's seat), the
+ * genesis `ec1b200` register (card-true material, solid hairline, muted
+ * cells on a LIVING staggered `animate-pulse`, i × 0.12s; meta blocks at
+ * 60/40 of the ink; PRM degrades it static through the global guard,
+ * animations.css). Its semantics stay R7's: `aria-hidden`, NO role="status",
+ * NO "Loading" label — nothing is loading, so a shimmering plate does not lie
+ * to AT. It is not a LOADING register and never a filler: true-empty hosts
+ * speak the EmptyState dot trio; error ≠ empty.
+ */
 const { count = 5, variant = "shadow" } = defineProps<{
+    /** Segment count — Extract threads the LIVE k here. */
     count?: number;
-    /** The two LOADING registers — see the template note. TRUE EMPTY is not
-     *  a register here: empty hosts speak the EmptyState dot trio, and the
-     *  sibling `ShadowPalette` species is the Extract instrument face
-     *  (T.W6.5 · R12). */
-    variant?: "shadow" | "developing";
+    /** `shadow` | `developing` are the two LOADING registers (see the note
+     *  above); `instrument` is the Extract instrument face (T.W6.5 · R12). */
+    variant?: "shadow" | "developing" | "instrument";
 }>();
+const instrument = computed(() => variant === "instrument");
 </script>
 
 <style scoped>
@@ -120,6 +161,22 @@ const { count = 5, variant = "shadow" } = defineProps<{
     container: palette-card-skeleton / inline-size;
     --pulse-aura-opacity-max: 0.75;
     --animate-ambient-pulse-easing: var(--ease-standard);
+}
+
+/* The instrument face's genesis ink ladder (`ec1b200`: strip = muted · meta =
+ * muted/60,/40), spoken through the ONE loading-ink recipe root
+ * (`--skeleton-ink`, utils.css `.skeleton-ink-register`), which certifies the
+ * block as a bounded tone-step of the plate's `bg-well` ground in both schemes.
+ * The steps fade INTO the plate by a color-mix step (never element opacity —
+ * D6); the pulse's opacity swing is MOTION on top of the ink. */
+.shadow-seg {
+    background: var(--skeleton-ink);
+}
+.shadow-block-name {
+    background: color-mix(in oklab, var(--skeleton-ink) 60%, transparent);
+}
+.shadow-block-count {
+    background: color-mix(in oklab, var(--skeleton-ink) 40%, transparent);
 }
 
 /* The meta row of a narrow settled card (PaletteInspector's < 30rem rule). */
