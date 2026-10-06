@@ -366,7 +366,6 @@ export default [
             "demo/color-picker/App.vue",
             "demo/shell/usePaneRouter.ts",
             "demo/shell/dock/Dock.vue",
-            "demo/shell/dock/ActionToolbar.vue",
             "demo/shell/dock/layers/ActionBarLayer.vue",
             "demo/shell/dock/layers/GenericActionBar.vue",
             "demo/color-session/keys.ts",

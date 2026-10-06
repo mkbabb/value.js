@@ -206,6 +206,20 @@ export type SceneActionState =
      */
     | { readonly kind: "failed"; readonly detail: string; readonly run: () => void };
 
+/**
+ * The shell's resolver, as each feature's `sceneActions.ts` builder sees it
+ * (X.W12U.k · A2-VA-L1-10): hand it a token and the target's command (or
+ * `null` when the target has not registered) and it answers ONE modelled
+ * state. Dispatch and the failure ledger stay behind it, in
+ * `shell/useSceneActions.ts`.
+ */
+export type ResolveSceneAction = (
+    token: SceneActionToken,
+    command: SceneCommand | null,
+    absent: string,
+    blocked?: string,
+) => SceneActionState;
+
 /** One named action, resolved against its scene's target. */
 export interface SceneAction {
     readonly token: SceneActionToken;

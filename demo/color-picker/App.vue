@@ -212,18 +212,8 @@ import { useColorUrl } from "../color-session/useColorUrl";
 
 import { useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
-import {
-    usePaneRouter,
-    readScenePaneTarget,
-    PANE_CACHE_MAX,
-    ROLE_PANES,
-} from "../shell/usePaneRouter";
-import type { RegionRole } from "../shell/viewSchema";
-import type {
-    ScenePane,
-    ScenePaneTargetMap,
-    ScenePaneTargets,
-} from "../color-session/keys";
+import { usePaneRouter, PANE_CACHE_MAX } from "../shell/usePaneRouter";
+import { useSceneTargets } from "../shell/useSceneTargets";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { useClipboard } from "@mkbabb/glass-ui";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
@@ -241,7 +231,6 @@ import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 // --- Template refs ---
 const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
-const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 
 // --- W2-1 (T.W2) — HYDRATION BEFORE DERIVATION, the ordering LAW ---
 // The seed resolves FIRST (URL hash → storage → default, pure + synchronous)
@@ -339,145 +328,9 @@ const { prmInstant, dockRevealed, onDockMorphSettled, onDockLandEnd } = useDockA
 // census reads zero in this file and means it.
 
 // --- Scene-target registry (X-W4 · CC-043) ---
-// ONE typed registry replaces the three `ref<any>` pane-instance refs the dock
-// used to dispatch onto. `readScenePaneTarget` verifies the instance actually
-// exposes the scene's commands, so "registered" is a measured fact: a pane that
-// renamed a member now surfaces as the contract's `unavailable` state instead
-// of degrading to a dead dock button.
-const scenePanes = shallowRef<ScenePaneTargets>({
-    generate: null,
-    gradient: null,
-    mix: null,
-});
-
-/** The scenes whose pane exposes commands. Keys of the registry above. */
-const SCENE_PANES = [
-    "generate",
-    "gradient",
-    "mix",
-] as const satisfies readonly ScenePane[];
-
-/** The picker instance, read back from the slot's mount report. */
-function readColorPicker(instance: unknown): InstanceType<typeof ColorPicker> | null {
-    if (typeof instance !== "object" || instance === null) return null;
-    const exposed = instance as Record<string, unknown>;
-    if (typeof exposed.commitEdit !== "function") return null;
-    if (
-        typeof exposed.sceneActionTarget !== "object" ||
-        exposed.sceneActionTarget === null
-    ) {
-        return null;
-    }
-    return instance as InstanceType<typeof ColorPicker>;
-}
-
-/**
- * Publish a registry revision ONLY when a target actually changed.
- *
- * `PaneSlot` binds its mount report as an INLINE function ref
- * (`:ref="(el) => onMount(el)"`), so its identity differs on every render and
- * Vue re-invokes it on every patch of the slot. A `shallowRef` whose value is
- * replaced by a fresh object literal would therefore trigger on every patch —
- * and this registry is read by `sceneActions`, which App's own render reads, so
- * every such trigger re-enters App's render effect. The three `ref<any>` this
- * replaces were immune by accident (assigning the same instance to a `ref` is a
- * no-op write, and nothing rendered them); the registry earns it deliberately.
- */
-function publishScenePanes(next: ScenePaneTargets) {
-    const current = scenePanes.value;
-    if (
-        current.generate === next.generate &&
-        current.gradient === next.gradient &&
-        current.mix === next.mix
-    ) {
-        return;
-    }
-    scenePanes.value = next;
-}
-
-/**
- * What ONE slot's mount report says about ONE scene.
- *
- * A slot reports through `PaneSlot`'s inline function ref
- * (`:ref="(el) => onMount(el)"`), so Vue re-invokes it on every patch of that
- * slot — and for a `defineAsyncComponent` pane inside `<KeepAlive>` the object
- * it hands back ALTERNATES between the resolved pane's exposed instance and the
- * wrapper's own bare public instance. Measured at this seat on `/#/mix`, in one
- * render pass: 102 reports carrying `clearSelection/startMix/copyResult` against
- * 53 carrying nothing at all.
- *
- * A report that is not this scene's pane is therefore NOT evidence that the pane
- * is gone. Reading it as a de-registration made the registry flip null↔target on
- * every patch — and the registry is read by `sceneActions`, which App's own
- * render reads, so App's render effect was mutating its own dependency:
- * *"Maximum recursive updates exceeded in component <App>"*, measured live.
- *
- * So a report means exactly what it says, and nothing more:
- *   · the slot no longer shows this scene → cleared;
- *   · an explicit unmount (`null`)        → cleared;
- *   · an instance exposing the scene's commands → registered;
- *   · anything else → not a fact about this scene; what is registered stands.
- *
- * The last arm is not a fallback over a defect: a pane that renamed a command
- * never satisfies `readScenePaneTarget`, so it never registers, and the contract
- * surfaces it as `unavailable` — which is the whole point of D4.
- */
-function foldSceneReport<S extends ScenePane>(
-    scene: S,
-    slotOwnsScene: boolean,
-    instance: unknown,
-): ScenePaneTargetMap[S] | null {
-    if (!slotOwnsScene || instance === null) return null;
-    return readScenePaneTarget(scene, instance) ?? scenePanes.value[scene];
-}
-
-/** The same reading for the colour scene, whose target is the picker itself. */
-function foldColorPickerReport(
-    slotOwnsScene: boolean,
-    instance: unknown,
-): InstanceType<typeof ColorPicker> | null {
-    if (!slotOwnsScene || instance === null) return null;
-    return readColorPicker(instance) ?? colorPickerRef.value;
-}
-
-/**
- * ONE mount report, for every seat, keyed by what actually reported.
- *
- * X.W5.a (fold W5F-02): the two callbacks this replaces re-derived the pane's
- * identity from the route-synchronous `currentConfig` while the slot renders
- * one rAF behind plus chunk latency — so the OUTGOING instance was filed under
- * the INCOMING pane's name for a measured 1275 ms window. The slot now reports
- * the LIVE key beside the instance and the derivation is gone.
- *
- * The scene-COMMAND registry (X-W4 · CC-043) is published from the two desktop
- * seats exactly as X-W4 authored it. The mobile seat's command channel is NOT
- * opened here: COHESION §0k.3 **S-1** rules that `bindPane` is "narrowed to
- * non-command instance uses" and that "the `DockCommand` provide/inject
- * registry lands at X-W8"; X-W5 holds A3's WITNESS and may not claim its cure.
- * What the mobile seat DOES gain is the narrowed channel itself — the edit
- * commit/cancel and the external-colour apply, which `bindPane` owns for all
- * three seats (`usePaneRouter`), and which were structurally dead below the
- * breakpoint because the mobile slot passed no mount report at all.
- */
-function onPaneMount(role: RegionRole, instance: unknown, key: string) {
-    // What this ROLE can ever seat, derived from the scene table. A report is
-    // only evidence about a scene the reporting seat could be showing — which
-    // is what the retired `slot === "left"` / `slot === "right"` string tests
-    // were approximating by hand, one physical side at a time.
-    const seats = ROLE_PANES[role];
-    if (seats.has("color-picker")) {
-        colorPickerRef.value = foldColorPickerReport(key === "color-picker", instance);
-    }
-    const read = <S extends ScenePane>(scene: S): ScenePaneTargetMap[S] | null =>
-        seats.has(scene)
-            ? foldSceneReport(scene, key === scene, instance)
-            : scenePanes.value[scene];
-    publishScenePanes({
-        generate: read("generate"),
-        gradient: read("gradient"),
-        mix: read("mix"),
-    });
-}
+// The typed registry and the mount-report folding that feeds it are the
+// shell's (`shell/useSceneTargets.ts`, A2-VA-L1-10); App only wires them.
+const { colorPicker: colorPickerRef, scenePanes, onPaneMount } = useSceneTargets();
 
 // --- Pane routing — one source of truth: mobile single-slot, the two desktop
 //     slots, and the ONE scene action set all derive from one route table. ---
