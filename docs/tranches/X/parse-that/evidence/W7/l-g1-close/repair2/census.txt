@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5
+# ps -axo comm | awk -F/ '{print $NF}' | sort | uniq -c | sort -rn | head -8 ; then the chrome-headless-shell count ; then the clock
+ 130 Code Helper (Plugin)
+  93 zsh
+  40 sleep
+  39 vitest-vscode
+  27 node
+  23 esbuild
+  23 distnoted
+  20 Code Helper
+7
+18:47:02

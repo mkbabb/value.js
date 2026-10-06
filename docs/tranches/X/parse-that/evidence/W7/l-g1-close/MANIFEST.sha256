@@ -23,3 +23,10 @@ d16923f230d3892d4fb21ddc4991f68205b171631d85637cb09118dd3b1c7aaf  check1/2026-09
 a2ff53efd2e962949b55f18424b914c145a6ffe2cbb9de06072224ec6fdc713f  repair1/load.txt
 0f8e9a4a90d611add4b10b357536f35ee589318bbfa1d8a074ea5a10e92992f1  repair1/run.sh.txt
 b866b8849216bc365ec370fc4c5a16c8ef6cd3cf87c05d919cf1146ddef994fb  repair1/status.txt
+# repair2/ = Repair 2 bounded quiet-host wait (17:35:23-19:15:02, 18 samples, 1-min load 298.87-421.31, never < 8; host in clamshell sleep on battery since 13:26:24, dark-wake bursts only): no build, no read launched, 0 records
+b28137df9f6a7bfd367972799eb7e6b3639bc4be3d7f93fc57272ebfcb455198  repair2/census.txt
+24fb5e6e6b3c1eb852f483712c747fe3d6e833d502cba334390dc769e42bdb61  repair2/load.txt
+4c4147b9b1762b44794f01031f3704e194ff6220949d20bf6b18675eeeb214b1  repair2/pmset-early.txt
+dc497a2b23266aabff529a1df30f67a63f8723b9eea0e8477866e52371e170dc  repair2/pmset.txt
+0c8c49fafa8ba20926646ea7054904dc9a832850d8ca4920b8b078f13d1fa10d  repair2/run.sh.txt
+aca21c09d7d928124c0d0868b80c465cfc3665e060e230c87556688c3adfd8be  repair2/status.txt

@@ -3172,3 +3172,41 @@ SERVED MODEL: claude-opus-5-5. Read: W7.md whole (303 lines, ADDENDA (a)–(j));
 - **X-W11** (value.js publish) rides X.P.W7P; unchanged.
 
 **Counts (self-count):** gates reproduced 11; not reproduced 1 gate family (L-G1, 4 engines, 0 reads launched); gates failed 0. Defect rows 5: HIGH 1 · INFO 4. Honest-RED 5 gates, all relieved to X.P.W7P. This seat moved 0 product bytes and wrote 0 bench records (⟨`git status --porcelain bench src | wc -l`⟩ → `0`).
+
+## Repair 2 of the RESUME 7 Close (2026-10-06, repair seat round 2, `claude-opus-5-5`, Track D; answers `## Check 2 of the RESUME 7 Close`)
+
+SERVED MODEL: claude-opus-5-5. Read: W7.md whole (303 lines, ADDENDA (a)–(j)); of this record the section headings, `## Repair 1 of the RESUME 7 Close` and `## Check 2 of the RESUME 7 Close` whole. Crash-recovery: ⟨`git status --porcelain -- src bench test/css docs/tranches/X/execution/D docs/tranches/X/parse-that/evidence/W7`⟩ → empty at open; nothing inherited. parse-that's dirty paths are master's standing dirt, untouched. Product bytes: ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json | wc -l`⟩ → `0` at open and at close of this sitting (frozen, §0ef). This seat moved 0 product bytes.
+
+**Outcome: 0 cured, 1 ESCALATED (C2-1 = ESC-W7r7-1, with a newly measured cause), 4 INFO with nothing owed.** The row stays IMPLEMENTED; this repair does not stamp CLOSED.
+
+| id | severity | cure | commit | gate re-reading |
+|---|---|---|---|---|
+| C2-1 | HIGH (unreproduced gate; no product defect) | **Not cured: ESCALATED (ESC-W7r7-1).** The full 90-minute bounded wait of ADDENDUM (f) 3 was held; the host never read below 8; 0 reads launched, 0 figures claimed. The wait measured why: see below. | this section's commit (wait evidence + manifest) | none taken |
+| C2-2 | INFO | None owed (the ruled cell, ADDENDUM (g) 1); homed to X.P.W8's bench unit by Check 2. | n/a | n/a |
+| C2-3 | INFO | Homed to X.P.W8's bench unit (bytes frozen; E-3). | n/a | n/a |
+| C2-4 | INFO | Ruled an adjacent edit by Check 1. | n/a | n/a |
+| C2-5 | INFO | None owed. | n/a | n/a |
+
+### ESC-W7r7-1 (C2-1): the full bound was held; the host was asleep with its lid closed, on battery
+- **The act taken.** `repair2/run.sh.txt` (Repair 1's script shape, with the bench build moved behind the first quiet reading so that a loaded host is not asked for a 12-minute build): wait for ⟨`sysctl -n vm.loadavg`⟩ 1-min < 8 (30 s poll, bound 5,400 s from 17:35:23); then build; then Firefox ×2 and node ×2, each launched only at 1-min < 8.
+- **The wait, to its bound.** `repair2/status.txt`: `WAITSTART 17:35:23 { 397.94 325.24 315.77 }` → `NEVER-QUIET build 19:15:02 366.00` → `ABORT`. `repair2/load.txt`: **18 samples**, 1-minute minimum **298.87**, maximum **421.31**, never below 8. 18 cores. No build ran, 0 Firefox reads and 0 node reads were launched: ⟨`ls bench/records | grep -c rp2`⟩ → `0`.
+- **The new measurement: why 18 samples and not ~199.** A 30 s poll over 5,979 s should log about 199 samples; it logged 18, and their clocks come in bursts (17:35 · 18:06–18:09 · 18:26–18:28 · 18:44 · 18:47–18:48 · 19:03 · 19:15). The power log explains it (`repair2/pmset-early.txt`, `repair2/pmset.txt`; ⟨`pmset -g log`⟩ filtered to today's Sleep / Wake / DarkWake lines):
+  - 00:00–13:26: **0** sleep events. The close's quiet reads (`close/status.txt`: `QUIET firefox 12:20:36 7.11` · `webkit 12:24:25 6.66` · `chromium 12:25:30 6.92`) and Check 1's loaded read (`check1/status.txt`: 13:02:54, load 66.85) were taken on an awake host.
+  - **13:26:24: `Entering Sleep state due to 'Clamshell Sleep' … Using Batt`.** The lid closed on battery. From then to 19:27 the log holds 102 Sleep / Wake / DarkWake lines (32 + 70), every power-source field reads battery (`Using Batt` 51 + `Using BATT` 10 = 61 of 61; `Using AC` 0), and the host runs only in maintenance dark-wake bursts of 2–181 s roughly every 15 minutes.
+  - Awake time by the log's DarkWake → Sleep spans: **352 s of this sitting's 5,979 s** (5.9%); 342 s of Check 2's 2,443 s (16:44:00–17:24:43); 783 s of Repair 1's 6,946 s (14:13:00–16:08:46); 2,274 s of the 20,918 s since the lid closed. (Lower bounds: the log stamps the start of each sleep transition, and processes run a little past it.)
+  - ⟨`pmset -g batt`⟩ at 18:44 → `79%; discharging`; at 19:27 → `75%; discharging`.
+- **What that changes in the finding.** Repair 1, Check 2 and this repair were not waits on a busy host that might have quieted: each was held on a host that was asleep for about nine tenths of the clock. In each short dark wake every thawed sibling process becomes runnable at once (census at 18:47, `repair2/census.txt`: 130 `Code Helper (Plugin)`, 39 `vitest-vscode`, 27 `node`, 23 `esbuild`, 7 `chrome-headless-shell`), so the 1-minute load reads 300–420 and has no time to decay before the next sleep. A paired timing cell also cannot be read across a sleep transition: the instrument's passes are wall-clock timed. **No waiting seat can obtain a quiet read in this state, however long its bound.** Check 2's cure text ("the orchestrator opens the window … sibling tracks idle") is necessary and not sufficient: the host must also be awake.
+- **Why this is an escalation and not a cure.** The cure is a read, and the read needs (1) the machine awake for the whole read (lid open or on AC power with sleep prevented: the owner's act; no path in this wave's File Bounds wakes a host, and a seat running `caffeinate` under a closed lid on battery would be a workaround on the owner's hardware, outside any grant), and (2) the sibling tracks idle (the orchestrator's act, ADDENDUM (g) 2). Neither is a byte in this wave's writable set.
+- **What the next sitting owes, exactly** (unchanged from Check 2, with the precondition now measured). First ⟨`pmset -g log | grep -E ' (Sleep|DarkWake) ' | tail -2`⟩ shows no sleep event inside the last 15 minutes and ⟨`pmset -g batt`⟩ reads AC power, and ⟨`sysctl -n vm.loadavg`⟩ 1-min < 8. Then, on the frozen `08331dfa`:
+  - ⟨`node bench/paired/build.mjs`⟩;
+  - ⟨`node bench/paired/browser.mjs <tag>-r{1,2}-firefox firefox 2 whole,acc,rej,large-eq,large 11 product`⟩ ×2 (WebKit and Chromium if the window allows);
+  - ⟨`node --expose-gc bench/paired/isolated.mjs <tag>-node-r{1,2} product 3 11 whole,acc,rej,large-eq,large`⟩ ×2;
+  - start load < 8 recorded per rep; records banked under `evidence/W7/l-g1-close/` with `MANIFEST.sha256` extended.
+  - 22/22 gated rows < 1 on each read closes C2-1. A quiet clean cell ≥ 1.0 is a cure unit (ADDENDUM (g)), never a noise band.
+  - Or the owner rules ESC-W7r7-1 (⟨`grep -c 'ESC-W7r7-1' docs/tranches/X/COHESION.md`⟩ → `0`, still unruled): whether the close's two quiet, hash-pinned reads plus two checks' byte re-derivation satisfy "the check reads it".
+- **The standing evidence.** Unchanged and intact: the close's nine records under `close/` (start loads 6.60–7.79, taken before the lid closed), 22/22 gated rows below 1 on each engine read, as Check 1 and Check 2 re-derived from the bytes. That is the close's claim; it is not this seat's reproduction.
+
+**Evidence banked (this commit):** `docs/tranches/X/parse-that/evidence/W7/l-g1-close/repair2/` — `run.sh.txt`, `load.txt`, `status.txt`, `census.txt`, `pmset-early.txt`, `pmset.txt` (6 files); `MANIFEST.sha256` extended by one comment line and 6 entries, nothing above them changed. ⟨`grep -v '^#' MANIFEST.sha256 | tail -n +2 | shasum -a 256 -c - | grep -c OK`⟩ → `25` ×2 (11 close + 5 check1 + 3 repair1 + 6 repair2).
+**Gates a cure could move:** none. The only writes are evidence files and this record. ⟨`git status --porcelain -- src bench test/css | wc -l`⟩ → `0`.
+**Adjacent edits:** none. **Mail:** ⟨`grep -cE '\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`.
+**Counts (self-count):** defect rows answered 5: cured 0 · escalated 1 (C2-1) · nothing owed 4 (C2-2, C2-3, C2-4, C2-5). Files banked 6 + the manifest extension. Load samples 18. Builds 0. Reads launched 0. Product bytes moved 0.
