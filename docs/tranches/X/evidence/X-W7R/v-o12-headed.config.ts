@@ -1,6 +1,6 @@
 // SERVED MODEL: claude-opus-5-5 — X.W7R.v instrument (run from the scratch iso tree)
 // X.W7R.v — the X.W5.c3 instrument re-pointed at the iso tree (glass 10.0.1) (COHESION §0ay): o12 read HEADED on the real GPU,
-// exactly as D1 of record launched (headless:false, no swiftshader args; since COHESION §0ei it runs
+// exactly as D1 of record launched (headless: true, no swiftshader args; since COHESION §0ei it runs
 // real Chrome new-headless on Metal: channel "chrome", headless: true). Scratch config:
 // the repo's playwright.config.ts and the o12 spec are untouched.
 import { defineConfig } from "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/iso/node_modules/@playwright/test/index.mjs";

@@ -3690,3 +3690,16 @@ X-DS's canon is amended to match (X-DS.md addendum (a)); the running workflow's 
   - contour extraction 500 on a read-only `$HOME` model cache;
   - a CORS gap (`PATCH`, `If-Match`, `Idempotency-Key`; `ETag` not exposed).
 - **Minted F.REL** (`fourier/waves/F-REL.md`), Track C, after F.W14V and F.CT phase 2: baked models with a configurable model dir, complete CORS, a health-gated zero-downtime host deploy, master green via the m/w1 merge, then deploy and verify in production. Added to Track C's chassis.
+
+## §0en — 2026-10-06: the background-browser conversion landed; frame budgets ruled refresh-relative
+- **§0ei is executed at the root:**
+  - fourier `d3748d6`: the `chromium-headed` project becomes `chrome-gpu`, real Chrome headless, Metal asserted by `expectHardwareGpu`;
+  - keyframes `95c81b7b`: the shared `demo-driver` forces background launches;
+  - value.js `53824f51` (`e2e/smoke/perf/real-gpu.ts`) and `1babfcf4` (about 800 committed probes converted to `channel: "chrome", headless: true`).
+- **Measured:** headless Chrome gets `ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max)`; WebGPU is on Metal 3; the headless screen is 1× (so the GPU projects pass `--force-device-scale-factor=2`); headless rAF runs at 60 Hz.
+- **Ruled:** frame budgets are stated in measured refresh intervals (p50 ≤ 1·T, p95 ≤ 2·T), not milliseconds (W12U.md addendum (e)).
+- **Chassis notes that still say "headed"** are superseded by §0ei. Seats read COHESION to the file end, and the notes are not rewritten, because a changed note would re-open closed seats.
+
+## §0eo — 2026-10-06: OWNER LAW (relayed by the sci-report session) — nothing durable in /tmp
+*"Globally we need to stop writing things to tmp to preserve them between runs and boots--communicate this to all active claude code sessions."*
+`/tmp`, `/private/tmp` and the session scratchpad are wiped on reboot. **Binding on every seat:** anything a later run, a resumed workflow or a later session needs (scratch clones, worktrees, build substrates, model caches keyed by path, evidence, logs, receipts, bench records) goes in a durable place: a gitignored directory inside the repo (`.worktrees/`, `bench/records/`, `docs/tranches/X/evidence/**`) or under `$HOME` (`~/.fourier-samples/`, `~/.dev-logs/`, `~/.mongo-dev/`). `/tmp` is only for files disposable within one command. This restates the standing "never keep chassis sources in /tmp" rule for everything.
