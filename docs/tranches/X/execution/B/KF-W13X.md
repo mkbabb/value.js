@@ -1895,3 +1895,166 @@ Self-count ⟨`sed -n '/^### \.sections/,$p' KF-W13X.md | grep -cE '^\| (addendu
 4. The scratch servers (:5181–:5183, :5191–:5193) are torn down; the :5173 dev server was restarted with `vite --force` and left running.
 
 **Commits.** kf `cd8386cf`. value `d2140f3e` (O-89 relay + INBOX) and this receipt's commit.
+
+---
+
+SERVED MODEL: claude-opus-5-5 (close seat, VERIFY-ONLY — 0 kf bytes, 0 glass bytes)
+
+## Close
+
+- **Date:** 2026-10-06 (execution under the owner's begin-word of 2026-09-17). Track B close seat. Verify-only: this seat cured nothing.
+- **Bytes verified:** kf `cd8386cf` (= `origin/master`), the last KF.W13X commit (`.sq+dh`). The gates were run in a detached scratch worktree with its own copy of `node_modules` (glass `10.1.0`) and cold caches. `cd8386cf` landed during this sitting, so the full floor was read ×2 at `95c81b7b` (every wave byte except `.sq+dh`'s 8 files) and then re-read at `cd8386cf` as far as the machine allowed (Act 2). The shared kf work tree could not be used: at this sitting it carries 30 modified paths of another seat's in-flight work (X-DS / `.pc`), none of them this seat's. They were not read as wave bytes, staged, restored or stashed.
+- **Verdict: PARTIAL.** The floor is GREEN ×2 at `95c81b7b` and every unit's commits are in bounds, but the wave is not closeable. Three things stand:
+  1. KF-W13.md addendum (f) (COHESION §0ep, minted during this sitting) orders two more units, `.pc` then `.dh2`, before the close.
+  2. The kf e2e gate is not GREEN: one observation fails outside the honest-RED set, and the ×2 roster could not be read at all at this sitting (Act 2).
+  3. Nine escalations are unruled, and the units re-homed a long list of rows and limbs "to the close" because their sets could not reach the cure site. A verify-only close cannot cure them. They are listed under Residuals with owners.
+
+### Act 1 — commits and bounds
+
+⟨`git -C keyframes.js log --oneline 574642be..cd8386cf | wc -l`⟩ → **140**: 137 unit commits + `.sq+dh` `cd8386cf` + 2 that are not this wave's (`2fdf2025` X-DS census script, `95c81b7b` §0ei demo-driver headless). ⟨`git rev-parse origin/master`⟩ → `cd8386cf`.
+
+Roster (kf, by unit; the count is from `git log`, each sha's unit read from its subject):
+
+- `.amiga` (8): `5451ca99` `9ca1c3e7` `90840a33` `f26fdece` `40b76423` `25d3abc8` `adb15bf0` `f80858ee`
+- `.controls` (4): `4c727a4f` `7ad81a32` `64062263` `876a413f`
+- `.cube` (11): `05a79575` `9e8a7b65` `7bdcbb7e` `57d7319e` `0f66482c` `cef4aaee` `c55edfbf` `457bd87f` `94f769b3` `f5139432` `348c070b`
+- `.dock` (15): `b1597622` `74284974` `9de289f2` `cc5631bb` `69392e1a` `fcdf5170` `737178d3` `693b6265` `3c28ca6f` `d535fb24` `9fdda554` `f376524b` `68054f4a` `c8418e59` `01a6a4c2`
+- `.easing` (8): `e0b98a2b` `5b3a28b3` `bec9d170` `beba2284` `7c1718a7` `c89b53eb` `38189e6f` `2740a4eb`
+- `.home` (6): `fe87baec` `61b7df67` `edd289ea` `f4ef2ff3` `5736529c` `551ad1da`
+- `.keyframes` (5): `5e56d266` `f62010a7` `3b2b7c64` `ce6091d2` `c79cb7f4`
+- `.lib` (7): `734b6ed7` `1f3aab5c` `38f5e77c` `d63ed374` `88bbb271` `9660f8ef` `1961be80`
+- `.matrix` (2): `7ed72ecc` `2f9bf36c`
+- `.mobile` (10): `7047539f` `0b058552` `b0c781e2` `a7e9b749` `9da0f718` `b10fbb53` `718bfa0e` `de0ae0b3` `64be2572` `3f63f4d4`
+- `.overlays` (3): `60cc7704` `b6da2664` `de006ee2`
+- `.r` (1): `2706a61d`
+- `.scene` (4): `a8aa8162` `2bd65e16` `86b8878a` `b2180040`
+- `.sections` (4): `6624f9a5` `36bb9173` `6933aeb5` `b857284e`
+- `.sequence` (1): `e4142dd9`
+- `.spring` (20): `b6303001` `6f8d202f` `14e85683` `46c6c975` `85a1b6e5` `aff27193` `4a840a23` `c3aac325` `11446001` `a4c9ebcf` `b7d8a69a` `7d812c60` `7f762d5c` `95e73295` `24119372` `66d421e5` `24d7d45f` `d57ca99a` `e3f76350` `034c8a44`
+- `.springd` (1): `dade65bd`
+- `.square` (4): `3ba58d53` `ac7f3987` `618a408e` `cb4bde80`
+- `.timeline` (10): `c704ca3f` `67917402` `ff9cbabc` `32b995ba` `05617998` `fde136ff` `930c32f4` `9769b10f` `69f6bf84` `2443d5a5`
+- `.transport` (13): `161d365f` `07235f0d` `2b46eaa6` `3a4e3303` `b75f482b` `faeb9396` `a9470f6d` `d90398e8` `f84951f2` `c38a2b98` `953c34cd` `c5342a5a` `11eb0028`
+- `.sq+dh` (1): `cd8386cf`
+- `.x` (0): measurement only, no kf byte. `.g0` (1, before the wave): `9fa56c26`.
+
+**Bounds.** Each commit's paths (⟨`git show --format= --name-only <sha>`⟩) were matched against its unit's row in the Unit plan table plus the common `test/demo/**` set. 43 paths fall outside a set, across 11 units. Every one is declared in its unit's receipt as a §0bt adjacent edit, except one:
+
+| unit | paths outside the set | declared | reading |
+|---|---|---|---|
+| `.r` | `test/group/playhead-origin.test.ts` (`2706a61d`) | named as the falsifier, not as an adjacent edit | **MINOR.** The common set says `test/demo/**`; an engine falsifier belongs with the engine tests. Lawful in kind, undeclared in form |
+| `.mobile` | `scripts/lib/demo-driver.mjs` (`7047539f`) | yes, item 1 | the oracle string for the renamed class |
+| `.spring` | `scripts/observe/demo/live-session.mjs` (`b6303001`) | yes | the S5 oracle selector |
+| `.springd` | `useSpringDemo.ts`, `useSpringLinearStops.ts` (`dade65bd`) | yes | call site + prose |
+| `.timeline` | `ChannelControls.vue` ×2, `AnimationControlsGroup.vue` (`67917402`, `69f6bf84`) | yes | one attribute each |
+| `.keyframes` | `timeline/CSSPasteDialog.vue` (`5e56d266`) | yes | docblock prose |
+| `.matrix` | `CubeScene.vue`, `controlOptionsStore.ts` (`2f9bf36c`) | yes | the deleted toggle's lines |
+| `.overlays` | `MbabbMenu.vue:65` (`60cc7704`) | yes | one line |
+| `.home` | `vite.config.ts:379` (`fe87baec`) | yes | the retired pin's pre-bundle entry |
+| `.scene` | 10 paths in 3 commits (`App.vue`, `App.skeleton.vue`, `ChromeDock.vue`, `TransportDock.vue`, `transportSource.ts`, 4 scene files, `demo-driver.mjs`) | yes, itemised | **INFO.** Declared and same-concern, but ten files is wide for "a few lines". The owning units were all closed (serial run) |
+| `.lib` | 20 paths in 5 commits | yes, itemised | **INFO.** G20's `src/**` globs name glass paths that do not exist in kf, so the unit's real set was `demo/composables/*.ts` + `demo/styles/**`; its call-site edits rode §0bt, declared |
+
+- **Landed wrong: 1**, found by the e2e roster and not by the bounds check. `.controls` `4c727a4f` introduced `SubPaneHeader.vue:22` `aria-label="Back to controls"`, which mounts twice on the editor scene. The usability observation, GREEN ×2 at the baseline, now fails on it (see the e2e table). It is in `.controls`' set, so it is a defect in the cure, not a bounds breach. Not fixed here.
+- **Deleted tests:** ⟨`git diff --diff-filter=D --name-only 574642be cd8386cf -- test`⟩ → 5 files, all in `5e56d266` with the six orphan modules they tested (KFE-ORPHAN, LAW A: subject and test leave in one commit). Lawful.
+- **Masking:** ⟨`git grep -c 'eslint-disable\|test\.skip\|it\.skip\|describe\.skip\|@ts-ignore\|@ts-expect-error' <ref> -- demo test/demo`⟩ → 3 at `574642be`, 3 at HEAD. ⟨`git diff 574642be cd8386cf --stat -- .dependency-cruiser.cjs eslint.config.* vitest.config.* tsconfig*.json package.json`⟩ → `package.json` −1 line (`vue-sonner`) and nothing else. No gate was relaxed.
+- **value.js:** 34 commits name the wave. Their paths are `execution/B/KF-W13X.md`, `keyframes/evidence/W13X/**`, the dh brief, and the lawful mail and ruling files (`INBOX.md`, one relay letter, `COHESION.md`, `KF-W13.md` addenda, `LEDGER.md`). Nothing else.
+- **Row coverage:** every id in the Unit plan (KFA 183, UIA-KF 257) appears in a receipt (⟨`perl cover.pl`⟩ → `0 missing`; 18 of them only inside `· nnn` shorthand lists). AUDIT-2: every in-scope id appears; L3-2 is HELD by the plan.
+
+### Residuals, with owners
+
+Each line cites the receipt that recorded it. None was cured or changed by this seat.
+
+**R-0 · Units the spec still orders (addendum (f), §0ep).** Owner: the next Track B seat, before any re-close.
+- `.pc`: the Easing and Spring pane cards are cut square by the rail's scroll port at 1440×900 and 1024×768 (`ControlsPaneWrapper`).
+- `.dh2`: the remaining limbs of UIA-KF-098 and UIA-KF-317.
+
+**R-1 · NEW e2e RED, outside the honest-RED set.** Owner: a `.controls` repair unit.
+- **E2E-USAB-1:** `SubPaneHeader.vue:22` `aria-label="Back to controls"` is in the DOM twice on the editor scene. Introduced by `4c727a4f`. `ChannelOptions.vue:68` and `:105` mount two `SubPaneHeader`s (the detail sub-pane and the layer sub-pane), and both stay in the DOM with the same Back name. The usability oracle (`scripts/observe/demo/usability.mjs:457`, X-3) counts both.
+
+**R-2 · Escalations, unruled (9).** Owner: the orchestrator rules each (grant the files or re-home the row); ⟨`grep -n 'ESC-\(mobile\|dock\|spring\|scene\|W13X\)' COHESION.md`⟩ → 0 hits.
+
+| id | rows | what the ruling must grant |
+|---|---|---|
+| ESC-mobile-1 | A2-KE-L1-10 · KFA-156 · UIA-KF-104 | per-channel state moves to the store; the sites span `channel-controls/**`, `instrument/keyframes/**` and the AnimationControlsGroup registry |
+| ESC-mobile-2 | A2-KE-L1-11 · UIA-KF-103 · 133 (label) · 238 | `demo/state/controlSurfaces.ts` + two importer lines; `surfaceTabs.ts` deleted |
+| ESC-dock-1 | KFA-114 · UIA-KF-056 · 140 (oval limb) · A2-KE-L2-12 (overlap) | Share becomes a plain menuitem with its own surface: `MbabbMenu.vue` and `SharePopover.vue` under one owner |
+| ESC-dock-2 | A2-KE-L3-6 | both dock bands anchor to the stage column while the rail is open (`AnimationControlsGroup.css`, `TransportDock.vue`) |
+| ESC-dock-3 | UIA-KF-132 | the Home glyph: `scenes.ts:124` + a Home miniature; an owner design act |
+| ESC-spring-1 | KFA-191 | the Sweep's time contract (2000 ms axis label against 700 ms sampler legs) |
+| ESC-W13X-tl-1 | A2-KE-L1-9 (consumer half) · UIA-KF-099 | one lane-track primitive; step 3 waits on glass Slider marks (O-59, UIA-KF-280) |
+| ESC-W13X-kf-1 | `highlight.js` in `package.json` (0 importers after `5e56d266`). `html2canvas` (0 importers, per `.timeline` and `.home`) is the same class and rides with it | the dependency lines + lockfile |
+| ESC-scene-1 | KFA-80 · UIA-KF-067 (1440) · UIA-KF-125 (hard-load limb) | the hard-load fallback fills the whole stage slot; the cure spans `EditorShell` and `AnimationControlsGroup(.css)` |
+
+**R-3 · `.r`'s two residuals (MEDIUM), still open.** Owner: a library + `.cube` repair unit.
+- **R-r-1 STRANDED-GROUP-PREFIRST-PAUSE:** a pause between the autoplay PLAY and the group's first tick strands the group (`src/animation/group/lifecycle.ts`, `demo/state/scenePlaybackAdapters.ts`). It can produce a second `[real-cube]` RED (0 → 0 → 0).
+- **R-r-2 CUBE-AUTOPLAY-FIRST-FRAME-THROW:** `BrowserScalarResolutionError` on `var(--rotationX)` on the first frame in 3 of 10 loaded runs. `.cube` left the resolution race open.
+
+**R-4 · Rows and limbs the units re-homed "to the close" (uncured; the cure site was outside the unit's set).** Owner: the repair units the next open seat plans, grouped here by cure site. Each id keeps its register row OPEN.
+
+| cure site | rows / limbs | recorded by |
+|---|---|---|
+| library `src/animation/**` | KFA-28 · 135 (steps baked to ramps, `waapi/emission.ts`, `densify.ts`) · KFA-68 (`reset()` skips never-started children) · KFA-145 (loop-boundary clamp) · KFA-70 engine limb (`frame.ts:107`) · KFA-81 stall limb (`load-engine.ts`) · KFA-31 · 85 (no per-frame observer for the DOM lane) · UIA-KF-177 (`css-text.ts:12-13`) · UIA-KF-277 | `.home` `.amiga` `.square` `.scene` `.cube` `.keyframes` |
+| `demo/state/**` | KFA-39 (the machine's RESET has no effect arm) · KFA-226 (a scrub is represented as a PAUSE) | `.transport` |
+| controls host and pane (`ControlsPaneWrapper`, `useControlsLayout`, `channel-controls/**`) | A2-KE-L1-4 (+L3-3: glass `FadingScroll` on both scroll ports, `useScrollFade` deleted) · A2-KE-L1-12 · L1-23 (multi-owner provide/inject) · A2-KE-L1-6 trigger-glyph limb · A2-KE-L1-5 (`EasingSidebar.vue:143/:169` twin) · UIA-KF-161 hosting · UIA-KF-102 (Card-in-pane ruling) · UIA-KF-105 · UIA-KF-116 Curve-facet limb · UIA-KF-225 (bottom-anchor token in `layout.css`) | `.lib` `.transport` `.controls` `.matrix` `.home` |
+| transport and ribbon | UIA-KF-052 (consumer half) · 122 · 229 (`TransportDock.vue:70-76`, `:145`) · UIA-KF-026 scrubber limb · the three inert `onTogglePlay` binds (with A2-KE-L1-24) · KFA-69 (group-level seek) | `.home` `.square` `.transport` `.scene` |
+| shell and start screen | UIA-KF-065 · 066 · 121 · 123 (`EditorStartScreen.vue:345-353`, `EditorShell.vue:47/84`) · KFA-76 heavy-scene-init limb · KFA-22 freeze limb (the rAF gap on the cube Play) | `.home` `.scene` |
+| dock and menu | UIA-KF-230 (`MbabbMenu.vue:11`) · UIA-KF-321 (`useShareState.ts:46-51`) · UIA-KF-267 dock limb · UIA-KF-159 select wording (renaming breaks the e2e drivers) | `.home` `.matrix` `.transport` |
+| keyframes and timeline panes | UIA-KF-179 two-toolbars limb · UIA-KF-172 two-cards limb · UIA-KF-173 output-names limb · UIA-KF-219 · UIA-KF-200 · 294 · 295 · UIA-KF-097 highlighter limb · the `CSSPasteDialog` adapter-only slots | `.sections` `.home` `.square` `.sequence` `.keyframes` |
+| cube | KFA-131 (`CubeScene.vue:61-71` `isPlaying` has no writer) · `MATRIX-PAUSED-EDIT-UNPAINTED` | `.home` `.matrix` |
+| shared seats | A2-KE-L1-18 (`SubjectAxes`) · A2-KE-L1-15 limbs (a)(b)(c)(d)(f)(g)(h) (directory moves) · A2-KE-L2-14 consumer residue · the `.stage-field-x` idiom's missing 100 % line · UIA-KF-064 sequence badge half | `.amiga` `.square` `.lib` |
+| stale prose | `layout.css:35-36`, `AnimationControlsGroup.css:23` (a deleted loader) · `useSquareDemo.ts:667`, `test/support/withSetup.ts:6-9` (the deleted `useRafLoop.ts`) | `.cube` `.transport` |
+
+**R-5 · Owner calls (not cures).** Owner: the owner, through the orchestrator.
+- UIA-KF-274 (the four icon inks are identity colours, §0dm) · UIA-KF-195 (one grid substrate) · UIA-KF-196 · 198 · UIA-KF-120 (the char lift against the recorded S-5 ruling) · UIA-KF-053 (shared StageLegend, owner-golden gated) · KFA-225 (a direction cue under Reverse) · KFA-73 · UIA-KF-119 (HELD) · UIA-KF-124 register question.
+- KFA-218 is RULED-AS-DESIGNED (§0ep).
+
+**R-6 · Glass-owned, relay-only (honest-RED or ADOPT-AT-LANDING; no consumer copy was built).**
+- Honest-RED carried from the baseline: B7 SPECULAR-REST · SHEET-POSITION (M1) · DOCK-COLLAPSED-FORM (O-65) · SIDE-DOCK-EDGE (O-67) · GLASS-SELECT-GREY (O-66) · DOCK-MORPH-ROOT (O-56).
+- New in this wave: A2-KE-L3-17 dialog focus ring (O-59 / O-74) · `ConfiguratorLayer` label truncate (O-77a) · `EasingPicker` literal chip truncate (O-89, confirmed I-70) · the Sequence header `Metric` gap (O-84a) · the L1-8 badge soft tone (O-59; the badge idiom CSS is deleted at that landing).
+- ADOPT-AT-LANDING, BL only (12): A2-KE-L1-25..29 · L2-2 (glass half) · L2-6 · L2-7 · L2-9 · L2-16 · L3-1 · L3-4. HELD for glass §11: L3-1 · L3-2. Convergence (O-74 E-3): `curvePlot.ts` and the EasingTarget gallery.
+- **Asked for by units and not yet filed as O-rows (3).** Owner: the next open seat files them (a close seat writes no relay letter):
+  1. A2-KE-L1-20, the focus register: glass ships two (`.focus-ring` outline, `.popover-content:focus-visible` halo). `.lib` wrote "the close files the O-row".
+  2. Subpath exports for glass `Alert` and `Skeleton` (`.springd`: 10.1.0 publishes neither).
+  3. KF.W13W Check 1 C1-1: `.p`'s R-1..R-3 glass asks, routed to "KF.W13X BK outbound". ⟨`grep -n 'C1-1\|R-1\.\.R-3' KF-W13X.md`⟩ before this Close → 0 hits: no unit picked it up.
+
+### Act 2 — the spec's close gates, re-run
+
+The spec's close line (KF-W13.md `:534`): every row dispositioned; `npm run check` 0; `test:demo` GREEN; kf e2e at `--workers=1` ×2 within the honest-RED set. Addendum (d) adds lint (4 `no-cycle` → 0, no disables).
+
+**Instrument, disclosed.** The machine was shared with three other tracks' browser runs and an unrelated test job for the whole sitting. The 1-minute load average read 55–87 during the `95c81b7b` readings and **300–650** from about 13:35 to 14:50, when `cd8386cf` had to be read. At that load vitest could not start its workers (`[vitest-pool]: Failed to start forks worker`, tests taking 10–47 s against a 5 s limit), and one `test:demo` run did not finish in 25 minutes even with the timeouts raised on the command line. Those runs are instrument failures and are **not** banked as readings in either direction. Two earlier runs are also discarded, both this seat's own instrument faults: a symlinked `node_modules` (one suite could not resolve a `vi.mock` path, as `.sq+dh` also found) and a copied dep cache carrying the main tree's absolute paths (179 false failures; gone with the cache cleared).
+
+| gate | BEFORE (`574642be`, the Open's baseline) | AFTER at `95c81b7b` (×2) | AFTER at `cd8386cf` | reading |
+|---|---|---|---|---|
+| ⟨`npm run check`⟩ | EXIT 0 | EXIT 0 ×2 (`proof:structure — PASS … 0 violations`) | EXIT 0 ×1 | **GREEN** |
+| ⟨`npm run lint`⟩ | **RED**: 4 `no-cycle` errors, EXIT 4 | EXIT 0 ×2, `no dependency violations found (444 modules, 1615 dependencies cruised)` | EXIT 0 ×1 (444 modules, 1617 dependencies) | **GREEN** (RED → GREEN, no disables: masking tokens 3 → 3) |
+| ⟨`npm run test:demo`⟩ | 82 files / 587 tests, EXIT 0 | **119 files / 804 tests passed ×2**, EXIT 0 | **not read** (instrument starved, 3 attempts). `.sq+dh` banked 119/804 ×2 on the same content in the shared tree | **GREEN at `95c81b7b`; UNREAD at the final bytes by this seat** |
+| `.r` falsifier ⟨`vitest run test/group/playhead-origin.test.ts`⟩ | case 1 RED at `5ae589ab^`, case 2 RED at `574642be` (`.r`) | 2/2 passed ×2 | 2/2 passed ×1 | **GREEN** |
+| ⟨`npm run gh-pages`⟩ | EXIT 0 | `✓ built`, EXIT 0 | not read | GREEN at `95c81b7b` |
+| kf e2e ⟨`KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1`⟩ ×2 | 3/6 ×2 (occlusion E2E-OCC-1, live-session B7 + E2E-S5-1, live-session-mobile M1) | **one partial run only**, at load 82: smoke PASS · occlusion PASS (E2E-OCC-1 cured) · **usability FAIL** (`✗ unique aria-label — duplicate accessible name(s) on the editor scene: "Back to controls" ×2`) · subject-animates not read (the scratch tree had no `dist/keyframes.js`; this seat's omission) · live-session and live-session-mobile not read (the run was stopped when `cd8386cf` landed) | **not read** | **RED and UNREAD.** The gate's ×2 does not exist. What was read is outside the honest-RED set: E2E-USAB-1 (R-1) |
+
+- **E2E-USAB-1 is read once in a browser and confirmed in the source**, which is why it is stated as a finding and not as noise: ⟨`git grep -n 'SubPaneHeader' cd8386cf -- demo/.../ChannelOptions.vue`⟩ → two mounts at `:68` and `:105`; ⟨`git grep -c 'Back to controls' cd8386cf -- demo`⟩ → one literal, in the shared header. Usability passed ×2 at the Open's baseline.
+- **Not confirmed by this seat:** E2E-S5-1's cure (`.spring` banked S5 PASS ×2), `[real-cube]` after `.r` (banked PASS ×2 on a fresh gh-pages build), and the size of the live-session honest-RED set at the final bytes. The next seat's first act is the roster ×2 on a quiet machine, with `npm run build` before it.
+- **Every row dispositioned:** yes in the sense of the coverage check in Act 1 (every id has a recorded disposition). No in the sense the wave needs: R-2 and R-4 list the dispositions that are "escalated" or "re-homed to the close", which leave the row OPEN.
+
+### Act 3 — verification artefacts
+
+KF.W13X's per-row artefacts are the units' committed falsifiers and served probes. The vitest falsifiers under `test/demo/**` all ran inside the `test:demo` readings above (119 files, including `sections-w13x`, `transport-w13x`, `square-w13x`, `occlusion-easing-subject`, `sheet-detent-ladder`). **The served probes under `evidence/W13X/<unit>/` were not re-run by this seat**: with the machine as it was, a browser reading would have been noise, and probe parsimony (§5.2) does not excuse that; it is owed. They rest on each unit's own ×2 logs.
+
+### Act 4 — E13
+
+⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ on value `V/` and `V/coordination`, glass `BK/coordination` and `BL` (newest; no `coordination/`), keyframes `V/coordination`, atlas `P/coordination` → 0 on every path except glass `BL/FORMATION-PROGRESS.md`, which is glass's own formation log and not a letter. **0 unrowed, 0 UNREAD in scope.** O-89 (this wave's one new relay) is rowed and confirmed (I-70). The three unfiled asks are under R-6.
+
+### Act 5 — the four-verb line
+
+The spec designates no KF.W13X seat to stamp VERIFIED, and this Close does not move IMPLEMENTED either:
+
+| verb | state |
+|---|---|
+| AUDITED | YES (unchanged) |
+| SPECIFIED | YES (unchanged; addenda (e) and (f) joined during execution) |
+| IMPLEMENTED | **NO — PARTIAL.** 21 planned units + `.sq+dh` landed (138 kf commits). Remaining: `.pc`, `.dh2` (addendum (f)); E2E-USAB-1; the nine escalations; the R-4 rows; the kf e2e roster ×2 and `test:demo` ×2 at the final bytes |
+| VERIFIED | NO |
+
+**For the RESUME.** alreadyDone: `.g0 .x .r .mobile .dock .spring .springd .sequence .timeline .keyframes .easing .cube .matrix .amiga .square .controls .overlays .transport .home .scene .lib .sections .sq+dh`. Owed, in order: the e2e roster ×2 on a quiet machine (baseline for the resume) → `.pc` → `.dh2` → a `.controls` repair for E2E-USAB-1 → the units R-2's rulings and R-4's table produce → the three O-rows of R-6 → close.
+
+**Scratch.** The worktree and its `node_modules` copy are removed; no server was started; nothing was written to the shared kf tree. kf was already at `origin/master` = `cd8386cf` (pushed by the `.sq+dh` seat); this seat pushed no kf commit because it made none.
