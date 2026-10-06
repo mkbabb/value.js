@@ -2145,3 +2145,101 @@ Not met. KF.W13X's goal is its scope line: the keyframes audit rows, whole. 22 u
 ### For the RESUME
 
 The Close's order stands: the e2e roster ×2 on a quiet machine → `.pc` → `.dh2` → the `.controls` repair for E2E-USAB-1 → the units the R-2 rulings and the R-4 table produce → the `.r` residuals → the three O-rows → close. LEDGER status cell unchanged (PARTIAL); one event line appended.
+
+---
+
+SERVED MODEL: claude-opus-5-5 (Repair 1 seat — the lines above are prior seats', kept byte-for-byte, E-3)
+
+## Repair 1
+
+- **Date:** 2026-10-06 (execution under the owner's begin-word of 2026-09-17). Track B, repair seat, round 1, over Check 1's register (C1-1..C1-9).
+- **Bytes:** kf `cd8386cf` → `80534fe5` (2 commits, pushed; ⟨`git -C keyframes.js rev-parse --short HEAD origin/master`⟩ → `80534fe5` · `80534fe5`). 0 glass-ui bytes.
+- **Verdict of this seat: 2 defects cured in part or whole (C1-2's cure, C1-5's R-r-1), 1 note landed (C1-7); the rest are escalated or stay owed, each with its measured reason.** The wave stays PARTIAL; this section does not move the LEDGER status cell.
+
+### Crash recovery and the shared tree (the fact every disposition below rests on)
+
+⟨`git -C keyframes.js status --porcelain | grep -vc '^??'`⟩ at this seat's open → **34** modified paths (⟨`git diff --stat | tail -1`⟩ → `34 files changed, 514 insertions(+), 765 deletions(-)`), the same set Check 1 read. They are **not** a killed predecessor's work on a KF.W13X unit: the hunks label themselves `X-DS pass 1 (KF-P1-n)` (e.g. `ControlsPaneWrapper.css:155`), their mtimes are 13:10–13:52 with `scripts/ds-census.mjs` at 15:00, and the X-DS seat's evidence directory `evidence/DS/keyframes/pass-01` was written at 17:04, during this sitting. That seat is live. Its paths were not read as wave bytes, staged, restored, stashed or edited by this seat.
+
+The set overlaps the cure sites of three defects:
+
+| defect | cure site the spec names | X-DS dirty paths on it |
+|---|---|---|
+| C1-1 `.pc` | `controls-pane/ControlsPaneWrapper.*` | `ControlsPaneWrapper.css` (+49 lines: a scroll-timeline mask on `.controls-surface`, `KF-P1-12`, the same clipped-pane symptom) |
+| C1-1 `.dh2` (UIA-KF-098 · 317, Sequence) | `demo/scenes/sequence/**`, the Sequence Timeline pane | `SequenceTarget.css` · `useSequenceInstrument.ts` · `SequenceTimeline.vue` · `SequenceLanes.vue` |
+| C1-5 R-r-2 | the cube target's mount order (`demo/scenes/cube/**`) | `CubeTarget.vue` · `CubeTarget.css` · `useCubeDemo.ts` · `CubeAxisLines.vue` · `graphAttitude.ts` (renamed from `useCubeRelit.ts`) |
+
+A pathspec commit of any of those files would sweep the sibling's hunks into a KF.W13X commit, and partial staging is interactive (unavailable and, with four tracks on one index, unsafe). A scratch worktree can author the cure but cannot land it: the merge back onto `master` meets the same dirty files.
+
+### Defect → cure → commit → gate re-reading
+
+| id | sev | disposition | cure and commit | reading |
+|---|---|---|---|---|
+| C1-1 | HIGH | **ESCALATED (ESC-W13X-r1-1).** `.pc` and `.dh2` not run | none. Both cure sites carry the live X-DS seat's uncommitted hunks (table above), and `ControlsPaneWrapper.css` already holds a different, unlanded answer to the `.pc` symptom (a scroll-timeline mask, `KF-P1-12`). Two seats cannot each land a cure for one clipped pane in one file | the orchestrator sequences it: X-DS pass 1 lands or withdraws its kf hunks, then `.pc` runs on the settled bytes and rules whether the mask satisfies addendum (f) ("the card's corners are never clipped square"; "the pane's last control is reachable") or is replaced. `.dh2` follows. Both also need served predicates ×2 dev and ×2 gh-pages, unreadable at this sitting's load (below) |
+| C1-2 | HIGH | **CURE LANDED; the gate's ×2 is ESCALATED (ESC-W13X-r1-2)** | kf **`8ce6001f`**. `SubPaneHeader.vue`: the Back's name is bound to the header's own title, `` :aria-label="`Back from ${title} to controls`" `` ("Back from cubic-bézier to controls" / "Back from layer to controls"). Both sub-panes stay in the DOM (the closed one `inert`), so each Back names the pane it leaves: the check's first cure shape. `channel-options-w13x.test.ts` case (1) gains the falsifier (the layer Back's name; no two labelled buttons in the card share a name); its five Back selectors and one string assertion follow the copy, every assertion kept | falsifier **RED** at `cd8386cf` (`Tests 5 failed \| 7 passed (12)`, `expected 'Back to controls' to be 'Back from cubic-bézier to controls'`), **GREEN 12/12 ×2** after at the default 5 s limit (17:10, 7.66 s; and the loop's second run). The roster ×2 was **not read**: see Instrument |
+| C1-3 | HIGH | **ESCALATED (ESC-W13X-r1-3).** Not a repair seat's act | none. The nine escalations need a dated ruling in COHESION (grant the files or re-home by id to an authored wave), and the R-4 rows need either repair units planned by an open seat or a dated re-home. COHESION and the wave spec are outside every KF.W13X unit's writable set; ⟨`grep -c 'ESC-\(mobile\|dock\|spring\|scene\|W13X\)' COHESION.md`⟩ is still 0 | unchanged. Of R-4's ten cure sites, five have a file among X-DS's dirty paths today (controls host and pane: `ControlsPaneWrapper.css`; transport and ribbon: `PlaybackRibbon.vue`; shell and start screen: `EditorStartScreen.vue`; keyframes and timeline panes: `KeyframeTimeline.vue`, `CSSCodeEditor.vue`, `KeyframesStringControls.vue`; cube: `CubeTarget.vue`), so those units also wait on the X-DS landing |
+| C1-4 | MEDIUM | **ESCALATED (ESC-W13X-r1-2, with C1-2's roster).** Unread again | none possible: a reading, not a cure | see Instrument. `check` and `lint` were read ×1 at the repair bytes; `test:demo` ×2 and `gh-pages` were not |
+| C1-5 | MEDIUM | **R-r-1 CURED; R-r-2 ESCALATED (ESC-W13X-r1-4)** | R-r-1: kf **`80534fe5`**, library only (`src/animation/group/lifecycle.ts`, `.r`'s set). Between `play()` and the first rAF tick the group reads `!started`; `pause()` is a no-op there and the host's `suspend()` withdraws the armed loop with `playback.stop()`; the held play promise then came back from every later `play()` with no loop behind it. `play()` now re-arms the loop under the SAME held promise when the group is neither started nor paused and its driver is not running. `scenePlaybackAdapters.ts` (outside the set) needed no byte: its `resume()` already calls `group.play()` on a `!started` group. R-r-2: none (next row of prose) | falsifier `test/group/prefirst-pause-rearm.test.ts` (2 cases, deterministic, no clock advanced): **RED ×2** at `cd8386cf` (`Tests 1 failed \| 1 passed (2)`, `expected false to be true` on `playback.running` after the second `play()`), **GREEN 2/2 ×2** after. `.r`'s own falsifier `playhead-origin.test.ts` 2/2 with it. ⟨`npx vitest run test/group`⟩ → `Test Files 14 passed (14)` · `Tests 84 passed (84)` ×1 |
+| C1-6 | MINOR | **stays owed** | not a one-command cure (three relay letters, each with a glass mirror and a live confirmation). The check's own cure line assigns it to the next open seat | — |
+| C1-7 | MINOR | **CURED (note)** | the dated note below | — |
+| C1-8 | MINOR | **stays owed** | a re-reading at the re-close; no browser reading was possible (Instrument) | — |
+| C1-9 | INFO | **recorded for the next plan** | `.lib`'s real writable set in keyframes.js is `demo/composables/*.ts` + `demo/styles/**` except `layout.css`; the `src/components/**`, `src/composables/**` and `src/styles/typography/**` globs of G20 name glass paths that do not exist in kf (⟨`ls keyframes.js/src`⟩ has no `components`, `composables` or `styles`) | — |
+
+**R-r-2 CUBE-AUTOPLAY-FIRST-FRAME-THROW, why it is escalated.** The throw is the library being loud by design: `numericScalar` (`src/animation/resolve/browser.ts:157-165`) raises `BrowserScalarResolutionError` when `var(--rotationX)` computes to nothing, and `RAFPlayback`'s `failFrame` winds the loop down and re-raises. Absorbing it in the library would be a masking fallback. The defect is ordering: `--rotationX` is declared only in the scoped rule `.cube` (`CubeTarget.css:78` at `80534fe5`), and the autoplay's first group frame can run before that stylesheet reaches the target. The cure therefore lives in `demo/scenes/cube/**` (the target states the property where the first frame can read it, or the autoplay waits for the target's style), and `CubeTarget.vue`, `CubeTarget.css` and `useCubeDemo.ts` all carry X-DS hunks. Its deterministic falsifier is also a served one (a cold load with the scene stylesheet delayed), which this sitting's machine could not read. Not reproduced by `.cube` either. It rides ESC-W13X-r1-1's sequencing: after the X-DS landing, a `.cube` repair unit.
+
+**C1-7, the dated note (2026-10-06, addendum-beside to the `.r` receipt; no byte of it moves).** `.r`'s falsifier `test/group/playhead-origin.test.ts` (kf `2706a61d`) sits outside the common `test/demo/**` set. It is declared here as a §0bt adjacent edit of `.r`: an engine falsifier for a cure in `src/animation/**` belongs beside the engine's group tests, same repository, same concern. This seat's `test/group/prefirst-pause-rearm.test.ts` (kf `80534fe5`) is the same case and is declared under Adjacent edits below.
+
+### Instrument, disclosed
+
+The 1-minute load average read **245–410** for the whole sitting (⟨`uptime`⟩ at 16:53 → 272.52; 17:05 → 245.71; 17:22 → 321.77; 17:34 → 358.62; 18:06 → 388.81; 18:44 → 410.24; 19:18 → 335.69). Check 1 read 215–330 on the same afternoon, and X.P.W7 Repair 1 recorded 217–617 over 115 minutes (its ESC-W7r7-1). At this load:
+
+- A `git commit` of two files took over two minutes; a `cp -Rc` of `node_modules` (482 MB) took about 32 minutes.
+- vitest readings are bimodal. The same file at the same bytes passed 12/12 in 7.66 s and, minutes later, failed on `Error: Test timed out in 5000ms` (6 of 12, then 1 of 12). Those timeouts are instrument failures and are not banked either way; the two clean default-limit passes are.
+- One vitest start took 1016 s in `transform` alone (scratch worktree, 18:09).
+- No browser reading was attempted. The roster needs `npm run build`, a served build and six serial observations with timing oracles (`[real-cube]`, S5, the occlusion δ); at load 300+ they would read noise, as the Close and Check 1 found.
+
+**The scratch worktree** (detached at `cd8386cf` plus this seat's four files, a cloned `node_modules`, dep caches cleared) was used for the type and lint gates only, because the shared tree's `vue-tsc` would read X-DS's 34 dirty files. `channel-options-w13x.test.ts` fails 12/12 there with `TypeError: Cannot read properties of null (reading 'ce')` on every case, including the ten this seat did not touch: a second Vue instance resolved through the clone, the same class of scratch-tree fault the Close disclosed. It is an instrument fault and is not banked; the file's readings of record are the shared tree's, where the four repair paths are byte-identical to the commits and X-DS touches none of them.
+
+| gate | reading at the repair bytes | result |
+|---|---|---|
+| ⟨`npm run check`⟩ (scratch worktree) | vue-tsc app + test, then `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` ×1 | **GREEN ×1** |
+| ⟨`npm run lint`⟩ (scratch worktree) | `✔ no dependency violations found (444 modules, 1617 dependencies cruised)`, eslint silent ×1 | **GREEN ×1** |
+| ⟨`npx vitest run test/demo/instrument/channel-options-w13x.test.ts`⟩ (shared tree) | `Test Files 1 passed (1)` · `Tests 12 passed (12)` ×2 at the default limit | **GREEN ×2** |
+| ⟨`npx vitest run test/group/prefirst-pause-rearm.test.ts`⟩ | `Tests 2 passed (2)` ×2 | **GREEN ×2** |
+| ⟨`npx vitest run test/group`⟩ | 14 files / 84 tests passed ×1; the second run did not complete a full collection in 11.5 minutes and is not banked | **GREEN ×1** |
+| ⟨`npm run test:demo`⟩ ×2 | not read | **UNREAD** (C1-4) |
+| ⟨`npm run gh-pages`⟩ | not read | **UNREAD** (C1-4) |
+| kf e2e roster `--workers=1` ×2 | not read | **UNREAD** (C1-2's gate) |
+| served probes under `evidence/W13X/**` | not read | **UNREAD** (C1-8) |
+
+### Bounds, adjacent edits, masking
+
+- **Commits (kf, 2):** `8ce6001f` (2 paths: `demo/components/instrument/transport/channel-controls/SubPaneHeader.vue`, `test/demo/instrument/channel-options-w13x.test.ts`) and `80534fe5` (2 paths: `src/animation/group/lifecycle.ts`, `test/group/prefirst-pause-rearm.test.ts`). Each was a pathspec commit; ⟨`git status --porcelain | grep -vc '^??'`⟩ after them → 34, the sibling's set untouched.
+- **In set:** `SubPaneHeader.vue` is G15 `.controls` (`channel-controls/**`); the test is the common `test/demo/**` set; `lifecycle.ts` is G2 `.r` (`src/animation/**`).
+- **Adjacent edits (1):** `test/group/prefirst-pause-rearm.test.ts` (new, whole file) — the library falsifier for the `lifecycle.ts` cure, beside `.r`'s own in `test/group/` (same repository, same concern; the common set names `test/demo/**` only).
+- **Masking:** no `try/catch`, skip, allowlist or disable was added; no assertion was deleted (the test diff is +20 −8: six strings re-pointed to the new copy, eight lines added). `--testTimeout=60000` was passed on the command line for the scratch-worktree run only and that run is not banked.
+- **Inherited paths:** none. No dirty path in this seat's sets at open.
+- **E13:** no letter was written or received by this seat; the three unfiled asks of R-6 stay owed (C1-6).
+
+### Escalations (4)
+
+| id | covers | what is asked |
+|---|---|---|
+| ESC-W13X-r1-1 | C1-1 (`.pc`, `.dh2`) | sequence X-DS pass 1's kf landing against KF.W13X: its 34 uncommitted paths sit on both units' cure sites, and `ControlsPaneWrapper.css` holds an unlanded second answer to `.pc`. Rule which seat owns the clipped-pane cure |
+| ESC-W13X-r1-2 | C1-2's gate, C1-4, C1-8 | a quiet machine. The roster ×2, `test:demo` ×2, `gh-pages` and the served probes have now been unreadable for three consecutive seats (Close, Check 1, Repair 1) at load 215–650 |
+| ESC-W13X-r1-3 | C1-3 | a dated ruling for the nine escalations of R-2 and a plan or dated re-home for the R-4 rows |
+| ESC-W13X-r1-4 | C1-5's R-r-2 | a `.cube` repair unit after the X-DS landing (cure site dirty; served falsifier unreadable) |
+
+### For the next seat
+
+Cured since Check 1: E2E-USAB-1 at the source (the browser reading is owed) and R-r-1. Owed, in order: the X-DS landing (ESC-W13X-r1-1) → on a quiet machine, `npm run build` then the roster ×2, `test:demo` ×2, `gh-pages` → `.pc` → `.dh2` → the `.cube` unit for R-r-2 → the units the R-2 rulings and R-4 produce → the three O-rows → the served probes → close.
+
+### State change at the end of the sitting (read this before the escalations above)
+
+While this section was being written the X-DS seat landed: kf **`e8144b0c`** (`fix(kf/ds · X-DS pass 1 — flat lighting at the root, …`), on top of this seat's two commits. ⟨`git -C keyframes.js log --format=%h -3`⟩ → `e8144b0c` · `80534fe5` · `8ce6001f`; ⟨`git rev-parse --short origin/master`⟩ → `e8144b0c`; ⟨`git status --porcelain | grep -vc '^??'`⟩ → **0**. ⟨`git diff --stat cd8386cf e8144b0c -- demo/components/instrument/transport/channel-controls src test/group`⟩ shows this seat's four paths and no other change under them, so the two cures stand on the new head.
+
+What this changes, and what it does not:
+
+- **The dirty-tree block is lifted.** The cure sites of `.pc`, `.dh2` and R-r-2 are committable again. The reason given above for ESC-W13X-r1-1 and ESC-W13X-r1-4 was true from 16:53 to the landing and is no longer the standing one.
+- **`.pc` now opens on different bytes.** `e8144b0c` carries X-DS's `KF-P1-12` (the scroll-timeline edge fade on `.controls-surface`). Addendum (f)'s falsifier is served: at 1440×900 and 1024×768 the pane's last control is reachable and no card edge is clipped (the corner pixels show the radius). A faded cut is still a cut of the card, so the fade is unlikely to satisfy "the card's corners are never clipped square" on its own, but that is a reading this seat could not take and does not assert. `.pc`'s first act is that served reading at `e8144b0c`.
+- **The standing block for all three is the instrument.** `.pc` and `.dh2` each need a brief from served frames and served predicates ×2 dev and ×2 gh-pages; R-r-2 needs a served cold-load reproduction before any cure (neither `.cube` nor this seat has reproduced it, and a cure for an unreproduced race would be a guess). At load 335 (19:18) none of that is readable. They fold into ESC-W13X-r1-2: a quiet machine.
+- **Every gate reading in this section is at `80534fe5`,** not at `e8144b0c`. The floor at the new head (`check`, `lint`, `test:demo` ×2) is X-DS's to have read and the re-close's to re-read.
