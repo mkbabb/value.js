@@ -19,7 +19,7 @@ import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import { Blend } from "@lucide/vue";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { PickerSpace } from "../../color-session/picker-color";
-import type { LeftoverStrategy } from "../../palettes/mix";
+import type { LeftoverStrategy } from "./mix";
 import type { AcceptableValue } from "reka-ui";
 // S.W5-6 · F16: the interpolation vocabulary lives in its neutral @lib/ home
 // (color-space facts, not gradient facts) — no more cross-feature reach.

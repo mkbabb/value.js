@@ -9,8 +9,8 @@
  * what the browser's engine would (and HSV/XYZ/kelvin are not
  * CSS-interpolable anyway). One mechanism for all rows, no engine
  * divergence. ZERO new color math: parsing rides `parseColorIn`, sampling
- * rides `mixColors`, serialization rides `colorToCss` — all
- * library/`@lib` leaves.
+ * rides `mixColors` through the ONE sampling law (`../sampling`),
+ * serialization rides `colorToCss` — all library/`@lib` leaves.
  *
  * THE TRUTH LAW (O-14): a chip that approximates the library output is
  * FORBIDDEN. Every chip stamps its stop list on `data-stops` (this module's
@@ -24,13 +24,10 @@
  * can produce; a raw `hsv(…)`/`xyz(…)` string is not a CSS color).
  */
 
-import {
-    mixColors,
-    type AnyColor,
-    type HueInterpolationMethod,
-} from "@mkbabb/value.js/color";
+import type { AnyColor, HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { colorToCss, parseColorIn } from "../color-utils";
-import type { PickerColorIn, PickerSpace } from "../picker-color";
+import type { PickerSpace } from "../picker-color";
+import { segmentSampler } from "../sampling";
 
 /** k — the F6 sample count (≈16): smooth to the eye, sub-ms to compute. */
 export const RAMP_SAMPLE_COUNT = 16;
@@ -68,19 +65,19 @@ export function sampleInterpolationRamp(
     const segments = operands.length - 1;
     const perSegment = Math.max(2, Math.ceil(k / segments) + 1);
     const stops: string[] = [];
-    for (let i = 0; i < segments; i++) {
-        // Dedupe the shared joint: every segment after the first drops its
-        // inclusive start (identical to the previous segment's end).
-        for (let j = i === 0 ? 0 : 1; j < perSegment; j++) {
-            const result = mixColors(
-                operands[i]!,
-                operands[i + 1]!,
-                j / (perSegment - 1),
-                { space, hue: hueMethod },
-            );
-            if (!result.ok) return null;
-            stops.push(serializeStop(result.value as PickerColorIn<typeof space>));
+    try {
+        for (let i = 0; i < segments; i++) {
+            // The colour itself is the ONE sampling law's (`../sampling`).
+            const at = segmentSampler(operands[i]!, operands[i + 1]!, space, hueMethod);
+            // Dedupe the shared joint: every segment after the first drops its
+            // inclusive start (identical to the previous segment's end).
+            for (let j = i === 0 ? 0 : 1; j < perSegment; j++) {
+                stops.push(serializeStop(at(j / (perSegment - 1))));
+            }
         }
+    } catch {
+        // A refused mix is honest absence, exactly as an unparseable operand.
+        return null;
     }
     return stops;
 }

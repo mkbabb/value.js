@@ -7,14 +7,11 @@
  * - **distribute**: linearly interpolate shorter palettes across the longest length
  */
 
-import {
-    mixColors,
-    type AnyColor,
-    type HueInterpolationMethod,
-} from "@mkbabb/value.js/color";
-import { colorToCss, parseColorIn } from "../color-session/color-utils";
-import type { PickerColorIn, PickerSpace } from "../color-session/picker-color";
-import type { Palette, PaletteColor } from "./types";
+import type { AnyColor, HueInterpolationMethod } from "@mkbabb/value.js/color";
+import { colorToCss, parseColorIn } from "../../color-session/color-utils";
+import { mixIn } from "../../color-session/sampling";
+import type { PickerColorIn, PickerSpace } from "../../color-session/picker-color";
+import type { Palette, PaletteColor } from "../../palettes/types";
 
 export type LeftoverStrategy = "distribute" | "repeat" | "discard";
 
@@ -23,18 +20,6 @@ export interface PaletteMixOptions {
     hueMethod?: HueInterpolationMethod;
     leftoverStrategy?: LeftoverStrategy;
     weights?: number[];
-}
-
-function mixedOrThrow<S extends PickerSpace>(
-    from: AnyColor,
-    to: AnyColor,
-    progress: number,
-    space: S,
-    hueMethod: HueInterpolationMethod,
-): PickerColorIn<S> {
-    const result = mixColors(from, to, progress, { space, hue: hueMethod });
-    if (!result.ok) throw new Error(`Color mix failed: ${result.error.code}`);
-    return result.value as unknown as PickerColorIn<S>;
 }
 
 export function mixColorSequence(
@@ -60,7 +45,7 @@ export function mixColorSequence(
         const weight = weights[index]!;
         if (weight === 0) continue;
         const total = accumulated + weight;
-        mixed = mixedOrThrow(mixed, colors[index]!, weight / total, space, hueMethod);
+        mixed = mixIn(mixed, colors[index]!, weight / total, space, hueMethod);
         accumulated = total;
     }
     return mixed;
@@ -99,7 +84,7 @@ function getColorAtIndex(
 
             const c1 = parseColorIn(palette.colors[lo]!.css, space);
             const c2 = parseColorIn(palette.colors[hi]!.css, space);
-            return mixedOrThrow(c1, c2, t, space, hueMethod);
+            return mixIn(c1, c2, t, space, hueMethod);
         }
     }
 }

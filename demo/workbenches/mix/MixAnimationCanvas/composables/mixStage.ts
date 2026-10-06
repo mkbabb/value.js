@@ -14,8 +14,9 @@
 
 import { lerp, clamp } from "@mkbabb/value.js/math";
 import { easeInOutCubic, easeOutCubic, smoothStep3 } from "@mkbabb/value.js/easing";
-import { mixColors, type HueInterpolationMethod } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { colorToRgb255, parseColorIn } from "../../../../color-session/color-utils";
+import { segmentSampler } from "../../../../color-session/sampling";
 import type { PickerColorIn, PickerSpace } from "../../../../color-session/picker-color";
 
 /** All drops arrive at the well together — the convergence chord. */
@@ -96,16 +97,15 @@ function pigmentRamp(
     space: PickerSpace,
     hueMethod: HueInterpolationMethod,
 ): RGB[] {
-    const from = parseColorIn(fromCss, space);
-    const to = parseColorIn(toCss, space);
-    return Array.from({ length: RAMP_STOPS }, (_, index) => {
-        const result = mixColors(from, to, index / (RAMP_STOPS - 1), {
-            space,
-            hue: hueMethod,
-        });
-        if (!result.ok) throw new Error(`Pigment mix failed: ${result.error.code}`);
-        return colorToRgb255(result.value as PickerColorIn<typeof space>);
-    });
+    const at = segmentSampler(
+        parseColorIn(fromCss, space),
+        parseColorIn(toCss, space),
+        space,
+        hueMethod,
+    );
+    return Array.from({ length: RAMP_STOPS }, (_, index) =>
+        colorToRgb255(at(index / (RAMP_STOPS - 1))),
+    );
 }
 
 /** Measure the real DOM: chips are the springs, the ghost well is the sea. */

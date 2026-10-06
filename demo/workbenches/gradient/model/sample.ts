@@ -1,6 +1,9 @@
 /**
- * THE SAMPLING LAW (X-W6 · X.W6.c, CC-058 · MT-GRADSTOP-3). "The colour of this
- * ramp at p" has exactly ONE implementation, and it lives here.
+ * THE RAMP'S SAMPLING LAW (X-W6 · X.W6.c, CC-058 · MT-GRADSTOP-3). "The colour
+ * of this ramp at p" has exactly ONE implementation, and it lives here. The
+ * colour BETWEEN two stops is the demo-wide sampling law's
+ * (`color-session/sampling`, X.W12U.k); this module owns what is the ramp's:
+ * which interval holds p, and the curve that interval applies to t.
  *
  * Before this module there were two: the visualizer walked the intervals
  * exactly (`colorAtPosition`) to feed the add ghost and the minted colour,
@@ -17,7 +20,6 @@
  */
 
 import type { AnyColor } from "@mkbabb/value.js/color";
-import { mixColors } from "@mkbabb/value.js/color";
 import {
     CubicBezier,
     easing,
@@ -29,6 +31,7 @@ import { parseTimingFunction } from "@mkbabb/value.js/css";
 import { clamp } from "@mkbabb/value.js/math";
 import type { CssLinearStop, CssTimingFunction } from "@mkbabb/value.js/css";
 import { parseColorIn } from "../../../color-session/color-utils";
+import { segmentSampler } from "../../../color-session/sampling";
 import type { GradientInterval, GradientSampleSource, GradientStop } from "./types";
 
 /**
@@ -150,18 +153,10 @@ export function intervalSampler(
     const curve = easingFnOf(s0.easing);
     const c0 = parseColorIn(s0.cssColor, interpolationSpace);
     const c1 = parseColorIn(s1.cssColor, interpolationSpace);
-    return (t) => {
-        const mixed = mixColors(c0, c1, clamp(curve(t), 0, 1), {
-            space: interpolationSpace,
-            hue: hueMethod,
-        });
-        if (!mixed.ok) {
-            throw new Error(`Gradient color mix failed: ${mixed.error.code}`);
-        }
-        // A runtime SpaceId keeps the discriminant/channel pair intact;
-        // TypeScript cannot distribute Color<SpaceId> back into AnyColor.
-        return mixed.value as AnyColor;
-    };
+    // The colour between the two stops is the ONE sampling law's
+    // (`color-session/sampling`); this interval adds only its curve.
+    const at = segmentSampler(c0, c1, interpolationSpace, hueMethod);
+    return (t) => at(clamp(curve(t), 0, 1));
 }
 
 /**

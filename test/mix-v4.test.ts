@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { mixColors } from "@mkbabb/value.js/color";
 import { parseColorIn } from "../demo/color-session/color-utils";
-import { mixColorSequence } from "../demo/palettes/mix";
+import { mixColorSequence } from "../demo/workbenches/mix/mix";
 
 const colors = ["red", "lime", "blue"].map((source) => parseColorIn(source, "oklab"));
 
