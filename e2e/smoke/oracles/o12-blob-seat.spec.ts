@@ -54,9 +54,9 @@ const BEAD_RATIO = 0.52;
  *       window it draws (> 0), at most one draw per displayed frame (+1 edge
  *       race; measured at 1440: draws 28/20/23 = frames 28/20/23), and idle
  *       p50 holds the §6.2 13 ms on a real GPU (measured headed, hero live:
- *       10.2 ms), the SOFT_CEIL guard on SwiftShader, or — on WebKit, whose
-       frame clock alone reads p50 17 ms — the seat's own PRM-parked p50
-       + 1 ms (the hero adds no idle cost). The bead's visible
+ *       10.2 ms) — or, on a 60 Hz frame clock (WebKit; §0ei background
+       Chrome), the seat's own PRM-parked p50 + 1 ms, the hero adding no
+       idle cost — and the SOFT_CEIL guard on SwiftShader. The bead's visible
  *       motion at idle and under a resting pointer is the live-blob gate's
  *       (`w12-picker-blob.spec.ts`). Evidence: `W12U-evidence/b/`.
  *   4 · HOVER-ACTIVE BUDGET — sustained-pointermove frame p50 ≤ 20ms (the
@@ -208,12 +208,14 @@ test("O-12 · 3 — idle frame cost at the seat: the live bead draws, at most on
         expect(p50, `software-GL idle p50 ${p50.toFixed(1)}ms over the hang guard`).toBeLessThanOrEqual(
             SOFT_CEIL.idleP50Ms,
         );
-    } else if (browserName !== "chromium") {
-        // The §6.2 13 ms is a Chromium 120 Hz-cell number. Headless WebKit (the
-        // oracles-safari project) ticks rAF on its own frame clock: about:blank
-        // reads p50 17.0 ms there, and the picker reads the same p50 live and
-        // parked (`W12U-evidence/b/probe-webkit-cadence.mjs`). So on this engine
-        // the budget is the hero's own idle cost: live p50 ≤ the same seat's
+    } else {
+        // A real GPU. The §6.2 13 ms is the 120 Hz-cell number; a 60 Hz frame
+        // clock reads p50 16.7-17.0 ms for any page (headless WebKit, the
+        // oracles-safari project: about:blank 17.0 ms; real Chrome new-headless
+        // on Metal under §0ei: live and parked both 16.7 ms —
+        // `W12U-evidence/b/probe-webkit-cadence.mjs`, `probe-idle-cost.mjs`).
+        // So the budget is the §6.2 gate or, where the engine's own clock sits
+        // above it, the hero's own idle cost: live p50 ≤ the same seat's
         // PRM-parked p50 (0 hero draws) + one ms of rAF timestamp jitter.
         const parked = await browser.newContext({
             viewport: { width: 1440, height: 900 },
@@ -227,15 +229,12 @@ test("O-12 · 3 — idle frame cost at the seat: the live bead draws, at most on
         await waitMs(ref, WINDOW_MS);
         const floor = percentile(await readFrames(ref), 50);
         await parked.close();
-        console.log(`[o12-idle-cost] ${browserName} parked floor p50=${floor.toFixed(1)}ms`);
+        const budget = Math.max(GATE.idleP50Ms, floor + RAF_JITTER_MS);
+        console.log(`[o12-idle-cost] ${browserName} parked floor p50=${floor.toFixed(1)}ms → budget ${budget.toFixed(1)}ms`);
         expect(
             p50,
-            `${browserName} idle p50 ${p50.toFixed(1)}ms with the bead live over its parked floor ${floor.toFixed(1)}ms + ${RAF_JITTER_MS}ms`,
-        ).toBeLessThanOrEqual(floor + RAF_JITTER_MS);
-    } else {
-        expect(p50, `idle p50 ${p50.toFixed(1)}ms over the §6.2 ≤${GATE.idleP50Ms}ms gate with the bead live`).toBeLessThanOrEqual(
-            GATE.idleP50Ms,
-        );
+            `${browserName} idle p50 ${p50.toFixed(1)}ms with the bead live over max(§6.2 ${GATE.idleP50Ms}ms, parked floor ${floor.toFixed(1)}ms + ${RAF_JITTER_MS}ms)`,
+        ).toBeLessThanOrEqual(budget);
     }
 });
 
