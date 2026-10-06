@@ -3671,3 +3671,10 @@ F.CT ran 8 refine rounds: 19/19 still FAIL. The portrait is numerically near-per
 The owner's frame shows a keyframes card whose eye icon floats meaninglessly. The owner rules that ALL our UIs (value, keyframes, fourier) and the cube are overly shaded and lit ("affectation and slop"), and orders ≥12 critical passes to clean them up and revive the original styles, glass-ui included. The original keyframes UI, flatly lit, is the reference.
 **Minted:** wave **X-DS** (spec `waves/X-DS.md`), run as its own owner-ordered workflow (an explicit order like F.CT, beyond the 4-workflow cap for this wave only). Steps: archaeology, a canon per app, then ≥12 passes per app (capture, fresh critic, root cure, re-capture), plus a lighting census gate.
 **Glass:** **O-87 FLAT-LIGHTING** relayed with the same canon and the ≥12 passes on glass's tokens and surfaces; consumers never override glass lighting locally.
+
+## §0ek — 2026-10-06: the OWNER rules O-87 (in the glass session, `751b8d7e`): "ios27 everywhere, but a bit flatter, more refined, deft, and slightly less blur"
+The ruling is a deft refinement and de-slopification inside the iOS-27 liquid-glass canon, **not** a fully flat redesign.
+- **Kept:** the material, a single quiet edge, meaningful motion and engagement, and identity.
+- **Out:** stacked shadows on chrome, glow halos, coloured drop-glows, gleam or specular beyond the one edge, decorative bevels, idle shimmer and decorative gradients on controls.
+- **Blur** goes down slightly, at glass's token.
+X-DS's canon is amended to match (X-DS.md addendum (a)); the running workflow's critics and cure seats read it at each pass. Glass lands its token refinement in **10.2.0** band 0 (deeper passes in D2/D3/D4/D5).

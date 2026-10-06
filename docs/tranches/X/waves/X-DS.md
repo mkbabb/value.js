@@ -34,3 +34,14 @@ Each pass:
 - Each app's type-check, unit tests and e2e stay GREEN ×2. A visual-checkpoint golden changes only as a named re-baseline.
 - A **lighting census** (a script counting `box-shadow` layers, `text-shadow`, `filter: drop-shadow|blur` on chrome, gradient fills on controls, and `@keyframes` that loop on chrome) falls to the canon's allowance. RED before, GREEN after.
 - Before and after frames are committed per pass (force-added) under `docs/tranches/X/evidence/DS/<app>/pass-NN/`.
+
+## ADDENDUM 2026-10-06 (a) — THE OWNER'S RULING REFINES THE CANON: "ios27 everywhere, but a bit flatter, more refined, deft, and slightly less blur" (COHESION §0ek; glass `751b8d7e`)
+The owner, verbatim, ruling O-87 in the glass session: *"ios27 everywhere, but a bit flatter, more refined, deft, and slightly less blur"* and *"This is a deft refinement and de-slopification."*
+**This supersedes the canon above wherever they differ, for every app and for glass:**
+- **Kept:** the iOS-27 liquid-glass material, with a **single quiet edge** (one hairline rim or edge light, not a stack). Meaningful motion and engagement are kept, and so is the app's identity (§0dm).
+- **Out:** stacked or multi-layer shadows on chrome; glow halos; coloured drop-glows; gleam or specular **beyond the one quiet edge**; decorative inner bevels and top-light insets; idle shimmer, pulse or breathe that carries no state; decorative gradients on controls; floating, unanchored glyphs; ornament with no meaning.
+- **Blur:** slightly less. That is glass's token, taken at the 10.2.0 repin, and never overridden locally.
+- **The cube and 3D demo objects:** "a bit flatter, more refined". Flat-to-soft faces with a restrained tonal step; no gloss, bloom or glow.
+- **The original styles** (keyframes' "flatly lit" original especially) remain the reference for **proportion, density, borders and tone**, expressed inside the iOS-27 material, not by removing it.
+- **Critics judge against this ruling, not against "fully flat".** A glass surface that keeps its material and one edge is CORRECT. A consumer that strips glass's material to make it flat is a regression.
+- **Glass-owned rows:** glass lands the token-level refinement in **10.2.0** (a band-0 token wave), with deeper material, dock, tile and engagement passes in its D2/D3/D4/D5 loops under the same ruling. Consumers hold glass-owned rows honest-RED until the 10.2.0 repin, then re-judge them.
