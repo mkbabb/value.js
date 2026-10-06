@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+# X.W12U.b gate run r10 at HEAD 31320666 (spec bytes 4fff02a2), VJS_E2E_PORT=9000 vite / VJS_E2E_PERF_PORT=8291 built bundle, all projects, --workers=1, 2026-10-06 12:57, load: 32.03 34.99 28.05
+(node:5114) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:5160) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 19 tests using 1 worker
+
+[1A[2K(node:5296) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/19] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc
+# ABORTED by the seat: stopped at 12:58 — :9000 vite unresponsive (curl 000 at 10 s; load 32); this run is void

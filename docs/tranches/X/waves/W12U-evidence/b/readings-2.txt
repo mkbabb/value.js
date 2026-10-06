@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5-5
+# X.W12U.b probe readings (seat 2), :9000 vite, HEAD 4fff02a2, 2026-10-06 12:41, load: 16.99 19.60 16.37
+
+⟨GPU=1 node docs/tranches/X/waves/W12U-evidence/b/probe-idle-cost.mjs⟩
+mode Chrome new-headless Metal GPU · http://localhost:9000
+renderer ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)
+1440 live firstDraw 1721ms :: draws 0 frames 180 p50 16.7 p95 16.7 | draws 0 frames 180 p50 16.7 p95 16.7 | draws 0 frames 180 p50 16.7 p95 16.8
+1440 PRM  firstDraw 355ms :: draws 0 frames 181 p50 16.7 p95 16.8 | draws 0 frames 180 p50 16.7 p95 16.8 | draws 0 frames 180 p50 16.7 p95 16.7
+390 live firstDraw 1623ms :: draws 0 frames 180 p50 16.7 p95 16.8 | draws 0 frames 180 p50 16.7 p95 16.7 | draws 0 frames 181 p50 16.7 p95 16.8
+390 PRM  firstDraw 386ms :: draws 0 frames 181 p50 16.7 p95 16.7 | draws 0 frames 180 p50 16.7 p95 16.8 | draws 0 frames 182 p50 16.7 p95 16.7
+
+⟨node docs/tranches/X/waves/W12U-evidence/b/probe-webkit-cadence.mjs⟩
+webkit blank :: frames 180 p50 17.0 p95 22.0 | frames 180 p50 17.0 p95 19.0 | frames 180 p50 17.0 p95 20.0
+webkit live :: frames 179 p50 17.0 p95 20.0 | frames 175 p50 17.0 p95 24.0 | frames 180 p50 17.0 p95 18.0
+webkit PRM  :: frames 180 p50 17.0 p95 18.0 | frames 181 p50 17.0 p95 18.0 | frames 180 p50 17.0 p95 18.0
+
+⟨node docs/tranches/X/waves/W12U-evidence/b/probe-390-overflow.mjs⟩
++0ms scrollWidth 406 :: button.dock-icon-button.glass-specular-track.glass-capsule-hover right=406.6 w=44.0 | path. right=7926.6 w=7757.8 | semantics. right=889.7 w=681.8 | span.base right=499.0 w=222.8 | span.base right=650.7 w=151.7 | semantics. right=593.5 w=385.6 | span.base right=406.6 w=33.7 | semantics. right=652.7 w=444.7
++3000ms scrollWidth 406 :: button.dock-icon-button.glass-specular-track.glass-capsule-hover right=406.6 w=44.0 | canvas.goo-blob-canvas right=407.6 w=179.2 | path. right=7931.4 w=7757.8 | semantics. right=889.7 w=681.8 | span.base right=598.0 w=284.3 | span.base right=806.5 w=208.5 | semantics. right=593.5 w=385.6 | span.base right=426.1 w=41.2
++8000ms scrollWidth 406 :: button.dock-icon-button.glass-specular-track.glass-capsule-hover right=406.6 w=44.0 | canvas.goo-blob-canvas right=407.6 w=179.2 | path. right=7931.4 w=7757.8 | semantics. right=889.7 w=681.8 | span.base right=598.0 w=284.3 | span.base right=806.5 w=208.5 | semantics. right=593.5 w=385.6 | span.base right=426.1 w=41.2

@@ -1,0 +1,18 @@
+SERVED MODEL: claude-opus-5-5
+# X.W12U.b probe readings, :9000, 2026-09-26 05:47, HEAD ea5cf931, load: 26.23 37.90 43.31
+
+⟨node docs/tranches/X/waves/W12U-evidence/b/probe-idle-cost.mjs⟩
+mode headless SwiftShader · http://localhost:9000
+1440 live firstDraw 12186ms :: draws 39 frames 39 p50 66.8 p95 135.1 | draws 26 frames 26 p50 101.3 p95 216.6 | draws 30 frames 30 p50 83.3 p95 200.1
+1440 PRM  firstDraw 1885ms :: draws 0 frames 361 p50 8.3 p95 9.7 | draws 0 frames 361 p50 8.3 p95 9.6 | draws 0 frames 360 p50 8.3 p95 9.7
+390 live firstDraw 9073ms :: draws 70 frames 70 p50 33.7 p95 84.8 | draws 49 frames 49 p50 49.2 p95 149.6 | draws 43 frames 43 p50 58.4 p95 149.9
+390 PRM  firstDraw 1165ms :: draws 0 frames 360 p50 8.3 p95 9.7 | draws 0 frames 361 p50 8.3 p95 9.7 | draws 0 frames 361 p50 8.3 p95 9.7
+
+⟨GPU=1 node docs/tranches/X/waves/W12U-evidence/b/probe-idle-cost.mjs⟩
+mode HEADED real GPU · http://localhost:9000
+1440 live firstDraw 1748ms :: draws 0 frames 294 p50 10.2 p95 11.7 | draws 0 frames 294 p50 10.2 p95 11.8 | draws 0 frames 294 p50 10.2 p95 11.9
+1440 PRM  firstDraw 523ms :: draws 0 frames 294 p50 10.2 p95 11.9 | draws 0 frames 295 p50 10.2 p95 11.7 | draws 0 frames 294 p50 10.2 p95 11.9
+390 live firstDraw 1603ms :: draws 0 frames 294 p50 10.2 p95 11.8 | draws 0 frames 295 p50 10.2 p95 11.9 | draws 0 frames 294 p50 10.2 p95 11.8
+390 PRM  firstDraw 458ms :: draws 0 frames 294 p50 10.2 p95 11.9 | draws 0 frames 294 p50 10.2 p95 11.9 | draws 0 frames 294 p50 10.2 p95 11.8
+
+⟨node docs/tranches/X/waves/W12U-evidence/b/probe-click-stall.mjs⟩
