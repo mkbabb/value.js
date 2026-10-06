@@ -2,6 +2,7 @@
 import { test, expect, type Locator, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 import { regionSettled } from "./fixtures/settle";
+import { useRealGpuCell } from "./perf/real-gpu";
 
 /**
  * X.W12.t · OA-54 — THE LARGE COLOUR-SPACE DROPDOWN IS TEXT.
@@ -14,7 +15,7 @@ import { regionSettled } from "./fixtures/settle";
  * dropdown trigger — `ColorSpaceSelector` — in two hosts: the Picker card's
  * title and the About pane's heading sentence. Both are read here.
  *
- *   npx playwright test e2e/smoke/w12-text-trigger.spec.ts --project=smoke --headed
+ *   W12_REAL_GPU=1 npx playwright test e2e/smoke/w12-text-trigger.spec.ts --project=smoke
  *
  * WHAT IS ASSERTED, at 1440×900 and 390×844, light and dark:
  *   (1) PAINT-FREE at rest, on hover and while open: no background colour or
@@ -32,9 +33,9 @@ import { regionSettled } from "./fixtures/settle";
 const OUT = process.env.W12_TEXT_TRIGGER_OUT;
 
 /**
- * X-W12 Repair 2 (H-2′): the §0ci gate is read in HEADED Chromium, the eye's
- * frame — the §0ax D1 real-GPU cell (`W12_REAL_GPU=1 … --headed`, the same
- * seam as `w12-drag.spec.ts`). MEASURED 2026-09-24 (load 53–154): under the
+ * X-W12 Repair 2 (H-2′): the §0ci gate is read on the real GPU, the eye's
+ * frame — the real-GPU cell (`W12_REAL_GPU=1`, real Chrome in the background
+ * on Metal since §0ei; `perf/real-gpu.ts`, the same seam as `w12-drag.spec.ts`). MEASURED 2026-09-24 (load 53–154): under the
  * smoke project's SwiftShader launch the page composites at 4–8 fps and the
  * listbox's exit animation (`glass-reveal-out`) sits PENDING at currentTime 0
  * for 3–5 s after `data-state="closed"` (it waits on the compositor for its
@@ -42,7 +43,7 @@ const OUT = process.env.W12_TEXT_TRIGGER_OUT;
  * GPU the same close unmounts in < 0.8 s, 3 legs of 3. The SwiftShader
  * reading stays the default run and is banked beside.
  */
-if (process.env.W12_REAL_GPU === "1") test.use({ launchOptions: { args: [] }, headless: false });
+useRealGpuCell();
 
 const VIEWPORTS = [
     { name: "1440", width: 1440, height: 900 },

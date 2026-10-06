@@ -8,13 +8,15 @@ import {
     readLongTasks,
     percentile,
 } from "./perf/frame-budget";
+import { REAL_GPU, useRealGpuCell } from "./perf/real-gpu";
 
 /**
  * X.W12U.p — the drag frame budget, re-profiled on glass 10.1.0
  * (W12U.md addendum (b) `.p` + addendum (c) I-59; W12.md addendum (f)).
  *
- * Falsifier for three readings on the headed real-GPU 120 Hz cell
- * (`W12_REAL_GPU=1 W12_WINDOW_POSITION=2600,200 … --headed`):
+ * Falsifier for three readings on the real-GPU cell (`W12_REAL_GPU=1`; read
+ * headed on the 120 Hz panel until §0ei, in the background on Metal since,
+ * whose rAF clock is 60 Hz — `perf/real-gpu.ts`):
  *   1. drag p95 ≤ 16.7 ms on the colour-changing drags (surface, L, a, b, alpha);
  *   2. the dock run's roving MutationObserver (glass `useDockRun`, which calls
  *      `syncRoving` on childList-subtree / `aria-current` mutations) is not fed
@@ -26,9 +28,7 @@ import {
  * eye's frame — the `w12-drag` precedent); (2) holds on every renderer.
  */
 
-const REAL_GPU = process.env.W12_REAL_GPU === "1";
 const ORIGIN = process.env.W12_ORIGIN;
-const WINDOW_POSITION = process.env.W12_WINDOW_POSITION;
 /**
  * The consumer bisect (W12.md addendum (f); W12U.md addendum (b) gate 2):
  * `W12U_P_BISECT=root` freezes every custom-property write on `<html>` after
@@ -42,11 +42,7 @@ const DRAG_MS = 2000;
 /** syncRoving may fire on a real structural change; never on most frames. */
 const ROVING_MAX_FRACTION = 0.1;
 
-if (REAL_GPU)
-    test.use({
-        launchOptions: { args: WINDOW_POSITION ? [`--window-position=${WINDOW_POSITION}`] : [] },
-        headless: false,
-    });
+useRealGpuCell();
 test.use({ viewport: { width: 1440, height: 900 } });
 
 type Target = { name: string; locate: (p: Page) => ReturnType<Page["locator"]>; axis: "xy" | "x" };

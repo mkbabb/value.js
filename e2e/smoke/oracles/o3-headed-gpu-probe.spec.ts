@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { mainPane } from "../fixtures/dock";
 import { ATMOSPHERE_TESTID } from "../fixtures/webgl-appearance";
 import { detectRenderer, isSoftwareGL } from "../perf/frame-budget";
+import { useRealGpuCell } from "../perf/real-gpu";
 import { sampleRegion, meanRgb, srgbToOklch } from "../fixtures/frame-diff";
 
 /**
@@ -15,16 +16,19 @@ import { sampleRegion, meanRgb, srgbToOklch } from "../fixtures/frame-diff";
  * software-GL (it would certify the placeholder, not the field) and RUNS its
  * canvas-pixel asserts only when a real GPU is present, over BOTH schemes.
  *
- *   • RUN-OWNER: the tranche owner (or an agent on a real-GPU host), headed.
+ *   • RUN-OWNER: the tranche owner (or an agent on a real-GPU host), on the
+ *     background real-GPU cell (§0ei: real Chrome headless on Metal; no window).
  *   • CADENCE: W0 (this mint) · re-run at W2 / W7 / W8 (the aurora-cure gates).
  *   • JUDGEMENT: the ORDER (hydrate → derive → arrive) is screencast-judged by
  *     the owner; this spec asserts the machine-checkable half (post-arm the field
  *     is chromatic, both schemes), leaving the perceptual order to the eye.
  *
- * Invoke headed on a real GPU:  npx playwright test o3-headed-gpu-probe --headed
+ * Invoke on the real GPU:  W12_REAL_GPU=1 npx playwright test o3-headed-gpu-probe --project=smoke
  */
 
 const SEED = "oklch(0.66 0.16 28)";
+
+useRealGpuCell();
 
 for (const scheme of ["dark", "light"] as const) {
     test(`O-3 headed real-GPU cold-load — post-arm the field is chromatic (${scheme})`, async ({
@@ -42,7 +46,7 @@ for (const scheme of ["dark", "light"] as const) {
         const renderer = await detectRenderer(page);
         test.skip(
             isSoftwareGL(renderer),
-            `O-3 is a headed real-GPU annex — software-GL renderer '${renderer}' would certify the CSS placeholder, not the live aurora (SYNTHESIS §6.1 O-3; run headed on a real GPU)`,
+            `O-3 is a headed real-GPU annex — software-GL renderer '${renderer}' would certify the CSS placeholder, not the live aurora (SYNTHESIS §6.1 O-3; run with W12_REAL_GPU=1)`,
         );
 
         const canvas = page.getByTestId(ATMOSPHERE_TESTID);

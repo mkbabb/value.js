@@ -2,6 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 import { decodePng, meanRgb } from "./fixtures/frame-diff";
 import { ATMOSPHERE_TESTID } from "./fixtures/webgl-appearance";
 import { detectRenderer } from "./perf/frame-budget";
+import { useRealGpuCell } from "./perf/real-gpu";
 
 /**
  * X.W12.a · OA-4 / OA-18 / UIA-V-1 — THE GROUND NEVER PAINTS BLACK.
@@ -21,17 +22,17 @@ import { detectRenderer } from "./perf/frame-budget";
  *   · SwiftShader, dev server   — the `smoke` project as-is.
  *   · gh-pages build            — `W12_ORIGIN=http://localhost:<port>/` over a
  *                                 static serve of `vite build --mode gh-pages`.
- *   · headed real GPU           — `W12_REAL_GPU=1 … --headed` drops the
- *                                 SwiftShader flags (§0ax D1's instrument), so
- *                                 the live WebGPU field is what is read.
+ *   · real GPU                  — `W12_REAL_GPU=1` runs real Chrome in the
+ *                                 background on Metal (§0ei; `perf/real-gpu.ts`)
+ *                                 without the SwiftShader flags, so the live
+ *                                 WebGPU field is what is read.
  */
 
-const REAL_GPU = process.env.W12_REAL_GPU === "1";
 const ORIGIN = process.env.W12_ORIGIN; // undefined → the project baseURL
 const BLACK_MAX_CHANNEL = 12; // a channel ceiling: the dark ground reads ≥ 30
 const WEBGPU_MAX_TEXTURE = 8192;
 
-if (REAL_GPU) test.use({ launchOptions: { args: [] }, headless: false });
+useRealGpuCell();
 test.use({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 
 type Sample = { step: string; rgb: number[][]; backing: [number, number]; box: [number, number] };

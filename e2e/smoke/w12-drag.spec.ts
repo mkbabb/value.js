@@ -8,6 +8,7 @@ import {
     readLongTasks,
     percentile,
 } from "./perf/frame-budget";
+import { REAL_GPU, useRealGpuCell } from "./perf/real-gpu";
 
 /**
  * X.W12.a · OA-4 / OA-19 — "the colour selection and dragging is slow".
@@ -15,13 +16,12 @@ import {
  * A 2 s pointer drag on the picker surface and on each channel slider, read by
  * the rAF frame collector (frame intervals, long tasks) and a CDP sampling
  * profile (the per-input work, named by self time). The gate is p95 frame
- * ≤ 16.7 ms on the headed real-GPU cell (§0ax D1's instrument:
- * `W12_REAL_GPU=1 … --headed`); the SwiftShader reading is banked beside and
+ * ≤ 16.7 ms on the real-GPU cell (`W12_REAL_GPU=1`: real Chrome in the
+ * background on Metal since §0ei, `perf/real-gpu.ts`); the SwiftShader reading is banked beside and
  * held only to the freeze ceiling, because software raster is not the eye's
  * frame (the standing `drag-frame-budget` precedent).
  */
 
-const REAL_GPU = process.env.W12_REAL_GPU === "1";
 const ORIGIN = process.env.W12_ORIGIN;
 const P95_BUDGET_MS = 16.7;
 const SOFT_MAX_TASK_MS = 3000;
@@ -32,16 +32,11 @@ const DRAG_MS = 2000;
  * On a 60 Hz panel a BLANK page reads rAF p95 17.6 ms (vsync timestamps land
  * at 16.7-17.7 ms), so the 16.7 ms budget sits below the instrument's floor
  * there; on the 120 Hz panel a blank page reads p95 9.2 ms, and 16.7 ms is
- * the "never two refreshes late" budget the gate means. `W12_WINDOW_POSITION`
- * ("x,y") places the headed window on the named panel; the record names it.
+ * the "never two refreshes late" budget the gate means. Since §0ei no window
+ * opens, so no panel is chosen: the background cell's rAF clock is 60 Hz
+ * (`perf/real-gpu.ts`), and the gate is read as it stands.
  */
-const WINDOW_POSITION = process.env.W12_WINDOW_POSITION;
-
-if (REAL_GPU)
-    test.use({
-        launchOptions: { args: WINDOW_POSITION ? [`--window-position=${WINDOW_POSITION}`] : [] },
-        headless: false,
-    });
+useRealGpuCell();
 test.use({ viewport: { width: 1440, height: 900 } });
 
 type Target = { name: string; locate: (p: Page) => ReturnType<Page["locator"]>; axis: "xy" | "x" };
