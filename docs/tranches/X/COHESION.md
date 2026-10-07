@@ -3709,3 +3709,11 @@ The Sequence squared frame was a consumer rule (`calc(var(--radius-card) - 1rem)
 
 ## §0eq — 2026-10-06: ESC-W7r7-1 RULED — a timing gate's check is an audit of the banked quiet-window read
 X.P.W7's close read L-G1 GREEN ×2 on four engines at load 6–8.5. Three checks then could not re-time on a host at load 400–550, on battery, with other sessions' fleets running. **Ruled** (W7.md addendum (k)): the quiet-window read is the read of record. The check audits the records: hashes against the frozen bytes, per-rep load < 8, ratios recomputed from the raw samples, full matrix coverage, the instrument unchanged. An independent re-read is owed at X.P.W8's close, in an owner-provided window (AC power, lid open, fleets idle). Node reps above load 8 are supplementary.
+
+## §0er — 2026-10-07: KF.W13X's nine escalations RULED; re-open plan; a quiet-host gate for kf readings
+KF.W13X check 3 was NOT-CONFORMANT: `.pc`/`.dh2` unlanded, readings unread under load 245–410, nine escalations unruled, R-r-2 open, three relays unfiled. **Ruled** (KF-W13.md addendum (g)):
+- the file-grant escalations are GRANTED as filed: ESC-mobile-1/2, dock-2, tl-1 steps 1–2, kf-1, scene-1;
+- ESC-dock-1: Share opens its own popover anchored to the @mbabb trigger;
+- ESC-dock-3: a Home living miniature in the `<S>Mini` idiom;
+- ESC-spring-1: the Sweep's sampler shares the axis's settle-horizon time base, with alternate folded.
+Unit `.cube` gets an ordering cure for the autoplay first-frame throw. kf readings are banked only at a 1-minute load < 25. Re-open: `.pc` → `.dh2` → `.esc` → `.cube` → R-4 → relays → close → check.
