@@ -3210,3 +3210,69 @@ SERVED MODEL: claude-opus-5-5. Read: W7.md whole (303 lines, ADDENDA (a)–(j));
 **Gates a cure could move:** none. The only writes are evidence files and this record. ⟨`git status --porcelain -- src bench test/css | wc -l`⟩ → `0`.
 **Adjacent edits:** none. **Mail:** ⟨`grep -cE '\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`.
 **Counts (self-count):** defect rows answered 5: cured 0 · escalated 1 (C2-1) · nothing owed 4 (C2-2, C2-3, C2-4, C2-5). Files banked 6 + the manifest extension. Load samples 18. Builds 0. Reads launched 0. Product bytes moved 0.
+
+## Check 3 of the RESUME 7 Close (2026-10-06, L-20 fresh adversarial pass 3, `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+SERVED MODEL: claude-opus-5-5. Read: W7.md whole (303 lines, ADDENDA (a)–(j)); of this record the section headings, `## RESUME 7 — Open` through the Unit plan, `## Check 2 of the RESUME 7 Close` and `## Repair 2 of the RESUME 7 Close`. Crash-recovery: ⟨`git status --porcelain -- src bench test/css docs/tranches/X/execution/D docs/tranches/X/parse-that/evidence/W7 package.json package-lock.json`⟩ → empty at open; nothing inherited. parse-that is unmoved at `cb9c0d4`; its dirty paths are master's standing dirt, untouched. Product bytes: ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json | wc -l`⟩ → `0` ×2 (frozen, §0ef).
+
+**Verdict: NOT-CONFORMANT, on the same single conjunct as Check 1 and Check 2 (C3-1 = C2-1 = C1-1 = ESC-W7r7-1).** No product defect, no out-of-set write, no masking, no E-3 breach found. The gates this seat could run reproduce (6), and the close's L-G1 figures re-derive from the nine hash-pinned records. **L-G1 was not re-read on any engine**: the host is still in clamshell sleep on battery, and its 1-minute load read 407–548 through this sitting. ESC-W7r7-1 is still unruled (⟨`grep -c 'ESC-W7r7-1' docs/tranches/X/COHESION.md`⟩ → `0`; COHESION now ends at §0ei, none of §0eg–§0ei touches it). The row stays IMPLEMENTED.
+
+### Host state (why no timing gate was read)
+- ⟨`sysctl -n vm.loadavg`⟩ → `{ 407.28 388.62 359.80 }` (19:39) · `{ 421.94 400.45 368.46 }` (19:59) · `{ 547.63 455.45 394.64 }` (20:14). Never below 8 (ADDENDUM (f) 3).
+- ⟨`pmset -g batt`⟩ → `73%; discharging`. ⟨`pmset -g log | grep -E ' (Sleep|DarkWake|Wake) ' | tail`⟩ → `19:38:26 DarkWake from Deep Idle` → `19:39:11 Entering Sleep state due to 'Maintenance Sleep' … Using Batt (Charge:73%)`. Repair 2's measured cause holds unchanged.
+- This seat's first command (seven short reads) started 19:39 and returned at 19:54; a second (a 1 KB node script plus `pmset`) took 19:59 → 20:14. The machine sleeps between dark wakes. A wall-clock paired timing cell cannot be read across a sleep transition, so no read was launched and no waiter was armed: Repair 2 already held the full 90-minute bound on this same state (18 samples, minimum 298.87). ⟨`ls bench/records | grep -c 'c3-'`⟩ → `0`.
+
+### Reproduced (this seat's own runs, frozen bytes `08331dfa`)
+| Gate | Command | Read | Verdict |
+|---|---|---|---|
+| Frozen bytes / L-6 | ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json \| wc -l`⟩ ×2 | `0` · `0` | reproduces |
+| test/css | ⟨`npx vitest run test/css`⟩ | `Test Files 9 passed (9) · Tests 111 passed (111)` | reproduces (once; the host slept through the sitting, a second run was not spent) |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | reproduces |
+| Evidence manifest | ⟨`grep -v '^#' MANIFEST.sha256 \| tail -n +2 \| shasum -a 256 -c - \| grep -c OK`⟩ | `25` | reproduces (Repair 2's 25/25) |
+| Mail | ⟨`grep -cE '\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ | `0` | reproduces |
+| L-G1 figures, re-derived from the record bytes | a script over every `summary` node carrying `allBelow1` in the nine `close/*.json` records | table below | re-derives (not a gate read) |
+
+**Not re-run at this check (cited from Check 2's own runs on the same frozen bytes, which this seat confirmed unmoved):** css-equivalence 19/19 MIRROR-DEFECTS 0 · vue-tsc 0/0/0 · build · E-6 size 98,922 / 13,786 · E-4 drift ×2 · L-G2 396 ×2 · prefix equivalence 0 ×2 · B-1. They are not counted in this seat's reproduced total.
+
+### L-G1 re-derivation (axis 9; record bytes only)
+| Record (`evidence/W7/l-g1-close/close/`) | start load | gated rows (class ≠ `large`) | `allBelow1` | worst clean gated | attempts ≥ 1 in gated rows |
+|---|---|---|---|---|---|
+| node r1 / r2 | 6.66 / 7.41 | 22 / 22 | 22 / 22 | .699 / .699 whole keyframe | 0 / 0 |
+| Chromium r2 / r3 | 6.60 / 6.92 | 22 / 22 | 22 / 22 | .649 / .631 | 0 / 0 |
+| Firefox r2 / r3 | 7.79 / 7.11 | 22 / 22 | 22 / 22 | below 1 | 0 / 0 |
+| WebKit r2 / r3 | 7.78 / 6.66 | 22 / 22 | 22 / 22 | below 1 | 0 / 0 |
+| three-engine r1 (supplementary) | 7.60 | 66 | 66 | below 1 | 0 |
+
+- The script counts 23 rows per browser record because it includes the INFO `large` row: Chromium 23/23 below 1; Firefox and WebKit 22/23, the one row at or above 1 being whole-sheet `large` `parseStylesheet` (Firefox 1.89–1.95, WebKit 1.105–1.118; 3 · 2 · 2 · 2 attempts ≥ 1, all in that row). ADDENDUM (g) 1 makes that row INFO, never averaged into the cell of record. Node carries 0 attempts ≥ 1.
+- Every start load in the nine records is below 8, and all predate the 13:26:24 lid close.
+- These match the close's published figures and Check 2's table. That is the close's claim verified at its bytes; it is not an independent read.
+
+### Axes
+1. **GREENs reproduce.** 5 gates re-run and reproduced here, plus the L-G1 figures re-derived from bytes. L-G1 ×2 on node, Chromium, WebKit and Firefox: 0 reads launched (C3-1).
+2. **Bounds.** This seat read ⟨`git show --stat --format=%h`⟩ on the two commits made since Check 2: `f63efc87a` (this record + `evidence/W7/l-g1-close/MANIFEST.sha256` + 6 files under `repair2/`) and `cdba9e3af` (`execution/LEDGER.md`, 1 line). Both inside the wave's docs/evidence set. The 15 earlier commits were walked by Check 2 (one adjacent doc comment, LW-1); the frozen-bytes diff shows no product path has moved since, so that walk stands. ⟨`git log --oneline 2015419a..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → `0`.
+3. **Masking.** No product, test or bench byte has moved since Check 2's scan (frozen-bytes diff `0`); the two new commits are docs and evidence text. None found.
+4. **Commit families.** Repair 2 is one record+evidence commit and one LEDGER line commit. Not split.
+5. **E-3.** ⟨`git diff --stat 2015419a..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ | wc -l`⟩ → `0`. ⟨`git diff 2015419a..HEAD -- docs/tranches/X/parse-that/waves/W7.md | grep -c '^-[^-]'`⟩ → `0` (append-only addenda). Held.
+6. **Mail.** `0` UNREAD.
+7. **Four-verb line.** LEDGER row 106 reads IMPLEMENTED (set by the close at `c3e1db44`); Check 1, Repair 1, Check 2, Repair 2 and this check leave it there. Lawful.
+8. **Goal criterion** (R-3: faster than the retired parser on every entry, each half, each engine). Met on the close's nine quiet records by their bytes; not independently read.
+9. **Published figures.** The L-G1 figures re-derive; manifest 25/25.
+10. **Honest-RED.** P-6 · E-8 · V-9 + its CI step · Z-1 · Z-3's publish half are RED by the spec's own relief (ADDENDUM 2026-09-24 §1, "X.P.W7's close relieves P-6, E-8, V-9 plus the CI step, Z-1 and Z-3's publish half by citing X.P.W7P"); owner named: X.P.W7P, keyed on the owner's npm one-time password. Whole-sheet `large` is INFO by ADDENDUM (g) 1. `prefix.mjs check` RED is B-1, INFO, homed to X.P.W8. **L-G1 is not in this set**: the close claims it GREEN, it is unreproduced and not RED, and no clause of the spec relieves the check from reading it. This seat does not launder it as honest-RED and does not stamp CLOSED over it.
+
+### Register (severity · claim · receipt · cure)
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | HIGH by the bar's second conjunct (an unreproduced gate; no product defect found). = C2-1 / C1-1 / ESC-W7r7-1, carried a third time | L-G1 ×2 could not be re-read on any engine: 1-min load 407 · 422 · 548 at this seat's three samples, never < 8; the host is in clamshell sleep on battery (73%, discharging; last log line a Maintenance Sleep at 19:39:11); 0 reads launched | § "Host state" above | No byte moves, and no further check seat can cure it. Two acts outside any seat's grant are owed first: the **owner** puts the machine on AC power with the lid open (or sleep otherwise prevented by the owner), and the **orchestrator** idles the sibling tracks (ADDENDUM (g) 2). Then one seat confirms ⟨`pmset -g batt`⟩ reads AC, no Sleep line in the last 15 minutes, and 1-min load < 8, and reads on the frozen `08331dfa`: ⟨`node bench/paired/build.mjs`⟩ · ⟨`node bench/paired/browser.mjs <tag>-r{1,2}-<e> <e> 2 whole,acc,rej,large-eq,large 11 product`⟩ per engine · ⟨`node --expose-gc bench/paired/isolated.mjs <tag>-node-r{1,2} product 3 11 whole,acc,rej,large-eq,large`⟩; records banked under `evidence/W7/l-g1-close/`, manifest extended. 22/22 gated rows < 1 per read closes the row; a quiet clean cell ≥ 1.0 is a cure unit, never a band. Alternatively the owner rules ESC-W7r7-1 in COHESION: whether the close's quiet hash-pinned reads plus three checks' byte re-derivation satisfy ADDENDUM (g) 2's "the check reads it". |
+| C3-2 | MINOR (process) | Three L-20 passes and two repairs have now been dispatched onto a host that was asleep on battery; each returns the same finding. A fourth dispatched the same way will read the same | Repair 2 § ESC-W7r7-1; § "Host state" | The orchestrator gates the next X.P.W7 dispatch on the two preconditions in C3-1's cure, or on an ESC-W7r7-1 ruling. |
+| C3-3 | INFO | C2-2 carried: two of the four `large-eq` prefixes are small (61 B, 1,689 B) by ADDENDUM (g) 1's own cut rule | Check 2 | None here; X.P.W8's bench unit. |
+| C3-4 | INFO | B-1 carried: `prefix.mjs check` RED on the manifest's historical `refusal.product` datum only | RESUME 7 Baseline | X.P.W8's bench unit. |
+| C3-5 | INFO | LW-1 carried: `src/value.ts:30-33` (`79a457d0`), an adjacent doc comment | Check 1 | None. |
+
+**Honest-RED set (relieved, owner named):** P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half → X.P.W7P (ADDENDUM 2026-09-24 §1).
+
+### Successors
+- **X.P.W8** (W8.md:4, "Opens after: X.P.W7 CLOSED"): its one conjunct is RED on C3-1 alone. Lawfully blocked.
+- **X.P.W7P** (owner's npm one-time password **and** X.P.W7's engineering gates CLOSED): the engineering conjunct is RED on C3-1 alone; the password conjunct is the owner's. Lawfully blocked on both.
+- **X-W11** (value.js publish) rides X.P.W7P; unchanged.
+
+**Counts (self-count):** gates reproduced by this seat's own runs 5 (frozen bytes, test/css 111, L-G3, manifest 25/25, mail); L-G1 figures re-derived from bytes, not counted as a read; not reproduced 1 gate family (L-G1, 4 engines, 0 reads launched); gates failed 0. Defect rows 5: HIGH 1 · MINOR 1 · INFO 3. Honest-RED 5 gates, all relieved to X.P.W7P. Product bytes moved 0; bench records written 0. Adjacent edits: none.
