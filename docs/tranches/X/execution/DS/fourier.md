@@ -72,3 +72,57 @@ The fourier-owned allowance is met. The glass-owned rows do not move until the 1
 - `/w` at 390 was not looked at with the new drop zone.
 - The contour editor's hover state now has no feedback at all.
 - The info hovercard keeps a local `background` and border over glass PopoverContent.
+
+### pass 1
+
+*(Second pass-1 receipt: the cure for the 2026-10-07 critic, `evidence/DS/fourier/critic-p1-2026-10-07/`, findings DS-F-*. The first pass-1 receipt above, and its frames at value.js `3d60b455e`, stand; this pass's AFTER frames replace the files in `pass-01/`.)*
+
+**Commits.** fourier `5622c16` (the cure, 17 files) and `5ab31fa` (named golden re-baseline), pushed fast-forward on `m/w1-bump-migration`. latex-paper `9e0200f` (DS-F-C3, local on `master`; not pushed, not published). value.js `4d491d425` (AFTER frames and census).
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F-C1 | `surface="opaque"` on GalleryCard, MorphPhaseConfig, HarmonicLevelGrid, the morph button's Surface and NotFoundCard; `.glass-opaque` on the paper ToC rail and both phone ToC bars. One warm `--card` tone app-wide and no backdrop blur on resting plates. The gallery card also drops its `shadow` opt-in. The cast that remains is glass's (G2). |
+| DS-F-C2 | `epicycles.ts`: circle strokes, arms and dots scale with the circle's on-screen radius. Strokes reach full weight at about 10 px, with a 1 px floor; dots are skipped under 3 px. Fixing the dots alone left the bloom, because a sub-pixel circle stroked at 4–5 px is itself a filled disc. The spectrum hues are kept. |
+| DS-F-C3 | Cured at the latex-paper root: the theorem block's resting cast, hover lift, hover cast growth and the `::before` corner ornament are deleted; the left rule and its type hues stay. **The fourier repin is owed**; it needs a latex-paper release, which this seat did not publish. |
+| DS-F-C4 | `.viz-panel-left` padding is 0, so the layer group's hairline is the aside's own edge. The same moat on `/equation` (`.eq-panel-left-wrap`) is cured the same way. The layer is now "Basis" with the sub "& resolution". Measured at 1440: no layer trigger truncates. Four e2e locators follow the new label. |
+| DS-F-C5 | `/equation` failure: a plain status block replaces the Card, and the message prints only when it differs from the title. `/v` error: the detail is dropped when it names the slug the description already names. |
+| DS-F-C6 | `/morph` ≥1024: the stage column starts on the title's axis (plate x = title x = 164), and the plate, readouts and actions share the 26rem measure. Below 1024, the sticky band repaints glass's `.paper-grid` (attachment fixed) over `--background`, so the grid runs through it. |
+| DS-F-C7 | At ≤30rem the state chip takes its own row and the three readings share the next. **Relay owed (glass):** the `Metric` inline label ("SHAPE", "TOTAL") still out-sizes its mono value. That rung is glass's and is not restyled locally. |
+| DS-F-C8 | SliderControl stays on glass's `md` rung. The fill is a 40% rung of the identity hue, and the thumb carries the hue at full strength. |
+| DS-F-C9 | The page readout is the second line of the CONTENTS header, inside the rail's plate. It did not fit beside the label and three glyphs: the header's `scrollWidth` was 315 in a 250 box. |
+| DS-F-C10 | The compact card's basis chip keeps its word ("Epicycles"). |
+
+**Glass-owned, left honest-RED, nothing overridden locally.**
+- O-87 FLAT-LIGHTING: DS-F-G1, G2, G3 (including the aside's 12 px offset from the stage), G4, G5, G6.
+- O-88 DOCK-COLLAPSE-MOTION: DS-F-G7.
+- Relay owed to glass: DS-F-G8 (menu row icon gap and size).
+
+**Census** (`pass-01/census-after.json`; base: the committed tree served from a worktree). On the critic's seven routes, like for like:
+- backdrop-blur elements: 260 → **216**;
+- control gradients: 0 → 0;
+- looping chrome animations: 0 → 0;
+- multi-layer shadow stacks: 290 → 300, and inset highlights: 288 → 298. Both are glass's recipe (G1/G2); the change comes from the `/v` error card's controls.
+
+Static (`web/src`): gradients 10 → 9; box-shadow declarations 4 (focus and selection rings only).
+
+**Frames.** 32 frames in `evidence/DS/fourier/pass-01/`: 8 routes × light/dark × 1440/390, headless real Chrome, from the committed state. The routes include `/v/plush-evening-olive-squid` (the stage) and `/v/elegant-passing-mauve-swift`, the critic's slug, now the error card.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice. latex-paper `vitest`: 127/127.
+- e2e, 13 directly affected specs, chromium headless, 145 tests: run A 141/145, run B 141/145.
+  - The same four failed both times. Each was re-run against the committed tree (served from a worktree on :3102):
+    - `f-w14-control-row` @1440 and @390: **pass at the commit**. The working-tree failure comes from an uncommitted orphan hunk (P2-07, the SliderControl subtitle as a third line) left by a dead pass-2 seat on 2026-10-06.
+    - `f-w14u-gallery` g248: **passes at the commit**. Its working-tree failure comes from the orphan GalleryDraftsSection hover hunk (P2-01).
+    - `f-w14v-au3` L1-12: pre-existing. The `/morph` titles are `h3`, not glass CardTitle (ESC-au3-1); this pass does not touch them.
+- **Named owner-ruling re-baseline (§0ej), `5ab31fa`:** `checkpoint-disclosure-body`. The diff is DS-F-C4 (no inset ring) plus DS-F-C8 (the fill rung), and it was read. It was taken from the committed tree and re-run twice GREEN.
+  - Still owed from before this pass: `card-resting`, `card-hover` and `card-modal`. Their "Open img-amber-fox-spiral-one" locator never resolves.
+
+**Instrument.**
+- At 11:06 the dev mongod on `:27018` was shut down by a signal; this seat restarted it with the same options.
+- Run 1 of the e2e (33 failures) is void: the API's compute process pool was broken (`BrokenProcessPool`).
+- This seat restarted uvicorn with `MONGO_URI=…27018`, `BLOB_DIR=~/.mongo-dev/fourier-blobs`, `ADMIN_TOKEN=dev` and `COMPUTE_RATE_LIMIT`/`WRITE_RATE_LIMIT=1000`; its log is `~/.dev-logs/fourier-api-ds.log`. Two runs on that instrument count as A and B.
+- The e2e runs rewrote the tracked frames under `web/e2e/screenshots/f-w14/`; they were restored to HEAD.
+
+**Left in the fourier tree, not this seat's.** The orphan pass-2 hunks in `GalleryDraftsSection.vue`, `GalleryView.vue`, `PaperView.vue`, `SliderControl.vue` (P2-07 only; P2-02's fill was adopted into C8 and its `sm` rung reverted to `md`) and `stores/gallery.ts`. Another seat's staged contour deletions are also left. None is in any commit.
