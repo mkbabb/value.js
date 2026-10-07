@@ -1,5 +1,8 @@
 <template>
-    <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="resting" class="pane-row-follow pane-scroll-fade flex flex-col w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+        <!-- X.W12U.h · A2-VA-L3-5: the companion follows the row (shell.css row
+             contract) and is a column, so a short list leaves its ground to the
+             empty plate instead of a dead band under content pinned to the top. -->
         <!-- T.W6 · W6-4 (Q5 RULED, T-43 owner-CONFIRMS: "'Palettes' should be
              rainbow"): the "Palettes" letterforms wear the guarded ramp — the
              SECOND of the exactly-two sanctioned sites (with the dock
@@ -24,7 +27,7 @@
             >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</Badge>
             <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
         </PaneHeader>
-        <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
+        <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 grow shrink-0">
             <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
                  side-by-side panes) is scoped — this one owns YOUR list.
                  T.W3-3 (T-12): a field on paper wears paper — the seated
@@ -61,7 +64,7 @@
             </div>
 
             <!-- Current palette + saved list -->
-            <div class="grid gap-3">
+            <div class="flex flex-col gap-3 grow">
                 <CurrentPaletteEditor
                     :saved-color-strings="savedColorStrings"
                     :css-color-opaque="cssColorOpaque"
@@ -98,6 +101,7 @@
 
                 <PaletteCardGrid
                     ref="sortableGridRef"
+                    :class="pm.filteredSaved.value.length === 0 && 'grow'"
                     :empty="pm.filteredSaved.value.length === 0"
                     :empty-text="searchNarrows ? `No saved palette matches “${pm.searchQuery.value.trim()}”.` : 'No saved palettes yet.'"
                     :empty-hint="searchNarrows ? `${pm.savedPalettes.value.length} saved palette${pm.savedPalettes.value.length === 1 ? '' : 's'} hidden by the search.` : 'Add colors, then save.'"

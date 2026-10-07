@@ -63,7 +63,9 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
 </script>
 
 <template>
-    <div class="relative w-full mx-auto h-full min-w-0">
+    <div class="pane-row-follow relative w-full mx-auto h-full min-w-0">
+        <!-- X.W12U.h · A2-VA-L3-5: the Mix companion follows the picker's row
+             (shell.css row contract) and scrolls inside its own card. -->
         <Card tier="resting" class="relative pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <!-- The mix convergence overlay (S.W3-6 / Q10): drops from the
                  selected chips arc to the result plate's awaiting well. Its

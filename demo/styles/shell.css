@@ -281,9 +281,14 @@
  *
  * It sits on the WRAPPER, not the card: the pane swap sets `contain: layout
  * paint` on the travelling pane (animations.css), and a `contain` declared on
- * the card would be replaced by it for the travel. */
+ * the card would be replaced by it for the travel.
+ *
+ * X.W12U.h · A2-VA-L3-5: the contract is a COMPANION's, so it binds only the
+ * inspector region. Palettes, Mix and the config pane declare it too, and the
+ * config pane is also the sole stage of /atmosphere, where no sibling sets the
+ * row and `contain: size` would collapse it. */
 @container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
-    .pane-wrapper:has(> .pane-row-follow) {
+    .pane-wrapper--inspector:has(> .pane-row-follow) {
         contain: size;
     }
 }
