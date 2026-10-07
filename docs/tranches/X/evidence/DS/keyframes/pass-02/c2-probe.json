@@ -1,0 +1,274 @@
+{
+  "pane-light": {
+    "layerFontSize": "14.5411px",
+    "labelFontSize": "14.5411px",
+    "separators": [
+      [
+        89,
+        367
+      ],
+      [
+        89,
+        367
+      ],
+      [
+        89,
+        367
+      ]
+    ]
+  },
+  "bezier-light": {
+    "pickerSurface": "bare",
+    "pickerBg": "rgba(0, 0, 0, 0)",
+    "pickerBorder": "0px"
+  },
+  "layer-light": [
+    [
+      "blend",
+      "oklch(0.216128 0 55.9827 / 0.45)",
+      "true"
+    ],
+    [
+      "z-index",
+      "oklch(0.216128 0 55.9827 / 0.45)",
+      "true"
+    ],
+    [
+      "enabled",
+      "oklch(0.216128 0 55.9827 / 0.45)",
+      "true"
+    ],
+    [
+      "duration",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "delay",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "iterations",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "direction",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "fill mode",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "easing",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "duration",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "delay",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "iterations",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "direction",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "fill mode",
+      "rgb(28, 25, 23)",
+      null
+    ],
+    [
+      "easing",
+      "rgb(28, 25, 23)",
+      null
+    ]
+  ],
+  "timeline-expanded-light": {
+    "railFrameDisplay": "none",
+    "card": [
+      71,
+      435,
+      407,
+      403
+    ],
+    "snapshotInCard": true
+  },
+  "sequence-clock-light": {
+    "discCentreY": 176.5,
+    "ruleCentreY": 176.5
+  },
+  "stages-light": {
+    "easing": [
+      550,
+      127,
+      814
+    ],
+    "spring": [
+      550,
+      127,
+      814
+    ],
+    "square": [
+      550,
+      127,
+      814
+    ],
+    "sequence": [
+      550,
+      127,
+      814
+    ]
+  },
+  "pane-dark": {
+    "layerFontSize": "14.5411px",
+    "labelFontSize": "14.5411px",
+    "separators": [
+      [
+        89,
+        367
+      ],
+      [
+        89,
+        367
+      ],
+      [
+        89,
+        367
+      ]
+    ]
+  },
+  "bezier-dark": {
+    "pickerSurface": "bare",
+    "pickerBg": "rgba(0, 0, 0, 0)",
+    "pickerBorder": "0px"
+  },
+  "layer-dark": [
+    [
+      "blend",
+      "oklch(0.925196 0 67.4529 / 0.45)",
+      "true"
+    ],
+    [
+      "z-index",
+      "oklch(0.925196 0 67.4529 / 0.45)",
+      "true"
+    ],
+    [
+      "enabled",
+      "oklch(0.925196 0 67.4529 / 0.45)",
+      "true"
+    ],
+    [
+      "duration",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "delay",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "iterations",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "direction",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "fill mode",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "easing",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "duration",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "delay",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "iterations",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "direction",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "fill mode",
+      "rgb(233, 230, 226)",
+      null
+    ],
+    [
+      "easing",
+      "rgb(233, 230, 226)",
+      null
+    ]
+  ],
+  "timeline-expanded-dark": {
+    "railFrameDisplay": "none",
+    "card": [
+      71,
+      435,
+      407,
+      403
+    ],
+    "snapshotInCard": true
+  },
+  "sequence-clock-dark": {
+    "discCentreY": 176.5,
+    "ruleCentreY": 176.5
+  },
+  "stages-dark": {
+    "easing": [
+      550,
+      127,
+      814
+    ],
+    "spring": [
+      550,
+      127,
+      814
+    ],
+    "square": [
+      550,
+      127,
+      814
+    ],
+    "sequence": [
+      550,
+      127,
+      814
+    ]
+  }
+}
