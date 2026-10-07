@@ -445,3 +445,48 @@ W8.md §Units: close = "V-C GREEN ×2 plus stay-GREEN", then the orchestrator's 
 | INFO: E-6 gz headroom 5 B | none | — | — |
 
 **Gates:** no product byte moved (⟨`git diff --stat 054698bda -- src test bench`⟩ → empty), so every published figure in Check 2 stands as read there (V-C 3,899 ruled / 0 unruled ×2; size 103,938 / 14,512). Nothing is re-run. **Row stays PARTIAL**; it awaits the orchestrator's quiet-window L-G1 ×2 read and a home for ESC-W8v-2.
+
+## Check 3 (2026-10-07, L-20 pass 3, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **NOT-CONFORMANT**
+
+- **Bytes read:** HEAD `de47dd3c1` (product = `dca3d91a1` + Repair 1's ruled rows `2aeca51d6`; ⟨`git log de47dd3c1..HEAD`⟩ → 0 commits since Repair 2). Pre-wave base `9949dd63a`. Host ⟨`sysctl -n vm.loadavg`⟩ → `{ 76.23 67.55 78.88 }`, later `{ 87.19 75.32 80.78 }`; ⟨`pmset -g batt`⟩ → AC, 8 %, charging. The §0eq window is not open, so no timing gate is read or claimed. Crash recovery: the record and LEDGER were clean in this seat's scope; ` M scripts/dev/dev.sh` is unowned and was not touched.
+
+### Gates re-run by this seat
+| Gate | Command | This seat | Claimed | Reproduces |
+|---|---|---|---|---|
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ ×2 | `6267 cases · 3899 ruled rows` · `TOTAL 6267 2368 3899 0 …` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, exit 0 ×2 | GREEN ×2 | yes |
+| Named misses 1–5 | scratchpad probe over `src/css/index.ts` | 4 forms `ok:true`; `coerceToSyntax('"a"'/'*'/'[a]', "<custom-ident>")` → `ok:false syntax_mismatch` ×3 | GREEN | yes |
+| test/css ×2 | ⟨`npx vitest run test/css`⟩ | `Test Files 15 passed (15) · Tests 195 passed (195)` ×2 | 195 ×2 | yes |
+| css-equivalence | ⟨`npm run -s test:css-equivalence`⟩ | exit 0, `Tests 19 passed (19)`; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0`; `STYLESHEET DEFECTS 0` | 19/19, 0 | yes |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | 0 | yes |
+| E-6 size | ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js \| wc -c` / `\| gzip \| wc -c`⟩ | `103938` / `14512` (≤ 125,646 / 14,517) | same | yes |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit \| grep -c 'error TS'`⟩ | `0` · `0` | 0 · 0 | yes |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance --max-warnings=0`⟩ | exit 0 | exit 0 | yes |
+| L-G2 · prefix · `--check` · audit · build | not re-run (they need the emitter pin; host load ~80); the banked `bench/records/W8close/` is cited; no src/test/emission byte has moved since the Close (⟨`git diff --stat 054698bda -- src test bench`⟩ is empty per Repair 2, and there are 0 commits since) | — | GREEN | cited |
+| L-G1 ×2 four engines | unread; ⟨`ls bench/records/W8close`⟩ → `audit.log build*.log check.log cssequiv-*.log equiv-*` and no L-G1 record | — | OWED | n/a |
+
+**9 gates reproduced; 0 claimed GREEN failed.**
+
+### Axes
+1. **Claimed GREEN reproduces:** yes (table).
+2. **File bounds:** Checks 1 and 2 audited every commit through `1da7888e9`. ⟨`git show --stat de47dd3c1`⟩ → `docs/tranches/X/execution/D/X-P-W8.md` only (in set). ⟨`git log 9949dd63a..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`.
+3. **Masking:** none new. Repair 2 moved 0 product bytes. The W8r1-CSS-VALUES-5 relief stands as Check 2 adjudicated it.
+4. **Commit families:** Repair 2 is one record commit. Not split.
+5. **E-3:** ⟨`git diff --stat 9949dd63a..HEAD -- docs/tranches/X/parse-that/waves/ docs/tranches/V/megatranche/registry/adjudicated/ scripts/dev/dev.sh`⟩ → empty.
+6. **Mail:** ⟨`grep -cE "\| *UNREAD *\|" docs/tranches/V/coordination/INBOX.md`⟩ → `0`.
+7. **Four-verb line:** MINTED → OPEN → PARTIAL, held at PARTIAL through Checks 1–2 and Repairs 1–2. Lawful.
+8. **Goal at the bytes:** V-C is MET and the five named misses are GREEN. §Scope 5 ("Speed at close: L-G1 ×2 re-read on the final bytes") is **NOT MET**.
+9. **Published figures:** 6,267 / 2,368 / 3,899 / 0, 195, 19, 103,938 / 14,512 reproduce.
+10. **Honest-RED adjudication:**
+   - **L-G1 ×2, four engines** (incl. W7's carried Firefox whole `parseCssScalar`, W7.md ADDENDUM (k) 2–3): W8.md §Units routes it to "the orchestrator's window: L-G1 ×2 → check" within this wave. §0eq says "An independent re-read is owed at X.P.W8's close", and ADDENDUM (k) 2 adds that it is "not owed again for W7's frozen bytes". So no successor carries it. It is not producer-owned and has no honest-RED id. §0eq lets a check audit a banked read, but no W8 read is banked. **Unrelieved → HIGH** (unchanged from C1/C2). Owner: the orchestrator+owner quiet window. After §0eq/(k) no ruling relieves it (⟨`grep -n "X\.P\.W8\|ESC-W8" COHESION.md`⟩ → only §0ef).
+   - **ESC-W8v-2** (`--x: ;`): this is not a V-C case (V-C is GREEN with it ruled/absent), so it is not a W8 gate. It stays an unhomed residual → MINOR.
+   - **Successors:** no wave declares "Opens after X.P.W8" (⟨`grep -rln "X\.P\.W8" docs/tranches/X/parse-that/waves/`⟩ → W7.md, W8.md). No successor is blocked.
+
+### Register
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| HIGH | L-G1 ×2 on four engines (plus W7's carried Firefox whole `parseCssScalar` cell) is unread at close, and no banked read exists to audit. §Units / §0eq / ADDENDUM (k) give no relief | `bench/records/W8close/` has no L-G1 record; host load 76–87 | the orchestrator+owner quiet window (AC, lid open, fleets idle, 1-min load < 8): accepted · rejected · `large-eq` ×2 on node/Chromium/WebKit/Firefox + the Firefox whole `parseCssScalar` cell, banked under `bench/records/`; then a check audits it per §0eq. A further repair/check round on a loaded host cannot cure it, so the orchestrator should stop dispatching these rounds until the window opens. |
+| MINOR | ESC-W8v-2 (`--x: ;`) is still unhomed | Repair 2 escalation | the orchestrator homes it in a unit that owns `src/value.ts` / `src/css/rules.ts` |
+| INFO | the `random-item()` relief was taken by a repair seat under §Scope 2's ruled-row clause | `2aeca51d6` | none; open to an owner spot-ruling |
+| INFO | E-6 gz headroom is 5 B | size row | none |
+
+**Verdict: NOT-CONFORMANT** (1 HIGH: L-G1 ×2 unread, unrelieved). The LEDGER row stays PARTIAL.
