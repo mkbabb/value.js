@@ -144,7 +144,7 @@ import {
     SelectValue,
 } from "@mkbabb/glass-ui/select";
 import { WatercolorDot } from "../shared/ui/watercolor-dot";
-import { computed, inject } from "vue";
+import { computed, inject, onDeactivated } from "vue";
 import { resolveColorSpace } from "./color-model";
 import type { DisplayColorSpace } from "./color-model";
 import { SPACE_CATALOG, SPACE_CATALOG_ENTRIES } from "./space-catalog";
@@ -170,6 +170,10 @@ const { cssColor, inline = false } = defineProps<{
  */
 const space = defineModel<DisplayColorSpace>({ required: true });
 const openModel = defineModel<boolean>("open", { required: true });
+// A2-VA-L2-11 — a popup never outlives its pane (shell/usePanePopups.ts): close on deactivate.
+onDeactivated(() => {
+    openModel.value = false;
+});
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
 

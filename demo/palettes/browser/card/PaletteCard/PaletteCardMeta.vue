@@ -65,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onDeactivated, ref } from "vue";
 import { Heart } from "@lucide/vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import type { Palette } from "../../../types";
@@ -82,6 +82,10 @@ const MAX_CHIPS = 3;
 const tags = computed(() => palette.tags ?? []);
 const shownTags = computed(() => tags.value.slice(0, MAX_CHIPS));
 const allTagsOpen = ref(false);
+// A2-VA-L2-11 — a popup never outlives its pane (shell/usePanePopups.ts): close on deactivate.
+onDeactivated(() => {
+    allTagsOpen.value = false;
+});
 
 /** X.W7.f · G17 — the count reads compact (`12.3k`); `title` keeps it exact. */
 const votes = computed(() => formatCount(palette.voteCount ?? 0));

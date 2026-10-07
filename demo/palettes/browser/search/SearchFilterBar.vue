@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center gap-1.5">
-        <Popover>
+        <Popover v-bind="popups.bind('filters')">
             <PopoverTrigger as-child>
                 <!-- X.W12U.s2 · UIA-V-118 · V-310: the filter glyph, on the glass
                      sm square (no h/w override), seated inside the search bar. -->
@@ -147,7 +147,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, useId } from "vue";
+import { ref, computed, onDeactivated, useId } from "vue";
+import { usePanePopups } from "../../../shell/usePanePopups";
 import { Button } from "@mkbabb/glass-ui/button";
 import { Input } from "@mkbabb/glass-ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
@@ -204,6 +205,12 @@ function onSortPick(v: unknown) {
 const colorText = ref("");
 const pickerHex = ref("#4488cc");
 const miniPickerOpen = ref(false);
+
+// A2-VA-L2-11 — this pane's popups (the filter panel and the colour picker) close when the pane deactivates.
+const popups = usePanePopups();
+onDeactivated(() => {
+    miniPickerOpen.value = false;
+});
 const searching = ref(false);
 const colorError = ref("");
 const colorErrorId = useId();

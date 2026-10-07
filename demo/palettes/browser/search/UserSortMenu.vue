@@ -1,5 +1,5 @@
 <template>
-    <DropdownMenu>
+    <DropdownMenu v-bind="popups.bind('sort')">
         <DropdownMenuTrigger as-child>
             <!-- S.W5-4: the triplicated hand-rolled icon-trigger recipe dies
                  onto the sanctioned glass-ui atom (+ the missing name). -->
@@ -47,6 +47,10 @@ import {
     DropdownMenuTrigger,
 } from "@mkbabb/glass-ui/menu";
 import { EllipsisVertical, Clock, ArrowDownAZ, Palette } from "@lucide/vue";
+import { usePanePopups } from "../../../shell/usePanePopups";
+
+// A2-VA-L2-11 — this pane's popups close when the pane deactivates.
+const popups = usePanePopups();
 
 defineProps<{
     sort: "slug" | "newest" | "palettes";

@@ -38,6 +38,10 @@ import {
 } from "../../color-session/generate-color";
 import type { PresetName, HarmonyName } from "../../color-session/generate-color";
 import type { AcceptableValue } from "reka-ui";
+import { usePanePopups } from "../../shell/usePanePopups";
+
+// A2-VA-L2-11 — this pane's popups close when the pane deactivates.
+const popups = usePanePopups();
 
 const {
     preset,
@@ -247,7 +251,7 @@ defineExpose({ regenerate, save, copyColors });
              the dropdown's own #description rows tell the story on demand. -->
         <div class="grid grid-cols-2 gap-3">
             <LabeledField label="Preset" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select :model-value="preset" @update:model-value="onPresetChange">
+                <Select v-bind="popups.bind('preset')" :model-value="preset" @update:model-value="onPresetChange">
                     <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
@@ -280,7 +284,7 @@ defineExpose({ regenerate, save, copyColors });
             </LabeledField>
 
             <LabeledField label="Harmony" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select :model-value="harmony" @update:model-value="onHarmonyChange">
+                <Select v-bind="popups.bind('harmony')" :model-value="harmony" @update:model-value="onHarmonyChange">
                     <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>

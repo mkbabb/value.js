@@ -29,6 +29,10 @@ import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "../../color-ses
 // is mounted (reka unmounts it closed — the ColorSpaceSelector precedent),
 // so the sampling costs nothing at rest.
 import { PreviewRamp, sampleInterpolationRamp } from "../../color-session/color-chips";
+import { usePanePopups } from "../../shell/usePanePopups";
+
+// A2-VA-L2-11 — this pane's popups close when the pane deactivates.
+const popups = usePanePopups();
 
 const {
     colorSpace,
@@ -103,7 +107,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             <!-- W5-7: the permanent subtitles died — the dropdown's own
                  #description rows already tell the story once, on demand. -->
             <LabeledField label="Color space" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as PickerSpace)">
+                <Select v-bind="popups.bind('colorSpace')" :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as PickerSpace)">
                     <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
@@ -125,7 +129,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             </LabeledField>
 
             <LabeledField label="Hue method" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => emit('update:hueMethod', v as HueInterpolationMethod)">
+                <Select v-bind="popups.bind('hueMethod')" :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => emit('update:hueMethod', v as HueInterpolationMethod)">
                     <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                         <SelectValue />
                     </SelectTrigger>
@@ -153,7 +157,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             :control-labelable="false"
             v-slot="{ labelledBy }"
         >
-            <Select :model-value="leftoverStrategy" @update:model-value="(v: AcceptableValue) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
+            <Select v-bind="popups.bind('leftoverStrategy')" :model-value="leftoverStrategy" @update:model-value="(v: AcceptableValue) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
                 <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
                     <SelectValue />
                 </SelectTrigger>

@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onMounted, ref, watch } from "vue";
+import { computed, inject, onDeactivated, onMounted, ref, watch } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import { PopoverAnchor } from "reka-ui";
 import { Button } from "@mkbabb/glass-ui/button";
@@ -80,6 +80,11 @@ const emit = defineEmits<{
     "update:open": [value: boolean];
     "update:tags": [tags: string[]];
 }>();
+
+// A2-VA-L2-11 — a popup never outlives its pane (shell/usePanePopups.ts): close on deactivate.
+onDeactivated(() => {
+    if (open) emit("update:open", false);
+});
 
 // D.W3 Lane B: route through pm.tagEdit sub-object (was: direct getTags/updatePalette)
 const pm = inject(BROWSE_PORT_KEY)!;

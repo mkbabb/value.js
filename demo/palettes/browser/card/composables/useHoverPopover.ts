@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { onDeactivated, ref } from "vue";
 
 /**
  * Which swatch's action popover is open, for a row of swatches.
@@ -20,6 +20,9 @@ export function useHoverPopover() {
     function close() {
         openIndex.value = null;
     }
+
+    // A2-VA-L2-11 — a popup never outlives its pane (shell/usePanePopups.ts).
+    onDeactivated(close);
 
     return { openIndex, onOpenChange, close };
 }

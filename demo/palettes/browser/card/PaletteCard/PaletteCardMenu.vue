@@ -167,7 +167,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onDeactivated } from "vue";
 import { useMediaQuery } from "@vueuse/core";
 import type { Palette } from "../../../types";
 import type { PaletteKind } from "../../../utils";
@@ -200,7 +200,7 @@ import {
     Tag,
 } from "@lucide/vue";
 
-const { palette } = defineProps<{
+const { palette, menuOpen } = defineProps<{
     palette: Palette;
     paletteKind: PaletteKind;
     menuOpen: boolean;
@@ -229,8 +229,13 @@ const inlineExport = useMediaQuery("(pointer: coarse), (max-width: 40rem)");
 // public wall + your own rows, which always carry the field).
 const isPublic = computed(() => palette.visibility !== "private");
 
-defineEmits<{
+const emit = defineEmits<{
     action: [action: string];
     updateOpen: [value: boolean];
 }>();
+
+// A2-VA-L2-11 — a popup never outlives its pane (shell/usePanePopups.ts): close on deactivate.
+onDeactivated(() => {
+    if (menuOpen) emit("updateOpen", false);
+});
 </script>

@@ -30,6 +30,10 @@ import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { PickerSpace } from "../../../color-session/picker-color";
 import { LIBRARY_PORT_KEY } from "../../../palettes/usePalettePorts";
 import type { AcceptableValue } from "reka-ui";
+import { usePanePopups } from "../../../shell/usePanePopups";
+
+// A2-VA-L2-11 — this pane's popups close when the pane deactivates.
+const popups = usePanePopups();
 
 const pm = inject(LIBRARY_PORT_KEY);
 
@@ -165,6 +169,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                     v-slot="{ labelledBy }"
                 >
                     <Select
+                        v-bind="popups.bind('type')"
                         :model-value="type"
                         @update:model-value="
                             (v: AcceptableValue) => (type = v as GradientType)
@@ -197,6 +202,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                     v-slot="{ labelledBy }"
                 >
                     <Select
+                        v-bind="popups.bind('interpolationSpace')"
                         :model-value="interpolationSpace"
                         @update:model-value="
                             (v: AcceptableValue) =>
@@ -230,6 +236,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                     v-slot="{ labelledBy }"
                 >
                     <Select
+                        v-bind="popups.bind('hueMethod')"
                         :model-value="hueMethod"
                         @update:model-value="
                             (v: AcceptableValue) =>
