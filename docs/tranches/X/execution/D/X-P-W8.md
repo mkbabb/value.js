@@ -431,3 +431,17 @@ W8.md §Units: close = "V-C GREEN ×2 plus stay-GREEN", then the orchestrator's 
 | INFO | E-6 gz headroom is 5 B | size row | context for future grammar growth |
 
 **Verdict: NOT-CONFORMANT** (1 HIGH: L-G1 ×2 unread). Check 1's V-C HIGH is cured and reproduces GREEN ×2. The LEDGER row stays PARTIAL.
+
+## Repair 2 (2026-10-07, repair seat round 2, `claude-opus-5-5`, Track D) — 0 product bytes; 0 cured, 2 escalated
+
+- **Crash recovery:** ⟨`git status --porcelain src test bench docs/tranches/X/execution/D docs/tranches/X/parse-that`⟩ → empty. No inherited work.
+- **Host:** ⟨`sysctl -n vm.loadavg`⟩ → `{ 49.36 62.24 77.49 }` (earlier ⟨`uptime`⟩ → `43.88 61.68 77.48`). ⟨`pmset -g batt`⟩ → `AC Power`, 8 %, charging. The 1-min load is ≥ 8 on both reads, so the §0eq window is not open.
+
+| defect (Check 2) | cure | commit | gate re-reading |
+|---|---|---|---|
+| HIGH: L-G1 ×2 on four engines is unread (incl. W7's Firefox whole `parseCssScalar`) | **ESCALATED.** §0eq / ADDENDUM (k) require an owner+orchestrator window (AC, lid open, fleets idle, 1-min load < 8). A repair seat cannot open that window; the host read 43.88 → 49.36. Reading now would bank a loaded-host figure, which is a masking read and not a cure. | — | L-G1 not read, and not claimed. ⟨`ls bench/records`⟩ → `W8i W8r1 W8t W8v W8x …`; there is no W8close L-G1 record. |
+| MINOR: ESC-W8v-2 (`--x: ;`) unhomed | **ESCALATED.** The cure lies in `src/value.ts` / `src/css/rules.ts`, which are outside every W8 §File Bounds row. It is also a different concern (the declaration model, not a V-C case), so the adjacent-line rule does not reach it. It has no one-command cure. | — | n/a |
+| INFO: `random-item()` was ruled by a repair seat | none (open to an owner spot-ruling) | — | — |
+| INFO: E-6 gz headroom 5 B | none | — | — |
+
+**Gates:** no product byte moved (⟨`git diff --stat 054698bda -- src test bench`⟩ → empty), so every published figure in Check 2 stands as read there (V-C 3,899 ruled / 0 unruled ×2; size 103,938 / 14,512). Nothing is re-run. **Row stays PARTIAL**; it awaits the orchestrator's quiet-window L-G1 ×2 read and a home for ESC-W8v-2.
