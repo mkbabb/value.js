@@ -3386,3 +3386,53 @@ None. ESC-W7r7-1 is discharged by ADDENDUM (k); no timing run was attempted.
 
 ### Four-verb line
 W7.md has no §State clause and designates no seat to stamp VERIFIED. Every engineering gate reads GREEN on the frozen bytes, L-G1 ×2 stands on its read of record, and no node cell is UNREAD ×2 under item 3. X.P.W7 stays **IMPLEMENTED**; the L-20 check audits and reads VERIFIED/CONFORMANT; the release gates ride X.P.W7P.
+
+## Check 1 of the RESUME 8 Close (2026-10-07, L-20 fresh adversarial pass 1, `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 318 lines; ADDENDUM (k) binds: this check AUDITS the banked L-G1 read of record `fe74f3d4`; no timing run). Record read: `## RESUME 8 — Open` through `## RESUME 8 Close`. Crash-recovery ⟨`git status --porcelain -- src test/css bench docs/tranches/X/execution/D/X-P-W7.md docs/tranches/X/execution/LEDGER.md`⟩ → empty; nothing inherited. Host load ⟨`sysctl -n vm.loadavg`⟩ → `{ 323.96 334.74 327.88 }` (INFO; no timing read here). Scripts: scratchpad `ck/audit.mjs`, `ck/br.mjs` (own arithmetic over the banked JSON).
+
+### A. ADDENDUM (k) item 1 — the audit of the banked L-G1 records
+- **Committed + integrity:** ⟨`git status --porcelain l-g1-close | wc -l`⟩ → `0`; ⟨`shasum -a 256 -c MANIFEST.sha256 | grep -c ': OK$'`⟩ → `25` (1 "improperly formatted" = header lines). **Holds.**
+- **Product = frozen bytes:** every record (2 node + 6 browser r2/r3) carries `valuejsHead 01ed56bd…` (node also `srcDirty ""`); ⟨`git diff --stat 08331dfa 01ed56bd -- src test/css bench package*.json`⟩ → empty; ⟨`head -2 src/css/bbnf/generated/grammar.js`⟩ → `sha256(grammar ⊕ emitter) 96c3fa63…`; ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json | wc -l`⟩ → `0`. **Holds.**
+- **Instrument unchanged since the read:** ⟨`git diff --stat fe74f3d4 HEAD -- bench/paired | wc -l`⟩ → `0`. **Holds.**
+- **Node (both reads), own arithmetic** (rep counted iff clean, `retiredSpread` < 1.6, max(`load`) < 8; ratio = median of `raw.product[i]/raw.retired[i]`): 23 cells per read (whole/acc/rej × 7 + `large-eq` + INFO `large`); every gated cell has ≥ 2 reps of record in r1 AND in r2; 0 recomputed ratios ≥ 1; max |recomputed − recorded| = .0005; load-excluded 5 + 8 = 13; set-aside 3 + 6 = 9; worst gated .699 (keyframe whole). **Reproduces the close's item-3 determination exactly. No node cell UNREAD ×2.**
+- **Browsers (r2 + r3 = the ×2; r1 supplementary), own arithmetic.** A rep's load = the 1-min load at its first cell (the quiet-host protocol gates launch). Rep start loads: Chromium r2 6.60 / **8.09** · r3 6.92 / 7.94; WebKit r2 7.78 / 6.83 · r3 6.66 / 7.33; Firefox r2 7.79 / **10.10** · r3 7.11 / 7.17. Reps at ≥ 8 (Chromium r2 rep 1, Firefox r2 rep 1) are supplementary and excluded. Over the clean reps of record: Chromium 22/22 cells read in both r2 and r3, worst .648, `large-eq` .465 · .481/.473; WebKit 22/22 both reads, worst .864, `large-eq` .364/.368 · .381/.409; Firefox **21/22** in both reads, worst .913, `large-eq` .483 · .484/.504. 0 clean ratios ≥ 1.0 on any engine. **One cell is short:** Firefox whole `parseCssScalar` — r2 rep 0's four attempts are set aside by spread (1.602/2.355/1.654/1.612; ratios .614–.672) and r2's only clean rep is rep 1, launched at load 10.10 (ratio .632) → supplementary. That cell has ONE read of record (r3), not two.
+- **Raw samples:** the node records carry per-round `raw`; the browser records (`bench/paired/browser.mjs`, unchanged since `.g`) carry per-rep `paired` + `below1` only, so browser ratios cannot be recomputed from raw rounds; the verdict was re-derived from per-rep paired values, cross-checked against `below1` ≥ 6 ⇔ paired < 1 (0 inconsistencies).
+
+### B. Stay-GREEN gates re-run by this seat (frozen bytes `08331dfa`)
+- **L-G2 / V-1** ⟨`node bench/paired/equiv.mjs product <scratch>/eq{1,2}.json`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 396 (ASCII-only sources 300 · CP-CASE 4)` both; ⟨`cmp eq1.json eq2.json`⟩ → identical. **Reproduces ×2.**
+- **Prefix equivalence** (same runs) → `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2. **Reproduces ×2.**
+- ⟨`npx vitest run test/css`⟩ ×2 → `Test Files 9 passed (9) · Tests 111 passed (111)` both. **Reproduces ×2.**
+- ⟨`npm run -s test:css-equivalence`⟩ → exit 0, `Tests 19 passed (19)`; ⟨`grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `26 MIRROR-DEFECTS 0` (only value 0; line count is output-shape only). **Reproduces.**
+- ⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit | grep -c 'error TS'`⟩ → `0 · 0 · 0`. **Reproduces.**
+- **L-G3** ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`. **E-6** ⟨`npx esbuild --minify …/grammar.js | wc -c`⟩ → `98922`; `| gzip | wc -c` → `13786`. **Reproduce.**
+- Not re-run (cited): `npm run build` (the close's 16-min build at load 120–330; bytes unmoved since, diff 0 lines) and E-4 drift (needs the linked emitter worktree; header sha `96c3fa63…` matches).
+
+### C. Bounds, masking, families, E-3, mail, four-verb
+- **Bounds:** ⟨`git show --stat`⟩ `4ade6de9` → INBOX.md +1 · X-P-W7.md +46 · LEDGER.md +1; `2b1cf8b4` → X-P-W7.md +64; `3bfc8563` → LEDGER.md 1/1. All in the seats' sets; `scripts/dev/dev.sh` in none. **Holds.**
+- **Masking:** no product byte moved this sitting; ⟨`grep -rnE "\.skip\(|\.todo\(|it\.only|xit\(" test/css | wc -l`⟩ → `0`; ⟨`git diff 08331dfa^ 08331dfa -- src | grep -cE '^\+.*catch *\('`⟩ → `0`. **None.**
+- **Families:** one commit per meaning (open · close · ledger row). **Holds.**
+- **E-3:** ⟨`git diff --stat 4ade6de90^ HEAD -- docs/tranches/X/parse-that/waves docs/tranches/V/megatranche/registry/adjudicated scripts/dev/dev.sh | wc -l`⟩ → `0`. The only W7.md change since the read is the orchestrator's addendum (k) `94ca8635` (+15/−0, addendum-beside). **Holds.**
+- **Mail:** ⟨`grep -cE '\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`. **Clean.**
+- **Four-verb:** row IMPLEMENTED through the close (no seat stamped VERIFIED early); this check moves it to CLOSED. **Lawful.**
+- **LW-1** (`src/value.ts:30-33`, `79a457d0`, +4 doc-comment lines on `CssCall`): ruled an **adjacent edit (INFO)** under §0bt: same repo, same concern (the `()` group `.gap` introduced), no behaviour bytes.
+
+### D. Register (severity · claim · receipt · cure)
+| # | Severity | Claim | Receipt | Cure |
+|---|---|---|---|---|
+| C1-1 | MINOR (mitigated) | The close and the LEDGER row state L-G1 "GREEN ×2" on Firefox for every cell, but under (k) item 1's reps-of-record rule Firefox whole `parseCssScalar` has one read of record (r3), not two: its r2 rep 0 is fully set aside by spread and its r2 rep 1 started at load 10.10. Every reading of that cell at every load is < 1 (.614–.672 r2; r3 clean < 1). The close audited only the node reps against load and left the browsers to the check. | §A browsers; `ck/br.mjs` over `br-r2-firefox.json` / `br-r3-firefox.json` | Honest-RED "UNREAD ×2", by (k) item 3's own rule applied to the same shortfall; (k) item 2 forbids a re-read on W7's frozen bytes, so the cell is carried to **X.P.W8's close** L-G1 ×2 (owner: X.P.W8). Not a cure unit. |
+| C1-2 | MINOR | The browser records carry no per-round raw samples, so (k) item 1's "recomputed from the raw samples" can be met only at per-rep granularity for Chromium/WebKit/Firefox. | §A raw samples; cell keys = `…,spread,retiredMs,ratio` | X.P.W8's close read banks per-round `raw` from `bench/paired/browser.mjs` (a W8 instrument edit, under its own grant). |
+| C1-3 | INFO | LW-1 is an adjacent edit, not a finding. | §C | none. |
+
+0 BLOCKER · 0 CRITICAL · 0 HIGH.
+
+### E. Honest-RED set (each relieved by the spec, owner named)
+- **L-G1 Firefox whole `parseCssScalar` "UNREAD ×2"** — relief: ADDENDUM (k) items 2–3 (no re-read on W7's frozen bytes; a quiet-rep shortfall is carried to X.P.W8's close). Owner: X.P.W8 close.
+- **P-6 · E-8 · V-9 + the CI step · Z-1 · Z-3 publish half** (the release chain, bbnf-lang PR #1 merge) — relief: ADDENDUM 2026-09-24 §1 (moved to X.P.W7P, keyed on the owner's npm OTP). Owner: X.P.W7P.
+
+### F. Successors' "Opens after"
+- **X.P.W8:** "X.P.W7 CLOSED" → GREEN with this check's LEDGER move. X.P.W8 may open.
+- **X.P.W7P:** GATE-KEYED on the owner's npm one-time password (owner act), not on this check; lawfully blocked on that key alone.
+
+### Verdict
+**CONFORMANT-HONEST-RED.** Every claimed GREEN reproduces, except that Firefox's ×2 holds on 21 of 22 cells; the 22nd is honest-RED UNREAD ×2 under (k). LEDGER row → `CLOSED 2026-09-17 (honest-RED: L-G1 Firefox whole parseCssScalar UNREAD ×2 → X.P.W8 close; P-6/E-8/V-9+CI/Z-1/Z-3-publish → X.P.W7P)`.
