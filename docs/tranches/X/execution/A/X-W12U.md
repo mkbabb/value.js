@@ -503,3 +503,131 @@ Not run: `npm test` whole, the smoke suite, and every served falsifier (conditio
 **Verdict: PARTIAL.** Mail: O-74d written (`relay/X-ALL-BK-AUDIT-2-ADDENDUM-2026-10-06-W12U-K.md`); it is owed an INBOX row and delivery by the seat that owns `INBOX.md` (outside this unit's writable set).
 
 Commits (`.k`, 11): `acf53428c` · `2ae7344d2` · `459130b9c` · `7938fc568` · `d368584cb` · `36dc09c24` · `c00004924` · `ac687764d` · `028925765` · `0daa7d376` (evidence + O-74d) · this record. `mount-roles.json` carries no `SERVED MODEL` line because JSON has no comment form; it was written by `claude-opus-5-5`, as its commit states.
+
+### X.W12U.m
+
+Seat 0, `claude-opus-5-5`, 2026-10-06 22:54 → 2026-10-07 (HEAD at open `36adcc1ff`; glass 10.1.0). Spec `W12U.md` read whole (87 lines, addenda (a)–(e)); register `AUDIT-2-value.md:264-363` (A2-VA-L2-1..12) read whole; COHESION §0du, §0ei–§0eq read; `.k`'s receipt read (ESC-W12Uk-1: "`.m` and `.h` touch the same panes and should read this before opening"). Crash-recovery ⟨`git status --porcelain -- demo e2e/smoke docs/tranches/X/waves/W12U-evidence/m docs/tranches/X/execution/A/X-W12U.md docs/tranches/X/relay`⟩ → empty: no inherited partial work, and no sibling-dirty path in `demo/**` at open (the X-DS seat `.k` met was quiescent).
+
+**Instrument.** `:9000` (the dev server serves the working tree, so each landing was read on its own bytes). Real Chrome, new headless (§0ei supersedes the spec's "headed"), `isMobile`+`hasTouch` at phone widths; CDP `Emulation.setSafeAreaInsetsOverride` on every phone read (portrait bottom 34; landscape left/right 47, bottom 21). Host load ⟨`uptime`⟩ 730 at open, 113–480 through the sitting; navigation timeouts at that load are recorded per run as instrument failures, never as readings. Falsifiers, all committed under `W12U-evidence/m/`: `probe-rows.mjs` (one arm per row: L2-1, L2-2, L2-5, L2-6, L2-8, L2-11, SA = L2-12, D = the dock run), `probe-shell.mjs` (per route: docSH vs innerHeight, H1, band/stage/inspector, `env()` insets, every dock run), `probe-dockrun.mjs`, `probe-runseats.mjs`, `route-sweep.mjs` (a copy of the W7L sweep that read 291/283, writing here, not into the immutable W7L dir).
+
+#### BEFORE (measured on the HEAD bytes, before any edit)
+
+| row | ⟨command⟩ | BEFORE |
+|---|---|---|
+| L2-1 | ⟨`node probe-rows.mjs l844 dark L2-1`⟩ | Filters popover y −127..218 in a 390 viewport — RED (the 844×390 cell) |
+| L2-2 | ⟨`node probe-rows.mjs d1440 light D,L2-2`⟩ (H1 inked pure red, the H1 box screenshotted with the canvas live) | `redInkPx 0`, canvas `z-index auto`, H1 `static` — RED: the H1 paints under the canvas |
+| L2-5 | ⟨`node probe-rows.mjs v360 light L2-8,L2-11,L2-5`⟩ | one track; `/palettes` `/mix` `/blob` stage y 128, subject y 664 — RED |
+| L2-8 | same run | Copy all colors right 361 vs card right 327 (vw 376) — RED |
+| L2-11 | same run | Gradient type listbox open (33,528..313,704), after `#/gradient → #/` a listbox at (0,4..156,180) — RED |
+| L2-12 | ⟨`node probe-rows.mjs l844 light SA`⟩, ⟨`… v390 light SA`⟩ (CDP insets on, meta without `viewport-fit`) | landscape: "Select color space" x 33, "l channel" x 49 inside the 47 px band on `/` and `/palettes`; "Smooth" x 109..803 / "Reset" 695..815 on `/atmosphere` (the bottom band, the arm's first form); portrait: `.app-layout` padding-bottom 8 px against a 34 px inset |
+| shell | ⟨`node probe-shell.mjs v390 light portrait "/,/admin/tags"`⟩ | `/` docSH 8530 vs innerHeight 879; `/admin/tags` 879 = 879 (B8's 8620 does not reproduce: the `.x` cure of `/admin/tags` landed since); innerHeight 879 ≠ 844 because docSW 406 = vw + 16 (A2-VA-X-2) widens the layout viewport |
+| (d) | ⟨`node probe-dockrun.mjs light 2`⟩, ⟨`… dark 1 /atmosphere,/atmosphere`⟩, ⟨`ADMIN=1 … light 2 /atmosphere,/blob,/admin/users`⟩, ⟨`node route-sweep.mjs 1440 light`⟩, ⟨`… dark`⟩, ⟨`ADMIN=1 … light`⟩ | `/atmosphere` run `sw 276 / cw 276` (no token) and `370 / 370` (admin); every route `ovf 0`, cap `9999px` — the 8 px does NOT reproduce at HEAD on any arrival path |
+
+#### Addendum (d) — the 8 px `/atmosphere` overflow, root-caused on the exact inner run
+
+The overflow does not reproduce at HEAD, so the tree of the reading was served: ⟨`git worktree add --detach <scratch>/wt0925 c8a4959dd`⟩ (the 10.1.0 repin, 2026-09-25), `node_modules` and `dist` linked, ⟨`VITE_API_URL=http://localhost:3000 npx vite --port 9141 --strictPort`⟩. ⟨`BASE=http://localhost:9141 node route-sweep.mjs 1440 light`⟩ → `/atmosphere {"box":[566,10,307,61],"ss":"50%","se":"calc(41.6667% + 2.66667px)","ovf":8,"sw":291,"cw":283}`: O-83's exact reading. ⟨`BASE=http://localhost:9141 node probe-runseats.mjs /atmosphere`⟩ →
+
+```
+run  w 283.03  sw 291  cw 283
+face active=false op=0 pos=absolute sw=283 cw=283 | Save edit:40 Cancel edit:40
+face active=false op=0 pos=absolute sw=291 cw=283 | Slug or admin toke:160 Switch to slug:24 Generate new slug:24 Cancel:24
+face active=true  op=1 pos=relative sw=283 cw=283 | Select view:60 Toggle action bar:104.5 Menu:0 Login:94.5 @mbabb:76.6
+```
+
+**Cause:** the RESTING, invisible slug-edit face (value's `SlugEditLayer`) carried 291 px of seats, wider than `/atmosphere`'s main face (283 px; its view trigger is icon-only for a visitor, so it is the narrowest main face of all routes). Glass's crossfade (`crossfade.css`) gives a resting face `position: absolute; inset: 0; opacity: 0`, and its `white-space: nowrap` content overflows that box visibly; that overflow counts toward `.dock-run`'s (`overflow-x: auto`) scroll width, so the run reads 8 px over and the cut-cap rests at `50%`. **Consumer half: CURED-AT-HEAD by `6bd9ff799`** (`.s1`, the slug-edit layer rebuilt as a login form; its "Generate new slug" seat, 24 px + an 8 px gap, is gone), read GREEN on the HEAD bytes above. **Producer half: latent** — any hidden layer wider than the visible one reproduces it. Relayed as **O-83a** (`relay/X-ALL-BK-DOCK-CAP-ELLIPSE-ADDENDUM-2026-10-07-W12U-M.md`): a resting face must not extend its scroll container's overflow (`overflow: clip` / `contain: paint` at rest), with a born-RED witness. DOCK-CAP-ELLIPSE stays honest-RED (O-83). The worktree and the `:9141` server were removed at close.
+
+#### Acts, in order (measure → cure → gate → commit)
+
+Gate after each landing: ⟨`npx vue-tsc -p tsconfig.demo.json --noEmit`⟩ → `TC EXIT 0` (twice: `results/tc-1.log` after the popup/shell/verb edits, `results/tc-2.log` after the seat edit) and ⟨`npx eslint demo --max-warnings=0`⟩ → `LINT EXIT 0` (`results/lint-1.log`).
+
+| # | row | at the bytes | cure | commit |
+|---|---|---|---|---|
+| 1 | **A2-VA-L2-11** | 20 popup roots inside kept-alive panes; 14 uncontrolled (no `open` binding), the rest controlled by a ref, model or parent; none closed on deactivate | `demo/shell/usePanePopups.ts`: one open key per component, cleared in `onDeactivated`; 14 uncontrolled roots bind it (Gradient ×3, Mix ×3, Generate ×2, Atmosphere ×4, user sort menu, browse filters); the controlled ones close their own state in `onDeactivated` (filters' colour picker, tag editor, card menu, card tag list, swatch hover menus via `useHoverPopover`, colour-space menu). Correction to the commit body: it says "13 uncontrolled" and lists the filters panel among the controlled; the filters Popover binds `popups.bind('filters')`, so the uncontrolled count is 14 | `55f390299` |
+| 2 | **A2-VA-L2-8** | `GenerateControls.vue:168` cluster `shrink-0`, no wrap | the cluster wraps itself, right-seated (`flex-wrap justify-end max-w-full`) | `1a0de4a76` |
+| 3 | **A2-VA-L2-2** | canvas `fixed`, `z-index: auto` (`App.vue:25-35`) | canvas `-z-1`: under all content, over the root ground; the H1 stays visible (gate A5 struck the sr-only cure, so "drop the row" is not the consumer's to choose) | `5e512fb7f` |
+| 4 | **A2-VA-L2-4** | band tokens tuned for portrait (`foundation.css:466-468`) | `@media (max-height: 30rem)`: `--dock-inset` / `--dock-gap` 0.5rem; with `width < 1024px` (no collapse morph, `Dock.vue:87`) `--dock-band-min-h` = icon + 0.5rem; the H1 sheds its margin (`App.vue`) | `5e512fb7f` |
+| 5 | **A2-VA-L2-5** | regions in schema order; stage = shared picker on Palettes/Mix/Blob | under `@container pane-row not (… two tracks …)`, `.app-layout:not([data-view=picker]) .pane-wrapper--stage[data-pane=color-picker] { order: 1 }`; `:data-pane` on the region wrapper. DOM order is unchanged (tab order stays picker → subject; the register's specified mechanism) | `5e512fb7f` |
+| 6 | **A2-VA-L2-12** | meta without `viewport-fit`; 0 `env(safe-area-*)` in demo | measured first with the CDP override (BEFORE table); then `viewport-fit=cover` and `.app-layout` pads each edge `max(<token>, env(safe-area-inset-<side>, 0px))`, the side pair physical (the insets are physical) | `5e512fb7f` |
+| 7 | **A2-VA-L2-9** (consumer half, the rail) | ConsoleRail 0.72 × 44 inline by design (F-5), unrecorded | recorded as the app's one inline touch-floor exception in `demo/DESIGN.md` (§ Layout), with the short-viewport and safe-area rules | `5e512fb7f` |
+| 8 | **A2-VA-L2-6** value half (**A2-VA-X-9**) | `ActionButton.vue:13-20` consumer `<button>`, scoped `width/height: 2rem` | the seat is a glass `DockControl` (hit cell `--dock-control-size`, ≥ 44 on coarse by the producer's density clamp; `aria-disabled`, activation suppressed); the 2rem rule deleted. `demo/test/shell/pane-popups-and-seats.test.ts` pins the D4 seat contract and the L2-11 close (3/3 ×2) | `468633c03` |
+| 9 | addendum (d) | see above | consumer CURED-AT-HEAD (`6bd9ff799`); producer half relayed O-83a | (evidence commit) |
+
+#### The twelve Lens-2 rows
+
+| row | disposition | reading (AFTER) |
+|---|---|---|
+| A2-VA-L2-1 | consumer half CURED by `.s2` `e88fbc69` (no fixed height on the filter body; the panel is glass ToggleGroup + Chips); **glass half honest-RED** (overlay role has no block cap at 10.1.0; O-74 / O-59, `.s2` record) | 360/390/430 GREEN (box inside the viewport, e.g. 360: y 272..550 of 780); 844×390 RED, y −157..188 ×2 both themes: the glass cap |
+| A2-VA-L2-2 | **CURED** `5e512fb7f` (paint). Band decision: the H1 stays visible (gate A5); dropping the row is an owner/design ruling, not taken here | red-ink px 253–263 every cell (BEFORE 0) |
+| A2-VA-L2-3 | GLASS only → O-74 (60dvh ceiling); no consumer half | not a consumer row |
+| A2-VA-L2-4 | **CURED (consumer tokens)**, target **PARTIAL**: 844×390 stage top 127.5 (register) → **98**; the 80 px target needs the H1 band (owner, see L2-2) and the expanded pill's 67 px block (glass); with no H1 the stage would sit at 83 | `probe-shell.mjs l844`: band 8..75, H1 83, stage 98 |
+| A2-VA-L2-5 | **CURED** `5e512fb7f` | 360: subject y 128, picker after it (`/palettes` picker 1312, `/mix` 601, `/blob` 2862); Home unchanged (picker first) |
+| A2-VA-L2-6 | glass half: the dock triggers' coarse floor rides 10.1.0 (O-74a E-1 / A2-KE-L2-6 for the compact toggle); value half **CURED** `468633c03` | 390 coarse: every scene seat ≥ 44×44 on `/`, `/generate`, `/gradient` (BEFORE 32×32, `.x` X-9) |
+| A2-VA-L2-7 | folded into UIA-V-10 / V-8 (register verdict); `.s1` read V-8/V-10 CURED-AT-HEAD on 10.1.0 | no separate reading |
+| A2-VA-L2-8 | **CURED** `1a0de4a76` | 360 verbs right 314 ≤ card 327; 430 384 ≤ 397; 844×390 759 ≤ 772 |
+| A2-VA-L2-9 | consumer: rail exception **recorded** (`5e512fb7f`); the plate-name field → **DEDUPE A2-VA-L1-14** (`.k`, OPEN under ESC-W12Uk-1: one rename input); glass `--control-floor` adopted with 10.1.0 | — |
+| A2-VA-L2-10 | **honest-RED: owner ruling T-31 first** (the register's own precondition; no ruling found in COHESION to its end) | `/` docSH 8474–8754 at every phone width (the About pane stacks: 7786–8056 px) |
+| A2-VA-L2-11 | **CURED** `55f390299` | after `#/gradient → #/`: no listbox, every cell |
+| A2-VA-L2-12 | consumer **CURED** `5e512fb7f`; glass half (an `env()`-aware dock shell) stays O-74 | under the CDP insets: 0 interactive boxes in an inset band on 7 routes, portrait and landscape, both themes; padding `8px 47px 21px` landscape, bottom 34 portrait |
+
+#### The matrix (served, AFTER, ×2)
+
+⟨`./run-matrix.sh r3 …`⟩ and ⟨`./run-matrix.sh r4 …`⟩ (arms L2-1, L2-2, L2-5, L2-6, L2-8, L2-11, SA; serial; `results/m-r{3,4}-<cell>.log`), ⟨`for f in results/m-r4-*.log; do grep -oE "^(L2-[0-9]+|SA) (GREEN|RED)" $f; done`⟩:
+
+| cell | r3 | r4 |
+|---|---|---|
+| 360×780 light | all GREEN except L2-8 `RED null` (the Generate plate had not mounted: an unread cell; the arm now waits for the plate) | all 7 GREEN |
+| 360×780 dark | all 7 GREEN | all 7 GREEN |
+| 390×844 light · dark | all 7 GREEN · all 7 GREEN | all 7 GREEN · all 7 GREEN |
+| 430×932 light · dark | all 7 GREEN · all 7 GREEN | all 7 GREEN · all 7 GREEN |
+| 844×390 light · dark | L2-1 RED (y −157..188, the glass cap), the other 6 GREEN | same |
+
+L2-8 at 360 light has its second GREEN in r2 (`after-r2-v360-light.log`: 314 ≤ 327) beside r4. r1/r2 cells that read `page.goto: Timeout 240000ms` (load 350–480) are instrument failures and are not counted either way. ⟨`./run-matrix.sh r5 d1440:light d1440:dark`⟩ and ⟨`… t768:light t1024:dark`⟩ (×1): L2-1, L2-2, L2-5, L2-8, L2-11, SA GREEN on all four; L2-6 reads 40×40 there because those contexts are fine pointers (the 44 floor is a coarse-pointer law; 40 is `--dock-control-size`, up from the 32 px seat). The coarse tablet read is ⟨`TOUCH=1 node probe-rows.mjs t768 light L2-6`⟩ and ⟨`TOUCH=1 … t1024 dark L2-6`⟩ (below).
+
+#### docSH == innerHeight (every route × 360/390/430/844×390)
+
+⟨`node probe-shell.mjs <cell> <theme> <inset>`⟩ ×1 per cell (`results/shell-r1-*.json`), summarized by ⟨`python3 summarize-shell.py results/shell-r1-*.json`⟩: equal on 1/15 routes at 360, 6/15 at 390, 7/15 at 430, 0/15 at 844×390. On **every** route that exceeds, `docSH − (lowest region bottom) = 32–34 px`, which is exactly the shell's bottom padding: no out-of-flow box inflates any document (the keyframes-class defect A2-KE-L2-2 is absent). B8's `/admin/tags@390` 8620 vs 844 now reads 879 = 879. The literal equality stays RED for two causes that are not this unit's to change:
+1. **The one scrolling column is law** (X.W5.b block law; X.W5.c one mount path): Picker (521–529 px) plus any subject cannot fit one phone viewport, and `/` stacks the About reference text (7786–8056 px) — that is **A2-VA-L2-10**, which waits on the owner's T-31 ruling.
+2. **`innerHeight` is not the device height** (879 at 390, 815 at 360, 967 at 430) because `docSW = vw + 16` widens the layout viewport: **A2-VA-X-2**, routed to `.m` by `.x` but not among this sitting's twelve rows (see residuals).
+The gate as written cannot be met without either ruling, so it is recorded RED with its causes, not bent (ESC-W12Um-1).
+
+Coarse tablets: ⟨`TOUCH=1 node probe-rows.mjs t768 light L2-6`⟩ → GREEN (every seat ≥ 44×44 on `/`, `/generate`, `/gradient`); ⟨`TOUCH=1 … t1024 dark L2-6`⟩ → GREEN.
+
+#### Dock mobile-edit enter (X-W12 m-2)
+
+⟨`VJS_E2E_PORT=9000 npx playwright test e2e/smoke/w12-dock.spec.ts -g mobile-edit --project=smoke --workers=1 --repeat-each=4`⟩: run 1 (load ≈ 400) `4 failed` before the enter (page.goto / waitFor timeouts: unread); run 2 (load ≈ 100–200) `1 passed, 3 failed`, one of them `element is not stable` on the swatch popover's Edit — **the intermittency reproduces**. Decision m-2 asks for: the swatch's `<Popover trigger="hover">` IS the right touch-width entry, because glass opens it as a tap popover on a coarse pointer (`useHoverPopover.ts` header). The leg drives a FINE pointer at 390 (no `hasTouch`), i.e. the desktop hover card in a narrow window, where the pointer's travel from swatch to Edit races the hover card's re-layout. Re-pointing the leg to a coarse context and refreshing its stale MOBILE-EDIT-ENTRY comment edits `e2e/smoke/w12-dock.spec.ts`, which is outside this unit's writable set (only new `w12u-m*` specs are) and is not an adjacent line of any cure here. **Gate RED; carried as R-m-3.**
+
+#### Smoke and unit gates
+
+- ⟨`VJS_E2E_PORT=9000 npx playwright test e2e/smoke/scene-action-contract.spec.ts --project=smoke --workers=1`⟩ at load 41–59: `7 passed, 3 failed`. The 3 are D4 (Generate / Gradient / Mix): `states` read `ready` where the oracle expects `unavailable`, at its step (1), before any seat is read. The D4 premise ("`App.vue`'s single `<PaneSlot>` carries no `:on-mount`, so no scene pane registers", `scene-action-contract.spec.ts:159-161`) was cured by X-W5's `bindPane`, so the panes register and the seats are `ready`: the failure is independent of this unit (it reads before the seat element). The seat contract D4's steps (2)–(3) would read is pinned by `demo/test/shell/pane-popups-and-seats.test.ts` (3/3 ×2). Two earlier runs at load 350–480 are unread: on a cold `:8090` vite, 10/10 failed at landing (`page.goto` timeouts, `.glass-dock` still veiled at 8 s); on `:9000` the run was stopped by this seat after its first landing failures of the same kind.
+- ⟨`npx vitest run` over the 8 test files that import a touched module⟩: `116 passed | 2 failed (118)`; the 2 are NG-6 (`reka-binding-idiom`, the banked standing failure) and `format-color.test.ts` A7 (`shell/dock/ColorInput.vue` reads `innerText = formatCssCaption(text)`; that file was changed by `.p` `6b04d6da4`, not by this unit).
+- Not run: `npm test` whole and the full smoke suite (host load; `.k`'s condition 2 still held for most of the sitting).
+
+#### Gates, BEFORE → AFTER
+
+| gate | BEFORE | AFTER | reading |
+|---|---|---|---|
+| every L2 row falsifier GREEN ×2 at the Instrument viewports, both themes | 0 rows measured | L2-2, L2-5, L2-6 (value half), L2-8, L2-11, L2-12: GREEN ×2 on 360/390/430/844×390 × light/dark (r3+r4; L2-8 360 light r2+r4), ×1 on 768/1024/1440. L2-1: GREEN in portrait, RED ×2 at 844×390 (glass cap). L2-4: tokens landed, target 80 not met (98). L2-9: recorded + DEDUPE L1-14. L2-10: owner ruling. L2-3, L2-7: glass / folded | **PARTIAL** (every consumer cure that the row's text permits is landed and GREEN; L2-1, L2-4, L2-10 hold RED for named reasons) |
+| L2-12 safe area by CDP override before any `viewport-fit=cover` | no measurement; `env()` read 0 | BEFORE read with the override (landscape: 3 controls inside the 47 px band); AFTER 0 boxes in a band, 7 routes × portrait/landscape × both themes ×2 | **GREEN** |
+| `docSH == innerHeight`, every route, every phone width | `/admin/tags@390` 8620 vs 844 | `/admin/tags@390` 879 = 879; no inflating box on any route (every excess = the bottom padding over the regions' end); literal equality RED on stacked routes | **RED** (ESC-W12Um-1) |
+| `/atmosphere` 8 px dock-run overflow root-caused on the exact inner run | not reproduced (B7) | reproduced on the 09-25 tree; cause = the resting slug-edit face; consumer cured at HEAD (`6bd9ff799`); producer half O-83a | **GREEN** (root-caused; DOCK-CAP-ELLIPSE honest-RED per lock) |
+| dock mobile-edit enter (X-W12 m-2) stable | 2/4 intermittent (X-W12) | 1/4 pass, `element is not stable` reproduced; decision recorded | **RED** (R-m-3) |
+| typecheck (demo) · lint (demo) | `TC EXIT 0` · `LINT EXIT 0` | `TC EXIT 0` · `LINT EXIT 0` | GREEN (guard) |
+
+#### Adjacent edits (COHESION §0bt)
+None. `demo/test/shell/pane-popups-and-seats.test.ts` is inside `demo/**`.
+
+#### Residuals
+- **R-m-1 · A2-VA-L2-10** honest-RED until the owner rules on T-31 (sticky seal below 1024 px, or a bounded About inspector). It also carries most of the `docSH` excess on `/`.
+- **R-m-2 · A2-VA-L2-4 target** — stage top 98 at 844×390 against the register's 80: needs the H1-band ruling (keep the visible H1, gate A5, or let the pane title be the H1) and the expanded pill's block size (glass). Recorded, not re-cut locally.
+- **R-m-3 · X-W12 m-2** — the `w12-dock` `mobile-edit` leg drives a fine pointer at 390; its re-point to a coarse context and its stale comment are in `e2e/smoke/w12-dock.spec.ts`, outside this unit's bounds.
+- **R-m-4 · glass halves standing:** A2-VA-L2-1 (overlay block cap, O-74/O-59), A2-VA-L2-3 (60dvh ceiling, O-74), A2-VA-L2-12 (an `env()`-aware dock shell, O-74), DOCK-CAP-ELLIPSE (O-83) + the new O-83a ask.
+- **R-m-5 · the `.x` rows routed to `.m` and not among this sitting's twelve:** A2-VA-X-2 (docSW = vw + 16; it also makes `innerHeight` ≠ the device height), X-6, X-11, X-13, X-14, and the consumer halves of X-3, X-5, X-10. X-9 is cured here as L2-6's value half. They remain open for a `.m2` sitting.
+- **R-m-6 · the D4 oracle** (`scene-action-contract.spec.ts:158-200`) expects `unavailable` from a mobile branch that X-W5 cured; it fails before reading a seat, independent of this unit. Owner of that spec to restate D4.
+- **R-m-7 · DOM vs visual order on one track (L2-5):** the register's `order` mechanism leaves tab order picker → subject while the subject paints first. Recorded for `.h` (hierarchy) to judge; no reorder of the DOM was specified.
+- **R-m-8 · O-83a** is written (`relay/X-ALL-BK-DOCK-CAP-ELLIPSE-ADDENDUM-2026-10-07-W12U-M.md`) and owes an INBOX row and delivery by the seat that owns `INBOX.md` (outside this unit's writable set), as with `.k`'s O-74d.
+
+#### Escalation
+
+**ESC-W12Um-1 (for the orchestrator).** The gate "`docSH == innerHeight` on every route at every phone width" contradicts two standing laws: X.W5.b/X.W5.c (one scrolling column on phones, so a Picker plus any subject exceeds one viewport by design) and the open A2-VA-X-2 (the +16 px layout-viewport widening, which changes `innerHeight` itself). Measured: no route has an out-of-flow box inflating its document (the keyframes-class defect is absent everywhere); the literal equality holds only on single-region routes. Ask: restate the gate as "docSH = the regions' end + the shell's bottom padding (no inflating box)", which reads GREEN on all 60 route×width cells, or rule L2-10 and X-2 first.
+
+**Verdict: PARTIAL.** Commits (`.m`, 6): `55f390299` (L2-11) · `1a0de4a76` (L2-8) · `5e512fb7f` (L2-2 · L2-4 · L2-5 · L2-12 · L2-9 record) · `468633c03` (L2-6 value half / X-9 + unit test) · `a2d0240a3` (falsifiers, results, O-83a) · this record. The scratch worktree (`c8a4959dd`) and its `:9141` server were removed; no server this seat started is left running.
