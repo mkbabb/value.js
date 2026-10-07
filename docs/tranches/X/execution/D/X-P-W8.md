@@ -387,3 +387,47 @@ W8.md §Units: close = "V-C GREEN ×2 plus stay-GREEN", then the orchestrator's 
 
 - **Stay-GREEN:** the commit touches no `src/`, `test/css`, grammar, emission, package or lock byte (⟨`git show --stat 2aeca51d6`⟩ → `bench/wpt-conformance/ruled.json`, `bench/records/W8r1/*`, DIVERGENCE-LEDGER only). So test/css, L-G2, prefix, L-G3, `--check`, audit, size, css-equivalence, vue-tsc and build are unmoved and stand as read at the Close. ⟨`npx eslint bench/records/W8r1/rule.ts`⟩ → exit 0. `ruled.json`'s only reader is `bench/wpt-conformance/conformance.ts`.
 - **Escalations:** L-G1 ×2 (quiet window); ESC-W8v-2 (assignment). **Verdict:** V-C defect CURED. The row stays **PARTIAL** until L-G1 ×2 is banked and a check audits it.
+
+## Check 2 (2026-10-07, L-20 pass 2, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **NOT-CONFORMANT**
+
+- **Bytes read:** HEAD `1da7888e9` (product = `dca3d91a1`, emission `acd6e069…`; Repair 1 `2aeca51d6` adds ruled rows only). Pre-wave base `9949dd63a`. Host ⟨`sysctl -n vm.loadavg`⟩ → `{ 60.86 69.04 81.85 }`, AC, battery 7 %: no timing gate read or claimed. Crash recovery: value.js writable scope clean but ` M scripts/dev/dev.sh` (unowned, untouched); parse-that's dirty Rust paths are outside this wave (untouched).
+
+### Gates re-run by this seat
+| Gate | Command | This seat | Claimed | Reproduces |
+|---|---|---|---|---|
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ ×2 | `TOTAL 6267 2368 3899 0 …` · css-values `796 693 103 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, exit 0 ×2; reads differ only in node PID | GREEN ×2 (Repair 1) | yes |
+| Named misses 1–5 | scratchpad probe over `src/css/index.ts` | 4 forms `ok:true`; `coerceToSyntax('"a"'/'*'/'[a]', "<custom-ident>")` → `ok:false syntax_mismatch` ×3 | GREEN | yes |
+| test/css ×2 | ⟨`npx vitest run test/css`⟩ | `Test Files 15 passed (15) · Tests 195 passed (195)` ×2 | 195 ×2 | yes |
+| css-equivalence | ⟨`npm run -s test:css-equivalence`⟩ | exit 0, `Tests 19 passed (19)`; ⟨`grep -c 'MIRROR-DEFECTS [1-9]'`⟩ → `0` | 19/19, 0 | yes |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | 0 | yes |
+| E-6 size | ⟨`npx esbuild --minify …/grammar.js \| wc -c` / `\| gzip \| wc -c`⟩ | `103938` / `14512` (≤ 125,646 / 14,517) | same | yes |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | exit 0 · exit 0 | 0 · 0 | yes |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/records/W8r1/rule.ts --max-warnings=0`⟩ | exit 0 | exit 0 | yes |
+| L-G2 · prefix · `--check` · audit · build | not re-run (emitter pin; host load ~60); banked `bench/records/W8close/` cited; Repair 1 moved no src/test/emission byte | — | GREEN | cited |
+| L-G1 ×2 four engines | unread; no banked W8 read exists (⟨`ls bench/records/W8close`⟩ → no L-G1 record) | — | OWED | n/a |
+
+**9 gates reproduced; 0 claimed GREEN failed.**
+
+### Axes
+1. **Claimed GREEN reproduces:** yes (table).
+2. **File bounds:** Check 1's 19-commit audit stands; ⟨`git show --stat 2aeca51d6 1da7888e9`⟩ → `bench/records/W8r1/*`, `bench/wpt-conformance/ruled.json`, DIVERGENCE-LEDGER, the record, LEDGER — all in set. ⟨`git diff --stat 9949dd63a..HEAD -- scripts/dev/dev.sh`⟩ → empty.
+3. **Masking:** none. The 14 W8r1-CSS-VALUES-5 rows are §Scope 2's own relief ("a ruled out-of-scope row with its spec reason"): both vendored files carry ⟨`grep -rho 'rel="help"[^>]*' test/css/wpt-values/ \| grep random`⟩ → `css-values-5/#funcdef-random-item` ×2, and §Scope 1 claims css-values-4. One row per exact case, `rule.ts` HALTs on any other miss or a count ≠ 14. Not an allowlist.
+4. **Commit families:** Repair 1 = one cure commit + one receipt commit. Not split.
+5. **E-3:** ⟨`git diff --stat 9949dd63a..HEAD -- docs/tranches/X/parse-that/waves/ docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty. The ruled rows are appended (126 insertions, 0 deletions), DIVERGENCE-LEDGER §19-R1 dated beside.
+6. **Mail:** ⟨`grep -cE "\| *UNREAD *\|" docs/tranches/V/coordination/INBOX.md`⟩ → `0`.
+7. **Four-verb line:** MINTED → OPEN → PARTIAL, held at PARTIAL by Check 1 and Repair 1. Lawful.
+8. **Goal at the bytes:** V-C is MET (every case is accepted and round-tripped, refused, or a ruled row). §Scope 5 ("Speed at close: L-G1 ×2 re-read on the final bytes") is **NOT MET**.
+9. **Published figures:** 6,267 / 2,368 / 3,899 / 0, 195, 19, 103,938 / 14,512 reproduce.
+10. **Honest-RED adjudication:**
+   - **L-G1 ×2, four engines** (incl. W7's carried Firefox whole `parseCssScalar`, W7.md ADDENDUM (k)): W8.md §Units routes it to "the orchestrator's window: L-G1 ×2 → check" **inside this wave**. §0eq says the same: "An independent re-read is owed at X.P.W8's close." It is not producer-owned, not routed to a successor, and not a named honest-RED id. §0eq lets a check audit a banked read, but no W8 read is banked. **Unrelieved → HIGH.** Owner: orchestrator quiet window. Host now is load ~60, battery 7 %.
+   - **Successors:** no wave declares "Opens after X.P.W8" (⟨`grep -rln "X\.P\.W8" docs/tranches/X/parse-that/waves/`⟩ → W7.md, W8.md only). No successor is blocked.
+
+### Register
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| HIGH | L-G1 ×2 on four engines is unread at close and no banked read exists to audit; §Scope 5 / §0eq gives no relief | gates table, last row; `bench/records/W8close/` has no L-G1 record | orchestrator quiet window (AC, lid open, fleets idle, 1-min load < 8): accepted · rejected · `large-eq` ×2 on node/Chromium/WebKit/Firefox + W7's Firefox whole `parseCssScalar` cell, banked under `bench/records/`; then the next check audits it per §0eq |
+| MINOR | ESC-W8v-2 (`--x: ;`) is still unhomed; it is not a V-C case | Repair 1 escalation | orchestrator assigns a unit owning `src/value.ts` / `src/css/rules.ts` |
+| INFO | V-C relief for `random-item()` was taken by a repair seat under §Scope 2's ruled-row clause, not an owner ruling; the clause grants it, and the W8t-CSS-COLOR-6 precedent applies | `2aeca51d6`; rel=help css-values-5 ×2 | none; open to an owner spot-ruling |
+| INFO | E-6 gz headroom is 5 B | size row | context for future grammar growth |
+
+**Verdict: NOT-CONFORMANT** (1 HIGH: L-G1 ×2 unread). Check 1's V-C HIGH is cured and reproduces GREEN ×2. The LEDGER row stays PARTIAL.
