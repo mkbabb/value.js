@@ -2316,3 +2316,50 @@ Not met. The wave's goal is its scope line, "the keyframes audit rows, whole". R
 ### For the RESUME
 
 The order of record: a quiet machine (ESC-W13X-r1-2) → the floor ×2 at the head, `npm run build`, the roster ×2 → `.pc` (served reading of `KF-P1-12` first) → `.dh2` → the `.cube` unit for R-r-2 → the units the R-2 rulings and R-4 produce (ESC-W13X-r1-3) → the three O-rows → the served probes → close. LEDGER status cell unchanged (PARTIAL); one event line appended.
+
+---
+
+SERVED MODEL: claude-opus-5-5 (Repair 2 seat — the lines above are prior seats', kept byte-for-byte, E-3)
+
+## Repair 2
+
+- **Date:** 2026-10-06/07 (execution under the owner's begin-word of 2026-09-17). Track B, repair seat, round 2, over Check 2's register (C2-1..C2-8).
+- **Bytes:** kf `e8144b0c`, unmoved for the whole sitting (⟨`git rev-parse --short HEAD`⟩ appended to every gate log → `e8144b0c` each time). **0 keyframes.js bytes, 0 glass-ui bytes written.** This seat's one commit is this section plus a LEDGER event line (value.js).
+- **Crash recovery:** ⟨`git -C keyframes.js status --porcelain`⟩ at open → the 2 untracked old coordination letters only, 0 modified paths. Nothing inherited.
+- **Verdict of this seat: 0 defects cured. C2-4 is now READ at the head (check GREEN ×2, gh-pages GREEN ×2, test:demo NOT GREEN at the default limit under load — 1 file, timeout signature); 0 product cures; the rest escalated with measured reasons.** The wave stays PARTIAL; this section does not move the LEDGER status cell.
+
+### Instrument, disclosed
+
+⟨`uptime`⟩ 1-minute load: 22:52 → **793.01**; 23:09 → 571.98; 23:10 → 484.92; 23:50 → 354.99; 23:58 → 343.67; 00:13 → 358.20; 01:29 → 400.72. Higher than any prior sitting of this wave (Repair 1 245–410, Check 2 395–457). A three-command `grep` took over 120 s; `npm run check` took 15 min 25 s wall at 2 % CPU. No browser reading was attempted (see C2-1, C2-2, C2-5, C2-7).
+
+### Defect → cure → commit → gate re-reading
+
+| id | sev | disposition | cure and commit | reading |
+|---|---|---|---|---|
+| C2-1 | HIGH | **ESCALATED (ESC-W13X-r2-1, folds ESC-W13X-r1-1's remainder into ESC-W13X-r1-2).** `.pc` and `.dh2` not run | none. The dirty-tree block is gone (0 modified paths), so the only standing block is the instrument. `.pc`'s first act is a served reading of X-DS's `KF-P1-12` edge fade (`ControlsPaneWrapper.css:155-176` at `e8144b0c`: a `mask-image` over `.controls-surface` driven by `animation-timeline: scroll(self block)`) against addendum (f)'s two served predicates (corner pixels show the radius; the last control is reachable) at 1440×900 and 1024×768. Whether a mask fade counts as "never clipped square" is a pixel reading, not a byte reading; curing first would be a guess. `.dh2` needs a brief from served frames and predicates ×2 dev + ×2 gh-pages. At load 343–793 no browser reading is meaningful (three prior seats found the same) | none taken |
+| C2-2 | HIGH | **ESCALATED (ESC-W13X-r1-2, standing)** | none: a reading. The roster is six serial observations with timing oracles (`[real-cube]`, S5, occlusion δ); the floor's own jsdom tests time out at this load (C2-4), so a browser timing oracle would read noise | UNREAD |
+| C2-3 | HIGH | **ESCALATED (ESC-W13X-r1-3, standing)** | none. A dated COHESION ruling is outside every KF.W13X unit's writable set. ⟨`grep -c 'ESC-\(mobile\|dock\|spring\|scene\|W13X\)' COHESION.md`⟩ → **0** at 23:0x (the last W13X section is still `§0ep`) | unchanged |
+| C2-4 | MEDIUM | **PARTLY READ; NOT CURED — the `test:demo` ×2 conjunct stays owed to a quiet machine (ESC-W13X-r1-2)** | none needed in the bytes for `check` and `gh-pages`; `test:demo` see below | ⟨`npm run check`⟩ ×2 → `proof:structure — PASS: scope=src clean (0 violations across R1–R6)`, EXIT 0 · EXIT 0 (15:25 wall, then the second run in the chain) — **GREEN ×2**. ⟨`npm run gh-pages`⟩ ×2 → `✓ built in 11.77s` EXIT 0 · `✓ built in 2.88s` EXIT 0 — **GREEN ×2**. ⟨`npm run test:demo`⟩ run 1 → `Test Files 15 failed \| 100 passed (115)` · `Tests 22 failed \| 693 passed \| 52 skipped (767)` · `Errors 5 errors`, EXIT 1 (26 `timed out` lines; 4 `Failed to start forks worker`; 4 `Timeout waiting for worker to respond`); run 2 → `Test Files 2 failed \| 117 passed (119)` · `Tests 2 failed \| 798 passed (800)`, EXIT 1 (both `Test timed out in 5000ms`: `css-code-editor-seam` (4), `hero-wave-pause`). **NOT GREEN ×2.** Discrimination: the union of failing files (16) re-run alone ×2 at the default limit → `Test Files 1 failed \| 15 passed (16)` · `Tests 1 failed \| 108 passed (109)` ×2; the one file is `hero-wave-pause.test.ts`, which then read `Test timed out in 5000ms` 4/4 more at the default limit and passed 2/2 with `--testTimeout=30000` (tests 20.60 s cold, then 506 ms) and 1/1 with `--testTimeout=180000` (654 ms). Its body awaits a dynamic `import()` of `EditorStartScreen.vue` inside the test, so a cold transform under load is charged to the 5 s limit. The raised-limit passes are diagnostic and **not banked** (a raised timeout is not the gate); the default-limit gate is RED at this load and owed |
+| C2-5 | MEDIUM | **ESCALATED (ESC-W13X-r1-4, standing)** | none. R-r-2 needs a served cold-load reproduction before an ordering cure in `demo/scenes/cube/**` (a cure for an unreproduced race is a guess); unreadable at this load | unchanged |
+| C2-6 | MINOR | **stays owed** | not a one-command cure (three letters, each with a glass mirror and an INBOX row) | — |
+| C2-7 | MINOR | **stays owed** | a served re-reading; not possible at this load | UNREAD |
+| C2-8 | INFO | no act | — | — |
+
+### Bounds, masking, mail
+
+- **Commits (kf): 0.** ⟨`git -C keyframes.js status --porcelain | grep -vc '^??'`⟩ at close → 0; HEAD `e8144b0c` = origin/master.
+- **Masking:** none. No timeout was raised in any config or test; the two CLI `--testTimeout` runs are labelled diagnostic and not banked.
+- **E13:** no letter written or received; C2-6's three relays stay owed.
+
+### Escalations (standing, 4; one re-cut)
+
+| id | covers | what is asked |
+|---|---|---|
+| ESC-W13X-r2-1 | C2-1 (`.pc`, `.dh2`) | the X-DS sequencing half of ESC-W13X-r1-1 is discharged (X-DS landed `e8144b0c`, tree clean); what remains is the instrument: a quiet machine for the served `KF-P1-12` reading, then `.pc`, then `.dh2` |
+| ESC-W13X-r1-2 | C2-2, C2-4's `test:demo` ×2, C2-7 | a quiet machine (load ≤ ~20). Four consecutive seats have read 215–793 |
+| ESC-W13X-r1-3 | C2-3 | a dated COHESION ruling for the nine escalations and a plan or dated re-home for the R-4 rows |
+| ESC-W13X-r1-4 | C2-5 | a `.cube` unit for R-r-2 with a served cold-load reproduction first |
+
+### For the next seat
+
+On a quiet machine: `npm run test:demo` ×2 at the default limit (expect `hero-wave-pause` to pass; if it does not, it is a real defect in `.home`'s set) → `npm run build` → the roster ×2 → `.pc` → `.dh2` → `.cube` R-r-2 → the R-2/R-4 units after the ruling → the three O-rows → the served probes → close. `check` and `gh-pages` are GREEN ×2 at `e8144b0c` and need re-reading only if the head moves.
