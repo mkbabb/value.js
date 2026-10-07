@@ -146,7 +146,10 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
         // X.W12U.s1 (UIA-V-12): the propose-success write is retired — it put the
         // colour string into the name field (the defect); three repaint sites remain.
         ["A4-A6·A8", CI, "innerText = formatCssCaption(formattedCurrentColor.value)", 3],
-        ["A7", CI, "innerText = formatCssCaption(text)", 1],
+        // X.W12U.p (6b04d6da): the unfocused repaint is coalesced to one frame
+        // and written in place on the text node; the caption still reads
+        // through format-color, now at the frame callback's one expression.
+        ["A7", CI, "const text = formatCssCaption(formattedCurrentColor.value)", 1],
         ["A9", CI, "{{ formatCssCaption(currentColorMeta.css) }}", 1],
         ["A10", EXW, ">{{ formatCssCaption(session.dominant.value.serialized) }}<", 1],
         ["A11", EXW, ':title="formatCssCaption(session.dominant.value.serialized)"', 1],
