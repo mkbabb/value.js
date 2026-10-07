@@ -895,3 +895,27 @@ DOCK-CAP-ELLIPSE (addendum (d): glass O-83/O-83a; value changes nothing; owner g
 X-W8 (spec State "Blocks: X-W8"; its "Opens after" conjunct X-W12U CLOSED) is NOT GREEN — X-W8 stays lawfully blocked.
 
 **Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 2 MINOR · 1 INFO). Gates reproduced: 6 (LW witnesses ×2 · npm test 7-banked ×2 · typecheck ×2 · lint ×2 · `/admin/tags` ×2 · E13). The LEDGER row stays PARTIAL.
+
+## Repair 2
+
+Repair seat round 2, `claude-opus-5-5`, 2026-10-07, HEAD at open `f45dd7488`. Spec `W12U.md` read whole (87 lines, addenda (a)–(e)); record read header → Unit plan, Repair 1, Check 2. Crash recovery ⟨`git status --porcelain demo e2e/smoke docs/tranches/X/waves/W12U-evidence docs/tranches/X/execution/A/X-W12U.md`⟩ → the same 13 `demo/**` paths plus `e2e/smoke/oracles/o18-contrast-census.spec.ts` that Repair 1 attributed to the live X-DS value.js writer, and `W12U-evidence/s/results/final/probe-share-dark.txt`. None was read into, staged or touched; none is a killed W12U seat's work on a defect this round owns. Host load ⟨`uptime`⟩ → 42.48 at open, 45.44 at the second read: never < 12.
+
+### Defect → cure → commit
+
+| # | sev | defect | cure | commit |
+|---|---|---|---|---|
+| C2-1 | HIGH | goal rows OPEN: L1 ×13 (ESC-W12Uk-1), L2-10 · L2-4 target · L2-1 (ESC-W12Um-1), routed `A2-VA-X-n` (R-m-5) | **ESCALATED.** The cure the Check names is an orchestrator ruling (the order of X-DS vs `.k`/`.m`), followed by `.k`/`.m`/`.h`. ⟨`grep -c ESC-W12U docs/tranches/X/COHESION.md`⟩ ×2 → `0` · `0`: still unruled. The L1 re-shells touch the 13 `demo/**` files still dirty under X-DS at this seat. Curing them now would write over a sibling's uncommitted hunks, which the standing law forbids. | — |
+| C2-2 | MEDIUM | `.b` four specs literally RED; R-b-1 = A2-VA-X-2 in-wave, design choice owed (ESC-W12U-r1-2) | **ESCALATED.** The Check's cure is "`.m2` design sitting per ruling". The ruling has not landed (same grep → 0). Neither containment option in ESC-W12U-r1-2 can be chosen by a repair seat without the ruling, and option (b) is a masking cure. | — |
+| C2-3 | MEDIUM | §3 smoke `--workers=1` whole and the addendum (e) WebKit re-read unread | **ESCALATED.** Addendum (e) requires load < 12. Measured at this seat: 42.48 · 45.44 (1-min). The orchestrator owns the quiet-host window. | — |
+| C2-4 | MINOR | `c6702ea88` edits `test/picker-blob-config.test.ts` (outside §1) with no "adjacent edits" line | **CURED**: named below under *Adjacent edits* (§0bt). ⟨`git show --stat c6702ea88`⟩ → `test/picker-blob-config.test.ts \| 23 ++++++++++++++++------- · 1 file changed, 16 insertions(+), 7 deletions(-)` | this section's commit |
+| C2-5 | MINOR | LW-3: the X-DS `SpectrumCanvas.vue` hunk in `d368584cb` is unnamed in X-DS's receipt | **ESCALATED** to X-DS. ⟨`grep -rln d368584cb docs/tranches/X/execution/ docs/tranches/X/evidence/DS`⟩ → only `LEDGER.md` and this record. `execution/DS/` holds no `value.md` receipt, so the cure stays with X-DS's own receipt, which is outside this wave's writable set. | — |
+| C2-6 | INFO | `.t` r2 alpha leg 116.6 ms at load 73 | carried with C2-3: a quiet-host re-read at the re-close (load ≥ 42 here, so a reading now would be another load reading) | — |
+
+### Adjacent edits (§0bt, naming Repair 1's)
+- `test/picker-blob-config.test.ts` (whole witness hunk, `c6702ea88`, Repair 1 C1-2). This is the vitest witness for the wave's own UIA-V-47 body-radius cure (`b7d6b40e5`), and it is the same concern. The witness was re-read through `heroScale(...)` and pins the scale's definition and its call-site count (4). No assertion was deleted or narrowed, as Check 2 verified.
+
+### Gate re-reading
+This round changed no code, so no code gate can move. The record is the only path written. Figures in this section were read from the settled bytes ×2: the COHESION ruling count `0` ×2, the `c6702ea88` stat, and load 42.48 / 45.44. The gates of record stand as Check 2 reproduced them at `054698bda`: npm test banked 7 ×2, typecheck 0 ×2, lint 0 ×2, `/admin/tags` 6/6 ×2.
+
+### State
+1 cured (C2-4) · 4 escalated (C2-1, C2-2, C2-3, C2-5) · C2-6 carried with C2-3. The LEDGER row stays **PARTIAL**.
