@@ -2243,3 +2243,76 @@ What this changes, and what it does not:
 - **`.pc` now opens on different bytes.** `e8144b0c` carries X-DS's `KF-P1-12` (the scroll-timeline edge fade on `.controls-surface`). Addendum (f)'s falsifier is served: at 1440×900 and 1024×768 the pane's last control is reachable and no card edge is clipped (the corner pixels show the radius). A faded cut is still a cut of the card, so the fade is unlikely to satisfy "the card's corners are never clipped square" on its own, but that is a reading this seat could not take and does not assert. `.pc`'s first act is that served reading at `e8144b0c`.
 - **The standing block for all three is the instrument.** `.pc` and `.dh2` each need a brief from served frames and served predicates ×2 dev and ×2 gh-pages; R-r-2 needs a served cold-load reproduction before any cure (neither `.cube` nor this seat has reproduced it, and a cure for an unreproduced race would be a guess). At load 335 (19:18) none of that is readable. They fold into ESC-W13X-r1-2: a quiet machine.
 - **Every gate reading in this section is at `80534fe5`,** not at `e8144b0c`. The floor at the new head (`check`, `lint`, `test:demo` ×2) is X-DS's to have read and the re-close's to re-read.
+
+---
+
+SERVED MODEL: claude-opus-5-5 (Check 2 seat — the lines above are prior seats', kept byte-for-byte, E-3)
+
+## Check 2
+
+- **Date:** 2026-10-06 (execution under the owner's begin-word of 2026-09-17). Track B. Fresh adversarial L-20 pass 2 on the Close, read after Repair 1. VERIFY-ONLY: this seat wrote 0 keyframes.js bytes and 0 glass-ui bytes.
+- **Bytes read:** kf `e8144b0c` (⟨`git -C keyframes.js rev-parse --short HEAD`⟩ → `e8144b0c`; ⟨`git status -sb | head -1`⟩ → `## master...origin/master`, level with origin). ⟨`git status --porcelain | grep -vc '^??'`⟩ → 0: the shared tree is clean, so the gates below were read in it directly. Crash recovery: this seat's writable set is this record and the LEDGER; neither was dirty at open.
+- **Verdict: NOT-CONFORMANT.** Nothing that Check 1 found unrelieved has been relieved. Repair 1 cured two limbs at the source (C1-2's defect, C1-5's R-r-1) and both cures reproduce here, but three HIGH conjuncts of the spec's close line still stand at the bytes (C2-1..C2-3). The LEDGER status cell stays PARTIAL.
+
+### Axes 2–7 (re-read at `e8144b0c`)
+
+- **(2) Bounds.** Repair 1's two kf commits: ⟨`git show --stat 8ce6001f`⟩ → 2 files (`channel-controls/SubPaneHeader.vue`, `test/demo/instrument/channel-options-w13x.test.ts`), +20 −8; ⟨`git show --stat 80534fe5`⟩ → 2 files (`src/animation/group/lifecycle.ts`, `test/group/prefirst-pause-rearm.test.ts`), +84 −0. In set (G15 · common `test/demo/**` · G2), with the one `test/group/` adjacent declared. ⟨`git diff --name-only 574642be HEAD | grep -v '^demo/\|^test/\|^src/'`⟩ → the same 6 paths Check 1 read (`package.json` · `package-lock.json` · `vite.config.ts` · `scripts/lib/demo-driver.mjs` · `scripts/observe/demo/live-session.mjs` · `scripts/ds-census.mjs`). ⟨`git log --oneline 03875c26d^..HEAD -- scripts/dev/dev.sh | wc -l`⟩ in value.js → 0. No glass-ui byte, no `node_modules` byte. `e8144b0c` is X-DS's commit, not this wave's, and is not judged here.
+- **(3) Masking.** None. `8ce6001f` re-points six test strings to the new copy and adds the falsifier (the layer Back's exact name; no two labelled buttons share a name); five click selectors became the prefix form `[aria-label^="Back from "]`, and the exact name is still asserted for both panes, so no assertion narrowed. `80534fe5` adds a guarded re-arm in `play()`; it wraps no error. ⟨`git diff 574642be HEAD -- demo src test scripts | grep -c '^+.*\(\.skip(\|eslint-disable\|@ts-ignore\|@ts-expect-error\)'`⟩ → 0. ⟨`git diff cd8386cf HEAD -- demo src | grep '^+.*\bcatch\b'`⟩ → 3 lines, all CSS comment prose ("catch-light") in X-DS's commit; the code `catch` count for the wave stays at Check 1's 2.
+- **(4) Commit families.** Unchanged from Check 1: KF.W13X declares no must-not-split family. Repair 1's two commits are one meaning each.
+- **(5) E-3.** ⟨`git diff --stat 03875c26d^..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty. ⟨`git diff --numstat 03875c26d^..HEAD -- docs/tranches/X/keyframes/waves/`⟩ → `25 0 KF-W13.md` only (addenda, 0 deletions; no sibling spec). **Held.**
+- **(6) Mail.** ⟨`grep -n '^|.*| *\**UNREAD\** *|' INBOX.md`⟩ → 0 status cells; the 6 `^|.*UNREAD` hits are prose and "prior status, kept" notes inside rowed entries. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on value `V/`, `V/coordination`, glass `BK/coordination`, keyframes `V/coordination`. **Clean.** C1-6's three relays are still unfiled (C2-6).
+- **(7) Four-verb line.** Not moved by the Close, by Check 1 or by Repair 1. Lawful.
+
+### Register (severity · claim · receipt · cure)
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | **HIGH** | `.pc` and `.dh2`, the two units addendum (f) orders before the close, have not landed (C1-1 unchanged) | `KF-W13.md` addendum (f): "**Order:** `.pc` → `.dh2`, then the wave's remaining units and close"; ⟨`git -C keyframes.js log --oneline 574642be..HEAD \| grep -ci '\.pc\b\|\.dh2'`⟩ → 0; kf HEAD `e8144b0c`. Repair 1's dirty-tree block is lifted (the tree reads 0 modified paths) | the next Track B seat runs `.pc` on the `e8144b0c` bytes (its first act is the served reading of X-DS's `KF-P1-12` fade against "the card's corners are never clipped square" and "the pane's last control is reachable"), then `.dh2` (brief first, served predicates ×2 dev and ×2 gh-pages) |
+| C2-2 | **HIGH** | The close gate "kf e2e at `--workers=1` ×2 within the honest-RED set" has no reading at any bytes after `95c81b7b`. E2E-USAB-1's cure is landed and its unit falsifier is GREEN, but the usability observation that failed has not been re-read in a browser, so the gate is not GREEN and is not relieved (C1-2's gate half) | Repair 1's gate table: roster "UNREAD"; this seat read none either (load 395–457 for the sitting). The cure itself is at the bytes: `SubPaneHeader.vue:26` `` :aria-label="`Back from ${title} to controls`" `` | `npm run build`, then the roster ×2 on a quiet machine (ESC-W13X-r1-2); the reading must show usability passing and every remaining failure inside the honest-RED set below |
+| C2-3 | **HIGH** | The close conjunct "every row dispositioned" is not met: nine escalations unruled and the R-4 rows re-homed "to the close" stay OPEN (C1-3 unchanged) | ⟨`grep -c 'ESC-\(mobile\|dock\|spring\|scene\|W13X\)' COHESION.md`⟩ → 0; ⟨`grep -n 'W13X' COHESION.md \| tail -1`⟩ → `§0ep` (2026-10-06, `.sq`/`.dh`), no later ruling | a dated COHESION ruling for the nine (grant the files or re-home by id to an authored wave) and repair units, or a dated re-home, for the R-4 rows (ESC-W13X-r1-3) |
+| C2-4 | MEDIUM | The floor is unread at the final bytes: `npm run check`, `test:demo` ×2 and `gh-pages` have no reading at `e8144b0c`, a head that now also carries X-DS's 39-file commit over the wave's files (C1-4, widened by the new head) | ⟨`git diff --stat cd8386cf e8144b0c \| tail -1`⟩ → `39 files changed, 673 insertions(+), 828 deletions(-)`; Repair 1 read `check` and `lint` ×1 at `80534fe5` only | re-read the floor ×2 at the re-close head on a quiet machine |
+| C2-5 | MEDIUM | `.r`'s second residual R-r-2 (`BrowserScalarResolutionError` on `var(--rotationX)` at the cube's first autoplay frame) is open and unreproduced; §0cw item 5 asks for the `[real-cube]` intermittent "at its root" (C1-5's remaining half; R-r-1 is cured) | Repair 1, "R-r-2 … why it is escalated"; no `.cube` commit after `cd8386cf` | a `.cube` repair unit: a served cold-load reproduction first, then the ordering cure in `demo/scenes/cube/**` with a deterministic falsifier (ESC-W13X-r1-4) |
+| C2-6 | MINOR | Three glass asks are still unfiled as O-rows (C1-6 unchanged) | Repair 1: "stays owed"; no INBOX row newer than `480815293` | the next open seat files the three relays and rows them |
+| C2-7 | MINOR | The per-row served probes have not been re-run at any close-side sitting (C1-8 unchanged) | Repair 1's gate table: "UNREAD" | re-run at the re-close |
+| C2-8 | INFO | C1-7 (the `.r` falsifier's undeclared path) is cured by Repair 1's dated note; C1-9 is recorded for the next plan | Repair 1 "C1-7, the dated note" | none |
+
+**Totals:** 3 HIGH · 2 MEDIUM · 2 MINOR · 1 INFO. 0 BLOCKER, 0 CRITICAL.
+
+### Axis 8 — the goal criterion at the bytes
+
+Not met. The wave's goal is its scope line, "the keyframes audit rows, whole". Rows stay OPEN under C2-3, two ordered units are owed (C2-1), and the close's e2e conjunct has never been read at the final bytes (C2-2). What moved since Check 1: the wave's own regression (E2E-USAB-1) is cured at the source, and one of `.r`'s two residual routes is closed in the library.
+
+### Axis 10 — honest-RED adjudication
+
+**Relieved by the spec, owner named** (unchanged from Check 1; their state at `e8144b0c` is UNREAD because the roster was not run): B7 SPECULAR-REST (glass, carried from KF.W13V) · SHEET-POSITION M1 (glass, addendum §0cd item 1) · DOCK-COLLAPSED-FORM (glass O-65, addendum §0cq) · SIDE-DOCK-EDGE (glass O-67, addendum §0ct) · GLASS-SELECT-GREY (glass O-66, addendum §0cs) · DOCK-MORPH-ROOT (glass O-56, KF.W13U's carried ids) · the two glass ellipses (glass O-77a and O-89, addendum (f)).
+
+**RED or unread with no relief (real defects, not laundered into the set above):**
+- the owed units `.pc` and `.dh2` (C2-1): consumer-owned, ordered by the spec inside this wave, no successor named;
+- the e2e ×2 (C2-2): a close gate of this wave; a loaded host is an instrument fact, not a relief the spec grants;
+- the OPEN rows and unruled escalations (C2-3): the spec's only re-home relief is a dated ruling, and none exists;
+- R-r-2 (C2-5): consumer-owned (`demo/scenes/cube/**`), named by no honest-RED id.
+
+### Successor waves
+
+⟨`grep -rn 'after KF\.W13X\|KF\.W13X CLOSED' COHESION.md LEDGER.md EXECUTION-RUNBOOK.md keyframes/waves/*.md`⟩ → 0 hits. No wave declares an "Opens after" conjunct on KF.W13X, so this verdict blocks none. KF.W13X's own conjunct (KF.W13W CLOSED) is GREEN.
+
+### Axis 1 · 9 — the GREENs and figures, re-run by this seat at `e8144b0c` (shared tree, clean)
+
+| claim (Close / Repair 1) | this seat's reading | result |
+|---|---|---|
+| R-r-1 falsifier + `.r` falsifier, ⟨`npx vitest run test/group/prefirst-pause-rearm.test.ts test/group/playhead-origin.test.ts`⟩ 2/2 + 2/2 | `Test Files 2 passed (2)` · `Tests 4 passed (4)` at 19:37 (78.99 s) and again at the third start (4.58 s) | **reproduces ×2** |
+| E2E-USAB-1 unit falsifier, ⟨`npx vitest run test/demo/instrument/channel-options-w13x.test.ts`⟩ 12/12 | `Test Files 1 passed (1)` · `Tests 12 passed (12)` (470.55 s wall, tests 4.56 s) | **reproduces ×1** |
+| ⟨`npm run lint`⟩ clean | `✔ no dependency violations found (444 modules, 1610 dependencies cruised)`, eslint printed nothing. The exit code was not captured by this seat's wrapper | **reproduces ×1** (dependency count 1617 → 1610 is X-DS's `e8144b0c`, not a wave byte) |
+| 140 commits `574642be..cd8386cf`, +2 repair, +1 X-DS | ⟨`git log --oneline 574642be..HEAD \| wc -l`⟩ → 143 | **reproduces** |
+| glass pin `10.1.0` exact | ⟨`grep '"@mkbabb/glass-ui"' package.json`⟩ → `"10.1.0"` | **reproduces** |
+| 9 escalations unruled | ⟨`grep -c 'ESC-…' COHESION.md`⟩ → 0 | **reproduces** |
+
+**Not banked (instrument, disclosed).** The 1-minute load read 424.44 at 19:33, 395.61 at 19:41 and 457.20 at 20:06 (⟨`uptime`⟩). Two intermediate vitest starts are not banked in either direction: the second group run reported `Tests 2 passed (2)` with `Errors 1 error` after 769.95 s (762.79 s in `environment`), and the first channel-options run read `Tests 1 failed | 11 passed (12)` with 263.49 s spent in tests, the bimodal load-timeout pattern Repair 1 recorded on the same file; the next start of the same bytes passed 12/12. Their tails were not kept by this seat, so the failure text is not quoted.
+
+**Unread by this seat:** `npm run check`, `npm run test:demo` ×2, `npm run gh-pages`, the kf e2e roster ×2, and the served probes. No browser reading is meaningful at this load, and `check` took about 15 minutes for Check 1 at a lower one. These are C2-2, C2-4 and C2-7.
+
+**Gates reproduced: 6 of 6 re-run. Gates failed on re-run: 0. Close gates unread: 5.**
+
+### For the RESUME
+
+The order of record: a quiet machine (ESC-W13X-r1-2) → the floor ×2 at the head, `npm run build`, the roster ×2 → `.pc` (served reading of `KF-P1-12` first) → `.dh2` → the `.cube` unit for R-r-2 → the units the R-2 rulings and R-4 produce (ESC-W13X-r1-3) → the three O-rows → the served probes → close. LEDGER status cell unchanged (PARTIAL); one event line appended.
