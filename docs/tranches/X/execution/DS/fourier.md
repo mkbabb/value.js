@@ -200,7 +200,7 @@ These rows are layout and consumer chrome; the remaining stacks and blur are gla
   - With full parallelism, `/equation` computes starved the single API ("Computing…" frames). Run at 3 workers, every equation spec passes. `equation-interaction` S2 passes alone.
 - The e2e ran from the worktree, so the main tree's tracked `e2e/screenshots/f-w14/` frames were never rewritten.
 
-**Push: OWED.** GitHub rejected the fourier fast-forward push of `m/w1-bump-migration` four times with "Internal Server Error". The fast-forward check passed: origin is at `5ab31fa`, an ancestor of `d6bdc97`. The three commits are local only. The next seat runs `git push origin m/w1-bump-migration` (fast-forward).
+**Push.** GitHub rejected the fourier fast-forward push four times with "Internal Server Error". The fifth attempt landed: `5ab31fa..d6bdc97` on `m/w1-bump-migration`. value.js `tranche-u` is pushed through `28484ef0d`.
 
 **Left in the fourier tree, not this seat's.**
 - The orphan hunks in `GalleryDraftsSection.vue`, `GalleryView.vue`, `PaperView.vue` and `stores/gallery.ts`.
