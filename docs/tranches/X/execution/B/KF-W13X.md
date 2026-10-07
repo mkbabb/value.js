@@ -2363,3 +2363,64 @@ SERVED MODEL: claude-opus-5-5 (Repair 2 seat — the lines above are prior seats
 ### For the next seat
 
 On a quiet machine: `npm run test:demo` ×2 at the default limit (expect `hero-wave-pause` to pass; if it does not, it is a real defect in `.home`'s set) → `npm run build` → the roster ×2 → `.pc` → `.dh2` → `.cube` R-r-2 → the R-2/R-4 units after the ruling → the three O-rows → the served probes → close. `check` and `gh-pages` are GREEN ×2 at `e8144b0c` and need re-reading only if the head moves.
+
+---
+
+SERVED MODEL: claude-opus-5-5 (Check 3 seat — the lines above are prior seats', kept byte-for-byte, E-3)
+
+## Check 3
+
+- **Date:** 2026-10-07 (execution under the owner's begin-word of 2026-09-17). Track B. Fresh adversarial L-20 pass 3, read after Repair 2. VERIFY-ONLY: 0 keyframes.js bytes, 0 glass-ui bytes.
+- **Bytes read:** kf `e8144b0c` (⟨`git -C keyframes.js rev-parse --short HEAD`⟩ → `e8144b0c`; ⟨`git log --oneline e8144b0c..HEAD`⟩ → empty; ⟨`git status --porcelain | grep -vc '^??'`⟩ → 0). The head has not moved since Check 2. Crash recovery: this record and the LEDGER were clean at open; nothing inherited.
+- **Instrument:** ⟨`uptime`⟩ at 02:55 → `188.22 336.87 440.08`; at 02:59 → `170.32 300.90 418.37`. Still far above a quiet machine.
+- **Verdict: NOT-CONFORMANT.** Repair 2 cured nothing (its own words: "0 defects cured"). Check 2's three HIGH conjuncts stand unchanged at the bytes, and no dated COHESION ruling has landed since `§0ep`. The LEDGER status cell stays PARTIAL.
+
+### Axes 2–7
+
+- **(2) Bounds.** No kf commit since Check 2 (`e8144b0c` = Check 2's head). ⟨`git log --oneline 574642be..HEAD | wc -l`⟩ → 143, the same figure Check 2 read. value.js ⟨`git log --oneline 03875c26d^..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → 0. Held.
+- **(3) Masking.** No new diff, so nothing new to mask. Check 2's reading stands: 0 `.skip(`/disable/ts-ignore lines added; Repair 2 raised no timeout in any config.
+- **(4) Commit families.** No new commit. Unchanged.
+- **(5) E-3.** ⟨`git diff --stat 03875c26d^..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty. ⟨`git diff --numstat 03875c26d^..HEAD -- docs/tranches/X/keyframes/waves/`⟩ → `25 0 KF-W13.md` only (addenda). Held.
+- **(6) Mail.** ⟨`grep -c '^|.*| *\**UNREAD\** *|' docs/tranches/V/coordination/INBOX.md`⟩ → 0. Clean. C2-6's three relays are still unfiled.
+- **(7) Four-verb line.** Not moved. Lawful.
+
+### Register (severity · claim · receipt · cure)
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | **HIGH** | `.pc` and `.dh2`, which addendum (f) orders before the close, have not landed (C2-1 unchanged) | addendum (f): "**Order:** `.pc` → `.dh2`, then the wave's remaining units and close"; kf head unmoved at `e8144b0c`; Repair 2: ESC-W13X-r2-1 | a seat on a quiet machine runs `.pc` (the served `KF-P1-12` reading first), then `.dh2` (brief first, predicates ×2 dev and ×2 gh-pages) |
+| C3-2 | **HIGH** | The close gate "kf e2e at `--workers=1` ×2 within the honest-RED set" still has no reading after `95c81b7b` (C2-2 unchanged) | Repair 2's table: roster "UNREAD"; this seat read none (load 170–440) | `npm run build`, then the roster ×2 on a quiet machine (ESC-W13X-r1-2) |
+| C3-3 | **HIGH** | "Every row dispositioned" is not met: nine escalations unruled, the R-4 rows open (C2-3 unchanged) | ⟨`grep -c 'ESC-W13X' docs/tranches/X/COHESION.md`⟩ → 0; ⟨`grep -n 'W13X' COHESION.md \| tail -1`⟩ → `§0ep` (2026-10-06) | a dated COHESION ruling for the nine, and units or a dated re-home for the R-4 rows (ESC-W13X-r1-3) |
+| C3-4 | MEDIUM | The close conjunct `test:demo` GREEN is not met at the head: Repair 2 read it RED ×2 (run 1: 22 failed; run 2: 2 failed, both `Test timed out in 5000ms`) | Repair 2's C2-4 row | read ×2 on a quiet machine at the default limit; if `hero-wave-pause` still times out, it is a real defect in `.home`'s set |
+| C3-5 | MEDIUM | R-r-2 (`BrowserScalarResolutionError` at the cube's first autoplay frame) is open and unreproduced (C2-5 unchanged) | no `.cube` commit after `cd8386cf` | a `.cube` unit with a served cold-load reproduction first (ESC-W13X-r1-4) |
+| C3-6 | MINOR | Three glass asks still unfiled as O-rows (C2-6) | INBOX unchanged | file the three relays and row them |
+| C3-7 | MINOR | Per-row served probes not re-run at any close-side sitting (C2-7) | Repair 2: "UNREAD" | re-run at the re-close |
+
+**Totals:** 3 HIGH · 2 MEDIUM · 2 MINOR. 0 BLOCKER, 0 CRITICAL.
+
+### Axis 8 — the goal criterion
+
+Not met. The scope line is "the keyframes audit rows, whole"; rows stay OPEN (C3-3), two ordered units are owed (C3-1), and two close conjuncts are RED or unread (C3-2, C3-4).
+
+### Axis 10 — honest-RED adjudication
+
+**Relieved by the spec, owner named (glass):** B7 SPECULAR-REST · SHEET-POSITION M1 (§0cd) · DOCK-COLLAPSED-FORM (O-65, §0cq) · SIDE-DOCK-EDGE (O-67, §0ct) · GLASS-SELECT-GREY (O-66, §0cs) · DOCK-MORPH-ROOT (O-56) · the two glass ellipses (O-77a, O-89, addendum (f)). Their state at `e8144b0c` is UNREAD, because the roster has not been run.
+
+**RED or unread with no relief (real defects):** `.pc`/`.dh2` (C3-1), the e2e ×2 (C3-2), the open rows and unruled escalations (C3-3), `test:demo` (C3-4), and R-r-2 (C3-5). All are consumer-owned and ordered inside this wave. A loaded host is an instrument fact, not a relief the spec grants.
+
+### Successor waves
+
+No wave declares "Opens after KF.W13X" (Check 2's grep; no spec byte changed since). This verdict blocks no successor. KF.W13X's own conjunct (KF.W13W CLOSED) is GREEN.
+
+### Axis 1 · 9 — the GREENs, re-run by this seat at `e8144b0c`
+
+| claim | this seat's reading | result |
+|---|---|---|
+| R-r-1 + `.r` falsifiers, E2E-USAB-1 unit falsifier | ⟨`npx vitest run test/group/prefirst-pause-rearm.test.ts test/group/playhead-origin.test.ts test/demo/instrument/channel-options-w13x.test.ts`⟩ → `Test Files 3 passed (3)` · `Tests 16 passed (16)`, EXIT 0; second run → `Tests 16 passed (16)` | **reproduces ×2** |
+| glass pin `10.1.0` exact | ⟨`grep '"@mkbabb/glass-ui"' package.json`⟩ → `"10.1.0"` | **reproduces** |
+| 143 commits `574642be..HEAD` | ⟨`git log --oneline 574642be..HEAD \| wc -l`⟩ → 143 | **reproduces** |
+| 0 ESC rulings | ⟨`grep -c 'ESC-W13X' COHESION.md`⟩ → 0 | **reproduces** |
+
+**Not re-read (the load is 170–440):** `check` ×2 and `gh-pages` ×2. Repair 2 banked both GREEN at this same head, and they need re-reading only if the head moves. Also not re-read: `test:demo`, the roster and the probes.
+
+**Gates reproduced: 4 of 4 re-run. Failed on re-run: 0.** LEDGER status cell unchanged (PARTIAL); one event line appended.
