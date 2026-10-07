@@ -207,3 +207,84 @@ These rows are layout and consumer chrome; the remaining stacks and blur are gla
 - Another seat's staged contour deletions.
 
 The `SliderControl` P2-07 hunk is no longer an orphan: it was ruled, adopted and committed in `7df07e5`.
+
+### pass 3
+
+*(The cure for the 2026-10-07 pass-3 critic, findings DS-F3-*; its frames are `evidence/DS/fourier/pass-03/critic-cells/`.)*
+
+**Commits.**
+- fourier, on `m/w1-bump-migration` (on origin; a later F.CT commit `afc3a87` sits on top):
+  - `5ae8c99`: the cure, 18 files. `PaperView.vue` was committed with only this pass's hunk (through a temporary index); the orphan `shadow` hunk stays in the tree.
+  - `6278475`: DS-F3-C4 follow-through (one fixed sub-row rung), and `f-w14v-u2` reads the renamed `--chip-hue` hook.
+  - `7ba52ec`: named golden re-baseline.
+- latex-paper `aa244de` (DS-F3-C9, C10), local on `master`; not pushed, not published.
+- value.js `f2d3ec079`: AFTER frames, census and probes.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F3-C1 | `TrailManager.update` rebuilds the trail as the whole path up to t on any non-continuous step: the first frame, a seek, a loop or a scrub (a jump of more than 0.05 in t). A played tick still appends the tip, and a redraw at the same t adds no point. The reduced-motion terminal frame (`reset()` then `seek(1)`) now draws the reconstructed curve (frame `v-epicycle-hover-*-1440`). |
+| DS-F3-C2 | `.katex-display` fades whichever edge still has ink beyond it. The fade rides the box's own inline scroll timeline: the trailing edge at rest, both edges mid-scroll, the leading edge at the end. A display that fits has no timeline, so it is never masked. Measured on (1.51), both with and without reduced motion (`cure/m-katex-prm.mjs`). The tag was already outside the scroll box (latex-paper's `.math-block__number` grid column). Fit-to-measure was not taken. |
+| DS-F3-C3 | With a leaf crumb, the chapter crumb collapses to its number ("1. › 1.1. Fourier's Pr…"), because the leaf's number already carries the chapter. The 55% cap is deleted. |
+| DS-F3-C4 | Every ToC depth of 1 or more is on one fixed 0.875rem rung in muted ink, on glass Button's `xs` rung. Depth reads as indent and tone. The active plate is the row's, so it runs under the chevron. The rung is fixed rather than glass's fluid `--type-caption`, which would split the drawer and the phone bar (12.2 px against 14.4 px, A2-FO-L1-1). |
+| DS-F3-C5 | `FourierTimeline`'s track is glass's unsized 0.375rem rule. The hit area keeps glass's `--slider-touch-target` (1.5rem) through block padding, which reka's inline-axis mapping never reads. Measured: a 6 px track in a 24 px band. The `/equation` 20 px knob is deleted. |
+| DS-F3-C6 | `NotFoundCard` is glass Card `size="md"`. **Residual:** at 390 the coarse button labels still out-size the title. That is the DS-F2-G3 glass relay (coarse control type) and is not restyled locally. |
+| DS-F3-C7 | One hue-chooser tone, `.hue-chip` keyed on `--chip-hue` in `style.css`, replaces four restated rules (basis, gallery basis, notation, preset). Auto takes it. |
+| DS-F3-C8 | The split form's aside hugs its sections: `align-self: start` and `max-block-size: 100%`, with glass's fading scroll inside. Measured: the aside ends at 767 over an 888 stage (122 px of empty plate before), and it caps at the stage's bottom on a 640 px viewport. |
+| DS-F3-C11 | The phone ToC band repaints glass's `.paper-grid` over the page tone, fixed to the viewport (the DS-F-C6 morph-band recipe). Paper no longer shows between the dock and the bar. |
+| DS-F3-C12 | The About link is glass's `text` Button with a lucide `ExternalLink` glyph, set on the card's text column. The local touch-floor rule is deleted, because glass owns it. |
+| DS-F3-C13 | The phase is an inline `Metric` ("PHASE idle"); the tone is on its ink only, using the hue-chip ink recipe. The four readings take two rows at every width. |
+| DS-F3-C14 | The Function layer's caption follows the rendered series' variable (`seriesVariable`, now f(t)), which is already the plot's and the legend's. |
+| DS-F3-C15 | There is one labelled count, "all 21 harmonics, n = −20…20" (UIA-F-35's unit). The unlabelled "12 / 41" and the "(41 total)" are deleted. Bars grow from a square baseline with near-square ends and a 1 px minimum. |
+| DS-F3-C16 | The teleport overlay's dead radial layer is deleted; the overlay is `var(--background)`. |
+| DS-F3-C9, C10 | Cured at the latex-paper root (`aa244de`). The section divider is a flat 1 px rule at 25% of the section hue. The theorem block is `border-radius: 0 .5rem .5rem 0`. **The fourier repin is owed** (with DS-F-C3), so the served frames still show the old rule. |
+
+**Glass-owned, left honest-RED, nothing overridden locally.**
+- DS-F3-G1 (the dock ring and the floating "×"): O-88 DOCK-COLLAPSE-MOTION, the same row as DS-F-G7. `f-w14v-pd` "collapsed" ×6 is its standing RED.
+- DS-F3-G2 (the current route is unmarked in the menu): O-59.
+- DS-F3-G3 (cool floating surfaces over the warm paper) and DS-F3-G4 (the capsule hover ring): O-87 FLAT-LIGHTING. Both are to be re-judged at the 10.2.0 repin.
+
+**Census** (`pass-03/census-after.json`; base: the committed tree, fourier `7ba52ec`, served from a clean worktree). These are the same 7 routes as pass 2 (28 cells).
+
+| row | pass 2 | pass 3 |
+|---|---|---|
+| shadow elements | 428 | 424 |
+| shadow layers | 1098 | 1086 |
+| multi-layer stacks | 334 | 330 |
+| inset highlights | 332 | 328 |
+| backdrop blur | 260 | 256 |
+| control gradients | 0 | 0 |
+| looping chrome | 0 | 0 |
+
+The four fewer stacks come from the `NotFoundCard` and `/v` error cards' controls. The rest is glass's recipe (O-87).
+
+Static (`web/src`):
+- gradients 9 → 8: the overlay radial is deleted, and the edge-cue mask is added;
+- box-shadow declarations 4, unchanged;
+- `@keyframes` 2 → 3: `math-edge-cue` is scroll-driven, not looping.
+
+**Frames.** `evidence/DS/fourier/pass-03/` holds:
+- 28 route frames;
+- the critic's cells, recaptured with `cells.mjs`: `v-epicycle-hover`, `v-stage-dock-expanded`, `v-anim-dock-expanded`, `paper-deep` (1440 and 390), `paper-deeper`, `eq-info-button`, `eq-coeffs-open`, `gallery-card-hover`, and `morph-bottom` (1440 and 390), in both themes;
+- `about-card-*` and `not-found-*`.
+
+All are headless real Chrome, served from the committed tree.
+
+**Gates** (on the committed tree, served from a clean worktree at `:3112`):
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice. latex-paper `vitest`: 127/127.
+- e2e: 38 affected specs, chromium plus mobile-chromium, headless, 3 workers, 361 tests. Run 1: 348/361. Run 2: 349/361.
+  - Both runs share 11 failures, and all are pre-existing:
+    - `f-w14v-pd` collapsed ×6 (O-88, red at the pre-cure tree `d6bdc97` too);
+    - `f-w14v-p` p3 @1024 (red at `d6bdc97`, at 1440 as well);
+    - `f-w14v-au3` L1-12 (ESC-au3-1);
+    - `visual-checkpoint` 1·6·7, 2 and 5 (the owed `card-*` goldens).
+  - Three tests failed once each, under load: `f-w14u-d` d2 (run 1), `f-w14u-vedit` v83 (run 1) and `f-w14u-vstage` e169 (run 2). Each was isolated, twice on the cure and twice on `d6bdc97`: vstage and vedit passed all four runs, and d2 flaked once on each tree.
+  - The first run, before `6278475`, also found two real regressions, both cured in `6278475`: A2-FO-L1-1 (the fluid rung) and `f-w14v-u2` (the renamed hook).
+- **Named owner-ruling re-baseline (§0ej), `7ba52ec`.** Both diffs were read:
+  - `checkpoint-disclosure-body`: exactly C14 (the "f(t)" caption) plus C7 (Auto's tone);
+  - `checkpoint-tooltip-trigger` (mobile): exactly C7.
+
+**Left in the fourier tree, not this seat's.**
+- The orphan hunks in `GalleryDraftsSection.vue`, `GalleryView.vue`, `PaperView.vue` (`shadow` dropped from the article Card) and `stores/gallery.ts`.
+- Another seat's staged contour deletions, preserved in the index.
