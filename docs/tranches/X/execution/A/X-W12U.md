@@ -763,3 +763,39 @@ The spec carries no `§Hard Gate` / `§Verification Artefacts` block; the gates 
 Spec §State moves this wave's row on its close; the four-verb line is **not** moved: the wave is **PARTIAL** (escalations ESC-W12U-p-1 · ESC-W12Uk-1 · ESC-W12Um-1 · ESC-W12U-close-1 open; unit `.t` unopened; LW-1/LW-2 turn two vitest witnesses RED). IMPLEMENTED is not stamped; VERIFIED is not this seat's (the row flips CLOSED only on a CONFORMANT check, spec §3). X-W8 stays blocked on X-W12U.
 
 **Verdict: PARTIAL.**
+
+## Check 1
+
+L-20 fresh adversarial pass 1, VERIFY-ONLY, Track A, `claude-opus-5-5`, 2026-10-07, HEAD `7ad41d4fb`, host load 43–106. Spec `W12U.md` read whole (87 lines, addenda (a)–(e)); record read header → Unit plan, then Close. Pre-wave base `7f5808564`.
+
+### Gates re-run by this seat
+- typecheck per program ⟨`vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit`; `tsc -p tsconfig.e2e.json --noEmit`⟩ → `lib 0 · demo 0 · test 2 · e2e 0`; both `test` errors are `bench/records/W8f/probe.ts(10,21) TS2322` — an UNTRACKED X.P.W8f sibling file (⟨`git status --porcelain bench/records/W8f`⟩ → `?? bench/records/W8f/`), not this wave's bytes. Wave-scope GREEN; the whole-tree chain reads RED from a sibling (INFO, X.P owns it).
+- lint ⟨`npx eslint . --max-warnings=0` ×2⟩ → `LINT EXIT 0` · `LINT2 0`. GREEN ×2.
+- vitest, the two wave-attributable witnesses ⟨`npx vitest run test/picker-blob-config.test.ts demo/test/color-session/format-color.test.ts` ×2⟩ → `Tests 2 failed | 68 passed (70)` ×2: `G16 … A7 · shell/dock/ColorInput.vue reads through format-color: expected +0 to be 1` (LW-1, `.p` `6b04d6da`) · `changes the sole body-radius authority …: expected [] to deeply equal [ 0.325 ]` (LW-2, `.s1` `b7d6b40e5`). The Close's RED reproduces.
+- `.x` `/admin/tags` ⟨`VJS_E2E_PORT=9878 npx playwright test e2e/smoke/w12u-x-admin-tags.spec.ts --project=smoke --workers=1` ×2⟩ → `6 passed (23.1s)` · `6 passed (20.5s)`. GREEN ×2 (playwright-owned server, fallback instrument as the Close named).
+- `.b` fixture ⟨`ls e2e/smoke/fixtures/blob-timing.ts`⟩ → `No such file`. GREEN (the specs' literal gate stays RED per the Close; not re-run).
+- `.t` ⟨`git log -1 -- e2e/smoke/perf/frame-budget.ts`⟩ → `75636b162` (pre-addendum); ⟨`grep -c 'refresh\|2·T' frame-budget.ts`⟩ → 0. Unit unopened, confirmed.
+- E13 ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → 0. GREEN.
+- E-3 ⟨`git diff --stat 7f5808564..HEAD -- W12U.md registry/adjudicated/ AUDIT-2-value.md`⟩ → only `W12U.md | 9 +` = orchestrator commit `2f1b095e1` (addendum (e), COHESION §0en), a lawful dated addendum; registry and register byte-untouched. HELD.
+- Bounds: wave commits touch no `src/**`, `package.json`, `scripts/dev/dev.sh` (the `src/**` commits in range are X.P.W7/W8 track); 4 out-of-§1 paths are declared §0bt adjacent edits (`.k`). HELD.
+- Masking scan ⟨`git diff 7f5808564..HEAD -- demo e2e/smoke test eslint.config.js | grep -E 'skip|fixme|eslint-disable|ts-ignore|ts-expect-error|catch|allowlist'`⟩ → 3 `catch` sites (`useSlugMigration.ts` ×2: status-discriminated 401/403 + surfaced migrate error; `useSceneActions.ts`: records the thrown error) — each surfaces the failure, none swallows a defect; 0 skip/disable. HELD.
+
+### Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | HIGH | LW-1: `.p` `6b04d6da` turned vitest G16 A7 RED; no relief (wave-attributable, not banked, not routed out by the spec) | vitest ×2 above | `.p` repair: re-seat A7 on the cured `formatCssCaption` expression (§0bt), count kept, in the same family |
+| C1-2 | HIGH | LW-2: `.s1` `b7d6b40e5` turned `picker-blob-config` body-radius RED; no relief | vitest ×2 above | `.s1` repair: re-read the witness against `heroScale("bodyRadius", 0.325)`; never delete the assertion |
+| C1-3 | HIGH | Unit `.t` (addendum (e)) unopened: refresh-relative budget unlanded, `w12-text-trigger` 8/8 RED; the spec assigns it to THIS wave, so no successor relief | `frame-budget.ts` last `75636b162`; Close ESC-W12U-close-1 | dispatch `.t` |
+| C1-4 | HIGH | Goal criterion unmet at the bytes: 13 L1 rows OPEN with no relayed glass id (ESC-W12Uk-1); L2-10/L2-4/L2-1 open (ESC-W12Um-1); routed `A2-VA-X-n` rows uncured (R-m-5); drag p95 RED and no consumer-bisect GREEN (ESC-W12U-p-1). Escalations unruled (⟨`grep -n ESC-W12U COHESION.md`⟩ → 0 at the Close) | Close gate table | orchestrator rulings, then `.k`/`.m`/`.p` |
+| C1-5 | MEDIUM | `.b` four specs literal RED (R-b-1 routed to `.m` inside this wave; R-b-2 to X-W7L 10.2.0 re-read) — partially relieved, the in-wave half is not | Close `.b` row | `.m` cures A2-VA-X-2; quiet-host re-read (R-b-4) |
+| C1-6 | MEDIUM | smoke `--workers=1` whole not re-read (§3 gate) | Close gate table | re-read at load < 12 at the re-close |
+| C1-7 | MINOR | LW-3: `.k` `d368584cb` carries an X-DS sibling hunk (commit family contaminated) | Close LW-3 | X-DS names the hunk in its receipt |
+| C1-8 | INFO | `tsconfig.test.json` RED from untracked `bench/records/W8f/probe.ts` (X.P.W8f) | typecheck above | X.P seat |
+
+### Honest-RED set (relieved by the spec's own words)
+DOCK-CAP-ELLIPSE (addendum (d): glass O-83/O-83a, value changes nothing) · A2-VA-L3-6 / X-8 HELD for glass §11 (spec §2 `.h`.2). Not relieved: LW-1, LW-2, `.t`, the open L1/L2/X rows, drag p95, `.b` in-wave half, smoke.
+
+### Successors
+X-W8 (spec State "Blocks: X-W8") stays lawfully blocked: the conjunct X-W12U CLOSED is not GREEN.
+
+**Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 4 HIGH · 2 MEDIUM · 1 MINOR · 1 INFO). The LEDGER row stays PARTIAL.
