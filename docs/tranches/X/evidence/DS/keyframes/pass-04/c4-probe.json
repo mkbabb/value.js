@@ -1,0 +1,488 @@
+{
+  "square-light": {
+    "sceneHostVTName": "none",
+    "dockGroupVTNames": [
+      "none",
+      "none"
+    ],
+    "plate": [
+      "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+      "blur(16px) saturate(1.5)"
+    ]
+  },
+  "pane-light": {
+    "easingValueFont": "\"Plus Jakarta Sans\"",
+    "fieldValueFont": "\"Plus Jakarta Sans\"",
+    "pencilInsideField": true,
+    "easingLabelChildren": 2,
+    "layerRow": [
+      89,
+      366,
+      367,
+      40
+    ],
+    "hairlines": [
+      300,
+      357,
+      418
+    ]
+  },
+  "keyframes-light": {
+    "muted": "rgb(246, 243, 239)",
+    "editorGround": "rgb(246, 243, 239)",
+    "gutter": "rgb(246, 243, 239)",
+    "wellGutter": "rgb(246, 243, 239)",
+    "ribbon": [
+      [
+        "Apply CSS",
+        "secondary",
+        575
+      ],
+      [
+        "Copy",
+        "quiet",
+        575
+      ],
+      [
+        "Format",
+        "quiet",
+        575
+      ],
+      [
+        "Compiled",
+        "quiet",
+        575
+      ]
+    ]
+  },
+  "timeline-light": {
+    "clear": {
+      "disabled": false,
+      "ink": "rgb(112, 89, 66)",
+      "undoInk": "rgb(112, 89, 66)",
+      "hoverInk": "rgb(219, 36, 36)"
+    },
+    "verbs": [
+      [
+        "Snapshot",
+        "secondary",
+        357
+      ],
+      [
+        "Import",
+        "quiet",
+        357
+      ],
+      [
+        "Add",
+        "quiet",
+        357
+      ],
+      [
+        "Export",
+        "quiet",
+        357
+      ]
+    ]
+  },
+  "timeline-unfolded-light": {
+    "dockedPaneTop": 62,
+    "unfoldedCard": [
+      71,
+      62,
+      407,
+      425
+    ],
+    "stageCell": [
+      54,
+      792
+    ]
+  },
+  "spring-light": {
+    "position": [
+      [
+        "\"Fira Code\"",
+        "20.352px",
+        "oklch(0.56 0.17 295)"
+      ]
+    ],
+    "velocity": [
+      [
+        "velocity",
+        "\"Plus Jakarta Sans\"",
+        "16.4px",
+        "rgb(112, 89, 66)"
+      ],
+      [
+        "0.00",
+        "\"Fira Code\"",
+        "18.608px",
+        "rgb(112, 89, 66)"
+      ]
+    ],
+    "valueTicks": [
+      [
+        "1",
+        [
+          672,
+          535,
+          9,
+          14
+        ]
+      ],
+      [
+        "0",
+        [
+          672,
+          686,
+          9,
+          14
+        ]
+      ]
+    ],
+    "plot": [
+      692,
+      458,
+      531,
+      252
+    ],
+    "criticalLineY": 403,
+    "tagBottom": 398,
+    "pipLabels": [
+      [
+        "smooth",
+        430,
+        444,
+        true
+      ],
+      [
+        "snappy",
+        461,
+        475,
+        true
+      ],
+      [
+        "bouncy",
+        490,
+        504,
+        true
+      ],
+      [
+        "gentle",
+        381,
+        395,
+        false
+      ],
+      [
+        "smooth",
+        0,
+        0,
+        true
+      ],
+      [
+        "snappy",
+        0,
+        0,
+        true
+      ],
+      [
+        "bouncy",
+        0,
+        0,
+        true
+      ],
+      [
+        "gentle",
+        0,
+        0,
+        false
+      ]
+    ],
+    "trackGrid": "repeating-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) calc(25% - 1px), rgb(198, 180, 159) calc(25% - 1px), rgb(198, 180, 159) 25%)",
+    "groove": "rgb(198, 180, 159)",
+    "tick": "rgb(198, 180, 159)"
+  },
+  "sequence-light": {
+    "text": "Reel",
+    "emphasis": "quiet",
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+  },
+  "errors-light": [],
+  "square-dark": {
+    "sceneHostVTName": "none",
+    "dockGroupVTNames": [
+      "none",
+      "none"
+    ],
+    "plate": [
+      "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+      "blur(16px) saturate(1.5)"
+    ]
+  },
+  "pane-dark": {
+    "easingValueFont": "\"Plus Jakarta Sans\"",
+    "fieldValueFont": "\"Plus Jakarta Sans\"",
+    "pencilInsideField": true,
+    "easingLabelChildren": 2,
+    "layerRow": [
+      89,
+      366,
+      367,
+      40
+    ],
+    "hairlines": [
+      300,
+      357,
+      418
+    ]
+  },
+  "keyframes-dark": {
+    "muted": "rgb(31, 28, 25)",
+    "editorGround": "rgb(31, 28, 25)",
+    "gutter": "rgb(31, 28, 25)",
+    "wellGutter": "rgb(31, 28, 25)",
+    "ribbon": [
+      [
+        "Apply CSS",
+        "secondary",
+        575
+      ],
+      [
+        "Copy",
+        "quiet",
+        575
+      ],
+      [
+        "Format",
+        "quiet",
+        575
+      ],
+      [
+        "Compiled",
+        "quiet",
+        575
+      ]
+    ]
+  },
+  "timeline-dark": {
+    "clear": {
+      "disabled": false,
+      "ink": "rgb(195, 185, 172)",
+      "undoInk": "rgb(195, 185, 172)",
+      "hoverInk": "oklch(0.702 0.184 27.5)"
+    },
+    "verbs": [
+      [
+        "Snapshot",
+        "secondary",
+        357
+      ],
+      [
+        "Import",
+        "quiet",
+        357
+      ],
+      [
+        "Add",
+        "quiet",
+        357
+      ],
+      [
+        "Export",
+        "quiet",
+        357
+      ]
+    ]
+  },
+  "timeline-unfolded-dark": {
+    "dockedPaneTop": 62,
+    "unfoldedCard": [
+      71,
+      62,
+      407,
+      425
+    ],
+    "stageCell": [
+      54,
+      792
+    ]
+  },
+  "spring-dark": {
+    "position": [
+      [
+        "\"Fira Code\"",
+        "20.352px",
+        "oklch(0.74 0.13 305)"
+      ]
+    ],
+    "velocity": [
+      [
+        "velocity",
+        "\"Plus Jakarta Sans\"",
+        "16.4px",
+        "rgb(195, 185, 172)"
+      ],
+      [
+        "0.00",
+        "\"Fira Code\"",
+        "18.608px",
+        "rgb(195, 185, 172)"
+      ]
+    ],
+    "valueTicks": [
+      [
+        "1",
+        [
+          672,
+          535,
+          9,
+          14
+        ]
+      ],
+      [
+        "0",
+        [
+          672,
+          686,
+          9,
+          14
+        ]
+      ]
+    ],
+    "plot": [
+      692,
+      458,
+      531,
+      252
+    ],
+    "criticalLineY": 403,
+    "tagBottom": 398,
+    "pipLabels": [
+      [
+        "smooth",
+        430,
+        444,
+        true
+      ],
+      [
+        "snappy",
+        461,
+        475,
+        true
+      ],
+      [
+        "bouncy",
+        490,
+        504,
+        true
+      ],
+      [
+        "gentle",
+        381,
+        395,
+        false
+      ],
+      [
+        "smooth",
+        0,
+        0,
+        true
+      ],
+      [
+        "snappy",
+        0,
+        0,
+        true
+      ],
+      [
+        "bouncy",
+        0,
+        0,
+        true
+      ],
+      [
+        "gentle",
+        0,
+        0,
+        false
+      ]
+    ],
+    "trackGrid": "repeating-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) calc(25% - 1px), rgb(101, 87, 73) calc(25% - 1px), rgb(101, 87, 73) 25%)",
+    "groove": "rgb(101, 87, 73)",
+    "tick": "rgb(101, 87, 73)"
+  },
+  "sequence-dark": {
+    "text": "Reel",
+    "emphasis": "quiet",
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+  },
+  "errors-dark": [],
+  "easing-390-light": {
+    "columns": "144px 144px",
+    "tiles": [
+      [
+        47,
+        307,
+        144,
+        109
+      ],
+      [
+        199,
+        307,
+        144,
+        109
+      ],
+      [
+        47,
+        424,
+        144,
+        109
+      ],
+      [
+        199,
+        424,
+        144,
+        109
+      ]
+    ],
+    "stage": [
+      126,
+      63
+    ]
+  },
+  "easing-390-dark": {
+    "columns": "144px 144px",
+    "tiles": [
+      [
+        47,
+        307,
+        144,
+        109
+      ],
+      [
+        199,
+        307,
+        144,
+        109
+      ],
+      [
+        47,
+        424,
+        144,
+        109
+      ],
+      [
+        199,
+        424,
+        144,
+        109
+      ]
+    ],
+    "stage": [
+      126,
+      63
+    ]
+  }
+}
