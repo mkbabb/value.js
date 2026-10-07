@@ -3,10 +3,12 @@
          retained rows — a refetch, dimmed and `aria-busy`, never a skeleton
          flash; skeletons only on a first load. -->
     <div class="grid gap-3 pb-3" :aria-busy="refetching || undefined">
-        <!-- Toolbar -->
-        <div class="flex items-center gap-2">
+        <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
+             readable list. Under the signed-out or error plate every control
+             in it was dead or a second Retry, so the row held nothing live. -->
+        <div v-if="!flagged.access.value && !flagged.loadError.value" class="flex items-center gap-2">
             <span
-                v-if="!flagged.access.value && !firstLoad && !flagged.loadError.value"
+                v-if="!firstLoad"
                 class="text-mono-small text-muted-foreground"
             >
                 {{ flagged.pager.total }} flagged
@@ -17,12 +19,11 @@
                  runs (disabled, the glyph turning), and stood down while the
                  error plate's Retry is the recovery. -->
             <Button
-                v-if="!flagged.loadError.value"
                 emphasis="secondary"
                 size="xs"
                 icon-only
                 aria-label="Refresh flagged palettes"
-                :disabled="!!flagged.access.value || flagged.loading.value"
+                :disabled="flagged.loading.value"
                 @click="flagged.loadFlagged()"
             >
                 <RefreshCw class="h-3 w-3" :class="flagged.loading.value && 'animate-spin'" aria-hidden="true" />

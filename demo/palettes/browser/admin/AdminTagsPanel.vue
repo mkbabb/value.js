@@ -1,17 +1,19 @@
 <template>
     <div class="grid gap-3 pb-3">
-        <!-- Toolbar -->
-        <div class="flex items-center gap-2">
+        <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
+             readable list. Under the signed-out or error plate every control
+             in it was dead or a second Retry, so the row held nothing live. -->
+        <div v-if="!tagsApi.access.value && !tagsApi.loadError.value" class="flex items-center gap-2">
             <!-- W7.61 (ATP-12): the count speaks only over a loaded ledger. -->
             <span
-                v-if="!tagsApi.access.value && !tagsApi.loading.value && !tagsApi.loadError.value"
+                v-if="!tagsApi.loading.value"
                 class="text-mono-small text-muted-foreground"
             >
                 {{ tagsApi.tags.value.length }} tag{{ tagsApi.tags.value.length === 1 ? "" : "s" }}
             </span>
             <div class="flex-1" />
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button emphasis="secondary" size="xs" icon-only aria-label="Refresh tags" :disabled="!!tagsApi.access.value" @click="tagsApi.loadTags()">
+            <Button emphasis="secondary" size="xs" icon-only aria-label="Refresh tags" @click="tagsApi.loadTags()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>

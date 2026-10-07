@@ -1,23 +1,25 @@
 <template>
     <div class="grid gap-3 pb-3">
-        <!-- Admin toolbar -->
-        <div class="flex items-center gap-2 flex-wrap">
+        <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
+             readable list. Under the signed-out or error plate every control
+             in it was dead or a second Retry, so the row held nothing live. -->
+        <div v-if="!access && !loadError" class="flex items-center gap-2 flex-wrap">
             <!-- A-3: the count speaks only once the roster resolves — a "0
                  users" line above three loading skeletons is a self-
                  contradiction (totalUsers is 0 before the data arrives). -->
             <!-- UIA-V-168: nor while the read failed — a dead backend is not
                  an empty roster ("0 users" over the error plate lies). -->
-            <span v-if="!loading && !access && !loadError" class="text-mono-small text-muted-foreground">
+            <span v-if="!loading" class="text-mono-small text-muted-foreground">
                 {{ totalUsers }} user{{ totalUsers !== 1 ? 's' : '' }}
             </span>
-            <span v-if="!loading && !access && !loadError && emptyCount > 0" class="text-mono-small text-muted-foreground">
+            <span v-if="!loading && emptyCount > 0" class="text-mono-small text-muted-foreground">
                 · {{ emptyCount }} empty
             </span>
             <div class="flex-1" />
             <Button
                 size="xs"
                 class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
-                :disabled="!!access || loading || emptyCount === 0 || pruning"
+                :disabled="loading || emptyCount === 0 || pruning"
                 @click="onPruneClick"
             >
                 <Loader2 v-if="pruning" class="w-3 h-3 animate-spin" />
@@ -27,10 +29,9 @@
             <!-- UIA-V-49: while the error plate offers Retry, the header's
                  duplicate Refresh stands down; both are the recovery probe. -->
             <Button
-                v-if="!loadError"
                 size="xs"
                 class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
-                :disabled="loading || !!access"
+                :disabled="loading"
                 @click="pm.retryAdminUsers()"
             >
                 <RefreshCw class="w-3 h-3" :class="loading && 'animate-spin'" />

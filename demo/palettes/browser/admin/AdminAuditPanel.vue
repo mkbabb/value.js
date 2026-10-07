@@ -5,8 +5,10 @@
     <!-- X.W12U.s3 · UIA-V-641: the list is busy for EVERY read (first load and
          refetch), and a first load is one status region, not one per shadow. -->
     <div class="grid gap-3 pb-3" :aria-busy="audit.loading.value || undefined">
-        <!-- Toolbar -->
-        <div class="flex items-center gap-2 flex-wrap">
+        <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
+             readable list. Signed out, every control in it was disabled; beside
+             the error plate the filters stay live and Refresh stands down. -->
+        <div v-if="!audit.access.value" class="flex items-center gap-2 flex-wrap">
             <!-- S.W5-3 (S-17/F-7): the glass-ui Input pill, sm rung — the
                  hand-rolled square chrome under the SearchBar pills is dead. -->
             <Input
@@ -15,7 +17,6 @@
                 size="sm"
                 placeholder="Action..."
                 aria-label="Filter by action"
-                :disabled="!!audit.access.value"
                 class="w-32 font-mono"
             />
             <Input
@@ -24,7 +25,6 @@
                 size="sm"
                 placeholder="Target..."
                 aria-label="Filter by target"
-                :disabled="!!audit.access.value"
                 class="flex-1 min-w-[6rem] font-mono"
             />
             <div class="flex-1" />
@@ -34,7 +34,7 @@
                  contradicts "Couldn't load the audit log."). -->
             <!-- X.W12U.s3 · UIA-V-638: nor over an empty plate, which already
                  says there is nothing (the count only repeated it). -->
-            <span v-if="!audit.access.value && !firstLoad && !audit.loadError.value && audit.entries.value.length > 0" class="text-mono-small text-muted-foreground">
+            <span v-if="!firstLoad && !audit.loadError.value && audit.entries.value.length > 0" class="text-mono-small text-muted-foreground">
                 {{ audit.pager.total }} entr{{ audit.pager.total === 1 ? "y" : "ies" }}
             </span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
@@ -47,7 +47,7 @@
                 size="xs"
                 icon-only
                 aria-label="Refresh audit log"
-                :disabled="!!audit.access.value || audit.loading.value"
+                :disabled="audit.loading.value"
                 @click="audit.loadAuditLog()"
             >
                 <RefreshCw class="h-3 w-3" :class="audit.loading.value && 'animate-spin'" aria-hidden="true" />
