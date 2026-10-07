@@ -109,7 +109,13 @@ operator   = /<=|>=|==|!=|[+*<>=:;]|-(?![\w\u0080-\uffff\\-])/ ;
 // letters, `_`, digits after the start, `-`, any non-ASCII code point (`-zπ`), and an escape — a hex
 // escape of one to six digits with one optional whitespace it consumes (`\31 st`), or any other
 // escaped code point (§4.3.7). The escape is kept as authored. X.P.W8 `.g`.
-identTerm  = /(?:[-_a-zA-Z\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))(?:[-_a-zA-Z\d\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))*(?![\w(\\-])/ ;
+// Its first alternative reads a css-syntax-3 §7.1 `<urange>` (css-fonts-4 §4.5 `unicode-range`):
+// `U+` (either case), one to six hex digits or `?` wildcards, and an optional `-` and one to six hex
+// digits (`U+0025-00FF`, `U+4??`), kept as authored; its action (`src/css/bbnf/value.ts` `urangeValue`)
+// refuses a non-trailing or ranged `?`, a start above the end and an end above U+10FFFF. One
+// alternation, not a rule of its own: a separate `urange` rule measured +74 to +93 B gzip against the
+// E-6 ceiling, this +26. X.P.W8 `.f`.
+identTerm  = /[uU]\+[\da-fA-F?]{1,6}(?:-[\da-fA-F]{1,6})?(?![\w?\\-])|(?:[-_a-zA-Z\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))(?:[-_a-zA-Z\d\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))*(?![\w(\\-])/ ;
 // css-grid-2 §7.2 `<line-names> = '[' <custom-ident>* ']'` (`grid-template-columns: [rail] 1fr [end]`):
 // a `[]` simple block (css-syntax-3 §5.4.8) holding only whitespace-separated identifiers — never a
 // general `[]` block (`[1px]`, `[a, b]`, `["a"]`, `[[a]]` stay refused). One term, whose action spells

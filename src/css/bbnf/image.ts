@@ -55,7 +55,7 @@ const HUE = /^(?:shorter|longer|increasing|decreasing)$/;
  * spans, or 0 when it is malformed. `in [ <rectangular-color-space> | <polar-color-space>
  * <hue-interpolation-method>? | <custom-color-space> ]`, the custom space a `<dashed-ident>` (css-color-5).
  */
-function method(ws: readonly CssValue[], at: number): number {
+export function method(ws: readonly CssValue[], at: number): number {
     const space = word(ws[at + 1]);
     if (space === null) return 0;
     if (RECTANGULAR.test(space) || space.startsWith("--")) return 2;

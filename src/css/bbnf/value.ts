@@ -14,6 +14,7 @@ import { keywordColor } from "./color";
 import { isCalculation, substitutes } from "./calc";
 import { isMixItem, keepsSignature } from "./color5";
 import { keepsImageSignature } from "./image";
+import { keepsPaletteSignature } from "./palette";
 import type { Actions } from "./generated/grammar";
 import type { Numeric, Quantity } from "./math";
 
@@ -101,8 +102,9 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     //  A comma list's items are already a frozen array (`listOf`), shared as the arguments.
     const call = callNode(name, body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]));
     //  `alpha()` and `contrast-color()` keep their css-color-5 signatures (`./color5`; X.P.W8 `.t`).
-    //  The css-images-4 image functions keep theirs (`./image`; X.P.W8 `.i`).
-    return keepsSignature(call) && keepsImageSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+    //  The css-images-4 image functions keep theirs (`./image`; X.P.W8 `.i`), css-fonts-4 `palette-mix()`
+    //  its (`./palette`; X.P.W8 `.f`).
+    return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
 }
 
 /**
@@ -174,6 +176,21 @@ const lineNamesValue = (token: string): CssScalar => {
     const names = token.slice(1, -1).trim();
     return keyword(names === "" ? "[]" : `[${names.split(/\s+/).join(" ")}]`);
 };
+
+/**
+ * A `<urange>` (css-syntax-3 §7.1; css-fonts-4 §4.5 `unicode-range`), read by `value.bbnf` `identTerm`'s
+ * first alternative: the token as authored (`U+0025-00FF`). Refused when a `?` wildcard is not trailing
+ * or stands in a range's start, or when the start exceeds the end or the end exceeds U+10FFFF (a `?`
+ * reads `0` in the start, `F` in the end). X.P.W8 `.f`.
+ */
+function urangeValue(token: string): ValueNode {
+    const [lo, hi] = token.slice(2).split("-") as [string, string?];
+    const start = parseInt(lo.replace(/\?/g, "0"), 16);
+    const end = parseInt((hi ?? lo).replace(/\?/g, "F"), 16);
+    return /^[\da-f]*\?*$/i.test(lo) && !(hi && lo.includes("?")) && start <= end && end <= 0x10ffff
+        ? keyword(token)
+        : refused("css_syntax", "<urange>");
+}
 
 /** A math function (`value.bbnf` `mathCall`): a call whose arguments are a calculation (`./calc`), else refused. */
 function mathValue(parts: readonly [string, ValueNode | undefined]): ValueNode {
@@ -266,7 +283,7 @@ export const valueActions = {
     numeric: { kind: "groups", fn: numericScalar },
     string: { kind: "map", fn: keyword },
     operator: { kind: "map", fn: keyword },
-    identTerm: { kind: "map", fn: (token: string) => identScalar(token, keywordColor) },
+    identTerm: { kind: "map", fn: (token: string) => (/^u\+/i.test(token) ? urangeValue(token) : identScalar(token, keywordColor)) },
     colorCall: { kind: "map", fn: colorScalar },
     //  `color-mix()` / `light-dark()` stand in a scalar position as colours (their node, unwrapped).
     scalarTerm: { kind: "map", fn: (v: ValueNode | ColorNode) =>
