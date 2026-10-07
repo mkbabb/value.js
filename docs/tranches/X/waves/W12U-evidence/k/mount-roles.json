@@ -1,0 +1,17 @@
+{
+ "demo/color-picker/ErrorBoundary.vue": { "kind": "repeated", "per": "region", "why": "one containment boundary around each scene region (the dual-pane views seat two)" },
+ "demo/shell/PaneSlot.vue": { "kind": "repeated", "per": "region", "why": "the one mount path, once per region of the scene" },
+ "demo/shared/ui/PaneHeader.vue": { "kind": "repeated", "per": "pane", "why": "each pane's own title band; two panes on a dual-pane view" },
+ "demo/shared/ui/EmptyState.vue": { "kind": "repeated", "per": "pane", "why": "each pane states its own empty or error condition" },
+ "demo/shell/PaneErrorPlate.vue": { "kind": "repeated", "per": "region", "why": "a region whose chunk failed; the census does not read a view in this state (UNREAD)" },
+ "demo/shared/ui/watercolor-dot/WatercolorDot.vue": { "kind": "repeated", "per": "colour", "why": "one dot per colour shown (dock seal, swatches, list specimens)" },
+ "demo/shell/dock/ActionButton.vue": { "kind": "repeated", "per": "scene action", "why": "one seat per named action of the scene's action set" },
+ "demo/palettes/PaletteInspector.vue": { "kind": "repeated", "per": "palette", "why": "one card per palette in the grid" },
+ "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue": { "kind": "repeated", "per": "palette", "why": "one menu per palette card" },
+ "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue": { "kind": "repeated", "per": "palette", "why": "one meta cluster per palette card" },
+ "demo/palettes/browser/card/PaletteSpecimen.vue": { "kind": "repeated", "per": "palette", "why": "one specimen per palette" },
+ "demo/palettes/browser/card/PaletteColorStrip.vue": { "kind": "repeated", "per": "palette", "why": "one strip per palette (plus the Generate plate's own palette)" },
+ "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue": { "kind": "repeated", "per": "verdict owner", "why": "each palette card announces its own act; the pane announces pane-level acts" },
+ "demo/scenes/about/katex/Katex.vue": { "kind": "repeated", "per": "formula", "why": "one typeset formula per expression in the About prose" },
+ "demo/color-session/ColorSpaceSelector.vue": { "kind": "ruled", "row": "A2-VA-K-1", "why": "on / the picker header and the About title each seat the selector over ONE model: a mirrored pair ratified at S.W4 W4-1 (S-21, 'both hosts get the W4-1 grammar verbatim') and T.W4-1. Two mounts for one job; retiring either host's control is an owner DESIGN-RULING, so it is reported, not cured" }
+}
