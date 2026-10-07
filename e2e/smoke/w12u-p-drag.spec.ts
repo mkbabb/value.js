@@ -7,6 +7,8 @@ import {
     readFrames,
     readLongTasks,
     percentile,
+    measureRefreshInterval,
+    refreshBudget,
 } from "./perf/frame-budget";
 import { REAL_GPU, useRealGpuCell } from "./perf/real-gpu";
 
@@ -17,7 +19,10 @@ import { REAL_GPU, useRealGpuCell } from "./perf/real-gpu";
  * Falsifier for three readings on the real-GPU cell (`W12_REAL_GPU=1`; read
  * headed on the 120 Hz panel until §0ei, in the background on Metal since,
  * whose rAF clock is 60 Hz — `perf/real-gpu.ts`):
- *   1. drag p95 ≤ 16.7 ms on the colour-changing drags (surface, L, a, b, alpha);
+ *   1. drag p50 ≤ 1·T and p95 ≤ 2·T (+ ε) of the measured display clock T on
+ *      the colour-changing drags (surface, L, a, b, alpha) — X.W12U.t,
+ *      addendum (e) §0en: the 120 Hz figure of record (16.7 ms = 2 intervals)
+ *      stated in refresh intervals (`refreshBudget`, perf/frame-budget);
  *   2. the dock run's roving MutationObserver (glass `useDockRun`, which calls
  *      `syncRoving` on childList-subtree / `aria-current` mutations) is not fed
  *      every frame by a dock seat's text re-render during the drag;
@@ -37,7 +42,6 @@ const ORIGIN = process.env.W12_ORIGIN;
  * product path never reads it.
  */
 const BISECT = process.env.W12U_P_BISECT;
-const P95_BUDGET_MS = 16.7;
 const DRAG_MS = 2000;
 /** syncRoving may fire on a real structural change; never on most frames. */
 const ROVING_MAX_FRACTION = 0.1;
@@ -200,6 +204,7 @@ async function readDockObserver(
 
 test("w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame", async ({ page }) => {
     test.setTimeout(150_000);
+    const budget = refreshBudget(await measureRefreshInterval(page));
     await installFrameCollector(page);
     await page.addInitScript(() => localStorage.setItem("vueuse-color-scheme", "dark"));
     await page.goto((ORIGIN ?? "/") + "#/?space=lab");
@@ -220,7 +225,7 @@ test("w12u-p — colour drags hold frame budget; the dock run is not re-rendered
             };
         });
 
-    const results: Array<{ name: string; p95: number; frames: number; roving: number; rovingFrames: number }> = [];
+    const results: Array<{ name: string; p50: number; p95: number; frames: number; roving: number; rovingFrames: number }> = [];
     for (const t of TARGETS) {
         const target = t.locate(page);
         await expect(target).toBeVisible();
@@ -253,20 +258,22 @@ test("w12u-p — colour drags hold frame budget; the dock run is not re-rendered
         const p95 = percentile(frames, 95);
         const p50 = percentile(frames, 50);
         const maxTask = longtasks.length ? Math.max(...longtasks) : 0;
-        results.push({ name: t.name, p95, frames: frames.length, ...dock });
+        results.push({ name: t.name, p50, p95, frames: frames.length, ...dock });
         console.log(
             `[w12u-p ${soft ? "SOFTWARE-GL" : "REAL-GPU"}] ${t.name}: moves=${i} frames=${frames.length} p50=${p50.toFixed(1)} p95=${p95.toFixed(1)} longTasks=${longtasks.length} maxTask=${maxTask.toFixed(0)} dockRoving=${dock.roving}/${dock.rovingFrames}f dockText=${dock.text}\n    dock: ${dock.sites}\n    main: ${rendering}\n    self: ${att.self}\n    layout: ${att.layout}\n    demo: ${att.demo}`,
         );
         await page.waitForTimeout(400);
     }
-    console.log(`[w12u-p] renderer=${renderer} origin=${ORIGIN ?? "dev"} bisect=${BISECT ?? "none"}`);
+    console.log(`[w12u-p] renderer=${renderer} origin=${ORIGIN ?? "dev"} bisect=${BISECT ?? "none"} T=${budget.T.toFixed(2)} budget p50<=${budget.p50Ms.toFixed(2)} p95<=${budget.p95Ms.toFixed(2)}`);
     for (const r of results) {
         expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(10);
         expect(
             r.rovingFrames,
             `${r.name}: the dock run's roving observer fired on ${r.rovingFrames} of ${r.frames} frames`,
         ).toBeLessThanOrEqual(Math.ceil(r.frames * ROVING_MAX_FRACTION));
-        if (!soft)
-            expect(r.p95, `${r.name}: drag frame p95 over ${P95_BUDGET_MS} ms`).toBeLessThanOrEqual(P95_BUDGET_MS);
+        if (!soft) {
+            expect(r.p50, `${r.name}: drag frame p50 over 1·T (T=${budget.T.toFixed(2)} ms)`).toBeLessThanOrEqual(budget.p50Ms);
+            expect(r.p95, `${r.name}: drag frame p95 over 2·T (T=${budget.T.toFixed(2)} ms)`).toBeLessThanOrEqual(budget.p95Ms);
+        }
     }
 });

@@ -19,7 +19,9 @@ import { detectRenderer, isSoftwareGL } from "./frame-budget";
  *
  * The headless rAF clock is 60 Hz (measured: a blank page reads rAF p50/p95
  * 16.70/16.70 ms), so a reading of record taken on the headed 120 Hz panel
- * is not reproducible here; frame-budget gates are read as they stand.
+ * is not reproducible here in milliseconds; the drag gates are therefore read
+ * in refresh intervals of the measured clock (`refreshBudget` in
+ * `frame-budget.ts`, X.W12U.t, W12U.md addendum (e), §0en).
  *
  * Every test in an opted-in file first asserts the renderer is hardware, so
  * the cell fails loudly rather than measuring SwiftShader.

@@ -7,6 +7,8 @@ import {
     readFrames,
     readLongTasks,
     percentile,
+    measureRefreshInterval,
+    refreshBudget,
 } from "./perf/frame-budget";
 import { REAL_GPU, useRealGpuCell } from "./perf/real-gpu";
 
@@ -15,15 +17,16 @@ import { REAL_GPU, useRealGpuCell } from "./perf/real-gpu";
  *
  * A 2 s pointer drag on the picker surface and on each channel slider, read by
  * the rAF frame collector (frame intervals, long tasks) and a CDP sampling
- * profile (the per-input work, named by self time). The gate is p95 frame
- * ≤ 16.7 ms on the real-GPU cell (`W12_REAL_GPU=1`: real Chrome in the
+ * profile (the per-input work, named by self time). The gate is refresh-
+ * relative (W12U.md addendum (e), §0en): p50 ≤ 1·T and p95 ≤ 2·T (+ ε) of the
+ * measured display clock T — the 120 Hz figure of record (p95 ≤ 16.7 ms) — on
+ * the real-GPU cell (`W12_REAL_GPU=1`: real Chrome in the
  * background on Metal since §0ei, `perf/real-gpu.ts`); the SwiftShader reading is banked beside and
  * held only to the freeze ceiling, because software raster is not the eye's
  * frame (the standing `drag-frame-budget` precedent).
  */
 
 const ORIGIN = process.env.W12_ORIGIN;
-const P95_BUDGET_MS = 16.7;
 const SOFT_MAX_TASK_MS = 3000;
 const DRAG_MS = 2000;
 
@@ -32,9 +35,9 @@ const DRAG_MS = 2000;
  * On a 60 Hz panel a BLANK page reads rAF p95 17.6 ms (vsync timestamps land
  * at 16.7-17.7 ms), so the 16.7 ms budget sits below the instrument's floor
  * there; on the 120 Hz panel a blank page reads p95 9.2 ms, and 16.7 ms is
- * the "never two refreshes late" budget the gate means. Since §0ei no window
- * opens, so no panel is chosen: the background cell's rAF clock is 60 Hz
- * (`perf/real-gpu.ts`), and the gate is read as it stands.
+ * the "never two refreshes late" budget the gate means. X.W12U.t (addendum
+ * (e), §0en) states that meaning portably: the budget is read in refresh
+ * intervals of the clock the run lands on (`refreshBudget`, perf/frame-budget).
  */
 useRealGpuCell();
 test.use({ viewport: { width: 1440, height: 900 } });
@@ -71,6 +74,7 @@ async function topSelf(cdp: CDPSession): Promise<string> {
 
 test("w12-drag — 2 s drag on the surface and each slider holds frame budget", async ({ page }) => {
     test.setTimeout(120_000);
+    const budget = refreshBudget(await measureRefreshInterval(page));
     await installFrameCollector(page);
     await page.addInitScript(() => localStorage.setItem("vueuse-color-scheme", "dark"));
     await page.goto((ORIGIN ?? "/") + "#/?space=lab");
@@ -116,14 +120,19 @@ test("w12-drag — 2 s drag on the surface and each slider holds frame budget", 
         );
         await page.waitForTimeout(400);
     }
-    console.log(`[w12-drag] renderer=${renderer} origin=${ORIGIN ?? "dev"}`);
+    console.log(
+        `[w12-drag] renderer=${renderer} origin=${ORIGIN ?? "dev"} T=${budget.T.toFixed(2)} budget p50<=${budget.p50Ms.toFixed(2)} p95<=${budget.p95Ms.toFixed(2)}`,
+    );
     for (const r of results) {
         expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(10);
         if (soft) {
             expect(r.maxTask, `${r.name}: in-drag freeze`).toBeLessThanOrEqual(SOFT_MAX_TASK_MS);
         } else {
-            expect(r.p95, `${r.name}: drag frame p95 over ${P95_BUDGET_MS} ms`).toBeLessThanOrEqual(
-                P95_BUDGET_MS,
+            expect(r.p50, `${r.name}: drag frame p50 over 1·T (T=${budget.T.toFixed(2)} ms)`).toBeLessThanOrEqual(
+                budget.p50Ms,
+            );
+            expect(r.p95, `${r.name}: drag frame p95 over 2·T (T=${budget.T.toFixed(2)} ms)`).toBeLessThanOrEqual(
+                budget.p95Ms,
             );
         }
     }

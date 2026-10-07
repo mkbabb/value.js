@@ -181,3 +181,56 @@ export async function waitMs(page: Page, ms: number): Promise<void> {
         { timeout: ms + 5_000, polling: 100 },
     );
 }
+
+/**
+ * X.W12U.t — FRAME BUDGETS ARE REFRESH-RELATIVE (W12U.md addendum (e); COHESION
+ * §0en, an owner-law re-baseline under §0ei, not a relaxation).
+ *
+ * A drag budget is stated in refresh intervals of the MEASURED display clock,
+ * never in absolute milliseconds. The figure of record (p95 ≤ 16.7 ms) was
+ * read headed on a 120 Hz panel, where 16.7 ms is TWO refresh intervals; the
+ * §0ei background cell paints at a fixed 60 Hz (a blank page reads rAF
+ * p50/p95 16.70/16.70 ms), where the same 16.7 ms would allow zero missed
+ * frames at p95. Restated portably:
+ *   p50 ≤ 1·T + ε   (the drag paints on most refreshes)
+ *   p95 ≤ 2·T + ε   (never two refreshes late — the 120 Hz figure, exactly)
+ * T is read from the page's own rAF clock while the page is idle (before the
+ * app loads), so the budget follows whatever display the run lands on.
+ */
+export const REFRESH_EPSILON_MS = 1;
+
+export interface RefreshBudget {
+    /** The measured refresh interval (median idle rAF delta), ms. */
+    T: number;
+    p50Ms: number;
+    p95Ms: number;
+}
+
+/**
+ * Read the refresh interval T: the median rAF delta over `frames` idle frames.
+ * Call it BEFORE `page.goto` (the page is still the blank initial document, so
+ * nothing but the display clock sets the delta).
+ */
+export async function measureRefreshInterval(page: Page, frames = 60): Promise<number> {
+    const deltas = await page.evaluate(
+        (n) =>
+            new Promise<number[]>((resolve) => {
+                const out: number[] = [];
+                let last = -1;
+                const tick = (now: number) => {
+                    if (last >= 0) out.push(now - last);
+                    last = now;
+                    if (out.length >= n) resolve(out);
+                    else requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+            }),
+        frames,
+    );
+    return percentile(deltas, 50);
+}
+
+/** The refresh-relative drag budget for a measured interval T. */
+export function refreshBudget(T: number): RefreshBudget {
+    return { T, p50Ms: T + REFRESH_EPSILON_MS, p95Ms: 2 * T + REFRESH_EPSILON_MS };
+}
