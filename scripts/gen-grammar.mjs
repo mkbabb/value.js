@@ -30,7 +30,7 @@ const ENTRIES = [
     // the stylesheet layer's readers (sheet.ts)
     "ruleList", "atPrelude", "propertyName", "syntaxText", "syntaxAlts", "scopePrelude",
     "functionHead", "functionParam", "paramHead", "declaration", "commaSpans",
-    "scrollFn", "viewFn", "timelineLead", "timelineLength", "dashedIdent",
+    "scrollFn", "viewFn", "timelineLead", "timelineLength", "dashedIdent", "ident",
 ];
 
 const pkg = path.join(REPO, "node_modules/@mkbabb/bbnf-lang/package.json");

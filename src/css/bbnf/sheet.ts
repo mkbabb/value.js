@@ -103,3 +103,6 @@ export const isTimelineLength = (token: string): boolean => E.timelineLength(tok
 
 /** A `<dashed-ident>` (`--name`). */
 export const isDashedIdent = (token: string): boolean => E.dashedIdent(token) !== FAIL;
+
+/** One identifier, whole (css-syntax-3 §4.3.11; `tokens.bbnf` `ident`): never a string, a delimiter or a `[]` block. */
+export const isIdentifier = (token: string): boolean => E.ident(token) !== FAIL;

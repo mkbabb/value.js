@@ -1,7 +1,7 @@
 import type { CssValue } from "../value";
 import type { ParseResult } from "./types";
 import { parseCssValue } from "./bbnf/index";
-import { syntaxComponents } from "./bbnf/sheet";
+import { isIdentifier, syntaxComponents } from "./bbnf/sheet";
 import { failure } from "./result";
 
 /** css-values-4 §4.2: the CSS-wide keywords and `default`, never a `<custom-ident>`. */
@@ -65,8 +65,11 @@ function matchesSyntax(value: CssValue, component: string): boolean {
         return value.kind === "scalar" && value.payload.type === "color";
     }
     if (component === "<custom-ident>") {
+        // A keyword payload also carries a string, a delimiter, a `[]` block and a `<urange>` as authored:
+        // only a keyword the grammar reads as one identifier is a `<custom-ident>` (X.P.W8 `.x`).
         return value.kind === "scalar"
             && value.payload.type === "keyword"
+            && isIdentifier(value.payload.value)
             && !RESERVED_IDENTS.has(value.payload.value.toLowerCase());
     }
     if (component === "<transform-function>") return isTransformCall(value);

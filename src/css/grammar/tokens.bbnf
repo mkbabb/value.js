@@ -34,7 +34,12 @@ dimension  = /([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)([a-zA-Z_][\w-]*)/ ;
 angle      = /([+-]?(?:\d*\.\d+|\d+)(?:e[+-]?\d+)?)(deg|grad|rad|turn)(?![\w-])/i ;
 
 none       = /none(?![\w-])/i ;
-ident      = /-?[a-zA-Z_][\w-]*|--[\w-]*/ ;
+// An identifier (css-syntax-3 §4.3.9 "would start an identifier", §4.3.11): `--`, or an optional `-`
+// before an ident-start code point (ASCII letter, `_`, any non-ASCII code point) or an escape, then
+// ident code points or escapes — the start exact, so a lone `-` and `-1` are not identifiers. Read by
+// `var()`/`env()` in math and, whole, by `src/css/syntax.ts` as a `<custom-ident>`'s token (css-values-4
+// §4.2: a string, a delimiter, a `[]` block or a `<urange>` is not one). X.P.W8 `.x`.
+ident      = /(?:--|-?(?:[_a-zA-Z\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F])))(?:[-_a-zA-Z\d\u0080-\uffff]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))*/ ;
 dashedIdent = /--[\w-]+/ ;
 string     = /"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*'/ ;
 
