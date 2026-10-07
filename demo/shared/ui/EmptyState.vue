@@ -6,14 +6,14 @@
         role="alert"
     >
         <CircleAlert class="w-6 h-6 text-destructive/80" aria-hidden="true" />
-        <p class="font-display text-heading text-foreground max-w-[26ch] text-balance leading-snug">
+        <p class="font-display text-subheading text-foreground max-w-[30ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
         <!-- UIA-V-53: machine truth wraps inside the plate at every width —
              the item is the column's width capped at 44ch (a centred flex item
              otherwise sizes to its 44ch max and overflows both card edges at
              390), and `wrap-anywhere` lets an unbroken URL break too. -->
-        <p v-if="detail" class="text-mono-small plate-ink w-full min-w-0 max-w-[min(44ch,100%)] wrap-anywhere">
+        <p v-if="detail" class="text-small plate-ink w-full min-w-0 max-w-[min(44ch,100%)] wrap-anywhere">
             {{ detail }}
         </p>
         <slot name="action" />
@@ -29,7 +29,7 @@
         role="status"
         data-empty-register="filtered"
     >
-        <p class="font-display text-subheading text-foreground max-w-[30ch] text-balance leading-snug">
+        <p class="font-display text-body text-foreground max-w-[36ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
         <slot name="action" />
@@ -61,10 +61,10 @@
              the live resting plate; D6) — the STATIC `text-muted-foreground`
              composited 3.84:1 over the My Palettes plate in light (< the 4.5:1
              small-text floor). -->
-        <p class="font-display text-heading text-foreground max-w-[26ch] text-balance leading-snug">
+        <p class="font-display text-subheading text-foreground max-w-[30ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
-        <p v-if="hint" class="text-mono-small plate-ink max-w-[36ch]">
+        <p v-if="hint" class="text-small plate-ink max-w-[36ch]">
             {{ hint }}
         </p>
         <slot name="action" />
@@ -87,6 +87,13 @@
  * annotations; no ghosts, never a second invitation): a
  * quiet destructive glyph, the Fraunces statement of failure, the
  * machine truth in Fira, and a real Retry in the action slot.
+ *
+ * X.W12U.h · A2-VA-L3-1 (consumer half): the statement sits on the
+ * subheading rung (`text-subheading`, 600), one step under the heading rung
+ * that the pane title's `--type-display-1` clamp floors at on phones, so the
+ * plate never out-ranks its pane title (it rendered 25.9 px/700 under a
+ * 25.9 px/400 title at 390). The secondary line (hint, detail) speaks the
+ * body sans at the small rung. The display-1 floor itself is glass's half.
  *
  * X.W7.g (crash-battery R14 · ES-2): this note lived as a leading <template>
  * comment, which the dev compiler turns into a sibling root — a multi-root
