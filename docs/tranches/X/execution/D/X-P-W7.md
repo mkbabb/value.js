@@ -3322,3 +3322,67 @@ No unit is owed. **No timing is read or claimed here** (ADDENDUM (k) 1: the chec
 ## RESUME 8 Unit receipts
 
 (none: 0 units owed)
+
+## RESUME 8 Close (2026-10-07, close seat `claude-opus-5-5`, Track D; verify-only, cures nothing)
+
+**Open.** Spec read whole (W7.md, 318 lines; ADDENDUM (k) binds: the L-G1 read of record is the RESUME 7 Close `fe74f3d4`, banked by Repair 1 `bea59b3d`; the check AUDITS it; no timing run here or in the check). From this record: the header, `## RESUME 8 — Open` through `## RESUME 8 Unit receipts`, and the last close (`## RESUME 7 Close`). **Crash-recovery:** ⟨`git status --porcelain -- src bench test/css docs/tranches/X/parse-that docs/tranches/X/execution/D/X-P-W7.md docs/tranches/X/execution/LEDGER.md package.json package-lock.json`⟩ → empty at open. parse-that's dirty paths (`.cargo/config.toml`, `README.md`, `rust/**`, untracked `docs/**`) are master's standing dirt, outside this seat's set, untouched. No inherited work. Host load at open ⟨`sysctl -n vm.loadavg`⟩ → `{ 122.82 190.05 331.85 }` (INFO; no reading below is a timing reading).
+
+### Act 1: commit roster, and whether each unit stayed in its writable set
+0 units were owed in RESUME 8, so no unit commit exists to judge. ⟨`git log --oneline 01ed56bd..HEAD -- docs/tranches/X/execution/D/X-P-W7.md src bench test/css`⟩ → `fe74f3d4` (RESUME 7 Close) · `cc85fce6` (Check 1) · `bea59b3d` (Repair 1) · `e8fc097f` (Check 2) · `f63efc87` (Repair 2) · `198cefb4` (Check 3) · `4ade6de9` (RESUME 8 open). ⟨`git show --stat --format= 4ade6de9`⟩ → `INBOX.md +1 · X-P-W7.md +46 · LEDGER.md +1`: in the open seat's set. ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json | wc -l`⟩ → `0`; ⟨`git diff --stat fe74f3d4 HEAD -- bench/paired | wc -l`⟩ → `0`. **Landed wrong: none** (LW-1 from RESUME 7 stays INFO; it is the RESUME 7 checks' to rule, unchanged here).
+
+### Act 2a: L-G1 — cited, not re-timed (ADDENDUM (k) 1); the node item-3 determination
+- **Read of record:** RESUME 7 Close `fe74f3d4`, records in `parse-that/evidence/W7/l-g1-close/close/` (node r1/r2; browsers r2/r3 per engine; r1 supplementary). ⟨`shasum -a 256 -c MANIFEST.sha256 | grep -c ': OK$'`⟩ → `25` (one "improperly formatted" warning = the header lines); ⟨`git status --porcelain l-g1-close | wc -l`⟩ → `0`. Provenance in both node records: `valuejsHead 01ed56bd…`, `srcDirty ""` (01ed56bd is a docs commit on the frozen `08331dfa` bytes, per the `git diff` above), `retiredAt 2155142b…`, `bankedManifestOk 79/79`.
+- **Item 3 (node reps at load ≥ 8 are supplementary).** This seat's own arithmetic over both node records (a rep counts only if `retiredSpread < 1.6` and max(`load`) < 8; paired ratio recomputed as the median of `raw.product[i]/raw.retired[i]`): 23 cells (whole/acc/rej × 7 + `large-eq` + INFO `large`); **every cell has ≥ 2 clean reps at load < 8 in r1 AND ≥ 2 in r2**; 0 recomputed ratios ≥ 1.0; 0 recomputed ratios differing from the record's `paired` by > 0.0015; reps excluded as load ≥ 8: 1 per cell at most (13 in all); set-aside: 9. Worst gated at load < 8: keyframe whole .699 (r1 and r2); `large-eq` .476–.500. **No node cell is UNREAD ×2**, so item 3's honest-RED case does not arise. The check re-derives this independently (ADDENDUM (k) 1); the browser records are the check's to recompute.
+
+### Act 2b: correctness, stay-GREEN, size (frozen bytes `08331dfa`), re-run by this seat
+- **L-G2 / V-1** ⟨`node bench/paired/equiv.mjs product <scratch>/eq{1,2}.json`⟩ ×2 → `compared 1376531/1376531 rows · mismatches 396 (ASCII-only sources 300 · CP-CASE 4)` both; ⟨`cmp eq1.json eq2.json`⟩ → identical (2,678,541 B). Exit 1 = the script's contract when ruled rows are non-zero. **GREEN ×2.**
+- **Prefix equivalence** (same runs) → `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2. **GREEN ×2.**
+- **L-G3** ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated | wc -l`⟩ → `0`. **GREEN.**
+- **E-4 drift** ⟨`npx esbuild src/css/bbnf/actions.ts --bundle --platform=node --format=esm --outfile=<scratch>/actions.mjs`; `node ../bbnf-lang-x-p-w7-typescript/typescript/dist/cli.js gen src/css/grammar/css.bbnf --actions <scratch>/actions.mjs --out src/css/bbnf/generated/grammar.js --entries <gen-grammar.mjs's 24> --check`⟩ ×2 → `grammar.js is current (sha256 96c3fa63…)` both; ⟨`git status --porcelain src | wc -l`⟩ → `0`. Worktree at `f0059db14`, 0 dirty. **GREEN ×2.**
+- ⟨`npx vitest run test/css`⟩ ×2 → `Test Files 9 passed (9) · Tests 111 passed (111)` both. **GREEN ×2.**
+- ⟨`npm run -s test:css-equivalence`⟩ → exit 0, `Tests 19 passed (19)`; ⟨`grep -oE 'MIRROR-DEFECTS [0-9]+' | sort | uniq -c`⟩ → `28 MIRROR-DEFECTS 0` (no other value; 28 lines vs RESUME 7's 24 is output-line count only). **GREEN.**
+- ⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit | grep -c 'error TS'`⟩ → `0 · 0 · 0`. **GREEN.**
+- ⟨`npm run build`⟩ → `✓ built` (wall 16 m under host load ~120–330), exit 0. **GREEN.**
+- **E-6** ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js | wc -c`⟩ → `98922`; `| gzip | wc -c` → `13786` (ceilings 125,646 / 14,517). **GREEN.**
+- **E-2 routing audit** not re-run (needs the linked emitter); bytes = the ones `.gap2` audited (0 violations · 0 modeDiffs), unmoved.
+
+### Act 3: §Verification Artefacts
+W7.md has no §Verification Artefacts clause. The artefacts its stay-GREEN gates name were run above (`equiv.mjs` ×2, drift ×2); the timing artefacts are the banked records (ADDENDUM (k)).
+
+### Act 4: E13 mail sweep
+⟨`ls -td glass-ui/docs/tranches/*/ | head -2`⟩ → `BL BK`. ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩ → value `V/` 0 · `V/coordination/` 0 · glass `BK/coordination/` 0 · glass `BL/` 1 (`FORMATION-PROGRESS.md`, glass's own resume cursor; its value.js lines are glass's planned dispositions, not a letter addressed here) · keyframes `V/coordination/` 0 · atlas `P/coordination/` 0. ⟨`grep -cE '\| *UNREAD *\|' INBOX.md`⟩ → `0`. **0 UNREAD in scope.**
+
+### Act 5: gate table, BEFORE → AFTER
+BEFORE = the RESUME 8 Baseline and the RESUME 7 Close; AFTER = this seat (timing: cited per ADDENDUM (k)).
+
+| Gate | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|
+| L-G1 node / Chromium / WebKit / Firefox (acc/rej/`large-eq`, every entry) ×2 | GREEN ×2 at load < 8 (`fe74f3d4`); audit owed | cited; records committed, MANIFEST 25/25, instrument unchanged since the read; node item 3: every cell ≥ 2 reps < 8 per read, 0 recomputed ratios ≥ 1 | **GREEN ×2 (read of record; the check audits)** |
+| whole `large` | INFO | INFO | **INFO** (unequal work, ADDENDUM (g)) |
+| L-G2 V-1 | 396 ×2 | 396 ×2, JSON identical | **GREEN ×2** |
+| Prefix equivalence | 0 ×2 | 0 ×2 (528 rows · 1,405 decls) | **GREEN ×2** |
+| Prefix `check` (B-1) | INFO | unmoved | **INFO** |
+| L-G3 | 0 | 0 | **GREEN** |
+| E-4 drift | current ×2 | current ×2 (`96c3fa63…`) | **GREEN ×2** |
+| test/css | 9/111 ×2 | 9/111 ×2 | **GREEN ×2** |
+| test:css-equivalence | 19/19, MIRROR-DEFECTS 0 | 19/19, every line 0 | **GREEN** |
+| vue-tsc lib/demo/test · build | 0/0/0 · built | 0/0/0 · built | **GREEN** |
+| E-6 size | 98,922 / 13,786 | 98,922 / 13,786 | **GREEN** |
+| L-6 frozen bytes | held | held (diff 0 lines) | **GREEN** |
+| P-6 · E-8 · V-9 + CI step · Z-1 · Z-3 publish half | cited to X.P.W7P | unchanged | **cited to X.P.W7P** (OTP-keyed) |
+
+### Commit roster (this sitting)
+value.js `4ade6de9` (RESUME 8 open) · this Close's commit. Prior sittings: RESUME 7 `eeed0116` `628d23b6` `f4dcbd85` `4a4db5f5` `79a457d0` `2a2130cf` `08331dfa` `4a4aff04` `01ed56bd` `fe74f3d4` (+ checks/repairs `cc85fce6` `bea59b3d` `e8fc097f` `f63efc87` `198cefb4`); `.o`…`.l4` per earlier closes. bbnf-lang `x-p-w7-typescript` at `f0059db14` (none this sitting). parse-that: none this sitting.
+
+### Residuals (named owners)
+- **The release chain** (P-6, E-8, V-9 + CI step, Z-1, Z-3 publish half, bbnf-lang PR #1 merge, `gen-grammar.mjs --check` through `node_modules`). **Owner:** X.P.W7P, GATE-KEYED on the owner's npm one-time password.
+- **The independent L-G1 re-read** on new bytes. **Owner:** X.P.W8's close (ADDENDUM (k) 2), in an owner/orchestrator window (AC power, lid open, sibling fleets idle).
+- **B-1** (prefix `check` compares a historical product datum). **Owner:** X.P.W8 or a later bench unit (E-3).
+- **The valid-CSS long tail.** **Owner:** X.P.W8 (ADDENDUM (j)).
+- **LW-1 (INFO)** `src/value.ts:30-33` doc comment. **Owner:** the L-20 check.
+
+### Escalations
+None. ESC-W7r7-1 is discharged by ADDENDUM (k); no timing run was attempted.
+
+### Four-verb line
+W7.md has no §State clause and designates no seat to stamp VERIFIED. Every engineering gate reads GREEN on the frozen bytes, L-G1 ×2 stands on its read of record, and no node cell is UNREAD ×2 under item 3. X.P.W7 stays **IMPLEMENTED**; the L-20 check audits and reads VERIFIED/CONFORMANT; the release gates ride X.P.W7P.
