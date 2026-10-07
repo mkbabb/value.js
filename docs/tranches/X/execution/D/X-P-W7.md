@@ -3276,3 +3276,49 @@ SERVED MODEL: claude-opus-5-5. Read: W7.md whole (303 lines, ADDENDA (a)–(j));
 - **X-W11** (value.js publish) rides X.P.W7P; unchanged.
 
 **Counts (self-count):** gates reproduced by this seat's own runs 5 (frozen bytes, test/css 111, L-G3, manifest 25/25, mail); L-G1 figures re-derived from bytes, not counted as a read; not reproduced 1 gate family (L-G1, 4 engines, 0 reads launched); gates failed 0. Defect rows 5: HIGH 1 · MINOR 1 · INFO 3. Honest-RED 5 gates, all relieved to X.P.W7P. Product bytes moved 0; bench records written 0. Adjacent edits: none.
+
+## RESUME 8 — Open (2026-10-07, seat 0, `claude-opus-5-5`, Track D; COHESION §0eq + W7.md ADDENDUM (k))
+
+- **Ruling cited (never re-opened):** ESC-W7r7-1 RULED at COHESION §0eq (W7.md ADDENDUM (k)). The RESUME 7 Close read (`fe74f3d4`, records banked by Repair 1 `bea59b3d`) is the **read of record**. The L-20 check of L-G1 is an **audit of the banked records**, never a second timing run. An independent re-read is owed at X.P.W8's close, not here. Node reps at load 8.0–8.56 are supplementary (item 3). Earlier rulings §0ed/§0ee/§0ef stand: `large-eq` is the cell of record, whole `large` is INFO, and the bytes are frozen at `08331dfa`. `npm publish` stays with X.P.W7P.
+- **LEDGER row (read):** `IMPLEMENTED 2026-09-17 (RESUME 7 Close 2026-10-06, fe74f3d4)`. Not CLOSED, so this is RESUME MODE. The status cell is left as it is: it states the true state, and RESUME 7's open set the same precedent. An event line is appended.
+- **alreadyDone (commits verified at RESUME 7 Open; none is re-dispatched):** `.o .p .t .e .v .k .k2 .g .l .l2 .l3 .l4 .cp .eq .gap .gap2`. **0 units owed.**
+- **Frozen bytes hold:** ⟨`git diff --stat 08331dfa HEAD -- src test/css bench/paired bench/corpus package.json package-lock.json`⟩ → empty. ⟨`git status --porcelain src test/css bench`⟩ → empty. parse-that is unmoved: ⟨`git -C ../parse-that log --oneline -1`⟩ → `cb9c0d4`. Nothing in this seat's writable set was dirty, so no work was inherited.
+- **Mail (E13 Step-0, four paths):** value `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` (still the newest tranche dir; it has no `coordination/`) · keyframes `V/coordination/` · atlas `P/coordination/`.
+  - ⟨`find … -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 hits on every path.
+  - glass `BL/**` → 160 newer files. These are glass's own formation (PLAN/LEDGER/waves/formation-audit; `sweeps/inbound-fold.out` is glass's own inbound fold), and none is addressed to value.js.
+  - ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → `0`. **0 UNREAD**; a dated sweep line is appended to INBOX.md.
+
+## RESUME 8 Baseline (BEFORE, read-only, 2026-10-07; product bytes = `08331dfa`, frozen per §0ef)
+
+No unit is owed. **No timing is read or claimed here** (ADDENDUM (k) 1: the check audits the banked read). This baseline banks the audit's preconditions as found.
+
+| Item (ADDENDUM (k) 1) | Command | Read | State |
+|---|---|---|---|
+| Record files exist and are committed | ⟨`ls …/parse-that/evidence/W7/l-g1-close/close`⟩ · ⟨`git status --porcelain -- docs/tranches/X/parse-that/evidence/W7/l-g1-close \| wc -l`⟩ | node r1/r2 + browser br-r1, br-r2/br-r3 × {chromium, firefox, webkit} + `load.txt` + `status.txt` · `0` | present, committed (Repair 1 `bea59b3d`) |
+| Record integrity | ⟨`shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ | `25` (plus one "improperly formatted" warning: the `SERVED MODEL` / `#` header lines) | 25/25 = Repair 2's count |
+| Instrument unchanged since the read | ⟨`git diff --stat fe74f3d4 HEAD -- bench/paired`⟩ · ⟨`git log --oneline -1 -- bench/paired`⟩ | empty · `f4dcbd85` (`.eq`, before the read) | unchanged |
+| Product bytes = frozen | ⟨`git diff --stat 08331dfa HEAD -- src …`⟩ | empty | frozen hold |
+| Product hash in records = `08331dfa` / emission `96c3fa63…`; per-rep load; ratios recomputed; full matrix incl. `large-eq` | (check) | not audited here | owed: the check's own arithmetic |
+| Host load (INFO only; no read depends on it) | ⟨`sysctl -n vm.loadavg`⟩ | `{ 128.57 220.46 362.53 }` | unquiet. Irrelevant under (k): an unquiet host is not a defect |
+
+**B-1 (RESUME 7) stands as INFO.** `prefix.mjs check` is RED only on the pre-`.gap` `refusal.product` record. The cuts are unmoved (E-3, not regenerated).
+
+**greenBeforeCure:** none. No unit is owed, so nothing is born-RED-then-cured.
+
+## RESUME 8 Unit plan (2026-10-07)
+
+- **Units owed: 0. groups: `[]`.** `.z` re-opens only in X.P.W7P (OTP-keyed).
+- **Close (orchestrator note; ADDENDUM (k)):** it does NOT re-time. It cites the RESUME 7 Close (`fe74f3d4`) as the read of record.
+- **Check:** an AUDIT of the banked L-G1 records per (k) item 1, NEVER a new timing run. It covers:
+  - the record files are committed;
+  - the product hash is `08331dfa` / emission `96c3fa63…`;
+  - every rep carries its 1-min load, and the reps of record are those < 8;
+  - every ratio is recomputed from the raw samples;
+  - the full matrix is covered: whole/acc/rej × entries plus `large-eq` (whole `large` = INFO);
+  - `bench/paired/**` is unchanged since the read.
+- Node reps at load ≥ 8 are supplementary (item 3). Any node cell with fewer than two reps < 8 is honest-RED "UNREAD ×2" and is carried to X.P.W8's close.
+- **Verdict:** CONFORMANT, or CONFORMANT-HONEST-RED naming each UNREAD node cell. Then X.P.W8 opens. Never `npm publish`.
+
+## RESUME 8 Unit receipts
+
+(none: 0 units owed)
