@@ -1,0 +1,82 @@
+{
+ "tag": "v390",
+ "theme": "light",
+ "phase": "after",
+ "W": 390,
+ "H": 844,
+ "base": "http://localhost:9131",
+ "at": "2026-10-07T15:21:10.863Z",
+ "arms": {
+  "L3-8": {
+   "names": [
+    {
+     "name": "Remote 0",
+     "w": 93,
+     "ch": 9,
+     "clipped": false
+    },
+    {
+     "name": "A Long Published Palette Name That Must Truncate",
+     "w": 205,
+     "ch": 20,
+     "clipped": true
+    },
+    {
+     "name": "Remote 2",
+     "w": 92,
+     "ch": 9,
+     "clipped": false
+    },
+    {
+     "name": "Remote 3",
+     "w": 90,
+     "ch": 9,
+     "clipped": false
+    },
+    {
+     "name": "Remote 4",
+     "w": 92,
+     "ch": 9,
+     "clipped": false
+    },
+    {
+     "name": "Remote 5",
+     "w": 91,
+     "ch": 9,
+     "clipped": false
+    }
+   ],
+   "frame": "frames/after-L3-8_browse-v390-light.jpg",
+   "pass": true
+  }
+ },
+ "gates": {
+  "/browse": {
+   "route": "/browse",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "Browse",
+     "cMax": 16,
+     "cMaxText": "3",
+     "P": true,
+     "H": true
+    },
+    {
+     "role": "inspector",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "My Palettes",
+     "cMax": 14,
+     "cMaxText": "Search your palettes...",
+     "P": true,
+     "H": true
+    }
+   ]
+  }
+ }
+}

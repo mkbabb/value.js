@@ -1,0 +1,29 @@
+  gate /nope/xyz stage: P=0 H=25.888/18.2685 (Not Found vs Back to the picker)
+  gate /palettes stage: P=0 H=25.888/32.928 RED (92.0%,88.8,20.0 vs Lab)
+  gate /palettes inspector: P=0 H=25.888/21 (My Palettes vs Search your palettes...)
+  gate /admin/tags stage: P=0 H=25.888/18.2685 (Tags vs Retry)
+L3-1 RED {"/nope/xyz":{"pairs":[{"title":"Not Found","t":{"fs":25.888,"fw":400,"lines":1},"headline":"This address names no view of ","h":{"fs":25.888,"fw":700,"lines":2}}],"frame":"frames/before-L3-1_nope_xyz-v390-dark.jpg"},"/palettes":{"pairs":[{"title":"My Palettes","t":{"fs":25.888,"fw":400,"lines":1},"headline":"No saved palettes yet.","h":{"fs":25.888,"fw":700,"lines":1}}],"frame":"frames/before-L3-
+  gate /admin/tags stage: P=0 H=25.888/18.2685 (Tags vs Retry)
+  gate /admin/flagged stage: P=0 H=25.888/18.2685 (Flagged vs Retry)
+  gate /admin/users stage: P=0 H=25.888/21 (Users vs Search users...)
+  gate /admin/audit stage: P=0 H=25.888/18.2685 (Audit Log vs Retry)
+  gate /atmosphere stage: P=0 H=20.352/21 RED (Field vs Analogous)
+L3-2 RED {"/admin/tags":{"plate":true,"deadControls":[],"frame":"frames/before-L3-2_admin_tags-v390-dark.jpg"},"/admin/flagged":{"plate":true,"deadControls":[],"frame":"frames/before-L3-2_admin_flagged-v390-dark.jpg"},"/admin/users":{"plate":true,"deadControls":["Prune empty"],"frame":"frames/before-L3-2_admin_users-v390-dark.jpg"},"/admin/audit":{"plate":true,"deadControls":[],"frame":"frames/before-L3-2_
+  gate /palettes stage: P=0 H=25.888/32.928 RED (92.0%,88.8,20.0 vs Lab)
+  gate /palettes inspector: P=0 H=25.888/21 (My Palettes vs Search your palettes...)
+L3-4 RED {"wellH":127,"capMidY":314,"addMidY":367,"addTop":334,"capBottom":324,"frame":"frames/before-L3-4_palettes-v390-dark.jpg"}
+  gate /gradient stage: P=0 H=20.352/16 (Stops vs 1 → 2linear)
+  gate /gradient inspector: P=0 H=25.888/14 (My Palettes vs Search your palettes...)
+  gate /extract stage: P=0 H=25.888/null (Extract vs )
+  gate /extract inspector: P=0 H=25.888/14 (My Palettes vs Search your palettes...)
+  gate /generate stage: P=0 H=25.888/20.352 (Generate vs )
+  gate /generate inspector: P=0 H=25.888/14 (My Palettes vs Search your palettes...)
+  gate /blob stage: P=0 H=25.888/32.928 RED (92.0%,88.8,20.0 vs Lab)
+  gate /blob inspector: P=0 H=20.352/12.179 (Geometry vs Copy JSON)
+L3-5 GREEN {"/gradient":{"stage":{"wrapH":1216,"cardH":1216,"dead":34,"emptyFillGap":938},"inspector":{"wrapH":503,"cardH":503,"dead":49,"emptyFillGap":17},"frame":"frames/before-L3-5_gradient-v390-dark.jpg"},"/extract":{"stage":{"wrapH":476,"cardH":476,"dead":122,"emptyFillGap":202},"inspector":{"wrapH":503,"cardH":503,"dead":49,"emptyFillGap":17},"frame":"frames/before-L3-5_extract-v390-dark.jpg"},"/genera
+  gate /gradient stage: P=0 H=20.352/21 RED (Stops vs Linear)
+  gate /gradient inspector: P=0 H=25.888/21 (My Palettes vs Search your palettes...)
+L3-7 RED {"rest":{"text":"No stop selected Position % Remove Select a stop on the rail to remove it.","rows":4,"h":134,"position":true,"remove":true,"posTop":341,"rmTop":407},"sel":{"text":"Stop 1 of 2 Position % Remove A gradient needs at least two stops, so this one cannot be r","rows":4,"h":150,"position":true,"remove":true,"posTop":341,"rmTop":407},"frames":["frames/before-L3-7_rest-v390-dark.jpg","fra
+  gate /browse stage: P=0 H=25.888/16 (Browse vs 3)
+  gate /browse inspector: P=0 H=25.888/14 (My Palettes vs Search your palettes...)
+L3-8 GREEN {"names":[{"name":"Remote 0","w":93,"ch":9,"clipped":false},{"name":"A Long Published Palette Name That Must Truncate","w":205,"ch":20,"clipped":true},{"name":"Remote 2","w":92,"ch":9,"clipped":false},{"name":"Remote 3","w":90,"ch":9,"clipped":false},{"name":"Remote 4","w":92,"ch":9,"clipped":false},{"name":"Remote 5","w":91,"ch":9,"clipped":false}],"frame":"frames/before-L3-8_browse-v390-dark.jpg

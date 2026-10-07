@@ -1,0 +1,327 @@
+(node:5004) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:5068) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 16 tests using 1 worker
+
+[1A[2K(node:5095) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      43 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      44 |     // enter transition otherwise screenshots the rail mid-flight (see
+      45 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:42:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:69:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--fa6c7--s-color-no-mirrored-bleed--smoke/error-context.md
+
+
+[1A[2K(node:6738) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[3/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[4/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+
+    Error: the region never settled
+
+    the region never settled
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m""[39m
+    Received: [31m"div.relative.w-full runs 1 animation(s)"[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at smoke/fixtures/settle.ts:85
+
+      83 |             { timeout, message: "the region never settled" },
+      84 |         )
+    > 85 |         .toBe("");
+         |          ^
+      86 | }
+      87 |
+        at regionSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/settle.ts:85:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:50:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:152:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--bb2b6-ramp-paints-its-own-ordinal-smoke/error-context.md
+
+
+[1A[2K(node:10708) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    Error: the region never settled
+
+    the region never settled
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m""[39m
+    Received: [31m"div.relative.w-full carries vj-enter-enter-from vj-enter-enter-active"[39m
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/settle.ts:85
+
+      83 |             { timeout, message: "the region never settled" },
+      84 |         )
+    > 85 |         .toBe("");
+         |          ^
+      86 | }
+      87 |
+        at regionSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/settle.ts:85:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:50:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:197:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--c9334-pixel-reads-its-own-ordinal-smoke/error-context.md
+
+
+[1A[2K(node:13681) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K  4) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      43 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      44 |     // enter transition otherwise screenshots the rail mid-flight (see
+      45 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:42:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:264:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--677eb-andles-stay-inside-the-rail-smoke/error-context.md
+
+
+[1A[2K(node:15872) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[7/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K  5) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last()[22m
+    [2m    - locator resolved to <div role="group" data-v-0bdce0e9="" data-testid="gradient-stop-bar" aria-label="Gradient stop rail" class="gradient-rail relative select-none touch-none cursor-copy">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      337 |     const box = (await rail.boundingBox())!;
+      338 |     for (const f of [0.12, 0.2, 0.28, 0.36, 0.44, 0.52, 0.6, 0.72, 0.8, 0.88]) {
+    > 339 |         await rail.click({ position: { x: box.width * f, y: box.height / 2 } });
+          |                    ^
+      340 |     }
+      341 |     await expect(rail.locator("[data-stop-id]")).toHaveCount(12);
+      342 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:339:20
+
+    Error Context: test-results/oracles-o21-gradient-rail--e6126-nal-mints-at-any-rail-width-smoke/error-context.md
+
+
+[1A[2K(node:17632) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[8/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K  6) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+      114 | /**
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:46:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:385:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--73481-the-ordinal-the-rail-paints-smoke/error-context.md
+
+
+[1A[2K(node:19782) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[9/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K[10/16] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K  7) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('main', { name: 'Gradient' }).getByRole('button', { name: /remove/i })
+    Expected: [32m1[39m
+    Received: [31m0[39m
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('button', { name: /remove/i })[22m
+    [2m    16 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+
+
+      518 |     // ONE removal control on the route — not one per stop, and not a second
+      519 |     // species hiding behind a gesture.
+    > 520 |     await expect(main.getByRole("button", { name: /remove/i })).toHaveCount(1);
+          |                                                                 ^
+      521 |
+      522 |     // At the two-stop floor the control is PRESENT and refused, with a reason.
+      523 |     await rail.locator("[data-stop-id]").first().click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:520:65
+
+    Error Context: test-results/oracles-o21-gradient-rail--99cb5-control-carrying-its-reason-smoke/error-context.md
+
+
+[1A[2K(node:24706) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[11/16] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions
+[1A[2K  8) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('.pane-wrapper--stage[role="region"]').getByTestId('gradient-stop-inspector')
+    Expected substring: [32m"Stop 2 of 3"[39m
+    Received string:    [31m" Select a stop on the rail to set its position or remove it. "[39m
+    Timeout: 8000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 8000ms[22m
+    [2m  - waiting for locator('.pane-wrapper--stage[role="region"]').getByTestId('gradient-stop-inspector')[22m
+    [2m    20 × locator resolved to <div data-v-0bdce0e9="" data-testid="gradient-stop-inspector" class="stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1">…</div>[22m
+    [2m       - unexpected value " Select a stop on the rail to set its position or remove it. "[22m
+
+
+      132 |     await handles.nth(1).click();
+      133 |     await expect(page.getByTestId("gradient-stop-inspector")).toHaveCount(1);
+    > 134 |     await expect(stage.getByTestId("gradient-stop-inspector")).toContainText(
+          |                                                                ^
+      135 |         `Stop 2 of ${before + 1}`,
+      136 |     );
+      137 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:134:64
+
+    Error Context: test-results/oracles-o29-scene-contract-23e43-ctor-and-its-stable-actions-smoke/error-context.md
+
+
+[1A[2K(node:26511) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[12/16] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:233:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene
+[1A[2K[13/16] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — blob: the preview repaints after a forced WebGL context loss
+[1A[2K  9) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+
+    Error: the preview draws through no WebGL context (not a WebGL substrate)
+
+    the preview draws through no WebGL context (not a WebGL substrate)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      429 |                     "the preview draws through no WebGL context (not a WebGL substrate)",
+      430 |             })
+    > 431 |             .toBeGreaterThan(0);
+          |              ^
+      432 |
+      433 |         await loseContext(page, selector, "lose");
+      434 |         await expect
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:431:14
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke/error-context.md
+
+
+[1A[2K(node:36288) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[14/16] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss
+[1A[2K[15/16] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[1A[2K[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[j4] blob preview@rest=0.000 last="Reset" inViewport=true hit=true rect={"x":607.703125,"y":207.078125,"w":83.296875,"h":36} preview@last=0.818
+
+[1A[2K  10) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+
+    Expected to fail, but passed.
+
+
+[1A[2K(node:36861) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[16/16] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[1A[2K[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[j4] atmosphere preview@rest=0.113 last="Reset" inViewport=true hit=true rect={"x":607.703125,"y":371.421875,"w":83.296875,"h":36} preview@last=0.113
+
+[1A[2K  10 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+  6 passed (8.7m)
+EXIT 1
