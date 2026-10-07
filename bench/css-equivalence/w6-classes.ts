@@ -116,7 +116,7 @@ function simpleBlocks(input: string): Edit[] {
             else if (u.kind === "punct" && u.text === ")") depth -= 1;
         }
         if (depth !== 0) continue;
-        edits.push({ start: t.start, end: tokens[j - 1]!.end, text: "0" });
+        edits.push({ start: t.start, end: tokens[j - 1]!.end, text: "var(--g)" });
         i = j - 1;
     }
     return edits;
@@ -178,7 +178,10 @@ export const W6_CLASSES: readonly W6Class[] = [
     {
         // GAP-GRP (X.P.W7 `.gap`, COHESION §0ee; W7.md ADDENDUM (h) 3): a `()` group inside a math
         // function, css-values-4 §10.1 `<calc-value> = … | ( <calc-sum> )`. The incumbent has no group
-        // term. Repair: each outermost group spelled `0` — the incumbent must then agree.
+        // term. Repair: each outermost group spelled `var(--g)` — the incumbent must then agree. (Spelled
+        // `0` until X.P.W8 `.v`: the candidate now checks a calculation's types, css-values-4 §10.8, so a
+        // `<number>` stand-in for a length group reads `calc(100dvh - 0)`, a type error; a `var()` stands
+        // for any type, css-variables-1 §3, as the group's own contents may.)
         id: "GAP-GRP",
         governs: "MIS_ACCEPT",
         edits: simpleBlocks,

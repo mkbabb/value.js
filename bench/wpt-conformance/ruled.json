@@ -3879,6 +3879,807 @@
       "class": "W8g-PROPERTY-GRAMMAR",
       "reason": "parseCssValue reads a property-agnostic component value list; this input is a well-formed one and is invalid only against grid-template-columns's own grammar, which the value parser is never given.",
       "spec": "css-values-4 §2 component values; css-grid-2 §7.2 none | <track-list> | <auto-track-list> | subgrid <line-name-list>?"
+    },
+    {
+      "file": "css/css-values/acos-asin-atan-atan2-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(atan2(90px, 100%))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/hypot-pow-sqrt-invalid.html",
+      "kind": "invalid",
+      "property": "outline-offset",
+      "input": "hypot(1, 2)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match outline-offset (<length>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-ui-4 `outline-offset`"
+    },
+    {
+      "file": "css/css-values/hypot-pow-sqrt-invalid.html",
+      "kind": "invalid",
+      "property": "outline-offset",
+      "input": "pow(1, 2)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match outline-offset (<length>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-ui-4 `outline-offset`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(min(0))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(min(0%))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(min(0px))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(min(0s))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(min(0Hz))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(min(0dpi))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(min(1deg, 0%))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(max(0))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(max(0%))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(max(0px))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(max(0s))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(max(0Hz))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(max(0dpi))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-angle-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(max(1deg, 0%))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "min(0)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "min(0%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "min(0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "min(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "min(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "min(1px, 0%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "max(0)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "max(0%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "max(0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "max(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "max(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-invalid.html",
+      "kind": "invalid",
+      "property": "border-left-width",
+      "input": "max(1px, 0%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match border-left-width (<line-width> = <length [0,∞]> | thin | medium | thick). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-backgrounds-3 `border-left-width`"
+    },
+    {
+      "file": "css/css-values/minmax-length-percent-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(1%, 0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-length-percent-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(1%, 0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-length-percent-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(1%, 0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-length-percent-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(1%, 0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-length-percent-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(1%, 0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-length-percent-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(1%, 0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "min(0px)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "min(0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "min(0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "min(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "min(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "max(0px)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "max(0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "max(0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "max(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-number-invalid.html",
+      "kind": "invalid",
+      "property": "opacity",
+      "input": "max(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match opacity (<opacity-value> = <number> | <percentage>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-color-4 `opacity`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(1%, 0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(1%, 0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(1%, 0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "min(1%, 0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(1%, 0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(1%, 0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(1%, 0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-percentage-invalid.html",
+      "kind": "invalid",
+      "property": "margin-left",
+      "input": "max(1%, 0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match margin-left (<length-percentage> | auto). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-box-4 `margin-left`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "min(0)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "min(0%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "min(0px)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "min(0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "min(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "min(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "min(1s, 0%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "max(0)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "max(0%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "max(0px)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "max(0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "max(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "max(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/minmax-time-invalid.html",
+      "kind": "invalid",
+      "property": "transition-delay",
+      "input": "max(1s, 0%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transition-delay (<time>#). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transitions-1 `transition-delay`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "font-weight",
+      "input": "abs(0px)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match font-weight (<number [1,1000]> | normal | bold | bolder | lighter). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-fonts-4 `font-weight`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "font-weight",
+      "input": "abs(0s)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match font-weight (<number [1,1000]> | normal | bold | bolder | lighter). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-fonts-4 `font-weight`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "font-weight",
+      "input": "abs(0deg)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match font-weight (<number [1,1000]> | normal | bold | bolder | lighter). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-fonts-4 `font-weight`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "font-weight",
+      "input": "abs(0Hz)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match font-weight (<number [1,1000]> | normal | bold | bolder | lighter). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-fonts-4 `font-weight`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "font-weight",
+      "input": "abs(0dpi)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match font-weight (<number [1,1000]> | normal | bold | bolder | lighter). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-fonts-4 `font-weight`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "font-weight",
+      "input": "abs(1%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match font-weight (<number [1,1000]> | normal | bold | bolder | lighter). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-fonts-4 `font-weight`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "font-weight",
+      "input": "sign(10%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match font-weight (<number [1,1000]> | normal | bold | bolder | lighter). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-fonts-4 `font-weight`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "tab-size",
+      "input": "abs(10%)",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match tab-size (<number [0,∞]> | <length [0,∞]>). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-text-3 `tab-size`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "tab-size",
+      "input": "1px * sign(10%)",
+      "class": "W8v-PROPERTY-GRAMMAR",
+      "reason": "Outside a math function a `*` is a delimiter token, so the input is a well-formed component value list; its refusal is tab-size's grammar (<number [0,∞]> | <length [0,∞]>), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.1 (operators only inside a math function); css-text-3 `tab-size`"
+    },
+    {
+      "file": "css/css-values/signs-abs-invalid.html",
+      "kind": "invalid",
+      "property": "tab-size",
+      "input": "1px * sign(1em + 10%)",
+      "class": "W8v-PROPERTY-GRAMMAR",
+      "reason": "Outside a math function a `*` is a delimiter token, so the input is a well-formed component value list; its refusal is tab-size's grammar (<number [0,∞]> | <length [0,∞]>), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.1 (operators only inside a math function); css-text-3 `tab-size`"
+    },
+    {
+      "file": "css/css-values/sin-cos-tan-invalid.html",
+      "kind": "invalid",
+      "property": "transform",
+      "input": "rotate(tan(45deg ))",
+      "class": "W8v-PROPERTY-TYPE",
+      "reason": "A valid calculation (structure, arity and type check clean, css-values-4 §10.1–§10.8) whose type — or whose percentage, resolvable only against a base type the property names — does not match transform (rotate( [ <angle> | <zero> ] )). A math function's type is matched against the property's grammar (§10.9), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §10.8.1 (percent hint), §10.9 (type checking); css-transforms-1 `rotate()`"
+    },
+    {
+      "file": "css/css-values/urls/url-request-modifiers-invalid.sub.html",
+      "kind": "invalid",
+      "property": "background-image",
+      "input": "\"http://{{hosts[][]}}:{{ports[http][0]}}/css/support/1x1-green.png\" cross-origin(anonymous)",
+      "class": "W8v-PROPERTY-GRAMMAR",
+      "reason": "A <string> followed by a function is a well-formed component value list (no url() wraps the string, so its modifiers are plain functions); its refusal is background-image's grammar (<bg-image># = [ <image> | none ]#), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §4.5 <url>; css-backgrounds-3 `background-image`"
+    },
+    {
+      "file": "css/css-values/urls/url-request-modifiers-invalid.sub.html",
+      "kind": "invalid",
+      "property": "background-image",
+      "input": "\"http://{{hosts[][]}}:{{ports[http][0]}}/css/support/1x1-green.png\" integrity(\"sha384-foobar\")",
+      "class": "W8v-PROPERTY-GRAMMAR",
+      "reason": "A <string> followed by a function is a well-formed component value list (no url() wraps the string, so its modifiers are plain functions); its refusal is background-image's grammar (<bg-image># = [ <image> | none ]#), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §4.5 <url>; css-backgrounds-3 `background-image`"
+    },
+    {
+      "file": "css/css-values/urls/url-request-modifiers-invalid.sub.html",
+      "kind": "invalid",
+      "property": "background-image",
+      "input": "\"http://{{hosts[][]}}:{{ports[http][0]}}/css/support/1x1-green.png\" referrer-policy(no-referrer)",
+      "class": "W8v-PROPERTY-GRAMMAR",
+      "reason": "A <string> followed by a function is a well-formed component value list (no url() wraps the string, so its modifiers are plain functions); its refusal is background-image's grammar (<bg-image># = [ <image> | none ]#), which the property-agnostic parseCssValue is never given.",
+      "spec": "css-values-4 §4.5 <url>; css-backgrounds-3 `background-image`"
     }
   ]
 }

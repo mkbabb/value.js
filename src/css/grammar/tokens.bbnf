@@ -11,11 +11,18 @@
 // Keywords and function names are ASCII case-insensitive (`/…/i`); every keyword carries an
 // ident-boundary lookahead so `nonesuch` is never `none`.
 
+// A comment is consumed as whitespace is, and stands for nothing (css-syntax-3 §4.3.2): every component-
+// value separator below reads `/* … */` wherever it reads whitespace (`auto /**/`, `1px/**/2px`); X.P.W8 `.v`. A `/`
+// that opens a comment is never the slash separator; an unclosed comment is refused.
 ws       = /\s*/ ;
 ws1      = /\s+/ ;
-comma    = /\s*,\s*/ ;
-slash    = /\s*\/\s*/ ;
-close    = /\s*\)/ ;
+// The stylesheet layer's readers split TEXT on whitespace alone (`stylesheet.bbnf`); a component value
+// reads a comment where it reads whitespace: `sp` / `sp1`.
+sp       = /(?:\s|\/\*[\s\S]*?\*\/)*/ ;
+sp1      = /(?:\s|\/\*[\s\S]*?\*\/)+/ ;
+comma    = /(?:\s|\/\*[\s\S]*?\*\/)*,(?:\s|\/\*[\s\S]*?\*\/)*/ ;
+slash    = /(?:\s|\/\*[\s\S]*?\*\/)*\/(?!\*)(?:\s|\/\*[\s\S]*?\*\/)*/ ;
+close    = /(?:\s|\/\*[\s\S]*?\*\/)*\)/ ;
 
 // <number> — a bare number is never the prefix of a dimension or a percentage, and never the
 // integer part of a longer number (`0` of `0.15deg`): css-syntax-3 §4.3.12 consumes digits greedily.

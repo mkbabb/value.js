@@ -11,7 +11,7 @@
 
 // ── component values ──────────────────────────────────────────────────────────────
 // Precedence, loosest first: the comma list, the slash list, the space list.
-valueTop   = ws >> commaList << ws ;
+valueTop   = sp >> commaList << sp ;
 commaList  = slashList , ( comma >> slashList ) * ;
 slashList  = spaceList , ( slash >> spaceList ) * ;
 spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
@@ -22,9 +22,9 @@ spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
 // `[` and `]` are tokens of their own (css-syntax-3 §4.3.1), so a grid `<line-names>` block stands
 // directly against the components beside it: the minified `[a]1fr[b]`,
 // `[top]auto[stage]1fr[bottom]auto` (css-grid-2 §7.2 `<track-list>`; X.P.W8 `.g`).
-termSep    = /\s+|(?=[:;])|(?<=[:;])|(?<=\))(?=[a-zA-Z_-][\w-]*\()|(?<=\])(?=[^\s,\/()\]:;])|(?<=[^\s,\/(\[:;])(?=\[)/ ;
+termSep    = /(?:\s|\/\*[\s\S]*?\*\/)+|(?=[:;])|(?<=[:;])|(?<=\))(?=[a-zA-Z_-][\w-]*\()|(?<=\])(?=[^\s,\/()\]:;])|(?<=[^\s,\/(\[:;])(?=\[)/ ;
 
-valueTerm  = colorCall | varCall | urlCall | mathCall | call | numeric | string | lineNames | operator | identTerm | badTerm ;
+valueTerm  = colorCall | varCall | urlCall | urlString | typeCall | mathCall | call | numeric | string | lineNames | operator | identTerm | badTerm ;
 // A component no production above reads (`@` in `calc(1px @ 2px)`). It is matched only to be
 // REFUSED — its action answers `css_syntax` expecting a scalar, with the diagnostic spanning exactly
 // this run — so a malformed value names its offending component rather than the whole input.
@@ -32,13 +32,13 @@ badTerm    = /[^\s(),\/:;"']+/ ;
 
 // var() / env(): the fallback is a `<declaration-value>?` (css-variables-1 §2), which may end in a
 // comma or be empty — `var(--a, red,)` and `var(--a,)` are valid; the trailing comma carries no item.
-varCall    = /(?:var|env)(?=\()/i , /\(\s*/ >> varBody << close ;
+varCall    = /(?:var|env)(?=\()/i , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> varBody << close ;
 varBody    = commaList << ( /\s*,/ ? ) ;
 
 // A colour function is a colour, never a generic call: `rgb(1)` is a malformed colour.
 colorCall  = relativeColor | rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | oklchFn | colorFn | hex ;
 colorHead  = /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(/i ;
-call       = ( callName - ( colorHead | urlHead ) ) , /\(\s*/ >> ( commaList ? ) << close ;
+call       = ( callName - ( colorHead | /(?:url|type)\(/i ) ) , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> ( commaList ? ) << close ;
 callName   = /(?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\()/ ;
 
 // An unquoted url is ONE token, css-syntax-3 §4.3.6 `<url-token>`: `url(` not followed (after
@@ -51,21 +51,36 @@ urlHead    = /url\((?!\s*["'])/i ;
 urlCall    = /url(?=\()/i , /\(\s*/ >> ( urlBody ? ) << close ;
 urlBody    = /(?:[^\s"'()\\\x00-\x08\x0b\x0e-\x1f\x7f]|\\[^\n\r\f])+/ ;
 
+// A quoted url is `url( <string> <url-modifier>* )` (css-values-4 §4.5): each modifier an identifier or
+// a function. Its action refuses a modifier named twice (ASCII case-insensitively) and a request URL
+// modifier whose argument is not its own (css-values-5 §4.5.1: `cross-origin(anonymous | use-credentials)`,
+// `integrity(<string>)`, `referrer-policy(<keyword>)`). A quoted url this does not read is refused, never
+// read as a generic call. X.P.W8 `.v`.
+urlString  = /url(?=\()/i , /\(\s*/ >> string , ( sp1 >> ( call | identTerm ) ) * << close ;
+
+// `type( <syntax> )` — attr()'s `<attr-type>` (css-values-5 §7.7) and `@function`'s parameter type, and
+// `image-set()`'s `type( <string> )` (css-images-4 §2.2): one leaf whose two groups are the name and the
+// argument, kept as authored. `<syntax> = '*' | <syntax-component> [ '|' <syntax-component> ]*`, a
+// component a `<type-name>` or an identifier with an optional `+`/`#` multiplier (css-values-5 §8.1).
+typeCall   = /(type)\(\s*("(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*'|\*|(?:<transform-list>|(?:<[a-zA-Z][\w-]*>|-?[a-zA-Z_][\w-]*)[#+]?)(?:\s*\|\s*(?:<transform-list>|(?:<[a-zA-Z][\w-]*>|-?[a-zA-Z_][\w-]*)[#+]?))*)\s*\)/i ;
+
 // A math function (css-values-4 §10) reads its arguments as a call does, and admits a `()` simple
 // block as a term: §10.1 `<calc-value> = … | ( <calc-sum> )` (`calc(50% - (1em / 2))`). The group is
 // a call with the EMPTY name, which the serializer spells `( … )`; its body is never empty. A group
 // stands only inside a math function or another group, never as a bare component value.
-mathCall   = /(?:calc|min|max|clamp|round|mod|rem|sin|cos|tan|asin|acos|atan2|atan|pow|sqrt|hypot|log|exp|abs|sign)(?=\()/i ,
-             /\(\s*/ >> mathComma << close ;
+// Its arguments are then checked as a calculation — structure, arity, type (§10.1–§10.8, css-values-5
+// `progress()`) — whatever property it stands in (`src/css/bbnf/calc.ts`; X.P.W8 `.v`).
+mathCall   = /(?:calc|min|max|clamp|round|mod|rem|sin|cos|tan|asin|acos|atan2|atan|pow|sqrt|hypot|log|exp|abs|sign|progress)(?=\()/i ,
+             /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> mathComma << close ;
 mathComma  = mathSlash , ( comma >> mathSlash ) * ;
 mathSlash  = mathSpace , ( slash >> mathSpace ) * ;
 mathSpace  = mathTerm , ( mathSep >> mathTerm ) * ;
 // css-values-4 §10.1: `+` and `-` must be surrounded by whitespace; `*` and `/` need none. A `/` is
 // already the slash list's separator; a `*` may stand directly against the terms on either side
 // (`calc(1px*2)` reads as `calc(1px * 2)` does). `calc(1px+2px)` stays refused (X.P.W7 `.gap2`).
-mathSep    = termSep | /\s*(?=\*)|(?<=\*)/ ;
+mathSep    = termSep | /(?:\s|\/\*[\s\S]*?\*\/)*(?=\*)|(?<=\*)/ ;
 mathTerm   = group | valueTerm ;
-group      = /\(\s*/ >> mathComma << close ;
+group      = /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> mathComma << close ;
 
 // `1.` is not a number (css-syntax-3 §4.3.12, PB-12): a numeric is never followed by a `.`.
 // Its two groups, the number and the unit, are the action's arguments (a `groups` leaf: no re-split).
@@ -86,22 +101,22 @@ lineNames  = /\[\s*(?:(?:-?[a-zA-Z_\u0080-\uffff]|--)[\w\u0080-\uffff-]*(?:\s+(?
 
 // A single scalar — `parseCssScalar`: a colour, a number with its unit, a string, an
 // operator token or a keyword.
-scalarTop  = ws >> scalarTerm << ws ;
+scalarTop  = sp >> scalarTerm << sp ;
 scalarTerm = colorMix | lightDark | colorCall | numeric | string | operator | identTerm ;
 
 // A whole colour — `parseCssColor`.
-colorTop   = ws >> color << ws ;
+colorTop   = sp >> color << sp ;
 
 // ── keyframe selectors ────────────────────────────────────────────────────────────
-keyframeSelector = ws >> ( selectorKeyword | selectorNamed | percentage ) << ws ;
+keyframeSelector = sp >> ( selectorKeyword | selectorNamed | percentage ) << sp ;
 selectorKeyword  = /(?:from|to)(?![\w-])/i ;
-selectorNamed    = /(?:entry|exit|cover|contain)(?![\w-])/i , ( ws1 >> percentage ) ? ;
+selectorNamed    = /(?:entry|exit|cover|contain)(?![\w-])/i , ( sp1 >> percentage ) ? ;
 
 // ── <easing-function> ─────────────────────────────────────────────────────────────
-timingFunction = ws >> ( cubicBezier | stepsFn | linearFn | timingKeyword ) << ws ;
+timingFunction = sp >> ( cubicBezier | stepsFn | linearFn | timingKeyword ) << sp ;
 timingKeyword  = /(?:linear|ease-in-out|ease-in|ease-out|ease|step-start|step-end)(?![\w(-])/i ;
 cubicBezier    = /cubic-bezier\(\s*/i >> number , comma >> number , comma >> number , comma >> number << close ;
 stepsFn        = /steps\(\s*/i >> number , ( comma >> stepPosition ) ? << close ;
 stepPosition   = /(?:jump-start|jump-end|jump-none|jump-both|start|end)(?![\w-])/i ;
 linearFn       = /linear\(\s*/i >> linearStop , ( comma >> linearStop ) * << close ;
-linearStop     = number , ( ws1 >> percentage ) ? , ( ws1 >> percentage ) ? ;
+linearStop     = number , ( sp1 >> percentage ) ? , ( sp1 >> percentage ) ? ;

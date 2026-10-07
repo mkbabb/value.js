@@ -11,6 +11,7 @@ import { NAMED_COLORS } from "../named-colors";
 import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, ParseIssue } from "../types";
 import type { ColorNode } from "./color";
 import { keywordColor } from "./color";
+import { isCalculation } from "./calc";
 import type { Actions } from "./generated/grammar";
 import type { Numeric, Quantity } from "./math";
 
@@ -107,6 +108,40 @@ const urlValue = ([name, url]: readonly [string, string | undefined]): CssCall =
     callNode(name, url === undefined ? NO_ARGS : Object.freeze([keyword(url)]));
 
 /**
+ * A quoted url (`value.bbnf` `urlString`): the `url` call holding its string, or — with modifiers — the
+ * space list of the string and its modifiers, as a generic call reads the same text. A modifier named
+ * twice (ASCII case-insensitively) is refused (css-values-4 §4.5).
+ */
+function urlStringValue([name, url, modifiers]: readonly [string, ValueNode, readonly ValueNode[]]): ValueNode {
+    if (modifiers.length === 0) return callNode(name, Object.freeze([url as CssValue]));
+    const seen = new Set<string>();
+    for (const m of modifiers) {
+        if (isRefused(m)) return m;
+        const key = asciiLower(m.kind === "call" ? m.name : m.kind === "scalar" && m.payload.type === "keyword" ? m.payload.value : "");
+        if (seen.has(key) || !requestModifierValid(key, m)) return refused("css_syntax", "url modifier");
+        seen.add(key);
+    }
+    return callNode(name, Object.freeze([listOf("space")([url, modifiers])]) as readonly CssValue[]);
+}
+/** css-values-5 §4.5.1's request URL modifiers, each with its one argument; any other modifier is free. */
+const REQUEST_MODIFIER: ReadonlyMap<string, RegExp> = new Map([
+    ["cross-origin", /^(?:anonymous|use-credentials)$/i],
+    ["integrity", /^(?:"[\s\S]*"|'[\s\S]*')$/],
+    ["referrer-policy", /^(?:no-referrer|no-referrer-when-downgrade|same-origin|origin|strict-origin|origin-when-cross-origin|strict-origin-when-cross-origin|unsafe-url)$/i],
+]);
+function requestModifierValid(name: string, m: CssValue): boolean {
+    const arg = REQUEST_MODIFIER.get(name);
+    if (arg === undefined) return true;
+    if (m.kind !== "call" || m.args.length !== 1) return false;
+    const [a] = m.args;
+    return a?.kind === "scalar" && a.payload.type === "keyword" && arg.test(a.payload.value);
+}
+const asciiLower = (s: string) => s.replace(/[A-Z]/g, (c) => String.fromCharCode(c.charCodeAt(0) + 32));
+
+/** `type()` (`value.bbnf` `typeCall`): the call of one argument, its `<syntax>` or `<string>` kept as authored. */
+const typeValue = (name: string, syntax: string): CssCall => callNode(name, Object.freeze([keyword(syntax)]));
+
+/**
  * A grid `<line-names>` block (`value.bbnf` `lineNames`): one keyword, spelled canonically — its
  * identifiers as authored, single-spaced, inside `[` `]` — so it serializes to text that reads back equal.
  */
@@ -114,6 +149,12 @@ const lineNamesValue = (token: string): CssScalar => {
     const names = token.slice(1, -1).trim();
     return keyword(names === "" ? "[]" : `[${names.split(/\s+/).join(" ")}]`);
 };
+
+/** A math function (`value.bbnf` `mathCall`): a call whose arguments are a calculation (`./calc`), else refused. */
+function mathValue(parts: readonly [string, ValueNode | undefined]): ValueNode {
+    const node = callValue(parts);
+    return node.kind !== "call" || isCalculation(node) ? node : refused("css_syntax", "calculation");
+}
 
 /** A `()` simple block (`value.bbnf` `group`): a call with the empty name, its arguments read as a call's are. */
 const groupValue = (body: ValueNode): ValueNode => callValue(["", body]);
@@ -208,8 +249,10 @@ export const valueActions = {
     call: { kind: "map", fn: callValue },
     varCall: { kind: "map", fn: callValue },
     urlCall: { kind: "map", fn: urlValue },
+    urlString: { kind: "map", fn: urlStringValue },
+    typeCall: { kind: "groups", fn: typeValue },
     lineNames: { kind: "map", fn: lineNamesValue },
-    mathCall: { kind: "map", fn: callValue },
+    mathCall: { kind: "map", fn: mathValue },
     mathSpace: { kind: "map", fn: listOf("space") },
     mathSlash: { kind: "map", fn: listOf("slash") },
     mathComma: { kind: "map", fn: listOf("comma") },
