@@ -24,7 +24,7 @@ spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
 // `[top]auto[stage]1fr[bottom]auto` (css-grid-2 §7.2 `<track-list>`; X.P.W8 `.g`).
 termSep    = /(?:\s|\/\*[\s\S]*?\*\/)+|(?=[:;])|(?<=[:;])|(?<=\))(?=[a-zA-Z_-][\w-]*\()|(?<=\])(?=[^\s,\/()\]:;])|(?<=[^\s,\/(\[:;])(?=\[)/ ;
 
-valueTerm  = colorCall | varCall | urlCall | urlString | typeCall | mathCall | call | numeric | string | lineNames | operator | identTerm | badTerm ;
+valueTerm  = colorCall | mixCall | varCall | urlCall | urlString | typeCall | mathCall | call | numeric | string | lineNames | operator | identTerm | badTerm ;
 // A component no production above reads (`@` in `calc(1px @ 2px)`). It is matched only to be
 // REFUSED — its action answers `css_syntax` expecting a scalar, with the diagnostic spanning exactly
 // this run — so a malformed value names its offending component rather than the whole input.
@@ -40,6 +40,14 @@ colorCall  = relativeColor | rgbFn | hslFn | hwbFn | labFn | lchFn | oklabFn | o
 colorHead  = /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(/i ;
 call       = ( callName - ( colorHead | /(?:url|type)\(/i ) ) , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> ( commaList ? ) << close ;
 callName   = /(?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\()/ ;
+
+// `color-mix()` (css-color-5 §3) in a value list, kept as the call it is (its colours as authored, never
+// computed): `color-mix( <color-interpolation-method>? , [ <color> && <percentage [0,100]>? ]# )`. The method
+// is the colour reader's own `mixMethod` (`in` a rectangular space, or a polar space with an optional
+// `<hue-interpolation-method>`) and a comma ends it; the items are a comma list whose action checks each
+// is one colour with at most one percentage, a literal one in [0, 100] (`src/css/bbnf/value.ts` `mixValue`),
+// unchecked when the call holds an arbitrary substitution function (css-variables-1 §3). X.P.W8 `.t`.
+mixCall    = /color-mix(?=\()/i , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> ( mixMethod << comma ) ? , commaList << close ;
 
 // An unquoted url is ONE token, css-syntax-3 §4.3.6 `<url-token>`: `url(` not followed (after
 // whitespace) by a quote reads its body whole — never as a component value list — up to its `)`,

@@ -177,7 +177,8 @@ export function asColorNode(node: ColorNode | Numeric): ColorNode {
     return node;
 }
 
-type MixMethodNode = Readonly<{ kind: "method"; space: string; hue?: HueMethod }>;
+/** A parsed `<color-interpolation-method>`: its space and hue method, and its keywords as authored (`words`). */
+export type MixMethodNode = Readonly<{ kind: "method"; space: string; hue?: HueMethod; words: readonly string[] }>;
 type MixItemNode = Readonly<{ kind: "mixItem"; color: ColorNode; percent?: Numeric }>;
 
 /** The first refusing node among `nodes`: a syntax refusal outranks a context one. */
@@ -238,8 +239,10 @@ export const colorActions = {
     lightDark: { kind: "map", fn: ([light, dark]: readonly [ColorNode | Numeric, ColorNode | Numeric]): ColorNode =>
         [asColorNode(light), asColorNode(dark)].find((n) => n.kind === "invalid") ?? CONTEXT_NODE },
     mixPolar: { kind: "map", fn: ([space, hue]: readonly [string, string | undefined]): MixMethodNode =>
-        Object.freeze({ kind: "method", space, ...(hue === undefined ? {} : { hue: hueMethodOf(hue) }) }) },
-    mixRect: { kind: "map", fn: (space: string): MixMethodNode => Object.freeze({ kind: "method", space }) },
+        Object.freeze({ kind: "method", space, words: hue === undefined ? [space] : [space, ...hue.split(/\s+/)], ...(hue === undefined ? {} : { hue: hueMethodOf(hue) }) }) },
+    mixRect: { kind: "map", fn: (space: string): MixMethodNode => Object.freeze({ kind: "method", space, words: [space] }) },
+    mixMethod: { kind: "map", fn: ([word, method]: readonly [string, MixMethodNode]): MixMethodNode =>
+        Object.freeze({ ...method, words: Object.freeze([word, ...method.words]) }) },
     mixLead: { kind: "map", fn: ([percent, color]: readonly [Numeric, ColorNode | Numeric]) => mixItem(color, percent) },
     mixTrail: { kind: "map", fn: ([color, percent]: readonly [ColorNode | Numeric, Numeric | undefined]) => mixItem(color, percent) },
     colorMix: { kind: "map", fn: colorMix },

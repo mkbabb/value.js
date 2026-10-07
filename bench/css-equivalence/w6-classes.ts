@@ -65,6 +65,7 @@ const HUE_INDEX: Readonly<Record<string, number>> = { hsl: 0, hsla: 0, hwb: 0, l
 const COLOUR_HEADS = ["rgb", "rgba", "hsl", "hsla", "hwb", "lab", "lch", "oklab", "oklch", "color"];
 const MATH_HEADS = new Set(["calc", "min", "max", "clamp", "abs", "sign"]);
 const COLOUR5_HEADS = new Set(["color-mix", "light-dark"]);
+const MIX_HEAD = new Set(["color-mix"]);
 
 /** A colour argument that IS one math-function call, as the span it covers. */
 function mathArguments(input: string): Edit[] {
@@ -215,6 +216,19 @@ export const W6_CLASSES: readonly W6Class[] = [
         governs: "MIS_ACCEPT",
         edits: (input) =>
             [...input.matchAll(/[^\x00-\x7f]+/g)].map((m) => ({ start: m.index, end: m.index + m[0].length, text: "x" })),
+    },
+    {
+        // W8t-MIX (X.P.W8 `.t`; DIVERGENCE-LEDGER §19-T): a value list's `color-mix()` keeps css-color-5 §3,
+        // `color-mix( <color-interpolation-method>? , [ <color> && <percentage [0,100]>? ]# )`; the incumbent
+        // reads any `color-mix(…)` as a generic call. Repair: each `color-mix()` call spelled `red` — the rest
+        // must then agree, and every call so spelled must be one the candidate refuses ALONE as `<color-mix()>`.
+        id: "W8t-MIX",
+        governs: "FALSE_REJECT_IN_SHAPE",
+        edits: (input) => callSpans(input, MIX_HEAD).map((s) => ({ start: s.start, end: s.end, text: "red" })),
+        holds: ({ run, input }) => callSpans(input, MIX_HEAD).every((s) => {
+            const alone = run.candidate(input.slice(s.start, s.end));
+            return !ok(alone) && (alone.value?.diagnostics ?? []).some((d) => (d as { expected?: readonly string[] }).expected?.includes("<color-mix()>"));
+        }) ? null : "a repaired color-mix() call is not one the candidate refuses alone as <color-mix()>",
     },
     {
         // SC-2 (COHESION §0bx; W6.md `.b`): `display-p3-linear` (css-color-4 §10.5). Repair: the space

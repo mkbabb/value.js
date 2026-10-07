@@ -59,7 +59,9 @@ relativeComp  = mathFn | percentage | angle | number | none | calcKeyword ;
 // ── color-mix() — css-color-5 §3 ────────────────────────────────────────────────
 // color-mix() = color-mix( <color-interpolation-method>? , [ <color> && <percentage [0,100]>? ]# )
 colorMix     = /color-mix\(\s*/i >> ( mixMethod << comma ) ? , mixItem , ( comma >> mixItem ) * << close ;
-mixMethod    = /in(?![\w-])/i >> sp1 >> ( mixPolar | mixRect ) ;
+// The method keeps its keywords as authored (`in`, the space, the hue method's two words) for a value
+// list's `color-mix()` call (`value.bbnf` `mixCall`; X.P.W8 `.t`).
+mixMethod    = /in(?![\w-])/i , sp1 >> ( mixPolar | mixRect ) ;
 mixPolar     = polarSpace , ( sp1 >> hueMethod ) ? ;
 mixRect      = rectSpace ;
 polarSpace   = /(?:hsl|hwb|lch|oklch)(?![\w-])/i ;

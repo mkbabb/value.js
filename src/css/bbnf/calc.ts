@@ -204,7 +204,8 @@ function mathType(call: CssCall): MathType {
     }
 }
 
-function substitutes(v: CssValue): boolean {
+/** Whether a value holds an arbitrary substitution function anywhere (css-variables-1 §3): its grammar is checked only later. */
+export function substitutes(v: CssValue): boolean {
     if (v.kind === "scalar") return false;
     if (v.kind === "call" && SUBSTITUTION.test(v.name)) return true;
     return (v.kind === "call" ? v.args : v.items).some(substitutes);

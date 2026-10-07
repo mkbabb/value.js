@@ -52,7 +52,11 @@ export function serializeCssColor(color: CssColor): Result<string, ColorIssue> {
     const [a, b, c] = color.channels as readonly [Channel, Channel, Channel];
     const alpha = alphaSuffix(color.alpha);
     switch (color.space) {
-        case "rgb": return ok(`rgb(${format(a)} ${format(b)} ${format(c)}${alpha})`);
+        //  rgb() clamps its channels to [0, 255] when parsed (css-color-4 §5.1); an sRGB colour outside that
+        //  range (`color(srgb 0.2 0 10)`, which never clamps, §10) is spelled `color(srgb …)` so it round-trips.
+        case "rgb": return ok([a, b, c].some((v) => v !== "none" && (v < 0 || v > 255))
+            ? `color(srgb ${format(a === "none" ? a : a / 255)} ${format(b === "none" ? b : b / 255)} ${format(c === "none" ? c : c / 255)}${alpha})`
+            : `rgb(${format(a)} ${format(b)} ${format(c)}${alpha})`);
         case "hsl": return ok(`hsl(${angle(a)} ${b === "none" ? b : `${format(b * 100)}%`} ${c === "none" ? c : `${format(c * 100)}%`}${alpha})`);
         case "hwb": return ok(`hwb(${angle(a)} ${b === "none" ? b : `${format(b * 100)}%`} ${c === "none" ? c : `${format(c * 100)}%`}${alpha})`);
         case "lab": return ok(`lab(${a === "none" ? a : `${format(a)}%`} ${format(b)} ${format(c)}${alpha})`);

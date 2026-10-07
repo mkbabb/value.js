@@ -9,9 +9,10 @@
 import type { CssCall, CssScalar, CssValue } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
 import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, ParseIssue } from "../types";
-import type { ColorNode } from "./color";
+import type { ColorNode, MixMethodNode } from "./color";
 import { keywordColor } from "./color";
-import { isCalculation } from "./calc";
+import { isCalculation, substitutes } from "./calc";
+import { isMixItem, keepsSignature } from "./color5";
 import type { Actions } from "./generated/grammar";
 import type { Numeric, Quantity } from "./math";
 
@@ -97,7 +98,24 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     if (body === undefined) return MAY_BE_EMPTY.test(name) ? callNode(name, NO_ARGS) : refused("css_syntax", "function argument");
     if (isRefused(body)) return body;
     //  A comma list's items are already a frozen array (`listOf`), shared as the arguments.
-    return callNode(name, body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]));
+    const call = callNode(name, body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]));
+    //  `alpha()` and `contrast-color()` keep their css-color-5 signatures (`./color5`; X.P.W8 `.t`).
+    return keepsSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+}
+
+/**
+ * `color-mix()` in a value list (`value.bbnf` `mixCall`, css-color-5 §3): the call as a generic call reads
+ * the same text — the method a space list of its keywords as authored, then the items — once each item is one colour
+ * with at most one percentage, a literal one in [0, 100]. A call holding an arbitrary substitution function
+ * is not checked (css-variables-1 §3). X.P.W8 `.t`.
+ */
+function mixValue([name, method, body]: readonly [string, MixMethodNode | undefined, ValueNode]): ValueNode {
+    if (isRefused(body)) return body;
+    const items = body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]);
+    const args = method === undefined ? items
+        : Object.freeze([Object.freeze({ kind: "list", separator: "space", items: Object.freeze(method.words.map(keyword)) }) as CssValue, ...items]);
+    const call = callNode(name, args);
+    return substitutes(call) || items.every(isMixItem) ? call : refused("css_syntax", "<color-mix()>");
 }
 
 /**
@@ -247,6 +265,7 @@ export const valueActions = {
     scalarTerm: { kind: "map", fn: (v: ValueNode | ColorNode) =>
         (v.kind === "color" || v.kind === "context" || v.kind === "invalid" ? colorScalar(v) : v) },
     call: { kind: "map", fn: callValue },
+    mixCall: { kind: "map", fn: mixValue },
     varCall: { kind: "map", fn: callValue },
     urlCall: { kind: "map", fn: urlValue },
     urlString: { kind: "map", fn: urlStringValue },
