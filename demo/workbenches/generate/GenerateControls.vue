@@ -169,7 +169,10 @@ defineExpose({ regenerate, save, copyColors });
                 <!-- The verb cluster wraps as ONE unit, right-seated. The
                      one verb rides the deliberate-primary register (L6
                      rider — root vocabulary, no costume), AS plate chrome. -->
-                <div class="ml-auto flex items-center gap-2 shrink-0">
+                <!-- X.W12U.m · A2-VA-L2-8: the cluster itself wraps, right-seated,
+                     inside the plate's line (`max-w-full`); at 360 a one-line
+                     cluster ran 34 px past the card. -->
+                <div class="ml-auto flex flex-wrap items-center justify-end gap-2 max-w-full">
                     <!-- X-DS pass 1 (V1-09): seated commands wear the quiet and
                          text rungs — no floating capsule (and no halo) on a
                          well. -->
