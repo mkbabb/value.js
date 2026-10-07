@@ -1,0 +1,30 @@
+{
+ "tag": "v390",
+ "theme": "light",
+ "W": 390,
+ "H": 844,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T08:21:38.862Z",
+ "arms": {
+  "L2-6": {
+   "/": [
+    "Reset color:44x44",
+    "Copy color:44x44",
+    "Random color:48.4x48.4",
+    "Palettes:44x44",
+    "Extract palette:44x44"
+   ],
+   "/generate": [
+    "Regenerate:44x44",
+    "Save palette:48.4x48.4",
+    "Copy colors:44x44"
+   ],
+   "/gradient": [
+    "Reset:44x44",
+    "Copy CSS:48.4x48.4",
+    "Seed from palette:44x44"
+   ],
+   "pass": true
+  }
+ }
+}

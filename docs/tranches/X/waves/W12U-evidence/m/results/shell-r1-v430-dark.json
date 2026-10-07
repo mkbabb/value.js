@@ -1,0 +1,651 @@
+{
+ "tag": "v430",
+ "theme": "dark",
+ "inset": "portrait",
+ "W": 430,
+ "H": 932,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T08:21:29.770Z",
+ "routes": {
+  "/": {
+   "docSH": 8489,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    526
+   ],
+   "inspector": [
+    16,
+    669,
+    398,
+    7786
+   ],
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:346/149",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": false
+  },
+  "/palettes": {
+   "docSH": 1873,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    1313,
+    398,
+    526
+   ],
+   "inspector": [
+    16,
+    128,
+    398,
+    1169
+   ],
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:346/149",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": false
+  },
+  "/browse": {
+   "docSH": 1981,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    634
+   ],
+   "inspector": [
+    16,
+    777,
+    398,
+    1169
+   ],
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": true
+  },
+  "/extract": {
+   "docSH": 1823,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    476
+   ],
+   "inspector": [
+    16,
+    619,
+    398,
+    1169
+   ],
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": false
+  },
+  "/mix": {
+   "docSH": 1162,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    602,
+    398,
+    526
+   ],
+   "inspector": [
+    16,
+    128,
+    398,
+    459
+   ],
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:201/149",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": false
+  },
+  "/generate": {
+   "docSH": 1833,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    486
+   ],
+   "inspector": [
+    16,
+    629,
+    398,
+    1169
+   ],
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:201/149",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": false
+  },
+  "/gradient": {
+   "docSH": 1576,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    229
+   ],
+   "inspector": [
+    16,
+    373,
+    398,
+    1169
+   ],
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:201/149",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": false
+  },
+  "/atmosphere": {
+   "docSH": 967,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    724
+   ],
+   "inspector": null,
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": false
+  },
+  "/blob": {
+   "docSH": 3423,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    2863,
+    398,
+    526
+   ],
+   "inspector": [
+    16,
+    128,
+    398,
+    2719
+   ],
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:346/149",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": false
+  },
+  "/admin/users": {
+   "docSH": 967,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    690
+   ],
+   "inspector": null,
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": true
+  },
+  "/admin/names": {
+   "docSH": 967,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    678
+   ],
+   "inspector": null,
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": true
+  },
+  "/admin/audit": {
+   "docSH": 967,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    678
+   ],
+   "inspector": null,
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": true
+  },
+  "/admin/flagged": {
+   "docSH": 967,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    615
+   ],
+   "inspector": null,
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": true
+  },
+  "/admin/tags": {
+   "docSH": 967,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    624
+   ],
+   "inspector": null,
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": false,
+   "plate": true
+  },
+  "/no-such-route": {
+   "docSH": 967,
+   "ih": 967,
+   "docSW": 446,
+   "iw": 446,
+   "h1": [
+    16,
+    104,
+    398,
+    16
+   ],
+   "h1Top": "h1",
+   "band": [
+    16,
+    16,
+    398,
+    72
+   ],
+   "stage": [
+    16,
+    128,
+    398,
+    306
+   ],
+   "inspector": null,
+   "env": [
+    0,
+    0,
+    34,
+    0
+   ],
+   "runs": [
+    "dock-layer.dock-layer--full.dock-run:166/108",
+    "dock-layer.dock-layer--summary:44/44",
+    "dock-run-status:1/1"
+   ],
+   "appPad": "16px 16px 34px",
+   "notFound": true,
+   "plate": false
+  }
+ }
+}

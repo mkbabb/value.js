@@ -1,0 +1,122 @@
+{
+ "tag": "l844",
+ "theme": "dark",
+ "W": 844,
+ "H": 390,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T07:47:54.680Z",
+ "arms": {
+  "L2-1": {
+   "error": "TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"load\"\u001b[22m\n",
+   "pass": false
+  },
+  "L2-2": {
+   "redInkPx": 256,
+   "canvasZ": "-1",
+   "h1Position": "static",
+   "pass": true
+  },
+  "L2-5": {
+   "single": true,
+   "/palettes": {
+    "stage": {
+     "x": 47,
+     "y": 343,
+     "r": 797,
+     "b": 872
+    },
+    "inspector": {
+     "x": 47,
+     "y": 98,
+     "r": 797,
+     "b": 327
+    }
+   },
+   "/mix": {
+    "stage": {
+     "x": 47,
+     "y": 597,
+     "r": 797,
+     "b": 1126
+    },
+    "inspector": {
+     "x": 47,
+     "y": 98,
+     "r": 797,
+     "b": 581
+    }
+   },
+   "/blob": {
+    "stage": {
+     "x": 47,
+     "y": 266,
+     "r": 797,
+     "b": 795
+    },
+    "inspector": {
+     "x": 47,
+     "y": 98,
+     "r": 797,
+     "b": 250
+    }
+   },
+   "pass": true
+  },
+  "L2-8": {
+   "verbR": 759,
+   "cardR": 772,
+   "vw": 844,
+   "pass": true
+  },
+  "L2-11": {
+   "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=select-trigger], [role=combobox]').filter({ hasText: /linear|radial|conic/i }).first()\u001b[22m\n",
+   "pass": false
+  },
+  "SA": {
+   "inset": "landscape",
+   "/": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/palettes": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/browse": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/generate": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/gradient": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/atmosphere": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/admin/users": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "pass": true
+  }
+ }
+}

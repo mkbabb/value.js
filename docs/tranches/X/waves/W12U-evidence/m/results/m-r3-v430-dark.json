@@ -1,0 +1,154 @@
+{
+ "tag": "v430",
+ "theme": "dark",
+ "W": 430,
+ "H": 932,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T11:53:13.962Z",
+ "arms": {
+  "L2-1": {
+   "box": {
+    "x": 48,
+    "y": 273,
+    "r": 384,
+    "b": 552
+   },
+   "vh": 932,
+   "pass": true
+  },
+  "L2-2": {
+   "redInkPx": 256,
+   "canvasZ": "-1",
+   "h1Position": "static",
+   "pass": true
+  },
+  "L2-5": {
+   "single": true,
+   "/palettes": {
+    "stage": {
+     "x": 16,
+     "y": 1313,
+     "r": 414,
+     "b": 1839
+    },
+    "inspector": {
+     "x": 16,
+     "y": 128,
+     "r": 414,
+     "b": 1297
+    }
+   },
+   "/mix": {
+    "stage": {
+     "x": 16,
+     "y": 294,
+     "r": 414,
+     "b": 820
+    },
+    "inspector": {
+     "x": 16,
+     "y": 128,
+     "r": 414,
+     "b": 278
+    }
+   },
+   "/blob": {
+    "stage": {
+     "x": 16,
+     "y": 373,
+     "r": 414,
+     "b": 899
+    },
+    "inspector": {
+     "x": 16,
+     "y": 128,
+     "r": 414,
+     "b": 357
+    }
+   },
+   "pass": true
+  },
+  "L2-6": {
+   "/": [
+    "Reset color:44x44",
+    "Copy color:44x44",
+    "Random color:48.4x48.4",
+    "Palettes:44x44",
+    "Extract palette:44x44"
+   ],
+   "/generate": [
+    "Regenerate:44x44",
+    "Save palette:48.4x48.4",
+    "Copy colors:44x44"
+   ],
+   "/gradient": [
+    "Reset:44x44",
+    "Copy CSS:48.4x48.4",
+    "Seed from palette:44x44"
+   ],
+   "pass": true
+  },
+  "L2-8": {
+   "verbR": 384,
+   "cardR": 397,
+   "vw": 446,
+   "pass": true
+  },
+  "L2-11": {
+   "before": {
+    "x": 33,
+    "y": 513,
+    "r": 383,
+    "b": 689
+   },
+   "after": null,
+   "pass": true
+  },
+  "SA": {
+   "inset": "portrait",
+   "/": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/palettes": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/browse": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/generate": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/gradient": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/atmosphere": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/admin/users": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "pass": true
+  }
+ }
+}

@@ -1,0 +1,98 @@
+{
+ "tag": "v430",
+ "theme": "light",
+ "W": 430,
+ "H": 932,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T08:40:24.307Z",
+ "arms": {
+  "L2-1": {
+   "error": "TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"load\"\u001b[22m\n",
+   "pass": false
+  },
+  "L2-2": {
+   "error": "TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/generate\", waiting until \"load\"\u001b[22m\n",
+   "pass": false
+  },
+  "L2-5": {
+   "error": "Error: page.goto: Navigation to \"http://localhost:9000/#/palettes\" is interrupted by another navigation to \"http://localhost:9000/#/generate\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/p",
+   "pass": false
+  },
+  "L2-6": {
+   "/": [
+    "Reset color:44x44",
+    "Copy color:44x44",
+    "Random color:48.4x48.4",
+    "Palettes:44x44",
+    "Extract palette:44x44"
+   ],
+   "/generate": [
+    "Regenerate:44x44",
+    "Save palette:48.4x48.4",
+    "Copy colors:44x44"
+   ],
+   "/gradient": [
+    "Reset — unavailable:44x44",
+    "Copy CSS — unavailable:44x44",
+    "Seed from palette — unavailable:44x44"
+   ],
+   "pass": true
+  },
+  "L2-8": {
+   "verbR": 384,
+   "cardR": 397,
+   "vw": 446,
+   "pass": true
+  },
+  "L2-11": {
+   "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=select-trigger], [role=combobox]').filter({ hasText: /linear|radial|conic/i }).first()\u001b[22m\n",
+   "pass": false
+  },
+  "SA": {
+   "inset": "portrait",
+   "/": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/palettes": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/browse": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/generate": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/gradient": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/atmosphere": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/admin/users": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 34px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "pass": true
+  }
+ }
+}

@@ -1,0 +1,145 @@
+{
+ "tag": "l844",
+ "theme": "dark",
+ "W": 844,
+ "H": 390,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T08:40:20.085Z",
+ "arms": {
+  "L2-1": {
+   "error": "TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"load\"\u001b[22m\n",
+   "pass": false
+  },
+  "L2-2": {
+   "error": "TimeoutError: page.goto: Timeout 240000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/generate\", waiting until \"load\"\u001b[22m\n",
+   "pass": false
+  },
+  "L2-5": {
+   "single": true,
+   "/palettes": {
+    "stage": {
+     "x": 47,
+     "y": 1139,
+     "r": 797,
+     "b": 1668
+    },
+    "inspector": {
+     "x": 47,
+     "y": 98,
+     "r": 797,
+     "b": 1123
+    }
+   },
+   "/mix": {
+    "stage": {
+     "x": 47,
+     "y": 597,
+     "r": 797,
+     "b": 1126
+    },
+    "inspector": {
+     "x": 47,
+     "y": 98,
+     "r": 797,
+     "b": 581
+    }
+   },
+   "/blob": {
+    "stage": {
+     "x": 47,
+     "y": 2894,
+     "r": 797,
+     "b": 3423
+    },
+    "inspector": {
+     "x": 47,
+     "y": 98,
+     "r": 797,
+     "b": 2878
+    }
+   },
+   "pass": true
+  },
+  "L2-6": {
+   "/": [
+    "Reset color:44x44",
+    "Copy color:44x44",
+    "Random color:48.4x48.4",
+    "Palettes:44x44",
+    "Extract palette:44x44"
+   ],
+   "/generate": [
+    "Regenerate — unavailable:44x44",
+    "Save palette — unavailable:44x44",
+    "Copy colors — unavailable:44x44"
+   ],
+   "/gradient": [
+    "Reset — unavailable:44x44",
+    "Copy CSS — unavailable:44x44",
+    "Seed from palette — unavailable:44x44"
+   ],
+   "pass": true
+  },
+  "L2-8": {
+   "pass": false
+  },
+  "L2-11": {
+   "before": {
+    "x": 72,
+    "y": 12,
+    "r": 263,
+    "b": 164
+   },
+   "after": null,
+   "pass": true
+  },
+  "SA": {
+   "inset": "landscape",
+   "/": {
+    "top": [
+     "Select color space@414,386-484,423"
+    ],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/palettes": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/browse": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/generate": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/gradient": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/atmosphere": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "/admin/users": {
+    "top": [],
+    "end": [],
+    "pad": "8px 47px 21px",
+    "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+   },
+   "pass": false
+  }
+ }
+}
