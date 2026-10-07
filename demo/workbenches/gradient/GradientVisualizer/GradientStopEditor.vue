@@ -694,67 +694,75 @@ function onCaretKeydown(e: KeyboardEvent) {
              and it carries the numeric position entry the rail never had — so
              the selected stop is finally addressable by a number, not only by
              aim. It is in normal flow, so it collides with nothing. -->
+        <!-- X.W12U.h · A2-VA-L3-7: with no selection the inspector is its hint
+             line alone. It spent two rows (three at 390) on an inert state: a
+             "No stop selected" label, an empty Position field, a disabled
+             Remove and the hint. With a stop selected, Position and Remove
+             share one row (the floor still reads as a refused Remove with its
+             reason — b4). -->
         <div
             class="stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1"
             data-testid="gradient-stop-inspector"
         >
-            <p class="text-caption plate-ink min-w-0">
-                {{
-                    selectedStop
-                        ? `Stop ${selectedIndex + 1} of ${stops.length}`
-                        : "No stop selected"
-                }}
+            <p v-if="!selectedStop" class="text-caption plate-ink min-w-0">
+                Select a stop on the rail to set its position or remove it.
             </p>
+            <template v-else>
+                <p class="text-caption plate-ink min-w-0">
+                    Stop {{ selectedIndex + 1 }} of {{ stops.length }}
+                </p>
 
-            <label class="stop-inspector-field flex items-center gap-1.5 text-caption">
-                <span class="plate-ink">Position</span>
-                <NumberField
-                    class="stop-position-field"
-                    :model-value="selectedStop ? round1(selectedStop.position) : null"
-                    :min="0"
-                    :max="100"
-                    :step="0.1"
-                    :format-options="{ maximumFractionDigits: 1 }"
-                    :disabled="!selectedStop"
-                    @update:model-value="onPositionCommit"
+                <div class="flex items-center gap-x-3">
+                    <label class="stop-inspector-field flex items-center gap-1.5 text-caption">
+                        <span class="plate-ink">Position</span>
+                        <NumberField
+                            class="stop-position-field"
+                            :model-value="round1(selectedStop.position)"
+                            :min="0"
+                            :max="100"
+                            :step="0.1"
+                            :format-options="{ maximumFractionDigits: 1 }"
+                            @update:model-value="onPositionCommit"
+                        >
+                            <NumberFieldInput
+                                data-testid="gradient-stop-position"
+                                inputmode="decimal"
+                                aria-label="Selected stop position, percent"
+                            />
+                        </NumberField>
+                        <span class="plate-ink" aria-hidden="true">%</span>
+                    </label>
+
+                    <!-- X-DS pass 1 (V1-16): glass's quiet Button, so the row speaks one
+                         control shape beside the NumberField (it was a hand-set
+                         squared outline next to glass's pill). -->
+                    <Button
+                        emphasis="quiet"
+                        size="xs"
+                        aria-label="Remove selected stop"
+                        class="stop-inspector-remove"
+                        :disabled="removalRefusal !== null"
+                        :aria-describedby="
+                            removalRefusal ? 'gradient-stop-removal-reason' : undefined
+                        "
+                        @click="requestRemove()"
+                    >
+                        <X class="w-3.5 h-3.5" aria-hidden="true" />
+                        <span>Remove</span>
+                    </Button>
+                </div>
+
+                <!-- The floor's REASON is rendered, not implied: it is the control's
+                     own description, so it is read with the control rather than
+                     discovered by its absence. -->
+                <p
+                    v-if="removalRefusal"
+                    id="gradient-stop-removal-reason"
+                    class="text-caption plate-ink basis-full"
                 >
-                    <NumberFieldInput
-                        data-testid="gradient-stop-position"
-                        inputmode="decimal"
-                        aria-label="Selected stop position, percent"
-                    />
-                </NumberField>
-                <span class="plate-ink" aria-hidden="true">%</span>
-            </label>
-
-            <!-- X-DS pass 1 (V1-16): glass's quiet Button, so the row speaks one
-                 control shape beside the NumberField (it was a hand-set
-                 squared outline next to glass's pill). -->
-            <Button
-                emphasis="quiet"
-                size="xs"
-                aria-label="Remove selected stop"
-                class="stop-inspector-remove"
-                :disabled="removalRefusal !== null"
-                :aria-describedby="
-                    removalRefusal ? 'gradient-stop-removal-reason' : undefined
-                "
-                @click="requestRemove()"
-            >
-                <X class="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Remove</span>
-            </Button>
-
-            <!-- The floor's REASON is rendered, not implied: it is the control's
-                 own description, so it is read with the control rather than
-                 discovered by its absence. -->
-            <p
-                v-if="removalRefusal"
-                id="gradient-stop-removal-reason"
-                class="text-caption plate-ink basis-full"
-            >
-                {{ removalRefusal }}
-            </p>
+                    {{ removalRefusal }}
+                </p>
+            </template>
 
             <!-- One polite channel for what a keyboard trigger would otherwise
                  do in silence (a refused Delete, a completed removal). -->
