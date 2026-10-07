@@ -21,10 +21,16 @@
              `maxTextureDimension2D`: every frame raised a GPUValidationError
              and the field froze or died. The atmosphere is a backdrop, so it
              belongs to the viewport; `lvh` (not `inset-0`'s dynamic height)
-             keeps the backing store stable while mobile toolbars retract. -->
+             keeps the backing store stable while mobile toolbars retract.
+             X.W12U.m · A2-VA-L2-2 — the backdrop paints BEHIND the document
+             (`-z-1`). A positioned `z-index: auto` box paints above every
+             in-flow, non-positioned box of its stacking context, so the fixed
+             canvas covered the route H1 on every route (0 H1 ink pixels in a
+             frame of `/generate`); at `-1` it paints over the root's ground
+             and under all content, which is what a backdrop is. -->
         <canvas
             ref="atmosphereCanvas"
-            class="atmosphere-canvas fixed inset-x-0 top-0 w-full h-lvh pointer-events-none"
+            class="atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"
             :class="overture.b2.value && 'atmosphere-canvas--arrived'"
             :style="
                 auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined
@@ -119,6 +125,7 @@
                     :key="region.role"
                     class="pane-wrapper w-full min-w-0 min-h-0"
                     :class="`pane-wrapper--${region.role}`"
+                    :data-pane="region.key"
                     role="region"
                     :aria-label="region.label"
                 >
@@ -456,6 +463,15 @@ onMounted(() => {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink-muted, var(--muted-foreground));
+}
+
+/* X.W12U.m · A2-VA-L2-4 — a short viewport folds the title's own margin
+   (the band tokens fold in foundation.css under the same query). The title
+   stays VISIBLE: gate A5 struck the sr-only cure. */
+@media (max-height: 30rem) {
+    .route-title {
+        margin-block-end: 0;
+    }
 }
 
 /* X.W5.a — ROLE-KEYED stagger. The plate-land delay follows the region's ROLE

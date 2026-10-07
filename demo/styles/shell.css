@@ -82,7 +82,18 @@
     min-block-size: 100svh;
     width: 100%;
     position: relative;
-    padding: var(--dock-inset) var(--app-gutter) 0.5rem;
+    /* X.W12U.m · A2-VA-L2-12 — the shell clears the device's safe areas.
+     * index.html opts into `viewport-fit=cover`, so the page paints edge to
+     * edge (the ground and the atmosphere run under the notch and the home
+     * indicator) and each padding edge is the larger of its own token and the
+     * inset on that side. Measured with the CDP safe-area override (portrait
+     * bottom 34; landscape left/right 47, bottom 21). The side pair is
+     * PHYSICAL on purpose: the insets are physical (a notch is on the left
+     * of the glass whatever the writing direction). */
+    padding-block-start: max(var(--dock-inset), env(safe-area-inset-top, 0px));
+    padding-left: max(var(--app-gutter), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--app-gutter), env(safe-area-inset-right, 0px));
+    padding-block-end: max(0.5rem, env(safe-area-inset-bottom, 0px));
 }
 
 /* The a11y landmarks are the two band rows. <nav> IS the dock band —
@@ -274,6 +285,22 @@
 @container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-wrapper:has(> .pane-row-follow) {
         contain: size;
+    }
+}
+
+/* X.W12U.m · A2-VA-L2-5 — ONE TRACK: THE ROUTED SUBJECT COMES FIRST.
+ * Palettes, Mix and Blob seat the SHARED picker as their stage, and their own
+ * subject as the inspector. Side by side that reads fine; in one track (the
+ * same condition as above, negated) the shared picker came first and the
+ * route's subject began at y 664 of a 780 px phone, so the three routes opened
+ * on a screen identical to Home's. In one track the shared picker steps after
+ * the subject. Home (`[data-view="picker"]`) is the one view whose stage IS
+ * its subject, so it keeps the picker first. `order` changes the visual
+ * sequence only; the DOM keeps the schema order, so the regions' tab order
+ * still runs picker → subject (the register's specified cure, A2-VA-L2-5). */
+@container pane-row not (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .app-layout:not([data-view="picker"]) .pane-wrapper--stage[data-pane="color-picker"] {
+        order: 1;
     }
 }
 

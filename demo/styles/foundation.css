@@ -508,6 +508,27 @@
     --phi-4: 2.618rem; /* base × φ² */
 }
 
+/* X.W12U.m · A2-VA-L2-4 — SHORT VIEWPORTS (a phone in landscape, 844×390).
+ * The band tokens above are tuned for portrait and desktop; at 390 px tall the
+ * shell spent 127.5 px (33%) on chrome before the stage. Below 30rem of height
+ * the breathing room halves and the band floor drops from the expanded-pill
+ * reserve to the icon atom + 0.5rem. The reserve exists for the collapse ↔
+ * expand morph, and below 1024 px the dock never collapses (Dock.vue `isDesktop`),
+ * so a short phone has no morph to reserve for; the pill's own height still
+ * floors the band. The route H1 sheds its margin here (App.vue). */
+@media (max-height: 30rem) {
+    :root {
+        --dock-inset: 0.5rem;
+        --dock-gap: 0.5rem;
+    }
+}
+/* the reserve drops only where the dock cannot collapse (Dock.vue:87) */
+@media (max-height: 30rem) and (width < 1024px) {
+    :root {
+        --dock-band-min-h: calc(var(--size-icon-btn) + 0.5rem);
+    }
+}
+
 /* Desktop: tighter dock margins.
  * The aspect law (R.W3 Lane A / A4): the desktop grammar — tighter dock, the
  * dual grid below — fires on width AND landscape. A portrait tablet ≥ 1024px
