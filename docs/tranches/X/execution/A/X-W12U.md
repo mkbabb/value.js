@@ -694,3 +694,72 @@ Floors: ⟨`npx vue-tsc -p tsconfig.demo.json --noEmit`⟩ → `TC EXIT 0`; ⟨`
 **Commits (`.h`, 7):** `56a4b8b14` (L3-1) · `0e07d4fe4` (L3-2) · `705bedecf` (L3-4) · `9282dff6f` (L3-5) · `196e646f3` (L3-7) · `3cae1060e` (o21 adjacent) · `c0e1f60d7` (evidence) · plus this receipt.
 
 **Verdict: PARTIAL.**
+
+## Close
+
+Close seat, `claude-opus-5-5`, 2026-10-07 (VERIFY-ONLY; HEAD at open `d2d9e343e`; glass 10.1.0). Spec `W12U.md` read whole (87 lines, addenda (a)–(e)); this record read header → Unit plan, each unit's opening and verdict lines, escalation lines by `grep -n`. Crash recovery ⟨`git status --porcelain | grep W12U`⟩ → one dirty path in the wave's tree, `W12U-evidence/s/results/final/probe-share-dark.txt` (`.s1`'s whole-set re-run, still being written by its run-all at `.s1`'s seat end) — not this seat's, left untouched. Host load ⟨`uptime`⟩ 30 → 408 during this seat (sibling tracks); every reading below carries it. `:9000` was down at open (⟨`curl -w '%{http_code}' localhost:9000/`⟩ → `000`); the served falsifiers ran on a playwright-owned server (`VJS_E2E_PORT=9877`), named as the fallback instrument.
+
+### Commit roster (act 1)
+
+⟨`git merge-base --is-ancestor <h> HEAD`⟩ for every hash the receipts name → 87 of 87 on HEAD (`c8a4959dd`, named in `.m`'s line, is X-W7L's scratch-worktree base, not a `.m` commit). ⟨`git show --name-only` over the roster, filtered against §1 (`demo/**` · `e2e/smoke/**` · `W12U-evidence/**` · this record · LEDGER · INBOX · `relay/` dated addenda)⟩ → 4 paths outside, each a declared §0bt adjacent edit in `.k`'s receipt: `acf53428c` `test/view-accents.test.ts` · `c00004924` `eslint.config.js`, `test/picker-blob-config.test.ts` · `ac687764d` `test/mix-v4.test.ts`. No `src/**`, `package.json`, `api/**` or `scripts/dev/dev.sh` path in any unit commit.
+
+| unit | verdict (receipt) | commits |
+|---|---|---|
+| `.x` | DONE | `b2a8d2ff` · `a40a663c` · `64a7ce8a` |
+| `.s1` | PARTIAL | `f9e1ab74` `3c415667` `bb6727e8` `6bd9ff79` `d8b8e063` `bc0bc5b1` `cc26ac43` `b7d6b40e` `ba88c558` `7af81708` `3f9cb923` `2547936f` `331f4540` `0bd1ec98` `d5d93a5b` `18050f55` `c91f8ac0` `cbe5a88a` `1ff0ee82` `f1bb2095` `895f9318` `7dba392f` `21aeff08` `c20a7c03` + record |
+| `.s2` | PARTIAL | `60e4e237` `711e37fd` `e88fbc69` `8fdfbaa2` `85b7638b` `30035f7b` `12a69e9c` `376b02ce` `f4bd4fd9` `b9cc5273` `4aea64c1` `c9be1792` `b5d67459` `b37f115f` `b906c56e` `e42b3585` `e88848d9` `c7e0b1b4` `994f558e` `ce035807` `6a5b6665` + record |
+| `.s3` | PARTIAL | `1aa1b29a` `5af08fb6` `22c55b56` `ad67ff30` `bd8b7e1a` `0d8653fc` `f3ffcf26` `76762bc6` `0f77093f` `c4aaf762` + record |
+| `.p` | ESCALATED (ESC-W12U-p-1) | `a0ca0980` · `6b04d6da` · `067b4e4b` · `b4b345e7` (O-80a) |
+| `.b` | DONE on its contract; literal gate RED (R-b-1, R-b-2) | `fe382976` · `ea5cf931` · `7c1d9bff` · `4fff02a2` |
+| `.k` | PARTIAL (ESC-W12Uk-1) | `acf53428c` `2ae7344d2` `459130b9c` `7938fc568` `d368584cb` `36dc09c24` `c00004924` `ac687764d` `028925765` `0daa7d376` + record |
+| `.m` | PARTIAL (ESC-W12Um-1) | `55f390299` · `1a0de4a76` · `5e512fb7f` · `468633c03` · `a2d0240a3` (O-83a) + record |
+| `.h` | PARTIAL | `56a4b8b14` · `0e07d4fe4` · `705bedecf` · `9282dff6f` · `196e646f3` · `3cae1060e` · `c0e1f60d7` · `d2d9e343e` |
+| `.t` (addendum (e), 2026-10-06) | **NOT OPENED** — no seat, no receipt, `e2e/smoke/perf/frame-budget.ts` last touched `75636b162` (pre-addendum); the refresh-relative budget and `w12-text-trigger` are unexecuted | — |
+| close | this seat | `d4de1ee14` (INBOX O-74d · O-83a rows + E13 line) · this Close |
+
+### Landed wrong (recorded, not fixed here)
+
+- **LW-1 · `.p` `6b04d6da` turned a census witness RED and did not record it.** The cure rewrote `demo/shell/dock/ColorInput.vue`'s caption write (`innerText = formatCssCaption(text)` → `const text = formatCssCaption(formattedCurrentColor.value)` + in-place paint); `demo/test/color-session/format-color.test.ts:149` (G16 row A7) still asserts the old expression ⟨`npx vitest run`⟩ → `A7 · shell/dock/ColorInput.vue reads through format-color: expected +0 to be 1` (248 ms, not a load timeout). The §0bt adjacent edit (re-seat A7 on the cured expression, count kept) was owed in the same commit; `.p`'s receipt names no vitest read. Owner: a `.p` repair seat.
+- **LW-2 · `.s1` `b7d6b40e5` (UIA-V-47) turned `test/picker-blob-config.test.ts` "changes the sole body-radius authority" RED** (`expected [] to deeply equal [ 0.325 ]`, 19 ms). `.s1` reported demo vitest only; `.k` found it and attributed it (receipt :490) but no unit cured or re-seated it. Owner: a `.s1` repair seat (re-read the witness against `heroScale("bodyRadius", 0.325)`; never delete the assertion).
+- **LW-3 · `.k` `d368584cb` carries one sibling hunk** (`demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue`, X-DS V1-27), self-reported as R-k-3. A commit family contaminated by a concurrent writer; owner: X-DS (the hunk is theirs to own in their receipt).
+
+### Residuals (named owners)
+
+- **RES-W12U-1 · `.t` not opened** (addendum (e), COHESION §0en): the refresh-relative frame budget (`e2e/smoke/perf/frame-budget.ts`, one definition; re-point `w12-drag` and `w12u-p-drag`) and `w12-text-trigger` 8/8 RED (backdrop on the colour-space trigger). Owner: a `.t` seat of this wave. `.p`'s gates 1–2 are re-read under the restated budget only after `.t` lands.
+- **RES-W12U-2 · ESC-W12U-p-1** (`.p`): the root-wide `--accent-live`/`--accent-view` writes cannot be scoped below `:root` at these bytes; drag p95 RED ×2; glass half O-80a (SENT). Owner: orchestrator ruling, then `.p`.
+- **RES-W12U-3 · ESC-W12Uk-1** (`.k`): 13 L1 rows OPEN (re-shell/moves need the X-DS value.js writer quiescent); R-k-2 census + `probe-pager.mjs` ×2 unread; R-k-4 Names search page-local; R-k-5 A2-VA-K-1 awaits the owner. Owner: orchestrator (sequence X-DS vs `.k`), then `.k`.
+- **RES-W12U-4 · ESC-W12Um-1** (`.m`): literal `docSH == innerHeight` contradicts X.W5.b/.c on stacked routes; R-m-1 L2-10, R-m-2 L2-4 target, R-m-3 dock mobile-edit enter 1/4, R-m-5 `.x` rows routed to `.m` not cured this sitting, R-m-6 D4 oracle, R-m-7 DOM vs visual order. Owner: orchestrator ruling, then `.m`.
+- **RES-W12U-5 · `.h`**: R-h-1 L3-5 /blob limb (file held by X-DS), R-h-2 L3-2 pane-header limb + L3-3 ADOPT on O-74 rows absent at 10.1.0, R-h-3 L3-6 / X-8 HELD for glass §11, R-h-4 o29 :109. Owner: `.h` after X-DS releases `ConfigSliderPane.vue`; glass for O-74.
+- **RES-W12U-6 · `.b`**: R-b-1 → `.m` (A2-VA-X-2), R-b-2 → X-W7L RES-close-2 (10.2.0 re-read), R-b-3 §0ei root seat (real-GPU branch unexercised under SwiftShader).
+- **RES-W12U-7 · the `.s` carries**: 114 (`.s1`) + 66 (`.s2`) + 121 (`.s3`) honest-RED rows carried by class to `.k`/`.m`/`.h`; those units cured only their own register rows plus dedupes, so the carries stay honest-RED with their class owner; V-178 (`.s3`) needs an `api/` grant (outside §1). Owner: `.k`/`.m`/`.h` by class; orchestrator for the `api/` grant.
+- **RES-W12U-8 · DOCK-CAP-ELLIPSE** honest-RED (addendum (d), O-83 + O-83a); adopt at the repin carrying `--dock-cap-rest`. Owner: glass.
+- **RES-W12U-9 · LW-1, LW-2** (above): two vitest witnesses RED by unit cures. Owners: `.p`, `.s1` repair seats.
+- **RES-W12U-10 · mail**: O-74c (AWAITING REPLY), O-74d and O-83a (WRITTEN — AWAITING DELIVERY: the live relay to the glass session is the orchestrator's; glass-ui READ-ONLY).
+
+### Escalations
+
+ESC-W12U-p-1 · ESC-W12Uk-1 · ESC-W12Um-1 (each carried from its unit, unruled in COHESION at this seat: ⟨`grep -n ESC-W12U docs/tranches/X/COHESION.md`⟩ → 0 lines) · ESC-W12U-close-1: `.t` (addendum (e)) has no seat; the orchestrator must dispatch it before any re-close.
+
+### Gate table (acts 2–3), re-run by this seat
+
+The spec carries no `§Hard Gate` / `§Verification Artefacts` block; the gates are §3 Close plus each unit's named gate. Units' served readings (×2, their seats) are cited, not re-run, where the instrument is a headed real-GPU or a 400-load-sensitive multi-viewport sweep; the §3 gates are re-run here.
+
+| gate (§3 / unit) | BEFORE (Baseline) | AFTER (this seat) | reading |
+|---|---|---|---|
+| typecheck (4 programs, `package.json:65`; no `check` script) | `TC1/TC2 EXIT 0` | ⟨4× `vue-tsc`/`tsc` ×2⟩ → `TC1 EXIT 0` · `TC2 EXIT 0` | GREEN ×2 |
+| lint | `LINT EXIT 0` | ⟨`npx eslint . --max-warnings=0` ×2⟩ → `LINT1 EXIT 0` · `LINT2 EXIT 0` | GREEN ×2 |
+| `npm test` | r1 `7 failed \| 980 passed (987)`; r2 `8 failed` (+ load) | ⟨`npx vitest run` ×2⟩ → r1 `Tests 15 failed \| 1029 passed (1044)` (load 192–408); r2 `Tests 9 failed \| 1035 passed (1044)`. Steady in both: banked 7 (ink D6/T-35 ×4–5 INK-VEIL-MIDBAND · C-5 · NG-6) + **2 new** (LW-1 G16 A7; LW-2 picker-blob-config body-radius). r1-only (timeouts at load ≥ 190): extract-session EY-12/EY-23, EC-10 ×2, N-10, ink D6 dark; r2-only: palette-card-layout (suite load), plate-mass 390 | **RED** — standing 7 + 2 wave-attributable (LW-1, LW-2) |
+| `.x` `/admin/tags` falsifier ×2 (A2-VA-X-1) | UNDECIDED (B6) | ⟨`VJS_E2E_PORT=9877 npx playwright test e2e/smoke/w12u-x-admin-tags.spec.ts --project=smoke --workers=1`⟩ r1 `6 failed` (cold server, load 408; `toBeVisible` 8000 ms timeouts) · r2 `6 passed (23.8s)` · r3 `6 passed (34.4s)` (load 91) | GREEN ×2 (r2, r3); r1 = instrument failure at load |
+| `.b` four idle-park specs GREEN ×2; `blob-timing.ts` absent | RED (B5) | ⟨4 specs, all projects, `--workers=1`⟩ r1 `4 failed \| 12 passed` · r2 `6 failed \| 10 passed` (load 92–158). Steady: R-b-1 `blob-presence-mobile:71` · R-b-2 h1 chroma ×2 (oklch 150 / 328). Load-class: `webgl-blob-idle:83` software-GL p50 516.7 / 650.1 ms over the 500 ms hang guard; r2 also `o12:176`, `idle-frame-budget:47` (R-b-4: quiet-host read owed, load < 8). ⟨`ls e2e/smoke/fixtures/blob-timing.ts`⟩ → absent | **RED** (literal; as `.b` reported) |
+| `.p` drag p95 ≤ 16.7 ms (now ≤ 2·T per addendum (e)) | 40.5–41.8 ms banked | cited from `.p` (headed real GPU ×2, not re-run at load ≥ 90): RED ×2, residual O-80a; addendum (e) restatement unlanded (`.t` not opened) | **RED** |
+| every AUDIT-2-value row CURED / ADOPT / honest-RED-relayed | 44 open | L1: 9 CURED · 2 ADOPT · **13 OPEN** (ESC-W12Uk-1); L2: per `.m` table, L2-10/L2-4 target/L2-1 partial open (R-m-1/2); L3: 5 CURED · L3-8 CURED-AT-HEAD · L3-3 + L3-2 limb ADOPT · L3-6 HELD · L3-5 /blob OPEN | **RED** (open rows without a relayed id) |
+| every `A2-VA-X-n` row dispositioned | 0 rowed | 16 rowed by `.x`; routed rows not all cured (R-m-5) | **RED** (rowed GREEN; cure RED) |
+| `.s` 495 → 495, 0 silent drops | — | `.s1` 182 · `.s2` 131 · `.s3` 182 = 495 per receipts; 301 honest-RED carries | GREEN on the table; cure **RED** |
+| smoke `--workers=1` (whole) | RED banked (79 classified, X-W7L) | not re-run whole: host load 30–408 through this seat (a 1-worker whole-suite pass is hours at this load and would read load, not bytes); W12U-owned specs re-run above | **RED** (banked; not re-read) |
+| E13 mail | 0 UNREAD | 0 UNREAD; 2 unrowed outbound value letters rowed (`d4de1ee14`) | GREEN |
+
+### State
+
+Spec §State moves this wave's row on its close; the four-verb line is **not** moved: the wave is **PARTIAL** (escalations ESC-W12U-p-1 · ESC-W12Uk-1 · ESC-W12Um-1 · ESC-W12U-close-1 open; unit `.t` unopened; LW-1/LW-2 turn two vitest witnesses RED). IMPLEMENTED is not stamped; VERIFIED is not this seat's (the row flips CLOSED only on a CONFORMANT check, spec §3). X-W8 stays blocked on X-W12U.
+
+**Verdict: PARTIAL.**
