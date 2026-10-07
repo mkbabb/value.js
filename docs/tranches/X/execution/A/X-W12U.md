@@ -919,3 +919,37 @@ This round changed no code, so no code gate can move. The record is the only pat
 
 ### State
 1 cured (C2-4) · 4 escalated (C2-1, C2-2, C2-3, C2-5) · C2-6 carried with C2-3. The LEDGER row stays **PARTIAL**.
+
+## Check 3
+
+L-20 fresh adversarial pass 3, VERIFY-ONLY, Track A, `claude-opus-5-5`, 2026-10-07, HEAD `3636fd0b4`, host load 30–65. Spec `W12U.md` read whole (87 lines, addenda (a)–(e)); record read header → Unit plan, Close, Check 1, Repair 1, Check 2, Repair 2. Pre-wave base `7f5808564`. Crash recovery ⟨`git status --porcelain docs/tranches/X/execution/`⟩ → empty.
+
+### Gates re-run by this seat
+- LW witnesses ⟨`npx vitest run test/picker-blob-config.test.ts demo/test/color-session/format-color.test.ts` ×2⟩ → `Tests 70 passed (70)` ×2. GREEN.
+- typecheck ⟨`vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit`; `tsc -p tsconfig.e2e.json --noEmit` ×2⟩ → `lib 0 demo 0 test 0 e2e 0` ×2. GREEN.
+- lint ⟨`npx eslint . --max-warnings=0` ×2⟩ → `LINT1 0` · `LINT2 0`. GREEN.
+- `.x` `/admin/tags` ⟨`VJS_E2E_PORT=9883 npx playwright test e2e/smoke/w12u-x-admin-tags.spec.ts --project=smoke --workers=1` ×2⟩ → `6 passed (25.1s)` · `6 passed (22.0s)`. GREEN (playwright-owned fallback server, as named).
+- `npm test` whole: not re-run (no code byte changed since Check 2's `054698bda` reading; ⟨`git log --stat 054698bda..HEAD`⟩ = record + LEDGER only, `f45dd7488`, `3636fd0b4`). Banked-7 figure cited from Check 2.
+- E-3 ⟨`git diff --stat 7f5808564..HEAD -- W12U.md registry/adjudicated/ AUDIT-2-value.md`⟩ → only `W12U.md | 9 +` (orchestrator addendum (e)). HELD. dev.sh ⟨`git log 7f5808564..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → 0. HELD.
+- Mail ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → 0. GREEN.
+- Repair 2 bounds ⟨`git show --stat 3636fd0b4`⟩ → record + LEDGER only; masking: no code diff since Check 2. HELD.
+- Rulings ⟨`grep -n 'ESC-W12U' docs/tranches/X/COHESION.md`⟩ → 0 lines: ESC-W12Uk-1 · ESC-W12Um-1 · ESC-W12U-r1-1..4 remain unruled.
+
+### Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | HIGH | Goal criterion still unmet at the bytes (= C2-1, unchanged): 13 AUDIT-2 L1 rows OPEN (ESC-W12Uk-1), L2-10 / L2-4 target / L2-1 OPEN (ESC-W12Um-1), routed `A2-VA-X-n` rows uncured (R-m-5); none carries an O-74 honest-RED id, and the spec gives no relief to a later wave | Repair 2 C2-1 ESCALATED; COHESION grep → 0 | orchestrator rules ESC-W12U-r1-1 / ESC-W12Uk-1 / ESC-W12Um-1 (sequence X-DS vs `.k`/`.m`), then `.k`/`.m`/`.h` cure |
+| C3-2 | MEDIUM | `.b` four specs literal RED, in-wave half R-b-1 = A2-VA-X-2 unrelieved (ESC-W12U-r1-2); R-b-2 relieved to X-W7L 10.2.0 re-read | Repair 2 C2-2 | `.m2` design sitting per ruling |
+| C3-3 | MEDIUM | §3 smoke `--workers=1` whole + addendum (e) WebKit re-read unread (load 30–65 this seat; never < 12) | Repair 2 C2-3; ⟨`uptime`⟩ | orchestrator quiet-host window |
+| C3-4 | MINOR | LW-3 X-DS hunk in `d368584cb` still unnamed in an X-DS receipt | Repair 2 C2-5 | X-DS receipt |
+| C3-5 | INFO | `.t` r2 alpha leg 116.6 ms at load 73; quiet-host re-read owed | `779d28faa` | re-close re-read |
+
+C2-4 (adjacent edit naming) verified CURED: Repair 2 *Adjacent edits* names `test/picker-blob-config.test.ts` (`c6702ea88`).
+
+### Honest-RED set (relieved by the spec's own words)
+DOCK-CAP-ELLIPSE (addendum (d): glass O-83/O-83a; owner glass) · A2-VA-L3-6 / X-8 HELD for glass §11 (spec §2 `.h`.2; owner glass). **Not relieved:** the open L1/L2/X rows (C3-1), `.b` in-wave half (C3-2), smoke whole + WebKit (C3-3).
+
+### Successors
+X-W8 ("Opens after" conjunct X-W12U CLOSED) is NOT GREEN — X-W8 stays lawfully blocked.
+
+**Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 1 MINOR · 1 INFO). Gates reproduced: 6 (LW witnesses ×2 · typecheck ×2 · lint ×2 · `/admin/tags` ×2 · E-3 · E13). The LEDGER row stays PARTIAL.
