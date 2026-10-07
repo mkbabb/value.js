@@ -17,7 +17,7 @@
             >
                 <!-- Thumb -->
                 <div
-                    class="absolute w-4 h-4 rounded-full border-2 border-white shadow-cartoon-sm pointer-events-none -translate-x-1/2 -translate-y-1/2"
+                    class="absolute w-4 h-4 rounded-full border-2 border-white ring-1 ring-black/40 pointer-events-none -translate-x-1/2 -translate-y-1/2"
                     :style="{ left: `${sat * 100}%`, top: `${(1 - val) * 100}%`, background: currentHex }"
                 />
             </div>
@@ -34,7 +34,7 @@
                 @lostpointercapture="endDrag"
             >
                 <div
-                    class="absolute w-3 h-3 rounded-full border-2 border-white shadow-sm pointer-events-none -translate-x-1/2"
+                    class="absolute w-3 h-3 rounded-full border-2 border-white ring-1 ring-black/40 pointer-events-none -translate-x-1/2"
                     :style="{ left: `${(hue / 360) * 100}%`, background: `hsl(${hue}, 100%, 50%)` }"
                 />
             </div>
@@ -42,7 +42,7 @@
             <!-- Color output + search inline -->
             <div class="flex items-center gap-1.5 mt-2">
                 <span
-                    class="block h-6 w-6 rounded-full border-2 border-border shrink-0 shadow-cartoon-sm"
+                    class="block h-6 w-6 rounded-full border-2 border-border shrink-0"
                     :style="{ backgroundColor: currentHex }"
                 />
                 <span class="font-mono text-caption flex-1 truncate text-muted-foreground">

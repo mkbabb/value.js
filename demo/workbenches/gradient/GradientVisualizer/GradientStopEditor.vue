@@ -3,6 +3,7 @@ import { ref, computed, watchEffect, useTemplateRef } from "vue";
 import { useElementSize } from "@vueuse/core";
 import { X } from "@lucide/vue";
 import { NumberField, NumberFieldInput } from "@mkbabb/glass-ui/number-field";
+import { Button } from "@mkbabb/glass-ui/button";
 import { clamp, scale } from "@mkbabb/value.js/math";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { PickerSpace } from "../../../color-session/picker-color";
@@ -606,7 +607,6 @@ function onCaretKeydown(e: KeyboardEvent) {
                     left: handleLeft(hoverPos),
                     '--swatch': ghostColor ?? 'transparent',
                     transform: 'translate(-50%, -50%)',
-                    boxShadow: 'var(--shadow-sm)',
                 }"
                 aria-hidden="true"
             />
@@ -698,7 +698,7 @@ function onCaretKeydown(e: KeyboardEvent) {
             class="stop-inspector flex flex-wrap items-center gap-x-3 gap-y-1"
             data-testid="gradient-stop-inspector"
         >
-            <p class="text-caption text-muted-foreground min-w-0">
+            <p class="text-caption plate-ink min-w-0">
                 {{
                     selectedStop
                         ? `Stop ${selectedIndex + 1} of ${stops.length}`
@@ -707,7 +707,7 @@ function onCaretKeydown(e: KeyboardEvent) {
             </p>
 
             <label class="stop-inspector-field flex items-center gap-1.5 text-caption">
-                <span class="text-muted-foreground">Position</span>
+                <span class="plate-ink">Position</span>
                 <NumberField
                     class="stop-position-field"
                     :model-value="selectedStop ? round1(selectedStop.position) : null"
@@ -724,13 +724,17 @@ function onCaretKeydown(e: KeyboardEvent) {
                         aria-label="Selected stop position, percent"
                     />
                 </NumberField>
-                <span class="text-muted-foreground" aria-hidden="true">%</span>
+                <span class="plate-ink" aria-hidden="true">%</span>
             </label>
 
-            <button
-                type="button"
+            <!-- X-DS pass 1 (V1-16): glass's quiet Button, so the row speaks one
+                 control shape beside the NumberField (it was a hand-set
+                 squared outline next to glass's pill). -->
+            <Button
+                emphasis="quiet"
+                size="xs"
                 aria-label="Remove selected stop"
-                class="stop-inspector-remove flex items-center gap-1 text-caption"
+                class="stop-inspector-remove"
                 :disabled="removalRefusal !== null"
                 :aria-describedby="
                     removalRefusal ? 'gradient-stop-removal-reason' : undefined
@@ -739,7 +743,7 @@ function onCaretKeydown(e: KeyboardEvent) {
             >
                 <X class="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Remove</span>
-            </button>
+            </Button>
 
             <!-- The floor's REASON is rendered, not implied: it is the control's
                  own description, so it is read with the control rather than
@@ -747,7 +751,7 @@ function onCaretKeydown(e: KeyboardEvent) {
             <p
                 v-if="removalRefusal"
                 id="gradient-stop-removal-reason"
-                class="text-caption text-muted-foreground basis-full"
+                class="text-caption plate-ink basis-full"
             >
                 {{ removalRefusal }}
             </p>
@@ -806,9 +810,7 @@ function onCaretKeydown(e: KeyboardEvent) {
     background-size:
         100% 100%,
         16px 16px;
-    box-shadow:
-        inset 0 0 0 1px var(--card-edge),
-        var(--shadow-sm);
+    box-shadow: inset 0 0 0 1px var(--card-edge);
 }
 
 /* ── The seat's own register (X-W6 · a9 / a10 / a12) ──
@@ -879,9 +881,10 @@ function onCaretKeydown(e: KeyboardEvent) {
 }
 
 /* ── The focus affordance SYSTEM (U.W-A11Y · U-F25 · BR-1; X-W4 · C4) ──
-   The keyboard-operable seats carry the material lift (--shadow-sm) in the
-   CASCADE (hoisted off the inline style at U-F25, Pole A), so the focus ring
-   COMPOSES with it instead of an inline box-shadow clobbering the ring layer
+   The keyboard-operable seats carried a material lift (--shadow-sm) in the
+   CASCADE (hoisted off the inline style at U-F25, Pole A; the lift itself is
+   retired at X-DS pass 1 · V1-18 — a handle is a flat disc with its rings), so
+   the focus ring is never clobbered by an inline box-shadow on the ring layer
    (the twin of the 4e6c178 dead-hover miss; the `--ring` token the dead
    `focus-visible:ring-*` utility reached also resolved empty). X-W4 splits the
    handle's two jobs across two elements — the lift on the face it belongs to,
@@ -970,14 +973,12 @@ function onCaretKeydown(e: KeyboardEvent) {
     translate: -50% -50%;
     box-shadow:
         inset 0 0 0 1px var(--focus-ring-inner),
-        0 0 0 2px var(--focus-ring-outer),
-        var(--shadow-sm);
+        0 0 0 2px var(--focus-ring-outer);
 }
 .rail-handle[data-selected] .rail-handle-face {
     box-shadow:
         inset 0 0 0 2px var(--focus-ring-inner),
-        0 0 0 3px var(--focus-ring-outer),
-        var(--shadow-sm);
+        0 0 0 3px var(--focus-ring-outer);
 }
 .rail-handle:focus-visible,
 .rail-caret:focus-visible {
@@ -1004,29 +1005,15 @@ function onCaretKeydown(e: KeyboardEvent) {
     font-variant-numeric: tabular-nums;
     text-align: end;
 }
+/* The plate, radius, disabled register and focus ring are glass Button's own
+   (X-DS pass 1 · V1-16). The seat keeps only the target floor and the
+   destructive hover INK. The floor, said out loud: the control STAYS and reads
+   as refused, with its reason beside it (b4 — never absence). */
 .stop-inspector-remove {
     min-block-size: var(--rail-hit);
-    padding-inline: 0.5rem;
-    border-radius: var(--radius-sm, 0.375rem);
-    border: 1px solid var(--card-edge);
-    color: var(--muted-foreground);
-    cursor: pointer;
 }
 .stop-inspector-remove:hover:not(:disabled) {
     color: var(--destructive);
-    border-color: color-mix(in oklab, var(--destructive) 60%, transparent);
-}
-/* The floor, said out loud: the control STAYS and reads as refused, with its
-   reason beside it (b4 — never absence, never a silent early return). */
-.stop-inspector-remove:disabled {
-    opacity: 0.55;
-    cursor: not-allowed;
-}
-.stop-inspector-remove:focus-visible {
-    outline: none;
-    box-shadow:
-        0 0 0 1px var(--focus-ring-inner),
-        0 0 0 3px var(--focus-ring-outer);
 }
 /* ── Motion, declared only where motion is wanted (X-W6 · X.W6.e — e2) ──
    Every transition in the seat lives in this block, so a reduced-motion reader
@@ -1041,11 +1028,6 @@ function onCaretKeydown(e: KeyboardEvent) {
     .rail-caret {
         transition: opacity var(--duration-fast) var(--ease-standard);
     }
-    .stop-inspector-remove {
-        transition:
-            color var(--duration-fast) var(--ease-standard),
-            border-color var(--duration-fast) var(--ease-standard);
-    }
 }
 
 /* Forced-colors (WHCM) strips box-shadow → the ring vanishes; a real outline
@@ -1053,8 +1035,7 @@ function onCaretKeydown(e: KeyboardEvent) {
    forced-colors focus outline into a deterministic, branded 2px. */
 @media (forced-colors: active) {
     .rail-handle:focus-visible,
-    .rail-caret:focus-visible,
-    .stop-inspector-remove:focus-visible {
+    .rail-caret:focus-visible {
         outline: 2px solid Highlight;
         outline-offset: 2px;
     }

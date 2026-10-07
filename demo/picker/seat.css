@@ -55,28 +55,10 @@
     z-index: var(--z-ornament);
 }
 
-/* The CONTACT SHADOW — the seat's depth signature (D8: the corner-break's
- * "wet on the plate" is REPLACED, not deleted). A static radial pool under
- * the bead's base anchors it to the plate (the paperweight read; also the
- * demo-side half of the T-30 blur percept cure — a grounded object reads
- * focused; the engine-side wet-edge register is the P6 open-Q9 row, now
- * WANTED). Geometry derives from the same identity: bead center at 50%,
- * base at 76% of the wrapper. PRM-static; both schemes via --shadow-color. */
-.hero-blob-anchor::before {
-    content: "";
-    position: absolute;
-    left: 24%;
-    right: 24%;
-    top: 68%;
-    height: 14%;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(
-        ellipse 50% 50% at 50% 50%,
-        color-mix(in srgb, var(--shadow-color) 22%, transparent),
-        transparent 70%
-    );
-}
+/* X-DS pass 1 (V1-10): the consumer's CONTACT SHADOW pool (a radial-gradient
+ * ellipse under the bead, D8) is gone. The bead already carries the producer's
+ * own drop-shadows; a third shadow under one object read as a grey smudge on
+ * the light plate. The bead's own shading is glass's (O-87). */
 
 /* The title row hosts the bead (the C1-settled band): its W20-locked
  * reservation + min-height remain the ONE 0.76·fp formula; W29 changes paint,

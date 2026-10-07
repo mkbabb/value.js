@@ -1,7 +1,7 @@
 <template>
     <!-- The K-INV5 degraded-backend affordance (R.W3 residual): a DESIGNED
          state in the instrument's own register — a Fira Code small-caps
-         annotation chip with a hairline ink edge and a slow status pulse —
+         annotation chip with a hairline ink edge and a three-beat arrival pulse —
          never an apologetic toast. Self-gating: renders nothing while the
          backend is reachable.
 
@@ -85,7 +85,8 @@ const misconfigured = computed(() => availability.value === "misconfigured");
     }
     .offline-dot,
     .misconfig-dot {
-        animation: offline-dot-pulse 2.4s var(--ease-standard) infinite;
+        /* X-DS pass 1 (V1-11): three beats on arrival, then rest. */
+        animation: offline-dot-pulse 2.4s var(--ease-standard) 3;
     }
 }
 </style>

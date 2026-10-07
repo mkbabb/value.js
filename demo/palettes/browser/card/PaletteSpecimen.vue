@@ -171,6 +171,5 @@ const {
 }
 .featured-badge__icon svg {
     stroke: var(--color-gold);
-    filter: drop-shadow(0 0 1px color-mix(in srgb, var(--color-gold) 40%, transparent));
 }
 </style>

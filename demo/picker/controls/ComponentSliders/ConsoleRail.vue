@@ -226,7 +226,10 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
  * law binds any future ring to the dot's own silhouette). Unscoped block
  * (the pre-lift convention — selectors are rail-unique). */
 .channel-rail {
-    border: 1px solid color-mix(in oklab, var(--accent-view) 60%, transparent);
+    /* X-DS pass 1 (V1-21): the 1px accent ring is gone — four letters need no
+     * cage. It was the dock seal's die-rim recipe, which the owner abrogated
+     * on the seal itself (Q12 / T-28). Radius and padding stay: the active
+     * letter's dot still seats in the same column. */
     border-radius: var(--radius-pill);
     padding: 2px;
 }

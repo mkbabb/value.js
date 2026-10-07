@@ -215,15 +215,13 @@ const { borderRadius, transform } = useWatercolorBlob(colorRef, {
        own stacking context (Apple Dev Forums 705172). Safe here — no `multiply`
        blend to wall (unlike HandMark's highlighter). */
     isolation: isolate;
-    box-shadow:
-        inset 0 0 6px color-mix(in srgb, var(--background) 35%, transparent),
-        inset 0 -2px 4px color-mix(in srgb, var(--foreground) 6%, transparent),
-        0 2px 6px color-mix(in srgb, var(--foreground) 10%, transparent);
+    /* X-DS pass 1 (V1-08): no box-shadow. The colour is the content and reads
+       flat, as the original's swatch disc did; the organic silhouette, the
+       wet-edge filter and the wobble are the dot's identity and stay. */
     transition:
         transform var(--duration-fast) var(--ease-standard),
         border-radius 0.6s var(--ease-standard),
-        filter var(--duration-fast) var(--ease-standard),
-        box-shadow var(--duration-fast) var(--ease-standard);
+        filter var(--duration-fast) var(--ease-standard);
     position: relative;
     /* The ghost dashed-outline axis (ghost-only): the hand-drawn-placeholder dash
        pattern, tunable per consumer. The CSS dashed border's pitch is UA-derived, so
@@ -242,9 +240,6 @@ const { borderRadius, transform } = useWatercolorBlob(colorRef, {
    (a dashed OUTLINE following the silhouette). */
 .watercolor-swatch[data-variant="ghost"] {
     background-color: color-mix(in srgb, var(--watercolor-color) 12%, transparent);
-    box-shadow:
-        inset 0 0 6px color-mix(in srgb, var(--background) 25%, transparent),
-        0 1px 4px color-mix(in srgb, var(--foreground) 6%, transparent);
     /* X6 (value.js P5 rider) — make the ghost swatch a size-query container so the
        ring can firm to SOLID at the small sizes these dots live at. `inline-size`
        containment only (the swatch is consumer-sized + carries no in-flow content,
@@ -292,8 +287,7 @@ const { borderRadius, transform } = useWatercolorBlob(colorRef, {
 .watercolor-swatch.watercolor-animated {
     transition:
         transform var(--duration-fast) var(--ease-standard),
-        filter var(--duration-fast) var(--ease-standard),
-        box-shadow var(--duration-fast) var(--ease-standard);
+        filter var(--duration-fast) var(--ease-standard);
 }
 
 /* Under reduced motion the wobble drops to a single static frame; the filter is

@@ -195,11 +195,9 @@
 }
 @keyframes crown-appear {
     0%   { opacity: 0; color: var(--color-gold-light); transform: scale(0) rotate(-15deg); }
-    40%  { opacity: 1; color: var(--color-gold); transform: scale(1.4) rotate(5deg);
-           filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-gold) 70%, transparent)); }
-    70%  { color: var(--color-gold); transform: scale(0.95) rotate(-2deg);
-           filter: drop-shadow(0 0 3px color-mix(in srgb, var(--color-gold) 40%, transparent)); }
-    100% { color: var(--color-gold); transform: scale(1) rotate(0deg); filter: none; }
+    40%  { opacity: 1; color: var(--color-gold); transform: scale(1.4) rotate(5deg); }
+    70%  { color: var(--color-gold); transform: scale(0.95) rotate(-2deg); }
+    100% { color: var(--color-gold); transform: scale(1) rotate(0deg); }
 }
 @keyframes lamp-dot-pulse {
     0%, 100% { opacity: 1; }

@@ -18,7 +18,7 @@
          the selection is exposed as `aria-current`. -->
     <div
         ref="rootEl"
-        class="palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer focus-ring"
+        class="palette-card group rounded-card border border-card-edge bg-well cursor-pointer focus-ring"
         :data-layout="layout"
         :data-selected="expanded ? '' : undefined"
         role="article"
@@ -31,12 +31,11 @@
         @keydown.enter.self.prevent="$emit('click')"
         @keydown.space.self.prevent="$emit('click')"
     >
-        <!-- X.W7.c (G11): the cel cast is the ROOT's own box-shadow — the
-             producer's `.shadow-cartoon-md` stamp (below) — so it follows the
-             card's rounded silhouette by construction. The retired
-             `<span class="cartoon-cast">` matched no served rule: glass-ui 7
-             ships `.cartoon-cast` only in `dist/styles/glass/glass-atom.css`,
-             which neither the `./styles` entry nor the exports map reaches. -->
+        <!-- X-DS pass 1 (V1-02): the card casts NOTHING. It is a fixture seated
+             inside a pane plate, and the plate already casts the pane's one
+             stamp; glass's stepped `.shadow-cartoon-md` rung also fell down-left
+             against that stamp's down-right. The card is its tone step and its
+             hairline (G11's root-only half stands: no `.cartoon-cast` child). -->
         <PaletteSpecimen
             :palette="palette"
             :layout="layout"
@@ -464,10 +463,10 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
     align-items: center;
     transition:
         translate var(--duration-fast) var(--ease-cartoon-punch),
-        box-shadow var(--duration-fast) var(--ease-cartoon-punch);
-    /* The strip sits INSIDE the stamp's 2px edge: its corners take the inner
-     * radius, so no band pokes past the rounded silhouette (OM-11/OM-12). */
-    --specimen-radius: calc(var(--radius-card) - 2px);
+        border-color var(--duration-fast) var(--ease-standard);
+    /* The strip sits INSIDE the card's 1px hairline: its corners take the
+     * inner radius, so no band pokes past the rounded silhouette (OM-11/OM-12). */
+    --specimen-radius: calc(var(--radius-card) - 1px);
 }
 .palette-card[data-layout="aside"] {
     grid-template-columns: auto auto minmax(0, 1fr) auto auto;
@@ -511,17 +510,14 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
     }
 }
 
-/* The hover register (G11 · PC-4): a designed ELEVATION shift on the
- * producer's own cartoon ladder — the card rises one step (`translate` 0 -2px)
- * and its cel cast deepens md → lg (`--shadow-cartoon-lg`), exactly the
- * `.shadow-cartoon-lg` rung (the `hover:` variant of a components-layer class
- * generates no rule — SFB-5 — so the rung is composed here, at the root).
- * Hover-capable pointers only; reduced motion keeps the state, drops the
- * travel. */
+/* The hover register (G11 · PC-4; X-DS pass 1 · V1-02): the card rises one
+ * step (`translate` 0 -2px) and its hairline firms. No cast at rest and none
+ * on hover — the pane plate carries the one stamp. Hover-capable pointers
+ * only; reduced motion keeps the state, drops the travel. */
 @media (hover: hover) {
     .palette-card:hover {
         translate: 0 -2px;
-        box-shadow: var(--shadow-cartoon-lg);
+        border-color: color-mix(in oklab, var(--foreground) 32%, transparent);
     }
 }
 @media (prefers-reduced-motion: reduce) {

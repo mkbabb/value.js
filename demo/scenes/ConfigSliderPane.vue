@@ -6,7 +6,7 @@
 // HARDEN-4 §5.1: glass-ui already ships `./configurator` with ConfiguratorRow
 // + useConfiguratorState. This component uses ConfiguratorRow for each labeled
 // row so the demo composes the existing glass-ui surface rather than rebuilding
-// the row primitive. The section-group wrapper and the floating copy/reset dock
+// the row primitive. The section-group wrapper and the copy/reset footer row
 // remain demo-local (they are thin structural shells, not the row primitive).
 //
 // Both AuroraPane and BlobPane pass their full SECTIONS arrays. AuroraPane
@@ -17,7 +17,6 @@ import { Button } from "@mkbabb/glass-ui/button";
 import { Card } from "@mkbabb/glass-ui/card";
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Check, Copy, RotateCcw } from "@lucide/vue";
-import { GlassDock } from "@mkbabb/glass-ui/dock";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import { useClipboard } from "@mkbabb/glass-ui";
@@ -148,9 +147,16 @@ function resetDefaults() {
                             :name="fmt(read(def.key), def.step)"
                             class="gap-1.5 py-1"
                         >
+                            <!-- X-DS pass 1 (V1-05): glass's `sm` rung — a
+                                 track with no colour data is a rail, not a
+                                 24px slab (eight of them stacked outweighed
+                                 the title). The certified ≥3:1 track ink
+                                 (O-18's config graphics leg) is unchanged;
+                                 only its area is. -->
                             <Slider
                                 :aria-label="def.label"
                                 variant="spectrum"
+                                size="sm"
                                 :model-value="[read(def.key)]"
                                 :min="def.min"
                                 :max="def.max"
@@ -163,22 +169,22 @@ function resetDefaults() {
                 </div>
             </div>
 
-            <!-- Action bar — a flex-none footer docked below the scroll region.
-                 Keeps the glass-pill affordance but out of the scroll-overlap
-                 path, so it no longer floats over the last rows (W6-6). Only
-                 shown when there are sliders. -->
+            <!-- Action bar — a flex-none footer below the scroll region, so it
+                 can never occlude a slider (W6-6). X-DS pass 1 (V1-04): two
+                 plain commands seated behind the hairline, right-aligned. The
+                 floating GlassDock that used to wrap them is gone — a dock is
+                 floating chrome, and a pill of pills inside a card was three
+                 nested capsules for two commands. Only shown with sliders. -->
             <div v-if="sections.length > 0" class="config-action-bar">
-                <GlassDock :collapse="false" :fit-content="true">
-                    <Button size="sm" @click="copyAsJson">
-                        <Check v-if="jsonCopyStatus === 'success'" class="w-3.5 h-3.5" />
-                        <Copy v-else class="w-3.5 h-3.5" />
-                        {{ jsonCopyStatus === "success" ? "Copied" : "Copy JSON" }}
-                    </Button>
-                    <Button size="sm" @click="resetDefaults">
-                        <RotateCcw class="w-3.5 h-3.5" />
-                        Reset
-                    </Button>
-                </GlassDock>
+                <Button size="sm" emphasis="quiet" @click="copyAsJson">
+                    <Check v-if="jsonCopyStatus === 'success'" class="w-3.5 h-3.5" />
+                    <Copy v-else class="w-3.5 h-3.5" />
+                    {{ jsonCopyStatus === "success" ? "Copied" : "Copy JSON" }}
+                </Button>
+                <Button size="sm" emphasis="quiet" @click="resetDefaults">
+                    <RotateCcw class="w-3.5 h-3.5" />
+                    Reset
+                </Button>
             </div>
         </Card>
     </div>
@@ -253,7 +259,8 @@ function resetDefaults() {
 .config-action-bar {
     flex: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
     padding: 0.625rem 0.75rem;
     border-top: 1px solid color-mix(in srgb, var(--border) 35%, transparent);
 }

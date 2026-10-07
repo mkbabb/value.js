@@ -74,10 +74,11 @@
      * in-plate fixture is an opaque TONE-STEP of its host plate, never a
      * second pane of glass — the ONE `--well-bg` token, NO backdrop-blur
      * (blurring the aurora through the host is the mud generator, RC-3).
-     * The dashed edge ALONE carries the in-progress semantics; the chip
-     * cartoon rung stays. */
+     * The dashed edge ALONE carries the in-progress semantics.
+     * X-DS pass 1 (V1-02): the chip cartoon rung is GONE — a fixture seated
+     * inside a plate casts nothing (the plate already casts the pane's ONE
+     * stamp, and glass's stepped rung fell down-LEFT against it). */
     background: var(--well-bg);
-    box-shadow: var(--shadow-cartoon-sm);
 }
 
 /* THE SEATED SEARCH FIELD (T.W3-3 · T-12 — THE REGISTER LAW: fields on paper
@@ -93,7 +94,8 @@
  *   fill    — the ONE rung-2 `--well-bg` tone-step, NO backdrop-blur (RC-3);
  *   edge    — the drawn `--card-edge` ink hairline (the dashed-well's solid
  *             sibling — hairline law 4, ONE edge mint);
- *   stamp   — `--shadow-cartoon-sm`, the chip-scale elevation PaletteCard rides;
+ *   stamp   — NONE (X-DS pass 1 · V1-02: a seated fixture casts nothing; the
+ *             tone step and the hairline are the whole seat);
  *   measure — the dock cap dies: a seated field runs its host column (ASK-C);
  *   voice   — content-class (the `.input-bar-field` rule below).
  *
@@ -107,15 +109,14 @@
     background: var(--well-bg);
     backdrop-filter: none;
     border: 1.5px solid var(--card-edge);
-    box-shadow: var(--shadow-cartoon-sm);
+    box-shadow: none;
     max-width: none;
 }
 
-/* Compose, never replace: the producer's focus ring joins the stamp (the
- * unlayered base box-shadow above would otherwise silently beat the layered
- * `.input-bar:focus-within` ring). */
+/* The producer's focus ring, restated unlayered (the unlayered `none` above
+ * would otherwise silently beat the layered `.input-bar:focus-within` ring). */
 .search-seated:focus-within {
-    box-shadow: var(--shadow-cartoon-sm), var(--focus-ring-shadow);
+    box-shadow: var(--focus-ring-shadow);
 }
 
 /* Voice = CONTENT-CLASS (T-12): a prose search field speaks its plate's text
@@ -135,7 +136,6 @@
  * filed glass-ui letter L15 ask. */
 .gold-shimmer-icon {
     color: var(--color-gold);
-    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent));
 }
 
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch

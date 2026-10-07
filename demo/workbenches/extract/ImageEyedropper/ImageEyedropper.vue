@@ -294,7 +294,9 @@ watch(() => imageUrl, () => { loadAndFit(); });
     position: absolute;
     border-radius: 50%;
     border: 2px solid color-mix(in srgb, var(--shadow-color) 50%, transparent);
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 15%, transparent), 0 0 0 1px color-mix(in srgb, var(--shadow-color) 30%, transparent);
+    /* X-DS pass 1 (V1-18): the loupe truly floats over the image — ONE neutral
+     * shadow; the border above is its ring. */
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 15%, transparent);
     pointer-events: none;
     z-index: var(--z-controls);
     overflow: hidden;
@@ -303,7 +305,7 @@ watch(() => imageUrl, () => { loadAndFit(); });
 
 .loupe-pinned {
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 40%, transparent), 0 4px 16px color-mix(in srgb, var(--shadow-color) 20%, transparent);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 20%, transparent);
 }
 
 /* Action button hover → sampled color */

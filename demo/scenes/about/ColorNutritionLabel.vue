@@ -10,15 +10,18 @@
         class="w-full grid grid-cols-1 gap-4 relative"
         :data-space-facts="model.selectedColorSpace"
     >
-        <!-- AB-3 (T.W8 remediation_1 · D1): the Definition chip seats on the ONE
-             rung-2 well tone (`bg-well` = `--well-bg`), collapsing the `/50` `/30`
-             muted-alpha sub-species onto the single well recipe. -->
-        <Alert class="m-0 bg-well border-border/30 rounded-card">
-            <AlertTitle>Definition</AlertTitle>
-            <AlertDescription data-fact="definition">
+        <!-- AB-3 (T.W8 remediation_1 · D1): the Definition seats on the ONE
+             rung-2 well recipe. X-DS pass 1 (V1-22): it is the plain well
+             (`.console-well`: the tone step and the `--card-edge` hairline),
+             not a glass Alert re-filled with the well tone — that carried a
+             backdrop blur, a rim stack and a soft shadow on a text box, and it
+             announced a static definition as a live alert. -->
+        <div class="console-well px-4 py-3">
+            <p class="font-medium leading-snug mb-1">Definition</p>
+            <p class="text-small" data-fact="definition">
                 {{ currentColorSpaceInfo.definition }}
-            </AlertDescription>
-        </Alert>
+            </p>
+        </div>
 
         <Separator />
 
@@ -174,7 +177,6 @@ import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { contrastInkFor } from "../../color-session/ink";
 import { Separator } from "@mkbabb/glass-ui/separator";
 import { ArrowRight } from "@lucide/vue";
-import { Alert, AlertTitle, AlertDescription } from "@mkbabb/glass-ui";
 import type { ColorModel } from "../../color-session/color-model";
 import { SPACE_CATALOG } from "../../color-session/space-catalog";
 

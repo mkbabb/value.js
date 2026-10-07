@@ -9,7 +9,6 @@ import {
 } from "@mkbabb/glass-ui/select";
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Button } from "@mkbabb/glass-ui/button";
-import { Badge } from "@mkbabb/glass-ui/badge";
 import { RefreshCw, Save, Copy, Check } from "@lucide/vue";
 import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
@@ -143,7 +142,7 @@ defineExpose({ regenerate, save, copyColors });
         <section
             data-generate-plate
             aria-label="Generated palette"
-            class="rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+            class="rounded-card border border-card-edge bg-well min-w-0"
         >
             <!-- The specimen face — full-bleed strip, corners its own. -->
             <PaletteColorStrip :colors="stripColors" class="rounded-t-card" />
@@ -161,15 +160,18 @@ defineExpose({ regenerate, save, copyColors });
                     aria-label="Palette name"
                     class="flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashed underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 />
-                <Badge variant="secondary" class="text-mono-small shrink-0">
-                    {{ count }}
-                </Badge>
+                <!-- X-DS pass 1 (V1-09): the unlabelled count badge is gone —
+                     the count slider's own readout below is its labelled home. -->
                 <!-- The verb cluster wraps as ONE unit, right-seated. The
                      one verb rides the deliberate-primary register (L6
                      rider — root vocabulary, no costume), AS plate chrome. -->
                 <div class="ml-auto flex items-center gap-2 shrink-0">
+                    <!-- X-DS pass 1 (V1-09): seated commands wear the quiet and
+                         text rungs — no floating capsule (and no halo) on a
+                         well. -->
                     <Button
-                        class="h-9 gap-2 font-medium font-display shrink-0"
+                        emphasis="quiet"
+                        class="h-9 gap-2 font-medium font-display text-foreground shrink-0"
                         @click="regenerate()"
                     >
                         <RefreshCw class="w-4 h-4" />
@@ -177,6 +179,7 @@ defineExpose({ regenerate, save, copyColors });
                     </Button>
                     <Button
                         icon-only
+                        emphasis="text"
                         size="sm"
                         aria-label="Save palette"
                         class="shrink-0"
@@ -186,6 +189,7 @@ defineExpose({ regenerate, save, copyColors });
                     </Button>
                     <Button
                         icon-only
+                        emphasis="text"
                         size="sm"
                         aria-label="Copy all colors"
                         class="shrink-0"

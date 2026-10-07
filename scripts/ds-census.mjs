@@ -448,7 +448,14 @@ async function computedCensus() {
                 for (const route of ROUTES) {
                     const rec = { route, theme, width };
                     try {
-                        await page.goto(BASE + route, { waitUntil: "load", timeout: 90_000 });
+                        await page.goto(BASE + route, { waitUntil: "load", timeout: 300_000 });
+                        // X-DS pass 1: read the MOUNTED app. Under host load the boot
+                        // overture outlasts any fixed settle, and a census of an
+                        // unbooted page counts almost nothing (a false fall).
+                        await page.locator(".glass-dock").first().waitFor({ timeout: 300_000 });
+                        await page.locator(".pane-wrapper .card").first().waitFor({ timeout: 300_000 });
+            // lazy pane chunks: no "Loading the scene" plate may be standing
+            await page.waitForFunction(() => !document.querySelector('main [aria-busy="true"]'), null, { timeout: 300_000 });
                         await page.waitForTimeout(SETTLE);
                         Object.assign(rec, await page.evaluate(pageProbe, TOP));
                     } catch (e) {

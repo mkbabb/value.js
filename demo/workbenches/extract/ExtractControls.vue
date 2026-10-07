@@ -81,6 +81,7 @@
                 <Slider
                     aria-label="Chroma weight"
                     variant="spectrum"
+                    size="sm"
                     :model-value="chromaWeightModel"
                     :disabled="standDown"
                     :min="0"

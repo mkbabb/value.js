@@ -337,8 +337,12 @@ for (const scheme of ["light", "dark"] as const) {
                         `${view} (${scheme}): the seat carries backdrop-blur (RC-3)`,
                     )
                     .toBe("none");
-                // The drawn ink edge (ONE `--card-edge` hairline family) + the
-                // chip-scale stamp — the elevation PaletteCard rides.
+                // The drawn ink edge (ONE `--card-edge` hairline family). The
+                // chip-scale stamp is ABROGATED (X-DS pass 1 · V1-02, the
+                // owner's 2026-10-06 flat-lighting order, COHESION §0ej): a
+                // fixture seated inside a plate casts nothing, so the row now
+                // asserts the stamp's ABSENCE at rest (re-aimed, not dropped —
+                // a resurrected stamp reds it).
                 expect
                     .soft(
                         seat.edgeStyle,
@@ -358,8 +362,8 @@ for (const scheme of ["light", "dark"] as const) {
                     )
                     .toBe(tokens.cardEdge);
                 expect
-                    .soft(seat.stamp, `${view} (${scheme}): the cartoon stamp missing`)
-                    .toBe(true);
+                    .soft(seat.stamp, `${view} (${scheme}): the cartoon stamp resurrected on a seated fixture`)
+                    .toBe(false);
                 // The 24rem dock cap is DEAD: a seated field runs its host
                 // column (t-mobile F-7's 78px right-rag class).
                 expect

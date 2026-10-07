@@ -61,27 +61,33 @@ describe("G10 · the no-overflow law and the height law at every fixture N", () 
 });
 
 describe("G11 · root-only: the cast and the hover register live on the card root", () => {
-    it("the cast is the root's own rounded box-shadow, and hover deepens it", async () => {
+    // X-DS pass 1 (V1-02, COHESION §0ej): the card is a fixture seated inside a
+    // pane plate and casts NOTHING, at rest or on hover. The root-only half of
+    // G11 stands (no `.cartoon-cast` child); the hover register is the root's
+    // own rise plus its firmed hairline.
+    it("the card casts nothing, and the hover register is the root's own rise", async () => {
         const read = () =>
             seat.page.evaluate(() => {
                 const card = document.querySelector<HTMLElement>('[role=article][data-case="colors-5"]')!;
                 const cs = getComputedStyle(card);
                 return {
                     shadow: cs.boxShadow,
+                    edge: cs.borderTopColor,
                     radius: cs.borderTopLeftRadius,
                     translate: cs.translate,
                     castChildren: card.querySelectorAll(".cartoon-cast").length,
                 };
             });
         const rest = await read();
-        expect(rest.shadow).not.toBe("none");
+        expect(rest.shadow).toBe("none");
         expect(parseFloat(rest.radius)).toBeGreaterThan(0);
         expect(rest.castChildren).toBe(0);
 
         await seat.page.hover('[role=article][data-case="colors-5"]');
         await seat.page.waitForTimeout(400);
         const hover = await read();
-        expect(hover.shadow).not.toBe(rest.shadow);
+        expect(hover.shadow).toBe("none");
+        expect(hover.edge).not.toBe(rest.edge);
         expect(hover.translate).not.toBe(rest.translate);
         await seat.page.mouse.move(0, 0);
     });

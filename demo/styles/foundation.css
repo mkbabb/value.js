@@ -344,17 +344,21 @@
         ) left top / 16px 16px;
 
     /* ── THE MATERIAL LADDER, rungs 2 + 4 (T.W3-1 — SYNTHESIS §2 D1) ──
-     * Rung-2 WELL: the recessed in-plate fixture — an OPAQUE tone-step of the
-     * plate, NO backdrop-blur (nothing live sits behind an in-plate fixture;
-     * blurring the aurora THROUGH the host is the mud generator, t-card-material
-     * RC-3). The tone-step is the D1 bracket default: 8% `--foreground` into
-     * `--card`, oklab, judged inside [6%, 10%] at the O-7 census. INTERIM demo
+     * Rung-2 WELL: the recessed in-plate fixture — a tone-step of the plate,
+     * NO backdrop-blur (nothing live sits behind an in-plate fixture; blurring
+     * the aurora THROUGH the host is the mud generator, t-card-material RC-3).
+     * X-DS pass 1 (V1-03): the step is taken OF THE HOST, not of the static
+     * neutral `--card`. The opaque `--card` mix dropped a grey-brown (dark) or
+     * cream (light) slab onto the live-tinted plate — the fixture louder than
+     * its container, and in the wrong hue family. The well is now the same 8%
+     * `--foreground` step (the D1 bracket [6%, 10%]) laid as a wash over
+     * whatever plate it sits on, so it inherits the plate's hue. INTERIM demo
      * mint — the producer `.glass-well`/`--glass-bg-well` rung is packet P3;
      * this token swaps onto it at the adopt event (BOOKED, T.W3 §BOOKS).
      * Consumers: `.dashed-well`, PaletteCard (+skeleton), the gradient
      * perceived-space plate + stop chip, VersionHistoryDrawer rows, the mix
      * result plate — the six parallel hand-mints D1 retires. */
-    --well-bg: color-mix(in oklab, var(--card) 92%, var(--foreground) 8%);
+    --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
 
     /* Rung-4 STAGE: the named near-black pair for photographic/media grounds
      * (extract image stage, caption veils, on-stage chrome). Scheme-INVARIANT
@@ -370,7 +374,7 @@
  * The rung-2 WELL as a seated sub-card CLASS — ONE home for the console
  * species (the picker's sliders console + ConfigSliderPane, the app's
  * second slider population — the M-34 population clause), so no consumer
- * ever re-mints the recipe. Opaque tone-step of the plate (--well-bg), the
+ * ever re-mints the recipe. The tone-step of the plate (--well-bg), the
  * ONE hairline (--card-edge), the panel radius rung; NO backdrop-blur
  * (nothing live behind an in-plate fixture — C5's material ruling), NO
  * cartoon shadow (depth law 2: the plate already casts the pane's rung).

@@ -123,7 +123,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
              the stop rail, was the one unnamed section on the route. It is named
              here, at the same rank as the sections that serve it. -->
         <section class="flex flex-col gap-2">
-            <h3 class="font-display text-subheading text-muted-foreground">Stops</h3>
+            <h3 class="font-display text-subheading">Stops</h3>
             <GradientStopEditor
                 :stops="stops"
                 :can-remove="canRemove"
@@ -139,7 +139,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
         <!-- ── Interpolation ── -->
         <hr class="border-border" />
-        <h3 class="font-display text-subheading text-muted-foreground">
+        <h3 class="font-display text-subheading">
             Interpolation
         </h3>
 
@@ -298,7 +298,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
              the accordion itself is GradientEasingEditor, W5-9) ── -->
         <template v-if="stops.length >= 2">
             <hr class="border-border" />
-            <h3 class="font-display text-subheading text-muted-foreground">Easing</h3>
+            <h3 class="font-display text-subheading">Easing</h3>
             <GradientEasingEditor
                 :stops="stops"
                 :model-state="modelState"
@@ -309,7 +309,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- ── CSS ── -->
         <hr class="border-border" />
         <div class="flex items-center justify-between">
-            <h3 class="font-display text-subheading text-muted-foreground">CSS</h3>
+            <h3 class="font-display text-subheading">CSS</h3>
             <DockControl
                 compact
                 :title="cssCopyStatus === 'success' ? 'Copied rendered CSS' : 'Copy rendered CSS (easing baked in)'"
@@ -340,6 +340,5 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
     background-size:
         100% 100%,
         16px 16px;
-    box-shadow: var(--shadow-sm);
 }
 </style>

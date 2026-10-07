@@ -156,7 +156,7 @@ function openRepository(): void {
                  corners; the accent rides the ink channel alone. -->
             <DockControl
                 shape="tab"
-                class="gap-1.5 text-mono-small font-bold"
+                class="gap-1.5 text-small font-display"
                 :style="{ color: triggerInk }"
                 @click="emit('startSlugEdit')"
             >

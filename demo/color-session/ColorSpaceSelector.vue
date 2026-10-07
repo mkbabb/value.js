@@ -273,6 +273,11 @@ function isDisplayColorSpace(value: string | number): value is DisplayColorSpace
     background: none;
     border: none;
     box-shadow: none;
+    /* X-DS pass 1 (V1-06): the register's backdrop blur was the one property
+     * the bare paint missed — clipped to the pill radius it sat behind the
+     * title as a dark lens over the tinted plate. */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     color: color-mix(in srgb, var(--space-title-ink) 86%, transparent);
     transition: color var(--duration-fast) var(--ease-standard);
     /* T.W4-1 — the ×φ landing (Q11a: the glass-ui ladder is the sizing

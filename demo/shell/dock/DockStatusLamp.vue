@@ -74,7 +74,7 @@ const lamp = computed(() => resolveLampState(availability.value, isDev));
 }
 
 /* The `unavailable` face — the instrument's "no signal" glyph: an OPEN
-   ring in the muted ink, with the slow status pulse. Honest degradation,
+   ring in the muted ink, with a three-beat arrival pulse. Honest degradation,
    quiet register. */
 .lamp-dot {
     flex: none;
@@ -107,10 +107,14 @@ const lamp = computed(() => resolveLampState(availability.value, isDev));
 }
 
 /* X.W12.e: lamp-dot-pulse lives in styles/animations.css (moved, never
- * deleted); the no-preference gate on its USE stays here. */
+ * deleted); the no-preference gate on its USE stays here.
+ * X-DS pass 1 (V1-11): the pulse plays three times when the lamp ARRIVES (the
+ * lamp is v-if'd, so its mount is the state's entry), then rests. The state
+ * does not change while it stands, so nothing loops: the filled dot or the
+ * open ring carries it. */
 @media (prefers-reduced-motion: no-preference) {
     .lamp-dot {
-        animation: lamp-dot-pulse 2.4s var(--ease-standard) infinite;
+        animation: lamp-dot-pulse 2.4s var(--ease-standard) 3;
     }
 }
 </style>
