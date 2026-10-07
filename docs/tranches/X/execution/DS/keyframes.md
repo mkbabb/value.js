@@ -333,3 +333,67 @@ The verdict is still **RED**, on the glass-owned chrome rows. The −4/−20/−
 - KF-C4-13: the confirm step the critic mentions does not exist (Clear all relies on Undo). The red therefore shows on hover and in the press only.
 - KF-C4-02 measured inert on glass 10.1.0: the deleted re-point did not change the served plate tint. The "14% brown" the critic measured is glass's resting recipe and is cited under O-87.
 - The evidence commit includes the critic's scratch frames and probes (`critic-c4/`), so the frames behind the findings survive a scratchpad wipe.
+
+### pass 5
+
+**Cure commit:** keyframes.js `2bdfacbe` (master, pushed fast-forward). **Evidence:** value.js `3502fc608` (`evidence/DS/keyframes/pass-05/`: 28 route frames, `census.json`, 20 special-cell frames, `c5-probe.mjs` + `c5-probe.json`, and the seat's measurement probes in `cure/`). All captures headless real Chrome (§0ei); 0 console errors on the probe walk in both schemes.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C5-01 | `createPreviewSubject` gives the clone `width/height: 100%` (border-box), before any pose vars. `fitPreviewSubject` already frames the clone at the source's resolved border box, so 100% of the frame is the source's size and follows every re-fit. The square's `--square-size` is declared on the plate's arena, so outside the scene the clone's size had fallen back to `auto`. The hover preview shares the fix (same two helpers). | well 371×96; subject 66×66, centred (was a 68×15 strip on the top edge), docked and unfolded, both schemes |
+| KF-C5-02 | Apply CSS is `shrink-0 whitespace-nowrap`, and every secondary is `whitespace-nowrap`. The row is the inline-size container, so the secondaries give way to Apply: "Compiled" shows only its glyph below 29rem (the measured width of all four labels on one row) and "Format" below 22rem. Accessible names and `title`s are unchanged. **Glass rider:** Button labels should default to `white-space: nowrap`. | every label on one line, overflow 0. 1440: row 379, Apply 123, Copy 88, Format 99, Compiled 46 (glyph only). 390: row 340, Apply 111, Copy 82, Format and Compiled glyph only |
+| KF-C5-03 | The ×N Badge is removed from the diamond. The count reads in the stop's caret instead ("0% ×2"), and the caret's name is now "Keyframe at 0%, 2 keyframes — edit the position". The unused Badge import goes too. | no badge on any marker; the diamond is whole, docked and unfolded |
+| KF-C5-07 | The caret readout uses `--primary`, the ink of the playhead and the selected diamond, at rest as well as when selected. Selection keeps its non-colour channel (a solid 2px underline plus weight, against a dotted hover). The hover ink step is removed along with the muted rest state it stepped from. | caret ink = `--primary` (light `oklch(0.56 0.17 295)`, dark `oklch(0.74 0.13 305)`); graduation labels stay muted |
+| KF-C5-04 | `--square-travel: var(--square-size)` and `--square-size: clamp(5rem, (50cqmin − 1.5rem) / 1.56, 12rem)`. This is the largest size that keeps the swollen box on the plate at full travel when travel = size. A quarter cell is therefore half the box at every width. Below lg the plate hugs its field: `aspect-[3/4] max-h-full`, standing at the stage's top like its siblings. At lg it takes the cell as before (`lg:h-full`). | box covers 2.00 cells at 1440 (box 184, cell 91.8) and at 390 (box 91, cell 45.5); 390 plate 334×445 (was 334×641) |
+| KF-C5-05 | At lg the sequence plate takes the stage cell (`lg:h-full`) and centres its lanes (`my-auto` on the storyboard, which collapses to 0 on a short cell so the scroll posture holds). Below lg it still hugs its rows, matching the square. The overshoot room (`--seq-room`) is drawn as a `::after` dashed continuation of each rail, in that lane's 18% rail tint. | plate y 127, 623 tall (was 336); rail ends at x 1240 and the dashed room runs to the track end at x 1332 |
+| KF-C5-06 | The iterations field displays the stored spelling, "infinite". A typed `∞` still persists as `"infinite"`. | value `infinite` at cap height in the fields' face |
+| KF-C5-08 | `DialogContent` takes `md:w-full` under its existing `md:max-w-2xl`. It had been shrink-to-fit at 512px because a two-column flow is narrow intrinsically. The longest labels are shortened where they are registered: "Scrub back/forward ×10" (the step is 10× the arrow's) and "Orbit on X/Y/Z axis (hold)". | dialog 672px; 0 of 22 rows wrap |
+| KF-C5-10 | The playback row is a flex row (no `1fr` track). Reverse is glass `quiet` at content width, a peer of Preview, and keeps the skin's one pressed authority. The `.btn-playback` skin's `width: 100%` is deleted: the skin does not size its host, and the Spring CTA's grid cell still stretches it. | Reverse 121 quiet, Preview 120 quiet (pane 407); the dock's Play is the only loud verb |
+| KF-C5-11 | The rail copy now reads: "Tap or drag the rail to move the target (the dashed ring) — the ball on the curve below springs to it." | frame `spring-rail-1440-*` |
+
+**Held (glass-owned; honest-RED, cited, no local override)**
+
+| id | disposition |
+|---|---|
+| KF-C5-09 | Folds into the KF-C4-05 glass formatter rider. Render Delete as ⌦ (or "Del"), not ⌫. Surface aliases through the formatter API in one cap register; the consumer then deletes its `KEY_ALIASES` mirror (`KeyboardShortcutsModal.vue`). Recaptured unchanged ("⌫ or Backspace", `shortcuts-1440-*`). |
+| KF-C5-12 | **O-87 rider:** a bare, plateless ToggleGroup variant for groups used only for their selection model. At the repin the consumer deletes the three interim strips (`EasingCatalogue.vue:347-352`; `SpringPhysicsFacet.vue:109, :248`). These strips are pre-existing (KF-ET-10), labelled interim, and not extended by this seat. |
+
+**Banked for the owner window (no local cure)**
+
+| id | disposition |
+|---|---|
+| KF-C5-13 | The start screen's headline wave (`AnimatedText.vue` `charLift`, 68) and typing dots (`TypingDots.vue`, 12) keep the census's "chrome: no looping animations" RED at 80. Both are identity-adjacent: ORIGIN had dot-fade, and the dots are engine-driven. The pause control meets WCAG 2.2.2. **§0dm DESIGN-RULING for the owner:** keep the wave and dots, or stop them after one cycle. |
+
+As in passes 3 and 4, this seat **did not relay** the glass riders (KF-C5-02's nowrap default, KF-C5-09 and KF-C5-12). The task scoped glass rows to "cite and leave". The text above is what the relay owner should send.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages)
+
+| | pass 4 after | pass 5 after |
+|---|---:|---:|
+| chrome: elements with shadow | 460 | 440 |
+| chrome: shadow layers (max) | 1412 (6) | 1312 (6) |
+| chrome: shadows on non-floating surfaces | 326 | 316 |
+| chrome: inset highlights | 696 | 656 |
+| chrome: backdrop blur | 304 | 284 |
+| chrome: control gradients | 176 | 176 |
+| chrome: looping animations | 80 | 80 (KF-C5-13, banked) |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| static: gradient fills | 5 | 5 |
+| subject: every lighting family | 0 | 0 (4 subject control gradients, unchanged) |
+
+The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row. The −20/−100/−10/−40/−20 deltas come from Reverse leaving glass's secondary capsule for `quiet` on the scene routes that carry the controls pane. The `.seq-track::after` dashed room is a graduation on the content figure, not a control fill, so the static gradient count does not move.
+
+**Gates** (host load average 45–65 from other sessions)
+- `npm run check` (vue-tsc on both configs + proof:structure): exit 0, twice, on the final bytes.
+- `npm run lint` (depcruise + eslint): exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **807/807, twice**, on the final bytes.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- Tests re-pointed to the ruled structure: `timeline-track-geometry` (the count is in the caret readout and named; no count on any marker) and `preview-toggle` (3) (the peers' flex row, both `quiet`, no `1fr` track).
+
+**Disclosures**
+- KF-C5-04 shrinks the box slightly wherever the old independent clamps disagreed: 1440 now gives 184 px (the critic measured 187), and 390 gives 91 px (was 100). The 5rem floor now binds the size instead of a 4rem floor on travel. KF-C3-10's deferred "scale the subject" design call stays open. This pass only couples the box to its field.
+- KF-C5-04/-05 below lg: the square plate now hugs and stands at the top, so the free stage cell sits below it (the paper shows) instead of inside the plate. This matches how sequence already behaved below lg. The 3:4 ratio is a measured fit for the header, the field and the legend at 334 px, not a token.
+- KF-C5-08 changes three registered shortcut labels: "Scrub back (large)" → "Scrub back ×10", "Scrub forward (large)" → "Scrub forward ×10", and "Constrain orbit to the X axis (hold)" → "Orbit on X axis (hold)", with Y and Z the same. These are the names the map and any AT reading of it carry; no test pinned the old strings.
+- KF-C5-02: "Compiled" is glyph-only at every width the app currently serves, because the pane row is never 29rem wide. Its name ("Copy compiled CSS") and tooltip carry the word.
