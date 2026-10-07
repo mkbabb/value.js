@@ -861,3 +861,37 @@ p50 = 16.7 on every leg of every run. **GREEN ×2 (r1, r4)**; `w12-drag` GREEN o
 C1-1, C1-2 and C1-3 are cured, and C1-8 was cleared by its owner. C1-4 (L1/L2/X limbs), C1-5, C1-6 and C1-7 are escalated. The LEDGER row stays **PARTIAL**, and a re-close follows the rulings.
 
 **Verdict: PARTIAL (repair round 1: 3 cured · 4 escalated).**
+
+## Check 2
+
+L-20 fresh adversarial pass 2, VERIFY-ONLY, Track A, `claude-opus-5-5`, 2026-10-07, HEAD `054698bda`, host load 41–78. Spec `W12U.md` read whole (87 lines, addenda (a)–(e)); record read header → Unit plan, Close, Check 1, Repair 1. Pre-wave base `7f5808564`. Crash recovery ⟨`git status --porcelain docs/tranches/X/execution/`⟩ → empty.
+
+### Gates re-run by this seat
+- LW witnesses ⟨`npx vitest run test/picker-blob-config.test.ts demo/test/color-session/format-color.test.ts` ×2⟩ → `Tests 70 passed (70)` ×2. Repair 1 C1-1/C1-2 reproduce. Diffs read: A7 re-seated on `const text = formatCssCaption(formattedCurrentColor.value)` (count 1 kept); body-radius witness re-reads `[0.325]` + tuple through `heroScale(…)` and pins the scale definition + call count 4 — no assertion deleted or narrowed.
+- `npm test` ⟨`npx vitest run` ×2⟩ → `Tests 7 failed | 1094 passed (1101)` ×2; the 7 = banked set (ink D6 ×2 · T-35 ×3 · spectrum-luma C-5 · reka-binding NG-6). Repair 1's figure reproduces.
+- typecheck ⟨`vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit`; `tsc -p tsconfig.e2e.json --noEmit` ×2⟩ → `lib 0 · demo 0 · test 0 · e2e 0` ×2. GREEN.
+- lint ⟨`npx eslint . --max-warnings=0` ×2⟩ → `0` ×2. GREEN.
+- `.x` `/admin/tags` ⟨`VJS_E2E_PORT=9879 npx playwright test e2e/smoke/w12u-x-admin-tags.spec.ts --project=smoke --workers=1` ×2⟩ → `6 passed (31.2s)` · `6 passed (20.7s)`. GREEN ×2 (playwright-owned server; :9000 fallback as named).
+- `.t` drags / `w12-text-trigger`: real-GPU background cell readings cited from `779d28faa` (not re-run at load 41–78); `9c0fb0e15` diff read — one definition `refreshBudget(T)` p50 ≤ T+1, p95 ≤ 2·T+1, exactly addendum (e); software-GL branch unchanged; no masking.
+- E-3 ⟨`git diff --stat 7f5808564..HEAD -- W12U.md registry/adjudicated/ AUDIT-2-value.md`⟩ → only `W12U.md | 9 +` (orchestrator addendum (e), `2f1b095e1`). HELD. dev.sh ⟨`git log 7f5808564..HEAD -- scripts/dev/dev.sh`⟩ → empty. HELD.
+- Mail ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → 0. GREEN.
+- Masking ⟨`git diff 22ee20f77..HEAD -- e2e/smoke demo test | grep -E '^\+.*(skip|fixme|eslint-disable|ts-ignore|catch|allowlist)'`⟩ → 0 lines. HELD.
+- Rulings ⟨`grep -n ESC-W12U docs/tranches/X/COHESION.md`⟩ → 0 lines: ESC-W12Uk-1 · ESC-W12Um-1 · ESC-W12U-r1-1..4 remain unruled.
+
+### Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | HIGH | Goal criterion unmet at the bytes: 13 AUDIT-2 L1 rows OPEN (ESC-W12Uk-1), L2-10 / L2-4 target / L2-1 OPEN (ESC-W12Um-1), routed `A2-VA-X-n` rows uncured (R-m-5) — none carries an O-74 relayed id nor spec relief; the spec says "Every CONSUMER and GLASS+CONSUMER row … is CURED … or carries an honest-RED id whose glass half is a named O-74 row" | Close gate table; Repair 1 ESC-W12U-r1-1; COHESION grep → 0 | orchestrator rules ESC-W12U-r1-1 / ESC-W12Uk-1 / ESC-W12Um-1 (sequence X-DS vs `.k`/`.m`), then `.k`/`.m`/`.h` cure |
+| C2-2 | MEDIUM | `.b` four specs literal RED: R-b-1 = A2-VA-X-2 is in-wave (`.m`), unrelieved (ESC-W12U-r1-2 design choice owed); R-b-2 relieved to X-W7L 10.2.0 re-read | Close `.b` row; Repair 1 ESC-W12U-r1-2 | `.m2` design sitting per ruling |
+| C2-3 | MEDIUM | §3 smoke `--workers=1` whole and the addendum (e) WebKit re-read still unread (load never < 12) | Repair 1 ESC-W12U-r1-3; this seat load 41–78 | orchestrator quiet-host window |
+| C2-4 | MINOR | Repair 1 `c6702ea88` edits `test/picker-blob-config.test.ts`, outside §1 (`demo/**`·`e2e/smoke/**`), with no "adjacent edits" line in the Repair 1 receipt (§0bt requires listing). Lawful in substance (the witness of the wave's own cure, same concern) | `git show --stat c6702ea88` | name it under "adjacent edits" at the next repair receipt |
+| C2-5 | MINOR | LW-3 (`d368584cb` X-DS hunk) still unnamed by X-DS | Repair 1 ESC-W12U-r1-4 | X-DS receipt |
+| C2-6 | INFO | `.t` r2 alpha leg 116.6 ms at load 73; quiet-host re-read owed | `779d28faa` | re-close re-read |
+
+### Honest-RED set (relieved by the spec's own words)
+DOCK-CAP-ELLIPSE (addendum (d): glass O-83/O-83a; value changes nothing; owner glass) · A2-VA-L3-6 / X-8 HELD for glass §11 (spec §2 `.h`.2; owner glass). **Not relieved:** the open L1/L2/X rows (C2-1), `.b` in-wave half (C2-2), smoke whole + WebKit (C2-3).
+
+### Successors
+X-W8 (spec State "Blocks: X-W8"; its "Opens after" conjunct X-W12U CLOSED) is NOT GREEN — X-W8 stays lawfully blocked.
+
+**Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 2 MINOR · 1 INFO). Gates reproduced: 6 (LW witnesses ×2 · npm test 7-banked ×2 · typecheck ×2 · lint ×2 · `/admin/tags` ×2 · E13). The LEDGER row stays PARTIAL.
