@@ -799,3 +799,65 @@ DOCK-CAP-ELLIPSE (addendum (d): glass O-83/O-83a, value changes nothing) · A2-V
 X-W8 (spec State "Blocks: X-W8") stays lawfully blocked: the conjunct X-W12U CLOSED is not GREEN.
 
 **Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 4 HIGH · 2 MEDIUM · 1 MINOR · 1 INFO). The LEDGER row stays PARTIAL.
+
+## Repair 1
+
+Repair seat round 1, `claude-opus-5-5`, 2026-10-07, HEAD at open `22ee20f77`, host load 28–145 (sibling tracks; each reading carries it). Spec `W12U.md` read whole (87 lines, addenda (a)–(e)); record read header → Unit plan, Close, Check 1. Crash recovery ⟨`git status --porcelain`⟩ → dirty `demo/**` paths (`App.vue`, `ColorPicker.vue`, `SpectrumCanvas.vue`, `seat.css`, `ConfigSliderPane.vue`, `AuroraPane.vue`, `DockViewSelect.vue`, `utils.css`, `ExtractControls.vue`, `GenerateControls.vue`, `GradientVisualizer.vue`, `MixResultDisplay.vue`, `MixSourceSelector.vue`) and `e2e/smoke/oracles/o18-contrast-census.spec.ts` are the live X-DS value.js writer's (the LW-3 class), not a killed W12U seat's: none is a file this repair cures, and none was read into, staged or touched. `W12U-evidence/s/results/final/probe-share-dark.txt` (`.s1`'s run-all) left as the Close left it. `:9000` down (⟨`curl -w '%{http_code}' localhost:9000/`⟩ → `000`); served falsifiers ran on a playwright-owned server (`VJS_E2E_PORT=9881`), the Close's named fallback.
+
+### Defect → cure → commit
+
+| # | sev | defect | cure | commit |
+|---|---|---|---|---|
+| C1-1 | HIGH | LW-1: G16 A7 RED (`6b04d6da` moved the caption write) | A7 re-seated on the cured expression `const text = formatCssCaption(formattedCurrentColor.value)` (⟨`grep -c` ColorInput.vue⟩ → 1), count 1 kept, census total 27 kept; in-bounds (`demo/test/**`) | `c769463e0` |
+| C1-2 | HIGH | LW-2: body-radius witness RED (`b7d6b40e5`, UIA-V-47) | re-read against `heroScale("bodyRadius", 0.325)`: `[0.325]` and the `0.4 / 0.09 / 0.03` tuple read through the scale; the retired `not.toMatch(/\bheroScale\b/)` (which pinned "literal, no multiplier") is restated as the scale's exact definition (`hero * (appBlobConfig.geometry[key] / BLOB_CONFIG_DEFAULTS.geometry[key])`) plus its call-site count (4) — no assertion deleted, the "no other multiplier" intent kept | `c6702ea88` |
+| C1-3 | HIGH | `.t` unopened (addendum (e)) | **unit `.t` executed** — see below | `9c0fb0e15` · `779d28faa` |
+| C1-4 | HIGH | goal criterion: L1/L2/X rows open under unruled ESC-W12Uk-1 / ESC-W12Um-1; drag p95 RED (ESC-W12U-p-1) | drag limb: GREEN under the restated budget (below), so ESC-W12U-p-1's gate reads GREEN at r1 and r4. The L1 / L2 / `A2-VA-X-n` limbs: **ESCALATED** (orchestrator rulings; see Escalations) | — |
+| C1-5 | MEDIUM | `.b` in-wave half (R-b-1 = A2-VA-X-2) | **ESCALATED** (measured reason below) | — |
+| C1-6 | MEDIUM | smoke `--workers=1` whole not re-read | **ESCALATED**: load never fell below 28 this seat (⟨`uptime`⟩ 28 · 55 · 72 · 90 · 145); the Check's own cure names load < 12 | — |
+| C1-7 | MINOR | LW-3 X-DS hunk in `d368584cb` | not this seat's: the cure is X-DS naming its hunk in its own receipt (Check 1's cure); **ESCALATED** to X-DS | — |
+| C1-8 | INFO | `tsconfig.test.json` RED from `bench/records/W8f/probe.ts` | cleared by its owner: ⟨`vue-tsc -p tsconfig.test.json --noEmit` ×2⟩ → 0 errors ×2; ⟨`git status --porcelain bench/records/W8f`⟩ → empty | (X.P) |
+
+### Unit `.t` (addendum (e), COHESION §0en) — receipt
+
+**Refresh-relative budget (owner-law re-baseline under §0ei, named as such).** One definition in `e2e/smoke/perf/frame-budget.ts`: `measureRefreshInterval(page)` reads T as the median of 60 idle rAF deltas on the page's own blank initial document, before `page.goto`; `refreshBudget(T)` → `p50 ≤ T + 1 ms`, `p95 ≤ 2·T + 1 ms` (`REFRESH_EPSILON_MS = 1`). `w12-drag.spec.ts` and `w12u-p-drag.spec.ts` drop `P95_BUDGET_MS = 16.7`, assert p50 and p95 against the budget on the real-GPU branch (the software-GL branch is unchanged), and log T and the budget in each result. `perf/real-gpu.ts` docstring re-pointed. At 120 Hz (T = 8.33) the p95 gate is 17.67 ms, which is the 16.7 ms figure of record plus ε; at the background cell's 60 Hz it reads T = 16.70 → p95 ≤ 34.40.
+
+⟨`W12_REAL_GPU=1 VJS_E2E_PORT=9881 npx playwright test e2e/smoke/w12-drag.spec.ts e2e/smoke/w12u-p-drag.spec.ts --project=smoke --workers=1`⟩ (renderer `ANGLE Metal Renderer: Apple M5 Max`, T=16.70 every run; `W12U-evidence/t/drag-refresh-relative-r{12,34}.txt`):
+
+| run | load | w12-drag (surface · L · a · b · alpha p95) | w12u-p-drag (p95; dock roving) | reading |
+|---|---|---|---|---|
+| r1 | 55 | 33.3 · 33.4 · 33.4 · 33.4 · 16.7 | 33.4 · 33.4 · 33.4 · 33.4 · 16.7; roving 0/0f all five | `2 passed` |
+| r2 | 73 | 33.3 · 33.4 · 33.4 · 33.4 · 16.8 | alpha **116.6** (12 long tasks, maxTask 130, 26 moves); others 33.4; roving 0/0f | `1 failed · 1 passed` |
+| r3 | 145 | — | — | `2 failed` instrument (`toBeVisible` / `toHaveCount`: element not found, cold server at load 145) |
+| r4 | 145→99 | 33.4 · 33.4 · 33.4 · 33.4 · 16.8 | 33.4 · 33.4 · 33.4 · 33.4 · 16.8; roving 0/0f | `2 passed` |
+
+p50 = 16.7 on every leg of every run. **GREEN ×2 (r1, r4)**; `w12-drag` GREEN on all three runs that reached the page. The r2 alpha leg is one leg of one run, with 12 long tasks and a third of the input moves: a load reading, not a byte reading. It is recorded rather than averaged away, and a quiet-host re-read is owed at the re-close.
+
+**`w12-text-trigger` 8/8 RED → GREEN.** The cause was **consumer CSS**: the colour-space title composes glass's control register (`.control-surface` + `.glass-control-edge` + `.glass-capsule-hover`), and the scoped `.space-trigger` bare-paint block cleared background, border and shadow but not the register's backdrop blur. The cure is already on HEAD and is not this seat's: X-DS pass 1 V1-06 `36adcc1ff` (2026-10-06 21:34) added `-webkit-backdrop-filter: none; backdrop-filter: none` to `.space-trigger` (`demo/color-session/ColorSpaceSelector.vue`). So the O-87 "keep the material" question does not arise, since the material never belonged on a text title, and nothing is relayed. ⟨`W12_REAL_GPU=1 … npx playwright test e2e/smoke/w12-text-trigger.spec.ts --project=smoke --workers=1`⟩ → r1 `1 failed · 7 passed` (`page.goto: Test timeout of 60000ms`, load 91: instrument) · r2 `8 passed` (load 95) · r3 `8 passed` (load 75). **GREEN ×2 (r2, r3).**
+
+**WebKit timeouts under load** (addendum (e) third bullet): not re-read, because no load below 12 occurred this seat. Owed at the re-close with C1-6.
+
+### Gate re-reading (this seat, settled bytes at `779d28faa`)
+
+| gate | Check 1 | now | reading |
+|---|---|---|---|
+| LW witnesses ⟨`npx vitest run test/picker-blob-config.test.ts demo/test/color-session/format-color.test.ts` ×2⟩ | `2 failed \| 68 passed (70)` ×2 | `Tests 70 passed (70)` ×2 | GREEN ×2 |
+| `npm test` ⟨`npx vitest run` ×2⟩ | standing 7 + LW-1 + LW-2 | r1 `Tests 7 failed \| 1094 passed (1101)` (load 88) · r2 `Tests 7 failed \| 1094 passed (1101)` (load 92); the 7 in both are the banked set exactly: ink D6 ×2 · T-35 ×3 · spectrum-luma C-5 · reka-binding NG-6 | standing banked 7 only; 0 wave-attributable |
+| typecheck ⟨`vue-tsc -p tsconfig.{lib,demo,test}.json`; `tsc -p tsconfig.e2e.json` ×2⟩ | lib 0 · demo 0 · test 2 · e2e 0 | `lib 0 · demo 0 · test 0 · e2e 0` ×2 | GREEN ×2 |
+| lint ⟨`npx eslint . --max-warnings=0` ×2⟩ | 0 ×2 | `LINT1 0` · `LINT2 0` | GREEN ×2 |
+| drag, refresh-relative (`.t` / `.p` gate 1) | RED (16.7 ms absolute, `.t` unlanded) | r1, r4 `2 passed`; r2 one leg at load 73; r3 instrument | GREEN ×2 |
+| dock roving per frame (`.p` gate 2) | GREEN (`.p`) | 0/0f on all 5 legs, r1 r2 r4 | GREEN ×3 |
+| `w12-text-trigger` | 8/8 RED | r2 8/8 · r3 8/8 | GREEN ×2 |
+| `.b` four specs, smoke whole `--workers=1`, WebKit timeouts | RED / unread | not re-read: load 28–145 and never < 12 | escalated (C1-5, C1-6) |
+
+### Escalations (for the orchestrator)
+
+- **ESC-W12U-r1-1 (C1-4)**: the L1 limb (13 rows OPEN, ESC-W12Uk-1: re-shells and moves need the X-DS value.js writer quiescent; 13 `demo/**` paths are dirty under X-DS at this seat), the L2 limb (L2-10, L2-4 target, L2-1; ESC-W12Um-1) and the routed `A2-VA-X-n` rows (R-m-5) each wait on a ruling no seat may make. ⟨`grep -c ESC-W12U docs/tranches/X/COHESION.md`⟩ → `0` (re-read at this seat): none is ruled. The drag limb of ESC-W12U-p-1 now reads GREEN under the §0en restatement, so the remaining `.p` question is only whether the root-wide `--accent-live`/`--accent-view` write still needs scoping. At 2·T it no longer bills the gate.
+- **ESC-W12U-r1-2 (C1-5, A2-VA-X-2 / R-b-1)**: the 16 px document widening comes from the pane carrier's `inset: calc(-2 * var(--glass-blur-resting-radius, 8px))` (`demo/styles/shell.css:404-413`). That inset is the blur's oversampling, and removing it brings back the t33 edge-clamp rim the carrier exists to kill. There are two ways to contain it, and each has a cost. (a) Containing it at its owner (`overflow: clip` / `contain: paint` on `.pane-wrapper`) also clips the card's own `box-shadow` and the stage region's hero-blob ornament, which overflows by design (`shell.css:242-253`). (b) A shell-wide inline clip hides the very overflow the `.x` falsifiers (`probe-boot-width.mjs`, `probe-carrier.mjs`) read, which is a masking cure. Choosing between these is the `.m2` design sitting that ESC-W12Um-1 already names, since it cites A2-VA-X-2 as the cause of `innerHeight` ≠ the device height. It also depends on the producer retiring the block (the booked P3 ladder rider). No cure lands from a repair seat.
+- **ESC-W12U-r1-3 (C1-6 + addendum (e) WebKit)**: the whole smoke suite at `--workers=1` and the WebKit timeout re-read need host load < 12. Measured this seat: 28 · 55 · 72 · 88 · 90 · 92 · 145. The orchestrator owns the quiet-host window.
+- **ESC-W12U-r1-4 (C1-7)**: LW-3 is cured only by X-DS naming its `SpectrumCanvas.vue` hunk of `d368584cb` in its own receipt. It is outside this wave's writable set and is relayed to X-DS.
+
+### State
+
+C1-1, C1-2 and C1-3 are cured, and C1-8 was cleared by its owner. C1-4 (L1/L2/X limbs), C1-5, C1-6 and C1-7 are escalated. The LEDGER row stays **PARTIAL**, and a re-close follows the rulings.
+
+**Verdict: PARTIAL (repair round 1: 3 cured · 4 escalated).**
