@@ -13,6 +13,7 @@ import type { ColorNode, MixMethodNode } from "./color";
 import { keywordColor } from "./color";
 import { isCalculation, substitutes } from "./calc";
 import { isMixItem, keepsSignature } from "./color5";
+import { keepsImageSignature } from "./image";
 import type { Actions } from "./generated/grammar";
 import type { Numeric, Quantity } from "./math";
 
@@ -100,7 +101,8 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     //  A comma list's items are already a frozen array (`listOf`), shared as the arguments.
     const call = callNode(name, body.kind === "list" && body.separator === "comma" ? body.items : Object.freeze([body]));
     //  `alpha()` and `contrast-color()` keep their css-color-5 signatures (`./color5`; X.P.W8 `.t`).
-    return keepsSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
+    //  The css-images-4 image functions keep theirs (`./image`; X.P.W8 `.i`).
+    return keepsSignature(call) && keepsImageSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
 }
 
 /**
@@ -156,8 +158,13 @@ function requestModifierValid(name: string, m: CssValue): boolean {
 }
 const asciiLower = (s: string) => s.replace(/[A-Z]/g, (c) => String.fromCharCode(c.charCodeAt(0) + 32));
 
-/** `type()` (`value.bbnf` `typeCall`): the call of one argument, its `<syntax>` or `<string>` kept as authored. */
-const typeValue = (name: string, syntax: string): CssCall => callNode(name, Object.freeze([keyword(syntax)]));
+/**
+ * `type()` (`value.bbnf` `typeCall`) and `element()` (`elementCall`, X.P.W8 `.i`): the call of one argument,
+ * its `<syntax>`, `<string>` or `<id-selector>` kept as authored.
+ */
+const leafCallValue = (name: string, arg: string): ValueNode =>
+    //  The leaf's one alternation reads both: `element()` takes only the `<id-selector>`, `type()` never.
+    (asciiLower(name) === "element") === arg.startsWith("#") ? callNode(name, Object.freeze([keyword(arg)])) : refused("css_syntax", `<${asciiLower(name)}()>`);
 
 /**
  * A grid `<line-names>` block (`value.bbnf` `lineNames`): one keyword, spelled canonically — its
@@ -269,7 +276,7 @@ export const valueActions = {
     varCall: { kind: "map", fn: callValue },
     urlCall: { kind: "map", fn: urlValue },
     urlString: { kind: "map", fn: urlStringValue },
-    typeCall: { kind: "groups", fn: typeValue },
+    typeCall: { kind: "groups", fn: leafCallValue },
     lineNames: { kind: "map", fn: lineNamesValue },
     mathCall: { kind: "map", fn: mathValue },
     mathSpace: { kind: "map", fn: listOf("space") },

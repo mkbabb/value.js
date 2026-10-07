@@ -70,7 +70,17 @@ urlString  = /url(?=\()/i , /\(\s*/ >> string , ( sp1 >> ( call | identTerm ) ) 
 // `image-set()`'s `type( <string> )` (css-images-4 §2.2): one leaf whose two groups are the name and the
 // argument, kept as authored. `<syntax> = '*' | <syntax-component> [ '|' <syntax-component> ]*`, a
 // component a `<type-name>` or an identifier with an optional `+`/`#` multiplier (css-values-5 §8.1).
-typeCall   = /(type)\(\s*("(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*'|\*|(?:<transform-list>|(?:<[a-zA-Z][\w-]*>|-?[a-zA-Z_][\w-]*)[#+]?)(?:\s*\|\s*(?:<transform-list>|(?:<[a-zA-Z][\w-]*>|-?[a-zA-Z_][\w-]*)[#+]?))*)\s*\)/i ;
+// The same leaf reads `element( <id-selector> )` (css-images-4 §2.4): a `<hash-token>` whose value is an
+// identifier as `identTerm` reads one (css-syntax-3 §4.3.4 type flag "id"), kept as authored (`#a`,
+// `#\31 a`); its action pairs each name with its own argument (`src/css/bbnf/value.ts` `leafCallValue`),
+// and a generic `element()` call is refused (`src/css/bbnf/image.ts`). One alternation, not a rule of its
+// own: a separate `elementCall` rule measured +79–89 B gzip against the E-6 ceiling, this +35. X.P.W8 `.i`.
+typeCall   = /(type|element)\(\s*(#(?:[-_a-zA-Z\u0080-￿]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))(?:[-_a-zA-Z\d\u0080-￿]|\\(?:[\da-fA-F]{1,6}[ \t\n\r\f]?|[^\n\r\f\da-fA-F]))*|"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*'|\*|(?:<transform-list>|(?:<[a-zA-Z][\w-]*>|-?[a-zA-Z_][\w-]*)[#+]?)(?:\s*\|\s*(?:<transform-list>|(?:<[a-zA-Z][\w-]*>|-?[a-zA-Z_][\w-]*)[#+]?))*)\s*\)/i ;
+
+// `element( <id-selector> )` (css-images-4 §2.4): one leaf whose two groups are the name and the id
+// selector, a `<hash-token>` whose value is an identifier (css-syntax-3 §4.3.4 type flag "id";
+// selectors-4 §6.7), kept as authored — `#a`, `#-a`, `#\31 a`. Any other `element()` is refused
+// (`src/css/bbnf/image.ts`). X.P.W8 `.i`.
 
 // A math function (css-values-4 §10) reads its arguments as a call does, and admits a `()` simple
 // block as a term: §10.1 `<calc-value> = … | ( <calc-sum> )` (`calc(50% - (1em / 2))`). The group is

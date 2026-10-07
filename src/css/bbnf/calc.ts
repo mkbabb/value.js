@@ -21,7 +21,7 @@
 import type { CssCall, CssValue } from "../../value";
 
 /** A type (§10.8.1): the exponent of each base type; `percent` is a base until a hint resolves it. */
-type Base = "length" | "angle" | "time" | "frequency" | "resolution" | "percent";
+export type Base = "length" | "angle" | "time" | "frequency" | "resolution" | "percent";
 type Exps = Readonly<Partial<Record<Base, number>>>;
 /** `any`: an operand whose type is known only later (an unknown function, a substitution). */
 type MathType = Exps | "any" | null;
@@ -213,3 +213,15 @@ export function substitutes(v: CssValue): boolean {
 
 /** Whether a math function call is a calculation (css-values-4 §10), whatever property it stands in. */
 export const isCalculation = (call: CssCall): boolean => substitutes(call) || valueType(mathType(call));
+
+/**
+ * The type a number token or a math function holds where an image's grammar wants a typed position
+ * (`./image`; X.P.W8 `.i`): its one base type (`percent` for a bare percentage, which resolves against the
+ * position's own type), `number` for a <number>, `any` when known only later, `null` for no calculation.
+ */
+export function baseOf(v: CssValue): Base | "number" | "any" | null {
+    const t = operand(v);
+    if (t === null) return null;
+    if (t === "any") return "any";
+    return valueType(t) ? (exps(t)[0] ?? "number") : null;
+}
