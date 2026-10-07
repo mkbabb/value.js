@@ -3706,3 +3706,6 @@ X-DS's canon is amended to match (X-DS.md addendum (a)); the running workflow's 
 
 ## §0ep — 2026-10-06: KF.W13X `.sq` and `.dh` landed (kf `cd8386cf`); leftovers homed; KFA-218 ruled
 The Sequence squared frame was a consumer rule (`calc(var(--radius-card) - 1rem)` = 0 px) and is cured. Easing, Spring and Sequence each read as one primary subject, one Configurator-anatomy group and subordinate readouts (18 cells RED → GREEN ×2 dev and ×2 gh). **Homed** (KF-W13.md addendum (f)): `.pc` (the pane cut square by the rail's scroll port) and `.dh2` (UIA-KF-098/317 limbs). **Ruled:** KFA-218 as designed: chrome does not join the stage's boot cascade (§0ek).
+
+## §0eq — 2026-10-06: ESC-W7r7-1 RULED — a timing gate's check is an audit of the banked quiet-window read
+X.P.W7's close read L-G1 GREEN ×2 on four engines at load 6–8.5. Three checks then could not re-time on a host at load 400–550, on battery, with other sessions' fleets running. **Ruled** (W7.md addendum (k)): the quiet-window read is the read of record. The check audits the records: hashes against the frozen bytes, per-rep load < 8, ratios recomputed from the raw samples, full matrix coverage, the instrument unchanged. An independent re-read is owed at X.P.W8's close, in an owner-provided window (AC power, lid open, fleets idle). Node reps above load 8 are supplementary.
