@@ -1,7 +1,11 @@
 <template>
     <div
-        class="dashed-well"
+        class="dashed-well current-palette-well"
+        :data-empty="savedColorStrings.length === 0 || undefined"
     >
+        <!-- X.W12U.h · A2-VA-L3-4: with no swatches the well is ONE line, the
+             caption and the add slot side by side; it spent a caption row and a
+             second row holding the lone "+" before the first saved palette. -->
         <div
             class="flex items-center justify-between gap-2"
         >
@@ -284,6 +288,15 @@ function confirmUpdatePalette() {
 /* The add-slot host Button fills with the ghost dot (the dot's own inline style
  * pins position:relative, so it sizes by w/h, never by inset); the Plus glyph is
  * the absolutely placed child, centred at its flex static position. */
+/* A2-VA-L3-4: the empty well reads as one line — caption leading, the add
+ * slot trailing. Only the caption row and the swatch row (holding the slot
+ * alone) are mounted then, so the column becomes a row. */
+.current-palette-well[data-empty] {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .add-slot-ghost {
     position: relative;
     display: inline-flex;
