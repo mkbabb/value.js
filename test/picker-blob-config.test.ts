@@ -20,17 +20,26 @@ const actions = readFileSync(
 );
 
 describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
+    // X.W12U.s1 (UIA-V-47, b7d6b40e5): the hero register is a SCALE over the
+    // live app geometry — `heroScale(key, hero)` = hero × app/default — so the
+    // Blob pane's sliders reach the hero. At the shipped defaults the ratio is
+    // 1 and each atom IS its register literal; the witness reads that literal
+    // through the one scale, and the scale's definition is pinned so no other
+    // multiplier rides the register.
     it("changes the sole body-radius authority while preserving the morphology tuple", () => {
-        const radii = [...source.matchAll(/^\s*bodyRadius:\s*([\d.]+),$/gm)].map(
-            ([, value]) => Number(value),
-        );
+        const radii = [
+            ...source.matchAll(/^\s*bodyRadius:\s*heroScale\("bodyRadius",\s*([\d.]+)\),$/gm),
+        ].map(([, value]) => Number(value));
 
         expect(radii).toEqual([0.325]);
         expect(2 * radii[0]!).toBeCloseTo(0.65, 12);
-        expect(source).toMatch(/^\s*orbitRadius:\s*0\.4,$/m);
-        expect(source).toMatch(/^\s*satelliteRadius:\s*0\.09,$/m);
-        expect(source).toMatch(/^\s*eccentricity:\s*0\.03,$/m);
-        expect(source).not.toMatch(/\bheroScale\b/);
+        expect(source).toMatch(/^\s*orbitRadius:\s*heroScale\("orbitRadius",\s*0\.4\),$/m);
+        expect(source).toMatch(/^\s*satelliteRadius:\s*heroScale\("satelliteRadius",\s*0\.09\),$/m);
+        expect(source).toMatch(/^\s*eccentricity:\s*heroScale\("eccentricity",\s*0\.03\),$/m);
+        expect(source).toMatch(
+            /hero \* \(appBlobConfig\.geometry\[key\] \/ BLOB_CONFIG_DEFAULTS\.geometry\[key\]\)/,
+        );
+        expect(source.match(/\bheroScale\(/g)).toHaveLength(4);
     });
 });
 
