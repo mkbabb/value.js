@@ -52,3 +52,30 @@ Serial, one unit at a time (every grammar unit modifies `src/css/grammar/value.b
 
 ## Unit receipts
 
+
+### .c (2026-10-07, `claude-opus-5-5`) — corpus + gate V-C, born RED ×2
+
+- **Crash recovery:** ⟨`git status --porcelain test/css bench docs/tranches/X/execution/D docs/tranches/X/parse-that`⟩ → nothing dirty in the writable set; no inherited work.
+- **Pin:** WPT `5a5b2b591b39c59d5bca77819db305474dcfd18a`, the commit `test/css/wpt/` already pins (cross-check: fetched `color-valid.html` sha `55f5c21f…`, `color-invalid-rgb.html` `1552dc83…` = `wpt-cases.ts` pins). Fetch cache durable (§0eo): `~/.cache/wpt/` (blobless tree listing `5a5b2b59/`, raw files `raw/`), 230 name-candidates (`*valid*`/`*invalid*` .html in the nine modules, minus crashtests/tentative), 0 fetch failures.
+- **Act 1 — vendor** ⟨`node test/css/wpt-values/vendor.mjs ~/.cache/wpt/raw`⟩ → `vendored 159 files at WPT 5a5b2b59…` (+ `LICENSE.md`); per module: css-color 26 · css-easing 2 · css-fonts 54 · css-grid 22 · css-images 18 · css-transforms 17 · css-values 20 · **css-variables 0 · css-syntax 0** (their 5 name-matching files call neither harness function — recorded in LEDGER §19, not ruled). sha256 per file in `pins.json`.
+- **Act 2 — extract** ⟨`node test/css/wpt-values/extract.mjs 2026-10-07`⟩ ×2 → `6267 cases from 159 files → cases-2026-10-07.json`, sha256 `5148910ca0d0144e…` both runs (deterministic). wpt-cases.ts idiom: inline scripts executed with the two recorders in scope, any other free identifier an inert stub; 0 files threw, 0 files yielded zero cases.
+- **Commit** `16759408e` — test(X.P.W8.c): the vendored corpus (164 files).
+- **Act 3 — V-C instrument** `bench/wpt-conformance/conformance.ts` (`npx vite-node bench/wpt-conformance/conformance.ts [--misses <module>|all]`): valid → `parseCssValue` accepts AND `serializeCssValue` equals one of WPT's expected forms; invalid → refused; misses classed refused / serialization / serialize-error / accepted; a miss clears only by a row in `ruled.json` (exact file+kind+property+input with class, reason, spec — HALT on a row missing any); a row naming no miss is STALE and fails; exit 1 on any unruled miss or stale row. `ruled.json` born EMPTY (no allowlist of owed misses). Not a `*.measure.test.ts`, so `test:css-equivalence` is unchanged. DIVERGENCE-LEDGER §19 (dated, beside) records the instrument and the ruled-row law.
+- **Commit** `f1e753872` — bench(X.P.W8.c): instrument + ruled.json + LEDGER §19.
+- **V-C read ×2** ⟨`npx vite-node bench/wpt-conformance/conformance.ts`⟩ → exit 1 both reads; the two outputs `diff` IDENTICAL:
+
+| module | cases | pass | ruled | refused | serialization | serialize-error | accepted | MISS |
+|---|---|---|---|---|---|---|---|---|
+| css-color | 1810 | 546 | 0 | 143 | 716 | 0 | 405 | 1264 |
+| css-easing | 35 | 17 | 0 | 0 | 5 | 0 | 13 | 18 |
+| css-fonts | 897 | 262 | 0 | 0 | 403 | 0 | 232 | 635 |
+| css-grid | 669 | 262 | 0 | 10 | 69 | 0 | 328 | 407 |
+| css-images | 1829 | 41 | 0 | 1 | 1443 | 0 | 344 | 1788 |
+| css-transforms | 231 | 78 | 0 | 0 | 80 | 0 | 73 | 153 |
+| css-values | 796 | 282 | 0 | 10 | 2 | 0 | 502 | 514 |
+| **TOTAL** | **6267** | **1488** | **0** | **164** | **2718** | **0** | **1897** | **4779** |
+
+  `V-C RED: 4779 unruled misses, 0 stale ruled rows` — **born RED** (BEFORE: RED by absence → AFTER: RED measured, per module). Largest single file: `gradient-interpolation-method-valid.html` 1,398 serialization misses (e.g. `red` → product `rgb(255 0 0)`; `calc(0deg + 100%)` vs WPT's `calc(100% + 0deg)`).
+- **Stay-GREEN:** ⟨`npx vitest run test/css`⟩ → `Test Files 9 passed (9) · Tests 111 passed (111)` (BEFORE 111 → AFTER 111). ⟨`npm run -s test:css-equivalence`⟩ → read 1: `19 passed (19)` but `Errors 1 error` = `[vitest-worker]: Timeout calling "onTaskUpdate"` (RPC timeout at host load ~240–350; my bytes touch no product/equivalence file); read 2: `Test Files 2 passed (2) · Tests 19 passed (19)`, MIRROR-DEFECTS 0, STYLESHEET DEFECTS 0, exit 0 → GREEN.
+- **Adjacent edits:** none. **Escalations:** none.
+- **Residuals (owed to families, not to `.c`):** all 4,779 misses (`.g` grid · `.v` values · `.t` transforms/easing/color · `.i` images · `.f` fonts · `.x`). Note for the families: a large share is serialization policy (named colours → `rgb()`, calc term order, colour-space forms) and property-grammar refusals a generic value parser cannot make (`accepted` 1,897) — each is a BBNF cure or a ruled row with its spec reason, per W8.md §Scope 2. css-variables-1 / css-syntax-3 yield 0 V-C cases at this pin; their coverage (if any) is `.v`'s to source.
