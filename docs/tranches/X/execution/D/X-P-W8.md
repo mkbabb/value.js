@@ -261,3 +261,66 @@ Serial, one unit at a time (every grammar unit modifies `src/css/grammar/value.b
 - **Adjacent edits (§0bt):** `scripts/gen-grammar.mjs:33` — `"ident"` appended to `ENTRIES` (the generator's list of the rules value.js calls; without it `E.ident` is not emitted and the cure cannot read the BBNF rule). Same repository, same concern; no package pin, no test deleted.
 - **Escalations:** none new. ESC-W8v-1 stands (holds V-C at 14).
 - **Residuals (rowed in §19-X "open"):** a named colour (`red`) is a valid `<custom-ident>` but parses to a colour scalar with no authored text, so it stays refused as `<custom-ident>` (unchanged; a value-model question, not strictness); an escaped CSS-wide keyword (`\69 nitial`) is compared as authored.
+
+## Close (2026-10-07, close seat, `claude-opus-5-5`, Track D) — verify-only; verdict **PARTIAL**
+
+- **Crash recovery:** ⟨`git status --porcelain`⟩ value.js: nothing dirty in the record / LEDGER / `bench/records/W8close/`; parse-that's dirty rust/docs paths are not this wave's (read-only, `cb9c0d4` unmoved). No inherited work. Product bytes read = HEAD `f40ea8019` (emission sha256 `acd6e069…`).
+- **Host:** ⟨`sysctl -n vm.loadavg`⟩ → `{ 89.98 94.06 93.99 }`, later `82.63 93.77 94.22`; ⟨`pmset -g batt`⟩ → 7 %, charging. No timing gate read or claimed.
+- **Emitter pin (for E-4 `--check` and the E-2 audit only):** `node_modules/@mkbabb/bbnf-lang` (0.1.4) moved aside as `.bbnf-lang-0.1.4-aside-W8close`, linked to `../bbnf-lang-x-p-w7-typescript/typescript` (`f0059db14`, `git status --porcelain | wc -l` → `0` after), restored at once (⟨`grep '"version"'`⟩ → `0.1.4`). Without the pin the audit cannot load (`does not provide an export named 'compile'`, first attempt, `audit.log` overwritten by the pinned read).
+
+### Act 1 — commit roster (⟨`git log --oneline --grep=X.P.W8`⟩ + ⟨`git show --stat`⟩ per commit)
+
+| unit | commits | paths | in writable set? |
+|---|---|---|---|
+| `.c` | `16759408e` · `f1e753872` · `d68e28575` | `test/css/wpt-values/**` (164 files; ⟨`grep -v '^test/css/wpt-values/'`⟩ → 0) · `bench/wpt-conformance/{conformance.ts,ruled.json}` + DIVERGENCE-LEDGER · record | yes |
+| `.g` | `0325cb55b` · `fbd3c5c10` | `src/css/grammar/value.bbnf`, `src/css/bbnf/{value.ts,generated/*}`, `test/css/bbnf-{gap,grid}.test.ts`, `bench/{css-equivalence/w6-classes.ts,wpt-conformance/ruled.json}`, CHANGELOG, DIVERGENCE-LEDGER · `bench/records/W8g/**` + record | yes |
+| `.v` | `be2174187` · `b3618411b` | grammar `{value,color,tokens}.bbnf`, `src/css/bbnf/{calc,value}.ts` + generated, `test/css/bbnf-values.test.ts`, bench, CHANGELOG, LEDGER §19-V · `bench/records/W8v/**` + record | yes |
+| `.t` | `99ace0611` · `18280dc92` | grammar ×2, `src/css/bbnf/{calc,color,color5,value}.ts` + generated, `test/css/bbnf-color5.test.ts`, bench, CHANGELOG, LEDGER §19-T, **`src/css/serialize.ts`** · `bench/records/W8t/**` + record | yes; `serialize.ts:55–59` declared §0bt adjacent edit (plan names it §0bt-only) |
+| `.i` | `03bde8448` · `7945abe20` | `value.bbnf`, `src/css/bbnf/{calc,image,value}.ts` + generated, `test/css/bbnf-images.test.ts`, ruled.json, CHANGELOG, LEDGER §19-I · `bench/records/W8i/**` + record | yes |
+| `.f` | `3532f48f3` · `49ef02928` | `value.bbnf`, `src/css/bbnf/{image,palette,value}.ts` + generated, `test/css/bbnf-fonts.test.ts`, ruled.json, CHANGELOG, LEDGER §19-F · `bench/records/W8f/**` + record | yes |
+| `.x` | `dca3d91a1` · `f40ea8019` | `tokens.bbnf`, `src/css/{syntax.ts,bbnf/sheet.ts}` + generated, `test/css/syntax-custom-ident.test.ts`, CHANGELOG, LEDGER §19-X, **`scripts/gen-grammar.mjs`** · `bench/records/W8x/**` + record | yes; `scripts/gen-grammar.mjs:33` declared §0bt adjacent edit (ENTRIES gains `ident`) |
+
+**Landed-wrong: none.** Every commit touches only its unit's writable set; the two out-of-set lines are declared §0bt adjacent edits of the same concern.
+
+### Act 2 — gates re-run by this seat (BEFORE = the Baseline at `08331dfa`; AFTER = HEAD `f40ea8019`; evidence `bench/records/W8close/`)
+
+| Gate (W8.md §Scope) | Command | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|---|
+| **V-C** ×2 (§2) | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | RED by absence; `.c` born-RED 4,779 unruled | both reads exit 1: `6267 cases · 3885 ruled rows` · pass 2368 · `V-C RED: 14 unruled misses, 0 stale ruled rows`; color/easing/fonts/grid/images/transforms MISS **0**, css-values **14** (10 refused · 2 serialization · 2 accepted), ⟨`grep -c random-item`⟩ → `14`; outputs diff-identical but the node PID (`vc-{1,2}.txt`) | **RED** (14, all `random-item()`, ESC-W8v-1 unruled) |
+| Named miss 1 (§3) | probe `parseCssValue("[top]auto[stage]1fr[bottom]auto")` | `ok:false` | `ok:true` → `[top] auto [stage] 1fr [bottom] auto` | GREEN |
+| Named miss 2 | `parseCssValue("attr(data-x type(<length>))")` | `ok:false` | `ok:true` → `attr(data-x type(<length>))` | GREEN |
+| Named miss 3 | `parseCssValue("element(#a)")` | `ok:false` | `ok:true` → `element(#a)` | GREEN |
+| Named miss 4 | `parseCssValue("U+0025-00FF")` | `ok:false` | `ok:true` → `U+0025-00FF` | GREEN |
+| Named miss 5 | `coerceToSyntax('"a"' / '*' / '[a]', "<custom-ident>")` | all `ok:true` | all `ok:false`, `syntax_mismatch`, `expected ["<custom-ident>"]` | GREEN |
+| test/css ×2 | ⟨`npx vitest run test/css`⟩ | 9 / 111 | `Test Files 15 passed (15) · Tests 195 passed (195)` ×2 | GREEN |
+| L-G2 ×2 (§4) | ⟨`node bench/paired/build.mjs`⟩ (`bankedManifestOk 79/79`, `srcDirty ""`) → ⟨`node bench/paired/equiv.mjs product …`⟩ | 396 (named) | `mismatches 981` ×2; row delta vs `.x`'s banked `W8x/equiv-1.json.gz` → `identical 981 · moved 0 · new 0 · gone 0` ×2; `equiv-{1,2}.json` `cmp`-identical | GREEN (every row since 396 named: §19-G/-V/-T/-I/-F/-X) |
+| prefix ×2 | same reads | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | GREEN |
+| E-4 `--check` ×2 | ⟨`node scripts/gen-grammar.mjs --check`⟩ (pinned) | current `96c3fa63…` | `current (sha256 acd6e0692895…)` ×2 | GREEN |
+| E-2 audit | ⟨`node bench/paired/audit.mjs`⟩ (pinned) | violations 0 | `rules 175 · checks 334050083 · violations 0 · modeDiffs 0` | GREEN |
+| E-6 size | ⟨`npx esbuild --minify …/grammar.js \| wc -c`⟩ / `\| gzip \| wc -c` | 98,922 / 13,786 | `103938` / `14512` (ceilings 125,646 / 14,517; 5 B gz left) | GREEN |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence`⟩ | 19/19 | exit 0, `Tests 19 passed (19)` ×2; ⟨`grep -c 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2; `STYLESHEET DEFECTS 0` | GREEN |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit \| grep -c 'error TS'`⟩ | 0 · 0 | `0` · `0` | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance --max-warnings=0`⟩ | 0 | exit 0 | GREEN |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 12.44s` | GREEN |
+| **L-G1 ×2, four engines** (§5; incl. W7's carried Firefox whole `parseCssScalar`) | orchestrator quiet window only (§0eq) | owed | **not read** — load 82–94, battery 7 %; never claimed | **OWED** (orchestrator window) |
+
+### Act 3 — verification artefacts
+W8.md carries no separate §Verification Artefacts list; its artefacts are the five named-miss probes and V-C ×2, run above (scratchpad probe importing `src/css/index.ts`).
+
+### Act 4 — E13 mail
+Paths swept: value `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` (newest) · keyframes `V/coordination/` · atlas `P/coordination/`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path but glass `BL/` (`FORMATION-PROGRESS.md`, `PLAN.md`, `LEDGER.md` — glass's own formation logs; ⟨`grep -niE 'parse|css grammar|X\.P'`⟩ → nothing addressed to this wave). ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → `0`. **0 UNREAD in scope.**
+
+### Escalations (standing, unruled — ⟨`grep -rn ESC-W8v COHESION.md LEDGER.md parse-that/waves/`⟩ → no ruling)
+- **ESC-W8v-1** (`.v`) — `random-item()` (css-values-5 §9.2): the 14 V-C misses. The cure is written and measured GREEN on all 35 cases but costs ≈ 848 B gz; E-6 now holds 5 B gz of headroom. Needs the orchestrator/owner: raise the E-6 gz ceiling, or rule the 14 cases, or route a cheaper emission (bbnf-lang producer row).
+- **ESC-W8v-2** (`.v`, homed from `.g`) — the empty custom property `--x: ;` (css-variables-1 §2): curing it needs an empty declaration value in `src/value.ts` / `src/css/rules.ts`, outside every W8 unit's writable set. Needs a home.
+
+### Residuals (named owners)
+1. V-C css-values 14 → orchestrator/owner ruling on ESC-W8v-1, then a re-opened `.v` cure or a ruled-row unit.
+2. `--x: ;` → the unit the ESC-W8v-2 ruling names.
+3. `.t` §19-T open rows, beside V-C (not V-C cases): `parseTimingFunction` refuses 6 valid easings with math / tree-counting functions and the list `linear, ease, linear`; `parseCssColor` does not compute `alpha()` / `contrast-color()` → the next X.P wave that owns `src/easing` / the colour computation (orchestrator to home).
+4. L-G1 ×2 on node, Chromium, WebKit and Firefox (accepted · rejected · `large-eq`; whole `large` INFO), plus W7's carried Firefox whole `parseCssScalar` cell → the orchestrator's quiet window (§0eq: AC, lid open, fleets idle, 1-min load < 8), then the check.
+5. E-6 headroom is 5 B gz: any later grammar growth meets the ceiling (context for ESC-W8v-1).
+
+### State
+W8.md §Units: close = "V-C GREEN ×2 plus stay-GREEN", then the orchestrator's L-G1 ×2, then the check. V-C is RED at 14 (escalated, unruled) and L-G1 is unread, so the row does **not** move to IMPLEMENTED. **LEDGER: `PARTIAL — V-C 14 unruled (ESC-W8v-1) · ESC-W8v-2 unhomed · L-G1 ×2 owed (quiet window)`.** All 7 units landed; the five named misses are GREEN; every stay-GREEN gate is GREEN.

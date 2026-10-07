@@ -1,0 +1,2 @@
+SERVED MODEL: claude-opus-5-5
+X.P.W8 close-seat evidence (2026-10-07, HEAD f40ea8019): vc-{1,2}.txt (V-C ×2), equiv-{1,2}.json.gz + logs (L-G2/prefix ×2), build-paired.log, check.log (E-4 ×2, pinned f0059db14), audit.log (E-2, pinned), cssequiv-{1,2}.log, eslint.log, build.log.
