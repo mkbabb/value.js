@@ -324,3 +324,50 @@ Paths swept: value `V/` + `V/coordination/` · glass `BK/coordination/` + `BL/` 
 
 ### State
 W8.md §Units: close = "V-C GREEN ×2 plus stay-GREEN", then the orchestrator's L-G1 ×2, then the check. V-C is RED at 14 (escalated, unruled) and L-G1 is unread, so the row does **not** move to IMPLEMENTED. **LEDGER: `PARTIAL — V-C 14 unruled (ESC-W8v-1) · ESC-W8v-2 unhomed · L-G1 ×2 owed (quiet window)`.** All 7 units landed; the five named misses are GREEN; every stay-GREEN gate is GREEN.
+
+## Check 1 (2026-10-07, L-20 pass 1, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **NOT-CONFORMANT**
+
+- **Bytes read:** HEAD `28946f19c` (product = `f40ea8019`/`dca3d91a1`, emission `acd6e069…`); pre-wave base `9949dd63a` (X.P.W7 Check 1, the parent of the W8 OPEN `8bbfce68b`). Host load ~90, battery: no timing gate read or claimed. Crash recovery: only ` M scripts/dev/dev.sh` (unowned, untouched) in value.js scope.
+
+### Gates re-run by this seat
+| Gate | Command | This seat | Close claimed | Reproduces |
+|---|---|---|---|---|
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ ×2 | `6267 · pass 2368 · ruled 3885`; css-values MISS 14 (refused 10 · serialization 2 · accepted 2), every other module 0; `V-C RED: 14 unruled misses, 0 stale ruled rows`, exit 1 ×2; the two reads differ only in the node PID | RED 14 | yes (RED as claimed) |
+| Named misses 1–5 | scratchpad probe over `src/css/index.ts` | `[top]auto[stage]1fr[bottom]auto`, `attr(data-x type(<length>))`, `element(#a)`, `U+0025-00FF` all `ok:true`; `coerceToSyntax('"a"'/'*'/'[a]', "<custom-ident>")` all `ok:false syntax_mismatch` | GREEN | yes |
+| test/css ×2 | ⟨`npx vitest run test/css`⟩ | `Tests 195 passed (195)` ×2 | 195 ×2 | yes |
+| css-equivalence | ⟨`npm run -s test:css-equivalence`⟩ | exit 0, `Tests 19 passed (19)`; ⟨`grep -c 'MIRROR-DEFECTS [1-9]'`⟩ → `0` | 19/19, 0 | yes |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | 0 | yes |
+| E-6 size | ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js \| wc -c` / `\| gzip \| wc -c`⟩ | `103938` / `14512` (ceilings 125,646 / 14,517) | same | yes |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | exit 0 · exit 0, `error TS` 0 · 0 | 0 · 0 | yes |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance --max-warnings=0`⟩ | exit 0 | exit 0 | yes |
+| L-G2 · prefix · `--check` · audit · build | not re-run (emitter pin needed; host load ~90) — banked `bench/records/W8close/` cited | — | GREEN | cited, not reproduced |
+| L-G1 ×2 four engines | never read (no quiet window; no banked read exists to audit under §0eq) | — | OWED | n/a |
+
+**9 gates reproduced; 0 claimed GREEN failed.**
+
+### Axes
+1. **Claimed GREEN reproduces:** yes (table above).
+2. **File bounds:** ⟨`git show --stat` on all 19 W8 commits, out-of-set paths filtered⟩ → only `scripts/gen-grammar.mjs` (`dca3d91a1`, declared §0bt adjacent edit), `src/css/serialize.ts` (`99ace0611`, declared §0bt), `INBOX.md`/`LEDGER.md` (open/close) and `bench/records/**` + `test/css/wpt-values/**` (in set). ⟨`git diff --stat 9949dd63a..HEAD -- scripts/dev/dev.sh`⟩ → empty. Clean.
+3. **Masking:** ⟨`git diff 9949dd63a..HEAD -- src test/css ':!test/css/wpt-values' ':!src/css/bbnf/generated' \| grep -E '^\+.*(\.skip|\.todo|catch *\(|try *\{|it\.fails|\.only)'`⟩ → none; package.json / lock / node_modules untouched. `ruled.json` (3,885 rows) is one row per exact case with class, reason and spec citation — the spec's own relief ("a named, ruled serialization difference" / "a ruled out-of-scope row with its spec reason"); sampled classes (PROPERTY-GRAMMAR, PROPERTY-TYPE, COLOR-CONTEXT, CSS-COLOR-6, COLOR-NON-FINITE, WPT-SUBSET) each cite a spec reason. Not a masking allowlist (INFO below).
+4. **Commit families:** each unit = one cure commit (grammar + re-emission + falsifiers together) + one receipt commit. Not split.
+5. **E-3:** ⟨`git diff --stat 9949dd63a..HEAD -- docs/tranches/X/parse-that/waves/ docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty.
+6. **Mail:** ⟨`grep -cE "\| *UNREAD *\|" docs/tranches/V/coordination/INBOX.md`⟩ → `0`.
+7. **Four-verb line:** MINTED → OPEN → PARTIAL (close did not claim IMPLEMENTED with V-C RED) — lawful.
+8. **Goal at the bytes:** NOT MET — W8.md §Scope 2 requires every in-scope case accepted+round-tripped, refused, or a ruled row ("no skips without a row"); 14 `random-item()` cases are none of these.
+9. **Published figures:** 6,267 / 2,368 / 3,885 / 14, 195, 19, 103,938 / 14,512 reproduce.
+10. **Honest-RED adjudication:**
+   - **V-C (14, `random-item()`)** — W8.md grants no relief: no producer ownership (the cure is written and measured in-repo), no successor wave routing, no named honest-RED id. ESC-W8v-1 is unruled (⟨`grep -rn ESC-W8v COHESION.md`⟩ → nothing). **Unrelieved → HIGH.**
+   - **L-G1 ×2 four engines** (§Scope 5, incl. W7's carried Firefox whole `parseCssScalar` cell, W7.md ADDENDUM (k)) — W8.md routes it to "the orchestrator's window: L-G1 ×2 → check" inside THIS wave, not to a successor; §0eq lets a check audit a banked read, and none exists. **Owed, unrelieved → HIGH** (owner: orchestrator quiet window).
+   - **Successors:** no wave file declares "Opens after X.P.W8" (⟨`grep -rln "X\.P\.W8" parse-that/waves/`⟩ → W7.md, W8.md only); X.P.W7P opens on the owner's OTP + X.P.W7 CLOSED, independent of W8. No successor is blocked.
+
+### Register
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| HIGH | V-C RED ×2 at 14 unruled misses (all `random-item()`, css-values-5 §9.2); §Scope 2 gives no relief | V-C table above, exit 1 ×2; ESC-W8v-1 unruled | orchestrator/owner rules ESC-W8v-1 (raise the E-6 gz ceiling for the measured ≈848 B gz cure, or rule the 14 as out-of-scope rows — the corpus names css-values-4 and `random-item()` is css-values-5, the CSS-COLOR-6 precedent — or a producer row for a cheaper emission); then a re-opened `.v` cure or ruled-row unit and a re-close |
+| HIGH | L-G1 ×2 on four engines unread at close; no banked read to audit (§0eq) | Close Act 2 last row; no `bench/records/W8close` L-G1 records | orchestrator quiet window (AC, lid open, fleets idle, load < 8): accepted · rejected · `large-eq` + W7's Firefox whole `parseCssScalar` cell, then the next check audits it |
+| MINOR | ESC-W8v-2 (`--x: ;`, css-variables-1 §2) unhomed; not a V-C case (vendored css-variables files 0) | Close §Escalations; `.v` receipt L147 | orchestrator homes it to a unit owning `src/value.ts` / `src/css/rules.ts` |
+| MINOR | E-6 gz headroom 5 B (14,512 / 14,517) | size row | context for the ESC-W8v-1 ruling |
+| INFO | 3,885 of 6,267 cases (62 %) are unit-ruled rows; lawful under §Scope 2's ruled-row relief, each with class + spec citation | ruled.json class census (866 PROPERTY-GRAMMAR · 817+611+529+499+49+45+7 serialization · 243 CSS-COLOR-6 · 93 COLOR-CONTEXT · 86 PROPERTY-TYPE · 26 NON-FINITE · 8 SPACE-NONE · 5 PROPERTY-GRAMMAR(v) · 1 WPT-SUBSET) | none; an owner spot-ruling of the classes is open to the orchestrator |
+| INFO | css-variables-1 and css-syntax-3 contribute 0 corpus files (no `test_valid_value` harness calls) | `.c` receipt L60 | none (recorded at `.c`) |
+
+**Verdict: NOT-CONFORMANT** (2 HIGH: V-C RED unrelieved; L-G1 unread). LEDGER row stays PARTIAL; not CLOSED.
