@@ -1,0 +1,14 @@
+{
+  "preview-light": {
+    "pressedShown": "true",
+    "pressedHidden": "false",
+    "rowShownH": 64,
+    "rowHiddenH": 0
+  },
+  "preview-dark": {
+    "pressedShown": "true",
+    "pressedHidden": "false",
+    "rowShownH": 64,
+    "rowHiddenH": 0
+  }
+}
