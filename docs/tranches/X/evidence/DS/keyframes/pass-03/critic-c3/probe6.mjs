@@ -1,0 +1,21 @@
+import { createRequire } from "node:module";
+const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
+const b = await chromium.launch({ channel: "chrome", headless: true });
+const KEY = "animation-groups-control-options-store";
+const setSurface = (page, scene, control) => page.evaluate(([k, scene, control]) => {
+  const s = JSON.parse(localStorage.getItem(k) ?? "{}"); s[scene] = { ...(s[scene] ?? {}), selectedControl: control, isTimelineExpanded: false }; localStorage.setItem(k, JSON.stringify(s)); }, [KEY, scene, control]);
+const ctx = await b.newContext({ viewport:{width:1440,height:900}, colorScheme:"light" });
+const p = await ctx.newPage(); p.setDefaultTimeout(5000);
+const logs=[]; p.on('console', m=>{ if(m.type()==='error'||m.type()==='warning') logs.push(m.text().slice(0,300)); });
+await p.goto("http://localhost:5173/#/cube",{waitUntil:"load"}); await p.waitForTimeout(2000);
+await p.evaluate(()=>localStorage.clear());
+await setSurface(p,"cube","timeline"); await p.reload({waitUntil:"load"}); await p.waitForTimeout(5000);
+const snap = async()=>{ await p.locator('.pane-frame button',{hasText:"Snapshot"}).first().click(); await p.waitForTimeout(1500); };
+await snap();
+const one = await p.evaluate(()=>document.querySelector('.pane-frame').innerText.slice(0,300));
+await snap();
+const two = await p.evaluate(()=>document.querySelector('.pane-frame').innerText.slice(0,400));
+await setSurface(p,"cube","keyframes"); await p.reload({waitUntil:"load"}); await p.waitForTimeout(5000);
+const css = await p.evaluate(()=>[...document.querySelectorAll('.view-line')].map(e=>e.textContent).join('\n'));
+console.log(JSON.stringify({one,two,css,logs:logs.slice(0,8)},null,1));
+await b.close();

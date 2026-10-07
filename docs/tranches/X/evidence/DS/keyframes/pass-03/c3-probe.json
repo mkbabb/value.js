@@ -1,0 +1,172 @@
+{
+  "fresh-visit-warnings-light": 0,
+  "timeline-empty-light": {
+    "clearDisabled": true,
+    "clearInk": "oklch(0.216128 0 55.9827 / 0.5)",
+    "captionAlign": "center",
+    "captionWrap": "balance"
+  },
+  "timeline-2kf-light": {
+    "buildError": false,
+    "text": false
+  },
+  "timeline-2kf-errors-light": 0,
+  "timeline-unfolded-light": [
+    71,
+    413,
+    407,
+    425
+  ],
+  "spring-light": {
+    "readout": [
+      "\"Fira Code\", monospace",
+      "20.352px",
+      "500"
+    ],
+    "track": [
+      692,
+      245,
+      531,
+      48
+    ],
+    "plot": [
+      692,
+      458,
+      531,
+      252
+    ],
+    "scaleTick": "solid 1px",
+    "legend": [
+      94,
+      303,
+      344,
+      19
+    ],
+    "yTitle": [
+      94,
+      390,
+      14,
+      71
+    ]
+  },
+  "easing-tile-stage-light": [
+    166,
+    83
+  ],
+  "plates-1440-light": {
+    "square": {
+      "plateBottom": 750,
+      "transportBandTop": 758,
+      "pillTop": 764
+    },
+    "easing": {
+      "plateBottom": 750,
+      "transportBandTop": 758,
+      "pillTop": 764
+    },
+    "spring": {
+      "plateBottom": 750,
+      "transportBandTop": 758,
+      "pillTop": 764
+    },
+    "sequence": {
+      "plateBottom": 466,
+      "transportBandTop": 758,
+      "pillTop": 764
+    }
+  },
+  "fresh-visit-warnings-dark": 0,
+  "timeline-empty-dark": {
+    "clearDisabled": true,
+    "clearInk": "oklch(0.925196 0 67.4529 / 0.5)",
+    "captionAlign": "center",
+    "captionWrap": "balance"
+  },
+  "timeline-2kf-dark": {
+    "buildError": false,
+    "text": false
+  },
+  "timeline-2kf-errors-dark": 0,
+  "timeline-unfolded-dark": [
+    71,
+    413,
+    407,
+    425
+  ],
+  "spring-dark": {
+    "readout": [
+      "\"Fira Code\", monospace",
+      "20.352px",
+      "500"
+    ],
+    "track": [
+      692,
+      245,
+      531,
+      48
+    ],
+    "plot": [
+      692,
+      458,
+      531,
+      252
+    ],
+    "scaleTick": "solid 1px",
+    "legend": [
+      94,
+      303,
+      344,
+      19
+    ],
+    "yTitle": [
+      94,
+      390,
+      14,
+      71
+    ]
+  },
+  "easing-tile-stage-dark": [
+    166,
+    83
+  ],
+  "plates-1440-dark": {
+    "square": {
+      "plateBottom": 750,
+      "transportBandTop": 758,
+      "pillTop": 764
+    },
+    "easing": {
+      "plateBottom": 750,
+      "transportBandTop": 758,
+      "pillTop": 764
+    },
+    "spring": {
+      "plateBottom": 750,
+      "transportBandTop": 758,
+      "pillTop": 764
+    },
+    "sequence": {
+      "plateBottom": 466,
+      "transportBandTop": 758,
+      "pillTop": 764
+    }
+  },
+  "plates-390-light": {
+    "square": {
+      "plateBottom": 715,
+      "sheetTop": 723
+    },
+    "easing": {
+      "plateBottom": 715,
+      "sheetTop": 723
+    },
+    "literalLines": [
+      151,
+      143
+    ],
+    "spring": {
+      "plateBottom": 715,
+      "sheetTop": 723
+    }
+  }
+}

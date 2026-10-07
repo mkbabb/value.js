@@ -1,0 +1,14 @@
+import { createRequire } from "node:module";
+const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
+const b = await chromium.launch({ channel: "chrome", headless: true });
+const ctx = await b.newContext({ viewport:{width:1440,height:900}, colorScheme:"light" });
+const p = await ctx.newPage();
+await p.goto("http://localhost:5173/#/cube",{waitUntil:"load"}); await p.waitForTimeout(4500);
+const rev = () => p.evaluate(()=>{const e=[...document.querySelectorAll('button')].find(b=>b.getAttribute('aria-label')==='Reverse'||b.textContent.trim().startsWith('Reverse')); const cs=getComputedStyle(e); return {bg:cs.backgroundColor, bgi:cs.backgroundImage.slice(0,200), cls:e.className, attrs:[...e.attributes].map(a=>a.name+'='+a.value).join(' ').slice(0,300), hover:e.matches(':hover'), focus:e.matches(':focus-visible')}});
+const a = await rev();
+await p.locator(".pane-frame button", { hasText: /^layer$/ }).first().click(); await p.waitForTimeout(1500);
+const bb = await rev();
+await p.mouse.move(1000,850); await p.waitForTimeout(600);
+const c = await rev();
+console.log(JSON.stringify({main:a, layer:bb, layerMouseAway:c},null,1));
+await b.close();
