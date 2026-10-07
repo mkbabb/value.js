@@ -1,0 +1,36 @@
+{
+ "v-light": {
+  "asideBottom": 767,
+  "stageBottom": 888
+ },
+ "katex-light": {
+  "sw": 833,
+  "cw": 606,
+  "mask": "linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0))",
+  "anim": "math-edge-cue",
+  "edgeEnd": "40px"
+ },
+ "eq-light": {
+  "track": 6,
+  "hit": 24,
+  "fnSub": "Functionf(t)",
+  "coeffSub": "Coefficientsall 21 harmonics, n = −20…20"
+ },
+ "v-dark": {
+  "asideBottom": 767,
+  "stageBottom": 888
+ },
+ "katex-dark": {
+  "sw": 833,
+  "cw": 606,
+  "mask": "linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0))",
+  "anim": "math-edge-cue",
+  "edgeEnd": "40px"
+ },
+ "eq-dark": {
+  "track": 6,
+  "hit": 24,
+  "fnSub": "Functionf(t)",
+  "coeffSub": "Coefficientsall 21 harmonics, n = −20…20"
+ }
+}
