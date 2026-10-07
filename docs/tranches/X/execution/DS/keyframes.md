@@ -268,3 +268,68 @@ The verdict is still **RED**, on the glass-owned chrome rows. This pass's cures 
 - KF-C3-10's second clause, "let the Square subject scale to the plate's inline size", is not acted on. The square's arena already resolves its size and travel against the plate's `cqmin`, which at 390 is the inline size. Making the subject larger would change the field's travel (KFA-4), which is a design decision.
 - KF-C3-06: the Physics surface still overflows the rail at 1440×900 (scroll 666 against a 491 viewport). That overflow is the homed KF.W13X `.pc` defect, and this cure does not re-cure it. The fade now falls on presets and controls that do continue below it, not on the figure's legend.
 - The evidence commit includes the critic's untracked `critic-c3/` frames and probes, so the frames cited by the findings are kept under `pass-03/`.
+
+### pass 4
+
+**Cure commit:** keyframes.js `a8274757` (master, pushed fast-forward). **Evidence:** value.js `ab9272176` (`evidence/DS/keyframes/pass-04/`: 28 route frames, `census.json`, 22 special-cell frames, `c4-probe.mjs` + `c4-probe.json`, the seat's bisection probes in `cure/`, and the critic's own frames and probes in `critic-c4/`). All captures headless real Chrome (§0ei).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C4-03 | **Root found.** A standing `view-transition-name` makes its element a backdrop root (filter-effects-2). `.scene-host` carried `scene-subject` at rest, so every stage plate's `backdrop-filter` sampled only the host's own subtree and never the fixed `.grid-background`. Bisection: a blur probe blurs the paper when placed in `body`, the shell, `main`, the layout or the stage cell, and does not when placed in `.scene-host` or the plate. Removing the host's transform changed nothing; `view-transition-name: none` alone took the paper's line contrast inside the square plate from 26.5 to 0. The two dock groups (`chrome-dock`, `transport-dock`) had the same defect: each dock plate blurred nothing outside its group. All three names now apply only under `:root:active-view-transition`, which matches from `startViewTransition()` until the transition ends, so the old and new captures still carry the names. Nothing glass-owned was involved. | at rest: scene host and both dock groups compute `view-transition-name: none`; the plate crop's line contrast is 0 (`square-plate-crop-1440-*`) |
+| KF-C4-01 | Monaco's `editor.background`, `editorGutter.background`, `editor.lineHighlightBackground` and `editor.lineHighlightBorder` are resolved from `--muted` (the highlight is a 6% `--foreground` step over it). Monaco takes hex, so the tokens are resolved on the page through a probe element, then one canvas pixel. The active scheme's theme is re-defined at create time and on every flip, in `onFlipSettled`. Syntax colours are kept. The well's right gutter reads `var(--muted)` directly. The forced-colours branch (hc themes, `Canvas`) is unchanged. | ground and gutter: light `rgb(246, 243, 239)`, dark `rgb(31, 28, 25)` (were `#F8F8FF` and `#282a36`) |
+| KF-C4-02 | The `--glass-tint-strength-aa: 0%` re-point block in `style.css` is deleted, so glass's own AA tint stands. | plate background is unchanged on this glass (light `/ 0.14`, dark `/ 0.18`). The re-point was inert here, so any remaining material excess is glass's under O-87 |
+| KF-C4-04 | The reel uses Spring's Re-seat idiom: `emphasis="quiet"`, `size="sm"`, the glyph plus a visible "Reel". The accessible name starts with the visible word. The `loading` contract is kept. | transparent ground, `box-shadow: none` |
+| KF-C4-06 | The specimen grid's track floor is `min(var(--tile-min), 50% − half the gap)`, so it never falls below two tiles a row. No breakpoint is needed. | 390: `144px 144px`, tiles 144×109, stage 126×63 |
+| KF-C4-07 | The minimal cure: the easing value drops `font-mono` and its `data-register="code"`, so the label/value column uses one face. | value in Plus Jakarta Sans, like the inputs |
+| KF-C4-08 | Velocity uses position's anatomy: a sans muted label and a Fira Code tabular value (`.spring-readout-secondary`, `--type-body`, muted), one rung below position. | label 16.4px Jakarta; value 18.6px Fira Code (position is 20.35px) |
+| KF-C4-09 | Both value ticks sit in the gutter left of the plot, right-aligned 0.75rem off its edge (clear of the origin sampler ball) and centred on their lines. | "1" and "0" both at x 672, plot at x 692 |
+| KF-C4-10 | The critical tag is bottom-anchored 0.375rem above its rule. A preset's name sits on the side of its dot away from the rule: above when ζ ≥ 1, below when underdamped. | rule y 403; tag bottom 398; "gentle" bottom 395; snappy, bouncy and smooth sit below their dots |
+| KF-C4-11 | The spring track's gridlines start at the first quarter (its left edge is the origin), and the groove takes the ticks' `--border` ink. Both are scoped to `.spring-track`; the shared `.stage-field-x` is untouched for the square. | groove = tick = `--border` (light `rgb(198, 180, 159)`); no line under the resting ring |
+| KF-C4-12 | Both rows keep one primary verb and use quiet, labelled secondaries: Copy · Format · Compiled, and Import · Add · Export. Each visible word is contained in its accessible name, which is unchanged. | one row each at 1440 (all buttons on y 575 and y 357), `data-emphasis="quiet"` |
+| KF-C4-13 | Clear all keeps `tone="destructive"` but re-points glass's public `--button-quiet-ink` to `--muted-foreground` at rest. Glass's quiet hover inks `--button-tone`, so the red appears on hover and in the press. | at rest it matches Undo's ink; hover light `rgb(219, 36, 36)`, dark `oklch(0.702 0.184 27.5)` |
+| KF-C4-14 | Desktop: the expanded cell spans `grid-row: stage / -1` with `align-self: start`, plus the frame's own 0.5rem top (`lg:pt-2`). The unfolded card keeps the docked pane's top and grows downward. The stage no longer loses the bottom row's height either. | docked pane top 62, unfolded card top 62 (was 413 by the critic's read); stage cell height 792 |
+| KF-C4-15 | The edit pencil leaves the label column for the field's trailing slot. It is a sibling of the trigger, because a button never nests in a button. The trigger keeps its chevron. The label is bare. | pencil inside the field's box; the label column holds only the label |
+| KF-C4-16 | `App.vue` passes `:grid-background="resolvedScene.id !== AMIGA_SCENE_ID"`, through the shell's existing prop. No descriptor member is added (`scene-swap-w13x` pins that). | frame `amiga-1440-*`: the room is the only grid |
+| KF-C4-18 | The layer row's separator loses its extra `my-1` and rides the column's 0.5rem gap. The row is one control height (40px). The 12px below it is the pane body's own inset. | hairline-to-hairline 65 → 61 |
+
+**Held (glass-owned; honest-RED, cited, no local override)**
+
+| id | disposition |
+|---|---|
+| KF-C4-05 | Glass's shortcut formatter prints `event.code` verbatim (`KeyX`). The consumer correctly keeps physical-code registration. **Glass keyboard-formatter rider, beside O-87 and not inside it:** render `Key*` → the letter and `Digit*` → the digit as their caps. |
+| KF-C4-17 | Glass Dialog material: a `saturate(1.5)` backdrop over the saturated cube blooms under the right column, and DialogContent's close is a 52px outlined ring. Same root as KF-C1-11. **O-87:** lower the backdrop saturation and blur at 10.2.0, and size the close as a quiet icon button. Re-captured unchanged (`shortcuts-1440-*`). |
+
+As in pass 3, these riders are **not relayed by this seat** (the task scoped glass rows to "cite and leave"). The text above is what the relay owner should send.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages)
+
+| | pass 3 after | pass 4 after |
+|---|---:|---:|
+| chrome: elements with shadow | 464 | 460 |
+| chrome: shadow layers (max) | 1432 (6) | 1412 (6) |
+| chrome: shadows on non-floating surfaces | 330 | 326 |
+| chrome: inset highlights | 704 | 696 |
+| chrome: backdrop blur | 308 | 304 |
+| chrome: control gradients | 176 | 176 |
+| chrome: looping animations | 80 | 80 |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| static: gradient fills | 4 | 5 |
+| subject: every lighting family | 0 | 0 (4 subject control gradients, unchanged) |
+
+The verdict is still **RED**, on the glass-owned chrome rows. The −4/−20/−8/−4 deltas are the reel's capsule leaving the sequence header (4 pages). The static gradient count rises by one: KF-C4-11's spring-track gridline recipe re-declares, on the same element, the gradient it already inherited from `.stage-field-x`. It is a graduation on the content figure, not a control fill, and the computed census is unchanged by it.
+
+**Gates** (host load average 50–85 from other sessions)
+- `npm run check` (vue-tsc on both configs + proof:structure): exit 0, twice. The second run was on the final bytes.
+- `npm run lint` (depcruise + eslint): exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **807/807, twice**, on the final bytes.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- Tests re-pointed to the ruled structure: `ribbon-keyframes-hierarchy` (the secondaries are quiet and labelled, and each label is contained in its name) and `sections-w13x` (5) (Import · Add · Export, quiet, the row still never wraps).
+
+**Disclosures**
+- KF-C4-03 also restores blur to the **dock** plates, which had been sampling nothing behind their VT groups since KFA-77. A live dock blur over the moving stage is the T.G1 coupling that `App.vue`'s note records (glass `blur-source="static"` is its cure). Frame cost was not re-measured in this pass, so the next critic or the perf owner should check the X-W12 refresh-relative budgets on the kf routes. The VT morph itself was not exercised headlessly beyond the census's route walk, which gave 0 console errors.
+- KF-C4-12 reverses the icon-only shape that UIA-KF-319 and UIA-KF-179 chose for one-row fit. The one-row invariant still holds, measured at 1440. At 390 the rows live in the sheet and were not re-measured separately.
+- KF-C4-13: the confirm step the critic mentions does not exist (Clear all relies on Undo). The red therefore shows on hover and in the press only.
+- KF-C4-02 measured inert on glass 10.1.0: the deleted re-point did not change the served plate tint. The "14% brown" the critic measured is glass's resting recipe and is cited under O-87.
+- The evidence commit includes the critic's scratch frames and probes (`critic-c4/`), so the frames behind the findings survive a scratchpad wipe.
