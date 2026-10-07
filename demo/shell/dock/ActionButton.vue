@@ -9,13 +9,17 @@
         class="pointer-events-auto"
     >
         <PopoverTrigger as-child>
-            <!-- W5-a11y: native <button> for keyboard reach, focus-visible ring, and Enter/Space activation -->
-            <button
-                type="button"
-                class="action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 rounded-sm"
+            <!-- X.W12U.m · A2-VA-L2-6 (value half, A2-VA-X-9): the seat IS the
+                 dock's own control. It was a consumer `<button>` held to 32×32
+                 by a scoped rule no glass touch floor reaches; as a DockControl
+                 its hit cell is `--dock-control-size`, which the producer's
+                 density clamp lifts to `--dock-touch-target` (44px) on a coarse
+                 pointer. DockControl keeps a disabled seat focusable
+                 (`aria-disabled`) and suppresses its activation. -->
+            <DockControl
+                class="action-button-wrapper"
                 :aria-label="title"
-                :aria-disabled="disabled || undefined"
-                :disabled="disabled || undefined"
+                :disabled="disabled || false"
                 @click="handleClick"
             >
                 <component
@@ -30,7 +34,7 @@
                     :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor', '--hover-color': cssColorOpaque ?? 'currentColor' }"
                 />
                 <span v-if="label" class="action-label">{{ label }}</span>
-            </button>
+            </DockControl>
         </PopoverTrigger>
         <PopoverContent class="pointer-events-auto font-display">
             <div>
@@ -52,7 +56,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@mkbabb/glass-ui/popover";
-import { useOptionalDockContext } from "@mkbabb/glass-ui/dock";
+import { DockControl, useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
 const dock = useOptionalDockContext();
 
@@ -102,18 +106,6 @@ function handleClick() {
 <style scoped>
 @reference "../../styles/foundation.css";
 
-.action-button-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    background: none;
-    border: none;
-    padding: 0;
-}
 .action-icon:hover {
     transform: scale(1.2);
     stroke: var(--hover-color);
