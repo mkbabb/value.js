@@ -1,0 +1,22 @@
+=== RUN 3 load  66.42 66.72 85.16
+    Error: expect(locator).toBeVisible() failed
+    Error: element(s) not found
+      93 |         if (!b) throw new Error(`w12-drag: ${t.name} not laid out`);
+    Error Context: test-results/w12-drag-w12-drag-—-2-s-dr-5224f-h-slider-holds-frame-budget-smoke/error-context.md
+    Error: expect(locator).toHaveCount(expected) failed
+    Error Context: test-results/w12u-p-drag-w12u-p-—-colou-0b5e5-s-not-re-rendered-per-frame-smoke/error-context.md
+  2 failed
+=== RUN 4 load  145.44 99.21 95.50
+[w12-drag REAL-GPU] surface: moves=30 frames=96 p50=16.7 p95=33.4 longTasks=0 maxTask=0
+[w12-drag REAL-GPU] slider L: moves=32 frames=91 p50=16.7 p95=33.4 longTasks=0 maxTask=0
+[w12-drag REAL-GPU] slider a: moves=29 frames=96 p50=16.7 p95=33.4 longTasks=1 maxTask=50
+[w12-drag REAL-GPU] slider b: moves=31 frames=92 p50=16.7 p95=33.4 longTasks=1 maxTask=51
+[w12-drag REAL-GPU] slider alpha: moves=51 frames=127 p50=16.7 p95=16.8 longTasks=0 maxTask=0
+[w12-drag] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev T=16.70 budget p50<=17.70 p95<=34.40
+[w12u-p REAL-GPU] surface: moves=32 frames=98 p50=16.7 p95=33.4 longTasks=1 maxTask=58 dockRoving=0/0f dockText=31
+[w12u-p REAL-GPU] slider L: moves=35 frames=89 p50=16.7 p95=33.4 longTasks=1 maxTask=50 dockRoving=0/0f dockText=35
+[w12u-p REAL-GPU] slider a: moves=36 frames=88 p50=16.7 p95=33.4 longTasks=0 maxTask=0 dockRoving=0/0f dockText=36
+[w12u-p REAL-GPU] slider b: moves=36 frames=89 p50=16.7 p95=33.4 longTasks=0 maxTask=0 dockRoving=0/0f dockText=34
+[w12u-p REAL-GPU] slider alpha: moves=60 frames=124 p50=16.7 p95=16.8 longTasks=0 maxTask=0 dockRoving=0/0f dockText=58
+[w12u-p] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev bisect=none T=16.70 budget p50<=17.70 p95<=34.40
+  2 passed (1.8m)
