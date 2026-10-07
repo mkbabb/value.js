@@ -197,3 +197,74 @@ The verdict is still **RED**, on the glass-owned chrome rows and the home headli
 **Disclosures**
 - KF-C2-10's Sequence clause, "let the lanes span the card's content box", is only partly met. The plate's box and top now match its siblings'. But the lane rails still stop before the card's end, because the space to their right is the springs' crest room (`--seq-room`, KFA-48), and the rail draws only the time column (UIA-KF-214). Spanning it would put the travellers' overshoot over the card's clip.
 - KeyframeTimeline teleports its verbs only when the pane ribbon exists, which it checks once the tree is mounted. A timeline mounted alone, as in unit tests, keeps the row in place rather than teleporting into a missing target. That case had been crashing Vue's teleport on unmount.
+
+### pass 3
+
+**Cure commit:** keyframes.js `5bd9172b` (master, pushed fast-forward). **Evidence:** value.js `066843f23` (`evidence/DS/keyframes/pass-03/`: 28 route frames, `census.json`, 22 special-cell frames, `c3-probe.mjs` + `c3-probe.json`, the seat's measurement probes in `cure/`, and the critic's own frames and probes in `critic-c3/`). All captures headless real Chrome (§0ei).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C3-01 (high) | The CSSOM serialises a colour with alpha in the legacy comma form. The cube's transparent ground is `rgba(0, 0, 0, 0)`, and value.js 4.0.0's grammar refuses that form (DIVERGENCE-LEDGER PB-01; the X.P parser cures it, but that parser is not published). So the first build, at the second Snapshot, always failed. `snapshotCapture` now writes the same colour in the modern form `rgb(r g b / a)`. Retire this at the value.js repin that ships PB-01. Falsifier: `timeline-snapshot-two-build.test.ts`. | two Snapshots: no Alert, 0 "Invalid CSS value" errors, both schemes |
+| KF-C3-02 | New `layout.css` token `--transport-band` = `--stage-bottom-inset` + `--dock-margin`: the whole transport band plus its gap. The stage cell's block-end clears it. On desktop the rule credits back half the work area's vertical slack, because the cell is the centred work area. It is one rule on the cell; no scene was touched. | plates end at y 750; transport band top 758, pill top 764 (plates ended at 773) |
+| KF-C3-03 (consumer half) | `.tile-stage` takes `aspect-ratio: 2 / 1` instead of the fixed 3.25rem band. The plot's overshoot headroom is unchanged. | stage 166×83 (was 166×52) |
+| KF-C3-04 | The position readout is set in `--font-mono` at `--type-subheading`, weight 500, and keeps its violet (§0dm). The header's query container existed only for the old clamp, so it is removed. | 20.4px Fira Code 500, under the 41.9px title (was 44.9px body sans 600) |
+| KF-C3-05 | The rail's value-1 end is a 1px `--border` tick, so the only dashed violet mark is the target. The trace is inset by the rail's overshoot band through the same `railPct` map, so the figure has one horizontal origin. | rail track and plot frame both at x 692, w 531 (were 670–1221 vs 583–1331) |
+| KF-C3-06 | The heatmap legend moved into the caption row, which wraps. It had been the scroller's last row, under the end fade at rest. | legend at y 303, the top of the section |
+| KF-C3-08 | Clear all is `:disabled` while there are no keyframes. | disabled; ink `foreground / 0.5`, not red |
+| KF-C3-09 | The rail-column placement is H.W3.S4's ruled shape: a vertical extension of the rail, never a full-grid span, and the stage column's foot belongs to the transport. So the affordance is renamed to what it does: **Unfold timeline (taller track)** / **Fold timeline into the pane**, with the UnfoldVertical / FoldVertical glyphs. | frame `timeline-expanded-1440-*` |
+| KF-C3-10 | At 390 the cell is the viewport, so its block-end is `--transport-band` whole. The resting sheet's lip sits at that inset. | plates end at 715; sheet lip 723 (plates ended at 743) |
+| KF-C3-11 | "damping ζ" is the y-axis title, set vertically along the ζ ticks, with no arrow. This mirrors the x axis. | frame `spring-heatmap-1440-*` |
+| KF-C3-12 (caption half) | Both empty-state captions are centred with `text-wrap: balance`. | `text-align: center`, `text-wrap-style: balance` |
+| KF-C3-13 | The cube mini's pose layer holds a fixed view tilt, `rotateX(-24deg) rotateY(32deg)`. At rest, at t = 0 and at mid-cycle (Rx·Ry·Rz at 180° each is the identity) the die shows three faces, never a flat square. | frame `cube-mini-1440-*`, and the dock tile in `timeline-2kf-docked-1440-light` |
+| KF-C3-15 | The store's single default boundary fills in every absent default member of a partial bucket and keeps a stored `null`. It used to fill only `keyframeControls`. Falsifier: `control-options-backfill.test.ts`. | 0 `isControlsPanelOpen` warnings on a fresh visit, both schemes |
+| KF-C3-16 | `.literal-text` uses `overflow-wrap: break-word` with `text-wrap: balance`, so it breaks at its comma-spaces. The spring hint uses `text-wrap: pretty`. | 390: two lines, 151 / 143 px |
+
+**Refused (not cured; held for a ruling)**
+
+| id | disposition |
+|---|---|
+| KF-C3-12 (ruler half) | The ruler drops a graduation's label where a stop's caret stands. That is UIA-KF-178, pinned by `timeline-track-geometry`. The caret is the stop's percent **editor** (a button that opens the numeric field), not a label, so moving the offset into a tooltip would remove a control. Keeping both "0%" labels would reverse the pinned row. The origin is labelled once in either state; which row it sits on is a design call. Held for the owner or the KF.W13X timeline owner. |
+
+**Held (glass-owned; honest-RED, cited against O-87, no local override)**
+
+| id | disposition |
+|---|---|
+| KF-C3-03 (skin half) and KF-C3-14 | `ToggleGroupItem` hard-codes `control-surface glass-control-edge` (glass 10.1.0 `toggle-group` chunk). That gives the two-layer gradient fill and the three-layer inset edge at rest, and there is no flat rest skin or prop to choose one. **O-87 rider:** a flat rest skin for ToggleGroupItem (a transparent ground with a 1px `--border` hairline), so that selection by ink plus the ring reads as the only emphasis. The consumer's `data-surface="opaque"` stays: it only zeroes the backdrop blur, and the glass background wins the fill. |
+| KF-C3-07 | NumberField and Switch have no disabled dimming, and the stepper Button recipe carries `glass-specular-tr`. **O-87 rider:** one disabled treatment across Select, NumberField and Switch (the Select's 0.5), and the steppers as quiet icon buttons with no specular. Re-judge at the 10.2.0 repin. |
+
+These riders are still **not relayed by this seat**. The task scoped glass rows to "cite and leave", so the text above is what the relay owner should send.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages)
+
+| | pass 2 after | pass 3 after |
+|---|---:|---:|
+| chrome: elements with shadow | 464 | 464 |
+| chrome: shadow layers (max) | 1432 (6) | 1432 (6) |
+| chrome: shadows on non-floating surfaces | 330 | 330 |
+| chrome: inset highlights | 704 | 704 |
+| chrome: backdrop blur | 308 | 308 |
+| chrome: control gradients | 176 | 176 |
+| chrome: looping animations | 80 | 80 |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| subject: every lighting family | 0 | 0 (4 subject control gradients, unchanged) |
+
+The verdict is still **RED**, on the glass-owned chrome rows. This pass's cures are behaviour, geometry, type and wrap, which the census does not count.
+
+**Gates** (host load average 65–90 from other sessions)
+- `npm run check` (vue-tsc on both configs + proof:structure): exit 0, twice, on the final bytes.
+- `npm run lint`: exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **807/807, twice**, on the final bytes. An earlier run went RED once, at 806/807: `spring-heatmap-reversibility` D-B1 pins the legend's "0 → 53 % overshoot" wording, which the seat had shortened. The wording was restored rather than the test edited.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- Tests added or re-pointed:
+  - `timeline-snapshot-two-build` (new; RED before the cure, on the capture's serialisation);
+  - `control-options-backfill` (new);
+  - `transport-w13x` (6): the absent transport chip is read by the new fold label.
+
+**Disclosures**
+- KF-C3-01 is a consumer normaliser over a **library** defect (value.js 4.0.0 refuses `rgba(r, g, b, a)`). The true root is PB-01 in the value.js parser, which is already cured there and waits on publication. The normaliser changes only the form, not the colour, and its docblock names when to retire it.
+- KF-C3-02: the stage cell's padding is now asymmetric (the block-end is larger). The subjects that centre in the cell (cube, amiga) therefore sit about 11px higher at 1440×900. Over-reserving only ever keeps a subject clearer.
+- KF-C3-10's second clause, "let the Square subject scale to the plate's inline size", is not acted on. The square's arena already resolves its size and travel against the plate's `cqmin`, which at 390 is the inline size. Making the subject larger would change the field's travel (KFA-4), which is a design decision.
+- KF-C3-06: the Physics surface still overflows the rail at 1440×900 (scroll 666 against a 491 viewport). That overflow is the homed KF.W13X `.pc` defect, and this cure does not re-cure it. The fade now falls on presets and controls that do continue below it, not on the figure's legend.
+- The evidence commit includes the critic's untracked `critic-c3/` frames and probes, so the frames cited by the findings are kept under `pass-03/`.
