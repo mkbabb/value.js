@@ -41,9 +41,14 @@ const scalar = (payload: CssScalar["payload"]): CssScalar => Object.freeze({ kin
 
 const keyword = (value: string): CssScalar => scalar({ type: "keyword", value });
 
-/** An identifier term: a named colour (or `transparent`) is a colour; any other ident a keyword. */
+/**
+ * An identifier term: a named colour (or `transparent`) is a colour; any other ident a keyword. Keywords
+ * match ASCII case-insensitively (css-values-4 §4.1): only `A`–`Z` fold, so an identifier holding a
+ * non-ASCII code point that Unicode lowercases to ASCII (`K`, U+212A KELVIN SIGN, in `blacK`) is a
+ * keyword, never a named colour (X.P.W8 `.g`).
+ */
 function identScalar(token: string, color: (token: string) => ColorNode): ValueNode {
-    const key = token.toLowerCase();
+    const key = token.replace(/[A-Z]/g, (c) => String.fromCharCode(c.charCodeAt(0) + 32));
     return key === "transparent" || typeof NAMED_COLORS[key] === "string" ? colorScalar(color(token)) : keyword(token);
 }
 

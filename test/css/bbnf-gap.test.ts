@@ -162,9 +162,12 @@ describe("4 · grid line names (css-grid-2 §7.2 <line-names> = '[' <custom-iden
     });
 
     it("refuses any `[]` block that is not identifiers alone", () => {
-        for (const source of ["[1px]", "[a, b]", '["a"]', "[[a]]", "[a/b]", "[a", "a]", "[a]b", "[a](b)", "[a;b]", "[a()]"]) {
+        for (const source of ["[1px]", "[a, b]", '["a"]', "[[a]]", "[a/b]", "[a", "a]", "[a](b)", "[a;b]", "[a()]"]) {
             expect(parseCssValue(source).ok, source).toBe(false);
         }
+        //  X.P.W8 `.g` (W8.md §Scope 1/3): `]` is a token of its own (css-syntax-3 §4.3.1), so `[a]b` is the
+        //  line names `[a]` juxtaposed with the identifier `b` — read as `[a] b`, no longer refused.
+        expect(roundTrip("[a]b")).toEqual(space(kw("[a]"), kw("b")));
     });
 
     it("parses the keyframes corpus declaration inside a sheet", () => {

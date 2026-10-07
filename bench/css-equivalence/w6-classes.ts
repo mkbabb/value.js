@@ -204,6 +204,16 @@ export const W6_CLASSES: readonly W6Class[] = [
                 .map((m) => ({ start: m.index, end: m.index + m[0].length, text: "x" })),
     },
     {
+        // W8g-NAI (X.P.W8 `.g`; DIVERGENCE-LEDGER §19-G): an identifier may hold non-ASCII code points
+        // (css-syntax-3 §4.2 ident-start / ident code point: any code point ≥ U+0080). The incumbent's
+        // identifiers are ASCII alone. Repair: each run of non-ASCII code points spelled `x` — the
+        // incumbent must then agree.
+        id: "W8g-NAI",
+        governs: "MIS_ACCEPT",
+        edits: (input) =>
+            [...input.matchAll(/[^\x00-\x7f]+/g)].map((m) => ({ start: m.index, end: m.index + m[0].length, text: "x" })),
+    },
+    {
         // SC-2 (COHESION §0bx; W6.md `.b`): `display-p3-linear` (css-color-4 §10.5). Repair: the space
         // spelled `display-p3` — the incumbent must then read the colour.
         id: "SC-2",
