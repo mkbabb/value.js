@@ -41,6 +41,9 @@
  * (hero-scale legibility, row A family), which STANDS amended. */
 .pane-shell {
     --blob-fp: clamp(7rem, 22cqi, 11rem);
+    /* The spectrum's live-tinted hard stamp offset (V1-27, 684c818f) — ONE
+     * value the stamp and the seat's breath both read. */
+    --spectrum-stamp: 8px;
     /* Q3 "Flush." — the ruled seat inset; the knob survives for taste
      * passes (positive = deeper into the card; negatives are DEAD — they
      * re-admit the overflow class the ruling closed). */
@@ -69,4 +72,17 @@
 .title-row {
     padding-right: calc(0.76 * var(--blob-fp) + 0.5rem);
     min-height: calc(0.76 * var(--blob-fp) - 0.75rem);
+}
+
+/* X-DS pass 1 (V1C-09): the spectrum's stamp lands in OPEN space, as in the
+ * original (684c818f, grid gap-4: the 8px offset inside a 16px gap). The
+ * spectrum→console gap is the stamp plus a breath (8px + 1rem; it was 12px,
+ * so the stamp all but touched the console), and the field gives up the
+ * stamp's width on its right, so the stamp ends on the console's edge instead
+ * of overrunning it toward the card margin. */
+.picker-body {
+    gap: calc(var(--spectrum-stamp) + 1rem);
+}
+.picker-body > .spectrum-figure {
+    padding-inline-end: var(--spectrum-stamp);
 }

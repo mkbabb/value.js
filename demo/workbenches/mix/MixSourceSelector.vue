@@ -161,7 +161,8 @@ const swatchKeys = computed(() => {
                 <div class="dashed-well">
                     <!-- W5-7: the "N colors" counter died — it restated the
                          visible chips (and read "1 colors" at one). -->
-                    <span class="section-label">Selected</span>
+                    <!-- X-DS pass 1 (V1C-04): a Mix section speaks the app's ONE section-head voice (Fraunces sentence case, as the gradient's "Stops"). -->
+                    <h3 class="font-display text-subheading">Selected</h3>
                     <TransitionGroup
                         name="vj-enter"
                         tag="div"
@@ -237,7 +238,7 @@ const swatchKeys = computed(() => {
                 <!-- From palettes — collapsible dropdown of PaletteCards -->
                 <Collapsible v-if="savedPalettes.length > 0" v-model:open="paletteDropdownOpen">
                     <CollapsibleTrigger class="flex items-center gap-2 w-full cursor-pointer group py-1">
-                        <span class="section-label">From palettes</span>
+                        <span class="font-display text-subheading">From palettes</span>
                         <span class="text-micro text-muted-foreground">{{ savedPalettes.length }}</span>
                         <div class="flex-1" />
                         <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha over

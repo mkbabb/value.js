@@ -22,6 +22,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@mkbabb/glass-ui/select";
+import { Label } from "@mkbabb/glass-ui/label";
 import type { AcceptableValue } from "reka-ui";
 import type {
     AuroraHarmony,
@@ -128,10 +129,14 @@ const SECTIONS: SliderSection[] = [
         title="Atmosphere"
         description="Aurora palette follows the picked color."
     >
-        <!-- Enum atoms — Select rows above the numeric sliders -->
-        <div class="flex flex-col gap-3 px-4 sm:px-6 pt-2 pb-1">
+        <!-- Enum atoms — Select rows above the numeric sliders. X-DS pass 1
+             (V1C-05): ONE label column for the four rows, so every trigger
+             starts on the same line (the Mix/Generate two-column forms'
+             grammar); V1C-04: the labels speak glass's plain field-label
+             voice (Label), not the mono uppercase caps. -->
+        <div class="aurora-form px-4 sm:px-6 pt-2 pb-1">
             <div class="aurora-row">
-                <span :id="`${labelId}-harmony`" class="section-label">Harmony</span>
+                <Label :id="`${labelId}-harmony`">Harmony</Label>
                 <Select v-bind="popups.bind('harmony')" :model-value="harmony()" @update:model-value="setHarmony">
                     <SelectTrigger :aria-labelledby="`${labelId}-harmony`">
                         <SelectValue>{{ label(harmony()) }}</SelectValue>
@@ -151,7 +156,7 @@ const SECTIONS: SliderSection[] = [
             </div>
 
             <div class="aurora-row">
-                <span :id="`${labelId}-arrangement`" class="section-label">Arrangement</span>
+                <Label :id="`${labelId}-arrangement`">Arrangement</Label>
                 <Select v-bind="popups.bind('arrangement')" :model-value="arrangement()" @update:model-value="setArrangement">
                     <SelectTrigger :aria-labelledby="`${labelId}-arrangement`">
                         <SelectValue>{{ label(arrangement()) }}</SelectValue>
@@ -165,7 +170,7 @@ const SECTIONS: SliderSection[] = [
             </div>
 
             <div class="aurora-row">
-                <span :id="`${labelId}-medium`" class="section-label">Medium</span>
+                <Label :id="`${labelId}-medium`">Medium</Label>
                 <Select v-bind="popups.bind('medium')" :model-value="medium()" @update:model-value="setMedium">
                     <SelectTrigger :aria-labelledby="`${labelId}-medium`">
                         <SelectValue>{{ label(medium()) }}</SelectValue>
@@ -179,7 +184,7 @@ const SECTIONS: SliderSection[] = [
             </div>
 
             <div class="aurora-row">
-                <span :id="`${labelId}-motion`" class="section-label">Motion</span>
+                <Label :id="`${labelId}-motion`">Motion</Label>
                 <Select v-bind="popups.bind('motion')" :model-value="motion()" @update:model-value="setMotion">
                     <SelectTrigger :aria-labelledby="`${labelId}-motion`">
                         <SelectValue>{{ label(motion()) }}</SelectValue>
@@ -198,10 +203,13 @@ const SECTIONS: SliderSection[] = [
 <style scoped>
 @reference "../../styles/foundation.css";
 
-.aurora-row {
-    display: flex;
+.aurora-form {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
     gap: 0.75rem;
+}
+.aurora-row {
+    display: contents;
 }
 </style>

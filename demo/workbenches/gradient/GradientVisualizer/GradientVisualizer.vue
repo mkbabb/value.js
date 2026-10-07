@@ -16,6 +16,7 @@ import { useClipboard } from "@mkbabb/glass-ui";
 // three control-bar captions stop floating unassociated above their triggers and
 // the duplicated literal `aria-label` retires.
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
+import { Label } from "@mkbabb/glass-ui/label";
 import { DockControl } from "@mkbabb/glass-ui/dock";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
@@ -281,7 +282,8 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                  control leaves; for conic the angle is the sweep's start ("From"). -->
             <div v-if="type !== 'radial'" class="flex flex-col gap-1">
                 <div class="flex items-center justify-between">
-                    <span class="section-label">{{ type === "conic" ? "From" : "Direction" }}</span>
+                    <!-- X-DS pass 1 (V1C-04): an inline field label speaks glass's plain label voice. -->
+                    <Label>{{ type === "conic" ? "From" : "Direction" }}</Label>
                     <span class="text-mono-small text-muted-foreground tabular-nums"
                         >{{ direction }}&deg;</span
                     >

@@ -1,6 +1,6 @@
 <template>
     <!-- Direct saturation/value field. -->
-    <figure class="m-0 min-w-0 w-full flex flex-col">
+    <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col">
         <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
              so role="img" with a reactive descriptive label, not role="slider". -->
         <div
@@ -241,7 +241,7 @@ onUnmounted(() => {
      * offset tinted by the live colour — stands AT REST again; it was hover-only
      * since the 03b9daed decomposition. One layer, zero blur, same direction as
      * the card's own stamp. */
-    box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
+    box-shadow: var(--spectrum-stamp, 8px) var(--spectrum-stamp, 8px) 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
     overflow: visible;
 }
 

@@ -20,15 +20,23 @@
                 class="text-mono-small plate-ink whitespace-nowrap tabular-nums min-w-5 text-right"
                 :title="kReadout.title"
             >{{ kReadout.text }}</span>
+            <!-- X-DS pass 1 (V1C-08): the 24px rail is sized for the developed
+                 ramp. With nothing developed it carries no colour data, so it
+                 stands at glass's `sm` rung (12px, the kC slider's own rung)
+                 and keeps the certified track ink (O-18 · t33-audit-11); it
+                 grows to 24px only when it carries the ramp. The row keeps
+                 its 24px band either way, so nothing below it moves. -->
             <div class="relative flex-1 h-6 flex items-center">
                 <div
                     data-o18="extract-k-rail"
-                    class="absolute inset-0 rounded-full overflow-hidden h-6"
+                    class="absolute inset-x-0 top-1/2 -translate-y-1/2 rounded-full overflow-hidden"
+                    :class="gradient ? 'h-6' : 'h-3'"
                     :style="railStyle"
                 />
                 <Slider
                     aria-label="Number of colors"
                     variant="spectrum"
+                    :size="gradient ? 'md' : 'sm'"
                     :model-value="kModel"
                     :disabled="standDown"
                     :min="1"

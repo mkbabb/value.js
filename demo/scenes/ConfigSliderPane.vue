@@ -132,7 +132,7 @@ function resetDefaults() {
                         class="flex flex-col gap-1.5"
                     >
                         <div class="config-section-header">
-                            <span class="config-section-title">{{ section.title }}</span>
+                            <h3 class="config-section-title font-display text-subheading">{{ section.title }}</h3>
                         </div>
 
                         <!-- ONE label per row (ConfiguratorRow's `label`), with the
@@ -149,13 +149,13 @@ function resetDefaults() {
                         >
                             <!-- X-DS pass 1 (V1-05): glass's `sm` rung — a
                                  track with no colour data is a rail, not a
-                                 24px slab (eight of them stacked outweighed
-                                 the title). The certified ≥3:1 track ink
-                                 (O-18's config graphics leg) is unchanged;
-                                 only its area is. -->
+                                 24px slab. V1C-06: and glass's DEFAULT range
+                                 variant, not `spectrum` (the colour-track
+                                 variant has no fill): the filled length IS the
+                                 value, in the certified ink; the unfilled
+                                 track stays glass's quiet tone. -->
                             <Slider
                                 :aria-label="def.label"
-                                variant="spectrum"
                                 size="sm"
                                 :model-value="[read(def.key)]"
                                 :min="def.min"
@@ -201,19 +201,13 @@ function resetDefaults() {
  * (≥44px slider rows — the producer's own --dock-touch-target). */
 .config-console {
     padding: 0.75rem 0.875rem;
-    /* T.W8 boot-A (defect · A-class · the named O-18 blind spot on the SECOND
-     * slider population): the config sliders' spectrum TRACK computed
-     * `var(--secondary)` — ~1.09:1 light / 1.26:1 dark on the well, an
-     * invisible control extent (WCAG 1.4.11 wants ≥3:1), and the spectrum
-     * `.slider-range` is transparent by recipe so no filled/unfilled split
-     * reads either. The W6.5 GRAPHICS cure (T-44a) covered the EXTRACT tracks
-     * only. Here the config population re-inks its track via the SAME cure
-     * class (the eb7bb2c-era `--glass-slider-track-background` feed, no `ui/slider` edit):
-     * the certified de-emphasis rung `--ink-muted` (the D6 contract's stamped
-     * token — the exact material ExtractControls falls to when no live pick
-     * threads) is ≥3:1 on the well by construction. o18-contrast-census's new
-     * config GRAPHICS leg is this row's born-RED gate. */
-    --glass-slider-track-background: var(--ink-muted, var(--muted-foreground));
+    /* The certified graphics ink (O-18's config leg · WCAG 1.4.11): the RANGE
+     * — the value's extent — wears `--ink-muted`, ≥3:1 on the well by
+     * construction. X-DS pass 1 (V1C-06): it was the whole TRACK inked on the
+     * spectrum variant (no fill), so three near-black bars carried the card's
+     * weight and the value carried none. The unfilled track takes glass's
+     * own quiet default (`--muted-medium`) through no override at all. */
+    --slider-range-bg: var(--ink-muted, var(--muted-foreground));
 }
 .config-console :deep(.configurator-row .font-mono) {
     color: var(--ink-muted, var(--muted-foreground));
@@ -248,12 +242,12 @@ function resetDefaults() {
     padding-bottom: 0.375rem;
 }
 
+/* X-DS pass 1 (V1C-04): a config section is a section in the same sense as
+ * the gradient's "Stops" — it speaks the app's ONE section-head voice
+ * (Fraunces, sentence case, `font-display text-subheading` on the h3), never the
+ * mono uppercase tracked caps of an instrument panel (value-canon §2 Type). */
 .config-section-title {
-    font-family: var(--font-mono);
-    font-size: var(--type-small);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-caps);
-    color: var(--muted-foreground);
+    color: var(--foreground);
 }
 
 .config-action-bar {

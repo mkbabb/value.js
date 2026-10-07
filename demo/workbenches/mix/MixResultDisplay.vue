@@ -56,8 +56,8 @@ async function onCopy() {
         class="mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well"
         :class="{ 'mix-plate--ghost': ghost }"
     >
-        <!-- X.W12.u2 (UIA-V-137): every Mix section head (Selected · From palettes · Result) speaks the one .section-label voice. -->
-        <span class="section-label">Result</span>
+        <!-- X.W12.u2 (UIA-V-137): every Mix section head (Selected · From palettes · Result) speaks ONE voice; X-DS pass 1 (V1C-04) makes it the app's Fraunces section head. -->
+        <h3 class="font-display text-subheading">Result</h3>
 
         <Transition name="vj-morph" mode="out-in">
             <!-- The awaiting well: the convergence target, announced before

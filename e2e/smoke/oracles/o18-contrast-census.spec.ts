@@ -1159,18 +1159,24 @@ for (const scheme of ["light", "dark"] as const) {
 // (ConfigSliderPane — the SAME certified-material class as the eb7bb2c Extract
 // re-ink). The census extension is the W6.5 precedent (a bounds extension, not
 // a weakening — the GRAPHICS floor is unchanged).
+// X-DS pass 1 (V1C-06) RE-AIM: the config sliders leave the spectrum variant
+// (a colour-track variant with no fill) for glass's default RANGE variant. The
+// value's extent is now the filled RANGE, in the certified `--ink-muted`
+// (`--slider-range-bg`), and the unfilled track is glass's quiet tone. The
+// graphics floor moves with the meaning: it is the RANGE that must clear 3:1
+// on the well. Same floor, same well, the indicator re-pointed.
 
 for (const scheme of ["light", "dark"] as const) {
     test.describe(`O-18 config-track graphics leg (${scheme})`, () => {
         test.use({ colorScheme: scheme });
 
-        test("the ConfigSliderPane spectrum tracks ≥3:1 on the well (boot-A · M-34)", async ({
+        test("the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)", async ({
             page,
         }) => {
             await page.goto("/#/atmosphere");
             await expect(mainPane(page)).toBeVisible();
             await expect(
-                page.locator(".config-console .configurator-row .slider-track").first(),
+                page.locator(".config-console .configurator-row .slider-range").first(),
             ).toBeVisible();
             // The track material is the certified de-emphasis rung — wait for
             // the ink writer to stamp `--ink-muted` (the census certifies the
@@ -1203,12 +1209,12 @@ for (const scheme of ["light", "dark"] as const) {
             const diag = (row: CensusRow) =>
                 `${row.name} fill ${row.ink} vs ground ${row.ground} — raw ${row.rawColor} α ${row.effectiveAlpha} stack [${row.stack.join(" | ")}]`;
 
-            const track = await settleSurface(
-                ".config-console .configurator-row .slider-track",
-                "config-slider-track",
+            const range = await settleSurface(
+                ".config-console .configurator-row .slider-range",
+                "config-slider-range",
             );
-            expect(track, "config slider track mounted").not.toBeNull();
-            expect(track!.ratio, diag(track!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+            expect(range, "config slider range mounted").not.toBeNull();
+            expect(range!.ratio, diag(range!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
         });
     });
 }

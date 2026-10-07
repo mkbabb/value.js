@@ -167,6 +167,23 @@
     color: var(--ink-muted);
 }
 
+/* THE WELL INK (X-DS pass 1 · V1C-01). V1-03 made `--well-bg` a wash over
+ * the live host plate, so the static `--muted-foreground` (tuned for the old
+ * opaque cream well) fell to 1.6-2.1:1 inside every well. The token, not the
+ * instances, follows the tone: inside a well root the secondary ink is the
+ * certified over-plate rung `--ink-muted`, taken one golden step (0.382)
+ * further toward `--foreground` — the well's own 8% `--foreground` wash moves
+ * the ground toward the ink, so the ink moves away by more (bare `--ink-muted`
+ * measured 3.7-3.9:1 on the dark well). Every `text-muted-foreground`,
+ * placeholder and icon seated in a well reads it. (V1-17 did the bare rung
+ * per-site for the gradient.) */
+.dashed-well,
+.console-well,
+.search-seated,
+[data-generate-plate] {
+    --muted-foreground: color-mix(in oklab, var(--ink-muted), var(--foreground) 38.2%);
+}
+
 /* THE GUARDED LETTERFORM RAMP recipe (T.W6 · W6-4 — Q5 RULED, owner-verbatim:
  * "Only palettes should be rainbow--the letterforms dropdown and the title";
  * T-43 owner-CONFIRMS). The ONE recipe for the exactly-TWO consume sites

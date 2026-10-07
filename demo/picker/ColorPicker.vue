@@ -75,7 +75,7 @@
                 class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
                 :style="plateOpening ? { '--stagger-base': 'var(--overture-stagger-base)' } : undefined"
             >
-                <div class="flex flex-col gap-3">
+                <div class="picker-body flex flex-col">
                     <SpectrumCanvas />
                     <ComponentSliders />
                 </div>

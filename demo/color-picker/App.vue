@@ -460,8 +460,8 @@ onMounted(() => {
     font-size: 0.8125rem;
     font-weight: 500;
     line-height: 1.2;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    /* X-DS pass 1 (V1C-03): the schema's own label in sentence case — the
+     * original set no uppercase tracking anywhere (value-canon §2 Type). */
     color: var(--ink-muted, var(--muted-foreground));
 }
 

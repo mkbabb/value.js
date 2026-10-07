@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { contrastInkFor } from "../../color-session/ink";
 import {
     Select,
     SelectContent,
@@ -18,12 +19,10 @@ import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
 // literal `aria-label` retires.
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import { WatercolorDot } from "../../shared/ui/watercolor-dot";
-import { PaletteColorStrip } from "../../palettes/browser/card";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
 // the chip module + spec; the GenerateControls consume routes through Lane
 // N's queue — recorded in both lane logs.
 import { PreviewStrip } from "../../color-session/color-chips";
-import type { PaletteColor } from "../../palettes/types";
 import { formatCssCaption } from "../../color-session/format-color";
 import { paletteRail } from "../../color-session/palette-rail";
 import { useColorGeneration } from "./composables/useColorGeneration";
@@ -61,11 +60,6 @@ const emit = defineEmits<{
 }>();
 
 const paletteName = ref("Generated Palette");
-
-/** The specimen strip's PaletteColor shape (css + position). */
-const stripColors = computed<PaletteColor[]>(() =>
-    palette.value.map((css, i) => ({ css, position: i })),
-);
 
 /** The bench-note seed — fixed-width hex, a specimen label's provenance. */
 const seedHex = computed(() => seed.value.toString(16).padStart(8, "0"));
@@ -148,9 +142,10 @@ defineExpose({ regenerate, save, copyColors });
             aria-label="Generated palette"
             class="rounded-card border border-card-edge bg-well min-w-0"
         >
-            <!-- The specimen face — full-bleed strip, corners its own. -->
-            <PaletteColorStrip :colors="stripColors" class="rounded-t-card" />
-
+            <!-- X-DS pass 1 (V1C-07): the full-bleed header strip is gone — it
+                 drew the same colours a third time (strip, swatch row, count
+                 rail) and meant nothing the swatches do not. The title opens
+                 the plate. -->
             <!-- Plate chrome: name — count — regenerate — actions. The name
                  is the plate title (editable in place — the card family's
                  dashed-underline affordance), not a form field. The row
@@ -236,9 +231,12 @@ defineExpose({ regenerate, save, copyColors });
                         :seed="`gen-${css}-${i}`"
                         class="w-full h-full"
                     />
+                    <!-- X-DS pass 1 (V1C-11): the glyph takes the swatch's own
+                         contrast ink, not white under a drop-shadow filter. -->
                     <Check
                         v-if="copiedIndex === i"
-                        class="absolute w-4 h-4 text-white drop-shadow pointer-events-none"
+                        class="absolute w-4 h-4 pointer-events-none"
+                        :style="{ color: contrastInkFor(css) ?? 'var(--foreground)' }"
                         aria-hidden="true"
                     />
                 </Button>
