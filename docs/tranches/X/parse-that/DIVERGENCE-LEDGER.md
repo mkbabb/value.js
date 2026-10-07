@@ -1746,3 +1746,15 @@ Under W8.md §Scope 3 miss 5 and §Scope 4.
 | **math `var()`/`env()`** | `math.bbnf` `varFn` reads `( dashedIdent \| ident )`; the exact `ident` admits non-ASCII and escaped names there. Measured neutral on every corpus (L-G2 rows outside `coerceToSyntax` 0 moved; V-C identical). |
 | **open** | a named colour (`red`, `transparent`) is a valid `<custom-ident>` but `parseCssValue` reads it as a colour scalar, which keeps no authored text, so `coerceToSyntax("red", "<custom-ident>")` stays refused (unchanged; a value-model question, not strictness). An escaped CSS-wide keyword (`\69 nitial`) is compared as authored. |
 | **consumer direction** | **CHANGES a value:** `coerceToSyntax` refuses strings, delimiters, `[]` blocks and `<urange>`s as `<custom-ident>`. CHANGELOG `[Unreleased]` records it. |
+
+## §19-R1 — X.P.W8 Repair 1: the 14 `random-item()` cases ruled out-of-scope as css-values-5 (ESC-W8v-1 discharged by ruled rows) (SERVED MODEL: claude-opus-5-5 · 2026-10-07) — DATED, BESIDE (E-3)
+
+Under W8.md §Scope 1 (the corpus claims css-values-4 math/url/attr/units) and §Scope 2 ("recorded as a ruled out-of-scope row with its spec reason"), on the precedent of §19-T's **W8t-CSS-COLOR-6** (css-color-6 `color-layers()` ruled out of a css-color-5 scope). §19-V's ESCALATED cell stands as written; this section discharges it.
+
+| field | reading |
+|---|---|
+| **class** | **W8r1-CSS-VALUES-5** — a `random-item()` case. Both vendored files cite `rel="help" href="https://drafts.csswg.org/css-values-5/#funcdef-random-item"` (verified by the authoring script, which HALTs otherwise). |
+| **rows** (`bench/wpt-conformance/ruled.json`) | 3,885 → 3,899: 14 rows, one per exact case (10 valid refused: empty items, `{}` blocks; 2 serialization: `auto ,serif` kept as authored, re-spaced by the generic `<function>` serializer, a fixpoint; 2 invalid accepted: `random-item(auto)`, `random-item(auto, ;)` read as a generic `<function>`), each mechanism MEASURED per case by `bench/records/W8r1/rule.ts`. The other 21 random-item cases pass and are not rowed. |
+| **why ruled, not cured** | css-values-5 is outside §Scope 1; the BBNF cure §19-V wrote costs ≈ 848 B gz and E-6 holds 5 B gz (14,512 / 14,517). No product byte changes. |
+| **V-C** | css-values MISS 14 → 0; TOTAL `6267 cases · pass 2368 · ruled 3899` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, exit 0 ×2 (`bench/records/W8r1/vc-after-{1,2}.txt.gz`, identical but for the node PID). |
+| **open** | a later wave that claims css-values-5 picks the §19-V rule text up and retires these 14 rows (they would read STALE once cured). |

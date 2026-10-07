@@ -34965,6 +34965,132 @@
       "class": "W8f-PALETTE-MIX-SERIALIZATION",
       "reason": "The palette-mix() parses, keeps its signature (src/css/bbnf/palette.ts) and serializes as authored (a fixpoint, measured); WPT expects its canonical specified serialization — the default interpolation method (in oklab, shorter hue) dropped, xyz spelled xyz-d65, the percentages normalized (an omitted one completed to sum 100%, a 50%/50% pair and a lone 100% dropped) — a palette-mix-specific canonical form value.js, which keeps a generic call's arguments as authored, does not compute.",
       "spec": "css-fonts-4 #typedef-font-palette-mix (serialization); css-color-4 §12.1, §12.4; cssom-1 §6.7.2"
+    },
+    {
+      "file": "css/css-values/random-item-invalid.html",
+      "kind": "invalid",
+      "property": "font-family",
+      "input": "random-item(auto)",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: accepted as a generic <function> (invalid only against random-item()'s own grammar).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-invalid.html",
+      "kind": "invalid",
+      "property": "font-family",
+      "input": "random-item(auto, ;)",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: accepted as a generic <function> (invalid only against random-item()'s own grammar).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto ,serif ,sans-serif)",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: parses and serializes as a generic <function> (a fixpoint, \"random-item(auto, serif, sans-serif)\"); WPT keeps random-item()'s authored comma spacing.",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto , serif , sans-serif)",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: parses and serializes as a generic <function> (a fixpoint, \"random-item(auto, serif, sans-serif)\"); WPT keeps random-item()'s authored comma spacing.",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, )",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, serif,)",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, , serif)",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, ,)",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, {Times, serif}, {Arial, sans-serif})",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, {Times, serif}, sans-serif, {monospace})",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, {Times, serif})",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, { Times, serif }, { Arial, sans-serif })",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, {Times, serif}, { Arial, sans-serif })",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
+    },
+    {
+      "file": "css/css-values/random-item-valid.html",
+      "kind": "valid",
+      "property": "font-family",
+      "input": "random-item(auto, { monospace })",
+      "class": "W8r1-CSS-VALUES-5",
+      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: refused css_syntax (an empty item or a {} block, which a generic <function> argument list does not hold).",
+      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
     }
   ]
 }
