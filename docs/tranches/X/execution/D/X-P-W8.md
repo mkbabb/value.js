@@ -371,3 +371,19 @@ W8.md §Units: close = "V-C GREEN ×2 plus stay-GREEN", then the orchestrator's 
 | INFO | css-variables-1 and css-syntax-3 contribute 0 corpus files (no `test_valid_value` harness calls) | `.c` receipt L60 | none (recorded at `.c`) |
 
 **Verdict: NOT-CONFORMANT** (2 HIGH: V-C RED unrelieved; L-G1 unread). LEDGER row stays PARTIAL; not CLOSED.
+
+## Repair 1 (2026-10-07, repair seat round 1, `claude-opus-5-5`, Track D)
+
+- **Crash recovery:** ⟨`git status --porcelain src test bench docs/tranches/X/parse-that docs/tranches/X/execution/D`⟩ → empty at open; no inherited work. (parse-that's dirty Rust paths are outside this wave's writable set; untouched.)
+- **Host:** ⟨`sysctl -n vm.loadavg`⟩ → `{ 55.39 69.51 82.69 }`; AC power. No timing gate is read.
+
+| Check 1 defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| **HIGH — V-C RED ×2 at 14 unruled (`random-item()`, ESC-W8v-1)** | §Scope 2's own relief, "recorded as a ruled out-of-scope row with its spec reason": `random-item()` is css-values-5 (both vendored files' `rel="help"` → `css-values-5/#funcdef-random-item`, checked by the script), and §Scope 1 claims css-values-4. This follows the W8t-CSS-COLOR-6 precedent. There are 14 rows, class **W8r1-CSS-VALUES-5**, one per exact case. `bench/records/W8r1/rule.ts` measures each case's mechanism (10 refused, 2 generic-`<function>` fixpoint re-spacings, 2 accepted as a generic `<function>`) and HALTs on any non-`random-item()` miss or a count ≠ 14. DIVERGENCE-LEDGER §19-R1 is dated and sits beside §19-V. No product byte changes, and the E-6 headroom is untouched. | `2aeca51d6` | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ ×2 → `6267 cases · 3899 ruled rows` · css-values `796 693 103 0 0 0 0 0` · TOTAL pass 2368 / ruled 3899 / MISS 0 · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, exit 0 both; outputs identical but for the node PID (`bench/records/W8r1/vc-after-{1,2}.txt.gz`). **GREEN ×2.** |
+| **HIGH — L-G1 ×2, four engines, unread (incl. W7's carried Firefox whole `parseCssScalar`)** | not curable by a seat: §0eq / ADDENDUM (k) require an owner+orchestrator quiet window (AC, lid open, fleets idle, 1-min load < 8). The load measured here is 55. | — | **ESCALATED** (orchestrator's window) |
+| **MINOR — ESC-W8v-2 (`--x: ;`) unhomed** | the cure is a declaration-model change (`src/value.ts` empty `CssValue`, `src/css/rules.ts`), which is outside W8's §File Bounds (grammar, `src/css/bbnf/**`, test/css, bench, ledger). It is an assignment, not a one-command cure. | — | **ESCALATED** (orchestrator assigns an owning unit) |
+| **MINOR — E-6 gz headroom 5 B** | no change needed: the V-C cure is ruled rows, so no grammar byte grows. | — | ⟨`npx esbuild --minify src/css/bbnf/generated/grammar.js \| gzip \| wc -c`⟩ → `14512` (≤ 14,517), unchanged |
+| INFO ×2 | none | — | — |
+
+- **Stay-GREEN:** the commit touches no `src/`, `test/css`, grammar, emission, package or lock byte (⟨`git show --stat 2aeca51d6`⟩ → `bench/wpt-conformance/ruled.json`, `bench/records/W8r1/*`, DIVERGENCE-LEDGER only). So test/css, L-G2, prefix, L-G3, `--check`, audit, size, css-equivalence, vue-tsc and build are unmoved and stand as read at the Close. ⟨`npx eslint bench/records/W8r1/rule.ts`⟩ → exit 0. `ruled.json`'s only reader is `bench/wpt-conformance/conformance.ts`.
+- **Escalations:** L-G1 ×2 (quiet window); ESC-W8v-2 (assignment). **Verdict:** V-C defect CURED. The row stays **PARTIAL** until L-G1 ×2 is banked and a check audits it.
