@@ -3717,3 +3717,6 @@ KF.W13X check 3 was NOT-CONFORMANT: `.pc`/`.dh2` unlanded, readings unread under
 - ESC-dock-3: a Home living miniature in the `<S>Mini` idiom;
 - ESC-spring-1: the Sweep's sampler shares the axis's settle-horizon time base, with alternate folded.
 Unit `.cube` gets an ordering cure for the autoplay first-frame throw. kf readings are banked only at a 1-minute load < 25. Re-open: `.pc` → `.dh2` → `.esc` → `.cube` → R-4 → relays → close → check.
+
+## §0es — 2026-10-07: X.P.W7 CLOSED; X.P.W8's units landed; its L-G1 read waits for an owner-provided quiet window
+Track D: **X.P.W7 CLOSED** (honest-RED: the W7-carried Firefox whole `parseCssScalar` cell, which moves to W8's read; the release chain goes to X.P.W7P, the owner's npm one-time password). **X.P.W8:** the WPT conformance units all landed. Its only open gate is the unread L-G1 ×2, which needs a quiet window, so no more check rounds run on a loaded host. ESC-W8v-2 (`--x: ;`) is homed as `.e`, first in the window sitting; the `random-item()` exclusion is ratified (W8.md addendum (a)). **Owner act for the window:** AC power, lid open; the orchestrator idles the fleets.
