@@ -126,3 +126,84 @@ Static (`web/src`): gradients 10 → 9; box-shadow declarations 4 (focus and sel
 - The e2e runs rewrote the tracked frames under `web/e2e/screenshots/f-w14/`; they were restored to HEAD.
 
 **Left in the fourier tree, not this seat's.** The orphan pass-2 hunks in `GalleryDraftsSection.vue`, `GalleryView.vue`, `PaperView.vue`, `SliderControl.vue` (P2-07 only; P2-02's fill was adopted into C8 and its `sm` rung reverted to `md`) and `stores/gallery.ts`. Another seat's staged contour deletions are also left. None is in any commit.
+
+### pass 2
+
+*(The cure for the 2026-10-07 pass-2 critic, findings DS-F2-*; its frames are `evidence/DS/fourier/critic-p2-2026-10-07/`.)*
+
+**Commits.**
+- fourier, on `m/w1-bump-migration`:
+  - `7df07e5`: the cure, 21 files;
+  - `168b8cd`: DS-F2-C6's follow-through. The phone ToC plate's width reads the new gutter.
+  - `d6bdc97`: named golden re-baseline.
+- value.js `98ad6f4b6`: AFTER frames and census.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F2-C1 | `ImageUpload`'s root is now the `ConfiguratorLayer`, so glass fuses the Image layer with Basis: one hairline and squared joins, with no 12 px non-layer margin. The visually hidden `h3` moves inside the layer. No local border. |
+| DS-F2-C2 | The coefficient rows sit on the caption rung, below the layer's labels. The amplitude column is `flex-none min-w-[6.5ch]`, with end padding. Measured: "103.19" is 56 px wide in a 56 px box and ends 4 px inside the port. |
+| DS-F2-C3 | **P2-07 is ruled ADOPTED.** There is one hint idiom: the subtitle sits on its own caption line under the label, whole and never ellipsised. The inline mono "N" token is retired into the Harmonics hint ("N, the terms in each basis sum"), and the `token` prop and its CSS are deleted. `f-w14-control-row`'s height gate now reads one height per group: rows with a hint, and rows without one. |
+| DS-F2-C4 | At ≥1024 the `/morph` grid is `26rem minmax(0, 1fr)`, and the cards take the freed width. The readouts and the Export/Reset row both start on the plate's edge (x = 161). |
+| DS-F2-C5 | `.demo-page` pads inline on `--page-gutter` at every width. The 640 px override is deleted. |
+| DS-F2-C6 | `.floating-toc-crumb` is capped at 55% only when it has a leaf (`:has(+ .floating-toc-crumb--leaf)`). The bar pads on `--page-gutter`. The plate's width is `100vw − 2 gutters − insets`, which keeps au1 L2-16 green at 844×390. |
+| DS-F2-C7 | Shut, the drawer shows only the edge tab. The rotated readout is gone; it lives in the open header (C9). The tab has a 1 px `--border` hairline and squared corners on its paper side. |
+| DS-F2-C8 | The number and title are one hanging-indent label inside the glass Button, with `--toc-hang` set per depth. Numbers hang on the first line, and wrapped titles align in one column (frame `paper-scrolled-*-1440`). |
+| DS-F2-C9 | Under 480 px of plot width (`useElementSize`), the legend is one wrapped row under the curves with no plate. The hue dots and labels are kept, the divider is dropped, and the row has a 4.5rem scroll cap. Desktop is unchanged. |
+| DS-F2-C10 | One glyph set: lucide Play/Pause, filled, `size-4`, on `/v` (`AnimationControls`) and on `/equation` (`ConvergenceTimeline`). The Font Awesome paths are deleted. |
+| DS-F2-C11 | Domain and Presets use glass `LabeledField`, as Expression does. The radiogroup is named through the field's `labelledBy`, and its accessible name stays "Presets". |
+| DS-F2-C12 | `.info-hovercard` keeps only `z-index`, `width` and `padding`. Its local background, border, ink and `tooltip-in` are deleted, and glass PopoverContent paints. |
+| DS-F2-C13 | There is one pointer-neutral label, "Choose an image", and the `pointer: coarse` query is deleted. |
+| DS-F2-C14 | The unlabelled duration marks and `DURATION_MARKS` are dropped. |
+| DS-F2-C15 | The Fourier and Polynomial choosers each have a caption on the control-row label rung, and both start on the label column. |
+| DS-F2-C16 | The gallery card uses Card `size="md"`, so its pad is `--space-body`: 12 px at 1440, where sm gave 8, and 8 px at 390, where sm gave 4. No local px value. **Residual:** the ORIGIN's 16 px is not on glass's fluid space scale at either width. |
+| DS-F2-C17 | The heart and the eye are both `size-3.5`. Glass Button's coarse svg rule skips `size-*` classes, so the hit area keeps its floor. |
+| DS-F2-C18 | "Advanced" sets `margin-inline-start: calc(var(--space-residue) - var(--button-size) / 2)`, which is the inverse of glass's own Button pad. It now sits on the label column (x = 1022). |
+| DS-F2-C19 | Circles under 2 px on-screen radius are skipped; their arms still draw the chain. The circle stroke's ceiling is half its given weight: 2 px at rest, 2.5 px hovered. The spectrum hues are kept. **Residual:** a lighter green speckle remains at the tip from the 3–6 px circles' dots and arms. |
+| DS-F2-C20 | `ContourSettings` takes `defaultOpen`. The contour editor mounts its only layer open, and the main aside keeps it shut. |
+
+**Glass-owned, left honest-RED, nothing overridden locally.** Under O-87 FLAT-LIGHTING:
+- DS-F2-G1: the `glass-floating` radial `::before` sheen on the detached stage and aside;
+- DS-F2-G2: the dark amber button cast;
+- DS-F2-G3: coarse control type over the heading and label rungs, relayed with G8 and the C7 Metric row.
+
+All three are to be re-judged at the 10.2.0 repin.
+
+**Census** (`pass-02/census-after.json`; base: the committed tree, fourier `d6bdc97`, served from a clean worktree). Like for like on the 7 routes both passes share (28 route × theme × width cells), every count is unmoved:
+- shadow layers 1098;
+- multi-layer stacks 334;
+- inset highlights 332;
+- backdrop blur 260;
+- control gradients 0;
+- looping chrome 0.
+
+These rows are layout and consumer chrome; the remaining stacks and blur are glass's recipe (O-87). Static (`web/src`): gradients 9, box-shadow declarations 4 (focus and selection rings), unchanged.
+
+**Frames.** `evidence/DS/fourier/pass-02/` holds 54 frames, all headless real Chrome, served from the committed tree:
+- 28 route frames: 7 routes × light/dark × 1440/390;
+- the critic's 26 cells, recaptured with its own script: `v-contour-coeffs`, `v-hover-stage`, `v-moremenu`, `dock-navmenu`, `v-editor`, `v-canvas-390`, `eq-coeffs`, `eq-info`, `eq-hover`, `eq-canvas-390`, `paper-scrolled`, `paper-drawer-shut` and `morph-scrolled`, each in both themes.
+
+**Gates** (all on the committed tree):
+- `vue-tsc -b`: 0, twice.
+- `vitest run`: 116/116, twice.
+- e2e: 21 directly affected specs, chromium plus mobile-chromium, headless, 3 workers, 223 tests. Run A 219/223, run B 219/223. The same 4 failed both times, and all 4 are pre-existing:
+  - `f-w14v-au3` L1-12 (ESC-au3-1);
+  - `visual-checkpoint` items 1·6·7, 2 and 5 (the owed `card-*` goldens; their "Open img-amber-fox-spiral-one" locator never resolves).
+- **Named owner-ruling re-baseline (§0ej), `d6bdc97`:**
+  - `checkpoint-disclosure-body`: the diff was read, and it is exactly C3 (hints on their own line) plus C11 (the Domain and Presets labels);
+  - `checkpoint-tooltip-trigger` (mobile): the Auto toggle's crop moves with the rows above it.
+
+**Instrument.**
+- The first two e2e runs are void:
+  - The worktree's symlinked `node_modules` sat outside Vite's fs allow-list, so the KaTeX fonts returned 403. A scratch `vite.ds.config.ts` (in the worktree only, never committed) widens the allow-list.
+  - With full parallelism, `/equation` computes starved the single API ("Computing…" frames). Run at 3 workers, every equation spec passes. `equation-interaction` S2 passes alone.
+- The e2e ran from the worktree, so the main tree's tracked `e2e/screenshots/f-w14/` frames were never rewritten.
+
+**Push: OWED.** GitHub rejected the fourier fast-forward push of `m/w1-bump-migration` four times with "Internal Server Error". The fast-forward check passed: origin is at `5ab31fa`, an ancestor of `d6bdc97`. The three commits are local only. The next seat runs `git push origin m/w1-bump-migration` (fast-forward).
+
+**Left in the fourier tree, not this seat's.**
+- The orphan hunks in `GalleryDraftsSection.vue`, `GalleryView.vue`, `PaperView.vue` and `stores/gallery.ts`.
+- Another seat's staged contour deletions.
+
+The `SliderControl` P2-07 hunk is no longer an orphan: it was ruled, adopted and committed in `7df07e5`.
