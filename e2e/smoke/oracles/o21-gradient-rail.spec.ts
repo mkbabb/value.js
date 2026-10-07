@@ -515,12 +515,14 @@ test("one removal owner: the floor is a disabled control carrying its reason", a
     await rail.scrollIntoViewIfNeeded();
 
     const remove = main.getByRole("button", { name: "Remove selected stop" });
-    // ONE removal control on the route — not one per stop, and not a second
-    // species hiding behind a gesture.
-    await expect(main.getByRole("button", { name: /remove/i })).toHaveCount(1);
+    // X.W12U.h · A2-VA-L3-7: with no selection the inspector is its hint alone,
+    // so the removal owner is counted once a stop is its subject.
 
     // At the two-stop floor the control is PRESENT and refused, with a reason.
     await rail.locator("[data-stop-id]").first().click();
+    // ONE removal control on the route — not one per stop, and not a second
+    // species hiding behind a gesture.
+    await expect(main.getByRole("button", { name: /remove/i })).toHaveCount(1);
     await expect(remove).toBeVisible();
     await expect(remove).toBeDisabled();
     const reasonId = await remove.getAttribute("aria-describedby");
