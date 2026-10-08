@@ -169,3 +169,54 @@ This receipt covers the cure of the pass-3 critic's rows **V3C-01 … V3C-11** a
 - The seated About and My Palettes headers keep their full title and caption. Check their height against the short follower at 1440×800.
 - The Palettes companion floor (30rem) makes a short leader (Browse empty, Generate) stretch to 480 px. Check the leader's empty space.
 - V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11 wait on the owner.
+
+### pass 4
+
+This receipt covers the cure of the pass-4 critic's rows **V4C-01 … V4C-09** and **V4C-G1/G2**, judged after `973dddc09`.
+
+**Commits.** value.js `340ec4250` (the cure, 22 files) and `d6d461556` (AFTER frames, census, probes, e2e listings).
+
+**Consumer findings, cured at the root.**
+
+| id | cure | measured (`pass-04/`) |
+|---|---|---|
+| V4C-01 | **One polarity per plate.** `resolvePlateInk` (`ink.ts`) certifies the scheme foreground against the composited resting plate with the same guard and the same referent as `--ink-muted`; the boot writer stamps it as `--ink-primary`. `--ink-muted` is now a golden step **of that pole**: a rung that would flip, or outrank its primary, is the primary. `shell.css` seats the pair as the in-plate foreground family on `.pane-wrapper` (`--foreground`, `--card/-secondary/-accent-foreground`, the muted pair, and glass's own `--on-glass-muted` seam), so titles, labels, readout integers, section heads and empty-state heads inherit by token. Root-computed tokens (`--slider-range-bg`, `--well-bg`, hairlines, `--code-ink`) keep the scheme ink they were certified with. The 14% material is kept. | `probe-ink.json`, owner brick in light: readout integer 7.14 and fraction 7.18 (both near-white; was 2.35 / 2.03 with opposite inks), About title 4.97, Extract title 7.38, Colors 7.37, Gradient title 7.53, section head 7.06. Dark unchanged in polarity (titles 8.6–11.5). Unit leg: `test/ink.test.ts` "resolvePlateInk (ONE polarity per plate)", both schemes × five ambients. |
+| V4C-02 | Glass re-seats `--muted-foreground` on its surfaces from `--on-glass-muted`; that seam now carries `--ink-muted` inside the panes, so quiet/text Buttons, placeholders and tiles read the certified rung. "Delete all" reads `text-(color:--ink-muted)` (a layered utility, so its destructive hover still wins). | Owner brick, light: Copy JSON 7.07 (was 1.13), Reset 6.40, Open camera 7.41 (was 1.14), Start a new palette 6.80. Default pink, light: Copy JSON 3.82 (was 1.78–2.01), Open camera 3.71 (was 1.73); see the residual below. |
+| V4C-03 | The gradient editor's code sits on `--code-ground` (hljs.css, root-computed: card 92% + foreground, the opaque paper the crayons were certified on) instead of `glass-wash`. Crayons untouched. | number token 4.93 and body ink 13.2 in light, 6.13 / 9.24 in dark, on both colours. |
+| V4C-04 | ConfigSliderPane takes About's contract: `pane-row-follow`, the seated PaneHeader, the sections in glass's `FadingScroll` port, the action bar a flex-none footer below it. | `probe-layout.json` /blob 1440: card 112–733 = the stage card; footer 675–732; port 437 px of a 2137 px body; document 900 = viewport (was 2455). |
+| V4C-05 | A seated header (`.card:has(> .pane-header ~ .pane-scroll-fade) > .pane-header`) paints no veil; the pass-3 `timeline-scope` that let it swell goes with it. Headers that overlie their scrolling body keep the banked rest veil (V2C-15). | `seatedVeil: none`; About, My Palettes and the config pane frames carry no tone band or feather. |
+| V4C-06 | One header block-end gap, `--pane-header-gap: var(--phi-3)`, in PaneHeader; the per-body `pt-2`/`py-4` are removed (Gradient, Mix, Generate, Extract, Browse, Admin, My Palettes, Atmosphere, the config sections); About drops its under-header rule so its first section rides the same gap. | header bottom → first row = 0 px on every pane, caption → first row 26 px (was ≈ 8–40 px by pane). |
+| V4C-07 | `.aurora-form` field column `minmax(0, 1fr)`. | trigger right edges 951 = the console well's 951. |
+| V4C-08 | The Colors/Palettes switch is start-aligned. | tabs left 754 = title left 754. |
+| V4C-09 | The Generate title row never wraps; Regenerate's label is `max-sm:sr-only` (its accessible name stays "Regenerate", O-20 holds). | 390: name 46–198, Regenerate 206–256, copy 308–344, all on one row (`generate-row-390-light.png`). |
+
+**Residual, honest-RED (V4C-G1's third row).** On the default pink in light the resting plate shows a ground of luminance ≈ 0.18–0.20 (`probe-ink.json` grounds rgb(202–226, 64–96, 131–167)). Against such a ground no ink exceeds ≈ 5:1 at either pole. The primary is already near-black (rgb(28,25,23)) and measures 4.13–4.65; the muted rung measures 3.25–4.23. That is the resting veil's 14% α on a saturated mid-tone, cited to O-87 (a resting tier legible on saturated grounds), not overridden locally. The referent model (the palette's mean OKLab L) also reads these grounds lighter than they paint; refining it is a further step, not taken here.
+
+**Glass-owned, held on O-87 / O-88, not overridden.** V4C-G1 (floater halo and plate-in-plate selected capsule; the view menu letting the rail read through; the near-clear resting tier). V4C-G2 (an in-pane select scrolls the page and the dock collapses at desktop width): O-88.
+
+**Gate re-aims, named** (no assertion weakened).
+- O-11 gates 1+2: the rest floor and feather are asserted on headers that overlie their body; a seated header must now paint **no** veil (`display: none`), a new positive assertion.
+- O-11 gate 3: the scrub host must hold its own header. About's header is seated, so Home now records `no-collider`, as Gradient did at pass 3. In the shipped layouts at 1280×720 no header overlies a scrolling body, so this gate currently measures nothing; the swell code remains for unseated headers.
+- `test/ink.test.ts` gains the V4C-01 leg.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:9000 --widths 1440 --themes light,dark --settle 5000`; `census-after.json`). Box-shadow layers 828 → 820, multi-layer elements 158 → 156, inset highlights 318 → 314, backdrop blur 132 → 130 (the seated veils are gone). Static half unchanged. **Verdict RED**, on glass-owned chrome (O-87, the 10.2.0 repin).
+
+**Frames.** `evidence/DS/value/pass-04/`: 36 route frames (9 routes × light/dark × 1440/390, `capture.mjs`, 0 of 36 failed), the critic's brick and menu cells re-shot (`probe-brick.mjs`), `atmosphere-form-1440-light.png`, `generate-row-390-light.png`. All headless real Chrome (§0ei). The critic's own frames stay in `pass-04/critic/` (not committed by this seat).
+
+**Gates.**
+- **Type-check** (`npm run typecheck`): 0 errors ×2 on the final tree.
+- **vitest**: 1096/1103 ×2. The 7 failures are the same 7 as passes 1–3 and HEAD (`ink.test` ×5, `spectrum-luma` C-5, `reka-binding-idiom` NG-6). The two `resolveMutedInk` "QUIETER" legs return byte-identical values to HEAD (compared through HEAD's `ink.ts` in this session). **Not GREEN; pre-existing.**
+- **e2e**: 18 specs touching the changed surfaces (117 tests, smoke project, headless, workers 1, against `:9000`). Listings in `v4c-gates/`.
+  - Run 1 (load 50–150): 35 failed / 82 passed. Most failures are click/nav timeouts. The suspicious ones were re-run alone (`e2e-rerun-a.txt`): O-11 gates 1–6 and the O-10d walk pass; the remainder are the classes below.
+  - Run 2: the first attempt was voided by dev-server reloads (93 of 99 failures are `page.goto: net::ERR_ABORTED; frame was detached`; `e2e-run2-void-reload.txt`). The re-run: **21 failed / 96 passed**. O-11 gates 1–6, the O-18 W4 rows (readout fracs, channel letters, ConfigSliderPane rows), both O-18 config-track graphics legs, the O-18 GRAPHICS leg, O-20's verb leg, O-12 and w12-about-clip are GREEN.
+  - The 21: the pass-3 pre-existing set (a11y-select-title B1/B2, O-10a mobile, O-10d browse wall ×2, O-14 ×3, O-18 graph nodes, IDENTITY, R27 ×3, O-9 Browse error); the O-88 dock class (scene-action-contract D4 ×4; w7-inspector-rows' selection leg waits on `.glass-dock[data-morphing]`); w7-inspector-rows' tag leg, which waits on the tag dialog's checkbox; and O-20 T-17, which clicks a combobox named "Generation preset" that has been "Preset" since `583715162` (a stale locator, pre-existing). None of these touches a changed surface.
+  - A HEAD comparison server could not be built from a detached worktree in this session (a rolldown build error), so these are classed by their failure text, not by a HEAD run.
+  - **e2e is NOT ×2 GREEN**, because of the pre-existing set and the O-88 class.
+- **No visual golden was re-baselined.**
+
+**For the pass-5 critic.**
+- In light, a plate now flips its whole foreground family to near-white when the aurora under it is mid-tone (the owner brick). Judge whether the white titles read as the app's type, or the flip reads as a mode change.
+- Default pink in light sits in the dead-zone ground (the residual above): the primary is 4.1–4.7 and the muted rung 3.3–4.2.
+- The Gradient pane's unseated header still paints the banked rest veil (V2C-15), now over a 26 px gap; check that band.
+- The config pane is a 621 px card on /blob with a 437 px port. Check that the Blob sections read well inside the port, and that /atmosphere (where the pane is the sole stage) still grows with its content.
+- V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11 wait on the owner.
