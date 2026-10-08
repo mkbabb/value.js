@@ -812,3 +812,48 @@ Every row holds, because this pass changed order and label placement, not lighti
 **Disclosures**
 - The shared `:5173` dev server (the keyframes.js working tree, already running) answered promptly at a load average of about 30–40, so it was reused, and HMR served the cure.
 - Hiding the names of the non-current pips at the floor also gives up the "all four pips named" result from KF-C10-05, but only at the floor. The tiles directly above the field now name all four presets with their values, which is the cure the critic asked for.
+
+### pass 14 (the redeployed workflow's pass 10; critic C14, judged on the `evidence/DS/keyframes/pass-13/` frames)
+
+**Cure commit:** keyframes.js `48f02723` (master, pushed fast-forward from `7ed8b703`). **Evidence:** value.js `183814704` (`evidence/DS/keyframes/pass-14/`: 28 route frames, `census.json`, the `spring-pane-1440-*`, `crop-spring-axis-*`, `presets-1440-*`, `crop-spring-figure-scrolled-*`, `entry-1440-*` and `sequence-{1440,390}-*` cells, `c14-probe.mjs` + `c14-probe.json`, `geo.mjs`). All captures are headless real Chrome (§0ei). The task named `pass-10`, but `pass-10` already holds committed evidence, so the frames go to `pass-14`, following the sequential numbering of passes 6 to 13.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900 unless named; light and dark) |
+|---|---|---|
+| KF-C14-01 | The figure is whole at the fold or starts below it. Where the facet, with the field at its 8rem floor, overflows the rail's scroll body (rail < 52.75rem: the facet is 37.75rem, the transport and frame 15rem), `.spring-heatmap-section`'s block start moves to the fold: `margin-block-start: clamp(0px, (52.75rem − rail) × 1000, max(0px, rail − 39.625rem))`. The ×1000 term is a hard switch, so the margin is 0 wherever the facet fits. No mask was added and the field was not raised. Scroll-snap was not used: it does not change the view at rest, and `.controls-surface` is shared by every scene. | Scene and Entry: the section is at 528–729 against the fold at 527. The pane ends on the presets (278–417) and their divider, with no heading, legend or field strip in the end fade. Scrolled to the end, the figure is whole (axis 518, fade 0; `crop-spring-figure-scrolled-*`). At 1440×1080 nothing changes: the section is whole at 469–670 against the fold at 679, with no overflow. At 1280×760, 1280×800 and 1024×700 the section was already below the fold, and it still is. |
+| KF-C14-02 | One theme-aware root token, `--rail-tint-lane` (design-idioms.css `:root` 22%, `.dark` 34%; a percentage, so `light-dark()` cannot carry it). The Sequence lanes, their dashed overshoot tails (`::after`), and the Spring rail while dragged all read it. Before, each declared a fixed 18%. The idiom's 8% default stays for the quiet scrub rails. No glow or stroke was added. | Served pixel contrast of rail and tail against the card beside it, for lanes 1–5. **Dark:** 1.63 / 1.61 / 2.29 / 2.17 / 2.06 at 1440 (tails 1.59–2.27), and the same at 390. Before, it was about 1.2–1.3. **Light:** 1.23 / 1.22 / 1.07 / 1.09 / 1.10 (it was about 1.2 / 1.07 at 18%). |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C14-02 light residue | **Disclosed, not a further cure.** In light the lanes read by hue, not by a luminance step. The cyan and green lane hues sit at the light card's own luminance, and full-strength `--rainbow-cyan` reaches only about 1.25:1 there, so no tint percentage gets lanes 3–5 to 1.5:1 without changing the identity hues (§0dm: an owner ruling, never a cure). The light arm is 22%, the top of the range the critic asked for. |
+| KF-C14-01 residue | **Carry.** At 1280×1080 (rail 873 px, but the tiles wrap to two value lines, so the facet is 644 px against a 632 px body) the facet overflows by 12 px while the switch reads "fits", and the axis (710) still sits in the end fade (667–707). This is the C11-05 family at one off-cell size. The switch is keyed to the 1440 facet (37.75rem). It is not keyed to the narrower rail's wrapped tiles, because that would push the figure below the fold at 1440×1080, where it fits whole. |
+| KF-C14-01 trade | At 1440×900, about 90 px of blank band now sits under the presets' divider at rest, inside the end fade. The critic accepted this ("the visible pane would then end cleanly on the presets and the divider"). |
+| HELD-O87-RECHECK | Unchanged at glass 10.1.0 and cited, not cured: the pane frame's stacked offset stamp (KF-C1-02), the secondary capsule's 5-layer stack (KF-C1-01), the split Input/Select fill (KF-C1-10), the NumberField's raised steppers (KF-C1-09/C7-05), the dark resting halo (KF-C7-11), the dock and play tiles (KF-C1-12/O-88), the ghost Steps trace (KF-C7-10), the clipped SegmentedTabs (KF-C7-09), the thumbless fill sliders (KF-C11-08), the scrub's empty leading cap (KF-C8-05), EasingPicker Steps (KF-C12-03) and the dock select's focus-visible ring after a pointer pick (KF-C13-03). All are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages, on the final tree)
+
+| | pass 13 after | pass 14 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row holds, because this pass changed layout and one tint, not lighting. The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row (HomeMini, KF-C5-13 / KF-C9-12 family).
+
+**Gates** (on the final tree, HEAD `7ed8b703` plus this cure)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint`: exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **820/820, twice**. One test was re-pointed to the ruled structure. `sequence-stage-truth.test.ts` UIA-KF-312 now asserts that the lane reads `var(--rail-tint-lane)`, that the dashed tail reads it too, that the light arm is at least 18%, and that the dark arm is higher. It used to assert a literal 18%. The intent, a lane at the visible tint and never the idiom's 8%, is unchanged.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure. At load averages of about 40–64, the census twice timed out on its 30 s `goto`. The third attempt completed. The census script was not changed.
+- The 52.75rem and 24.625rem constants are served measurements at the 1440 rail (facet 604 px with the floor field, section top 394 px into the scroll body), stated in the rule's comment, in the same way as the field budget's 45rem.
