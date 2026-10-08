@@ -950,3 +950,49 @@ Every row holds, because this pass changed layout, type and data shaping, not li
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
 - The route frames that `ds-census --frames` writes share their names with the probe's `square-390-*`, `easing-390-*`, `spring-390-*` and `sequence-1440-*` frames. The census frames, captured later on the same tree, are the ones committed.
 - Below lg the Sequence travellers now grow with the plate as they do at lg (23 px at 390×844, 18 px at 375×667). This is the same one rule, and the floor of 1.6rem still holds.
+
+### pass 13 (the redeployed workflow's pass 13; critic C17; evidence in `pass-17/`)
+
+**Cure commit:** keyframes.js `a88f2f26` (master, pushed fast-forward from `50a4eeaf`). **Evidence:** value.js `54db5d372` (`evidence/DS/keyframes/pass-17/`: 28 census route frames, `census.json` + `census.log`, the `spring-chased-1440-*`, `spring-pane-1440-*`, `square-timeline-*`, `sequence-390x844-*` and `sequence-375x667-*` cells, `c17-probe.mjs` + `c17-probe.json`). Headless real Chrome only (§0ei). The evidence goes in `pass-17/` rather than `pass-13/` because `pass-13/` already holds the committed frames of absolute pass 13 (critic C13), and overwriting them would erase that record.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark identical) |
+|---|---|---|
+| KF-C17-01 | `useSpringHotPath.ts`: `springLive` gains a non-reactive `chased` flag. `useSpringDemo.ts` writes it at each of the four target writes (reseat, derby launch, derby settle and `restoreSnapshot`) as "the ball was somewhere other than the new target". `SpringTarget.vue`: a settled ball goes to the curve's end only when `chased`; otherwise it sits at t = 0. The trace, rail and sampler are unchanged. The flag is read before the target setter, so a reduced-motion re-seat, which snaps at the setter, still counts as a chase and still rests at the end. | **At rest (1440 and 390):** the spring ball and the sampler are one disc at the origin ((685, 691) at 1440, (92, 656) at 390). The rail reads 0 and the stage says SETTLED. **After a real chase** (a click near the rail's end; the rail reads 1): the ball parks at the curve's end (1230, 518) while the sampler stays at the origin. Frames: `spring-pane-1440-*` and `spring-chased-1440-*`. |
+| KF-C17-02 | `ControlsPaneWrapper.vue`: the resting-peek `SheetContent` uses `@open-auto-focus.prevent`. Glass's `SheetContent` emits `openAutoFocus`, so no glass edit was needed. | `document.activeElement` is BODY with focus-visible false at 390×844 and 375×667 on `#/sequence`, at 390 on `#/cube` and `#/spring`, and at 1440. Before the fix it was the sheet's 'Close' button with a 2px ring. Frames: `sequence-390x844-*` and `sequence-375x667-*` (no ring on the ✕). |
+| KF-C17-03 | `SequenceTarget.vue:11`: `overflow-hidden` is removed from the column wrapper. The plate (`.seq-target`, which computes `overflow: hidden auto`) already clips and scrolls its own lanes. The glass-resting shadow was not touched (O-87). | The wrapper computes `overflow: visible` at every width. The plate's corners now fall off around their radius at 390×844 and 375×667, with no square ears, and at 1440 the top and bottom edges are no longer cut flat. |
+| KF-C17-04 (consumer rider) | `useTimelineOps.ts`: glass's `toast()` does not accept an id, so the ops layer keeps the last capture's `ToastHandle` and dismisses it before raising a new toast at the **same** percent. A capture at a different percent still gets its own toast. | Three Snapshots at 0% on `#/square` at 1440 leave **one** "Keyframe captured at 0%" toast, where there were three. Frame: `square-timeline-*`. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C17-04 (glass half) | **Glass, O-87 FLAT-LIGHTING rider.** Three parts belong to glass's Toaster defaults: the close badge drawn as a black disc at the toast's corner, outside its frame; a drop shadow on every toast; and the shading between toasts in an expanded stack. The ask is for the close control to sit inside the frame, trailing in its row, with one quiet drop for the whole stack. Cited, not overridden; re-judged at the 10.2.0 repin. The toast still covers the plate caption at 1440 while it shows; it disappears when the toast is dismissed. |
+| KF-C17-02 (glass rider) | **O-87/O-88 sheet row.** A non-modal `SheetContent` that mounts already open at its peek detent should not auto-focus by default. The consumer prevents it locally through glass's own event, which is not a lighting override. |
+| KF-C15-03 / KF-C1-12, HELD-O87 | Unchanged from pass 12 (glass 10.1.0): O-88 DOCK-COLLAPSE-MOTION and the O-87-held lighting rows. These are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, on the final tree)
+
+| | pass 16 after | pass 17 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row is unchanged, because this pass changed placement, focus, a clip and toast de-duplication, not lighting. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **826/826, twice**, on the tracked suite. Run 1 also collected `test/demo/scenes/cube-autoplay-first-frame.test.ts`, an **untracked** born-RED file that belongs to another seat (2 failures, `BrowserScalarResolutionError` on `var(--rotationX)`). It is not this seat's file and touches no file this seat changed, so run 2 excluded it.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
+- The census route frames (`spring-1440-*`, `spring-390-*`, `sequence-1440-*`) share names with the probe's frames. The census frames were captured later on the same tree, and they are the ones committed.
