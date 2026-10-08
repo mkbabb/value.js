@@ -1,0 +1,12 @@
+
+Running 8 tests using 1 worker
+
+[1/8] [chromium] › e2e/_ds-f11-cure.spec.ts:25:9 › equation light 1440
+[2/8] [chromium] › e2e/_ds-f11-cure.spec.ts:25:9 › equation light 390
+[3/8] [chromium] › e2e/_ds-f11-cure.spec.ts:43:5 › morph plate hover light
+[4/8] [chromium] › e2e/_ds-f11-cure.spec.ts:58:5 › gallery admin card light
+[5/8] [chromium] › e2e/_ds-f11-cure.spec.ts:25:9 › equation dark 1440
+[6/8] [chromium] › e2e/_ds-f11-cure.spec.ts:25:9 › equation dark 390
+[7/8] [chromium] › e2e/_ds-f11-cure.spec.ts:43:5 › morph plate hover dark
+[8/8] [chromium] › e2e/_ds-f11-cure.spec.ts:58:5 › gallery admin card dark
+  8 passed (1.2m)
