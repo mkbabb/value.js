@@ -1,0 +1,1069 @@
+[
+ {
+  "cell": "easing@1440x900/light",
+  "PC1": true,
+  "PC2": false,
+  "geomOk": false,
+  "pxOk": false,
+  "rest": {
+   "cut": [
+    "div.glass-resting.card.code-well cut bottom by div.controls-surface (card 62..564 clip 54..542)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-surface (card 62..692 clip 54..542)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 71.203125,
+     "t": 62,
+     "r": 478.390625,
+     "b": 542,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 62,
+     "r": 478.390625,
+     "b": 542,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 554.046875,
+     "r": 478.390625,
+     "b": 738.046875,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "span.glass-slider.p-2",
+     "top": 661,
+     "bottom": 681,
+     "portT": 120,
+     "portB": 542
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 48,
+     "port": 422,
+     "x": "94..455",
+     "portX": "74..475"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 650,
+    "ch": 488
+   }
+  },
+  "end": {
+   "cut": [
+    "div.glass-resting.card.code-well cut top by div.controls-surface (card -100..402 clip 54..542)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane.group/controls (card -100..402 clip 54..758)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane-wrapper.col-start-1 (card -100..402 clip 54..758)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-surface (card -100..530 clip 54..542)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane.group/controls (card -100..530 clip 54..758)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane-wrapper.col-start-1 (card -100..530 clip 54..758)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 71.203125,
+     "t": 54,
+     "r": 478.390625,
+     "b": 401.53125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 54,
+     "r": 478.390625,
+     "b": 529.984375,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 554.046875,
+     "r": 478.390625,
+     "b": 738.046875,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-track.track-well",
+     "top": 499,
+     "bottom": 519,
+     "portT": 54,
+     "portB": 527
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 48,
+     "port": 473,
+     "x": "94..455",
+     "portX": "74..475"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 650,
+    "ch": 488
+   }
+  },
+  "restPx": [
+   "div.glass-resting.card.code-well BR C=249,248,246 O=251,250,248 E=249,248,245",
+   "div.glass-quiet.card.cartoon-surface BR C=249,248,246 O=251,250,248 E=249,248,245"
+  ],
+  "endPx": []
+ },
+ {
+  "cell": "easing@1440x900/dark",
+  "PC1": true,
+  "PC2": false,
+  "geomOk": false,
+  "pxOk": false,
+  "rest": {
+   "cut": [
+    "div.glass-resting.card.code-well cut bottom by div.controls-surface (card 62..564 clip 54..542)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-surface (card 62..692 clip 54..542)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 71.203125,
+     "t": 62,
+     "r": 478.390625,
+     "b": 542,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 62,
+     "r": 478.390625,
+     "b": 542,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 554.046875,
+     "r": 478.390625,
+     "b": 738.046875,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "span.glass-slider.p-2",
+     "top": 661,
+     "bottom": 681,
+     "portT": 120,
+     "portB": 542
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 48,
+     "port": 422,
+     "x": "94..455",
+     "portX": "74..475"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 650,
+    "ch": 488
+   }
+  },
+  "end": {
+   "cut": [
+    "div.glass-resting.card.code-well cut top by div.controls-surface (card -100..402 clip 54..542)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane.group/controls (card -100..402 clip 54..758)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane-wrapper.col-start-1 (card -100..402 clip 54..758)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-surface (card -100..530 clip 54..542)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane.group/controls (card -100..530 clip 54..758)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane-wrapper.col-start-1 (card -100..530 clip 54..758)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 71.203125,
+     "t": 54,
+     "r": 478.390625,
+     "b": 401.53125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 54,
+     "r": 478.390625,
+     "b": 529.984375,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 554.046875,
+     "r": 478.390625,
+     "b": 738.046875,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-track.track-well",
+     "top": 499,
+     "bottom": 519,
+     "portT": 54,
+     "portB": 527
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 48,
+     "port": 473,
+     "x": "94..455",
+     "portX": "74..475"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 650,
+    "ch": 488
+   }
+  },
+  "restPx": [
+   "div.glass-resting.card.code-well BR C=13,11,10 O=11,10,9 E=12,11,10",
+   "div.glass-quiet.card.cartoon-surface BR C=13,11,10 O=11,10,9 E=12,11,10"
+  ],
+  "endPx": []
+ },
+ {
+  "cell": "easing@1024x768/light",
+  "PC1": true,
+  "PC2": false,
+  "geomOk": false,
+  "pxOk": false,
+  "rest": {
+   "cut": [
+    "div.glass-resting.card.code-well cut bottom by div.controls-surface (card 40..542 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-surface (card 40..640 clip 32..435)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 28,
+     "t": 40,
+     "r": 360,
+     "b": 435,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 40,
+     "r": 360,
+     "b": 435,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 446.5,
+     "r": 360,
+     "b": 630.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "span.",
+     "top": 609,
+     "bottom": 629,
+     "portT": 98,
+     "portB": 435
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 47,
+     "port": 337,
+     "x": "51..337",
+     "portX": "31..357"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 620,
+    "ch": 403
+   }
+  },
+  "end": {
+   "cut": [
+    "div.glass-resting.card.code-well cut top by div.controls-surface (card -177..325 clip 32..435)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane.group/controls (card -177..325 clip 32..651)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane-wrapper.col-start-1 (card -177..325 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-surface (card -177..423 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane.group/controls (card -177..423 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane-wrapper.col-start-1 (card -177..423 clip 32..651)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 28,
+     "t": 32,
+     "r": 360,
+     "b": 324.53125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 32,
+     "r": 360,
+     "b": 422.921875,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 446.5,
+     "r": 360,
+     "b": 630.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-track.track-well",
+     "top": 392,
+     "bottom": 412,
+     "portT": 32,
+     "portB": 420
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 47,
+     "port": 388,
+     "x": "51..337",
+     "portX": "31..357"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 620,
+    "ch": 403
+   }
+  },
+  "restPx": [
+   "div.glass-resting.card.code-well BR C=249,248,246 O=251,250,248 E=249,247,245",
+   "div.glass-quiet.card.cartoon-surface BR C=249,248,246 O=251,250,248 E=249,247,245"
+  ],
+  "endPx": []
+ },
+ {
+  "cell": "easing@1024x768/dark",
+  "PC1": true,
+  "PC2": false,
+  "geomOk": false,
+  "pxOk": false,
+  "rest": {
+   "cut": [
+    "div.glass-resting.card.code-well cut bottom by div.controls-surface (card 40..542 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-surface (card 40..640 clip 32..435)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 28,
+     "t": 40,
+     "r": 360,
+     "b": 435,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 40,
+     "r": 360,
+     "b": 435,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 446.5,
+     "r": 360,
+     "b": 630.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "span.",
+     "top": 609,
+     "bottom": 629,
+     "portT": 98,
+     "portB": 435
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 47,
+     "port": 337,
+     "x": "51..337",
+     "portX": "31..357"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 620,
+    "ch": 403
+   }
+  },
+  "end": {
+   "cut": [
+    "div.glass-resting.card.code-well cut top by div.controls-surface (card -177..325 clip 32..435)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane.group/controls (card -177..325 clip 32..651)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane-wrapper.col-start-1 (card -177..325 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-surface (card -177..423 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane.group/controls (card -177..423 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane-wrapper.col-start-1 (card -177..423 clip 32..651)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 28,
+     "t": 32,
+     "r": 360,
+     "b": 324.53125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 32,
+     "r": 360,
+     "b": 422.921875,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 446.5,
+     "r": 360,
+     "b": 630.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-track.track-well",
+     "top": 392,
+     "bottom": 412,
+     "portT": 32,
+     "portB": 420
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 47,
+     "port": 388,
+     "x": "51..337",
+     "portX": "31..357"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 620,
+    "ch": 403
+   }
+  },
+  "restPx": [
+   "div.glass-resting.card.code-well BR C=13,11,10 O=11,10,9 E=12,11,9",
+   "div.glass-quiet.card.cartoon-surface BR C=13,11,10 O=11,10,9 E=12,11,9"
+  ],
+  "endPx": []
+ },
+ {
+  "cell": "spring@1440x900/light",
+  "PC1": true,
+  "PC2": false,
+  "geomOk": false,
+  "pxOk": true,
+  "rest": {
+   "cut": [
+    "div.glass-resting.card.code-well cut bottom by div.controls-surface (card 62..564 clip 54..542)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-surface (card 62..759 clip 54..542)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 71.203125,
+     "t": 62,
+     "r": 478.390625,
+     "b": 542,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 62,
+     "r": 478.390625,
+     "b": 542,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 554.046875,
+     "r": 478.390625,
+     "b": 738.046875,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "button.button.tap-squish",
+     "top": 683,
+     "bottom": 748,
+     "portT": 120,
+     "portB": 542
+    },
+    "lastWho": "button.toggle-group__item.control-surface",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 192,
+     "port": 422,
+     "x": "124..455",
+     "portX": "74..475"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 717,
+    "ch": 488
+   }
+  },
+  "end": {
+   "cut": [
+    "div.glass-resting.card.code-well cut top by div.controls-surface (card -167..335 clip 54..542)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane.group/controls (card -167..335 clip 54..758)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane-wrapper.col-start-1 (card -167..335 clip 54..758)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-surface (card -167..530 clip 54..542)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane.group/controls (card -167..530 clip 54..758)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane-wrapper.col-start-1 (card -167..530 clip 54..758)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 71.203125,
+     "t": 54,
+     "r": 478.390625,
+     "b": 334.53125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 54,
+     "r": 478.390625,
+     "b": 529.59375,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 554.046875,
+     "r": 478.390625,
+     "b": 738.046875,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "button.toggle-group__item.control-surface",
+     "top": 454,
+     "bottom": 519,
+     "portT": 54,
+     "portB": 527
+    },
+    "lastWho": "button.toggle-group__item.control-surface",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 192,
+     "port": 473,
+     "x": "124..455",
+     "portX": "74..475"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 717,
+    "ch": 488
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "spring@1440x900/dark",
+  "PC1": true,
+  "PC2": false,
+  "geomOk": false,
+  "pxOk": true,
+  "rest": {
+   "cut": [
+    "div.glass-resting.card.code-well cut bottom by div.controls-surface (card 62..564 clip 54..542)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-surface (card 62..759 clip 54..542)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 71.203125,
+     "t": 62,
+     "r": 478.390625,
+     "b": 542,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 62,
+     "r": 478.390625,
+     "b": 542,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 554.046875,
+     "r": 478.390625,
+     "b": 738.046875,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "button.button.tap-squish",
+     "top": 683,
+     "bottom": 748,
+     "portT": 120,
+     "portB": 542
+    },
+    "lastWho": "button.toggle-group__item.control-surface",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 192,
+     "port": 422,
+     "x": "124..455",
+     "portX": "74..475"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 717,
+    "ch": 488
+   }
+  },
+  "end": {
+   "cut": [
+    "div.glass-resting.card.code-well cut top by div.controls-surface (card -167..335 clip 54..542)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane.group/controls (card -167..335 clip 54..758)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane-wrapper.col-start-1 (card -167..335 clip 54..758)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-surface (card -167..530 clip 54..542)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane.group/controls (card -167..530 clip 54..758)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane-wrapper.col-start-1 (card -167..530 clip 54..758)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 71.203125,
+     "t": 54,
+     "r": 478.390625,
+     "b": 334.53125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 54,
+     "r": 478.390625,
+     "b": 529.59375,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 71.203125,
+     "t": 554.046875,
+     "r": 478.390625,
+     "b": 738.046875,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "button.toggle-group__item.control-surface",
+     "top": 454,
+     "bottom": 519,
+     "portT": 54,
+     "portB": 527
+    },
+    "lastWho": "button.toggle-group__item.control-surface",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 192,
+     "port": 473,
+     "x": "124..455",
+     "portX": "74..475"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 717,
+    "ch": 488
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "spring@1024x768/light",
+  "PC1": true,
+  "PC2": false,
+  "geomOk": false,
+  "pxOk": false,
+  "rest": {
+   "cut": [
+    "div.glass-resting.card.code-well cut bottom by div.controls-surface (card 40..542 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-surface (card 40..761 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-pane.group/controls (card 40..761 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-pane-wrapper.col-start-1 (card 40..761 clip 32..651)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 28,
+     "t": 40,
+     "r": 360,
+     "b": 435,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 40,
+     "r": 360,
+     "b": 435,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 446.5,
+     "r": 360,
+     "b": 630.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "div.w-full.grid",
+     "top": 668,
+     "bottom": 750,
+     "portT": 98,
+     "portB": 435
+    },
+    "lastWho": "button.toggle-group__item.control-surface",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 192,
+     "port": 337,
+     "x": "81..337",
+     "portX": "31..357"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 741,
+    "ch": 403
+   }
+  },
+  "end": {
+   "cut": [
+    "div.glass-resting.card.code-well cut top by div.controls-surface (card -298..204 clip 32..435)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane.group/controls (card -298..204 clip 32..651)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane-wrapper.col-start-1 (card -298..204 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-surface (card -298..423 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane.group/controls (card -298..423 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane-wrapper.col-start-1 (card -298..423 clip 32..651)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 28,
+     "t": 32,
+     "r": 360,
+     "b": 203.53125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 32,
+     "r": 360,
+     "b": 423.203125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 446.5,
+     "r": 360,
+     "b": 630.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "button.toggle-group__item.control-surface",
+     "top": 330,
+     "bottom": 412,
+     "portT": 32,
+     "portB": 420
+    },
+    "lastWho": "button.toggle-group__item.control-surface",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 192,
+     "port": 388,
+     "x": "81..337",
+     "portX": "31..357"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 741,
+    "ch": 403
+   }
+  },
+  "restPx": [
+   "div.glass-resting.card.code-well BR C=249,248,246 O=251,250,248 E=248,246,246",
+   "div.glass-quiet.card.cartoon-surface BR C=249,248,246 O=251,250,248 E=248,246,246"
+  ],
+  "endPx": []
+ },
+ {
+  "cell": "spring@1024x768/dark",
+  "PC1": true,
+  "PC2": false,
+  "geomOk": false,
+  "pxOk": true,
+  "rest": {
+   "cut": [
+    "div.glass-resting.card.code-well cut bottom by div.controls-surface (card 40..542 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-surface (card 40..761 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-pane.group/controls (card 40..761 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut bottom by div.controls-pane-wrapper.col-start-1 (card 40..761 clip 32..651)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 28,
+     "t": 40,
+     "r": 360,
+     "b": 435,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 40,
+     "r": 360,
+     "b": 435,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 446.5,
+     "r": 360,
+     "b": 630.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "div.w-full.grid",
+     "top": 668,
+     "bottom": 750,
+     "portT": 98,
+     "portB": 435
+    },
+    "lastWho": "button.toggle-group__item.control-surface",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 192,
+     "port": 337,
+     "x": "81..337",
+     "portX": "31..357"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 741,
+    "ch": 403
+   }
+  },
+  "end": {
+   "cut": [
+    "div.glass-resting.card.code-well cut top by div.controls-surface (card -298..204 clip 32..435)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane.group/controls (card -298..204 clip 32..651)",
+    "div.glass-resting.card.code-well cut top by div.controls-pane-wrapper.col-start-1 (card -298..204 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-surface (card -298..423 clip 32..435)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane.group/controls (card -298..423 clip 32..651)",
+    "div.glass-quiet.card.cartoon-surface cut top by div.controls-pane-wrapper.col-start-1 (card -298..423 clip 32..651)"
+   ],
+   "boxes": [
+    {
+     "name": "div.glass-resting.card.code-well",
+     "l": 28,
+     "t": 32,
+     "r": 360,
+     "b": 203.53125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 32,
+     "r": 360,
+     "b": 423.203125,
+     "radius": 16
+    },
+    {
+     "name": "div.glass-quiet.card.cartoon-surface",
+     "l": 28,
+     "t": 446.5,
+     "r": 360,
+     "b": 630.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "button.toggle-group__item.control-surface",
+     "top": 330,
+     "bottom": 412,
+     "portT": 32,
+     "portB": 420
+    },
+    "lastWho": "button.toggle-group__item.control-surface",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 192,
+     "port": 388,
+     "x": "81..337",
+     "portX": "31..357"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 741,
+    "ch": 403
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ }
+]
