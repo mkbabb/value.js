@@ -1,0 +1,2 @@
+browse light {"dataPane":"palettes","cardH":480,"portClient":389,"portScroll":389,"cardBottom":592,"hintBottom":481,"firstBottom":513,"trash":null,"stageH":480}
+gensave light {"dataPane":"palettes","cardH":480,"portClient":388,"portScroll":388,"cardBottom":592,"hintBottom":null,"firstBottom":487,"trash":{"x":1143.046875,"y":218.75,"width":72.953125,"height":36,"top":218.75,"right":1216,"bottom":254.75,"left":1143.046875},"trashText":"Delete all","stageH":480}
