@@ -409,3 +409,41 @@ The static half is unchanged (4 box-shadow declarations, 8 gradients, 3 keyframe
 - **Named owner-ruling re-baseline (§0ej), `dc64212`:** `checkpoint-disclosure-body`. The diff was read: 206 px, which is exactly the "Harmonics" label moving onto glass Label's rung (C2). It is green twice after.
 
 **Frames** (`pass-03/f5/`): 56 frames from the critic's own `capture.mjs` and `cells2.mjs`, re-aimed at `:3115`, plus the probe frames `cure/probe-morph-scrolled-*-390.png`. All were captured in headless real Chrome (§0ei).
+
+### pass 4
+
+*(The re-deployed loop's pass 4: the cure for the critic F6 findings, DS-F6-*. The critic's frames are in `evidence/DS/fourier/pass-04/critic-f6/`; the AFTER frames are in `evidence/DS/fourier/pass-04/f6/`.)*
+
+**Commits.**
+- fourier `2ebca43`, on `m/w1-bump-migration`, pushed fast-forward `cf5e950..2ebca43`. Two files. `VisualizationView.vue` also carries another seat's uncommitted hunks (DS-F4-C8/C9), so only this cure's hunk was staged (an index blob of HEAD plus the cure) and those hunks stay in the working tree.
+- value.js `a973862c6`: AFTER frames, the cure probe, the census and the e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F6-C1 | The sheet form's inactive aside now takes no box: `.configurator-aside:has(.viz-panel-left-wrap.panel-inactive)` joins the existing inactive-stage rule. This mirrors the rule /equation already had, with the same `panel-inactive` marker. Measured (`f6/cure/f6-cure-probe.json`): with the Canvas tab up at 390, the aside is `display: none` on /v and /equation, light and dark, and `elementFromPoint(200, 836..841)` hits only the stage card and the workspace. The 838–840 rule is gone. With the Controls tab up, the aside is unchanged (flex, 703 px) and the stage stays `none`. |
+| DS-F6-C2 | Deleted the trailing `DropdownMenuSeparator` (and its import) from `EasingPicker.vue`. The More options menu has one separator, at y 508, between Speed and Easing. Its last child is the Easing group, which ends at 814 on the plate's own padding (plate bottom 827). |
+
+**Glass-owned, cited, not overridden.**
+- DS-F6-G1 (the collapsed transport's floating `1 ×` Metric, with the unit stranded from its digit and the summary outside the plate): **O-88** DOCK-COLLAPSE-MOTION, which folds O-65.
+- DS-F6-G2 (the doubled inner ring in the /v stage toolbar's expand, at 1440 and on the 390 transport pill): **O-88**, with O-87 for the cast. The witness widens from DS-F4R-G1's /equation 390 to the /v stage toolbar at 1440.
+- DS-F6-G3 (the dark glow halo on `.curve-tooltip.glass-floating`): **O-87**. fourier paints no cast there.
+- DS-F6-G4 (the pointer-tracked specular bloom on /equation's stage): **O-87**. This widens DS-F5-G1's witness, to re-judge at the 10.2.0 repin.
+- DS-F6-G5 (the /gallery filter popover's cool lens and grey resting chips): **O-87**, via the less-blur token and the material refinement at 10.2.0. Honest-RED.
+- DS-F6-G6 (EasingCurve's dashed frame and its `0`/`1` captions at w-6): **O-87** relay, asking for a bare-curve size or variant. No local CSS.
+
+**Census** (`pass-04/f6/census-after.json`, from fourier `scripts/ds-census.mjs`, served from the cure tree). It is identical to pass 3: shadow elements 424, layers 1086, multi-layer stacks 330, inset highlights 328, backdrop blur 256, control gradients 0, looping chrome 0. The static half is also unchanged (4 box-shadow declarations, 8 gradients, 3 keyframes). The cure removes a box and a separator and moves no lighting. What remains is glass's recipe (O-87).
+
+**Gates.** The cure tree is HEAD plus this seat's hunks in a clean detached worktree, served on `:3117`. A clean HEAD worktree on `:3118` is the baseline.
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e: 26 affected specs (`f6/e2e-specs.txt`: every spec that touches the Configurator sheet, the Canvas/Controls tabs, the transport's More options menu or the easing), chromium plus mobile-chromium, headless, 3 workers.
+  - Run A: 232 passed, 17 failed. Run B: 232 passed, 18 failed.
+  - Failing in both runs, and also failing on HEAD `:3118` (`f6/e2e-head-baseline.log`): `f-w14v-pd` collapsed ×6 (O-88), `f-w14v-c3` c3m/c3g, `f-w14v-p` p3, and `visual-checkpoint` items 1·6·7, 2 and 5.
+  - Failing in one run only (load flakes under concurrent seats on the shared API):
+    - run A: `f-w14v-eq2` q1, q2 and frames 1440 light (`.katex` never loads), `f-w14v-u4` u170, and `visualization-crud` mobile (a `page.evaluate` timeout on the PATCH);
+    - run B: `f-w14-uia` 634 ×2 and 657, `f-w14u-vedit` v83/v177 (both pre-existing on HEAD at pass 3), and `visualization-ux` save_contour_then_recompute.
+    - u170, crud and save_contour were re-run alone on both trees and passed 5/5 on each.
+  - No visual golden was re-baselined.
+
+**Frames** (`pass-04/f6/`): 56 route and cell frames from the critic's own `capture.mjs` and `cells2.mjs`, plus 28 probe frames from `f6-probe.mjs` and `f6-probe3.mjs` (`probe/`: `v-canvas-tab-*-390`, `eq-canvas-tab-light-390`, `v-moremenu-*-1440`, `v-viewmenu-*-1440` and the rest), plus the cure probe's own frames (`cure/`), all re-aimed at `:3117`. All were captured in headless real Chrome (§0ei).
