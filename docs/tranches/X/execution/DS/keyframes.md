@@ -901,3 +901,52 @@ Every row holds, because this pass changed layout and disclosure, not lighting. 
 **Disclosures**
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure. So the frames also show the other seat's in-tree spring time-base work (the transport reads `0 / 2000 ms` on Entry and `0 / 1400 ms` in some scene frames, depending on when each frame was captured relative to that commit).
 - The probe's `contentBottom`/`voidBelowContent` fields are not reliable (an sr-only descendant inflates `contentBottom`). The void is read from `scroll.overflow` and the row/section rects, and from the frames.
+
+### pass 12 (the redeployed workflow's pass 12; critic C16; evidence in `pass-16/`)
+
+**Cure commit:** keyframes.js `50a4eeaf` (master, pushed fast-forward from `0006be40`). **Evidence:** value.js `b0b09941c` (`evidence/DS/keyframes/pass-16/`: 28 route frames, `census.json` + `census.log`, the `sequence-390x844-*`, `sequence-375x667-*`, `crop-stagger-pane-1440-*`, `crop-physics-header-1440-*` and `spring-pane-1440-*` cells, `c16-probe.mjs` + `c16-probe.json`). All captures are headless real Chrome (§0ei). The task named `pass-12`, but `pass-12` already holds committed evidence (`18fd90b56`), so the frames go to `pass-16`, following the sequential numbering of passes 6 to 15.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark identical) |
+|---|---|---|
+| KF-C16-01 | `SequenceTarget.css`: the storyboard's block-size container, the traveller size and the clamp pitch are no longer gated to `min-width: 1024px`, so one rule applies at every width. The J.WZ `max-width: 1023px` override (row-gap 0.15rem, storyboard padding 0.5rem) is **deleted**. The storyboard is `flex-1` at every width (it was `my-auto shrink-0 lg:flex-1`). The min-block-size floor still makes a short cell scroll rather than crush. | **390×844:** plate 107–708, lanes 251–623 at an **83 px pitch** (was 34), centred 84/85, no overflow, sheet at 716. **375×667:** plate 107–531, 52 px pitch, centred 60/61, no overflow, sheet at 539. **1440:** unchanged (84 px pitch, lanes 288–665). |
+| KF-C16-02 | `SquareScene.vue`: `square-stage` is `h-full` at every width; the 3:4 hug below lg is retired. `place-items-center` keeps the field centred. | **390:** plate 107–708, the same as its siblings, with the box centred at y 408 on the plate's centre (408). The travel is unchanged at 91.03 px, because cqmin is still the 334 px inline size. |
+| KF-C16-03 | `EasingCatalogue.vue`: below lg, `.catalogue-family` takes `--type-body` and keeps the utility's semibold. No token was added and the display title was not changed. | 'ease' / 'Standard' is **1.62** at 390 (25.9 / 16 px; it was 1.27) and 2.06 at 1440 (unchanged). |
+| KF-C16-04 | `SpringHeatmap.vue`: the gradient swatch renders only while `figureOpen`. The sentence stays as plain caption text. | Closed at rest at 1440: no swatch; the legend reads "0 → 53 % overshoot · set by damping alone". The pinning test stays green. |
+| KF-C16-05 | `SequenceLanes.vue`: the ruler keeps all five quarter graduations (the grid lines) but labels only 0, ½ and 1. The other two pass `null`, which is LaneTrack's own "line without a caption" contract. The ruler stays in ms because the caption above says "· 1940 ms"; there is no mixed unit. | 1440: the labels are `0 · 970 · 1940`, with a minimum gap of **80 px** between labels (it was about 6). `lane-track-primitive.test.ts` is re-pointed to the three labels. |
+| KF-C16-06 | `SequenceTimeline.vue`: the Stagger layer's `body-class` gains `pb-5`, which matches glass's `px-5` body inset. | Block-end inset **23 px**, equal to the 23 px inline inset (it was 11). |
+| KF-C16-07 | `SpringPhysicsFacet.vue`: a glass `Separator orientation="vertical"` (a 1×16 hairline) closes the `#actions` slot, between "To keyframes" and the layer chevron. No new component. | `crop-physics-header-1440-*`: the hairline sits at x 430, splitting the action from the chevron. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C15-03 / KF-C1-12 | **Glass, O-88 DOCK-COLLAPSE-MOTION.** The mid-collapse empty tile and stranded glyph come from glass's dock-collapse morph. Cited, no local shim; re-judged at the 10.2.0 repin. |
+| HELD-O87 | Unchanged at glass 10.1.0 and cited, not cured: KF-C1-02, KF-C1-01, KF-C1-09/-10, the dock-plate and transport halo (`--shadow-dock`), KF-C7-09, KF-C7-10, KF-C9-05, KF-C8-05, KF-C11-08, KF-C13-03 and KF-C7-11. All are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages, on the final tree)
+
+| | pass 15 after | pass 16 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row holds, because this pass changed layout, type and data shaping, not lighting. The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row (HomeMini, KF-C5-13 / KF-C9-12 family).
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **826/826, twice**. One test was re-pointed to the ruled ruler, as above.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
+- The route frames that `ds-census --frames` writes share their names with the probe's `square-390-*`, `easing-390-*`, `spring-390-*` and `sequence-1440-*` frames. The census frames, captured later on the same tree, are the ones committed.
+- Below lg the Sequence travellers now grow with the plate as they do at lg (23 px at 390×844, 18 px at 375×667). This is the same one rule, and the floor of 1.6rem still holds.
