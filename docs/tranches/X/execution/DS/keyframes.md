@@ -452,3 +452,60 @@ The verdict is still **RED**, on the glass-owned chrome rows and the banked loop
 - KF-C6-03's `28rem` is measured chrome, not a token. Below about 800 px of viewport (1280×760, 1024×700) the 16 rem floor binds and the sub-pane still scrolls, so the fade can still reach the copy row there. That is the KF-C3-06 class, unchanged. The 1440×900 cell the critic named fits with a scroll range of 0.
 - KF-C6-04 makes face 4 visibly brighter than magenta in dark. That is the critic's stated trade, and ORIGIN's.
 - KF-C6-05 moves Square's badge from under the x/y readout up beside the title. Spring's moves from the top-right aside to beside its title, and velocity alone keeps the aside.
+
+### pass 7 (the redeployed workflow's pass 3; critic C7, frames `evidence/DS/keyframes/critic-p3-2026-10-08/`)
+
+**Cure commit:** keyframes.js `7ea959f0` (master, pushed fast-forward). **Evidence:** value.js `9cc9a9d0e` (`evidence/DS/keyframes/pass-07/`: 28 route frames, `census.json`, the `controls-pane-1440-*`, `easing-pane-900-*`, `seqhdr-*` and `f-keyframes-1440-*` cells, `c7-probe.mjs` + `c7-probe.json`, and the seat's measurement probes in `cure/`). All captures are headless real Chrome (§0ei). The frames go to `pass-07`, not `pass-03`, which already holds the committed C3 evidence. That follows pass 6's precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900, light and dark) |
+|---|---|---|
+| KF-C7-01 | One token at the root: `--slider-range-bg: var(--color-progress)` in `style.css :root`, beside the violet authority. Glass's `.slider-range` reads it, so the scrub, the physics response and damping fills and the easing duration fill all leave the warm-capsule fallback. No per-instance override. | every visible `.slider-range` on cube, spring and easing: `oklab(0.56 0.072 −0.154 / .88)` light, `oklab(0.74 0.075 −0.106 / .88)` dark (was `oklab(0.88 …)` amber) |
+| KF-C7-02 | The Easing route's picker takes the rail's named budget, as the cube's sub-pane did (KF-C6-03): `--picker-cap: max(11rem, --rail-block − 31.5rem)` at lg, on `EasingSidebar`'s root and the picker's `max-w-(--picker-cap)`. The section body also drops its doubled rhythm (`gap-3` on top of the layer's own `space-y-2`), so the separator keeps the 0.5 rem either side that the cube's pane uses (KF-C4-18). | plot 200 (was 361), surface 489/489 (scroll range 0; was 626/491), duration row bottom 544 inside the surface's 553. At 1440×1080 the plot is 361, uncapped |
+| KF-C7-06 | The layer drill row says where it leads, in its field column, at the muted ink: the current blend (`replace`) when compositing applies, or "single-target only" when it does not. In the second case the whole row goes quiet (`--button-quiet-ink` → `--muted-foreground`). The existing Button gets one more span; there is no new component. | cube (multi-target): "layer · single-target only", label and value both `rgb(112,89,66)` light / `rgb(195,185,172)` dark |
+| KF-C7-07 | One stage-readout anatomy, `.stage-readout` in `design-idioms.css`: a lowercase sans label at the small rung in muted ink, then the mono tabular value with its unit in the same run. Square's mono labels, Spring's pair and Sequence's glass `Metric` (uppercase label, unit in a slot) all read it now. **One divider decision:** no plate draws a header hairline, so Sequence's `border-b` goes. | label font Plus Jakarta Sans, `text-transform: none` on all five readouts; values Fira Code; Sequence "clock 0 ms" in violet; header border 0 on all three |
+| KF-C7-08 | The time column clears the traveller's radius: `--col-gap: calc(0.75rem + var(--seq-ball, 1.6rem) / 2)`, so p = 0 lands one radius in. | lane 1 ball left 621, ordinal right 603: a 17 px gap (was about 2) |
+| KF-C7-12 | No-wrap is kept (UIA-KF-174), and the overflow is now visible: Monaco's `scrollbar.horizontal: "visible"` at 6 px, with `useShadows: false` (flat). Monaco draws no slider when no line overflows. | `.scrollbar.horizontal.visible`, 6 px tall, slider 153 px under the cut lines |
+
+**Cited to glass (not overridden locally)**
+
+| id | disposition |
+|---|---|
+| KF-C7-03 | Glass Select trigger chevron `in-data-[state=open]:rotate-180` matches the open ConfiguratorLayer region, so a closed select inside it shows an up chevron (served `rotate: 180deg`, `data-state=closed`). **O-87 rider:** scope the rotation to the trigger's own state (a named group on the trigger). Still RED. |
+| KF-C7-04 | The dark arm of `--dock-active-bg` darkens instead of lifting. **O-88 / O-87**, held honest-RED until the 10.2.0 repin. |
+| KF-C7-05 | The disabled register does not reach the NumberField steppers or the Switch track. **O-87**. |
+| KF-C7-09 | Glass `SegmentedTabs` has no content-width option (the pill strip uses equal tracks; its props are variant, semantics, activation, orientation, responsive and motion). Per the critic's fallback, the strip stays as it is and an **O-87 proportion rider** is raised: content-width segments, so the ten families fit at desktop. Served: 10 × 96 px, scroller 976/764, with Back, Bounce and Steps off the right edge. |
+| KF-C7-10 | The EasingPicker draws the inactive mode's ghost trace. **O-87** (ornament with no meaning). |
+| KF-C7-11 | The dark arm of the `glass-resting` drop resolves light, which reads as a halo. **O-87, 10.2.0 band 0.** This sharpens KF-C1-09 and KF-C6-08. Held honest-RED. |
+
+The four O-87 riders above (C7-03, C7-05, C7-09, C7-10) and C7-11 are named here for the relay. This seat did not write to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages)
+
+| | pass 6 after | pass 7 after |
+|---|---:|---:|
+| chrome: elements with shadow | 440 | 440 |
+| chrome: shadow layers (max) | 1312 (6) | 1312 (6) |
+| chrome: shadows on non-floating surfaces | 316 | 316 |
+| chrome: inset highlights | 656 | 656 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 176 | 176 |
+| chrome: looping animations | 80 | 80 (KF-C5-13, banked) |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| static: gradient fills | 5 | 5 |
+| subject: every lighting family | 0 | 0 |
+
+The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row. This pass changed tokens, geometry and type, and the census counts none of them, so every count holds.
+
+**Gates** (host load average about 75–99 from other sessions)
+- `npm run check` (vue-tsc on both configs + proof:structure): exit 0, twice.
+- `npm run lint` (depcruise + eslint): exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **807/807, twice**.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- Two tests were re-pointed to the ruled structure. `sequence-stage-truth` (UIA-KF-210) now expects one `.stage-readout` clock reading "clock" then "N ms", where it had expected the Metric stub. `channel-options-w13x` (1) now expects the entry's label span "layer" and its muted value "replace", where it had expected the bare text "layer".
+
+**Disclosures**
+- **KF-C7-02 costs more plot than the critic estimated.** The critic expected the plot to give up about 70 px, measured against the plot's inner frame (301). Below about 20 rem of width the picker's mode rows wrap to three lines, so a plot wide enough to keep two lines cannot fit this rail at 900 tall. The served plot is 200 px (was 361). At that width glass's readout literal truncates with an ellipsis ("cubic-bezier(0.2…"); its copy button still copies the whole literal. On the cube's sub-pane, at 256 px, it fits whole. Below about 880 px of viewport (1280×760, 1024×700) the 11 rem floor binds and the surface still scrolls (464 against 406 at 1280×760). That is the KF-C3-06 class, unchanged.
+- **KF-C7-07 departs from the critic's "set once in SceneStageHeader's readout slot".** The anatomy is set once as a design idiom (`.stage-readout`), and each scene's readout slot uses it. Spring keeps its primary and secondary rungs (KF-C3-04 and KF-C4-08), so velocity's value stays muted. Square's x/y pairs become two `.stage-readout` pairs in a flex row, where they had been a 4-column grid.
+- **A concurrent seat.** Another workflow (X.KF.W13X `.dh2`, UIA-KF-098: the reel moves to the Timeline pane) was editing `SequenceTarget.vue` and `sequence-stage-truth.test.ts` while this seat worked. Only this seat's hunks were committed (the index blob was HEAD plus this change). The gates and the AFTER frames ran on the shared working tree, so the Sequence header frames show no Reel button. That is the other seat's uncommitted change, not this cure.
