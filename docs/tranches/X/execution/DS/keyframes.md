@@ -397,3 +397,58 @@ The verdict is still **RED**, on the glass-owned chrome rows and the banked loop
 - KF-C5-04/-05 below lg: the square plate now hugs and stands at the top, so the free stage cell sits below it (the paper shows) instead of inside the plate. This matches how sequence already behaved below lg. The 3:4 ratio is a measured fit for the header, the field and the legend at 334 px, not a token.
 - KF-C5-08 changes three registered shortcut labels: "Scrub back (large)" → "Scrub back ×10", "Scrub forward (large)" → "Scrub forward ×10", and "Constrain orbit to the X axis (hold)" → "Orbit on X axis (hold)", with Y and Z the same. These are the names the map and any AT reading of it carry; no test pinned the old strings.
 - KF-C5-02: "Compiled" is glyph-only at every width the app currently serves, because the pane row is never 29rem wide. Its name ("Copy compiled CSS") and tooltip carry the word.
+
+### pass 6 (the redeployed workflow's pass 2; critic C6, frames `evidence/DS/keyframes/critic-p2-2026-10-08/`)
+
+**Cure commit:** keyframes.js `debc81bc` (master, pushed fast-forward). **Evidence:** value.js `0fe2dc31a` (`evidence/DS/keyframes/pass-06/`: 28 route frames, `census.json`, the `cube-bezier-1440-*` and `controls-pane-1440-*` cells, `c6-probe.mjs` + `c6-probe.json`, and the seat's measurement probes in `cure/`). All captures headless real Chrome (§0ei). The frames go to `pass-06`, the app's sixth pass, not to `pass-02`: that directory already holds the committed C2 evidence (`94049167b`).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900, light and dark) |
+|---|---|---|
+| KF-C6-01 | Root first: the ribbon's rows now sit on the pane's content column. `RibbonBar` went from `p-3` to `ps-4 pe-5 py-3`, the inset its own hairline already used, so every transport row had been starting 4 px left of the labels. Then the transport row: the KF-C1-15 fix, adapted. Reverse and Preview keep a slim `px-2` padding, because Reverse's pressed plate and both hover washes need room around the word (a `px-0` plate would hug it). The row hangs that padding plus the Button's 1 px edge into the gutter (`-ms-[calc(0.5rem+1px)]`). Glass's recipe and the hit height (`min-block-size`) are unchanged. | Reverse word x 89 = the label column on cube, amiga, square, easing and spring (was 102); Reverse plate x 80, inside the frame (x 71) |
+| KF-C6-02 | At lg the storyboard is a block-size container (`container-type: size`, `lg:flex-1`) that fills the plate under its header. The lane pitch comes from it: `clamp(1rem, (100cqb − 3rem − n·lane) / (n+1), 4.5rem)`, with `n` = `ROW_COUNT` passed as `--seq-n`. The travellers scale with the room (`clamp(1.6rem, 6.5cqb, 2.4rem)`, with the lane 0.4 rem taller than its ball). The min block size is the content at the 1 rem floor, so a short cell still scrolls the card. Below lg nothing changes. Only the pitch option was taken, not the hug. | plate 623 tall; lanes y 279–663 (were 374–566); gap 45.6 px; about 86 px of margin above and below (was about 180) |
+| KF-C6-03 | The rail's budget is now named once, where its tokens resolve (`--rail-block`, `ControlsPaneWrapper.css`; `max-block-size: min(100%, var(--rail-block))`). The easing editor's host takes `max-inline-size: var(--picker-cap)`, which is set on the desktop `.subpane-body` as `max(16rem, var(--rail-block) − 28rem)`. The 28 rem is chrome measured at 1440×900: the ribbon and frame insets (about 13.3 rem), the sub-pane header (about 4.4 rem) and the picker's wrapped mode rows (about 9.4 rem). The square plot follows its host, so it fits. | plot 256 (was 371); surface scroll range 0 and `--surface-fade-end` 0 px, so no fade sits on Bezier/Steps or "Custom" at rest. At 1080 tall the plot is 371 again (the cap does not bind) |
+| KF-C6-04 | **§0dm identity restored.** `--face-4` returns to ORIGIN's one crayon (`1acf25c6`: `rgba(255, 255, 0, .8)`) in both themes. The C1 dark arm `hsl(60 100% 33%)` rendered olive. KF-C1-13's equal-lightness lift was a seat decision, not an owner ruling, so this is a cure and not a bank. Instead of the crayon, the numeral's ink moves: `--face-4-ink: light-dark(var(--foreground), var(--background))`, bound from `cubeSides` (`color: side.ink`; the other faces inherit). The per-face tonal step is kept. DESIGN.md's crayon rule now names the case. | face 4 fill L 0.92, the same in both schemes; ink rgb(28,25,23) light, rgb(11,10,9) dark |
+| KF-C6-05 | `SceneStageHeader` gives the status badge one fixed slot: the title's row, trailing the title on its baseline. The aside carries only the scene's own readouts. Square drops its now-unused `aside-class`. | Square: title x 571, badge x 729 y 165. Spring: title x 583, badge x 686 y 165. Same row, same side |
+| KF-C6-06 | `.square-legend` is now the field's caption. It sits under the field (`top: 50% + travel + 0.75rem`), spans the field's inline edges (`left: 50% − travel`, `width: 2·travel`) and is start-aligned. No new element. | field x 774–1141, bottom 622; caption x 774, y 634, width 367. At 390: field x 104, width 182; caption x 104, width 182 |
+| KF-C6-07 | A dotted neutral hairline at value 1.5 (`PLOT_HEADROOM_TICK`, the heatmap's axis top) with a "1.5" tick in the value gutter, bound through `plotY` like the 1 and 0 ticks. It names the overshoot room. The headroom itself (the ζ-floor coupling, L-14) is unchanged. | tick y 467 in the frame (top 458); 1 at 542, 0 at 694 |
+| KF-C6-09 | `.labeled-field-grid` sets `font-variant-ligatures: no-common-ligatures`, so every pane label inherits it. | "fill mode" computed `no-common-ligatures`; it reads as two words |
+
+**Held**
+
+| id | disposition |
+|---|---|
+| KF-C6-08 | Consumer-owned, but timed by its own cure to **the O-87 / 10.2.0 repin**: one elevation register per view, chosen against glass's single-layer stamp. Doing it now would mean either spreading today's three-layer glass stamp onto the stage plates (more of the excess O-87 removes) or dropping `cartoon-surface`, which is ORIGIN's card language and identity-adjacent (§0dm). **Recommendation for the repin:** the plates take the same one-layer stamp (ORIGIN's card language), so pane and stage share one register. Recaptured unchanged. |
+
+No glass rows were raised this pass. This seat relayed nothing.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages)
+
+| | pass 5 after | pass 6 after |
+|---|---:|---:|
+| chrome: elements with shadow | 440 | 440 |
+| chrome: shadow layers (max) | 1312 (6) | 1312 (6) |
+| chrome: shadows on non-floating surfaces | 316 | 316 |
+| chrome: inset highlights | 656 | 656 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 176 | 176 |
+| chrome: looping animations | 80 | 80 (KF-C5-13, banked) |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| static: gradient fills | 5 | 5 |
+| subject: every lighting family | 0 | 0 |
+
+The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row. This pass's cures are geometry, type and one crayon, and the census reads none of them, so every count holds.
+
+**Gates** (host load average 73–85 from other sessions)
+- `npm run check` (vue-tsc on both configs + proof:structure): exit 0, twice, on the final bytes.
+- `npm run lint` (depcruise + eslint): exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **807/807, twice**, on the final bytes.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- Tests re-pointed to the ruled structure: `preview-toggle` (3) now expects the hung row and the `px-2` peers, and `spring-trace-truth` (5c) now expects the headroom line and the 1.5 tick bound to `plotY`, under the frame ceiling.
+
+**Disclosures**
+- KF-C6-01 departs from the critic's literal `px-0`. Reverse's pressed state is a solid plate, and at `px-0` it would hug the word. The slim plate plus the hang meets the cure's goal (the word sits on the column, and the hit area is kept) without that. The `RibbonBar` inset change also narrows the Keyframes tab's ribbon row by 4 px at the start and keeps its end inset as before. KF-C5-02's 29rem/22rem yield thresholds are unchanged.
+- KF-C6-03's `28rem` is measured chrome, not a token. Below about 800 px of viewport (1280×760, 1024×700) the 16 rem floor binds and the sub-pane still scrolls, so the fade can still reach the copy row there. That is the KF-C3-06 class, unchanged. The 1440×900 cell the critic named fits with a scroll range of 0.
+- KF-C6-04 makes face 4 visibly brighter than magenta in dark. That is the critic's stated trade, and ORIGIN's.
+- KF-C6-05 moves Square's badge from under the x/y readout up beside the title. Spring's moves from the top-right aside to beside its title, and velocity alone keeps the aside.
