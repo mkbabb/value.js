@@ -684,3 +684,48 @@ The drop is the /morph tile strip, whose quiet tiles carry no capsule cast, beve
 - `gallery-admin-card-*-1440` and `gallery-admin-*-1440`;
 
 each in light and dark.
+
+### pass 10
+
+*(The re-deployed loop's pass 10 cures the critic F12 findings, DS-F12-*. The AFTER frames are in `evidence/DS/fourier/pass-10/`. The critic's own frames are in `pass-10/critic-f12/`.)*
+
+**Commits.**
+- fourier `01fd861`, on `m/w1-bump-migration`, pushed fast-forward `33eedee..01fd861`. Three files, committed by pathspec.
+- value.js `c9754cd4f` holds the AFTER frames, the cure probe, the census and the e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F12-C1 | Both admin overlays (`GalleryCard.vue`) now sit inside `.card-media`'s corners, at `calc(var(--card-pad) + var(--space-atom))` on both axes. Before, they used `top-1.5` / `left-1.5` / `right-1.5` literals measured from the card's box. Measured in `f12-cure-probe.json` in both themes: the select plate is 8px in from the thumbnail's top-left on both axes, and the action row is 8px in from its top-right on both axes. Both lie wholly on the image, with a 14px gap between them. |
+| DS-F12-C2 | `.select-plate` is renamed to the shared `.overlay-plate` (70% `--background`, `--radius-md`, in the same file). The label and the action row both wear it, so the tier group and the quiet Delete sit on one anchored backing (`deleteOnPlate: true`; Delete's box-shadow is `none`). The checkbox's plate drops its pad because glass's Checkbox already brings its own 44px hit square. The two plates then share one 44px height. The discs' lens and cast stay glass's (O-87). |
+| DS-F12-C3 (border half) | `border-[1.5px]` is dropped from `GalleryAdminBanner.vue`. The amber rim now rides Card's 1px hairline (measured at 1px: rgb 157 101 21 in light, rgb 232 185 109 in dark). The colour and the shield mark are kept (§0dm). |
+| DS-F12-C4 | The dashed `.drop-zone` (`VisualizationView.vue`) now fills the stage's content box. It is inset by `--space-body` (glass Card's md pad; the stage cell is not a Card, so `--card-pad` does not reach it). The prompt is centred in it, and its corner is concentric with the stage's (`--radius-card` less the inset). The duplicate phone gutter on `.drop-target` is gone. Measured: at 1440 the zone is 1382×774 in a 1406×798 stage; at 390 it is 340×746 in a 356×762 stage. Before, it was a 601×380 box in that 1406×798 stage. |
+
+**Not forced (an owner design ruling to lift).**
+- DS-F12-C3, the posture half: the six readings stay `posture="cell"`. The carry ruling GAB-2/K-4 (`fourier/carry/F-W1-CARRY.md`) names `<Metric posture="cell">` as the seat. The e2e `f-w14v-u3` e149 pins six `.metric[data-posture="cell"]` under the concentric law. As the critic's own clause says, moving to the plain posture is a ruling to lift, not a cure to force. The cell bevel and the dark halo stay O-87 (DS-F8-G1).
+
+**Glass-owned, cited, not overridden.**
+- DS-F12-G1: the Toaster's close glyph hangs off the plate's corner, and a one-line toast sits on a heavy saturated wash. Cited against O-87, with the "every glyph has a home" canon.
+- DS-F12-G2: in the dark arm, `control-surface` (the Select) and `field-control` (the NumberField) take different fills. Cited against O-87 for tone parity at the 10.2.0 token wave.
+- No local fill or override was added for either.
+- The earlier held rows (DS-F11-G1's list) are unchanged.
+
+**Census** (`pass-10/census-after.json`, fourier `scripts/ds-census.mjs` on `:3100`): unchanged from pass 9.
+- Computed: 380 shadow elements, 956 layers, 286 multi-layer stacks, 286 inset highlights, 216 backdrop blur, 0 control gradients, 0 looping chrome.
+- Static: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+- This pass's cures are geometry, border and frame, not lighting, and admin mode is not on the census routes.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered 21 specs that reach admin /gallery, the gallery card or the /w drop target (`pass-10/e2e-specs.txt`). They ran on chromium plus mobile-chromium, headless, with 3 workers, against the cured tree served fresh on `:3122`.
+  - Run A: 232 passed, 7 failed. Run B: 232 passed, 7 failed.
+  - The 7 are the same in both runs. They are the 7 that pass 9 found failing identically on a clean worktree: `gallery-admin-a11y` ×4, and `visual-checkpoint` items 1·6·7, 2 and 5.
+  - `f-w14v-u3` e149 (the concentric law on the cells) and `f-w14u-admin` a105 (cell heights at 390) are green.
+- No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
+
+**Frames** (`pass-10/`). All were captured in headless Chrome (Playwright `chromium` project; §0ei) by `f12-cure-probe.spec.ts`. It ran from a temporary copy in fourier `web/e2e/`, deleted afterwards, against `:3100`:
+- `gallery-admin-card-*-1440`, `crop-admin-overlay-*` (DPR 2), `gallery-admin-*-1440` and `banner-*-1440`;
+- `w-*-{1440,390}`;
+
+each in light and dark.
