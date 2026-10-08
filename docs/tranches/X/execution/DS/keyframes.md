@@ -509,3 +509,57 @@ The verdict is still **RED**, on the glass-owned chrome rows and the banked loop
 - **KF-C7-02 costs more plot than the critic estimated.** The critic expected the plot to give up about 70 px, measured against the plot's inner frame (301). Below about 20 rem of width the picker's mode rows wrap to three lines, so a plot wide enough to keep two lines cannot fit this rail at 900 tall. The served plot is 200 px (was 361). At that width glass's readout literal truncates with an ellipsis ("cubic-bezier(0.2…"); its copy button still copies the whole literal. On the cube's sub-pane, at 256 px, it fits whole. Below about 880 px of viewport (1280×760, 1024×700) the 11 rem floor binds and the surface still scrolls (464 against 406 at 1280×760). That is the KF-C3-06 class, unchanged.
 - **KF-C7-07 departs from the critic's "set once in SceneStageHeader's readout slot".** The anatomy is set once as a design idiom (`.stage-readout`), and each scene's readout slot uses it. Spring keeps its primary and secondary rungs (KF-C3-04 and KF-C4-08), so velocity's value stays muted. Square's x/y pairs become two `.stage-readout` pairs in a flex row, where they had been a 4-column grid.
 - **A concurrent seat.** Another workflow (X.KF.W13X `.dh2`, UIA-KF-098: the reel moves to the Timeline pane) was editing `SequenceTarget.vue` and `sequence-stage-truth.test.ts` while this seat worked. Only this seat's hunks were committed (the index blob was HEAD plus this change). The gates and the AFTER frames ran on the shared working tree, so the Sequence header frames show no Reel button. That is the other seat's uncommitted change, not this cure.
+
+### pass 8 (the redeployed workflow's pass 4; critic C8, judged on the `evidence/DS/keyframes/pass-07/` frames)
+
+**Cure commit:** keyframes.js `2f259248` (master, pushed fast-forward). **Evidence:** value.js `faa7cf58a` (`evidence/DS/keyframes/pass-08/`: 28 route frames, `census.json`, the `controls-pane-1440-*`, `easing-pane-900-*`, `spring-stage-1440-*` and `f-keyframes-1440-*` cells, `c8-probe.mjs` + `c8-probe.json`). All captures are headless real Chrome (§0ei). The frames go to `pass-08`, not `pass-04`, which already holds the committed C4 evidence. That follows the pass 6 and pass 7 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900, light and dark) |
+|---|---|---|
+| KF-C8-01 | The rail's block budget now caps the **plot**, not the picker. The plot is square, so capping its inline size caps its block size too. The cap lands on the plot's frame, the box glass's `easing-curve` slot and the handle overlay share, and that frame is centred. The mode strip and preset select take the pane's full measure. At lg the pane's readout chip goes, because the stage header already prints the whole literal with its copy (one print per fact, UIA-KF-091). Below lg the chip stays. With the strip on one line and no chip row, the measured chrome is 25.5 rem (was 31.5 rem, which counted the three-line wrap). | plot 296 (was 200), centred with 33/33 px slack; control row on one line across the full 94–455; chip `display: none`; scroll range 0 (489/489); duration row bottom 544 inside 553. 1440×1080: plot 361, uncapped. 390: chip kept |
+| KF-C8-02 | Block-only padding (`p-2` → `py-2`) on the scrub `Slider` and on the `AnimationVisualizer` wrapper. The ball track's own gutter still insets the ball centres by their radius. | cube: label 89, fields end 456; rail 89–456 and ball track 89–456 (were 97–447); ball rail 113–432 |
+| KF-C8-03 | A snippet gutter on Monaco: `lineNumbersMinChars: 2`, `lineDecorationsWidth: 8`, `folding: false`, `glyphMargin: false`. | gutter 25 px (was about 70), code from x 98 (was 141). `ease-in-out` (line 4) now fits. Lines 12 and 15 are 487 and 605 px against a 366 px view, so they still scroll, with the KF-C7-12 slim scrollbar showing |
+| KF-C8-04 | Spring's rail hint now uses Square's caption register: `text-caption`, muted, start-aligned, in the row that is the rail's sibling, so it keeps to the rail's measure. Re-seat trails on the caption's row (`items-baseline`, the caption `flex-1`, the verb `shrink-0`). No new component. | caption 583–1215 on the rail's left edge (583), two lines, 14.38 px, the same size and ink as Square's caption; Re-seat 1227–1332, ending on the rail's right edge |
+| KF-C8-06 | The yield order is reversed, so the least-known glyph keeps its word longest. "Copy" goes first (below 29 rem, the four labels' one-row width), "Format" second (below 25 rem) and "Compiled" last (below 22 rem). Accessible names and `title`s are unchanged. | the 367 px row reads: Apply CSS, the clipboard glyph, the sparkles glyph, "Compiled"; no overflow |
+
+**Cited to glass (not overridden locally)**
+
+| id | disposition |
+|---|---|
+| KF-C8-01 (glass half) | **O-87 rider:** EasingPicker needs a plot-size hook (a plot `max-block-size`) and a `readout` prop. Until glass ships them, the consumer reaches the plot frame and the readout chip through the picker's data-slot structure. That touches layout only, never paint. The readout selector, `[data-slot="easing-controls"] > button:has(> code)`, depends on glass's DOM and should become a prop at the repin. |
+| KF-C8-05 | At value 0 the scrubber shows no leading cap or edge, so it reads as an empty or disabled field. **O-87 rider:** a minimum leading cap at 0. No local override. Still RED. |
+| KF-C8-07 | The dark active segment barely lifts off its track (active `rgb(30,20,9)` against track `rgb(14,12,6)`). **O-87**, folded into the KF-C7-04 row at the 10.2.0 repin. Held honest-RED. |
+| KF-C8-08 | The picker's readout is set at `text-micro`. **O-87 rider:** use the caption or mono-caption rung. On the lg Easing route this is moot now, because KF-C8-01 drops the chip there. Below lg, and on the cube's sub-pane, it still applies. |
+
+These O-87 riders are named here for the relay. This seat did not write to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages)
+
+| | pass 7 after | pass 8 after |
+|---|---:|---:|
+| chrome: elements with shadow | 440 | 440 |
+| chrome: shadow layers (max) | 1312 (6) | 1312 (6) |
+| chrome: shadows on non-floating surfaces | 316 | 316 |
+| chrome: inset highlights | 656 | 656 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 176 | 176 |
+| chrome: looping animations | 80 | 80 (KF-C5-13, banked) |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| static: gradient fills | 5 | 5 |
+| subject: every lighting family | 0 | 0 |
+
+The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row. This pass changed geometry and type, which the census does not count, so every count holds.
+
+**Gates**
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **812/812, twice**. The count includes the concurrent seat's new sequence test.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. No test needed re-pointing: `ribbon-keyframes-hierarchy` reads the buttons' textContent, and wrapping "Copy" in a yield span does not change that text.
+
+**Disclosures**
+- **KF-C8-01 reaches into glass's DOM.** It uses the data-slot structure: the plot frame is `[data-slot=easing-picker] > :has(> [data-slot=easing-curve])`, and the chip is a `button:has(> code)` in `easing-controls`. This follows the precedent of `design-idioms.css` styling `[data-slot="slider"]`. The selectors are scoped to the Easing sidebar at lg and change only layout and display. If glass restructures the picker, they fail quietly, and the picker falls back to its uncapped form.
+- **At 1280×760 the 11 rem floor still binds.** The control row wraps at that pane's 309 px, and the surface still scrolls 451 against 406 (was 464 against 406). That is the KF-C3-06 class, unchanged.
+- **KF-C8-06 leaves two glyph-only verbs at served widths.** At the 367 px row, the critic's cure (Copy goes first, Format second) means both Copy and Format lose their words before "Compiled" can keep its own. Apply CSS plus Copy's glyph plus both words would need 392 px. The critic's alternative was a two-line row, which KF-C4 had already rejected because it stranded Apply alone. Both glyphs keep their accessible names and tooltips.
+- **The TimingFunctionPanel** (the cube's channel sub-pane) keeps its whole-picker cap. It was not named in this pass, and at 256 px its readout fits whole (KF-C7-02).
