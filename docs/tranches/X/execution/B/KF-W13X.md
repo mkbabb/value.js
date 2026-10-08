@@ -2579,3 +2579,4 @@ READ-ONLY at kf `5bd9172b` (clean product tree, glass `10.1.0` exact). Logs: `do
 - **Residuals:** none owned. One cosmetic note for the next reader: the Stagger header's three verbs (Reel · Reset · collapse) take glass `ConfiguratorLayer` `#actions` spacing, which is glass's, not this unit's.
 - **Adjacent edits:** as listed above (`timelineTypes.ts:135-141`, `sequence-scrubber-mount.test.ts:61-63`). **Escalations:** none.
 - **Commits:** kf `97417fa9` (pushed with origin `2f259248`); value.js: the brief + evidence + this record (one commit, below).
+- **value.js commit:** `c3a33f539` (brief, `dh2/` evidence: probe, JSON readings, 24 frames, gate scripts; `*.log` gitignored, tails quoted above) + this line.
