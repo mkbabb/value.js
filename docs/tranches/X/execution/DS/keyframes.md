@@ -722,3 +722,49 @@ This pass changed placement, labels and type, not lighting, so the census holds.
 - **The probe's Entry hover** now targets the stage column at desktop widths. `fc07aff7` (ESC-dock-2) anchors the bottom dock band to the open rail's edge, so the viewport-centre hover no longer raised the channel select. The 390 Entry cell runs in a fine-pointer context, as in pass 10 (O-88).
 - **The timeline pan bar** (`TimelineTrack.vue:53`, `.timeline-pan-bar`) still wears `border-muted-foreground`. It is a 6 px zoom handle, and the stroke is its figure. The critic named only the track, so the pan bar is left for the next critic.
 - **The heading.** The task asked for a "### pass 7" receipt. This file already has a pass 7 (the redeployed workflow's pass 3), so this entry follows the sequential numbering passes 6 to 10 use.
+
+### pass 12 (the redeployed workflow's pass 8; critic C12, judged on the `evidence/DS/keyframes/pass-11/` frames)
+
+**Cure commit:** keyframes.js `153c7e9b` (master, pushed fast-forward from `fa5a1add`). **Evidence:** value.js `18fd90b56` (`evidence/DS/keyframes/pass-12/`: 28 route frames, `census.json`, the `spring-pane-1440-*`, `crop-spring-axis-*`, `presets-1440-*`, `entry-1440-*`, `crop-entry-footer-1440-*` and `entry-390-*` cells, `c12-probe.mjs` + `c12-probe.json`). All captures are headless real Chrome (§0ei). The task named `pass-08`, but `pass-08` already holds committed evidence, so the frames go to `pass-12`, following the sequential numbering of passes 6 to 11.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900 unless named; light and dark) |
+|---|---|---|
+| KF-C12-01 | The heatmap field budget counts the scroller's own end fade: `clamp(8rem, rail − (33.5rem + var(--mask-fade)), 12rem)`. | Field 128 px (the 8rem floor). The response axis ends at 478, above fold − fade (527 − 40 = 487), so it is at full ink (`crop-spring-axis-*`). It was 518, inside the 487–527 band. 1440×1080: the 12rem cap holds (192; axis 553, fade starts at 667). |
+| KF-C12-02 | The static `<Chip tone>` in the Entry caption is gone. The preset name is printed inline in the caption run: `text-caption font-medium text-foreground`, the C11-02 rule. No new component. | "eased by **Smooth** ζ 0.86 · in 500 ms · out 592 ms". The name is weight 500 in the foreground ink, with a transparent background and no shadow. No chip is left in the caption. |
+| KF-C12-04 | The artifact trigger mirrors `button-text-flush` on its end side. A scoped `margin-inline-end` uses the same expression, so the trailing padding and the 1px edge leave the row's gap. | Ink to ink, label to Copy glyph: 16 px at 1440 and 390 (it was 31). The literal pair measures 15 px ink to ink at 1440. The remaining 1 px is the rows' box gaps, 0.5rem against 0.45rem. Copy is centred on the label (offset 1). |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C12-03 | **Glass-owned; cited under O-87** (proportion rider for EasingPicker). In Steps mode the step group (`flex min-w-40 flex-1`) holds a 64 px slider with no value readout and a select at its intrinsic width, so the jump-term select overflows the pane column. The ask: wrap the step group to its own line or let the select shrink, and give the step count a readout. It is honest-RED until the glass repin and is not overridden locally. |
+| KF-C12-05 | **Carry, not cured.** It is optional, trivial and about proportion only. Making the pane share the stage plate's bottom line means stretching each pane frame to stage-end, and a short pane (cube, bottom 385) would then carry a ~360 px empty frame. That trades one loose edge for an empty card. The shared-edge composition should be decided together with the stage plate's dock-band clearance, so it goes to the next critic. |
+| KF-C11-05 residue | Unchanged carry. At 1280×760, 1280×800 and 1024×700 the 8rem floor binds, and the axis stays under the fold (449/417, 469/432, 418/392). |
+| HELD-O87-RECHECK | Unchanged at glass 10.1.0 and cited, not cured: the stacked pane-frame and popover offset stamp, and the popover's red backdrop bloom (KF-C1-02/-11); mixed Input/Select fills (KF-C1-10); the toast close disc (KF-C2-14); the dark active segment and dock item (KF-C7-04/C8-07); the ghost Steps trace (KF-C7-10); the clipped SegmentedTabs strip (KF-C7-09); the thumbless fill Slider (KF-C11-08); the scrub's empty leading cap (KF-C8-05); 'Custom' under 'ease' (KF-C9-05); the dark resting halo (KF-C7-11); the collapsed dock tile and play bubble (O-88). All are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages, on the final tree)
+
+| | pass 11 after | pass 12 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row holds. The census routes do not include the Entry transport scene, so the Chip's capsule never entered its counts. The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row (HomeMini, KF-C5-13 / KF-C9-12 family).
+
+**Gates** (on the final tree, HEAD `fa5a1add` plus this cure)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint`: exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **820/820, twice**.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. One test was re-pointed to the ruled structure: `spring-entry-states.test.ts` UIA-KF-209 now asserts that the preset name is inline (`.entry-preset`, `font-medium text-foreground`) and that neither a Chip nor a bespoke pill is present. It used to assert the Chip stub. The intent, a named preset with no bespoke pill, is unchanged.
+
+**Disclosures**
+- The shared `:5173` dev server (keyframes.js working tree, already running) answered promptly at a load average of about 40, so it was reused, and HMR served the cure.
+- The field at 1440×900 is now at its 8rem floor (it was 168 px). The regime tags, pips and preset labels all stay legible in `crop-spring-axis-*`.
