@@ -1,0 +1,51 @@
+s1 final-r1 start 18:15:28 load=24.33
+s1 final-r1 3/3
+s1 final-r1 end load=20.60
+t1 final-r1 start 18:16:06 load=20.60
+t1 final-r1 6/6
+t1 final-r1 end load=26.82
+s1 final-r2 start 18:17:49 load=21.91
+s1 final-r2 3/3
+s1 final-r2 end load=23.85
+t1 final-r2 start 18:18:15 load=23.85
+t1 final-r2 6/6
+t1 final-r2 end load=20.47
+unit final r1 EXIT=0
+      Tests  6 passed (6)
+unit final r2 EXIT=0
+      Tests  6 passed (6)
+check r1 EXIT=0
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+lint r1 EXIT=0
+✔ no dependency violations found (446 modules, 1622 dependencies cruised)
+test:demo r1 start 18:19:25 load=20.51
+EXIT=0
+ Test Files  124 passed (124)
+      Tests  826 passed (826)
+   Duration  28.50s (transform 72.01s, setup 3.63s, import 141.54s, tests 89.48s, environment 189.76s)
+test:demo r1 end load=39.71
+check r2 EXIT=0
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+lint r2 EXIT=0
+✔ no dependency violations found (446 modules, 1622 dependencies cruised)
+test:demo r2 start 18:32:37 load=23.50
+EXIT=0
+ Test Files  124 passed (124)
+      Tests  826 passed (826)
+   Duration  21.48s (transform 55.70s, setup 3.20s, import 111.38s, tests 58.15s, environment 117.22s)
+test:demo r2 end load=36.60
+build EXIT=0
+✓ built in 3.71s
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+gh-pages r1 start 18:34:27 load=22.33
+gh-pages r1 EXIT=0
+
+✓ built in 1.60s
+gh-pages r1 end load=21.50
+gh-pages r2 start 18:34:29 load=21.50
+gh-pages r2 EXIT=0
+
+✓ built in 1.61s
+gh-pages r2 end load=21.50
+DONE
