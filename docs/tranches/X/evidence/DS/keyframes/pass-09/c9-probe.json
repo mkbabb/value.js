@@ -1,0 +1,291 @@
+{
+ "light": {
+  "stageTitles": {
+   "easing": {
+    "inset": 21,
+    "top": 17,
+    "plateW": 814
+   },
+   "spring": {
+    "inset": 21,
+    "top": 17,
+    "plateW": 814
+   },
+   "sequence": {
+    "inset": 21,
+    "top": 17,
+    "plateW": 814
+   },
+   "square": {
+    "inset": 21,
+    "top": 17,
+    "plateW": 814
+   }
+  },
+  "presets": [
+   {
+    "name": "smooth0.5",
+    "on": true,
+    "h": 66,
+    "value": "0.5 s · ζ 0.86",
+    "transform": "none",
+    "spacing": "normal",
+    "align": "start",
+    "valueLines": 1,
+    "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.08)",
+    "shadow": "none",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "outline": "dashed color(srgb 0.493698 0.351392 0.798991 / 0.65)"
+   },
+   {
+    "name": "snappy0.35",
+    "on": false,
+    "h": 66,
+    "value": "0.35 s · ζ 0.65",
+    "transform": "none",
+    "spacing": "normal",
+    "align": "start",
+    "valueLines": 1,
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "border": "1px solid rgb(198, 180, 159)",
+    "outline": "dashed rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "bouncy0.5",
+    "on": false,
+    "h": 66,
+    "value": "0.5 s · ζ 0.45",
+    "transform": "none",
+    "spacing": "normal",
+    "align": "start",
+    "valueLines": 1,
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "border": "1px solid rgb(198, 180, 159)",
+    "outline": "dashed rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "gentle0.7",
+    "on": false,
+    "h": 66,
+    "value": "0.7 s · ζ 1",
+    "transform": "none",
+    "spacing": "normal",
+    "align": "start",
+    "valueLines": 1,
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "border": "1px solid rgb(198, 180, 159)",
+    "outline": "dashed rgba(0, 0, 0, 0)"
+   }
+  ],
+  "layerRow": "layerreplace",
+  "entry": {
+   "verbs": [
+    {
+     "text": "Dismiss",
+     "inPane": false,
+     "w": 94
+    }
+   ],
+   "ribbon": [
+    "Reverse"
+   ],
+   "accentBars": 0
+  },
+  "paneInset": {
+   "configuratorBody": 3,
+   "configuratorBodyPad": "20px",
+   "ribbonColumn": 2,
+   "ribbonPad": "20px"
+  },
+  "cubeColumn": "20px",
+  "timelineTitle": {
+   "size": "25.888px",
+   "weight": "600",
+   "inset": 22
+  },
+  "keyframesTitle": {
+   "text": "Rotations",
+   "size": "25.888px",
+   "inset": 22
+  },
+  "spring390": {
+   "captionW": 292,
+   "lines": 3,
+   "reseatBelow": true,
+   "reseatLeftVsCaption": 0
+  }
+ },
+ "dark": {
+  "stageTitles": {
+   "easing": {
+    "inset": 21,
+    "top": 17,
+    "plateW": 814
+   },
+   "spring": {
+    "inset": 21,
+    "top": 17,
+    "plateW": 814
+   },
+   "sequence": {
+    "inset": 21,
+    "top": 17,
+    "plateW": 814
+   },
+   "square": {
+    "inset": 21,
+    "top": 17,
+    "plateW": 814
+   }
+  },
+  "presets": [
+   {
+    "name": "smooth0.5",
+    "on": true,
+    "h": 66,
+    "value": "0.5 s · ζ 0.86",
+    "transform": "none",
+    "spacing": "normal",
+    "align": "start",
+    "valueLines": 1,
+    "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.08)",
+    "shadow": "none",
+    "border": "1px solid rgba(0, 0, 0, 0)",
+    "outline": "dashed color(srgb 0.744689 0.583611 0.927227 / 0.65)"
+   },
+   {
+    "name": "snappy0.35",
+    "on": false,
+    "h": 66,
+    "value": "0.35 s · ζ 0.65",
+    "transform": "none",
+    "spacing": "normal",
+    "align": "start",
+    "valueLines": 1,
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "border": "1px solid rgb(101, 87, 73)",
+    "outline": "dashed rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "bouncy0.5",
+    "on": false,
+    "h": 66,
+    "value": "0.5 s · ζ 0.45",
+    "transform": "none",
+    "spacing": "normal",
+    "align": "start",
+    "valueLines": 1,
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "border": "1px solid rgb(101, 87, 73)",
+    "outline": "dashed rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "gentle0.7",
+    "on": false,
+    "h": 66,
+    "value": "0.7 s · ζ 1",
+    "transform": "none",
+    "spacing": "normal",
+    "align": "start",
+    "valueLines": 1,
+    "bg": "rgba(0, 0, 0, 0)",
+    "shadow": "none",
+    "border": "1px solid rgb(101, 87, 73)",
+    "outline": "dashed rgba(0, 0, 0, 0)"
+   }
+  ],
+  "layerRow": "layerreplace",
+  "entry": {
+   "verbs": [
+    {
+     "text": "Dismiss",
+     "inPane": false,
+     "w": 94
+    }
+   ],
+   "ribbon": [
+    "Reverse"
+   ],
+   "accentBars": 0
+  },
+  "paneInset": {
+   "configuratorBody": 3,
+   "configuratorBodyPad": "20px",
+   "ribbonColumn": 2,
+   "ribbonPad": "20px"
+  },
+  "cubeColumn": "20px",
+  "timelineTitle": {
+   "size": "25.888px",
+   "weight": "600",
+   "inset": 22
+  },
+  "keyframesTitle": {
+   "text": "Rotations",
+   "size": "25.888px",
+   "inset": 22
+  },
+  "spring390": {
+   "captionW": 292,
+   "lines": 3,
+   "reseatBelow": true,
+   "reseatLeftVsCaption": 0
+  }
+ },
+ "easing1440x900": {
+  "plot": 296,
+  "scroll": [
+   489,
+   489
+  ],
+  "durationRowBottom": 544,
+  "surfaceBottom": 553
+ },
+ "easing1280x760": {
+  "plot": 163,
+  "scroll": [
+   403,
+   403
+  ],
+  "durationRowBottom": 432,
+  "surfaceBottom": 441
+ },
+ "easing1280x800": {
+  "plot": 159,
+  "scroll": [
+   398,
+   398
+  ],
+  "durationRowBottom": 447,
+  "surfaceBottom": 456
+ },
+ "easing1024x700": {
+  "plot": 166,
+  "scroll": [
+   404,
+   404
+  ],
+  "durationRowBottom": 405,
+  "surfaceBottom": 414
+ },
+ "easing1440x1080": {
+  "plot": 361,
+  "scroll": [
+   554,
+   554
+  ],
+  "durationRowBottom": 620,
+  "surfaceBottom": 629
+ },
+ "easingPreset": {
+  "stage": "ease",
+  "select": "Custom",
+  "fellThroughAttr": "ease",
+  "dataPreset": "custom"
+ }
+}
