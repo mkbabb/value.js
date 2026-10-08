@@ -1,0 +1,12 @@
+{
+ "light1440": {
+  "count": 2,
+  "cardVar": "light-dark(hsl(30 85% 96%),hsl(26 22% 17%))",
+  "borderVar": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))"
+ },
+ "dark390": {
+  "count": 1,
+  "cardVar": "hsl(26 22% 17%)",
+  "borderVar": "hsl(30 16% 34%)"
+ }
+}

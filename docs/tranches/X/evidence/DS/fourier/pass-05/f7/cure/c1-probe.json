@@ -1,0 +1,101 @@
+{
+ "light-1440": {
+  "articleBg": "color(srgb 0.994 0.96 0.926)",
+  "theorems": [
+   {
+    "k": "theorem-block--theorem",
+    "bl": "rgb(28, 25, 23)",
+    "sh": "none",
+    "rad": "0px 8px 8px 0px",
+    "before": "none",
+    "label": "rgb(28, 25, 23)"
+   }
+  ],
+  "heads": [
+   {
+    "cls": "section-header section-header--chapter",
+    "text": "0.1.Introduction",
+    "bg": "rgb(253, 245, 236)",
+    "mt": "0px",
+    "above": null,
+    "below": 20
+   },
+   {
+    "cls": "section-header section-header--chapter",
+    "text": "1.Origin and Derivation",
+    "bg": "rgb(253, 245, 236)",
+    "mt": "0px",
+    "above": 0,
+    "below": 20
+   }
+  ],
+  "divider": "none | color(srgb 0.765817 0.175252 0.431083 / 0.25)",
+  "mathBlockBL": "0px"
+ },
+ "mbHover": "0px none rgb(28, 25, 23)",
+ "light-390": {
+  "articleBg": "color(srgb 0.994 0.96 0.926)",
+  "theorems": [],
+  "heads": [
+   {
+    "cls": "section-header section-header--chapter",
+    "text": "0.1.Introduction",
+    "bg": "rgb(253, 245, 236)",
+    "mt": "0px",
+    "above": null,
+    "below": 20
+   }
+  ],
+  "divider": "none | color(srgb 0.765817 0.175252 0.431083 / 0.25)",
+  "mathBlockBL": null
+ },
+ "dark-1440": {
+  "articleBg": "color(srgb 0.2074 0.165013 0.1326)",
+  "theorems": [
+   {
+    "k": "theorem-block--theorem",
+    "bl": "oklch(0.739 0.134 318.1)",
+    "sh": "none",
+    "rad": "0px 8px 8px 0px",
+    "before": "none",
+    "label": "oklch(0.739 0.134 318.1)"
+   }
+  ],
+  "heads": [
+   {
+    "cls": "section-header section-header--chapter",
+    "text": "0.1.Introduction",
+    "bg": "rgb(53, 42, 34)",
+    "mt": "0px",
+    "above": null,
+    "below": 20
+   },
+   {
+    "cls": "section-header section-header--chapter",
+    "text": "1.Origin and Derivation",
+    "bg": "rgb(53, 42, 34)",
+    "mt": "0px",
+    "above": 0,
+    "below": 20
+   }
+  ],
+  "divider": "none | color(srgb 0.915292 0.484111 0.670969 / 0.25)",
+  "mathBlockBL": "0px"
+ },
+ "dark-390": {
+  "articleBg": "color(srgb 0.2074 0.165013 0.1326)",
+  "theorems": [],
+  "heads": [
+   {
+    "cls": "section-header section-header--chapter",
+    "text": "0.1.Introduction",
+    "bg": "rgb(53, 42, 34)",
+    "mt": "0px",
+    "above": null,
+    "below": 20
+   }
+  ],
+  "divider": "none | color(srgb 0.915292 0.484111 0.670969 / 0.25)",
+  "mathBlockBL": null
+ }
+}

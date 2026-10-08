@@ -1,0 +1,1216 @@
+
+Running 238 tests using 3 workers
+
+[1/238] [chromium] › e2e/contrast-floor.spec.ts:128:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression
+[2/238] [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm
+[3/238] [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm
+  1) [chromium] › e2e/contrast-floor.spec.ts:128:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression 
+
+    Error: pairs named at F-W4.md §4 that no expression stack re-derives yet — each is owned, none is dropped:
+      ✗ FR-CP-D1 — ConvergencePlot axes — painted to canvas, read from the 2D context (banked 1.19 light / 1.38 dark) · owner .b
+      ✗ ECD D-5 — EditorControlsDock (banked 3.32) · owner .c
+      ✗ ECD D-6 — EditorControlsDock (banked 1.97) · owner .c
+      ✗ EV D·D-B3 — EquationView (banked 2.02–3.57) · owner .b
+      ✗ PS D-B2 — PaperSidebar label — axe grades it CLEAN, which is why this gate exists (banked 2.39 / 3.00) · owner .e
+      ✗ PV D/M-8 — PaperView (banked 2.88) · owner .e
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 38
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "banked": "1.19 light / 1.38 dark",
+    +     "id": "FR-CP-D1",
+    +     "owner": ".b",
+    +     "what": "ConvergencePlot axes — painted to canvas, read from the 2D context",
+    +   },
+    +   Object {
+    +     "banked": "3.32",
+    +     "id": "ECD D-5",
+    +     "owner": ".c",
+    +     "what": "EditorControlsDock",
+    +   },
+    +   Object {
+    +     "banked": "1.97",
+    +     "id": "ECD D-6",
+    +     "owner": ".c",
+    +     "what": "EditorControlsDock",
+    +   },
+    +   Object {
+    +     "banked": "2.02–3.57",
+    +     "id": "EV D·D-B3",
+    +     "owner": ".b",
+    +     "what": "EquationView",
+    +   },
+    +   Object {
+    +     "banked": "2.39 / 3.00",
+    +     "id": "PS D-B2",
+    +     "owner": ".e",
+    +     "what": "PaperSidebar label — axe grades it CLEAN, which is why this gate exists",
+    +   },
+    +   Object {
+    +     "banked": "2.88",
+    +     "id": "PV D/M-8",
+    +     "owner": ".e",
+    +     "what": "PaperView",
+    +   },
+    + ]
+
+      138 |                     (p) => `  ✗ ${p.id} — ${p.what} (banked ${p.banked}) · owner ${p.owner}`,
+      139 |                 ).join("\n"),
+    > 140 |         ).toEqual([]);
+          |           ^
+      141 |     });
+      142 | });
+      143 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/contrast-floor.spec.ts:140:11
+
+    Error Context: test-results/contrast-floor-X·F-F-W4-—--e767c-s-a-re-derivable-expression-chromium/error-context.md
+
+
+  2) [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm 
+
+    Error: contrast floor violations in the dark arm (text ≥ 4.5:1 · non-text ≥ 3:1), 10 of 36 pairs:
+      ✗ FR-MSP-7 [dark] 1.086:1 (non-text, floor 3:1) (banked 1.084, reproduced) — .info-chip plate against the page it sits on · owner .a
+      ✗ HLG-37[grid-cell-fill] [dark] 1.418:1 (non-text, floor 3:1) — .grid-cell fill against the page — the 1.000:1 separation · owner .a
+      ✗ FR-USB-5[resting-border] [dark] 1.383:1 (non-text, floor 3:1) — credential field resting border against its fill · owner .d
+      ✗ FR-USB-5[focused-border] [dark] 2.340:1 (non-text, floor 3:1) — credential field focused border — the only focus affordance · owner .d
+      ✗ FR-USB-5[placeholder] [dark] 2.046:1 (text, floor 4.5:1) — placeholder ink — the only visible statement of the slug format · owner .d
+      ✗ PSM-4[muted-foreground@40%] [dark] 2.117:1 (text, floor 4.5:1) — modal chrome ink at the authored 40% dilution · owner .e
+      ✗ PSM-4[muted-foreground@45%] [dark] 2.378:1 (text, floor 4.5:1) (banked 2.39, reproduced) — modal chrome ink at the authored 45% dilution · owner .e
+      ✗ PSM-4[muted-foreground@50%] [dark] 2.686:1 (text, floor 4.5:1) — modal chrome ink at the authored 50% dilution · owner .e
+      ✗ GAB-1[plate/page] [dark] 1.038:1 (non-text, floor 3:1) — the admin plate against the page — is there an admin register at all · owner .d
+      ✗ GAB-1[border] [dark] 1.772:1 (non-text, floor 3:1) — the admin plate's 1.5px border against the page · owner .d
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "  ✗ FR-MSP-7 [dark] 1.086:1 (non-text, floor 3:1) (banked 1.084, reproduced) — .info-chip plate against the page it sits on · owner .a",
+    +   "  ✗ HLG-37[grid-cell-fill] [dark] 1.418:1 (non-text, floor 3:1) — .grid-cell fill against the page — the 1.000:1 separation · owner .a",
+    +   "  ✗ FR-USB-5[resting-border] [dark] 1.383:1 (non-text, floor 3:1) — credential field resting border against its fill · owner .d",
+    +   "  ✗ FR-USB-5[focused-border] [dark] 2.340:1 (non-text, floor 3:1) — credential field focused border — the only focus affordance · owner .d",
+    +   "  ✗ FR-USB-5[placeholder] [dark] 2.046:1 (text, floor 4.5:1) — placeholder ink — the only visible statement of the slug format · owner .d",
+    +   "  ✗ PSM-4[muted-foreground@40%] [dark] 2.117:1 (text, floor 4.5:1) — modal chrome ink at the authored 40% dilution · owner .e",
+    +   "  ✗ PSM-4[muted-foreground@45%] [dark] 2.378:1 (text, floor 4.5:1) (banked 2.39, reproduced) — modal chrome ink at the authored 45% dilution · owner .e",
+    +   "  ✗ PSM-4[muted-foreground@50%] [dark] 2.686:1 (text, floor 4.5:1) — modal chrome ink at the authored 50% dilution · owner .e",
+    +   "  ✗ GAB-1[plate/page] [dark] 1.038:1 (non-text, floor 3:1) — the admin plate against the page — is there an admin register at all · owner .d",
+    +   "  ✗ GAB-1[border] [dark] 1.772:1 (non-text, floor 3:1) — the admin plate's 1.5px border against the page · owner .d",
+    + ]
+
+      122 |                     `${failures.length} of ${CONTRAST_PAIRS.length} pairs:\n` +
+      123 |                     failures.join("\n"),
+    > 124 |             ).toEqual([]);
+          |               ^
+      125 |         });
+      126 |     }
+      127 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/contrast-floor.spec.ts:124:15
+
+    attachment #1: contrast-dark.txt (text/plain) ──────────────────────────────────────────────────
+    PS-D-M4-extended[stop-0] [dark] 7.428:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-1] [dark] 8.033:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-2] [dark] 7.828:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-3] [dark] 9.680:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-4] [dark] 10.193:1 (text, floor 4.5:1)...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/contrast-floor-X·F-F-W4-—--d627d--meets-its-floor-—-dark-arm-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/contrast-floor-X·F-F-W4-—--d627d--meets-its-floor-—-dark-arm-chromium/error-context.md
+
+
+  3) [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm 
+
+    Error: contrast floor violations in the light arm (text ≥ 4.5:1 · non-text ≥ 3:1), 18 of 36 pairs:
+      ✗ FR-MSP-7 [light] 1.035:1 (non-text, floor 3:1) (banked 1.038, reproduced) — .info-chip plate against the page it sits on · owner .a
+      ✗ HLG-37[grid-cell-fill] [light] 1.035:1 (non-text, floor 3:1) (banked 1, reproduced) — .grid-cell fill against the page — the 1.000:1 separation · owner .a
+      ✗ FR-USB-5[resting-border] [light] 1.283:1 (non-text, floor 3:1) (banked 1.28, reproduced) — credential field resting border against its fill · owner .d
+      ✗ FR-USB-5[focused-border] [light] 1.929:1 (non-text, floor 3:1) (banked 1.93, reproduced) — credential field focused border — the only focus affordance · owner .d
+      ✗ FR-USB-5[placeholder] [light] 1.720:1 (text, floor 4.5:1) (banked 1.73, reproduced) — placeholder ink — the only visible statement of the slug format · owner .d
+      ✗ PSM-4[muted-foreground@40%] [light] 1.739:1 (text, floor 4.5:1) — modal chrome ink at the authored 40% dilution · owner .e
+      ✗ PSM-4[muted-foreground@45%] [light] 1.888:1 (text, floor 4.5:1) (banked 1.88, reproduced) — modal chrome ink at the authored 45% dilution · owner .e
+      ✗ PSM-4[muted-foreground@50%] [light] 2.042:1 (text, floor 4.5:1) — modal chrome ink at the authored 50% dilution · owner .e
+      ✗ FR-EQR-7[instance] [light] 2.110:1 (non-text, floor 3:1) (banked 2.101, reproduced) — the success glyph (green-500) on the result card · owner .b
+      ✗ GAB-1[plate/page] [light] 1.031:1 (non-text, floor 3:1) (banked 1.03, reproduced) — the admin plate against the page — is there an admin register at all · owner .d
+      ✗ GAB-1[border] [light] 1.250:1 (non-text, floor 3:1) (banked 1.25–1.27, reproduced) — the admin plate's 1.5px border against the page · owner .d
+      ✗ GAB-1[--tier-featured value] [light] 1.536:1 (text, floor 4.5:1) (banked 1.45 — DRIFT, the live reading governs) — the featured numeral — the colour chosen to distinguish the tier · owner .d
+      ✗ GAB-1[--tier-saved value] [light] 2.731:1 (text, floor 4.5:1) (banked 2.58 — DRIFT, the live reading governs) — the saved numeral on the same plate · owner .d
+      ✗ AA-3[delete] [light] 1.547:1 (text, floor 4.5:1) (banked 1.36–1.81, reproduced) — the delete actionTone ink — the action string itself · owner .d
+      ✗ AA-3[set_user_status] [light] 1.243:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the set_user_status actionTone ink — the action string itself · owner .d
+      ✗ AA-3[set_tier/dismiss] [light] 1.289:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the set_tier/dismiss actionTone ink — the action string itself · owner .d
+      ✗ AA-3[batch] [light] 1.510:1 (text, floor 4.5:1) (banked 1.36–1.81, reproduced) — the batch actionTone ink — the action string itself · owner .d
+      ✗ AA-3[default] [light] 1.219:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the default actionTone ink — the action string itself · owner .d
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 20
+
+    - Array []
+    + Array [
+    +   "  ✗ FR-MSP-7 [light] 1.035:1 (non-text, floor 3:1) (banked 1.038, reproduced) — .info-chip plate against the page it sits on · owner .a",
+    +   "  ✗ HLG-37[grid-cell-fill] [light] 1.035:1 (non-text, floor 3:1) (banked 1, reproduced) — .grid-cell fill against the page — the 1.000:1 separation · owner .a",
+    +   "  ✗ FR-USB-5[resting-border] [light] 1.283:1 (non-text, floor 3:1) (banked 1.28, reproduced) — credential field resting border against its fill · owner .d",
+    +   "  ✗ FR-USB-5[focused-border] [light] 1.929:1 (non-text, floor 3:1) (banked 1.93, reproduced) — credential field focused border — the only focus affordance · owner .d",
+    +   "  ✗ FR-USB-5[placeholder] [light] 1.720:1 (text, floor 4.5:1) (banked 1.73, reproduced) — placeholder ink — the only visible statement of the slug format · owner .d",
+    +   "  ✗ PSM-4[muted-foreground@40%] [light] 1.739:1 (text, floor 4.5:1) — modal chrome ink at the authored 40% dilution · owner .e",
+    +   "  ✗ PSM-4[muted-foreground@45%] [light] 1.888:1 (text, floor 4.5:1) (banked 1.88, reproduced) — modal chrome ink at the authored 45% dilution · owner .e",
+    +   "  ✗ PSM-4[muted-foreground@50%] [light] 2.042:1 (text, floor 4.5:1) — modal chrome ink at the authored 50% dilution · owner .e",
+    +   "  ✗ FR-EQR-7[instance] [light] 2.110:1 (non-text, floor 3:1) (banked 2.101, reproduced) — the success glyph (green-500) on the result card · owner .b",
+    +   "  ✗ GAB-1[plate/page] [light] 1.031:1 (non-text, floor 3:1) (banked 1.03, reproduced) — the admin plate against the page — is there an admin register at all · owner .d",
+    +   "  ✗ GAB-1[border] [light] 1.250:1 (non-text, floor 3:1) (banked 1.25–1.27, reproduced) — the admin plate's 1.5px border against the page · owner .d",
+    +   "  ✗ GAB-1[--tier-featured value] [light] 1.536:1 (text, floor 4.5:1) (banked 1.45 — DRIFT, the live reading governs) — the featured numeral — the colour chosen to distinguish the tier · owner .d",
+    +   "  ✗ GAB-1[--tier-saved value] [light] 2.731:1 (text, floor 4.5:1) (banked 2.58 — DRIFT, the live reading governs) — the saved numeral on the same plate · owner .d",
+    +   "  ✗ AA-3[delete] [light] 1.547:1 (text, floor 4.5:1) (banked 1.36–1.81, reproduced) — the delete actionTone ink — the action string itself · owner .d",
+    +   "  ✗ AA-3[set_user_status] [light] 1.243:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the set_user_status actionTone ink — the action string itself · owner .d",
+    +   "  ✗ AA-3[set_tier/dismiss] [light] 1.289:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the set_tier/dismiss actionTone ink — the action string itself · owner .d",
+    +   "  ✗ AA-3[batch] [light] 1.510:1 (text, floor 4.5:1) (banked 1.36–1.81, reproduced) — the batch actionTone ink — the action string itself · owner .d",
+    +   "  ✗ AA-3[default] [light] 1.219:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the default actionTone ink — the action string itself · owner .d",
+    + ]
+
+      122 |                     `${failures.length} of ${CONTRAST_PAIRS.length} pairs:\n` +
+      123 |                     failures.join("\n"),
+    > 124 |             ).toEqual([]);
+          |               ^
+      125 |         });
+      126 |     }
+      127 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/contrast-floor.spec.ts:124:15
+
+    attachment #1: contrast-light.txt (text/plain) ─────────────────────────────────────────────────
+    PS-D-M4-extended[stop-0] [light] 5.134:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-1] [light] 6.197:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-2] [light] 6.366:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-3] [light] 4.693:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-4] [light] 4.645:1 (text, floor 4....
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/contrast-floor-X·F-F-W4-—--8df2f-meets-its-floor-—-light-arm-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/contrast-floor-X·F-F-W4-—--8df2f-meets-its-floor-—-light-arm-chromium/error-context.md
+
+
+[4/238] [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests
+[5/238] [chromium] › e2e/f-w13-image-empty.spec.ts:62:5 › G-c — F.W13 image mode: one drop affordance, the sidebar arrives with content (frame 4) › at rest: no sidebar, the main area full width, ONE upload affordance that signals on dragenter
+[6/238] [chromium] › e2e/f-w13-image-empty.spec.ts:95:5 › G-c — F.W13 image mode: one drop affordance, the sidebar arrives with content (frame 4) › after a file pick the sidebar is present and its enter ran (band + content)
+[7/238] [chromium] › e2e/f-w13-image-empty.spec.ts:126:5 › G-c — PRM context: the sidebar arrives without motion › reduced motion: no sidebar at rest, then present after a pick with no transition run
+[8/238] [chromium] › e2e/f-w14-uia.spec.ts:26:5 › UIA-F-1 — a featured entry renders the strip, not a crash › the pager lives inside its Carousel; no useCarousel pageerror
+[9/238] [chromium] › e2e/f-w14-uia.spec.ts:62:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-2: a cold deep link sends GET /api/visualizations/<slug> and leaves the upload stage
+[10/238] [chromium] › e2e/f-w14-uia.spec.ts:73:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-3: an in-app push /w/ → /v/ stays on /v/ with no orphaned transition
+[11/238] [chromium] › e2e/f-w14-uia.spec.ts:86:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-50: an unknown path renders a titled, noindexed not-found card
+[12/238] [chromium] › e2e/f-w14-uia.spec.ts:99:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-4: /v/<unknown> names the failed slug instead of the upload prompt
+[13/238] [chromium] › e2e/f-w14-uia.spec.ts:107:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-49: the error card's action is labelled, and nothing covers the diagnosis
+[14/238] [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock
+[15/238] [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels
+[16/238] [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled
+[17/238] [chromium] › e2e/f-w14-uia.spec.ts:261:5 › UIA-F-15 — editor shortcuts act only on the editor › Delete works on a picked point; out of edit mode a sidebar field keeps its Backspace
+[18/238] [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save'
+[19/238] [chromium] › e2e/f-w14-uia.spec.ts:321:5 › UIA-F-19 — one drop, one upload › a file dropped over a loaded image sends exactly one POST /api/images
+  4) [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+
+    Error: the notation pill flipped but the rendered series did not change
+
+    the notation pill flipped but the rendered series did not change
+
+    expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not "𝑓
+    (
+    𝑡
+    )
+    ≈
+    3.3
+    2
+    +
+    ∑
+    𝑛
+    =
+    1
+    8
+    𝑎
+    𝑛
+    cos
+    ⁡
+    (
+    𝑛
+    𝑡
+    )
+    f(t)≈
+    2
+    3.3
+    	​·
+    +
+    n=1
+    ∑
+    8
+    	​·
+    a
+    n
+    	​·
+    cos(nt)"
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+      132 |                 timeout: 30_000,
+      133 |             })
+    > 134 |             .not.toBe(trigLatex);
+          |                  ^
+      135 |         const expLatex = (await series.innerText()).trim();
+      136 |
+      137 |         // ── 3. BUDGET ───────────────────────────────────────────────────────
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/equation-interaction.spec.ts:134:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/equation-interaction-S2-—--f2555--the-route-and-its-requests-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/equation-interaction-S2-—--f2555--the-route-and-its-requests-chromium/error-context.md
+
+
+[20/238] [chromium] › e2e/f-w14-uia.spec.ts:356:5 › UIA-F-20 — the paper restores its scroll position › a reload returns to the saved section instead of the top
+[21/238] [chromium] › e2e/f-w14-uia.spec.ts:377:5 › UIA-F-24 — floating ToC chapter rows navigate; the disclosure toggles › tapping a chapter row scrolls to it; the chevron is its own control
+[22/238] [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen
+[23/238] [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height
+[24/238] [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill
+[25/238] [chromium] › e2e/f-w14-uia.spec.ts:484:5 › UIA-F-48 — the Drafts card sits inside the column gutter › its right edge stays inside its column and the viewport
+[26/238] [chromium] › e2e/f-w14-uia.spec.ts:509:5 › UIA-F-41 — the gallery column never scrolls sideways at 390 (consumer half) › focusing the last admin tab leaves the column at scrollLeft 0
+[27/238] [chromium] › e2e/f-w14-uia.spec.ts:530:5 › UIA-F-45 — focus opens inside the card modal and stays there › initial focus is the dialog's title and Tab never reaches the page behind
+[28/238] [chromium] › e2e/f-w14-uia.spec.ts:546:5 › UIA-F-40 — the admin grid does not wait on admin stats › a slow stats call neither delays the grid request nor shows the empty CTA over entries
+[29/238] [chromium] › e2e/f-w14-uia.spec.ts:567:5 › UIA-F-47 — a published draft leaves the Drafts list › after Publish the draft row is gone, and stays gone on reload
+[30/238] [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card
+[31/238] [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card
+[32/238] [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor
+  5) [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/f-w14-uia.spec.ts:635:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-33-UIA-F-3-c42ff--nothing-is-cut-by-the-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-33-UIA-F-3-c42ff--nothing-is-cut-by-the-card-chromium/error-context.md
+
+
+[33/238] [chromium] › e2e/f-w14-uia.spec.ts:684:5 › UIA-F-12 — the canvas dock's View options are reachable by keyboard › Enter opens the menu and the keys reach both rows; Enter toggles one
+  6) [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/f-w14-uia.spec.ts:635:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-33-UIA-F-3-e2d51--nothing-is-cut-by-the-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-33-UIA-F-3-e2d51--nothing-is-cut-by-the-card-chromium/error-context.md
+
+
+  7) [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/f-w14-uia.spec.ts:658:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-32-—-the-c-bc694-over-clipped-by-no-ancestor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-32-—-the-c-bc694-over-clipped-by-no-ancestor-chromium/error-context.md
+
+
+[34/238] [chromium] › e2e/f-w14-uia.spec.ts:712:5 › UIA-F-5 — at 390 every expanded canvas-dock control is visible and hittable › each control's centre hits that control, inside the viewport
+[35/238] [chromium] › e2e/f-w14-uia.spec.ts:774:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-30: logged in, the account is one trigger and the dark-mode toggle stays on the plate
+[36/238] [chromium] › e2e/f-w14-uia.spec.ts:754:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-28/F-29: the login form opens in a popover; its error wraps in its own line
+[37/238] [chromium] › e2e/f-w14-uia.spec.ts:800:5 › UIA-F-22 — mobile paper search: one instance, and a tapped result navigates › one listbox, no duplicate ids, and tapping a result scrolls to it
+[38/238] [chromium] › e2e/f-w14-uia.spec.ts:824:5 › UIA-F-23 — the floating ToC's Close search closes with a query typed › one tap on Close search closes the search and it stays closed
+[39/238] [chromium] › e2e/f-w14-uia.spec.ts:841:5 › UIA-F-25 — the search palette has one dismissal owner › no ✕ under Clear, and Esc collapses the palette keeping the query
+[40/238] [chromium] › e2e/f-w14u-eq.spec.ts:71:5 › q35 · UIA-F-35 (consumer) — whole harmonics, counted as harmonics › a4 reads -0.0625 at 8 shown; the control and the list count harmonics
+[41/238] [chromium] › e2e/f-w14u-eq.spec.ts:95:5 › q112 · UIA-F-112 (consumer) — an invalid f(x) marks its field › aria-invalid + the server's detail under the field; no Retry on a 4xx
+[42/238] [chromium] › e2e/f-w14u-eq.spec.ts:116:5 › q113 · UIA-F-113 — at 390 the failure shows where the user types › the Controls pane carries the field's error, inside the viewport
+[43/238] [chromium] › e2e/f-w14u-eq.spec.ts:137:5 › q114 · UIA-F-114 ⊕ F-207 — one disclosure idiom; no clipped shadow › three glass ConfiguratorLayers, no local CollapsibleSection, no clipping ancestor
+[44/238] [chromium] › e2e/f-w14u-eq.spec.ts:192:5 › q201 · UIA-F-201 — one variable, one harmonic count › the legend speaks the equation's variable; legend, timeline and field agree on N
+[45/238] [chromium] › e2e/f-w14u-eq.spec.ts:211:5 › q202 · UIA-F-202 — status out of flow; a stale result is marked › a recompute and a transient failure move nothing; the busy mark is glass Progress
+[46/238] [chromium] › e2e/f-w14u-eq.spec.ts:265:5 › q203 · UIA-F-203 — one floating-surface canon › the coefficient popover and the plot tooltip wear the glass popover radius
+[47/238] [chromium] › e2e/f-w14u-eq.spec.ts:290:5 › q204 · UIA-F-204 — single-choice sets are ToggleGroups › Notation and Presets are radiogroups of radios; the current one is checked
+[48/238] [chromium] › e2e/f-w14u-eq.spec.ts:304:5 › q205 · UIA-F-205 — the plot holds its own data › no curve below the plot box; the legend beside the curves
+[49/238] [chromium] › e2e/f-w14u-eq.spec.ts:334:9 › q206 · UIA-F-206 — named type rungs; the Harmonics row keeps its controls (1440) › no consumer text under the caption rung; the Parseval button sits in its row
+[50/238] [chromium] › e2e/f-w14u-eq.spec.ts:334:9 › q206 · UIA-F-206 — named type rungs; the Harmonics row keeps its controls (390) › no consumer text under the caption rung; the Parseval button sits in its row
+[51/238] [chromium] › e2e/f-w14u-eq.spec.ts:379:5 › q253 · UIA-F-253 — the equation's micro-issues › glass Badge for the tier; lucide glyphs on Play (1440)
+[52/238] [chromium] › e2e/f-w14u-eq.spec.ts:391:5 › q253 · UIA-F-253 — the equation's micro-issues › the 390 tab strip is not an opaque band
+[53/238] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 1440 light › grid, filters, modal, drafts
+[54/238] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 390 light › grid, filters, modal, drafts
+[55/238] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 1440 dark › grid, filters, modal, drafts
+[56/238] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 390 dark › grid, filters, modal, drafts
+[57/238] [chromium] › e2e/f-w14u-gallery.spec.ts:128:5 › g39 UIA-F-39 — search, tier and basis narrow on the server › each control's value reaches GET /api/visualizations and the grid follows
+[58/238] [chromium] › e2e/f-w14u-gallery.spec.ts:176:5 › g46 UIA-F-46 — Like is a toggle, and it persists › press → liked (+1), press → unliked (−1), press → liked; a reload keeps it
+[59/238] [chromium] › e2e/f-w14u-gallery.spec.ts:221:5 › g96 UIA-F-96 — Open Visualizer opens the saved entity › the CTA routes to /v/<visualization slug>
+[60/238] [chromium] › e2e/f-w14u-gallery.spec.ts:236:9 › g97 UIA-F-97 — the filter drawer is a dismissable popover (1440) › Escape and an outside press close it; the press opens nothing behind
+[61/238] [chromium] › e2e/f-w14u-gallery.spec.ts:236:9 › g97 UIA-F-97 — the filter drawer is a dismissable popover (390) › Escape and an outside press close it; the press opens nothing behind
+[62/238] [chromium] › e2e/f-w14u-gallery.spec.ts:268:5 › g98 UIA-F-98 ⊕ g186 UIA-F-186 — the card is glass Card; tier, focus and selection separate › radius --radius-card, no role=button div, no offset stamp; tier rim ≠ focus ink, elevation kept
+[63/238] [chromium] › e2e/f-w14u-gallery.spec.ts:304:5 › g99 UIA-F-99 ⊕ g187 UIA-F-187 — the title leads; one basis vocabulary › card and dialog show the title; names come from it; filter and badge share labels
+[64/238] [chromium] › e2e/f-w14u-gallery.spec.ts:332:5 › g184 UIA-F-184 — one clear control, a query-aware empty state, Skeleton loading › the native cancel is withdrawn; a nomatch names the query and clears; loading is skeletons
+[65/238] [chromium] › e2e/f-w14u-gallery.spec.ts:373:5 › g185 UIA-F-185 — the drawer's Selects keep the producer's sizing › no consumer h-8 / rounded-lg / border override; the drawer is glass's plate
+[66/238] [chromium] › e2e/f-w14u-gallery.spec.ts:388:5 › g188 UIA-F-188 ⊕ g247 UIA-F-247 — the modal's controls are glass's; gallery micro-issues › tier is one 3-state ToggleGroup; the CTA is primary; no consumer rim; no chatter; no bounce
+[67/238] [chromium] › e2e/f-w14u-gallery.spec.ts:429:5 › g101 g102 g189 — the drafts are gallery cards with one keyboard action › glass Card at --radius-card; no My Drafts disclosure; a Draft badge; a link opens /w/<slug>
+[68/238] [chromium] › e2e/f-w14u-gallery.spec.ts:458:5 › g101 g102 g189 — the drafts are gallery cards with one keyboard action › the empty Drafts state has its action
+[69/238] [chromium] › e2e/f-w14u-gallery.spec.ts:470:5 › g103 UIA-F-103 ⊕ g190 UIA-F-190 ⊕ g248 UIA-F-248 — publishing a draft › the publishing row is busy, the others live; no-contour is disabled with a reason; the toast names the piece
+[70/238] [chromium] › e2e/f-w14u-gallery.spec.ts:496:5 › g103 UIA-F-103 ⊕ g190 UIA-F-190 ⊕ g248 UIA-F-248 — publishing a draft › logging out keeps the local drafts listed (one rule)
+[71/238] [chromium] › e2e/f-w14u-gallery.spec.ts:519:5 › g248 UIA-F-248 — a draft card's hover is visible › hovering a draft changes its paint
+[72/238] [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames light › 1440 › frame 1440 light
+[73/238] [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames light › 390 › frame 390 light
+[74/238] [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames dark › 1440 › frame 1440 dark
+[75/238] [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames dark › 390 › frame 390 dark
+[76/238] [chromium] › e2e/f-w14u-paper.spec.ts:86:5 › paper-desktop 1440 › UIA-F-61: the article is glass Card, the rail glass-quiet, one light source, one top line
+[77/238] [chromium] › e2e/f-w14u-paper.spec.ts:114:5 › paper-desktop 1440 › UIA-F-156: a compact disclosure, a wider rail, one active class (no inline style)
+[78/238] [chromium] › e2e/f-w14u-paper.spec.ts:134:5 › paper-desktop 1440 › UIA-F-164 + UIA-F-234: no statistics tooltip on a row; a collapsed CONTENTS reclaims its space
+[79/238] [chromium] › e2e/f-w14u-paper.spec.ts:156:5 › paper-desktop 1440 › X-DS F1-09: the page readout is homed in the ToC drawer, never over the article
+[80/238] [chromium] › e2e/f-w14u-paper.spec.ts:178:5 › paper-desktop 1440 › UIA-F-147 (consumer half): ToC rows ride Button's sm rung; no local radius or padding override
+[81/238] [chromium] › e2e/f-w14u-paper.spec.ts:195:5 › paper-desktop 1440 › UIA-F-157: the reading progress is glass ScrollProgressRim and it tracks the scroll
+[82/238] [chromium] › e2e/f-w14u-paper.spec.ts:213:5 › paper-search 1440 › UIA-F-158: a query with no match says so in the inline panel
+[83/238] [chromium] › e2e/f-w14u-paper.spec.ts:221:5 › paper-search 1440 › UIA-F-159: one inline surface and ⌘K — no Expand; ⌘K from the field carries the query
+[84/238] [chromium] › e2e/f-w14u-paper.spec.ts:235:5 › paper-search 1440 › UIA-F-160: inline options are not tab stops; one cursor; canon Badge
+[85/238] [chromium] › e2e/f-w14u-paper.spec.ts:265:5 › paper-search 1440 › UIA-F-161: word-start matching with contiguous highlights; a scattered subsequence matches nothing
+[86/238] [chromium] › e2e/f-w14u-paper.spec.ts:280:5 › paper-search 1440 › UIA-F-64: the palette is glass Command — input, groups per type, items, empty
+[87/238] [chromium] › e2e/f-w14u-paper.spec.ts:300:5 › paper-search 1440 › UIA-F-235: search fields do not spellcheck
+[88/238] [chromium] › e2e/f-w14u-paper.spec.ts:314:5 › paper-mobile 390 › UIA-F-66: floating ToC rows are start-aligned; Scroll to top is one line
+[89/238] [chromium] › e2e/f-w14u-paper.spec.ts:341:5 › paper-mobile 390 › UIA-F-67: the phone ToC is glass Popover; no inline overflow write; every level reachable
+[90/238] [chromium] › e2e/f-w14u-paper.spec.ts:365:5 › paper-mobile 390 › UIA-F-162: content first — no inline chapter list; a compact bar at the top; one icon radius
+[91/238] [chromium] › e2e/f-w14u-paper.spec.ts:397:5 › paper-mobile 390 › UIA-F-163: no consumer :hover paint outside (hover: hover)
+[92/238] [chromium] › e2e/f-w14u-paper.spec.ts:425:5 › paper-mobile 390 › UIA-F-236: the bar reports chapter and section, is inset from the edges, the chip stays clear
+[93/238] [chromium] › e2e/f-w14u-paper.spec.ts:464:5 › paper-mobile 390 › UIA-F-158 + UIA-F-235: the phone search says 'No results'; its panel is the bar's width with a gap
+[94/238] [chromium] › e2e/f-w14u-shell.spec.ts:58:9 › s52 UIA-F-52 — the login surface moves focus in, returns it, dismisses (1440) › open focuses the field; Escape and an outside press close and return focus
+[95/238] [chromium] › e2e/f-w14u-shell.spec.ts:73:9 › s55 UIA-F-55 ⊕ s53 UIA-F-53 — the dock row never morphs for the form (1440) › opening the form and a slug error leave the dock box unchanged
+[96/238] [chromium] › e2e/f-w14u-shell.spec.ts:58:9 › s52 UIA-F-52 — the login surface moves focus in, returns it, dismisses (390) › open focuses the field; Escape and an outside press close and return focus
+[97/238] [chromium] › e2e/f-w14u-shell.spec.ts:73:9 › s55 UIA-F-55 ⊕ s53 UIA-F-53 — the dock row never morphs for the form (390) › opening the form and a slug error leave the dock box unchanged
+[98/238] [chromium] › e2e/f-w14u-shell.spec.ts:90:5 › s54 UIA-F-54 ⊕ s153 UIA-F-153 — one face per control, no plate inside the dock › logged in: the account is one trigger; every dock control is a dock face; no bordered plate
+[99/238] [chromium] › e2e/f-w14u-shell.spec.ts:118:5 › s155 UIA-F-155 — the field says what is wrong, on one channel › a malformed slug is named on blur, before any Enter
+[100/238] [chromium] › e2e/f-w14u-shell.spec.ts:126:5 › s155 UIA-F-155 — the field says what is wrong, on one channel › a server failure is reported in the field only (no toast), Generate too
+[101/238] [chromium] › e2e/f-w14u-shell.spec.ts:150:5 › s232 UIA-F-232 — the login micro-issues › a readable identity, a quiet placeholder, glass emphasis, and copy is announced
+[102/238] [chromium] › e2e/f-w14u-shell.spec.ts:177:5 › s121 UIA-F-121 — no raw HTTP status as the message › an unknown slug and a refused admin token say what happened, not 'Not Found' / 'Forbidden'
+[103/238] [chromium] › e2e/f-w14u-shell.spec.ts:200:5 › s121 UIA-F-121 — no raw HTTP status as the message › the gallery route's duplicate problemMessage is gone (one reader, lib/api-problem)
+[104/238] [chromium] › e2e/f-w14u-shell.spec.ts:207:5 › s214 UIA-F-214 — toast policy › no tone-echo title; an error stays until dismissed
+[105/238] [chromium] › e2e/f-w14u-shell.spec.ts:228:5 › s214 UIA-F-214 — toast policy › a failed morph Export copy reports itself
+[106/238] [chromium] › e2e/f-w14u-shell.spec.ts:280:5 › s256 UIA-F-256 ⊕ UIA-F-248 (View) — the publish toast names the piece and offers it › no parenthesised slug; a View action opens the piece
+[107/238] [chromium] › e2e/f-w14u-shell.spec.ts:309:5 › s57 UIA-F-57 ⊕ s154 UIA-F-154 ⊕ s233 UIA-F-233 (About) ⊕ s219 UIA-F-219 — the About card › a type ramp under the body size; glass Separator; the house ring; content that earns its place; no offset literal
+[108/238] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (1440) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[109/238] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (1024) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[110/238] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (768) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[111/238] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (390) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[112/238] [chromium] › e2e/f-w14u-shell.spec.ts:387:5 › s128 UIA-F-128 ⊕ s233 (nav) ⊕ s231 UIA-F-231 — the phone nav menu › no local current-row tint or plate literals; a visible label; one press reaches About
+[113/238] [chromium] › e2e/f-w14u-shell.spec.ts:409:5 › s128 UIA-F-128 ⊕ s233 (nav) ⊕ s231 UIA-F-231 — the phone nav menu › an unknown route does not claim a section
+[114/238] [chromium] › e2e/f-w14u-shell.spec.ts:419:5 › s152 UIA-F-152 ⊕ s130 UIA-F-130 — the dock's gutter and one face for the theme control › the header clears content by its gutter; the theme control is a dock face in the dock cell
+[115/238] [chromium] › e2e/f-w14u-shell.spec.ts:440:5 › s150 UIA-F-150 ⊕ s144 UIA-F-144 (consumer) — one admin state, one Log out › no admin disc in the dock; the account menu carries the admin state; one Log out
+[116/238] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames light 1440 › dock, login, error, About, nav, account
+[117/238] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames light 390 › dock, login, error, About, nav, account
+[118/238] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames dark 1440 › dock, login, error, About, nav, account
+[119/238] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames dark 390 › dock, login, error, About, nav, account
+[120/238] [chromium] › e2e/f-w14u-t.spec.ts:103:9 › G-t — the desktop ToC is a drawer under the paper (1440, light) › t1+t2 — hide slides it under the paper to an edge tab; show restores it exactly; focus stays
+[121/238] [chromium] › e2e/f-w14u-t.spec.ts:103:9 › G-t — the desktop ToC is a drawer under the paper (1440, dark) › t1+t2 — hide slides it under the paper to an edge tab; show restores it exactly; focus stays
+[122/238] [chromium] › e2e/f-w14u-t.spec.ts:162:5 › G-t — persistence and motion (1440) › t3 — the state persists per viewer across a reload, both ways
+[123/238] [chromium] › e2e/f-w14u-t.spec.ts:177:5 › G-t — persistence and motion (1440) › t4 — storage that throws never breaks the page
+[124/238] [chromium] › e2e/f-w14u-t.spec.ts:206:9 › G-t — persistence and motion (1440) › reduced motion › t5 — prefers-reduced-motion: the hide is instant
+[125/238] [chromium] › e2e/f-w14u-t.spec.ts:223:9 › G-t — the mobile presentation of the one ToC (390, light) › t6 — no desktop drawer below lg; the floating bar opens the ToC
+[126/238] [chromium] › e2e/f-w14u-t.spec.ts:223:9 › G-t — the mobile presentation of the one ToC (390, dark) › t6 — no desktop drawer below lg; the floating bar opens the ToC
+[127/238] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (1440) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[128/238] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (390) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[129/238] [chromium] › e2e/f-w14u-vstage.spec.ts:140:5 › F.W14U.vstage — drops and upload failures (1440) › e166 · F-166 ⊕ F-237 — the stage signals, the header band cannot navigate, a rejection says why
+[130/238] [chromium] › e2e/f-w14u-vstage.spec.ts:172:5 › F.W14U.vstage — drops and upload failures (1440) › e167 · F-167 — an upload failure is shown at the drop target; an unknown slug throws nothing
+[131/238] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (1440) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[132/238] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (390) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[133/238] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 light) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[134/238] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 dark) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[135/238] [chromium] › e2e/f-w14u-vstage.spec.ts:258:5 › F.W14U.vstage — upload and publish (1440) › e133 · F-133 (consumer) — the upload button says it is uploading
+[136/238] [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in
+[137/238] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[138/238] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[139/238] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[140/238] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[141/238] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[142/238] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[143/238] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (1440) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[144/238] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (390) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[145/238] [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (portrait 390) › the document never scrolls by the inset
+[146/238] [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (landscape 844) › the document never scrolls by the inset
+[147/238] [chromium] › e2e/f-w14v-au1.spec.ts:133:5 › au1 L2-2 consumer half (390 portrait) › the animation dock ends above the inset, in the stage and in fullscreen
+[148/238] [chromium] › e2e/f-w14v-au1.spec.ts:158:5 › au1 L2-3 (844×390, insets L/R 47) › interactive content keeps clear of the notch sides on every route
+[149/238] [chromium] › e2e/f-w14v-au1.spec.ts:220:5 › au1 L2-4 (844×390) › /v and /equation put the controls beside the stage, with no tab row
+[150/238] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (360) › the Controls/Canvas strip is centred on the column, inside its gutter
+[151/238] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (390) › the Controls/Canvas strip is centred on the column, inside its gutter
+[152/238] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (430) › the Controls/Canvas strip is centred on the column, inside its gutter
+[153/238] [chromium] › e2e/f-w14v-au1.spec.ts:270:5 › au1 L2-16 (844×390 /paper) › the floating bar is one title rung and its ToC plate ends above the inset
+[154/238] [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (1440) › the content edge holds across route switches
+[155/238] [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (390) › the content edge holds across route switches
+[156/238] [chromium] › e2e/f-w14v-au1.spec.ts:344:5 › au1 L2-17 (390 touch) › the modal Like, the /equation layer triggers and the About links are ≥ 44 px
+[157/238] [chromium] › e2e/f-w14v-au1.spec.ts:379:5 › au1 X-1 (1024×768) › the stage is either beside the controls or a full tab, never a stacked strip
+[158/238] [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (360 logged in) › the app dock's layer does not pan sideways once the Account group mounts
+[159/238] [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (390 logged in) › the app dock's layer does not pan sideways once the Account group mounts
+[160/238] [chromium] › e2e/f-w14v-au5.spec.ts:121:5 › A2-FO-L1-1 — one ToC tree › the drawer and the phone bar render one row anatomy per depth, and one reach
+[161/238] [chromium] › e2e/f-w14v-au5.spec.ts:146:5 › A2-FO-L1-19 — one scroll restoration on /paper › the shell writes no <main> offset on /paper; a generic route keeps its restore
+[162/238] [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside
+[163/238] [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage
+[164/238] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light
+[165/238] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 light › frames 390 light
+[166/238] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 dark › frames 1440 dark
+[167/238] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 dark › frames 390 dark
+[168/238] [chromium] › e2e/f-w14v-nav.spec.ts:18:5 › nav falsifier (1440): one section trigger, no inline section links › the dock's sections are one dropdown trigger
+[169/238] [chromium] › e2e/f-w14v-nav.spec.ts:48:9 › dm falsifier (1440): the dark-mode glyph is the dock's glyph box › morph glyph bbox equals the section and account glyph bboxes
+[170/238] [chromium] › e2e/f-w14v-nav.spec.ts:48:9 › dm falsifier (390): the dark-mode glyph is the dock's glyph box › morph glyph bbox equals the section and account glyph bboxes
+[171/238] [chromium] › e2e/f-w14v-p.spec.ts:96:5 › F.W14V.p — a signed-out Publish reaches the inline sign-in and resumes › p1: signed out → the inline sign-in, then the publish resumes
+[172/238] [chromium] › e2e/f-w14v-p.spec.ts:106:5 › F.W14V.p — a signed-out Publish reaches the inline sign-in and resumes › p2: a stale sign-in → the server's owner_required reaches the inline sign-in, never the raw toast
+[173/238] [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1440: the toast and the Configurator's aside do not intersect
+[174/238] [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect
+[175/238] [chromium] › e2e/f-w14v-u4.spec.ts:109:9 › X.F.W14V.u4 — the stage surface and its readouts › u68 · UIA-F-68 ⊕ F-168 — no cartoon-card stamp inside the stage (1440)
+[176/238] [chromium] › e2e/f-w14v-u4.spec.ts:109:9 › X.F.W14V.u4 — the stage surface and its readouts › u68 · UIA-F-68 ⊕ F-168 — no cartoon-card stamp inside the stage (390)
+  8) [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect 
+
+    Error: toast {"x":620,"y":656.96875,"width":388,"height":95.03125} over aside {"x":656,"y":88,"width":352,"height":668}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 33451
+
+      148 |                 y: Math.max(0, Math.min(a.y + a.height, t.y + t.height) - Math.max(a.y, t.y)),
+      149 |             };
+    > 150 |             expect(overlap.x * overlap.y, `toast ${JSON.stringify(t)} over aside ${JSON.stringify(a)}`).toBe(0);
+          |                                                                                                         ^
+      151 |         });
+      152 |     }
+      153 | });
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/f-w14v-p.spec.ts:150:105
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-p-F-W14V-p-—-a-toas-8254a-or-s-aside-do-not-intersect-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-p-F-W14V-p-—-a-toas-8254a-or-s-aside-do-not-intersect-chromium/error-context.md
+
+
+[177/238] [chromium] › e2e/f-w14v-u4.spec.ts:150:5 › X.F.W14V.u4 — the stage surface and its readouts › u74 · UIA-F-74 — at 390 a finished upload shows the canvas
+[178/238] [chromium] › e2e/f-w14v-u4.spec.ts:164:9 › X.F.W14V.u4 — the stage surface and its readouts › u71 · UIA-F-71 — the first upload shows one busy mark, in view (1440)
+[179/238] [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree
+[180/238] [chromium] › e2e/f-w14v-u4.spec.ts:164:9 › X.F.W14V.u4 — the stage surface and its readouts › u71 · UIA-F-71 — the first upload shows one busy mark, in view (390)
+[181/238] [chromium] › e2e/f-w14v-u4.spec.ts:175:5 › X.F.W14V.u4 — the stage surface and its readouts › u146 · UIA-F-146 — no tooltip on a non-focusable target; no Tooltip as a TransitionGroup child
+[182/238] [chromium] › e2e/f-w14v-u4.spec.ts:194:5 › X.F.W14V.u4 — the stage surface and its readouts › u172 · UIA-F-172 (non-colour limb) — the magnet's state reads in text
+[183/238] [chromium] › e2e/f-w14v-u4.spec.ts:225:5 › X.F.W14V.u4 — the stage surface and its readouts › u238 · UIA-F-238 — reserved compute row, role=status, the tab strip, the header reset, no orphan
+[184/238] [chromium] › e2e/f-w14v-u4.spec.ts:268:5 › X.F.W14V.u4 — the stage surface and its readouts › u239 · UIA-F-239 — no local GlassTimeline; the caret is glass's floating plate
+[185/238] [chromium] › e2e/f-w14v-u4.spec.ts:294:5 › X.F.W14V.u4 — the stage surface and its readouts › u239b · UIA-F-239 — at 390 the legend is clear of the expanded dock
+[186/238] [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time
+  9) [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+
+    Error: axe-core serious/critical violations at "gallery admin banner (GAB-1 stat cells)":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/gallery-admin-a11y.spec.ts:100:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-d8889-e-graded-for-the-first-time-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-d8889-e-graded-for-the-first-time-chromium/error-context.md
+
+
+[187/238] [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel
+[188/238] [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel
+  10) [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Flagged":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/gallery-admin-a11y.spec.ts:122:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-56988-MIN-AXE-admin-flagged-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-56988-MIN-AXE-admin-flagged-panel-chromium/error-context.md
+
+
+[189/238] [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel
+  11) [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Users":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          div[aria-label="Notifications (F8)"] > span:nth-child(1)
+          div[aria-label="Notifications (F8)"] > span:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/gallery-admin-a11y.spec.ts:111:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-2e4aa-ADMIN-AXE-admin-users-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-2e4aa-ADMIN-AXE-admin-users-panel-chromium/error-context.md
+
+
+[190/238] [chromium] › e2e/gallery.spec.ts:84:5 › Gallery UX › switching to drafts tab shows drafts section
+[191/238] [chromium] › e2e/gallery.spec.ts:56:5 › Gallery UX › gallery page renders with tabs and search bar
+  12) [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Audit Log":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          div[aria-label="Notifications (F8)"] > span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/gallery-admin-a11y.spec.ts:133:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-ad7cf-N-AXE-admin-audit-log-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-ad7cf-N-AXE-admin-audit-log-panel-chromium/error-context.md
+
+
+[192/238] [chromium] › e2e/gallery.spec.ts:126:5 › Gallery UX › login form shows the format placeholder and dice button
+[193/238] [chromium] › e2e/gallery.spec.ts:151:5 › Gallery UX › a gallery card opens its modal and the modal names itself
+[194/238] [chromium] › e2e/gallery.spec.ts:180:5 › Gallery UX › no console errors OR warnings on gallery page
+[195/238] [chromium] › e2e/gallery.spec.ts:226:5 › Visualizer overlay dock › visualizer surfaces its overlay control dock
+[196/238] [chromium] › e2e/paper-performance.spec.ts:150:5 › Paper performance › initial paper render stays windowed
+[197/238] [chromium] › e2e/gallery.spec.ts:101:5 › Gallery UX › search bar filter drawer toggles
+[198/238] [chromium] › e2e/paper-performance.spec.ts:158:5 › Paper performance › forward scrolling never regresses the page indicator back to 1
+[199/238] [chromium] › e2e/paper-search.spec.ts:56:5 › S3 — /paper search (G-F9-4) › the search field is a named combobox with the listbox it controls
+[200/238] [chromium] › e2e/paper-search.spec.ts:78:5 › S3 — /paper search (G-F9-4) › typing a query opens the listbox and populates typed result rows
+[201/238] [chromium] › e2e/paper-search.spec.ts:116:5 › S3 — /paper search (G-F9-4) › selecting a result navigates the paper to that section
+[202/238] [chromium] › e2e/paper-performance.spec.ts:176:5 › Paper performance › far TOC jumps land on DFT as Matrix Multiplication without over-mounting
+[203/238] [chromium] › e2e/shell-header.spec.ts:48:5 › Shell header (G-F9-12) › the logo trigger is named and opens its attribution card
+[204/238] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (1440)
+[205/238] [chromium] › e2e/paper-performance.spec.ts:235:5 › Paper performance › long scroll keeps mounted sections bounded and logs no browser errors
+[206/238] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (1440)
+[207/238] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (1024)
+[208/238] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (1024)
+[209/238] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (768)
+[210/238] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (768)
+[211/238] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (390)
+[212/238] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (390)
+  13) [chromium] › e2e/paper-performance.spec.ts:235:5 › Paper performance › long scroll keeps mounted sections bounded and logs no browser errors 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 32
+
+    - Array []
+    + Array [
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    + ]
+
+      265 |                 (message) => !message.includes("favicon") && !message.includes("404"),
+      266 |             ),
+    > 267 |         ).toEqual([]);
+          |           ^
+      268 |     });
+      269 |
+      270 |     test("appendix proofs, proof math, code listings, and bibliography render canonically", async ({ page }) => {
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/paper-performance.spec.ts:267:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/paper-performance-Paper-pe-1f4a0--and-logs-no-browser-errors-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/paper-performance-Paper-pe-1f4a0--and-logs-no-browser-errors-chromium/error-context.md
+
+
+[213/238] [chromium] › e2e/paper-performance.spec.ts:270:5 › Paper performance › appendix proofs, proof math, code listings, and bibliography render canonically
+[214/238] [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap
+[215/238] [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached
+[216/238] [chromium] › e2e/shell-header.spec.ts:112:5 › Shell header (G-F9-12) › the dark-mode toggle announces its state through aria-pressed
+[217/238] [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened
+  14) [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      94 |
+      95 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 96 |         await expect(card).toBeVisible({ timeout: 30_000 });
+         |                            ^
+      97 |         await freeze(page);
+      98 |
+      99 |         await expect(card).toHaveScreenshot("checkpoint-card-resting.png", SHOT);
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/visual-checkpoint.spec.ts:96:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/error-context.md
+
+
+[218/238] [chromium] › e2e/visual-checkpoint.spec.ts:145:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 8 — `text-admin-label`, reached through S1's admin entry
+  15) [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      114 |
+      115 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 116 |         await expect(card).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      117 |         await freeze(page);
+      118 |         await card.hover();
+      119 |
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/visual-checkpoint.spec.ts:116:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/error-context.md
+
+
+[219/238] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ mobile (375×667) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[220/238] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+  16) [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      132 |
+      133 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 134 |         await expect(card).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      135 |         await card.click();
+      136 |
+      137 |         const modal = page.getByRole("dialog");
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-cure/web/e2e/visual-checkpoint.spec.ts:134:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/error-context.md
+
+
+[221/238] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[222/238] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[223/238] [chromium] › e2e/visualization-crud.spec.ts:641:14 › visualization CRUD lifecycle @ mobile (375×667) @mutating › a11y keystone: workspace default is clean @ mobile @mutating
+[224/238] [chromium] › e2e/visualization-crud.spec.ts:651:9 › visualization CRUD lifecycle @ mobile (375×667) @mutating › a11y keystone: ExportModal Dialog-open is clean @ mobile @mutating
+[225/238] [chromium] › e2e/visualization-crud.spec.ts:641:14 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › a11y keystone: workspace default is clean @ laptop @mutating
+[226/238] [chromium] › e2e/visualization-crud.spec.ts:651:9 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › a11y keystone: ExportModal Dialog-open is clean @ laptop @mutating
+[227/238] [chromium] › e2e/visualization-ux.spec.ts:115:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: workspace default has no serious/critical a11y violations
+[228/238] [chromium] › e2e/visualization-crud.spec.ts:641:14 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › a11y keystone: workspace default is clean @ desktop @mutating
+[229/238] [chromium] › e2e/visualization-crud.spec.ts:651:9 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › a11y keystone: ExportModal Dialog-open is clean @ desktop @mutating
+[230/238] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+[231/238] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+[232/238] [chromium] › e2e/visualization-ux.spec.ts:181:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: AnimationControls dropdown-open is a11y-clean
+[233/238] [chromium] › e2e/visualization-ux.spec.ts:218:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /equation is a11y-clean
+[234/238] [chromium] › e2e/visualization-ux.spec.ts:272:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /paper is a11y-clean
+[235/238] [chromium] › e2e/visualization-ux.spec.ts:284:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /morph is a11y-clean
+[236/238] [chromium] › e2e/visualization-ux.spec.ts:300:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /demo/shape-extractor is a11y-clean
+[237/238] [chromium] › e2e/visualization-ux.spec.ts:332:5 › B.W2 — visualization UX coherence (a11y keystones) › save_contour_then_recompute: the saved contour is recomputed in one pass, the canvas keeps its render
+[238/238] [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project
+  16 failed
+    [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm 
+    [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm 
+    [chromium] › e2e/contrast-floor.spec.ts:128:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression 
+    [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+    [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card 
+    [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card 
+    [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor 
+    [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 
+    [chromium] › e2e/paper-performance.spec.ts:235:5 › Paper performance › long scroll keeps mounted sections bounded and logs no browser errors 
+    [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+    [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+    [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+  3 skipped
+  1 did not run
+  218 passed (7.0m)

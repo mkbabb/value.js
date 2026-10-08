@@ -1,0 +1,104 @@
+
+Running 6 tests using 2 workers
+
+[1/6] [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen
+[2/6] [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height
+  1) [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('[data-admin-row]').filter({ hasText: 'amber-fox-12' }).first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('[data-admin-row]').filter({ hasText: 'amber-fox-12' }).first()
+
+
+      413 |         // X.F.W14V.au4 (A2-FO-L1-27): the users ledger is glass DataTable.
+      414 |         const row = page.locator("[data-admin-row]").filter({ hasText: ADMIN_USERS.items[0].user_slug }).first();
+    > 415 |         await expect(row).toBeVisible();
+          |                           ^
+      416 |         const topBefore = (await row.boundingBox())!.y;
+      417 |         await row.getByRole("checkbox").click();
+      418 |         const bar = page.getByRole("group", { name: "Batch user actions" });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:415:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-36-—-the-u-eac80-or-seats-the-bar-off-screen-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-36-—-the-u-eac80-or-seats-the-bar-off-screen-chromium/error-context.md
+
+
+[3/6] [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill
+  2) [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('searchbox', { name: 'Search users' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for getByRole('searchbox', { name: 'Search users' })
+
+
+      435 |         await openAdminTab(page, "Users");
+      436 |         const search = page.getByRole("searchbox", { name: "Search users" });
+    > 437 |         await expect(search).toBeVisible();
+          |                              ^
+      438 |         const sw = (await search.boundingBox())!.width;
+      439 |         expect(sw, "the search field is not crushed").toBeGreaterThan(300);
+      440 |         const sort = page.getByRole("combobox", { name: "Sort users" });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:437:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-37-—-the-m-639de-t-carries-no-literal-height-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-37-—-the-m-639de-t-carries-no-literal-height-chromium/error-context.md
+
+
+[4/6] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ mobile (375×667) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+  3) [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('[aria-label="Admin audit entries"]').locator('tbody > tr, .data-table-card').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('[aria-label="Admin audit entries"]').locator('tbody > tr, .data-table-card').first()
+
+
+      461 |         // card-per-row projection; a card's fields are its title and its `dd`s.
+      462 |         const rows = table.locator("tbody > tr, .data-table-card");
+    > 463 |         await expect(rows.first()).toBeVisible();
+          |                                    ^
+      464 |         const cells = await rows.evaluateAll((trs) =>
+      465 |             trs.flatMap((tr) =>
+      466 |                 [...(tr.tagName === "TR" ? tr.children : tr.querySelectorAll(".data-table-card-title, dd"))].map((td) => ({
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:463:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-42-—-at-39-86fe4-on-badge-overflows-its-pill-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-42-—-at-39-86fe4-on-badge-overflows-its-pill-chromium/error-context.md
+
+
+[5/6] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[6/6] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+  3 failed
+    [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen 
+    [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height 
+    [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill 
+  3 passed (39.5s)
