@@ -1,0 +1,398 @@
+(node:51324) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 31 tests using 1 worker
+
+[1A[2K(node:51349) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/31] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title)
+[1A[2K[2/31] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+
+    Error: sm:line-clamp-1 not active at desktop
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"1"[39m
+    Received: [31m"none"[39m
+
+      253 |         .first();
+      254 |     const desktop = await typeVoice(longTitle);
+    > 255 |     expect(desktop.lineClamp, "sm:line-clamp-1 not active at desktop").toBe("1");
+          |                                                                        ^
+      256 |     expect(desktop.overflow).toBe("hidden");
+      257 |     const oneLine = await longTitle.evaluate((el) => {
+      258 |         const cs = getComputedStyle(el);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:255:72
+
+    Error Context: test-results/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/error-context.md
+
+
+[1A[2K(node:53130) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/31] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+
+    Error: line-clamp-2 not active <sm
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"2"[39m
+    Received: [31m"none"[39m
+
+      280 |     const voice = await typeVoice(longTitle);
+      281 |     expect(voice.fontFamily, "390: name off the display face").toMatch(DISPLAY_FACE);
+    > 282 |     expect(voice.lineClamp, "line-clamp-2 not active <sm").toBe("2");
+          |                                                            ^
+      283 |     const twoLinesMax = await longTitle.evaluate((el) => {
+      284 |         const cs = getComputedStyle(el);
+      285 |         return el.getBoundingClientRect().height <= parseFloat(cs.lineHeight) * 2.5;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:282:60
+
+    Error Context: test-results/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/error-context.md
+
+
+[1A[2K(node:54006) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/31] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles
+[1A[2K[5/31] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette)
+[1A[2K[6/31] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:454:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row
+[1A[2K[7/31] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)
+[1A[2K[8/31] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)
+[1A[2K[9/31] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders
+[1A[2K[10/31] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub
+[1A[2K[11/31] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated
+[1A[2K[12/31] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header
+[1A[2K[13/31] [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead
+[1A[2K[14/31] [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Generation preset' })[22m
+
+
+      69 |
+      70 |         // Open the Preset menu; every row carries a stamped preview strip.
+    > 71 |         await page.getByRole("combobox", { name: "Generation preset" }).click();
+         |                                                                         ^
+      72 |         const listbox = page.getByRole("listbox");
+      73 |         await expect(listbox).toBeVisible();
+      74 |         const chips = listbox.locator("[data-stops]");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o20-generate-plate.spec.ts:71:73
+
+    Error Context: test-results/oracles-o20-generate-plate-216a9-palette-selecting-it-yields-smoke/error-context.md
+
+
+[1A[2K(node:64099) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[15/31] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:77:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › rename — a refused PATCH is said on the inspector
+[1A[2K[16/31] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector
+[1A[2K  4) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('dialog').getByRole('checkbox').first()[22m
+
+
+       95 |         await menu(page, /Edit Tags/);
+       96 |         // The editor's own box (the browse filter bar lists the same catalog).
+    >  97 |         await page.getByRole("dialog").getByRole("checkbox").first().click();
+          |                                                                      ^
+       98 |         await expect(verdict(page, /The tags were not saved: Server exploded/)).toBeVisible();
+       99 |     });
+      100 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:97:70
+
+    Error Context: test-results/oracles-w7-inspector-rows--353ce-ve-is-said-on-the-inspector-smoke/error-context.md
+
+
+[1A[2K(node:69586) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[17/31] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:101:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › publish / unpublish — a refused flip is said on the inspector
+[1A[2K  5) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:101:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › publish / unpublish — a refused flip is said on the inspector 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('status').filter({ hasText: 'Unpublish failed: Server exploded' })
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('status').filter({ hasText: 'Unpublish failed: Server exploded' })[22m
+
+
+      102 |         await wallFailing(page, "POST", "owned-one/unpublish");
+      103 |         await menu(page, /Make private/);
+    > 104 |         await expect(verdict(page, "Unpublish failed: Server exploded")).toBeVisible();
+          |                                                                          ^
+      105 |     });
+      106 |
+      107 |     userTest("fork — a refused remix is said on the inspector", async ({ page }) => {
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:104:74
+
+    Error Context: test-results/oracles-w7-inspector-rows--8495e-ip-is-said-on-the-inspector-smoke/error-context.md
+
+
+[1A[2K(node:72482) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[18/31] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:107:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › fork — a refused remix is said on the inspector
+[1A[2K  6) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:107:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › fork — a refused remix is said on the inspector 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('status').filter({ hasText: /^Remix failed/ })
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('status').filter({ hasText: /^Remix failed/ })[22m
+
+
+      108 |         await wallFailing(page, "POST", "owned-one/fork");
+      109 |         await menu(page, /Remix/);
+    > 110 |         await expect(verdict(page, /^Remix failed/)).toBeVisible();
+          |                                                      ^
+      111 |     });
+      112 |
+      113 |     userTest("vote — a refused vote is said on the inspector", async ({ page }) => {
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:110:54
+
+    Error Context: test-results/oracles-w7-inspector-rows--01bce-ix-is-said-on-the-inspector-smoke/error-context.md
+
+
+[1A[2K(node:75261) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[19/31] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:113:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › vote — a refused vote is said on the inspector
+[1A[2K[20/31] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:119:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › delete — a refused delete is said on the inspector, and the palette stays
+[1A[2K  7) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:119:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › delete — a refused delete is said on the inspector, and the palette stays 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('dialog').getByRole('button', { name: 'Delete palette' })[22m
+    [2m    - locator resolved to <button type="button" data-size="md" data-slot="button" data-press-armed="" data-control-target="" data-tone="destructive" data-emphasis="secondary" class="button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      121 |         await menu(page, /^Delete$/);
+      122 |         // UIA-V-111 (X.W12U.s1): the owner's delete is confirmed first.
+    > 123 |         await page.getByRole("dialog").getByRole("button", { name: "Delete palette" }).click();
+          |                                                                                        ^
+      124 |         await expect(verdict(page, "Delete failed: Server exploded")).toBeVisible();
+      125 |         await expect(card(page)).toBeVisible();
+      126 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:123:88
+
+    Error Context: test-results/oracles-w7-inspector-rows--26cd1-ector-and-the-palette-stays-smoke/error-context.md
+
+
+[1A[2K(node:78071) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[21/31] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path
+[1A[2K  8) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('.glass-dock[data-morphing]')
+    Expected: [32m0[39m
+    Received: [31m1[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 5000ms[22m
+    [2m  - waiting for locator('.glass-dock[data-morphing]')[22m
+    [2m    14 × locator resolved to 1 element[22m
+    [2m       - unexpected value "1"[22m
+
+
+       at smoke/fixtures/dock.ts:48
+
+      46 |         // The collapse↔expand morph runs the dock's single settling spring;
+      47 |         // wait for `[data-morphing]` to clear so the controls inside are at rest.
+    > 48 |         await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
+         |                                                                  ^
+      49 |             timeout: 5000,
+      50 |         });
+      51 |     }
+        at expandDock (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:48:66)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:134:9
+
+    Error Context: test-results/oracles-w7-inspector-rows--61d4d-t-runs-the-inspector-s-path-smoke/error-context.md
+
+
+[1A[2K(node:80679) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[22/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:106:5 › D1 · one contract, ONE render path › the color scene renders through the one action row
+[1A[2K  9) [smoke] › e2e/smoke/scene-action-contract.spec.ts:106:5 › D1 · one contract, ONE render path › the color scene renders through the one action row 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  locator('.glass-dock')
+    Expected: visible
+    Received: hidden
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('.glass-dock')[22m
+    [2m    19 × locator resolved to <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>[22m
+    [2m       - unexpected value "hidden"[22m
+
+
+      90 | async function landAndOpenBar(page: Page, view?: string): Promise<void> {
+      91 |     await page.goto("/");
+    > 92 |     await expect(page.locator(".glass-dock")).toBeVisible();
+         |                                               ^
+      93 |     if (view) {
+      94 |         await openView(page, view);
+      95 |     }
+        at landAndOpenBar (/Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:92:47)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:107:9
+
+    Error Context: test-results/scene-action-contract-D1-·-0b42b--through-the-one-action-row-smoke/error-context.md
+
+
+[1A[2K(node:81494) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[23/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:125:5 › D1 · one contract, ONE render path › a workbench scene renders through the SAME row and shape
+[1A[2K[24/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:139:5 › D1 · one contract, ONE render path › the Picker priority is GONE: /mix renders the mix set, not the picker's
+[1A[2K[25/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  10) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-abb86--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:90891) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[26/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  11) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  locator('.glass-dock')
+    Expected: visible
+    Received: hidden
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('.glass-dock')[22m
+    [2m    19 × locator resolved to <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded pinned fit-content always-expanded">…</div>[22m
+    [2m       - unexpected value "hidden"[22m
+
+
+      90 | async function landAndOpenBar(page: Page, view?: string): Promise<void> {
+      91 |     await page.goto("/");
+    > 92 |     await expect(page.locator(".glass-dock")).toBeVisible();
+         |                                               ^
+      93 |     if (view) {
+      94 |         await openView(page, view);
+      95 |     }
+        at landAndOpenBar (/Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:92:47)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:175:13
+
+    Error Context: test-results/scene-action-contract-D4-·-94d05--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:94121) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[27/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  12) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  locator('.glass-dock')
+    Expected: visible
+    Received: hidden
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('.glass-dock')[22m
+    [2m    19 × locator resolved to <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded pinned fit-content always-expanded">…</div>[22m
+    [2m       - unexpected value "hidden"[22m
+
+
+      90 | async function landAndOpenBar(page: Page, view?: string): Promise<void> {
+      91 |     await page.goto("/");
+    > 92 |     await expect(page.locator(".glass-dock")).toBeVisible();
+         |                                               ^
+      93 |     if (view) {
+      94 |         await openView(page, view);
+      95 |     }
+        at landAndOpenBar (/Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:92:47)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:175:13
+
+    Error Context: test-results/scene-action-contract-D4-·-50666--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:96432) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[28/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:205:5 › D4 · a registered target is READY, and dispatches for real › Generate on the desktop branch: three ready seats, and one real dispatch
+[1A[2K[29/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:250:5 › §8 artefact 8 — the dock action bar's frames (desktop matrix) › the Mix view's bar, framed
+[1A[2K[30/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:262:5 › §8 artefact 8 — the dock action bar's frames (390 viewport) › the Mix view's bar with no pane registered, framed
+[1A[2K[31/31] [smoke] › e2e/smoke/scene-action-contract.spec.ts:272:5 › AB-32 · the collapse CARRIES the active/selected member › the palette-open indicator survives the contract collapse
+[1A[2K  12 failed
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+    [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:101:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › publish / unpublish — a refused flip is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:107:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › fork — a refused remix is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:119:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › delete — a refused delete is said on the inspector, and the palette stays 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:106:5 › D1 · one contract, ONE render path › the color scene renders through the one action row 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+  19 passed (9.9m)

@@ -1,0 +1,30 @@
+{
+ "blob-light": {
+  "bar": {
+   "top": 675.265625,
+   "bottom": 732.265625,
+   "height": 57
+  },
+  "card": {
+   "top": 112,
+   "bottom": 733.265625,
+   "height": 621.265625
+  },
+  "docH": 900,
+  "winH": 900
+ },
+ "blob-dark": {
+  "bar": {
+   "top": 675.265625,
+   "bottom": 732.265625,
+   "height": 57
+  },
+  "card": {
+   "top": 112,
+   "bottom": 733.265625,
+   "height": 621.265625
+  },
+  "docH": 900,
+  "winH": 900
+ }
+}

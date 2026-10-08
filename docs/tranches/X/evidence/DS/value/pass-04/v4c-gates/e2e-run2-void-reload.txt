@@ -1,0 +1,2714 @@
+(node:14039) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 117 tests using 1 worker
+
+[1A[2K(node:14157) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/117] [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition
+[1A[2K  1) [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition 
+
+    TimeoutError: page.goto: Timeout 60000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/mix", waiting until "load"[22m
+
+
+      135 | async function ready(page: Page, route: string, view: string) {
+      136 |     await page.goto("about:blank");
+    > 137 |     await page.goto(route, { timeout: 60_000 });
+          |                ^
+      138 |     await expect(mainPane(page)).toBeVisible({
+      139 |         timeout: 20_000,
+      140 |     });
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:137:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:312:9
+
+    Error Context: test-results/a11y-select-title-B1-·-com-bf845-nside-the-field-composition-smoke/error-context.md
+
+
+[1A[2K(node:25985) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/117] [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung
+[1A[2K  2) [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung 
+
+    TimeoutError: page.goto: Timeout 60000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/mix", waiting until "load"[22m
+
+
+      135 | async function ready(page: Page, route: string, view: string) {
+      136 |     await page.goto("about:blank");
+    > 137 |     await page.goto(route, { timeout: 60_000 });
+          |                ^
+      138 |     await expect(mainPane(page)).toBeVisible({
+      139 |         timeout: 20_000,
+      140 |     });
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:137:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:400:9
+
+    Error Context: test-results/a11y-select-title-B2-·-tri-a4b0b--lifts-with-the-coarse-rung-smoke/error-context.md
+
+
+[1A[2K(node:34908) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/117] [smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds
+[1A[2K[smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds
+[W4-B3] producerSliderVars=12 declaredInternal=4 consumerReads=0
+
+
+[1A[2K[4/117] [smoke] › e2e/smoke/dual-pane-1440.spec.ts:248:1 › D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune
+[1A[2K  3) [smoke] › e2e/smoke/dual-pane-1440.spec.ts:248:1 › D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      251 |     const root = readCascadeRoot();
+      252 |
+    > 253 |     await page.goto("/", { waitUntil: "load" });
+          |                ^
+      254 |
+      255 |     // Mount signal that SURVIVES the defect collapse: `#app` has children (Vue
+      256 |     // mounted) and the glass dock renders. The `role="main"` landmark is NOT
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/dual-pane-1440.spec.ts:253:16
+
+    Error Context: test-results/dual-pane-1440-D8-1-·-regi-fa1fb-pane-axis-is-cascade-immune-smoke/error-context.md
+
+
+[1A[2K(node:37632) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/117] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token
+[1A[2K  4) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      74 |         page,
+      75 |     }) => {
+    > 76 |         await page.goto("/");
+         |                    ^
+      77 |         await expect(mainPane(page)).toBeVisible();
+      78 |         await expect(page.locator(PICKER_TRIGGER)).toBeVisible();
+      79 |         await expect(page.locator(ABOUT_TRIGGER)).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:76:20
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-f2ee7--each-host-s-exact-D2-token-smoke/error-context.md
+
+
+[1A[2K(node:40397) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/117] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:119:5 › O-10a/e — title type locks (desktop dual grid) › height gate @900px: the ×φ header never pushes the picker console into scroll (C1)
+[1A[2K  5) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:119:5 › O-10a/e — title type locks (desktop dual grid) › height gate @900px: the ×φ header never pushes the picker console into scroll (C1) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      120 |         page,
+      121 |     }) => {
+    > 122 |         await page.goto("/");
+          |                    ^
+      123 |         await expect(mainPane(page)).toBeVisible();
+      124 |         const card = page.locator(".pane-shell > *").first();
+      125 |         await expect(card).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:122:20
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-c6ab0-ker-console-into-scroll-C1--smoke/error-context.md
+
+
+[1A[2K(node:42868) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[7/117] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floor-pins AT heading (deliberate no-op); About = honest 2-line lock
+[1A[2K  6) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floor-pins AT heading (deliberate no-op); About = honest 2-line lock 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      146 |         page,
+      147 |     }) => {
+    > 148 |         await page.goto("/");
+          |                    ^
+      149 |         const main = mainPane(page);
+      150 |         await expect(main).toBeVisible();
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:148:20
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-1c602-op-About-honest-2-line-lock-smoke/error-context.md
+
+
+[1A[2K(node:46004) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[8/117] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:201:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional
+[1A[2K  7) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:201:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      202 |         page,
+      203 |     }) => {
+    > 204 |         await page.goto("/");
+          |                    ^
+      205 |         await expect(mainPane(page)).toBeVisible();
+      206 |         const r = await page.evaluate(async () => {
+      207 |             await document.fonts.load("600 55px Fraunces");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:204:20
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-79876-ts-prose-stays-proportional-smoke/error-context.md
+
+
+[1A[2K(node:48586) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[9/117] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px
+[1A[2K  8) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      266 |             // list (the options carry no machine id, so the UI drive IS the
+      267 |             // honest enumeration).
+    > 268 |             await page.goto(
+          |                        ^
+      269 |                 `/#/?space=lab&color=${encodeURIComponent("lab(38% 32 24)")}`,
+      270 |             );
+      271 |             await expect(mainPane(page)).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:268:24
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-80b61-locked-line-count-at-1440px-smoke/error-context.md
+
+
+[1A[2K(node:65639) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[10/117] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px
+[1A[2K  9) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      266 |             // list (the options carry no machine id, so the UI drive IS the
+      267 |             // honest enumeration).
+    > 268 |             await page.goto(
+          |                        ^
+      269 |                 `/#/?space=lab&color=${encodeURIComponent("lab(38% 32 24)")}`,
+      270 |             );
+      271 |             await expect(mainPane(page)).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:268:24
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-4cfad--locked-line-count-at-390px-smoke/error-context.md
+
+
+[1A[2K(node:87598) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[11/117] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title)
+[1A[2K  10) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      167 | }) => {
+      168 |     test.setTimeout(120_000);
+    > 169 |     await page.goto("/");
+          |                ^
+      170 |     const main = mainPane(page);
+      171 |     await expect(main).toBeVisible();
+      172 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:169:16
+
+    Error Context: test-results/oracles-o10d-display-voice-c5977-lay-voice-the-picker-title--smoke/error-context.md
+
+
+[1A[2K(node:6522) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[12/117] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif
+[1A[2K  11) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      220 |     test.setTimeout(60_000);
+      221 |     await routeCensusWall(page);
+    > 222 |     await page.goto("/");
+          |                ^
+      223 |     const main = mainPane(page);
+      224 |     await expect(main).toBeVisible();
+      225 |     await openView(page, "Browse");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:222:16
+
+    Error Context: test-results/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/error-context.md
+
+
+[1A[2K(node:11503) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[13/117] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif
+[1A[2K  12) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      268 |     await page.setViewportSize({ width: 390, height: 844 });
+      269 |     await routeCensusWall(page);
+    > 270 |     await page.goto("/");
+          |                ^
+      271 |     const main = mainPane(page);
+      272 |     await expect(main).toBeVisible();
+      273 |     await openView(page, "Browse");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:270:16
+
+    Error Context: test-results/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/error-context.md
+
+
+[1A[2K(node:15725) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[14/117] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles
+[1A[2K  13) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      293 |     test.setTimeout(90_000);
+      294 |     await routeCensusWall(page);
+    > 295 |     await page.goto("/");
+          |                ^
+      296 |     const main = mainPane(page);
+      297 |     await expect(main).toBeVisible();
+      298 |     await openView(page, "Browse");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:295:16
+
+    Error Context: test-results/oracles-o10d-display-voice-e293c--drawer-·-hover-card-titles-smoke/error-context.md
+
+
+[1A[2K(node:19357) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[15/117] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette)
+[1A[2K  14) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      405 |         ["Census Local Palette"],
+      406 |     );
+    > 407 |     await page.goto("/");
+          |                ^
+      408 |     const main = mainPane(page);
+      409 |     await expect(main).toBeVisible();
+      410 |     await openView(page, "Palettes");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:407:16
+
+    Error Context: test-results/oracles-o10d-display-voice-6dfeb-serif-seeded-local-palette--smoke/error-context.md
+
+
+[1A[2K(node:21267) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[16/117] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:454:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row
+[1A[2K[17/117] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)
+[1A[2K  15) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      102 |     }) => {
+      103 |         test.setTimeout(120_000);
+    > 104 |         await page.goto("/");
+          |                    ^
+      105 |         await expect(mainPane(page)).toBeVisible();
+      106 |         if (scheme === "dark") {
+      107 |             await page.evaluate(() =>
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:104:20
+
+    Error Context: test-results/oracles-o11-header-gates-O-5e2e5-r-feather-every-pane-light--smoke/error-context.md
+
+
+[1A[2K(node:28738) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[18/117] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)
+[1A[2K  16) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      102 |     }) => {
+      103 |         test.setTimeout(120_000);
+    > 104 |         await page.goto("/");
+          |                    ^
+      105 |         await expect(mainPane(page)).toBeVisible();
+      106 |         if (scheme === "dark") {
+      107 |             await page.evaluate(() =>
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:104:20
+
+    Error Context: test-results/oracles-o11-header-gates-O-5323e-or-feather-every-pane-dark--smoke/error-context.md
+
+
+[1A[2K(node:33258) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[19/117] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders
+[1A[2K  17) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      162 | }, testInfo) => {
+      163 |     test.setTimeout(60_000);
+    > 164 |     await page.goto("/");
+          |                ^
+      165 |     await expect(mainPane(page)).toBeVisible();
+      166 |
+      167 |     // About (Home right pane) + Gradient — the two earliest colliders
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:164:16
+
+    Error Context: test-results/oracles-o11-header-gates-O-3ce20-nder-the-earliest-colliders-smoke/error-context.md
+
+
+[1A[2K(node:35197) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[20/117] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub
+[1A[2K  18) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      223 | }, testInfo) => {
+      224 |     test.setTimeout(90_000);
+    > 225 |     await page.goto("/");
+          |                ^
+      226 |     await expect(mainPane(page)).toBeVisible();
+      227 |
+      228 |     // Structural half: walk every same-origin sheet's pane-* keyframes.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:225:16
+
+    Error Context: test-results/oracles-o11-header-gates-O-ecc5b--is-FLAT-under-a-live-scrub-smoke/error-context.md
+
+
+[1A[2K(node:38232) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[21/117] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated
+[1A[2K  19) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      333 |     page,
+      334 | }) => {
+    > 335 |     await page.goto("/");
+          |                ^
+      336 |     await expect(mainPane(page)).toBeVisible();
+      337 |     // The same mount-wait discipline as gates 1+2: `main` turns visible before
+      338 |     // the pane cards finish revealing, so an un-waited read races the boot
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:335:16
+
+    Error Context: test-results/oracles-o11-header-gates-O-1d281-l-binding-is-supports-gated-smoke/error-context.md
+
+
+[1A[2K(node:39355) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[22/117] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header
+[1A[2K  20) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      404 | }) => {
+      405 |     test.setTimeout(60_000);
+    > 406 |     await page.goto("/");
+          |                ^
+      407 |     await expect(mainPane(page)).toBeVisible();
+      408 |     for (const view of ["Home", "Palettes", "Gradient"] as const) {
+      409 |         if (view !== "Home") await openView(page, view);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:406:16
+
+    Error Context: test-results/oracles-o11-header-gates-O-16b72-thing-out-stacks---z-header-smoke/error-context.md
+
+
+[1A[2K(node:41212) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[23/117] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc
+[1A[2K  21) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+       98 |
+       99 | async function bootWithBlob(page: import("@playwright/test").Page) {
+    > 100 |     await page.goto("/");
+          |                ^
+      101 |     await expect(mainPane(page)).toBeVisible();
+      102 |     const blob = page.locator(BLOB_CANVAS).last();
+      103 |     // Arrival is harness latency, not a seat reading: the canvas mounts behind
+        at bootWithBlob (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:100:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:126:26
+
+    Error Context: test-results/oracles-o12-blob-seat-O-12-4e9fa--occluded-by-the-bead-s-arc-smoke/error-context.md
+
+
+[1A[2K(node:43875) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[24/117] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget
+[1A[2K  22) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+       98 |
+       99 | async function bootWithBlob(page: import("@playwright/test").Page) {
+    > 100 |     await page.goto("/");
+          |                ^
+      101 |     await expect(mainPane(page)).toBeVisible();
+      102 |     const blob = page.locator(BLOB_CANVAS).last();
+      103 |     // Arrival is harness latency, not a seat reading: the canvas mounts behind
+        at bootWithBlob (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:100:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:184:11
+
+    Error Context: test-results/oracles-o12-blob-seat-O-12-10b08-per-frame-cadence-in-budget-smoke/error-context.md
+
+
+[1A[2K(node:47293) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[25/117] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[1A[2K  23) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+       98 |
+       99 | async function bootWithBlob(page: import("@playwright/test").Page) {
+    > 100 |     await page.goto("/");
+          |                ^
+      101 |     await expect(mainPane(page)).toBeVisible();
+      102 |     const blob = page.locator(BLOB_CANVAS).last();
+      103 |     // Arrival is harness latency, not a seat reading: the canvas mounts behind
+        at bootWithBlob (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:100:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:246:28
+
+    Error Context: test-results/oracles-o12-blob-seat-O-12-b4a4b-ointermove-sweep-p50-≤-20ms-smoke/error-context.md
+
+
+[1A[2K(node:51459) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[26/117] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[1A[2K  24) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2) 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+       98 |
+       99 | async function bootWithBlob(page: import("@playwright/test").Page) {
+    > 100 |     await page.goto("/");
+          |                ^
+      101 |     await expect(mainPane(page)).toBeVisible();
+      102 |     const blob = page.locator(BLOB_CANVAS).last();
+      103 |     // Arrival is harness latency, not a seat reading: the canvas mounts behind
+        at bootWithBlob (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:100:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:289:28
+
+    Error Context: test-results/oracles-o12-blob-seat-O-12-81722-ge-presize-wreck-boot-G-R2--smoke/error-context.md
+
+
+[1A[2K(node:54617) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[27/117] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8)
+[1A[2K  25) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      199 |         page,
+      200 |     }) => {
+    > 201 |         await page.goto("/");
+          |                    ^
+      202 |         await page.waitForSelector(".glass-dock");
+      203 |
+      204 |         // The writer must have resolved BOTH per-site triples (the accent
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:201:20
+
+    Error Context: test-results/oracles-o14-preview-truth--3acd0-ite-certified-outputs-WR-8--smoke/error-context.md
+
+
+[1A[2K(node:55747) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[28/117] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column
+[1A[2K  26) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      253 |         page,
+      254 |     }) => {
+    > 255 |         await page.goto("/");
+          |                    ^
+      256 |         await page.waitForSelector(".glass-dock");
+      257 |         // The 9 `--accent-view-<id>` tokens died with the legend (R1); the
+      258 |         // resurrection guard reads the live root inline style.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:255:20
+
+    Error Context: test-results/oracles-o14-preview-truth--a6059-static-tokens-no-dot-column-smoke/error-context.md
+
+
+[1A[2K(node:56909) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[29/117] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp
+[1A[2K  27) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      295 |             page,
+      296 |         }) => {
+    > 297 |             await page.goto("/");
+          |                        ^
+      298 |             await page.waitForSelector(".glass-dock");
+      299 |             await expect
+      300 |                 .poll(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:297:24
+
+    Error Context: test-results/oracles-o14-preview-truth--1d3c7--never-the-near-black-clamp-smoke/error-context.md
+
+
+[1A[2K(node:58064) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[30/117] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp
+[1A[2K  28) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      295 |             page,
+      296 |         }) => {
+    > 297 |             await page.goto("/");
+          |                        ^
+      298 |             await page.waitForSelector(".glass-dock");
+      299 |             await expect
+      300 |                 .poll(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:297:24
+
+    Error Context: test-results/oracles-o14-preview-truth--c70ff--never-the-near-black-clamp-smoke/error-context.md
+
+
+[1A[2K(node:61803) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[31/117] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip
+[1A[2K  29) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      362 |         page,
+      363 |     }) => {
+    > 364 |         await page.goto("/");
+          |                    ^
+      365 |         await page.waitForSelector(".glass-dock");
+      366 |         await openView(page, "Mix");
+      367 |         await page.getByRole("combobox", { name: "Color space", exact: true }).click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:364:20
+
+    Error Context: test-results/oracles-o14-preview-truth--9f00b-ands-the-rows-carry-NO-chip-smoke/error-context.md
+
+
+[1A[2K(node:63417) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[32/117] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops
+[1A[2K  30) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      374 |         page,
+      375 |     }) => {
+    > 376 |         await page.goto("/");
+          |                    ^
+      377 |         await page.waitForSelector(".glass-dock");
+      378 |         await openView(page, "Mix");
+      379 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:376:20
+
+    Error Context: test-results/oracles-o14-preview-truth--e0bf9-s-exactly-its-stamped-stops-smoke/error-context.md
+
+
+[1A[2K(node:66589) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[33/117] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize
+[1A[2K  31) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      441 |         page,
+      442 |     }) => {
+    > 443 |         await page.goto("/");
+          |                    ^
+      444 |         await page.waitForSelector(".glass-dock");
+      445 |         await openView(page, "Mix");
+      446 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:443:20
+
+    Error Context: test-results/oracles-o14-preview-truth--05305-mpler-would-still-serialize-smoke/error-context.md
+
+
+[1A[2K(node:68410) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[34/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[1A[2K  32) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      448 |  *  "lavendi") and wait for the view-accent writer to stamp `--accent-view`. */
+      449 | async function bootAtDefaultSeed(page: Page) {
+    > 450 |     await page.goto("/");
+          |                ^
+      451 |     await expect(mainPane(page)).toBeVisible();
+      452 |     for (const token of ["--accent-view", "--accent-live", "--ink-ambient-l"]) {
+      453 |         await expect
+        at bootAtDefaultSeed (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:450:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:486:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-4183a-nst-its-rendered-tier-BR-2--smoke/error-context.md
+
+
+[1A[2K(node:71849) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[35/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[1A[2K  33) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      448 |  *  "lavendi") and wait for the view-accent writer to stamp `--accent-view`. */
+      449 | async function bootAtDefaultSeed(page: Page) {
+    > 450 |     await page.goto("/");
+          |                ^
+      451 |     await expect(mainPane(page)).toBeVisible();
+      452 |     for (const token of ["--accent-view", "--accent-live", "--ink-ambient-l"]) {
+      453 |         await expect
+        at bootAtDefaultSeed (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:450:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:486:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-63570-nst-its-rendered-tier-BR-2--smoke/error-context.md
+
+
+[1A[2K(node:73177) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[36/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K  34) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:640:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-6bf84--floating-rung-ink-A11Y-F2--smoke/error-context.md
+
+
+[1A[2K(node:74471) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[37/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K  35) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:715:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-86c2e--fill-derived-ink-together--smoke/error-context.md
+
+
+[1A[2K(node:75552) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[38/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K  36) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:769:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-76d2a-he-rung-1-plate-h-gaps-G-2--smoke/error-context.md
+
+
+[1A[2K(node:76911) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[39/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[1A[2K  37) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:803:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-73b2d-he-generalized-guard-proof--smoke/error-context.md
+
+
+[1A[2K(node:78148) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[40/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K  38) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:640:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-92589--floating-rung-ink-A11Y-F2--smoke/error-context.md
+
+
+[1A[2K(node:79467) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[41/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K  39) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:715:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/error-context.md
+
+
+[1A[2K(node:80849) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[42/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K  40) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:769:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-a8bfc-he-rung-1-plate-h-gaps-G-2--smoke/error-context.md
+
+
+[1A[2K(node:82139) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[43/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[1A[2K  41) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:803:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-d6e49-he-generalized-guard-proof--smoke/error-context.md
+
+
+[1A[2K(node:83724) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[44/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[1A[2K  42) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:897:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-2519a-ied-de-emphasis-rung-≥4-5-1-smoke/error-context.md
+
+
+[1A[2K(node:85153) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[45/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung)
+[1A[2K  43) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:915:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-62a55-the-console-well-rest-rung--smoke/error-context.md
+
+
+[1A[2K(node:86208) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[46/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[1A[2K  44) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/atmosphere", waiting until "load"[22m
+
+
+      941 |             // The direct route (no admin meta): the config surface mounts
+      942 |             // without the dock's admin-mode dance.
+    > 943 |             await page.goto("/#/atmosphere");
+          |                        ^
+      944 |             await expect(mainPane(page)).toBeVisible();
+      945 |             await expect(
+      946 |                 page.locator(".config-console .configurator-row").first(),
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:943:24
+
+    Error Context: test-results/oracles-o18-contrast-censu-94750-ider-population-M-34-≥4-5-1-smoke/error-context.md
+
+
+[1A[2K(node:87715) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[47/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[1A[2K  45) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:897:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-f0590-ied-de-emphasis-rung-≥4-5-1-smoke/error-context.md
+
+
+[1A[2K(node:88863) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[48/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung)
+[1A[2K  46) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:915:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-897dd-the-console-well-rest-rung--smoke/error-context.md
+
+
+[1A[2K(node:90126) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[49/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[1A[2K  47) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/atmosphere", waiting until "load"[22m
+
+
+      941 |             // The direct route (no admin meta): the config surface mounts
+      942 |             // without the dock's admin-mode dance.
+    > 943 |             await page.goto("/#/atmosphere");
+          |                        ^
+      944 |             await expect(mainPane(page)).toBeVisible();
+      945 |             await expect(
+      946 |                 page.locator(".config-console .configurator-row").first(),
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:943:24
+
+    Error Context: test-results/oracles-o18-contrast-censu-8356e-ider-population-M-34-≥4-5-1-smoke/error-context.md
+
+
+[1A[2K(node:91480) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[50/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[1A[2K  48) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:995:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/error-context.md
+
+
+[1A[2K(node:92811) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[51/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[1A[2K  49) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1049:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-3e4b6-certified-rung-T-40a-row-8--smoke/error-context.md
+
+
+[1A[2K(node:94607) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[52/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[1A[2K  50) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/extract?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      1096 |             // the CONTRACT (the live pick certified at the graphics floor
+      1097 |             // against the seat rung), never a per-site color pin.
+    > 1098 |             await page.goto(
+           |                        ^
+      1099 |                 "/#/extract?space=lab&color=" + encodeURIComponent(OWNER_COLOR),
+      1100 |             );
+      1101 |             await expect(mainPane(page)).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1098:24
+
+    Error Context: test-results/oracles-o18-contrast-censu-80f2a-ground-T-44a-·-WCAG-1-4-11--smoke/error-context.md
+
+
+[1A[2K(node:96357) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[53/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[1A[2K  51) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:995:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-2a09d-ck-hue-held-C-≥-0-35×-T-35--smoke/error-context.md
+
+
+[1A[2K(node:97778) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[54/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[1A[2K  52) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1049:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-1e1fc-certified-rung-T-40a-row-8--smoke/error-context.md
+
+
+[1A[2K(node:99320) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[55/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[1A[2K  53) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/extract?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      1096 |             // the CONTRACT (the live pick certified at the graphics floor
+      1097 |             // against the seat rung), never a per-site color pin.
+    > 1098 |             await page.goto(
+           |                        ^
+      1099 |                 "/#/extract?space=lab&color=" + encodeURIComponent(OWNER_COLOR),
+      1100 |             );
+      1101 |             await expect(mainPane(page)).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1098:24
+
+    Error Context: test-results/oracles-o18-contrast-censu-5370d-ground-T-44a-·-WCAG-1-4-11--smoke/error-context.md
+
+
+[1A[2K(node:2117) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[56/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[1A[2K  54) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/atmosphere", waiting until "load"[22m
+
+
+      1182 |             page,
+      1183 |         }) => {
+    > 1184 |             await page.goto("/#/atmosphere");
+           |                        ^
+      1185 |             await expect(mainPane(page)).toBeVisible();
+      1186 |             await expect(
+      1187 |                 page.locator(".config-console .configurator-row .slider-range").first(),
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1184:24
+
+    Error Context: test-results/oracles-o18-contrast-censu-4fba1-ell-boot-A-·-M-34-·-V1C-06--smoke/error-context.md
+
+
+[1A[2K(node:3595) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[57/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[1A[2K  55) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/atmosphere", waiting until "load"[22m
+
+
+      1182 |             page,
+      1183 |         }) => {
+    > 1184 |             await page.goto("/#/atmosphere");
+           |                        ^
+      1185 |             await expect(mainPane(page)).toBeVisible();
+      1186 |             await expect(
+      1187 |                 page.locator(".config-console .configurator-row .slider-range").first(),
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1184:24
+
+    Error Context: test-results/oracles-o18-contrast-censu-f1399-ell-boot-A-·-M-34-·-V1C-06--smoke/error-context.md
+
+
+[1A[2K(node:5044) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[58/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1)
+[1A[2K  56) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1300:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/error-context.md
+
+
+[1A[2K(node:6431) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[59/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+[1A[2K  57) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1324:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/error-context.md
+
+
+[1A[2K(node:7901) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[60/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1)
+[1A[2K  58) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1300:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-56e44-bypasses-certification-A-1--smoke/error-context.md
+
+
+[1A[2K(node:9277) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[61/117] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+[1A[2K  59) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/?space=lab&color=lab(38%25%2032%2024)", waiting until "load"[22m
+
+
+      426 | /** Boot to the owner color and wait for the ink writers (boot contract). */
+      427 | async function bootAtOwnerColor(page: Page) {
+    > 428 |     await page.goto(OWNER_URL);
+          |                ^
+      429 |     await expect(mainPane(page)).toBeVisible();
+      430 |     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
+      431 |         await expect
+        at bootAtOwnerColor (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:428:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1324:19
+
+    Error Context: test-results/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/error-context.md
+
+
+[1A[2K(node:10617) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[62/117] [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead
+[1A[2K  60) [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      24 |         page,
+      25 |     }) => {
+    > 26 |         await page.goto("/");
+         |                    ^
+      27 |         await page.waitForSelector(".glass-dock");
+      28 |         await openView(page, "Generate");
+      29 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o20-generate-plate.spec.ts:26:20
+
+    Error Context: test-results/oracles-o20-generate-plate-92ae8-late-the-orphan-row-is-dead-smoke/error-context.md
+
+
+[1A[2K(node:13839) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[63/117] [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields
+[1A[2K  61) [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      61 |         page,
+      62 |     }) => {
+    > 63 |         await page.goto("/");
+         |                    ^
+      64 |         await page.waitForSelector(".glass-dock");
+      65 |         await openView(page, "Generate");
+      66 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o20-generate-plate.spec.ts:63:20
+
+    Error Context: test-results/oracles-o20-generate-plate-216a9-palette-selecting-it-yields-smoke/error-context.md
+
+
+[1A[2K(node:17323) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[64/117] [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading
+[1A[2K  62) [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      44 | /** The About pane is the right-hand companion of the default Home view. */
+      45 | async function aboutCard(page: Page): Promise<Locator> {
+    > 46 |     await page.goto("/");
+         |                ^
+      47 |     const card = page.locator(".about-card");
+      48 |     await expect(card).toBeVisible();
+      49 |     await expect(card.locator("[data-space-facts]")).toBeVisible();
+        at aboutCard (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:46:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:115:24
+
+    Error Context: test-results/oracles-o21-space-catalog--5282a-ide-is-never-a-bare-heading-smoke/error-context.md
+
+
+[1A[2K(node:31971) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[65/117] [smoke] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames
+[1A[2K[smoke] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames
+h030 · north-west field: ΔE2000 vs unseeded 16.26 · vs h120 51.72
+
+[1A[2Kh030 · west field: ΔE2000 vs unseeded 16.52 · vs h120 51.95
+
+[1A[2Kh030 · east field: ΔE2000 vs unseeded 16.86 · vs h120 52.59
+
+[1A[2Kh030 · south-east field: ΔE2000 vs unseeded 16.87 · vs h120 52.80
+
+[1A[2Kh120 · north-west field: ΔE2000 vs unseeded 61.42 · vs h210 29.83
+
+[1A[2Kh120 · west field: ΔE2000 vs unseeded 61.98 · vs h210 30.10
+
+[1A[2Kh120 · east field: ΔE2000 vs unseeded 62.59 · vs h210 32.01
+
+[1A[2Kh120 · south-east field: ΔE2000 vs unseeded 62.33 · vs h210 32.73
+
+[1A[2Kh210 · north-west field: ΔE2000 vs unseeded 40.37 · vs h300 30.35
+
+[1A[2Kh210 · west field: ΔE2000 vs unseeded 40.40 · vs h300 30.70
+
+[1A[2Kh210 · east field: ΔE2000 vs unseeded 44.93 · vs h300 31.71
+
+[1A[2Kh210 · south-east field: ΔE2000 vs unseeded 47.55 · vs h300 31.83
+
+[1A[2Kh300 · north-west field: ΔE2000 vs unseeded 32.91 · vs h030 34.92
+
+[1A[2Kh300 · west field: ΔE2000 vs unseeded 32.11 · vs h030 34.30
+
+[1A[2Kh300 · east field: ΔE2000 vs unseeded 29.25 · vs h030 33.46
+
+[1A[2Kh300 · south-east field: ΔE2000 vs unseeded 28.91 · vs h030 33.74
+
+[1A[2K[66/117] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:145:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, LIVING pulse, PRM-static
+[1A[2K  63) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:145:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, LIVING pulse, PRM-static 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/extract", waiting until "load"[22m
+
+
+      146 |     page,
+      147 | }) => {
+    > 148 |     await page.goto("/#/extract");
+          |                ^
+      149 |     const extractPane = pane(page, "Extract");
+      150 |     await expect(extractPane).toBeVisible();
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:148:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--4c0da-ing-LIVING-pulse-PRM-static-smoke/error-context.md
+
+
+[1A[2K(node:34408) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[67/117] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:193:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K  64) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:193:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      194 |     page,
+      195 | }) => {
+    > 196 |     await page.goto("/");
+          |                ^
+      197 |     await openView(page, "Mix");
+      198 |     const mixPane = pane(page, "Mix");
+      199 |     await expect(mixPane).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:196:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--40d45-he-trio-dashes-zero-fillers-smoke/error-context.md
+
+
+[1A[2K(node:35805) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[68/117] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:212:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K  65) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:212:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      213 |     page,
+      214 | }) => {
+    > 215 |     await page.goto("/");
+          |                ^
+      216 |     await openView(page, "Palettes");
+      217 |     const palettesPane = pane(page, "My Palettes");
+      218 |     await expect(palettesPane).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:215:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--6f646-he-trio-dashes-zero-fillers-smoke/error-context.md
+
+
+[1A[2K(node:37800) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[69/117] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:224:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K  66) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:224:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      245 |             }),
+      246 |     );
+    > 247 |     await page.goto("/#/browse");
+          |                ^
+      248 |     const browsePane = pane(page, "Browse");
+      249 |     await expect(browsePane).toBeVisible();
+      250 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:247:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--ba8cf-he-trio-dashes-zero-fillers-smoke/error-context.md
+
+
+[1A[2K(node:39329) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[70/117] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:255:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics)
+[1A[2K  67) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:255:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      259 |     // browse store reads a deterministic load FAILURE → the PLAIN error
+      260 |     // register (untouched by R12): no ghost, no trio, no announced work.
+    > 261 |     await page.goto("/#/browse");
+          |                ^
+      262 |     const browsePane = pane(page, "Browse");
+      263 |     await expect(browsePane).toBeVisible();
+      264 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:261:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--9f619-rio-R7-surviving-semantics--smoke/error-context.md
+
+
+[1A[2K(node:41136) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[71/117] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved)
+[1A[2K  68) [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/names", waiting until "load"[22m
+
+
+      77 |             }),
+      78 |         );
+    > 79 |         await page.goto("/#/admin/names");
+         |                    ^
+      80 |         // X.W12U.s3 · UIA-V-420: Pending | Approved is a tablist.
+      81 |         await page.getByRole("tab", { name: /^Approved/ }).filter({ visible: true }).click();
+      82 |         await assertDeliberate(page, ledger, "Delete color name Oxblood", "Delete name", "DELETE /admin/colors/a1");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:79:20
+
+    Error Context: test-results/oracles-w7-destructive-sea-56678-me-delete-Names-→-Approved--smoke/error-context.md
+
+
+[1A[2K(node:43613) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[72/117] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93)
+[1A[2K  69) [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/names", waiting until "load"[22m
+
+
+      85 |     test("color-name reject (Names → Pending, W7.93)", async ({ page }) => {
+      86 |         const ledger = mutationLedger(page);
+    > 87 |         await page.goto("/#/admin/names");
+         |                    ^
+      88 |         await assertDeliberate(page, ledger, "Reject color name Wax Seal", "Reject name", "POST /admin/colors/c1/reject");
+      89 |     });
+      90 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:87:20
+
+    Error Context: test-results/oracles-w7-destructive-sea-baffd-ject-Names-→-Pending-W7-93--smoke/error-context.md
+
+
+[1A[2K(node:46301) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[73/117] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate
+[1A[2K  70) [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/tags", waiting until "load"[22m
+
+
+      91 |     test("tag delete — the seat is visible at rest (S-14(b)), then deliberate", async ({ page }) => {
+      92 |         const ledger = mutationLedger(page);
+    > 93 |         await page.goto("/#/admin/tags");
+         |                    ^
+      94 |         const seat = page.getByRole("button", { name: "Delete tag moody", exact: true }).filter({ visible: true });
+      95 |         await expect(seat).toHaveCount(1);
+      96 |         await page.mouse.move(0, 0); // no hover, no focus: the resting state
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:93:20
+
+    Error Context: test-results/oracles-w7-destructive-sea-16508-rest-S-14-b-then-deliberate-smoke/error-context.md
+
+
+[1A[2K(node:47731) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[74/117] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete
+[1A[2K  71) [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/flagged", waiting until "load"[22m
+
+
+      101 |     test("flagged-palette delete", async ({ page }) => {
+      102 |         const ledger = mutationLedger(page);
+    > 103 |         await page.goto("/#/admin/flagged");
+          |                    ^
+      104 |         await assertDeliberate(page, ledger, "Delete palette Sunset Riot", "Delete palette", "DELETE /admin/palettes/sunset-riot-9a3f");
+      105 |     });
+      106 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:103:20
+
+    Error Context: test-results/oracles-w7-destructive-sea-7c2bc-once-flagged-palette-delete-smoke/error-context.md
+
+
+[1A[2K(node:49436) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[75/117] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate
+[1A[2K  72) [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/users", waiting until "load"[22m
+
+
+      107 |     test("delete-all-palettes — named for its destruction (G15), then deliberate", async ({ page }) => {
+      108 |         const ledger = mutationLedger(page);
+    > 109 |         await page.goto("/#/admin/users");
+          |                    ^
+      110 |         const seat = page.getByRole("button", { name: "Delete all palettes of azure-fox-01", exact: true });
+      111 |         await expect(seat.filter({ visible: true })).toHaveText("Delete all palettes");
+      112 |         await assertDeliberate(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:109:20
+
+    Error Context: test-results/oracles-w7-destructive-sea-cea24-ruction-G15-then-deliberate-smoke/error-context.md
+
+
+[1A[2K(node:51006) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[76/117] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete
+[1A[2K  73) [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/users", waiting until "load"[22m
+
+
+      121 |     test("user-disclosure palette delete", async ({ page }) => {
+      122 |         const ledger = mutationLedger(page);
+    > 123 |         await page.goto("/#/admin/users");
+          |                    ^
+      124 |         await page.getByText("azure-fox-01", { exact: true }).first().click();
+      125 |         await expect(page.locator('[data-admin-palette="azure-one-11aa"]')).toBeVisible();
+      126 |         await assertDeliberate(page, ledger, "Delete palette Azure One", "Delete palette", "DELETE /admin/palettes/azure-one-11aa");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:123:20
+
+    Error Context: test-results/oracles-w7-destructive-sea-c7f7b-r-disclosure-palette-delete-smoke/error-context.md
+
+
+[1A[2K(node:52490) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[77/117] [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu)
+[1A[2K  74) [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      156 |             }),
+      157 |         );
+    > 158 |         await page.goto("/#/browse");
+          |                    ^
+      159 |         await page.getByRole("button", { name: "Palette menu" }).filter({ visible: true }).first().click();
+      160 |         await page.getByRole("menuitem", { name: "Delete (admin)" }).click();
+      161 |         const dialog = page.getByRole("dialog");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:158:20
+
+    Error Context: test-results/oracles-w7-destructive-sea-ed305-all-admin-delete-card-menu--smoke/error-context.md
+
+
+[1A[2K(node:53808) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[78/117] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:77:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › rename — a refused PATCH is said on the inspector
+[1A[2K  75) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:77:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › rename — a refused PATCH is said on the inspector 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      56 |             : route.fallback(),
+      57 |     );
+    > 58 |     await page.goto("/#/browse");
+         |                ^
+      59 |     await expect(page.getByRole("article", { name: "Palette: Owned One" })).toBeVisible();
+      60 | }
+      61 |
+        at wallFailing (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:58:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:78:9
+
+    Error Context: test-results/oracles-w7-inspector-rows--3de81-CH-is-said-on-the-inspector-smoke/error-context.md
+
+
+[1A[2K(node:56739) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[79/117] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector
+[1A[2K  76) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      56 |             : route.fallback(),
+      57 |     );
+    > 58 |     await page.goto("/#/browse");
+         |                ^
+      59 |     await expect(page.getByRole("article", { name: "Palette: Owned One" })).toBeVisible();
+      60 | }
+      61 |
+        at wallFailing (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:58:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:94:9
+
+    Error Context: test-results/oracles-w7-inspector-rows--353ce-ve-is-said-on-the-inspector-smoke/error-context.md
+
+
+[1A[2K(node:58661) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[80/117] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:101:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › publish / unpublish — a refused flip is said on the inspector
+[1A[2K  77) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:101:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › publish / unpublish — a refused flip is said on the inspector 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      56 |             : route.fallback(),
+      57 |     );
+    > 58 |     await page.goto("/#/browse");
+         |                ^
+      59 |     await expect(page.getByRole("article", { name: "Palette: Owned One" })).toBeVisible();
+      60 | }
+      61 |
+        at wallFailing (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:58:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:102:9
+
+    Error Context: test-results/oracles-w7-inspector-rows--8495e-ip-is-said-on-the-inspector-smoke/error-context.md
+
+
+[1A[2K(node:60116) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[81/117] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:107:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › fork — a refused remix is said on the inspector
+[1A[2K  78) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:107:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › fork — a refused remix is said on the inspector 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      56 |             : route.fallback(),
+      57 |     );
+    > 58 |     await page.goto("/#/browse");
+         |                ^
+      59 |     await expect(page.getByRole("article", { name: "Palette: Owned One" })).toBeVisible();
+      60 | }
+      61 |
+        at wallFailing (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:58:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:108:9
+
+    Error Context: test-results/oracles-w7-inspector-rows--01bce-ix-is-said-on-the-inspector-smoke/error-context.md
+
+
+[1A[2K(node:61416) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[82/117] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:113:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › vote — a refused vote is said on the inspector
+[1A[2K  79) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:113:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › vote — a refused vote is said on the inspector 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      56 |             : route.fallback(),
+      57 |     );
+    > 58 |     await page.goto("/#/browse");
+         |                ^
+      59 |     await expect(page.getByRole("article", { name: "Palette: Owned One" })).toBeVisible();
+      60 | }
+      61 |
+        at wallFailing (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:58:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:114:9
+
+    Error Context: test-results/oracles-w7-inspector-rows--8ab35-te-is-said-on-the-inspector-smoke/error-context.md
+
+
+[1A[2K(node:62939) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[83/117] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:119:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › delete — a refused delete is said on the inspector, and the palette stays
+[1A[2K  80) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:119:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › delete — a refused delete is said on the inspector, and the palette stays 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      56 |             : route.fallback(),
+      57 |     );
+    > 58 |     await page.goto("/#/browse");
+         |                ^
+      59 |     await expect(page.getByRole("article", { name: "Palette: Owned One" })).toBeVisible();
+      60 | }
+      61 |
+        at wallFailing (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:58:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:120:9
+
+    Error Context: test-results/oracles-w7-inspector-rows--26cd1-ector-and-the-palette-stays-smoke/error-context.md
+
+
+[1A[2K(node:64560) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[84/117] [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path
+[1A[2K  81) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      56 |             : route.fallback(),
+      57 |     );
+    > 58 |     await page.goto("/#/browse");
+         |                ^
+      59 |     await expect(page.getByRole("article", { name: "Palette: Owned One" })).toBeVisible();
+      60 | }
+      61 |
+        at wallFailing (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:58:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:131:9
+
+    Error Context: test-results/oracles-w7-inspector-rows--61d4d-t-runs-the-inspector-s-path-smoke/error-context.md
+
+
+[1A[2K(node:66040) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[85/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene
+[1A[2K  82) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/users", waiting until "load"[22m
+
+
+      20 |
+      21 | async function openUserPalettes(page: Page) {
+    > 22 |     await page.goto("/#/admin/users");
+         |                ^
+      23 |     await page.getByText("azure-fox-01", { exact: true }).first().click();
+      24 |     await expect(page.locator('[data-admin-palette="azure-one-11aa"]')).toBeVisible();
+      25 | }
+        at openUserPalettes (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:22:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:29:15
+
+    Error Context: test-results/oracles-w7-mutation-visibi-10578-nnounced-in-the-users-scene-smoke/error-context.md
+
+
+[1A[2K(node:67576) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[86/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced
+[1A[2K  83) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/users", waiting until "load"[22m
+
+
+      20 |
+      21 | async function openUserPalettes(page: Page) {
+    > 22 |     await page.goto("/#/admin/users");
+         |                ^
+      23 |     await page.getByText("azure-fox-01", { exact: true }).first().click();
+      24 |     await expect(page.locator('[data-admin-palette="azure-one-11aa"]')).toBeVisible();
+      25 | }
+        at openUserPalettes (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:22:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:35:15
+
+    Error Context: test-results/oracles-w7-mutation-visibi-12eaf-nd-the-verdict-is-announced-smoke/error-context.md
+
+
+[1A[2K(node:68884) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[87/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced
+[1A[2K  84) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/users", waiting until "load"[22m
+
+
+      42 |
+      43 |     adminPopulatedTest("delete-all (a user's palettes) — confirmed, then announced", async ({ page }) => {
+    > 44 |         await page.goto("/#/admin/users");
+         |                    ^
+      45 |         const row = page
+      46 |             .getByText("azure-fox-01", { exact: true })
+      47 |             .first()
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:44:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-7850f--—-confirmed-then-announced-smoke/error-context.md
+
+
+[1A[2K(node:70251) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[88/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:55:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced
+[1A[2K  85) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:55:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/users", waiting until "load"[22m
+
+
+      54 |
+      55 |     adminPopulatedTest("prune — the confirm names the global scope; the verdict is announced", async ({ page }) => {
+    > 56 |         await page.goto("/#/admin/users");
+         |                    ^
+      57 |         await page.getByRole("button", { name: "Prune empty" }).click();
+      58 |         await expect(page.getByRole("dialog")).toContainText("every user with 0 palettes on the server");
+      59 |         await page.getByRole("dialog").getByRole("button", { name: "Prune" }).click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:56:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-27f4d-pe-the-verdict-is-announced-smoke/error-context.md
+
+
+[1A[2K(node:71921) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[89/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:63:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced
+[1A[2K  86) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:63:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/flagged", waiting until "load"[22m
+
+
+      62 |
+      63 |     adminPopulatedTest("flag dismiss — the row leaves and the verdict is announced", async ({ page }) => {
+    > 64 |         await page.goto("/#/admin/flagged");
+         |                    ^
+      65 |         await page.getByRole("button", { name: "Dismiss" }).first().click();
+      66 |         // X.W12U.s3 · UIA-V-644: the verdict names the palette as its row did.
+      67 |         await expect(verdict(page, "flagged")).toContainText("Dismissed the reports on “Sunset Riot”");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:64:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-a99f7-nd-the-verdict-is-announced-smoke/error-context.md
+
+
+[1A[2K(node:72866) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[90/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:71:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced
+[1A[2K  87) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:71:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/tags", waiting until "load"[22m
+
+
+      70 |
+      71 |     adminPopulatedTest("tag delete — the chip leaves and the verdict is announced", async ({ page }) => {
+    > 72 |         await page.goto("/#/admin/tags");
+         |                    ^
+      73 |         // X.W7.e (S-14(b)): the seat is visible at rest; (G14) the delete is
+      74 |         // deliberate — accepted in its confirm.
+      75 |         await page.getByRole("button", { name: "Delete tag moody" }).filter({ visible: true }).click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:72:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-b077e-nd-the-verdict-is-announced-smoke/error-context.md
+
+
+[1A[2K(node:74700) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[91/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:80:5 › G13 · admin rows › name approve — the verdict is announced
+[1A[2K  88) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:80:5 › G13 · admin rows › name approve — the verdict is announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/names", waiting until "load"[22m
+
+
+      79 |
+      80 |     adminPopulatedTest("name approve — the verdict is announced", async ({ page }) => {
+    > 81 |         await page.goto("/#/admin/names");
+         |                    ^
+      82 |         await page.getByRole("button", { name: /Approve color name/ }).first().click();
+      83 |         await expect(verdict(page, "names")).toContainText("Approved");
+      84 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:81:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-c03fc--—-the-verdict-is-announced-smoke/error-context.md
+
+
+[1A[2K(node:76255) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[92/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:124:5 › G13 · user rows › report — a success is announced on the card
+[1A[2K  89) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:124:5 › G13 · user rows › report — a success is announced on the card 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      114 |         ),
+      115 |     );
+    > 116 |     await page.goto("/#/browse");
+          |                ^
+      117 |     await page.getByRole("button", { name: "Palette menu" }).first().click();
+      118 |     await page.getByRole("menuitem", { name: /Report/ }).click();
+      119 |     await page.getByRole("radio", { name: "Spam" }).click();
+        at browseWith (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:116:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:125:9
+
+    Error Context: test-results/oracles-w7-mutation-visibi-a9a42-ss-is-announced-on-the-card-smoke/error-context.md
+
+
+[1A[2K(node:77515) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[93/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:129:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22)
+[1A[2K  90) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:129:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      114 |         ),
+      115 |     );
+    > 116 |     await page.goto("/#/browse");
+          |                ^
+      117 |     await page.getByRole("button", { name: "Palette menu" }).first().click();
+      118 |     await page.getByRole("menuitem", { name: /Report/ }).click();
+      119 |     await page.getByRole("radio", { name: "Spam" }).click();
+        at browseWith (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:116:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:130:9
+
+    Error Context: test-results/oracles-w7-mutation-visibi-2951e-e-never-as-a-success-W7-22--smoke/error-context.md
+
+
+[1A[2K(node:78715) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[94/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:156:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight)
+[1A[2K  91) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:156:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/palettes", waiting until "load"[22m
+
+
+      161 |         });
+      162 |         await seedLibrary(page, 51);
+    > 163 |         await page.goto("/#/palettes");
+          |                    ^
+      164 |         await page.getByRole("button", { name: "Palette menu" }).first().click();
+      165 |         await page.getByRole("menuitem", { name: /Publish/ }).click();
+      166 |         await expect(page.getByRole("status").filter({ hasText: "at most 50 colors" })).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:163:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-ad208-any-request-G10-pre-flight--smoke/error-context.md
+
+
+[1A[2K(node:79983) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[95/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:170:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST)
+[1A[2K  92) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:170:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/palettes", waiting until "load"[22m
+
+
+      170 |     userTest("export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST)", async ({ page }) => {
+      171 |         await seedLibrary(page, 0);
+    > 172 |         await page.goto("/#/palettes");
+          |                    ^
+      173 |         await page.getByRole("button", { name: "Palette menu" }).first().click();
+      174 |         await page.getByRole("menuitem", { name: /Export/ }).click();
+      175 |         await page.getByRole("menuitem", { name: /JSON/ }).click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:172:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-08ef4-the-card-G7-·-ESC-W7b-HOST--smoke/error-context.md
+
+
+[1A[2K(node:81402) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[96/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:179:5 › G13 · library rows › rename — the new name is what the card shows
+[1A[2K  93) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:179:5 › G13 · library rows › rename — the new name is what the card shows 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/palettes", waiting until "load"[22m
+
+
+      179 |     userTest("rename — the new name is what the card shows", async ({ page }) => {
+      180 |         await seedLibrary(page, 3);
+    > 181 |         await page.goto("/#/palettes");
+          |                    ^
+      182 |         await page.getByRole("button", { name: "Palette menu" }).first().click();
+      183 |         await page.getByRole("menuitem", { name: /Rename/ }).click();
+      184 |         const input = page.getByPlaceholder("Palette name...").last();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:181:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-aa22a-name-is-what-the-card-shows-smoke/error-context.md
+
+
+[1A[2K(node:82821) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[97/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › delete — the card leaves the library
+[1A[2K  94) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › delete — the card leaves the library 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/palettes", waiting until "load"[22m
+
+
+      190 |     userTest("delete — the card leaves the library", async ({ page }) => {
+      191 |         await seedLibrary(page, 3);
+    > 192 |         await page.goto("/#/palettes");
+          |                    ^
+      193 |         await expect(page.locator("[data-palette-name]").filter({ hasText: "Wide Library" })).toBeVisible();
+      194 |         await page.getByRole("button", { name: "Palette menu" }).first().click();
+      195 |         await page.getByRole("menuitem", { name: /Delete/ }).click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:192:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-d2f36-the-card-leaves-the-library-smoke/error-context.md
+
+
+[1A[2K(node:84938) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[98/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:208:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced
+[1A[2K  95) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:208:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/admin/users", waiting until "load"[22m
+
+
+      207 | adminPopulatedTest.describe("G13 · admin rows (Repair 1)", () => {
+      208 |     adminPopulatedTest("row 15 · delete user — confirmed, the row leaves, the verdict is announced", async ({ page }) => {
+    > 209 |         await page.goto("/#/admin/users");
+          |                    ^
+      210 |         await expect(page.getByText("azure-fox-01", { exact: true }).first()).toBeVisible();
+      211 |         await page.getByRole("button", { name: "Delete user azure-fox-01", exact: true }).first().click();
+      212 |         await page.getByRole("dialog").getByRole("button", { name: "Delete user", exact: true }).click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:209:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-c341f-es-the-verdict-is-announced-smoke/error-context.md
+
+
+[1A[2K(node:88767) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[99/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:244:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted
+[1A[2K  96) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:244:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9000/#/browse", waiting until "load"[22m
+
+
+      271 |             });
+      272 |         });
+    > 273 |         await page.goto("/#/browse");
+          |                    ^
+      274 |         await page.getByRole("button", { name: "Palette menu" }).filter({ visible: true }).first().click();
+      275 |         await page.getByRole("menuitem", { name: /Versions/ }).click();
+      276 |         const revert = page.getByRole("button", { name: "Revert" });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:273:20
+
+    Error Context: test-results/oracles-w7-mutation-visibi-fb725-s-palette-and-says-Reverted-smoke/error-context.md
+
+
+[1A[2K(node:90009) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[100/117] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:295:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate
+[1A[2K[101/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:106:5 › D1 · one contract, ONE render path › the color scene renders through the one action row
+[1A[2K[102/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:125:5 › D1 · one contract, ONE render path › a workbench scene renders through the SAME row and shape
+[1A[2K[103/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:139:5 › D1 · one contract, ONE render path › the Picker priority is GONE: /mix renders the mix set, not the picker's
+[1A[2K[104/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  97) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-abb86--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:91019) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[105/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  98) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-94d05--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:91416) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[106/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  99) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-50666--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:91780) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[107/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:205:5 › D4 · a registered target is READY, and dispatches for real › Generate on the desktop branch: three ready seats, and one real dispatch
+[1A[2K[108/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:250:5 › §8 artefact 8 — the dock action bar's frames (desktop matrix) › the Mix view's bar, framed
+[1A[2K[109/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:262:5 › §8 artefact 8 — the dock action bar's frames (390 viewport) › the Mix view's bar with no pane registered, framed
+[1A[2K[110/117] [smoke] › e2e/smoke/scene-action-contract.spec.ts:272:5 › AB-32 · the collapse CARRIES the active/selected member › the palette-open indicator survives the contract collapse
+[1A[2K[111/117] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+[1A[2K[112/117] [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 1440x900 {"picker":621.265625,"about":621.265625,"docScroll":900,"innerHeight":900,"scroller":{"glass":true,"clientHeight":465,"scrollHeight":7456,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[113/117] [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis
+[w12-about-clip] 1440x900 overflow docScroll=900 inner=900 picker=621.265625 about=621.265625
+
+[1A[2K[114/117] [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 1280x800 {"picker":617.015625,"about":617.015625,"docScroll":800,"innerHeight":800,"scroller":{"glass":true,"clientHeight":466,"scrollHeight":7399,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[115/117] [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis
+[w12-about-clip] 1280x800 overflow docScroll=800 inner=800 picker=617.015625 about=617.015625
+
+[1A[2K[116/117] [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 2846x1650-eq {"picker":621.265625,"about":621.265625,"docScroll":825,"innerHeight":825,"scroller":{"glass":true,"clientHeight":465,"scrollHeight":7454,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[117/117] [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis
+[w12-about-clip] 2846x1650-eq overflow docScroll=825 inner=825 picker=621.265625 about=621.265625
+
+[1A[2K  99 failed
+    [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition 
+    [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung 
+    [smoke] › e2e/smoke/dual-pane-1440.spec.ts:248:1 › D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:119:5 › O-10a/e — title type locks (desktop dual grid) › height gate @900px: the ×φ header never pushes the picker console into scroll (C1) 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floor-pins AT heading (deliberate no-op); About = honest 2-line lock 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:201:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2) 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead 
+    [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+    [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:145:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, LIVING pulse, PRM-static 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:193:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:212:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:224:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:255:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) 
+    [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) 
+    [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) 
+    [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate 
+    [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete 
+    [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate 
+    [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete 
+    [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu) 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:77:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › rename — a refused PATCH is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:101:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › publish / unpublish — a refused flip is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:107:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › fork — a refused remix is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:113:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › vote — a refused vote is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:119:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › delete — a refused delete is said on the inspector, and the palette stays 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:55:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:63:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:71:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:80:5 › G13 · admin rows › name approve — the verdict is announced 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:124:5 › G13 · user rows › report — a success is announced on the card 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:129:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22) 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:156:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight) 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:170:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST) 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:179:5 › G13 · library rows › rename — the new name is what the card shows 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › delete — the card leaves the library 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:208:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:244:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+  18 passed (1.4h)

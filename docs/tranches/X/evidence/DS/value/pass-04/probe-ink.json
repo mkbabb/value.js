@@ -1,0 +1,1078 @@
+[
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/",
+  "name": "readout integer",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "ground": [
+   226,
+   69,
+   158
+  ],
+  "ratio": 4.65
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/",
+  "name": "readout frac",
+  "ink": [
+   45,
+   43,
+   42
+  ],
+  "ground": [
+   226,
+   70,
+   157
+  ],
+  "ratio": 3.75
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/",
+  "name": "about title",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "ground": [
+   226,
+   129,
+   129
+  ],
+  "ratio": 6.4
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/",
+  "name": "about caption",
+  "ink": [
+   45,
+   43,
+   42
+  ],
+  "ground": [
+   226,
+   123,
+   135
+  ],
+  "ratio": 4.98
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/",
+  "name": "my palettes empty",
+  "missing": true
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/extract",
+  "name": "extract title",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "ground": [
+   202,
+   80,
+   132
+  ],
+  "ratio": 4.16
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/extract",
+  "name": "extract caption",
+  "ink": [
+   45,
+   43,
+   42
+  ],
+  "ground": [
+   202,
+   74,
+   135
+  ],
+  "ratio": 3.25
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/extract",
+  "name": "open camera",
+  "ink": [
+   45,
+   43,
+   42
+  ],
+  "ground": [
+   226,
+   64,
+   167
+  ],
+  "ratio": 3.71
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/extract",
+  "name": "colors label",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "ground": [
+   226,
+   64,
+   166
+  ],
+  "ratio": 4.6
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/gradient",
+  "name": "gradient title",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "ground": [
+   202,
+   79,
+   131
+  ],
+  "ratio": 4.13
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/gradient",
+  "name": "code number",
+  "ink": [
+   133,
+   85,
+   0
+  ],
+  "ground": [
+   233,
+   225,
+   217
+  ],
+  "ratio": 4.93
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/gradient",
+  "name": "code ink",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "ground": [
+   233,
+   222,
+   215
+  ],
+  "ratio": 13.24
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/atmosphere",
+  "name": "copy json",
+  "ink": [
+   45,
+   43,
+   42
+  ],
+  "ground": [
+   226,
+   75,
+   152
+  ],
+  "ratio": 3.82
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/atmosphere",
+  "name": "reset",
+  "ink": [
+   45,
+   43,
+   42
+  ],
+  "ground": [
+   226,
+   96,
+   144
+  ],
+  "ratio": 4.23
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/atmosphere",
+  "name": "section head",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "ground": [
+   210,
+   89,
+   136
+  ],
+  "ratio": 4.6
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/palettes",
+  "name": "delete all",
+  "missing": true
+ },
+ {
+  "theme": "light",
+  "color": "default",
+  "route": "/palettes",
+  "name": "new palette",
+  "ink": [
+   38,
+   36,
+   34
+  ],
+  "ground": [
+   210,
+   93,
+   137
+  ],
+  "ratio": 4.17
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/",
+  "name": "readout integer",
+  "ink": [
+   254,
+   249,
+   247
+  ],
+  "ground": [
+   165,
+   29,
+   47
+  ],
+  "ratio": 7.14
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/",
+  "name": "readout frac",
+  "ink": [
+   253,
+   250,
+   249
+  ],
+  "ground": [
+   165,
+   29,
+   47
+  ],
+  "ratio": 7.18
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/",
+  "name": "about title",
+  "ink": [
+   254,
+   249,
+   247
+  ],
+  "ground": [
+   187,
+   72,
+   10
+  ],
+  "ratio": 4.97
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/",
+  "name": "about caption",
+  "ink": [
+   253,
+   250,
+   249
+  ],
+  "ground": [
+   185,
+   66,
+   13
+  ],
+  "ratio": 5.25
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/",
+  "name": "my palettes empty",
+  "missing": true
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/extract",
+  "name": "extract title",
+  "ink": [
+   254,
+   249,
+   247
+  ],
+  "ground": [
+   156,
+   39,
+   31
+  ],
+  "ratio": 7.38
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/extract",
+  "name": "extract caption",
+  "ink": [
+   253,
+   250,
+   249
+  ],
+  "ground": [
+   154,
+   36,
+   34
+  ],
+  "ratio": 7.63
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/extract",
+  "name": "open camera",
+  "ink": [
+   253,
+   250,
+   249
+  ],
+  "ground": [
+   162,
+   26,
+   50
+  ],
+  "ratio": 7.41
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/extract",
+  "name": "colors label",
+  "ink": [
+   254,
+   249,
+   247
+  ],
+  "ground": [
+   162,
+   26,
+   49
+  ],
+  "ratio": 7.37
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/gradient",
+  "name": "gradient title",
+  "ink": [
+   254,
+   249,
+   247
+  ],
+  "ground": [
+   154,
+   38,
+   30
+  ],
+  "ratio": 7.53
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/gradient",
+  "name": "code number",
+  "ink": [
+   133,
+   85,
+   0
+  ],
+  "ground": [
+   233,
+   225,
+   217
+  ],
+  "ratio": 4.93
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/gradient",
+  "name": "code ink",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "ground": [
+   232,
+   222,
+   214
+  ],
+  "ratio": 13.2
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/atmosphere",
+  "name": "copy json",
+  "ink": [
+   253,
+   250,
+   249
+  ],
+  "ground": [
+   167,
+   30,
+   39
+  ],
+  "ratio": 7.07
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/atmosphere",
+  "name": "reset",
+  "ink": [
+   253,
+   250,
+   249
+  ],
+  "ground": [
+   174,
+   43,
+   25
+  ],
+  "ratio": 6.4
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/atmosphere",
+  "name": "section head",
+  "ink": [
+   254,
+   249,
+   247
+  ],
+  "ground": [
+   161,
+   41,
+   27
+  ],
+  "ratio": 7.06
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/palettes",
+  "name": "delete all",
+  "missing": true
+ },
+ {
+  "theme": "light",
+  "color": "brick",
+  "route": "/palettes",
+  "name": "new palette",
+  "ink": [
+   253,
+   250,
+   248
+  ],
+  "ground": [
+   164,
+   45,
+   28
+  ],
+  "ratio": 6.8
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/",
+  "name": "readout integer",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   91,
+   14,
+   44
+  ],
+  "ratio": 10.93
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/",
+  "name": "readout frac",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   91,
+   14,
+   44
+  ],
+  "ratio": 5.35
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/",
+  "name": "about title",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   127,
+   12,
+   16
+  ],
+  "ratio": 8.6
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/",
+  "name": "about caption",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   121,
+   12,
+   22
+  ],
+  "ratio": 4.4
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/",
+  "name": "my palettes empty",
+  "missing": true
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/extract",
+  "name": "extract title",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   87,
+   13,
+   30
+  ],
+  "ratio": 11.39
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/extract",
+  "name": "extract caption",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   84,
+   13,
+   32
+  ],
+  "ratio": 5.67
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/extract",
+  "name": "open camera",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   87,
+   14,
+   44
+  ],
+  "ratio": 5.49
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/extract",
+  "name": "colors label",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   88,
+   13,
+   44
+  ],
+  "ratio": 11.19
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/gradient",
+  "name": "gradient title",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   85,
+   13,
+   29
+  ],
+  "ratio": 11.55
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/gradient",
+  "name": "code number",
+  "ink": [
+   222,
+   184,
+   102
+  ],
+  "ground": [
+   66,
+   55,
+   47
+  ],
+  "ratio": 6.13
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/gradient",
+  "name": "code ink",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   67,
+   55,
+   47
+  ],
+  "ratio": 9.24
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/atmosphere",
+  "name": "copy json",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   94,
+   14,
+   40
+  ],
+  "ratio": 5.26
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/atmosphere",
+  "name": "reset",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   103,
+   13,
+   32
+  ],
+  "ratio": 4.99
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/atmosphere",
+  "name": "section head",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   114,
+   31,
+   49
+  ],
+  "ratio": 8.63
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/palettes",
+  "name": "delete all",
+  "missing": true
+ },
+ {
+  "theme": "dark",
+  "color": "default",
+  "route": "/palettes",
+  "name": "new palette",
+  "ink": [
+   190,
+   187,
+   185
+  ],
+  "ground": [
+   116,
+   31,
+   49
+  ],
+  "ratio": 5.55
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/",
+  "name": "readout integer",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   97,
+   14,
+   18
+  ],
+  "ratio": 10.69
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/",
+  "name": "readout frac",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   97,
+   14,
+   18
+  ],
+  "ratio": 5.22
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/",
+  "name": "about title",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   115,
+   21,
+   8
+  ],
+  "ratio": 9.18
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/",
+  "name": "about caption",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   112,
+   18,
+   10
+  ],
+  "ratio": 4.64
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/",
+  "name": "my palettes empty",
+  "missing": true
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/extract",
+  "name": "extract title",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   87,
+   13,
+   12
+  ],
+  "ratio": 11.5
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/extract",
+  "name": "extract caption",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   85,
+   14,
+   14
+  ],
+  "ratio": 5.67
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/extract",
+  "name": "open camera",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   93,
+   14,
+   20
+  ],
+  "ratio": 5.37
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/extract",
+  "name": "colors label",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   94,
+   14,
+   20
+  ],
+  "ratio": 10.9
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/gradient",
+  "name": "gradient title",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   87,
+   13,
+   12
+  ],
+  "ratio": 11.5
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/gradient",
+  "name": "code number",
+  "ink": [
+   222,
+   184,
+   102
+  ],
+  "ground": [
+   66,
+   55,
+   47
+  ],
+  "ratio": 6.13
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/gradient",
+  "name": "code ink",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   67,
+   55,
+   47
+  ],
+  "ratio": 9.24
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/atmosphere",
+  "name": "copy json",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   97,
+   14,
+   17
+  ],
+  "ratio": 5.23
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/atmosphere",
+  "name": "reset",
+  "ink": [
+   164,
+   162,
+   160
+  ],
+  "ground": [
+   104,
+   13,
+   12
+  ],
+  "ratio": 5
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/atmosphere",
+  "name": "section head",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ground": [
+   114,
+   31,
+   30
+  ],
+  "ratio": 8.75
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/palettes",
+  "name": "delete all",
+  "missing": true
+ },
+ {
+  "theme": "dark",
+  "color": "brick",
+  "route": "/palettes",
+  "name": "new palette",
+  "ink": [
+   190,
+   187,
+   185
+  ],
+  "ground": [
+   116,
+   31,
+   29
+  ],
+  "ratio": 5.62
+ }
+]
