@@ -768,3 +768,47 @@ Every row holds. The census routes do not include the Entry transport scene, so 
 **Disclosures**
 - The shared `:5173` dev server (keyframes.js working tree, already running) answered promptly at a load average of about 40, so it was reused, and HMR served the cure.
 - The field at 1440×900 is now at its 8rem floor (it was 168 px). The regime tags, pips and preset labels all stay legible in `crop-spring-axis-*`.
+
+### pass 13 (the redeployed workflow's pass 9; critic C13, judged on the `evidence/DS/keyframes/pass-12/` frames)
+
+**Cure commit:** keyframes.js `7ed8b703` (master, pushed fast-forward from `153c7e9b`). **Evidence:** value.js `4e2e034ba` (`evidence/DS/keyframes/pass-13/`: 28 route frames, `census.json`, the `spring-pane-1440-*`, `crop-spring-axis-*`, `presets-1440-*`, `crop-spring-figure-scrolled-*`, `entry-1440-*`, `crop-entry-footer-1440-*` and `entry-390-*` cells, `c13-probe.mjs` + `c13-probe.json`, `geo.mjs`). All captures are headless real Chrome (§0ei). The task named `pass-09`, but `pass-09` already holds committed evidence, so the frames go to `pass-13`, following the sequential numbering of passes 6 to 12.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900 unless named; light and dark) |
+|---|---|---|
+| KF-C13-02 | The seed comes before the figure. `SpringPhysicsFacet` orders the param rows, then the presets ToggleGroup, then the heatmap. The field budget counts the preset block now above it (181 px served): `clamp(8rem, rail − (45rem + var(--mask-fade)), 12rem)`, up from 33.5rem. No mask was added. | The four tiles sit whole at 278–417, above the end fade (487–527). The fold now falls on the figure's legend and the field's top edge, which reads as "the figure continues", and no orphan tile rims are left in the fade. At 1440×1080 the figure is whole (axis 670 against fold 679). |
+| KF-C13-01 | A container query on the field's own block size (`@container (max-height: 10rem)`, since the field is `container-type: size`) hides the names of the non-current pips. The tiles above already name every preset and its values. The current underdamped name sits beside its marker (`left: 100%`, centred), on the side away from the cluster. At the 12rem cap every pip is still named, as in KF-C10-05. The field was not raised. | At the 8rem floor only "smooth" is named, at [268,566,321,580], to the right of its marker at (255,570). Snappy (213,590) and bouncy (255,610) are bare hollow dots, so no name sits over another pip and there are no overlaps. The same holds at 1280×760, 1280×800, 1024×700 and 1440×1080. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C13-03 | **Glass-owned; cited under O-87** (dock focus-register rider). Reka's Select returns focus to the `.dock-select-trigger` on close, and Chrome treats that scripted focus as `:focus-visible`, so glass's dock ring (2 px at 48% ink) paints after a pointer choice. The ask: return focus without focus-visible after a pointer selection (`focus({ focusVisible: false })`, or the pointer-modality guard used on the other dock triggers), or a single quiet hairline ring. It is honest-RED until the glass repin and is not overridden locally. It is still visible in `entry-1440-*`. |
+| KF-C11-05 residue | **Changed shape; carry.** At 1280×760, 1280×800 and 1024×700 the fold now cuts the presets' second row (fold 417/432/392 against tiles ending at 433/453/398), and the names of the first row stay legible above the fade. The figure sits wholly below the fold there, and it used to be cut through its axis. |
+| HELD-O87-RECHECK | Unchanged at glass 10.1.0 and cited, not cured: the pane frame's stacked offset stamp (KF-C1-02), the secondary capsule's 5-layer stack (KF-C1-01), the split Input/Select fill (KF-C1-10), the z-index NumberField's raised steppers and dark smear (KF-C1-09/C7-05), the dark resting halo (KF-C7-11), the dock and play tiles at 390 (KF-C1-12/O-88), the ghost Steps trace (KF-C7-10), the clipped SegmentedTabs (KF-C7-09), the thumbless fill sliders (KF-C11-08), the scrub's empty leading cap (KF-C8-05), and EasingPicker Steps (KF-C12-03). All are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages, on the final tree)
+
+| | pass 12 after | pass 13 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row holds, because this pass changed order and label placement, not lighting. The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row (HomeMini, KF-C5-13 / KF-C9-12 family).
+
+**Gates** (on the final tree, HEAD `153c7e9b` plus this cure)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint`: exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **820/820, twice**. No test was changed. The pip-name test still sees all four names in the DOM, because the floor rule hides them with CSS only.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) answered promptly at a load average of about 30–40, so it was reused, and HMR served the cure.
+- Hiding the names of the non-current pips at the floor also gives up the "all four pips named" result from KF-C10-05, but only at the floor. The tiles directly above the field now name all four presets with their values, which is the cure the critic asked for.
