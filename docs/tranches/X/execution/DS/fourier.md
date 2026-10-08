@@ -504,3 +504,41 @@ The static half is unchanged (4 box-shadow declarations, 8 gradients, 3 keyframe
 **Frames** (`pass-05/f7/`). All were captured in headless real Chrome (§0ei):
 - the critic's own `probe.mjs`, `probe2.mjs` and `probe3.mjs`, re-run for the same cells: `theorem-*-1440`, `theorem-hover-*-1440`, `mathblock-hover-light`, `paper-sticky-*`, `eq-ab-*-1440` and `morph-scrolled-*-390`;
 - the cure probes' frames: `cure/sub-11-*` and `cure/sub-121-*` at 1440 and 390, `cure/v-canvas-tab-*-390` and `cure/v-canvas-tab-expanded-*-390`.
+
+### pass 6
+
+*(The re-deployed loop's pass 6: the cure for the critic F8 findings, DS-F8-*. The critic's frames are in `evidence/DS/fourier/pass-06/critic-f8/`; the AFTER frames are in `evidence/DS/fourier/pass-06/f8/`.)*
+
+**Commits.**
+- fourier `a57e535` and `ed6a70a`, on `m/w1-bump-migration`, pushed fast-forward `74aac87..ed6a70a`. 16 files, committed by pathspec. The F.CT seat's uncommitted contour files (`drawing.py`, `parts.py`) were left alone.
+- latex-paper `c7ebc52` (DS-F8-C1, C3, C5), local on `master`; the 0.3.0 changeset is extended. Not pushed and not published (an owner act, as at pass 5). The release must now also carry `c7ebc52`.
+- value.js `224e90aa8`: AFTER frames, the cure probe, census and e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F8-C1 | **Root:** latex-paper `c7ebc52` reads the theorem, proposition and corollary rule and label as `var(--theorem-accent, var(--primary))`, an optional token documented in the theme header. **fourier:** `article.paper-article { --theorem-accent: var(--section-color-7) }`, outside the bridge (it is fourier's lasting binding), and the 0.2.1 bridge's `--theorem-hue` reads it. Measured (`f8/f7-cells/probe.json`): light `3px solid oklch(0.532 0.18 317.5)`, where pass 5 was ink `rgb(28,25,23)`; dark keeps `oklch(0.739 0.134 318.1)`. One violet in both themes. Definitions and examples keep `--accent-pink`; lemmas and asides keep `--muted-foreground`. |
+| DS-F8-C2 | Every live `text-sm`/`text-xs` (dead under glass's `bridges.css` `--text-sm/--text-xs: initial`) now uses glass's steps. Template sites take `text-small`/`text-caption`; `@apply text-sm` takes `font-size: var(--type-small)`. That covers PaperTocBar, PaperSearchResultRow, PaperSearchDropdown, PaperArticleWindow, GalleryFeaturedCarousel, GalleryView, GalleryDraftsSection, ContourSettings and CoefficientsSpectrum. Three sites were judged individually: the ToC drawer's uppercase CONTENTS eyebrow takes `--type-caption`; the 16 px overlay badge takes `--type-micro`; and CoefficientsSpectrum's Button `text-xs` is deleted, since the Button's glass sm step already sets the size. The other files the critic named (HarmonicLevelGrid, MorphPhaseConfig, AppDock, AdminUserToolbar) only mention the utilities in comments and have no live use. **The dialog:** DialogTitle drops `text-xl` and takes glass's dialog-title step. The section headings move from `0.875rem` to `--type-small`, sharing that step with "Harmonics", and the heading leads by weight. The views readout (`.modal-stat`) takes `--control-text-sm`. `.like-btn`'s local `0.875rem` override of glass's sm step is deleted (`ed6a70a`). Measured (`f8/cure/f8-cure-probe.json`, both themes): title 23.67 px over description 18.61 px; views 14.384 = like 14.384; Decomposition 16.4/600 and Harmonics 16.4/400. Before: views 18.6 against like 14, Harmonics 18.6 over the heading's 14, and title 20 against description 18.6. `--text-sm` is not re-declared locally. |
+| DS-F8-C3 | `.math-block__number { font-style: normal }` at the root (`c7ebc52`), with one line in the bridge. Measured (`f8/probe3.json`): `(1.1)` inside Theorem 1.1 is `normal` Fira Code. Pass 5 measured it `italic`. |
+| DS-F8-C4 | The phone bar renders one crumb. With a leaf active it shows the leaf, whose number names the chapter; otherwise it shows the chapter with its title. The chapter numeral, the `›` `::before`, the `:has(+ --leaf)` rule and the `--leaf` muted style are deleted. Measured: `["1.2.A Solution"]` in both themes (`cure/paper-119-*-390.png`). **Assertion:** `f-w14u-paper` UIA-F-236 counted 2 crumbs, a count tied to the deleted structure. It now requires the one crumb's number to be a section number with at least two components. A chapter-only bar ("1.") still fails, so the "reports chapter and section" intent is kept. |
+| DS-F8-C5 | **/paper:** below 40rem the `.math-block` grid is one column and the number sits under its display, end-aligned. This is at the root (`c7ebc52`) and in the bridge. Measured at 390: eq (1.19) `scrollWidth 308 = clientWidth 308`, so it no longer overflows, the full `= 0` shows, and `(1.19)` sits below it. The fade there was already scroll-driven: no overflow means no timeline, so no mask. **/equation:** the a+b FadingScroll sets glass's own `--fade-scroll-width: 2rem` (from 1rem). Its fade is already shown only while ink lies past that edge (glass's `scroll(self inline)` ranges). Not done: ending the a+b line on a term boundary, since KaTeX's single-line series has no break to choose; the 2rem fade is the cue. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F8-G1 (in dark, every glass resting shadow is mixed from the light `--foreground`, because dark-arm.css overrides `--shadow` but not `--shadow-color`; the gallery card's six-layer stack paints a light halo): **O-87** FLAT-LIGHTING. It needs a dark `--shadow-color` and a single-edge `--card-cast`, and is re-judged at the 10.2.0 repin. It widens DS-F6-G3's witness to every glass-resting card. No consumer override.
+
+**Census** (`f8/census-after.json`, fourier `scripts/ds-census.mjs` on `:3100`, which serves this checkout). Identical to pass 5: shadow elements 420, layers 1076, multi-layer stacks 326, inset highlights 326, backdrop blur 254, control gradients 0, looping chrome 0. Static: 8 box-shadow declarations, 10 gradients, 3 keyframes. This pass moves type, hue and layout, not lighting. What remains is glass's recipe (O-87, with G1).
+
+**Gates.** All runs used the `:3100` dev server, which serves this checkout. Its only other dirty files are the F.CT seat's Python, which no web route reads.
+- `vue-tsc -b`: 0, three times. `vitest run`: 116/116, three times. latex-paper `vitest`: 127/127.
+- e2e: the pass-5 list of 25 specs (`f8/e2e-specs.txt`), chromium plus mobile-chromium, headless, 3 workers.
+  - Run A: 220 passed, 15 failed. Run B: 221 passed, 14 failed.
+  - Every failure is on pass 5's pre-existing list: `contrast-floor` ×3, `f-w14-uia` 411/434/457 (the dev server's empty Users tab, as at pass 5), `f-w14v-p` p3, `gallery-admin-a11y` ×4, and `visual-checkpoint` 1·6·7, 2 and 5. Item 5, the card dialog, fails for the same reason as at pass 5: `toBeVisible`, element not found. `equation-interaction` failed in run A only; it is pre-existing at pass 5.
+  - After `ed6a70a`: `f-w14u-gallery`, `gallery` and `visual-checkpoint` ×2 gave 29 passed and 3 failed per run, the same three visual-checkpoint items.
+  - No visual golden was re-baselined.
+
+**Frames** (`pass-06/f8/`). All were captured in headless real Chrome (§0ei):
+- the critic's `probe.mjs`, `probe2.mjs` and `probe3.mjs`, re-run for the same cells: gallery, gallery hover, morph, visualize and its hovers, and the v-item set;
+- the pass-5 cells in `f7-cells/`: `theorem-*-1440`, `theorem-hover-*`, `eq-ab-*-1440` and `morph-scrolled-*-390`;
+- `cure/sub-11-*` and `cure/sub-121-*` at 1440 and 390;
+- `cure/f8-cure-probe.mjs` with its frames: `modal-*-1440` and `paper-119-*-390`.
