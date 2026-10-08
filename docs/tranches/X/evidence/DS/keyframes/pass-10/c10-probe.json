@@ -1,0 +1,335 @@
+{
+ "light": {
+  "390": {
+   "stageTitles": {
+    "easing": {
+     "title": "ease",
+     "inset": 21,
+     "top": 17
+    },
+    "spring": {
+     "title": "Spring",
+     "inset": 21,
+     "top": 17
+    },
+    "entry": {
+     "title": "@starting-style",
+     "inset": 21,
+     "top": 17
+    },
+    "sequence": {
+     "title": "Sequence",
+     "inset": 21,
+     "top": 17
+    },
+    "square": {
+     "title": "Transform",
+     "inset": 21,
+     "top": 17
+    }
+   },
+   "literal": {
+    "text": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+    "lines": 2,
+    "argsLines": 1,
+    "argsText": "0.25, 0.10, 0.25, 1.00)"
+   },
+   "reseat": {
+    "captionInkLeft": 49,
+    "buttonLeft": 25,
+    "glyphLeft": 49,
+    "below": true
+   },
+   "hero": {
+    "buttonCentreOffset": 0
+   },
+   "entryRow": {
+    "chevronLeft": 49,
+    "titleInkLeft": 49,
+    "copyGapFromTrigger": 8
+   }
+  },
+  "1440": {
+   "stageTitles": {
+    "easing": {
+     "title": "ease",
+     "inset": 21,
+     "top": 17
+    },
+    "spring": {
+     "title": "Spring",
+     "inset": 21,
+     "top": 17
+    },
+    "entry": {
+     "title": "@starting-style",
+     "inset": 21,
+     "top": 17
+    },
+    "sequence": {
+     "title": "Sequence",
+     "inset": 21,
+     "top": 17
+    },
+    "square": {
+     "title": "Transform",
+     "inset": 21,
+     "top": 17
+    }
+   },
+   "scrub": {
+    "label": "time",
+    "labelInset": 22,
+    "labelFont": "14.5411px 500",
+    "readout": "0 / 1500 ms",
+    "durationInset": 23,
+    "durationFont": "14.5411px 500",
+    "railBelowLabel": true,
+    "sliderName": "Scrub animation timeline"
+   },
+   "heatmap": {
+    "pips": [
+     {
+      "name": "smooth",
+      "current": true,
+      "visibility": "visible",
+      "color": "rgb(28, 25, 23)"
+     },
+     {
+      "name": "snappy",
+      "current": false,
+      "visibility": "visible",
+      "color": "rgb(28, 25, 23)"
+     },
+     {
+      "name": "bouncy",
+      "current": false,
+      "visibility": "visible",
+      "color": "rgb(28, 25, 23)"
+     },
+     {
+      "name": "gentle",
+      "current": false,
+      "visibility": "visible",
+      "color": "rgb(28, 25, 23)"
+     }
+    ],
+    "underTag": {
+     "fromFieldBottom": 52,
+     "fromFieldRight": 9,
+     "topFromField": 125
+    },
+    "underTagVsGentleDot": {
+     "dy": 48,
+     "overlapsAnyName": false
+    },
+    "currentNameClearsMarker": true
+   },
+   "heatmapClip": {
+    "x": 82.203125,
+    "y": 265.546875,
+    "width": 385.1875,
+    "height": 288.375
+   },
+   "entryRow": {
+    "chevronLeft": 571,
+    "titleInkLeft": 571,
+    "copyGapFromTrigger": 8
+   },
+   "hero": {
+    "deckInkLeft": 43,
+    "buttonLeft": 28,
+    "glyphLeft": 43
+   }
+  }
+ },
+ "dark": {
+  "390": {
+   "stageTitles": {
+    "easing": {
+     "title": "ease",
+     "inset": 21,
+     "top": 17
+    },
+    "spring": {
+     "title": "Spring",
+     "inset": 21,
+     "top": 17
+    },
+    "entry": {
+     "title": "@starting-style",
+     "inset": 21,
+     "top": 17
+    },
+    "sequence": {
+     "title": "Sequence",
+     "inset": 21,
+     "top": 17
+    },
+    "square": {
+     "title": "Transform",
+     "inset": 21,
+     "top": 17
+    }
+   },
+   "literal": {
+    "text": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+    "lines": 2,
+    "argsLines": 1,
+    "argsText": "0.25, 0.10, 0.25, 1.00)"
+   },
+   "reseat": {
+    "captionInkLeft": 49,
+    "buttonLeft": 25,
+    "glyphLeft": 49,
+    "below": true
+   },
+   "hero": {
+    "buttonCentreOffset": 0
+   },
+   "entryRow": {
+    "chevronLeft": 49,
+    "titleInkLeft": 49,
+    "copyGapFromTrigger": 8
+   }
+  },
+  "1440": {
+   "stageTitles": {
+    "easing": {
+     "title": "ease",
+     "inset": 21,
+     "top": 17
+    },
+    "spring": {
+     "title": "Spring",
+     "inset": 21,
+     "top": 17
+    },
+    "entry": {
+     "title": "@starting-style",
+     "inset": 21,
+     "top": 17
+    },
+    "sequence": {
+     "title": "Sequence",
+     "inset": 21,
+     "top": 17
+    },
+    "square": {
+     "title": "Transform",
+     "inset": 21,
+     "top": 17
+    }
+   },
+   "scrub": {
+    "label": "time",
+    "labelInset": 22,
+    "labelFont": "14.5411px 500",
+    "readout": "0 / 1500 ms",
+    "durationInset": 23,
+    "durationFont": "14.5411px 500",
+    "railBelowLabel": true,
+    "sliderName": "Scrub animation timeline"
+   },
+   "heatmap": {
+    "pips": [
+     {
+      "name": "smooth",
+      "current": true,
+      "visibility": "visible",
+      "color": "rgb(233, 230, 226)"
+     },
+     {
+      "name": "snappy",
+      "current": false,
+      "visibility": "visible",
+      "color": "rgb(233, 230, 226)"
+     },
+     {
+      "name": "bouncy",
+      "current": false,
+      "visibility": "visible",
+      "color": "rgb(233, 230, 226)"
+     },
+     {
+      "name": "gentle",
+      "current": false,
+      "visibility": "visible",
+      "color": "rgb(233, 230, 226)"
+     }
+    ],
+    "underTag": {
+     "fromFieldBottom": 52,
+     "fromFieldRight": 9,
+     "topFromField": 125
+    },
+    "underTagVsGentleDot": {
+     "dy": 48,
+     "overlapsAnyName": false
+    },
+    "currentNameClearsMarker": true
+   },
+   "heatmapClip": {
+    "x": 82.203125,
+    "y": 265.546875,
+    "width": 385.1875,
+    "height": 288.375
+   },
+   "entryRow": {
+    "chevronLeft": 571,
+    "titleInkLeft": 571,
+    "copyGapFromTrigger": 8
+   },
+   "hero": {
+    "deckInkLeft": 43,
+    "buttonLeft": 28,
+    "glyphLeft": 43
+   }
+  }
+ },
+ "easing1440x900": {
+  "plot": 264,
+  "scroll": [
+   457,
+   457
+  ],
+  "durationRowBottom": 512,
+  "surfaceBottom": 521
+ },
+ "easing1280x760": {
+  "plot": 131,
+  "scroll": [
+   371,
+   371
+  ],
+  "durationRowBottom": 400,
+  "surfaceBottom": 409
+ },
+ "easing1280x800": {
+  "plot": 128,
+  "scroll": [
+   368,
+   368
+  ],
+  "durationRowBottom": 417,
+  "surfaceBottom": 426
+ },
+ "easing1024x700": {
+  "plot": 134,
+  "scroll": [
+   372,
+   372
+  ],
+  "durationRowBottom": 373,
+  "surfaceBottom": 382
+ },
+ "easing1440x1080": {
+  "plot": 361,
+  "scroll": [
+   554,
+   554
+  ],
+  "durationRowBottom": 620,
+  "surfaceBottom": 629
+ }
+}
