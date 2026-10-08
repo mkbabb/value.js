@@ -857,3 +857,47 @@ Every row holds, because this pass changed layout and one tint, not lighting. Th
 **Disclosures**
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure. At load averages of about 40–64, the census twice timed out on its 30 s `goto`. The third attempt completed. The census script was not changed.
 - The 52.75rem and 24.625rem constants are served measurements at the 1440 rail (facet 604 px with the floor field, section top 394 px into the scroll body), stated in the rule's comment, in the same way as the field budget's 45rem.
+
+### pass 15 (the redeployed workflow's pass 11; critic C15, judged on the `evidence/DS/keyframes/pass-14/` frames)
+
+**Cure commit:** keyframes.js `0006be40` (master, pushed fast-forward from `48f02723`; the push also carried three commits another seat had already made on local master, `8def568e`, `f8dcceec` and `2f76c390`, none of which touch this cure's files). **Evidence:** value.js `0139e28d9` (`evidence/DS/keyframes/pass-15/`: 28 route frames, `census.json`, the `spring-pane-1440-*`, `presets-1440-*`, `crop-spring-figure-scrolled-*`, `crop-spring-figure-opened-*`, `entry-1440-*` and `sequence-{1440,390}-*` cells, `c15-probe.mjs` + `c15-probe.json`). All captures are headless real Chrome (§0ei). The task named `pass-11`, but `pass-11` already holds committed evidence, so the frames go to `pass-15`, following the sequential numbering of passes 6 to 14.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900 unless named; light and dark) |
+|---|---|---|
+| KF-C15-01 | The C14 margin switch on `.spring-heatmap-section` is **retired**: a margin spacer is whitespace in the scroll content both at rest and when scrolled. The section is now a glass `Collapsible` whose trigger is the app's existing chevron-row idiom (StartingStyleTarget's `compileToEntry() CSS` row: a quiet glass Button, `button-text-flush`, a ChevronRight, then the name), reading **"Peak overshoot"**. It is open by default. At mount it closes where the facet overflows the rail's scroll body (`.controls-surface` `scrollHeight > clientHeight`, read once from layout instead of from a restated rem budget). After that, the reader's toggle decides. The chevron's quarter turn is now one shared idiom, `.disclosure-chevron` (design-idioms.css), which both rows read; StartingStyleTarget's local rule is gone. Two follow-ons: (1) glass's disclosure content clips (`overflow: hidden`), so the plot keeps its top ζ tick's half-line overhang inside itself (`padding-block-start: var(--type-caption) / 2`); (2) the marker's glide duration is read when the marker mounts, because the figure can open after mount. No new wrapper. | **At rest (scene and Entry):** the row is closed, at 458–494, with the fold at 524 and no overflow. The pane ends on the whole row and its legend directly above the transport rule. The 90 px void is gone, and so is the scrolled void, because nothing is left to scroll. **Opened by the reader:** the figure is whole once scrolled (section 297–518, axis 499–518, fold 527; `crop-spring-figure-opened-*`). **1440×1080:** open, section 469–690, axis 690 against the fold at 699, no overflow (unchanged composition). **1280×1080:** closed. This also clears the C14 carry, where the facet overflowed by 12 px and the axis sat in the end fade. **1280×760 and 1024×700:** closed. The rail is shorter than even the closed facet, so the row starts below the fold, where the section already was before. |
+| KF-C15-02 | One stage-plate rule at every width: `.seq-target` is `h-full` (it was `h-fit lg:h-full`). The storyboard's existing `my-auto` centres the lanes in the plate. Lane spacing is unchanged. The fix is in the plate's own layout class, with no per-scene padding. | **390:** the plate is 107–708, filling the column to the sheet as Spring and Easing do. The lanes sit at 353–522 with 185/186 px above and below, centred, at a 34.4 px row pitch (unchanged). **1440:** unchanged, with the plate at 127–750 and the lanes at 288–665 (84/85). |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C15-03 | **Glass, O-88 DOCK-COLLAPSE-MOTION.** The mid-collapse orphan glyph comes from glass's dock-collapse morph. Cited, no local shim; re-judged at the 10.2.0 repin. |
+| HELD-O87-RECHECK | Unchanged at glass 10.1.0 and cited, not cured: the pane frame's stacked offset stamp (KF-C1-02), the secondary capsule stack (KF-C1-01), the split Input/Select fill (KF-C1-10), the control edge insets (KF-C1-09/C7-05), the dark resting halo on the stage plates, dock tile and play bubble (KF-C7-11, KF-C1-12/O-88), the ghost Steps trace and "Custom" under ease (KF-C7-10, KF-C9-05), the clipped SegmentedTabs (KF-C7-09), the thumbless fill sliders (KF-C11-08), the scrub's empty leading cap (KF-C8-05), EasingPicker Steps (KF-C12-03) and the dock select's focus-visible ring after a pointer pick (KF-C13-03). All are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+| KF-C15-01 legend | **Disclosed.** While the row is closed, the field's legend ("0 → 53 % overshoot · set by damping alone") stays on the row and wraps under the trigger at the 1440 rail. It describes the figure's scale, so it was kept and not hidden with the field. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages, on the final tree)
+
+| | pass 14 after | pass 15 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row holds, because this pass changed layout and disclosure, not lighting. The static tally is identical except files 76 → 77 (another seat's new `springHorizon.ts`). The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row (HomeMini, KF-C5-13 / KF-C9-12 family).
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **820/820**, then **826/826**. Another seat's commit `8def568e` added `spring-sweep-time-base.test.ts` between the two runs. No test was changed by this cure.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure. So the frames also show the other seat's in-tree spring time-base work (the transport reads `0 / 2000 ms` on Entry and `0 / 1400 ms` in some scene frames, depending on when each frame was captured relative to that commit).
+- The probe's `contentBottom`/`voidBelowContent` fields are not reliable (an sr-only descendant inflates `contentBottom`). The void is read from `scroll.overflow` and the row/section rects, and from the frames.
