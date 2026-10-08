@@ -1,0 +1,143 @@
+
+Running 6 tests using 3 workers
+
+[1/6] [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none)
+[2/6] [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 1440 light › frames 1440 light — the closed dock (magnet on) and the open menu
+[3/6] [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap
+[4/6] [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 390 light › frames 390 light — the closed dock (magnet on) and the open menu
+  1) [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap 
+
+    Error: Smooth contour: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Smooth contour: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    Error: Simplify contour: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Simplify contour: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    Error: Reset to extraction: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Reset to extraction: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-c3-X-F-W14V-c3-—-th-9bf6d--keep-glass-s-menu-icon-gap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-c3-X-F-W14V-c3-—-th-9bf6d--keep-glass-s-menu-icon-gap-chromium/error-context.md
+
+
+  2) [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) 
+
+    Error: magnet on: the trigger carries a mark in the magnet's hue (MAGNET-STATE-HIDDEN while 0; found [])
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      133 |         const on = await magnetHueOnTrigger(page);
+      134 |         expect.soft(off, "magnet off: the trigger carries no mark in the magnet's hue").toEqual([]);
+    > 135 |         expect.soft(on.length, `magnet on: the trigger carries a mark in the magnet's hue (MAGNET-STATE-HIDDEN while 0; found ${JSON.stringify(on)})`).toBeGreaterThan(0);
+          |                                                                                                                                                        ^
+      136 |     });
+      137 |
+      138 |     test("c3g — Smooth, Simplify and Reset keep glass's menu icon gap", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-c3.spec.ts:135:152
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-c3-X-F-W14V-c3-—-th-c8bfd-a-mark-in-its-hue-off-none--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-c3-X-F-W14V-c3-—-th-c8bfd-a-mark-in-its-hue-off-none--chromium/error-context.md
+
+
+[5/6] [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 390 dark › frames 390 dark — the closed dock (magnet on) and the open menu
+[6/6] [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 1440 dark › frames 1440 dark — the closed dock (magnet on) and the open menu
+  2 failed
+    [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) 
+    [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap 
+  4 passed (23.0s)
