@@ -446,4 +446,4 @@ The static half is unchanged (4 box-shadow declarations, 8 gradients, 3 keyframe
     - u170, crud and save_contour were re-run alone on both trees and passed 5/5 on each.
   - No visual golden was re-baselined.
 
-**Frames** (`pass-04/f6/`): 56 route and cell frames from the critic's own `capture.mjs` and `cells2.mjs`, plus 28 probe frames from `f6-probe.mjs` and `f6-probe3.mjs` (`probe/`: `v-canvas-tab-*-390`, `eq-canvas-tab-light-390`, `v-moremenu-*-1440`, `v-viewmenu-*-1440` and the rest), plus the cure probe's own frames (`cure/`), all re-aimed at `:3117`. All were captured in headless real Chrome (§0ei).
+**Frames** (`pass-04/f6/`): 56 route and cell frames from the critic's own `capture.mjs` and `cells2.mjs`, plus 27 probe frames from `f6-probe.mjs` and `f6-probe3.mjs` (`probe/`: `v-canvas-tab-*-390`, `eq-canvas-tab-light-390`, `v-moremenu-*-1440`, `v-viewmenu-*-1440` and the rest), plus the cure probe's own frames (`cure/`), all re-aimed at `:3117`. All were captured in headless real Chrome (§0ei).
