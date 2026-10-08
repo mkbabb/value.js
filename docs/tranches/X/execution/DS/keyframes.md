@@ -563,3 +563,62 @@ The verdict is still **RED**, on the glass-owned chrome rows and the banked loop
 - **At 1280×760 the 11 rem floor still binds.** The control row wraps at that pane's 309 px, and the surface still scrolls 451 against 406 (was 464 against 406). That is the KF-C3-06 class, unchanged.
 - **KF-C8-06 leaves two glyph-only verbs at served widths.** At the 367 px row, the critic's cure (Copy goes first, Format second) means both Copy and Format lose their words before "Compiled" can keep its own. Apply CSS plus Copy's glyph plus both words would need 392 px. The critic's alternative was a two-line row, which KF-C4 had already rejected because it stranded Apply alone. Both glyphs keep their accessible names and tooltips.
 - **The TimingFunctionPanel** (the cube's channel sub-pane) keeps its whole-picker cap. It was not named in this pass, and at 256 px its readout fits whole (KF-C7-02).
+
+### pass 9 (the redeployed workflow's pass 5; critic C9)
+
+**Cure commit:** keyframes.js `a38e5bf5` (master, pushed fast-forward). **Evidence:** value.js `65637fc82` (`evidence/DS/keyframes/pass-09/`: 28 route frames, `census.json`, the `presets-1440-*`, `entry-1440-*`, `f-timeline-1440-*`, `spring-caption-390-*` and `easing-pane-1280x760` cells, `c9-probe.mjs` + `c9-probe.json`). All captures are headless real Chrome (§0ei). The task named `pass-05`, but `pass-05` already holds the committed C5 evidence, so the frames go to `pass-09`, as in passes 6 to 8.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900, light and dark) |
+|---|---|---|
+| KF-C9-01 | The preset value line and Square's legend move to `text-mono-small`, the case-preserving rung StartingStyleTarget names. `text-mono-caption` is an eyebrow rung. The tile is start-aligned (`text-start`), because the producer item centres its text. | "0.35 s · ζ 0.65": `text-transform: none`, normal tracking, start-aligned, one line on all four tiles, each tile 66 px (were 86 and 65). The legend reads "x · y ∈ [-1, 1]" |
+| KF-C9-02 | Every preset tile now carries no plate of its own: transparent, a hairline `--border`, `box-shadow: none`. Before this, only the on and hover states were reset. No glass lighting token is touched. The selected tile keeps the violet 8% wash and the dashed 65% outline (U-K17). | off tiles: `rgba(0,0,0,0)` fill, 1px `--border`, no shadow. On tile: violet wash and dashed outline |
+| KF-C9-03 | One Reveal/Dismiss. The Entry view's full-width solid-violet ribbon bar is deleted. The stage capsule under the card is the anchored verb, and both views show the standard transport, which drives the selected channel (KF-SS-8). The orphaned `.btn-playback-accent` skin is deleted with it (playback-idiom.css, DESIGN.md). | Entry: one "Dismiss", on the stage; the pane shows Reverse/Preview and the scrub; zero accent bars |
+| KF-C9-04 | One stage-plate inset, as tokens: `--stage-plate-pad-inline: 1.25rem` and `--stage-plate-pad-block: 1rem` (layout.css; Square's values). The Easing and Spring plates, Sequence's full-bleed header and Square's telemetry read them. The per-scene `px`/`py` are gone, and so is Spring's centred `max-w-3xl` header cap. | the title sits 21 px in and 17 px down from its card on Easing, Spring, Sequence and Square (were 25/33/17/21 in, 17/17/11/17 down) |
+| KF-C9-07 | One pane inset: ChannelOptions, RibbonBar (its hairline and rows), KeyframeTimeline, the Keyframes header and MatrixEditor read glass's `--configurator-pad-inline` (they used `px-4`). One title rung: Timeline and the Keyframes header wear glass's `configurator-section-label`, which every scene facet's ConfiguratorLayer uses. | the configurator body and the ribbon column both pad 20 px. The Timeline and Keyframes titles are 25.9 px, weight 600, at inset 22 |
+| KF-C9-08 | The layer row falls back to `"replace"`, the engine's default op (`src/animation/constants/defaults.ts`). | Spring Controls: "layer replace" |
+| KF-C9-09 | The caption row wraps. The caption claims a 20 rem flex basis, so on a narrow plate Re-seat drops under it, start-aligned. | 390: the caption is 292 px and 3 lines (was ~180 px and 5 lines); Re-seat sits under it at the same left edge |
+| KF-C9-10 | The easing plot budget follows the pane. The sidebar is its own inline-size container, and below 24 rem it counts the wrapped control and duration rows (28.5 rem against 25.5 rem). The floor drops from 11 rem to 9 rem. | no surface scroll at 1440×900 (plot 296), 1280×760 (163, 403/403), 1280×800 (159), 1024×700 (166), 1440×1080 (361) |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C9-05 | **Glass-blocked; the consumer half is already in place.** The seat does seed the name: the picker root carries `preset="ease"` (measured). But glass 10.1.0's `EasingPicker` declares only `initial`, `playback`, `label` and `surface`, so the seat's `preset`, `mode`, `steps` and `term` seed falls through as inert DOM attributes. Any points the picker receives, through `initial` or the model's write-through, stamp the label `"custom"` (`setHandle`). No 10.1.0 prop or expose can show a named preset, so the Select reads "Custom" under an "ease" stage. **O-87 rider:** a `preset` field on `EasingPickerValue`, or `initial.preset` that survives the points. When it lands, re-point the seat's seed to the 10.x prop shape (`initial`); today the seed binds the 7.0.0 shape. |
+| KF-C9-06 | **Refused as an owner ruling.** The φ-band hero seat is the owner's T.D9 ruling: "it's OK if it sits a bit on top of the cube", recorded at `EditorStartScreen.vue` as "overlap with the die's lower quadrant is WELCOME". Capping the headline's measure, or moving the cube aside, re-poses an owner-blessed poster (OD-4). That is an owner DESIGN-RULING (§0dm), not a cure. Flagged for the owner: at 1440 the overlap now spans the cube's whole face, not "a bit". |
+| KF-C9-11 | Accepted as is: the slim scrollbar on the code well (KF-C7-12) stays, and word wrap stays off. Lines 12 and 15 scroll. |
+| KF-C9-12 | Banked: the AnimatedText charLift wave and TypingDots are the owner's identity motion (canon row 8, §0dm). This is the census loop row, 80. |
+| glass riders seen in the frames | The pane frame's stacked shadow, and the scrub rail's empty leading cap at 0 (KF-C8-05), are glass-owned. They are held under O-87 and not overridden. |
+
+These riders are named here for the relay. This seat did not write to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages)
+
+| | pass 8 after | pass 9 after |
+|---|---:|---:|
+| chrome: elements with shadow | 440 | 428 |
+| chrome: shadow layers (max) | 1312 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 316 | 310 |
+| chrome: inset highlights | 656 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 176 | 164 |
+| chrome: looping animations | 80 | 80 (KF-C5-13 / KF-C9-12, banked) |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| static: gradient fills | 5 | 5 |
+| subject: every lighting family | 0 | 0 |
+
+The drop is the three off preset tiles on each spring page, which no longer carry the producer item's plate. The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row.
+
+**Gates**
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice on the final tree.
+- `npm run lint` (depcruise and eslint): exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **817/817, twice** on the committed tree. 812 earlier, before a concurrent seat's commits landed.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. One test was re-pointed to the ruled structure: `timeline-expanded-surface` now expects `px-(--configurator-pad-inline)` and `py-4` where it expected `p-4`. The intent (the content keeps its inset, never `px-0`) is unchanged.
+
+**Disclosures**
+- **A concurrent seat.** X.KF.W13X `.esc1` committed three commits to keyframes master (`41b82bf7`, `81fd8a09`, `1688c84c`) while this seat worked, touching `ChannelOptions.vue` and `KeyframesStringControls.vue`. This seat's diff was checked to hold only its own hunks before the pathspec commit. The gates ran on HEAD `1688c84c` plus this cure.
+- **Load.** The shared machine ran at a load average of about 120–140, and the dev server's first response took up to 35 s. The probe retries navigation (domcontentloaded, up to 3 tries) and settles for 6 s. No measurement was relaxed.
+- **KF-C9-07 keeps the Keyframes header's hairline.** The critic named "bare vs ruled" header anatomies, but the cure asked only for one inset and one rung. The rule separates the header from the code well, so it stays.
+- **KF-C9-09 covers the caption only.** The sampled-curve footer crowding at 390 ("time (ms) · 26 stops" between 0 and 2000 ms) is not cured here, because the critic's cure named only the caption row. It is a carry for the next critic.
+- **KF-C9-10's 24 rem breakpoint is calibrated.** It was measured at panes of 403 px (1 line) against 350 and 328 px (wrapped). A pane between 384 and 403 px uses the one-line budget.
