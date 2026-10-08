@@ -1,0 +1,78 @@
+before-r1 start 15:36:20 load=22.82
+M1 cube 1440x900 hosts=3/1 opened=true swapped=true survived=true -> RED
+M1 amiga 1440x900 hosts=3/1 opened=true swapped=true survived=true -> RED
+M1 cube 390x844 hosts=3/1 opened=true swapped=true survived=true -> RED
+M1 amiga 390x844 hosts=3/1 opened=true swapped=true survived=true -> RED
+S1 spring 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[468.1,20.3,460.9,40.7] -> RED
+S1 easing 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[468.1,20.3,460.9,40.7] -> RED
+S1 amiga 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[468.1,20.3,460.9,40.7] -> RED
+S1 square 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[499.1,20.3,523,40.7] -> RED
+S1 sequence 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[468.1,20.3,460.9,40.7] -> RED
+S1 spring 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,58.2] -> RED
+S1 easing 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,58.2] -> RED
+S1 amiga 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,58.2] -> RED
+S1 square 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,220.9] -> RED
+S1 sequence 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,58.2] -> RED
+TOTAL 0/14 GREEN
+before-r1 end load=19.62
+after-dev-r1 start 15:37:21 load=19.62
+M1 cube 1440x900 hosts=1/1 opened=true swapped=true survived=true -> GREEN
+M1 amiga 1440x900 hosts=1/1 opened=true swapped=true survived=true -> GREEN
+M1 cube 390x844 hosts=1/1 opened=true swapped=true survived=true -> GREEN
+M1 amiga 390x844 hosts=1/1 opened=true swapped=true survived=true -> GREEN
+S1 spring 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 easing 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 amiga 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 square 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[31,0,62.1,0] -> GREEN
+S1 sequence 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 spring 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 easing 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 amiga 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 square 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,162.7] -> GREEN
+S1 sequence 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+TOTAL 14/14 GREEN
+after-dev-r1 end load=20.26
+before-r2 start 15:38:21 load=20.26
+M1 cube 1440x900 hosts=3/1 opened=true swapped=true survived=true -> RED
+M1 amiga 1440x900 hosts=3/1 opened=true swapped=true survived=true -> RED
+M1 cube 390x844 hosts=3/1 opened=true swapped=true survived=true -> RED
+M1 amiga 390x844 hosts=3/1 opened=true swapped=true survived=true -> RED
+S1 spring 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[468.1,20.3,460.9,40.7] -> RED
+S1 easing 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[468.1,20.3,460.9,40.7] -> RED
+S1 amiga 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[468.1,20.3,460.9,40.7] -> RED
+S1 square 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[499.1,20.3,523,40.7] -> RED
+S1 sequence 1440x900 slot [63.5,116,1313,645.1]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[468.1,20.3,460.9,40.7] skel-root=[468.1,20.3,460.9,40.7] -> RED
+S1 spring 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,58.2] -> RED
+S1 easing 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,58.2] -> RED
+S1 amiga 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,58.2] -> RED
+S1 square 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,220.9] -> RED
+S1 sequence 390x844 slot [5.8,84,378.3,652.9]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,26.7,0,58.2] skel-root=[0,26.7,0,58.2] -> RED
+TOTAL 0/14 GREEN
+before-r2 end load=13.56
+after-dev-r2 start 15:39:20 load=13.56
+M1 cube 1440x900 hosts=1/1 opened=true swapped=true survived=true -> GREEN
+M1 amiga 1440x900 hosts=1/1 opened=true swapped=true survived=true -> GREEN
+M1 cube 390x844 hosts=1/1 opened=true swapped=true survived=true -> GREEN
+M1 amiga 390x844 hosts=1/1 opened=true swapped=true survived=true -> GREEN
+S1 spring 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 easing 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 amiga 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 square 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[31,0,62.1,0] -> GREEN
+S1 sequence 1440x900 slot [531.6,136.3,852.1,604.4]->[531.6,136.3,852.1,604.4] rail 0->1 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 spring 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 easing 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 amiga 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+S1 square 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,162.7] -> GREEN
+S1 sequence 390x844 slot [5.8,110.7,378.3,594.7]->[5.8,110.7,378.3,594.7] rail 0->0 delta=[0,0,0,0] skel-root=[0,0,0,0] -> GREEN
+TOTAL 14/14 GREEN
+after-dev-r2 end load=14.39
+test:demo r1 start 15:40:20 load=14.39
+EXIT=0
+ Test Files  122 passed (122)
+      Tests  817 passed (817)
+test:demo r1 end load=25.90
+test:demo r2 start 15:41:01 load=22.41
+EXIT=0
+ Test Files  122 passed (122)
+      Tests  817 passed (817)
+test:demo r2 end load=31.17
