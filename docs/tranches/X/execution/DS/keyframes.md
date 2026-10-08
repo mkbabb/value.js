@@ -622,3 +622,48 @@ The drop is the three off preset tiles on each spring page, which no longer carr
 - **KF-C9-07 keeps the Keyframes header's hairline.** The critic named "bare vs ruled" header anatomies, but the cure asked only for one inset and one rung. The rule separates the header from the code well, so it stays.
 - **KF-C9-09 covers the caption only.** The sampled-curve footer crowding at 390 ("time (ms) · 26 stops" between 0 and 2000 ms) is not cured here, because the critic's cure named only the caption row. It is a carry for the next critic.
 - **KF-C9-10's 24 rem breakpoint is calibrated.** It was measured at panes of 403 px (1 line) against 350 and 328 px (wrapped). A pane between 384 and 403 px uses the one-line budget.
+
+### pass 10 (the redeployed workflow's pass 6; critic C10)
+
+**Cure commit:** keyframes.js `5eaa4798` (master, pushed fast-forward). **Evidence:** value.js `d24fd57b3` (`evidence/DS/keyframes/pass-10/`: 28 route frames, `census.json`, the `entry-1440-*`, `entry-390-*`, `easing-pane-1440-*`, `easing-header-390-*`, `heatmap-1440-*`, `presets-1440-*`, `spring-caption-390-*`, `home-hero-1440-*` and `easing-pane-1280x760` cells, `c10-probe.mjs` + `c10-probe.json`). All captures are headless real Chrome (§0ei). The task named `pass-06`, but `pass-06` already holds the committed C6 evidence, so the frames go to `pass-10`, as in passes 6 to 9.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark) |
+|---|---|---|
+| KF-C10-01 | `.entry-body` reads `--stage-plate-pad-inline` / `--stage-plate-pad-block` (layout.css, KF-C9-04), and `px-6 py-5 lg:px-8` is deleted. The title and the artifact row also lose their centred `max-w-3xl` cap. On an 814 px plate that cap still set them 2 px in from the inset, and further on a wider plate. The stage and the caption are centred, so their cap draws nothing and stays. | `@starting-style` sits 21/17 from its card at 1440 and 390. The other four stages are at 21/17 too. |
+| KF-C10-02 | The scrub is a PARAM-ROW (design-idioms.css): glass `LabeledField` with the label "time", and a `.param-value` readout `0 / 1500 ms` computed from `railT` over the one duration read. A normalized source, which has no ms scale, reads as %. No new component. The rail keeps its specific aria-label. The easing plot budget (KF-C9-10) counts the new line: 25.5→27.5rem and 28.5→30.5rem, and the floor drops from 9 to 8rem, because at 1280×760 and 1280×800 the 9rem floor bound and the surface scrolled by 5 and 10 px. | "time" sits at the "duration" label's rung (14.54 px, weight 500, inset 22 against 23). The rail is below its label. No surface scroll at 1440×900 (plot 264), 1280×760 (131), 1280×800 (128), 1024×700 (134) or 1440×1080 (361). |
+| KF-C10-03 | One `@utility button-text-flush` in design-idioms.css: `margin-inline-start: calc(-1 * (var(--button-size) / 2 - var(--space-residue)) - 1px)`. That is glass's own `.button` padding-inline, resolved on the button, plus its 1px edge, so the glass Button is placed and never restyled. It is applied to Re-seat, to the `compileToEntry() CSS` trigger, and with `lg:` to the hero's pause control (below lg the hero column is centred, so the control stays centred). | Re-seat's glyph is at x 49, the caption's text at 49 (it was 63). The hero glyph is at 43, the deck at 43 (it was ≈60). The Entry chevron sits on the title's ink at 571 (1440) and 49 (390). At 390 the hero control is centred (offset 0). |
+| KF-C10-04 | The artifact row is `justify-start gap-2`, so the CopyButton trails its trigger, matching EasingTarget's literal + CopyButton pair. | Copy is 8 px after the trigger (it was ≈530 px away, at the plate's far edge). |
+| KF-C10-05 | (a) The `.is-current > span { visibility: hidden }` rule is deleted. The current pip keeps its name in the foreground ink, and the name clears the 0.9rem marker (margin 0.5rem). (b) "underdamped · rings" moves to the middle of its band (`UNDER_TAG_TOP`, between ζ = 1 and the floor), right-aligned, on the side where no underdamped preset sits. | All four pips are named and visible. The current name does not overlap the marker. The tag is 48 px below gentle's dot and overlaps no name. At the band's middle it stays readable, where the bottom corner it was first tried in sat on the saturated end of the ramp. |
+| KF-C10-06 | The literal renders as `fn(` followed by an inline-block argument list, so the list wraps as one unit and breaks inside itself only when it cannot fit a line alone. | At 390: `cubic-bezier(` / `0.25, 0.10, 0.25, 1.00)`, with the argument list on one line. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages, on the final tree)
+
+| | pass 9 after | pass 10 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 80 | 80 (KF-C5-13 / KF-C9-12, banked) |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| static: gradient fills | 5 | 5 |
+| subject: control gradients | 4 | 4 (the spring track's `stage-field-x` quarter gridlines, which are content; unchanged since pass 9. The pass 9 receipt's "every lighting family 0" read that row as zero.) |
+
+This pass changed placement, labels and type, not lighting, so the census holds. The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row.
+
+**Gates**
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice on the final tree.
+- `npm run lint` (depcruise and eslint): exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **817/817, twice**.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. One test was re-pointed to the ruled position: `spring-heatmap-reversibility` (D-B1) now expects the regime tag's `top` at the underdamped band's middle, where it expected the critical line. The intent, regimes labelled either side of ζ = 1, is unchanged. Re-seat's attributes were reordered (`@click` before `class`) so that `spring-solver-truth`'s 400-character "the verb shares the hint's row" proximity check still holds with the longer class list. The test was not touched.
+
+**Disclosures**
+- **The 390 Entry cell runs in a fine-pointer context** at 390×844. In a touch context the collapsed dock's layer stays `inert`, and no touch raises its channel select, so the Entry channel cannot be reached. That is glass-owned dock-collapse behaviour, held under **O-88** and not shimmed. The plate's inset tokens are rem, and the measurement matches the touch-context stages (21/17).
+- **KF-C10-02 changes the easing plot budget.** The critic's cure added a line to every transport. Without re-counting it, 1280×760 and 1280×800 scrolled. The 8rem floor is the measured minimum that clears both.
+- **KF-C10-05b.** The tag was first placed in the bottom-right corner. It overlapped nothing there, but it sat on the darkest violet of the overshoot ramp and read faintly in both schemes, so it moved to the middle of the band, which the critic's "down into the underdamped field" allows.
+- **Glass riders seen in the frames** (unchanged, not overridden): the pane frame's stacked shadow and the scrub's empty leading cap at 0 (KF-C8-05), both under O-87. This seat did not write to the glass inbox.
+- Load average was ≈41 during the gates. The dev server on :5173 was the keyframes seat's own, already running, and was reused.
