@@ -290,7 +290,22 @@
 @container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-wrapper--inspector:has(> .pane-row-follow) {
         contain: size;
+        min-block-size: var(--pane-follow-floor, 0px);
     }
+}
+
+/* X-DS pass 3 (V3C-03) — THE FOLLOWER'S FLOOR. Size containment lets a long
+ * companion follow a short leader, but it also let the My Palettes companion
+ * shrink below its own minimum: on Browse (a 362 px leader) the empty state's
+ * hint sat under the end feather, and after a save on Generate (405 px) the
+ * one saved card was sliced at the card's bottom over an empty viewport. The
+ * floor is the companion's minimum content: its seated header plus the search
+ * row, the "Start a new palette" well and ONE saved card, or the whole empty
+ * state (measured 450 and 464 px at 1440, pass-03/probe-companion.mjs), with a
+ * line of slack. A contained grid item still contributes its min-block-size,
+ * so a shorter leader stretches to the floor; a longer one is untouched. */
+.pane-wrapper--inspector[data-pane="palettes"] {
+    --pane-follow-floor: 30rem;
 }
 
 /* X.W12U.m · A2-VA-L2-5 — ONE TRACK: THE ROUTED SUBJECT COMES FIRST.

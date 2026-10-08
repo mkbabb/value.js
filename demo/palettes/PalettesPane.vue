@@ -5,39 +5,38 @@
              X-DS pass 2 (V2C-01): the row can be shorter than the companion's
              content (360 px on Browse against 448 of content), so the body
              scrolls inside the card on glass's scroll primitive, exactly as
-             About does: the end edge feathers instead of guillotining a line,
-             and the start-edge feather is off because the sticky PaneHeader's
-             veil is that edge. The `pane-scroll-fade` host (the `--pane-scroll`
-             timeline PaneHeader reads) moves with the scroll to the port. -->
+             About does: the end edge feathers instead of guillotining a line.
+             X-DS pass 3 (V3C-01): the PaneHeader sits ABOVE the port, as its
+             sibling (About's seat), so the list never runs under the title and
+             both port edges feather (PaneHeader.vue, the seated-header rule). -->
+        <!-- T.W6 · W6-4 (Q5 RULED, T-43 owner-CONFIRMS: "'Palettes' should be
+             rainbow"): the "Palettes" letterforms wear the guarded ramp — the
+             SECOND of the exactly-two sanctioned sites (with the dock
+             dropdown entry; one resolver, `@composables/color/palettes-ramp`,
+             consumed via the ONE `.palettes-ramp-text` recipe). This is the
+             Q4-record moment surviving, relocated per the ruled form; every
+             OTHER pane title stays ink (S.W5-7 stands for the rest). -->
+        <PaneHeader description="Save, organize, and share your colors.">
+            <!-- P4-R1 (WR-8): the title is LARGE text — it consumes the
+                 per-site title ramp (3:1 large-text floor, certified against
+                 the resting plate) aliased into the shared recipe slots;
+                 utils.css untouched, the menu entry keeps the 4.5 default. -->
+            <span class="capitalize">My <span class="palettes-ramp-text" :style="rampTitleVars">Palettes</span></span>
+            <!-- P4-R3 (a11y): the count badge leaves the heading's accessible
+                 name (`aria-hidden`) so AT never announces "My Palettes2"; an
+                 sr-only companion carries the count with a separator. -->
+            <Badge
+                v-if="pm.savedPalettes.value.length > 0"
+                variant="secondary"
+                class="text-mono-small ml-2"
+                aria-hidden="true"
+            >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</Badge>
+            <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
+        </PaneHeader>
         <FadingScroll
             axis="y"
-            :fade-start="false"
             class="pane-scroll-fade flex flex-col flex-1 min-h-0 overflow-x-hidden"
         >
-            <!-- T.W6 · W6-4 (Q5 RULED, T-43 owner-CONFIRMS: "'Palettes' should be
-                 rainbow"): the "Palettes" letterforms wear the guarded ramp — the
-                 SECOND of the exactly-two sanctioned sites (with the dock
-                 dropdown entry; one resolver, `@composables/color/palettes-ramp`,
-                 consumed via the ONE `.palettes-ramp-text` recipe). This is the
-                 Q4-record moment surviving, relocated per the ruled form; every
-                 OTHER pane title stays ink (S.W5-7 stands for the rest). -->
-            <PaneHeader description="Save, organize, and share your colors.">
-                <!-- P4-R1 (WR-8): the title is LARGE text — it consumes the
-                     per-site title ramp (3:1 large-text floor, certified against
-                     the resting plate) aliased into the shared recipe slots;
-                     utils.css untouched, the menu entry keeps the 4.5 default. -->
-                <span class="capitalize">My <span class="palettes-ramp-text" :style="rampTitleVars">Palettes</span></span>
-                <!-- P4-R3 (a11y): the count badge leaves the heading's accessible
-                     name (`aria-hidden`) so AT never announces "My Palettes2"; an
-                     sr-only companion carries the count with a separator. -->
-                <Badge
-                    v-if="pm.savedPalettes.value.length > 0"
-                    variant="secondary"
-                    class="text-mono-small ml-2"
-                    aria-hidden="true"
-                >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</Badge>
-                <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
-            </PaneHeader>
             <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 grow shrink-0">
                 <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
                      side-by-side panes) is scoped — this one owns YOUR list.
@@ -50,15 +49,31 @@
                      input carries `aria-label` itself. X-W7L (glass 10.1.0): glass 9.0.0
                      deleted `SearchBar`; the field composes the producer's `.input-bar`
                      recipe with its own input (glass MIGRATION.md 9.0.0). -->
-                <div class="input-bar search-seated">
-                    <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
-                    <input
-                        v-model="pm.searchQuery.value"
-                        type="search"
-                        aria-label="Search your palettes"
-                        placeholder="Search your palettes..."
-                        class="input-bar-field"
-                    />
+                <!-- X-DS pass 3 (V3C-02): the delete-all action is a LABELLED text
+                     action at the end of the search row, the row that acts on the
+                     whole saved list. It used to be a lone trash glyph on a row of
+                     its own (S.W5-7 excised the "{n} palettes" line it balanced). -->
+                <div class="flex items-center gap-2">
+                    <div class="input-bar search-seated flex-1 min-w-0">
+                        <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                        <input
+                            v-model="pm.searchQuery.value"
+                            type="search"
+                            aria-label="Search your palettes"
+                            placeholder="Search your palettes..."
+                            class="input-bar-field"
+                        />
+                    </div>
+                    <Button
+                        v-if="pm.savedPalettes.value.length > 0"
+                        emphasis="text"
+                        size="sm"
+                        class="shrink-0 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive"
+                        aria-label="Delete all saved palettes"
+                        @click="pm.showDeleteAllConfirm.value = true"
+                    >
+                        Delete all
+                    </Button>
                 </div>
 
                 <!-- W7-failure-dispositions row 45: an unreadable stored library is
@@ -90,25 +105,6 @@
                         @cancel-edit="emit('cancelEdit')"
                         @clear-current="colorTarget.emitApply([])"
                     />
-
-                    <!-- Saved palettes toolbar. S.W5-7: the "{n} palettes" line
-                         is excised (the header Badge is the canonical count —
-                         it existed only to left-balance this button), and the
-                         delete-all trigger is DEMOTED from an always-red beacon
-                         (the highest-chroma element on the pane guarding its
-                         rarest action) to a quiet ghost — red on hover/focus. -->
-                    <div v-if="pm.savedPalettes.value.length > 0" class="flex items-center justify-end">
-                        <Button
-                            emphasis="quiet"
-                            icon-only
-                            size="xs"
-                            class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
-                            aria-label="Delete all saved palettes"
-                            @click="pm.showDeleteAllConfirm.value = true"
-                        >
-                            <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
-                        </Button>
-                    </div>
 
                     <!-- X-DS pass 2 (V2C-01): the empty state sits at the top of the
                          list. It no longer takes `grow` to centre itself in space the

@@ -1110,8 +1110,16 @@ for (const scheme of ["light", "dark"] as const) {
                     { timeout: 8000 },
                 )
                 .not.toBe("");
+            // X-DS pass 3 (V3C-04) RE-AIM, exactly as the config leg was at
+            // V1C-06: with no image the K and kC sliders are scalars on glass's
+            // default RANGE variant, the value's extent is the filled RANGE in
+            // the one scalar ink (`--slider-range-bg`), and the unfilled track is
+            // glass's quiet tone. The graphics floor moves with the meaning: it
+            // is each RANGE that must clear 3:1 on the plate. Same floor, same
+            // ground, the indicator re-pointed. (The developed K rail keeps its
+            // certified ink + hairline ring; it mounts only with a ramp.)
             await expect(
-                page.locator('[data-o18="extract-kc"] .slider-track'),
+                page.locator('[data-o18="extract-kc"] .slider-range'),
             ).toBeVisible();
 
             const settleSurface = async (
@@ -1131,17 +1139,17 @@ for (const scheme of ["light", "dark"] as const) {
                 `${row.name} fill ${row.ink} vs ground ${row.ground} — raw ${row.rawColor} α ${row.effectiveAlpha} stack [${row.stack.join(" | ")}]`;
 
             const kc = await settleSurface(
-                '[data-o18="extract-kc"] .slider-track',
-                "extract-kc-track",
+                '[data-o18="extract-kc"] .slider-range',
+                "extract-kc-range",
             );
-            expect(kc, "kC track mounted").not.toBeNull();
+            expect(kc, "kC range mounted").not.toBeNull();
             expect(kc!.ratio, diag(kc!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
 
             const kRail = await settleSurface(
-                '[data-o18="extract-k-rail"]',
-                "extract-k-rail",
+                '[data-o18="extract-k"] .slider-range',
+                "extract-k-range",
             );
-            expect(kRail, "K rail mounted").not.toBeNull();
+            expect(kRail, "K range mounted").not.toBeNull();
             expect(kRail!.ratio, diag(kRail!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
         });
     });

@@ -20,10 +20,12 @@
             @touchmove.passive="spectrumGate.handleScrollCheck($event)"
             @touchend.passive="spectrumGate.handleTouchEnd()"
         >
+            <!-- X-DS pass 3 (V3C-06): the thumb keeps its organic outline (the
+                 identity, §0dm) and is STILL at rest. The perpetual 2s rAF
+                 wobble carried no state; the outline re-seeds with the colour,
+                 so it changes only while the user moves it. -->
             <WatercolorDot
                 :color="cssColorOpaque"
-                animate
-                :cycle-duration="2000"
                 :range="[15, 85]"
                 class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                 :style="spectrumDotStyle"
@@ -112,6 +114,10 @@ const scheduleSpectrumUpdate = (event: PointerEvent) => {
 // synchronous style+layout every frame against the previous frame's recolour
 // (the drag's own writes), before this frame's writes dirtied it again.
 let dragRect: DOMRect | null = null;
+// The thumb's radius in px, read with the rect (once per drag).
+let dragInset: number | null = null;
+const thumbInset = () =>
+    (spectrumRef.value?.querySelector<HTMLElement>(".spectrum-dot")?.offsetHeight ?? 0) / 2;
 
 const updateSpectrumColor = (
     coords: { clientX: number; clientY: number },
@@ -121,10 +127,16 @@ const updateSpectrumColor = (
     if (rect.width === 0 || rect.height === 0) return;
 
     const x = clamp(coords.clientX - rect.left, 0, rect.width);
-    const y = clamp(coords.clientY - rect.top, 0, rect.height);
+    // X-DS pass 3 (V3C-07): the thumb's VERTICAL travel is inset by its radius
+    // (useSpectrumPlateStyle), so at full value it sits inside the plate rather
+    // than riding half over the value readout above it. The pointer maps over
+    // the same inset span, so the thumb stays under the pointer.
+    const inset = dragInset ?? thumbInset();
+    const span = Math.max(1, rect.height - 2 * inset);
+    const y = clamp(coords.clientY - rect.top - inset, 0, span);
 
     const s = clamp(x / rect.width, 0, 1);
-    const v = clamp(1 - y / rect.height, 0, 1);
+    const v = clamp(1 - y / span, 0, 1);
 
     rawS.value = s;
     rawV.value = v;
@@ -156,6 +168,7 @@ const handleSpectrumDown = (event: PointerEvent) => {
     capturedElement = el;
     isDragging.value = true;
     dragRect = spectrumRef.value?.getBoundingClientRect() ?? null;
+    dragInset = thumbInset();
 
     debug.setGauge("spec.isDragging", true);
     debug.setGauge("spec.capturedPid", event.pointerId);
@@ -204,6 +217,7 @@ const stopDragging = () => {
         spectrumRafId = null;
     }
     dragRect = null;
+    dragInset = null;
     isDragging.value = false;
 };
 
@@ -236,6 +250,8 @@ onUnmounted(() => {
 @reference "../../../styles/foundation.css";
 
 .spectrum-picker {
+    /* The thumb's size, read by the thumb and by its inset travel (V3C-07). */
+    --spectrum-dot-size: 1.75rem;
     border-radius: var(--radius-xl);
     /* X-DS pass 1 (V1-27): the original's signature (684c818f) — the hard
      * offset tinted by the live colour — stands AT REST again; it was hover-only
@@ -269,8 +285,8 @@ onUnmounted(() => {
 
 .spectrum-dot {
     position: absolute;
-    width: 1.75rem;
-    height: 1.75rem;
+    width: var(--spectrum-dot-size);
+    height: var(--spectrum-dot-size);
     border: 2px solid var(--dot-border, var(--background));
     /* The wet-edge filter is the WatercolorDot's own internalised per-instance
        <filter> (glass-ui superset) — no global #watercolor-filter override here. */

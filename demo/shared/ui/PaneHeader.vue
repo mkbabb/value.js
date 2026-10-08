@@ -77,6 +77,17 @@ const { level = 2 } = defineProps<{
 .pane-scroll-fade.fading-scroll--y {
     --fade-scroll-width: 1.5rem;
 }
+
+/* X-DS pass 3 (V3C-01): THE SEATED HEADER. A pane whose body scrolls on a
+ * FadingScroll port (About, My Palettes) seats its PaneHeader ABOVE the port,
+ * as a sibling, so nothing scrolls under the title. The card scopes the port's
+ * `--pane-scroll` timeline up to itself, so the seated header's veil still
+ * swells with the port's scroll (O-11 gates 1-3 unchanged). */
+@supports (animation-timeline: scroll()) {
+    .card:has(> .pane-header ~ .pane-scroll-fade) {
+        timeline-scope: --pane-scroll;
+    }
+}
 </style>
 
 <style scoped>
@@ -202,13 +213,17 @@ const { level = 2 } = defineProps<{
         animation-timeline: --pane-scroll;
         animation-range: 0px 64px;
     }
-    .pane-header-title {
+    /* X-DS pass 3 (V3C-01): the title and caption condense only on a header
+     * that scrolls WITH its body (sticky inside the host). A seated header
+     * keeps its rest form: shrinking a box that cannot give back its height
+     * only leaves a dead band. */
+    .pane-scroll-fade .pane-header-title {
         transform-origin: left top;
         animation: pane-title-shrink linear both;
         animation-timeline: --pane-scroll;
         animation-range: 0px 120px;
     }
-    .pane-header-desc-wrap > p {
+    .pane-scroll-fade .pane-header-desc-wrap > p {
         animation: pane-desc-shrink linear both;
         animation-timeline: --pane-scroll;
         animation-range: 0px 80px;

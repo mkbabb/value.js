@@ -123,12 +123,19 @@ const SECTIONS: SliderSection[] = [
 
 <template>
     <ConfigSliderPane
+        class="max-w-(--pane-max)"
         :config="(atoms as unknown) as Record<string, unknown>"
         :sections="SECTIONS"
         :defaults="(DEFAULT_AURORA_ATOMS as unknown) as Record<string, unknown>"
         title="Atmosphere"
         description="Aurora palette follows the picked color."
     >
+        <!-- X-DS pass 3 (V3C-09): the Atmosphere card is the route's SOLE stage, so
+             the row handed it the full 1040px for four 20rem selects and three
+             scrubbers. It takes one pane column (`--pane-max`, the picker card's
+             width) and centres in the row (the pane root's own `mx-auto`).
+             This note sits in the slot: a comment beside a pane's root makes a
+             dev-mode root fragment (§0ay ESC-W5t-2). -->
         <!-- Enum atoms — Select rows above the numeric sliders. X-DS pass 1
              (V1C-05): ONE label column for the four rows, so every trigger
              starts on the same line (the Mix/Generate two-column forms'

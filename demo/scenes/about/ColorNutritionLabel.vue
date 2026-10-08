@@ -10,18 +10,17 @@
         class="w-full grid grid-cols-1 gap-4 relative"
         :data-space-facts="model.selectedColorSpace"
     >
-        <!-- AB-3 (T.W8 remediation_1 · D1): the Definition seats on the ONE
-             rung-2 well recipe. X-DS pass 1 (V1-22): it is the plain well
-             (`.console-well`: the tone step and the `--card-edge` hairline),
-             not a glass Alert re-filled with the well tone — that carried a
-             backdrop blur, a rim stack and a soft shadow on a text box, and it
-             announced a static definition as a live alert. -->
-        <div class="console-well px-4 py-3">
-            <p class="font-medium leading-snug mb-1">Definition</p>
+        <!-- X-DS pass 3 (V3C-08): Definition is a section like its siblings —
+             the same display head, the text below, the rule after. The well it
+             sat in (V1-22's flattening of the old glass Alert) kept an
+             alert-shaped head in the body voice, a second section-head voice in
+             one card, and a box the original never had. -->
+        <section>
+            <h2 class="font-display text-subheading mb-2">Definition</h2>
             <p class="text-small" data-fact="definition">
                 {{ currentColorSpaceInfo.definition }}
             </p>
-        </div>
+        </section>
 
         <Separator />
 

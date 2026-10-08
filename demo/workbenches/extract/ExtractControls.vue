@@ -1,10 +1,9 @@
 <template>
     <div class="flex flex-col gap-3">
         <!-- K slider — own row, full width, tall track with gradient.
-             T-44a (T.W6.5 row 9): the rail's COLOR channel is the certified
-             track ink. E1-R3 (T.W8 remediation_1): pre-image the track ink
-             carries the rail (≥3:1 on its ground); once an image develops,
-             the opaque palette gradient rides above as a DATA layer (C3) and
+             T-44a (T.W6.5 row 9): the developed rail's COLOR channel is the
+             certified track ink. E1-R3 (T.W8 remediation_1): once an image
+             develops, the opaque palette gradient rides above as a DATA layer (C3) and
              fully occludes that fill — so the certified ink survives OUTWARD
              as a persistent hairline ring (the ShadowPalette hairline idiom
              turned outward), giving the component a certified identity edge
@@ -17,7 +16,18 @@
         <!-- X-DS pass 2 (V2C-02): the app's ONE scalar row — the name left,
              the value right in mono tabular figures, the track below (the
              Direction row's pattern). The bare numeral had no visible name. -->
-        <div class="flex flex-col gap-1 w-full min-w-0">
+        <!-- X-DS pass 3 (V3C-04): ONE slider register. A scalar with no colour
+             data (K before a run develops, kC always) is glass's default RANGE
+             variant at the `sm` rung, its range in the app's one scalar ink
+             (`--slider-range-bg`, utils.css) over glass's quiet track — the
+             config consoles' and Direction's register. The certified full-
+             length track ink (T-44a) read as a FULL bar on a slider at 30%,
+             and in dark it was the brightest thing on the pane while holding
+             no data. The 24px data rail returns only when K carries the
+             developed ramp (then it is the spectrum variant over the rail,
+             with the rail's certified hairline ring, E1-R3). O-18's graphics
+             leg reads the range, as the config leg does (V1C-06). -->
+        <div data-o18="extract-k" class="flex flex-col gap-1 w-full min-w-0">
             <div class="flex items-center justify-between gap-2">
                 <Label>Colors</Label>
                 <span
@@ -26,22 +36,18 @@
                     :title="kReadout.title"
                 >{{ kReadout.text }}</span>
             </div>
-            <!-- X-DS pass 1 (V1C-08): the 24px rail is sized for the developed
-                 ramp. With nothing developed it carries no colour data, so it
-                 stands at glass's `sm` rung (12px, the kC slider's own rung)
-                 and keeps the certified track ink (O-18 · t33-audit-11); it
-                 grows to 24px only when it carries the ramp. The row keeps
-                 its 24px band either way, so nothing below it moves. -->
+            <!-- The row keeps its 24px band in both states, so nothing below
+                 it moves when the ramp develops. -->
             <div class="relative w-full h-6 flex items-center">
                 <div
+                    v-if="gradient"
                     data-o18="extract-k-rail"
-                    class="absolute inset-x-0 top-1/2 -translate-y-1/2 rounded-full overflow-hidden"
-                    :class="gradient ? 'h-6' : 'h-3'"
+                    class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-6 rounded-full overflow-hidden"
                     :style="railStyle"
                 />
                 <Slider
                     aria-label="Number of colors"
-                    variant="spectrum"
+                    :variant="gradient ? 'spectrum' : 'scrubber'"
                     :size="gradient ? 'md' : 'sm'"
                     :model-value="kModel"
                     :disabled="standDown"
@@ -49,79 +55,68 @@
                     :max="16"
                     :step="1"
                     class="relative w-full"
-                    :style="{ '--glass-slider-track-background': 'transparent' }"
+                    :style="gradient ? { '--glass-slider-track-background': 'transparent' } : undefined"
                     @update:model-value="(v: number[] | undefined) => v && $emit('update:k', v[0]!)"
                 />
             </div>
         </div>
 
-        <!-- Controls row: upload, kC slider, reset -->
-        <div class="flex items-center gap-2">
-            <!-- R-20 (X.W7.g3): one intake per state. With no image the drop
-                 zone is the intake and this control stands down (present, so
-                 the row holds its geometry); with an image it replaces it. -->
-            <DockControl
-                :title="hasImage ? 'Replace image' : 'Upload image'"
-                :disabled="standDown || !hasImage"
-                :style="{ '--btn-hover-color': cssColor }"
+        <!-- X-DS pass 3 (V3C-05): kC stands as a full-width scalar row, like
+             "Colors" above it — one control stack, one left edge. -->
+        <div data-o18="extract-kc" class="flex flex-col gap-1 w-full min-w-0">
+            <div class="flex items-center justify-between gap-2">
+                <Label class="truncate">Chroma weight</Label>
+                <span class="text-mono-small plate-ink tabular-nums">{{ chromaWeight.toFixed(1) }}</span>
+            </div>
+            <Slider
+                aria-label="Chroma weight"
+                size="sm"
+                :model-value="chromaWeightModel"
+                :disabled="standDown"
+                :min="0"
+                :max="1.5"
+                :step="0.1"
+                class="w-full"
+                @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
+            />
+        </div>
+
+        <!-- X-DS pass 3 (V3C-05): the image actions are ONE labelled action row,
+             and only the live ones are shown. With no image the drop zone is
+             the one intake (R-20), so Replace and Reset are absent rather than
+             parked as dead glyphs; the camera is a two-way door (XW-8 · EC-5),
+             pressed while live. -->
+        <div class="flex flex-wrap items-center gap-1" role="group" aria-label="Image actions">
+            <Button
+                v-if="hasImage"
+                emphasis="quiet"
+                size="sm"
+                :disabled="standDown"
                 @click="$emit('upload')"
             >
-                <Upload class="w-5 h-5 transition-colors" />
-            </DockControl>
-
-            <!-- Camera capture (T20 — the unified workbench capability).
-                 X.W7.g3 (XW-8 · EC-5): a two-way door — pressed while live, and
-                 pressing it again closes the camera. -->
-            <DockControl
-                :title="cameraLive ? 'Close camera' : 'Open camera'"
-                :active="cameraLive"
+                <Upload aria-hidden="true" />
+                Replace image
+            </Button>
+            <Button
+                emphasis="quiet"
+                size="sm"
                 :disabled="disabled"
-                :style="{ '--btn-hover-color': cssColor }"
+                :aria-pressed="cameraLive"
                 @click="$emit('camera')"
             >
-                <Camera class="w-5 h-5 transition-colors" />
-            </DockControl>
-
-            <DockSeparator />
-
-            <!-- Chroma weight slider. T-44a (T.W6.5 row 9 · §6.7): the former
-                 `--glass-slider-track-background: var(--muted)` was dark-on-dark against
-                 the plate ground ("These sliders are un-readable", §0.6
-                 t33-audit-11) — the track re-inks with the CONTRACT: the
-                 live pick certified against its rung at the WCAG 1.4.11
-                 graphics floor (the O-18 graphics leg is its born-RED gate). -->
-            <!-- X-DS pass 2 (V2C-02): the one scalar row; "kC" was a code, the
-                 visible name is the one the slider was already announced by. -->
-            <div data-o18="extract-kc" class="flex flex-col gap-1 flex-1 min-w-0">
-                <div class="flex items-center justify-between gap-2">
-                    <Label class="truncate">Chroma weight</Label>
-                    <span class="text-mono-small plate-ink tabular-nums">{{ chromaWeight.toFixed(1) }}</span>
-                </div>
-                <Slider
-                    aria-label="Chroma weight"
-                    variant="spectrum"
-                    size="sm"
-                    :model-value="chromaWeightModel"
-                    :disabled="standDown"
-                    :min="0"
-                    :max="1.5"
-                    :step="0.1"
-                    class="w-full"
-                    :style="{ '--glass-slider-track-background': standDownInk }"
-                    @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
-                />
-            </div>
-
-            <DockSeparator />
-
-            <DockControl
-                :disabled="standDown || !hasImage"
-                title="Reset"
-                :style="{ '--btn-hover-color': cssColor }"
+                <Camera aria-hidden="true" />
+                {{ cameraLive ? "Close camera" : "Open camera" }}
+            </Button>
+            <Button
+                v-if="hasImage"
+                emphasis="quiet"
+                size="sm"
+                :disabled="standDown"
                 @click="$emit('reset')"
             >
-                <RotateCcw class="w-5 h-5 transition-colors" />
-            </DockControl>
+                <RotateCcw aria-hidden="true" />
+                Reset
+            </Button>
         </div>
     </div>
 </template>
@@ -129,7 +124,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { Upload, Camera, RotateCcw } from "@lucide/vue";
-import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { Button } from "@mkbabb/glass-ui/button";
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Label } from "@mkbabb/glass-ui/label";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
@@ -186,16 +181,8 @@ const trackInk = computed(() =>
 // the COLOR layer in every state; the developed gradient, when there is one,
 // rides above it as the IMAGE layer.
 // X-DS pass 2 (V2C-03): a stood-down control (a run in flight, the camera
-// open) recedes. glass's Slider dims only its range when disabled, and these
-// two tracks are painted here, so they take glass's `--opacity-disabled`
-// themselves. The enabled state keeps the certified ink (O-18 T-44a): with no
-// image the sliders are live (measured: no `data-disabled`), so they stay at
-// full ink there.
-const standDownInk = computed(() =>
-    standDown.value
-        ? `color-mix(in oklab, ${trackInk.value} calc(var(--opacity-disabled) * 100%), transparent)`
-        : trackInk.value,
-);
+// open) recedes. The developed rail is painted here, so it takes glass's
+// `--opacity-disabled` itself; the range sliders dim through glass.
 const railStyle = computed(() => ({
     backgroundColor: trackInk.value,
     ...(gradient ? { backgroundImage: gradient } : {}),

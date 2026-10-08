@@ -56,9 +56,13 @@ export function useSpectrumPlateStyle(opts: {
             ? `rgba(0, 0, 0, ${borderAlpha})`
             : `rgba(255, 255, 255, ${borderAlpha})`;
 
+        // X-DS pass 3 (V3C-07): the vertical travel is inset by the thumb's
+        // radius, so at high V the thumb sits inside the plate instead of
+        // riding half over the value readout (SpectrumCanvas maps the pointer
+        // over the same inset span). The horizontal travel is unchanged.
         return {
             left: `${100 * sClamped}%`,
-            top: `${100 * (1 - vClamped)}%`,
+            top: `calc(var(--spectrum-dot-size) / 2 + ${1 - vClamped} * (100% - var(--spectrum-dot-size)))`,
             backgroundColor: cssColorOpaque.value,
             "--dot-border": borderColor,
         };

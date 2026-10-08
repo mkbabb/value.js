@@ -11,12 +11,15 @@ import type { ViewEntry } from "./composables/useDockAdminMode";
 const {
     currentView,
     currentIcon,
+    currentLabel,
     isAdminMode,
     isDesktop,
     viewEntries,
 } = defineProps<{
     currentView: string;
     currentIcon: unknown;
+    /** The current view's schema label (viewSchema), named on the trigger. */
+    currentLabel: string;
     isAdminMode: boolean;
     isDesktop: boolean;
     viewEntries: ViewEntry[];
@@ -98,7 +101,12 @@ const viewRing = computed(() => {
                     ]"
                 />
             </Transition>
-            <SelectValue v-if="isDesktop" />
+            <!-- X-DS pass 3 (V3C-10): the trigger names the current view from
+                 the SCHEMA, not from the options. reka's SelectValue resolves
+                 its text from the rendered items, and /atmosphere and /blob are
+                 not among a non-admin's options, so there the trigger was a
+                 bare glyph and a chevron. -->
+            <SelectValue v-if="isDesktop">{{ currentLabel }}</SelectValue>
         </DockTrigger>
         <!-- B.W1: kept wider than --menu-min-w — long view-option labels need the space -->
         <SelectContent class="min-w-[12rem]">

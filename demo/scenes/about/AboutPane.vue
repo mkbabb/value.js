@@ -8,48 +8,53 @@
              contract (shell.css), under which this pane never sizes the row it
              shares. The body scrolls INSIDE the card on glass's scroll primitive
              (`FadingScroll`, the scroll port), and the card's `overflow-hidden`
-             with its radius clips that port. The start-edge feather is off: the
-             sticky PaneHeader's veil is this port's start edge, and a mask there
-             would fade the title. The `pane-scroll-fade` host (the `--pane-scroll`
-             timeline PaneHeader reads) moves with the scroll to the port.
+             with its radius clips that port.
+             X-DS pass 3 (V3C-01): the PaneHeader and its rule sit ABOVE the port,
+             as its siblings, so the body never runs under the title. Sticky inside
+             the port, the header relied on a 14%-alpha veil and a backdrop blur
+             that never reached content in nested composited scrollers (the KaTeX
+             rows printed crisp through the compact title). Seated, the title is
+             occluded by construction, the port feathers both edges, and the
+             header keeps its rest form (no compact state, so no dead band). The
+             `--pane-scroll` timeline still drives the veil: the card scopes it
+             (PaneHeader.vue, the seated-header rule).
              This comment sits INSIDE the root: a comment beside the root makes
              a dev-mode root fragment, which loses the pane swap's out-in
              continuation (§0ay ESC-W5t-2; measured again here — the next
              inspector pane never mounted). -->
+        <!-- S.W4 W4-1 (the S-1 parity half): the de-capsuled selector inlines
+             into the title as ONE display-voice line. Its specimen rows read
+             the ONE App-provided pipeline (COLOR_MODEL_KEY, App.vue:
+             `provide(COLOR_MODEL_KEY, pipeline)`) — ambient since S.W2's
+             transposition — so About renders the live per-space conversions
+             identically to the picker with NO second provider here (a local
+             `useColorPipeline(model)` would double-instantiate the spine:
+             a second storage writer + token sink against the W2-1 ONE-pipeline
+             law). Both hosts get the W4-1 grammar verbatim (S-21). -->
+        <PaneHeader description="The math, the science, the art, the beauty of color spaces.">
+            About the color spaces,
+            <!-- T.W4-1: `inline` = the sanctioned host SIZE prop (1em) — the
+                 member rides the sentence's display-1 rung + compositor
+                 shrink by construction; weight is trigger-owned (F2). -->
+            <ColorSpaceSelector
+                :model-value="model.selectedColorSpace"
+                v-model:open="aboutSelectOpen"
+                :css-color="cssColor"
+                inline
+                @update:model-value="
+                    (colorSpace) => {
+                        model = { ...model, selectedColorSpace: colorSpace };
+                    }
+                "
+            />
+        </PaneHeader>
+
+        <Separator />
+
         <FadingScroll
             axis="y"
-            :fade-start="false"
             class="pane-scroll-fade flex-1 min-h-0 overflow-x-hidden"
         >
-            <!-- S.W4 W4-1 (the S-1 parity half): the de-capsuled selector inlines
-                 into the title as ONE display-voice line. Its specimen rows read
-                 the ONE App-provided pipeline (COLOR_MODEL_KEY, App.vue:
-                 `provide(COLOR_MODEL_KEY, pipeline)`) — ambient since S.W2's
-                 transposition — so About renders the live per-space conversions
-                 identically to the picker with NO second provider here (a local
-                 `useColorPipeline(model)` would double-instantiate the spine:
-                 a second storage writer + token sink against the W2-1 ONE-pipeline
-                 law). Both hosts get the W4-1 grammar verbatim (S-21). -->
-            <PaneHeader description="The math, the science, the art, the beauty of color spaces.">
-                About the color spaces,
-                <!-- T.W4-1: `inline` = the sanctioned host SIZE prop (1em) — the
-                     member rides the sentence's display-1 rung + compositor
-                     shrink by construction; weight is trigger-owned (F2). -->
-                <ColorSpaceSelector
-                    :model-value="model.selectedColorSpace"
-                    v-model:open="aboutSelectOpen"
-                    :css-color="cssColor"
-                    inline
-                    @update:model-value="
-                        (colorSpace) => {
-                            model = { ...model, selectedColorSpace: colorSpace };
-                        }
-                    "
-                />
-            </PaneHeader>
-
-            <Separator />
-
             <!-- R.W4 Lane C / C1 (U5): consistent sectional + divider padding from
                  the φ ladder — every section clears its Separator by φ (1.618rem),
                  the guide closes at φ² (2.618rem). S.W4-8: the rungs read the

@@ -65,7 +65,13 @@ async function scrubTo(page: Page, y: number) {
         host.scrollTop = top;
         await new Promise((r) => requestAnimationFrame(() => r(null)));
         await new Promise((r) => requestAnimationFrame(() => r(null)));
-        const header = host.querySelector<HTMLElement>(".pane-header");
+        // X-DS pass 3 (V3C-01): a FadingScroll port's header is SEATED above
+        // the port, as its sibling (the card scopes the port's timeline), so
+        // the host's own header is its child OR its card's seated header.
+        const header =
+            host.querySelector<HTMLElement>(".pane-header") ??
+            host.parentElement?.querySelector<HTMLElement>(":scope > .pane-header") ??
+            null;
         if (!header) throw new Error("scrubbed host has no pane-header");
         const cs = getComputedStyle(header, "::before");
         return { opacity: Number(cs.opacity), mask: cs.maskImage };
@@ -119,9 +125,18 @@ for (const scheme of ["light", "dark"] as const) {
     });
 }
 
+/** Whether the view has a visible pane scroll host that actually overflows. */
+async function hasScrollHost(page: Page) {
+    return page.evaluate(() =>
+        Array.from(document.querySelectorAll<HTMLElement>("main .pane-scroll-fade")).some(
+            (el) => el.offsetParent !== null && el.scrollHeight > el.clientHeight,
+        ),
+    );
+}
+
 test("O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders", async ({
     page,
-}) => {
+}, testInfo) => {
     test.setTimeout(60_000);
     await page.goto("/");
     await expect(mainPane(page)).toBeVisible();
@@ -131,6 +146,25 @@ test("O-11 gate 3 — the swell completes ≤64px; no naked window under the ear
     for (const view of ["Home", "Gradient"] as const) {
         if (view !== "Home") await openView(page, view);
         await expect(page.locator("main .pane-header").first()).toBeVisible();
+
+        // X-DS pass 3 (V3C-01/V3C-03) RE-AIM. On Gradient the only host that
+        // ever scrolled at this viewport was the My Palettes companion (the
+        // Gradient card grows with its content; the page scrolls). The
+        // companion now seats its header above its port and has a floor, so on
+        // Gradient nothing scrolls under any pane header: the collision this
+        // leg guards cannot occur. Home keeps the full scrub (About's port
+        // overflows by thousands of px), so the swell is still measured.
+        if (view !== "Home") {
+            // the outgoing pane's port must leave before the host is chosen
+            await expect(page.locator(".about-card")).toBeHidden();
+            if (!(await hasScrollHost(page))) {
+                testInfo.annotations.push({
+                    type: "no-collider",
+                    description: `${view}: no pane scroll port overflows — nothing can scroll under a pane header`,
+                });
+                continue;
+            }
+        }
 
         const rest = await scrubTo(page, 0);
         const at24 = await scrubTo(page, 24);

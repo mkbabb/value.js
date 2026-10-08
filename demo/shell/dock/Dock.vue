@@ -219,6 +219,7 @@ watch(
                         v-model:open="viewSelectOpen"
                         :current-view="viewManager.currentView.value"
                         :current-icon="viewManager.currentConfig.value.icon"
+                        :current-label="viewManager.currentConfig.value.label"
                         :is-admin-mode="isAdminMode"
                         :is-desktop="isDesktop"
                         :view-entries="viewEntries"
