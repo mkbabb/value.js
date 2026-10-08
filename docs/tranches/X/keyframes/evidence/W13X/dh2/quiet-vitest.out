@@ -1,0 +1,10 @@
+test:demo r1 start 13:20:23 load=24.05
+EXIT=0
+ Test Files  122 passed (122)
+      Tests  812 passed (812)
+end load=30.20
+test:demo r2 start 13:21:48 load=24.42
+EXIT=0
+ Test Files  122 passed (122)
+      Tests  812 passed (812)
+end load=35.94

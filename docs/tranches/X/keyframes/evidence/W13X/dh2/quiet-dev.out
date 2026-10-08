@@ -1,0 +1,6 @@
+run 1 start 13:12:36 load=23.43
+TOTAL 30/30 GREEN
+run 1 end load=23.51
+run 2 start 13:13:41 load=23.51
+TOTAL 30/30 GREEN
+run 2 end load=25.66

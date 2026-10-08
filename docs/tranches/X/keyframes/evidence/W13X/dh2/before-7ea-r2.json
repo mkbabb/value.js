@@ -1,0 +1,80 @@
+[
+ {
+  "cell": "sequence@1440/light",
+  "D1": false,
+  "d1": "Reel — play a cascading wave replay",
+  "D2": false,
+  "d2": "same=false h=36.0/36.0 y=160.0/92.4 hit=true",
+  "D3": true,
+  "d3": "ov= kids=2 spread=0.0 ell=0",
+  "D4": false,
+  "d4": "distinct=1 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": false,
+  "d5": "distinct=1 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@1440/dark",
+  "D1": false,
+  "d1": "Reel — play a cascading wave replay",
+  "D2": false,
+  "d2": "same=false h=36.0/36.0 y=160.0/92.4 hit=true",
+  "D3": true,
+  "d3": "ov= kids=2 spread=0.0 ell=0",
+  "D4": false,
+  "d4": "distinct=1 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": false,
+  "d5": "distinct=1 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@1024/light",
+  "D1": false,
+  "d1": "Reel — play a cascading wave replay",
+  "D2": false,
+  "d2": "same=false h=36.0/36.0 y=134.7/70.4 hit=true",
+  "D3": true,
+  "d3": "ov= kids=2 spread=0.0 ell=0",
+  "D4": false,
+  "d4": "distinct=1 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": false,
+  "d5": "distinct=1 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@1024/dark",
+  "D1": false,
+  "d1": "Reel — play a cascading wave replay",
+  "D2": false,
+  "d2": "same=false h=36.0/36.0 y=134.7/70.4 hit=true",
+  "D3": true,
+  "d3": "ov= kids=2 spread=0.0 ell=0",
+  "D4": false,
+  "d4": "distinct=1 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": false,
+  "d5": "distinct=1 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@390/light",
+  "D1": false,
+  "d1": "Reel — play a cascading wave replay",
+  "D2": false,
+  "d2": "same=false h=44.0/54.0 y=140.0/809.5 hit=true",
+  "D3": true,
+  "d3": "ov= kids=2 spread=0.0 ell=0",
+  "D4": false,
+  "d4": "distinct=1 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": false,
+  "d5": "distinct=1 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@390/dark",
+  "D1": false,
+  "d1": "Reel — play a cascading wave replay",
+  "D2": false,
+  "d2": "same=false h=44.0/54.0 y=140.0/809.5 hit=true",
+  "D3": true,
+  "d3": "ov= kids=2 spread=0.0 ell=0",
+  "D4": false,
+  "d4": "distinct=1 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": false,
+  "d5": "distinct=1 pre=0.000 end=0.000"
+ }
+]

@@ -2527,3 +2527,55 @@ READ-ONLY at kf `5bd9172b` (clean product tree, glass `10.1.0` exact). Logs: `do
   - ⟨`npm run test:demo`⟩ → **UNREAD** at the quiet gate (the same 60-minute window never fell below 25). The killed predecessor's 2026-10-07 run read `121 passed (121)` · `807 passed (807)` (`test-demo-r1.log`, load not recorded below 25) — cited, not banked.
 - **Residual / escalation ESC-W13X-pc-1 (PC1i, the Spring heatmap's inline cut at 1024).** At HEAD, spring@1024 light/dark: the heatmap spans `x 101..377` in a port `31..357` — its right 20 px (the far-response column and the `1 s` tick) sit under glass ConfiguratorLayer's collapse region (`div.min-h-0.overflow-hidden`) and cannot be pointed (keyboard still reaches them). Regression window: GREEN at `e8144b0c` (`81..337`), RED at HEAD — X-DS pass 3 `5bd9172b` (KF-C3-11 moved the ζ title into the plot grid). Root, measured in-page (`probe/root.mjs`): `.spring-heatmap-section` is `grid` with an implicit `auto` track, whose automatic minimum is the plot's min-content (326 px > the section's 286 px); trial `grid-template-columns: minmax(0, 1fr)` → section track 286, field `101..337`, inside the port. The cure is one declaration at `demo/scenes/spring/SpringHeatmap.vue:521` — **outside `.pc`'s writable set and inside `.esc3`'s (`demo/scenes/spring/**`) and X-DS's shared files**, so the §0bt adjacent-line rule does not reach it. Routed: to X-DS (its pass-3 regression) or to `.esc3` by a dated grant; `ControlsPaneWrapper` is not the root (padding the rail to fit would mask the scene's intrinsic size).
 - **Adjacent edits:** none. **Commits:** value.js `c97ce064a` (evidence) + this record. kf: none.
+
+### KF.W13X.dh2
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, 2026-10-08. Authority: KF-W13.md addendum (f) `.dh2` `:568`, the method of addendum (e) `.dh` `:551-558`, addendum (g) `:571-587` (quiet-host gate; X-DS shares these files); COHESION §0ek (canon), §0dm (identity kept), §0ei (headless), §0eo (no /tmp). Order: after `.pc` (receipt `82f288599`, landed).
+- **Crash recovery.** ⟨`git -C keyframes.js status --porcelain`⟩ at open (12:16) → 3 dirty paths in the writable set (`SequenceTarget.{vue,css}`, `test/demo/scenes/sequence-stage-truth.test.ts`) plus 7 outside it, all 2 minutes old. The diff was read whole: every hunk is **X-DS pass 7** (KF-C7-07 the stage readout anatomy, KF-C7-08 the column gap), a live sibling seat that was still framing (`evidence/DS/keyframes/pass-07/seqhdr-*.png` written 12:17). These were not a killed predecessor's partial work on this unit, so none was inherited. X-DS committed them as kf `7ea959f0` (12:30). That commit's message records that this seat's hunks were left out. Nothing was stashed, restored or staged across seats.
+- **Instrument.** Own worktree `/Users/mkbabb/Programming/keyframes-wt-W13X-dh2` (detached; `node_modules` APFS-cloned; ⟨`node -p "require('…/@mkbabb/glass-ui/package.json').version"`⟩ → `10.1.0`). `vite --force --port 5841 --strictPort` served it for dev. The gh-pages build is ⟨`npm run gh-pages`⟩ → `dist/gh-pages/`, served static on :5842. Headless real Chrome (`channel:"chrome", headless:true`). The worktree held the before bytes, then exactly the committed bytes (⟨`cmp`⟩ of every changed path against the main tree → 0 differences before the commit).
+- **Seat-0 frames and brief.** BEFORE frames `evidence/W13X/dh2/frames/before-r1-sequence-{1440,1024,390}-{light,dark}.png` (`debc81bc`) and `before-7ea-r1-*` (`7ea959f0`). Brief: `execution/B/KF-W13X-dh2-brief.md` (primary/secondary/tertiary per view, with the glass primitive for each; the predicates D1–D5; an addendum for the moved head).
+- **Predicates** (`evidence/W13X/dh2/dh2.mjs`; /#/sequence × 1440×900/1024×768/390×844 × light/dark = 6 cells × 5 = 30):
+  - D1: the stage card holds 0 controls.
+  - D2: exactly one Reel, a sibling of the pane's Reset (same height ±1, same line ±2), hit-testable.
+  - D3: one-line header; no text run ellipsized, overflowing its box or overlapping another.
+  - D4: a keyboard re-time of row 3 with the master parked moves row 3's traveller (≥ 5 distinct `--ball-p` samples in 1.4 s) and returns it to its pose (±0.02), while row 1 holds.
+  - D5: the same for row 4 after a pointer drag is released.
+- **BEFORE** ⟨`node dh2.mjs http://localhost:5841/ before-r{1,2}`⟩ at `debc81bc` → `TOTAL 4/30 GREEN` ×2. D3 was RED at 390: the title's box was 33 px holding 82 px, so "Sequence" was drawn over "CLOCK". At the head of record `7ea959f0`: ⟨`… before-7ea-r{1,2}`⟩ → **`TOTAL 6/30 GREEN` ×2** (load 22.02, 19.98). X-DS's readout cured D3. D1, D2, D4 and D5 are RED at all 6 cells (`Reel — play a cascading wave replay` in the card; `same=false`; `distinct=1`).
+- **Cure (kf `97417fa9`, one commit; on origin, carried by X-DS's push of `2f259248`, ⟨`git merge-base --is-ancestor 97417fa9 origin/master`⟩ → true).** Glass primitives only, no new demo wrapper:
+  - **UIA-KF-098, the remaining limb.** The reel leaves the stage card. `SequenceTimeline.vue`'s Stagger `ConfiguratorLayer` `#actions` carries it beside Reset, in Reset's register: glass `Button`, `emphasis="quiet"`, `size="sm"`, `icon-only`, `aria-label`/`title`, Clapperboard glyph. `:loading="source.isReeling()"` keeps the KFA-220 state contract. In `SequenceTarget.vue`, the `#aside` reel, the `Button`/`Clapperboard` imports and the dead `aside-class` are removed. The header is the title and the one readout. The hidden typed trigger stays.
+  - **UIA-KF-317, the preview limb.** `useSequenceDemo.ts` adds `previewRow(i)`. The reel's per-ball pass is generalised as `runBallPass(i, glide, alive, slot)`, and the reel calls it with the overshoot. It runs the retimed row once off its master pose and back on the row glide, on the engine's keyframes path. The pass ends with `sequence.seek(sequence.time)`, which hands the ball back. `cancelPreview()` runs first in `retime`, `scrub`, `startLoop`, `playReel` and the scope dispose, and repaints the master pose if a preview was live. The preview is refused while the reel runs or the master plays, and under `prefers-reduced-motion`. `SequenceLanes.vue` calls `source.preview` on a drag release (`onEnd`) and after each key re-time. It never fires during a held drag.
+  - **Identity kept (§0dm):** the lane tones, the display title, the reel's overshoot wave and the row glide are unchanged.
+- **Adjacent edits (§0bt):**
+  - `demo/components/instrument/timeline/timelineTypes.ts:135-141`: `SequenceTimelineSource` gains `preview`, `playReel` and `isReeling`. The reel's move and the preview call need the pane's source contract, and this is the contract file of the two writable timeline files.
+  - `test/demo/instrument/sequence-scrubber-mount.test.ts:61-63`: the source stub fills those three members (the type requires them).
+  - `test/demo/scenes/sequence-stage-truth.test.ts` (writable `test/demo/**`): its header and KFA-220 oracles asserted the reel in the header; they now assert none.
+- **Falsifiers (unit).** New: `test/demo/scenes/sequence-retime-preview.test.ts` (3 cases).
+  - Extended: `sequence-lanes-retime.test.ts` (preview on release, never during a held drag; preview on a key step).
+  - Re-pointed: `sequence-instrument-truth.test.ts` ST-4 (the `loading` binding is the pane's, and the card has no reel) and `sequence-stage-truth.test.ts`.
+  - ⟨`npx vitest run --project demo <the 4 files>`⟩ at the before bytes (worktree at `debc81bc` + the new tests, `unit-before.log`) → **8 failed | 15 passed**.
+  - After (`unit-after-r{1,2}.log`, 5 files) → **33 passed ×2**.
+- **AFTER, served (the bytes of `97417fa9`, i.e. `7ea959f0` + this unit's paths; quiet-host gate §0er, each start load recorded):**
+
+| reading | command | start load | result |
+|---|---|---|---|
+| dev r1 | ⟨`node dh2.mjs http://localhost:5841/ after-dev-r1 frames`⟩ | 15.66 | **TOTAL 30/30 GREEN** |
+| dev (r2, not banked) | same, `after-dev-r2` | 37.67 | 30/30, above the gate (not counted) |
+| dev q1 / q2 | ⟨`sh quiet-gh.sh http://localhost:5841/ after-dev`⟩ | 23.43 / 23.51 | **30/30 GREEN ×2** |
+| gh-pages | ⟨`npm run gh-pages`⟩ `EXIT=0` (`✓ built`); served static :5842 | — | built |
+| gh q1 / q2 | ⟨`sh quiet-gh.sh http://127.0.0.1:5842/ after-gh frames`⟩ | 21.98 / 23.42 | **30/30 GREEN ×2** (first window `TIMEOUT load=37.39` after 30 min, re-queued) |
+
+  Per-cell detail (`after-*-q*.json`): D2 `same=true`, heights 36/36 (54/54 at 390) and centres on one line. D4/D5 distinct samples 11–13 with `end=pre`, and row 1 still. AFTER frames: `frames/after-dev-r1-*` and `frames/after-gh-q1-*` (12). The reel sits in the Stagger header beside Reset, and the card holds the title, clock and lanes.
+- **Floor** (the same bytes):
+  - ⟨`npm run check`⟩ ×2 → `proof:structure — PASS: scope=src clean (0 violations across R1–R6)`, `EXIT=0` ×2 (load ~105–110; not a timing gate).
+  - ⟨`npm run lint`⟩ ×2 → `✔ no dependency violations found (442 modules, 1608 dependencies cruised)`, `EXIT=0` ×2.
+  - ⟨`sh quiet-vitest.sh`⟩ (`npm run test:demo`) → `Test Files 122 passed (122)` · `Tests 812 passed (812)` · `EXIT=0` **×2** (start load 24.05 / 24.42). Baseline 121/807, plus the new file's 3 cases and the lanes file's 2.
+- **Instrument fault, disclosed.** The first `test:demo` read 42 files / 207 tests failed (`TypeError … reading 'ce'`, two Vue copies). The worktree's cloned `node_modules` carried the main repo's self-link `node_modules/node_modules → /Users/mkbabb/Programming/keyframes.js/node_modules`, so the worktree resolved a second Vue. The link was re-pointed at the worktree's own `node_modules` (instrument only; no repo byte), and both re-runs read GREEN. The failing log is kept as `test-demo-instrument-fault.log`; it is not a reading of the bytes.
+- **Gate readings BEFORE → AFTER:**
+  - brief predicates: 6/30 ×2 → 30/30 ×2 dev + ×2 gh-pages (quiet).
+  - check: 0 → 0 ×2.
+  - lint: 0 → 0 ×2.
+  - test:demo: 121/807 (RESUME baseline) → 122/812 ×2 at load < 25.
+- **Rows:** UIA-KF-098 remaining limb **CURED** (the reel is off the stage; with `.timeline`'s `a939e7d6` the row's whole fix shape is now met: timing, Reset and the reel in the pane, and the card a pure stage). UIA-KF-317 preview limb **CURED** (its active-state limb was cured at `9769b10f`). The audit's non-monotonic-order note (3@943 after 4@780) is not a defect under the engine's `add(child, at)` model: items may overlap or reorder in time by design. No consumer act; recorded.
+- **Residuals:** none owned. One cosmetic note for the next reader: the Stagger header's three verbs (Reel · Reset · collapse) take glass `ConfiguratorLayer` `#actions` spacing, which is glass's, not this unit's.
+- **Adjacent edits:** as listed above (`timelineTypes.ts:135-141`, `sequence-scrubber-mount.test.ts:61-63`). **Escalations:** none.
+- **Commits:** kf `97417fa9` (pushed with origin `2f259248`); value.js: the brief + evidence + this record (one commit, below).

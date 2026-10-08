@@ -1,0 +1,80 @@
+[
+ {
+  "cell": "sequence@1440/light",
+  "D1": true,
+  "d1": "",
+  "D2": true,
+  "d2": "same=true h=36.0/36.0 y=92.4/92.4 hit=true",
+  "D3": true,
+  "d3": "ov= kids=1 spread=0.0 ell=0",
+  "D4": true,
+  "d4": "distinct=10 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": true,
+  "d5": "distinct=11 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@1440/dark",
+  "D1": true,
+  "d1": "",
+  "D2": true,
+  "d2": "same=true h=36.0/36.0 y=92.4/92.4 hit=true",
+  "D3": true,
+  "d3": "ov= kids=1 spread=0.0 ell=0",
+  "D4": true,
+  "d4": "distinct=12 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": true,
+  "d5": "distinct=13 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@1024/light",
+  "D1": true,
+  "d1": "",
+  "D2": true,
+  "d2": "same=true h=36.0/36.0 y=70.4/70.4 hit=true",
+  "D3": true,
+  "d3": "ov= kids=1 spread=0.0 ell=0",
+  "D4": true,
+  "d4": "distinct=11 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": true,
+  "d5": "distinct=12 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@1024/dark",
+  "D1": true,
+  "d1": "",
+  "D2": true,
+  "d2": "same=true h=36.0/36.0 y=70.4/70.4 hit=true",
+  "D3": true,
+  "d3": "ov= kids=1 spread=0.0 ell=0",
+  "D4": true,
+  "d4": "distinct=12 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": true,
+  "d5": "distinct=12 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@390/light",
+  "D1": true,
+  "d1": "",
+  "D2": true,
+  "d2": "same=true h=54.0/54.0 y=809.5/809.5 hit=true",
+  "D3": true,
+  "d3": "ov= kids=1 spread=0.0 ell=0",
+  "D4": true,
+  "d4": "distinct=10 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": true,
+  "d5": "distinct=11 pre=0.000 end=0.000"
+ },
+ {
+  "cell": "sequence@390/dark",
+  "D1": true,
+  "d1": "",
+  "D2": true,
+  "d2": "same=true h=54.0/54.0 y=809.5/809.5 hit=true",
+  "D3": true,
+  "d3": "ov= kids=1 spread=0.0 ell=0",
+  "D4": true,
+  "d4": "distinct=11 pre=0.000 end=0.000 row1 0.000->0.000",
+  "D5": true,
+  "d5": "distinct=12 pre=0.000 end=0.000"
+ }
+]
