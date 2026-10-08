@@ -591,3 +591,34 @@ The drop is the /morph tile strip, whose quiet tiles carry no capsule cast, beve
   - No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
 
 **Frames** (`pass-07/`). All were captured in headless real Chrome (§0ei) by `f9-cure-probe.mjs`: `morph-*-1440`, `morph-tilehover-*-1440`, `paper-list-*-1440`, `paper-top-*-1440`, `modal-*-1440` and `paper-119-*-390`, light and dark.
+
+### pass 8
+
+*(The re-deployed loop's pass 8: the cure for the critic F10 findings, DS-F10-*. The AFTER frames are in `evidence/DS/fourier/pass-08/`.)*
+
+**Commits.**
+- fourier `bd6558c`, on `m/w1-bump-migration`, pushed fast-forward `06d9853..bd6558c`. 6 files, committed by pathspec. The F.CT seat's uncommitted contour files (`drawing.py`, `strokes.py`) were left alone.
+- value.js `47de19db2`: AFTER frames, the cure probe, census and e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F10-C1 | `--strip-fade` goes from `var(--space-family)` (1.25rem) to `3rem`, about half a ~98px tile plus its 0.5rem gap. It is still gated on `data-more-end`. No arrow or chevron. Measured in both themes (`f10-cure-probe.json`): the mask resolves to `calc(100% - 48px)`. The 6px sliver of the 7th tile (1253 to 1351 against a 617 to 1259 grid) now sits in the fade's last 6px, at or under about 12% alpha, so it no longer reads as a rule. The n=12 tile fades out across its end instead (`crop-strip-end-*-1440`). |
+| DS-F10-C2 | One registered `<length>` token, `--stage-inset-inline` (16px, `style.css`, set on `.canvas-stage`). The legend's `xBase` (`drawBasisLabels`) and `computeEpicycleFit`'s inline pad both read it through BasisCanvas's `readLegendTop`, and the private `pad = 12` is deleted. Hover still grows from the cached centre, but the grown box is clamped to the stage's inline-start inset and bottom reserve, so the larger chain keeps the frame's edge. Measured as the minimum over 3s of playing frames, in canvas CSS px: the legend's ink starts at 17. The chain's ink is at 37 (light) and 26 (dark) at rest, and at 32 in both themes at the hover scale. Before the cure it was about 8 at hover (`critic-2026-10-08/v-hover-left-dark-1440`). Identity hues are unchanged. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F10-G1: the gallery dialog's metadata line, glass `DialogDescription`. Re-witnessed at 18.608px/400 in full `--foreground` in both themes (`modal-*-1440`). It rides the DS-F2-G3 type relay (O-87 family), which asks for the small or caption step in `--muted-foreground`. No local restyle of a glass slot.
+- DS-F10-G2: the held glass lighting, emphasis and type rows (O-87: DS-F-G1..G6, DS-F4R-G2, DS-F5-G1, DS-F6-G4, DS-F8-G1, DS-F2-G3; O-88: DS-F6-G1). No consumer override is present and none was added. They stay honest-RED and are re-judged at the glass 10.2.0 repin.
+
+**Census** (`pass-08/census-after.json`, fourier `scripts/ds-census.mjs` on `:3100`, which serves this checkout). The numbers are unchanged from pass 7: 392 shadow elements, 996 layers, 298 multi-layer stacks, 298 inset highlights, 214 backdrop blur, 0 control gradients, 0 looping chrome. Static: 8 box-shadow declarations, 10 gradients, 3 keyframes. Neither cure is a lighting site (a mask length and a canvas inset). What remains is glass's recipe (O-87).
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e: the 18 specs that reach /morph or the /v stage (`pass-08/e2e-specs.txt`). chromium plus mobile-chromium, headless, 3 workers, on `:3100`.
+  - Run A: 150 passed, 9 failed. Run B: identical (the same 9).
+  - 7 are on pass 7's clean-HEAD list: `f-w14v-au3` L1-12, and `f-w14v-pd` collapsed ×6 (DOCK-SUMMARY-SQUARE; O-88).
+  - 2 are `f-w14v-c3` c3g and c3m. These are new to this run's list, because the spec was not in pass 7's set. Both fail the same way on a clean `06d9853` worktree served fresh on `:3121` (`e2e-head-baseline-c3.txt`, 2 failed and 4 passed). c3g is glass's DropdownMenuItem icon gap, which reads 0 (MENU-ICON-GAP).
+  - No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
+
+**Frames** (`pass-08/`). All were captured in headless real Chrome (§0ei) by `f10-cure-probe.mjs`: `morph-*-1440`, `crop-strip-end-*-1440`, `v-*-1440`, `v-hover-left-*-1440`, `v-chain-hover-*-1440` and `v-chain-hover-full-*-1440`, and `modal-*-1440`, light and dark.
