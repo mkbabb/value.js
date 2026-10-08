@@ -667,3 +667,58 @@ This pass changed placement, labels and type, not lighting, so the census holds.
 - **KF-C10-05b.** The tag was first placed in the bottom-right corner. It overlapped nothing there, but it sat on the darkest violet of the overshoot ramp and read faintly in both schemes, so it moved to the middle of the band, which the critic's "down into the underdamped field" allows.
 - **Glass riders seen in the frames** (unchanged, not overridden): the pane frame's stacked shadow and the scrub's empty leading cap at 0 (KF-C8-05), both under O-87. This seat did not write to the glass inbox.
 - Load average was ≈41 during the gates. The dev server on :5173 was the keyframes seat's own, already running, and was reused.
+
+### pass 11 (the redeployed workflow's pass 7; critic C11, frames `evidence/DS/keyframes/critic-p7-2026-10-08/` and `pass-10/`)
+
+**Cure commit:** keyframes.js `fa5a1add` (master, pushed fast-forward). **Evidence:** value.js `d4e04b92b` (`evidence/DS/keyframes/pass-11/`: 28 route frames, `census.json`, the `facet-keyframes-*`, `crop-kf-gutter-*`, `cube-timeline-*`, `presets-1440-*`, `spring-pane-1440-*`, `easing-pane-1440-*`, `easing-header-390-*`, `entry-1440-*` and `entry-390-*` cells, `c11-probe.mjs` + `c11-probe.json`). All captures are headless real Chrome (§0ei). The task named `pass-07`, but `pass-07` already holds the committed C7 evidence, so the frames go to `pass-11`, as in passes 6 to 10.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440×900 unless named; light and dark) |
+|---|---|---|
+| KF-C11-01 | `.code-well__body` pads its start by glass's `--configurator-pad-inline`, in the well's own ground. The narrow snippet gutter (KF-C8-03) stays. | The frame is at x 73. The title ink is at inset 20, and the numeral "10" is at inset 20 (it was 0). "1" right-aligns at 29. The gutter is 25 px. |
+| KF-C11-02 | The weight moves to the name. The tile is `font-normal`, and the name span wears `font-medium`. Dropping `font-medium` alone was not enough: the producer `ToggleGroupItem`'s own weight is 600, and the value line then inherited 600. | Name: Plus Jakarta Sans 16.4 px, 500. Value: Fira Code 16.4 px, 400, in `--muted-foreground`. |
+| KF-C11-03 | The track's border is `border-border`, the one hairline. The focus ring is untouched. | 1px `rgb(198,180,159)` light, `rgb(101,87,73)` dark (was the text ink) |
+| KF-C11-04 | In pane mode the timeline's `CardContent` is `pt-2 pb-4`, the 0.5rem header line the Keyframes header and glass's configurator trigger sit on. The floating Card keeps `py-4`. | Timeline title y 72 (was 80); Keyframes 72, Easing 72, Physics 73 |
+| KF-C11-05 | The heatmap field takes a share of the rail at ≥1024 px, as the easing plot does (KF-C9-10): `clamp(8rem, var(--rail-block) - 33.5rem, 12rem)`. The value is measured: the scroll body is the rail less 15rem (240–241 px at five sizes), and the facet chrome above the field, plus the axis and a half-rung of clearance, is 18.5rem. | 1440×900: field 168 px; the response axis ends at 518, above the fold at 527; every ζ tick is whole. 1440×1080: the 12rem cap holds (192). |
+| KF-C11-06 | `.specimen-literal` is one inline flow (`display: block`, balanced), not an inline-flex pair. The CopyButton is the last inline item, 0.45rem after the arguments. Its 36/54 px box overhangs the line (`margin-block: -1rem`), so a wrapped literal keeps its own line pitch (24 px, which was 37 with the control in the line). | 390 (touch): `cubic-bezier(` / `0.25, 0.10, 0.25, 1.00)` then Copy, 7 px after the paren and centred on that line (offset 0). 1440: also 7 px, offset 0. |
+| KF-C11-07 | The card and Dismiss are one centred group at `--space-body`. The viewport is `flex: none`, so it no longer grows into the free height. The caption joins the artifact row's start column: `justify-start`, with its centred `max-w-3xl` dropped. | Card to Dismiss: 32 px at 1440 (was ≈135) and 28 at 390. The free space now falls between Dismiss and the footer (121 / 116 px). Caption ink and artifact chevron both sit at inset 21. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C11-08 | **Glass-owned; cited under O-87** (proportion and affordance rider): the fill-style glass Slider hides its thumb (width 0, opacity 0), so a parameter slider reads as the scrub rail. This seat asks for a visible quiet thumb, or a parameter variant. It is honest-RED until the glass repin and is not overridden locally. |
+| KF-C11-09 | No cure needed (the critic's own verdict). The 390 sampled-curve footer fits on one line, and the lower-case `layer` is the parameter's own name. |
+| KF-C11-05 residue | **Carry.** At the shorter laptop heights the 8rem floor binds, and the fold still cuts the axis: 1280×760 (axis 449 against fold 417), 1280×800 (469/432) and 1024×700 (418/392). Holding the figure whole there needs a field of about 6rem, too small for the regime tags and pips. These heights were cut before this pass too. The critic's fallback ("the fold on the hairline between figure and presets") cannot be met by sizing at those heights. |
+| glass riders seen in the frames | unchanged, not overridden: the pane frame's stacked shadow and the scrub's empty leading cap (KF-C8-05), both under O-87. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages, on the final tree)
+
+| | pass 10 after | pass 11 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 80 | 104 (see below) |
+| static: box-shadow decls / layers | 5 / 2 | 5 / 2 |
+| static: gradient fills | 5 | 5 |
+| subject: control gradients | 4 | 4 (the spring track's quarter gridlines, which are content) |
+
+**The +24 looping animations are not this pass's.** All 24 are on the four `home` pages, +6 each, and every one is `span.dot`. That is the dock's new Home living miniature (`HomeMini.vue`, which plays TypingDots' cycle), landed by the concurrent X.KF.W13X `.esc2` seat in kf `f2c1ec07` (ESC-dock-3, COHESION §0er: "a Home living miniature in the `<S>Mini` idiom"). It is the same banked identity-motion family as KF-C5-13 / KF-C9-12. This pass changed placement, weight and one border token, not lighting, so every lighting row holds. The verdict is still **RED**, on the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree, HEAD `f2c1ec07` plus this cure)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts as a load accommodation; no assertion weakened): **820/820, twice**. An earlier run gave 817/817, before `.esc2`'s commits landed.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. One test was re-pointed to the ruled structure: `timeline-expanded-surface`, collapsed case, now expects `pt-2` + `pb-4` where it expected `py-4`. The intent, that the content keeps its inset, is unchanged. The expanded case still pins `py-4`.
+
+**Disclosures**
+- **A concurrent seat.** X.KF.W13X `.esc2` committed `a36b1b01`, `fc07aff7` and `f2c1ec07` to keyframes master while this seat worked, and none of them was pushed. This seat's fast-forward push of `fa5a1add` therefore carried those three commits to origin as well. Its own commit holds only its eight files.
+- **The dev server.** The shared `:5173` server (another seat's) stopped responding under a load average of about 100–155, with no response within 180 s. This seat ran its own `vite --port 5291` from the same working tree for the census and the probe, and stopped it afterwards.
+- **The probe's Entry hover** now targets the stage column at desktop widths. `fc07aff7` (ESC-dock-2) anchors the bottom dock band to the open rail's edge, so the viewport-centre hover no longer raised the channel select. The 390 Entry cell runs in a fine-pointer context, as in pass 10 (O-88).
+- **The timeline pan bar** (`TimelineTrack.vue:53`, `.timeline-pan-bar`) still wears `border-muted-foreground`. It is a 6 px zoom handle, and the stroke is its figure. The critic named only the track, so the pan bar is left for the next critic.
+- **The heading.** The task asked for a "### pass 7" receipt. This file already has a pass 7 (the redeployed workflow's pass 3), so this entry follows the sequential numbering passes 6 to 10 use.
