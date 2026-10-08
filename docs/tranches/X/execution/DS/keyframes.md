@@ -996,3 +996,45 @@ Every row is unchanged, because this pass changed placement, focus, a clip and t
 **Disclosures**
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
 - The census route frames (`spring-1440-*`, `spring-390-*`, `sequence-1440-*`) share names with the probe's frames. The census frames were captured later on the same tree, and they are the ones committed.
+
+### pass 14 (the redeployed workflow's pass 14; critic C18; evidence in `pass-18/`)
+
+**Cure commit:** keyframes.js `033bbd11` (master, pushed fast-forward from `a88f2f26`). **Evidence:** value.js `210364ecd` (`evidence/DS/keyframes/pass-18/`: 28 census route frames, `census.json` + `census.log`, `crop-spring-zero-{1440,390}-{light,dark}`, `c18-probe.mjs` + `c18-probe.json`). Headless real Chrome only (§0ei). The evidence goes in `pass-18/` rather than `pass-14/`, because `pass-14/` already holds the committed frames of absolute pass 14 (critic C14).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark identical) |
+|---|---|---|
+| KF-C18-02 | `SpringTrace.vue`: `.plot-frame` declares `--plot-ball-size: 1.5rem`, the largest ball that rides the plot. `.plot-tick--value` takes its gutter from that token, `right: calc(100% + var(--plot-ball-size) / 2 + 0.375rem)`, replacing the bare `0.75rem`, which equalled the ball's radius. `SpringTarget.vue`: `.spring-ball` reads the same token as its `--ball-size`, so the ball and the gutter cannot drift apart. There is one rule, with no per-breakpoint number. | The gap from the right edge of the value-axis '0' to the resting ball's left edge is **6 px at 1440 and at 390**, in both schemes. Before the fix it was 0 px at 390, where the numeral touched the disc, and about 3 px at 1440. Frames: `spring-{1440,390}-*` and `crop-spring-zero-*`. Figures: `c18-probe.json`. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C18-01 | **Glass, O-87 FLAT-LIGHTING (§0ek: one quiet edge, no specular beyond it).** On hover, every resting, quiet and card plate (the spring, square, easing and sequence stages and the pane frame) blooms a centred radial specular disc. It comes from glass 10.1.0 `material.css` `::before`, plus-lighter at `--glass-specular-intensity-hover` (0.10 light, 0.08 dark), and sits at 50%/50% because Card attaches no vSpecular. It bands in light. The ask for glass: hover intensity 0 on the static tiers, or the disc only on surfaces that track the pointer and are pressed. Nothing was overridden in keyframes CSS. Held honest-RED and re-judged at the 10.2.0 repin. |
+| KF-C18-H | **Glass, HELD-O87-RECHECK and O-88.** These rows are unchanged at glass 10.1.0: KF-C1-01, KF-C1-02, KF-C1-09/-10, KF-C7-04/C8-07, KF-C7-09, KF-C7-10, KF-C7-11, KF-C8-05/KF-C11-08, KF-C9-05, KF-C12-03, KF-C13-03, the glass half of KF-C17-04, O-88 DOCK-COLLAPSE-MOTION, and the dark Sequence plate's backdrop ghosting at 375×667. They are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, on the final tree)
+
+| | pass 17 after | pass 18 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row is unchanged, because this pass moved one label, not any lighting. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **826/826, twice**. Both runs excluded the untracked `test/demo/scenes/cube-autoplay-first-frame.test.ts`, which belongs to another seat (see pass 13).
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
+- The census route frames `spring-1440-*` and `spring-390-*` share names with the probe's frames. The census frames were captured later on the same tree, and they are the ones committed. The probe's measurements in `c18-probe.json` were taken on that same final tree.
