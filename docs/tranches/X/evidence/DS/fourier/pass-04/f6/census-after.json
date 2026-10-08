@@ -1,0 +1,3507 @@
+{
+  "tool": "ds-census",
+  "at": "2026-10-08T19:22:26.377Z",
+  "static": {
+    "totals": {
+      "boxShadowDecls": 4,
+      "boxShadowLayers": 4,
+      "insetLayers": 1,
+      "textShadow": 0,
+      "filterDropShadow": 0,
+      "filterBlur": 0,
+      "backdropBlur": 0,
+      "gradients": 8,
+      "infiniteAnimations": 0,
+      "keyframes": 3,
+      "twShadow": 0,
+      "twDropShadow": 0,
+      "twBackdropBlur": 0,
+      "twGradient": 0,
+      "twLoopAnimate": 0
+    },
+    "sites": [
+      {
+        "file": "web/src/components/admin/AdminUserTable.vue",
+        "line": 176,
+        "kind": "gradient",
+        "text": "background-image: linear-gradient("
+      },
+      {
+        "file": "web/src/components/gallery/GalleryCard.vue",
+        "line": 221,
+        "kind": "gradient",
+        "text": "background-image: linear-gradient("
+      },
+      {
+        "file": "web/src/components/gallery/GalleryCard.vue",
+        "line": 244,
+        "kind": "gradient",
+        "text": "background-image: linear-gradient("
+      },
+      {
+        "file": "web/src/components/morph/HarmonicLevelGrid.vue",
+        "line": 339,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-red) 15%, transparent);"
+      },
+      {
+        "file": "web/src/components/paper/PaperView.vue",
+        "line": 514,
+        "kind": "gradient",
+        "text": "background: linear-gradient("
+      },
+      {
+        "file": "web/src/components/paper/PaperView.vue",
+        "line": 526,
+        "kind": "gradient",
+        "text": "background: linear-gradient("
+      },
+      {
+        "file": "web/src/components/ui/SliderControl.vue",
+        "line": 312,
+        "kind": "gradient",
+        "text": "--glass-slider-track-background: linear-gradient("
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 445,
+        "kind": "gradient",
+        "text": "linear-gradient(color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px),"
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 446,
+        "kind": "gradient",
+        "text": "linear-gradient(90deg, color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px),"
+      },
+      {
+        "file": "web/src/components/visualization/ImageUpload.vue",
+        "line": 165,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 0 2px var(--focus-ring-color);"
+      },
+      {
+        "file": "web/src/components/visualization/VisualizationView.vue",
+        "line": 1015,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 0 2px var(--focus-ring-color);"
+      },
+      {
+        "file": "web/src/components/visualization/VisualizationView.vue",
+        "line": 1025,
+        "kind": "box-shadow(inset)",
+        "text": "box-shadow: inset 0 0 0 2px var(--focus-ring-color);"
+      }
+    ]
+  },
+  "computed": {
+    "base": "http://localhost:3117",
+    "routes": [
+      "/paper",
+      "/gallery",
+      "/equation",
+      "/morph",
+      "/w/",
+      "/v/plush-evening-olive-squid",
+      "/no-such-route"
+    ],
+    "sum": {
+      "boxShadowEls": 424,
+      "boxShadowLayers": 1086,
+      "multiLayerShadowEls": 330,
+      "insetHighlightLayers": 328,
+      "textShadowEls": 0,
+      "filterDropShadowEls": 0,
+      "filterBlurEls": 0,
+      "backdropBlurEls": 256,
+      "controlGradientEls": 0,
+      "loopingAnimations": 0
+    },
+    "perPage": {
+      "/paper|light|1440": {
+        "totals": {
+          "elements": 350,
+          "boxShadowEls": 5,
+          "boxShadowLayers": 17,
+          "multiLayerShadowEls": 5,
+          "insetHighlightLayers": 4,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 3,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "nav#paper-toc-v-5.sidebar-nav.glass-quiet.glass-opaque",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "article.glass-resting.card.paper-article",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "div.theorem-block.theorem-block--theorem",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0.04) 0px 1px 3px 0px, rgba(0, 0, 0, 0.03) 0px 1px 2px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "nav#paper-toc-v-5.sidebar-nav.glass-quiet.glass-opaque",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "article.glass-resting.card.paper-article",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "nav#paper-toc-v-5.sidebar-nav.glass-quiet.glass-opaque",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|light|1440": {
+        "totals": {
+          "elements": 112,
+          "boxShadowEls": 10,
+          "boxShadowLayers": 34,
+          "multiLayerShadowEls": 10,
+          "insetHighlightLayers": 10,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "article.glass-resting.card.gallery-card",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "div.badge-atom.justify-center.rounded-badge",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "article.glass-resting.card.gallery-card",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.badge-atom.justify-center.rounded-badge",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|light|1440": {
+        "totals": {
+          "elements": 391,
+          "boxShadowEls": 33,
+          "boxShadowLayers": 79,
+          "multiLayerShadowEls": 28,
+          "insetHighlightLayers": 28,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 24,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 3,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 2,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.07) "
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.07) "
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) "
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "blur(10px) saturate(1.5)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-9.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|light|1440": {
+        "totals": {
+          "elements": 157,
+          "boxShadowEls": 34,
+          "boxShadowLayers": 88,
+          "multiLayerShadowEls": 24,
+          "insetHighlightLayers": 24,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 20,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 5,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 5,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.glass-resting.card.config-card",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "button.glass-resting.morph-button",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "div.glass-resting.card.levels-card",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.config-card",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.glass-resting.morph-button",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.levels-card",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-17.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 11,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-17.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|light|1440": {
+        "totals": {
+          "elements": 40,
+          "boxShadowEls": 3,
+          "boxShadowLayers": 10,
+          "multiLayerShadowEls": 3,
+          "insetHighlightLayers": 3,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/v/plush-evening-olive-squid|light|1440": {
+        "totals": {
+          "elements": 240,
+          "boxShadowEls": 24,
+          "boxShadowLayers": 48,
+          "multiLayerShadowEls": 14,
+          "insetHighlightLayers": 14,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 15,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 4,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 4,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "div.glass-dock.horizontal.shape-pill",
+              "n": 1,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px"
+            },
+            {
+              "el": "div.animation-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|light|1440": {
+        "totals": {
+          "elements": 33,
+          "boxShadowEls": 4,
+          "boxShadowLayers": 14,
+          "multiLayerShadowEls": 4,
+          "insetHighlightLayers": 4,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.glass-resting.card.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|light|390": {
+        "totals": {
+          "elements": 103,
+          "boxShadowEls": 3,
+          "boxShadowLayers": 12,
+          "multiLayerShadowEls": 3,
+          "insetHighlightLayers": 3,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.floating-toc-bar.floating-toc-bar--trigger.glass-resting",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "article.glass-resting.card.paper-article",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.floating-toc-bar.floating-toc-bar--trigger.glass-resting",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "article.glass-resting.card.paper-article",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "div.floating-toc-bar.floating-toc-bar--trigger.glass-resting",
+              "n": 1,
+              "v": "blur(16px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|light|390": {
+        "totals": {
+          "elements": 106,
+          "boxShadowEls": 10,
+          "boxShadowLayers": 34,
+          "multiLayerShadowEls": 10,
+          "insetHighlightLayers": 10,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "article.glass-resting.card.gallery-card",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "div.badge-atom.justify-center.rounded-badge",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "article.glass-resting.card.gallery-card",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.badge-atom.justify-center.rounded-badge",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|light|390": {
+        "totals": {
+          "elements": 245,
+          "boxShadowEls": 24,
+          "boxShadowLayers": 53,
+          "multiLayerShadowEls": 20,
+          "insetHighlightLayers": 20,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 19,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 2,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 2,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "input#v-9.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-9.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-9.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|light|390": {
+        "totals": {
+          "elements": 156,
+          "boxShadowEls": 34,
+          "boxShadowLayers": 88,
+          "multiLayerShadowEls": 24,
+          "insetHighlightLayers": 24,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 20,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 5,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 5,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.glass-resting.card.config-card",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "button.glass-resting.morph-button",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "div.glass-resting.card.levels-card",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.config-card",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.glass-resting.morph-button",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.levels-card",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-17.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 11,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-17.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|light|390": {
+        "totals": {
+          "elements": 38,
+          "boxShadowEls": 3,
+          "boxShadowLayers": 10,
+          "multiLayerShadowEls": 3,
+          "insetHighlightLayers": 3,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/v/plush-evening-olive-squid|light|390": {
+        "totals": {
+          "elements": 217,
+          "boxShadowEls": 21,
+          "boxShadowLayers": 42,
+          "multiLayerShadowEls": 13,
+          "insetHighlightLayers": 13,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 13,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 4,
+              "v": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 4,
+              "v": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, r"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.0051866"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|light|390": {
+        "totals": {
+          "elements": 31,
+          "boxShadowEls": 4,
+          "boxShadowLayers": 14,
+          "multiLayerShadowEls": 4,
+          "insetHighlightLayers": 4,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) "
+            },
+            {
+              "el": "div.glass-resting.card.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.2)"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|dark|1440": {
+        "totals": {
+          "elements": 350,
+          "boxShadowEls": 5,
+          "boxShadowLayers": 17,
+          "multiLayerShadowEls": 5,
+          "insetHighlightLayers": 4,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 3,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "nav#paper-toc-v-5.sidebar-nav.glass-quiet.glass-opaque",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8p"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "article.glass-resting.card.paper-article",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "div.theorem-block.theorem-block--theorem",
+              "n": 1,
+              "v": "rgba(0, 0, 0, 0.15) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px 0px"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "nav#paper-toc-v-5.sidebar-nav.glass-quiet.glass-opaque",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "article.glass-resting.card.paper-article",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "nav#paper-toc-v-5.sidebar-nav.glass-quiet.glass-opaque",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|dark|1440": {
+        "totals": {
+          "elements": 112,
+          "boxShadowEls": 10,
+          "boxShadowLayers": 34,
+          "multiLayerShadowEls": 10,
+          "insetHighlightLayers": 10,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "article.glass-resting.card.gallery-card",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "div.badge-atom.justify-center.rounded-badge",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "article.glass-resting.card.gallery-card",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.badge-atom.justify-center.rounded-badge",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|dark|1440": {
+        "totals": {
+          "elements": 391,
+          "boxShadowEls": 33,
+          "boxShadowLayers": 79,
+          "multiLayerShadowEls": 28,
+          "insetHighlightLayers": 28,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 24,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 3,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 2,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.11)"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.11)"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8p"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "div.fading-scroll.fading-scroll--y.legend-overlay",
+              "n": 1,
+              "v": "blur(10px) saturate(1.5)"
+            },
+            {
+              "el": "span.slider-range.glass-liquid-fill",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-9.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|dark|1440": {
+        "totals": {
+          "elements": 157,
+          "boxShadowEls": 34,
+          "boxShadowLayers": 88,
+          "multiLayerShadowEls": 24,
+          "insetHighlightLayers": 24,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 20,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 5,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 5,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.glass-resting.card.config-card",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "button.glass-resting.morph-button",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "div.glass-resting.card.levels-card",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.config-card",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.glass-resting.morph-button",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.levels-card",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-17.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 11,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-17.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|dark|1440": {
+        "totals": {
+          "elements": 40,
+          "boxShadowEls": 3,
+          "boxShadowLayers": 10,
+          "multiLayerShadowEls": 3,
+          "insetHighlightLayers": 3,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/v/plush-evening-olive-squid|dark|1440": {
+        "totals": {
+          "elements": 240,
+          "boxShadowEls": 24,
+          "boxShadowLayers": 48,
+          "multiLayerShadowEls": 14,
+          "insetHighlightLayers": 14,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 15,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 4,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 4,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "div.glass-dock.horizontal.shape-pill",
+              "n": 1,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px"
+            },
+            {
+              "el": "div.animation-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.12) 0px 0px 12px 0px"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|dark|1440": {
+        "totals": {
+          "elements": 33,
+          "boxShadowEls": 4,
+          "boxShadowLayers": 14,
+          "multiLayerShadowEls": 4,
+          "insetHighlightLayers": 4,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.glass-resting.card.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|dark|390": {
+        "totals": {
+          "elements": 103,
+          "boxShadowEls": 3,
+          "boxShadowLayers": 12,
+          "multiLayerShadowEls": 3,
+          "insetHighlightLayers": 3,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.floating-toc-bar.floating-toc-bar--trigger.glass-resting",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "article.glass-resting.card.paper-article",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.floating-toc-bar.floating-toc-bar--trigger.glass-resting",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "article.glass-resting.card.paper-article",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "div.floating-toc-bar.floating-toc-bar--trigger.glass-resting",
+              "n": 1,
+              "v": "blur(16px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|dark|390": {
+        "totals": {
+          "elements": 106,
+          "boxShadowEls": 10,
+          "boxShadowLayers": 34,
+          "multiLayerShadowEls": 10,
+          "insetHighlightLayers": 10,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "article.glass-resting.card.gallery-card",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "div.badge-atom.justify-center.rounded-badge",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "article.glass-resting.card.gallery-card",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.badge-atom.justify-center.rounded-badge",
+              "n": 4,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "input#gallery-search-input.field-control.glass-control-edge.search-field-input",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|dark|390": {
+        "totals": {
+          "elements": 245,
+          "boxShadowEls": 24,
+          "boxShadowLayers": 53,
+          "multiLayerShadowEls": 20,
+          "insetHighlightLayers": 20,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 19,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 2,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 2,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "input#v-9.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-9.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 12,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-5-control.field-control.glass-control-edge.w-full",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-6-control.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input.field-control.glass-control-edge.w-20",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-9.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|dark|390": {
+        "totals": {
+          "elements": 156,
+          "boxShadowEls": 34,
+          "boxShadowLayers": 88,
+          "multiLayerShadowEls": 24,
+          "insetHighlightLayers": 24,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 20,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 5,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 5,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.glass-resting.card.config-card",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "button.glass-resting.morph-button",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "div.glass-resting.card.levels-card",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 10,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.config-card",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.glass-resting.morph-button",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.levels-card",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-17.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 11,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 3,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "input#v-6.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-10.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-14.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-16.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-17.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|dark|390": {
+        "totals": {
+          "elements": 38,
+          "boxShadowEls": 3,
+          "boxShadowLayers": 10,
+          "multiLayerShadowEls": 3,
+          "insetHighlightLayers": 3,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            }
+          ],
+          "inset": [
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "div.configurator-stage.relative.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/v/plush-evening-olive-squid|dark|390": {
+        "totals": {
+          "elements": 217,
+          "boxShadowEls": 21,
+          "boxShadowLayers": 42,
+          "multiLayerShadowEls": 13,
+          "insetHighlightLayers": 13,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 13,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "span.slider-track.track-well",
+              "n": 4,
+              "v": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "span.slider-thumb.glass-specular-track",
+              "n": 4,
+              "v": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, "
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.005742"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "button.toggle-group__item.control-surface.glass-control-edge",
+              "n": 5,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "aside.configurator-aside.flex.min-h-0",
+              "n": 1,
+              "v": "blur(20px) saturate(1.5)"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-25.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-26.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "button.control-surface.glass-control-edge.glass-capsule-hover",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-11.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            },
+            {
+              "el": "input#v-12.fira-code.number-field__input.field-control",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|dark|390": {
+        "totals": {
+          "elements": 31,
+          "boxShadowEls": 4,
+          "boxShadowLayers": 14,
+          "multiLayerShadowEls": 4,
+          "insetHighlightLayers": 4,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 2,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14)"
+            },
+            {
+              "el": "div.glass-resting.card.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16p"
+            }
+          ],
+          "inset": [
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 2,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.app-dock.glass-dock.horizontal",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            },
+            {
+              "el": "div.glass-resting.card.w-full",
+              "n": 1,
+              "v": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset"
+            }
+          ],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [
+            {
+              "el": "div.dock-plate",
+              "n": 1,
+              "v": "blur(16px) saturate(1.3) brightness(1.14)"
+            },
+            {
+              "el": "button.button.tap-squish.focus-ring",
+              "n": 1,
+              "v": "blur(14px) saturate(1.5)"
+            }
+          ],
+          "gradient": [],
+          "loop": []
+        }
+      }
+    }
+  }
+}
