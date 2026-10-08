@@ -1,0 +1,290 @@
+{
+ "light": {
+  "spring1440": {
+   "expanded": "false",
+   "swatch": false,
+   "legend": "0 → 53 % overshoot · set by damping alone",
+   "separator": {
+    "x": 430,
+    "w": 1,
+    "h": 16,
+    "gapFromAction": 4
+   }
+  },
+  "sequence1440": {
+   "plate": [
+    127,
+    750
+   ],
+   "header": [
+    128,
+    204
+   ],
+   "lanes": [
+    288,
+    665
+   ],
+   "lanesGapAbove": 84,
+   "lanesGapBelow": 85,
+   "rowPitch": 84.1,
+   "ball": 23,
+   "overflowing": false,
+   "sheetTops": []
+  },
+  "stagger1440": {
+   "labels": [
+    {
+     "t": "0",
+     "l": 185,
+     "r": 195
+    },
+    {
+     "t": "970",
+     "l": 306,
+     "r": 336
+    },
+    {
+     "t": "1940",
+     "l": 416,
+     "r": 456
+    }
+   ],
+   "minGap": 80,
+   "trackBottom": 395,
+   "surfaceBottom": 416,
+   "frameBottom": 418,
+   "trackLeftInset": 23,
+   "blockEndInset": 23
+  },
+  "sequence390x844": {
+   "plate": [
+    107,
+    708
+   ],
+   "header": [
+    108,
+    168
+   ],
+   "lanes": [
+    251,
+    623
+   ],
+   "lanesGapAbove": 84,
+   "lanesGapBelow": 85,
+   "rowPitch": 83.1,
+   "ball": 23,
+   "overflowing": false,
+   "sheetTops": [
+    716
+   ]
+  },
+  "square390": {
+   "plate": [
+    107,
+    708,
+    334
+   ],
+   "boxCentreY": 408,
+   "plateCentreY": 408,
+   "travel": "91.0256px"
+  },
+  "easing390": {
+   "specimen": {
+    "px": 25.888,
+    "w": "400",
+    "text": "ease"
+   },
+   "family": {
+    "px": 16,
+    "w": "600",
+    "text": "Standard"
+   },
+   "ratio": 1.62
+  },
+  "spring390": {
+   "plate": null,
+   "boxCentreY": null,
+   "plateCentreY": null,
+   "travel": null
+  },
+  "sequence375x667": {
+   "plate": [
+    107,
+    531
+   ],
+   "header": [
+    108,
+    168
+   ],
+   "lanes": [
+    228,
+    470
+   ],
+   "lanesGapAbove": 60,
+   "lanesGapBelow": 61,
+   "rowPitch": 52.4,
+   "ball": 18,
+   "overflowing": false,
+   "sheetTops": [
+    539
+   ]
+  },
+  "easing1440": {
+   "specimen": {
+    "px": 41.888,
+    "w": "400",
+    "text": "ease"
+   },
+   "family": {
+    "px": 20.352,
+    "w": "600",
+    "text": "Standard"
+   },
+   "ratio": 2.06
+  }
+ },
+ "dark": {
+  "spring1440": {
+   "expanded": "false",
+   "swatch": false,
+   "legend": "0 → 53 % overshoot · set by damping alone",
+   "separator": {
+    "x": 430,
+    "w": 1,
+    "h": 16,
+    "gapFromAction": 4
+   }
+  },
+  "sequence1440": {
+   "plate": [
+    127,
+    750
+   ],
+   "header": [
+    128,
+    204
+   ],
+   "lanes": [
+    288,
+    665
+   ],
+   "lanesGapAbove": 84,
+   "lanesGapBelow": 85,
+   "rowPitch": 84.1,
+   "ball": 23,
+   "overflowing": false,
+   "sheetTops": []
+  },
+  "stagger1440": {
+   "labels": [
+    {
+     "t": "0",
+     "l": 185,
+     "r": 195
+    },
+    {
+     "t": "970",
+     "l": 306,
+     "r": 336
+    },
+    {
+     "t": "1940",
+     "l": 416,
+     "r": 456
+    }
+   ],
+   "minGap": 80,
+   "trackBottom": 395,
+   "surfaceBottom": 416,
+   "frameBottom": 418,
+   "trackLeftInset": 23,
+   "blockEndInset": 23
+  },
+  "sequence390x844": {
+   "plate": [
+    107,
+    708
+   ],
+   "header": [
+    108,
+    168
+   ],
+   "lanes": [
+    251,
+    623
+   ],
+   "lanesGapAbove": 84,
+   "lanesGapBelow": 85,
+   "rowPitch": 83.1,
+   "ball": 23,
+   "overflowing": false,
+   "sheetTops": [
+    716
+   ]
+  },
+  "square390": {
+   "plate": [
+    107,
+    708,
+    334
+   ],
+   "boxCentreY": 408,
+   "plateCentreY": 408,
+   "travel": "91.0256px"
+  },
+  "easing390": {
+   "specimen": {
+    "px": 25.888,
+    "w": "400",
+    "text": "ease"
+   },
+   "family": {
+    "px": 16,
+    "w": "600",
+    "text": "Standard"
+   },
+   "ratio": 1.62
+  },
+  "spring390": {
+   "plate": null,
+   "boxCentreY": null,
+   "plateCentreY": null,
+   "travel": null
+  },
+  "sequence375x667": {
+   "plate": [
+    107,
+    531
+   ],
+   "header": [
+    108,
+    168
+   ],
+   "lanes": [
+    228,
+    470
+   ],
+   "lanesGapAbove": 60,
+   "lanesGapBelow": 61,
+   "rowPitch": 52.4,
+   "ball": 18,
+   "overflowing": false,
+   "sheetTops": [
+    539
+   ]
+  },
+  "easing1440": {
+   "specimen": {
+    "px": 41.888,
+    "w": "400",
+    "text": "ease"
+   },
+   "family": {
+    "px": 20.352,
+    "w": "600",
+    "text": "Standard"
+   },
+   "ratio": 2.06
+  }
+ }
+}
