@@ -349,3 +349,63 @@ An earlier census pass showed +6 elements on `/gallery` (dark 1440, 390). That w
 - **Named owner-ruling re-baseline (§0ej), `8665cdb`:** `checkpoint-disclosure-body`. The diff was read: it is exactly C9 (the f(t) face) plus C2 (the Harmonics rule). It is green twice after.
 
 **Frames** (`pass-02/f4r/`): 56 frames from the critic's own `capture.mjs` and `cells2.mjs`, re-aimed at `:3113`. They are headless real Chrome (§0ei).
+
+### pass 3
+
+*(This is the re-deployed loop's pass 3: the cure for the critic F5 findings, DS-F5-*. The critic judged the pass 2 F4R AFTER frames, `evidence/DS/fourier/pass-02/f4r/`. The AFTER frames are in `evidence/DS/fourier/pass-03/f5/`, because `pass-03/` already holds the first pass 3's frames.)*
+
+**Commits.**
+- fourier, on `m/w1-bump-migration`, pushed fast-forward `92c57cf..dc64212`:
+  - `72b73e6`: the cure, 6 source files, committed by pathspec. It folds two uncommitted orphan hunks on purpose: DS-F4-C1 (SliderControl's label, FunctionInput's Notation) and DS-F4-C2 (the morph band's bleed and layers). Each of the 6 files was only orphan hunks plus this cure, so nothing of another seat's was taken.
+  - `dc64212`: a named golden re-baseline.
+- latex-paper `16709a1` (DS-F5-C6), local on `master`. Not pushed, not published.
+- value.js `2b816d10f`: AFTER frames, census, probes and e2e listings.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F5-C1 | `SliderControl`'s unfilled stop is glass's hairline tint `--surface-tint-15` (the foreground at 15%) instead of `--muted-medium`, which in light was the card's own tone. The 0.375rem rule now has a visible extent in both themes, with one geometry. The 55% hue fill and the full-hue thumb stay. |
+| DS-F5-C2 | `.control-row-label` loses its local size and weight, so it takes glass `Label`'s rung, the same one LabeledField uses. Notation is a `LabeledField`, and the morph card's Easing label is a glass `Label`. Measured: every peer label is 14.54px/500 at 1440 and 18.62px/500 at 390, on /equation and on /morph. |
+| DS-F5-C3 | From 1280px each phase subtitle holds `2lh`, so the rows line up across the three cards: the subtitle, Duration and Easing rows sit at 248, 297 and 377 px in all three (`morph-light-1440`). Shared subgrid rows were tried first. glass Card's `contain: paint` makes each card an independent formatting context, so a card cannot be a subgrid; that containment is glass's. |
+| DS-F5-C4 | Below 1024px the band bleeds over the page gutter (0 to 390), carries the shell's own layers (`.paper-texture` ground plus glass `.paper-grid`, both fixed), and ends on one `--border-soft` hairline. With the cards hidden, band and page ground measure identical: (250,249,247) in light and (15,14,13) in dark. The darker gutter beside the cards in the critic's frame is the glass card's cast (O-87). |
+| DS-F5-C5 | Below 1024px the readings column is `flex: 1; min-width: 0`, and the plate is `min(22svh, 100% − gap − 9rem)`. The phase value's 10ch reservation is dropped in the one-column form, and the actions start on the plate's edge. "total 350 ms" now ends at x = 338 of 374, where it used to reach 374 or beyond. The coarse Metric label size is glass's (the DS-F2-G3 relay). |
+| DS-F5-C6 | Cured at the latex-paper root (`16709a1`): `.section-header--sub` gets `margin-top: 1.5rem` and the chapter header gets `2rem`, with the bottom kept tight. This folds the orphan DS-F4-C5 hunk, a sibling rule that never matched, because fourier's `PaperArticleWindow` wraps each section in its own `.paper-window-section`. Measured with the rule injected into the served /paper (`cure/c6-probe.mjs`): "1.2.1" moves from about 8 px above and 22 px below to about 32 above and 22 below at 1440, and from 24 above to 48 above (22 below) at 390. Served frames still show 0.2.1, because the repin is owed (C7). |
+| DS-F5-C8 | The gallery track floor is `16rem`. At 1440 the cards are 272 px, and all four slugs and dates are whole. **Residual:** with 4 results the grid still has a fifth empty track. auto-fill is kept, as the cure asked. |
+
+**Refused, with reason.**
+- DS-F5-C7 (land the owed latex-paper repin): a repin needs a latex-paper release. `npm whoami` returns E401, so publishing is an owner act, and this seat has no authority to push latex-paper. The release must carry `9e0200f`, `aa244de` and `16709a1`, followed by a re-capture of /paper.
+
+**Glass-owned, cited, not overridden.**
+- DS-F5-G1 (the pointer-tracked specular bloom on the detached Configurator's stage and aside): **O-87** FLAT-LIGHTING, to re-judge at the 10.2.0 repin.
+- DS-F5-G2 (the 24px track well's lone inset top edge around the rule): **O-87**. The consumer half is C1.
+
+**Census** (`pass-03/f5/census-after.json`, from fourier `scripts/ds-census.mjs`, served from the cure tree). The computed sum is identical to pass 2 F4R:
+
+| metric | value |
+|---|---|
+| shadow elements | 424 |
+| shadow layers | 1086 |
+| multi-layer stacks | 330 |
+| inset highlights | 328 |
+| backdrop blur | 256 |
+| control gradients | 0 |
+| looping chrome | 0 |
+
+The static half is unchanged (4 box-shadow declarations, 8 gradients, 3 keyframes). The cure adds one hairline border and moves no lighting. Everything left is glass's recipe (O-87).
+
+**Gates.** The cure tree is HEAD plus this seat's hunks in a clean detached worktree, served on `:3115`. The HEAD baseline is a second clean worktree on `:3116`.
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice. latex-paper `vitest`: 127/127.
+- e2e: 55 affected specs (pass 2's 47 plus every spec that touches /morph, /gallery, /equation or the changed selectors), chromium plus mobile-chromium, headless, 3 workers.
+  - Run A: 500 passed, 26 failed. Run B: 492 passed, 34 failed.
+  - Pre-existing, as at pass 2: `f-w14v-pd` collapsed ×6 (O-88), `f-w14v-au3` L1-12, `visual-checkpoint` 1·6·7, 2 and 5, `contrast-floor` ×3, and `f-w14v-c3` c3m/c3g.
+  - These also fail on HEAD on `:3116` (`e2e-head-baseline.log`):
+    - `equation-interaction`, `f-w13-radius` frame 5, `f-w14-uia` 634 ×2 and 657, `f-w14u-vedit` v83/v177, `f-w14v-au3` L1-6, `f-w14v-p` p3 and `gallery-admin-a11y` ×4;
+    - the /equation set times out waiting on the shared API's compute and simplify responses (`.katex` never appears, `waitForResponse` 30 s).
+  - Flakes in one run only:
+    - `f-w14v-eq2` ×7 (run B): the same `.katex` load timeout. It is green in run A and on HEAD.
+    - `f-w14u-d` d2 (run B): recorded as flaky at pass 3.
+  - This cure's own failure: `visual-checkpoint` item 3, which is the named re-baseline below.
+- **Named owner-ruling re-baseline (§0ej), `dc64212`:** `checkpoint-disclosure-body`. The diff was read: 206 px, which is exactly the "Harmonics" label moving onto glass Label's rung (C2). It is green twice after.
+
+**Frames** (`pass-03/f5/`): 56 frames from the critic's own `capture.mjs` and `cells2.mjs`, re-aimed at `:3115`, plus the probe frames `cure/probe-morph-scrolled-*-390.png`. All were captured in headless real Chrome (§0ei).
