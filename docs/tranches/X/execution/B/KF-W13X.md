@@ -2713,3 +2713,4 @@ READ-ONLY at kf `5bd9172b` (clean product tree, glass `10.1.0` exact). Logs: `do
 - **Escalations:** none.
 - **Instrument teardown:** the two worktrees and their vite servers are removed after the record commit.
 - **value.js commit:** this record + the LEDGER event line + `keyframes/evidence/W13X/esc2/` (probe `esc2.mjs`, `look.mjs`, runner `quiet-all.sh`, `quiet-all.out`, the four banked JSONs, `dry/` readings, 44 frames; `*.log` gitignored, tails quoted above).
+- **value.js commits (recorded):** `6e0e85690` (15 files: this record, the LEDGER line, `esc2/` probes, runner, banked + dry JSONs); the 44 frames follow in the next commit (force-added past the `*.png` ignore, as `.esc1`'s were).
