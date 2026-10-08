@@ -542,3 +542,52 @@ The static half is unchanged (4 box-shadow declarations, 8 gradients, 3 keyframe
 - the pass-5 cells in `f7-cells/`: `theorem-*-1440`, `theorem-hover-*`, `eq-ab-*-1440` and `morph-scrolled-*-390`;
 - `cure/sub-11-*` and `cure/sub-121-*` at 1440 and 390;
 - `cure/f8-cure-probe.mjs` with its frames: `modal-*-1440` and `paper-119-*-390`.
+
+### pass 7
+
+*(The re-deployed loop's pass 7: the cure for the critic F9 findings, DS-F9-*. The AFTER frames are in `evidence/DS/fourier/pass-07/`.)*
+
+**Commits.**
+- fourier `22e83e6`, on `m/w1-bump-migration`, pushed fast-forward `bd083b0..22e83e6`. 5 files, committed by pathspec. The F.CT seat's uncommitted contour files (`drawing.py`, `parts.py`, `test_contour_strokes.py`) were left alone.
+- latex-paper `5be04ae` (DS-F9-C2, C3, C6), local on `master`; the 0.3.0 changeset is extended. Not pushed and not published (an owner act, as at passes 5 and 6). The release must now also carry `5be04ae`.
+- value.js `dc7943c40`: AFTER frames, the cure probe, census and e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F9-C1 | The tiles take `emphasis="quiet"`. Their own 1.5px border and `--card` fill define them, so they carry no capsule cast or bevel. The hover `scale(1.04)` is deleted; the border tone step stays, and `:active scale(0.96)` stays as press feedback. No local box-shadow. Measured on an unbound tile (`f9-cure-probe.json`), both themes: `box-shadow: none` at rest and on hover, `transform: none` on hover, border 50% ink stepping to 50% `--accent-red`. The band under the strip is gone (`morph-*-1440`, `morph-tilehover-*-1440`). |
+| DS-F9-C2 | **Root:** latex-paper `5be04ae` restates `ol.paper-list { list-style: decimal }` and `ul.paper-list { list-style: disc }`, with a `--muted-foreground` `::marker`. **fourier:** three lines in the 0.2.1 bridge (deleted at the 0.3.0 repin). Measured: `ol` and `li` `decimal` in both themes; the four prerequisites read 1. to 4. (`paper-list-*-1440`). The optional mono numeral was not added. |
+| DS-F9-C3 | **Root:** latex-paper `5be04ae`. `splitOnItem` dropped the `\item` command itself, so the description parser never saw its `[term]`. `splitItems` now keeps each item's command beside its body, and the description parser reads `item.optArgs[0]`. A parse test covers the form (`\item[Fourier Series]`, `\item[Fourier Transform]`). latex-paper vitest 128/128. **Served:** still `<dt></dt>` in both themes (`paper-top-*-1440`), because fourier parses through 0.2.1. The term is content, so it rides the 0.3.0 repin with no fourier-side shim, as the finding rules. **HONEST-RED until the repin.** |
+| DS-F9-C4 | The 0.78rem fine-pointer arm is deleted, and so is the `max(1rem, 0.78rem)` iOS floor that existed only to undo it. The field takes glass Input's step. Measured: 16.4px in a 290×40 field, both themes, the same as /gallery's SearchField. |
+| DS-F9-C5 | Both "Open Visualizer" CTAs (the gallery dialog footer and the /paper callout) are `size="md"`, emphasis primary. Measured in the dialog: CTA 16.4px/600 in a 40px button, under the 23.67px/400 title (`modal-*-1440`). The ℱ is kept, since it is identity (§0dm) and dropping it is an owner call. |
+| DS-F9-C6 | **Root:** latex-paper `5be04ae` zeros `.math-block .katex-display` block-end margin and padding in the below-40rem arm. **fourier:** one rule in the bridge, needed because fourier's own global `.katex-display` sets the 0.75rem padding and 1rem margin. Measured at 390: eq (1.19) ink-to-number gap 0px (about 30px before) and the math block is 103px tall; `(1.19)` sits right under the display (`paper-119-*-390`). |
+
+**Glass-owned, cited, not overridden.**
+- DS-F9-G1 (the dock section menu paints no `[aria-current]` row; the menu plate carries the six-layer stack with blur and saturate): **O-59** for the `--fill-selected` current row and **O-87** for the plate. No local tint (UIA-F-128). Re-judged at the 10.2.0 repin.
+- DS-F9-G2 (ConfiguratorLayer heading 25.888px/600 over an 11px sub): glass's rungs. It rides the DS-F2-G3 type relay (O-87 family): heading on the card-title step, sub on the caption rung. No local restyle.
+
+**Census** (`pass-07/census-after.json`, fourier `scripts/ds-census.mjs` on `:3100`, which serves this checkout). Computed, against pass 6:
+
+| metric | pass 6 | pass 7 |
+|---|---|---|
+| shadow elements | 420 | 392 |
+| layers | 1076 | 996 |
+| multi-layer stacks | 326 | 298 |
+| inset highlights | 326 | 298 |
+| backdrop blur | 254 | 214 |
+| control gradients | 0 | 0 |
+| looping chrome | 0 | 0 |
+
+The drop is the /morph tile strip, whose quiet tiles carry no capsule cast, bevel or backdrop. The static count is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes. What remains is glass's recipe (O-87).
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice. latex-paper `vitest`: 128/128, twice (`tsc --noEmit` there reports only the pre-existing `compile.ts` bbnf-lang `Nonterminals` mismatch).
+- e2e: 37 specs (`pass-07/e2e-specs.txt`): pass 6's 25, plus the 12 that touch /morph, the paper search or the gallery CTA. chromium plus mobile-chromium, headless, 3 workers, on `:3100`.
+  - Run A: 309 passed, 30 failed, 3 skipped. Run B: identical (the same 30).
+  - 14 are on pass 6's pre-existing list: `contrast-floor` ×3, `f-w14-uia` 411/434/457, `f-w14v-p` p3, `gallery-admin-a11y` ×4, and `visual-checkpoint` 1·6·7, 2 and 5.
+  - 7 fail on a clean HEAD (`bd083b0`) worktree served fresh on `:3121` (`e2e-head-baseline.txt`): `f-w14v-au3` L1-12 (the /morph card titles), and `f-w14v-pd` collapsed ×6 (DOCK-SUMMARY-SQUARE; O-88).
+  - 9 are the `:3100` server's state: `f-w14v-au0` ×8 (an empty admin Audit Log, as with `f-w14-uia` 457) and `f-w14u-misc` m208 (the stage never reports `aria-busy` on `:3100`, failing 4/4 in a rerun there). With the cure diff applied to the clean HEAD worktree and served fresh on `:3121`, all 11 pass (`e2e-cure-fresh-3121.txt`), and m208 passes 2/2.
+  - No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
+
+**Frames** (`pass-07/`). All were captured in headless real Chrome (§0ei) by `f9-cure-probe.mjs`: `morph-*-1440`, `morph-tilehover-*-1440`, `paper-list-*-1440`, `paper-top-*-1440`, `modal-*-1440` and `paper-119-*-390`, light and dark.
