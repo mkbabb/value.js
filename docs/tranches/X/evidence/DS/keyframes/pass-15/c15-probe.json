@@ -1,0 +1,513 @@
+{
+ "light": {
+  "spring1440": {
+   "fold": 524,
+   "fadeStart": 524,
+   "scroll": {
+    "top": 0,
+    "height": 460,
+    "client": 460,
+    "overflow": 0
+   },
+   "figureExpanded": "false",
+   "row": [
+    458,
+    494
+   ],
+   "rowAboveFade": true,
+   "section": [
+    458,
+    515
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": null,
+   "axisAboveFade": null,
+   "presets": [
+    278,
+    417
+   ],
+   "contentBottom": 16777336,
+   "voidBelowContent": 0
+  },
+  "spring1440Scrolled": {
+   "fold": 524,
+   "fadeStart": 524,
+   "scroll": {
+    "top": 0,
+    "height": 460,
+    "client": 460,
+    "overflow": 0
+   },
+   "figureExpanded": "false",
+   "row": [
+    458,
+    494
+   ],
+   "rowAboveFade": true,
+   "section": [
+    458,
+    515
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": null,
+   "axisAboveFade": null,
+   "presets": [
+    278,
+    417
+   ],
+   "contentBottom": 16777336,
+   "voidBelowContent": 0
+  },
+  "spring1440Opened": {
+   "fold": 527,
+   "fadeStart": 527,
+   "scroll": {
+    "top": 161,
+    "height": 624,
+    "client": 463,
+    "overflow": 161
+   },
+   "figureExpanded": "true",
+   "row": [
+    297,
+    333
+   ],
+   "rowAboveFade": true,
+   "section": [
+    297,
+    518
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": [
+    499,
+    518
+   ],
+   "axisAboveFade": true,
+   "presets": [
+    117,
+    256
+   ],
+   "contentBottom": 16777175,
+   "voidBelowContent": 0
+  },
+  "entry1440": {
+   "fold": 524,
+   "fadeStart": 524,
+   "scroll": {
+    "top": 0,
+    "height": 460,
+    "client": 460,
+    "overflow": 0
+   },
+   "figureExpanded": "false",
+   "row": [
+    458,
+    494
+   ],
+   "rowAboveFade": true,
+   "section": [
+    458,
+    515
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": null,
+   "axisAboveFade": null,
+   "presets": [
+    278,
+    417
+   ],
+   "contentBottom": 16777336,
+   "voidBelowContent": 0
+  },
+  "sequence1440": {
+   "plate": [
+    127,
+    750
+   ],
+   "header": [
+    128,
+    204
+   ],
+   "lanes": [
+    288,
+    665
+   ],
+   "lanesGapAbove": 84,
+   "lanesGapBelow": 85,
+   "rowPitch": 84.1,
+   "overflowing": false
+  },
+  "sequence390": {
+   "plate": [
+    107,
+    708
+   ],
+   "header": [
+    108,
+    168
+   ],
+   "lanes": [
+    353,
+    522
+   ],
+   "lanesGapAbove": 185,
+   "lanesGapBelow": 186,
+   "rowPitch": 34.4,
+   "overflowing": false
+  },
+  "spring390": {
+   "fold": 1470,
+   "fadeStart": 1470,
+   "scroll": {
+    "top": 0,
+    "height": 689,
+    "client": 689,
+    "overflow": 0
+   },
+   "figureExpanded": null,
+   "row": [
+    398,
+    418
+   ],
+   "rowAboveFade": true,
+   "section": [
+    1175,
+    1461
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": [
+    1445,
+    1461
+   ],
+   "axisAboveFade": true,
+   "presets": [
+    1006,
+    1134
+   ],
+   "contentBottom": 16778052,
+   "voidBelowContent": 0
+  }
+ },
+ "dark": {
+  "spring1440": {
+   "fold": 524,
+   "fadeStart": 524,
+   "scroll": {
+    "top": 0,
+    "height": 460,
+    "client": 460,
+    "overflow": 0
+   },
+   "figureExpanded": "false",
+   "row": [
+    458,
+    494
+   ],
+   "rowAboveFade": true,
+   "section": [
+    458,
+    515
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": null,
+   "axisAboveFade": null,
+   "presets": [
+    278,
+    417
+   ],
+   "contentBottom": 16777336,
+   "voidBelowContent": 0
+  },
+  "spring1440Scrolled": {
+   "fold": 524,
+   "fadeStart": 524,
+   "scroll": {
+    "top": 0,
+    "height": 460,
+    "client": 460,
+    "overflow": 0
+   },
+   "figureExpanded": "false",
+   "row": [
+    458,
+    494
+   ],
+   "rowAboveFade": true,
+   "section": [
+    458,
+    515
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": null,
+   "axisAboveFade": null,
+   "presets": [
+    278,
+    417
+   ],
+   "contentBottom": 16777336,
+   "voidBelowContent": 0
+  },
+  "spring1440Opened": {
+   "fold": 527,
+   "fadeStart": 527,
+   "scroll": {
+    "top": 161,
+    "height": 624,
+    "client": 463,
+    "overflow": 161
+   },
+   "figureExpanded": "true",
+   "row": [
+    297,
+    333
+   ],
+   "rowAboveFade": true,
+   "section": [
+    297,
+    518
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": [
+    499,
+    518
+   ],
+   "axisAboveFade": true,
+   "presets": [
+    117,
+    256
+   ],
+   "contentBottom": 16777175,
+   "voidBelowContent": 0
+  },
+  "entry1440": {
+   "fold": 524,
+   "fadeStart": 524,
+   "scroll": {
+    "top": 0,
+    "height": 460,
+    "client": 460,
+    "overflow": 0
+   },
+   "figureExpanded": "false",
+   "row": [
+    458,
+    494
+   ],
+   "rowAboveFade": true,
+   "section": [
+    458,
+    515
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": null,
+   "axisAboveFade": null,
+   "presets": [
+    278,
+    417
+   ],
+   "contentBottom": 16777336,
+   "voidBelowContent": 0
+  },
+  "sequence1440": {
+   "plate": [
+    127,
+    750
+   ],
+   "header": [
+    128,
+    204
+   ],
+   "lanes": [
+    288,
+    665
+   ],
+   "lanesGapAbove": 84,
+   "lanesGapBelow": 85,
+   "rowPitch": 84.1,
+   "overflowing": false
+  },
+  "sequence390": {
+   "plate": [
+    107,
+    708
+   ],
+   "header": [
+    108,
+    168
+   ],
+   "lanes": [
+    353,
+    522
+   ],
+   "lanesGapAbove": 185,
+   "lanesGapBelow": 186,
+   "rowPitch": 34.4,
+   "overflowing": false
+  },
+  "spring390": {
+   "fold": 1470,
+   "fadeStart": 1470,
+   "scroll": {
+    "top": 0,
+    "height": 689,
+    "client": 689,
+    "overflow": 0
+   },
+   "figureExpanded": null,
+   "row": [
+    398,
+    418
+   ],
+   "rowAboveFade": true,
+   "section": [
+    1175,
+    1461
+   ],
+   "sectionMarginTop": "0px",
+   "sectionDisplay": "grid",
+   "axis": [
+    1445,
+    1461
+   ],
+   "axisAboveFade": true,
+   "presets": [
+    1006,
+    1134
+   ],
+   "contentBottom": 16778052,
+   "voidBelowContent": 0
+  }
+ },
+ "spring1440x1080": {
+  "fold": 699,
+  "fadeStart": 699,
+  "scroll": {
+   "top": 0,
+   "height": 624,
+   "client": 624,
+   "overflow": 0
+  },
+  "figureExpanded": "true",
+  "row": [
+   469,
+   505
+  ],
+  "rowAboveFade": true,
+  "section": [
+   469,
+   690
+  ],
+  "sectionMarginTop": "0px",
+  "sectionDisplay": "grid",
+  "axis": [
+   671,
+   690
+  ],
+  "axisAboveFade": true,
+  "presets": [
+   288,
+   428
+  ],
+  "contentBottom": 16777346,
+  "voidBelowContent": 0
+ },
+ "spring1280x1080": {
+  "fold": 576,
+  "fadeStart": 576,
+  "scroll": {
+   "top": 0,
+   "height": 501,
+   "client": 501,
+   "overflow": 0
+  },
+  "figureExpanded": "false",
+  "row": [
+   511,
+   547
+  ],
+  "rowAboveFade": true,
+  "section": [
+   511,
+   567
+  ],
+  "sectionMarginTop": "0px",
+  "sectionDisplay": "grid",
+  "axis": null,
+  "axisAboveFade": null,
+  "presets": [
+   287,
+   470
+  ],
+  "contentBottom": 16777346,
+  "voidBelowContent": 0
+ },
+ "spring1280x760": {
+  "fold": 417,
+  "fadeStart": 377,
+  "scroll": {
+   "top": 0,
+   "height": 501,
+   "client": 379,
+   "overflow": 122
+  },
+  "figureExpanded": "false",
+  "row": [
+   474,
+   510
+  ],
+  "rowAboveFade": false,
+  "section": [
+   474,
+   530
+  ],
+  "sectionMarginTop": "0px",
+  "sectionDisplay": "grid",
+  "axis": null,
+  "axisAboveFade": null,
+  "presets": [
+   251,
+   433
+  ],
+  "contentBottom": 16777310,
+  "voidBelowContent": 0
+ },
+ "spring1024x700": {
+  "fold": 392,
+  "fadeStart": 352,
+  "scroll": {
+   "top": 0,
+   "height": 494,
+   "client": 382,
+   "overflow": 112
+  },
+  "figureExpanded": "false",
+  "row": [
+   439,
+   475
+  ],
+  "rowAboveFade": false,
+  "section": [
+   439,
+   495
+  ],
+  "sectionMarginTop": "0px",
+  "sectionDisplay": "grid",
+  "axis": null,
+  "axisAboveFade": null,
+  "presets": [
+   221,
+   398
+  ],
+  "contentBottom": 16777282,
+  "voidBelowContent": 0
+ }
+}
