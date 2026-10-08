@@ -81,6 +81,16 @@
     background: var(--well-bg);
 }
 
+/* X-DS pass 2 (V2C-13) — ONE DASH PER AFFORDANCE. A well that holds the
+ * dashed add-slot (Mix's "Selected", the current-palette editor) draws a plain
+ * hairline: the add-slot's own dashed silhouette is the empty-slot sign, and a
+ * dashed well around it made two dashed outlines for one affordance. A well
+ * with no add-slot inside (Extract's empty drop zone) keeps the dashed edge,
+ * because there the edge IS the affordance. */
+.dashed-well:has(.add-slot-ghost) {
+    border: 1px solid var(--card-edge);
+}
+
 /* THE SEATED SEARCH FIELD (T.W3-3 · T-12 — THE REGISTER LAW: fields on paper
  * wear paper; fields on glass stay glass). glass-ui's `.input-bar` recipe is
  * dock furniture — the FLOATING chrome rung (80/88%-α glass + blur(13px) +
@@ -182,6 +192,23 @@
 .search-seated,
 [data-generate-plate] {
     --muted-foreground: color-mix(in oklab, var(--ink-muted), var(--foreground) 38.2%);
+}
+
+/* THE SCALAR RANGE INK (X-DS pass 2 · V2C-06 / V2C-09). The app's scalar
+ * sliders (glass's default range variant: the config consoles of Atmosphere
+ * and Blob, Gradient's Direction) fill their range with ONE ink, set once on
+ * the token glass's slider reads (`--slider-range-bg`), never per pane. The
+ * spectrum sliders (picker channels, Extract, Generate) paint their own
+ * track and leave the range transparent by recipe, so they do not read it.
+ * The ink is the certified de-emphasis rung `--ink-muted` taken halfway
+ * toward the live view accent `--primary`: it carries the app's identity hue
+ * and lifts the dark-scheme bar off the flat mid-grey that read as disabled,
+ * while holding the 3:1 graphics floor on the config well (O-18's range
+ * leg). Measured on the painted ground (pass-02 `ink-candidates.json`): a
+ * lighter mix toward the plate falls under 3:1 on the light Atmosphere well
+ * (2.49 at 23.6%), so the light bar cannot be lighter than this rung. */
+:root {
+    --slider-range-bg: color-mix(in oklab, var(--ink-muted, var(--muted-foreground)), var(--primary) 50%);
 }
 
 /* THE GUARDED LETTERFORM RAMP recipe (T.W6 · W6-4 — Q5 RULED, owner-verbatim:

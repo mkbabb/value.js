@@ -41,7 +41,9 @@
                  muted token is already the de-emphasis rung. -->
             <div v-else class="flex flex-col items-center gap-2 py-6 plate-ink">
                 <ImagePlus class="w-7 h-7" />
-                <span class="text-mono-small text-center px-4">Upload image</span>
+                <!-- X-DS pass 2 (V2C-14): a verb speaks the pane-verb voice, not
+                     the mono of values. -->
+                <span class="font-display text-small text-center px-4">Upload image</span>
             </div>
         </Transition>
 

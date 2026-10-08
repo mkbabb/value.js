@@ -1,189 +1,205 @@
 <template>
-    <Card tier="resting" class="pane-row-follow pane-scroll-fade flex flex-col w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="resting" class="pane-row-follow flex flex-col w-full mx-auto overflow-hidden min-w-0 h-full">
         <!-- X.W12U.h · A2-VA-L3-5: the companion follows the row (shell.css row
-             contract) and is a column, so a short list leaves its ground to the
-             empty plate instead of a dead band under content pinned to the top. -->
-        <!-- T.W6 · W6-4 (Q5 RULED, T-43 owner-CONFIRMS: "'Palettes' should be
-             rainbow"): the "Palettes" letterforms wear the guarded ramp — the
-             SECOND of the exactly-two sanctioned sites (with the dock
-             dropdown entry; one resolver, `@composables/color/palettes-ramp`,
-             consumed via the ONE `.palettes-ramp-text` recipe). This is the
-             Q4-record moment surviving, relocated per the ruled form; every
-             OTHER pane title stays ink (S.W5-7 stands for the rest). -->
-        <PaneHeader description="Save, organize, and share your colors.">
-            <!-- P4-R1 (WR-8): the title is LARGE text — it consumes the
-                 per-site title ramp (3:1 large-text floor, certified against
-                 the resting plate) aliased into the shared recipe slots;
-                 utils.css untouched, the menu entry keeps the 4.5 default. -->
-            <span class="capitalize">My <span class="palettes-ramp-text" :style="rampTitleVars">Palettes</span></span>
-            <!-- P4-R3 (a11y): the count badge leaves the heading's accessible
-                 name (`aria-hidden`) so AT never announces "My Palettes2"; an
-                 sr-only companion carries the count with a separator. -->
-            <Badge
-                v-if="pm.savedPalettes.value.length > 0"
-                variant="secondary"
-                class="text-mono-small ml-2"
-                aria-hidden="true"
-            >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</Badge>
-            <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
-        </PaneHeader>
-        <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 grow shrink-0">
-            <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
-                 side-by-side panes) is scoped — this one owns YOUR list.
-                 T.W3-3 (T-12): a field on paper wears paper — the seated
-                 register (utils.css `.search-seated`; interim, booked onto
-                 the P3 seated rung / ASK-D). -->
-            <!-- X-W4 · A4 (CC-041): the field's NAME, measured desktop-only
-                 (`/#/gradient`, smoke 1280×720: `input.input-bar-field` 414.1×26.2,
-                 computed name ""). `placeholder` is not a name, so the
-                 input carries `aria-label` itself. X-W7L (glass 10.1.0): glass 9.0.0
-                 deleted `SearchBar`; the field composes the producer's `.input-bar`
-                 recipe with its own input (glass MIGRATION.md 9.0.0). -->
-            <div class="input-bar search-seated">
-                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
-                <input
-                    v-model="pm.searchQuery.value"
-                    type="search"
-                    aria-label="Search your palettes"
-                    placeholder="Search your palettes..."
-                    class="input-bar-field"
-                />
-            </div>
-
-            <!-- W7-failure-dispositions row 45: an unreadable stored library is
-                 announced, never silently replaced. -->
-            <div aria-live="polite" data-library-recovery>
-                <ActionFeedback
-                    v-if="pm.storeRecovery.value"
-                    :message="pm.storeRecovery.value"
-                    variant="error"
-                    :visible="true"
-                    :auto-dismiss-ms="0"
-                    @update:visible="pm.storeRecovery.value = null"
-                />
-            </div>
-
-            <!-- Current palette + saved list -->
-            <div class="flex flex-col gap-3 grow">
-                <CurrentPaletteEditor
-                    :saved-color-strings="savedColorStrings"
-                    :css-color-opaque="cssColorOpaque"
-                    :saved-palette-count="pm.savedPalettes.value.length"
-                    :saved-palettes="pm.savedPalettes.value"
-                    @apply="(colors) => colorTarget.emitApply(colors)"
-                    @add-color="(css) => colorTarget.emitAddColor(css)"
-                    @start-edit="(target) => colorTarget.emitStartEdit(target)"
-                    @saved="(name, colors) => pm.onCurrentPaletteSaved(name, colors)"
-                    @updated="(id, colors) => pm.onCurrentPaletteUpdated(id, colors)"
-                    @commit-edit="emit('commitEdit')"
-                    @cancel-edit="emit('cancelEdit')"
-                    @clear-current="colorTarget.emitApply([])"
-                />
-
-                <!-- Saved palettes toolbar. S.W5-7: the "{n} palettes" line
-                     is excised (the header Badge is the canonical count —
-                     it existed only to left-balance this button), and the
-                     delete-all trigger is DEMOTED from an always-red beacon
-                     (the highest-chroma element on the pane guarding its
-                     rarest action) to a quiet ghost — red on hover/focus. -->
-                <div v-if="pm.savedPalettes.value.length > 0" class="flex items-center justify-end">
-                    <Button
-                        emphasis="quiet"
-                        icon-only
-                        size="xs"
-                        class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
-                        aria-label="Delete all saved palettes"
-                        @click="pm.showDeleteAllConfirm.value = true"
-                    >
-                        <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
-                    </Button>
+             contract) and is a column.
+             X-DS pass 2 (V2C-01): the row can be shorter than the companion's
+             content (360 px on Browse against 448 of content), so the body
+             scrolls inside the card on glass's scroll primitive, exactly as
+             About does: the end edge feathers instead of guillotining a line,
+             and the start-edge feather is off because the sticky PaneHeader's
+             veil is that edge. The `pane-scroll-fade` host (the `--pane-scroll`
+             timeline PaneHeader reads) moves with the scroll to the port. -->
+        <FadingScroll
+            axis="y"
+            :fade-start="false"
+            class="pane-scroll-fade flex flex-col flex-1 min-h-0 overflow-x-hidden"
+        >
+            <!-- T.W6 · W6-4 (Q5 RULED, T-43 owner-CONFIRMS: "'Palettes' should be
+                 rainbow"): the "Palettes" letterforms wear the guarded ramp — the
+                 SECOND of the exactly-two sanctioned sites (with the dock
+                 dropdown entry; one resolver, `@composables/color/palettes-ramp`,
+                 consumed via the ONE `.palettes-ramp-text` recipe). This is the
+                 Q4-record moment surviving, relocated per the ruled form; every
+                 OTHER pane title stays ink (S.W5-7 stands for the rest). -->
+            <PaneHeader description="Save, organize, and share your colors.">
+                <!-- P4-R1 (WR-8): the title is LARGE text — it consumes the
+                     per-site title ramp (3:1 large-text floor, certified against
+                     the resting plate) aliased into the shared recipe slots;
+                     utils.css untouched, the menu entry keeps the 4.5 default. -->
+                <span class="capitalize">My <span class="palettes-ramp-text" :style="rampTitleVars">Palettes</span></span>
+                <!-- P4-R3 (a11y): the count badge leaves the heading's accessible
+                     name (`aria-hidden`) so AT never announces "My Palettes2"; an
+                     sr-only companion carries the count with a separator. -->
+                <Badge
+                    v-if="pm.savedPalettes.value.length > 0"
+                    variant="secondary"
+                    class="text-mono-small ml-2"
+                    aria-hidden="true"
+                >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</Badge>
+                <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
+            </PaneHeader>
+            <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 grow shrink-0">
+                <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
+                     side-by-side panes) is scoped — this one owns YOUR list.
+                     T.W3-3 (T-12): a field on paper wears paper — the seated
+                     register (utils.css `.search-seated`; interim, booked onto
+                     the P3 seated rung / ASK-D). -->
+                <!-- X-W4 · A4 (CC-041): the field's NAME, measured desktop-only
+                     (`/#/gradient`, smoke 1280×720: `input.input-bar-field` 414.1×26.2,
+                     computed name ""). `placeholder` is not a name, so the
+                     input carries `aria-label` itself. X-W7L (glass 10.1.0): glass 9.0.0
+                     deleted `SearchBar`; the field composes the producer's `.input-bar`
+                     recipe with its own input (glass MIGRATION.md 9.0.0). -->
+                <div class="input-bar search-seated">
+                    <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                    <input
+                        v-model="pm.searchQuery.value"
+                        type="search"
+                        aria-label="Search your palettes"
+                        placeholder="Search your palettes..."
+                        class="input-bar-field"
+                    />
                 </div>
 
-                <PaletteCardGrid
-                    ref="sortableGridRef"
-                    :class="pm.filteredSaved.value.length === 0 && 'grow'"
-                    :empty="pm.filteredSaved.value.length === 0"
-                    :empty-text="searchNarrows ? `No saved palette matches “${pm.searchQuery.value.trim()}”.` : 'No saved palettes yet.'"
-                    :empty-hint="searchNarrows ? `${pm.savedPalettes.value.length} saved palette${pm.savedPalettes.value.length === 1 ? '' : 's'} hidden by the search.` : 'Add colors, then save.'"
-                >
-                    <!-- X.W12.u1 (UIA-V-26): a search that matches nothing says so and
-                         offers the way back; it never claims the library is empty. -->
-                    <template v-if="searchNarrows" #emptyAction>
-                        <Button emphasis="text" @click="pm.searchQuery.value = ''">Clear search</Button>
-                    </template>
-                    <PaletteInspector
-                        v-for="palette in pm.filteredSaved.value"
-                        :ref="(el: any) => el && (cardRefs[palette.id] = el)"
-                        :key="palette.id"
-                        :palette="palette"
-                        :expanded="pm.expandedId.value === palette.id"
-                        :css-color="cssColorOpaque"
-                        draggable
-                        @click="pm.toggleExpand(palette.id)"
-                        @delete="(p) => onRequestDelete(p)"
-                        @publish="(p) => onPublish(p)"
-                        @rename="(p, name) => pm.onRenameSaved(p, name)"
-                        @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
+                <!-- W7-failure-dispositions row 45: an unreadable stored library is
+                     announced, never silently replaced. -->
+                <div aria-live="polite" data-library-recovery>
+                    <ActionFeedback
+                        v-if="pm.storeRecovery.value"
+                        :message="pm.storeRecovery.value"
+                        variant="error"
+                        :visible="true"
+                        :auto-dismiss-ms="0"
+                        @update:visible="pm.storeRecovery.value = null"
                     />
-                </PaletteCardGrid>
+                </div>
+
+                <!-- Current palette + saved list -->
+                <div class="flex flex-col gap-3 grow">
+                    <CurrentPaletteEditor
+                        :saved-color-strings="savedColorStrings"
+                        :css-color-opaque="cssColorOpaque"
+                        :saved-palette-count="pm.savedPalettes.value.length"
+                        :saved-palettes="pm.savedPalettes.value"
+                        @apply="(colors) => colorTarget.emitApply(colors)"
+                        @add-color="(css) => colorTarget.emitAddColor(css)"
+                        @start-edit="(target) => colorTarget.emitStartEdit(target)"
+                        @saved="(name, colors) => pm.onCurrentPaletteSaved(name, colors)"
+                        @updated="(id, colors) => pm.onCurrentPaletteUpdated(id, colors)"
+                        @commit-edit="emit('commitEdit')"
+                        @cancel-edit="emit('cancelEdit')"
+                        @clear-current="colorTarget.emitApply([])"
+                    />
+
+                    <!-- Saved palettes toolbar. S.W5-7: the "{n} palettes" line
+                         is excised (the header Badge is the canonical count —
+                         it existed only to left-balance this button), and the
+                         delete-all trigger is DEMOTED from an always-red beacon
+                         (the highest-chroma element on the pane guarding its
+                         rarest action) to a quiet ghost — red on hover/focus. -->
+                    <div v-if="pm.savedPalettes.value.length > 0" class="flex items-center justify-end">
+                        <Button
+                            emphasis="quiet"
+                            icon-only
+                            size="xs"
+                            class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                            aria-label="Delete all saved palettes"
+                            @click="pm.showDeleteAllConfirm.value = true"
+                        >
+                            <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                        </Button>
+                    </div>
+
+                    <!-- X-DS pass 2 (V2C-01): the empty state sits at the top of the
+                         list. It no longer takes `grow` to centre itself in space the
+                         row follower does not have (style block below). -->
+                    <PaletteCardGrid
+                        ref="sortableGridRef"
+                        class="palettes-companion-grid"
+                        :empty="pm.filteredSaved.value.length === 0"
+                        :empty-text="searchNarrows ? `No saved palette matches “${pm.searchQuery.value.trim()}”.` : 'No saved palettes yet.'"
+                        :empty-hint="searchNarrows ? `${pm.savedPalettes.value.length} saved palette${pm.savedPalettes.value.length === 1 ? '' : 's'} hidden by the search.` : 'Add colors, then save.'"
+                    >
+                        <!-- X.W12.u1 (UIA-V-26): a search that matches nothing says so and
+                             offers the way back; it never claims the library is empty. -->
+                        <template v-if="searchNarrows" #emptyAction>
+                            <Button emphasis="text" @click="pm.searchQuery.value = ''">Clear search</Button>
+                        </template>
+                        <PaletteInspector
+                            v-for="palette in pm.filteredSaved.value"
+                            :ref="(el: any) => el && (cardRefs[palette.id] = el)"
+                            :key="palette.id"
+                            :palette="palette"
+                            :expanded="pm.expandedId.value === palette.id"
+                            :css-color="cssColorOpaque"
+                            draggable
+                            @click="pm.toggleExpand(palette.id)"
+                            @delete="(p) => onRequestDelete(p)"
+                            @publish="(p) => onPublish(p)"
+                            @rename="(p, name) => pm.onRenameSaved(p, name)"
+                            @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
+                        />
+                    </PaletteCardGrid>
+                </div>
+
+                <!-- UIA-V-104: deleting ONE saved palette is confirmed like deleting all
+                     of them (the card menu and the dock's Delete seat both land here);
+                     it used to destroy the palette on the click, with no message. -->
+                <Dialog v-model:open="deleteConfirmOpen">
+                    <DialogContent surface="glass" dismiss="deliberate">
+                        <DialogHeader>
+                            <DialogTitle>Delete palette?</DialogTitle>
+                            <DialogDescription>
+                                This will permanently delete
+                                <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
+                                from this browser. This cannot be undone.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <DialogFooter>
+                            <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
+                            <Button tone="destructive" :disabled="!deleteConfirmTarget" @click="onDeleteConfirm">
+                                <Trash2 aria-hidden="true" />
+                                Delete palette
+                            </Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
+
+                <!-- Delete all confirmation (Glass 7: ConfirmDialog folded onto the Dialog family) -->
+                <Dialog v-model:open="pm.showDeleteAllConfirm.value">
+                    <DialogContent surface="glass" dismiss="deliberate">
+                        <DialogHeader>
+                            <DialogTitle>Delete all saved palettes?</DialogTitle>
+                            <!-- X.W12U.s2 · UIA-V-547: the copy names the user's place, not
+                                 the mechanism; UIA-V-278: while a search hides some of
+                                 them, the dialog says the hidden ones go too. -->
+                            <DialogDescription>
+                                This will permanently delete {{ pm.savedPalettes.value.length }}
+                                saved palette{{ pm.savedPalettes.value.length !== 1 ? "s" : "" }}
+                                from this browser<template v-if="hiddenBySearch > 0">, including
+                                {{ hiddenBySearch }} your search is hiding</template>. This cannot be undone.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <DialogFooter>
+                            <Button emphasis="text" @click="pm.showDeleteAllConfirm.value = false">
+                                Cancel
+                            </Button>
+                            <Button tone="destructive" @click="pm.onDeleteAllSaved()">
+                                <Trash2 aria-hidden="true" />
+                                Delete all
+                            </Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
             </div>
-
-            <!-- UIA-V-104: deleting ONE saved palette is confirmed like deleting all
-                 of them (the card menu and the dock's Delete seat both land here);
-                 it used to destroy the palette on the click, with no message. -->
-            <Dialog v-model:open="deleteConfirmOpen">
-                <DialogContent surface="glass" dismiss="deliberate">
-                    <DialogHeader>
-                        <DialogTitle>Delete palette?</DialogTitle>
-                        <DialogDescription>
-                            This will permanently delete
-                            <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
-                            from this browser. This cannot be undone.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <DialogFooter>
-                        <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
-                        <Button tone="destructive" :disabled="!deleteConfirmTarget" @click="onDeleteConfirm">
-                            <Trash2 aria-hidden="true" />
-                            Delete palette
-                        </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
-
-            <!-- Delete all confirmation (Glass 7: ConfirmDialog folded onto the Dialog family) -->
-            <Dialog v-model:open="pm.showDeleteAllConfirm.value">
-                <DialogContent surface="glass" dismiss="deliberate">
-                    <DialogHeader>
-                        <DialogTitle>Delete all saved palettes?</DialogTitle>
-                        <!-- X.W12U.s2 · UIA-V-547: the copy names the user's place, not
-                             the mechanism; UIA-V-278: while a search hides some of
-                             them, the dialog says the hidden ones go too. -->
-                        <DialogDescription>
-                            This will permanently delete {{ pm.savedPalettes.value.length }}
-                            saved palette{{ pm.savedPalettes.value.length !== 1 ? "s" : "" }}
-                            from this browser<template v-if="hiddenBySearch > 0">, including
-                            {{ hiddenBySearch }} your search is hiding</template>. This cannot be undone.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <DialogFooter>
-                        <Button emphasis="text" @click="pm.showDeleteAllConfirm.value = false">
-                            Cancel
-                        </Button>
-                        <Button tone="destructive" @click="pm.onDeleteAllSaved()">
-                            <Trash2 aria-hidden="true" />
-                            Delete all
-                        </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
-        </div>
+        </FadingScroll>
     </Card>
 </template>
 
 <script setup lang="ts">
 import { inject, reactive, ref, shallowRef, computed, watch, onMounted, nextTick } from "vue";
 import { Card } from "@mkbabb/glass-ui/card";
+import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 import { Button } from "@mkbabb/glass-ui/button";
 import { Badge } from "@mkbabb/glass-ui/badge";
 import { Search, Trash2 } from "@lucide/vue";
@@ -310,3 +326,15 @@ async function onPublish(palette: Palette) {
 // X.W7.d2 (G7 host): export is the inspector's own act — it performs it and
 // renders `usePaletteExport`'s `failure` on its rail; the pane holds no copy.
 </script>
+
+<style scoped>
+/* X-DS pass 2 (V2C-01): the companion follows the row (about 360px at 1440,
+ * set by the Browse or Generate subject beside it), so its empty state is
+ * seated at the top of the list: the list's gap above already separates it
+ * from the "Start a new palette" well, and its plate padding starts at zero.
+ * That lifts the message clear of the scroll feather; the hint below it
+ * fades under the feather, which says "more below". */
+.palettes-companion-grid > :deep([role="status"]) {
+    padding-block-start: 0;
+}
+</style>

@@ -9,6 +9,7 @@ import {
     SelectValue,
 } from "@mkbabb/glass-ui/select";
 import { Slider } from "@mkbabb/glass-ui/slider";
+import { Label } from "@mkbabb/glass-ui/label";
 import { Button } from "@mkbabb/glass-ui/button";
 import { RefreshCw, Save, Copy, Check } from "@lucide/vue";
 import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
@@ -314,21 +315,23 @@ defineExpose({ regenerate, save, copyColors });
         </div>
 
         <!-- Count — the extract k-slider pattern verbatim: the ramp IS the
-             track (F8; S-2/S-16 family cure for the dead grey capsule). -->
-        <div class="flex items-center gap-2 w-full min-w-0">
-            <label
-                class="text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
-            >
-                {{ count }}
-            </label>
-            <div class="relative flex-1 h-6 flex items-center">
+             track (F8; S-2/S-16 family cure for the dead grey capsule).
+             X-DS pass 2 (V2C-02): the app's ONE scalar row — the name left,
+             the value right in mono tabular figures, the track below. The
+             bare bold numeral beside the Preset/Harmony fields had no name. -->
+        <div class="flex flex-col gap-1 w-full min-w-0">
+            <div class="flex items-center justify-between gap-2">
+                <Label>Colors</Label>
+                <span class="text-mono-small plate-ink tabular-nums">{{ count }}</span>
+            </div>
+            <div class="relative w-full h-6 flex items-center">
                 <div
                     class="absolute inset-0 rounded-full overflow-hidden h-6"
                     data-generate-count-rail
                     :style="{ background: countSliderGradient }"
                 />
                 <Slider
-                    aria-label="Color count"
+                    aria-label="Number of colors"
                     variant="spectrum"
                     :model-value="[count]"
                     :min="1"

@@ -202,14 +202,26 @@ function resetDefaults() {
 .config-console {
     padding: 0.75rem 0.875rem;
     /* The certified graphics ink (O-18's config leg · WCAG 1.4.11): the RANGE
-     * — the value's extent — wears `--ink-muted`, ≥3:1 on the well by
-     * construction. X-DS pass 1 (V1C-06): it was the whole TRACK inked on the
-     * spectrum variant (no fill), so three near-black bars carried the card's
-     * weight and the value carried none. The unfilled track takes glass's
-     * own quiet default (`--muted-medium`) through no override at all. */
-    --slider-range-bg: var(--ink-muted, var(--muted-foreground));
+     * — the value's extent — carries the ink. X-DS pass 1 (V1C-06): it was the
+     * whole TRACK inked on the spectrum variant (no fill). X-DS pass 2
+     * (V2C-06 / V2C-09): the range ink is now the app's ONE scalar range ink,
+     * set on glass's `--slider-range-bg` token in utils.css (THE SCALAR RANGE
+     * INK), so this pane sets nothing of its own. The unfilled track takes
+     * glass's own quiet default (`--muted-medium`) through no override. */
+}
+/* X-DS pass 2 (V2C-02) — THE ONE SCALAR ROW: the name left, the value right
+ * in mono tabular figures, the track below (Gradient's Direction row is the
+ * pattern; Extract and Generate take it too). glass's ConfiguratorRow sets
+ * the value beside the name, so on the console its name group takes the row
+ * and the value pushes to the end, at the same mono rung as the other rows. */
+.config-console :deep(.configurator-row > div:first-child > div:first-child) {
+    flex: 1 1 auto;
 }
 .config-console :deep(.configurator-row .font-mono) {
+    margin-inline-start: auto;
+    font-size: var(--type-small);
+    line-height: var(--type-leading-small);
+    font-variant-numeric: tabular-nums;
     color: var(--ink-muted, var(--muted-foreground));
 }
 

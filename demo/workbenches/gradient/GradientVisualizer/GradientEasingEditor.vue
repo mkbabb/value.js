@@ -144,7 +144,9 @@ async function copyLiteral(index: number, css: string) {
                 </svg>
                 <!-- text-mono-SMALL: curve identifiers are case-sensitive;
                      text-mono-caption would uppercase them (P1-7). -->
-                <span class="font-mono text-mono-small text-muted-foreground truncate flex-1 min-w-0">{{ row.name }}</span>
+                <!-- X-DS pass 2 (V2C-07): the curve name is the live value, so it
+                     reads at foreground; only the "1 → 2" index stays muted. -->
+                <span class="font-mono text-mono-small text-foreground truncate flex-1 min-w-0">{{ row.name }}</span>
                 <ChevronDown
                     class="interval-chevron w-4 h-4 shrink-0 text-muted-foreground"
                     :class="openInterval === row.index ? 'rotate-180' : ''"

@@ -205,7 +205,9 @@ const SECTIONS: SliderSection[] = [
 
 .aurora-form {
     display: grid;
-    grid-template-columns: max-content minmax(0, 1fr);
+    /* X-DS pass 2 (V2C-12): the field column is capped, so a one-word value
+     * sits in a compact trigger under the one label column, not a 900px pill. */
+    grid-template-columns: max-content minmax(0, 20rem);
     align-items: center;
     gap: 0.75rem;
 }

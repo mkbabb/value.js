@@ -68,6 +68,15 @@ const { level = 2 } = defineProps<{
     contain: layout style paint;
     scroll-timeline: --pane-scroll block;
 }
+
+/* X-DS pass 2 (V2C-17): a pane scroll port that runs on glass's FadingScroll
+ * (About, My Palettes) feathers its end edge over one line height, so the
+ * fold says "more below" instead of cutting the last row mid-glyph. glass's
+ * `--fade-scroll-width` (1rem) is sized for the horizontal strips; this is
+ * the token's value for the vertical pane ports only, one rule, no instance. */
+.pane-scroll-fade.fading-scroll--y {
+    --fade-scroll-width: 1.5rem;
+}
 </style>
 
 <style scoped>

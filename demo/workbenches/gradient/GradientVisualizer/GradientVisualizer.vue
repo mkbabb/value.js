@@ -282,9 +282,12 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                  control leaves; for conic the angle is the sweep's start ("From"). -->
             <div v-if="type !== 'radial'" class="flex flex-col gap-1">
                 <div class="flex items-center justify-between">
-                    <!-- X-DS pass 1 (V1C-04): an inline field label speaks glass's plain label voice. -->
+                    <!-- X-DS pass 1 (V1C-04): an inline field label speaks glass's plain label voice.
+                         X-DS pass 2 (V2C-02 / V2C-06): this is the app's ONE scalar row (name
+                         left, value right, track below); the readout sits at plate ink and the
+                         range takes the one scalar range ink (utils.css). -->
                     <Label>{{ type === "conic" ? "From" : "Direction" }}</Label>
-                    <span class="text-mono-small text-muted-foreground tabular-nums"
+                    <span class="text-mono-small plate-ink tabular-nums"
                         >{{ direction }}&deg;</span
                     >
                 </div>

@@ -14,19 +14,25 @@
              X.W7.g3 · EC-9: never a lying readout — when the developed palette
              is shorter than the ask (the quantizer dedupes), the readout says
              found/requested, and its title says it in words. -->
-        <div class="flex items-center gap-2 w-full min-w-0">
-            <span
-                data-extract-k-readout
-                class="text-mono-small plate-ink whitespace-nowrap tabular-nums min-w-5 text-right"
-                :title="kReadout.title"
-            >{{ kReadout.text }}</span>
+        <!-- X-DS pass 2 (V2C-02): the app's ONE scalar row — the name left,
+             the value right in mono tabular figures, the track below (the
+             Direction row's pattern). The bare numeral had no visible name. -->
+        <div class="flex flex-col gap-1 w-full min-w-0">
+            <div class="flex items-center justify-between gap-2">
+                <Label>Colors</Label>
+                <span
+                    data-extract-k-readout
+                    class="text-mono-small plate-ink whitespace-nowrap tabular-nums"
+                    :title="kReadout.title"
+                >{{ kReadout.text }}</span>
+            </div>
             <!-- X-DS pass 1 (V1C-08): the 24px rail is sized for the developed
                  ramp. With nothing developed it carries no colour data, so it
                  stands at glass's `sm` rung (12px, the kC slider's own rung)
                  and keeps the certified track ink (O-18 · t33-audit-11); it
                  grows to 24px only when it carries the ramp. The row keeps
                  its 24px band either way, so nothing below it moves. -->
-            <div class="relative flex-1 h-6 flex items-center">
+            <div class="relative w-full h-6 flex items-center">
                 <div
                     data-o18="extract-k-rail"
                     class="absolute inset-x-0 top-1/2 -translate-y-1/2 rounded-full overflow-hidden"
@@ -84,8 +90,13 @@
                  t33-audit-11) — the track re-inks with the CONTRACT: the
                  live pick certified against its rung at the WCAG 1.4.11
                  graphics floor (the O-18 graphics leg is its born-RED gate). -->
-            <div data-o18="extract-kc" class="flex items-center gap-1.5 flex-1 min-w-0">
-                <label class="font-mono text-micro plate-ink whitespace-nowrap" title="Chroma weight">kC</label>
+            <!-- X-DS pass 2 (V2C-02): the one scalar row; "kC" was a code, the
+                 visible name is the one the slider was already announced by. -->
+            <div data-o18="extract-kc" class="flex flex-col gap-1 flex-1 min-w-0">
+                <div class="flex items-center justify-between gap-2">
+                    <Label class="truncate">Chroma weight</Label>
+                    <span class="text-mono-small plate-ink tabular-nums">{{ chromaWeight.toFixed(1) }}</span>
+                </div>
                 <Slider
                     aria-label="Chroma weight"
                     variant="spectrum"
@@ -95,11 +106,10 @@
                     :min="0"
                     :max="1.5"
                     :step="0.1"
-                    class="flex-1"
-                    :style="{ '--glass-slider-track-background': trackInk }"
+                    class="w-full"
+                    :style="{ '--glass-slider-track-background': standDownInk }"
                     @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
                 />
-                <span class="font-mono text-micro plate-ink tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
             </div>
 
             <DockSeparator />
@@ -121,6 +131,7 @@ import { computed } from "vue";
 import { Upload, Camera, RotateCcw } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { Slider } from "@mkbabb/glass-ui/slider";
+import { Label } from "@mkbabb/glass-ui/label";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { GRAPHICS_CONTRAST_FLOOR } from "../../color-session/ink";
 
@@ -174,10 +185,22 @@ const trackInk = computed(() =>
 // shorthand racing a longhand by object key order. The certified track ink is
 // the COLOR layer in every state; the developed gradient, when there is one,
 // rides above it as the IMAGE layer.
+// X-DS pass 2 (V2C-03): a stood-down control (a run in flight, the camera
+// open) recedes. glass's Slider dims only its range when disabled, and these
+// two tracks are painted here, so they take glass's `--opacity-disabled`
+// themselves. The enabled state keeps the certified ink (O-18 T-44a): with no
+// image the sliders are live (measured: no `data-disabled`), so they stay at
+// full ink there.
+const standDownInk = computed(() =>
+    standDown.value
+        ? `color-mix(in oklab, ${trackInk.value} calc(var(--opacity-disabled) * 100%), transparent)`
+        : trackInk.value,
+);
 const railStyle = computed(() => ({
     backgroundColor: trackInk.value,
     ...(gradient ? { backgroundImage: gradient } : {}),
     boxShadow: `inset 0 0 0 1.5px ${trackInk.value}`,
+    ...(standDown.value ? { opacity: "var(--opacity-disabled)" } : {}),
 }));
 
 defineEmits<{
