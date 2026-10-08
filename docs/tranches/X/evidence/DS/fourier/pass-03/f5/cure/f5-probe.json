@@ -1,0 +1,444 @@
+{
+ "eq-light-1440": {
+  "labels": [
+   [
+    "Expression",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Domain",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Presets",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Harmonics",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Displayed harmonics",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Notation",
+    "14.5411px",
+    "500"
+   ]
+  ],
+  "trackBg": "linear-gradient(\n        to right,\n        color-mix(in oklab, light-dark(oklch(0.579 0.201 30.4),oklch(0.693 0.151 28.1)) 55%, color-mix(in srgb,light-dark(hsl(38 26% 95%),hsl(28 12% 11%)) 50%,transparent)) 0 calc(calc(min(1rem,1.25rem) * 0.75) / 2 + (100% - calc(min(1rem,1.25rem) * 0.75)) * 0.0707"
+ },
+ "eq-light-390": {
+  "labels": [
+   [
+    "Expression",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Domain",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Presets",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Harmonics",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Displayed harmonics",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Notation",
+    "18.6197px",
+    "500"
+   ]
+  ],
+  "trackBg": "linear-gradient(\n        to right,\n        color-mix(in oklab, light-dark(oklch(0.579 0.201 30.4),oklch(0.693 0.151 28.1)) 55%, color-mix(in srgb,light-dark(hsl(38 26% 95%),hsl(28 12% 11%)) 50%,transparent)) 0 calc(calc(min(1rem,1.25rem) * 0.75) / 2 + (100% - calc(min(1rem,1.25rem) * 0.75)) * 0.0707"
+ },
+ "morph-light-1440": [
+  {
+   "title": "Settle Out",
+   "rows": [
+    248,
+    297,
+    377
+   ],
+   "labels": [
+    [
+     "Duration",
+     "14.5411px",
+     "500"
+    ],
+    [
+     "Easing",
+     "14.5411px",
+     "500"
+    ]
+   ]
+  },
+  {
+   "title": "Morph",
+   "rows": [
+    248,
+    297,
+    377
+   ],
+   "labels": [
+    [
+     "Duration",
+     "14.5411px",
+     "500"
+    ],
+    [
+     "Easing",
+     "14.5411px",
+     "500"
+    ]
+   ]
+  },
+  {
+   "title": "Settle In",
+   "rows": [
+    248,
+    297,
+    377
+   ],
+   "labels": [
+    [
+     "Duration",
+     "14.5411px",
+     "500"
+    ],
+    [
+     "Easing",
+     "14.5411px",
+     "500"
+    ]
+   ]
+  }
+ ],
+ "morph-light-390": {
+  "band": [
+   0,
+   390,
+   76,
+   319
+  ],
+  "bandBorder": "1px color(srgb 0.778 0.7052 0.622 / 0.45)",
+  "bandBgImage": "url(\"data:image/svg+xml,%3Csvg width='20",
+  "info": [
+   210,
+   374,
+   111,
+   235
+  ],
+  "plate": [
+   16,
+   202,
+   80,
+   266
+  ],
+  "metrics": [
+   [
+    "phaseidle",
+    [
+     210,
+     326,
+     111,
+     139
+    ]
+   ],
+   [
+    "n50",
+    [
+     210,
+     260,
+     143,
+     171
+    ]
+   ],
+   [
+    "shapeSun",
+    [
+     210,
+     319,
+     175,
+     203
+    ]
+   ],
+   [
+    "total350ms",
+    [
+     210,
+     338,
+     207,
+     235
+    ]
+   ]
+  ],
+  "vw": 390
+ },
+ "gallery-light-1440": {
+  "grid": 1408,
+  "tracks": "272px 272px 272px 272px 272px",
+  "cards": [
+   272,
+   272,
+   272,
+   272
+  ],
+  "slugs": [
+   [
+    "plush-evening-olive-squid",
+    false
+   ],
+   [
+    "stark-catching-carmine-eagle",
+    false
+   ],
+   [
+    "woven-standing-sage-wasp",
+    false
+   ],
+   [
+    "ember-pulsing-graphite-oriole",
+    false
+   ]
+  ]
+ },
+ "eq-dark-1440": {
+  "labels": [
+   [
+    "Expression",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Domain",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Presets",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Harmonics",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Displayed harmonics",
+    "14.5411px",
+    "500"
+   ],
+   [
+    "Notation",
+    "14.5411px",
+    "500"
+   ]
+  ],
+  "trackBg": "linear-gradient(\n        to right,\n        color-mix(in oklab, oklch(0.693 0.151 28.1) 55%, color-mix(in srgb,hsl(28 12% 11%) 50%,transparent)) 0 calc(calc(min(1rem,1.25rem) * 0.75) / 2 + (100% - calc(min(1rem,1.25rem) * 0.75)) * 0.0707070707070707),\n        color-mix(in srgb,oklch(from hsl(30 14% 9"
+ },
+ "eq-dark-390": {
+  "labels": [
+   [
+    "Expression",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Domain",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Presets",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Harmonics",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Displayed harmonics",
+    "18.6197px",
+    "500"
+   ],
+   [
+    "Notation",
+    "18.6197px",
+    "500"
+   ]
+  ],
+  "trackBg": "linear-gradient(\n        to right,\n        color-mix(in oklab, oklch(0.693 0.151 28.1) 55%, color-mix(in srgb,hsl(28 12% 11%) 50%,transparent)) 0 calc(calc(min(1rem,1.25rem) * 0.75) / 2 + (100% - calc(min(1rem,1.25rem) * 0.75)) * 0.0707070707070707),\n        color-mix(in srgb,oklch(from hsl(30 14% 9"
+ },
+ "morph-dark-1440": [
+  {
+   "title": "Settle Out",
+   "rows": [
+    248,
+    297,
+    377
+   ],
+   "labels": [
+    [
+     "Duration",
+     "14.5411px",
+     "500"
+    ],
+    [
+     "Easing",
+     "14.5411px",
+     "500"
+    ]
+   ]
+  },
+  {
+   "title": "Morph",
+   "rows": [
+    248,
+    297,
+    377
+   ],
+   "labels": [
+    [
+     "Duration",
+     "14.5411px",
+     "500"
+    ],
+    [
+     "Easing",
+     "14.5411px",
+     "500"
+    ]
+   ]
+  },
+  {
+   "title": "Settle In",
+   "rows": [
+    248,
+    297,
+    377
+   ],
+   "labels": [
+    [
+     "Duration",
+     "14.5411px",
+     "500"
+    ],
+    [
+     "Easing",
+     "14.5411px",
+     "500"
+    ]
+   ]
+  }
+ ],
+ "morph-dark-390": {
+  "band": [
+   0,
+   390,
+   76,
+   319
+  ],
+  "bandBorder": "1px color(srgb 0.3944 0.34 0.2856 / 0.45)",
+  "bandBgImage": "url(\"data:image/svg+xml,%3Csvg width='20",
+  "info": [
+   210,
+   374,
+   111,
+   235
+  ],
+  "plate": [
+   16,
+   202,
+   80,
+   266
+  ],
+  "metrics": [
+   [
+    "phaseidle",
+    [
+     210,
+     326,
+     111,
+     139
+    ]
+   ],
+   [
+    "n50",
+    [
+     210,
+     260,
+     143,
+     171
+    ]
+   ],
+   [
+    "shapeSun",
+    [
+     210,
+     319,
+     175,
+     203
+    ]
+   ],
+   [
+    "total350ms",
+    [
+     210,
+     338,
+     207,
+     235
+    ]
+   ]
+  ],
+  "vw": 390
+ },
+ "gallery-dark-1440": {
+  "grid": 1408,
+  "tracks": "272px 272px 272px 272px 272px",
+  "cards": [
+   272,
+   272,
+   272,
+   272
+  ],
+  "slugs": [
+   [
+    "plush-evening-olive-squid",
+    false
+   ],
+   [
+    "stark-catching-carmine-eagle",
+    false
+   ],
+   [
+    "woven-standing-sage-wasp",
+    false
+   ],
+   [
+    "ember-pulsing-graphite-oriole",
+    false
+   ]
+  ]
+ }
+}

@@ -1,0 +1,10 @@
+import { createRequire } from "node:module";
+const require = createRequire("/Users/mkbabb/Programming/fourier-analysis/web/package.json");
+const { chromium } = require("playwright");
+const [,, url, out, w = "1440", theme = "light", js = ""] = process.argv;
+const b = await chromium.launch({ channel: "chrome", headless: true });
+const ctx = await b.newContext({ viewport: { width: +w, height: +w === 390 ? 844 : 900 }, colorScheme: theme, ...(+w === 390 ? { isMobile: true, hasTouch: true, deviceScaleFactor: 2 } : {}) });
+await ctx.addInitScript((t) => { try { localStorage.setItem("vueuse-color-scheme", t); } catch {} }, theme);
+const p = await ctx.newPage(); await p.goto(url, { waitUntil: "networkidle" }); await p.waitForTimeout(2500);
+if (js) console.log(JSON.stringify(await p.evaluate(js), null, 1));
+await p.screenshot({ path: out }); await b.close();
