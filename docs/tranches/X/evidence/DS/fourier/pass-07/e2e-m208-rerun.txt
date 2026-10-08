@@ -1,0 +1,140 @@
+
+Running 4 tests using 2 workers
+
+[1/4] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[2/4] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+  1) [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('button', { name: 'Morph between the sun and moon shapes' })
+    Expected: "true"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Morph between the sun and moon shapes' })
+        14 × locator resolved to <button type="button" data-v-2ad49bc1="" data-slot="surface" data-surface="opaque" class="glass-resting morph-button" aria-label="Morph between the sun and moon shapes">…</button>
+           - unexpected value "null"
+
+
+      177 |         await openMorph(page);
+      178 |         await stage(page).click();
+    > 179 |         await expect(stage(page)).toHaveAttribute("aria-busy", "true");
+          |                                   ^
+      180 |         const n = await tiles(page).count();
+      181 |         for (let i = 0; i < n; i++) await expect(tiles(page).nth(i)).toBeDisabled();
+      182 |         await expect(page.getByRole("button", { name: "Reset" })).toBeDisabled();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:179:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium/error-context.md
+
+
+  2) [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('button', { name: 'Morph between the sun and moon shapes' })
+    Expected: "true"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Morph between the sun and moon shapes' })
+        14 × locator resolved to <button type="button" data-v-2ad49bc1="" data-slot="surface" data-surface="opaque" class="glass-resting morph-button" aria-label="Morph between the sun and moon shapes">…</button>
+           - unexpected value "null"
+
+
+      177 |         await openMorph(page);
+      178 |         await stage(page).click();
+    > 179 |         await expect(stage(page)).toHaveAttribute("aria-busy", "true");
+          |                                   ^
+      180 |         const n = await tiles(page).count();
+      181 |         for (let i = 0; i < n; i++) await expect(tiles(page).nth(i)).toBeDisabled();
+      182 |         await expect(page.getByRole("button", { name: "Reset" })).toBeDisabled();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:179:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium-repeat1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium-repeat1/error-context.md
+
+
+[3/4] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[4/4] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+  3) [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('button', { name: 'Morph between the sun and moon shapes' })
+    Expected: "true"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Morph between the sun and moon shapes' })
+        14 × locator resolved to <button type="button" data-v-2ad49bc1="" data-slot="surface" data-surface="opaque" class="glass-resting morph-button" aria-label="Morph between the sun and moon shapes">…</button>
+           - unexpected value "null"
+
+
+      177 |         await openMorph(page);
+      178 |         await stage(page).click();
+    > 179 |         await expect(stage(page)).toHaveAttribute("aria-busy", "true");
+          |                                   ^
+      180 |         const n = await tiles(page).count();
+      181 |         for (let i = 0; i < n; i++) await expect(tiles(page).nth(i)).toBeDisabled();
+      182 |         await expect(page.getByRole("button", { name: "Reset" })).toBeDisabled();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:179:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium-repeat2/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium-repeat2/error-context.md
+
+
+  4) [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('button', { name: 'Morph between the sun and moon shapes' })
+    Expected: "true"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Morph between the sun and moon shapes' })
+        14 × locator resolved to <button type="button" data-v-2ad49bc1="" data-slot="surface" data-surface="opaque" class="glass-resting morph-button" aria-label="Morph between the sun and moon shapes">…</button>
+           - unexpected value "null"
+
+
+      177 |         await openMorph(page);
+      178 |         await stage(page).click();
+    > 179 |         await expect(stage(page)).toHaveAttribute("aria-busy", "true");
+          |                                   ^
+      180 |         const n = await tiles(page).count();
+      181 |         for (let i = 0; i < n; i++) await expect(tiles(page).nth(i)).toBeDisabled();
+      182 |         await expect(page.getByRole("button", { name: "Reset" })).toBeDisabled();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:179:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium-repeat3/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium-repeat3/error-context.md
+
+
+  4 failed
+    [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+    [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+    [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+    [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
