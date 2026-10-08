@@ -1,0 +1,295 @@
+{
+ "light": {
+  "cubeColumn": {
+   "labelLeft": 89,
+   "fieldsRight": 456,
+   "rail": [
+    89,
+    456
+   ],
+   "railTrack": [
+    89,
+    456
+   ],
+   "ballTrack": [
+    89,
+    456
+   ],
+   "ballRail": [
+    113,
+    432
+   ]
+  },
+  "easing": {
+   "picker": [
+    94,
+    455
+   ],
+   "plot": {
+    "x": [
+     127,
+     423
+    ],
+    "size": 296,
+    "slackL": 33,
+    "slackR": 33
+   },
+   "controls": {
+    "x": [
+     94,
+     455
+    ],
+    "h": 43,
+    "rows": 2
+   },
+   "chip": {
+    "display": "none",
+    "text": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+   },
+   "scroll": [
+    489,
+    489
+   ],
+   "durationRowBottom": 544,
+   "surfaceBottom": 553,
+   "headerLiteral": "cubic-bezier(0.25, 0.10, 0.25, 1.00)"
+  },
+  "spring": {
+   "font": "14.384px",
+   "align": "start",
+   "ink": "rgb(112, 89, 66)",
+   "rail": [
+    583,
+    1332
+   ],
+   "caption": [
+    583,
+    1215
+   ],
+   "lines": 2,
+   "reseat": [
+    1227,
+    1332
+   ],
+   "reseatTopVsCaption": -11
+  },
+  "square": {
+   "font": "14.384px",
+   "align": "flex-start",
+   "ink": "rgb(112, 89, 66)"
+  },
+  "keyframesWell": {
+   "well": [
+    73,
+    464
+   ],
+   "gutterW": 25,
+   "codeLeft": 98,
+   "viewW": 366,
+   "clipped": [
+    "transform: rotateX(0deg) rotateY(0turn) rotateZ(0deg);",
+    "transform: rotateX(var(--rotationX)) rotateY(1turn) rotateZ(360deg);"
+   ]
+  },
+  "footer": {
+   "rowW": 367,
+   "rowH": 36,
+   "labels": [
+    {
+     "name": "Copy keyframes",
+     "word": "(glyph)"
+    },
+    {
+     "name": "Format",
+     "word": "(glyph)"
+    },
+    {
+     "name": "Copy compiled CSS",
+     "word": "Compiled"
+    }
+   ],
+   "overflow": false
+  }
+ },
+ "dark": {
+  "cubeColumn": {
+   "labelLeft": 89,
+   "fieldsRight": 456,
+   "rail": [
+    89,
+    456
+   ],
+   "railTrack": [
+    89,
+    456
+   ],
+   "ballTrack": [
+    89,
+    456
+   ],
+   "ballRail": [
+    113,
+    432
+   ]
+  },
+  "easing": {
+   "picker": [
+    94,
+    455
+   ],
+   "plot": {
+    "x": [
+     127,
+     423
+    ],
+    "size": 296,
+    "slackL": 33,
+    "slackR": 33
+   },
+   "controls": {
+    "x": [
+     94,
+     455
+    ],
+    "h": 43,
+    "rows": 2
+   },
+   "chip": {
+    "display": "none",
+    "text": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+   },
+   "scroll": [
+    489,
+    489
+   ],
+   "durationRowBottom": 544,
+   "surfaceBottom": 553,
+   "headerLiteral": "cubic-bezier(0.25, 0.10, 0.25, 1.00)"
+  },
+  "spring": {
+   "font": "14.384px",
+   "align": "start",
+   "ink": "rgb(195, 185, 172)",
+   "rail": [
+    583,
+    1332
+   ],
+   "caption": [
+    583,
+    1215
+   ],
+   "lines": 2,
+   "reseat": [
+    1227,
+    1332
+   ],
+   "reseatTopVsCaption": -11
+  },
+  "square": {
+   "font": "14.384px",
+   "align": "flex-start",
+   "ink": "rgb(195, 185, 172)"
+  },
+  "keyframesWell": {
+   "well": [
+    73,
+    464
+   ],
+   "gutterW": 25,
+   "codeLeft": 98,
+   "viewW": 366,
+   "clipped": [
+    "transform: rotateX(0deg) rotateY(0turn) rotateZ(0deg);",
+    "transform: rotateX(var(--rotationX)) rotateY(1turn) rotateZ(360deg);"
+   ]
+  },
+  "footer": {
+   "rowW": 367,
+   "rowH": 36,
+   "labels": [
+    {
+     "name": "Copy keyframes",
+     "word": "(glyph)"
+    },
+    {
+     "name": "Format",
+     "word": "(glyph)"
+    },
+    {
+     "name": "Copy compiled CSS",
+     "word": "Compiled"
+    }
+   ],
+   "overflow": false
+  }
+ },
+ "easing1440x1080": {
+  "picker": [
+   94,
+   455
+  ],
+  "plot": {
+   "x": [
+    94,
+    455
+   ],
+   "size": 361,
+   "slackL": 0,
+   "slackR": 0
+  },
+  "controls": {
+   "x": [
+    94,
+    455
+   ],
+   "h": 43,
+   "rows": 2
+  },
+  "chip": {
+   "display": "none",
+   "text": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+  },
+  "scroll": [
+   554,
+   554
+  ],
+  "durationRowBottom": 620,
+  "surfaceBottom": 629,
+  "headerLiteral": "cubic-bezier(0.25, 0.10, 0.25, 1.00)"
+ },
+ "easing1280x760": {
+  "picker": [
+   89,
+   398
+  ],
+  "plot": {
+   "x": [
+    138,
+    349
+   ],
+   "size": 211,
+   "slackL": 48,
+   "slackR": 48
+  },
+  "controls": {
+   "x": [
+    89,
+    398
+   ],
+   "h": 90,
+   "rows": 2
+  },
+  "chip": {
+   "display": "none",
+   "text": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+  },
+  "scroll": [
+   451,
+   406
+  ],
+  "durationRowBottom": 480,
+  "surfaceBottom": 444,
+  "headerLiteral": "cubic-bezier(0.25, 0.10, 0.25, 1.00)"
+ },
+ "easing390": "flex"
+}
