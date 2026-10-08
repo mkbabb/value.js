@@ -622,3 +622,65 @@ The drop is the /morph tile strip, whose quiet tiles carry no capsule cast, beve
   - No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
 
 **Frames** (`pass-08/`). All were captured in headless real Chrome (§0ei) by `f10-cure-probe.mjs`: `morph-*-1440`, `crop-strip-end-*-1440`, `v-*-1440`, `v-hover-left-*-1440`, `v-chain-hover-*-1440` and `v-chain-hover-full-*-1440`, and `modal-*-1440`, light and dark.
+
+### pass 9
+
+*(The re-deployed loop's pass 9 cures the critic F11 findings, DS-F11-*. The AFTER frames are in `evidence/DS/fourier/pass-09/`. The critic's own frames are in `pass-09/critic-f11/`.)*
+
+**Commits.**
+- fourier `33eedee`, on `m/w1-bump-migration`, pushed fast-forward `e26d48a..33eedee`. Eight files, committed by pathspec. The F.CT seat's concurrent contour and API commits were left alone.
+- value.js `1696692ac` holds the AFTER frames, the cure probe, the census and the e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F11-C1 | Info "About this approximation" (`EquationView.vue`) and Copy LaTeX (`EquationResult.vue`) are now `emphasis="quiet"`, the same rung as the Configurator Reset (size md, icon-only). The convergence play button (`ConvergenceTimeline.vue`) is now `secondary`. Compute is the route's one primary. There is no local CSS. Measured in `f11-cure-probe.json`, in both themes: Info and Copy have a transparent background and no box-shadow, with muted ink. The ladder reads quiet / quiet / secondary / primary. The secondary rung still carries glass's capsule fill and its inset/cast stack, which is glass's recipe (see G2). No e2e pinned these buttons to primary. |
+| DS-F11-C2 | `transform: scale(1.02)` is deleted from `.morph-button:hover`. The 50% `--accent-red` border mix stays, and `:active` keeps `scale(0.98)` as press feedback, as on the tiles. The FR-MSP-11 comment and the au3 note now say the hover is the border tone step, which cites DS-F9-C1. Measured in both themes: rest and hover are both `none` at 416px, and the border goes to the 0.5 red mix (`morph-platehover-*-1440`). |
+| DS-F11-C3 | The admin card's Delete is now `emphasis="quiet" tone="destructive"`, and `class="text-delete"` is dropped. That class was defined nowhere, so it painted nothing. Glass's tone routes `--button-quiet-ink` to `--destructive`. Measured on a stubbed admin gallery (`gallery-admin-card-*-1440`): transparent, no shadow, red glyph ink (rgb 219 36 36 in light). ConfirmDialog remains the one loud destructive surface. |
+| DS-F11-C4 | Four scoped `"Fira Code", monospace` literals now read `var(--font-mono)`: `ConvergencePlot.vue`, `ConvergenceTimeline.vue`, `ConvergenceLegend.vue` and `EquationModeToggle.vue`. The served stack is unchanged (it resolves to the Fira Code stack, per `f11-cure-probe.json` `mono-*`). The canvas strings in `labels.ts` were left alone, as ruled. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F11-G1: these held rows were re-witnessed by the critic and left honest-RED, with no consumer override present or added:
+  - the aside's 12px offset and the pointer-tracked stage bloom;
+  - the /morph Surface bevel stack;
+  - the button casts;
+  - the dark halos;
+  - the /equation 390 dock radii;
+  - the /v `1 ×` unit;
+  - the slider track-well edge;
+  - the 390 coarse-floor labels;
+  - the /paper empty `<dt>`, which rides latex-paper 0.3.0, published by the owner.
+
+  They are re-judged at the glass 10.2.0 repin. O-87: DS-F-G1..G6, DS-F4R-G2, DS-F5-G1/G2, DS-F6-G4, DS-F8-G1, and the DS-F2-G3 type relay. O-88: DS-F4R-G1, DS-F6-G1.
+- New in this pass, and cited only: glass's `secondary` Button keeps the primary's capsule fill and its inset/cast stack (it changes only the veil and blur tier). So the play button is a rung down in emphasis but not in lighting. This is glass's recipe and folds into O-87. It is not restyled locally.
+
+**Census** (`pass-09/census-after.json`, fourier `scripts/ds-census.mjs` on `:3100`):
+- Computed, down from pass 8's 392 / 996 / 298 / 298 / 214:
+  - 380 shadow elements;
+  - 956 layers;
+  - 286 multi-layer stacks;
+  - 286 inset highlights.
+- 216 backdrop blur, up 2 from the secondary rung's quiet veil.
+- 0 control gradients and 0 looping chrome.
+- The static half is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered 29 specs that reach /equation, /morph or admin /gallery (`pass-09/e2e-specs.txt`), on chromium plus mobile-chromium, headless, with 3 workers, on `:3100`.
+  - Run A: 248 passed, 87 failed.
+  - Run B: 245 passed, 90 failed. That is the same 87, plus 3 load timeouts (`equation-interaction` S2, `f-w13-radius` frames 1 and 2) that ran while the AFTER probe and the baseline shared the machine. The 3 pass 2/2 on a recheck (`e2e-runB-recheck.txt`).
+- The 87 were re-run against the cured tree served fresh on `:3122` (`e2e-cure-fresh-3122.txt`): 73 pass and 14 fail. All 14 predate this pass:
+  - 7 are on the earlier passes' lists: `f-w14v-au3` L1-12, and `f-w14v-pd` collapsed ×6 (O-88).
+  - 7 fail identically on a clean `bd6558c` worktree served fresh on `:3121` (`e2e-head-baseline-3121.txt`): `gallery-admin-a11y` ×4 (axe `aria-hidden-focus` on the banner stat spans, and the panels), and `visual-checkpoint` items 1·6·7, 2 and 5.
+  - The other 73 were `:3100` dev-server state: the admin tabs never render their stubbed rows there.
+- No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
+
+**Frames** (`pass-09/`). All were captured in headless Chrome (Playwright `chromium` project; §0ei) by `f11-cure-probe.spec.ts`, run from a temporary copy in fourier `web/e2e/` that was deleted afterwards, against the cured tree on `:3122`:
+- `equation-*-{1440,390}`;
+- `eq-top-*-1440` (the stage corner, now two quiet glyphs);
+- `eq-play-*-1440`;
+- `morph-platehover-*-1440`;
+- `gallery-admin-card-*-1440` and `gallery-admin-*-1440`;
+
+each in light and dark.
