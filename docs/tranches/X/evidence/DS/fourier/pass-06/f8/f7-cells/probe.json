@@ -1,0 +1,260 @@
+{
+ "theorem-light": {
+  "n": 1,
+  "kinds": {
+   "theorem-block--theorem": 1
+  },
+  "shadow": "none",
+  "radius": "0px 8px 8px 0px",
+  "bl": "3px solid oklch(0.532 0.18 317.5)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "transition": "none",
+  "before": {
+   "content": "none",
+   "w": "48px",
+   "bt": "0px none rgb(28, 25, 23)",
+   "br": "0px none rgb(28, 25, 23)",
+   "op": "0.5"
+  }
+ },
+ "theorem-hover-light": {
+  "shadow": "none",
+  "tf": "none"
+ },
+ "headings-light": [
+  {
+   "tag": "H2",
+   "text": "0.1.Introduction",
+   "mt": "0px",
+   "mb": "0px",
+   "gapAbove": null,
+   "gapBelow": 16,
+   "cls": "section-heading"
+  },
+  {
+   "tag": "H2",
+   "text": "1.Origin and Derivation",
+   "mt": "0px",
+   "mb": "0px",
+   "gapAbove": null,
+   "gapBelow": 16,
+   "cls": "section-heading"
+  },
+  {
+   "tag": "H3",
+   "text": "1.1.Fourier's Problem",
+   "mt": "0px",
+   "mb": "0px",
+   "gapAbove": null,
+   "gapBelow": null,
+   "cls": "section-heading"
+  }
+ ],
+ "eqab-light": [
+  [
+   [
+    "katex-display",
+    1800,
+    1800,
+    "visible",
+    "linear-gradient(to right, rgba(0, 0, 0, "
+   ],
+   [
+    "",
+    1800,
+    1800,
+    "visible",
+    "none"
+   ],
+   [
+    "fading-scroll fading-scroll--x eq-scroll-region",
+    1832,
+    970,
+    "auto",
+    "linear-gradient(to right, rgba(0, 0, 0, "
+   ],
+   [
+    "eq-result-root",
+    970,
+    970,
+    "visible",
+    "none"
+   ]
+  ]
+ ],
+ "theorem-dark": {
+  "n": 1,
+  "kinds": {
+   "theorem-block--theorem": 1
+  },
+  "shadow": "none",
+  "radius": "0px 8px 8px 0px",
+  "bl": "3px solid oklch(0.739 0.134 318.1)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "transition": "none",
+  "before": {
+   "content": "none",
+   "w": "48px",
+   "bt": "0px none rgb(233, 230, 226)",
+   "br": "0px none rgb(233, 230, 226)",
+   "op": "0.5"
+  }
+ },
+ "theorem-hover-dark": {
+  "shadow": "none",
+  "tf": "none"
+ },
+ "headings-dark": [
+  {
+   "tag": "H2",
+   "text": "0.1.Introduction",
+   "mt": "0px",
+   "mb": "0px",
+   "gapAbove": null,
+   "gapBelow": 16,
+   "cls": "section-heading"
+  },
+  {
+   "tag": "H2",
+   "text": "1.Origin and Derivation",
+   "mt": "0px",
+   "mb": "0px",
+   "gapAbove": null,
+   "gapBelow": 16,
+   "cls": "section-heading"
+  },
+  {
+   "tag": "H3",
+   "text": "1.1.Fourier's Problem",
+   "mt": "0px",
+   "mb": "0px",
+   "gapAbove": null,
+   "gapBelow": null,
+   "cls": "section-heading"
+  }
+ ],
+ "eqab-dark": [
+  [
+   [
+    "katex-display",
+    1800,
+    1800,
+    "visible",
+    "linear-gradient(to right, rgba(0, 0, 0, "
+   ],
+   [
+    "",
+    1800,
+    1800,
+    "visible",
+    "none"
+   ],
+   [
+    "fading-scroll fading-scroll--x eq-scroll-region",
+    1832,
+    970,
+    "auto",
+    "linear-gradient(to right, rgba(0, 0, 0, "
+   ],
+   [
+    "eq-result-root",
+    970,
+    970,
+    "visible",
+    "none"
+   ]
+  ]
+ ],
+ "nf-light": {
+  "cls": "glass-resting card w-full max-w-md",
+  "pad": "0px",
+  "rect": [
+   496,
+   417,
+   448,
+   146
+  ],
+  "h": [
+   509,
+   430,
+   422,
+   36
+  ],
+  "btns": [
+   [
+    509,
+    510,
+    202,
+    40
+   ],
+   [
+    719,
+    510,
+    167,
+    40
+   ]
+  ]
+ },
+ "morph390-light": [
+  {
+   "cls": "stage-column paper-texture",
+   "top": "0px",
+   "rect": [
+    0,
+    175,
+    390,
+    243
+   ],
+   "bg": "rgb(251, 250, 248)",
+   "bgi": "url(\"data:image/svg+xml,%3Csvg width='200' height='200' view",
+   "bb": "1px solid color(srgb 0.778 0.7052 0.622 / 0.45)",
+   "z": "1"
+  }
+ ],
+ "nf-dark": {
+  "cls": "glass-resting card w-full max-w-md",
+  "pad": "0px",
+  "rect": [
+   496,
+   417,
+   448,
+   146
+  ],
+  "h": [
+   509,
+   430,
+   422,
+   36
+  ],
+  "btns": [
+   [
+    509,
+    510,
+    202,
+    40
+   ],
+   [
+    719,
+    510,
+    167,
+    40
+   ]
+  ]
+ },
+ "morph390-dark": [
+  {
+   "cls": "stage-column paper-texture",
+   "top": "0px",
+   "rect": [
+    0,
+    175,
+    390,
+    243
+   ],
+   "bg": "rgb(11, 10, 9)",
+   "bgi": "url(\"data:image/svg+xml,%3Csvg width='200' height='200' view",
+   "bb": "1px solid color(srgb 0.3944 0.34 0.2856 / 0.45)",
+   "z": "1"
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "pad": [
+  "12px",
+  "12px"
+ ],
+ "h": 177,
+ "kd": [
+  68,
+  141,
+  "16px",
+  "16px",
+  "12px",
+  "12px"
+ ],
+ "kids": [
+  [
+   "theorem-label",
+   12,
+   32,
+   "0px",
+   "4px",
+   "0px"
+  ],
+  [
+   "theorem-body theorem-body--italic",
+   48,
+   113,
+   "0px",
+   "0px",
+   "0px"
+  ]
+ ],
+ "tags": [],
+ "innerTag": [
+  [
+   "math-block__number fira-code",
+   "math-block",
+   "normal",
+   "\"Fira Code\", \"Fira Code Fallba",
+   "12.8px",
+   true
+  ]
+ ]
+}
