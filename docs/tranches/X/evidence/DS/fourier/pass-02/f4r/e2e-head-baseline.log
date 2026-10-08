@@ -1,0 +1,366 @@
+
+[WebServer] ../../../web/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "../../../web/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] ../../../web/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "../../../web/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 9 tests using 3 workers
+
+[1/9] [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm
+[2/9] [chromium] › e2e/contrast-floor.spec.ts:128:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression
+[3/9] [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm
+  1) [chromium] › e2e/contrast-floor.spec.ts:128:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression 
+
+    Error: pairs named at F-W4.md §4 that no expression stack re-derives yet — each is owned, none is dropped:
+      ✗ FR-CP-D1 — ConvergencePlot axes — painted to canvas, read from the 2D context (banked 1.19 light / 1.38 dark) · owner .b
+      ✗ ECD D-5 — EditorControlsDock (banked 3.32) · owner .c
+      ✗ ECD D-6 — EditorControlsDock (banked 1.97) · owner .c
+      ✗ EV D·D-B3 — EquationView (banked 2.02–3.57) · owner .b
+      ✗ PS D-B2 — PaperSidebar label — axe grades it CLEAN, which is why this gate exists (banked 2.39 / 3.00) · owner .e
+      ✗ PV D/M-8 — PaperView (banked 2.88) · owner .e
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 38
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "banked": "1.19 light / 1.38 dark",
+    +     "id": "FR-CP-D1",
+    +     "owner": ".b",
+    +     "what": "ConvergencePlot axes — painted to canvas, read from the 2D context",
+    +   },
+    +   Object {
+    +     "banked": "3.32",
+    +     "id": "ECD D-5",
+    +     "owner": ".c",
+    +     "what": "EditorControlsDock",
+    +   },
+    +   Object {
+    +     "banked": "1.97",
+    +     "id": "ECD D-6",
+    +     "owner": ".c",
+    +     "what": "EditorControlsDock",
+    +   },
+    +   Object {
+    +     "banked": "2.02–3.57",
+    +     "id": "EV D·D-B3",
+    +     "owner": ".b",
+    +     "what": "EquationView",
+    +   },
+    +   Object {
+    +     "banked": "2.39 / 3.00",
+    +     "id": "PS D-B2",
+    +     "owner": ".e",
+    +     "what": "PaperSidebar label — axe grades it CLEAN, which is why this gate exists",
+    +   },
+    +   Object {
+    +     "banked": "2.88",
+    +     "id": "PV D/M-8",
+    +     "owner": ".e",
+    +     "what": "PaperView",
+    +   },
+    + ]
+
+      138 |                     (p) => `  ✗ ${p.id} — ${p.what} (banked ${p.banked}) · owner ${p.owner}`,
+      139 |                 ).join("\n"),
+    > 140 |         ).toEqual([]);
+          |           ^
+      141 |     });
+      142 | });
+      143 |
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/contrast-floor.spec.ts:140:11
+
+    Error Context: test-results/contrast-floor-X·F-F-W4-—--e767c-s-a-re-derivable-expression-chromium/error-context.md
+
+
+[4/9] [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none)
+  2) [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm 
+
+    Error: contrast floor violations in the dark arm (text ≥ 4.5:1 · non-text ≥ 3:1), 10 of 36 pairs:
+      ✗ FR-MSP-7 [dark] 1.086:1 (non-text, floor 3:1) (banked 1.084, reproduced) — .info-chip plate against the page it sits on · owner .a
+      ✗ HLG-37[grid-cell-fill] [dark] 1.418:1 (non-text, floor 3:1) — .grid-cell fill against the page — the 1.000:1 separation · owner .a
+      ✗ FR-USB-5[resting-border] [dark] 1.383:1 (non-text, floor 3:1) — credential field resting border against its fill · owner .d
+      ✗ FR-USB-5[focused-border] [dark] 2.340:1 (non-text, floor 3:1) — credential field focused border — the only focus affordance · owner .d
+      ✗ FR-USB-5[placeholder] [dark] 2.046:1 (text, floor 4.5:1) — placeholder ink — the only visible statement of the slug format · owner .d
+      ✗ PSM-4[muted-foreground@40%] [dark] 2.117:1 (text, floor 4.5:1) — modal chrome ink at the authored 40% dilution · owner .e
+      ✗ PSM-4[muted-foreground@45%] [dark] 2.378:1 (text, floor 4.5:1) (banked 2.39, reproduced) — modal chrome ink at the authored 45% dilution · owner .e
+      ✗ PSM-4[muted-foreground@50%] [dark] 2.686:1 (text, floor 4.5:1) — modal chrome ink at the authored 50% dilution · owner .e
+      ✗ GAB-1[plate/page] [dark] 1.038:1 (non-text, floor 3:1) — the admin plate against the page — is there an admin register at all · owner .d
+      ✗ GAB-1[border] [dark] 1.772:1 (non-text, floor 3:1) — the admin plate's 1.5px border against the page · owner .d
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "  ✗ FR-MSP-7 [dark] 1.086:1 (non-text, floor 3:1) (banked 1.084, reproduced) — .info-chip plate against the page it sits on · owner .a",
+    +   "  ✗ HLG-37[grid-cell-fill] [dark] 1.418:1 (non-text, floor 3:1) — .grid-cell fill against the page — the 1.000:1 separation · owner .a",
+    +   "  ✗ FR-USB-5[resting-border] [dark] 1.383:1 (non-text, floor 3:1) — credential field resting border against its fill · owner .d",
+    +   "  ✗ FR-USB-5[focused-border] [dark] 2.340:1 (non-text, floor 3:1) — credential field focused border — the only focus affordance · owner .d",
+    +   "  ✗ FR-USB-5[placeholder] [dark] 2.046:1 (text, floor 4.5:1) — placeholder ink — the only visible statement of the slug format · owner .d",
+    +   "  ✗ PSM-4[muted-foreground@40%] [dark] 2.117:1 (text, floor 4.5:1) — modal chrome ink at the authored 40% dilution · owner .e",
+    +   "  ✗ PSM-4[muted-foreground@45%] [dark] 2.378:1 (text, floor 4.5:1) (banked 2.39, reproduced) — modal chrome ink at the authored 45% dilution · owner .e",
+    +   "  ✗ PSM-4[muted-foreground@50%] [dark] 2.686:1 (text, floor 4.5:1) — modal chrome ink at the authored 50% dilution · owner .e",
+    +   "  ✗ GAB-1[plate/page] [dark] 1.038:1 (non-text, floor 3:1) — the admin plate against the page — is there an admin register at all · owner .d",
+    +   "  ✗ GAB-1[border] [dark] 1.772:1 (non-text, floor 3:1) — the admin plate's 1.5px border against the page · owner .d",
+    + ]
+
+      122 |                     `${failures.length} of ${CONTRAST_PAIRS.length} pairs:\n` +
+      123 |                     failures.join("\n"),
+    > 124 |             ).toEqual([]);
+          |               ^
+      125 |         });
+      126 |     }
+      127 |
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/contrast-floor.spec.ts:124:15
+
+    attachment #1: contrast-dark.txt (text/plain) ──────────────────────────────────────────────────
+    PS-D-M4-extended[stop-0] [dark] 7.428:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-1] [dark] 8.033:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-2] [dark] 7.828:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-3] [dark] 9.680:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-4] [dark] 10.193:1 (text, floor 4.5:1)...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/contrast-floor-X·F-F-W4-—--d627d--meets-its-floor-—-dark-arm-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/contrast-floor-X·F-F-W4-—--d627d--meets-its-floor-—-dark-arm-chromium/error-context.md
+
+
+  3) [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) 
+
+    Error: magnet on: the trigger carries a mark in the magnet's hue (MAGNET-STATE-HIDDEN while 0; found [])
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      133 |         const on = await magnetHueOnTrigger(page);
+      134 |         expect.soft(off, "magnet off: the trigger carries no mark in the magnet's hue").toEqual([]);
+    > 135 |         expect.soft(on.length, `magnet on: the trigger carries a mark in the magnet's hue (MAGNET-STATE-HIDDEN while 0; found ${JSON.stringify(on)})`).toBeGreaterThan(0);
+          |                                                                                                                                                        ^
+      136 |     });
+      137 |
+      138 |     test("c3g — Smooth, Simplify and Reset keep glass's menu icon gap", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/f-w14v-c3.spec.ts:135:152
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-c3-X-F-W14V-c3-—-th-c8bfd-a-mark-in-its-hue-off-none--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-c3-X-F-W14V-c3-—-th-c8bfd-a-mark-in-its-hue-off-none--chromium/error-context.md
+
+
+  4) [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm 
+
+    Error: contrast floor violations in the light arm (text ≥ 4.5:1 · non-text ≥ 3:1), 18 of 36 pairs:
+      ✗ FR-MSP-7 [light] 1.035:1 (non-text, floor 3:1) (banked 1.038, reproduced) — .info-chip plate against the page it sits on · owner .a
+      ✗ HLG-37[grid-cell-fill] [light] 1.035:1 (non-text, floor 3:1) (banked 1, reproduced) — .grid-cell fill against the page — the 1.000:1 separation · owner .a
+      ✗ FR-USB-5[resting-border] [light] 1.283:1 (non-text, floor 3:1) (banked 1.28, reproduced) — credential field resting border against its fill · owner .d
+      ✗ FR-USB-5[focused-border] [light] 1.929:1 (non-text, floor 3:1) (banked 1.93, reproduced) — credential field focused border — the only focus affordance · owner .d
+      ✗ FR-USB-5[placeholder] [light] 1.720:1 (text, floor 4.5:1) (banked 1.73, reproduced) — placeholder ink — the only visible statement of the slug format · owner .d
+      ✗ PSM-4[muted-foreground@40%] [light] 1.739:1 (text, floor 4.5:1) — modal chrome ink at the authored 40% dilution · owner .e
+      ✗ PSM-4[muted-foreground@45%] [light] 1.888:1 (text, floor 4.5:1) (banked 1.88, reproduced) — modal chrome ink at the authored 45% dilution · owner .e
+      ✗ PSM-4[muted-foreground@50%] [light] 2.042:1 (text, floor 4.5:1) — modal chrome ink at the authored 50% dilution · owner .e
+      ✗ FR-EQR-7[instance] [light] 2.110:1 (non-text, floor 3:1) (banked 2.101, reproduced) — the success glyph (green-500) on the result card · owner .b
+      ✗ GAB-1[plate/page] [light] 1.031:1 (non-text, floor 3:1) (banked 1.03, reproduced) — the admin plate against the page — is there an admin register at all · owner .d
+      ✗ GAB-1[border] [light] 1.250:1 (non-text, floor 3:1) (banked 1.25–1.27, reproduced) — the admin plate's 1.5px border against the page · owner .d
+      ✗ GAB-1[--tier-featured value] [light] 1.536:1 (text, floor 4.5:1) (banked 1.45 — DRIFT, the live reading governs) — the featured numeral — the colour chosen to distinguish the tier · owner .d
+      ✗ GAB-1[--tier-saved value] [light] 2.731:1 (text, floor 4.5:1) (banked 2.58 — DRIFT, the live reading governs) — the saved numeral on the same plate · owner .d
+      ✗ AA-3[delete] [light] 1.547:1 (text, floor 4.5:1) (banked 1.36–1.81, reproduced) — the delete actionTone ink — the action string itself · owner .d
+      ✗ AA-3[set_user_status] [light] 1.243:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the set_user_status actionTone ink — the action string itself · owner .d
+      ✗ AA-3[set_tier/dismiss] [light] 1.289:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the set_tier/dismiss actionTone ink — the action string itself · owner .d
+      ✗ AA-3[batch] [light] 1.510:1 (text, floor 4.5:1) (banked 1.36–1.81, reproduced) — the batch actionTone ink — the action string itself · owner .d
+      ✗ AA-3[default] [light] 1.219:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the default actionTone ink — the action string itself · owner .d
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 20
+
+    - Array []
+    + Array [
+    +   "  ✗ FR-MSP-7 [light] 1.035:1 (non-text, floor 3:1) (banked 1.038, reproduced) — .info-chip plate against the page it sits on · owner .a",
+    +   "  ✗ HLG-37[grid-cell-fill] [light] 1.035:1 (non-text, floor 3:1) (banked 1, reproduced) — .grid-cell fill against the page — the 1.000:1 separation · owner .a",
+    +   "  ✗ FR-USB-5[resting-border] [light] 1.283:1 (non-text, floor 3:1) (banked 1.28, reproduced) — credential field resting border against its fill · owner .d",
+    +   "  ✗ FR-USB-5[focused-border] [light] 1.929:1 (non-text, floor 3:1) (banked 1.93, reproduced) — credential field focused border — the only focus affordance · owner .d",
+    +   "  ✗ FR-USB-5[placeholder] [light] 1.720:1 (text, floor 4.5:1) (banked 1.73, reproduced) — placeholder ink — the only visible statement of the slug format · owner .d",
+    +   "  ✗ PSM-4[muted-foreground@40%] [light] 1.739:1 (text, floor 4.5:1) — modal chrome ink at the authored 40% dilution · owner .e",
+    +   "  ✗ PSM-4[muted-foreground@45%] [light] 1.888:1 (text, floor 4.5:1) (banked 1.88, reproduced) — modal chrome ink at the authored 45% dilution · owner .e",
+    +   "  ✗ PSM-4[muted-foreground@50%] [light] 2.042:1 (text, floor 4.5:1) — modal chrome ink at the authored 50% dilution · owner .e",
+    +   "  ✗ FR-EQR-7[instance] [light] 2.110:1 (non-text, floor 3:1) (banked 2.101, reproduced) — the success glyph (green-500) on the result card · owner .b",
+    +   "  ✗ GAB-1[plate/page] [light] 1.031:1 (non-text, floor 3:1) (banked 1.03, reproduced) — the admin plate against the page — is there an admin register at all · owner .d",
+    +   "  ✗ GAB-1[border] [light] 1.250:1 (non-text, floor 3:1) (banked 1.25–1.27, reproduced) — the admin plate's 1.5px border against the page · owner .d",
+    +   "  ✗ GAB-1[--tier-featured value] [light] 1.536:1 (text, floor 4.5:1) (banked 1.45 — DRIFT, the live reading governs) — the featured numeral — the colour chosen to distinguish the tier · owner .d",
+    +   "  ✗ GAB-1[--tier-saved value] [light] 2.731:1 (text, floor 4.5:1) (banked 2.58 — DRIFT, the live reading governs) — the saved numeral on the same plate · owner .d",
+    +   "  ✗ AA-3[delete] [light] 1.547:1 (text, floor 4.5:1) (banked 1.36–1.81, reproduced) — the delete actionTone ink — the action string itself · owner .d",
+    +   "  ✗ AA-3[set_user_status] [light] 1.243:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the set_user_status actionTone ink — the action string itself · owner .d",
+    +   "  ✗ AA-3[set_tier/dismiss] [light] 1.289:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the set_tier/dismiss actionTone ink — the action string itself · owner .d",
+    +   "  ✗ AA-3[batch] [light] 1.510:1 (text, floor 4.5:1) (banked 1.36–1.81, reproduced) — the batch actionTone ink — the action string itself · owner .d",
+    +   "  ✗ AA-3[default] [light] 1.219:1 (text, floor 4.5:1) (banked 1.36–1.81 — DRIFT, the live reading governs) — the default actionTone ink — the action string itself · owner .d",
+    + ]
+
+      122 |                     `${failures.length} of ${CONTRAST_PAIRS.length} pairs:\n` +
+      123 |                     failures.join("\n"),
+    > 124 |             ).toEqual([]);
+          |               ^
+      125 |         });
+      126 |     }
+      127 |
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/contrast-floor.spec.ts:124:15
+
+    attachment #1: contrast-light.txt (text/plain) ─────────────────────────────────────────────────
+    PS-D-M4-extended[stop-0] [light] 5.134:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-1] [light] 6.197:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-2] [light] 6.366:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-3] [light] 4.693:1 (text, floor 4.5:1)
+    PS-D-M4-extended[stop-4] [light] 4.645:1 (text, floor 4....
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/contrast-floor-X·F-F-W4-—--8df2f-meets-its-floor-—-light-arm-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/contrast-floor-X·F-F-W4-—--8df2f-meets-its-floor-—-light-arm-chromium/error-context.md
+
+
+[5/9] [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap
+[6/9] [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 390 light › frames 390 light — the closed dock (magnet on) and the open menu
+[7/9] [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 1440 light › frames 1440 light — the closed dock (magnet on) and the open menu
+  5) [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap 
+
+    Error: Smooth contour: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Smooth contour: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    Error: Simplify contour: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Simplify contour: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    Error: Reset to extraction: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Reset to extraction: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-f4r-head/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-c3-X-F-W14V-c3-—-th-9bf6d--keep-glass-s-menu-icon-gap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-c3-X-F-W14V-c3-—-th-9bf6d--keep-glass-s-menu-icon-gap-chromium/error-context.md
+
+
+[8/9] [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 390 dark › frames 390 dark — the closed dock (magnet on) and the open menu
+[9/9] [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 1440 dark › frames 1440 dark — the closed dock (magnet on) and the open menu
+  5 failed
+    [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm 
+    [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm 
+    [chromium] › e2e/contrast-floor.spec.ts:128:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression 
+    [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) 
+    [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap 
+  4 passed (35.7s)
