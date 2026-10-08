@@ -447,3 +447,60 @@ The static half is unchanged (4 box-shadow declarations, 8 gradients, 3 keyframe
   - No visual golden was re-baselined.
 
 **Frames** (`pass-04/f6/`): 56 route and cell frames from the critic's own `capture.mjs` and `cells2.mjs`, plus 27 probe frames from `f6-probe.mjs` and `f6-probe3.mjs` (`probe/`: `v-canvas-tab-*-390`, `eq-canvas-tab-light-390`, `v-moremenu-*-1440`, `v-viewmenu-*-1440` and the rest), plus the cure probe's own frames (`cure/`), all re-aimed at `:3117`. All were captured in headless real Chrome (§0ei).
+
+### pass 5
+
+*(The re-deployed loop's pass 5: the cure for the critic F7 findings, DS-F7-*. The critic's frames are in `evidence/DS/fourier/pass-05/critic-f7/`; the AFTER frames are in `evidence/DS/fourier/pass-05/f7/`.)*
+
+**Commits.**
+- fourier `9a73776`, on `m/w1-bump-migration`, pushed fast-forward `4ed2df6..9a73776`. 16 files, committed by pathspec. The F.CT seat's uncommitted contour files (`drawing.py`, `test_contour_strokes.py`) were left alone.
+- latex-paper `5166529` (DS-F7-C1, DS-F7-C4), local on `master` with a 0.3.0 `minor` changeset. Not pushed and not published: publishing is an owner act (npm E401), and this seat has no push authority for latex-paper. The release must carry `9e0200f`, `aa244de`, `16709a1` and `5166529`.
+- value.js `32a2b784b`: AFTER frames, cure probes, census and e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F7-C1 | **Root:** latex-paper `5166529` reads every colour as a full colour: `var(--token)`, with alpha as `color-mix(in srgb, var(--token) N%, transparent)`. There were 39 `hsl(var(--…))` sites. The display equation's hover rule-bar is deleted, along with its transparent border and transition. **Served (0.2.1 until the repin):** one bridge block in fourier `style.css` under `article.paper-article`, marked to be deleted at the 0.3.0 repin, restates the root's result. Measured (`f7/cure/c1-probe.json`, `f7/probe.json`): `.math-block` hover border is `0px`. The theorem rule and label are `--primary` (light: fourier's ink primary `hsl(24 10% 10%)`, by token rather than by fallback; dark: `oklch(0.739 0.134 318.1)`), with definitions and examples in `--accent-pink` and lemmas and asides in `--muted-foreground`. The sticky chapter and sub headers compute `rgb(253,245,236)` / `rgb(53,42,34)`, the article's own tone. Before, they computed `rgba(0,0,0,0)`. |
+| DS-F7-C2 | No cast at rest or on hover, no transform and no transition. Corners are `0 .5rem .5rem 0`, so the left rule runs straight. The root has had this since `9e0200f`/`aa244de`; the bridge restates it. Measured: `box-shadow: none`, `transform: none` on hover, in both themes. |
+| DS-F7-C3 | `::before` is `content: none` (bridge). The root deleted it in `9e0200f`. |
+| DS-F7-C4 | `.section-header--sub { margin-top: 2.5rem }`, at the root (raised from 1.5rem) and in the bridge. Measured (`f7/cure/c4-probe.json`): "1.1" and "1.2.1" sit **40 px** under the content above and **20 px** over their own text, at 1440 and 390, light and dark. |
+| DS-F7-C5 | The divider is a flat 1px `color-mix(… 25%, transparent)` of the section hue. The root has had this since `aa244de`; the bridge restates it. Measured: `background-image: none`. |
+| DS-F7-C6 | The 390 legend inset is keyed on the canvas dock's state: `.canvas-stage[data-dock-expanded]`, set from the view's `dockExpanded`. BasisCanvas exposes `readInsets()`, and the view calls it when the dock toggles, because the inset had only been read on resize. Measured (`f7/cure/c6-probe.json`): collapsed, the inset is 16 px and the caption shares the toolbar row (`cure/v-canvas-tab-*-390.png`); expanded (dock 348 px wide), it is 79 px and the caption clears the dock (`cure/v-canvas-tab-expanded-*-390.png`). |
+| DS-F7-C7 | Ownership: the hunks belonged to the dead pass-2 seat (2026-10-06) and the dead first-loop pass-4 seat (2026-10-07). Neither was alive after the limit reset, and no receipt claims them. This seat **adopted** them deliberately in `9a73776`: P2-01, P2-18, the article Card's `shadow` drop, and DS-F4-C2, C3, C4, C6, C7, C8 and C9. One assertion followed P2-01: `f-w14u-gallery` g248 reads the hover's paint as cast plus `background-image`, because the hover is now a tone step (the gallery card's idiom) rather than a cast. All gates below ran on a clean worktree of exactly this commit, served on `:3120`. |
+
+**Not cured.** DS-F7-N1 (trivial: the a + b series scrolls in its fading scroller) needs no cure.
+
+**Census** (`f7/census-after.json`, fourier `scripts/ds-census.mjs` served from the clean cure tree on `:3120`).
+
+| metric | pass 4 | pass 5 |
+|---|---|---|
+| shadow elements | 424 | **420** |
+| shadow layers | 1086 | **1076** |
+| multi-layer stacks | 330 | **326** |
+| inset highlights | 328 | **326** |
+| backdrop blur | 256 | **254** |
+| control gradients | 0 | 0 |
+| looping chrome | 0 | 0 |
+
+- The computed drop comes from the paper Card and draft card casts and the theorem block's stack.
+- Static: the scan now includes the served latex-paper theme (C1). It reads 8 box-shadow declarations: 4 of fourier's focus and selection rings, plus 4 in the served 0.2.1 theorem recipe. It reads 10 gradients: fourier's 8, plus the draft card's flat hover tint written as a gradient layer (the gallery card's idiom), plus 0.2.1's three-stop divider.
+- The 0.2.1 theme's 4 casts and its divider are neutralised in the served page by the bridge, and they leave the static count at the 0.3.0 repin, where the root carries 0 casts and 0 gradients.
+
+**Gates.** The cure tree is this commit in a clean detached worktree on `:3120`. A clean HEAD (`4ed2df6`) worktree on `:3119` is the baseline.
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice. latex-paper `vitest`: 127/127.
+- e2e: 25 affected specs (`f7/e2e-specs.txt`), chromium plus mobile-chromium, headless, 3 workers.
+  - Run A: 217 passed, 16 failed. Run B: 218 passed, 16 failed.
+  - Failing in both runs, all also failing on HEAD:
+    - `contrast-floor` ×3, `equation-interaction`, `f-w14v-p` p3, `gallery-admin-a11y` ×4 and `visual-checkpoint` 1·6·7, 2 and 5 (all as at passes 3 and 4);
+    - `paper-performance` 235, which also fails on the HEAD worktree (`e2e-head-baseline-2.log`). It is an instrument fault: a worktree's symlinked `node_modules` lies outside vite's allow list, so the KaTeX fonts return 403.
+  - Failing in one run only:
+    - run A: `visualization-ux` 128/145 and `visualization-crud` mobile. Re-run alone with `--repeat-each=2`, they pass 10/10 (`e2e-cure-rerun-flakes.log`);
+    - run B: `f-w14-uia` 634 ×2 and 657, pre-existing on HEAD at pass 3.
+  - No visual golden was re-baselined.
+  - A void run 0 on the shared `:3100` dev server (`e2e-run0-devserver3100.txt`) failed the admin `f-w14-uia` 411/434/457 tests (empty Users tab). Served fresh from the same tree on `:3120`, they pass 3/3, and they also pass on HEAD, so the cause was the dev server's state.
+- **Disclosure:** to narrow a too-broad first run, this seat ran `pkill -f "playwright test"`. That may also have ended another seat's Playwright run on this machine. Later stops were by PID or port only.
+
+**Frames** (`pass-05/f7/`). All were captured in headless real Chrome (§0ei):
+- the critic's own `probe.mjs`, `probe2.mjs` and `probe3.mjs`, re-run for the same cells: `theorem-*-1440`, `theorem-hover-*-1440`, `mathblock-hover-light`, `paper-sticky-*`, `eq-ab-*-1440` and `morph-scrolled-*-390`;
+- the cure probes' frames: `cure/sub-11-*` and `cure/sub-121-*` at 1440 and 390, `cure/v-canvas-tab-*-390` and `cure/v-canvas-tab-expanded-*-390`.
