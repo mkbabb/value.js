@@ -2648,3 +2648,4 @@ READ-ONLY at kf `5bd9172b` (clean product tree, glass `10.1.0` exact). Logs: `do
 - **Escalations:** none.
 - **Instrument teardown:** the two worktrees and their vite servers stay up until the record commit, then are removed. The scratch typecheck worktree `keyframes-wt-W13X-esc1-tc` was removed.
 - **value.js commit:** this record + `keyframes/evidence/W13X/esc1/` (probe `esc1.mjs`, runner `quiet-all.sh`, the four banked JSONs, the dry/superseded readings, 48 frames, `quiet-all.out`; `*.log` gitignored, tails quoted above).
+- **value.js commit (recorded):** `816370ed8` (66 files: this record, the LEDGER line, `esc1/` evidence incl. 48 frames).
