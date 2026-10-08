@@ -125,8 +125,10 @@ const swatchKeys = computed(() => {
 
 <template>
     <div class="flex flex-col gap-3" :data-mix-direction="modeDirection">
-        <!-- Bouncy segmented control -->
-        <div class="flex items-center justify-center pb-1">
+        <!-- Bouncy segmented control. X-DS pass 4 (V4C-08): start-aligned on
+             the content edge, the edge the title, the Selected well and the
+             labels hang from; centred, it floated between header and well. -->
+        <div class="flex items-center pb-1">
             <SegmentedTabs
                 variant="pill"
                 semantics="tabs"

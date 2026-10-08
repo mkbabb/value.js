@@ -8,7 +8,7 @@
          scroll-earned intensity (C2; the CC-3 bespoke recipe is dead), and
          the whole choreography is compositor-only (the F3 layout-animating
          fork is dead — O-11 gate 4). -->
-    <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header">
+    <div class="pane-header px-4 sm:px-6 pt-4 pb-(--pane-header-gap) sticky top-0 z-header">
         <!-- Q5 (S.W4 W4-7): the pane title speaks the DISPLAY voice — the ONE
              site; all 9 panes inherit. The three-voice law's hierarchy fix:
              the largest text on a pane must not speak the body sans.
@@ -79,14 +79,17 @@ const { level = 2 } = defineProps<{
 }
 
 /* X-DS pass 3 (V3C-01): THE SEATED HEADER. A pane whose body scrolls on a
- * FadingScroll port (About, My Palettes) seats its PaneHeader ABOVE the port,
- * as a sibling, so nothing scrolls under the title. The card scopes the port's
- * `--pane-scroll` timeline up to itself, so the seated header's veil still
- * swells with the port's scroll (O-11 gates 1-3 unchanged). */
-@supports (animation-timeline: scroll()) {
-    .card:has(> .pane-header ~ .pane-scroll-fade) {
-        timeline-scope: --pane-scroll;
-    }
+ * FadingScroll port (About, My Palettes, and since pass 4 the config pane)
+ * seats its PaneHeader ABOVE the port, as a sibling, so nothing scrolls under
+ * the title. */
+/* X-DS pass 4 (V4C-05): a SEATED header paints no veil. Nothing scrolls under
+ * it, so the veil had no occlusion job: at rest it laid a darker tone band under
+ * the title, and its 14px feather smeared into the top of the port. The port's
+ * own top feather already says "scrolled". The pass-3 `timeline-scope` that let
+ * this veil swell with the port goes with it. Headers that DO overlie their
+ * scrolling body keep the owner-banked rest veil (V2C-15) unchanged. */
+.card:has(> .pane-header ~ .pane-scroll-fade) > .pane-header::before {
+    display: none;
 }
 </style>
 
@@ -157,6 +160,12 @@ const { level = 2 } = defineProps<{
 }
 
 .pane-header {
+    /* X-DS pass 4 (V4C-06): THE HEADER-TO-BODY GAP, one token at the app's
+     * section rhythm (the φ rung every in-pane section clears its rule by). The
+     * bodies carry no top padding of their own: the per-body `pt-2`/`py-4`
+     * that compensated for the old `pb-2` set the rhythm per instance, and on
+     * four panes jammed the first row against the header band. */
+    --pane-header-gap: var(--phi-3);
     /* The one tunable: the ratified rest floor (Q9 bracket [0.45, 0.65] of
      * the veil; effect bracket 27–39% added card material — see above). */
     --pane-veil-rest: 0.52;

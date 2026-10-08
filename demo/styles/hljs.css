@@ -35,6 +35,16 @@
 
 :root {
     --code-ink: var(--foreground);
+    /* THE CODE PAPER (X-DS pass 4 · V4C-03): the opaque ground the crayons
+     * below are certified on — the rung-2 well recipe as it was when they
+     * were measured (card 92% + fg 8%), computed HERE on the root so it keeps
+     * the scheme ink in either scheme. A live editor that sits on a
+     * translucent wash over a near-clear card shows the saturated aurora
+     * instead (the numbers measured 1.59-1.77:1 on the default pink in
+     * light), so the gradient editor seats its code on this paper. The crayon
+     * identity is kept; only the ground is made true. `--code-ink` is
+     * root-computed for the same reason. */
+    --code-ground: color-mix(in oklab, var(--card) 92%, var(--foreground));
     /* The four crayons + the muted comment, guarded for the light WELL field
      * (the rung-2 code-chip ground, AB-3). */
     --code-comment: hsl(30 22% 34%); /* warm muted gray (well-guarded) */

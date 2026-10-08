@@ -46,6 +46,13 @@ async function readVeils(page: Page) {
             .map((el) => {
                 const cs = getComputedStyle(el, "::before");
                 return {
+                    // X-DS pass 4 (V4C-05): a header SEATED above its card's
+                    // scroll port (About, My Palettes, the config pane) has
+                    // nothing under it and paints no veil.
+                    seated: el.matches(
+                        ".card:has(> .pane-header ~ .pane-scroll-fade) > .pane-header",
+                    ),
+                    display: cs.display,
                     opacity: Number(cs.opacity),
                     mask: cs.maskImage,
                     bg: cs.backgroundColor,
@@ -60,18 +67,19 @@ async function scrubTo(page: Page, y: number) {
     return page.evaluate(async (top) => {
         const host = Array.from(
             document.querySelectorAll<HTMLElement>("main .pane-scroll-fade"),
-        ).find((el) => el.offsetParent !== null && el.scrollHeight > el.clientHeight);
+        ).find(
+            (el) =>
+                el.offsetParent !== null &&
+                el.scrollHeight > el.clientHeight &&
+                el.querySelector(".pane-header") !== null,
+        );
         if (!host) throw new Error("no scrollable pane host found");
         host.scrollTop = top;
         await new Promise((r) => requestAnimationFrame(() => r(null)));
         await new Promise((r) => requestAnimationFrame(() => r(null)));
-        // X-DS pass 3 (V3C-01): a FadingScroll port's header is SEATED above
-        // the port, as its sibling (the card scopes the port's timeline), so
-        // the host's own header is its child OR its card's seated header.
-        const header =
-            host.querySelector<HTMLElement>(".pane-header") ??
-            host.parentElement?.querySelector<HTMLElement>(":scope > .pane-header") ??
-            null;
+        // X-DS pass 4 (V4C-05): only a header INSIDE its host overlies a
+        // scrolling body; a seated header (beside its port) paints no veil.
+        const header = host.querySelector<HTMLElement>(".pane-header");
         if (!header) throw new Error("scrubbed host has no pane-header");
         const cs = getComputedStyle(header, "::before");
         return { opacity: Number(cs.opacity), mask: cs.maskImage };
@@ -109,6 +117,16 @@ for (const scheme of ["light", "dark"] as const) {
                 `${view}: no visible pane header found`,
             ).toBeGreaterThan(0);
             for (const v of veils) {
+                // X-DS pass 4 (V4C-05) RE-AIM: the rest floor and feather are
+                // the contract of a header that OVERLIES its scrolling body
+                // (V2C-15, owner-banked, unchanged). A seated header has no
+                // occlusion job, so its contract is the opposite: no veil.
+                if (v.seated) {
+                    expect
+                        .soft(v.display, `${view} (${scheme}): a seated header still paints a veil`)
+                        .toBe("none");
+                    continue;
+                }
                 // Gate 1 — the rest floor (shaded AT rest — T-23).
                 expect
                     .soft(v.opacity, `${view} (${scheme}): rest floor under the bracket`)
@@ -125,11 +143,16 @@ for (const scheme of ["light", "dark"] as const) {
     });
 }
 
-/** Whether the view has a visible pane scroll host that actually overflows. */
+/** Whether the view has a visible pane scroll host that actually overflows
+ *  UNDER its own header (the header inside the host). X-DS pass 4 (V4C-05):
+ *  a seated header's port scrolls beside it, never under it. */
 async function hasScrollHost(page: Page) {
     return page.evaluate(() =>
         Array.from(document.querySelectorAll<HTMLElement>("main .pane-scroll-fade")).some(
-            (el) => el.offsetParent !== null && el.scrollHeight > el.clientHeight,
+            (el) =>
+                el.offsetParent !== null &&
+                el.scrollHeight > el.clientHeight &&
+                el.querySelector(".pane-header") !== null,
         ),
     );
 }
@@ -154,9 +177,12 @@ test("O-11 gate 3 — the swell completes ≤64px; no naked window under the ear
         // Gradient nothing scrolls under any pane header: the collision this
         // leg guards cannot occur. Home keeps the full scrub (About's port
         // overflows by thousands of px), so the swell is still measured.
-        if (view !== "Home") {
+        // X-DS pass 4 (V4C-05) RE-AIM: About's header is seated too, and a
+        // seated header paints no veil (gates 1+2 assert that), so Home takes
+        // the same no-collider rule as Gradient.
+        {
             // the outgoing pane's port must leave before the host is chosen
-            await expect(page.locator(".about-card")).toBeHidden();
+            if (view !== "Home") await expect(page.locator(".about-card")).toBeHidden();
             if (!(await hasScrollHost(page))) {
                 testInfo.annotations.push({
                     type: "no-collider",

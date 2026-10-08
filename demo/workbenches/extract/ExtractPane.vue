@@ -9,7 +9,7 @@
                  the ONE extract workbench — session, camera, eyedropper, and
                  the T19 dominance readout all live in ExtractWorkbench. -->
             <ExtractWorkbench
-                class="pb-4 px-4 sm:px-6 pt-2"
+                class="pb-4 px-4 sm:px-6"
                 layout="column"
                 :color-space="colorSpace"
                 @pick="pm.emitSetCurrentColor"

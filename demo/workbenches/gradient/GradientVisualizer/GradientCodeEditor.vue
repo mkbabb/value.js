@@ -90,7 +90,7 @@ onMounted(() => render(modelValue));
             role="textbox"
             aria-label="Gradient CSS"
             :aria-invalid="hasError || undefined"
-            class="code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-auto scrollbar-thin whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+            class="code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] max-h-[12rem] overflow-y-auto scrollbar-thin whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             :class="[hasError ? 'border-destructive' : 'border-border/40']"
             @input="onInput"
             @focus="onFocus"
@@ -113,6 +113,13 @@ onMounted(() => render(modelValue));
 </template>
 
 <style scoped>
+/* X-DS pass 4 (V4C-03): the code sits on the code paper its crayons are
+   certified on (`--code-ground`, hljs.css), not on a translucent wash over the
+   aurora. Scoped, so it outranks `.hljs { background: transparent }`. */
+.code-editor {
+    background: var(--code-ground);
+}
+
 /* The verdict edge eases in only where motion is wanted (X-W6 · X.W6.e — e2):
    a reduced-motion reader gets the error border at once, structurally. */
 @media (prefers-reduced-motion: no-preference) {

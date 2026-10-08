@@ -141,7 +141,7 @@ const SECTIONS: SliderSection[] = [
              starts on the same line (the Mix/Generate two-column forms'
              grammar); V1C-04: the labels speak glass's plain field-label
              voice (Label), not the mono uppercase caps. -->
-        <div class="aurora-form px-4 sm:px-6 pt-2 pb-1">
+        <div class="aurora-form px-4 sm:px-6 pb-4">
             <div class="aurora-row">
                 <Label :id="`${labelId}-harmony`">Harmony</Label>
                 <Select v-bind="popups.bind('harmony')" :model-value="harmony()" @update:model-value="setHarmony">
@@ -212,9 +212,11 @@ const SECTIONS: SliderSection[] = [
 
 .aurora-form {
     display: grid;
-    /* X-DS pass 2 (V2C-12): the field column is capped, so a one-word value
-     * sits in a compact trigger under the one label column, not a 900px pill. */
-    grid-template-columns: max-content minmax(0, 20rem);
+    /* X-DS pass 2 (V2C-12) capped the field column at 20rem while the card
+     * was ~900px wide. X-DS pass 4 (V4C-07): the card itself is now capped at
+     * one pane column (V3C-09), so the cap only left the triggers 42px short of
+     * the console well and footer — two right edges. The field fills the card. */
+    grid-template-columns: max-content minmax(0, 1fr);
     align-items: center;
     gap: 0.75rem;
 }

@@ -44,7 +44,7 @@ defineExpose({
             <PaneHeader description="Build gradients with per-interval easing and CSS output.">
                 Gradient
             </PaneHeader>
-            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6 pt-2">
+            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6">
                 <GradientVisualizer ref="gradientVisualizer" />
             </div>
         </Card>

@@ -84,7 +84,7 @@ export function useAtmosphereBoot(
     //     the ONE source. The de-emphasis rung rides the same instance:
     //     `--ink-muted` is the floor-clamped certified plate ink (D6/F-4 —
     //     the plate-caption + parse-echo voice; post-hoc opacity died).
-    const { safeAccentCss, mutedInkCss } = useContrastSafeColor(
+    const { safeAccentCss, plateInkCss, mutedInkCss } = useContrastSafeColor(
         atmosphereColor,
         derivedLightness,
     );
@@ -94,6 +94,16 @@ export function useAtmosphereBoot(
         safeAccentCss,
         (css) => {
             document.documentElement.style.setProperty("--accent-live", css);
+        },
+        { immediate: true },
+    );
+    // X-DS pass 4 (V4C-01): the PRIMARY plate ink rides the same instance and
+    // the same referent, so the page makes ONE polarity decision per plate.
+    // `--ink-muted` above is a step of this pole, never an independent flip.
+    watch(
+        plateInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-primary", css);
         },
         { immediate: true },
     );

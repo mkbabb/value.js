@@ -230,16 +230,40 @@ export function certifyAccentInk(
     }) ? css : serialize(safe);
 }
 
-/** Golden-step de-emphasis, then the same explicit contrast certification. */
+/**
+ * THE PRIMARY PLATE INK (X-DS pass 4 · V4C-01) — the ONE polarity decision
+ * per plate. The scheme's foreground, certified against the composited plate
+ * by the same guard as every other ink: where it clears, it is kept; where
+ * the plate has crossed mid-luminance (a saturated mid-tone aurora under the
+ * near-clear resting veil), the guard walks it to the pole that clears. Titles,
+ * labels, numerals and section heads read it (the in-plate `--foreground`,
+ * `shell.css`), so the page never carries two inks of opposite polarity.
+ */
+function plateInk(surfaceL: number, dark: boolean): Color<"oklch"> {
+    return certify(FOREGROUND[dark ? "dark" : "light"], surfaceL, TEXT_CONTRAST_FLOOR);
+}
+
+export function resolvePlateInk(surfaceL: number, dark: boolean): string {
+    return serialize(plateInk(surfaceL, dark));
+}
+
+/**
+ * Golden-step de-emphasis OF THE PRIMARY PLATE INK, then the same explicit
+ * contrast certification. The rung derives from the pole `plateInk` chose, so
+ * it never flips on its own: a certified step that lands across the surface
+ * from its primary, or further from it, keeps the primary instead.
+ */
 export function resolveMutedInk(surfaceL: number, dark: boolean): string {
-    const mixed = mixColors(
-        FOREGROUND[dark ? "dark" : "light"],
-        surfaceColor(surfaceL),
-        0.382,
-        { space: "oklch" },
-    );
+    const primary = plateInk(surfaceL, dark);
+    const mixed = mixColors(primary, surfaceColor(surfaceL), 0.382, { space: "oklch" });
     if (!mixed.ok) throw new Error(`Muted ink mix failed: ${mixed.error.code}`);
-    return serialize(certify(mixed.value, surfaceL, TEXT_CONTRAST_FLOOR));
+    const muted = certify(mixed.value, surfaceL, TEXT_CONTRAST_FLOOR);
+    // Same pole as the primary, and no further from the plate than it: a rung
+    // that would flip, or outrank its primary, is the primary itself.
+    const offset = (c: Color<"oklch">) => lightness(c) - surfaceL;
+    const kept = Math.sign(offset(muted)) === Math.sign(offset(primary))
+        && Math.abs(offset(muted)) <= Math.abs(offset(primary));
+    return serialize(kept ? muted : primary);
 }
 
 /** Choose the WCAG-maximal neutral endpoint for a concrete opaque fill. */

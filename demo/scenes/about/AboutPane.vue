@@ -49,8 +49,10 @@
             />
         </PaneHeader>
 
-        <Separator />
-
+        <!-- X-DS pass 4 (V4C-06): no rule under the seated header. The header's
+             block-end gap token (PaneHeader) is the one header-to-body rhythm on
+             every pane, and the port's own top feather marks a scrolled body,
+             as on My Palettes. -->
         <FadingScroll
             axis="y"
             class="pane-scroll-fade flex-1 min-h-0 overflow-x-hidden"
@@ -66,7 +68,7 @@
                  utility sorts earlier and silently LOSES the cascade (the former
                  `py-[1.618rem]` here never painted — the card's cqi default did;
                  the W4 seed-rider-2 clause, generalized). -->
-            <CardContent class="px-3 sm:px-6 pt-phi-3 pb-phi-3">
+            <CardContent class="px-3 sm:px-6 pt-0 pb-phi-3">
                 <ColorNutritionLabel class="w-full p-0 m-0" v-model="model" />
             </CardContent>
 

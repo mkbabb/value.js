@@ -1,7 +1,7 @@
 <template>
     <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
-        <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
+        <div class="px-4 sm:px-6 pb-4 flex flex-col gap-3 min-h-0">
             <!-- S.W5-7: the twin placeholder is scoped — this one searches
                  the public wall.
                  T.W3-3 (T-12): a field on paper wears paper — the seated

@@ -259,6 +259,14 @@
      * rung 0.808). The dark arm lives in `.dark` below. */
     --ink-muted: oklch(0.369 0.004 34.6);
 
+    /* ── The primary plate ink (X-DS pass 4 · V4C-01) ──
+     * `--ink-primary` is the scheme foreground certified against the same
+     * composited resting plate (`resolvePlateInk`), stamped live by
+     * `useAtmosphereBoot` beside `--ink-muted`. `shell.css` seats it as the
+     * in-plate `--foreground`. Pre-boot it is the scheme foreground itself
+     * (computed here, on the root, in either scheme). */
+    --ink-primary: var(--foreground);
+
     /* ── The per-view accent (S.W7 · W7-4 — navigation reads chromatically,
      * gamut-guaranteed). The former CSS relative-color derivation
      * (`oklch(from var(--accent-live) l c calc(h + shift))`) trusted the

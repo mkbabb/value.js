@@ -239,6 +239,33 @@
     container-type: inline-size;
 }
 
+/* ── THE PLATE INKS: ONE POLARITY PER PLATE (X-DS pass 4 · V4C-01/V4C-02) ──
+ * glass's resting plate is its veil ink at 14% α, so a saturated mid-tone
+ * aurora shows almost straight through it. The boot writer certifies BOTH
+ * plate inks against that composited plate from one referent: `--ink-primary`
+ * (the scheme foreground, walked to the pole that clears 4.5:1) and
+ * `--ink-muted` (a floor-clamped step of the same pole). Inside the panes they
+ * ARE the foreground family, so titles, labels, readout integers, section heads,
+ * quiet and text actions, placeholders and captions all inherit one polarity by
+ * token. Before this, only the captions followed the plate: on the owner brick
+ * in light the captions went near-white while the titles stayed on the static
+ * near-black `--foreground` (2.0-2.7:1). Colour only; glass's material and
+ * lighting are untouched. Root-computed tokens (`--slider-range-bg`,
+ * `--well-bg`, the hairlines) keep the scheme ink they were certified with. */
+.pane-wrapper {
+    --foreground: var(--ink-primary);
+    --card-foreground: var(--ink-primary);
+    --secondary-foreground: var(--ink-primary);
+    --accent-foreground: var(--ink-primary);
+    --muted-foreground: var(--ink-muted);
+    --muted-foreground-strong: color-mix(in oklab, var(--ink-muted), var(--ink-primary) 38.2%);
+    /* glass re-seats the muted pair on its own surfaces
+     * (`:where(.glass-resting, …) { --muted-foreground: var(--on-glass-muted) }`),
+     * so its seam carries the same rungs: no glass rule is overridden. */
+    --on-glass-muted: var(--ink-muted);
+    --on-glass-muted-strong: color-mix(in oklab, var(--ink-muted), var(--ink-primary) 38.2%);
+}
+
 /* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the STAGE region (the picker +
  * its corner-breaking hero-blob ornament) paints above the right pane, so the
  * bead's overlap strip is never buried under the About card (the S-4 burial —

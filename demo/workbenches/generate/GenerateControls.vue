@@ -150,10 +150,12 @@ defineExpose({ regenerate, save, copyColors });
             <!-- Plate chrome: name — count — regenerate — actions. The name
                  is the plate title (editable in place — the card family's
                  dashed-underline affordance), not a form field. The row
-                 WRAPS gracefully: name+count lead, the verb cluster rides
-                 `ml-auto` right — at 390 the verbs settle onto their own
-                 right-aligned line, never a clipped title. -->
-            <div class="px-3 py-2.5 flex flex-wrap items-center gap-x-2 gap-y-1.5 min-w-0">
+                 X-DS pass 4 (V4C-09): ONE row at every width. At 390 the
+                 cluster used to wrap onto its own right-aligned line, detached
+                 from the title it acts on; now the name shrinks (it is the
+                 flexible `min-w-0` member) and Regenerate drops its visible
+                 label below `sm` (the text stays as its accessible name). -->
+            <div class="px-3 py-2.5 flex items-center gap-x-2 min-w-0">
                 <input
                     v-model="paletteName"
                     type="text"
@@ -165,10 +167,10 @@ defineExpose({ regenerate, save, copyColors });
                 <!-- The verb cluster wraps as ONE unit, right-seated. The
                      one verb rides the deliberate-primary register (L6
                      rider — root vocabulary, no costume), AS plate chrome. -->
-                <!-- X.W12U.m · A2-VA-L2-8: the cluster itself wraps, right-seated,
-                     inside the plate's line (`max-w-full`); at 360 a one-line
-                     cluster ran 34 px past the card. -->
-                <div class="ml-auto flex flex-wrap items-center justify-end gap-2 max-w-full">
+                <!-- X.W12U.m · A2-VA-L2-8 (a one-line cluster ran 34 px past
+                     the card at 360) is held by V4C-09's icon-only Regenerate
+                     below `sm`: the cluster is ~116 px and never wraps. -->
+                <div class="ml-auto flex items-center gap-2 shrink-0">
                     <!-- X-DS pass 1 (V1-09): seated commands wear the quiet and
                          text rungs — no floating capsule (and no halo) on a
                          well. -->
@@ -177,8 +179,8 @@ defineExpose({ regenerate, save, copyColors });
                         class="h-9 gap-2 font-medium font-display text-foreground shrink-0"
                         @click="regenerate()"
                     >
-                        <RefreshCw class="w-4 h-4" />
-                        Regenerate
+                        <RefreshCw class="w-4 h-4" aria-hidden="true" />
+                        <span class="max-sm:sr-only">Regenerate</span>
                     </Button>
                     <Button
                         icon-only

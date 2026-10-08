@@ -4,7 +4,7 @@
             {{ headerTitle }}
             <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>
         </PaneHeader>
-        <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
+        <div class="px-4 sm:px-6 pb-4 flex flex-col gap-3 min-h-0">
             <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->

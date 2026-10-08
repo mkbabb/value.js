@@ -22,6 +22,7 @@ import {
     certifyAccentInk,
     contrastInkFor,
     resolveMutedInk,
+    resolvePlateInk,
     resolveSurfaceLightness,
 } from "../demo/color-session/ink";
 
@@ -228,6 +229,27 @@ describe("D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4)", ()
             } else {
                 expect(muted.L).toBeGreaterThan(0.2);
                 expect(muted.L).toBeLessThan(plateL);
+            }
+        });
+    }
+});
+
+describe("X-DS pass 4 · V4C-01 — resolvePlateInk (ONE polarity per plate)", () => {
+    for (const dark of [false, true]) {
+        it(`the primary clears 4.5:1 and the muted rung shares its pole, across the ambient band (${dark ? "dark" : "light"})`, () => {
+            for (const a of AMBIENTS) {
+                const plateL = resolveSurfaceLightness("resting", a, dark);
+                const primary = resolvePlateInk(plateL, dark);
+                const muted = resolveMutedInk(plateL, dark);
+                expect(ratioOn(primary, plateL), `primary on plate@${a} → ${primary}`).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+                // The muted rung never flips on its own: it sits on the same
+                // side of the plate as the primary (V4C-01's two-ink split).
+                expect(
+                    Math.sign(parseOklch(muted).L - plateL),
+                    `muted ${muted} and primary ${primary} straddle plate@${a}`,
+                ).toBe(Math.sign(parseOklch(primary).L - plateL));
+                // …and it never outranks the primary.
+                expect(ratioOn(muted, plateL)).toBeLessThanOrEqual(ratioOn(primary, plateL) + 1e-6);
             }
         });
     }

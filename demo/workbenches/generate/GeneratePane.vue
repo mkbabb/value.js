@@ -34,7 +34,7 @@ defineExpose({
             <PaneHeader description="Create pleasing random palettes with aesthetic presets.">
                 Generate
             </PaneHeader>
-            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6 pt-2">
+            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6">
                 <GenerateControls ref="controlsRef" @save="onSave" />
             </div>
         </Card>

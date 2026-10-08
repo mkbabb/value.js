@@ -13,6 +13,7 @@ import { INK_AMBIENT_KEY } from "./keys";
 import {
     certifyAccentInk,
     resolveMutedInk,
+    resolvePlateInk,
     resolveSurfaceLightness,
     type InkSurface,
     type SurfaceTint,
@@ -317,21 +318,25 @@ export function useContrastSafeColor(
         return safeAccentCss.value !== cssColorOpaque.value;
     });
 
-    // The de-emphasis rung (F-4): floor-clamped certified ink for the resting
-    // plate — the boot writer stamps it as `--ink-muted` (the plate-caption /
-    // parse-echo voice; post-hoc opacity de-emphasis is retired).
-    const mutedInkCss = computed(() =>
-        resolveMutedInk(
-            surfaceLightnessNow(
-                "resting",
-                ambientLightness.value,
-                isDark.value,
-            ),
-            isDark.value,
-        ),
+    // The resting plate's composited lightness — the ONE referent both plate
+    // inks certify against.
+    const restingL = computed(() =>
+        surfaceLightnessNow("resting", ambientLightness.value, isDark.value),
     );
 
-    return { safeAccentCss, needsAdjustment, mutedInkCss };
+    // The primary plate ink (X-DS pass 4 · V4C-01): the scheme foreground,
+    // certified against the plate — the ONE polarity decision. The boot
+    // writer stamps it as `--ink-primary`; `shell.css` seats it as the
+    // in-plate `--foreground`.
+    const plateInkCss = computed(() => resolvePlateInk(restingL.value, isDark.value));
+
+    // The de-emphasis rung (F-4): a floor-clamped step of the primary plate ink
+    // (same pole, never flipped on its own) — the boot writer stamps it as
+    // `--ink-muted` (the plate-caption / parse-echo voice; post-hoc opacity
+    // de-emphasis is retired).
+    const mutedInkCss = computed(() => resolveMutedInk(restingL.value, isDark.value));
+
+    return { safeAccentCss, needsAdjustment, plateInkCss, mutedInkCss };
 }
 
 /**

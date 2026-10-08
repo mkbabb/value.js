@@ -82,7 +82,7 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
             <PaneHeader description="Mix colors and palettes together.">
                 Mix
             </PaneHeader>
-            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6 pt-2">
+            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6">
                 <!-- Source selection -->
                 <MixSourceSelector
                     :mode="mode"

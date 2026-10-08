@@ -37,7 +37,7 @@
             axis="y"
             class="pane-scroll-fade flex flex-col flex-1 min-h-0 overflow-x-hidden"
         >
-            <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 grow shrink-0">
+            <div class="px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0">
                 <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
                      side-by-side panes) is scoped — this one owns YOUR list.
                      T.W3-3 (T-12): a field on paper wears paper — the seated
@@ -68,7 +68,7 @@
                         v-if="pm.savedPalettes.value.length > 0"
                         emphasis="text"
                         size="sm"
-                        class="shrink-0 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive"
+                        class="shrink-0 cursor-pointer text-(color:--ink-muted) hover:text-destructive focus-visible:text-destructive"
                         aria-label="Delete all saved palettes"
                         @click="pm.showDeleteAllConfirm.value = true"
                     >

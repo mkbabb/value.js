@@ -18,6 +18,7 @@ import { Card } from "@mkbabb/glass-ui/card";
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Check, Copy, RotateCcw } from "@lucide/vue";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
+import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import { useClipboard } from "@mkbabb/glass-ui";
 
@@ -101,17 +102,26 @@ function resetDefaults() {
 </script>
 
 <template>
-    <div class="relative w-full mx-auto h-full min-w-0">
+    <div class="pane-row-follow relative w-full mx-auto h-full min-w-0">
         <Card
             tier="resting"
             class="w-full min-w-0 h-full relative flex flex-col overflow-hidden"
         >
-            <!-- The scroll region owns the fade mask + overflow; the action bar
-                 below sits OUTSIDE it (flex-none footer) so it can never occlude
-                 a slider or readout (W6-6). -->
-            <div class="pane-scroll-fade scrollbar-thin flex-1 min-w-0 overflow-y-auto overflow-x-hidden">
-                <PaneHeader v-bind="description !== undefined ? { description } : {}">{{ title }}</PaneHeader>
+            <!-- X-DS pass 4 (V4C-04): About's contract. The pane follows the row
+                 (`pane-row-follow`, the shell's companion contract), its header
+                 is SEATED above the scroll port, the sections scroll inside
+                 glass's FadingScroll port, and the action bar is a flex-none
+                 footer below the port. Blob's 34 scalars stretched the card to
+                 2311 px with its footer 1460 px below the fold; now the card
+                 ends with the row and the footer stays on screen. The action
+                 bar still sits OUTSIDE the scroll region so it can never
+                 occlude a slider or readout (W6-6). -->
+            <PaneHeader v-bind="description !== undefined ? { description } : {}">{{ title }}</PaneHeader>
 
+            <FadingScroll
+                axis="y"
+                class="pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden"
+            >
                 <!-- Default slot for extra controls (e.g. AuroraPane select rows) -->
                 <slot />
 
@@ -123,7 +133,7 @@ function resetDefaults() {
                      config-slider rows judge this surface. -->
                 <div
                     v-if="sections.length > 0"
-                    class="px-4 sm:px-6 pt-2 pb-6"
+                    class="px-4 sm:px-6 pb-6"
                 >
                     <div class="config-console console-well flex flex-col gap-5">
                     <div
@@ -167,7 +177,7 @@ function resetDefaults() {
                     </div>
                     </div>
                 </div>
-            </div>
+            </FadingScroll>
 
             <!-- Action bar — a flex-none footer below the scroll region, so it
                  can never occlude a slider (W6-6). X-DS pass 1 (V1-04): two
