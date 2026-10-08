@@ -288,3 +288,64 @@ All are headless real Chrome, served from the committed tree.
 **Left in the fourier tree, not this seat's.**
 - The orphan hunks in `GalleryDraftsSection.vue`, `GalleryView.vue`, `PaperView.vue` (`shadow` dropped from the article Card) and `stores/gallery.ts`.
 - Another seat's staged contour deletions, preserved in the index.
+
+### pass 2
+
+*(This is the re-deployed loop's pass 2: the cure for the 2026-10-08 critic, findings DS-F4R-*. The critic's frames are `evidence/DS/fourier/critic-2026-10-08/`. The AFTER frames are in `evidence/DS/fourier/pass-02/f4r/`, because `pass-02/` already holds the first pass 2's frames.)*
+
+**Commits.**
+- fourier, on `m/w1-bump-migration`, pushed fast-forward `4961935..8665cdb`:
+  - `013073d`: the cure, 11 source files plus the `f-w14v-au5` instrument. It was committed through a temporary index (HEAD plus this seat's hunks, 3-way merged). The dead pass-4 seat's DS-F4-* orphan hunks (2026-10-07, 14:22–14:29) and the pass-2 orphans stay in the tree, uncommitted.
+  - `8665cdb`: a named golden re-baseline.
+- value.js `65d9ff856`: AFTER frames, census and e2e listings.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F4R-C1 | The ToC plate keys on `data-leaf` (`isActive`), not on any `aria-current`. A chapter on the active chain keeps the hue ink only, so one row reads as selected (frame `paper-mid-*-1440`: "1.2. A Solution" alone carries the plate). |
+| DS-F4R-C2 | `SliderControl`'s one track rule paints the fill as a centred 0.375rem rule (glass's own track fallback): the hue at 55% over `--muted-medium`, with the rest of the 24px track clear. The md thumb keeps the hue at full strength. This is one rule, and every slider follows it. |
+| DS-F4R-C3 | Card titles (`MorphPhaseConfig`, `HarmonicLevelGrid`) are at weight 500, under the display title at 400. From 1280px the three phases sit three across and the levels card spans the row beneath, with no wrapper (`morph-light-1440`: all four cards are above the fold). |
+| DS-F4R-C4 | Below 1024px the readings stand in one column beside the plate, and the plate is capped at 22svh. The sticky band measures about 318 of 844 px (38%, `morph-scrolled-*-390`). It was 450. |
+| DS-F4R-C5 | The legend count ("123 of 401 circles", "N = …") is a caption: regular 13px, in `--muted-foreground` read from the canvas at draw time, so a theme switch re-inks it. The literal grey remains only as the parse fallback. |
+| DS-F4R-C6 | The rim is kept, not dropped, because UIA-F-157's ruled rim test stands. It takes the active chapter's section hue through `ScrollProgressRim`'s own `stops` prop, so it is violet while reading ch. 1 (`paper-mid-*`). Its geometry is glass's. |
+| DS-F4R-C7 | "Browse the gallery" is a md quiet Button inside the drop zone, under the primary and its format line. **Residual:** at 390 glass's coarse floor still enlarges it, as it does "Choose an image" (the DS-F2-G3 coarse-type relay). |
+| DS-F4R-C8 | Below 6px on-screen radius, the remaining arms are one 1px polyline in the tail's hue, with no circles and no dots. The tip is a thin line, not a blob (`v-paused-*`). The hues are kept. |
+| DS-F4R-C9 | The Function layer's f(t) caption is set in `--font-serif-math` italic, matching the formula. The other captions stay mono. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F4R-G1 (the dock's plate and cast radii part during the morph): **O-88** DOCK-COLLAPSE-MOTION, with O-87 for the cast.
+- DS-F4R-G2 (the flat primary/secondary ladder): **O-87** FLAT-LIGHTING.
+
+**Census** (`pass-02/f4r/census-after.json`, served from the cure tree). The computed sum equals pass 3's:
+
+| metric | value |
+|---|---|
+| shadow elements | 424 |
+| shadow layers | 1086 |
+| multi-layer stacks | 330 |
+| inset highlights | 328 |
+| backdrop blur | 256 |
+| control gradients | 0 |
+| looping chrome | 0 |
+
+The static half is unchanged (4 box-shadow declarations, 8 gradients, 3 keyframes). The cure moved no lighting. Everything left is glass's recipe (O-87).
+
+An earlier census pass showed +6 elements on `/gallery` (dark 1440, 390). That was data, not chrome: more seeded cards in the shared dev DB.
+
+**Gates.** The cure tree is HEAD plus this seat's hunks in a clean detached worktree, served on `:3113` with its own vite cache.
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e: 47 affected specs, chromium plus mobile-chromium, headless, 3 workers, 430 tests. Run A: 409 passed, 18 failed. Run B: 409 passed, 18 failed.
+  - Pre-existing in both runs:
+    - `f-w14v-pd` collapsed ×6 (O-88);
+    - `f-w14v-au3` L1-12 (ESC-au3-1);
+    - `visual-checkpoint` 1·6·7, 2 and 5 (the owed `card-*` goldens);
+    - `contrast-floor` ×3 and `f-w14v-c3` c3m/c3g. These five fail identically on HEAD `4961935`, served on `:3114` (`e2e-head-baseline.log`).
+  - Known flakes, each in one run: `f-w14u-d` d2 (A light and dark, B dark) and `f-w14u-vstage` e169 (B). Both are recorded as flaky on both trees at pass 3.
+  - This cure's own failures, both resolved:
+    - `visual-checkpoint` item 3 is the named re-baseline below.
+    - `f-w14v-au5` L1-19 failed because /morph now fits at 1440×900, which is C3's aim. Its window is re-aimed to 1440×600 with the assertions unchanged, and it is green.
+  - An earlier run (void) served without the symlinked `node_modules` on vite's allow list, so KaTeX fonts returned 403 (`paper-performance`, `vedit` 390). The server was fixed, and the frames and both runs were re-taken after it.
+- **Named owner-ruling re-baseline (§0ej), `8665cdb`:** `checkpoint-disclosure-body`. The diff was read: it is exactly C9 (the f(t) face) plus C2 (the Harmonics rule). It is green twice after.
+
+**Frames** (`pass-02/f4r/`): 56 frames from the critic's own `capture.mjs` and `cells2.mjs`, re-aimed at `:3113`. They are headless real Chrome (§0ei).
