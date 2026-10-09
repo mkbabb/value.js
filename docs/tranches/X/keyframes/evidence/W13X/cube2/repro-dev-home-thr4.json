@@ -1,0 +1,53 @@
+{
+ "label": "dev-home-thr4",
+ "base": "http://localhost:5193",
+ "mode": "home",
+ "thr": "4",
+ "N": 6,
+ "runsWithThrow": 0,
+ "load1": "15.43",
+ "runs": [
+  {
+   "i": 0,
+   "throws": 0,
+   "spinDistinct": 14,
+   "ms": 4697,
+   "errs": []
+  },
+  {
+   "i": 1,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 4904,
+   "errs": []
+  },
+  {
+   "i": 2,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 4861,
+   "errs": []
+  },
+  {
+   "i": 3,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 5681,
+   "errs": []
+  },
+  {
+   "i": 4,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 5367,
+   "errs": []
+  },
+  {
+   "i": 5,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 5672,
+   "errs": []
+  }
+ ]
+}
