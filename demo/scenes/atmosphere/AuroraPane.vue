@@ -113,7 +113,7 @@ const SECTIONS: SliderSection[] = [
     {
         title: "Field",
         defs: [
-            { key: "colorEnergy", label: "Color Energy", min: 0, max: 1, step: 0.01 },
+            { key: "colorEnergy", label: "Color energy", min: 0, max: 1, step: 0.01 },
             { key: "noise", label: "Noise", min: 0, max: 1, step: 0.01 },
             { key: "zones.count", label: "Zones", min: 1, max: 6, step: 1 },
         ],
@@ -144,68 +144,74 @@ const SECTIONS: SliderSection[] = [
              the select rows sit at one level with the "Field" scalars. X-DS
              pass 6 (V6C-09): they sit in the SAME console well (the pane's
              slot is seated inside it), so the pane is one plate whose "Field"
-             head is an in-well sub-head. -->
-        <div class="aurora-form">
-            <div class="aurora-row">
-                <Label :id="`${labelId}-harmony`">Harmony</Label>
-                <Select v-bind="popups.bind('harmony')" :model-value="harmony()" @update:model-value="setHarmony">
-                    <SelectTrigger :aria-labelledby="`${labelId}-harmony`">
-                        <SelectValue>{{ label(harmony()) }}</SelectValue>
-                    </SelectTrigger>
-                    <SelectContent class="max-h-[16rem] min-w-menu">
-                        <!-- T-17 (STRIP family member): each row previews the
-                             palette ITS harmony resolves from the live atoms
-                             — seed-exact, never a canned swatch. -->
-                        <SelectItem v-for="h in HARMONIES" :key="h" :value="h">
-                            {{ label(h) }}
-                            <template #description>
-                                <PreviewStrip :stops="auroraHarmonyStops(atoms, h)" />
-                            </template>
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
-            </div>
+             head is an in-well sub-head. X-DS pass 7 (V7C-03): the select
+             group is a section of its own, headed in the same h3 voice as
+             "Field" (ConfigSliderPane's section grammar), so the well reads
+             as two named sections, never a headless preamble and one head. -->
+        <div class="flex flex-col gap-1.5">
+            <h3 class="config-section-title font-display text-subheading">Character</h3>
+            <div class="aurora-form">
+                <div class="aurora-row">
+                    <Label :id="`${labelId}-harmony`">Harmony</Label>
+                    <Select v-bind="popups.bind('harmony')" :model-value="harmony()" @update:model-value="setHarmony">
+                        <SelectTrigger :aria-labelledby="`${labelId}-harmony`">
+                            <SelectValue>{{ label(harmony()) }}</SelectValue>
+                        </SelectTrigger>
+                        <SelectContent class="max-h-[16rem] min-w-menu">
+                            <!-- T-17 (STRIP family member): each row previews the
+                                 palette ITS harmony resolves from the live atoms
+                                 — seed-exact, never a canned swatch. -->
+                            <SelectItem v-for="h in HARMONIES" :key="h" :value="h">
+                                {{ label(h) }}
+                                <template #description>
+                                    <PreviewStrip :stops="auroraHarmonyStops(atoms, h)" />
+                                </template>
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
 
-            <div class="aurora-row">
-                <Label :id="`${labelId}-arrangement`">Arrangement</Label>
-                <Select v-bind="popups.bind('arrangement')" :model-value="arrangement()" @update:model-value="setArrangement">
-                    <SelectTrigger :aria-labelledby="`${labelId}-arrangement`">
-                        <SelectValue>{{ label(arrangement()) }}</SelectValue>
-                    </SelectTrigger>
-                    <SelectContent class="max-h-[16rem] min-w-menu">
-                        <SelectItem v-for="a in ARRANGEMENTS" :key="a" :value="a">
-                            {{ label(a) }}
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
-            </div>
+                <div class="aurora-row">
+                    <Label :id="`${labelId}-arrangement`">Arrangement</Label>
+                    <Select v-bind="popups.bind('arrangement')" :model-value="arrangement()" @update:model-value="setArrangement">
+                        <SelectTrigger :aria-labelledby="`${labelId}-arrangement`">
+                            <SelectValue>{{ label(arrangement()) }}</SelectValue>
+                        </SelectTrigger>
+                        <SelectContent class="max-h-[16rem] min-w-menu">
+                            <SelectItem v-for="a in ARRANGEMENTS" :key="a" :value="a">
+                                {{ label(a) }}
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
 
-            <div class="aurora-row">
-                <Label :id="`${labelId}-medium`">Medium</Label>
-                <Select v-bind="popups.bind('medium')" :model-value="medium()" @update:model-value="setMedium">
-                    <SelectTrigger :aria-labelledby="`${labelId}-medium`">
-                        <SelectValue>{{ label(medium()) }}</SelectValue>
-                    </SelectTrigger>
-                    <SelectContent class="max-h-[16rem] min-w-menu">
-                        <SelectItem v-for="m in MEDIA" :key="m" :value="m">
-                            {{ label(m) }}
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
-            </div>
+                <div class="aurora-row">
+                    <Label :id="`${labelId}-medium`">Medium</Label>
+                    <Select v-bind="popups.bind('medium')" :model-value="medium()" @update:model-value="setMedium">
+                        <SelectTrigger :aria-labelledby="`${labelId}-medium`">
+                            <SelectValue>{{ label(medium()) }}</SelectValue>
+                        </SelectTrigger>
+                        <SelectContent class="max-h-[16rem] min-w-menu">
+                            <SelectItem v-for="m in MEDIA" :key="m" :value="m">
+                                {{ label(m) }}
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
 
-            <div class="aurora-row">
-                <Label :id="`${labelId}-motion`">Motion</Label>
-                <Select v-bind="popups.bind('motion')" :model-value="motion()" @update:model-value="setMotion">
-                    <SelectTrigger :aria-labelledby="`${labelId}-motion`">
-                        <SelectValue>{{ label(motion()) }}</SelectValue>
-                    </SelectTrigger>
-                    <SelectContent class="max-h-[16rem] min-w-menu">
-                        <SelectItem v-for="m in MOTIONS" :key="m" :value="m">
-                            {{ label(m) }}
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
+                <div class="aurora-row">
+                    <Label :id="`${labelId}-motion`">Motion</Label>
+                    <Select v-bind="popups.bind('motion')" :model-value="motion()" @update:model-value="setMotion">
+                        <SelectTrigger :aria-labelledby="`${labelId}-motion`">
+                            <SelectValue>{{ label(motion()) }}</SelectValue>
+                        </SelectTrigger>
+                        <SelectContent class="max-h-[16rem] min-w-menu">
+                            <SelectItem v-for="m in MOTIONS" :key="m" :value="m">
+                                {{ label(m) }}
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
             </div>
         </div>
     </ConfigSliderPane>

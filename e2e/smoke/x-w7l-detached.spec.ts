@@ -207,8 +207,11 @@ for (const scene of ["blob", "atmosphere"] as const) {
                     const header = sec.querySelector<HTMLElement>('[data-slot="configurator-layer-header"], .config-section-title')!;
                     const trigger = sec.querySelector('[data-slot="configurator-layer-trigger"]');
                     const h = header.getBoundingClientRect();
+                    // X-DS pass 7 (V7C-03): a select trigger is one of the
+                    // section's FIELDS (a combobox in a labelled row), never a
+                    // section action; Atmosphere's "Character" section holds four.
                     const actions = [...sec.querySelectorAll<HTMLElement>('button, [role="button"]')].filter(
-                        (b) => b !== trigger && !(trigger?.contains(b) ?? false),
+                        (b) => b !== trigger && !(trigger?.contains(b) ?? false) && b.getAttribute("role") !== "combobox",
                     );
                     return {
                         label: (header.textContent ?? "").trim().slice(0, 40),

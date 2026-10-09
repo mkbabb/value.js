@@ -358,6 +358,21 @@
     .pane-wrapper--inspector:has(> .pane-row-follow) {
         contain: size;
         min-block-size: var(--pane-follow-floor, 0px);
+        /* X-DS pass 7 (V7C-04): the row is the companion's CEILING, not its
+         * height. Stretched to the row, a short companion (Mix beside the
+         * picker, My Palettes at its 30rem floor) stood a tall plate with
+         * ≈110–210 px of dead glass under its last control, where the original
+         * sized each card to its content. The wrapper is a column; the card
+         * takes its content height and shrinks to the row only when the
+         * content is longer (a flexed item's size is definite, so the card's
+         * own scroll port still resolves). The floor stays on the wrapper. */
+        display: flex;
+        flex-direction: column;
+    }
+    .pane-wrapper--inspector:has(> .pane-row-follow) > .pane-row-follow {
+        block-size: auto;
+        flex: 0 1 auto;
+        min-block-size: 0;
     }
 }
 

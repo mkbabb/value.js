@@ -268,7 +268,10 @@ function resetDefaults() {
  * the gradient's "Stops" — it speaks the app's ONE section-head voice
  * (Fraunces, sentence case, `font-display text-subheading` on the h3), never the
  * mono uppercase tracked caps of an instrument panel (value-canon §2 Type). */
-.config-section-title {
+/* X-DS pass 7 (V7C-03): a slotted section (Atmosphere's "Character") wears
+ * the same head. */
+.config-section-title,
+:slotted(.config-section-title) {
     color: var(--foreground);
 }
 

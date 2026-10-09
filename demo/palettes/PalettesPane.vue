@@ -1,5 +1,10 @@
 <template>
-    <Card tier="resting" class="pane-row-follow flex flex-col w-full mx-auto overflow-hidden min-w-0 h-full">
+    <!-- X-DS pass 7 (V7C-04): the companion takes its content height up to the
+         row (shell.css row contract), so the card is wrapped as Mix and the
+         config pane are: the T-45 blur carrier seats on this wrapper, which the
+         card fills, never on the region wrapper the card no longer fills. -->
+    <div class="pane-row-follow relative w-full mx-auto h-full min-w-0">
+    <Card tier="resting" class="flex flex-col w-full overflow-hidden min-w-0 h-full">
         <!-- X.W12U.h · A2-VA-L3-5: the companion follows the row (shell.css row
              contract) and is a column.
              X-DS pass 2 (V2C-01): the row can be shorter than the companion's
@@ -191,6 +196,7 @@
             </div>
         </FadingScroll>
     </Card>
+    </div>
 </template>
 
 <script setup lang="ts">

@@ -157,9 +157,16 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- X.W12.u2 (UIA-V-44, consumer half): below sm the band stacks —
              the render tile full-width on top, the three fields in one column
              — so no trigger overlaps its neighbour or the tile at phone width.
-             (The glass half — SelectTrigger's value span cannot shrink — is O-59.) -->
-        <div class="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-5">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 min-w-0">
+             (The glass half — SelectTrigger's value span cannot shrink — is O-59.)
+             X-DS pass 7 (V7C-01): the tile no longer LEADS the band at phone
+             width, where it stood as a second full-width slab under the Stops
+             rail and showed the result before the controls that shape it. The
+             fields span the band's two tracks; the tile follows them, a small
+             tile beside the Direction row it illustrates (the row sets its
+             height). From sm the layout is unchanged: the tile spans both rows
+             of the right track. -->
+        <div class="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-5">
+            <div class="col-span-2 sm:col-span-1 grid grid-cols-1 sm:grid-cols-3 gap-3 min-w-0">
                 <!-- W5-7 (P1-11): the per-select subtitle rows are EXCISED — they
                  truncated at every viewport and duplicated the descriptions
                  already carried inside each dropdown's items. -->
@@ -274,7 +281,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 data-testid="gradient-render-tile"
                 role="img"
                 aria-label="Gradient render with type and direction applied"
-                class="gradient-render-tile order-first sm:order-none h-20 sm:h-auto w-full sm:w-24 sm:row-span-2 rounded-card border border-card-edge"
+                class="gradient-render-tile order-last sm:order-none col-start-2 w-12 min-h-10 sm:w-24 sm:row-span-2 rounded-card border border-card-edge"
                 :style="{ '--tile-render': coalescedCSS }"
             />
 
