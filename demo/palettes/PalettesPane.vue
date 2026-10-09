@@ -1,10 +1,10 @@
 <template>
-    <!-- X-DS pass 7 (V7C-04): the companion takes its content height up to the
-         row (shell.css row contract), so the card is wrapped as Mix and the
-         config pane are: the T-45 blur carrier seats on this wrapper, which the
-         card fills, never on the region wrapper the card no longer fills. -->
-    <div class="pane-row-follow relative w-full mx-auto h-full min-w-0">
-    <Card tier="resting" class="flex flex-col w-full overflow-hidden min-w-0 h-full">
+    <PaneShell seated follow :gutter="false" description="Save, organize, and share your colors.">
+        <!-- X-DS pass 7 (V7C-04): the companion takes its content height up to the
+             row (shell.css row contract), so the card is wrapped as Mix and the
+             config pane are: the T-45 blur carrier seats on this wrapper, which the
+             card fills, never on the region wrapper the card no longer fills. -->
+        <!-- A2-VA-L1-1: the one pane shell, seated and following the row. -->
         <!-- X.W12U.h · A2-VA-L3-5: the companion follows the row (shell.css row
              contract) and is a column.
              X-DS pass 2 (V2C-01): the row can be shorter than the companion's
@@ -21,7 +21,7 @@
              consumed via the ONE `.palettes-ramp-text` recipe). This is the
              Q4-record moment surviving, relocated per the ruled form; every
              OTHER pane title stays ink (S.W5-7 stands for the rest). -->
-        <PaneHeader description="Save, organize, and share your colors.">
+        <template #title>
             <!-- P4-R1 (WR-8): the title is LARGE text — it consumes the
                  per-site title ramp (3:1 large-text floor, certified against
                  the resting plate) aliased into the shared recipe slots;
@@ -38,11 +38,7 @@
                 aria-hidden="true"
             >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</span>
             <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
-        </PaneHeader>
-        <FadingScroll
-            axis="y"
-            class="pane-scroll-fade flex flex-col flex-1 min-h-0 overflow-x-hidden"
-        >
+        </template>
             <div class="px-4 sm:px-6 pb-4 flex flex-col gap-3 grow shrink-0">
                 <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
                      side-by-side panes) is scoped — this one owns YOUR list.
@@ -194,15 +190,11 @@
                     </DialogContent>
                 </Dialog>
             </div>
-        </FadingScroll>
-    </Card>
-    </div>
+    </PaneShell>
 </template>
 
 <script setup lang="ts">
 import { inject, reactive, ref, shallowRef, computed, watch, onMounted, nextTick } from "vue";
-import { Card } from "@mkbabb/glass-ui/card";
-import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 import { Button } from "@mkbabb/glass-ui/button";
 import { Search, Trash2 } from "@lucide/vue";
 import { useSortable, insertNodeAt, removeNode } from "@vueuse/integrations/useSortable";
@@ -220,7 +212,7 @@ import {
     DialogDescription,
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
-import PaneHeader from "../shared/ui/PaneHeader.vue";
+import PaneShell from "../shell/PaneShell.vue";
 import type { Palette } from "./types";
 import PaletteInspector from "./PaletteInspector.vue";
 import ActionFeedback from "./browser/card/PaletteCard/ActionFeedback.vue";

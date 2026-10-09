@@ -43,7 +43,7 @@
                 </PaneHeader>
                 <FadingScroll
                     axis="y"
-                    class="pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden"
+                    class="pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden"
                 >
                     <div v-if="gutter" :class="bodyClass"><slot /></div>
                     <slot v-else />

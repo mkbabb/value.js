@@ -14,12 +14,10 @@
 // Select rows (harmony / arrangement / medium / motion) above the sliders.
 
 import { Button } from "@mkbabb/glass-ui/button";
-import { Card } from "@mkbabb/glass-ui/card";
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Check, Copy, RotateCcw } from "@lucide/vue";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
-import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
-import PaneHeader from "../shared/ui/PaneHeader.vue";
+import PaneShell from "../shell/PaneShell.vue";
 import { useClipboard } from "@mkbabb/glass-ui";
 
 /** A single slider definition inside a section. `key` may be a dot-path
@@ -102,11 +100,13 @@ function resetDefaults() {
 </script>
 
 <template>
-    <div class="pane-row-follow relative w-full mx-auto h-full min-w-0">
-        <Card
-            tier="resting"
-            class="w-full min-w-0 h-full relative flex flex-col overflow-hidden"
-        >
+    <PaneShell
+        seated
+        follow
+        :gutter="false"
+        :title="title"
+        v-bind="description !== undefined ? { description } : {}"
+    >
             <!-- X-DS pass 4 (V4C-04): About's contract. The pane follows the row
                  (`pane-row-follow`, the shell's companion contract), its header
                  is SEATED above the scroll port, the sections scroll inside
@@ -116,12 +116,8 @@ function resetDefaults() {
                  ends with the row and the footer stays on screen. The action
                  bar still sits OUTSIDE the scroll region so it can never
                  occlude a slider or readout (W6-6). -->
-            <PaneHeader v-bind="description !== undefined ? { description } : {}">{{ title }}</PaneHeader>
-
-            <FadingScroll
-                axis="y"
-                class="pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden"
-            >
+            <!-- A2-VA-L1-1: the one pane shell, seated, following the row,
+                 with the action bar in its footer seat. -->
                 <!-- T.W4-4 THE POPULATION CLAUSE (M-34): the console grammar
                      extends to the app's SECOND slider population — the
                      sections seat in the SAME rung-2 well (.console-well,
@@ -182,8 +178,8 @@ function resetDefaults() {
                     </div>
                     </div>
                 </div>
-            </FadingScroll>
 
+            <template #footer>
             <!-- Action bar — a flex-none footer below the scroll region, so it
                  can never occlude a slider (W6-6). X-DS pass 1 (V1-04): two
                  plain commands seated behind the hairline, right-aligned. The
@@ -201,8 +197,8 @@ function resetDefaults() {
                     Reset
                 </Button>
             </div>
-        </Card>
-    </div>
+            </template>
+    </PaneShell>
 </template>
 
 <style scoped>
