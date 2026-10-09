@@ -1,0 +1,378 @@
+{
+  "mix-1440-light": {
+    "button": {
+      "top": 676,
+      "bottom": 716
+    },
+    "card": {
+      "top": 112,
+      "bottom": 733
+    },
+    "buttonInsideCard": true,
+    "buttonInPort": false,
+    "port": {
+      "scrollHeight": 361,
+      "clientHeight": 361
+    },
+    "gapUnderButton": 17,
+    "headers": [
+      {
+        "title": "Mix",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "generate-1440-light": {
+    "name": {
+      "value": "Generated Palette",
+      "scrollWidth": 434,
+      "clientWidth": 434,
+      "clipped": false,
+      "family": "Fraunces",
+      "size": "20.352px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "plateBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)"
+    },
+    "countRail": false,
+    "countVariant": "scrubber",
+    "headers": [
+      {
+        "title": "Generate",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "extract-1440-light": {
+    "looping": 0,
+    "countVariant": "scrubber",
+    "headers": [
+      {
+        "title": "Extract",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "browse-1440-light": {
+    "headers": [
+      {
+        "title": "Browse",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "gradient-1440-light": {
+    "headers": [
+      {
+        "title": "Gradient",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "mix-390-light": {
+    "button": {
+      "top": 648,
+      "bottom": 688
+    },
+    "card": {
+      "top": 128,
+      "bottom": 705
+    },
+    "buttonInsideCard": true,
+    "buttonInPort": false,
+    "port": {
+      "scrollHeight": 348,
+      "clientHeight": 348
+    },
+    "gapUnderButton": 17,
+    "headers": [
+      {
+        "title": "Mix",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "generate-390-light": {
+    "name": {
+      "value": "Generated Palette",
+      "scrollWidth": 296,
+      "clientWidth": 296,
+      "clipped": false,
+      "family": "Fraunces",
+      "size": "20.352px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "plateBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)"
+    },
+    "countRail": false,
+    "countVariant": "scrubber",
+    "headers": [
+      {
+        "title": "Generate",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "extract-390-light": {
+    "looping": 0,
+    "countVariant": "scrubber",
+    "headers": [
+      {
+        "title": "Extract",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "browse-390-light": {
+    "headers": [
+      {
+        "title": "Browse",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "gradient-390-light": {
+    "headers": [
+      {
+        "title": "Gradient",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "mix-1440-dark": {
+    "button": {
+      "top": 676,
+      "bottom": 716
+    },
+    "card": {
+      "top": 112,
+      "bottom": 733
+    },
+    "buttonInsideCard": true,
+    "buttonInPort": false,
+    "port": {
+      "scrollHeight": 361,
+      "clientHeight": 361
+    },
+    "gapUnderButton": 17,
+    "headers": [
+      {
+        "title": "Mix",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "generate-1440-dark": {
+    "name": {
+      "value": "Generated Palette",
+      "scrollWidth": 434,
+      "clientWidth": 434,
+      "clipped": false,
+      "family": "Fraunces",
+      "size": "20.352px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "plateBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)"
+    },
+    "countRail": false,
+    "countVariant": "scrubber",
+    "headers": [
+      {
+        "title": "Generate",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "extract-1440-dark": {
+    "looping": 0,
+    "countVariant": "scrubber",
+    "headers": [
+      {
+        "title": "Extract",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "browse-1440-dark": {
+    "headers": [
+      {
+        "title": "Browse",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "gradient-1440-dark": {
+    "headers": [
+      {
+        "title": "Gradient",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "mix-390-dark": {
+    "button": {
+      "top": 649,
+      "bottom": 689
+    },
+    "card": {
+      "top": 128,
+      "bottom": 706
+    },
+    "buttonInsideCard": true,
+    "buttonInPort": false,
+    "port": {
+      "scrollHeight": 348,
+      "clientHeight": 348
+    },
+    "gapUnderButton": 17,
+    "headers": [
+      {
+        "title": "Mix",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "generate-390-dark": {
+    "name": {
+      "value": "Generated Palette",
+      "scrollWidth": 296,
+      "clientWidth": 296,
+      "clipped": false,
+      "family": "Fraunces",
+      "size": "20.352px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "plateBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)"
+    },
+    "countRail": false,
+    "countVariant": "scrubber",
+    "headers": [
+      {
+        "title": "Generate",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "extract-390-dark": {
+    "looping": 0,
+    "countVariant": "scrubber",
+    "headers": [
+      {
+        "title": "Extract",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "browse-390-dark": {
+    "headers": [
+      {
+        "title": "Browse",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  },
+  "gradient-390-dark": {
+    "headers": [
+      {
+        "title": "Gradient",
+        "seated": true,
+        "veil": "none"
+      },
+      {
+        "title": "My Palettes",
+        "seated": true,
+        "veil": "none"
+      }
+    ]
+  }
+}

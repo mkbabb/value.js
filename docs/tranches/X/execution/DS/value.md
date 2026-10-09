@@ -331,3 +331,57 @@ The critic's own frames stay in `pass-07/critic/` (not committed by this seat).
 - The companions now end at their content, so a pair can differ in height, as the original two cards did. Check that /mix with a result plate, and My Palettes with several saved cards, still follow the row and scroll inside the card.
 - "Character" is this seat's name for Harmony, Arrangement, Medium and Motion. "Palette" was the critic's other option; it fits Harmony only.
 - V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11 still wait on the owner.
+
+### pass 8
+
+This receipt covers the cure of the pass-8 critic's rows **V3C-01 … V3C-07**, judged after the pass-7 cure `a85477894`. The workflow that dispatched this seat called it "pass 3" (its counter restarted after the limit reset). It is filed as pass 8, as pass 7's seat did for the same reason: `pass-03/` already holds pass 3's committed evidence, and V3C-07 itself names "the pass-8 cure seat".
+
+**Commits.** value.js `5f3275ac9` (the cure, 12 files) and `fa2c2e820` (AFTER frames, probe, census). The gate listings and this receipt are committed together.
+
+**Consumer findings, cured at the root.**
+
+| id | cure | measured (`pass-08/`) |
+|---|---|---|
+| V3C-01 | Mix composes PaneShell `seated`, and MixConfigBar (Color space, Hue method and the Mix button) sits in the shell's `#footer` seat, the way the config pane's action bar does since `3abe9d7d5`. The seat carries the body gutter (`px-4 sm:px-6 pt-3 pb-4`) and the config pane's 35% footer hairline, so the verb never scrolls and the selects are no longer flush on the card edge. The Saved-palettes true-empty plate takes EmptyState's new `compact` prop: no plate-scale `py-8` under its own section heading, and a tighter `gap-1.5`. | `probe-v3c.json`: at 1440 the button's bottom is 716 inside a card ending at 733 (17 px under it). It is outside the port in every cell. The empty Mix port is 361/361 at 1440 (no scroll; it was 683 against 619) and 348/348 at 390 (`probe-shots/mix-card-1440-light.png`, `mix-*.png`). |
+| V3C-02 | PaletteCardSkeleton's `instrument` branch drops `animate-pulse` and its staggered `animationDelay` on the cells and meta blocks. The face is a static, flat well that keeps its live-k segmentation (`gap-px`). Motion stays on the loading registers (the `v-else` Skeleton branch). | Extract's ghost runs 0 looping animations in all four cells (was 7). The census's consumer looping animations fall from 14 to **0**. |
+| V3C-03 | The name has the title row to itself. The verb cluster (Regenerate, save, copy) moves to the bench-note row, right of the seed that Regenerate re-rolls, so provenance and the verb that changes it share one line. One display voice at every width: the `max-sm:text-body` step swapped the family as well as the size, and with the whole row the default fits at 390 on the same rung. The field wears the plate's well (`--input-on-glass: transparent`, scoped to `[data-generate-plate]`). The second 8% tone step it laid over the well was the heaviest fill on the card. glass's field edge is kept (O-87). | "Generated Palette" is unclipped at 1440 (434/434, was 197/191) and at 390 (296/296). The voice is Fraunces 20.35 px in all four cells. The field background is transparent over the well (`generate-*.png`, `probe-shots/generate-plate-*.png`). |
+| V3C-04 | Browse, Generate, Gradient, Extract and Mix compose PaneShell `seated`. The existing seated-header rule (PaneHeader.vue, V4C-05) drops the rest veil. No header is restyled. A seated header never condenses; this is About's and My Palettes' contract. | Every visible header in every probed row (Browse, Generate, Gradient and Extract each beside My Palettes, and Mix) paints no veil (`::before` display none), light and dark, 1440 and 390. |
+| V3C-05 | Generate's "Colors" is glass's `scrubber` Slider at the `sm` rung, Extract's idle register. The swatches still show on the plate above. The content-as-track rail and its `countSliderGradient` retire. | Count rail absent and variant `scrubber` in all four cells. `paletteRail` still serves Extract's developed rail, under its own lock. |
+| V3C-06 | **No local cure. This needs an owner ruling.** Gate A5 keeps the route h1 visible as the focus target. Record for the owner: anchor it as the dock's label, or let the pane title carry the h1 role, only if A5 is revisited. | — |
+| V3C-07 | Evidence only. The gradient and extract cells (and every other cell) are re-captured at this HEAD. | `gradient-1440-*.png` and `extract-1440-*.png` show no plate under My Palettes. The Gradient labels read "Color space" and "Hue method". |
+
+**Glass-owned rows.** None were raised. The census's glass rows stay honest-RED on O-87, with no local override. The V3C-03 field edge is glass's (`--field-control-ink`, no host seam) and is cited on O-87.
+
+**Re-aims, named** (no assertion weakened elsewhere):
+- **O-9's living leg → a still leg** (`e2e/smoke/oracles/o9-shadow-palette.spec.ts`). It asserted an infinite staggered pulse on a face where nothing is loading. The X-DS canon and addendum (a) (§0ej/§0ek) put idle pulse on state-less chrome out. The leg now asserts that no cell animates at k = 5 or k = 6. The live-k re-segmentation, the no-grow height and the PRM leg are unchanged.
+- **generate-rail.test.ts → the count-control contract.** EC-10's twin locked the retired rail. It now asserts the glass scrubber at `sm`, with no rail and no gradient track.
+
+**Census** (`scripts/ds-census.mjs --widths 1440 --themes light,dark --settle 5000`, `census-after.json`). The first run caught /gradient, /atmosphere and /blob half-booted ("Loading the scene" plates). Those three were re-run at a 15 s settle (`census-after-rerun.json`).
+- Consumer box-shadow layers 116 and backdrop blur 18: unchanged.
+- **Consumer looping animations: 14 → 0.**
+- **Verdict RED**, on glass-owned chrome (O-87): inset highlights, multi-layer elements, the dock's drop-shadow and gradient fills on glass controls.
+
+**Frames.** `evidence/DS/value/pass-08/`, all headless real Chrome (§0ei):
+- 36 route frames (`capture.mjs`, 0 of 36 failed);
+- the probe cells in `probe-shots/`;
+- `probe-v3c.json` (final) and `probe-v3c-first.json` (before the compact empty state, when Mix's port was 422 against 361).
+
+**Gates** (`v3c-gates/README.txt`). Host load was 92–450 throughout.
+- **Type-check:** 0 errors ×2.
+- **vitest:**
+  - Run 1: 1095/1120. Run 2: 1100/1120 (10 skipped).
+  - Failures are the pre-existing set (ink ×5, spectrum-luma C-5, reka NG-6) plus load timeouts: byte-exact PNG, extract-session, the admin panels, and the n-fixtures harness's in-file 60 s hook in palette-card-layout and plate-mass.
+  - The re-aimed generate-rail and admin-destructive pass alone with a 180 s timeout.
+- **e2e: NOT ×2 GREEN.**
+  - The focused set on a cold 8090 server was voided twice: it ran at load 300–450, where nearly every test hit a goto, dock or pane timeout.
+  - On the warm server, the targeted set ran ×2. O-9 Extract (the re-aimed still leg) and O-9 Browse-empty **passed ×2**.
+  - The rest failed ×2 in one class: openView's dock-listbox option never reads "stable" in the SwiftShader smoke project at load, so the pane under test never opens. The dock select is not in this diff.
+  - A direct headless-Chrome walk of the same openView opens all five changed panes in 1.3–2.7 s.
+  - companion-pane-track-start shows the pass-7 "region never settled" class.
+- **No visual golden was re-baselined.**
+
+**For the pass-9 critic.**
+- The empty Mix fits the 1440 row exactly (port 361/361). Judge it with colours selected and with a result plate. The port should scroll above the fixed footer, and the convergence overlay should still land on the result well.
+- Generate's verbs now sit on the seed row. Judge whether Regenerate reads as the plate's verb there, and whether the title row (name alone) reads as a title rather than a field. The field edge is glass's.
+- The five workbench headers no longer condense on scroll (seated). Check the phone band, where Gradient's card is long, for header weight.
+- V3C-06 waits on the owner (A5), with V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11.
