@@ -4,6 +4,7 @@ import { LogIn, ArrowRight, X as XIcon, Loader2 } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
 import { writeClipboard } from "@mkbabb/glass-ui";
+import { Input } from "@mkbabb/glass-ui/input";
 
 const pm = inject(SESSION_PORT_KEY)!;
 
@@ -11,14 +12,14 @@ const slugEditMode = defineModel<boolean>("active", { default: false });
 const slugInput = ref("");
 const slugSwitching = ref(false);
 const slugError = ref("");
-const slugInputRef = useTemplateRef<HTMLInputElement>("slugInputRef");
+const slugInputRef = useTemplateRef<{ $el?: HTMLInputElement }>("slugInputRef");
 
 function onStartSlugEdit() {
     slugInput.value = "";
     slugError.value = "";
     slugEditMode.value = true;
     nextTick(() => {
-        slugInputRef.value?.focus();
+        slugInputRef.value?.$el?.focus();
     });
 }
 
@@ -90,8 +91,10 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
              hint); the name is now the field's own.
              UIA-V-17/247: the field takes the room the row leaves (flex-1
              min-w-0), not a fixed 160 px that truncated the prompt and every
-             real slug and pushed Cancel past a 390 dock. -->
-        <input
+             real slug and pushed Cancel past a 390 dock.
+             A2-VA-L1-14 (UIA-V-249): the field is glass's Input — the app's one
+             text-field idiom — at the control floor, not a bare `<input>`. -->
+        <Input
             ref="slugInputRef"
             v-model="slugInput"
             aria-label="Slug or admin token"
@@ -101,7 +104,8 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
             spellcheck="false"
             :aria-invalid="slugError ? 'true' : undefined"
             :aria-describedby="slugError ? 'slug-edit-error' : undefined"
-            class="slug-input text-mono-small bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground"
+            size="sm"
+            class="slug-input text-mono-small flex-1 min-w-0"
             @input="slugError = ''"
             @keydown.escape.stop="slugEditMode = false"
         />

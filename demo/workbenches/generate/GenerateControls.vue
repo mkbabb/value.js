@@ -19,6 +19,7 @@ import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
 // literal `aria-label` retires.
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import SwatchButton from "../../shared/ui/SwatchButton.vue";
+import PaletteNameInput from "../../shared/ui/PaletteNameInput.vue";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
 // the chip module + spec; the GenerateControls consume routes through Lane
 // N's queue — recorded in both lane logs.
@@ -147,8 +148,8 @@ defineExpose({ regenerate, save, copyColors });
                  rail) and meant nothing the swatches do not. The title opens
                  the plate. -->
             <!-- Plate chrome: name — count — regenerate — actions. The name
-                 is the plate title (editable in place — the card family's
-                 dashed-underline affordance), not a form field. The row
+                 is the plate title, editable in place through the app's one
+                 name field (A2-VA-L1-14). The row
                  X-DS pass 4 (V4C-09): ONE row at every width. At 390 the
                  cluster used to wrap onto its own right-aligned line, detached
                  from the title it acts on; now the name shrinks (it is the
@@ -159,11 +160,12 @@ defineExpose({ regenerate, save, copyColors });
                  beside the three icon actions; the ellipsis stays for long
                  names. -->
             <div class="px-3 py-2.5 flex items-center gap-x-2 min-w-0">
-                <input
+                <!-- A2-VA-L1-14: the plate title is the app's one name field
+                     (shared/ui/PaletteNameInput, live mode) in the title voice. -->
+                <PaletteNameInput
                     v-model="paletteName"
-                    type="text"
-                    aria-label="Palette name"
-                    class="flex-1 basis-[10rem] min-w-0 truncate bg-transparent font-display font-medium text-subheading max-sm:text-body cursor-text rounded-sm hover:underline decoration-dashed underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                    class="flex-1 basis-[10rem]"
+                    input-class="font-display font-medium text-subheading max-sm:text-body"
                 />
                 <!-- X-DS pass 1 (V1-09): the unlabelled count badge is gone —
                      the count slider's own readout below is its labelled home. -->

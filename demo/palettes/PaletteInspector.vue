@@ -87,10 +87,11 @@
         <!-- Inline rename input — morph family with a height morph (the row
              unfurls in place; geometry vars on .rename-morph below). -->
         <Transition name="vj-morph">
-            <PaletteRenameInput
+            <PaletteNameInput
                 v-if="renaming"
-                class="rename-morph"
-                :name="palette.name"
+                commit
+                class="rename-morph px-3 pb-2.5 pt-1 max-w-sm"
+                :model-value="palette.name"
                 @submit="onRenameSubmit"
                 @cancel="renaming = false"
             />
@@ -169,7 +170,7 @@ import type { SwatchSize } from "../shared/ui/SwatchButton.vue";
 import PaletteCardMenu from "./browser/card/PaletteCard/PaletteCardMenu.vue";
 import PaletteCardMeta from "./browser/card/PaletteCard/PaletteCardMeta.vue";
 import PaletteCardSwatches from "./browser/card/PaletteCard/PaletteCardSwatches.vue";
-import PaletteRenameInput from "./browser/card/PaletteCard/PaletteRenameInput.vue";
+import PaletteNameInput from "../shared/ui/PaletteNameInput.vue";
 import ActionFeedback from "./browser/card/PaletteCard/ActionFeedback.vue";
 
 const props = withDefaults(
