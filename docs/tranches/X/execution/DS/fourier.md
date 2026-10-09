@@ -1064,3 +1064,50 @@ This is the cure for critic **F5**. The BEFORE is pass 4's AFTER set (`pass-04/f
 - `v-stage-*-1440` and `v-epicycle-hover-*-1440` (for G1).
 
 Each was taken in light and dark, at 1440 and 390 where it applies.
+
+### pass 6
+This is the cure for critic **F6**. The BEFORE is the critic's set, `pass-06/critic-f6/` (its frames, `darkprobe.mjs`, `f6probe.mjs`, `dockprobe.mjs`), plus the gallery hover frames it cites from pass 5's AFTER (`pass-05/f5/gallery-hover-*-1440`).
+- fourier `64f7429`, on `m/w1-bump-migration`, pushed fast-forward `56619fc..64f7429`. Three files, committed by pathspec. `scripts/model-smoke.sh` and the `web/e2e/screenshots/` tree are dirty with other seats' changes and were not touched.
+- value.js `c1127c265` holds the AFTER frames, the cure probe and its JSON, the census and the e2e logs, all in `pass-06/f6/`. The earlier loop's `pass-06/critic-f8/` and `f8/` sets are left as they were.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F6-C1 | **Root:** `:global(.dark) .gallery-card:hover` inside `<style scoped>` compiled to a bare `.dark { background-color: … }`. It repainted `<html>` whenever the GalleryCard chunk loaded, and the card itself kept the light arm. **Cure:** one token, `--card-hover-step`, in `style.css` (−0.02 under `:root`, +0.02 under `.dark`), read by one scoped rule: `oklch(from var(--card) calc(l + var(--card-hover-step)) c h)`. The second arm is deleted. **Measured** (`f6-cure-probe-after.json`): dark rest L 0.295 → hover **0.315** (lighter, toward the page's far end); light 0.974 → 0.954. Chroma and hue are kept (§0dm). The served CSSOM holds one `.gallery-card[data-v-…]:hover` rule and **no** bare `.dark{background-color}` rule (`bareDarkBg: false`, both arms). Frames: `gallery-hover-*-1440`. |
+| DS-F6-C2 | `ConvergenceLegend.vue`: the f(t) key's dashed ring is inked `var(--muted-foreground)`. That is the ink ConvergencePlot strokes the dashed f curve in (it reads the canvas's `text-muted-foreground` colour). The literal `rgba(180,180,180,.6)` is deleted. **Measured:** ring = curve ink in both arms, rgb(112,89,66) light and rgb(195,185,172) dark. No glow, no size change. Frames: `equation-legend-*-1440`, `equation-*`. |
+
+**Glass-owned, cited, not overridden.**
+- **DS-F6-G1** (the /equation 390 dock plate is an ellipse inside a stadium ghost): re-measured on the AFTER tree. The radius is `50% calc(49.0385% + 0.31px) …` at 390, and 9999px at 1440. That is glass's `--dock-run` cap animation interpolating to a percentage `--dock-cap-cut`. Cited under **O-88 DOCK-COLLAPSE-MOTION** (dock form) beside **O-80 DOCK-OVERFLOW-LAYOUT**. No consumer dock radius is set or added.
+- **DS-F6-G2** (the `#persistent` '1024 pts' readout about 7px off the plate's leading edge, with the ghost plate behind it): glass renders `#persistent` outside `.dock-layers` with no inline inset. Cited under **O-88** with DS-F3-G3. No local padding literal. Frame: `v-edit-light-1440`.
+- **DS-F6-G3** (the section menu paints no current row; zero icon-to-label gap): fourier sets `aria-current="page"` (AppDock.vue:143). The paint is glass's half (O-59, not in the pinned glass). Relayed beside **O-87** with DS-F-G8, asking for the flat `--fill-selected` tint. No local tint. Frame: `dock-menu-light-1440`.
+- **DS-F6-G4** (the Configurator aside's last row cut mid-glyph at its rim, with no edge cue): glass `.configurator-aside` is `overflow-y: auto` with no scroll-edge affordance. Relayed under **O-87**, asking for a flat page-tone fade of at most 1rem, or a hairline when scrolled. No local mask. Frames: `equation-*-1440`.
+
+**Census** (`scripts/ds-census.mjs` against the cured tree on `:3100`; `census-after.json`):
+- Static is unchanged: 8 box-shadow declarations, 9 gradients, 3 keyframes. The C1 cure removes a rule and adds no lighting. C2 swaps a literal for a token.
+- Computed sums: 384 shadow elements, 972 layers, 290 multi-layer stacks, 290 inset highlights, 212 backdrop blur, 0 control gradients, 0 looping chrome. These equal pass 4's read exactly.
+- Against pass 5 (364 / 933 / 278 / 278 / 201), the delta is data, not lighting:
+  - the /v cell is back on `plush-evening-olive-squid` (pass 5 read `mossy-pulsing-cedar-badger` in its loading state);
+  - /gallery dark 390 holds two more seeded cards (106 → 122 elements, +2 shadow elements).
+- The first census attempt died on a mid-evaluate navigation under host load; its log is kept as `census-attempt1-nav-race.log`.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- **e2e: NOT GREEN ×2. The reds are instrument and backend faults, measured, and none is on a surface this cure changed.**
+  - The spec set is 32 specs: pass 5's 28 plus `equation-interaction`, `f-w14u-eq`, `f-w14v-eq2` and `f-w13-radius` for C2 (`e2e-specs.txt`). It ran headless on chromium plus mobile-chromium, 3 workers, at host load ~160–520.
+  - `e2e-3100-hung/`: against the shared `:3100` dev server.
+    - Run A: 332 passed, 15 failed. The 6 production-bundle cases got ERR_CONNECTION_REFUSED on `:4190`, because the preview could not bind ("Port 4190 is already in use"). There were 3 admin-table backend timeouts, item 8 failed on a 5s screenshot fonts-wait, and the 5 stale goldens failed.
+    - Run B then died in global-seed 5 times: `:3100` stopped answering even `GET /gallery` (20s+), while the backend on `:8000` answered in 30ms.
+  - `e2e-8000-compute-500/`: against my own dev server of this tree on `:3131`, proxied to the shared backend on `:8000`.
+    - **Run A: 339 passed, 8 failed.** The 5 `visual-checkpoint` goldens are the same stale set that is RED at HEAD since pass 4: card 246×307 golden vs 277×238 rendered. The other 3 are load-bound timeouts: an `equation-interaction` compute wait, UIA-F-19's canvas attach and UIA-F-48's Drafts list.
+    - **Run B: 331 passed, 16 failed.** 11 /equation reds plus the 5 goldens. The 11 are one cause: the shared uvicorn (pid 75924, up since 10-08) answers **`POST /api/equations/compute` with 500 "Internal server error" in 36 ms**. That was measured by `curl` straight to `:8000` with `{"expression":"x^2"}`, so no web code was involved. A focused recheck of those specs failed the same 11 (`e2e-runB-equation-recheck.txt`).
+  - A backend started from this checkout on `:8131` (the shared one's `MONGO_URI`/`BLOB_DIR`/rate-limit env) computes the same expression (200). But its `extract-contour` pool deadlocked: 8.5 GB resident, the worker idle, and global-seed timing out at 120s 8 times (`e2e-8131-contour-hang/`). This is the §0em contour-model fault class, so that instrument could not seed a run.
+  - A CSS custom property and a border colour cannot produce an HTTP 500 or a seed timeout. A green ×2 needs the shared backend's compute restored. That process belongs to another seat; it was not restarted.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/` tree, including other seats' dirty files, was backed up before the runs and restored after each one. Nothing there was committed.
+
+**Frames** (`pass-06/f6/`). All were captured in headless real Chrome (channel `chrome`, DPR 2; §0ei) by `f6-cure-probe.mjs` against `:3100` before it hung, with the pointer parked at (0,0):
+- `gallery-*` and `gallery-hover-*-1440` (C1);
+- `equation-*`, `equation-legend-*-1440` and `equation-scroll-*` (C2, G1, G4);
+- `v-*-1440`, `v-edit-light-1440` and `dock-menu-light-1440` (G2, G3).
+
+Each was taken in light and dark, at 1440 and 390 where it applies.
