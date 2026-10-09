@@ -1019,3 +1019,48 @@ This is the cure for critic **F4**. The critic's frames are in `pass-04/critic-f
 - The `web/e2e/screenshots/` tree, including another seat's dirty files, was backed up before the runs and restored after each one. Nothing there was committed.
 
 **Frames** (`pass-04/f4/`). All were captured in headless real Chrome (channel `chrome`, DPR 2; §0ei) by `f4-cure-probe.mjs` against `:3100`, with the pointer parked at (0,0). The critic's cells are `gallery-*`, `gallery-hover-*-1440`, `morph-*`, `morph-scroll-*`, `paper-*` and `v-epicycle-hover-*-1440`. Added: `no-such-route-*`, the crops `morph-levels-*` and `paper-description-*`, and `v-stage-*-1440`. Each was taken in light and dark, at 1440 and 390 where it applies.
+
+### pass 5
+This is the cure for critic **F5**. The BEFORE is pass 4's AFTER set (`pass-04/f4/`, the frames the critic judged), with the cure probe's BEFORE measurements in `pass-05/f5/f5-cure-probe-before.json`.
+- fourier `56619fc`, on `m/w1-bump-migration`, pushed fast-forward `7f807a3..56619fc`. Six files, committed by pathspec. `scripts/model-smoke.sh` and the `web/e2e/screenshots/` tree are dirty with other seats' changes and were not touched.
+- value.js `1168ef218` holds the AFTER frames, the cure probe and its before/after JSON, the census and the e2e logs, all in `pass-05/f5/`. The earlier loop's `pass-05/critic-f7/` and `f7/` sets are left as they were.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F5-C1 | `FourierMorphDemo.vue` + `MorphShapePreview.vue`: below 1024px only the plate and its readings pin. Export and Reset leave the sticky `.stage-column`. The wrapper `.stage-rail` is a plain div (not a component). It is `display: contents` below 1024px, so the actions are an ordinary item that scrolls with the controls, and at 1024px and up it is the sticky column (plate, readings, then actions, as UIA-F-254 placed them). The plate is a 7.5rem strip (120px, the m115 floor), and the four readings fit inside its height, so they add nothing to the band. Measured at 390: the band went from 243 to **133 css px** (28.8% to **15.7%** of 844), and the hairline is kept. The actions moved out of the band (`actionsInStage: false`). Frames: `morph-scroll-*-390` and `morph-*-390`. |
+| DS-F5-C2 | **REFUSED (walled), not deferred.** The cause is unchanged from DS-F4-C1. The latex-paper root is cured (`5be04ae`, `0be0e33`), but publishing 0.3.0 is an owner act (npm E401), and fourier repins after that. No local CSS shim was added. Measured: `paper-*` still shows `dt` text "" at 700 in all 4 cells. |
+| DS-F5-C3 | `HarmonicLevelGrid.vue`: one tile form at every width. The shape is 64px everywhere (the 48px phone rung is deleted), the tile has a block pad (`--space-atom`), and it is `aspect-ratio: 1` with the automatic minimum in place of the recipe's control-height floor. Measured: at 390 the tile went from a 102×70 capsule to **118×118**. At 1440 it is 98×109, the content holding open the taller side. The `n=` label now clears the foot by 9px (it was 1px). Frames: `morph-levels-*`. |
+| DS-F5-C4 | `GalleryCard.vue`: the hover is a lightness step in the card's own hue, `oklch(from var(--card) calc(l ∓ 0.02) c h)` (−0.02 in light, +0.02 under `.dark`). It replaces the `--foreground` veil, which greyed the cream. Measured on hover: light rest `srgb(0.994 0.96 0.926)` → `oklch(0.954 0.0149 67.5)`; dark rest `srgb(0.207 0.165 0.133)` → `oklch(0.275 0.0216 59.2)`. Chroma is kept, and the cream stays cream. The static census loses one decorative gradient (10 → 9). Frames: `gallery-hover-*-1440`. |
+| DS-F5-C5 | `NotFoundCard.vue` (layout only; glass's skin is untouched): the text link pulls back by its inset (`--space-residue` + its 1px edge), and the row's column gap grows by the same amount. Wrapped at 390, the glyph is at **x 25 = the title's 25** (it was 30). Beside the primary at 1440 the glyph stays at 748.1, so the spacing there is unchanged. Frames: `no-such-route-*`. |
+| DS-F5-C6 | `GalleryInfiniteGrid.vue`: back to `auto-fill, minmax(16rem, 1fr)`, which reverses pass 4's DS-F4-C4 `auto-fit` and its count-keyed 24rem cap. The track count now follows the field's width alone. Measured at 1440: 5 tracks of **272px**, both at the full set (4 results) and when a search term is typed. Before, 4 results gave 343px cards, and the card size followed the result count. A full row ends on the gutter the toolbar runs to. Of the critic's two options this is the stable one. It returns the checkpoint card to its pre-C4 width (277px), so **no golden is re-baselined**. A short set leaves its empty tracks, which is the trade that DS-F4-C4 had tried to remove. |
+
+**Glass-owned, cited, not overridden (O-87 FLAT-LIGHTING named rows).**
+- **DS-F5-G1:** `glass-floating`'s `--glass-specular-disc` hover layer sits on the detached Configurator's resting cards (the stage and the aside, from `layout="detached"` in configurator `:69`). It is a disc of about 280px with no pointer tracking, pinned at 50%/50%, and it fades in from 0 to 0.1 on hover. The ask: detached cards take a resting recipe, or the disc leaves `glass-floating` under the "one quiet edge" ruling. Held honest-RED and re-judged at the 10.2.0 repin. `VisualizationView` keeps `layout="detached"`, and no local `::before` override was added.
+- **DS-F5-G2:** the `.slider-track.track-well` inset rim is painted on a well taller than the 4–6px track, so every glass Slider reads as two tracks. The ask: the one edge hugs the track, or the decorative bevel is dropped. Held honest-RED, with no local override.
+
+**Census** (`scripts/ds-census.mjs` against the cured tree on `:3100`; `census-after.json`):
+- Static: 8 box-shadow declarations, **9** gradients (pass 4 had 10; GalleryCard's hover gradient is gone), 3 keyframes.
+- Computed sums: 364 shadow elements, 933 layers, 278 multi-layer stacks, 278 inset highlights, 201 backdrop blur, 0 control gradients, 0 looping chrome. Pass 4 read 384 / 972 / 290 / 290 / 212.
+- Read cell by cell, the only deltas are /gallery dark 390 (−2 elements: two fewer seeded cards in that read) and the /v cell, which follows the gallery's newest slug (now `mossy-pulsing-cedar-badger`, dark 390 read in its loading state). Both are data, not lighting. The cures' own surfaces add no shadow, blur or gradient.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered the 28 specs from pass 4 (`e2e-specs.txt`), which reach /morph, /gallery, not-found, /v and the visual checkpoint. They ran on chromium plus mobile-chromium, headless, with 3 workers, against BASE_URL `:3100`. Playwright built and served its own `:4190` preview of this tree.
+  - Run A: 318 passed, 6 failed.
+  - Run B: 318 passed, 6 failed. The same 6 failed in both runs.
+  - One earlier attempt at A died in global-seed with a `POST /api/sessions` timeout at host load ~112–130; its log is kept as `e2e-runA0-seed-timeout.txt`.
+- **Every red is also red on the unmodified HEAD:**
+  - The 5 `visual-checkpoint` goldens are the same stale set as pass 4's HEAD baseline. Card 240×301 golden vs 277×238 rendered; modal 636 vs 628; disclosure; tooltip. The numbers match `pass-04/f4/e2e-head-baseline.txt`.
+  - `f-w14u-misc` m208 is a race: about 10 sequential `toBeDisabled` checks against a ~450ms morph under host load ~120. A HEAD worktree served on `:3129` failed it 2 of 3 (`e2e-m208-head-baseline.txt`), and nothing in this cure touches the morph's timing or the tiles' `disabled`.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/` tree, including other seats' dirty files, was backed up before the runs and restored byte for byte after them. Nothing there was committed.
+
+**Frames** (`pass-05/f5/`). All were captured in headless real Chrome (channel `chrome`, DPR 2; §0ei) by `f5-cure-probe.mjs` against `:3100`, with the pointer parked at (0,0):
+- `gallery-*` and `gallery-hover-*-1440`;
+- `morph-*`, `morph-scroll-*` and `morph-levels-*`;
+- `paper-*` and `paper-description-*`;
+- `no-such-route-*`;
+- `v-stage-*-1440` and `v-epicycle-hover-*-1440` (for G1).
+
+Each was taken in light and dark, at 1440 and 390 where it applies.
