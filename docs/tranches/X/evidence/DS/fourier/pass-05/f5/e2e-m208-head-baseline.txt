@@ -1,0 +1,86 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+Running 3 tests using 3 workers
+
+[1/3] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[2/3] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[3/3] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+  1) [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+
+    Error: expect(locator).toBeDisabled() failed
+
+    Locator:  locator('.levels-card .grid-cell').nth(6)
+    Expected: disabled
+    Received: enabled
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeDisabled" with timeout 5000ms
+      - waiting for locator('.levels-card .grid-cell').nth(6)
+        14 × locator resolved to <button type="button" data-size="md" data-v-942aaff2="" data-slot="button" data-tone="neutral" data-press-armed="" data-emphasis="quiet" data-control-target="" class="button tap-squish focus-ring grid-cell">…</button>
+           - unexpected value "enabled"
+
+
+      179 |         await expect(stage(page)).toHaveAttribute("aria-busy", "true");
+      180 |         const n = await tiles(page).count();
+    > 181 |         for (let i = 0; i < n; i++) await expect(tiles(page).nth(i)).toBeDisabled();
+          |                                                                      ^
+      182 |         await expect(page.getByRole("button", { name: "Reset" })).toBeDisabled();
+      183 |         await expect(stage(page)).not.toHaveAttribute("aria-busy", "true", { timeout: 10_000 });
+      184 |         await expect(tiles(page).first()).toBeEnabled();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:181:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium-repeat2/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium-repeat2/error-context.md
+
+
+  2) [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+
+    Error: expect(locator).toBeDisabled() failed
+
+    Locator:  locator('.levels-card .grid-cell').nth(9)
+    Expected: disabled
+    Received: enabled
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeDisabled" with timeout 5000ms
+      - waiting for locator('.levels-card .grid-cell').nth(9)
+        14 × locator resolved to <button type="button" data-size="md" data-v-942aaff2="" data-slot="button" data-tone="neutral" data-press-armed="" data-emphasis="quiet" data-control-target="" class="button tap-squish focus-ring grid-cell active is-bound">…</button>
+           - unexpected value "enabled"
+
+
+      179 |         await expect(stage(page)).toHaveAttribute("aria-busy", "true");
+      180 |         const n = await tiles(page).count();
+    > 181 |         for (let i = 0; i < n; i++) await expect(tiles(page).nth(i)).toBeDisabled();
+          |                                                                      ^
+      182 |         await expect(page.getByRole("button", { name: "Reset" })).toBeDisabled();
+      183 |         await expect(stage(page)).not.toHaveAttribute("aria-busy", "true", { timeout: 10_000 });
+      184 |         await expect(tiles(page).first()).toBeEnabled();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:181:70
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-m208-UIA-F-208-f427e-age-is-busy-while-it-morphs-chromium/error-context.md
+
+
+  2 failed
+    [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+    [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs 
+  1 passed (1.5m)
