@@ -1,0 +1,506 @@
+{
+ "v-error-light-1440": {
+  "paragraphs": [
+   {
+    "text": "No saved visualization loaded from “no-such-slug”.",
+    "font": "\"Computer Modern Serif\""
+   }
+  ],
+  "ledeLines": 1,
+  "slugRects": 1,
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "emphasis": "primary",
+    "x": 529.6,
+    "y": 549.9,
+    "w": 202.1,
+    "shadowLayers": 5,
+    "bg": "oklab(0.958891 0.0089115 0.0269842)"
+   },
+   {
+    "label": "Browse the gallery",
+    "emphasis": "quiet",
+    "x": 743.7,
+    "y": 549.9,
+    "w": 166.8,
+    "shadowLayers": 0,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "w-error-light-1440": {
+  "paragraphs": [
+   {
+    "text": "No image loaded from “no-such-image-slug”.",
+    "font": "\"Computer Modern Serif\""
+   }
+  ],
+  "ledeLines": 1,
+  "slugRects": 1,
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "emphasis": "primary",
+    "x": 529.6,
+    "y": 549.9,
+    "w": 202.1,
+    "shadowLayers": 5,
+    "bg": "oklab(0.958891 0.0089115 0.0269842)"
+   },
+   {
+    "label": "Browse the gallery",
+    "emphasis": "quiet",
+    "x": 743.7,
+    "y": 549.9,
+    "w": 166.8,
+    "shadowLayers": 0,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "morph-light-1440": {
+  "before": [
+   {
+    "label": "phase",
+    "value": "idle",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 160
+   },
+   {
+    "label": "n",
+    "value": "50",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 160
+   },
+   {
+    "label": "shape",
+    "value": "Sun",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 223
+   },
+   {
+    "label": "total",
+    "value": "350",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 346.5
+   }
+  ],
+  "after": [
+   {
+    "label": "phase",
+    "value": "idle",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 160
+   },
+   {
+    "label": "n",
+    "value": "50",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 160
+   },
+   {
+    "label": "shape",
+    "value": "Moon",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 223
+   },
+   {
+    "label": "total",
+    "value": "350",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 346.5
+   }
+  ],
+  "moved": false
+ },
+ "dock-handle-light-1440": {
+  "inDom": false
+ },
+ "v-error-light-390": {
+  "paragraphs": [
+   {
+    "text": "No saved visualization loaded from “no-such-slug”.",
+    "font": "\"Computer Modern Serif\""
+   }
+  ],
+  "ledeLines": 2,
+  "slugRects": 1,
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "emphasis": "primary",
+    "x": 106.3,
+    "y": 482.8,
+    "w": 177.5,
+    "shadowLayers": 5,
+    "bg": "oklab(0.958891 0.0089115 0.0269842)"
+   },
+   {
+    "label": "Browse the gallery",
+    "emphasis": "quiet",
+    "x": 121.3,
+    "y": 534.8,
+    "w": 147.3,
+    "shadowLayers": 0,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "w-error-light-390": {
+  "paragraphs": [
+   {
+    "text": "No image loaded from “no-such-image-slug”.",
+    "font": "\"Computer Modern Serif\""
+   }
+  ],
+  "ledeLines": 1,
+  "slugRects": 1,
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "emphasis": "primary",
+    "x": 106.3,
+    "y": 470.8,
+    "w": 177.5,
+    "shadowLayers": 5,
+    "bg": "oklab(0.958891 0.0089115 0.0269842)"
+   },
+   {
+    "label": "Browse the gallery",
+    "emphasis": "quiet",
+    "x": 121.3,
+    "y": 522.8,
+    "w": 147.3,
+    "shadowLayers": 0,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "morph-light-390": {
+  "before": [
+   {
+    "label": "phase",
+    "value": "idle",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 209.7
+   },
+   {
+    "label": "n",
+    "value": "50",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 209.7
+   },
+   {
+    "label": "shape",
+    "value": "Sun",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 209.7
+   },
+   {
+    "label": "total",
+    "value": "350",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 209.7
+   }
+  ],
+  "after": [
+   {
+    "label": "phase",
+    "value": "idle",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 209.7
+   },
+   {
+    "label": "n",
+    "value": "50",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 209.7
+   },
+   {
+    "label": "shape",
+    "value": "Moon",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 209.7
+   },
+   {
+    "label": "total",
+    "value": "350",
+    "empty": false,
+    "color": "rgb(28, 25, 23)",
+    "x": 209.7
+   }
+  ],
+  "moved": false
+ },
+ "dock-handle-light-390": {
+  "inDom": false
+ },
+ "v-error-dark-1440": {
+  "paragraphs": [
+   {
+    "text": "No saved visualization loaded from “no-such-slug”.",
+    "font": "\"Computer Modern Serif\""
+   }
+  ],
+  "ledeLines": 1,
+  "slugRects": 1,
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "emphasis": "primary",
+    "x": 529.6,
+    "y": 549.9,
+    "w": 202.1,
+    "shadowLayers": 5,
+    "bg": "oklab(0.31489 0.0117949 0.0248798)"
+   },
+   {
+    "label": "Browse the gallery",
+    "emphasis": "quiet",
+    "x": 743.7,
+    "y": 549.9,
+    "w": 166.8,
+    "shadowLayers": 0,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "w-error-dark-1440": {
+  "paragraphs": [
+   {
+    "text": "No image loaded from “no-such-image-slug”.",
+    "font": "\"Computer Modern Serif\""
+   }
+  ],
+  "ledeLines": 1,
+  "slugRects": 1,
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "emphasis": "primary",
+    "x": 529.6,
+    "y": 549.9,
+    "w": 202.1,
+    "shadowLayers": 5,
+    "bg": "oklab(0.31489 0.0117949 0.0248798)"
+   },
+   {
+    "label": "Browse the gallery",
+    "emphasis": "quiet",
+    "x": 743.7,
+    "y": 549.9,
+    "w": 166.8,
+    "shadowLayers": 0,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "morph-dark-1440": {
+  "before": [
+   {
+    "label": "phase",
+    "value": "idle",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 160
+   },
+   {
+    "label": "n",
+    "value": "50",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 160
+   },
+   {
+    "label": "shape",
+    "value": "Sun",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 223
+   },
+   {
+    "label": "total",
+    "value": "350",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 346.5
+   }
+  ],
+  "after": [
+   {
+    "label": "phase",
+    "value": "idle",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 160
+   },
+   {
+    "label": "n",
+    "value": "50",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 160
+   },
+   {
+    "label": "shape",
+    "value": "Moon",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 223
+   },
+   {
+    "label": "total",
+    "value": "350",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 346.5
+   }
+  ],
+  "moved": false
+ },
+ "dock-handle-dark-1440": {
+  "inDom": false
+ },
+ "v-error-dark-390": {
+  "paragraphs": [
+   {
+    "text": "No saved visualization loaded from “no-such-slug”.",
+    "font": "\"Computer Modern Serif\""
+   }
+  ],
+  "ledeLines": 2,
+  "slugRects": 1,
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "emphasis": "primary",
+    "x": 106.3,
+    "y": 482.8,
+    "w": 177.5,
+    "shadowLayers": 5,
+    "bg": "oklab(0.31489 0.0117949 0.0248798)"
+   },
+   {
+    "label": "Browse the gallery",
+    "emphasis": "quiet",
+    "x": 121.3,
+    "y": 534.8,
+    "w": 147.3,
+    "shadowLayers": 0,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "w-error-dark-390": {
+  "paragraphs": [
+   {
+    "text": "No image loaded from “no-such-image-slug”.",
+    "font": "\"Computer Modern Serif\""
+   }
+  ],
+  "ledeLines": 1,
+  "slugRects": 1,
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "emphasis": "primary",
+    "x": 106.3,
+    "y": 470.8,
+    "w": 177.5,
+    "shadowLayers": 5,
+    "bg": "oklab(0.31489 0.0117949 0.0248798)"
+   },
+   {
+    "label": "Browse the gallery",
+    "emphasis": "quiet",
+    "x": 121.3,
+    "y": 522.8,
+    "w": 147.3,
+    "shadowLayers": 0,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "morph-dark-390": {
+  "before": [
+   {
+    "label": "phase",
+    "value": "idle",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 209.7
+   },
+   {
+    "label": "n",
+    "value": "50",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 209.7
+   },
+   {
+    "label": "shape",
+    "value": "Sun",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 209.7
+   },
+   {
+    "label": "total",
+    "value": "350",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 209.7
+   }
+  ],
+  "after": [
+   {
+    "label": "phase",
+    "value": "idle",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 209.7
+   },
+   {
+    "label": "n",
+    "value": "50",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 209.7
+   },
+   {
+    "label": "shape",
+    "value": "Moon",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 209.7
+   },
+   {
+    "label": "total",
+    "value": "350",
+    "empty": false,
+    "color": "rgb(233, 230, 226)",
+    "x": 209.7
+   }
+  ],
+  "moved": false
+ },
+ "dock-handle-dark-390": {
+  "inDom": false
+ }
+}
