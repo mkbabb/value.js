@@ -1323,3 +1323,53 @@ The census is unchanged because this pass's cures are fold, ink, fit and meaning
 - The first draft of the theme rules used `inherit: false`. In jsdom, every token resolves to the same black, which collapsed Monaco's colour map, and the seam test crashed in `MinimapTokensColorTracker`. The final rules inherit the base and outrank its `.css` rules instead.
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure. No other seat had dirty files in keyframes.js. The cure commit is pathspec-only over its eight files.
 - value.js's index held other seats' entries. The evidence commit and this receipt commit are pathspec-only.
+
+### pass 6 (the fourth redeploy's pass 6; critic C25; evidence in `pass-25/`)
+
+**Cure commit:** keyframes.js `550827c2` (master, pushed fast-forward from `403064f7`). **Evidence:** value.js `55db5ffd1` (`evidence/DS/keyframes/pass-25/`). It holds the fold probe `c25-probe.mjs` with its `c25-probe.json`. Under `after/` are the `pane-<scene>-{1440x900,1280x800}-<scheme>` frames, `spring-{1440x900,1280x800}-light`, `cube-timeline-1440-*`, `amiga-{1440,390}-*` and `square-{1440,390}-*`. There are also `census.json`, `census.log` and `census-frames/` (28 pages). All captures are headless real Chrome (§0ei). The task named `pass-06`, but `pass-06/` already holds the first workflow's pass-6 evidence, so the frames go to `pass-25/` (the pass-23 and pass-24 precedent). The BEFORE frames are the critic's own, in `pass-24/`.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C25-01 | **A row the fold sits on is whole, so no fade lies on it.** When `landFold` lands a desktop rail scroller on a row's foot, it now reports `"foot"`. `useFoldLanding` keeps the set of footed scrollers (by `data-fold-key`), and `ControlsPaneWrapper` binds glass FadingScroll's own `fadeEnd` prop off for them. The prop is the public API, and no glass CSS is overridden. Scrolled off the top, the fade comes back as the cue; back at the top, the scroller lands again. A row that starts above the fade and runs under it is still left alone as the cue. **The critic's first form was built and measured, then replaced:** with the cap at foot + fade + chrome, the 8 px gap from a row to the separator under it is narrower than the 16 px fade, so at 1280x800 that separator sat half-faded 8 px above the ribbon's rule (probe: `stacked [415,423]` on cube, amiga and square, `[424,432]` on easing; the doubled line is visible in the frame). Either the row's foot or the separator has to fall in a 16 px fade, so the fade is switched off instead, which is the critic's alternative. The probe now asserts that a non-crossing cell either has its end fade off with the fold on the foot, or keeps the foot ≥ fade above the bottom. | Probe: **0 / 24 cells fail**, no stacked hairlines. Spring 1440x900: foot 480 against fold 481, `fadeEndOff` true, so Bouncy and Gentle keep their bottom border and corners. Cube, amiga and square at 1280x800: 407/407, fade off, and the easing pill is crisp above the ribbon's rule. Easing at 1280x800: 416/416, fade off. Spring 1280x800: Bouncy and Gentle still cross the fold (the designed cue). |
+| KF-C25-02 | **The emphasis follows the verb the caption names.** `importLeads` is true when there are 0 keyframes and `sceneSummary` is set. In that state Import is `secondary` and Snapshot is `quiet`; otherwise Snapshot leads as before. Export is disabled at `state.keyframes.length === 0`, as Clear is. | Cube Timeline at 1440, light and dark: the caption "Rotations has 2 keyframes in CSS — Import them to edit here." sits over a filled Import, a quiet Snapshot and a disabled Export. |
+| KF-C25-03 | **The amiga room closes inside the frame at every width.** The critic's form (fit the camera to the 12 u room) would put the camera about 1.6x farther out at the wide stage and shrink the ball, which undoes UIA-KF-196. So the room is fitted to the framing instead. The camera's closest framing is the vertical envelope fit, and any wider aspect only dollies it out. The wall top is the last whole ruled row below the point where that frustum meets the ball's plane: `WALL_TOP` 4, `WALL_HEIGHT` 9 (was 12). The walls still stand on the floor, the room's width and depth are unchanged, and the top stays above the apex plus the radius. Falsifier: `amiga-room.test.ts` "KF-C25-03". | 1440: the side walls' front verticals end at their own top corners at y≈170, inside the canvas (they were cut flat at the canvas top, y≈127). At 390 the room still closes. Ball size is unchanged. |
+| KF-C25-04 | **The square's inline axis is paid once.** `--square-size` = `clamp(5rem, min((50cqb − 1.5rem) / 1.56, (100cqi − 2·--stage-plate-pad-inline) / 3), 12rem)`. The block axis keeps the swollen-box budget. On the inline axis, field plus box (3 × size) is the arena's measure less the plate pad. At full travel the swollen box with its ring still lands inside the plate. | 1440: 155.8 px (unchanged, the block term binds). 390: 92 → 97.3 px, and the field takes 58% of the plate. **Residual, stated:** the dead band above the field does not close. The plate takes the stage cell at every width (KF-C16-02's one-plate rule, which reversed KF-C5-04's 3:4 hug), and the inline term is the geometric maximum that keeps the swollen box on the plate. Closing the band means re-opening that plate rule, which is a question for the next critic, not another oscillation here. |
+
+**Kept**
+- **KF-C25-05** (trivial, optional): kept as the critic's first option. Reverse and Preview are the transport register, and To keyframes, Reel and Re-seat are the header register.
+
+**Cited (glass, not overridden)**
+- **KF-C25-G1:** a re-cite only. The listbox and menu backdrop bloom, the tan listbox fill and the doubled ring, the cream Input against the grey Select, the Custom select's sheen, the dark dock halo (O-88), Steps wrapping at 1440, the steps() ghost in Bezier mode, and the thumbless duration and time bars. All are glass 10.1.0 tokens and material. They are held honest-RED against **O-87** and re-judged at the 10.2.0 repin, with no local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, final tree)
+
+| | pass 24 | pass 25 after |
+|---|---:|---:|
+| chrome: elements with shadow | 310 | 310 |
+| chrome: shadow layers (max) | 938 (6) | 938 (6) |
+| chrome: shadows on non-floating surfaces | 192 | 192 |
+| chrome: inset highlights | 416 | 416 |
+| chrome: backdrop blur | 278 | 278 |
+| chrome: control gradients | 54 | 54 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+The census is unchanged because this pass's cures are fold, emphasis and proportion, not lighting. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree, which includes another seat's r4panes commits up to `403064f7`)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **869/869, twice** (the two counted runs).
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **The machine was under extreme load** (load average 150 to 750 from the other workflows' browsers and servers). The shared `:5173` keyframes dev server stopped answering for more than 15 minutes, so this seat ran its own `vite --port 5199` on the same working tree for the probe and the census, then stopped it. The shared server was not touched.
+- **Load flakes, not regressions.** Four other full runs each failed one or two files:
+  - `ball-on-curve` at collection (passes alone);
+  - `easing-picker-hierarchy`, a 10 s `beforeAll` engine warm. It is equally RED at HEAD in a clean worktree under the same load, and passes alone with longer timeouts;
+  - `spring-entry-states` and `sections-w13x`, while another seat was committing r4panes changes to those tests and to `KeyframeTimeline.vue` mid-run. Both pass on the settled tree.
+
+  None of these imports this pass's changed files except `KeyframeTimeline.vue`, whose `sections-w13x` oracle (Snapshot leads when no scene is named) holds.
+- Another seat committed `KeyframeTimeline.vue` (`403064f7`) while this seat's hunks were uncommitted in it. Their commit carried none of these hunks, and the cure commit applies cleanly on top. The cure commit is pathspec-only over its six files, and the evidence and receipt commits are pathspec-only.
