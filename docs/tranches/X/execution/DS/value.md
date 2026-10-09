@@ -220,3 +220,62 @@ This receipt covers the cure of the pass-4 critic's rows **V4C-01 … V4C-09** a
 - The Gradient pane's unseated header still paints the banked rest veil (V2C-15), now over a 26 px gap; check that band.
 - The config pane is a 621 px card on /blob with a 437 px port. Check that the Blob sections read well inside the port, and that /atmosphere (where the pane is the sole stage) still grows with its content.
 - V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11 wait on the owner.
+
+### pass 5
+
+This receipt covers the cure of the pass-5 critic's rows **V5C-01 … V5C-10** and **V5C-G1**, judged after `8c151729b`.
+
+**Commits.** value.js `a76ccb875` (the cure, 17 files) and `b0d6d9784` (AFTER frames, census, probes, gate listings).
+
+**Consumer findings, cured at the root.**
+
+| id | cure | measured (`pass-05/`) |
+|---|---|---|
+| V5C-01 | PaneHeader's veil `::before` is `inset: 0`; the mask fades the last 14 px **inside** the header's own 26 px `--pane-header-gap` band. Nothing overhangs onto the first row. The banked rest veil (V2C-15) and the swell keyframes are unchanged. | `probe-v5c.json`: on /browse, /extract, /mix and /gradient the veil's bottom equals the header's bottom (220) in both schemes, and the first row starts at 220 (the search field reads one tone, `browse-1440-light.png`). |
+| V5C-02 | The boot writer certifies the same pair against the **floating** rung (`resolvePlateInk`/`resolveMutedInk` on `surfaceLightnessNow("floating")`) and stamps `--ink-floating-primary`/`--ink-floating-muted`. `shell.css` seats them on glass's floating plate (`.glass-floating`, the content root of every portaled select, popover and menu) as the foreground family plus glass's `--on-glass-muted` seam. The descriptions keep `text-muted-foreground`, which now **resolves** to the certified floating rung, so the label/description hierarchy stays. Dropping the class would have put the descriptions at primary ink. | Floater `--muted-foreground` (default aurora): light L 0.271, dark L 0.708. The Type menu descriptions and the inactive sort chips read that rung (`selectmenu-light.png`, `browse-filter-*.png`, `brick-browse-filter-*.png`). |
+| V5C-03 | `.section-label` (mono caps) is retired at its call sites. The filter popover heads ("Sort", "Show", "Find by color"), the tag editor head and the admin category heads use glass `Label`. Extract's "dominant" uses `text-caption`. The drop zone's "sample" Badge keeps its own type. No new class. | The popover labels are Plus Jakarta Sans with `text-transform: none`. |
+| V5C-04 | The filter trigger is `emphasis="text"` (icon-only, size sm). The badge is still anchored to it. | trigger background `rgba(0,0,0,0)`, shadow none. |
+| V5C-05 | glass's field ground token `--input-on-glass` (an opaque cream) is re-seated to `--well-bg` on the app's glass hosts (`.pane-wrapper`, `.glass-floating`). That is the rung-2 tone step `.search-seated` wears. The inline Search is a text-rung glass Button with no plate. | Position field and popover field ground: `--foreground` at 8% (light and dark). **Glass half, cited on O-87:** the field edge (`--field-control-ink`, foreground at 48%) is declared on `.field-control` itself, so no host seam can reach it. |
+| V5C-06 | The palette-name input is `truncate`. | At 390 the box is 152 px and the value is 173 px; `text-overflow: ellipsis` (`generate-row-390-light.png`). |
+| V5C-07 | The image actions use the text rung, as "Delete all" does. The group pulls back by the rung's own inline pad, glass's `--space-residue`. | camera glyph x 225 (was 239); Colors label 224. |
+| V5C-08 | The under-head rule (`.config-section-header` border) is deleted, so a section is a head followed by its rows. The well (M-34) stays. Orchestrator call taken: Atmosphere's four select rows sit in the same console well as "Field", so sibling settings sit at one level. | `blob-*`, `atmosphere-*` frames; head border 0. |
+| V5C-09 | The cure as written was already in place: the config scalars were on glass's `sm` rung, which is 0.75rem, still a slab. The weight drops at the token instead: `--slider-track-height-sm: 0.375rem` in foundation.css's `:root`, after glass's token sheet. 0.375rem is glass's own unsized rail. Gradient's Direction joins the `sm` scalar population. The ink stays `--foreground`. Spectrum sliders size from the thumb and are untouched. | /blob track 12 → 6 px. |
+| V5C-10 | Beside the My Palettes companion the stage wrapper is `align-self: start`, so it sizes to its content. A taller stage still sets the row. | 1440: Generate 415 / companion 480, Browse 364 / 480. No dead plate under the content. |
+
+**Glass-owned, held, not overridden.** V5C-G1 re-observed (V3C-G1/G2, V4C-G1, V2C-10 on O-87; V4C-G2 on O-88), plus V5C-05's field-edge half on O-87. These are honest-RED until the 10.2.0 repin.
+
+**Gate re-aims, named** (no assertion weakened).
+- x-w7l O-68 reads a section head by `.config-section-title`, because the `.config-section-header` wrapper is gone.
+- a11y B3's internal-variable fence now matches a **whole identifier**. The published sizing token `--slider-track-height-sm` (glass `tokens/sizing.css`) was being matched as a prefix of the internal `--slider-track-height`.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:9000 --widths 1440 --themes light,dark --settle 5000`; `census-after.json`).
+- Box-shadow layers 820 → 812, multi-layer elements 156 → 154, inset highlights 314 → 310, backdrop blur 130 → 128.
+- Consumer looping animations 14 → 16: /browse light was captured mid-load, with its skeleton breathing (state motion, not a change of this pass).
+- The static half is unchanged.
+- **Verdict RED**, on glass-owned chrome (O-87).
+
+**Frames.** `evidence/DS/value/pass-05/`, all headless real Chrome (§0ei):
+- 36 route frames (`capture.mjs`, 0 of 36 failed);
+- the critic's cells re-shot (`probe-cells.mjs`) plus `selectmenu-*` and `brick-browse-filter-*`;
+- `generate-row-390-light.png`;
+- the O-68 frames under `x-w7l/`.
+
+The critic's own frames stay in `pass-05/critic/` (not committed by this seat).
+
+**Gates.**
+- **Type-check:** 0 errors ×2.
+- **vitest:** 1096/1103 ×2, the same 7 pre-existing failures (`ink.test` ×5, `spectrum-luma` C-5, `reka-binding-idiom` NG-6). In run 1 an eighth test, generate-rail EC-10, timed out at 5.4 s under host load 48; it passes alone (2.5 s) and passed in run 2.
+- **e2e:** 17 specs, 115 tests, smoke project, headless, workers 1, against `:9000`. Listings are in `v5c-gates/`.
+  - Run 1: 28 failed / 87 passed. Run 2: 20 failed / 95 passed.
+  - Re-run alone, these pass: O-11 gates 1–6, a11y B3 (after the re-aim), O-10b, O-10d gated titles, O-18 letterform gate, scene-action §8 ×2 and D4 registered.
+  - O-21 "meniscus" (323 of 324 columns) reproduces on the **pre-cure tree**: a worktree at `a76ccb875~1` was served on `:9311`, and `e2e-baseline-o21.txt` shows the same 323/324. That pre-cure server was otherwise cold-broken, so the rest of that run is not a baseline.
+  - The remainder is the pass-3/4 pre-existing set: a11y B1/B2, O-10a, O-10d browse ×2, O-14 ×2, O-18 graph nodes, IDENTITY, R27 ×3, O-20 T-17, w7-inspector ×2, D4 unavailable ×3. w7-mutation's export leg timed out on the menu in run 2 and passed ×2 alone.
+  - **e2e is NOT ×2 GREEN**, because of the pre-existing set.
+- **No visual golden was re-baselined.**
+
+**For the pass-6 critic.**
+- The floater inks are certified against the floating rung's model. Check the owner brick in light, where the resting plate flips to near-white ink: the floater may keep the dark pole, so a menu and its pane can now differ in polarity.
+- The field edge on glass is still glass's 48% ink (O-87).
+- /atmosphere now shows two stacked wells (selects, then "Field"); judge the rhythm between them.
+- The 6 px scalar rail: check that the thumbless default range still reads as a control at 390 and on coarse pointers (glass's coarse floor keeps the hit target).
+- V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11 wait on the owner.
