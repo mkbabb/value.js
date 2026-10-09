@@ -345,7 +345,7 @@
      * own position/size — it is a complete background LAYER; compose it via
      * `background:`, not `background-image:`. Consumers: the picker's alpha
      * slider track (ComponentSliders), the gradient editor bar + stop wells
-     * (GradientStopEditor). */
+     * (GradientStopRail). */
     --alpha-checker: repeating-conic-gradient(
             color-mix(in oklab, var(--foreground) 14%, var(--background)) 0% 25%,
             var(--background) 0% 50%

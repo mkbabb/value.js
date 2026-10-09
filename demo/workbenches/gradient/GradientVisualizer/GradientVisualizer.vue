@@ -18,7 +18,8 @@ import { useClipboard } from "@mkbabb/glass-ui";
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
 import { Label } from "@mkbabb/glass-ui/label";
 import { DockControl } from "@mkbabb/glass-ui/dock";
-import GradientStopEditor from "./GradientStopEditor.vue";
+import GradientStopRail from "./GradientStopRail.vue";
+import GradientStopInspector from "./GradientStopInspector.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
 import GradientEasingEditor from "./GradientEasingEditor.vue";
 import { useGradientModel } from "../composables/useGradientModel";
@@ -127,7 +128,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
              here, at the same rank as the sections that serve it. -->
         <section class="flex flex-col gap-2">
             <h3 class="font-display text-subheading">Stops</h3>
-            <GradientStopEditor
+            <GradientStopRail
                 :stops="stops"
                 :can-remove="canRemove"
                 :rail-ramp="railRampCSS"
@@ -137,7 +138,21 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 @update:position="setStopPosition"
                 @add="onAddStop"
                 @remove="removeStop"
-            />
+                v-slot="seat"
+            >
+                <!-- A2-VA-L1-11: the rail owns the stops, the selection, the
+                     removal rule and the polite channel; the inspector is its
+                     own component, seated in the rail's slot. -->
+                <GradientStopInspector
+                    :stop="seat.selectedStop"
+                    :index="seat.selectedIndex"
+                    :count="seat.count"
+                    :refusal="seat.removalRefusal"
+                    :notice="seat.notice"
+                    @position="seat.commitPosition"
+                    @remove="seat.requestRemove()"
+                />
+            </GradientStopRail>
         </section>
 
         <!-- ── Interpolation ── -->

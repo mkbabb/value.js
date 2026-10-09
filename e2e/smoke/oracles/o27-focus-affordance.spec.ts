@@ -226,7 +226,7 @@ test("BR-1 forced-colors · focus affordance survives WHCM via a computed outlin
  * `.foo:focus-visible { outline: none }` (specificity 0,2,0) wins in the forced
  * -colors register too. Five controls do exactly that, removing the one property
  * WHCM preserves and keeping the one it strips — against the repo's own written
- * law at `focus-ring.css:31`. `GradientStopEditor` is the sole conformant
+ * law at `focus-ring.css:31`. `GradientStopRail` is the sole conformant
  * control because it re-declares the outline INSIDE its own
  * `@media (forced-colors: active)` block at matching specificity.
  *
@@ -274,7 +274,7 @@ const WHCM_ROSTER: WhcmRosterRow[] = [
     {
         selector: ".rail-handle",
         view: "Gradient",
-        site: "GradientStopEditor.vue:353 — the CONFORMANT control, the instrument's own check",
+        site: "GradientStopRail.vue:869 — the CONFORMANT control, the instrument's own check",
     },
 ];
 
