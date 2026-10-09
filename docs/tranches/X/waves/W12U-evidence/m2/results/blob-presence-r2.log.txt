@@ -1,0 +1,32 @@
+load-start 301.24 258.61 242.22
+(node:71340) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+[1A[2K(node:71774) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law)
+[1A[2K  1) [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+
+    Error: page.evaluate: Execution context was destroyed, most likely because of a navigation
+
+       at smoke/perf/frame-budget.ts:83
+
+      81 | /** WebGL2 renderer string — distinguishes real GPU from ANGLE-SwiftShader. */
+      82 | export async function detectRenderer(page: Page): Promise<string> {
+    > 83 |     return page.evaluate(() => {
+         |                 ^
+      84 |         const canvas = document.createElement("canvas");
+      85 |         const gl =
+      86 |             (canvas.getContext("webgl2") as WebGL2RenderingContext | null) ??
+        at detectRenderer (/Users/mkbabb/Programming/value.js/e2e/smoke/perf/frame-budget.ts:83:17)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts:83:28
+
+    Error Context: test-results/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+exit 1 load-end 234.44 251.41 241.80

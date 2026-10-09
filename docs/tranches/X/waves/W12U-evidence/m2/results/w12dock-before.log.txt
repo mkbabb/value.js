@@ -1,0 +1,85 @@
+(node:81634) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+[1A[2K(node:81745) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/3] [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K  1) [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM 
+
+    TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.glass-dock').first() to be visible[22m
+    [2m    62 × locator resolved to hidden <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded pinned fit-content always-expanded">…</div>[22m
+
+
+      54 |     await page.setViewportSize({ width, height });
+      55 |     await page.goto("/#/", { waitUntil: "load", timeout: 60_000 });
+    > 56 |     await page.locator(".glass-dock").first().waitFor({ timeout: 30_000 });
+         |                                               ^
+      57 |     await page.locator(".dock-crossfade .dock-face.is-active").first().waitFor({ timeout: 30_000 });
+      58 |     // the dock's own boot morph settles before any reading
+      59 |     await page.waitForTimeout(1_200);
+        at openHome (/Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:56:47)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:309:13
+
+    Error Context: test-results/w12-dock-X-W12-e-—-the-doc-95448--no-consumer-keyframes-WebM-smoke/error-context.md
+
+
+[1A[2K(node:84541) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/3] [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K  2) [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM 
+
+    TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.glass-dock').first() to be visible[22m
+    [2m    59 × locator resolved to hidden <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded pinned fit-content always-expanded">…</div>[22m
+
+
+      54 |     await page.setViewportSize({ width, height });
+      55 |     await page.goto("/#/", { waitUntil: "load", timeout: 60_000 });
+    > 56 |     await page.locator(".glass-dock").first().waitFor({ timeout: 30_000 });
+         |                                               ^
+      57 |     await page.locator(".dock-crossfade .dock-face.is-active").first().waitFor({ timeout: 30_000 });
+      58 |     // the dock's own boot morph settles before any reading
+      59 |     await page.waitForTimeout(1_200);
+        at openHome (/Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:56:47)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:309:13
+
+    Error Context: test-results/w12-dock-X-W12-e-—-the-doc-95448--no-consumer-keyframes-WebM-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:88583) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/3] [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM
+[1A[2K  3) [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM 
+
+    TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.glass-dock').first() to be visible[22m
+    [2m    60 × locator resolved to hidden <div data-v-c1c2eb17="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded pinned fit-content always-expanded">…</div>[22m
+
+
+      54 |     await page.setViewportSize({ width, height });
+      55 |     await page.goto("/#/", { waitUntil: "load", timeout: 60_000 });
+    > 56 |     await page.locator(".glass-dock").first().waitFor({ timeout: 30_000 });
+         |                                               ^
+      57 |     await page.locator(".dock-crossfade .dock-face.is-active").first().waitFor({ timeout: 30_000 });
+      58 |     // the dock's own boot morph settles before any reading
+      59 |     await page.waitForTimeout(1_200);
+        at openHome (/Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:56:47)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:309:13
+
+    Error Context: test-results/w12-dock-X-W12-e-—-the-doc-95448--no-consumer-keyframes-WebM-smoke-repeat2/error-context.md
+
+
+[1A[2K  3 failed
+    [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM 
+    [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM 
+    [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM 
+exit 1 load 128.32 182.89 244.44

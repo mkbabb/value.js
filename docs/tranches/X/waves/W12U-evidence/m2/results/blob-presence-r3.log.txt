@@ -1,0 +1,40 @@
+load-start 243.52 234.40 237.95
+(node:91375) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+[1A[2K(node:91806) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law)
+[1A[2K  1) [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+
+    Locator:  getByTestId('goo-blob-canvas').last()
+    Expected: attached
+    Received: undefined
+
+    Call log:
+    [2m  - Expect "toBeAttached" with timeout 45000ms[22m
+    [2m  - waiting for getByTestId('goo-blob-canvas').last()[22m
+
+
+      88 |     // Arrival is harness latency (the overture DAG + the async HeroBlob chunk;
+      89 |     // the b2bb8aab h1 precedent), bounded by this test's own budget.
+    > 90 |     await expect(blob).toBeAttached({ timeout: 45_000 });
+         |                        ^
+      91 |
+      92 |     // The pane slot is the cqi container the formula reads.
+      93 |     const paneWidth = await page
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts:90:24
+
+    Error Context: test-results/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+exit 1 load-end 290.79 258.98 247.43

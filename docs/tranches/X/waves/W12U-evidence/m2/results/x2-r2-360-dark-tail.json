@@ -1,0 +1,48 @@
+[
+ {
+  "W": 360,
+  "H": 780,
+  "THEME": "dark",
+  "route": "/admin/tags",
+  "undo": false,
+  "fixedInHost": 0,
+  "maxSW": 360,
+  "sw": 360,
+  "iw": 360,
+  "f1": true,
+  "f2": true,
+  "f3": true,
+  "f4": true,
+  "f5": true,
+  "rimServed": 39.3,
+  "rimT33": 0.8,
+  "carriers": [
+   "pane-shell[layout] before -16.0..376.0 card 16.0..344.0 shadow=rgba(255, 255, 255, 0.08) 0px 1px 0px 0p border=1px solid"
+  ],
+  "orn": [],
+  "stageClip": false
+ },
+ {
+  "W": 360,
+  "H": 780,
+  "THEME": "dark",
+  "route": "/no-such-route",
+  "undo": false,
+  "fixedInHost": 0,
+  "maxSW": 360,
+  "sw": 360,
+  "iw": 360,
+  "f1": true,
+  "f2": true,
+  "f3": true,
+  "f4": true,
+  "f5": true,
+  "rimServed": 41.5,
+  "rimT33": 0.2,
+  "carriers": [
+   "pane-shell[layout] before -16.0..376.0 card 16.0..344.0 shadow=rgba(255, 255, 255, 0.08) 0px 1px 0px 0p border=1px solid"
+  ],
+  "orn": [],
+  "stageClip": false
+ }
+]

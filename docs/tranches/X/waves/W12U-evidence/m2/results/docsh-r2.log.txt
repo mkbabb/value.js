@@ -1,0 +1,102 @@
+# load 288.26 279.61 265.02
+360x780 light / docSH=8741 expected=8742 (end 8733.8 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /palettes docSH=1769 expected=1769 (end 1760.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /browse docSH=2594 expected=2594 (end 2585.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /extract docSH=1820 expected=1820 (end 1811.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /mix docSH=1807 expected=1808 (end 1799.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /generate docSH=1737 expected=1737 (end 1728.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /gradient docSH=2290 expected=2290 (end 2281.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /atmosphere docSH=915 expected=915 (end 907 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /blob docSH=3411 expected=3412 (end 3403.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /admin/users docSH=5532 expected=5533 (end 5524.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /admin/names docSH=3837 expected=3837 (end 3829.2 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /admin/audit docSH=1979 expected=1979 (end 1970.9 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /admin/flagged docSH=4547 expected=4547 (end 4539.2 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 light /admin/tags docSH=780 expected=780 (end 718.9 + pad 8; ih 780; colGap 53.5) culprits=0 docSW=360 → GREEN
+360x780 light /no-such-route docSH=780 expected=780 (end 436.6 + pad 8; ih 780; colGap 335.8) culprits=0 docSW=360 → GREEN
+GREEN 15/15
+# load 250.03 265.60 261.67
+390x844 light / docSH=8613 expected=8613 (end 8604.7 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /palettes docSH=1773 expected=1773 (end 1765.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /browse docSH=2594 expected=2594 (end 2585.8 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /extract docSH=1769 expected=1770 (end 1761.6 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /mix docSH=1784 expected=1784 (end 1776.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /generate docSH=1721 expected=1722 (end 1713.8 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /gradient docSH=2259 expected=2259 (end 2250.8 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /atmosphere docSH=915 expected=915 (end 907.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /blob docSH=3416 expected=3416 (end 3408.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /admin/users docSH=5532 expected=5533 (end 5524.8 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /admin/names docSH=3837 expected=3837 (end 3829.3 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /admin/audit docSH=1980 expected=1980 (end 1972.2 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /admin/flagged docSH=4521 expected=4521 (end 4513.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 light /admin/tags docSH=844 expected=844 (end 719 + pad 8; ih 844; colGap 117.4) culprits=0 docSW=390 → GREEN
+390x844 light /no-such-route docSH=844 expected=844 (end 436.6 + pad 8; ih 844; colGap 399.8) culprits=0 docSW=390 → GREEN
+GREEN 15/15
+# load 254.35 253.50 256.58
+430x932 light / docSH=8455 expected=8454 (end 8446.4 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /palettes docSH=1775 expected=1775 (end 1766.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /browse docSH=2609 expected=2609 (end 2600.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /extract docSH=1784 expected=1784 (end 1775.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /mix docSH=1792 expected=1792 (end 1783.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /generate docSH=1739 expected=1739 (end 1730.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /gradient docSH=2273 expected=2274 (end 2265.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /atmosphere docSH=932 expected=932 (end 914.6 + pad 8; ih 932; colGap 9.8) culprits=0 docSW=430 → GREEN
+430x932 light /blob docSH=3424 expected=3425 (end 3416.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /admin/users docSH=5540 expected=5540 (end 5531.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /admin/names docSH=3844 expected=3845 (end 3836.6 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /admin/audit docSH=1990 expected=1990 (end 1981.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /admin/flagged docSH=4535 expected=4536 (end 4527.8 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 light /admin/tags docSH=932 expected=932 (end 690.9 + pad 8; ih 932; colGap 233.5) culprits=0 docSW=430 → GREEN
+430x932 light /no-such-route docSH=932 expected=932 (end 416 + pad 8; ih 932; colGap 508.4) culprits=0 docSW=430 → GREEN
+GREEN 15/15
+# load 206.88 217.11 234.87
+360x780 dark / docSH=8757 expected=8756 (end 8748.4 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /palettes docSH=1776 expected=1776 (end 1767.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /browse docSH=2608 expected=2609 (end 2600.6 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /extract docSH=1784 expected=1784 (end 1775.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /mix docSH=1787 expected=1787 (end 1778.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /generate docSH=780 expected=780 (end 444 + pad 8; ih 780; colGap 328.4) culprits=0 docSW=360 → GREEN
+360x780 dark /gradient docSH=2304 expected=2305 (end 2296.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /atmosphere docSH=922 expected=922 (end 914.4 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /blob docSH=3419 expected=3419 (end 3410.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /admin/users docSH=5539 expected=5540 (end 5531.7 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /admin/names docSH=3844 expected=3844 (end 3836.2 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /admin/audit docSH=1986 expected=1986 (end 1978.3 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /admin/flagged docSH=4554 expected=4555 (end 4546.5 + pad 8; ih 780; colGap 0) culprits=0 docSW=360 → GREEN
+360x780 dark /admin/tags docSH=780 expected=780 (end 726.3 + pad 8; ih 780; colGap 46.1) culprits=0 docSW=360 → GREEN
+360x780 dark /no-such-route docSH=780 expected=780 (end 444 + pad 8; ih 780; colGap 328.4) culprits=0 docSW=360 → GREEN
+GREEN 15/15
+# load 208.56 205.75 225.45
+390x844 dark / docSH=8628 expected=8628 (end 8620.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /palettes docSH=1780 expected=1780 (end 1772.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /browse docSH=2608 expected=2609 (end 2600.8 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /extract docSH=1784 expected=1784 (end 1775.8 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /mix docSH=1791 expected=1791 (end 1783.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /generate docSH=844 expected=844 (end 572 + pad 8; ih 844; colGap 264.5) culprits=0 docSW=390 → GREEN
+390x844 dark /gradient docSH=2273 expected=2273 (end 2264.8 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /atmosphere docSH=922 expected=923 (end 914.5 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /blob docSH=3423 expected=3423 (end 3415.1 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /admin/users docSH=5539 expected=5540 (end 5531.8 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /admin/names docSH=3844 expected=3844 (end 3836.3 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /admin/audit docSH=1987 expected=1988 (end 1979.6 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /admin/flagged docSH=4528 expected=4529 (end 4520.5 + pad 8; ih 844; colGap 0) culprits=0 docSW=390 → GREEN
+390x844 dark /admin/tags docSH=844 expected=844 (end 726.4 + pad 8; ih 844; colGap 110) culprits=0 docSW=390 → GREEN
+390x844 dark /no-such-route docSH=844 expected=844 (end 444 + pad 8; ih 844; colGap 392.4) culprits=0 docSW=390 → GREEN
+GREEN 15/15
+# load 208.14 205.16 219.22
+430x932 dark / docSH=8497 expected=8498 (end 8489.8 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /palettes docSH=1781 expected=1781 (end 1772.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /browse docSH=2609 expected=2609 (end 2600.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /extract docSH=1784 expected=1784 (end 1775.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /mix docSH=1792 expected=1792 (end 1783.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /generate docSH=1739 expected=1739 (end 1730.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /gradient docSH=2273 expected=2274 (end 2265.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /atmosphere docSH=932 expected=932 (end 914.6 + pad 8; ih 932; colGap 9.8) culprits=0 docSW=430 → GREEN
+430x932 dark /blob docSH=3424 expected=3425 (end 3416.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /admin/users docSH=5540 expected=5540 (end 5532 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /admin/names docSH=3844 expected=3845 (end 3836.6 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /admin/audit docSH=1990 expected=1990 (end 1981.9 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /admin/flagged docSH=4535 expected=4536 (end 4527.8 + pad 8; ih 932; colGap 0) culprits=0 docSW=430 → GREEN
+430x932 dark /admin/tags docSH=932 expected=932 (end 690.9 + pad 8; ih 932; colGap 233.5) culprits=0 docSW=430 → GREEN
+430x932 dark /no-such-route docSH=932 expected=932 (end 416 + pad 8; ih 932; colGap 508.4) culprits=0 docSW=430 → GREEN
+GREEN 15/15
