@@ -885,3 +885,51 @@ each in light and dark.
 - `equation-*-{1440,390}` after Compute, plus `eq-toggle-*-1440`. At 390 the toggle sits behind the aside's tab, so it is measured while attached;
 
 each in light and dark.
+
+### pass 2
+This is the second-round pass on critic **F2R**, whose findings were witnessed on pass 15's frames.
+- fourier `a06c10e`, on `m/w1-bump-migration`, pushed fast-forward `94870dc..a06c10e`. Six files, committed by pathspec.
+- value.js `83778ce5b` holds the AFTER frames, the cure probe and its JSON, the census and the e2e logs, all in `pass-02/f2r/`. The subdirectory keeps the original pass 2's committed frames intact, following the `pass-02/f4r/` precedent. BEFORE is the critic's set from pass 15 (`pass-15/`).
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F2R-C1 | `style.css`: the global `.dark .katex { color: var(--foreground) }` is deleted, so KaTeX inherits its host's ink in both themes. No per-chip rule was added. Measured in all 4 cells: each notation glyph's ink equals its label's, including on the pressed Trig chip, where both take the chip hue (dark `oklab(0.751 0.100 0.055)`). Display and paper math already sit in `--foreground` ink, so they are unchanged. |
+| DS-F2R-C2 | One caption rule: a layer carries a caption only when it says something its rows do not. Basis loses `resolution` and Controls loses `harmonics & display`. /visualize's `sub="Fourier spectrum"` restated the label, so it goes, and `CoefficientsPanel`'s `sub` prop goes with it; /v now shows the count. A list with no rows states no count (it previously read "all 0 harmonics"). Measured headings: /v `Image · Basis · Contour · Coefficients all 201 harmonics, n = −200…200`; /equation `Function f(t) · Controls · Coefficients all 21 harmonics, n = −20…20`. |
+| DS-F2R-C3 | `.drop-target` is inset by `--space-residue` (it was `--space-body`), and `.drop-zone`'s radius is `calc(var(--radius-card) - var(--space-residue))`. The dashed edge now hugs the plate's edge 5px in, with a 12px radius concentric with the plate's 16px. Before, it sat 13px in at 1440 and 9px in at 390, with radii of 4px and 8px. At 390 the zone is 348px wide (before, 340px). The glass stage's own hairline is glass-owned and is not re-styled. |
+| DS-F2R-C4 | Both stage states' "Browse the gallery" (the empty /w zone and the load error) move from `quiet md` to glass's link rung, `emphasis="text" size="sm"`. They now read as a command, in `--button-accent` ink, not as a second muted caption. Order: primary, then the format caption, then the link. At 390 the link is 18.27px, under the primary's 21px and above the caption's 12.18px. That coarse-pointer step is glass's Button size ramp (sm 14.38 → 18.27 on coarse), so the remaining width-to-width change is glass-owned and is not overridden. |
+| DS-F2R-C5 | `ConvergenceLegend.vue`: `.legend-overlay--column` takes `align-self: stretch`. Measured: the legend is 539.6px tall against a 539.6px plot (1440, both themes), so the rule runs the plot's full side. |
+| DS-F2R-C6 | `FunctionInput.vue`: `.preset-group` becomes auto-filled grid tracks: `repeat(auto-fill, minmax(max(5rem, 22%), max-content))`, `inline-size: 100%`. Tightening the gap could not fix the wrap, because the orphan lacked about 56px. Measured rows, all single-line: 4/4 at 1440, 3/3/2 at 390 (it was 3/4/1), 3/3/2 at 1024 and 4/4 at 768. The control floor is unchanged. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F2R-G1 is the resting, capsule and dock lighting recipe. It is held honest-RED on O-87 FLAT-LIGHTING and will be re-judged at the 10.2.0 repin.
+- DS-F2R-G2 is the transport `1 ×`, plus the dock cast at 390. It is held on O-88 DOCK-COLLAPSE-MOTION, with O-87 for the cast.
+- C4's coarse-pointer type step on Button sizes is glass's ramp.
+
+No local override was added for any of these.
+
+**Owner ruling only.** DS-F2R-G3 is the morph sun read as a gear at icon size. It is identity (§0dm) and was not touched.
+
+**Census** (fourier `scripts/ds-census.mjs`, on `:3127`; `pass-02/f2r/census-after.json`):
+- Static is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+- Computed: on the first read, /equation light 1440 caught a transient busy state (+2 shadow elements, 1 running loop). The /equation re-read (`census-equation-reread.json`) is identical to pass 15 cell for cell. That gives sums of 380 shadow elements, 956 layers, 286 multi-layer stacks, 286 inset highlights, 216 backdrop blur, 0 control gradients and 0 looping chrome.
+- This pass moves type, layout and ink, not lighting.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered pass 14's 20 specs plus `coarse-pointer` and `f-w14v-u2` (the notation glyph spec), 22 in all (`e2e-specs.txt`). They ran on chromium plus mobile-chromium, headless, with 3 workers. Playwright built and served its own preview of the cured tree on :4190.
+  - Run A: 235/235.
+  - Run B: 234/235. The one red was `f-w14-uia` UIA-F-17: the dock was still `expanded` at the 5s collapse expectation, with host load around 590. It is dock-collapse timing on a file this pass did not touch. Re-read alone: 32/32 (`e2e-runB-reread-uia.txt`).
+  - Run C: 235/235.
+  - So the suite passed in full twice (A and C).
+- No visual golden was re-baselined. Before each run the seat backed up the `web/e2e/screenshots/` tree, including another seat's dirty files, and restored that state after each run. Nothing there was committed.
+
+**Frames** (`pass-02/f2r/`). All were captured in headless real Chrome (channel `chrome`, DPR 2; §0ei) by `f2r-cure-probe.mjs` against `:3127`:
+- `equation-*-{1440,390}` after Compute;
+- `w-*-{1440,390}` (the empty stage), `v-*-{1440,390}` and `v-error-*-{1440,390}`;
+- `notation-*-1440` and `presets-*-390` crops;
+
+each in light and dark.
+
+**Process note.** The evidence commit's first form swept in a foreign staged deletion from another seat's index (`demo/picker/composables/useHeaderCondense.ts`). It was amended out before any push, and the other seat's index state (the staged deletion) was restored.
