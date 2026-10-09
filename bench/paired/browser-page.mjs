@@ -46,6 +46,6 @@ export function install(arms, inputs, sheets, prefixSheets) {
             ratio[a] = { paired: +median(pr).toFixed(3), below1: pr.filter((x) => x < 1).length, ofMins: +(Math.min(...t[a]) / Math.min(...t.retired)).toFixed(3) };
         }
         return { entry, class: cls, n: xs.length, k, warmup: WARMUP, rev, spread: +(Math.max(...t.retired) / Math.min(...t.retired)).toFixed(3),
-            retiredMs: +median(t.retired).toFixed(2), ratio };
+            retiredMs: +median(t.retired).toFixed(2), ratio, raw: t };
     };
 }
