@@ -84,7 +84,13 @@ export function useAtmosphereBoot(
     //     the ONE source. The de-emphasis rung rides the same instance:
     //     `--ink-muted` is the floor-clamped certified plate ink (D6/F-4 —
     //     the plate-caption + parse-echo voice; post-hoc opacity died).
-    const { safeAccentCss, plateInkCss, mutedInkCss } = useContrastSafeColor(
+    const {
+        safeAccentCss,
+        plateInkCss,
+        mutedInkCss,
+        floatingInkCss,
+        floatingMutedInkCss,
+    } = useContrastSafeColor(
         atmosphereColor,
         derivedLightness,
     );
@@ -111,6 +117,22 @@ export function useAtmosphereBoot(
         mutedInkCss,
         (css) => {
             document.documentElement.style.setProperty("--ink-muted", css);
+        },
+        { immediate: true },
+    );
+    // X-DS pass 5 (V5C-02): the floating plate's pair, the same certification
+    // against the floating rung (menus and popovers are portaled to <body>).
+    watch(
+        floatingInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-floating-primary", css);
+        },
+        { immediate: true },
+    );
+    watch(
+        floatingMutedInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-floating-muted", css);
         },
         { immediate: true },
     );

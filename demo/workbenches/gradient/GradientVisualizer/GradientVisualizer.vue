@@ -291,8 +291,10 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         >{{ direction }}&deg;</span
                     >
                 </div>
+                <!-- X-DS pass 5 (V5C-09): the scalar rail rung (utils.css). -->
                 <Slider
                     :aria-label="type === 'conic' ? 'Conic start angle' : 'Gradient direction'"
+                    size="sm"
                     :model-value="[direction]"
                     :min="0"
                     :max="360"

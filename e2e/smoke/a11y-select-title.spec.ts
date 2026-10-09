@@ -549,8 +549,12 @@ test("B3 · slider seam consumed as published — the A-16 receipt exists and th
         const body = readFileSync(file, "utf8");
         const lines = body.split("\n");
         for (const v of declared) {
+            // X-DS pass 5 (V5C-09) re-aim: a WHOLE identifier, not a prefix. The
+            // published sizing token `--slider-track-height-sm` (glass
+            // tokens/sizing.css) is not the internal `--slider-track-height`.
+            const ident = new RegExp(`${v}(?![a-zA-Z0-9_-])`);
             lines.forEach((line, i) => {
-                if (line.includes(v)) {
+                if (ident.test(line)) {
                     consumerHits.push(
                         `${file.slice(REPO_ROOT.length + 1)}:${i + 1}: ${v}`,
                     );

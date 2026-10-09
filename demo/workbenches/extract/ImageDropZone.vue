@@ -55,7 +55,7 @@
             data-zone-affordance
             variant="secondary"
             size="sm"
-            class="absolute bottom-1.5 right-1.5 section-label"
+            class="absolute bottom-1.5 right-1.5"
         >sample</Badge>
     </div>
 </template>

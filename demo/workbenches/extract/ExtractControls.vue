@@ -85,11 +85,14 @@
              and only the live ones are shown. With no image the drop zone is
              the one intake (R-20), so Replace and Reset are absent rather than
              parked as dead glyphs; the camera is a two-way door (XW-8 · EC-5),
-             pressed while live. -->
-        <div class="flex flex-wrap items-center gap-1" role="group" aria-label="Image actions">
+             pressed while live. X-DS pass 5 (V5C-07): the actions wear the
+             text rung (as "Delete all" does), so the glyphs start at the
+             column edge with the labels and rails above them; the group pulls
+             back by the rung's own inline pad (glass's `--space-residue`). -->
+        <div class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))]" role="group" aria-label="Image actions">
             <Button
                 v-if="hasImage"
-                emphasis="quiet"
+                emphasis="text"
                 size="sm"
                 :disabled="standDown"
                 @click="$emit('upload')"
@@ -98,7 +101,7 @@
                 Replace image
             </Button>
             <Button
-                emphasis="quiet"
+                emphasis="text"
                 size="sm"
                 :disabled="disabled"
                 :aria-pressed="cameraLive"
@@ -109,7 +112,7 @@
             </Button>
             <Button
                 v-if="hasImage"
-                emphasis="quiet"
+                emphasis="text"
                 size="sm"
                 :disabled="standDown"
                 @click="$emit('reset')"

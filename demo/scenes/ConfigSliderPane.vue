@@ -141,9 +141,11 @@ function resetDefaults() {
                         :key="section.title"
                         class="flex flex-col gap-1.5"
                     >
-                        <div class="config-section-header">
-                            <h3 class="config-section-title font-display text-subheading">{{ section.title }}</h3>
-                        </div>
+                        <!-- X-DS pass 5 (V5C-08): a section is a head followed
+                             by its rows (Gradient's grammar). The well groups
+                             the rows (M-34); the under-head rule that grouped
+                             them a second time is gone. -->
+                        <h3 class="config-section-title font-display text-subheading">{{ section.title }}</h3>
 
                         <!-- ONE label per row (ConfiguratorRow's `label`), with the
                              live readout paired to it via the row's `name` slot — the
@@ -257,11 +259,6 @@ function resetDefaults() {
         translate: 0 -50%;
         block-size: max(100%, var(--dock-touch-target, 2.75rem));
     }
-}
-
-.config-section-header {
-    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
-    padding-bottom: 0.375rem;
 }
 
 /* X-DS pass 1 (V1C-04): a config section is a section in the same sense as

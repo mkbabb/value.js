@@ -266,6 +266,46 @@
     --on-glass-muted-strong: color-mix(in oklab, var(--ink-muted), var(--ink-primary) 38.2%);
 }
 
+/* X-DS pass 5 (V5C-05): FIELDS ON GLASS STAY GLASS (the register law,
+ * utils.css `.search-seated`). glass's Input and NumberField fill from its
+ * `--input-on-glass` token, an opaque cream "paper" ground; on a glass plate
+ * that reads as a paper pill beside the app's translucent seated fields. The
+ * token is re-seated on the app's glass hosts (the panes and the floating
+ * plate) to the same rung-2 `--well-bg` tone step the seated search wears.
+ * glass's field edge (`--field-control-ink`, declared on `.field-control`
+ * itself) has no host-level seam, so the edge half is cited on O-87. */
+.pane-wrapper,
+.glass-floating {
+    --input-on-glass: var(--well-bg);
+}
+
+/* X-DS pass 5 (V5C-02): the same certified pair on the FLOATING plate. Reka
+ * portals select menus, popovers and dropdowns to <body>, outside the seat
+ * above, so they kept the scheme's static muted ink, which was never certified
+ * against the floater's composited ground (dark red on a red floater, pink on
+ * pink). glass's floating material (`.glass-floating`) is every floater's
+ * content root; the boot writer certifies `--ink-floating-*` against that rung
+ * (`resolvePlateInk`/`resolveMutedInk` on the floating referent). Colour only:
+ * glass's floating material and its opacity are untouched (V3C-G1 on O-87). */
+.glass-floating {
+    --foreground: var(--ink-floating-primary, var(--ink-primary));
+    --popover-foreground: var(--ink-floating-primary, var(--ink-primary));
+    --card-foreground: var(--ink-floating-primary, var(--ink-primary));
+    --accent-foreground: var(--ink-floating-primary, var(--ink-primary));
+    --muted-foreground: var(--ink-floating-muted, var(--ink-muted));
+    --muted-foreground-strong: color-mix(
+        in oklab,
+        var(--ink-floating-muted, var(--ink-muted)),
+        var(--ink-floating-primary, var(--ink-primary)) 38.2%
+    );
+    --on-glass-muted: var(--ink-floating-muted, var(--ink-muted));
+    --on-glass-muted-strong: color-mix(
+        in oklab,
+        var(--ink-floating-muted, var(--ink-muted)),
+        var(--ink-floating-primary, var(--ink-primary)) 38.2%
+    );
+}
+
 /* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the STAGE region (the picker +
  * its corner-breaking hero-blob ornament) paints above the right pane, so the
  * bead's overlap strip is never buried under the About card (the S-4 burial —
@@ -333,6 +373,16 @@
  * so a shorter leader stretches to the floor; a longer one is untouched. */
 .pane-wrapper--inspector[data-pane="palettes"] {
     --pane-follow-floor: 30rem;
+}
+
+/* X-DS pass 5 (V5C-10): THE FLOOR IS THE COMPANION'S OWN. When the floor (not
+ * the stage) sets the row, the stretched stage card stood to the companion's
+ * 30rem and left dead plate under its content (≈80 px under Generate's Colors
+ * rail, ≈180 px under Browse's empty state). Beside My Palettes the stage
+ * sizes to its content, so the pair may differ in height as the original two
+ * cards did; a taller stage still sets the row and the companion follows it. */
+.pane-container:has(> .pane-wrapper--inspector[data-pane="palettes"]) > .pane-wrapper--stage {
+    align-self: start;
 }
 
 /* X.W12U.m · A2-VA-L2-5 — ONE TRACK: THE ROUTED SUBJECT COMES FIRST.

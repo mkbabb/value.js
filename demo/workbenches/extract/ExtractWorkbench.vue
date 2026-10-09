@@ -161,7 +161,7 @@
                             </span>
                             <span class="flex items-baseline gap-2 min-w-0 ml-auto">
                                 <span
-                                    class="section-label plate-ink shrink-0"
+                                    class="text-caption plate-ink shrink-0"
                                     >dominant</span
                                 >
                                 <!-- the caption register (format-color): the readout

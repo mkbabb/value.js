@@ -6,6 +6,7 @@
                      sm square (no h/w override), seated inside the search bar. -->
                 <Button
                     icon-only
+                    emphasis="text"
                     size="sm"
                     :aria-label="activeFilterCount > 0 ? `Filters, ${activeFilterCount} active` : 'Filters'"
                     class="relative"
@@ -30,7 +31,7 @@
                 <div class="filter-panel">
                     <!-- Sort -->
                     <section class="filter-section" aria-labelledby="browse-filter-sort">
-                        <div id="browse-filter-sort" class="section-label">Sort</div>
+                        <Label id="browse-filter-sort" class="block mb-1.5">Sort</Label>
                         <ToggleGroup
                             type="single"
                             size="sm"
@@ -46,7 +47,7 @@
 
                     <!-- Curation tier + tags: one set of toggles -->
                     <section class="filter-section" aria-labelledby="browse-filter-show">
-                        <div id="browse-filter-show" class="section-label">Show</div>
+                        <Label id="browse-filter-show" class="block mb-1.5">Show</Label>
                         <div class="flex flex-wrap gap-1.5">
                             <Chip
                                 mode="selectable"
@@ -70,7 +71,7 @@
 
                     <!-- Find by Color -->
                     <section class="filter-section" aria-labelledby="browse-filter-color">
-                        <div id="browse-filter-color" class="section-label">Find by Color</div>
+                        <Label id="browse-filter-color" class="block mb-1.5">Find by color</Label>
                         <div class="flex items-center gap-1.5">
                             <!-- Mini color picker trigger swatch -->
                             <MiniColorPicker
@@ -107,14 +108,18 @@
                                     @keydown.enter="applyColorSearch"
                                     @update:model-value="colorError = ''"
                                 />
-                                <button
+                                <!-- X-DS pass 5 (V5C-05): the inline verb is a glass
+                                     text-rung Button, no plate inside the field. -->
+                                <Button
+                                    size="xs"
+                                    emphasis="text"
                                     :disabled="searching"
-                                    class="absolute right-1 top-1/2 -translate-y-1/2 h-6 px-2 rounded-full text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-fast cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
+                                    class="absolute right-1 top-1/2 -translate-y-1/2"
                                     @click="applyColorSearch"
                                 >
                                     <Loader2 v-if="searching" class="h-3 w-3 animate-spin" />
                                     <span v-else>Search</span>
-                                </button>
+                                </Button>
                             </div>
                         </div>
                         <!-- X.W12U.s2 · UIA-V-33: a query the parser refuses is said
@@ -151,6 +156,7 @@ import { ref, computed, onDeactivated, useId } from "vue";
 import { usePanePopups } from "../../../shell/usePanePopups";
 import { Button } from "@mkbabb/glass-ui/button";
 import { Input } from "@mkbabb/glass-ui/input";
+import { Label } from "@mkbabb/glass-ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import MiniColorPicker from "./MiniColorPicker.vue";
 import TagChipSet from "./TagChipSet.vue";
@@ -298,5 +304,4 @@ function onClearAll() {
 @reference "../../../styles/foundation.css";
 
 .filter-panel { display: flex; flex-direction: column; gap: 0.875rem; }
-.filter-section > .section-label { margin-bottom: 0.375rem; }
 </style>

@@ -336,7 +336,28 @@ export function useContrastSafeColor(
     // de-emphasis is retired).
     const mutedInkCss = computed(() => resolveMutedInk(restingL.value, isDark.value));
 
-    return { safeAccentCss, needsAdjustment, plateInkCss, mutedInkCss };
+    // X-DS pass 5 (V5C-02): the SAME certified pair, against the FLOATING
+    // plate. Reka portals menus and popovers to <body>, outside the
+    // `.pane-wrapper` seat, so they need their own referent: the floating
+    // rung composited over the same ambient. The boot writer stamps them as
+    // `--ink-floating-primary` / `--ink-floating-muted`; `shell.css` seats
+    // them on glass's floating plate.
+    const floatingL = computed(() =>
+        surfaceLightnessNow("floating", ambientLightness.value, isDark.value),
+    );
+    const floatingInkCss = computed(() => resolvePlateInk(floatingL.value, isDark.value));
+    const floatingMutedInkCss = computed(() =>
+        resolveMutedInk(floatingL.value, isDark.value),
+    );
+
+    return {
+        safeAccentCss,
+        needsAdjustment,
+        plateInkCss,
+        mutedInkCss,
+        floatingInkCss,
+        floatingMutedInkCss,
+    };
 }
 
 /**

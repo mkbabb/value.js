@@ -13,7 +13,7 @@
              UIA-V-566: the editor is named for its palette. -->
         <PopoverContent align="start" :aria-label="`Tags of ${paletteName}`">
             <div>
-                <div class="section-label mb-2 truncate">Tags · {{ paletteName }}</div>
+                <Label class="block mb-2 truncate">Tags · {{ paletteName }}</Label>
 
                 <!-- Loading -->
                 <div v-if="tagEdit.loading.value" class="flex items-center justify-center py-4">
@@ -63,6 +63,7 @@ import { computed, inject, onDeactivated, onMounted, ref, watch } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
 import { PopoverAnchor } from "reka-ui";
 import { Button } from "@mkbabb/glass-ui/button";
+import { Label } from "@mkbabb/glass-ui/label";
 import TagChipSet from "./TagChipSet.vue";
 import { Loader2 } from "@lucide/vue";
 import { paletteETag } from "../../api";

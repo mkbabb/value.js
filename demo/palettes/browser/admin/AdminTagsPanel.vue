@@ -137,9 +137,7 @@
              track past the card and nothing downstream can truncate. -->
         <div v-else class="min-w-0 flex flex-col gap-4">
             <div v-for="[category, catTags] in tagsApi.groupedTags.value" :key="category">
-                <div class="mb-1.5 section-label text-muted-foreground">
-                    {{ category }}
-                </div>
+                <Label class="block mb-1.5">{{ category }}</Label>
                 <div class="flex flex-wrap gap-1.5">
                     <div
                         v-for="tag in catTags"
@@ -207,6 +205,7 @@ import {
 } from "@mkbabb/glass-ui/dialog";
 import { Button } from "@mkbabb/glass-ui/button";
 import { Input } from "@mkbabb/glass-ui/input";
+import { Label } from "@mkbabb/glass-ui/label";
 import { Skeleton } from "@mkbabb/glass-ui";
 import { Plus, RefreshCw, Trash2, X } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";

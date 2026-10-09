@@ -160,7 +160,7 @@ defineExpose({ regenerate, save, copyColors });
                     v-model="paletteName"
                     type="text"
                     aria-label="Palette name"
-                    class="flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashed underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                    class="flex-1 basis-[10rem] min-w-0 truncate bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashed underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 />
                 <!-- X-DS pass 1 (V1-09): the unlabelled count badge is gone —
                      the count slider's own readout below is its labelled home. -->

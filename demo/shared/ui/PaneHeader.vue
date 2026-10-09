@@ -112,13 +112,17 @@ const { level = 2 } = defineProps<{
  * swap); this veil + feather are the carried interim.
  *
  * THE FEATHER stays at EVERY state — it is the band-killer (the 2026-07-05
- * ruling's structural half): the pseudo extends 14px past the header box
- * and the mask fades exactly that overhang, so the veil dissolves into the
- * plate instead of terminating at a box edge (O-11 gate 2). */
+ * ruling's structural half): the mask fades the veil over the last 14px of
+ * the header box, so it dissolves into the plate instead of terminating at
+ * a box edge (O-11 gate 2). X-DS pass 5 (V5C-01): the feather lives INSIDE
+ * the header's own `--pane-header-gap` band (26px). It used to overhang the
+ * box by 14px into the body's top padding; V4C-06 moved that padding into
+ * the header, so the overhang fell on the first row (a two-tone search
+ * field, a fogged drop zone). */
 .pane-header::before {
     content: "";
     position: absolute;
-    inset: 0 0 -14px 0;
+    inset: 0;
     z-index: -1;
     pointer-events: none;
     background: var(--glass-plate-resting);

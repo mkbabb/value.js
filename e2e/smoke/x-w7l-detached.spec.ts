@@ -201,10 +201,10 @@ for (const scene of ["blob", "atmosphere"] as const) {
                 // console's titled groups (ConfigSliderPane's section wrapper).
                 const layers = [...console_.querySelectorAll<HTMLElement>('[data-slot="configurator-layer"]')];
                 const groups = [...console_.children].filter(
-                    (el): el is HTMLElement => el instanceof HTMLElement && !!el.querySelector(".config-section-header"),
+                    (el): el is HTMLElement => el instanceof HTMLElement && !!el.querySelector(".config-section-title"),
                 );
                 return [...layers, ...groups.filter((g) => !layers.some((l) => l.contains(g) || g.contains(l)))].map((sec) => {
-                    const header = sec.querySelector<HTMLElement>('[data-slot="configurator-layer-header"], .config-section-header')!;
+                    const header = sec.querySelector<HTMLElement>('[data-slot="configurator-layer-header"], .config-section-title')!;
                     const trigger = sec.querySelector('[data-slot="configurator-layer-trigger"]');
                     const h = header.getBoundingClientRect();
                     const actions = [...sec.querySelectorAll<HTMLElement>('button, [role="button"]')].filter(
