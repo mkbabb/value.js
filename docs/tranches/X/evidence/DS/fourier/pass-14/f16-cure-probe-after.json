@@ -1,0 +1,574 @@
+{
+ "morph-light-1440": {
+  "title": [
+   {
+    "text": "Fourier Morph",
+    "size": "41.888px",
+    "weight": "400"
+   }
+  ],
+  "cards": [
+   {
+    "text": "Settle Out",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Morph",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Settle In",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Harmonic Levels",
+    "size": "20.352px",
+    "weight": "500"
+   }
+  ]
+ },
+ "v-error-light-1440": {
+  "h1": {
+   "text": "Could not open this visualization",
+   "size": "41.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 720,
+    "y": 513.9,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 720,
+    "y": 561.9,
+    "h": 40
+   }
+  ]
+ },
+ "w-error-light-1440": {
+  "h1": {
+   "text": "Could not load this workspace",
+   "size": "41.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 720,
+    "y": 513.9,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 720,
+    "y": 561.9,
+    "h": 40
+   }
+  ]
+ },
+ "w-empty-light-1440": {
+  "h1": {
+   "text": "Draw any outline in circles",
+   "size": "41.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Choose an image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 720,
+    "y": 516.5,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 720,
+    "y": 591.2,
+    "h": 40
+   }
+  ]
+ },
+ "equation-light-1440": [
+  {
+   "text": "Σ",
+   "tag": "SPAN",
+   "family": "\"Computer Modern Serif\"",
+   "style": "normal",
+   "size": "16.4px",
+   "tracking": "normal"
+  },
+  {
+   "text": "a + b",
+   "tag": "SPAN",
+   "family": "\"Computer Modern Serif\"",
+   "style": "normal",
+   "size": "16.4px",
+   "tracking": "normal"
+  },
+  {
+   "text": "a",
+   "tag": "I",
+   "family": "\"Computer Modern Serif\"",
+   "style": "italic",
+   "size": "16.4px",
+   "tracking": "normal"
+  },
+  {
+   "text": "b",
+   "tag": "I",
+   "family": "\"Computer Modern Serif\"",
+   "style": "italic",
+   "size": "16.4px",
+   "tracking": "normal"
+  }
+ ],
+ "morph-light-390": {
+  "title": [
+   {
+    "text": "Fourier Morph",
+    "size": "25.888px",
+    "weight": "400"
+   }
+  ],
+  "cards": [
+   {
+    "text": "Settle Out",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Morph",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Settle In",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Harmonic Levels",
+    "size": "20.352px",
+    "weight": "500"
+   }
+  ]
+ },
+ "v-error-light-390": {
+  "h1": {
+   "text": "Could not open this visualization",
+   "size": "25.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 195,
+    "y": 477.4,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 195,
+    "y": 525.4,
+    "h": 40
+   }
+  ]
+ },
+ "w-error-light-390": {
+  "h1": {
+   "text": "Could not load this workspace",
+   "size": "25.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 195,
+    "y": 465.4,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 195,
+    "y": 513.4,
+    "h": 40
+   }
+  ]
+ },
+ "w-empty-light-390": {
+  "h1": {
+   "text": "Draw any outline in circles",
+   "size": "25.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Choose an image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 195,
+    "y": 479.5,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 195,
+    "y": 551.3,
+    "h": 40
+   }
+  ]
+ },
+ "equation-light-390": [
+  {
+   "text": "Σ",
+   "tag": "SPAN",
+   "family": "\"Computer Modern Serif\"",
+   "style": "normal",
+   "size": "14px",
+   "tracking": "normal"
+  },
+  {
+   "text": "a + b",
+   "tag": "SPAN",
+   "family": "\"Computer Modern Serif\"",
+   "style": "normal",
+   "size": "14px",
+   "tracking": "normal"
+  },
+  {
+   "text": "a",
+   "tag": "I",
+   "family": "\"Computer Modern Serif\"",
+   "style": "italic",
+   "size": "14px",
+   "tracking": "normal"
+  },
+  {
+   "text": "b",
+   "tag": "I",
+   "family": "\"Computer Modern Serif\"",
+   "style": "italic",
+   "size": "14px",
+   "tracking": "normal"
+  }
+ ],
+ "morph-dark-1440": {
+  "title": [
+   {
+    "text": "Fourier Morph",
+    "size": "41.888px",
+    "weight": "400"
+   }
+  ],
+  "cards": [
+   {
+    "text": "Settle Out",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Morph",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Settle In",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Harmonic Levels",
+    "size": "20.352px",
+    "weight": "500"
+   }
+  ]
+ },
+ "v-error-dark-1440": {
+  "h1": {
+   "text": "Could not open this visualization",
+   "size": "41.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 720,
+    "y": 513.9,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 720,
+    "y": 561.9,
+    "h": 40
+   }
+  ]
+ },
+ "w-error-dark-1440": {
+  "h1": {
+   "text": "Could not load this workspace",
+   "size": "41.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 720,
+    "y": 513.9,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 720,
+    "y": 561.9,
+    "h": 40
+   }
+  ]
+ },
+ "w-empty-dark-1440": {
+  "h1": {
+   "text": "Draw any outline in circles",
+   "size": "41.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Choose an image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 720,
+    "y": 516.5,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 720,
+    "y": 591.2,
+    "h": 40
+   }
+  ]
+ },
+ "equation-dark-1440": [
+  {
+   "text": "Σ",
+   "tag": "SPAN",
+   "family": "\"Computer Modern Serif\"",
+   "style": "normal",
+   "size": "16.4px",
+   "tracking": "normal"
+  },
+  {
+   "text": "a + b",
+   "tag": "SPAN",
+   "family": "\"Computer Modern Serif\"",
+   "style": "normal",
+   "size": "16.4px",
+   "tracking": "normal"
+  },
+  {
+   "text": "a",
+   "tag": "I",
+   "family": "\"Computer Modern Serif\"",
+   "style": "italic",
+   "size": "16.4px",
+   "tracking": "normal"
+  },
+  {
+   "text": "b",
+   "tag": "I",
+   "family": "\"Computer Modern Serif\"",
+   "style": "italic",
+   "size": "16.4px",
+   "tracking": "normal"
+  }
+ ],
+ "morph-dark-390": {
+  "title": [
+   {
+    "text": "Fourier Morph",
+    "size": "25.888px",
+    "weight": "400"
+   }
+  ],
+  "cards": [
+   {
+    "text": "Settle Out",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Morph",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Settle In",
+    "size": "20.352px",
+    "weight": "500"
+   },
+   {
+    "text": "Harmonic Levels",
+    "size": "20.352px",
+    "weight": "500"
+   }
+  ]
+ },
+ "v-error-dark-390": {
+  "h1": {
+   "text": "Could not open this visualization",
+   "size": "25.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 195,
+    "y": 477.4,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 195,
+    "y": 525.4,
+    "h": 40
+   }
+  ]
+ },
+ "w-error-dark-390": {
+  "h1": {
+   "text": "Could not load this workspace",
+   "size": "25.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Upload a new image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 195,
+    "y": 465.4,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 195,
+    "y": 513.4,
+    "h": 40
+   }
+  ]
+ },
+ "w-empty-dark-390": {
+  "h1": {
+   "text": "Draw any outline in circles",
+   "size": "25.888px",
+   "weight": "400",
+   "family": "\"Computer Modern Serif\""
+  },
+  "buttons": [
+   {
+    "label": "Choose an image",
+    "size": "md",
+    "emphasis": "primary",
+    "cx": 195,
+    "y": 479.5,
+    "h": 40
+   },
+   {
+    "label": "Browse the gallery",
+    "size": "md",
+    "emphasis": "quiet",
+    "cx": 195,
+    "y": 551.3,
+    "h": 40
+   }
+  ]
+ },
+ "equation-dark-390": [
+  {
+   "text": "Σ",
+   "tag": "SPAN",
+   "family": "\"Computer Modern Serif\"",
+   "style": "normal",
+   "size": "14px",
+   "tracking": "normal"
+  },
+  {
+   "text": "a + b",
+   "tag": "SPAN",
+   "family": "\"Computer Modern Serif\"",
+   "style": "normal",
+   "size": "14px",
+   "tracking": "normal"
+  },
+  {
+   "text": "a",
+   "tag": "I",
+   "family": "\"Computer Modern Serif\"",
+   "style": "italic",
+   "size": "14px",
+   "tracking": "normal"
+  },
+  {
+   "text": "b",
+   "tag": "I",
+   "family": "\"Computer Modern Serif\"",
+   "style": "italic",
+   "size": "14px",
+   "tracking": "normal"
+  }
+ ]
+}
