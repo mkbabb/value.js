@@ -226,6 +226,8 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
         /** the crossfade whose active face the switch changes (default: the dock's layer group) */
         face?: string;
         seed?: boolean;
+        /** the switch serves a touch phone: the context is coarse (isMobile + hasTouch) and the enter taps */
+        coarse?: boolean;
     }[] = [
         {
             // the Tools bar's own sub-layer swap (actions ↔ colour input),
@@ -272,20 +274,24 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             height: 844,
             hash: "#/palettes",
             seed: true,
+            // X.W12U.m2 · R-m-3: the mobile-edit layer serves a touch phone, so
+            // the leg runs in a coarse context and TAPS (it drove a fine mouse at
+            // 390 before, a pointer class this layer never serves).
+            coarse: true,
             enter: async (p) => {
                 // a LOCAL palette's swatch in edit: open the seeded card, open
                 // its first swatch's popover, take its Edit (pm.onEditColor →
                 // emitStartEdit → the dock's mobile-edit layer at < lg)
                 const card = p.locator('[aria-label="Palette: W12e seed"]');
-                await card.click({ timeout: 10_000 });
-                await card.locator(".watercolor-swatch").first().locator("xpath=..").click({ timeout: 10_000 });
+                await card.tap({ timeout: 10_000 });
+                await card.locator(".watercolor-swatch").first().locator("xpath=..").tap({ timeout: 10_000 });
                 const edit = p.locator('[aria-label^="Edit color "]').first();
-                // MEASURED 2026-09-24: at 390×844 the saved card's swatch
-                // popover paints its Edit at x=-189, y=879 (off-screen), so the
-                // mobile-edit layer has no served entry (MOBILE-EDIT-ENTRY; the
-                // current palette's add-slot is dead too, O-15 BLOCKER)
+                // The 2026-09-24 reading (Edit painted at x=-189, y=879) no
+                // longer reproduces: X.W12U.m2 reads Edit at 38,552 (coarse) and
+                // 34,487 (fine), still over 2 s, no running animation on it or
+                // any ancestor (`W12U-evidence/m2/probe-mobile-edit.mjs`).
                 await expect(edit, "the swatch popover's Edit lands inside the 390 viewport (MOBILE-EDIT-ENTRY)").toBeInViewport({ timeout: 5_000 });
-                await edit.click({ timeout: 10_000 });
+                await edit.tap({ timeout: 10_000 });
             },
             entered: (p) => dockButton(p, "Save edit"),
             leave: (p) => dockButton(p, "Cancel edit").click(),
@@ -297,6 +303,7 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
             const ctx: BrowserContext = await browser.newContext({
                 ...(baseURL ? { baseURL } : {}),
                 viewport: { width: sw.width, height: sw.height },
+                ...(sw.coarse ? { isMobile: true, hasTouch: true } : {}),
                 colorScheme: "dark",
                 ...(WEBM_DIR ? { recordVideo: { dir: WEBM_DIR, size: { width: sw.width, height: sw.height } } } : {}),
             });
