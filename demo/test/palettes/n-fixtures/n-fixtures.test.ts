@@ -12,8 +12,8 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { mount, type VueWrapper } from "@vue/test-utils";
 import { nextTick } from "vue";
-import PaletteSpecimen from "../../../palettes/browser/card/PaletteSpecimen.vue";
-import PaletteCardMeta from "../../../palettes/browser/card/PaletteCard/PaletteCardMeta.vue";
+import PaletteSpecimen from "../../../shared/ui/PaletteSpecimen.vue";
+import PaletteCardMeta from "../../../palettes/inspector/PaletteCardMeta.vue";
 import { captureSnapshot } from "../../../palettes/export/capture";
 import { serializePng } from "../../../palettes/export/png";
 import { COLOR_NS, TAG_NS, fixtureColors, fixturePalette, fixtureTags } from "./fixtures";

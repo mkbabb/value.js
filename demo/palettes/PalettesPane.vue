@@ -214,8 +214,8 @@ import {
 } from "@mkbabb/glass-ui/dialog";
 import PaneShell from "../shell/PaneShell.vue";
 import type { Palette } from "./types";
-import PaletteInspector from "./PaletteInspector.vue";
-import ActionFeedback from "./browser/card/PaletteCard/ActionFeedback.vue";
+import PaletteInspector from "./inspector/PaletteInspector.vue";
+import ActionFeedback from "../shared/ui/ActionFeedback.vue";
 
 const { savedColorStrings } = defineProps<{
     savedColorStrings: string[];

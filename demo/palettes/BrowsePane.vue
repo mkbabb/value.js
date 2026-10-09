@@ -229,8 +229,9 @@ import { Search, Trash2 } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
-import { PaletteCardGrid, PaletteCardSkeleton } from "./browser/card";
-import PaletteInspector from "./PaletteInspector.vue";
+import { PaletteCardGrid } from "./browser/card";
+import PaletteCardSkeleton from "../shared/ui/PaletteCardSkeleton.vue";
+import PaletteInspector from "./inspector/PaletteInspector.vue";
 import EmptyState from "../shared/ui/EmptyState.vue";
 import { SearchFilterBar, TagEditPopover } from "./browser/search";
 import {

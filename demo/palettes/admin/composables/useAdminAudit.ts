@@ -7,10 +7,10 @@
  * Migration source: `palette-browser/AdminAuditPanel.vue` (D.W3 Lane B).
  */
 import { ref, type Ref } from "vue";
-import { getAuditLog, type AuditLogOptions } from "./api";
-import type { AuditEntry } from "./types";
-import { usePager, type Pager } from "./usePager";
-import { useAdminAccess, latestRequest, type AdminFailure } from "./api/admin-call";
+import { getAuditLog, type AuditLogOptions } from "../../api";
+import type { AuditEntry } from "../../types";
+import { usePager, type Pager } from "../../usePager";
+import { useAdminAccess, latestRequest, type AdminFailure } from "../../api/admin-call";
 
 export interface UseAdminAudit {
     entries: Ref<AuditEntry[]>;

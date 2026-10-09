@@ -169,9 +169,9 @@
 <script setup lang="ts">
 import { computed, onDeactivated } from "vue";
 import { useMediaQuery } from "@vueuse/core";
-import type { Palette } from "../../../types";
-import type { PaletteKind } from "../../../utils";
-import { useApiClient } from "../../../../platform/transport/useApiClient";
+import type { Palette } from "../types";
+import type { PaletteKind } from "../utils";
+import { useApiClient } from "../../platform/transport/useApiClient";
 import {
     DropdownMenu,
     DropdownMenuContent,

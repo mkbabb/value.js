@@ -197,7 +197,7 @@ import {
 import type { Palette, PaletteColor } from "../../types";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
-import ActionFeedback from "./PaletteCard/ActionFeedback.vue";
+import ActionFeedback from "../../../shared/ui/ActionFeedback.vue";
 import ApiStatusChip from "../../../shared/ui/api-status/ApiStatusChip.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 

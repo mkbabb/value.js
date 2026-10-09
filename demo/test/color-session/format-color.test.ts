@@ -131,17 +131,17 @@ describe("G16 — import census: the 29 OM-14 sites read through the facility", 
 
     const CI = "shell/dock/ColorInput.vue";
     const CPE = "palettes/browser/card/CurrentPaletteEditor.vue";
-    const PCS = "palettes/browser/card/PaletteCard/PaletteCardSwatches.vue";
+    const PCS = "palettes/inspector/PaletteCardSwatches.vue";
     const SHM = "palettes/browser/card/SwatchHoverMenu.vue";
     const MRD = "workbenches/mix/MixResultDisplay.vue";
     const MSS = "workbenches/mix/MixSourceSelector.vue";
     const EXW = "workbenches/extract/ExtractWorkbench.vue";
-    const ANP = "palettes/browser/admin/AdminNamesPanel.vue";
+    const ANP = "palettes/admin/panels/AdminNamesPanel.vue";
 
     /** [OM-14 id, file under demo/, the routed expression at the site, occurrences]. */
     const SITES: readonly (readonly [string, string, string, number])[] = [
         // §2.A — visible text (16 since UIA-V-12; A2 is the 4dp INCONSIST row, not a raw-12 site)
-        ["A1", "color-session/ColorSpaceSelector.vue", "formatSpecimen(color, entry.id)", 1],
+        ["A1", "shared/ui/ColorSpaceSelector.vue", "formatSpecimen(color, entry.id)", 1],
         ["A3", CI, '{{ formatColor(currentPhysicalColor, "caption") }}', 1],
         // X.W12U.s1 (UIA-V-12): the propose-success write is retired — it put the
         // colour string into the name field (the defect); three repaint sites remain.
@@ -211,8 +211,8 @@ describe("G16 — the three dead precision APIs are deleted (OM-14 §3.14)", () 
 describe("G17 — the compact-count sites read through the facility", () => {
     const root = path.resolve(import.meta.dirname, "../..");
     for (const site of [
-        "palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
-        "palettes/browser/card/PaletteSpecimen.vue",
+        "palettes/inspector/PaletteCardMeta.vue",
+        "shared/ui/PaletteSpecimen.vue",
     ]) {
         it(`${site} reads formatCount through format-color`, () => {
             const bytes = readFileSync(path.join(root, site), "utf8");

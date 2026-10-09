@@ -155,7 +155,7 @@ import { RefreshCw } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
-import { formatTime } from "../dateFormat";
+import { formatTime } from "../../browser/dateFormat";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
 import { debounce } from "../../../shared/utils";
 

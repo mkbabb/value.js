@@ -14,12 +14,12 @@ import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
-import PaletteSpecimen from "../../palettes/browser/card/PaletteSpecimen.vue";
+import PaletteSpecimen from "../../shared/ui/PaletteSpecimen.vue";
 import { g9Palette } from "./n-fixtures/fixtures";
 
-const SPECIMEN = path.resolve(import.meta.dirname, "../../palettes/browser/card/PaletteSpecimen.vue");
+const SPECIMEN = path.resolve(import.meta.dirname, "../../shared/ui/PaletteSpecimen.vue");
 // X.W7.d2: the specimen's product host is the selected-entity inspector.
-const CARD = path.resolve(import.meta.dirname, "../../palettes/PaletteInspector.vue");
+const CARD = path.resolve(import.meta.dirname, "../../palettes/inspector/PaletteInspector.vue");
 
 /** The forbidden seats: palette ports/actions/store and the API transport. */
 const FORBIDDEN = [

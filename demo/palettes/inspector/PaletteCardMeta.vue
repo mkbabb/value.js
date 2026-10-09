@@ -68,8 +68,8 @@
 import { computed, onDeactivated, ref } from "vue";
 import { Heart } from "@lucide/vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
-import type { Palette } from "../../../types";
-import { formatCount } from "../../../../color-session/format-color";
+import type { Palette } from "../types";
+import { formatCount } from "../../color-session/format-color";
 
 const { palette } = defineProps<{ palette: Palette }>();
 

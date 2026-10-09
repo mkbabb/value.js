@@ -55,7 +55,7 @@ export const EDIT_TARGET_KEY: InjectionKey<ShallowRef<EditTarget | null>> =
  *
  * `palette` is the one ENTITY scene (X.W7.d2 · COHESION §0bk.1): it is not a
  * view's scene but the selected palette's — the palette inspector
- * (`palettes/PaletteInspector.vue`) registers it while its palette is the
+ * (`palettes/inspector/PaletteInspector.vue`) registers it while its palette is the
  * selected entity, and the dock renders that entity's verbs through this same
  * contract (never a parallel type).
  */

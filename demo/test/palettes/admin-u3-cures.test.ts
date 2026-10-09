@@ -7,7 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { computed, defineComponent, h, provide, ref } from "vue";
 
 import AdminPane from "../../palettes/admin/AdminPane.vue";
-import ActionFeedback from "../../palettes/browser/card/PaletteCard/ActionFeedback.vue";
+import ActionFeedback from "../../shared/ui/ActionFeedback.vue";
 import { providePalettePorts, type PalettePorts } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { useAdminAuth } from "../../platform/auth/useAdminAuth";

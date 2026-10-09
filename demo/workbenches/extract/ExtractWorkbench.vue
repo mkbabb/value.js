@@ -235,8 +235,8 @@ import { useCameraCapture } from "./composables/useCameraCapture";
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
-import { PaletteCardSkeleton } from "../../palettes/browser/card";
-import PaletteInspector from "../../palettes/PaletteInspector.vue";
+import PaletteCardSkeleton from "../../shared/ui/PaletteCardSkeleton.vue";
+import PaletteInspector from "../../palettes/inspector/PaletteInspector.vue";
 
 type DisplayColorSpace = SpaceId | "hex";
 

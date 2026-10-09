@@ -8,8 +8,8 @@
  * Migration source: `palette-browser/AdminTagsPanel.vue` (D.W3 Lane B).
  */
 import { ref, computed, type Ref, type ShallowRef } from "vue";
-import { getAdminTags, createTag, deleteTag } from "./api";
-import type { Tag } from "./types";
+import { getAdminTags, createTag, deleteTag } from "../../api";
+import type { Tag } from "../../types";
 import {
     useAdminAccess,
     useAdminNotice,
@@ -17,8 +17,8 @@ import {
     type AdminFailure,
     type AdminNotice,
     type AdminResult,
-} from "./api/admin-call";
-import { isTagName, tagNameProblem, PALETTE_WIRE_LIMITS } from "./api/preflight";
+} from "../../api/admin-call";
+import { isTagName, tagNameProblem, PALETTE_WIRE_LIMITS } from "../../api/preflight";
 
 export interface UseAdminTags {
     tags: Ref<Tag[]>;

@@ -13,7 +13,7 @@ import "../../../../styles/utils.css";
 import "../../../../styles/foundation.css";
 import "../../../../styles/focus-ring.css";
 import { PaletteCardGrid } from "../../../../palettes/browser/card";
-import PaletteInspector from "../../../../palettes/PaletteInspector.vue";
+import PaletteInspector from "../../../../palettes/inspector/PaletteInspector.vue";
 import { API_CLIENT_KEY, createApiClient } from "../../../../platform/transport/useApiClient";
 import { INK_AMBIENT_KEY } from "../../../../color-session/keys";
 import { HARNESS_CASES, fixturePalette } from "../fixtures";

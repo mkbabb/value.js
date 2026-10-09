@@ -121,7 +121,7 @@
 
 <script setup lang="ts">
 import { Card, CardContent, CardHeader } from "@mkbabb/glass-ui/card";
-import ColorSpaceSelector from "../color-session/ColorSpaceSelector.vue";
+import ColorSpaceSelector from "../shared/ui/ColorSpaceSelector.vue";
 import ColorComponentDisplay from "./display/ColorComponentDisplay/ColorComponentDisplay.vue";
 import {
     computed,

@@ -37,7 +37,7 @@ import type { SliderSection } from "../ConfigSliderPane.vue";
 // each candidate harmony would resolve from the CURRENT atoms (the
 // calibrated truth function; O-14 byte-identity). Computed only while the
 // SelectContent renders (it unmounts closed), so zero rest cost.
-import { PreviewStrip } from "../../color-session/color-chips";
+import { PreviewStrip } from "../../shared/ui/color-chips";
 import { auroraHarmonyStops } from "./aurora-harmony-stops";
 import { usePanePopups } from "../../shell/usePanePopups";
 

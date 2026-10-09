@@ -170,27 +170,27 @@ import {
 } from "vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import { ChevronDown, MoreHorizontal, GripVertical } from "@lucide/vue";
-import type { Palette, PaletteColor } from "./types";
-import { getPaletteKind, type PaletteKind } from "./utils";
+import type { Palette, PaletteColor } from "../types";
+import { getPaletteKind, type PaletteKind } from "../utils";
 import { writeClipboard } from "@mkbabb/glass-ui";
 import { useLiquidPress } from "@mkbabb/glass-ui/motion";
-import { useSafeAccentFn } from "../color-session/useContrastSafeColor";
+import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import {
     SELECTED_ENTITY_KEY,
     type PaletteSceneTarget,
     type PaletteSceneVerb,
     type SceneCommand,
-} from "../color-session/keys";
-import { usePaletteExport } from "./usePaletteExport";
-import { usePopupMutex } from "../shared/usePopupMutex";
+} from "../../color-session/keys";
+import { usePaletteExport } from "../usePaletteExport";
+import { usePopupMutex } from "../../shared/usePopupMutex";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
-import PaletteSpecimen from "./browser/card/PaletteSpecimen.vue";
-import type { SwatchSize } from "../shared/ui/SwatchButton.vue";
-import PaletteCardMenu from "./browser/card/PaletteCard/PaletteCardMenu.vue";
-import PaletteCardMeta from "./browser/card/PaletteCard/PaletteCardMeta.vue";
-import PaletteCardSwatches from "./browser/card/PaletteCard/PaletteCardSwatches.vue";
-import PaletteNameInput from "../shared/ui/PaletteNameInput.vue";
-import ActionFeedback from "./browser/card/PaletteCard/ActionFeedback.vue";
+import PaletteSpecimen from "../../shared/ui/PaletteSpecimen.vue";
+import type { SwatchSize } from "../../shared/ui/SwatchButton.vue";
+import PaletteCardMenu from "./PaletteCardMenu.vue";
+import PaletteCardMeta from "./PaletteCardMeta.vue";
+import PaletteCardSwatches from "./PaletteCardSwatches.vue";
+import PaletteNameInput from "../../shared/ui/PaletteNameInput.vue";
+import ActionFeedback from "../../shared/ui/ActionFeedback.vue";
 
 const props = withDefaults(
     defineProps<{

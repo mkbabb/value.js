@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import type { PaletteColor } from "../../types";
+import type { PaletteColor } from "../../palettes/types";
 
 const {
     colors,

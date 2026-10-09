@@ -6,7 +6,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/gla
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { WatercolorDot } from "../../shared/ui/watercolor-dot";
 import { Button } from "@mkbabb/glass-ui/button";
-import { PaletteSpecimen } from "../../palettes/browser/card";
+import PaletteSpecimen from "../../shared/ui/PaletteSpecimen.vue";
 import SwatchButton from "../../shared/ui/SwatchButton.vue";
 import EmptyState from "../../shared/ui/EmptyState.vue";
 import type { Palette } from "../../palettes/types";

@@ -18,7 +18,7 @@ import { computed, shallowRef } from "vue";
 import { useVersionHistory, type VersionsResult } from "../../palettes/useVersionHistory";
 import { useDialogBrowseActions } from "../../palettes/browser/dialog/composables/useDialogBrowseActions";
 import VersionHistoryDrawer from "../../palettes/browser/dialog/VersionHistoryDrawer.vue";
-import PaletteInspector from "../../palettes/PaletteInspector.vue";
+import PaletteInspector from "../../palettes/inspector/PaletteInspector.vue";
 import { BROWSE_PORT_KEY } from "../../palettes/usePalettePorts";
 import { API_CLIENT_KEY, createApiClient } from "../../platform/transport/useApiClient";
 import {

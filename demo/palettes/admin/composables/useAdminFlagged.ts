@@ -14,7 +14,7 @@ import {
     getFlaggedPalettes,
     dismissFlags,
     flagPalette,
-} from "./api";
+} from "../../api";
 import {
     useAdminAccess,
     useAdminNotice,
@@ -22,10 +22,10 @@ import {
     type AdminFailure,
     type AdminNotice,
     type AdminResult,
-} from "./api/admin-call";
-import type { FlaggedPalette } from "./types";
-import { usePager, type Pager } from "./usePager";
-import { ApiProblem } from "../platform/transport/api-problem";
+} from "../../api/admin-call";
+import type { FlaggedPalette } from "../../types";
+import { usePager, type Pager } from "../../usePager";
+import { ApiProblem } from "../../../platform/transport/api-problem";
 
 /** The report verdict — W7.22: an API failure is a failure, never a success. */
 export type ReportResult =

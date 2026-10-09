@@ -123,7 +123,7 @@ import {
 import { Button } from "@mkbabb/glass-ui/button";
 import { RotateCcw } from "@lucide/vue";
 import { Skeleton } from "@mkbabb/glass-ui";
-import PaletteColorStrip from "../card/PaletteColorStrip.vue";
+import PaletteColorStrip from "../../../shared/ui/PaletteColorStrip.vue";
 import { formatTime } from "../dateFormat";
 import { BROWSE_PORT_KEY } from "../../usePalettePorts";
 import type { PaletteVersion } from "../../types";

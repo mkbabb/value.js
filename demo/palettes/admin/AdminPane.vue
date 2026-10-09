@@ -97,15 +97,15 @@ import { inject, computed } from "vue";
 import { Badge } from "@mkbabb/glass-ui/badge";
 
 import { ADMIN_PORT_KEY } from "../usePalettePorts";
-import ActionFeedback from "../browser/card/PaletteCard/ActionFeedback.vue";
+import ActionFeedback from "../../shared/ui/ActionFeedback.vue";
 import {
     AdminUsersPanel,
     AdminNamesPanel,
     AdminAuditPanel,
     AdminFlaggedPanel,
     AdminTagsPanel,
-} from "../browser/admin";
-import { UserSortMenu } from "../browser/search";
+} from "./panels";
+import UserSortMenu from "./UserSortMenu.vue";
 import PaneShell from "../../shell/PaneShell.vue";
 import type { PaneId } from "../../shell/viewSchema";
 

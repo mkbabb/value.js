@@ -9,8 +9,8 @@
  */
 import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
-import PaletteCardMeta from "../../palettes/browser/card/PaletteCard/PaletteCardMeta.vue";
-import PaletteSpecimen from "../../palettes/browser/card/PaletteSpecimen.vue";
+import PaletteCardMeta from "../../palettes/inspector/PaletteCardMeta.vue";
+import PaletteSpecimen from "../../shared/ui/PaletteSpecimen.vue";
 import { formatCount } from "../../color-session/format-color";
 import { fixturePalette, g9Palette } from "./n-fixtures/fixtures";
 

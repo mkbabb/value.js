@@ -12,9 +12,9 @@ import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import { computed, defineComponent, h, ref } from "vue";
-import PaletteInspector from "../../palettes/PaletteInspector.vue";
+import PaletteInspector from "../../palettes/inspector/PaletteInspector.vue";
 import { useSwatchActions } from "../../palettes/browser/card/composables/useSwatchActions";
-import ActionFeedback from "../../palettes/browser/card/PaletteCard/ActionFeedback.vue";
+import ActionFeedback from "../../shared/ui/ActionFeedback.vue";
 import { API_CLIENT_KEY, createApiClient } from "../../platform/transport/useApiClient";
 import { INK_AMBIENT_KEY } from "../../color-session/keys";
 import type { Palette } from "../../palettes/types";
@@ -30,7 +30,7 @@ const PALETTE: Palette = {
 
 const CARD_DIR = path.resolve(import.meta.dirname, "../../palettes/browser/card");
 /** X.W7.d2: the card's host moved to the selected-entity inspector. */
-const INSPECTOR = path.resolve(import.meta.dirname, "../../palettes/PaletteInspector.vue");
+const INSPECTOR = path.resolve(import.meta.dirname, "../../palettes/inspector/PaletteInspector.vue");
 
 function files(dir: string): string[] {
     return readdirSync(dir).flatMap((f) => {

@@ -143,13 +143,13 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@mkbabb/glass-ui/select";
-import { WatercolorDot } from "../shared/ui/watercolor-dot";
+import { WatercolorDot } from "./watercolor-dot";
 import { computed, inject, onDeactivated } from "vue";
-import { resolveColorSpace } from "./color-model";
-import type { DisplayColorSpace } from "./color-model";
-import { SPACE_CATALOG, SPACE_CATALOG_ENTRIES } from "./space-catalog";
-import { SPECIMEN_CHAR_BUDGET, formatSpecimen } from "./format-color";
-import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "./keys";
+import { resolveColorSpace } from "../../color-session/color-model";
+import type { DisplayColorSpace } from "../../color-session/color-model";
+import { SPACE_CATALOG, SPACE_CATALOG_ENTRIES } from "../../color-session/space-catalog";
+import { SPECIMEN_CHAR_BUDGET, formatSpecimen } from "../../color-session/format-color";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 
 const { cssColor, inline = false } = defineProps<{
     cssColor: string;

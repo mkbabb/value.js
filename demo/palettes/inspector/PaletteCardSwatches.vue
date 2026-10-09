@@ -62,10 +62,10 @@
 
 <script setup lang="ts">
 import { Copy, Pencil, Plus } from "@lucide/vue";
-import type { PaletteColor } from "../../../types";
-import SwatchHoverMenu from "../SwatchHoverMenu.vue";
-import type { SwatchSize } from "../../../../shared/ui/SwatchButton.vue";
-import { formatCssCaption } from "../../../../color-session/format-color";
+import type { PaletteColor } from "../types";
+import SwatchHoverMenu from "../browser/card/SwatchHoverMenu.vue";
+import type { SwatchSize } from "../../shared/ui/SwatchButton.vue";
+import { formatCssCaption } from "../../color-session/format-color";
 
 defineProps<{
     colors: readonly PaletteColor[];

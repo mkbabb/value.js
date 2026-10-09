@@ -80,8 +80,8 @@
 <script setup lang="ts">
 import { Award, GitFork, History } from "@lucide/vue";
 import { Badge } from "@mkbabb/glass-ui/badge";
-import type { Palette } from "../../types";
-import { formatCount } from "../../../color-session/format-color";
+import type { Palette } from "../../palettes/types";
+import { formatCount } from "../../color-session/format-color";
 import PaletteColorStrip from "./PaletteColorStrip.vue";
 
 const {

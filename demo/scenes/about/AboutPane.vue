@@ -114,7 +114,7 @@ import PaneShell from "../../shell/PaneShell.vue";
 import ColorNutritionLabel from "./ColorNutritionLabel.vue";
 import type { ColorModel } from "../../color-session/color-model";
 import { SPACE_CATALOG } from "../../color-session/space-catalog";
-import ColorSpaceSelector from "../../color-session/ColorSpaceSelector.vue";
+import ColorSpaceSelector from "../../shared/ui/ColorSpaceSelector.vue";
 import { Markdown } from "./markdown";
 const model = defineModel<ColorModel>({ required: true });
 const aboutSelectOpen = ref(false);

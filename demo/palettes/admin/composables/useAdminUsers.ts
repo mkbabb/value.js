@@ -8,12 +8,12 @@ import {
     deleteUserPalettes,
     pruneEmptyUsers,
     getUserPalettes,
-} from "./api";
-import { useAdminAccess, useAdminNotice, latestRequest, type AdminResult } from "./api/admin-call";
-import { admitRecoveryProbe } from "../platform/transport/availability";
-import type { Palette, User } from "./types";
-import { usePager } from "./usePager";
-import { debounce } from "../shared/utils";
+} from "../../api";
+import { useAdminAccess, useAdminNotice, latestRequest, type AdminResult } from "../../api/admin-call";
+import { admitRecoveryProbe } from "../../../platform/transport/availability";
+import type { Palette, User } from "../../types";
+import { usePager } from "../../usePager";
+import { debounce } from "../../../shared/utils";
 
 /**
  * The admin users domain — the roster, the one expanded user's palettes, and

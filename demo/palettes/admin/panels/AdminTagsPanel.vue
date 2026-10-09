@@ -209,7 +209,7 @@ import { Label } from "@mkbabb/glass-ui/label";
 import { Skeleton } from "@mkbabb/glass-ui";
 import { Plus, RefreshCw, Trash2, X } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
-import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";
+import ActionFeedback from "../../../shared/ui/ActionFeedback.vue";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
 
 // D.W3 Lane B: route through pm.tags sub-object (was: direct getAdminTags/createTag/deleteTag)

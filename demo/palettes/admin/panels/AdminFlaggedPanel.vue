@@ -228,10 +228,10 @@ import { Button } from "@mkbabb/glass-ui/button";
 import { Badge } from "@mkbabb/glass-ui/badge";
 import { RefreshCw, Trash2 } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";
-import ActionFeedback from "../card/PaletteCard/ActionFeedback.vue";
+import ActionFeedback from "../../../shared/ui/ActionFeedback.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
-import { formatDate } from "../dateFormat";
+import { formatDate } from "../../browser/dateFormat";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
 
 // D.W3 Lane B: route through pm.flagged sub-object (was: direct getFlaggedPalettes/dismissFlags/deletePaletteAdmin)

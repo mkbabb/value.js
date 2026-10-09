@@ -13,7 +13,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import { computed, shallowRef } from "vue";
-import PaletteInspector from "../../palettes/PaletteInspector.vue";
+import PaletteInspector from "../../palettes/inspector/PaletteInspector.vue";
 import { API_CLIENT_KEY, createApiClient } from "../../platform/transport/useApiClient";
 import {
     INK_AMBIENT_KEY,

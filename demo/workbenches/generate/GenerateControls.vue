@@ -23,7 +23,7 @@ import PaletteNameInput from "../../shared/ui/PaletteNameInput.vue";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
 // the chip module + spec; the GenerateControls consume routes through Lane
 // N's queue — recorded in both lane logs.
-import { PreviewStrip } from "../../color-session/color-chips";
+import { PreviewStrip } from "../../shared/ui/color-chips";
 import { formatCssCaption } from "../../color-session/format-color";
 import { paletteRail } from "../../color-session/palette-rail";
 import { useColorGeneration } from "./composables/useColorGeneration";

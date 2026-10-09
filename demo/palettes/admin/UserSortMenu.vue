@@ -47,7 +47,7 @@ import {
     DropdownMenuTrigger,
 } from "@mkbabb/glass-ui/menu";
 import { EllipsisVertical, Clock, ArrowDownAZ, Palette } from "@lucide/vue";
-import { usePanePopups } from "../../../shell/usePanePopups";
+import { usePanePopups } from "../../shell/usePanePopups";
 
 // A2-VA-L2-11 — this pane's popups close when the pane deactivates.
 const popups = usePanePopups();

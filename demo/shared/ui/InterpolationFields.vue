@@ -33,7 +33,7 @@ import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { AcceptableValue } from "reka-ui";
 import type { PickerSpace } from "../../color-session/picker-color";
 import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "../../color-session/color-space-meta";
-import { PreviewRamp, sampleInterpolationRamp } from "../../color-session/color-chips";
+import { PreviewRamp, sampleInterpolationRamp } from "./color-chips";
 import { usePanePopups } from "../../shell/usePanePopups";
 
 const space = defineModel<PickerSpace>("space", { required: true });
