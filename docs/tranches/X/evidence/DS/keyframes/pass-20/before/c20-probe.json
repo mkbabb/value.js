@@ -1,0 +1,454 @@
+{
+ "light": {
+  "squareRest": {
+   "size": 183.7,
+   "travel": 183.7,
+   "plate": {
+    "y": 127,
+    "b": 750,
+    "h": 623,
+    "w": 814
+   },
+   "headerEnd": 215,
+   "headerRight": 793,
+   "fieldCentreY": 439,
+   "swollenTopAtMinus1": 152,
+   "swollenBottomAtPlus1": 725,
+   "clearHeader": false,
+   "clearBottom": true,
+   "box": {
+    "x": 866,
+    "y": 347,
+    "r": 1049,
+    "b": 530
+   },
+   "boxOverHeader": false
+  },
+  "squareCorner": {
+   "size": 183.7,
+   "travel": 183.7,
+   "plate": {
+    "y": 127,
+    "b": 750,
+    "h": 623,
+    "w": 814
+   },
+   "headerEnd": 215,
+   "headerRight": 793,
+   "fieldCentreY": 439,
+   "swollenTopAtMinus1": 152,
+   "swollenBottomAtPlus1": 725,
+   "clearHeader": false,
+   "clearBottom": true,
+   "box": {
+    "x": 671,
+    "y": 152,
+    "r": 877,
+    "b": 358
+   },
+   "boxOverHeader": true
+  },
+  "edit": {
+   "range": 0,
+   "body": {
+    "x": 93,
+    "y": 116,
+    "r": 456,
+    "b": 515,
+    "w": 363,
+    "h": 399
+   },
+   "picker": {
+    "x": 93,
+    "y": 116,
+    "r": 341,
+    "b": 515,
+    "w": 248,
+    "h": 399
+   },
+   "plot": {
+    "x": 93,
+    "y": 116,
+    "r": 341,
+    "b": 364,
+    "w": 248,
+    "h": 248
+   },
+   "controls": {
+    "x": 93,
+    "y": 376,
+    "r": 341,
+    "b": 515,
+    "w": 248,
+    "h": 139
+   },
+   "select": {
+    "x": 93,
+    "y": 427,
+    "r": 341,
+    "b": 467,
+    "w": 248,
+    "h": 40
+   },
+   "readout": {
+    "text": "cubic-bezier(0.42, 0, 0.58, 1)",
+    "x": 110,
+    "y": 488,
+    "r": 300,
+    "b": 502,
+    "w": 190,
+    "h": 14,
+    "scrollW": 198,
+    "clientW": 190,
+    "whole": false
+   },
+   "surfaceBottom": 527
+  },
+  "phoneEdit": {
+   "sheet": {
+    "x": 0,
+    "y": 719,
+    "r": 390,
+    "b": 1022,
+    "w": 390,
+    "h": 304
+   },
+   "detent": "0.36",
+   "maskEl": {
+    "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-",
+    "x": 13,
+    "y": 784,
+    "r": 377,
+    "b": 1001,
+    "w": 364,
+    "h": 218,
+    "scrollTop": 12,
+    "range": 470,
+    "maskImage": "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0) 40px, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0))",
+    "anim": "none",
+    "fade": 2.5
+   },
+   "title": {
+    "x": 75,
+    "y": 784,
+    "r": 202,
+    "b": 820,
+    "w": 127,
+    "h": 36,
+    "offsetIntoMask": 0,
+    "text": "cubic-bézier"
+   },
+   "firstControl": {
+    "x": 33,
+    "y": 824,
+    "r": 357,
+    "b": 1148,
+    "w": 324,
+    "h": 324
+   },
+   "firstControlVisible": true,
+   "vh": 844
+  },
+  "phoneLayer": {
+   "sheet": {
+    "x": 0,
+    "y": 708,
+    "r": 390,
+    "b": 1011,
+    "w": 390,
+    "h": 304
+   },
+   "detent": "0.36",
+   "maskEl": {
+    "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-",
+    "x": 13,
+    "y": 773,
+    "r": 377,
+    "b": 990,
+    "w": 364,
+    "h": 218,
+    "scrollTop": 12,
+    "range": 220,
+    "maskImage": "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0) 40px, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0))",
+    "anim": "none",
+    "fade": 2.5
+   },
+   "title": {
+    "x": 75,
+    "y": 773,
+    "r": 202,
+    "b": 809,
+    "w": 127,
+    "h": 36,
+    "offsetIntoMask": 0,
+    "text": "cubic-bézier"
+   },
+   "firstControlVisible": null,
+   "vh": 844
+  },
+  "easingHeader": {
+   "header": {
+    "x": 49,
+    "y": 119,
+    "r": 341,
+    "b": 198,
+    "w": 292,
+    "h": 79
+   },
+   "literals": [
+    {
+     "text": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "ws": "normal",
+     "rects": [
+      {
+       "x": 49,
+       "y": 154,
+       "r": 158,
+       "b": 173,
+       "w": 109,
+       "h": 19
+      },
+      {
+       "x": 49,
+       "y": 178,
+       "r": 242,
+       "b": 197,
+       "w": 193,
+       "h": 19
+      }
+     ],
+     "lineTops": [
+      154,
+      178
+     ]
+    }
+   ]
+  }
+ },
+ "dark": {
+  "squareRest": {
+   "size": 183.7,
+   "travel": 183.7,
+   "plate": {
+    "y": 127,
+    "b": 750,
+    "h": 623,
+    "w": 814
+   },
+   "headerEnd": 215,
+   "headerRight": 793,
+   "fieldCentreY": 439,
+   "swollenTopAtMinus1": 152,
+   "swollenBottomAtPlus1": 725,
+   "clearHeader": false,
+   "clearBottom": true,
+   "box": {
+    "x": 866,
+    "y": 347,
+    "r": 1049,
+    "b": 530
+   },
+   "boxOverHeader": false
+  },
+  "squareCorner": {
+   "size": 183.7,
+   "travel": 183.7,
+   "plate": {
+    "y": 127,
+    "b": 750,
+    "h": 623,
+    "w": 814
+   },
+   "headerEnd": 215,
+   "headerRight": 793,
+   "fieldCentreY": 439,
+   "swollenTopAtMinus1": 152,
+   "swollenBottomAtPlus1": 725,
+   "clearHeader": false,
+   "clearBottom": true,
+   "box": {
+    "x": 671,
+    "y": 152,
+    "r": 877,
+    "b": 358
+   },
+   "boxOverHeader": true
+  },
+  "edit": {
+   "range": 0,
+   "body": {
+    "x": 93,
+    "y": 116,
+    "r": 456,
+    "b": 515,
+    "w": 363,
+    "h": 399
+   },
+   "picker": {
+    "x": 93,
+    "y": 116,
+    "r": 341,
+    "b": 515,
+    "w": 248,
+    "h": 399
+   },
+   "plot": {
+    "x": 93,
+    "y": 116,
+    "r": 341,
+    "b": 364,
+    "w": 248,
+    "h": 248
+   },
+   "controls": {
+    "x": 93,
+    "y": 376,
+    "r": 341,
+    "b": 515,
+    "w": 248,
+    "h": 139
+   },
+   "select": {
+    "x": 93,
+    "y": 427,
+    "r": 341,
+    "b": 467,
+    "w": 248,
+    "h": 40
+   },
+   "readout": {
+    "text": "cubic-bezier(0.42, 0, 0.58, 1)",
+    "x": 110,
+    "y": 488,
+    "r": 300,
+    "b": 502,
+    "w": 190,
+    "h": 14,
+    "scrollW": 198,
+    "clientW": 190,
+    "whole": false
+   },
+   "surfaceBottom": 527
+  },
+  "phoneEdit": {
+   "sheet": {
+    "x": 0,
+    "y": 719,
+    "r": 390,
+    "b": 1022,
+    "w": 390,
+    "h": 304
+   },
+   "detent": "0.36",
+   "maskEl": {
+    "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-",
+    "x": 13,
+    "y": 784,
+    "r": 377,
+    "b": 1001,
+    "w": 364,
+    "h": 218,
+    "scrollTop": 12,
+    "range": 470,
+    "maskImage": "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0) 40px, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0))",
+    "anim": "none",
+    "fade": 2.5
+   },
+   "title": {
+    "x": 75,
+    "y": 784,
+    "r": 202,
+    "b": 820,
+    "w": 127,
+    "h": 36,
+    "offsetIntoMask": 0,
+    "text": "cubic-bézier"
+   },
+   "firstControl": {
+    "x": 33,
+    "y": 824,
+    "r": 357,
+    "b": 1148,
+    "w": 324,
+    "h": 324
+   },
+   "firstControlVisible": true,
+   "vh": 844
+  },
+  "phoneLayer": {
+   "sheet": {
+    "x": 0,
+    "y": 708,
+    "r": 390,
+    "b": 1011,
+    "w": 390,
+    "h": 304
+   },
+   "detent": "0.36",
+   "maskEl": {
+    "cls": "controls-pane group/controls min-w-0 overflow-y-auto scroll-",
+    "x": 13,
+    "y": 773,
+    "r": 377,
+    "b": 990,
+    "w": 364,
+    "h": 218,
+    "scrollTop": 12,
+    "range": 220,
+    "maskImage": "linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0) 40px, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0))",
+    "anim": "none",
+    "fade": 2.5
+   },
+   "title": {
+    "x": 75,
+    "y": 773,
+    "r": 202,
+    "b": 809,
+    "w": 127,
+    "h": 36,
+    "offsetIntoMask": 0,
+    "text": "cubic-bézier"
+   },
+   "firstControlVisible": null,
+   "vh": 844
+  },
+  "easingHeader": {
+   "header": {
+    "x": 49,
+    "y": 119,
+    "r": 341,
+    "b": 198,
+    "w": 292,
+    "h": 79
+   },
+   "literals": [
+    {
+     "text": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "ws": "normal",
+     "rects": [
+      {
+       "x": 49,
+       "y": 154,
+       "r": 158,
+       "b": 173,
+       "w": 109,
+       "h": 19
+      },
+      {
+       "x": 49,
+       "y": 178,
+       "r": 242,
+       "b": 197,
+       "w": 193,
+       "h": 19
+      }
+     ],
+     "lineTops": [
+      154,
+      178
+     ]
+    }
+   ]
+  }
+ }
+}
