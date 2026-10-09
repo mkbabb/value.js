@@ -729,3 +729,49 @@ each in light and dark.
 - `w-*-{1440,390}`;
 
 each in light and dark.
+
+### pass 11
+
+*(The re-deployed loop's pass 11 cures the critic F13 findings, DS-F13-*. The AFTER frames are in `evidence/DS/fourier/pass-11/`, and the BEFORE cells for the same probe are in `pass-11/before/`.)*
+
+**Commits.**
+- fourier `d564234`, on `m/w1-bump-migration`, pushed fast-forward `01fd861..d564234`. Two files, committed by pathspec.
+- value.js `934379738` holds the BEFORE and AFTER frames, the cure probe and its JSON, the census, and the e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F13-C1 | `.like-btn` (`GalleryCard.vue`) now takes `line-height: inherit`, which is the row's 1.5, in place of glass Button's tight 1.1. Both counters now sit on one 19.5px line box. Before, the like count sat in a 14.3px box. Measured on admin and public /gallery at 1440 and 390, in both themes, the midline delta between the like and view counts is 0 (it was -0.4px on the Range box, which read as about 2px raised). See `stats-crop-*`. |
+| DS-F13-C2 | The plate's gap is now one `--space-atom` (it was half an atom). That is the same step glass ToggleGroup puts between the tier discs: 8px, or 4px at 390. Delete therefore reads as the row's fourth member, measured as `lastDiscToDelete` = `discToDisc`. The trash glyph moves to TierControl's 14px through a `size-3.5` class, because glass Button's svg rule had overridden `:size="14"` to 16 (the DS-F2-C17 precedent). The first tier glyph now sits 15px in from the plate's left edge and the trash glyph 15px in from its right, where before the trash sat 14px in with a 16px box. The plate is 176/246px at 1440. The optional narrowing would need smaller discs, and the disc size belongs to glass, so it was not forced. |
+| DS-F13-C3 | The /morph lede (`.demo-subtitle`, `FourierMorphDemo.vue`) now takes `text-wrap: pretty`, as the /w lede does. At 390 its last line is now "moon shapes."; before, "shapes." sat alone. At 1440 it is still one line. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F13-G1: the casts and halos on buttons, plates and dark resting cards, and the lens fill on the tier discs. Held honest-RED against O-87 (DS-F8-G1, DS-F4R-G2, DS-F11-G1), to be re-judged at the 10.2.0 repin.
+- DS-F13-G2: the /v transport "1 ×", the /equation 390 dock radii, the toast close glyph, the Metric type rungs and the /v aside offset. Held against O-87 and O-88.
+- No local override was added for either.
+
+**Census** (`pass-11/census-after.json`, fourier `scripts/ds-census.mjs` on `:3100`):
+- Static is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+- Computed: 388 shadow elements, 984 layers, 294 multi-layer stacks, 294 inset highlights, 216 backdrop blur, 0 control gradients, 0 looping chrome.
+- The rise of 8 elements over pass 10 is data drift. The live /gallery serves one more card in each of its four cells (112 to 129 elements at 1440; 2 shadow elements per card), and the /v route now resolves a different slug. Per-card lighting is unchanged, and this pass's cures are metric, spacing and wrap, not lighting.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered 27 specs that reach /gallery, the gallery card or /morph (`pass-11/e2e-specs.txt`). They ran on chromium plus mobile-chromium, headless, with 3 workers, against the cured tree served fresh on `:3123`.
+  - Run A: 314 passed, 15 failed.
+  - Run B: 313 passed, 16 failed. That is the same 15, plus one load timeout (`visual-baseline` π equation @375), which passes 1/1 on a recheck (`e2e-runB-recheck.txt`).
+  - The 15 fail identically on a clean `01fd861` worktree served fresh on `:3124` (`e2e-head-baseline-3124.txt`), so all of them predate this pass:
+    - `f-w14v-au3` L1-12;
+    - `f-w14v-p` p3 @1024 (the toast against the aside);
+    - `f-w14v-pd` collapsed ×6 (O-88);
+    - `gallery-admin-a11y` ×4;
+    - `visual-checkpoint` items 1·6·7, 2 and 5.
+- No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
+
+**Frames** (`pass-11/`). All were captured in headless Chrome (Playwright `chromium` project, DPR 2; §0ei) by `f13-cure-probe.spec.ts`. It ran from a temporary copy in fourier `web/e2e/`, deleted afterwards, against `:3100`:
+- `gallery-admin-card-*-{1440,390}`, `stats-crop-*-{1440,390}`, `crop-plate-*-{1440,390}` and `gallery-admin-*-1440`;
+- `gallery-*-{1440,390}` (public);
+- `morph-*-{1440,390}` and `morph-lede-*-{1440,390}`;
+
+each in light and dark.
