@@ -775,3 +775,40 @@ each in light and dark.
 - `morph-*-{1440,390}` and `morph-lede-*-{1440,390}`;
 
 each in light and dark.
+
+### pass 12
+- fourier `9935f2c`, on `m/w1-bump-migration`, pushed fast-forward `d564234..9935f2c`. Three files, committed by pathspec.
+- value.js `6fe8bc90c` holds the BEFORE and AFTER frames, the cure probe and its JSON, the census, and the e2e logs (`pass-12/`).
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F14-C1 | `VisualizationView.vue`'s `stageError` branch no longer mounts `NotFoundCard`. The message is composed on `.stage-state` itself, on the type roles the /w empty stage uses: the route's h1 (`font-serif-math text-display-2`, 18ch, balanced), the body lede (52ch, `text-wrap: pretty`), the diagnosis on `text-caption`, and one centred, wrapping action row on a 0.75rem gap. `data-testid="not-found"` moves to the composed message. Measured on /v and /w unknown slugs at 1440 and 390 in both themes: no Card inside the stage, `box-shadow: none` and no border on the message (before, the six-layer stack: three insets, a cast and two halos). The message is 356px wide in the 358px stage at 390 (before, 292px), and the action row is centred on the stage (offset 0; before, -48px, start-aligned). `NotFoundCard` keeps its Card for the catch-all route only. No new component. |
+| DS-F14-C2 | `MorphShapePreview.vue`: the shape value takes the phase value's guard, a `min-inline-size` of its longest word ("Moon", 4.5ch), dropped in the one-column phone form as the phase's is. On the first morph at 1440, the "total" reading now holds at x 346.5 throughout (sampled every 100ms for 4s). Before, it stepped from 331.7 to 339.9 when Sun turned Moon. |
+| DS-F14-C3 | `HarmonicLevelGrid.vue`: a fading side of the strip now reaches alpha 0 a twelfth of the fade before the edge (4px at 3rem), so a tile rim caught in the last few px is gone. A side with no fade is unchanged, since the stop is `calc(100% - 0px / 12)`. No new variable. See `strip-end-*`. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F14-G1 covers the dock halo, the card and capsule casts and dark halos, the /v aside offset and stage bloom, the /v transport "1 ×", the ConfiguratorLayer rungs, the Select/NumberField fill parity, the tag-chip rim and the tier-disc lens. The two action Buttons on the error stage keep glass's cast too. All are held honest-RED against O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION, to be re-judged at the 10.2.0 repin.
+- The /paper empty `<dt>` stays on latex-paper 0.3.0 (DS-F9-C3).
+- No local override was added.
+
+**Census** (`pass-12/census-after.json`, on a fresh `:3123`):
+- Static is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+- Computed: 380 shadow elements, 956 layers, 286 multi-layer stacks, 286 inset highlights, 216 backdrop blur, 0 control gradients, 0 looping chrome.
+- The fall of 8 elements from pass 11 is data drift. The live /gallery serves one card fewer in each of its four cells (129 to 112 elements at 1440; 2 shadow elements per card). /morph gains one element, the new shape-value span. /v resolves a different slug with identical totals.
+- The census does not visit the error stage. There the probe measures one fewer shadow element (the nested Card's six layers).
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered 17 specs that reach /v or /w errors, /morph or the strip (`pass-12/e2e-specs.txt`). They ran on chromium plus mobile-chromium, headless, with 3 workers, against the cured tree served fresh on `:3123`.
+  - Run A: 206 passed, 1 failed. Run B: 206 passed, 1 failed.
+  - The one red is `f-w14v-au3` L1-12, which fails identically on a clean `d564234` worktree served fresh on `:3124` (`e2e-head-baseline-3124.txt`). It predates this pass, as it did in pass 11.
+- Instrument note: an earlier attempt against the long-running `:3100` dev server failed 11 admin-table cells (UIA-F-36/37/42 and au0 ×8: rows never rendered). Those cells pass on both fresh servers, so the gate is read on fresh servers only.
+- No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
+
+**Frames** (`pass-12/`, BEFORE in `pass-12/before/`). All were captured in headless Chrome (Playwright `chromium`, DPR 2; §0ei) by `f14-cure-probe.spec.ts`. It ran from a temporary copy in fourier `web/e2e/`, deleted afterwards. BEFORE ran against a clean HEAD worktree on `:3124`, AFTER against the cured tree on `:3100`:
+- `v-error-*-{1440,390}` and `w-error-*-{1440,390}`;
+- `morph-*-{1440,390}` and `strip-end-*-{1440,390}`;
+
+each in light and dark.
