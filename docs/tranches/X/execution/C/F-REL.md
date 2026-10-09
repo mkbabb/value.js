@@ -470,3 +470,119 @@ Raising the cap stays rejected. A re-sit applies `frel-mem-wip.patch` (or the ru
 **Residuals.**
 - The darwin-arm64 ORT peak for u2net and lines (about 2.2 GB) is not explained (the KleidiAI/SME cause is unverified). It does not bind production.
 - `mem-calib` and the Linux probe ran without `--masks`.
+
+### F-REL.w
+
+Seat `claude-opus-5-5`, 2026-10-09 ~13:30–15:27 local. Spec: COHESION §0ew bullet 2 (L3780-3783), §0ev.2/§0ev.3, `fourier/waves/F-REL.md` addendum (a) `.w` (L41), all read whole. **Status: PARTIAL.** p3 is cured, the manifest and CI gate are landed, and both relays are sent. d2 is classified a load-flake with its cause read (a glass race, relayed). **contrast-floor ×3 is ESCALATED (ESC-FREL-w-1)**: at the bytes its RED is not in `web/src`.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) shows four dirty `web/src` paths, `gallery/GalleryInfiniteGrid.vue`, `morph/HarmonicLevelGrid.vue`, `shared/NotFoundCard.vue` and `visualization/lib/canvas-drawing/epicycles.ts`. Every hunk is marked "X-DS pass 4 · DS-F4-C*", so it is X-DS's lane WIP, not a predecessor `.w` seat's. Those paths were never touched (§0ev.3). Also dirty: `scripts/model-smoke.sh` and `bench/contours/memory.py` (`.mem`'s banked WIP), `web/e2e/screenshots/**` and `.worktrees/`. Nothing was inherited inside `.w`'s set.
+
+**Instrument.** Scratch worktree `~/.fourier-frel/g-wt` (this wave's own, detached), so X-DS's WIP cannot colour readings: API :8191 (the `.g` seat's stale :8191 backend, pid 27666 from `g-backend.pid`, answered `POST /api/sessions` 500 and was replaced) and vite :3192. Headless chromium (§0ei). Logs `~/.dev-logs/frel/w-*`.
+
+**BEFORE** (⟨`playwright test contrast-floor f-w14v-p gallery-admin-a11y f-w14u-d --workers=3`⟩ at `24fce16`, load 202 → `w-before-1.log`): **9 failed / 8 passed**. contrast-floor ×3 · f-w14u-d d2 (1440 light) ×1 · f-w14v-p p3 @1024 ×1 · gallery-admin-a11y ×4. `producer-held.json` was absent.
+
+**Acts, in order.**
+1. **p3, the toast over the Configurator at 1024 (consumer, cured).** ⟨`w-before-1.log`⟩ → `toast {"x":620,"y":657,"w":388,"h":95} over aside {"x":656,"y":88,"w":352,"h":668}`. A geometry probe at three widths (scratch spec, never committed) gives `aside` 656..1008 × 88..756 @1024, 840..1264 × 100..732 @1280 and 1000..1424 × 100..734 @1440. The aside runs to the shell's foot, and glass's default `bottom-right` lands the toast on it at every width where the viewport is not much taller than the aside (1440×900 passed only by height). The Toaster's one placement API is `position` (glass 10.1.0 `dist/toast-DVOwo6GB.js:216`, default `"bottom-right"`).
+   - Cure: `web/src/App.vue` `<Toaster position="bottom-left" />`, with a comment carrying the measured reason.
+   - ⟨`playwright test f-w14v-p.spec.ts`⟩ → **4 passed** (p1, p2, p3 @1440, p3 @1024) in `w-p-after-1.log`, frame `after-p3-toast-1024.png` read.
+   - Commit **`0a88d44`**.
+   - Residual R-w1, named: at 1024 the bottom-left toast passes over the stage's playback dock (`.animation-dock` 279..381 × 687..743) for its lifetime. Every corner meets a control at 1024 (top-left and top-right meet the app dock at 238..786 × 12..68, bottom-center meets the aside's edge), so bottom-left is the least harmful seat the API allows. The inset/avoid facility is asked in O-90 §2.
+2. **d2, the canvas dock not collapsing after `traceOff` (load-flake per §0ev.2; cause read, producer race).**
+   - Readings: BEFORE run, 1440 light failed (a `hover` timeout, the stage still "Computing…" at 120 s under load; frame read) while 1440 dark and 390 dark passed. Re-run 1 (load 117 → 104) **passed**. Re-run 2 (load 104 → 97) failed: `glass-dock … expanded` at `f-w14u-d.spec.ts:74`.
+   - Cause, read from an instrumented probe (scratch spec; a MutationObserver plus enter/leave/focus/pointerdown on the dock; 10 runs at workers 4, `w-d2probe-2.log`): **3 of 10 stayed expanded**. In every stuck run the outside press at (5,5) landed with `data-morphing` still set: the expand morph ran ~550 ms under load, against ~120–200 ms in the 7 runs that collapsed on the press.
+   - In glass 10.1.0 `dist/dock.js:323-327`, the outside-press handler `B` returns while transitioning (`a?.value`), and nothing re-arms the collapse when the morph settles.
+   - Nothing in fourier's configuration selects this. The trigger is a stock `DockTrigger for="dropdown"` in a `GlassDock fit-content`, with no `alwaysExpanded` and no hold.
+   - Disposition: it passed on re-run with its cause read, so it is a load-flake. **Reported, not masked**: no retries were added, and it is not in the manifest because it is not a deterministic producer RED. Relayed as **O-91**.
+3. **The Toaster `aria-hidden-focus` ×4 (producer, held).**
+   - The payload is reka `ToastViewport`'s head and tail focus proxies, `<span aria-hidden="true" tabindex="0" style="position: fixed…">`, axe `aria-hidden-focus` (4 violations) plus `focusable-not-tabbable` (8 nodes, the same spans). It is present whenever a toast is up. Entering admin mode fires the app's `toast("Admin mode activated")`.
+   - fourier mounts `<Toaster>` bare and calls `toast()` as documented, so this is **not a consumer misconfiguration**. No consumer cure was taken.
+   - BK's 2026-09-22 reply (`glass-outbound-2026-09-22-fourier-o23-o32-reply.md` §3.1 L240-252) declined a producer patch and offered two test-side remedies: wait out the toast, or exclude the selector. Both are allowlist/masking under §0ew, so they were refused.
+   - Listed in the manifest (act 4) and re-asked as **O-90**.
+4. **One producer-held manifest, and the CI deploy gate wired to it.**
+   - `web/e2e/producer-held.json` (new) has 8 rows covering 13 tests. Each row carries `test` (the id), `spec`, `title` (the matching regex), `token`, `o`, `row` and `expiry` = "at glass 10.2.0 repin". The rows:
+     - the four `.g` honest-RED rows, moved out of the config's inline table so that there is ONE manifest as §0ew says: O-74b L1-12, O-76 c3m, O-76 c3g, O-84 pd ×6;
+     - the four O-90 admin-axe rows.
+   - `web/playwright.config.ts` reads that file and nothing else for the set. A row missing a field or carrying a malformed O-id makes the config throw rather than exclude it. `HONEST_RED`'s exported shape is unchanged, so `honest-red-reporter.ts` needs no edit.
+   - `.github/workflows/ci.yml` gains a new step before "Run Playwright e2e", "Producer-held manifest (excluded from the gate below)". It prints test id | O-id | expiry to the log and to `$GITHUB_STEP_SUMMARY` on every run. The honest-RED step is renamed to the producer-held set.
+   - ⟨`playwright test --list --project=honest-red`⟩ → `Total: 13 tests in 4 files`. ⟨`--list --project=chromium | grep -c <the 8 titles>`⟩ → `0`, and the gating cells total `534 tests in 59 files`.
+   - ⟨the CI step's script, extracted from the YAML by `yaml.safe_load` and run locally⟩ → `Producer-held e2e rows excluded from the gate: 8` plus an 8-row table, with the summary file written.
+   - ⟨`playwright test --project=honest-red --reporter=list,./e2e/honest-red-reporter.ts`⟩ (load 159 → 197, `w-honest-red-1.log:36`) → **`honest-RED set: as declared — 8 rows, 13 tests, every one RED on its own token.`**
+   - oxlint 1.42.0 `--deny-warnings src e2e vite.config.ts playwright.config.ts` → `Found 0 warnings and 0 errors`.
+   - Commit **`7f807a3`** (one family: manifest + config + CI). Pushed: `origin/m/w1-bump-migration` = `7f807a3`.
+5. **Relay rows (glass BK).** value.js `docs/tranches/V/coordination/INBOX.md` gains **O-90** TOAST-FOCUS-PROXY (re-asks O-32 §3.1 / E-F9b-2 for 10.2.0, with a second ask for a viewport inset facility) and **O-91** DOCK-OUTSIDE-PRESS-DURING-MORPH (folds into O-88, 10.2.0). Both are SENT. Commit **`c72a86882`** (value.js). glass is read-only; the rows carry the full ask.
+
+**ESC-FREL-w-1: contrast-floor ×3 is not a `web/src` defect at the bytes, so the specified cure ("cured in `web/src`") is impossible.**
+- `e2e/contrast-pairs.ts` grades **literal expression stacks frozen at F.W4** (its own header: *"When a cure MOVES the expression … the owning unit updates its own row here, in the same commit as the cure"*). The surface units cured the components but did not move their rows. ⟨`w-before-1.log`⟩ shows 18 light and 14 dark pair failures plus 6 awaiting pairs. Each was read against today's paint:
+
+| Pair(s) | Registry stack (frozen) | What paints today | Class |
+|---|---|---|---|
+| FR-MSP-7 L/D | `--muted` 60% `.info-chip` | `.info-chip` DELETED; glass `Metric` ×3 + `Chip` (`morph/MorphShapePreview.vue:35-44, 324`) | stale row |
+| FR-USB-5 ×3 L/D | `border-foreground/12`, `/30`, `placeholder …/40` | glass `<Input>` (`auth/UserSlugBar.vue:230`), the producer's field-control paint | stale row (R-e-2 precedent: retire) |
+| PSM-4 ×3 L/D | `--muted-foreground` 40/45/50% | `--muted-foreground-strong` (`paper/search/PaperSearchModal.vue:197-198`) | stale row |
+| FR-EQR-7[instance] L | `rgb(34 197 94)` | `var(--section-color-4)` (`equation/EquationResult.vue:197-205`) | stale row |
+| AA-3 ×5 L | Tailwind `-300` inks on `/10` plates | glass `Badge` tones (`admin/AdminAuditLog.vue:5, 189-262`) | stale row |
+| GAB-1 plate/border L/D | `rgb(245 158 11 / .04 / .3)` | `--viz-amber` border + 10% wash (`gallery/GalleryAdminBanner.vue:268-275`); the wash plate is RED-with-cause by `.d`'s ruling | stale row + ruled residual |
+| GAB-1 tier values L | `--tier-featured` / `--tier-saved` | producer registers (GLASS-RELAY, `GalleryAdminBanner.vue:247-250`) | producer row |
+| HLG-37[grid-cell-fill] L/D | `--background` vs `--card` | palette equality, producer (`contrast-pairs.ts:110-121` says so) | producer row |
+| awaiting ×6 (FR-CP-D1, ECD D-5/D-6, EV D·D-B3, PS D-B2, PV D/M-8) | none | painted inks never given a stack | oracle authoring owed since F.W4 |
+
+- No `web/src` edit can move a frozen literal's reading. The cure is in the oracle: moving or retiring ~20 rows to the expressions that paint today and authoring 6 stacks, some read from canvas paint. That is not "a few lines" under the adjacent-edit rule; it is the gate's own registry. `web/e2e/contrast-pairs.ts` is outside `.w`'s writable set, so it was NOT edited (no substitute).
+- The test-id manifest also cannot hold the producer rows honestly. One test (each arm) mixes consumer-stale, producer and ruled-residual rows, so listing the test would also hide consumer regressions.
+- **Rulings that unblock** (any one):
+  - **(a)** grant `web/e2e/contrast-pairs.ts` (and `contrast-floor.spec.ts` if the split needs it) to a `.w` re-sit: move the stale rows to today's paints, retire rows for deleted chrome by dated lines (the R-e-2 precedent), and author the 6 awaiting stacks. Then split the producer rows (GAB-1 tiers, HLG-37 fill, the GAB-1 plate residual if ruled producer/accepted) into their own test that enters `producer-held.json` with its O-ids (O-32 relay rows).
+  - **(b)** rule the 6 awaiting pairs discharged where their painting component has since been rebuilt (X-DS), with dated lines.
+
+**G-w, the full e2e outside the manifest (§0ev.2: up to 3 re-runs, load recorded).** These ran under `.worktrees/heavy.lock`, held 17:55Z–19:25Z, touched every 120 s and then removed. The instrument was the scratch tree at `7f807a3`, with `--project=chromium --project=mobile-chromium` (the gating cells, manifest excluded).
+
+| Run | Scope | Workers | Load (1-min) start → end | Result | Log |
+|---|---|---|---|---|---|
+| full | 534 gating tests | 3 | 181.8 → 110.2 | **40 failed** · 483 passed · 3 skipped · 4 did not run (30.0 m) | `w-full-e2e-1.log` |
+| re-run 1 | `--last-failed` (40) | 2 | 92.5 → 126.7 | 29 failed · 11 passed | `w-full-e2e-2.log` |
+| re-run 2 | `--last-failed` (29) | 1 | 170.0 → 197.0 | 28 failed · 1 passed | `w-full-e2e-3.log` |
+| re-run 3 | `--last-failed` (28) | 1 | 147.0 → 124.9 | **28 failed** | `w-full-e2e-4.log` |
+
+- **Load-flakes**: 12 tests passed on a re-run, with their causes read from their traces: UIA-F-48, vedit v83/v177/v178, eq2 frames 390 dark, hold h1, visual-baseline 375/1280, visualization-ux keystones 115/181/218, and m208. Reported, never masked.
+- d2 and p3 passed in the full run.
+- The 28 that failed all four runs:
+  - **3 contrast-floor**: ESC-FREL-w-1 above.
+  - **5 visual-checkpoint** (×4 chromium, ×1 coarse): `.vb`'s re-baseline (ESC-FREL-g-3), not `.w`'s.
+  - **19 backend-latency timeouts**. Twelve are on `/equation` (equation-interaction S2, f-w14-uia UIA-F-32/33/34 ×3, au3 L1-6 and L1-13, eq2 q1/q2/frames ×5, visual-baseline equation 1440). The trace reads `progressbar "Computing the series"` at the 20–30 s budget. Seven are workspace extraction `waitForResponse` timeouts (f-w13-radius frame 5, visualization-crud ×3, visualization-ux 128/145/332).
+    - Measured directly: one `POST /api/equations/compute` of the default `x*(pi - x)` took 22–28 s at load ~120 and 58–103 s at load ~130–170. A fresh backend did no better (98 s, 103 s), and lifting the background QoS (`taskpolicy -B`) gave 58 s. The main tree's own :8000 backend took 5.6–21 s at the same moments. The CPU on this seat is starved: the pool workers ran at 2–4 %.
+    - No `api/` or `src/` byte changed since the `.g` sitting (⟨`git diff --stat c17c1ce..HEAD -- api src`⟩ → empty). The `web/src` diffs since then are X-DS's cosmetic passes 2–4 and do not touch compute requests (⟨`git diff c17c1ce..HEAD -- web/src | grep -E "n_harmonics|auto_harmonics|n_eval_points|budget"`⟩ → 0).
+    - Reading: a load-bound environment, not a product regression, but it is RED on all three re-runs, so under §0ev.2 it is named, not waved away. See ESC-FREL-w-2.
+  - **1 paper-performance**: an instrument artifact. A 403 probe reads `/@fs/…/fourier-analysis/web/node_modules/katex/dist/fonts/*.woff2` → 403, because the scratch tree's `web/node_modules` is a symlink into the main tree, outside that vite's `server.fs.allow`. It is not a product defect and does not reproduce in CI's own checkout.
+
+**Gate readings BEFORE → AFTER.**
+
+| Gate | BEFORE | AFTER | Verdict |
+|---|---|---|---|
+| G-w: e2e GREEN outside the manifest | 9 of the targeted set failed; the full suite not run | full run 40 failed → 28 after 3 re-runs (3 contrast = w-1 · 5 visual-checkpoint = `.vb` · 19 load-bound backend timeouts · 1 instrument 403) | **RED** (ESC-FREL-w-1, ESC-FREL-w-2) |
+| p3 @1024 (toast vs aside) | RED | GREEN: 4/4 targeted, and passing in the full run | **GREEN** (cured, `0a88d44`) |
+| d2 ×2 (canvas dock collapse) | RED 1440 light | load-flake, 3/10 at load in the probe; passed in re-run 1 and in the full run; cause = glass race | reported (O-91) |
+| contrast-floor ×3 | RED | RED (unchanged; the cure is outside `web/src`) | **ESCALATED** (w-1) |
+| Manifest entries (test id, O-id, expiry) excluded + printed by CI | absent | 8 rows / 13 tests; excluded from gating (`--list` → 0); printed by the CI step (local run of the extracted script); honest-red verdict "as declared" | **GREEN** (`7f807a3`; first CI print rides the pushed run) |
+| vue-tsc ×2 | 0 (banked) | `vue-tsc -b --force` rc 0, 0 lines ×2 (`w-vuetsc-1/2.log`) | **GREEN** |
+| vitest ×2 | 116 (banked) | `Tests 116 passed (116)` ×2 (`w-vitest-1/2.log`) | **GREEN** |
+| oxlint floor | 0 | `Found 0 warnings and 0 errors` | GREEN |
+
+**Commits.** fourier `0a88d44` (App.vue Toaster seat), fourier `7f807a3` (manifest + config + CI, one family), pushed to `origin/m/w1-bump-migration`; value.js `c72a86882` (INBOX O-90, O-91); this record (below).
+
+**Adjacent edits.** None. `honest-red-reporter.ts` was not touched, because the config keeps its `HONEST_RED` export shape.
+
+**ESC-FREL-w-2: G-w cannot read GREEN from this seat.** Outside the manifest, the RED set left after 3 re-runs is 28 tests. `.w` owns none of them as a `web/src` defect:
+- **contrast-floor ×3** need the oracle grant (w-1).
+- **visual-checkpoint ×5** are `.vb`'s goldens, the next unit in the serial order.
+- **The 19 timeouts** are bound to backend compute and extraction latency. Measured on this seat at load 120–200, the default equation compute takes 22–103 s against a 20–30 s test budget, with no api, src or compute-request byte changed since the `.g` sitting.
+- **paper-performance** is the scratch instrument's vite `fs.allow` 403.
+
+Any one of these readings unblocks G-w:
+- **(a)** CI's own run at the pushed `7f807a3` (or `.g`'s), on an uncontended ubuntu runner, read as the G-w witness for the 19 latency rows. That is the run that gates deploy, and it prints the manifest.
+- **(b)** a quiet local window: heavy seats paused (load < 40), rejected by §0ev.1 for timing but open for a functional re-read.
+- **(c)** if the 19 also fail on CI, they become an api latency defect (equation compute and the extraction path), homed to `.mem`/F.CT3's memory-and-latency cure, not to `.w`.
+
+**Residuals.**
+- R-w1: the bottom-left toast passes over the playback dock at 1024. O-90 §2 asks for an inset facility.
+- R-w2 (api, found in passing): `api/services/compute_cache.py:96` `store` fails on every `compute_bases` result with `bson.errors.InvalidDocument: documents must have only string keys, key was 4` (10–164× per run in `w-backend*.log`). The cache fails open, so every recompute misses. Homed to F.REL `.g`/`.d` (api), not edited here.
+- R-w3: `contrast-pairs.ts` stale-row debt since F.W4 (w-1).
+
+**E13 mail.** O-90 and O-91 SENT. Nothing in scope is UNREAD (the RESUME-open sweep, this record L360, plus the two rows this seat wrote).
