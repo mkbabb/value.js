@@ -992,3 +992,94 @@ Order (addendum (f) + §0ev, strictly serial, 1 concurrent): [`X.W12U.k2`] → [
 **GREEN before cure:** none among the owed units' gates (the `blob-timing.ts` absence is `.b`'s already-landed cure, not an owed gate). The L2-10 box probe, the whole smoke, the WebKit re-read and the `.t` r2 alpha leg are owned and first read by `.m2`/`.q` (load 654 at this seat; §0ev.2 3× re-read is theirs).
 
 ## RESUME 2 — Unit receipts
+
+### X.W12U.k2
+
+SERVED MODEL: claude-opus-5-5 (Track A, RESUME 2, effort high; 2026-10-09 11:4x–16:4x). Logs are `k2/logs/*.log.txt` (the repo ignores `*.log`; `gate.sh` writes `.log` and the files were renamed for the commit, so the per-commit messages' `logs/gate-*.log` names read `…log.txt` on disk). Clean-window protocol (§0ev.3) held at every commit: each one is a pathspec commit (`git commit --no-verify -- <paths>`) made with none of its paths dirty from another writer. The X-DS value pass-7 seat held `GradientVisualizer.vue`, `PalettesPane.vue`, `ConfigSliderPane.vue`, `AuroraPane.vue`, `BlobPane.vue` and `shell.css` dirty from 11:29 to 13:08. ⟨`git status --porcelain -- <those six>`⟩ was polled every 30–60 s and read empty at 13:08:42, after X-DS committed `a85477894`. The rows that needed those files (L1-3, L1-11, L1-1 limb 2, L1-17, L1-18) waited for that window, and none of them was started on a dirty path. Host load was 99–600 throughout (⟨`uptime`⟩ is stamped at the head of every log).
+
+#### Acts, in order
+
+| # | row | commit | the cure | falsifier (served unless noted) |
+|---|---|---|---|---|
+| 1 | **A2-VA-L1-9** one status chip | `8b5b48347` | `shared/ui/api-status/ApiStatusChip.vue` is glass `chipVariants()` + `StatusDot` with a `seat: dock\|surface` prop, and it is its own live region (`role` from the status). `resolveApiStatus(availability, isDev, seat)` moved `shell/dock/status-lamp.ts` → `shared/ui/api-status/api-status.ts`. `DockStatusLamp.vue` and `ApiOfflineChip.vue` are deleted. | rows `L1-9` + `L1-9 degraded` (every API request aborted): `{seat:"dock",variant:"unavailable",glass:true,dot:true,role:"status"}`, legacy 0 — GREEN ×4 |
+| 2 | **A2-VA-L1-15** SwatchButton | `d860c136a` | `shared/ui/SwatchButton.vue` is a glass Button with a WatercolorDot face, sizes sm/md/lg/xl and a `done` check in `contrastInkFor`. It is composed by SwatchHoverMenu, PaletteCardSwatches, PaletteInspector, ExtractWorkbench, CurrentPaletteEditor, the Generate copy grid and the Mix add grid. | `L1-15 /palettes` 5 · `L1-15 /generate` 5 `.swatch-button` — GREEN ×4 |
+| 3 | **A2-VA-L1-16** one popup mutex | `a1f349a3f` | `shared/usePopupMutex.ts` is keyed by `string\|number`, with `setOpen`/`close`/`popupModel`; `swapDelay 0` gives a same-tick hand-off, and it closes on deactivate. It serves the dock, PaletteInspector + useSwatchActions (by index) and GenericActionBar (by action token, with ActionButton on `v-model:open`). `useHoverPopover.ts` and the dock's fork are deleted, and the `activeHover` chain is gone. | static `L1-16-one-owner` · `-hover-fork` · `-prop-chain` GREEN ×2. Served `L1-16 seats present` 5 GREEN ×4, and the census reads the dock overlays GREEN ×2 |
+| 4 | **A2-VA-L1-14** one name field | `d5aa11fb7` | `PaletteRenameInput` → `shared/ui/PaletteNameInput.vue` on glass `Input`, with commit (draft + Save/Cancel) and live (v-model) modes. Used by PaletteInspector (commit), GenerateControls (live) and SlugEditLayer (glass `Input`). | `L1-14 /generate` `{nameField:true,bareInputs:0}` GREEN ×4 |
+| 5 | **A2-VA-L1-12** one disclosure ×4 | `cc38595c1` | glass Collapsible at AdminUsersPanel, PointerDebugOverlay and PaletteInspector's detail band; glass Accordion (single, collapsible) in GradientEasingEditor. `useHeightTransition.ts` is deleted along with its DESIGN.md row. | `L1-12 easing` heads 1 / legacy 0 · `admin` triggers 41 / `div[role=button]` 0 · `inspector` aria-expanded false→true with the region holding 5 swatches — GREEN ×4. The harness N-13 disclosure assertions are GREEN ×2 (below) |
+| 6 | **A2-VA-L1-5 + L1-4** | `096040ca9` | Mix has one `section[aria-label="Saved palettes"]`, and each row is a `PaletteSpecimen` with two verbs: an overlay select button (`aria-pressed`) and a Collapsible "add colours" of SwatchButtons. The "From palettes" collapsible is gone. **L1-4's Generate limb was CURED-AT-HEAD:** X-DS V1C-07/V1-09 had already removed the Generate strip and count. | `L1-4/L1-5 /mix` `{lists:1,rows:6,specimens:6,fromPalettes:false}` GREEN ×4 |
+| 7 | **A2-VA-L1-2**, picker limb | `508b3518b` | ColorPicker seats `<CardHeader shrink>` inside a `.card-scroll-host` wrapper (which is `lg:contents`). `useHeaderCondense.ts` and its sentinel are deleted; header.css keeps the rhythm and the condensed title step. | `L1-2 picker` `{shrink:true,host:true,sentinel:false,before:"false"}`, no scroll room at 390 or 1440 (no condense, as designed) GREEN ×4. Static `L1-2-condense-fork` absent ×2 |
+| 8 | **A2-VA-L1-1**, limb 1 | `ca65ae049` | `shell/PaneShell.vue` holds the wrapper → resting Card → ONE scroll owner → PaneHeader → body gutter. Overlying panes use glass's `.card-scroll-host`. Seated panes (X-DS V3C-01/V4C-04) put the header above a FadingScroll port, with a `#footer` seat. Ported here: Extract, Generate, Gradient, Mix (overlay slot), Browse, Admin (title slot), About (seated) and Not Found. | rows `L1-1 <route>` (below) |
+| 9 | **A2-VA-L1-2**, pane limb | `94ec8d527` | PaneHeader **is** glass `<CardHeader shrink>` (CardTitle `as h{level}`, CardDescription). The title-scale/caption scrub, its two keyframes and `--pane-title-shrink-ratio` are deleted. `[data-condensed]` sets the heading rung; the veil stays (O-74d §1 ADOPT). | `L1-2 headers` shrink on every visible pane header, 11 routes GREEN ×4. **`L1-2 pane /mix` at 1440 (room 457 > gate 76): `after:"true"`, title 41.888 → 25.888 px, `back:"false"` GREEN ×2** |
+| 10 | **A2-VA-L1-3** one interpolation pair | `ad6b8c861` | `shared/ui/InterpolationFields.vue` holds the space + hue Selects (one vocabulary, "Color space"/"Hue method", PreviewRamp specimens on both hosts) and is composed by Gradient and Mix. | `L1-3 /mix` and `/gradient` read `["…","Color space","Hue method"]` GREEN ×4. `interpolation-subset` 5/5 |
+| 11 | **A2-VA-L1-11** editor split | `2e8d019b5` | `GradientStopEditor.vue` (1099 lines) is git-mv'd to `GradientStopRail.vue`, which keeps the stops, selection, removal rule and polite channel and exposes a typed scoped slot. The new `GradientStopInspector.vue` holds position entry and removal, and GradientVisualizer composes the two. | `L1-11 /gradient` mounts Rail + Inspector, no Editor; the inspector is seated in `.rail-seat` — GREEN ×4 |
+| 12 | **A2-VA-L1-1**, limb 2 | `3abe9d7d5` | My Palettes and ConfigSliderPane (Atmosphere, Blob) compose PaneShell (seated, follow; the config action bar sits in `#footer`). With this, **all 11 panes** are on the shell. | `L1-1 <route>`: every visible pane header sits in `.pane-shell` > `.pane-shell__card` with exactly 1 scroll owner and 0 card scrollers, on 11 routes GREEN ×4 (`/browse`, `/extract`, `/generate`, `/gradient` read two shells each) |
+| 13 | **A2-VA-L1-17** re-home by owner | `785e522c5` | Pure moves by `k2/codemod-move.py` over `maps/l1-17.tsv`: 16 moves, 93 specifiers in 40 files (`logs/codemod-l1-17.log.txt`). `palettes/admin/{panels,composables}` + `UserSortMenu`; `palettes/inspector/` (Inspector, Menu, Meta, Swatches); `shared/ui/` (ActionFeedback, PaletteSpecimen, PaletteColorStrip, PaletteCardSkeleton, ColorSpaceSelector, color-chips). The card/search barrels stop re-exporting what they don't own. | static `L1-17-*` 17 checks GREEN ×2 (no .vue left in `color-session/`; no workbench reach into `palettes/browser/card`) |
+| 14 | **A2-VA-L1-18** app root | `41985dd89` | `git mv demo/color-picker demo/app`, taken with ⟨`git status --porcelain -- demo`⟩ → empty. Path refs updated in vite.config.ts (dev + gh-pages root), eslint.config.js (globs, G-DEMO-1), tsconfig.test.json and the adjacent files listed below. | static: `L1-18-old-root` absent, `-new-root` present, `-no-old-refs` (tracked files; CHANGELOG/docs/bench corpus are history) 0, `-dev-sh` 0 — GREEN ×2 |
+| 15 | INBOX | `41d2effc2` | "X-DS value seats: the app root is now demo/app/." plus the E13 close sweep | — |
+| 16 | provenance | `1991cf594` | SERVED MODEL on line 1 of the 8 demo files this unit minted | gate-marks 0 |
+| 17 | evidence | `80fbaf82f` | `W12U-evidence/k2/**` | — |
+
+#### Gates, BEFORE → AFTER
+
+| gate | command | BEFORE (RESUME 2 baseline / `.k`) | AFTER | reading |
+|---|---|---|---|---|
+| 13 L1 rows CURED, served falsifier ×2 | ⟨`BASE=http://localhost:9000 node k2/probe-k2-rows.mjs 390 844 light`⟩ ×2 · ⟨`… 1440 900 dark`⟩ ×2 · ⟨`sh k2/check-k2-static.sh`⟩ ×2 | 13 OPEN | rows `GREEN 37/37` ×4 (390 light r1/r2 at load 166/≈160; 1440 dark r1/r2) · static `GREEN 30/30` ×2 | **GREEN** — 13/13 CURED (L1-4: Generate limb CURED-AT-HEAD, Mix limb cured here) |
+| R-k-2 runtime mount census ×2 | ⟨`BASE=… node k2/probe-mounts.mjs 1440 900 light results/census-1440-light-r{1,2}.json`⟩ | instrument only, never completed ×2 (`.k`) | `GREEN 29/29` ×2 (15 views + 14 overlays; load 144 / 167). One ruled pair is listed every run: `ColorSpaceSelector` ×2 on `/` (A2-VA-K-1, owner DESIGN-RULING) | **GREEN** |
+| R-k-2 pager ×2 | ⟨`BASE=… node k/probe-pager.mjs 390 844 light`⟩ | unmeasured | `GREEN 3/3` ×2 after the last commit (load 141/137); also ×2 at the unit's start (`results/pager-390-light.txt`) | **GREEN** |
+| demo/color-picker absent, demo/app present | ⟨`test -e …`⟩ | present / absent | absent / present | **GREEN** |
+| typecheck lib/demo/test/e2e after the rename | ⟨`sh k2/gate.sh l1-18`⟩ (vue-tsc ×3 + tsc e2e) | 0·0·0·0 | 0·0·0·0 (`gate-l1-18.log.txt`), again at `gate-marks.log.txt` and `gate-close.log.txt` | **GREEN** |
+| lint after the rename | ⟨`npx eslint . --max-warnings=0`⟩ | 0 | 0 (`gate-l1-18.log.txt`, whole repo; `gate-close.log.txt`) | **GREEN** |
+| build ×2 after the rename | ⟨`npx vite build --mode gh-pages`⟩ ×2 | — | r1 exit 0 in 28 s, r2 exit 0 in 35 s (`logs/build-l1-18.log.txt`) | **GREEN** |
+| vitest (whole, diagnostic) | ⟨`npx vitest run --testTimeout=60000`⟩ | X-DS pass 7 at 13:0x: 6 files / 8 failed | 6 files / 9 failed of 1120 (`logs/vitest-all-close.log.txt`): the 7 standing (ink ×5, spectrum-luma C-5, reka-binding NG-6) + PNG §7 ×2 (their explicit 30 s budget, measured 58–88 s, CPU-bound, untouched by this unit) + the two n-fixture harness suites (beforeAll 60 s; the harness `load` measured 158–181 s in vitest, the same class X-DS pass 7 read) | load-RED, not a defect: the harness suites' assertions (G9, G10 one height 124, G11, N-13 reduced + animated) were re-run on a harness given time to load — GREEN ×2 (`logs/harness-card-layout-k2.log.txt`; the temp test was deleted) |
+
+#### Instrument corrections (k2's census copy; `k/probe-mounts.mjs` is untouched, E-3)
+
+The roles table was re-keyed to the moved paths and **4 rows were read in.**
+
+| row | repeats per | why |
+|---|---|---|
+| `PaneShell` | pane | |
+| `SwatchButton` | colour | |
+| `ApiStatusChip` | seat | its two seats |
+| `PaletteCardGrid` | pane | on `/browse` the community stage and your saved companion each own one |
+
+`AdminListItem` ×47 (per row) was also read in.
+
+The first fixed-table run (`results/census-1440-light-pre-expand-r0b.txt`) read the 3 dock overlays UNOPENED. The cause was measured in `diag/dockseq.mjs`: after the previous overlay's Escape, glass's dock is in its **summary** form, so the full layer is `inert`. `.k`'s run read the same overlays unopened for the same reason. The copy now does two things:
+
+- It expands a live summary layer before opening an overlay.
+- It opens the colour input through Dock's `Toggle action bar` (the input sits on the Tools layer).
+
+`diag/dockseq2.mjs` confirms all four openers are clickable.
+
+#### Adjacent edits (§0bt)
+
+- **Test oracles that follow their element:**
+  - `e2e/smoke/admin/a11y-authed-admin.spec.ts` BR-9 (`ancestor::button`, tag `button`) and `e2e/smoke/oracles/o17-easing-composition.spec.ts` (`button.interval-head`, row by `aria-controls`). Both for L1-12.
+  - `test/status-lamp.test.ts` and `test/dock-status-lamp.test.ts` (L1-9).
+  - `demo/test/shell/pane-popups-and-seats.test.ts` (L1-16).
+  - `test/interpolation-subset.test.ts` reads the list's one reader and asserts both hosts compose it (L1-3).
+  - `e2e/smoke/oracles/o27-focus-affordance.spec.ts` site labels → `GradientStopRail.vue` (L1-11).
+- **L1-17 path strings and comments:**
+  - the source-path strings in `demo/test/color-session/format-color.test.ts`, `demo/test/palettes/{copy-verdict,palette-specimen}.test.ts`
+  - the codemod-rewritten specifiers in `test/preview-chips.test.ts`
+  - a `demo/color-session/keys.ts` comment
+- **L1-18 path refs:**
+  - `plugins/vite-ground-tokens.ts`, `scripts/ci/boot-smoke.mjs`, `scripts/fonts/build-fraunces-tnum.py` and `.github/workflows/deploy-pages.yml`
+  - `e2e/smoke/{a11y-control-targets,mobile/a11y-control-targets,admin/route-guard}.spec.ts`, `e2e/smoke/fixtures/dock.ts` and `e2e/visual/{census,census-parity.spec,states.visual.spec}.ts`
+  - `demo/styles/foundation.css` `@source "../app/**"`. The old `../../color-picker/**` resolved outside `demo/` after the `@/` flatten; the line-98 `../**` glob already covered the app.
+- **X-DS's own comment:** `PalettesPane.vue`'s V7C-04 comment (X-DS's) moved inside the root, because a comment beside the root makes a dev root fragment.
+
+#### Residuals and escalations
+
+- **None blocks the unit.** No escalation is raised.
+- **Standing load-RED (not this unit's):**
+  - PNG §7 ×2 and the n-fixture harness boot under host load. They are `.q`'s smoke/vitest territory under §0ev.2 (3× re-read).
+  - The 7 standing vitest failures (C-5 / NG-6 / ink) are unchanged.
+- **`.vscode/launch.json` (untracked, local editor config):** still names `demo/color-picker` in `webRoot`. It is outside the repo and the writable set, so it is not edited. The owner may repoint it.
+- **`scripts/dev/dev.sh`:** 0 refs, never touched.
+- **A2-VA-K-1** (`ColorSpaceSelector` ×2 on `/`) stays the owner's DESIGN-RULING, listed `ruled` in every census run.
+
+#### E13
+
+The close sweep (INBOX `41d2effc2`): 0 new letters (only glass `BL/FORMATION-PROGRESS.md`, a progress file). ⟨`grep '^| I-' INBOX.md | grep -c '| UNREAD'`⟩ → 0.

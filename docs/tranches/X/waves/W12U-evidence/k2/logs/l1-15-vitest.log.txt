@@ -1,0 +1,92 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/color-session/format-color.test.ts (67 tests) 33ms
+ ❯ demo/test/generate/generate-rail.test.ts (2 tests | 1 failed) 6308ms
+   × GenerateControls count rail > EC-10: the generated ramp is hard bands — one equal band per colour 5663ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ GenerateControls count rail > EC-10: the empty arm stays generate's own — it paints var(--muted), unlike extract's null  507ms
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a non-tail removal keeps every surviving chip's DOM node
+[Vue warn]: injection "Symbol(palette.library)" not found. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m },
+  { css: [32m'#333333'[39m, source: [32m'picker'[39m },
+  { css: [32m'#444444'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve component: SwatchButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m },
+  { css: [32m'#333333'[39m, source: [32m'picker'[39m },
+  { css: [32m'#444444'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a non-tail removal keeps every surviving chip's DOM node
+[Vue warn]: Failed to resolve component: SwatchButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#333333'[39m, source: [32m'picker'[39m },
+  { css: [32m'#444444'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a repeated colour pairs in order; a new selection mints a new node
+[Vue warn]: injection "Symbol(palette.library)" not found. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve component: SwatchButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a repeated colour pairs in order; a new selection mints a new node
+[Vue warn]: Failed to resolve component: SwatchButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m },
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#999999'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+
+ ✓ demo/test/palettes/swatch-identity-keys.test.ts (5 tests) 1376ms
+   ✓ N-5 · MixSourceSelector chip keys are identities, not indices > a non-tail removal keeps every surviving chip's DOM node  1003ms
+   ✓ N-5 · MixSourceSelector chip keys are identities, not indices > a repeated colour pairs in order; a new selection mints a new node  320ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/generate/generate-rail.test.ts > GenerateControls count rail > EC-10: the generated ramp is hard bands — one equal band per colour
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ demo/test/generate/generate-rail.test.ts:51:5
+     49|     afterEach(() => vi.unstubAllGlobals());
+     50| 
+     51|     it("EC-10: the generated ramp is hard bands — one equal band per c…
+       |     ^
+     52|         const style = await railBackground(["rgb(255, 0, 0)", "rgb(0, …
+     53|         expect(style).toContain(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 73 passed (74)
+   Start at  11:54:57
+   Duration  13.50s (transform 4.00s, setup 1.42s, collect 7.18s, tests 7.72s, environment 8.48s, prepare 1.75s)
+
+EXIT 1

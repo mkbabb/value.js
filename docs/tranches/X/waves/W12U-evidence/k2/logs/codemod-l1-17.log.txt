@@ -1,0 +1,110 @@
+  demo/workbenches/generate/GenerateControls.vue: ../../color-session/color-chips -> ../../shared/ui/color-chips
+  demo/workbenches/extract/ExtractWorkbench.vue: ../../palettes/PaletteInspector.vue -> ../../palettes/inspector/PaletteInspector.vue
+  demo/scenes/about/AboutPane.vue: ../../color-session/ColorSpaceSelector.vue -> ../../shared/ui/ColorSpaceSelector.vue
+  demo/scenes/atmosphere/AuroraPane.vue: ../../color-session/color-chips -> ../../shared/ui/color-chips
+  demo/test/palettes/compact-counts.test.ts: ../../palettes/browser/card/PaletteCard/PaletteCardMeta.vue -> ../../palettes/inspector/PaletteCardMeta.vue
+  demo/test/palettes/compact-counts.test.ts: ../../palettes/browser/card/PaletteSpecimen.vue -> ../../shared/ui/PaletteSpecimen.vue
+  demo/test/palettes/copy-verdict.test.ts: ../../palettes/PaletteInspector.vue -> ../../palettes/inspector/PaletteInspector.vue
+  demo/test/palettes/copy-verdict.test.ts: ../../palettes/browser/card/PaletteCard/ActionFeedback.vue -> ../../shared/ui/ActionFeedback.vue
+  demo/test/palettes/version-history-verdicts.test.ts: ../../palettes/PaletteInspector.vue -> ../../palettes/inspector/PaletteInspector.vue
+  demo/test/palettes/admin-u3-cures.test.ts: ../../palettes/browser/card/PaletteCard/ActionFeedback.vue -> ../../shared/ui/ActionFeedback.vue
+  demo/test/palettes/palette-specimen.test.ts: ../../palettes/browser/card/PaletteSpecimen.vue -> ../../shared/ui/PaletteSpecimen.vue
+  demo/test/palettes/palette-inspector.test.ts: ../../palettes/PaletteInspector.vue -> ../../palettes/inspector/PaletteInspector.vue
+  demo/test/palettes/n-fixtures/n-fixtures.test.ts: ../../../palettes/browser/card/PaletteSpecimen.vue -> ../../../shared/ui/PaletteSpecimen.vue
+  demo/test/palettes/n-fixtures/n-fixtures.test.ts: ../../../palettes/browser/card/PaletteCard/PaletteCardMeta.vue -> ../../../palettes/inspector/PaletteCardMeta.vue
+  demo/test/palettes/n-fixtures/harness/main.ts: ../../../../palettes/PaletteInspector.vue -> ../../../../palettes/inspector/PaletteInspector.vue
+  demo/picker/ColorPicker.vue: ../color-session/ColorSpaceSelector.vue -> ../shared/ui/ColorSpaceSelector.vue
+  demo/shared/ui/InterpolationFields.vue: ../../color-session/color-chips -> ./color-chips
+  demo/shared/ui/ColorSpaceSelector.vue: ../shared/ui/watercolor-dot -> ./watercolor-dot
+  demo/shared/ui/ColorSpaceSelector.vue: ./color-model -> ../../color-session/color-model
+  demo/shared/ui/ColorSpaceSelector.vue: ./color-model -> ../../color-session/color-model
+  demo/shared/ui/ColorSpaceSelector.vue: ./space-catalog -> ../../color-session/space-catalog
+  demo/shared/ui/ColorSpaceSelector.vue: ./format-color -> ../../color-session/format-color
+  demo/shared/ui/ColorSpaceSelector.vue: ./keys -> ../../color-session/keys
+  demo/shared/ui/color-chips/sample.ts: ../color-utils -> ../../../color-session/color-utils
+  demo/shared/ui/color-chips/sample.ts: ../picker-color -> ../../../color-session/picker-color
+  demo/shared/ui/color-chips/sample.ts: ../sampling -> ../../../color-session/sampling
+  demo/palettes/admin/composables/useAdminTags.ts: ./api -> ../../api
+  demo/palettes/admin/composables/useAdminTags.ts: ./types -> ../../types
+  demo/palettes/admin/composables/useAdminTags.ts: ./api/admin-call -> ../../api/admin-call
+  demo/palettes/admin/composables/useAdminTags.ts: ./api/preflight -> ../../api/preflight
+  demo/palettes/BrowsePane.vue: ./PaletteInspector.vue -> ./inspector/PaletteInspector.vue
+  demo/palettes/admin/composables/useAdminFlagged.ts: ./api -> ../../api
+  demo/palettes/admin/composables/useAdminFlagged.ts: ./api/admin-call -> ../../api/admin-call
+  demo/palettes/admin/composables/useAdminFlagged.ts: ./types -> ../../types
+  demo/palettes/admin/composables/useAdminFlagged.ts: ./usePager -> ../../usePager
+  demo/palettes/admin/composables/useAdminFlagged.ts: ../platform/transport/api-problem -> ../../../platform/transport/api-problem
+  demo/palettes/inspector/PaletteInspector.vue: ./types -> ../types
+  demo/palettes/inspector/PaletteInspector.vue: ./utils -> ../utils
+  demo/palettes/inspector/PaletteInspector.vue: ../color-session/useContrastSafeColor -> ../../color-session/useContrastSafeColor
+  demo/palettes/inspector/PaletteInspector.vue: ../color-session/keys -> ../../color-session/keys
+  demo/palettes/inspector/PaletteInspector.vue: ./usePaletteExport -> ../usePaletteExport
+  demo/palettes/inspector/PaletteInspector.vue: ../shared/usePopupMutex -> ../../shared/usePopupMutex
+  demo/palettes/inspector/PaletteInspector.vue: ./browser/card/PaletteSpecimen.vue -> ../../shared/ui/PaletteSpecimen.vue
+  demo/palettes/inspector/PaletteInspector.vue: ../shared/ui/SwatchButton.vue -> ../../shared/ui/SwatchButton.vue
+  demo/palettes/inspector/PaletteInspector.vue: ./browser/card/PaletteCard/PaletteCardMenu.vue -> ./PaletteCardMenu.vue
+  demo/palettes/inspector/PaletteInspector.vue: ./browser/card/PaletteCard/PaletteCardMeta.vue -> ./PaletteCardMeta.vue
+  demo/palettes/inspector/PaletteInspector.vue: ./browser/card/PaletteCard/PaletteCardSwatches.vue -> ./PaletteCardSwatches.vue
+  demo/palettes/inspector/PaletteInspector.vue: ../shared/ui/PaletteNameInput.vue -> ../../shared/ui/PaletteNameInput.vue
+  demo/palettes/inspector/PaletteInspector.vue: ./browser/card/PaletteCard/ActionFeedback.vue -> ../../shared/ui/ActionFeedback.vue
+  demo/palettes/usePalettePorts.ts: ./useAdminUsers -> ./admin/composables/useAdminUsers
+  demo/palettes/usePalettePorts.ts: ./useAdminAudit -> ./admin/composables/useAdminAudit
+  demo/palettes/usePalettePorts.ts: ./useAdminFlagged -> ./admin/composables/useAdminFlagged
+  demo/palettes/usePalettePorts.ts: ./useAdminTags -> ./admin/composables/useAdminTags
+  demo/palettes/admin/composables/useAdminUsers.ts: ./api -> ../../api
+  demo/palettes/admin/composables/useAdminUsers.ts: ./api/admin-call -> ../../api/admin-call
+  demo/palettes/admin/composables/useAdminUsers.ts: ../platform/transport/availability -> ../../../platform/transport/availability
+  demo/palettes/admin/composables/useAdminUsers.ts: ./types -> ../../types
+  demo/palettes/admin/composables/useAdminUsers.ts: ./usePager -> ../../usePager
+  demo/palettes/admin/composables/useAdminUsers.ts: ../shared/utils -> ../../../shared/utils
+  demo/palettes/PalettesPane.vue: ./PaletteInspector.vue -> ./inspector/PaletteInspector.vue
+  demo/palettes/PalettesPane.vue: ./browser/card/PaletteCard/ActionFeedback.vue -> ../shared/ui/ActionFeedback.vue
+  demo/palettes/admin/composables/useAdminAudit.ts: ./api -> ../../api
+  demo/palettes/admin/composables/useAdminAudit.ts: ./types -> ../../types
+  demo/palettes/admin/composables/useAdminAudit.ts: ./usePager -> ../../usePager
+  demo/palettes/admin/composables/useAdminAudit.ts: ./api/admin-call -> ../../api/admin-call
+  demo/palettes/admin/AdminPane.vue: ../browser/card/PaletteCard/ActionFeedback.vue -> ../../shared/ui/ActionFeedback.vue
+  demo/palettes/admin/AdminPane.vue: ../browser/admin -> ./panels
+  demo/shared/ui/PaletteColorStrip.vue: ../../types -> ../../palettes/types
+  demo/palettes/browser/card/index.ts: ./PaletteSpecimen.vue -> ../../../shared/ui/PaletteSpecimen.vue
+  demo/palettes/browser/card/index.ts: ./PaletteCardSkeleton.vue -> ../../../shared/ui/PaletteCardSkeleton.vue
+  demo/palettes/browser/card/index.ts: ./PaletteColorStrip.vue -> ../../../shared/ui/PaletteColorStrip.vue
+  demo/shared/ui/PaletteSpecimen.vue: ../../types -> ../../palettes/types
+  demo/shared/ui/PaletteSpecimen.vue: ../../../color-session/format-color -> ../../color-session/format-color
+  demo/palettes/browser/card/CurrentPaletteEditor.vue: ./PaletteCard/ActionFeedback.vue -> ../../../shared/ui/ActionFeedback.vue
+  demo/palettes/inspector/PaletteCardMeta.vue: ../../../types -> ../types
+  demo/palettes/inspector/PaletteCardMeta.vue: ../../../../color-session/format-color -> ../../color-session/format-color
+  demo/palettes/inspector/PaletteCardMenu.vue: ../../../types -> ../types
+  demo/palettes/inspector/PaletteCardMenu.vue: ../../../utils -> ../utils
+  demo/palettes/inspector/PaletteCardMenu.vue: ../../../../platform/transport/useApiClient -> ../../platform/transport/useApiClient
+  demo/palettes/inspector/PaletteCardSwatches.vue: ../../../types -> ../types
+  demo/palettes/inspector/PaletteCardSwatches.vue: ../SwatchHoverMenu.vue -> ../browser/card/SwatchHoverMenu.vue
+  demo/palettes/inspector/PaletteCardSwatches.vue: ../../../../shared/ui/SwatchButton.vue -> ../../shared/ui/SwatchButton.vue
+  demo/palettes/inspector/PaletteCardSwatches.vue: ../../../../color-session/format-color -> ../../color-session/format-color
+  demo/palettes/admin/panels/AdminAuditPanel.vue: ../dateFormat -> ../../browser/dateFormat
+  demo/palettes/admin/panels/AdminTagsPanel.vue: ../card/PaletteCard/ActionFeedback.vue -> ../../../shared/ui/ActionFeedback.vue
+  demo/palettes/admin/panels/AdminUsersPanel.vue: ../card -> ../../browser/card
+  demo/palettes/admin/panels/AdminUsersPanel.vue: ../card/PaletteCard/ActionFeedback.vue -> ../../../shared/ui/ActionFeedback.vue
+  demo/palettes/admin/panels/AdminFlaggedPanel.vue: ../card/PaletteCard/ActionFeedback.vue -> ../../../shared/ui/ActionFeedback.vue
+  demo/palettes/admin/panels/AdminFlaggedPanel.vue: ../dateFormat -> ../../browser/dateFormat
+  demo/palettes/browser/search/index.ts: ./UserSortMenu.vue -> ../../admin/UserSortMenu.vue
+  demo/palettes/admin/UserSortMenu.vue: ../../../shell/usePanePopups -> ../../shell/usePanePopups
+  demo/palettes/browser/dialog/VersionHistoryDrawer.vue: ../card/PaletteColorStrip.vue -> ../../../shared/ui/PaletteColorStrip.vue
+  test/preview-chips.test.ts: ../demo/color-session/color-chips/sample -> ../demo/shared/ui/color-chips/sample
+moved demo/palettes/browser/admin -> demo/palettes/admin/panels
+moved demo/palettes/browser/search/UserSortMenu.vue -> demo/palettes/admin/UserSortMenu.vue
+moved demo/palettes/useAdminAudit.ts -> demo/palettes/admin/composables/useAdminAudit.ts
+moved demo/palettes/useAdminFlagged.ts -> demo/palettes/admin/composables/useAdminFlagged.ts
+moved demo/palettes/useAdminTags.ts -> demo/palettes/admin/composables/useAdminTags.ts
+moved demo/palettes/useAdminUsers.ts -> demo/palettes/admin/composables/useAdminUsers.ts
+moved demo/palettes/PaletteInspector.vue -> demo/palettes/inspector/PaletteInspector.vue
+moved demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue -> demo/palettes/inspector/PaletteCardMenu.vue
+moved demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue -> demo/palettes/inspector/PaletteCardMeta.vue
+moved demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue -> demo/palettes/inspector/PaletteCardSwatches.vue
+moved demo/palettes/browser/card/PaletteCard/ActionFeedback.vue -> demo/shared/ui/ActionFeedback.vue
+moved demo/palettes/browser/card/PaletteSpecimen.vue -> demo/shared/ui/PaletteSpecimen.vue
+moved demo/palettes/browser/card/PaletteColorStrip.vue -> demo/shared/ui/PaletteColorStrip.vue
+moved demo/palettes/browser/card/PaletteCardSkeleton.vue -> demo/shared/ui/PaletteCardSkeleton.vue
+moved demo/color-session/ColorSpaceSelector.vue -> demo/shared/ui/ColorSpaceSelector.vue
+moved demo/color-session/color-chips -> demo/shared/ui/color-chips
+moved 16 · rewritten 93 · files 40

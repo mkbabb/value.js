@@ -1,0 +1,105 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/color-session/format-color.test.ts (67 tests) 94ms
+ ✓ demo/test/palettes/palette-specimen.test.ts (4 tests) 649ms
+   ✓ G12 · PaletteSpecimen purity > mounts with zero interactive descendants  630ms
+stderr | demo/test/palettes/palette-inspector.test.ts > G7 · the export failure is rendered by its host > a thrown download is said on the inspector's rail
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at canvasCtx (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:88:27)
+    at resolveCssColorAlpha (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:100:17)
+    at resolveLiveTint (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:219:22)
+    at resolveLiveTintCached (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:252:18)
+    at surfaceLightnessNow (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:270:9)
+    at safeCss (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:385:13)
+    at ComputedRefImpl.fn (/Users/mkbabb/Programming/value.js/demo/palettes/PaletteInspector.vue:253:39) [90mundefined[39m
+
+(node:46943) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+stderr | demo/test/palettes/copy-verdict.test.ts > N-11 · the verdict renders > the inspector's slug copy — rejected
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at canvasCtx (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:88:27)
+    at resolveCssColorAlpha (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:100:17)
+    at resolveLiveTint (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:219:22)
+    at resolveLiveTintCached (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:252:18)
+    at surfaceLightnessNow (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:270:9)
+    at safeCss (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:385:13)
+    at ComputedRefImpl.fn (/Users/mkbabb/Programming/value.js/demo/palettes/PaletteInspector.vue:253:39) [90mundefined[39m
+
+stderr | demo/test/palettes/copy-verdict.test.ts > N-11 · the verdict renders > the inspector's slug copy — rejected
+[useClipboard] clipboard writeText rejected: Error: denied
+    at Object.writeText [90m(/Users/mkbabb/Programming/value.js/[39mdemo/test/palettes/copy-verdict.test.ts:71:43[90m)[39m
+    at r [90m(file:///Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@mkbabb/glass-ui[24m/dist/useClipboard-D36OTaeT.js:9:36[90m)[39m
+    at Proxy.copyWithVerdict [90m(/Users/mkbabb/Programming/value.js/[39mdemo/palettes/PaletteInspector.vue:473:26[90m)[39m
+    at onCopySlug._cache.<computed>._cache.<computed> [90m(/Users/mkbabb/Programming/value.js/[39mdemo/palettes/PaletteInspector.vue:152:39[90m)[39m
+    at callWithErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:200:19[90m)[39m
+    at callWithAsyncErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:207:17[90m)[39m
+    at emit [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:4421:5[90m)[39m
+    at $props.displaySlug.onClick._cache.<computed>._cache.<computed> [90m(/Users/mkbabb/Programming/value.js/[39mdemo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue:16:25[90m)[39m
+    at callWithErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:200:19[90m)[39m
+    at Object.callWithAsyncErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:207:17[90m)[39m
+
+(node:46958) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+stderr | demo/test/palettes/copy-verdict.test.ts > N-11 · the verdict renders > the editor's swatch copy — rejected
+[useClipboard] clipboard writeText rejected: Error: denied
+    at Object.writeText [90m(/Users/mkbabb/Programming/value.js/[39mdemo/test/palettes/copy-verdict.test.ts:71:43[90m)[39m
+    at r [90m(file:///Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@mkbabb/glass-ui[24m/dist/useClipboard-D36OTaeT.js:9:36[90m)[39m
+    at Object.onCurrentSwatchCopy [90m(/Users/mkbabb/Programming/value.js/[39mdemo/palettes/browser/card/composables/useSwatchActions.ts:101:30[90m)[39m
+    at onClick [90m(/Users/mkbabb/Programming/value.js/[39mdemo/test/palettes/copy-verdict.test.ts:97:78[90m)[39m
+    at callWithErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:200:19[90m)[39m
+    at Object.callWithAsyncErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:207:17[90m)[39m
+    at HTMLButtonElement.invoker [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-dom[24m/dist/runtime-dom.cjs.js:704:19[90m)[39m
+    at HTMLButtonElement.callTheUserObjectsOperation [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventListener.js:26:30[90m)[39m
+    at innerInvokeEventListeners [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/events/EventTarget-impl.js:350:25[90m)[39m
+    at invokeEventListeners [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/events/EventTarget-impl.js:286:3[90m)[39m
+
+ ✓ demo/test/palettes/copy-verdict.test.ts (5 tests) 1494ms
+   ✓ N-11 · the verdict renders > the inspector's slug copy — rejected  1073ms
+   ✓ N-11 · the verdict renders > the inspector's slug copy — accepted  391ms
+ ✓ demo/test/palettes/palette-inspector.test.ts (8 tests) 2618ms
+   ✓ G7 · the export failure is rendered by its host > a thrown download is said on the inspector's rail  1050ms
+   ✓ G7 · the export failure is rendered by its host > a completed export is said too (same rail)  376ms
+   ✓ the selected entity rides X-W4's typed SceneActionSet > deselect and unmount remove exactly this inspector's target  432ms
+stderr | demo/test/palettes/version-history-verdicts.test.ts > each failure is handed to the host that renders it > the inspector's rail says the host's verdict
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at canvasCtx (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:88:27)
+    at resolveCssColorAlpha (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:100:17)
+    at resolveLiveTint (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:219:22)
+    at resolveLiveTintCached (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:252:18)
+    at surfaceLightnessNow (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:270:9)
+    at safeCss (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:385:13)
+    at ComputedRefImpl.fn (/Users/mkbabb/Programming/value.js/demo/palettes/PaletteInspector.vue:253:39) [90mundefined[39m
+
+(node:46949) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/version-history-verdicts.test.ts (7 tests) 1808ms
+   ✓ each failure is handed to the host that renders it > the drawer emits load-failed with the reason (not an empty page)  741ms
+   ✓ each failure is handed to the host that renders it > a completed load emits no failure  333ms
+   ✓ each failure is handed to the host that renders it > the inspector's rail says the host's verdict  722ms
+(node:46967) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/admin-destructive.test.ts (10 tests) 6674ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > color-name delete (AdminNamesPanel)  1811ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > color-name reject (AdminNamesPanel, W7.93)  777ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > tag delete (AdminTagsPanel)  526ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > flagged-palette delete (AdminFlaggedPanel)  414ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > delete-all-palettes (AdminUsersPanel)  880ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > user-disclosure palette delete (AdminUsersPanel)  699ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > delete user (AdminUsersPanel)  423ms
+   ✓ G15 · S-15 — destructive naming > N Dismiss buttons each name their palette; the two irreversible user acts wear distinct glyphs  712ms
+
+ Test Files  6 passed (6)
+      Tests  101 passed (101)
+   Start at  12:18:40
+   Duration  26.17s (transform 10.45s, setup 11.19s, collect 41.51s, tests 13.34s, environment 20.80s, prepare 3.64s)
+

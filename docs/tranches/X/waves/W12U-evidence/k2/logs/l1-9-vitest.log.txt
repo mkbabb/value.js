@@ -1,0 +1,12 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/status-lamp.test.ts (14 tests) 8ms
+ ✓ test/dock-status-lamp.test.ts (6 tests) 65ms
+
+ Test Files  2 passed (2)
+      Tests  20 passed (20)
+   Start at  11:33:57
+   Duration  3.07s (transform 416ms, setup 242ms, collect 1.60s, tests 73ms, environment 2.00s, prepare 254ms)
+
+EXIT 0

@@ -1,0 +1,18 @@
+== r1 load 191.54 157.23 143.51
+[k2probe] +173023ms harness up
+[k2probe] +173361ms G9 ok
+[k2probe] +174202ms G10 ok height 124
+[k2probe] +174988ms G11 ok
+[k2probe] +175127ms N-13 reduced ok
+[k2probe] +175517ms N-13 animated ok
+ ✓ demo/test/palettes/zz-k2-harness-probe.test.ts (1 test) 199636ms
+   ✓ k2: palette-card-layout's G9/G10/G11/N-13 assertions on a harness given time to load  199635ms
+== r2 load 195.50 164.56 149.39
+[k2probe] +181538ms harness up
+[k2probe] +181558ms G9 ok
+[k2probe] +182785ms G10 ok height 124
+[k2probe] +183860ms G11 ok
+[k2probe] +184116ms N-13 reduced ok
+[k2probe] +184567ms N-13 animated ok
+ ✓ demo/test/palettes/zz-k2-harness-probe.test.ts (1 test) 279408ms
+   ✓ k2: palette-card-layout's G9/G10/G11/N-13 assertions on a harness given time to load  279406ms

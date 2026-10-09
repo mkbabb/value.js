@@ -1,0 +1,30 @@
+load 168.42 153.98 164.00
+   × spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue 23ms
+   ✓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > clears the 4.5:1 text floor — ambient band × surfaces × failure picks (light)  1427ms
+   ✓ D6 — certifyAccentInk (a pass by construction, never a distance heuristic) > clears the 4.5:1 text floor — ambient band × surfaces × failure picks (dark)  1218ms
+   × D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light) 275ms
+   × D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark) 102ms
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light) 4ms
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark) 2ms
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp) 4ms
+   × NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught 57ms
+   ✓ X.W7L.i — ESC-W7Rm-1: the search never throws on a reachable floor > every surface × the full ambient sweep × every pick certifies ≥ the floor (light)  36159ms
+   ✓ X.W7L.i — ESC-W7Rm-1: the search never throws on a reachable floor > every surface × the full ambient sweep × every pick certifies ≥ the floor (dark)  37340ms
+   × PNG export (§7) > decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans 44490ms
+   × PNG export (§7) > is deterministic: two serializations are byte-identical 30412ms
+   ↓ G9 · the meta row at 390×844 with a legal payload > does not overflow; the name keeps a rendered width
+ FAIL  demo/test/palettes/palette-card-layout.test.ts [ demo/test/palettes/palette-card-layout.test.ts ]
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light)
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)
+ FAIL  test/spectrum-luma.test.ts > spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue
+ FAIL  demo/test/export/byte-exact.test.ts > PNG export (§7) > decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans
+ FAIL  demo/test/export/byte-exact.test.ts > PNG export (§7) > is deterministic: two serializations are byte-identical
+ FAIL  demo/test/shell/reka-binding-idiom.test.ts > NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught
+ Test Files  6 failed | 78 passed (84)
+      Tests  9 failed | 1101 passed | 10 skipped (1120)

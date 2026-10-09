@@ -1,0 +1,9 @@
+  demo/scenes/atmosphere/aurora-harmony-stops.ts: ../../color-picker/composables/boot/atmosphere-calibration -> ../../app/composables/boot/atmosphere-calibration
+  demo/test/shell/error-boundary-recovery.test.ts: ../../color-picker/ErrorBoundary.vue -> ../../app/ErrorBoundary.vue
+  demo/test/shell/error-boundary.test.ts: ../../color-picker/ErrorBoundary.vue -> ../../app/ErrorBoundary.vue
+  demo/test/glass/aurora-bracket.test.ts: ../../color-picker/composables/boot/atmosphere-calibration -> ../../app/composables/boot/atmosphere-calibration
+  demo/test/palettes/admin-u3-cures.test.ts: ../../color-picker/router/useDocumentTitle -> ../../app/router/useDocumentTitle
+  demo/picker/ColorPicker.vue: ../color-picker/composables/boot/useOverture -> ../app/composables/boot/useOverture
+  plugins/vite-ground-tokens.ts: ../demo/color-picker/composables/boot/ground -> ../demo/app/composables/boot/ground
+moved demo/color-picker -> demo/app
+moved 1 · rewritten 7 · files 7
