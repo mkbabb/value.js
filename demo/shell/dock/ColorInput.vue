@@ -18,7 +18,6 @@
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
                         class="color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
                         :class="{
-                            'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
                             'color-input-mode-flash': modeTransition,
                         }"
@@ -340,6 +339,12 @@ defineExpose({
 .color-input-face {
     contain: inline-size;
     inline-size: clamp(8rem, 40vw, 14rem);
+    /* X.W12U.m2 · A2-VA-X-13: the inline action (Apply / Propose) takes the
+     * control floor the slug cluster's seats take (SlugEditLayer.vue): glass's
+     * `--control-floor` is 0px at :root and `--touch-target` (44 px) under
+     * `(pointer: coarse)`, so it is 24 px fine · 44 px coarse. The field's end
+     * padding, its fade and the button all read this one width. */
+    --input-action-size: max(1.5rem, var(--control-floor));
 }
 
 .color-input {
@@ -347,7 +352,8 @@ defineExpose({
     transition:
         border-color var(--duration-fast) var(--ease-standard),
         box-shadow var(--duration-fast) var(--ease-standard);
-    --input-action-width: 2.5rem;
+    --input-action-width: calc(var(--input-action-size) + 1rem);
+    padding-inline-end: calc(var(--input-action-size) + 0.75rem);
     mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%);
     -webkit-mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%);
 }
@@ -384,6 +390,10 @@ defineExpose({
 .send-btn {
     position: absolute;
     right: 0.25rem;
+    display: grid;
+    place-items: center;
+    min-inline-size: var(--input-action-size);
+    min-block-size: var(--input-action-size);
     top: 50%;
     transform: translateY(-50%);
     padding: 0.25rem;

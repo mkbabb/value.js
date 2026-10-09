@@ -93,7 +93,11 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
              min-w-0), not a fixed 160 px that truncated the prompt and every
              real slug and pushed Cancel past a 390 dock.
              A2-VA-L1-14 (UIA-V-249): the field is glass's Input — the app's one
-             text-field idiom — at the control floor, not a bare `<input>`. -->
+             text-field idiom — at the control floor, not a bare `<input>`.
+             X.W12U.m2 · A2-VA-X-14: "the room the row leaves" was the input's
+             own 20-column intrinsic width (210 px), because the dock run lays a
+             face out at max-content; at 360 that put Cancel past the run's
+             end. The field states its width instead (scoped CSS below). -->
         <Input
             ref="slugInputRef"
             v-model="slugInput"
@@ -105,7 +109,7 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
             :aria-invalid="slugError ? 'true' : undefined"
             :aria-describedby="slugError ? 'slug-edit-error' : undefined"
             size="sm"
-            class="slug-input text-mono-small flex-1 min-w-0"
+            class="slug-input text-mono-small min-w-0"
             @input="slugError = ''"
             @keydown.escape.stop="slugEditMode = false"
         />
@@ -179,6 +183,13 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
 
 .slug-input {
     min-block-size: var(--control-h-xs);
+    /* X.W12U.m2 · A2-VA-X-14: the colour-input face's inline-size contract
+     * (ColorInput.vue, A2-VA-X-13), restated for the sibling field: 40% of the
+     * viewport between an 8rem floor (the "slug or token" prompt fits) and a
+     * 14rem cap, so the layer (glyph · field · submit · separator · Cancel)
+     * stays inside a 360 dock's run. */
+    flex: 0 1 auto;
+    inline-size: clamp(8rem, 40vw, 14rem);
 }
 
 /* The layer's row may shrink its field; the reason never outgrows half of it. */
