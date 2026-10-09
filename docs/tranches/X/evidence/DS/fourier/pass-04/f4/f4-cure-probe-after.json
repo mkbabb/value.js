@@ -1,0 +1,190 @@
+{
+ "gallery-light-1440": {
+  "grid": [
+   16,
+   1424
+  ],
+  "cols": "343px 343px 343px 343px 0px",
+  "lastCardRight": 1424,
+  "searchRight": 1424,
+  "n": 4
+ },
+ "morph-light-1440": {
+  "strip": [
+   617,
+   1259
+  ],
+  "controls": [
+   617,
+   1259
+  ],
+  "cutTileVisiblePx": 6,
+  "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 8px))",
+  "snap": "x mandatory"
+ },
+ "paper-light-1440": [
+  {
+   "text": "",
+   "weight": "700"
+  },
+  {
+   "text": "",
+   "weight": "700"
+  }
+ ],
+ "notfound-light-1440": [
+  {
+   "t": "Upload a new image",
+   "emph": "primary",
+   "size": "md",
+   "w": 226
+  },
+  {
+   "t": "Browse the gallery",
+   "emph": "text",
+   "size": "sm",
+   "w": 126
+  }
+ ],
+ "gallery-light-390": {
+  "grid": [
+   16,
+   374
+  ],
+  "cols": "173px 173px",
+  "lastCardRight": 374,
+  "searchRight": 374,
+  "n": 5
+ },
+ "morph-light-390": {
+  "strip": [
+   29,
+   361
+  ],
+  "controls": [
+   29,
+   361
+  ],
+  "cutTileVisiblePx": 2,
+  "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 8px))",
+  "snap": "x mandatory"
+ },
+ "paper-light-390": [
+  {
+   "text": "",
+   "weight": "700"
+  },
+  {
+   "text": "",
+   "weight": "700"
+  }
+ ],
+ "notfound-light-390": [
+  {
+   "t": "Upload a new image",
+   "emph": "primary",
+   "size": "md",
+   "w": 297
+  },
+  {
+   "t": "Browse the gallery",
+   "emph": "text",
+   "size": "sm",
+   "w": 158
+  }
+ ],
+ "gallery-dark-1440": {
+  "grid": [
+   16,
+   1424
+  ],
+  "cols": "272px 272px 272px 272px 272px",
+  "lastCardRight": 1424,
+  "searchRight": 1424,
+  "n": 5
+ },
+ "morph-dark-1440": {
+  "strip": [
+   617,
+   1259
+  ],
+  "controls": [
+   617,
+   1259
+  ],
+  "cutTileVisiblePx": 6,
+  "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 8px))",
+  "snap": "x mandatory"
+ },
+ "paper-dark-1440": [
+  {
+   "text": "",
+   "weight": "700"
+  },
+  {
+   "text": "",
+   "weight": "700"
+  }
+ ],
+ "notfound-dark-1440": [
+  {
+   "t": "Upload a new image",
+   "emph": "primary",
+   "size": "md",
+   "w": 226
+  },
+  {
+   "t": "Browse the gallery",
+   "emph": "text",
+   "size": "sm",
+   "w": 126
+  }
+ ],
+ "gallery-dark-390": {
+  "grid": [
+   16,
+   374
+  ],
+  "cols": "173px 173px",
+  "lastCardRight": 374,
+  "searchRight": 374,
+  "n": 5
+ },
+ "morph-dark-390": {
+  "strip": [
+   29,
+   361
+  ],
+  "controls": [
+   29,
+   361
+  ],
+  "cutTileVisiblePx": 2,
+  "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 8px))",
+  "snap": "x mandatory"
+ },
+ "paper-dark-390": [
+  {
+   "text": "",
+   "weight": "700"
+  },
+  {
+   "text": "",
+   "weight": "700"
+  }
+ ],
+ "notfound-dark-390": [
+  {
+   "t": "Upload a new image",
+   "emph": "primary",
+   "size": "md",
+   "w": 297
+  },
+  {
+   "t": "Browse the gallery",
+   "emph": "text",
+   "size": "sm",
+   "w": 158
+  }
+ ]
+}
