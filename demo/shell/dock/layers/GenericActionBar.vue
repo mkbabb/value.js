@@ -30,8 +30,9 @@
  * expressed entirely through props it already publishes — `disabled`, `title`,
  * `description`, `activeStyle` — plus the wrapper's own data stamps.
  */
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import ActionButton from "../ActionButton.vue";
+import { usePopupMutex } from "../../../shared/usePopupMutex";
 import type { SceneAction, SceneActionState } from "../../../color-session/keys";
 
 const { actions, accentColor } = defineProps<{
@@ -39,7 +40,9 @@ const { actions, accentColor } = defineProps<{
     accentColor?: string;
 }>();
 
-const activeHover = ref<string | null>(null);
+// A2-VA-L1-16: the seats' hints are one keyed mutex (the app's one), keyed by
+// the action token; a hint hands off to its neighbour in the same tick.
+const hints = usePopupMutex<string>({ swapDelay: 0 });
 
 /** Only `ready` and `failed` carry a command; the other two are inert by type. */
 function operable(state: SceneActionState): boolean {
@@ -126,8 +129,7 @@ const failedMessage = computed(() =>
         >
             <ActionButton
                 :icon="action.icon"
-                :hover-key="action.token"
-                :active-hover="activeHover"
+                :open="hints.current.value === action.token"
                 :title="seatName(action)"
                 :description="seatDescription(action)"
                 :css-color-opaque="accentColor"
@@ -136,7 +138,7 @@ const failedMessage = computed(() =>
                 :disabled="!operable(action.state)"
                 :active-style="seatStyle(action)"
                 @action="run(action.state)"
-                @update:active-hover="(v) => (activeHover = v)"
+                @update:open="(v) => hints.setOpen(action.token, v)"
             />
         </div>
 

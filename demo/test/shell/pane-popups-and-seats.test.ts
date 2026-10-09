@@ -46,7 +46,7 @@ describe("A2-VA-L2-11 · usePanePopups", () => {
 });
 
 describe("A2-VA-L2-6 · the scene action seat is a DockControl", () => {
-    const props = { icon: Copy, hoverKey: "copy", activeHover: null, title: "Copy colors (unavailable)", description: "d" };
+    const props = { icon: Copy, open: false, title: "Copy colors (unavailable)", description: "d" };
 
     it("an inoperable seat is a focusable button marked aria-disabled, and does not emit", async () => {
         const w = mount(ActionButton, { props: { ...props, disabled: true }, attachTo: document.body });

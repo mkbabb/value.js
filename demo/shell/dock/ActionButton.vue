@@ -2,7 +2,7 @@
     <Popover
         v-if="!hidden"
         trigger="hover"
-        :open="isOpen"
+        :open="open"
         @update:open="onHoverOpenChange"
         :close-delay="0"
         :open-delay="300"
@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, type Component } from "vue";
+import { ref, type Component } from "vue";
 import {
     Popover,
     PopoverContent,
@@ -60,10 +60,12 @@ import { DockControl, useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
 const dock = useOptionalDockContext();
 
-const { hoverKey, activeHover } = defineProps<{
+// A2-VA-L1-16: the seat's hint is one key of its bar's popup mutex
+// (shared/usePopupMutex, held by GenericActionBar) — the seat reads only its own
+// `open`, never the whole bar's state.
+const { open = false } = defineProps<{
     icon: Component;
-    hoverKey: string;
-    activeHover: string | null;
+    open?: boolean;
     title: string;
     description: string;
     label?: string | undefined;
@@ -77,13 +79,11 @@ const { hoverKey, activeHover } = defineProps<{
 
 const emit = defineEmits<{
     action: [];
-    "update:activeHover": [value: string | null];
+    "update:open": [value: boolean];
 }>();
 
-const isOpen = computed(() => activeHover === hoverKey);
-
 function onHoverOpenChange(v: boolean) {
-    emit("update:activeHover", v ? hoverKey : null);
+    emit("update:open", v);
     if (v) {
         dock?.keepOpen();
     } else {
@@ -94,7 +94,7 @@ function onHoverOpenChange(v: boolean) {
 const isClicked = ref(false);
 
 function handleClick() {
-    emit("update:activeHover", null);
+    emit("update:open", false);
     isClicked.value = true;
     setTimeout(() => {
         isClicked.value = false;

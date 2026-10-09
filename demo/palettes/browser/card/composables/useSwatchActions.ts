@@ -4,7 +4,7 @@ import type { EditTarget } from "../../../../color-session/color-model";
 import { EDIT_TARGET_KEY } from "../../../../color-session/keys";
 import { writeClipboard } from "@mkbabb/glass-ui";
 import { CURRENT_PALETTE_ID } from "../../../constants";
-import { useHoverPopover } from "./useHoverPopover";
+import { usePopupMutex } from "../../../../shared/usePopupMutex";
 
 export interface SwatchActionsDeps {
     savedColorStrings: Ref<string[]>;
@@ -27,11 +27,14 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
     }
 
     // --- Hover popover for current swatches ---
+    // A2-VA-L1-16: the app's one keyed mutex, keyed by swatch index.
     const {
-        openIndex: currentSwatchPopoverIndex,
+        current: currentSwatchPopoverIndex,
         close: closeCurrentSwatchPopover,
-        onOpenChange: onCurrentSwatchOpenChange,
-    } = useHoverPopover();
+        setOpen: setCurrentSwatchOpen,
+    } = usePopupMutex<number>({ swapDelay: 0 });
+    const onCurrentSwatchOpenChange = (open: boolean, index: number) =>
+        setCurrentSwatchOpen(index, open);
 
     // --- Identity keys for TransitionGroup ---
     // X.W7.c (fold N-5 · C-9 ≡ MSS-3 ≡ SH-7): a swatch's key is its IDENTITY,

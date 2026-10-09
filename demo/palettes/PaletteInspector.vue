@@ -162,7 +162,7 @@ import {
     type SceneCommand,
 } from "../color-session/keys";
 import { usePaletteExport } from "./usePaletteExport";
-import { useHoverPopover } from "./browser/card/composables/useHoverPopover";
+import { usePopupMutex } from "../shared/usePopupMutex";
 import { useHeightTransition } from "./browser/card/composables/useHeightTransition";
 import PaletteSpecimen from "./browser/card/PaletteSpecimen.vue";
 import type { SwatchSize } from "../shared/ui/SwatchButton.vue";
@@ -249,7 +249,14 @@ function showFeedback(message: string, variant: "success" | "error") {
 const rootEl = useTemplateRef<HTMLElement>("rootEl");
 defineExpose({ showFeedback, rootEl });
 
-const { openIndex: openPopoverIndex, onOpenChange: onPopoverOpenChange } = useHoverPopover();
+// A2-VA-L1-16: the swatch row's one-open popover — the app's one keyed mutex,
+// keyed by swatch index; hover cards swap in the same tick.
+const {
+    current: openPopoverIndex,
+    setOpen: setPopoverOpen,
+    close: closePopover,
+} = usePopupMutex<number>({ swapDelay: 0 });
+const onPopoverOpenChange = (open: boolean, index: number) => setPopoverOpen(index, open);
 
 const menuOpen = ref(false);
 
@@ -269,7 +276,7 @@ const {
     onLeave,
     onAfterLeave,
 } = useHeightTransition({
-    onBeforeCollapse: () => { openPopoverIndex.value = null; },
+    onBeforeCollapse: closePopover,
 });
 
 function startRenaming() {
@@ -416,17 +423,17 @@ watch(
 onScopeDispose(unregister);
 
 function onPopoverAdd(css: string) {
-    openPopoverIndex.value = null;
+    closePopover();
     emit("addColor", css);
 }
 
 function onPopoverEdit(color: PaletteColor, index: number) {
-    openPopoverIndex.value = null;
+    closePopover();
     emit("editColor", props.palette, index, color.css);
 }
 
 function onPopoverCopy(css: string) {
-    openPopoverIndex.value = null;
+    closePopover();
     void copyWithVerdict(css, css);
 }
 

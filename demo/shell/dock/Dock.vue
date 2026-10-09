@@ -15,7 +15,7 @@ import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
-import { usePopupMutex } from "./composables/usePopupMutex";
+import { usePopupMutex } from "../../shared/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
 import type { SceneActionSet } from "../../color-session/keys";
 import type { EditTarget } from "../../color-session/color-model";
