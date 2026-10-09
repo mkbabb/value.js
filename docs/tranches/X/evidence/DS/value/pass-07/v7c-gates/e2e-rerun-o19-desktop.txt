@@ -1,0 +1,69 @@
+(node:7384) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:7669) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light (1.6m)
+(node:12167) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark (2.8m)
+
+
+  1) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()[22m
+
+
+      56 |     // a future re-wording of the label cannot silently kill the census again.
+      57 |     const plate = main.getByTestId("gradient-render-tile").last();
+    > 58 |     await expect(plate).toBeVisible();
+         |                         ^
+      59 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      60 |     // enter transition otherwise screenshots the plate mid-flight (see
+      61 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:58:25)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:79:27
+
+    Error Context: test-results/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()[22m
+
+
+      56 |     // a future re-wording of the label cannot silently kill the census again.
+      57 |     const plate = main.getByTestId("gradient-render-tile").last();
+    > 58 |     await expect(plate).toBeVisible();
+         |                         ^
+      59 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      60 |     // enter transition otherwise screenshots the plate mid-flight (see
+      61 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:58:25)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:79:27
+
+    Error Context: test-results/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/error-context.md
+
+  2 failed
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+EXIT 1
