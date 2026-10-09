@@ -52,3 +52,11 @@ At the orchestrator's read, `tests/test_contour_bench.py` still has `SAMPLES = (
   - **The tour, common to all:** strokes form a graph, and the closed path is a minimum-retrace walk (a Chinese-postman augmentation over the stroke graph). Unavoidable connectors are routed **along existing strokes** or kept short, and any retrace must coincide with its stroke so it does not read as a doubled strand at N ≥ 100.
 - **Selection:** the harness bar and the 3-judge panel on all 19 images, including no public regression against the **original baseline**. The winning approach is implemented on `m/w1-bump-migration`, grafting the runners-up's best parts. Refinement then loops until the bar is met (every judge PASSes every image in one round, ×2).
 - **Runtime:** it is read solo on a quiet host (1-minute load < 8) before it counts. Model downloads are allowed; the model files stay out of git (cached as `ml.py` does).
+
+## ADDENDUM 2026-10-08 (d) — phase 2 CLOSED honest-RED; C adopted; phase 3 is bounded and has a restated bar (COHESION §0eu)
+- Phase 2 is closed. C (YuNet + BiSeNet parts, a postman tour) ships through F.REL, which bakes and sha-pins its models. The named REDs are listed in §0eu.
+- **Phase 3 (F.CT3)** opens only after F.REL closes, on `m/w1-bump-migration` or master as F.REL leaves it.
+  - Step 0: the same three-lens panel judges the pre-F.CT pipeline. That is the baseline.
+  - Then up to 4 rounds of root cures, aimed at these clusters: the face seams that read as scars (the cheek chord, and the brow tied to the face edge); the nose (both alar sides, the nostrils); the lips (upper lip, philtrum); the braids (plaits, the left braid); the necklace; eye loops at N=50/100; the subject-mask rim (nes-rob, cauchy, giraffe recall); and wiggle on fur.
+  - Bar: daraksha passes all three lenses at N=100/200; every other image is at or above its baseline on each lens, with a mean of at least 5; the sun reference mask is re-derived and receipted; the recall regressions are cured or ruled with frames; runtime is banked in the quiet window.
+  - After round 4 it closes honest-RED with whatever remains. The resource law of the phase-2 implement seat applies to every seat.
