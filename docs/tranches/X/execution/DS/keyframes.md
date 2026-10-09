@@ -1038,3 +1038,50 @@ Every row is unchanged, because this pass moved one label, not any lighting. The
 **Disclosures**
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
 - The census route frames `spring-1440-*` and `spring-390-*` share names with the probe's frames. The census frames were captured later on the same tree, and they are the ones committed. The probe's measurements in `c18-probe.json` were taken on that same final tree.
+
+### pass 15 (the redeployed workflow's pass 15; critic C19; evidence in `pass-19/`)
+
+**Cure commit:** keyframes.js `819287d1` (master, pushed fast-forward from `033bbd11`). **Evidence:** value.js `d7c729571` (`evidence/DS/keyframes/pass-19/`: 28 census route frames, `census.json` + `census.log`, `after/` probe frames and `c19-probe.json`, `before/c19-probe.json`, and the probes `c19-probe.mjs`, `readout-probe.mjs` and `layer-pane-probe.mjs`). Headless real Chrome only (§0ei). The evidence goes in `pass-19/` rather than `pass-15/`, because `pass-15/` already holds the committed frames of absolute pass 15 (critic C15).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark identical) |
+|---|---|---|
+| KF-C19-01 | Both of the critic's routes were taken, because neither reached a scroll range of 0 alone. **(a)** `SubPaneHeader.vue`: the caption rides the title's row in a flex-wrap line. It wraps whole under the title when it does not fit, so it never breaks mid-word, and the title holds the Back control's height (`--control-h-sm`), so the two stay level. The header went from 59 px to 40 px. **(b)** `ChannelOptions.vue`: `--picker-cap` is re-measured to `max(15rem, rail − 28.5rem)`. The 16rem floor was itself the binding term at 1440×900 (rail 704 px − 28rem = 256 px = the floor), so no re-measured budget could reach the plot without moving the floor. `TimingFunctionPanel.vue`: the host's single track is `minmax(0, 1fr)`, so the plot honours the cap below its own intrinsic width. The mask is untouched. | At 1440×900 on `#/cube`: `.controls-surface` scrollHeight 463 = clientHeight 463, so the **scroll range is 0** (it was 26), and no fade is active. The readout sits at y 488–502, against a surface bottom of 527 (it was 514–528 under the fade). The plot is 248 px (it was 256). The layer sub-pane's long caption wraps whole under its title (header 77 px, as before). Frames: `after/cube-easing-edit-*` and `after/layer-pane-cube-*`. |
+| KF-C19-02 | `ChannelOptions.vue`: `.panel-content`'s inset is `--panel-ring-reach: calc(2 * var(--focus-ring-width, 2px))`, used as padding and as the negative margin. Glass draws its ring `--focus-ring-width` wide at an offset of `--focus-ring-width` (glass has no separate offset token), so the inset and the ring cannot drift. The grid collapse is unchanged. | Keyboard Tab through all 8 Controls-pane stops (duration, delay, iterations, direction, fill mode, the easing trigger and pencil, and the layer row): `:focus-visible` is true on each, and the smallest gap to the clip is ≥ the ring's 4 px reach on all four sides. Before the fix it was 2 px on the inline end and on the first field's block start. Frame: `after/focus-first-*`. |
+| KF-C19-03 | `SquareInstrument.vue`: `.square-legend` carries `data-resting` only while `settled`. Otherwise it is at opacity 0, on `--duration-normal` / `--ease-standard`. Reduced motion snaps it. The telemetry readouts are unchanged. | During Play, 6 samples over 3 s read TRACKING with legend opacity 0. After pause and settle it reads SETTLED at opacity 1. Frames: `after/square-playing-*` (no caption across the box) and `after/square-settled-*`. |
+| KF-C19-T1 | `LaneTrack.vue`: the column gap is named once (`--lane-track-gap: 0.75rem`). On a labelled track the start label is centred like every other tick, and is shifted inward only by what the gap cannot hold: `translate: max(-50%, -(inset + gap))`. The unlabelled timeline keeps KF-C1-16's rule ('0%' starts where the rail starts). | On `#/sequence` at 1440 the '0' label centre is at 184.9 px, which equals the playhead centre (184.9 px). It was about 189. '970' and '1940' are unchanged. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C19-01 (glass rider) | **EasingPicker readout row, under O-87/O-59.** At the 248 px host, glass's readout literal truncates by 8 px: "cubic-bezier(0.42, 0, 0.58,…". `readout-probe.mjs` measured scrollWidth 198 against clientWidth 190, because the readout keeps a 17 px start inset and a copy affordance inside the host. Longer quads, such as `cubic-bezier(0.645, 0.045, 0.355, 1)`, already truncated at 256 px. The full literal is still copied by its control. The ask for glass: let the readout wrap, or lift its inset, at narrow hosts. It is not overridden locally. The picker's Bezier/Steps and preset rows wrap onto two lines below about 320 px (glass `min-w-40`), and that row's height is the main term in the rail budget. |
+| KF-C19-04 | **Glass, O-88 DOCK-COLLAPSE-MOTION.** On Play, the grown dock re-centres, and play/pause moves about 33 px out from under the pointer. The ask is that the grown dock keeps the primary control's position. There is no local shim. Re-judged at the 10.2.0 repin. |
+| KF-C19-H | **Glass, HELD-O87-RECHECK and O-88.** These rows are unchanged at glass 10.1.0: KF-C1-02, KF-C1-01/-09/-10, KF-C7-11, KF-C18-01, KF-C1-11, KF-C13-03, KF-C7-10, KF-C9-05, KF-C7-09, KF-C11-08, KF-C8-05, KF-C12-03, the O-88 collapsed tile and play bubble, and the glass half of KF-C17-04. Re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, on the final tree)
+
+| | pass 18 after | pass 19 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row is unchanged, because this pass changed fit, clipping, a caption's visibility and a label's anchor, not lighting. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **826/826, twice**. Both runs excluded the untracked `test/demo/scenes/cube-autoplay-first-frame.test.ts`, which belongs to another seat (see pass 13).
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure. The host's load average was about 46–50 during the gates.
+- After the gates, the cure commit changed only the CSS comment on the re-measured budget, to state its final values. No rule changed.
+- The 390 phone sheet does not use the rail budget. Its sub-pane header takes the same one-row caption (`after/cube-easing-edit-390-light.png`, `after/layer-pane-cube-390-light.png`).
