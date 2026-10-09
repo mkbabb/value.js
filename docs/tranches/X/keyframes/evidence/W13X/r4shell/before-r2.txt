@@ -1,0 +1,13 @@
+SERVED MODEL: claude-opus-5-5
+load 287.49 · before-r2
+GREEN UIA-KF-065 390x844-light deck ∩ cube + hint ∩ cube = 0 px² (deck [34.4,564.1,321.1,27.6] hint [34.4,597.3,321.1,27.6] cube [95.9,298,212.1,212.1])
+GREEN UIA-KF-121 390x844-light largest empty band between the docks 91 px (bound 211) · h1 [32,150.2,326,116.7]
+RED   UIA-KF-066 390x844-light after a cube drag the start screen is STILL UP · hash #/
+RED   UIA-KF-123 390x844-light after the drag: copy names the list true · hero true · list shown false
+GREEN UIA-KF-065 390x844-dark deck ∩ cube + hint ∩ cube = 0 px² (deck [34.4,564.1,321.1,27.6] hint [34.4,597.3,321.1,27.6] cube [95.9,298,212.1,212.1])
+GREEN UIA-KF-121 390x844-dark largest empty band between the docks 91 px (bound 211) · h1 [32,150.2,326,116.7]
+RED   UIA-KF-066 390x844-dark after a cube drag the start screen is STILL UP · hash #/
+RED   UIA-KF-123 390x844-dark after the drag: copy names the list true · hero true · list shown false
+RED   UIA-KF-066 1440x900-light after a cube drag the start screen is STILL UP · hash #/
+RED   UIA-KF-123 1440x900-light after the drag: copy names the list true · hero true · list shown false
+load 321.16 (end)

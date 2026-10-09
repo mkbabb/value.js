@@ -1,0 +1,103 @@
+{
+ "run": "explore2",
+ "mode": "swap",
+ "load": [
+  "389.87",
+  "441.91"
+ ],
+ "maxGap": 217,
+ "gapAt": 174,
+ "loafOver50": 1,
+ "loafMax": 236,
+ "loafMaxBlocking": 159,
+ "loaf": [
+  {
+   "start": 7347,
+   "dur": 236,
+   "blocking": 159,
+   "scripts": [
+    {
+     "inv": "ViewTransitionCallback",
+     "src": "/transition/useSceneTransition.ts",
+     "fn": "",
+     "dur": 11
+    },
+    {
+     "inv": "import.then",
+     "src": "/scene/scenes.ts",
+     "fn": "",
+     "dur": 178
+    },
+    {
+     "inv": "FrameRequestCallback",
+     "src": "/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/physics/playback.ts",
+     "fn": "frame",
+     "dur": 26
+    }
+   ]
+  }
+ ],
+ "topSelf": [
+  "293.7ms (program) :0",
+  "69.2ms (idle) :0",
+  "5.6ms get clientWidth :0",
+  "4.9ms getBoundingClientRect :0",
+  "3.9ms assignSlots /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:5163",
+  "3.3ms S /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/@mkbabb_glass:484",
+  "3.2ms patchProp /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:7676",
+  "2.3ms validator /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/dist-CWHMI1qW:6131",
+  "1.7ms (garbage collector) :0",
+  "0.6ms isVNode /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:6366",
+  "0.3ms get /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:996",
+  "0.3ms ownKeys /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:1065",
+  "0.3ms _createVNode /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:6436"
+ ],
+ "topFiles": [
+  "367.7ms ?",
+  "8.7ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e",
+  "5.6ms clientWidth",
+  "3.3ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/@mkbabb_glass",
+  "2.3ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/dist-CWHMI1qW",
+  "1.7ms collector)"
+ ],
+ "scriptLoaf": {
+  "start": 7347,
+  "dur": 236,
+  "blocking": 159,
+  "scripts": [
+   {
+    "inv": "ViewTransitionCallback",
+    "src": "/transition/useSceneTransition.ts",
+    "fn": "",
+    "dur": 11
+   },
+   {
+    "inv": "import.then",
+    "src": "/scene/scenes.ts",
+    "fn": "",
+    "dur": 178
+   },
+   {
+    "inv": "FrameRequestCallback",
+    "src": "/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/physics/playback.ts",
+    "fn": "frame",
+    "dur": 26
+   }
+  ]
+ },
+ "topLoaf": [
+  "299.2ms (program) :0",
+  "98.0ms (idle) :0",
+  "5.6ms get clientWidth :0",
+  "4.9ms getBoundingClientRect :0",
+  "3.9ms assignSlots yframes.js/node_modules/.vite/deps/vue.runtime.esm-bundler-m0dh_5cm.js:5163",
+  "3.3ms S gramming/keyframes.js/node_modules/.vite/deps/@mkbabb_glass-ui_dock.js:484",
+  "3.2ms patchProp yframes.js/node_modules/.vite/deps/vue.runtime.esm-bundler-m0dh_5cm.js:7676",
+  "2.3ms validator babb/Programming/keyframes.js/node_modules/.vite/deps/dist-CWHMI1qW.js:6131",
+  "1.7ms (garbage collector) :0",
+  "0.6ms isVNode yframes.js/node_modules/.vite/deps/vue.runtime.esm-bundler-m0dh_5cm.js:6366",
+  "0.3ms get yframes.js/node_modules/.vite/deps/vue.runtime.esm-bundler-m0dh_5cm.js:996",
+  "0.3ms ownKeys yframes.js/node_modules/.vite/deps/vue.runtime.esm-bundler-m0dh_5cm.js:1065",
+  "0.3ms _createVNode yframes.js/node_modules/.vite/deps/vue.runtime.esm-bundler-m0dh_5cm.js:6436"
+ ]
+}

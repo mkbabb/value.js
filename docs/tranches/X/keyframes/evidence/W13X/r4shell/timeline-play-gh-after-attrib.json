@@ -1,0 +1,31 @@
+{
+ "run": "gh-after-attrib",
+ "mode": "play",
+ "load": [
+  "150.37",
+  "164.71"
+ ],
+ "maxGap": 133,
+ "longestTaskMs": 74.9,
+ "tasksOver50": 3,
+ "top": [
+  "74.8ms ViewTransition::ProcessCurrentState",
+  "74.6ms RunMicrotasks",
+  "20.7ms Blink.Style.UpdateTime",
+  "20.7ms UpdateLayoutTree",
+  "20.6ms Document::updateStyle",
+  "20.0ms Document::recalcStyle",
+  "11.2ms Document::UpdateStyleAndLayout",
+  "11.2ms Blink.ForcedStyleAndLayout.UpdateTime",
+  "11.1ms LocalFrameView::UpdateStyleAndLayout",
+  "8.9ms Blink.Layout.UpdateTime",
+  "8.8ms LocalFrameView::layout",
+  "8.8ms Layout",
+  "8.7ms LocalFrameView::performLayout",
+  "1.9ms MinorGC",
+  "1.7ms V8.GC_SCAVENGER",
+  "1.7ms V8.GC_SCAVENGER_SCAVENGE",
+  "1.2ms V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE",
+  "0.9ms InlineNode::ShapeTextIncludingFirstLine"
+ ]
+}

@@ -1,0 +1,27 @@
+SERVED MODEL: claude-opus-5-5
+swap cube->amiga · load 175.82 · LoAF>50 [{"start":6686,"dur":117,"scripts":[]},{"start":6824,"dur":676,"scripts":["ViewTransitionCallback /assets/index-D0_beOZ_.js 8","import.then /assets/index-D0_beOZ_.js 167","FrameRequestCallback /assets/progress-Bnzf-W0u.js 445","ResizeObserverCallback /assets/AmigaScene-C1NLTITs.js 38"]}]
+JS self by file:
+  541.4ms /assets/vendor-three-nw0IrzH_.js
+  65.9ms /assets/vendor-reka-ui-C_Tr5-Vi.js
+  33.9ms /assets/vendor-monaco-nwzXcI7Q.js
+  14.6ms /assets/index-D0_beOZ_.js
+  9.8ms /assets/KeyframesStringControls-D8wu0AfO.js
+  9.6ms /assets/glass-ui-BASaZkFs.js
+  7.6ms /assets/AmigaScene-C1NLTITs.js
+  7.2ms /assets/public-DlxaOhT0.js
+  6.2ms /assets/keyboard-CnXwndiT.js
+  1.9ms /assets/vendor-prettier-BlTWbCTH.js
+  0.4ms /assets/browser-BK0jr_2X.js
+JS self by function:
+  433.8ms C /assets/vendor-three-nw0IrzH_.js:4046
+  51.3ms setSize /assets/vendor-three-nw0IrzH_.js:4104
+  12.8ms getTokens /assets/vendor-monaco-nwzXcI7Q.js:256
+  12.7ms n /assets/vendor-three-nw0IrzH_.js:3956
+  12.1ms Di /assets/vendor-three-nw0IrzH_.js:1
+  9.8ms g /assets/KeyframesStringControls-D8wu0AfO.js:6
+  9.2ms so /assets/glass-ui-BASaZkFs.js:1
+  7.0ms updateTokensUntilLine /assets/vendor-monaco-nwzXcI7Q.js:256
+  6.8ms setFromBufferAttribute /assets/vendor-three-nw0IrzH_.js:1
+  6.8ms Qn /assets/vendor-reka-ui-C_Tr5-Vi.js:1
+  5.8ms add /assets/vendor-three-nw0IrzH_.js:1
+  5.1ms ee /assets/AmigaScene-C1NLTITs.js:1

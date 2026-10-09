@@ -1,0 +1,18 @@
+SERVED MODEL: claude-opus-5-5
+{"round":1,"arm":"before","load":["261.80","264.52"],"maxGap":167,"longestTaskMs":147.7,"tasksOver50":2}
+{"round":1,"arm":"after","load":["280.40","319.46"],"maxGap":183,"longestTaskMs":155.6,"tasksOver50":2}
+{"round":2,"arm":"after","load":["291.92","276.81"],"maxGap":183,"longestTaskMs":159.2,"tasksOver50":2}
+{"round":2,"arm":"before","load":["261.70","255.93"],"maxGap":417,"longestTaskMs":145.9,"tasksOver50":3}
+{"round":3,"arm":"before","load":["244.85","257.06"],"maxGap":167,"longestTaskMs":146.3,"tasksOver50":2}
+{"round":3,"arm":"after","load":["246.14","249.80"],"maxGap":183,"longestTaskMs":155,"tasksOver50":2}
+{"round":4,"arm":"after","load":["257.72","261.05"],"maxGap":150,"longestTaskMs":141.5,"tasksOver50":2}
+{"round":4,"arm":"before","load":["274.37","272.08"],"maxGap":167,"longestTaskMs":149.1,"tasksOver50":2}
+{"round":5,"arm":"before","load":["277.66","279.04"],"maxGap":217,"longestTaskMs":171.2,"tasksOver50":3}
+{"round":5,"arm":"after","load":["283.05","283.62"],"maxGap":183,"longestTaskMs":158.9,"tasksOver50":2}
+{"round":6,"arm":"after","load":["296.38","315.04"],"maxGap":183,"longestTaskMs":153.8,"tasksOver50":2}
+{"round":6,"arm":"before","load":["319.95","320.90"],"maxGap":183,"longestTaskMs":149.8,"tasksOver50":2}
+{"round":7,"arm":"before","load":["302.34","293.37"],"maxGap":183,"longestTaskMs":177.3,"tasksOver50":3}
+{"round":7,"arm":"after","load":["274.79","272.18"],"maxGap":167,"longestTaskMs":148.6,"tasksOver50":2}
+{"round":8,"arm":"after","load":["284.28","280.88"],"maxGap":200,"longestTaskMs":150.4,"tasksOver50":2}
+{"round":8,"arm":"before","load":["278.70","261.76"],"maxGap":183,"longestTaskMs":150.8,"tasksOver50":2}
+{"round":9,"arm":"before","load":["243.63","242.96"],"maxGap":167,"longestTaskMs":143.9,"tasksOver50":2}
