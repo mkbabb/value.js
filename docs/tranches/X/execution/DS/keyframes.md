@@ -1226,3 +1226,51 @@ The drops come from the pill filter's capsule track and indicator stack, which t
 **Disclosures**
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
 - Another seat committed its transport work (`3ad7a78d` and earlier) while this pass ran. By commit time, every hunk left in `ChannelOptions.vue` was this pass's, so the commit is pathspec-only over the six files above.
+
+### pass 4 (the fourth redeploy's pass 4; critic C23; evidence in `pass-23/`)
+
+**Cure commit:** keyframes.js `1508e68b` (master, pushed fast-forward from `8514caed`). **Evidence:** value.js `0bb9e8853` (`evidence/DS/keyframes/pass-23/`: 28 census route frames, `census.json` + `census.log`, and `after/` with the pane/stage edges at 1440 for square, easing, spring and sequence, `spring-playing-1440-*` + `crop-spring-header-playing-*`, `crop-easing-gallery-foot-1440-*`, `easing-390-*`, `crop-easing-header-390-*` and `easing-390-scrolled-*`, plus `c23-probe.json` and the probe `c23-probe.mjs`). All captures are headless real Chrome (§0ei). The task named `pass-04`, but `pass-04/` already holds the first workflow's pass-4 evidence, so the frames go to `pass-23/`. The BEFORE frames are the critic's own (`pass-22/`).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark) |
+|---|---|---|
+| KF-C23-01 | In `SpringTarget.vue`, one subject gets one readout, the same rule as the badge. `sweepLeads` (the transport plays and the solver rests) is the same condition as the `--sweeping:not(--live)` rung swap. While it holds, the primary readout is the sampler's value, labelled "sweep", and the resting solver's position steps down to the quiet aside rung. At rest the pair is position and velocity again. | Rest: `position 0.000` · `velocity 0.00` · SETTLED. During Play: `sweep 1.000` (violet primary) · `position 0.000` (quiet) · TRACKING. Frames: `after/spring-playing-1440-*`, `after/crop-spring-header-playing-*`. |
+| KF-C23-02 | One work band. The stage cell's two block insets are now named once, on `.controls-layout` (`--work-band-start`, `--work-band-end`, in `AnimationControlsGroup.css`). The desktop rail reads them as its own padding (`ControlsPaneWrapper.css`), so the pane's top is the stage plate's top line and its height is capped at the stage's foot. `--rail-block` is re-derived as the work area minus the band, the frame's 0.5rem block margin is retired, and the expanded timeline's top reads the same inset (`lg:pt-(--work-band-start)`). No per-scene numbers are used. | **1440, pane frame top / stage top:** 127 / 127 on square, easing, spring and sequence (before: 62 / 127). **Pane bottoms:** 692, 714, 738 and 481, all at or above the stage's 750 (before, the rail ran to 733 and was bounded by the menubar band, not the stage). Frames: `after/{square,easing,spring,sequence}-1440-*`. |
+| KF-C23-03 | In `EasingTarget.css`, the gallery's scroll port ends one `--space-body` above the plate's own padding (`margin-block-end` on the stage's `.specimen-drawer`). No mask is added. | **1440:** the port ends at 721 against the rim at 750 (before: 733). **390:** 683 against 708 (before: 691). Frames: `after/crop-easing-gallery-foot-1440-*`, `after/easing-390-scrolled-*`. |
+| KF-C23-04 | Below lg, the easing header has two rows and no hanging indent. The id column is a two-track grid (`idClass` in `EasingTarget.vue`), and the literal's wrapper dissolves (`display: contents`). Row 1 holds the name with Copy seated at the row's end. Row 2 holds the literal at full measure, sized to fit with `min(--type-small, 100cqi / 22)` on the card's inline-size container. Desktop keeps its one inline flow. | **390:** 'ease' at y 134 with Copy at x 287–341 (the row's end) on the same row. `cubic-bezier(0.25, 0.10, 0.25, 1.00)` is one line at y 182, 13.3 px, x 49–341. **1440:** unchanged (16.4 px, inline after the name). Frames: `after/easing-390-*`, `after/crop-easing-header-390-*`. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C23-T1 | **Refused (optional; ORIGIN parity).** Fading a face's numeral as the face turns edge-on needs each face's view-space normal on every frame. The cube composes five transform owners (orbital, roll, bob, pose and spin), so the cure would add a per-frame read of computed matrices to the cube's hot path, which the file's own painter law forbids. ORIGIN drew the numerals the same way. |
+| KF-C23-G1 | **Glass:** `.field-control` sizes from `--type-small` (unscaled) instead of `--control-text`, so on a coarse pointer the 18.6 px Label outranks the 14 px value, which is also below the iOS no-zoom floor. Relayed as an O-87 proportion rider for 10.2.0 and not overridden locally. The stale coarse-pointer comment in keyframes `demo/styles/style.css:268-273` is re-judged at the repin. |
+| KF-C23-G2 | **Glass:** the default (parameter) Slider and the scrubber variant share one thumbless fill-bar paint. Relayed under O-87's proportion and hierarchy rider (the parameter slider should get a visible flat thumb). The consumer does not restyle the thumb. |
+| KF-C23-cite | **Glass, HELD-O87-RECHECK** (KF-C1-11, KF-C22-G2): the floating listbox's backdrop bloom (`blur(20px) saturate(1.5)`) and its stacked shadow are unchanged at glass 10.1.0 and are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, on the final tree)
+
+| | pass 22 (before) | pass 23 after |
+|---|---:|---:|
+| chrome: elements with shadow | 310 | 310 |
+| chrome: shadow layers (max) | 938 (6) | 938 (6) |
+| chrome: shadows on non-floating surfaces | 192 | 192 |
+| chrome: inset highlights | 416 | 416 |
+| chrome: backdrop blur | 278 | 278 |
+| chrome: control gradients | 54 | 54 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+The census is unchanged because this pass's cures are proportion and hierarchy (readout binding, the shared work band, a scroll-port inset and the header's rows), not lighting. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **863/863, twice**.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
+- Another seat (W13X.r4shell) was editing `demo/app/scene/*`, `EditorShell.vue` and their tests during the gates. One earlier demo run on their uncommitted mid-edit tree failed one test each time in their files (`scene-swap-w13x`, the `allScenes` keys check). Run alone, those files passed. Once they committed (`fdca483e`, `8514caed`), both counted runs were 863/863. The cure commit is pathspec-only over this pass's six files.
+- value.js's index held another seat's staged entries. The evidence commit and this receipt commit are pathspec-only and leave those entries staged as they were.
