@@ -2810,3 +2810,4 @@ READ-ONLY at kf `5bd9172b` (clean product tree, glass `10.1.0` exact). Logs: `do
 - **Adjacent edits:** none. Every path is inside the unit's set (`demo/scenes/cube/**` outside `matrix-editor/**`, `test/demo/**`). `demo/composables/scene-runtime/**` needed no byte.
 - **Residuals:** none in scope. Instrument note: the unforced natural race did not fire on a quiet host in 10 dev and 10 gh-pages cold loads (sheet delivery cannot lose there by construction, per Act 1). The forced served race is the reproduction, and it is deterministic.
 - **Escalations:** none. **Instrument teardown:** the `:5193` dev and `:5194` preview servers are stopped, and the worktree is removed.
+- **value.js commit (recorded):** `a7a9d8962` (15 files: this record, the LEDGER line, `evidence/W13X/cube2/` with its probes, runner and banked JSONs).
