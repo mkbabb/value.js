@@ -1131,3 +1131,49 @@ Every row is unchanged, because this pass changed layout, fit, a mask's timing a
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
 - `before/c20-probe.json` read the phone mask on `.scroll-fade-both`, the element that carried the static mask then. The committed probe reads `.controls-pane`, the scroller the one rule now targets. The two elements are the same node (the class sits on the pane).
 - The layer-pane probe's title field reports the first visible sub-pane header. Both sub-panes stay in the DOM, so that field can name the detail pane. The frames show the layer pane.
+
+### pass 2 (the third redeploy's pass 2; critic C21, frames `evidence/DS/keyframes/critic-r3p2-2026-10-09/`; evidence in `pass-21/`)
+
+**Cure commit:** keyframes.js `d3401d4a` (master, pushed fast-forward from `646cb3d6`). **Evidence:** value.js `fc5e7c627` (`evidence/DS/keyframes/pass-21/`: 28 census route frames, `census.json` + `census.log`, `after/` with `crop-easing-tiles-*`, `easing-1440-*`, `cube-easing-popover-*`, `stagger-header-1440-*`, `layer-row-cube-1440-*` and `{spring,easing,sequence,square}-390-*`, each with `c21-probe.json`, and the probe `c21-probe.mjs`). All captures are headless real Chrome (§0ei). The task named `pass-02`, but `pass-02/` already holds the committed evidence of the first workflow's pass 2, so the frames go to `pass-21/`, following the sequential numbering. The BEFORE frames are the critic's own.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark) |
+|---|---|---|
+| KF-C21-01 | In `EasingCatalogue.vue`, `.specimen-tile` takes KF-C9-02's tile reset at the root: `background: transparent` (the shorthand, which clears the producer item's control-surface gradient image), `box-shadow: none`, and a `1px solid var(--border)` hairline at `var(--radius-field)`. The ON rule's `background-color` line is deleted; the ON state is the ruled ink ring and ink curve. No glass lighting token is touched (O-59 tile axis). | Every tile at #/easing, selected or not: background-image `none`, box-shadow `none`, border 1px solid at 16 px radius. Before: a two-layer gradient and a 3–4 layer inset edge on every tile. The cube's easing popover (`data-density=menu`) reads the same through the same component. Frames: `after/crop-easing-tiles-*`, `after/easing-1440-*`, `after/cube-easing-popover-*`. |
+| KF-C21-02 | In `SceneStageHeader.vue`, **one** rule: below lg (`max-width: 1023px`), `[data-scene-stage-header] .text-display` takes `--type-display-2`. It covers the default `CardTitle` and the Easing scene's slotted name, with no per-scene override. The glass half (display-1 flooring at 1.618rem, the section label's size, at phone width) is cited under O-87 proportion and not overridden. | **390:** stage title 32.928 px (Instrument Serif 400) over the sheet's section label 25.888 px (Plus Jakarta Sans 600) on Spring, Easing, Sequence and Square. Before, both were 25.888 px. **1440:** unchanged, 41.888 px over 25.888 px. Frames: `after/{spring,easing,sequence,square}-390-*`. |
+| KF-C21-03 | In `SequenceTimeline.vue`, the Stagger header's Reel is a labelled quiet verb, "Reel" (sm; `icon-only` and the Clapperboard glyph are dropped). It is followed by the same vertical `Separator` the Physics header carries (KF-C16-07), then Reset as the one glyph-only undo. The accessible name still contains the visible word (label-in-name), and the `loading` contract is unchanged. | Header row at 1440: "Stagger" · "Reel" · hairline · reset glyph · chevron. Frames: `after/stagger-header-1440-*`, `after/sequence-390-*`. |
+| KF-C21-04 | In `ChannelOptions.vue`, the layer row's conditional muted ink is deleted: the label always takes the label ink (`--button-quiet-ink: var(--foreground)`), and "single-target only" in the value column carries the state alone. | #/cube light: label rgb(28,25,23), value rgb(112,89,66) (the muted ink, now meaningful only as the value column). Dark: 233,230,226 over 195,185,172. Frames: `after/layer-row-cube-1440-*`. |
+| KF-C21-05 | In `SequenceTarget.vue`, the comment now states what is true: `.cascade-chase` is a marker class, `.is-scrubbing` and `--scrub-dir` mark a scrub that no style reads since the lane glow left, and the motion is each traveller's translate. In `SequenceTarget.css`, the `.cascade-chase { will-change: transform }` rule is deleted. | No visual change. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C21-02 (glass rider) | **Glass, under O-87 proportion.** `text-display` maps to `--type-display-1` = `clamp(1.618rem, 1.2rem + 1.6vw, 2.618rem)`, which floors at the section label's size at phone width. The consumer keeps its step with one rule; the ask is that glass's display-1 not collapse onto the section-label rung. Re-judged at the 10.2.0 repin. |
+| KF-C21-G1 | **Glass, HELD-O87-RECHECK and O-88.** KF-C1-02 (the pane frame's stacked stamp, brown ink in dark), KF-C1-11 (popover and Scene-menu bloom plus the stamp; the bloom shows again in `after/cube-easing-popover-*`), KF-C1-09, KF-C1-10, KF-C11-08, KF-C2-17, KF-C9-05, KF-C7-11, KF-C18-01 and the O-88 dock collapse (KF-C1-12) are unchanged at glass 10.1.0. They are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, on the final tree)
+
+| | critic C21 (before) | pass 21 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 316 |
+| chrome: shadow layers (max) | 1276 (6) | 964 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 198 |
+| chrome: inset highlights | 632 | 432 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 52 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+The drop is the easing tiles: the specimen tiles on the 4 Easing pages no longer carry the producer item's gradient plate or inset edge stack. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **850/850, twice**.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
+- Another seat was editing keyframes.js during the gates (`src/animation/group/*`, the transport files, `scene-facility`, and an untracked `kfa-69-group-seek` test). The gates ran on a tree that included its uncommitted work. The cure commit is pathspec-only and holds the six files of this pass.
