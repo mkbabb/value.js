@@ -3748,3 +3748,23 @@ The tournament (`wf_0bc9e50e-5ba`, 47 seats) chose **C**: semantic part boundari
   4. The sun reference mask leaves out the upper-right ray. That is a reference defect: re-derive the mask, receipt it, and never fit the pipeline to it.
   5. The five recall regressions are cured at the cause, the subject-mask rim, or each is ruled with frames.
   6. Runtime is read in the owner's quiet window and banked per §0eq.
+
+## §0ev — 2026-10-09: owner order "re-deploy all workflows and agents thereof — no exceptions … no deferring any item to another time"; three holds re-ruled so nothing waits
+Owner, verbatim: *"Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow. No deferring any item to another time."* This supersedes the holds in §0es (Track D's window), §0et (Track A behind X-DS's value lane; the W12U quiet reads banked) and §0eu (F.CT3 after F.REL), and it lifts the 4-workflow cap for this deployment. Every hold below is replaced by a protocol that lets the work run now, with no loss of rigour.
+1. **Timing reads are taken NOW, robust to load, never deferred to a window (supersedes the load < 8 gate of W7 (g) 2 / §0es / §0eq's window clause; §0eq's check-as-audit stands).** The paired bench already interleaves arms and rotates their order every round (`bench/paired/browser-page.mjs`, `phases.mjs`). Load is common-mode across a pair, so it inflates variance, not the ratio.
+   - **The gate becomes stricter, to pay for that variance:** on every engine ×2, the median of the per-round paired ratios (product/retired) is < 1.0, AND the 95% bootstrap upper bound of that median is < 1.0. Use ≥ 31 rounds, and more while that bound straddles 1.0, up to 101.
+   - Each read records the 1-minute load at start and end and the round count. A cell whose bound straddles 1.0 at 101 rounds is RED. It is a defect for a cure unit, never a ruling.
+   - The same protocol governs X-W12U's `.t` r2 alpha leg (refresh-relative, ≥ 31 drags) and F.CT's runtime: paired against the pre-F.CT pipeline, with the same bound.
+2. **Functional reads under load (X-W12U's whole `--workers=1` smoke; the addendum (e) WebKit re-read) are taken NOW.** A test that fails is re-run up to 3×, with the load recorded beside each run.
+   - Passing on any re-run, with the failed run's cause read from its trace, rules it a load-flake. The flake is reported, never masked by retries in config.
+   - A test failing all 3 runs is a defect cured at its root in the wave.
+3. **Track A runs NOW, concurrently with X-DS's value lane, under a clean-window commit protocol (supersedes §0et's precondition).**
+   - Every `.k2`/`.m2`/`.h` edit lands as one small atomic pathspec commit, made only while none of the commit's own paths is dirty from another writer. Poll `git status --porcelain -- <paths>` every 60 s, for up to 30 min per commit.
+   - Before each commit: `git pull`-free re-read of the files (same tree), re-apply on the current bytes, typecheck.
+   - **A2-VA-L1-18 (`demo/color-picker/ → demo/app/`) lands LAST in `.k2`, in one commit, taken only when `git status --porcelain -- demo` is EMPTY.** That is a moment between X-DS cure seats, since X-DS critics are read-only. Immediately after it, write a one-line note to INBOX: "X-DS value seats: the app root is now demo/app/." X-DS seats read COHESION to the end, so they read this line.
+   - A seat never edits, stashes, reverts or commits a path another writer holds dirty.
+4. **F.CT3 runs NOW, concurrently with F.REL** (supersedes "after F.REL" in §0eu; the restated bar stands).
+   - F.CT3 works on its own branch, `f-ct3`, cut from `m/w1-bump-migration`, in its own worktree `../fourier-analysis/.worktrees/f-ct3`. It merges forward into `m/w1-bump-migration` at each landed round (fetch, then merge, never force).
+   - Its models load through F.REL's `FOURIER_MODEL_DIR` once `.m` lands. Until then it uses the user cache.
+   - The resource law binds every seat in both workflows. Serialise heavy runs: one bench or full pytest per repo at a time, signalled with a lockfile in the repo's `.worktrees/` dir.
+5. **Track D runs NOW:** `.e`, then L-G1 ×2 by protocol 1, then close, then check-as-audit.
