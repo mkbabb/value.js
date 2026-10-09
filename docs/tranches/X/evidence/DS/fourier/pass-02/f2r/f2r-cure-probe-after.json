@@ -1,0 +1,568 @@
+{
+ "equation-light-1440": {
+  "notation": [
+   {
+    "label": "n Trig",
+    "state": "on",
+    "labelInk": "oklab(0.488282 0.130899 0.0775813)",
+    "glyphInk": "oklab(0.488282 0.130899 0.0775813)"
+   },
+   {
+    "label": "ei Exp",
+    "state": "off",
+    "labelInk": "rgb(112, 89, 66)",
+    "glyphInk": "rgb(112, 89, 66)"
+   },
+   {
+    "label": " Polar",
+    "state": "off",
+    "labelInk": "rgb(112, 89, 66)",
+    "glyphInk": "rgb(112, 89, 66)"
+   }
+  ],
+  "layers": [
+   "Functionf(t)",
+   "Controls",
+   "Coefficientsall 21 harmonics, n = −20…20"
+  ],
+  "legend": {
+   "legend": {
+    "x": 887,
+    "y": 291.4,
+    "w": 88,
+    "h": 539.6
+   },
+   "plot": {
+    "x": 29,
+    "y": 291.4,
+    "w": 946,
+    "h": 539.6
+   }
+  },
+  "presetRows": [
+   4,
+   4
+  ]
+ },
+ "w-light-1440": {
+  "notation": [],
+  "layers": [],
+  "stage": {
+   "x": 16,
+   "y": 88,
+   "w": 1408,
+   "h": 800,
+   "radius": "16px"
+  },
+  "zone": {
+   "x": 21,
+   "y": 93,
+   "w": 1398,
+   "h": 790,
+   "radius": "12px",
+   "border": "dashed"
+  },
+  "zoneItems": [
+   {
+    "t": "Draw any outline in circles",
+    "emphasis": null,
+    "size": "41.888px",
+    "ink": "rgb(28, 25, 23)",
+    "x": 474.4,
+    "y": 368.8,
+    "w": 491.1,
+    "h": 44
+   },
+   {
+    "t": "Upload an image: its outline",
+    "emphasis": null,
+    "size": "18.608px",
+    "ink": "rgb(112, 89, 66)",
+    "x": 478.2,
+    "y": 420.7,
+    "w": 483.6,
+    "h": 55.8
+   },
+   {
+    "t": "Choose an image",
+    "emphasis": "primary",
+    "size": "16.4px",
+    "ink": "rgb(28, 25, 23)",
+    "x": 621.1,
+    "y": 496.5,
+    "w": 197.8,
+    "h": 40
+   },
+   {
+    "t": "PNG/JPG/SVG ≤ 10 MB",
+    "emphasis": null,
+    "size": "14.384px",
+    "ink": "rgb(112, 89, 66)",
+    "x": 637.2,
+    "y": 544.5,
+    "w": 165.6,
+    "h": 18.7
+   },
+   {
+    "t": "Browse the gallery",
+    "emphasis": "text",
+    "size": "14.384px",
+    "ink": "rgb(28, 25, 23)",
+    "x": 656.8,
+    "y": 571.3,
+    "w": 126.4,
+    "h": 36
+   }
+  ]
+ },
+ "v-light-1440": {
+  "notation": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficientsall 201 harmonics, n = −200…200"
+  ]
+ },
+ "v-error-light-1440": {
+  "notation": [],
+  "layers": [],
+  "errActions": [
+   {
+    "t": "Upload a new image",
+    "emphasis": "primary",
+    "size": "16.4px"
+   },
+   {
+    "t": "Browse the gallery",
+    "emphasis": "text",
+    "size": "14.384px"
+   }
+  ]
+ },
+ "equation-light-390": {
+  "notation": [
+   {
+    "label": "n Trig",
+    "state": "on",
+    "labelInk": "oklab(0.488282 0.130899 0.0775813)",
+    "glyphInk": "oklab(0.488282 0.130899 0.0775813)"
+   },
+   {
+    "label": "ei Exp",
+    "state": "off",
+    "labelInk": "rgb(112, 89, 66)",
+    "glyphInk": "rgb(112, 89, 66)"
+   },
+   {
+    "label": " Polar",
+    "state": "off",
+    "labelInk": "rgb(112, 89, 66)",
+    "glyphInk": "rgb(112, 89, 66)"
+   }
+  ],
+  "layers": [
+   "Functionf(t)",
+   "Controls",
+   "Coefficientsall 21 harmonics, n = −20…20"
+  ],
+  "legend": {
+   "legend": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   },
+   "plot": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   }
+  },
+  "presetRows": [
+   3,
+   3,
+   2
+  ]
+ },
+ "w-light-390": {
+  "notation": [],
+  "layers": [],
+  "stage": {
+   "x": 16,
+   "y": 80,
+   "w": 358,
+   "h": 760,
+   "radius": "16px"
+  },
+  "zone": {
+   "x": 21,
+   "y": 85,
+   "w": 348,
+   "h": 750,
+   "radius": "12px",
+   "border": "dashed"
+  },
+  "zoneItems": [
+   {
+    "t": "Draw any outline in circles",
+    "emphasis": null,
+    "size": "25.888px",
+    "ink": "rgb(28, 25, 23)",
+    "x": 43.3,
+    "y": 336.5,
+    "w": 303.5,
+    "h": 27.2
+   },
+   {
+    "t": "Upload an image: its outline",
+    "emphasis": null,
+    "size": "16px",
+    "ink": "rgb(112, 89, 66)",
+    "x": 38,
+    "y": 371.7,
+    "w": 314,
+    "h": 72
+   },
+   {
+    "t": "Choose an image",
+    "emphasis": "primary",
+    "size": "21px",
+    "ink": "rgb(28, 25, 23)",
+    "x": 64.5,
+    "y": 463.7,
+    "w": 261.1,
+    "h": 44
+   },
+   {
+    "t": "PNG/JPG/SVG ≤ 10 MB",
+    "emphasis": null,
+    "size": "12.179px",
+    "ink": "rgb(112, 89, 66)",
+    "x": 124.9,
+    "y": 515.7,
+    "w": 140.1,
+    "h": 15.8
+   },
+   {
+    "t": "Browse the gallery",
+    "emphasis": "text",
+    "size": "18.2685px",
+    "ink": "rgb(28, 25, 23)",
+    "x": 116.1,
+    "y": 539.5,
+    "w": 157.8,
+    "h": 44
+   }
+  ]
+ },
+ "v-light-390": {
+  "notation": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficientsall 201 harmonics, n = −200…200"
+  ]
+ },
+ "v-error-light-390": {
+  "notation": [],
+  "layers": [],
+  "errActions": [
+   {
+    "t": "Upload a new image",
+    "emphasis": "primary",
+    "size": "21px"
+   },
+   {
+    "t": "Browse the gallery",
+    "emphasis": "text",
+    "size": "18.2685px"
+   }
+  ]
+ },
+ "equation-dark-1440": {
+  "notation": [
+   {
+    "label": "n Trig",
+    "state": "on",
+    "labelInk": "oklab(0.751049 0.100497 0.0547776)",
+    "glyphInk": "oklab(0.751049 0.100497 0.0547776)"
+   },
+   {
+    "label": "ei Exp",
+    "state": "off",
+    "labelInk": "rgb(195, 185, 172)",
+    "glyphInk": "rgb(195, 185, 172)"
+   },
+   {
+    "label": " Polar",
+    "state": "off",
+    "labelInk": "rgb(195, 185, 172)",
+    "glyphInk": "rgb(195, 185, 172)"
+   }
+  ],
+  "layers": [
+   "Functionf(t)",
+   "Controls",
+   "Coefficientsall 21 harmonics, n = −20…20"
+  ],
+  "legend": {
+   "legend": {
+    "x": 887,
+    "y": 291.4,
+    "w": 88,
+    "h": 539.6
+   },
+   "plot": {
+    "x": 29,
+    "y": 291.4,
+    "w": 946,
+    "h": 539.6
+   }
+  },
+  "presetRows": [
+   4,
+   4
+  ]
+ },
+ "w-dark-1440": {
+  "notation": [],
+  "layers": [],
+  "stage": {
+   "x": 16,
+   "y": 88,
+   "w": 1408,
+   "h": 800,
+   "radius": "16px"
+  },
+  "zone": {
+   "x": 21,
+   "y": 93,
+   "w": 1398,
+   "h": 790,
+   "radius": "12px",
+   "border": "dashed"
+  },
+  "zoneItems": [
+   {
+    "t": "Draw any outline in circles",
+    "emphasis": null,
+    "size": "41.888px",
+    "ink": "rgb(233, 230, 226)",
+    "x": 474.4,
+    "y": 368.8,
+    "w": 491.1,
+    "h": 44
+   },
+   {
+    "t": "Upload an image: its outline",
+    "emphasis": null,
+    "size": "18.608px",
+    "ink": "rgb(195, 185, 172)",
+    "x": 478.2,
+    "y": 420.7,
+    "w": 483.6,
+    "h": 55.8
+   },
+   {
+    "t": "Choose an image",
+    "emphasis": "primary",
+    "size": "16.4px",
+    "ink": "rgb(233, 230, 226)",
+    "x": 621.1,
+    "y": 496.5,
+    "w": 197.8,
+    "h": 40
+   },
+   {
+    "t": "PNG/JPG/SVG ≤ 10 MB",
+    "emphasis": null,
+    "size": "14.384px",
+    "ink": "rgb(195, 185, 172)",
+    "x": 637.2,
+    "y": 544.5,
+    "w": 165.6,
+    "h": 18.7
+   },
+   {
+    "t": "Browse the gallery",
+    "emphasis": "text",
+    "size": "14.384px",
+    "ink": "oklch(0.739 0.134 318.1)",
+    "x": 656.8,
+    "y": 571.3,
+    "w": 126.4,
+    "h": 36
+   }
+  ]
+ },
+ "v-dark-1440": {
+  "notation": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficientsall 201 harmonics, n = −200…200"
+  ]
+ },
+ "v-error-dark-1440": {
+  "notation": [],
+  "layers": [],
+  "errActions": [
+   {
+    "t": "Upload a new image",
+    "emphasis": "primary",
+    "size": "16.4px"
+   },
+   {
+    "t": "Browse the gallery",
+    "emphasis": "text",
+    "size": "14.384px"
+   }
+  ]
+ },
+ "equation-dark-390": {
+  "notation": [
+   {
+    "label": "n Trig",
+    "state": "on",
+    "labelInk": "oklab(0.751049 0.100497 0.0547776)",
+    "glyphInk": "oklab(0.751049 0.100497 0.0547776)"
+   },
+   {
+    "label": "ei Exp",
+    "state": "off",
+    "labelInk": "rgb(195, 185, 172)",
+    "glyphInk": "rgb(195, 185, 172)"
+   },
+   {
+    "label": " Polar",
+    "state": "off",
+    "labelInk": "rgb(195, 185, 172)",
+    "glyphInk": "rgb(195, 185, 172)"
+   }
+  ],
+  "layers": [
+   "Functionf(t)",
+   "Controls",
+   "Coefficientsall 21 harmonics, n = −20…20"
+  ],
+  "legend": {
+   "legend": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   },
+   "plot": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   }
+  },
+  "presetRows": [
+   3,
+   3,
+   2
+  ]
+ },
+ "w-dark-390": {
+  "notation": [],
+  "layers": [],
+  "stage": {
+   "x": 16,
+   "y": 80,
+   "w": 358,
+   "h": 760,
+   "radius": "16px"
+  },
+  "zone": {
+   "x": 21,
+   "y": 85,
+   "w": 348,
+   "h": 750,
+   "radius": "12px",
+   "border": "dashed"
+  },
+  "zoneItems": [
+   {
+    "t": "Draw any outline in circles",
+    "emphasis": null,
+    "size": "25.888px",
+    "ink": "rgb(233, 230, 226)",
+    "x": 43.3,
+    "y": 336.5,
+    "w": 303.5,
+    "h": 27.2
+   },
+   {
+    "t": "Upload an image: its outline",
+    "emphasis": null,
+    "size": "16px",
+    "ink": "rgb(195, 185, 172)",
+    "x": 38,
+    "y": 371.7,
+    "w": 314,
+    "h": 72
+   },
+   {
+    "t": "Choose an image",
+    "emphasis": "primary",
+    "size": "21px",
+    "ink": "rgb(233, 230, 226)",
+    "x": 64.5,
+    "y": 463.7,
+    "w": 261.1,
+    "h": 44
+   },
+   {
+    "t": "PNG/JPG/SVG ≤ 10 MB",
+    "emphasis": null,
+    "size": "12.179px",
+    "ink": "rgb(195, 185, 172)",
+    "x": 124.9,
+    "y": 515.7,
+    "w": 140.1,
+    "h": 15.8
+   },
+   {
+    "t": "Browse the gallery",
+    "emphasis": "text",
+    "size": "18.2685px",
+    "ink": "oklch(0.739 0.134 318.1)",
+    "x": 116.1,
+    "y": 539.5,
+    "w": 157.8,
+    "h": 44
+   }
+  ]
+ },
+ "v-dark-390": {
+  "notation": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficientsall 201 harmonics, n = −200…200"
+  ]
+ },
+ "v-error-dark-390": {
+  "notation": [],
+  "layers": [],
+  "errActions": [
+   {
+    "t": "Upload a new image",
+    "emphasis": "primary",
+    "size": "21px"
+   },
+   {
+    "t": "Browse the gallery",
+    "emphasis": "text",
+    "size": "18.2685px"
+   }
+  ]
+ }
+}
