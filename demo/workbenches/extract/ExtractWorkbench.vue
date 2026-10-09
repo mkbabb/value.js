@@ -181,7 +181,7 @@
                             :expanded="true"
                             :layout="layout === 'split' && isWide ? 'aside' : 'default'"
                             :css-color="cssColorOpaque ?? ''"
-                            swatch-class="w-12 h-12 sm:w-14 sm:h-14"
+                            swatch-size="xl"
                             @click="() => {}"
                             @save="session.onSave"
                             @rename="session.onRename"

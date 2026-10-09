@@ -35,7 +35,7 @@
                 :key="key"
                 :color="color"
                 :open="currentSwatchPopoverIndex === i"
-                size-class="w-11 h-11 sm:w-12 sm:h-12"
+                size="lg"
                 :ghost="isSwatchEditing(i)"
                 @update:open="(v: boolean) => onCurrentSwatchOpenChange(v, i)"
             >

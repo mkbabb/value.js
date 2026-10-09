@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { contrastInkFor } from "../../color-session/ink";
 import {
     Select,
     SelectContent,
@@ -11,7 +10,7 @@ import {
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Label } from "@mkbabb/glass-ui/label";
 import { Button } from "@mkbabb/glass-ui/button";
-import { RefreshCw, Save, Copy, Check } from "@lucide/vue";
+import { RefreshCw, Save, Copy } from "@lucide/vue";
 import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
 // (`@mkbabb/glass-ui/labeled-field`, 7.0.0): `controlLabelable: false` for the
@@ -19,7 +18,7 @@ import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
 // the marginalia captions below stop floating unassociated and the duplicated
 // literal `aria-label` retires.
 import { LabeledField } from "@mkbabb/glass-ui/labeled-field";
-import { WatercolorDot } from "../../shared/ui/watercolor-dot";
+import SwatchButton from "../../shared/ui/SwatchButton.vue";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
 // the chip module + spec; the GenerateControls consume routes through Lane
 // N's queue — recorded in both lane logs.
@@ -220,33 +219,20 @@ defineExpose({ regenerate, save, copyColors });
                  the silhouette via the producer P5 register, or do not exist —
                  the MixSourceSelector precedent). -->
             <div class="px-3 pb-1 flex flex-wrap gap-1.5">
-                <!-- X.W12.u2 (UIA-V-41): glass 7.0.0's WatercolorDot is paint
-                     only (inheritAttrs:false, no `tag`, pointer-events:none), so
-                     the copy verb lives on glass's Button and the dot fills it. -->
-                <Button
+                <!-- A2-VA-L1-15: the app's one SwatchButton; its `done` check
+                     is the copy verb's verdict. -->
+                <SwatchButton
                     v-for="(css, i) in palette"
                     :key="i"
-                    emphasis="text"
-                    icon-only
-                    class="generate-swatch relative w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform"
+                    :color="css"
+                    size="md"
+                    :seed="`gen-${css}-${i}`"
+                    :done="copiedIndex === i"
+                    class="generate-swatch active:scale-95 transition-transform"
                     :aria-label="copiedIndex === i ? `Copied ${formatCssCaption(css)}` : `Copy ${formatCssCaption(css)}`"
                     :title="formatCssCaption(css)"
                     @click="copyColor(css, i)"
-                >
-                    <WatercolorDot
-                        :color="css"
-                        :seed="`gen-${css}-${i}`"
-                        class="w-full h-full"
-                    />
-                    <!-- X-DS pass 1 (V1C-11): the glyph takes the swatch's own
-                         contrast ink, not white under a drop-shadow filter. -->
-                    <Check
-                        v-if="copiedIndex === i"
-                        class="absolute w-4 h-4 pointer-events-none"
-                        :style="{ color: contrastInkFor(css) ?? 'var(--foreground)' }"
-                        aria-hidden="true"
-                    />
-                </Button>
+                />
             </div>
 
             <!-- The bench note: seed as provenance, select-all kept. -->

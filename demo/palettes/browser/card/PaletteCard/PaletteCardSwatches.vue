@@ -27,7 +27,7 @@
                 :key="`${color.css}-${i}`"
                 :color="color.css"
                 :open="openPopoverIndex === i"
-                :size-class="swatchClass"
+                :size="swatchSize"
                 @update:open="(v: boolean) => $emit('popoverOpen', v, i)"
             >
                 <template #actions>
@@ -64,6 +64,7 @@
 import { Copy, Pencil, Plus } from "@lucide/vue";
 import type { PaletteColor } from "../../../types";
 import SwatchHoverMenu from "../SwatchHoverMenu.vue";
+import type { SwatchSize } from "../../../../shared/ui/SwatchButton.vue";
 import { formatCssCaption } from "../../../../color-session/format-color";
 
 defineProps<{
@@ -72,7 +73,7 @@ defineProps<{
     displaySlug: string | undefined;
     safeFirstColor: string;
     openPopoverIndex: number | null;
-    swatchClass: string;
+    swatchSize: SwatchSize;
 }>();
 
 defineEmits<{

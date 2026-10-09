@@ -125,7 +125,7 @@
                 :display-slug="showSlug ? displaySlug : undefined"
                 :safe-first-color="safeFirstColor"
                 :open-popover-index="openPopoverIndex"
-                :swatch-class="swatchClass"
+                :swatch-size="swatchSize"
                 @popover-open="onPopoverOpenChange"
                 @popover-add="onPopoverAdd"
                 @popover-edit="onPopoverEdit"
@@ -165,6 +165,7 @@ import { usePaletteExport } from "./usePaletteExport";
 import { useHoverPopover } from "./browser/card/composables/useHoverPopover";
 import { useHeightTransition } from "./browser/card/composables/useHeightTransition";
 import PaletteSpecimen from "./browser/card/PaletteSpecimen.vue";
+import type { SwatchSize } from "../shared/ui/SwatchButton.vue";
 import PaletteCardMenu from "./browser/card/PaletteCard/PaletteCardMenu.vue";
 import PaletteCardMeta from "./browser/card/PaletteCard/PaletteCardMeta.vue";
 import PaletteCardSwatches from "./browser/card/PaletteCard/PaletteCardSwatches.vue";
@@ -183,10 +184,10 @@ const props = withDefaults(
         draggable?: boolean | undefined;
         /** "default" = strip on top; "aside" = vertical strip on left */
         layout?: "default" | "aside" | undefined;
-        /** CSS class(es) for swatch size override (default: "w-9 h-9 sm:w-10 sm:h-10") */
-        swatchClass?: string | undefined;
+        /** The swatch size token (SwatchButton; default `md`). */
+        swatchSize?: SwatchSize | undefined;
     }>(),
-    { layout: "default", swatchClass: "w-9 h-9 sm:w-10 sm:h-10" },
+    { layout: "default", swatchSize: "md" },
 );
 
 /**

@@ -280,24 +280,18 @@ const swatchKeys = computed(() => {
                                 <!-- Clickable swatches -->
                                 <div class="px-3 pb-3 flex flex-wrap gap-1.5">
                                     <!-- W5-a11y: swatch button needs accessible name.
-                                         X.W12.u2 (UIA-V-40/43): the verb lives on glass's
-                                         Button; the WatercolorDot inside is paint only. -->
-                                    <Button
+                                         A2-VA-L1-15: the app's one SwatchButton. -->
+                                    <SwatchButton
                                         v-for="(color, ci) in palette.colors"
                                         :key="ci"
-                                        emphasis="text"
-                                        icon-only
-                                        class="palette-swatch-add w-8 h-8 shrink-0 cursor-pointer"
+                                        :color="color.css"
+                                        size="sm"
+                                        :seed="`palette-${palette.slug}-${ci}`"
+                                        class="palette-swatch-add"
                                         :title="formatCssCaption(color.css)"
                                         :aria-label="`Add color ${formatCssCaption(color.css)} from ${palette.name}`"
                                         @click="emit('addColor', color.css, palette.name)"
-                                    >
-                                        <WatercolorDot
-                                            :color="color.css"
-                                            class="w-full h-full"
-                                            :seed="`palette-${palette.slug}-${ci}`"
-                                        />
-                                    </Button>
+                                    />
                                 </div>
                             </div>
                         </div>
