@@ -676,3 +676,55 @@ W8.md has no separate §Verification Artefacts section; its artefacts are the ga
 
 ### State
 Four-verb line: X.P.W8 → **PARTIAL** (not IMPLEMENTED): V-C GREEN ×2 and the whole stay-GREEN set reproduce on `5408b73e7`; ESC-W8v-2 cured; node/Chromium/WebKit L-G1 and the W7-carried Firefox whole `parseCssScalar` GREEN ×2. What remains: E-6 gz (ESC-W8e-1) and 7 Firefox L-G1 cells (ESC-W8lg1-1). VERIFIED is not this seat's stamp (W8.md §Units: the check follows).
+
+## RESUME 2026-10-09 — Check 1 (L-20 pass 1 of the RESUME Close, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **NOT-CONFORMANT**
+
+HEAD at open `e407f2a6f`; product bytes = `.e`'s `5408b73e7` (⟨`git diff --stat 5408b73e7 HEAD -- src scripts/gen-grammar.mjs test/css bench/wpt-conformance`⟩ → nothing; `bench/paired/` differs only by `.lg1`'s `bootstrap.mjs` + `browser-page.mjs` `raw: t`). Crash recovery: ⟨`git status --porcelain -- src test/css bench docs/tranches/X/execution/D docs/tranches/X/parse-that`⟩ → empty. Host ⟨`uptime`⟩ → load 176.91 / 174.42 / 181.23 (no timing claim; L-G1 audited from the banked raw records per §0eq).
+
+### Gates re-run by this seat (AFTER = HEAD `e407f2a6f`)
+
+| Gate | Command | This seat | Close claimed | Reproduces |
+|---|---|---|---|---|
+| `.e` falsifiers ×2 | ⟨`npx vitest run test/css/custom-property-empty.test.ts`⟩ | `Tests 17 passed (17)` ×2 | 17/17 ×2 | yes |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | `TOTAL 6267 2368 3899 0 0 …` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` · exit 0 ×2 | same | yes |
+| test/css ×2 | ⟨`npx vitest run test/css`⟩ | `Test Files 16 passed (16)` · `Tests 212 passed (212)` exit 0 ×2 | 16/212 ×2 | yes |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence`⟩ | `Tests 19 passed (19)` exit 0 ×2; ⟨`grep -c 'MIRROR-DEFECTS [1-9]'`⟩ → 0 ×2 | 19/19, 0 | yes |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | exit 0 · exit 0; `error TS` 0 · 0 | 0 · 0 | yes |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/paired/bootstrap.mjs --max-warnings=0`⟩ | exit 0 | exit 0 | yes |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | 0 | yes |
+| E-6 size ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c`⟩ / `\| gzip \| wc -c` | `104398` / `14622` ×2 | 104,398 / 14,622 (gz RED) | yes (RED as claimed) |
+| L-G1 records integrity ×2 | ⟨`cd bench/records/W8lg1 && shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ | `59` ×2 | 59 ×2 | yes |
+| L-G1 reader determinism ×2 | ⟨`node bench/paired/bootstrap.mjs bench/records/W8lg1/{node,browser}/*.json \| shasum -a 256`⟩ | `a16f8dbf180d4a37…` ×2, ⟨`cmp`⟩ identical | `a16f8dbf…` ×2 | yes |
+| L-G1 GATE block (recomputed) | same output, lines 337–398 | node/Chromium/WebKit all GREEN; Firefox 9/16 GREEN incl. whole `parseCssScalar` (0.782 ub 0.870 · 0.659 ub 0.718); **7 RED** straddling at 101: acc `parseCssColor` (1.006 ub 1.351 · 0.836 ub 1.030) · acc `parseCssScalar` (ub 1.038 rep0) · acc `parseStylesheet` (ub 1.049 rep1) · rej `parseCssColor` (ub 1.033 · 1.060) · rej `parseCssValue` (ub 1.075 rep0) · rej `parseKeyframeSelector` (1.027 ub 1.107 · ub 1.101) · rej `parseStylesheet` (ub 1.000 · 1.068 ub 1.287) | same 7 | yes (RED as claimed) |
+| build | not re-run (no `src/` byte since the Close's `✓ built` on `5408b73e7`) | cited | exit 0 | cited |
+| E-4 `--check` / E-2 audit (pinned) | not re-run (needs the pinned emitter copy; no grammar byte since the Close's `e979a963…` ×2 / violations 0) | cited | GREEN | cited |
+
+**Gates reproduced: 12 of 12 re-run** (each matching the Close's claim, GREEN or RED); 3 cited unchanged (build, E-4, E-2 — no product byte since).
+
+### Axes
+1. **Claimed GREENs reproduce** — yes, every one re-run (table above).
+2. **File bounds** — ⟨`git show --stat`⟩ on `5408b73e7 6c2750f76 fc7b757eb 8ed582fe4 06efe2c9b 40d74e749 d66087f07 44b088596 e407f2a6f`⟩: all inside `.e`/`.lg1`/close writable sets (`src/css/**`, `src/value.ts`, `src/css/rules.ts`, `test/css/**`, `bench/**`, `CHANGELOG.md`, DIVERGENCE-LEDGER, `evidence/W8/l-g1/**`, this record, LEDGER append, INBOX sweep line); one declared §0bt adjacent edit `scripts/gen-grammar.mjs:28` (`ENTRIES += customTop`, required for the new entry to emit). ⟨`git log --format=%h 5408b73e7^..HEAD -- scripts/dev/dev.sh`⟩ → nothing.
+3. **No masking fallback** — ⟨`git show 5408b73e7 -- src/value.ts src/css/rules.ts src/css/bbnf/{index,value}.ts src/css/grammar/value.bbnf`⟩: a BBNF rule `customTop = sp >> commaList ? << sp`, a typed `CssEmpty`, a frozen EMPTY action, and `rules.ts` routing only `--*` names to `parseCustomPropertyValue`; no try/catch, no skip, no allowlist, no narrowed assertion. The E-6 overage is escalated, not shaved (ADDENDUM (a)).
+4. **Commit families** — `.e` grammar + actions + re-emission + falsifiers in ONE commit (`5408b73e7`), receipt separate (`6c2750f76`); `.lg1` reader / records / receipt separate meanings. Held.
+5. **E-3** — ⟨`git diff --stat 5408b73e7^ HEAD -- docs/tranches/X/parse-that/waves docs/tranches/V/megatranche/registry/adjudicated`⟩ → nothing. LW-1 (`d66087f07`, in-place receipt correction) stands as LOW; **dated erratum (R-3 discharged here, 2026-10-09):** the `.lg1` receipt's item 3 was corrected in place by `d66087f07` (5 → 4 cells with median < 1.0 on both reps); the corrected figure is right (this seat's recomputed GATE: the ≥ 1.0 medians are acc `parseCssColor` rep0 1.006, rej `parseKeyframeSelector` rep0 1.027, rej `parseStylesheet` rep1 1.068), and this line is its E-3 erratum-beside.
+6. **Mail** — ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → `1`: L600, prose inside the Close's own sweep line (not a row). ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md \| wc -l`⟩ → 0 on value `V/`, `V/coordination/`, glass `BK/coordination/`, glass `BL/`, keyframes `V/coordination/`. **0 UNREAD in scope.**
+7. **Four-verb line** — LEDGER row 108 `PARTIAL` with both remaining REDs named: lawful (not IMPLEMENTED while gates are RED).
+8. **Goal criterion at the bytes** — coverage half MET (V-C 6267 cases, 0 unruled, the 5 named misses + `--x: ;` GREEN); the speed half (§Scope 5) is NOT met on Firefox (7 cells).
+9. **Published figures** — every figure in the Close's gate table reproduces (above).
+10. **Honest-RED adjudication (at the spec bytes)**
+    - **E-6 gz 14,622 > 14,517 (ESC-W8e-1) — RELIEVED.** W8.md ADDENDUM (a) bullet 2 (L23) routes it by the spec's own words: *"if the cure exceeds the ceiling, the ceiling question is escalated, not shaved by obfuscation."* The cure is lawful BBNF (axis 3); the ceiling is an owner/orchestrator act, named in the Close's residual R-1. Honest-RED under ESC-W8e-1.
+    - **L-G1 Firefox, 7 cells straddling at 101 (ESC-W8lg1-1) — NOT RELIEVED.** §Scope 5 makes L-G1 ×2 a close condition; COHESION §0ev.1 (which governs this read) says verbatim *"A cell whose bound straddles 1.0 at 101 rounds is RED. It is a defect for a cure unit, never a ruling."* No producer owns it, no later wave is routed it by any spec, and ⟨`grep -n 'ESC-W8lg1-1' docs/tranches/X/COHESION.md`⟩ → nothing (no cure unit minted). The Close names an owner (R-2, "a Track D cure unit, orchestrator to mint"), but by §0ev.1 that is the definition of an open defect, not a relief.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | **HIGH** | §Scope 5 L-G1 ×2 is RED on Firefox: 7 cells straddle 1.0 at 101 rounds on `5408b73e7`; §0ev.1 forbids relieving it by ruling | recomputed GATE (reader output `a16f8dbf…` ×2): acc `parseCssColor` 1.006 ub 1.351 / 0.836 ub 1.030 · acc `parseCssScalar` ub 1.038 · acc `parseStylesheet` ub 1.049 · rej `parseCssColor` ub 1.033 / 1.060 · rej `parseCssValue` ub 1.075 · rej `parseKeyframeSelector` ub 1.107 / 1.101 · rej `parseStylesheet` ub 1.000 / 1.287 | orchestrator mints the Track D cure unit for ESC-W8lg1-1 (diagnose SpiderMonkey product cost vs the instrument's load-sensitive k calibration; cure at the root in BBNF/emitter-producer row or instrument), then a fresh L-G1 ×2 by §0ev.1 on its final bytes and a check-as-audit |
+| C1-2 | INFO (honest-RED) | E-6 gz +105 B over 14,517 from the lawful `.e` cure | ⟨`… \| gzip \| wc -c`⟩ → `14622` ×2 | owner/orchestrator ceiling ruling (ESC-W8e-1), per ADDENDUM (a) |
+| C1-3 | LOW | LW-1: `d66087f07` corrected a committed receipt in place | ⟨`git show --stat d66087f07`⟩ → record 1 +/1 − | dated erratum written beside, in axis 5 above (discharged) |
+
+### Successors
+No parse-that wave declares "Opens after: X.P.W8" (⟨`grep -n 'Opens after' docs/tranches/X/parse-that/waves/*.md`⟩ → only W8's own, on X.P.W7). `X/waves/W12U.md:94` sequenced its quiet reads after W8's L-G1; §0ev.1 supersedes that window (reads taken now), so no successor is lawfully blocked by this wave.
+
+### Verdict
+**NOT-CONFORMANT** — one HIGH (C1-1, unrelieved RED); the E-6 RED is honest under ESC-W8e-1. Row stays **PARTIAL**; event line appended to the LEDGER.
