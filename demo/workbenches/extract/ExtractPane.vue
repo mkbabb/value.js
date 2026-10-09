@@ -1,5 +1,5 @@
 <template>
-    <PaneShell title="Extract" description="Pull palettes from any image.">
+    <PaneShell seated title="Extract" description="Pull palettes from any image.">
         <!-- A2-VA-L1-1: the one pane shell (its body gutter replaces the
              per-pane class string this workbench carried).
              The T20 collapse (R.W4 Lane E): the pane is a thin shell over

@@ -25,7 +25,6 @@ import PaletteNameInput from "../../shared/ui/PaletteNameInput.vue";
 // N's queue — recorded in both lane logs.
 import { PreviewStrip } from "../../shared/ui/color-chips";
 import { formatCssCaption } from "../../color-session/format-color";
-import { paletteRail } from "../../color-session/palette-rail";
 import { useColorGeneration } from "./composables/useColorGeneration";
 // U.W-DEMO · U-F47: the pure generation core relocated DOWN to the shared color
 // layer; the feature consumes it UP-from-shared (feature → shared, correct).
@@ -64,16 +63,6 @@ const paletteName = ref("Generated Palette");
 
 /** The bench-note seed — fixed-width hex, a specimen label's provenance. */
 const seedHex = computed(() => seed.value.toString(16).padStart(8, "0"));
-
-// S.W5-6 · F8: the count slider carries the generated ramp itself — the
-// extract k-slider pattern (the instrument shows its own state), replacing
-// the dead grey spectrum capsule.
-// EC-10 (X.W7.z2): the ramp is hard bands (`paletteRail`, extract's k-rail
-// builder), never an interpolation. The empty arm is generate's own: it paints
-// `var(--muted)`, where extract's rail returns null.
-const countSliderGradient = computed(() =>
-    palette.value.length === 0 ? "var(--muted)" : paletteRail(palette.value),
-);
 
 function onPresetChange(value: AcceptableValue) {
     preset.value = value as PresetName;
@@ -147,34 +136,62 @@ defineExpose({ regenerate, save, copyColors });
                  drew the same colours a third time (strip, swatch row, count
                  rail) and meant nothing the swatches do not. The title opens
                  the plate. -->
-            <!-- Plate chrome: name — count — regenerate — actions. The name
-                 is the plate title, editable in place through the app's one
-                 name field (A2-VA-L1-14). The row
-                 X-DS pass 4 (V4C-09): ONE row at every width. At 390 the
-                 cluster used to wrap onto its own right-aligned line, detached
-                 from the title it acts on; now the name shrinks (it is the
-                 flexible `min-w-0` member) and Regenerate drops its visible
-                 label below `sm` (the text stays as its accessible name).
-                 X-DS pass 6 (V6C-12): below `sm` the name steps ONE type rung
-                 down (subheading → body), so the at-rest default reads whole
-                 beside the three icon actions; the ellipsis stays for long
-                 names. -->
-            <div class="px-3 py-2.5 flex items-center gap-x-2 min-w-0">
+            <!-- Plate chrome: the name is the plate title, editable in place
+                 through the app's one name field (A2-VA-L1-14). X-DS pass 4
+                 (V4C-09) and pass 6 (V6C-12) kept the verbs on the title's row
+                 and stepped the name down a rung below `sm`; pass 8 supersedes
+                 both. -->
+            <!-- X-DS pass 8 (V3C-03): the name has the row to itself, so the
+                 plate's title is never the one element cut short (the verb
+                 cluster beside it left ~190 px at 1440 and clipped the at-rest
+                 default). One display voice at every width: the max-sm step to
+                 `text-body` swapped the family as well as the size, and with the
+                 whole row the default fits at 390 on the same rung. -->
+            <div class="px-3 py-2.5 flex items-center min-w-0">
                 <!-- A2-VA-L1-14: the plate title is the app's one name field
                      (shared/ui/PaletteNameInput, live mode) in the title voice. -->
                 <PaletteNameInput
                     v-model="paletteName"
-                    class="flex-1 basis-[10rem]"
-                    input-class="font-display font-medium text-subheading max-sm:text-body"
+                    class="flex-1"
+                    input-class="font-display font-medium text-subheading"
                 />
-                <!-- X-DS pass 1 (V1-09): the unlabelled count badge is gone —
-                     the count slider's own readout below is its labelled home. -->
-                <!-- The verb cluster wraps as ONE unit, right-seated. The
-                     one verb rides the deliberate-primary register (L6
-                     rider — root vocabulary, no costume), AS plate chrome. -->
-                <!-- X.W12U.m · A2-VA-L2-8 (a one-line cluster ran 34 px past
-                     the card at 360) is held by V4C-09's icon-only Regenerate
-                     below `sm`: the cluster is ~116 px and never wraps. -->
+            </div>
+
+            <!-- Specimen swatches — each a direct copy verb (the catalog
+                 card's popover-copy, collapsed to one honest click; the
+                 dead add/edit emits die with the borrowed card). WR-6 / T-54:
+                 the plain rounded-rects join the ruled WatercolorDot register
+                 (the 9-consumer species) — the button stays the copy-verb
+                 seat (`tag="button"`), the dot its organic face, seeded stable
+                 per (color,i). T-28's outline law rides: NO geometric focus
+                 ring on the organic edge (the filled-dot register — rings ride
+                 the silhouette via the producer P5 register, or do not exist —
+                 the MixSourceSelector precedent). -->
+            <div class="px-3 pb-1 flex flex-wrap gap-1.5">
+                <!-- A2-VA-L1-15: the app's one SwatchButton; its `done` check
+                     is the copy verb's verdict. -->
+                <SwatchButton
+                    v-for="(css, i) in palette"
+                    :key="i"
+                    :color="css"
+                    size="md"
+                    :seed="`gen-${css}-${i}`"
+                    :done="copiedIndex === i"
+                    class="generate-swatch active:scale-95 transition-transform"
+                    :aria-label="copiedIndex === i ? `Copied ${formatCssCaption(css)}` : `Copy ${formatCssCaption(css)}`"
+                    :title="formatCssCaption(css)"
+                    @click="copyColor(css, i)"
+                />
+            </div>
+
+            <!-- The bench note: seed as provenance, select-all kept. X-DS pass 8
+                 (V3C-03): the plate's verbs seat on this row, right of the seed
+                 that Regenerate re-rolls — the provenance and the verb that
+                 changes it share one line, and the title row stays whole. -->
+            <div class="px-3 pb-2.5 pt-1 flex items-center gap-2 min-w-0">
+                <p class="min-w-0 truncate text-mono-small text-muted-foreground tabular-nums select-all">
+                    seed: {{ seedHex }}
+                </p>
                 <div class="ml-auto flex items-center gap-2 shrink-0">
                     <!-- X-DS pass 1 (V1-09): seated commands wear the quiet and
                          text rungs — no floating capsule (and no halo) on a
@@ -209,38 +226,6 @@ defineExpose({ regenerate, save, copyColors });
                     </Button>
                 </div>
             </div>
-
-            <!-- Specimen swatches — each a direct copy verb (the catalog
-                 card's popover-copy, collapsed to one honest click; the
-                 dead add/edit emits die with the borrowed card). WR-6 / T-54:
-                 the plain rounded-rects join the ruled WatercolorDot register
-                 (the 9-consumer species) — the button stays the copy-verb
-                 seat (`tag="button"`), the dot its organic face, seeded stable
-                 per (color,i). T-28's outline law rides: NO geometric focus
-                 ring on the organic edge (the filled-dot register — rings ride
-                 the silhouette via the producer P5 register, or do not exist —
-                 the MixSourceSelector precedent). -->
-            <div class="px-3 pb-1 flex flex-wrap gap-1.5">
-                <!-- A2-VA-L1-15: the app's one SwatchButton; its `done` check
-                     is the copy verb's verdict. -->
-                <SwatchButton
-                    v-for="(css, i) in palette"
-                    :key="i"
-                    :color="css"
-                    size="md"
-                    :seed="`gen-${css}-${i}`"
-                    :done="copiedIndex === i"
-                    class="generate-swatch active:scale-95 transition-transform"
-                    :aria-label="copiedIndex === i ? `Copied ${formatCssCaption(css)}` : `Copy ${formatCssCaption(css)}`"
-                    :title="formatCssCaption(css)"
-                    @click="copyColor(css, i)"
-                />
-            </div>
-
-            <!-- The bench note: seed as provenance, select-all kept. -->
-            <p class="px-3 pb-2.5 pt-1 text-mono-small text-muted-foreground tabular-nums select-all">
-                seed: {{ seedHex }}
-            </p>
         </section>
 
         <!-- Marginalia: preset & harmony. W5-7 — the permanent subtitles died;
@@ -308,34 +293,40 @@ defineExpose({ regenerate, save, copyColors });
             </LabeledField>
         </div>
 
-        <!-- Count — the extract k-slider pattern verbatim: the ramp IS the
-             track (F8; S-2/S-16 family cure for the dead grey capsule).
-             X-DS pass 2 (V2C-02): the app's ONE scalar row — the name left,
-             the value right in mono tabular figures, the track below. The
-             bare bold numeral beside the Preset/Harmony fields had no name. -->
+        <!-- Count. X-DS pass 2 (V2C-02): the app's ONE scalar row — the name
+             left, the value right in mono tabular figures, the track below.
+             X-DS pass 8 (V3C-05): ONE count control. The generated swatches
+             painted as the track (content-as-track) set "Colors" in a second
+             voice from Extract's, with a thumb that sat mid-segment rather than
+             on a count. The swatches already show on the plate above, so the
+             count is glass's scrubber at the `sm` rung, Extract's idle
+             register. -->
         <div class="flex flex-col gap-1 w-full min-w-0">
             <div class="flex items-center justify-between gap-2">
                 <Label>Colors</Label>
                 <span class="text-mono-small plate-ink tabular-nums">{{ count }}</span>
             </div>
-            <div class="relative w-full h-6 flex items-center">
-                <div
-                    class="absolute inset-0 rounded-full overflow-hidden h-6"
-                    data-generate-count-rail
-                    :style="{ background: countSliderGradient }"
-                />
-                <Slider
-                    aria-label="Number of colors"
-                    variant="spectrum"
-                    :model-value="[count]"
-                    :min="1"
-                    :max="12"
-                    :step="1"
-                    class="relative w-full"
-                    :style="{ '--glass-slider-track-background': 'transparent' }"
-                    @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) count = v[0]; }"
-                />
-            </div>
+            <Slider
+                aria-label="Number of colors"
+                variant="scrubber"
+                size="sm"
+                :model-value="[count]"
+                :min="1"
+                :max="12"
+                :step="1"
+                class="w-full"
+                @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) count = v[0]; }"
+            />
         </div>
     </div>
 </template>
+
+<style scoped>
+/* X-DS pass 8 (V3C-03): the name field sits ON the plate's rung-2 well, so it
+ * wears the well (shell.css seats `--input-on-glass` at the well tone for
+ * fields on glass; on a well that laid a second tone step, the heaviest fill
+ * on the card). Token only — glass's field edge stays (O-87). */
+[data-generate-plate] {
+    --input-on-glass: transparent;
+}
+</style>

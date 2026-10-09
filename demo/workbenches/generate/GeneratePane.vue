@@ -28,7 +28,7 @@ defineExpose({
 </script>
 
 <template>
-    <PaneShell title="Generate" description="Create pleasing random palettes with aesthetic presets.">
+    <PaneShell seated title="Generate" description="Create pleasing random palettes with aesthetic presets.">
         <!-- A2-VA-L1-1: the one pane shell. -->
         <GenerateControls ref="controlsRef" @save="onSave" />
     </PaneShell>

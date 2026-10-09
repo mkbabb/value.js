@@ -38,7 +38,7 @@ defineExpose({
 </script>
 
 <template>
-    <PaneShell title="Gradient" description="Build gradients with per-interval easing and CSS output.">
+    <PaneShell seated title="Gradient" description="Build gradients with per-interval easing and CSS output.">
         <!-- A2-VA-L1-1: the one pane shell. -->
         <GradientVisualizer ref="gradientVisualizer" />
     </PaneShell>

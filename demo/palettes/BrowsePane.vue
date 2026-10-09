@@ -1,5 +1,5 @@
 <template>
-    <PaneShell title="Browse" description="Discover palettes from the community." :gap="3">
+    <PaneShell seated title="Browse" description="Discover palettes from the community." :gap="3">
         <!-- A2-VA-L1-1: the one pane shell. -->
         <!-- S.W5-7: the twin placeholder is scoped — this one searches
              the public wall.

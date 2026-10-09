@@ -9,15 +9,17 @@
     >
         <!-- The strip — the plate develops left to right. The instrument
              face keeps a hairline of the well ground between its cells so
-             the live-k segmentation reads AT REST (PRM stillness). -->
+             the live-k segmentation reads. X-DS pass 8 (V3C-02): the
+             instrument face is STILL. Nothing is loading at Extract's empty
+             rest, so an idle pulse said "loading" where the truth is
+             "empty"; motion stays on the loading registers below. -->
         <div class="flex h-10 w-full" :class="instrument && 'gap-px'">
             <template v-if="instrument">
                 <div
                     v-for="i in count"
                     :key="i"
                     data-slot="shadow-palette-cell"
-                    class="shadow-seg animate-pulse h-full min-w-0 flex-1"
-                    :style="{ animationDelay: `${((i - 1) * 0.12).toFixed(2)}s` }"
+                    class="shadow-seg h-full min-w-0 flex-1"
                 />
             </template>
             <template v-else>
@@ -37,14 +39,8 @@
         <!-- The metadata row — develops after the strip. -->
         <div class="px-3 py-2.5 flex items-center gap-2">
             <template v-if="instrument">
-                <div
-                    class="shadow-block-name animate-pulse text-subheading h-[1lh] w-32 rounded-md"
-                    :style="{ animationDelay: `${(count * 0.12 + 0.1).toFixed(2)}s` }"
-                />
-                <div
-                    class="shadow-block-count animate-pulse text-subheading h-[1lh] w-6 rounded-md"
-                    :style="{ animationDelay: `${(count * 0.12 + 0.22).toFixed(2)}s` }"
-                />
+                <div class="shadow-block-name text-subheading h-[1lh] w-32 rounded-md" />
+                <div class="shadow-block-count text-subheading h-[1lh] w-6 rounded-md" />
             </template>
             <template v-else>
                 <Skeleton
@@ -122,9 +118,10 @@ import { Skeleton } from "@mkbabb/glass-ui";
  * R12 species kept whole, not re-designed: Extract's standing k-threaded
  * undeveloped plate (`data-slot="shadow-palette"`, the o9 oracle's seat), the
  * genesis `ec1b200` register (card-true material, solid hairline, muted
- * cells on a LIVING staggered `animate-pulse`, i × 0.12s; meta blocks at
- * 60/40 of the ink; PRM degrades it static through the global guard,
- * animations.css). Its semantics stay R7's: `aria-hidden`, NO role="status",
+ * cells; meta blocks at 60/40 of the ink). X-DS pass 8 (V3C-02, the X-DS
+ * canon and addendum (a): no idle pulse on chrome that carries no state):
+ * the LIVING staggered pulse is retired, so the face is a static, flat well.
+ * Its semantics stay R7's: `aria-hidden`, NO role="status",
  * NO "Loading" label — nothing is loading, so a shimmering plate does not lie
  * to AT. It is not a LOADING register and never a filler: true-empty hosts
  * speak the EmptyState dot trio; error ≠ empty.
@@ -168,7 +165,7 @@ const instrument = computed(() => variant === "instrument");
  * (`--skeleton-ink`, utils.css `.skeleton-ink-register`), which certifies the
  * block as a bounded tone-step of the plate's `bg-well` ground in both schemes.
  * The steps fade INTO the plate by a color-mix step (never element opacity —
- * D6); the pulse's opacity swing is MOTION on top of the ink. */
+ * D6). */
 .shadow-seg {
     background: var(--skeleton-ink);
 }

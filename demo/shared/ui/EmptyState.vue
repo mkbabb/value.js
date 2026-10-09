@@ -34,7 +34,19 @@
         </p>
         <slot name="action" />
     </div>
-    <div v-else ref="root" class="flex flex-col items-center justify-center gap-2.5 py-8 text-center" role="status">
+    <!-- X-DS pass 8 (V3C-01): `compact` — a true-empty plate seated under its
+         own section heading (Mix's "Saved palettes") drops the plate-scale
+         vertical padding: the heading already spaces it, and the 64 px of air
+         pushed the hint past the follow row's ceiling at 1440. -->
+    <div
+        v-else
+        ref="root"
+        :class="[
+            'flex flex-col items-center justify-center text-center',
+            compact ? 'gap-1.5' : 'gap-2.5 py-8',
+        ]"
+        role="status"
+    >
         <!-- N-3, RE-AIMED (T.W6.5 · Lane S — R12, MANDATE §0.6
              t33-audit-08 "bring that iconset with the dashes back"): the
              clause stays TRUE — never two ghost registers at two scales —
@@ -113,6 +125,9 @@ withDefaults(
         hint?: string | undefined;
         /** The machine truth (error variant) — the caught message, in Fira. */
         detail?: string | undefined;
+        /** A true-empty plate under its own section heading: no plate-scale
+         *  vertical padding (X-DS pass 8 · V3C-01). */
+        compact?: boolean | undefined;
     }>(),
     { variant: "empty" },
 );

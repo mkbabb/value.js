@@ -62,10 +62,14 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
 </script>
 
 <template>
-    <PaneShell title="Mix" description="Mix colors and palettes together." follow>
+    <PaneShell title="Mix" description="Mix colors and palettes together." seated follow>
         <!-- X.W12U.h · A2-VA-L3-5: the Mix companion follows the picker's row
              (shell.css row contract) and scrolls inside its own card.
-             A2-VA-L1-1: the one pane shell. -->
+             A2-VA-L1-1: the one pane shell.
+             X-DS pass 8 (V3C-01/V3C-04): SEATED. The header sits above the
+             port (no rest veil), and the mixing controls with the page's one
+             verb sit in the shell's footer seat, below the port: when the
+             sources outgrow the row they scroll, and Mix never does. -->
         <!-- The mix convergence overlay (S.W3-6 / Q10): drops from the
              selected chips arc to the result plate's awaiting well. Its rAF
              timeline is the ONE clock; @settled is the phase machine's only
@@ -94,21 +98,6 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
                     @remove-palette="removePalette"
                 />
 
-                <!-- Mixing controls. T.W6 · W6-4 (T-17): the operand colors
-                     feed the Space/Hue preview ramps (colors mode only —
-                     palettes mode passes [] so the rows carry no chip:
-                     honest restraint, the column-wise palette mix has no
-                     single ramp to preview). -->
-                <MixConfigBar
-                    v-model:color-space="colorSpace"
-                    v-model:hue-method="hueMethod"
-                    v-model:leftover-strategy="leftoverStrategy"
-                    :show-leftover-strategy="mode === 'palettes'"
-                    :can-mix="canMix"
-                    :operand-colors="mode === 'colors' ? selectedColors.map((sc) => sc.css) : []"
-                    @mix="startMix"
-                />
-
                 <!-- Result plate — mounts GHOSTED the moment the mix starts
                      (the announced destination the convergence lands on);
                      inks in on the canvas clock's settle. No spinner row:
@@ -122,5 +111,24 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
                         @reset="reset"
                     />
                 </Transition>
+        <template #footer>
+            <!-- Mixing controls. T.W6 · W6-4 (T-17): the operand colors
+                 feed the Space/Hue preview ramps (colors mode only —
+                 palettes mode passes [] so the rows carry no chip:
+                 honest restraint, the column-wise palette mix has no
+                 single ramp to preview). The seat carries the body's gutter
+                 and the config pane's footer hairline (one footer grammar). -->
+            <div class="flex-none px-4 sm:px-6 pt-3 pb-4 border-t border-border/35">
+                <MixConfigBar
+                    v-model:color-space="colorSpace"
+                    v-model:hue-method="hueMethod"
+                    v-model:leftover-strategy="leftoverStrategy"
+                    :show-leftover-strategy="mode === 'palettes'"
+                    :can-mix="canMix"
+                    :operand-colors="mode === 'colors' ? selectedColors.map((sc) => sc.css) : []"
+                    @mix="startMix"
+                />
+            </div>
+        </template>
     </PaneShell>
 </template>

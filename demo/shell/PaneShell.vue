@@ -88,7 +88,9 @@ const {
     description?: string;
     /** The title's heading level (PaneHeader; 2 by default). */
     level?: 2 | 3 | 4;
-    /** Header above a FadingScroll port (About, My Palettes, the config pane). */
+    /** Header above a FadingScroll port (About, My Palettes, the config pane;
+     *  X-DS pass 8 · V3C-04: Browse, Generate, Gradient, Extract and Mix too,
+     *  so every header in a row shares one tone — no rest veil). */
     seated?: boolean;
     /** The companion row contract: follow the picker's row (shell.css). */
     follow?: boolean;

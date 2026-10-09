@@ -297,6 +297,7 @@ const swatchKeys = computed(() => {
             <h3 class="font-display text-subheading">Saved palettes</h3>
             <EmptyState
                 v-if="savedPalettes.length === 0"
+                compact
                 message="No saved palettes yet."
                 hint="Save a palette, then pour it — or its colours — in here."
             />

@@ -18,9 +18,8 @@ import { openView, mainPane } from "../fixtures/dock";
  * · The ShadowPalette species has ONE seat — the standing INSTRUMENT face
  *   (Extract's k-threaded undeveloped plate) — wearing the genesis
  *   `ec1b200` register: card-true material, solid hairline, muted blocks,
- *   and a LIVING staggered pulse (i × 0.12s). THE MOTION LEG RE-AIMS: the
- *   instrument face pulses LIVE; under prefers-reduced-motion the global
- *   PRM guard (animations.css) degrades it static — both asserted.
+ *   and (X-DS pass 8 · V3C-02, superseding the LIVING pulse) a STILL face:
+ *   nothing is loading at rest, so nothing breathes; the PRM leg holds.
  *
  * R7's SURVIVING SEMANTICS (unchanged — announcement, NOT motion): the
  * ghost is `aria-hidden`, carries NO role="status" and NO "Loading" label
@@ -47,8 +46,8 @@ import { openView, mainPane } from "../fixtures/dock";
  * · ES-4 — `dots` was a configuration axis no consumer ever set; the axis is
  *   deleted and the trio is simply the empty plate's ghost, so no leg pins it.
  * · SP-34 — the strip keys by position (`:key="i"`), never by `count`: a k
- *   step adds or removes one cell and the surviving cells keep their stagger
- *   delay, which the live-k leg asserts across the step.
+ *   step adds or removes one cell and the surviving cells keep their place
+ *   (the stagger they kept retired with the pulse, X-DS pass 8 · V3C-02).
  * · Copy is not this oracle's property (G19 owns the strings): the legs read
  *   roles and seams, so an abrogated caption cannot invert them.
  */
@@ -96,9 +95,12 @@ function cells(ghost: Locator): Locator {
     return ghost.locator('[data-slot="shadow-palette-cell"]');
 }
 
-/** THE LIVING LEG — the instrument face pulses: every strip cell computes
- *  the pulse animation, staggered i × 0.12s (the cascading shimmer). */
-async function assertPulsesLive(ghost: Locator): Promise<void> {
+/** THE STILL LEG — X-DS pass 8 (V3C-02) RE-AIM, named: the living leg
+ *  asserted an infinite staggered pulse on a face where nothing is loading.
+ *  The X-DS canon and its addendum (a) (owner, COHESION §0ej/§0ek) put idle
+ *  pulse on state-less chrome OUT, so the instrument face is now static:
+ *  no strip cell runs an animation, at any k. */
+async function assertStill(ghost: Locator): Promise<void> {
     const probes = await ghost.evaluate((root) =>
         Array.from(root.querySelectorAll('[data-slot="shadow-palette-cell"]')).map((el) => {
             const cs = getComputedStyle(el);
@@ -106,18 +108,13 @@ async function assertPulsesLive(ghost: Locator): Promise<void> {
                 name: cs.animationName,
                 duration: parseFloat(cs.animationDuration),
                 iteration: cs.animationIterationCount,
-                delay: parseFloat(cs.animationDelay),
             };
         }),
     );
     expect(probes.length).toBeGreaterThan(0);
-    for (const [i, p] of probes.entries()) {
-        expect(p.name, "the pulse keyframe rides every cell").toContain(
-            "pulse",
-        );
-        expect(p.iteration).toBe("infinite");
-        expect(p.duration).toBeGreaterThanOrEqual(1);
-        expect(p.delay).toBeCloseTo(i * 0.12, 2);
+    for (const p of probes) {
+        expect(p.name, "an idle cell runs no animation").toBe("none");
+        expect(p.iteration).not.toBe("infinite");
     }
 }
 
@@ -142,7 +139,7 @@ async function assertPrmStatic(ghost: Locator): Promise<void> {
     }
 }
 
-test("O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, LIVING pulse, PRM-static", async ({
+test("O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static", async ({
     page,
 }) => {
     await page.goto("/#/extract");
@@ -159,9 +156,8 @@ test("O-9 · Extract — the instrument face: live-k ghost that re-segments with
     await expect(ghost).not.toHaveAttribute("role", "status");
     await expect(extractPane.getByText(/undeveloped plate/i)).toHaveCount(0);
 
-    // THE LIVING LEG: the genesis register pulses — a staggered cascade,
-    // i × 0.12s.
-    await assertPulsesLive(ghost);
+    // THE STILL LEG (X-DS pass 8 · V3C-02): the empty instrument is static.
+    await assertStill(ghost);
 
     // THE LIVE-K LEG, re-ruled: the ghost re-segments under the k-slider
     // (the instrument shows its output shape before any image exists) and
@@ -176,7 +172,7 @@ test("O-9 · Extract — the instrument face: live-k ghost that re-segments with
     await kSlider.focus();
     await page.keyboard.press("ArrowRight");
     await expect(cells(ghost)).toHaveCount(6);
-    await assertPulsesLive(ghost);
+    await assertStill(ghost);
     await page.keyboard.press("End");
     await expect(cells(ghost)).toHaveCount(16);
     expect((await ghost.boundingBox())!.height).toBe(restHeight);
