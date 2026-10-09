@@ -247,3 +247,47 @@ Seat `claude-opus-5-5`, 2026-10-08/09. Spec §Units `.g` (F-REL.md:31), §Why 1 
 - **ESC-FREL-g-3 — visual goldens.** `visual-checkpoint` ×5: no `*-linux.png` golden exists, so CI can never pass them, and the darwin goldens drifted with the X-DS redesign. Regenerating goldens is inside `web/e2e/**`, but it is an oracle re-baseline that needs (a) a ruling that the redesigned frames are the accepted state and (b) a linux render (Playwright's container), a heavy run the load forbade this sitting.
 
 **Residuals.** The merge and master push (first act after ESC-FREL-g-1 is cured and G-e2e can turn); e2e ×2 local; CI watch + `deploy-pages` not skipped. **Status: ESCALATED.**
+
+### F-REL.d
+
+Seat `claude-opus-5-5`, 2026-10-09, under COHESION §0ev (no deferral). Spec §Units `.d` (F-REL.md:32-37), §Gates (:37). **Status: ESCALATED** — the production check is built, committed and read against the live host; the deploys it verifies cannot lawfully fire, because both standing deploy paths are fail-closed on a green master CI and `.g` (ESCALATED) left master unmerged behind ESC-FREL-g-1.
+
+**Crash recovery.** ⟨`git status --porcelain scripts/`⟩ (fourier) → empty; ⟨`git status --porcelain docs/tranches/X/fourier/evidence/F-REL/`⟩ (value.js) → the dir did not exist. Nothing inherited.
+
+**Why no deploy (measured, not assumed).**
+- ⟨`git log --oneline -1 origin/master`⟩ → `ad62881` (unmoved; `.g` withheld the merge). ⟨`git log --oneline -1 origin/m/w1-bump-migration`⟩ → `fe1749e` (F.CT3) atop `c17c1ce`.
+- ⟨`grep -n DEPLOY_BRANCH scripts/deploy-hook.sh`⟩ → `:127 DEPLOY_BRANCH="${FOURIER_DEPLOY_BRANCH:-master}"`, and `:295` asks GitHub for a run with `head_sha=…&branch=master&event=push&status=success` (the M.W3 fail-closed rule): the webhook deploys only a master SHA whose CI succeeded. ⟨`grep -n conclusion .github/workflows/deploy-pages.yml`⟩ → `:55 workflow_run.conclusion == 'success' && head_branch == 'master'`. Master CI's e2e is RED (`.g`: runner killed by BiRefNet-lite's 7.5–9.0 GB inference, ESC-FREL-g-1; plus -g-2, -g-3).
+- The merge is `.g`'s act, outside `.d`'s writable set. Taking it here would (a) still deploy nothing (CI RED → both paths skip) and (b) once CI could pass, ship an API whose every extraction OOMs at `docker-compose.prod.yml`'s `memory: 2G`. No substitute deploy (hand-run compose on the host, a manual Pages upload) is lawful under the lock "deploy only via the standing deploy-pages workflow + the webhook".
+
+**Acts.**
+1. fourier `94870dc` feat(scripts · F.REL .d): `scripts/prod-verify.mjs` — the six-row headless production check. Chrome headless (§0ei); every API call is a `fetch` from a page on the SPA origin, so the browser enforces the real CORS contract (PATCH/DELETE preflights with `If-Match`, the exposed `ETag`). Rows: session · per image upload, upright (the served thumbnail decoded by `createImageBitmap` is portrait), extract (default `ContourSettings` = the production pipeline), epicycles, create · preview `/v/<slug>` canvas · publish · remix · diff · gallery (public listing carries the row; `/gallery` screenshot) · edit (PATCH + `If-Match` from the exposed `ETag`) · delete every created row · no CORS console errors. Only the first image (repo asset) is published; the EXIF-6 original stays a private draft. When extraction is RED, a drawn contour (the client's `saveContour` path) carries the downstream rows; the extract row stays RED. Pushed to `origin/m/w1-bump-migration` (no deploy fires from that branch).
+   - **Adjacent edit:** fourier `.gitignore:68` `!scripts/prod-verify.mjs` — `scripts/*` is ignored with a tracked allow-list; without the entry the probe cannot be committed (same commit).
+2. value.js evidence `docs/tranches/X/fourier/evidence/F-REL/` (README with the receipts, `pages-smoke.log`, `openapi-paths-now.txt`, `d-verify-before/{rows.json,probe.log,preview-1440.png,gallery-1440.png}`).
+
+**Readings against the live host (pre-F.REL, `f2fe447`; 1-min load 685 at the read).**
+- ⟨`bash scripts/pages-smoke.sh`⟩ → `bundle /assets/index-BYSiPuAh.js carries the API base … health: 200 application/json … CORS: Access-Control-Allow-Origin https://fourier.babb.dev … cert … > 14 days … PASS`, rc 0.
+- ⟨`openssl s_client … | openssl x509 -noout -enddate`⟩ → api.fourier `notAfter=Jan  4 15:19:06 2027 GMT` · fourier `notAfter=Dec 22 20:13:07 2026 GMT` (both > 14 d).
+- ⟨`curl …/openapi.json`; python path diff vs `~/.fourier-samples/frel-openapi-before.json`⟩ → `34 0.2.0 34 [] True`: **identical to before; no publish/remix/diff path.**
+- ⟨`node scripts/prod-verify.mjs https://fourier.babb.dev https://api.fourier.babb.dev ~/.dev-logs/frel/d-verify-before assets/portraits/daraksha.jpg ~/.fourier-samples/daraksha.jpeg`⟩ → rc 1, `10/20 GREEN`:
+  - GREEN: session · upload ×2 · **upright ×2** (`w 768 h 1024` for both, the EXIF-6 original included) · epicycles ×2 · create ×2 · preview canvas.
+  - RED: extract ×2 (`TypeError: Failed to fetch` — the 500 without a CORS header, §Why 3) · publish 404 · remix 404 · diff (no child) · gallery (not listed) · PATCH (`etagExposed:false`, preflight blocked, §Why 4) · CORS console errors.
+  - The two `delete` rows read 401 `owner-required`: a **probe defect** of that run (the token lived in the page and was lost on navigation), fixed before `94870dc` (the token is held by the driver). Not a production reading.
+
+**Gates (BEFORE → AFTER).**
+
+| Gate | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| G-smoke `pages-smoke.sh` | PASS (open) | PASS (live SPA = the hotfix build; no new SPA shipped) | GREEN as non-regression; the "SPA ships via deploy-pages" half is NOT met |
+| G-cert > 14 d | Jan 4 2027 / Dec 22 2026 | same | GREEN |
+| G-outage (health polled through the webhook deploy) | n/a | n/a — no deploy fired | NOT READ (no deploy) |
+| openapi lists publish/remix/diff | 34 paths, none | 34 paths, none (byte-identical) | **RED** |
+| G-d headless production check | RED by construction | probe landed (`94870dc`); live host 10/20 — extract ×2, publish, remix, diff, gallery, PATCH RED | **RED** |
+
+**Escalation ESC-FREL-d-1.** `.d` cannot deploy: both deploy paths are fail-closed on a successful master CI, master is unmerged, and master CI e2e is RED at ESC-FREL-g-1 (BiRefNet-lite @1024² 7.5–9.0 GB/inference vs the 2 G prod cap; home `src/fourier_analysis/contours/ml.py` under F.CT/F.REL `.m`, needs a ruling on the cure's shape) plus ESC-FREL-g-2/-g-3. Order to close: cure g-1 → `.g` merges and turns master CI green → deploy-pages and the webhook fire → `.d` re-sits: poll `/api/health` every 1–2 s through the webhook deploy (G-outage), confirm openapi, run `scripts/prod-verify.mjs` with both images (G-d) — every step scripted and committed now.
+
+**Residuals.**
+- Two private **draft** rows left in production by the first probe run (their deletes 401'd on the probe defect above): `mighty-drawing-umber-zebra` (daraksha.jpg) and `rich-pouring-mango-salmon` (the EXIF-6 sample). Owner-only visibility; the anonymous session token was not retained. Removal: admin `DELETE /api/admin/visualizations/<slug>?hard=true` (needs the admin token — owner act), or the `.d` re-sit's admin cleanup.
+- The images uploaded (`faded-darting-onyx-yak`, `twilit-cresting-prism-kestrel`) are content-addressed assets with no delete route; neither is public.
+- G-outage, openapi, G-d AFTER readings owed to the `.d` re-sit after the deploy.
+
+**Status: ESCALATED** (ESC-FREL-d-1).

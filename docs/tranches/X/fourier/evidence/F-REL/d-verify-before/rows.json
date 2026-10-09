@@ -1,0 +1,173 @@
+{
+  "spa": "https://fourier.babb.dev",
+  "api": "https://api.fourier.babb.dev",
+  "at": "2026-10-09T15:30:47.683Z",
+  "rows": [
+    {
+      "row": "session",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "row": "upload daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "slug": "faded-darting-onyx-yak"
+      }
+    },
+    {
+      "row": "upright daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "w": 768,
+        "h": 1024
+      }
+    },
+    {
+      "row": "extract daraksha.jpg",
+      "ok": false,
+      "detail": {
+        "status": 0,
+        "ms": 1026,
+        "text": "TypeError: Failed to fetch"
+      }
+    },
+    {
+      "row": "epicycles daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "row": "create daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "slug": "mighty-drawing-umber-zebra",
+        "etag": null
+      }
+    },
+    {
+      "row": "upload daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "slug": "twilit-cresting-prism-kestrel"
+      }
+    },
+    {
+      "row": "upright daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "w": 768,
+        "h": 1024
+      }
+    },
+    {
+      "row": "extract daraksha.jpeg",
+      "ok": false,
+      "detail": {
+        "status": 0,
+        "ms": 1038,
+        "text": "TypeError: Failed to fetch"
+      }
+    },
+    {
+      "row": "epicycles daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "row": "create daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "slug": "rich-pouring-mango-salmon",
+        "etag": null
+      }
+    },
+    {
+      "row": "preview /v/<slug>",
+      "ok": true,
+      "detail": {
+        "slug": "mighty-drawing-umber-zebra"
+      }
+    },
+    {
+      "row": "publish",
+      "ok": false,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "row": "remix",
+      "ok": false,
+      "detail": {
+        "status": 404,
+        "child": null,
+        "text": "{\"detail\":\"Not Found\"}"
+      }
+    },
+    {
+      "row": "diff",
+      "ok": false,
+      "detail": {
+        "reason": "no remix child"
+      }
+    },
+    {
+      "row": "gallery",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "listed": false,
+        "items": 0
+      }
+    },
+    {
+      "row": "edit (PATCH, If-Match)",
+      "ok": false,
+      "detail": {
+        "etagExposed": false,
+        "status": 0,
+        "text": "TypeError: Failed to fetch"
+      }
+    },
+    {
+      "row": "delete rich-pouring-mango-salmon",
+      "ok": false,
+      "detail": {
+        "status": 401,
+        "text": "{\"type\":\"urn:contract:owner-required\",\"title\":\"Owner required\",\"status\":401,\"detail\":\"A session is required to delete.\"}"
+      }
+    },
+    {
+      "row": "delete mighty-drawing-umber-zebra",
+      "ok": false,
+      "detail": {
+        "status": 401,
+        "text": "{\"type\":\"urn:contract:owner-required\",\"title\":\"Owner required\",\"status\":401,\"detail\":\"A session is required to delete.\"}"
+      }
+    },
+    {
+      "row": "no CORS console errors",
+      "ok": false,
+      "detail": {
+        "cors": [
+          "Access to fetch at 'https://api.fourier.babb.dev/api/images/faded-darting-onyx-yak/extract-contour' from origin 'https://fourier.babb.dev' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+          "Access to fetch at 'https://api.fourier.babb.dev/api/images/twilit-cresting-prism-kestrel/extract-contour' from origin 'https://fourier.babb.dev' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+          "Access to fetch at 'https://api.fourier.babb.dev/api/visualizations/rich-pouring-mango-salmon' from origin 'https://fourier.babb.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: It does not have HTTP ok status."
+        ]
+      }
+    }
+  ]
+}
