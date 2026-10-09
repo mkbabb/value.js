@@ -1,0 +1,56 @@
+[
+ {
+  "cell": "C 1440 light channel select named for what it does",
+  "ok": false,
+  "named": 0,
+  "old": 1,
+  "oldRole": 1
+ },
+ {
+  "cell": "C 390 dark channel select named for what it does",
+  "ok": false,
+  "named": 0,
+  "old": 1,
+  "oldRole": 1
+ },
+ {
+  "cell": "N 1440 Matrix Controls in use (witness)",
+  "ok": null,
+  "used": true,
+  "collapsedFaceVisible": true,
+  "expandedTriggerVisible": false,
+  "dockAttrs": {
+   "data-v-3178508c": "",
+   "data-backdrop-mode": "live",
+   "data-backdrop-sample-state": "unavailable",
+   "data-backdrop-sample-source": "canvas",
+   "data-backdrop-sample-reason": "source-unavailable"
+  },
+  "paneTitle": "Matrix",
+  "item": {
+   "label": "Matrix",
+   "pressed": "true",
+   "active": ""
+  }
+ },
+ {
+  "cell": "N 390 Matrix Controls in use (witness)",
+  "ok": null,
+  "used": true,
+  "collapsedFaceVisible": true,
+  "expandedTriggerVisible": false,
+  "dockAttrs": {
+   "data-v-3178508c": "",
+   "data-backdrop-mode": "live",
+   "data-backdrop-sample-state": "unavailable",
+   "data-backdrop-sample-source": "canvas",
+   "data-backdrop-sample-reason": "source-unavailable"
+  },
+  "paneTitle": "Matrix",
+  "item": {
+   "label": "Matrix",
+   "pressed": "true",
+   "active": ""
+  }
+ }
+]

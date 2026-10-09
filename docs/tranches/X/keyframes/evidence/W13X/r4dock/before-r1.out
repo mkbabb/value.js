@@ -1,0 +1,13 @@
+RED  A 1440 home light  {"cell":"A 1440 home light","ok":false,"mbabb":"Fira Code","scene":"Plus Jakarta Sans","register":"code","ident":{"text":"@mbabb","fam":"Fira Code"}}
+RED  A 1440 cube dark  {"cell":"A 1440 cube dark","ok":false,"mbabb":"Fira Code","scene":"Plus Jakarta Sans","register":"code","ident":{"text":"@mbabb","fam":"Fira Code"}}
+RED  A 390 home light  {"cell":"A 390 home light","ok":false,"mbabb":"Fira Code","scene":"Plus Jakarta Sans","register":"code","ident":{"text":"@mbabb","fam":"Fira Code"}}
+GREEN  B1 1440 Share closes the menu, opens the popover  {"cell":"B1 1440 Share closes the menu, opens the popover","ok":true,"menuOpen":false,"popover":true}
+GREEN  B2 1440 a completed copy closes the chain  {"cell":"B2 1440 a completed copy closes the chain","ok":true,"popover":false,"menuOpen":false,"toast":true}
+RED  B3 1440 a refused copy offers the link, selected  {"cell":"B3 1440 a refused copy offers the link, selected","ok":false,"popover":false,"field":false,"value":null,"hasState":false,"focused":false,"selected":false,"addressBarToast":true,"menuOpen":false,"href":"http://localhost:5871/#/cube?state=JTdCJTIyb3B0aW
+GREEN  B1 390 Share closes the menu, opens the popover  {"cell":"B1 390 Share closes the menu, opens the popover","ok":true,"menuOpen":false,"popover":true}
+GREEN  B2 390 a completed copy closes the chain  {"cell":"B2 390 a completed copy closes the chain","ok":true,"popover":false,"menuOpen":false,"toast":true}
+RED  B3 390 a refused copy offers the link, selected  {"cell":"B3 390 a refused copy offers the link, selected","ok":false,"popover":false,"field":false,"value":null,"hasState":false,"focused":false,"selected":false,"addressBarToast":true,"menuOpen":false,"href":"http://localhost:5871/#/cube?state=JTdCJTIyb3B0aW9
+RED  C 1440 light channel select named for what it does  {"cell":"C 1440 light channel select named for what it does","ok":false,"named":0,"old":1,"oldRole":1}
+RED  C 390 dark channel select named for what it does  {"cell":"C 390 dark channel select named for what it does","ok":false,"named":0,"old":1,"oldRole":1}
+NOTE  N 1440 Matrix Controls in use (witness)  {"cell":"N 1440 Matrix Controls in use (witness)","ok":null,"used":true,"collapsedFaceVisible":true,"expandedTriggerVisible":false,"dockAttrs":{"data-v-3178508c":"","data-backdrop-mode":"live","data-backdrop-sample-state":"unavailable","data-backdrop-sample-so
+NOTE  N 390 Matrix Controls in use (witness)  {"cell":"N 390 Matrix Controls in use (witness)","ok":null,"used":true,"collapsedFaceVisible":true,"expandedTriggerVisible":false,"dockAttrs":{"data-v-3178508c":"","data-backdrop-mode":"live","data-backdrop-sample-state":"unavailable","data-backdrop-sample-sou
