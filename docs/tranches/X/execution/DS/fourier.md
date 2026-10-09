@@ -850,3 +850,38 @@ each in light and dark.
 - `morph-*-{1440,390}`, taken after the morph click;
 
 each in light and dark.
+
+### pass 14
+- fourier `188cb91`, on `m/w1-bump-migration`, pushed fast-forward `18c2077..188cb91`. Five files, committed by pathspec.
+- value.js `636ada3cb` holds the AFTER frames, the cure probe and its JSON, the census and the e2e logs (`pass-14/`). BEFORE is the critic's set in `pass-14/critic-f16/` (a separate seat's capture; not committed by this seat).
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F16-C1 | `MorphPhaseConfig.vue`'s `.config-card-title` and `HarmonicLevelGrid.vue`'s `.card-title` move from `--type-heading` to `--type-subheading`, keeping `--type-leading-heading` and weight 500. Measured in all 4 cells: the four card titles are 20.352px/500 under the page title's 25.888px/400 at 390 and 41.888px/400 at 1440 (before, 25.888px/500 at both widths, level with the title at 390). The page title stays on display-1. Note for glass, not a lighting row: display-1's floor (1.618rem) equals `--type-heading`. |
+| DS-F16-C2 | `VisualizationView.vue`: the empty-stage and load-error h1s drop `text-display-2 font-bold tracking-tight`. One shared rule (`.drop-target-title, .stage-error-title`) puts both on the /morph title's rung: `--type-display-1`, `--type-leading-display`, weight 400. Measured: 41.888px/400 at 1440 and 25.888px/400 at 390 on /v and /w errors and the /w empty stage (before, 53.3px/700 and 32.9px/700). The paper's book title keeps display-2/700. |
+| DS-F16-C4 | `EquationModeToggle.vue`: both glyphs are on `var(--font-serif-math)` at `--type-small`, Σ upright and `a + b` in math italic with an upright +, as KaTeX sets it. `.eq-toggle-icon--mono` and the literal "Computer Modern Serif", Georgia stack are deleted. Measured: Computer Modern Serif at 16.4px (1440) and 14px (390), with no negative tracking (`eq-toggle-*-1440.png`). |
+| DS-F16-C5 | `.stage-error-actions` is the drop zone's centred column (`flex-direction: column`, centred, 0.5rem gap), and the drop zone's primary moves from `lg` to `md`, the NotFoundCard page-action rung. Measured: in both states the primary and the quiet action are `md` (40px) and centred on the stage (cx 720 at 1440, 195 at 390). On the error stage the quiet action sits 8px beneath the primary; on the empty stage the format caption sits between them. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F16-C3: the Configurator aside's section label (25.888px/600; ConfiguratorLayer heading). It is relayed to glass alongside the O-87 refinement: a heading-rung weight token (500) and a narrow-width step to `--type-subheading`, to meet the /morph cards now on subheading/500. No local override.
+- DS-F16-G1: the pointer-tracked stage and plate specular, the plated primaries' cast and halo, the toolbar pill's doubled ring and the resting-card casts. These are held honest-RED against O-87 FLAT-LIGHTING (DS-F5-G1, DS-F4R-G2, DS-F6-G2, DS-F15-G1/G2) and O-88 for the transport's "1 ×" (DS-F6-G1), to be re-judged at the 10.2.0 repin. No local override.
+
+**Census** (`pass-14/census-after.json`, on a fresh `:3123`):
+- Static is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+- Computed is identical to pass 13: 380 shadow elements, 956 layers, 286 multi-layer stacks, 286 inset highlights, 216 backdrop blur, 0 control gradients, 0 looping chrome. This pass moves type and layout, not lighting.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered pass 13's 20 specs (`pass-14/e2e-specs.txt`), which reach /v, /w, /morph and /equation, the routes of every changed file. They ran on chromium plus mobile-chromium, headless, with 3 workers, against the cured tree served fresh on `:3123`.
+  - Run A: 226 passed, 1 failed. Run B: 226 passed, 1 failed.
+  - The one red is `f-w14v-au3` L1-12 ("Settle Out is a glass CardTitle in a glass Card"), the same pre-existing red as in passes 11 to 13 (clean-HEAD baseline in `pass-12/e2e-head-baseline-3124.txt`). Its one-size clause holds: all four titles are 20.352px.
+- No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
+
+**Frames** (`pass-14/`). All were captured in headless Chrome (Playwright `chromium`, DPR 2; §0ei) by `f16-cure-probe.spec.ts`, run from a temporary copy in fourier `web/e2e/` that was deleted afterwards, against `:3123`:
+- `morph-*-{1440,390}`;
+- `v-error-*-{1440,390}`, `w-error-*-{1440,390}` and `w-empty-*-{1440,390}`;
+- `equation-*-{1440,390}` after Compute, plus `eq-toggle-*-1440`. At 390 the toggle sits behind the aside's tab, so it is measured while attached;
+
+each in light and dark.
