@@ -10,7 +10,7 @@ import SlugEditLayer from "./layers/SlugEditLayer.vue";
 import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
-import DockStatusLamp from "./DockStatusLamp.vue";
+import ApiStatusChip from "../../shared/ui/api-status/ApiStatusChip.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
@@ -359,9 +359,10 @@ watch(
          absolutely seated at the band's inline-end (the .dock-band is the
          positioning context) so it is visible at FIRST PAINT in every dock
          state (expanded, collapsed, mid-morph) and never rides a
-         collapsible layer. Dev-gated; variant matrix in status-lamp.ts
-         (O-22). -->
-    <DockStatusLamp />
+         collapsible layer. Dev-gated; variant matrix in
+         shared/ui/api-status/api-status.ts (O-22; the one status chip,
+         A2-VA-L1-9). -->
+    <ApiStatusChip seat="dock" />
 </template>
 
 <style scoped>

@@ -129,7 +129,7 @@
         />
         <!-- K-INV5 degraded affordance: the save surface names its state
              when the backend is down — the palette still saves locally. -->
-        <ApiOfflineChip v-if="savedColorStrings.length > 0" class="self-start" />
+        <ApiStatusChip v-if="savedColorStrings.length > 0" seat="surface" class="self-start" />
         <div
             v-if="savedColorStrings.length > 0"
             class="flex items-center gap-2"
@@ -198,7 +198,7 @@ import type { Palette, PaletteColor } from "../../types";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import ActionFeedback from "./PaletteCard/ActionFeedback.vue";
-import ApiOfflineChip from "../status/ApiOfflineChip.vue";
+import ApiStatusChip from "../../../shared/ui/api-status/ApiStatusChip.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
 const { savedColorStrings, cssColorOpaque, savedPaletteCount, savedPalettes } =

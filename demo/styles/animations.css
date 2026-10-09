@@ -178,7 +178,7 @@
  * dock spring); what stays value.js's is element-level feedback inside a face:
  * the action-button flash/spin (ActionButton.vue), the color input's mode flash
  * and name crown (ColorInput.vue), and the status lamp's breathing dot
- * (DockStatusLamp.vue, used only under no-preference). Moved here verbatim so
+ * (shared/ui/api-status/ApiStatusChip.vue, used only under no-preference). Moved here verbatim so
  * demo/shell/dock carries 0 local @keyframes; none is deleted. */
 @keyframes action-pulse {
     0%   { stroke: var(--flash-color, currentColor); stroke-width: 2.75; transform: scale(1.3); }

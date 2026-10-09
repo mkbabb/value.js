@@ -6,7 +6,7 @@
  * latch — behind a single provide/inject key, the SAME idiomatic Vue seam
  * color-state already uses (`CSS_COLOR_KEY`, `SAFE_ACCENT_KEY`, …). Provided
  * once at App root via `provideApiClient()`; injected by the surfaces that read
- * the availability latch (`ApiOfflineChip`, `PaletteCardMenu`) instead of
+ * the availability latch (`ApiStatusChip`, `PaletteCardMenu`) instead of
  * hard-importing the module global. No framework invention — a plain object
  * under an `InjectionKey` (KISS; `feedback_kiss_no_contrivance`).
  *
