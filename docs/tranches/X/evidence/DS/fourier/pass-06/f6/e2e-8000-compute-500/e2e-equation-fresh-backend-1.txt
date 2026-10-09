@@ -1,0 +1,36 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+Error: e2e seed: POST /api/images → 500 {"type":"urn:contract:internal-error","title":"Internal server error","status":500,"instance":"/api/images"}
+
+   at global-seed.ts:94
+
+  92 |
+  93 | async function ok(res: Awaited<ReturnType<APIRequestContext["get"]>>, what: string): Promise<void> {
+> 94 |     if (!res.ok()) throw new Error(`e2e seed: ${what} → ${res.status()} ${await res.text()}`);
+     |                          ^
+  95 | }
+  96 |
+  97 | async function mint(api: APIRequestContext): Promise<SeedRecord> {
+    at ok (/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts:94:26)
+    at mint (/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts:109:5)
+    at globalSeed (/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts:164:17)
+
+exit 1

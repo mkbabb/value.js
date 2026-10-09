@@ -1,0 +1,12 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Execution context was destroyed, most likely because of a navigation
+    at computedCensus (/Users/mkbabb/Programming/fourier-analysis/scripts/ds-census.mjs:210:43)
+    at async file:///Users/mkbabb/Programming/fourier-analysis/scripts/ds-census.mjs:228:37 {
+  log: [],
+  name: 'Error'
+}
+
+Node.js v26.0.0

@@ -1,0 +1,40 @@
+{
+ "gallery-hover-light-1440": {
+  "rest": "color(srgb 0.994 0.96 0.926)",
+  "hover": "oklch(0.953918 0.0148539 67.5222)",
+  "htmlBgRest": "rgb(251, 250, 248)",
+  "rules": [
+   ".gallery-card[data-v-7dfef4b2]:hover { background-color: oklch(from var(--card) calc(l + var(--card-hover-step)) c h); }"
+  ],
+  "bareDarkBg": false
+ },
+ "equation-light-1440": {
+  "legendBorder": "rgb(112, 89, 66) dashed",
+  "curveInk": "rgb(112, 89, 66)",
+  "dockRadius": "9999px"
+ },
+ "equation-light-390": {
+  "legendBorder": "rgb(112, 89, 66) dashed",
+  "curveInk": "rgb(112, 89, 66)",
+  "dockRadius": "50% calc(49.0385% + 0.307692px) calc(49.0385% + 0.307692px) 50%"
+ },
+ "gallery-hover-dark-1440": {
+  "rest": "color(srgb 0.2074 0.165013 0.1326)",
+  "hover": "oklch(0.314869 0.0216345 59.1819)",
+  "htmlBgRest": "rgb(11, 10, 9)",
+  "rules": [
+   ".gallery-card[data-v-7dfef4b2]:hover { background-color: oklch(from var(--card) calc(l + var(--card-hover-step)) c h); }"
+  ],
+  "bareDarkBg": false
+ },
+ "equation-dark-1440": {
+  "legendBorder": "rgb(195, 185, 172) dashed",
+  "curveInk": "rgb(195, 185, 172)",
+  "dockRadius": "9999px"
+ },
+ "equation-dark-390": {
+  "legendBorder": "rgb(195, 185, 172) dashed",
+  "curveInk": "rgb(195, 185, 172)",
+  "dockRadius": "50% calc(49.0385% + 0.307692px) calc(49.0385% + 0.307692px) 50%"
+ }
+}
