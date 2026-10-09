@@ -567,3 +567,56 @@ Order (W8.md ADDENDUM (a) + §0ev.5): **`.e` → `.lg1`**. `.e` changes bytes, s
 - **Escalation ESC-W8e-1 (owner/orchestrator ruling; W8.md ADDENDUM (a): "the ceiling question is escalated, not shaved").** The cure is lawful and complete, but E-6's gz ceiling of 14,517 B is exceeded by 105 B (14,622). Any BBNF cure adds an entry, which means its name strings plus an entry wrapper. The `.x` precedent measured a new rule + entry at about +40–80 B gz, against a 5 B headroom. The one smaller formulation is the landed one. Cutting below that would mean obfuscation or moving grammar out of BBNF, and both are barred. **Ask:** raise the E-6 gz ceiling to ≥ 14,622 B (for example 14,700) or rule otherwise. `.lg1` may time these bytes regardless, because the size gate is independent of L-G1.
 - **Residuals:** none in scope. ESC-W8v-2 is **cured** (§19-V's open row is discharged by §19-E). Host load during gates: `{ 457.52 476.26 322.94 }` (no timing claim).
 - **Mail:** no new sweep (the RESUME open's E13 sweep stands, the same sitting); ⟨`grep -cE "\| *UNREAD *\|" docs/tranches/V/coordination/INBOX.md`⟩ → `0`.
+
+### X.P.W8.lg1 (2026-10-09, `claude-opus-5-5`) — L-G1 ×2 under COHESION §0ev.1 on `.e`'s bytes: node, Chromium and WebKit GREEN ×2 on every cell; Firefox 9/16 (including the W7-carried whole `parseCssScalar`), with 7 cells straddling at 101 rounds → **RED, ESC-W8lg1-1**
+
+- **Crash recovery:** ⟨`git status --porcelain -- bench docs/tranches/X/parse-that/evidence/W8 docs/tranches/X/execution/D/X-P-W8.md`⟩ → empty. No inherited work. parse-that ⟨`git log --oneline -1`⟩ → `cb9c0d4` (READ-ONLY; untouched).
+- **Bytes timed = `.e`'s final bytes.** ⟨`git rev-parse 5408b73e7:src HEAD:src`⟩ → `516e50f0…` both. ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 6c2750f76…` · `srcDirty ""` · `bankedManifestOk 79/79`. ⟨`shasum -a 256`⟩: `_build/product.mjs` `b7c2348f…`, `_build/retired.mjs` `a65bcc4c…`, `src/css/bbnf/generated/grammar.js` `78afc105…`; blob `64bd543b…` is the same at `5408b73e7` and at HEAD. All of this is banked in `bench/records/W8lg1/product-hash.txt` and `provenance.json`.
+- **Anchors at true bytes:**
+  - `bench.mjs:55` (`raw: t`) already banks `raw` (per-round ms per arm) in each node cell.
+  - `browser-page.mjs` returned no raw samples (⟨`grep -n raw bench/paired/browser-page.mjs`⟩ → none), so the §0ev.1 bound could not be recomputed from a browser record. This is the lock's one exception, "persisting raw per-round samples strictly requires it": a single edit adds `raw: t` to the returned cell, after timing. The timing code is unchanged, and `bench.mjs`, `browser.mjs` and `phases.mjs` are untouched (⟨`git diff --stat`⟩ → `browser-page.mjs | 2 +-`).
+- **Reader** `bench/paired/bootstrap.mjs` (new):
+  - The per-round ratio is round i against round i. The bootstrap is a seeded percentile bootstrap: mulberry32, seed `20261009 ^ fnv1a(cell key)`, B = 10,000.
+  - `ub` is the 97.5th percentile (the stricter two-sided reading), with the 95th printed beside it.
+  - Verdict: GREEN means median < 1 AND ub < 1. STRADDLE means lb < 1 ≤ ub.
+  - Gate: per rep, the read at that rep's largest banked round count, attempt 0. Attempt 0 is the instrument's first, unselected read. `browser.mjs`'s spread re-runs are reported as `strict` and never chosen among. A rep that straddles at 101 makes the cell RED.
+  - Self-check: ⟨`instrumentAgrees`⟩ → the median recomputed from raw equals the instrument's own `ratio.paired` on **335/335** reads (0 disagree).
+  - Determinism: ⟨`node bench/paired/bootstrap.mjs <all records> | shasum -a 256`⟩ ×2 → `a16f8dbf…` both.
+- **Reads** (headless; Playwright `launch()` default):
+  - **node:** ⟨`sh bench/records/W8lg1/node-read.sh 1 31`⟩ and ⟨`… 2 31`⟩. That is one fresh `bench.mjs` process per cell; read 2 reverses the arms. The cells are acc ×7, rej ×7 and `large-eq`.
+  - **node re-read:** read 2 of `rej parseCssColor` straddled at 31 (median 1.022, [0.727, 1.604]). ⟨`… 2 61 rej:parseCssColor`⟩ → 0.723, [0.609, 0.828], GREEN.
+  - **browsers:** ⟨`sh bench/records/W8lg1/browser-read.sh <engine> 31 acc,rej,large-eq`⟩ for chromium, webkit and firefox, at `reps 2`. Then ⟨`… firefox 31 whole parseCssScalar whole`⟩.
+  - **Firefox re-reads ×2 at 101 rounds** for every cell that straddled at 31: ⟨`… firefox 101 acc parseKeyframeSelector,parseTimingFunction,parseStylesheet acc-x1`⟩, `… rej parseCssColor,parseCssScalar,parseCssValue rej-x1`, `… acc parseCssColor,parseCssScalar acc-x2`, `… large-eq parseStylesheet leq-x1`, `… rej parseCssValues,parseKeyframeSelector,parseTimingFunction,parseStylesheet rej-x2`, and `… whole parseCssScalar whole-x1`. The whole-cell re-read was taken because one non-record attempt straddled at 31.
+  - **Load:** every cell carries `uptime` before and after; per-record `uptimeStart`/`uptimeEnd` are in the browser records. The 1-minute load range over each engine's reads (⟨node over `bootstrap-gate.json` rows⟩) is node 441.5–493.6, Chromium 443.0–475.2, WebKit 441.5–493.6, Firefox 112.9–659.4. The host was on AC (⟨`pmset -g batt`⟩ → `AC Power`, 87 % charging). Load is recorded, not gated (§0ev.1).
+
+| Gate (L-G1 ×2, §0ev.1) | Command | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|---|
+| node · 15 cells (acc ×7, rej ×7, `large-eq`) | ⟨`node bench/paired/bootstrap.mjs bench/records/W8lg1/node/*.json …`⟩ GATE block | unread | **15/15 GREEN ×2**. Medians 0.328–0.724; the largest ub is 0.830 (`rej parseTimingFunction` read 2; `rej parseCssColor` read 2 at 61 has ub 0.828). `large-eq` 0.519 / 0.610, ub 0.714 / 0.764 | **GREEN** |
+| Chromium · 15 cells | same | unread | **15/15 GREEN ×2** at 31; every attempt GREEN (0 re-runs). Medians 0.314–0.729, max ub 0.736. `large-eq` 0.566 / 0.567 | **GREEN** |
+| WebKit · 15 cells | same | unread | **15/15 GREEN ×2** at 31; every attempt GREEN (4 spread re-runs, all GREEN). Medians 0.356–0.875, max ub 0.882. `large-eq` 0.400 / 0.406 | **GREEN** |
+| Firefox · whole `parseCssScalar` (W7-carried) | same | UNREAD ×2 (W7 (k) 3) | at 101: 0.782, ub 0.870 · 0.659, ub 0.718; all 8 attempts GREEN | **GREEN** |
+| Firefox · 15 cells | same | unread | **8/15 GREEN ×2**: acc `parseCssValue`/`parseCssValues` at 31; at 101, acc `parseKeyframeSelector` (0.884/0.841) · acc `parseTimingFunction` · rej `parseCssScalar` · rej `parseCssValues` (0.887/0.944, ub 0.958/0.995) · rej `parseTimingFunction` · `large-eq` (0.530/0.752, ub 0.612/0.849). **7 straddle at 101 → RED:** acc `parseCssColor` (1.006, ub 1.351 · 0.836, ub 1.030) · acc `parseCssScalar` (0.833, ub 1.038 · GREEN) · acc `parseStylesheet` (GREEN · 0.837, ub 1.049) · rej `parseCssColor` (0.899, ub 1.033 · 0.886, ub 1.060) · rej `parseCssValue` (0.957, ub 1.075 · GREEN) · rej `parseKeyframeSelector` (1.027, ub 1.107 · 0.981, ub 1.101) · rej `parseStylesheet` (0.950, ub 1.000 · 1.068, ub 1.287) | **RED** (straddle at 101) |
+| rounds ≥ 31, extended while straddling, ≤ 101 | records | — | 31 base; node 1 read at 61; Firefox 14 cells re-read ×2 at 101 | GREEN (protocol held) |
+| load start/end + rounds per read | records | — | `uptimeBefore`/`uptimeAfter` on all 335 reads; `rounds` in every record | GREEN |
+| MANIFEST sha256 + product hash | ⟨`git archive HEAD bench/records/W8lg1 \| tar -x` → `shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ ×2 | — | `59` ×2 from the committed tree; product = `5408b73e7` bytes (above) | GREEN |
+- **Commits:**
+  - `fc7b757eb`: the reader `bench/paired/bootstrap.mjs`, plus `browser-page.mjs` `raw: t`.
+  - `8ed582fe4`: records `bench/records/W8lg1/**` (the 31 node cells, 10 browser records, drivers `node-read.sh`/`browser-read.sh`, `bootstrap-gate.json`, `provenance.json`, `product-hash.txt`, `MANIFEST.sha256`) and evidence `docs/tranches/X/parse-that/evidence/W8/l-g1/{README.md,bootstrap-read.txt}`.
+  - `06efe2c9b`: the 13 read logs. `.gitignore`'s `*.log` had held them out of `8ed582fe4`, and MANIFEST lists them, so they are force-added to make it verify from the tree.
+  - The receipt is in the separate record commit. 0 product bytes (⟨`git status --porcelain -- src`⟩ → empty).
+- **Adjacent edits (§0bt):** none. `browser-page.mjs` is the lock's own named exception, not an adjacent edit.
+- **Escalation ESC-W8lg1-1 (to a cure unit; §0ev.1: "a defect for a cure unit, never a ruling").** Seven Firefox cells straddle 1.0 at 101 rounds on at least one rep: acc `parseCssColor`, acc `parseCssScalar`, acc `parseStylesheet`, rej `parseCssColor`, rej `parseCssValue`, rej `parseKeyframeSelector`, rej `parseStylesheet`. Their medians are 0.833–1.068 and their ub 1.000–1.351. Measured context for the cure unit; this is not a ruling:
+  1. Firefox's reads ran at 1-min load 112.9–659.4.
+     - The instrument's retired-pass spread is up to 131× across the 112 reads at 101 rounds; 1 of them is under 1.6×.
+     - So every position took the instrument's 3 spread re-runs. Of those 112 reads, 64 were GREEN, and the same cell flips GREEN ↔ STRADDLE between attempts at one position (e.g. acc `parseCssColor` rep 0: 1.006 / 0.929 / 0.880 / 0.747).
+  2. Firefox's k-rule (`browser-page.mjs`: k doubles until one retired pass is ≥ 100 ms) calibrates on a single pass taken under load.
+     - k varied from 64 to 2048 for the same cell.
+     - At k = 64, two raw passes measured 0 ms (acc `parseKeyframeSelector`, non-record attempts), so the ratios there are quantized by the timer.
+  3. Medians alone are below 1.0 on 5 of the 7 cells on both reps. The cells nearest parity, rej `parseCssValue` (0.957/0.896) and rej `parseStylesheet` (0.950/1.068), match W7's quiet-window readings (W7 (e)/(f): Firefox rej `parseStylesheet` 0.915–0.984).
+  - Whether the remaining cost is product cost on SpiderMonkey's refusal/accept paths or the instrument's load-sensitive k calibration is the cure unit's diagnosis.
+  - This seat neither re-reads past 101 nor selects among attempts.
+- **Residuals:**
+  - ESC-W8lg1-1 above.
+  - ESC-W8e-1 (the E-6 gz ceiling, from `.e`) is still unruled and is not this unit's.
+  - The verdicts are on the attempt-0 read of record. The strict all-attempts view is in `bootstrap-read.txt`: Chromium, WebKit and node are GREEN on every attempt, and Firefox is not.
+- **Mail:** ⟨`grep -cE "\| *UNREAD *\|" docs/tranches/V/coordination/INBOX.md`⟩ → `0` (the RESUME open's E13 sweep stands, the same sitting).
