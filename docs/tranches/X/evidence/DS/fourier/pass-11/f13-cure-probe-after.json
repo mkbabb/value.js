@@ -1,0 +1,218 @@
+{
+ "light-1440": {
+  "stats": {
+   "views": {
+    "top": 632.47,
+    "bottom": 651.97,
+    "lh": "19.5px"
+   },
+   "likes": {
+    "top": 632.47,
+    "bottom": 651.97,
+    "lh": "19.5px"
+   },
+   "viewsMid": 641.97,
+   "likesMid": 641.97,
+   "dMid": 0,
+   "rowAlign": "center"
+  },
+  "plate": {
+   "plateW": 176,
+   "mediaW": 246,
+   "plateGap": "8px",
+   "tierGap": "8px",
+   "discLeftInset": 4,
+   "trashRightInset": 15,
+   "firstGlyphLeftInset": 15,
+   "lastDiscToDelete": 8,
+   "discToDisc": 8,
+   "trashGlyph": 14,
+   "tierGlyph": 14,
+   "deleteBoxW": 36,
+   "discW": 36
+  }
+ },
+ "public-light-1440": {
+  "views": {
+   "top": 455.73,
+   "bottom": 475.23,
+   "lh": "19.5px"
+  },
+  "likes": {
+   "top": 455.73,
+   "bottom": 475.23,
+   "lh": "19.5px"
+  },
+  "viewsMid": 465.23,
+  "likesMid": 465.23,
+  "dMid": 0,
+  "rowAlign": "center"
+ },
+ "morph-light-1440": {
+  "textWrap": "pretty",
+  "lines": 1,
+  "lastLine": "Tune the morph transition between sun and moon shapes."
+ },
+ "light-390": {
+  "stats": {
+   "views": {
+    "top": 890.55,
+    "bottom": 910.05,
+    "lh": "19.5px"
+   },
+   "likes": {
+    "top": 890.55,
+    "bottom": 910.05,
+    "lh": "19.5px"
+   },
+   "viewsMid": 900.05,
+   "likesMid": 900.05,
+   "dMid": 0,
+   "rowAlign": "center"
+  },
+  "plate": {
+   "plateW": 164,
+   "mediaW": 340,
+   "plateGap": "4px",
+   "tierGap": "4px",
+   "discLeftInset": 4,
+   "trashRightInset": 15,
+   "firstGlyphLeftInset": 15,
+   "lastDiscToDelete": 4,
+   "discToDisc": 4,
+   "trashGlyph": 14,
+   "tierGlyph": 14,
+   "deleteBoxW": 36,
+   "discW": 36
+  }
+ },
+ "public-light-390": {
+  "views": {
+   "top": 403.2,
+   "bottom": 422.7,
+   "lh": "19.5px"
+  },
+  "likes": {
+   "top": 403.2,
+   "bottom": 422.7,
+   "lh": "19.5px"
+  },
+  "viewsMid": 412.7,
+  "likesMid": 412.7,
+  "dMid": 0,
+  "rowAlign": "center"
+ },
+ "morph-light-390": {
+  "textWrap": "pretty",
+  "lines": 2,
+  "lastLine": "moon shapes."
+ },
+ "dark-1440": {
+  "stats": {
+   "views": {
+    "top": 632.47,
+    "bottom": 651.97,
+    "lh": "19.5px"
+   },
+   "likes": {
+    "top": 632.47,
+    "bottom": 651.97,
+    "lh": "19.5px"
+   },
+   "viewsMid": 641.97,
+   "likesMid": 641.97,
+   "dMid": 0,
+   "rowAlign": "center"
+  },
+  "plate": {
+   "plateW": 176,
+   "mediaW": 246,
+   "plateGap": "8px",
+   "tierGap": "8px",
+   "discLeftInset": 4,
+   "trashRightInset": 15,
+   "firstGlyphLeftInset": 15,
+   "lastDiscToDelete": 8,
+   "discToDisc": 8,
+   "trashGlyph": 14,
+   "tierGlyph": 14,
+   "deleteBoxW": 36,
+   "discW": 36
+  }
+ },
+ "public-dark-1440": {
+  "views": {
+   "top": 455.73,
+   "bottom": 475.23,
+   "lh": "19.5px"
+  },
+  "likes": {
+   "top": 455.73,
+   "bottom": 475.23,
+   "lh": "19.5px"
+  },
+  "viewsMid": 465.23,
+  "likesMid": 465.23,
+  "dMid": 0,
+  "rowAlign": "center"
+ },
+ "morph-dark-1440": {
+  "textWrap": "pretty",
+  "lines": 1,
+  "lastLine": "Tune the morph transition between sun and moon shapes."
+ },
+ "dark-390": {
+  "stats": {
+   "views": {
+    "top": 890.55,
+    "bottom": 910.05,
+    "lh": "19.5px"
+   },
+   "likes": {
+    "top": 890.55,
+    "bottom": 910.05,
+    "lh": "19.5px"
+   },
+   "viewsMid": 900.05,
+   "likesMid": 900.05,
+   "dMid": 0,
+   "rowAlign": "center"
+  },
+  "plate": {
+   "plateW": 164,
+   "mediaW": 340,
+   "plateGap": "4px",
+   "tierGap": "4px",
+   "discLeftInset": 4,
+   "trashRightInset": 15,
+   "firstGlyphLeftInset": 15,
+   "lastDiscToDelete": 4,
+   "discToDisc": 4,
+   "trashGlyph": 14,
+   "tierGlyph": 14,
+   "deleteBoxW": 36,
+   "discW": 36
+  }
+ },
+ "public-dark-390": {
+  "views": {
+   "top": 403.2,
+   "bottom": 422.7,
+   "lh": "19.5px"
+  },
+  "likes": {
+   "top": 403.2,
+   "bottom": 422.7,
+   "lh": "19.5px"
+  },
+  "viewsMid": 412.7,
+  "likesMid": 412.7,
+  "dMid": 0,
+  "rowAlign": "center"
+ },
+ "morph-dark-390": {
+  "textWrap": "pretty",
+  "lines": 2,
+  "lastLine": "moon shapes."
+ }
+}
