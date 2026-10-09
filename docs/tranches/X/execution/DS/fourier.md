@@ -812,3 +812,41 @@ each in light and dark.
 - `morph-*-{1440,390}` and `strip-end-*-{1440,390}`;
 
 each in light and dark.
+
+### pass 13
+- fourier `f76544a`, on `m/w1-bump-migration`, pushed fast-forward `9876aad..f76544a`. Five files, committed by pathspec.
+- value.js `5de161b2f` holds the AFTER frames, the cure probe and its JSON, the mono-rung probe, the census and the e2e logs (`pass-13/`). BEFORE is pass 12's AFTER set: `web/src` did not change between `9935f2c` and the cure's parent.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F15-C1 | `MorphShapePreview.vue`: the slot-form phase and shape Metrics also pass `:value="phase"` and `:value="shapeName"`, so glass Metric no longer marks them `data-empty` and mutes the value to the label's ink. Measured in all 4 cells: every reading is non-empty and paints in `--foreground` (light rgb 28 25 23, dark rgb 233 230 226), before and after the Sun to Moon morph. The `.shape-value` and `.phase-value` spans keep the min-inline-size guard, and no reading moves (sampled every 100ms for 4s). No local colour rule. |
+| DS-F15-C2 | `fira-code text-caption` and `fira-code text-small` become glass's `text-mono-small` at all 5 sites: the VisualizationView diagnosis, NotFoundCard, EquationView ×2 and the AppDock handle. The injected probe on the served tree (`mono-rung-probe.txt`) computes "Fira Code" for `text-mono-small` and "Computer Modern Serif" for both old pairs, which confirms the dead class. No local font rule. |
+| DS-F15-C3 | 'Browse the gallery' on the error stage takes `emphasis="quiet"`, as on the /w empty stage. The result is one primary and one quiet action: the second button now has 0 shadow layers and a transparent fill (before, the primary's capsule and 5-layer stack). |
+| DS-F15-C4 | The quoted slug in the stage-error lede is one `whitespace-nowrap` span. At 390 /v breaks before "from", and the slug keeps one line box (`slugRects` 1) in every cell. |
+| DS-F15-C5 | `stageErrorDetail` also drops a bare `… not found` title, which restates the lede. The /w and /v unknown slugs now show only the title, the lede and the actions. A real server diagnosis still shows, on the mono rung. |
+| DS-F15-C6 | Dissolved by C3. The second action has no plate, so the unequal stacked widths (177.5 over 147.3 px at 390) no longer read as a ragged column. No rule added. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F15-G1 is the /morph plate's pointer-tracked radial specular and its 5-layer stack (glass Surface). It widens DS-F5-G1's witness from the Configurator stage to the /morph plate.
+- DS-F15-G2 is every plated action's bevel stack plus its cast and warm halo (glass Button), already held at DS-F4R-G2, DS-F6-G3, DS-F11-G1 and DS-F14-G1.
+- Both stay honest-RED against O-87 FLAT-LIGHTING and will be re-judged at the 10.2.0 repin. No local override was added.
+
+**Census** (`pass-13/census-after.json`, on a fresh `:3123`):
+- Static is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+- Computed is identical to pass 12: 380 shadow elements, 956 layers, 286 multi-layer stacks, 286 inset highlights, 216 backdrop blur, 0 control gradients, 0 looping chrome.
+- The census does not visit the error stage. There the probe measures the quiet action's 0 layers, one cast stack fewer than in pass 12.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered 20 specs (`pass-13/e2e-specs.txt`): pass 12's 17 plus the three /equation specs, because EquationView changed. They ran on chromium plus mobile-chromium, headless, with 3 workers, against the cured tree served fresh on `:3123`.
+  - Run A: 226 passed, 1 failed. Run B: 226 passed, 1 failed.
+  - The one red is `f-w14v-au3` L1-12, the same pre-existing red as in passes 11 and 12 (clean-HEAD baseline in `pass-12/e2e-head-baseline-3124.txt`).
+- No visual golden was re-baselined. The runs' rewritten `web/e2e/screenshots/f-w14/*` were restored, not committed.
+
+**Frames** (`pass-13/`). All were captured in headless Chrome (Playwright `chromium`, DPR 2; §0ei) by `f15-cure-probe.spec.ts`. It ran from a temporary copy in fourier `web/e2e/`, deleted afterwards, against `:3123`:
+- `v-error-*-{1440,390}` and `w-error-*-{1440,390}`;
+- `morph-*-{1440,390}`, taken after the morph click;
+
+each in light and dark.
