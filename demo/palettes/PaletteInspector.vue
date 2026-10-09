@@ -65,9 +65,11 @@
             >
                 <template #trigger>
                     <!-- S.W5-4: the glass-ui atom; the sm square cures the
-                         ~24px touch target. -->
+                         ~24px touch target. X-DS V6C-03: the quiet rung, as
+                         every overflow trigger (UserSortMenu) — no plate. -->
                     <Button
                         icon-only
+                        emphasis="quiet"
                         size="sm"
                         aria-label="Palette menu"
                         class="shrink-0"
@@ -486,6 +488,23 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
 .palette-card__detail {
     grid-area: detail;
     min-inline-size: 0;
+}
+
+/* X-DS pass 6 (V6C-06): each colour appears once per state. Expanded, the
+ * editable swatch row below carries the colours, so the specimen strip
+ * collapses to a hairline band (the card keeps its colour edge; the row is
+ * the colours). The aside layout's vertical strip is the card's spine and
+ * stays. */
+.palette-card :deep([data-color-strip][data-orientation="horizontal"]) {
+    transition: block-size var(--duration-normal) var(--ease-standard);
+}
+.palette-card[data-selected]:not([data-layout="aside"]) :deep([data-color-strip][data-orientation="horizontal"]) {
+    block-size: 0.25rem;
+}
+@media (prefers-reduced-motion: reduce) {
+    .palette-card :deep([data-color-strip][data-orientation="horizontal"]) {
+        transition: none;
+    }
 }
 
 /* X.W12U.s2 · UIA-V-30 (+ A2-VA-L3-8): below 30rem of card the head row holds

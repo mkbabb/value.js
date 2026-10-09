@@ -2,13 +2,16 @@
     <div
         ref="zoneRef"
         :class="[
-            'group relative border-2 border-dashed transition-colors flex flex-col items-center justify-center overflow-hidden',
+            'group relative transition-colors flex flex-col items-center justify-center overflow-hidden',
             'min-h-[140px]',
             disabled ? 'cursor-not-allowed' : preview ? 'cursor-crosshair' : 'cursor-pointer',
+            /* X-DS pass 6 (V6C-11): the dashed edge is the DROP affordance, so
+               it shows only while the zone is empty or dragged over; a loaded
+               image sits in a hairline that inks on hover (the sample cue). */
             isOverDropZone && !disabled
-                ? 'rounded-panel border-primary bg-primary/10'
+                ? 'rounded-panel border-2 border-dashed border-primary bg-primary/10'
                 : preview
-                    ? 'rounded-panel border-transparent hover:border-primary/50'
+                    ? 'rounded-panel border border-transparent hover:border-primary/50'
                     : 'dashed-well',
         ]"
         role="button"

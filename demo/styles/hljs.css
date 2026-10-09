@@ -44,7 +44,14 @@
      * light), so the gradient editor seats its code on this paper. The crayon
      * identity is kept; only the ground is made true. `--code-ink` is
      * root-computed for the same reason. */
-    --code-ground: color-mix(in oklab, var(--card) 92%, var(--foreground));
+    /* X-DS pass 6 (V6C-10): still opaque and certified, but no longer the
+     * one neutral slab in the app — the ground takes the pane's hue from the
+     * live accent (`--accent-live`, the glass tint feed's source) at a quiet
+     * chroma, capped by the accent's own (a grey pick stays neutral). Its
+     * lightness is PINNED at the measured L of the certified paper (card 92% +
+     * fg: L 0.913 light / 0.345 dark), so the crayons keep their ratios
+     * (re-certified in pass-06/probe-code). */
+    --code-ground: oklch(from var(--accent-live) 0.913 min(c, 0.03) h);
     /* The four crayons + the muted comment, guarded for the light WELL field
      * (the rung-2 code-chip ground, AB-3). */
     --code-comment: hsl(30 22% 34%); /* warm muted gray (well-guarded) */
@@ -55,6 +62,7 @@
 }
 
 .dark {
+    --code-ground: oklch(from var(--accent-live) 0.345 min(c, 0.03) h);
     /* The same set, lifted for the dark chocolate WELL field. */
     --code-comment: hsl(34 14% 66%); /* warm muted gray (well-guarded) */
     --code-keyword: oklch(0.75 0.15 27);

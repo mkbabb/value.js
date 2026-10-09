@@ -143,23 +143,25 @@
                         key="extracted"
                         class="flex flex-col gap-1.5"
                     >
-                        <!-- T19 folded as the card's label line (F7): the
-                             display-voice stat + caption + Fira readout on
-                             one baseline, seated on the plate it describes.
-                             The duplicate dominant dot died — the card's
-                             first swatch IS the dominant specimen. -->
+                        <!-- T19 folded as the card's label line (F7), seated
+                             on the plate it describes. The duplicate dominant
+                             dot died — the card's first swatch IS the dominant
+                             specimen. X-DS pass 6 (V6C-07): two lines, one
+                             voice each — the display stat on its own line, the
+                             dominant readout in mono beneath it at full width,
+                             so the data is never the part that is cut. -->
                         <div
                             v-if="session.dominant.value"
-                            class="flex items-baseline gap-2 min-w-0 px-1"
+                            class="flex flex-col gap-0.5 min-w-0 px-1"
                         >
-                            <span class="font-display text-display leading-none shrink-0">
+                            <span class="font-display text-display leading-none">
                                 {{ Math.round(session.dominantShare.value * 100)
                                 }}<span
                                     class="text-body font-normal plate-ink"
                                     >% of the image</span
                                 >
                             </span>
-                            <span class="flex items-baseline gap-2 min-w-0 ml-auto">
+                            <span class="flex items-baseline gap-2 min-w-0">
                                 <span
                                     class="text-caption plate-ink shrink-0"
                                     >dominant</span

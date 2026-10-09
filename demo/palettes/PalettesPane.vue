@@ -22,15 +22,16 @@
                  the resting plate) aliased into the shared recipe slots;
                  utils.css untouched, the menu entry keeps the 4.5 default. -->
             <span class="capitalize">My <span class="palettes-ramp-text" :style="rampTitleVars">Palettes</span></span>
-            <!-- P4-R3 (a11y): the count badge leaves the heading's accessible
+            <!-- P4-R3 (a11y): the count leaves the heading's accessible
                  name (`aria-hidden`) so AT never announces "My Palettes2"; an
-                 sr-only companion carries the count with a separator. -->
-            <Badge
+                 sr-only companion carries the count with a separator.
+                 X-DS pass 6 (V6C-04): the app's ONE count idiom — a muted mono
+                 tabular numeral on the heading's baseline, no chip. -->
+            <span
                 v-if="pm.savedPalettes.value.length > 0"
-                variant="secondary"
-                class="text-mono-small ml-2"
+                class="text-mono-small tabular-nums text-muted-foreground ml-2"
                 aria-hidden="true"
-            >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</Badge>
+            >{{ searchNarrows ? `${pm.filteredSaved.value.length}/${pm.savedPalettes.value.length}` : pm.savedPalettes.value.length }}</span>
             <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ searchNarrows ? `${pm.filteredSaved.value.length} of ${pm.savedPalettes.value.length} shown` : `${pm.savedPalettes.value.length} saved` }})</span>
         </PaneHeader>
         <FadingScroll
@@ -197,7 +198,6 @@ import { inject, reactive, ref, shallowRef, computed, watch, onMounted, nextTick
 import { Card } from "@mkbabb/glass-ui/card";
 import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 import { Button } from "@mkbabb/glass-ui/button";
-import { Badge } from "@mkbabb/glass-ui/badge";
 import { Search, Trash2 } from "@lucide/vue";
 import { useSortable, insertNodeAt, removeNode } from "@vueuse/integrations/useSortable";
 import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";

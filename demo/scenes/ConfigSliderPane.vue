@@ -122,9 +122,6 @@ function resetDefaults() {
                 axis="y"
                 class="pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden"
             >
-                <!-- Default slot for extra controls (e.g. AuroraPane select rows) -->
-                <slot />
-
                 <!-- T.W4-4 THE POPULATION CLAUSE (M-34): the console grammar
                      extends to the app's SECOND slider population — the
                      sections seat in the SAME rung-2 well (.console-well,
@@ -132,10 +129,16 @@ function resetDefaults() {
                      certified ink, rows carry the touch rung <lg. O-18's
                      config-slider rows judge this surface. -->
                 <div
-                    v-if="sections.length > 0"
+                    v-if="sections.length > 0 || $slots.default"
                     class="px-4 sm:px-6 pb-6"
                 >
                     <div class="config-console console-well flex flex-col gap-5">
+                    <!-- Default slot for extra controls (e.g. AuroraPane's select
+                         rows). X-DS pass 6 (V6C-09): they seat INSIDE the one
+                         console well, ahead of the sections, so a pane is one
+                         plate with the section heads as its in-well sub-heads
+                         (Blob's grammar) — never two stacked wells, one headless. -->
+                    <slot />
                     <div
                         v-for="section in sections"
                         :key="section.title"

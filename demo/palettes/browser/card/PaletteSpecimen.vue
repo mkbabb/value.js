@@ -39,13 +39,14 @@
                 </span>
                 <span class="palette-specimen__yield-3">Featured</span>
             </Badge>
-            <!-- Priority 2: the colour count — the N every fixture asserts. -->
-            <Badge variant="secondary" class="text-mono-small shrink-0">
-                <span
-                    data-count="colors"
-                    :title="`${palette.colors.length} color${palette.colors.length === 1 ? '' : 's'}`"
-                >{{ formatCount(palette.colors.length).text }}</span>
-            </Badge>
+            <!-- Priority 2: the colour count — the N every fixture asserts.
+                 X-DS pass 6 (V6C-04): the app's ONE count idiom — a muted mono
+                 tabular numeral on the name's baseline, no chip. -->
+            <span
+                data-count="colors"
+                class="text-mono-small tabular-nums text-muted-foreground shrink-0"
+                :title="`${palette.colors.length} color${palette.colors.length === 1 ? '' : 's'}`"
+            >{{ formatCount(palette.colors.length).text }}</span>
             <!-- Priority 4 (first to yield): provenance + history counts. -->
             <span
                 v-if="palette.forkOf"
@@ -126,7 +127,8 @@ const {
     grid-area: head;
     container: specimen-head / inline-size;
     display: flex;
-    align-items: center;
+    /* V6C-04: name, counts and badges share the name's baseline. */
+    align-items: baseline;
     gap: 0.5rem;
     min-inline-size: 0;
     overflow: hidden;

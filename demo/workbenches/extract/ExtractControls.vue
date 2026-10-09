@@ -88,8 +88,12 @@
              pressed while live. X-DS pass 5 (V5C-07): the actions wear the
              text rung (as "Delete all" does), so the glyphs start at the
              column edge with the labels and rails above them; the group pulls
-             back by the rung's own inline pad (glass's `--space-residue`). -->
-        <div class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))]" role="group" aria-label="Image actions">
+             back by the rung's own inline pad (glass's `--space-residue`).
+             X-DS pass 6 (V6C-08): ONE text-action ink per pane — the group
+             sets the certified muted plate ink ("Delete all"'s) on its enabled
+             actions once, so the dark scheme's accent (gold) rung ink no longer
+             reads as decoration beside it; disabled keeps glass's own ink. -->
+        <div class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))] *:enabled:text-(color:--ink-muted)" role="group" aria-label="Image actions">
             <Button
                 v-if="hasImage"
                 emphasis="text"

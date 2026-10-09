@@ -194,18 +194,27 @@ const swatchKeys = computed(() => {
                                  re-minted geometric. -->
                             <!-- X.W12.u2 (UIA-V-40): glass 7.0.0's WatercolorDot forwards
                                  only class/style — the chip's title lives on its host div. -->
-                            <WatercolorDot
-                                :color="sc.css"
-                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0"
-                            />
-                            <button
-                                class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all cursor-pointer z-popover active:scale-95 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                            <!-- X-DS pass 6 (V6C-05): the chip IS its removal —
+                                 a press removes it (the add slot's shape: glass's
+                                 text rung, icon-only, the dot painted inside).
+                                 The red corner disc is gone; the x sits inside
+                                 the chip's own frame, in plate ink, on hover or
+                                 focus, while the dot recedes beneath it. -->
+                            <Button
+                                emphasis="text"
+                                icon-only
+                                size="lg"
+                                class="mix-chip relative shrink-0 cursor-pointer active:scale-95 transition-transform"
                                 :aria-label="`Remove ${formatCssCaption(sc.css)} from the mix`"
-                                :disabled="!canRemoveColor || undefined"
+                                :disabled="!canRemoveColor"
                                 @click="emit('removeColor', i)"
                             >
-                                <X class="w-2.5 h-2.5" />
-                            </button>
+                                <WatercolorDot
+                                    :color="sc.css"
+                                    class="mix-chip__dot w-full h-full"
+                                />
+                                <X class="mix-chip__x absolute w-4 h-4 pointer-events-none" aria-hidden="true" />
+                            </Button>
                         </div>
 
                         <!-- Add current color swatch — the shipped WatercolorDot
@@ -239,16 +248,19 @@ const swatchKeys = computed(() => {
 
                 <!-- From palettes — collapsible dropdown of PaletteCards -->
                 <Collapsible v-if="savedPalettes.length > 0" v-model:open="paletteDropdownOpen">
-                    <CollapsibleTrigger class="flex items-center gap-2 w-full cursor-pointer group py-1">
+                    <!-- X-DS pass 6 (V6C-04): the count is the app's ONE count
+                         idiom, a muted mono tabular numeral on the head's
+                         baseline (items-baseline; the chevron centres itself). -->
+                    <CollapsibleTrigger class="flex items-baseline gap-2 w-full cursor-pointer group py-1">
                         <span class="font-display text-subheading">From palettes</span>
-                        <span class="text-micro text-muted-foreground">{{ savedPalettes.length }}</span>
+                        <span class="text-mono-small tabular-nums text-muted-foreground">{{ savedPalettes.length }}</span>
                         <div class="flex-1" />
                         <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha over
                              the muted rung dies — the token IS the de-emphasis
                              rung; attenuating it further is the guard-then-alpha
                              class ("quieter" and "illegible" must never collapse). -->
                         <ChevronDown
-                            class="w-4 h-4 text-muted-foreground transition-transform group-hover:text-foreground"
+                            class="w-4 h-4 self-center text-muted-foreground transition-transform group-hover:text-foreground"
                             :class="paletteDropdownOpen && 'rotate-180'"
                         />
                     </CollapsibleTrigger>
@@ -375,6 +387,31 @@ const swatchKeys = computed(() => {
 </template>
 
 <style scoped>
+/* X-DS pass 6 (V6C-05): the chip's removal cue lives inside the chip — the
+   x in the certified plate ink, the dot receding beneath it. State motion
+   only (hover / focus), no plate, no red. */
+.mix-chip__x {
+    color: var(--ink-primary, var(--foreground));
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.mix-chip__dot {
+    transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.mix-chip:focus-visible .mix-chip__x {
+    opacity: 1;
+}
+.mix-chip:focus-visible .mix-chip__dot {
+    opacity: 0.4;
+}
+@media (hover: hover) {
+    .mix-chip:hover:not(:disabled) .mix-chip__x {
+        opacity: 1;
+    }
+    .mix-chip:hover:not(:disabled) .mix-chip__dot {
+        opacity: 0.4;
+    }
+}
 /* X.W5.d · gate D4 — the mode swap's travel. The direction token sets the
    `vj-morph` inline offset ON THE BRANCH ROOT ONLY and only while its
    enter-from / leave-to class is on it, so the offset never inherits into a

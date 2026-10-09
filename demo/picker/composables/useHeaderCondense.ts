@@ -36,11 +36,16 @@ import { onScopeDispose, ref, watch, type Ref } from "vue";
  * `savings` is unknown until the first condense settles, so the gate opens on a
  * conservative half-header estimate and tightens to the measured value once the
  * strip has rendered. The scroll root is resolved from the sentinel (the nearest
- * overflow auto/scroll ancestor — the picker Card on mobile); where nothing
- * scrolls (the desktop picker fits, `overflow: visible`) the observer falls back
- * to the viewport root, which never crosses — the header stays EXPANDED (the
- * correct dormant behavior). Observers re-bind on ref resolve (async-mount safe)
- * and self-clean on scope dispose.
+ * overflow auto/scroll ancestor — the picker Card on mobile).
+ *  3. SCROLL TRUTH (X-DS V6C-01) — the condense is a SCROLL state, so it holds
+ *     only while the scroll root is actually scrolled (`scrollTop > 0`). Where
+ *     nothing scrolls (the desktop picker fits, `overflow: visible`, no scroll
+ *     root) the header NEVER condenses: an off-canvas sentinel during a stage's
+ *     mount or travel is not a scroll, and the veil + shrink would lie about
+ *     one. A callback swallowed during the pane slot's travel re-observes the
+ *     sentinel once that travel settles, so the state is re-read at rest.
+ * Observers re-bind on ref resolve (async-mount safe) and self-clean on scope
+ * dispose.
  */
 /** The pane slot's travel classes (PaneSlot: vj-enter swap + overture appear). */
 const PANE_TRAVEL = ".vj-enter-enter-active, .vj-enter-leave-active, .overture-appear-active";
@@ -58,11 +63,41 @@ export function useHeaderCondense(
     let condensedH = 0;
     let settleTimer: ReturnType<typeof setTimeout> | undefined;
 
+    // the travelling ancestor whose settle re-reads the sentinel (one at a time)
+    let travelWatch: { el: Element; off: () => void } | null = null;
+
     const disconnect = () => {
         io?.disconnect();
         io = null;
         clearTimeout(settleTimer);
+        travelWatch?.off();
+        travelWatch = null;
         scrollRoot = null;
+    };
+
+    // Re-read the sentinel once the pane's travel ends: re-observing makes the
+    // observer deliver a fresh entry for the at-rest geometry.
+    const rereadAfterTravel = (el: Element, sent: HTMLElement) => {
+        if (travelWatch?.el === el) return;
+        travelWatch?.off();
+        const onEnd = (ev: Event) => {
+            if (ev.target !== el) return;
+            travelWatch?.off();
+            travelWatch = null;
+            if (io) {
+                io.unobserve(sent);
+                io.observe(sent);
+            }
+        };
+        el.addEventListener("transitionend", onEnd);
+        el.addEventListener("animationend", onEnd);
+        travelWatch = {
+            el,
+            off: () => {
+                el.removeEventListener("transitionend", onEnd);
+                el.removeEventListener("animationend", onEnd);
+            },
+        };
     };
 
     const resolveScrollRoot = (el: HTMLElement): HTMLElement | null => {
@@ -94,8 +129,15 @@ export function useHeaderCondense(
                     // as "scrolled past" — the header condensed and
                     // re-expanded (padding transitions, a 0.018 layout shift)
                     // on every KeepAlive return (w12-motion census, before).
-                    if (sent.closest(PANE_TRAVEL)) return;
-                    const wantsCondense = !e.isIntersecting;
+                    const travel = sent.closest(PANE_TRAVEL);
+                    if (travel) {
+                        rereadAfterTravel(travel, sent);
+                        return;
+                    }
+                    // scroll truth: no scroll root, or a root at its top, is
+                    // never a condensed state (V6C-01)
+                    const scrolled = !!scrollRoot && scrollRoot.scrollTop > 0;
+                    const wantsCondense = !e.isIntersecting && scrolled;
 
                     if (wantsCondense && !condensed.value) {
                         // sufficiency gate: only condense when there is real

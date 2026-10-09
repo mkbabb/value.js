@@ -141,10 +141,11 @@ const SECTIONS: SliderSection[] = [
              starts on the same line (the Mix/Generate two-column forms'
              grammar); V1C-04: the labels speak glass's plain field-label
              voice (Label), not the mono uppercase caps. X-DS pass 5 (V5C-08):
-             the select rows sit in the same rung-2 well as the "Field"
-             scalars below, so sibling settings sit at one level. -->
-        <div class="px-4 sm:px-6 pb-4">
-        <div class="aurora-form console-well">
+             the select rows sit at one level with the "Field" scalars. X-DS
+             pass 6 (V6C-09): they sit in the SAME console well (the pane's
+             slot is seated inside it), so the pane is one plate whose "Field"
+             head is an in-well sub-head. -->
+        <div class="aurora-form">
             <div class="aurora-row">
                 <Label :id="`${labelId}-harmony`">Harmony</Label>
                 <Select v-bind="popups.bind('harmony')" :model-value="harmony()" @update:model-value="setHarmony">
@@ -207,7 +208,6 @@ const SECTIONS: SliderSection[] = [
                 </Select>
             </div>
         </div>
-        </div>
     </ConfigSliderPane>
 </template>
 
@@ -223,8 +223,6 @@ const SECTIONS: SliderSection[] = [
     grid-template-columns: max-content minmax(0, 1fr);
     align-items: center;
     gap: 0.75rem;
-    /* The console well's own inner pad (ConfigSliderPane `.config-console`). */
-    padding: 0.75rem 0.875rem;
 }
 .aurora-row {
     display: contents;

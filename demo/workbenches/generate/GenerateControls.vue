@@ -154,13 +154,17 @@ defineExpose({ regenerate, save, copyColors });
                  cluster used to wrap onto its own right-aligned line, detached
                  from the title it acts on; now the name shrinks (it is the
                  flexible `min-w-0` member) and Regenerate drops its visible
-                 label below `sm` (the text stays as its accessible name). -->
+                 label below `sm` (the text stays as its accessible name).
+                 X-DS pass 6 (V6C-12): below `sm` the name steps ONE type rung
+                 down (subheading → body), so the at-rest default reads whole
+                 beside the three icon actions; the ellipsis stays for long
+                 names. -->
             <div class="px-3 py-2.5 flex items-center gap-x-2 min-w-0">
                 <input
                     v-model="paletteName"
                     type="text"
                     aria-label="Palette name"
-                    class="flex-1 basis-[10rem] min-w-0 truncate bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashed underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                    class="flex-1 basis-[10rem] min-w-0 truncate bg-transparent font-display font-medium text-subheading max-sm:text-body cursor-text rounded-sm hover:underline decoration-dashed underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 />
                 <!-- X-DS pass 1 (V1-09): the unlabelled count badge is gone —
                      the count slider's own readout below is its labelled home. -->
