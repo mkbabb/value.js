@@ -933,3 +933,50 @@ No local override was added for any of these.
 each in light and dark.
 
 **Process note.** The evidence commit's first form swept in a foreign staged deletion from another seat's index (`demo/picker/composables/useHeaderCondense.ts`). It was amended out before any push, and the other seat's index state (the staged deletion) was restored.
+
+### pass 3
+This is the third-round pass on critic **F3**, whose findings were witnessed on the pass 2 (F2R) AFTER frames.
+- fourier `24fce16`, on `m/w1-bump-migration`, pushed fast-forward `a06c10e..24fce16`. Five files, committed by pathspec.
+- value.js `76c570e99` holds the AFTER frames, the cure probe and its JSON, the census and the e2e logs, all in `pass-03/f3/`. The subdirectory keeps the original pass 3's committed frames intact, following the `pass-02/f2r/` precedent. BEFORE is the critic's set (`pass-02/f2r/`).
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F3-C1 | `epicycles.ts`: the tail cut is relative to the chain, `max(12px, 4% of the largest on-screen radius)`, not a fixed 6px. The 6 to 15px circles, which stacked two dots each into a fuzz at the tip, now join the one thin tail polyline. Every circle still drawn is at least 12px, so no dot sits on a circle under about 10px. The hues are kept (§0dm). Frame `v-stage-*-1440`: the tip reads as a few nested circles leading into one line, and the pen is visible. |
+| DS-F3-C2 | `CoefficientsPanel.vue`: the caption is one short token, `201 harmonics · n = ±200` (`a to b` when the span is not symmetric), with no literal ellipsis. The unit stays, per UIA-F-35 and `f-w14u-eq`'s `/21 harmonics/`. Measured in all 8 cells (/v and /equation, 1440 and 390, both themes): neither the label nor the caption is cut (`scrollWidth ≤ clientWidth`). Frame: `coeff-header-*-390`. Inside glass's layer header both spans are `truncate` in a shrinking flex row, so the label can still yield first. That is the header flex rule (label `flex: none`), which is glass's to change. It is relayed beside O-87, with no local override. |
+| DS-F3-C3 | `FunctionInput.vue`: the `.compute-btn:hover` re-tone (red border, fill and ink) is deleted, and glass's primary hover runs. Only `width: 100%` stays. Measured on hover: the ink, fill and border equal glass's primary, light and dark. The equation cells were re-captured with the pointer parked at (0,0); `compute-hover-*-1440` shows the hover itself. |
+| DS-F3-C4 | `VisualizationView.vue` (load error) and `NotFoundCard.vue` (unknown route): "Upload a new image" carries the same leading `<Upload />` glyph as the empty stage's "Choose an image". Measured: every visible primary in the `w`, `v-error` and `no-such-route` cells has its glyph. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F3-G1: dark-arm casts inked from `--foreground` (a halo, not a drop) on capsule, resting and floating surfaces. It is a named row under O-87 FLAT-LIGHTING (dark-arm foreground-inked cast = halo), held honest-RED, and re-judged at the 10.2.0 repin.
+- DS-F3-G2: the transport `1 ×` overflows the collapsed capsule at 1440 too, not only at 390. The O-88 DOCK-COLLAPSE-MOTION row is extended to every width.
+- DS-F3-G3: the stage toolbar's ghost plate silhouette under `fit-content` (plate and body differ in radius and box). Cited under O-88 (dock form), with O-87 for the plate's cast.
+- DS-F3-G4: the `text` link rung inks with `--primary`, which is black in light and violet in dark. Relayed beside O-87: the rung should take an accent ink, or an underline in light. The consumer keeps `emphasis="text"`.
+- DS-F3-G5: the Metric label on the coarse control ramp outranks its `sm` value. Relayed with the DS-F2R-C4 coarse-pointer type-step residual.
+- The ConfiguratorLayer header's label-yields-first flex order (from C2), as above.
+
+No local override was added for any of these.
+
+**Census** (fourier `scripts/ds-census.mjs`, against a fresh preview of the cured tree on `:3128`; `pass-03/f3/census-after.json`):
+- Static is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+- Computed sums: 388 shadow elements, 984 layers, 294 multi-layer stacks, 294 inset highlights, 216 backdrop blur, 0 control gradients, 0 looping chrome.
+- Read cell for cell, the only deltas from pass 2 come from data, not lighting:
+  - /gallery shows 2 more seeded cards (+2 elements and +7 layers per cell);
+  - the /v cell follows the gallery's newest slug, so its key changed;
+  - /equation light 1440 now matches pass 2's clean re-read, without the transient busy state.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered pass 2's 22 specs (`e2e-specs.txt`), which reach /v, /w, /equation and the not-found route. They ran on chromium plus mobile-chromium, headless, with 3 workers. The setup was a dev server of the cured tree on `:3000` (the config's BASE_URL) plus Playwright's own production preview on `:4190`.
+  - Run A: 235/235.
+  - Run B: 235/235.
+- A first attempt pointed BASE_URL at the :4190 production preview and got 16 reds. Every one was a dev-only probe (`__vueParentComponent.__file`, the dev-only shape extractor) and not this cure. The log is kept as `e2e-runA0-wrong-base.txt`.
+- No visual golden was re-baselined. Before the runs the seat backed up the `web/e2e/screenshots/` tree, including another seat's dirty files, and restored that state after each run. Nothing there was committed.
+
+**Frames** (`pass-03/f3/`). All were captured in headless real Chrome (channel `chrome`, DPR 2; §0ei) by `f3-cure-probe.mjs` against `:3128`, with the pointer parked off the controls:
+- `equation-*-{1440,390}` after Compute;
+- `w-*`, `v-*`, `v-error-*` and `no-such-route-*` at 1440 and 390;
+- crops: `v-stage-*`, `coeff-header-*-390` and `compute-hover-*-1440`;
+
+each in light and dark.
