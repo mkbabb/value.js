@@ -1,0 +1,164 @@
+{
+ "label": "after-q2",
+ "base": "http://localhost:5893",
+ "load1": "22.64",
+ "playing": {
+  "snap": {
+   "playing": true,
+   "started": true,
+   "animations": {}
+  },
+  "sweep": "sweep 1.000",
+  "time": "1205 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Pause animation"
+  ]
+ },
+ "afterReset": {
+  "snap": {
+   "playing": false,
+   "started": false,
+   "animations": {},
+   "progress": 0
+  },
+  "sweep": "sweep 0.000",
+  "time": "0 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Play animation"
+  ]
+ },
+ "afterReset1200": {
+  "snap": {
+   "playing": false,
+   "started": false,
+   "animations": {},
+   "progress": 0
+  },
+  "sweep": "sweep 0.000",
+  "time": "0 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Play animation"
+  ]
+ },
+ "replaying": {
+  "snap": {
+   "playing": true,
+   "started": true,
+   "animations": {}
+  },
+  "sweep": "sweep 0.993",
+  "time": "491 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Pause animation"
+  ]
+ },
+ "sliders": [
+  {
+   "l": null,
+   "x": 225.53125,
+   "y": 156.1875,
+   "w": 0,
+   "h": 20,
+   "max": "1.2"
+  },
+  {
+   "l": null,
+   "x": 277.5625,
+   "y": 216.546875,
+   "w": 0,
+   "h": 20,
+   "max": "1.5"
+  },
+  {
+   "l": "Scrub animation timeline",
+   "x": 181.328125,
+   "y": 573.484375,
+   "w": 0,
+   "h": 20,
+   "max": "2000"
+  },
+  {
+   "l": "Spring target",
+   "x": 573.59375,
+   "y": 246.5,
+   "w": 768,
+   "h": 48,
+   "max": "1"
+  }
+ ],
+ "track": {
+  "x": 93.203125,
+  "y": 583.484375,
+  "w": 359.1875
+ },
+ "duringScrub": {
+  "snap": {
+   "playing": true,
+   "started": true,
+   "animations": {}
+  },
+  "sweep": "sweep 1.000",
+  "time": "940 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Pause animation"
+  ]
+ },
+ "afterRelease60": {
+  "snap": {
+   "playing": true,
+   "started": true,
+   "animations": {}
+  },
+  "sweep": "sweep 1.000",
+  "time": "1001 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Pause animation"
+  ]
+ },
+ "afterRelease460": {
+  "snap": {
+   "playing": true,
+   "started": true,
+   "animations": {}
+  },
+  "sweep": "sweep 1.000",
+  "time": "1401 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Pause animation"
+  ]
+ },
+ "pauseDuringScrub": {
+  "snap": {
+   "playing": false,
+   "started": true,
+   "animations": {}
+  },
+  "sweep": "sweep 1.001",
+  "time": "740 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Play animation"
+  ]
+ },
+ "pauseDuringScrubReleased460": {
+  "snap": {
+   "playing": false,
+   "started": true,
+   "animations": {}
+  },
+  "sweep": "sweep 1.001",
+  "time": "740 / 2000 ms",
+  "samplerBall": null,
+  "playLabel": [
+   "Play animation"
+  ]
+ },
+ "errs": []
+}
