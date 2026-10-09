@@ -9,14 +9,19 @@
              owns the sub-lg width). -->
         <Card
             tier="resting"
-            class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible"
+            class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-hidden lg:overflow-visible"
         >
-            <!-- U-F9 (T-61/§0.8) — the scroll-contraction sentinel: a 0-height
-                 marker riding the TOP of the Card scroll container (the picker
-                 Card is the mobile scroll host, overflow-y-auto). useHeaderCondense
-                 observes it; crossing the threshold condenses the whole header
-                 block to ONE short strip. -->
-            <div ref="headerSentinel" class="header-sentinel" aria-hidden="true"></div>
+            <!-- A2-VA-L1-2 — ONE condensing header: glass's. The scroll host is
+                 glass's `.card-scroll-host`, an element INSIDE the plate (never
+                 the plate: its feather mask would dissolve the plate's own
+                 edge), and the header is glass `<CardHeader shrink>`, whose
+                 real-box discrete condense (hysteresis threshold + sufficiency
+                 gate, `[data-condensed]`) retires the local useHeaderCondense
+                 fork and its sentinel. The picker scrolls only below `lg`; from
+                 `lg` it fits, so the host is `display: contents` there — no box,
+                 so no clip, no mask, no scroll, and the header never condenses
+                 (the X-DS V6C-01 scroll truth, now glass's `scrollTop` read). -->
+            <div class="card-scroll-host picker-scroll-host flex flex-col min-h-0 min-w-0 lg:contents">
             <!-- The header is a DISPLAY surface (space title + hero numbers →
                  Fraunces); horizontal padding rides `cqi` against the pane-slot
                  container, not viewport breakpoints (R.W3 Lane A / A4) — and is
@@ -26,11 +31,8 @@
                  sticky whole-header contraction (Row B, T-61/§0.8, header.css);
                  `gap-y-1` retires into the `--picker-header-rhythm` token. -->
             <CardHeader
-                ref="pickerHeaderEl"
-                :class="[
-                    'picker-header font-display m-0 pt-3 pb-0 z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col items-start',
-                    condensed ? 'is-condensed' : '',
-                ]"
+                shrink
+                class="picker-header font-display m-0 pb-0 [--card-pad:0.75rem] z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col items-start"
             >
                 <!-- Title row = THE BEAD'S BAND (T.W4-5 · D8; t-contradictions
                      C1 order: the seat re-derives AGAINST the settled ×φ title
@@ -80,6 +82,7 @@
                     <ComponentSliders />
                 </div>
             </CardContent>
+            </div>
         </Card>
 
         <!-- T.W4-5 — THE SEAT (D8 · Q3 "Flush." · the T-30 centre-ward
@@ -145,7 +148,6 @@ import { VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { COLOR_TARGET_PORT_KEY } from "../palettes/usePalettePorts";
 
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./debug/usePointerDebug";
-import { useHeaderCondense } from "./composables/useHeaderCondense";
 import "./seat.css";
 import "./header.css";
 
@@ -190,25 +192,6 @@ const { model } = colorModel;
 
 const pointerDebug = usePointerDebug();
 provide(POINTER_DEBUG_KEY, pointerDebug);
-
-// U-F9 (T-61/§0.8) — the whole-header scroll contraction. The sentinel rides
-// the top of the Card scroll container; `condensed` flips past the threshold
-// and drives the `.is-condensed` strip state (header.css). Threshold sits below
-// the 390 card overflow (~32px at the tightest witnessed phone band) so the
-// contraction is reachable on the mobile scroll where the picker actually
-// scrolls; the desktop picker fits (no scroll → stays expanded, correct). The
-// composable reserves the condense deficit on the scroll root imperatively so
-// the toggle stays stable on barely-overflowing content (no oscillation).
-const headerSentinel = useTemplateRef<HTMLElement>("headerSentinel");
-// glass-ui's <CardHeader> is a single-root SFC; the template ref exposes the
-// component proxy, whose `$el` is the header <div> the composable measures.
-const pickerHeaderRef = useTemplateRef("pickerHeaderEl");
-const pickerHeaderEl = computed<HTMLElement | null>(
-    () => (pickerHeaderRef.value as { $el?: HTMLElement } | null)?.$el ?? null,
-);
-const { condensed } = useHeaderCondense(headerSentinel, pickerHeaderEl, {
-    threshold: 16,
-});
 
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const paletteManager = inject(COLOR_TARGET_PORT_KEY);
