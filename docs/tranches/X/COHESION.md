@@ -3768,3 +3768,22 @@ Owner, verbatim: *"Continue. Re-deploy all workflows and agents thereof--no exce
    - Its models load through F.REL's `FOURIER_MODEL_DIR` once `.m` lands. Until then it uses the user cache.
    - The resource law binds every seat in both workflows. Serialise heavy runs: one bench or full pytest per repo at a time, signalled with a lockfile in the repo's `.worktrees/` dir.
 5. **Track D runs NOW:** `.e`, then L-G1 ×2 by protocol 1, then close, then check-as-audit.
+
+## §0ew — 2026-10-09: F.REL's three escalations RULED (ESC-FREL-g-1 memory · g-2 product defects · g-3 goldens); F.REL resumes now with units `.mem → .w → .vb → .g → .d`
+- **ESC-FREL-g-1 → unit `.mem`: the extraction pipeline is memory-bounded at its root.**
+  - The gate is **peak RSS ≤ 1.6 GB for one default extraction, of every model, on every harness image**. That is measured, and the API runs under `memory: 2G` in a container smoke, which is production's own cap.
+  - **Raising the cap is REJECTED as the cure**, because production and the 16 GB CI runner must both hold.
+  - Mechanism, chosen by measurement:
+    - Run the ensemble members sequentially, releasing each ORT session (or a cached session with `enable_cpu_mem_arena=False` and `enable_mem_pattern=False`), and run inference on bounded inputs.
+    - If BiRefNet-lite's export is static at 1024, either use a lighter export at a smaller input, or drop BiRefNet from the subject ensemble. Dropping it is allowed only if U2-Net together with the face/person parsers keeps the subject mask.
+    - The quality gate is the subject-mask IoU against the current 1024 ensemble masks: mean ≥ 0.97 and min ≥ 0.93 over the harness set. Re-read the harness metrics and name every changed overlay.
+  - Grant: `.mem` writes `src/fourier_analysis/contours/ml.py`, its tests and the harness's memory probe. F.CT3 is live on `f-ct3` and merges `m/w1-bump-migration` forward each round, so `.mem` lands on `m/w1-bump-migration` as one atomic commit. F.CT3's next round re-judges on top of it.
+- **ESC-FREL-g-2 → unit `.w`: the consumer defects are cured in `web/src` under the clean-window protocol (§0ev.3)**, beside X-DS's fourier lane. These are: contrast-floor ×3, the dock not collapsing after `traceOff`, and the toast over the Configurator at 1024.
+  - A **producer-owned** failure (glass's Toaster `aria-hidden`-focus ×4) is cured at the consumer only if the consumer misconfigures it. Otherwise it is relayed to glass (BK) with its id.
+  - Such a failure is listed in **one committed manifest**, `web/e2e/producer-held.json`. Each entry carries the test id, the O-id and an expiry ("at glass 10.2.0 repin"). CI's deploy gate excludes exactly that list and prints it on every run.
+  - Every other e2e failure blocks. This is a named, auditable, self-expiring hold, never a skip in the spec file.
+- **ESC-FREL-g-3 → unit `.vb`: the redesigned frames ARE the accepted state** (the owner's X-DS direction, §0ej/§0ek). Re-baseline the visual checkpoints at the current HEAD.
+  - Darwin goldens are rendered locally, headless.
+  - **Linux goldens are rendered in the official Playwright docker image matching the repo's Playwright version**, which is how CI renders. This happens under the heavy-run lock.
+  - Every later X-DS fourier pass that changes a checkpoint re-baselines it in its own receipt. That is the standing rule from today.
+- `.g` merges to master only when e2e is GREEN outside the manifest and `.mem` is GREEN. That ordering is why the master push was withheld, and it was correct.

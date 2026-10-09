@@ -35,3 +35,9 @@
 
 ## Gates
 pytest and the api tests GREEN ×2; web vue-tsc, vitest and e2e GREEN ×2 (the named set explicit); production smoke GREEN; the end-to-end production check GREEN; the cert more than 14 days out; no API outage during the deploy (health polled through it).
+
+## ADDENDUM 2026-10-09 (a) — escalations ruled (COHESION §0ew); order `.mem → .w → .vb → .g → .d`
+- **`.mem`:** peak RSS ≤ 1.6 GB per default extraction of every model on every harness image, and a container smoke under `memory: 2G`. Subject-mask IoU against the 1024 ensemble: mean ≥ 0.97, min ≥ 0.93. Raising the cap is not a cure. Writable: `contours/ml.py`, its tests, and the harness memory probe.
+- **`.w`:** consumer e2e defects cured in `web/src` under §0ev.3. Producer-owned failures go only into `web/e2e/producer-held.json` (test id, O-id, expiry), which CI's deploy gate excludes and prints. Relay each one to glass BK.
+- **`.vb`:** visual checkpoints re-baselined at HEAD, darwin locally and linux in the Playwright docker image, under the heavy-run lock. The redesigned frames are the accepted state.
+- `.g` then `.d` as specified, gated on `.mem` and the e2e being GREEN outside the manifest.
