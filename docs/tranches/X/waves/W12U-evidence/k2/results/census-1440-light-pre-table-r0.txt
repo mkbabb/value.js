@@ -1,0 +1,31 @@
+load 161.80 204.68 242.98
+1440x900 light view / GREEN multi=6 dup=[] ruled=[{"name":"demo/shared/ui/ColorSpaceSelector.vue","n":2,"row":"A2-VA-K-1"}]
+1440x900 light view /palettes GREEN multi=10 dup=[] ruled=[]
+1440x900 light view /browse RED multi=12 dup=[{"name":"demo/palettes/browser/card/PaletteCardGrid.vue","n":2,"role":"UNREAD"}] ruled=[]
+1440x900 light view /extract GREEN multi=11 dup=[] ruled=[]
+1440x900 light view /mix GREEN multi=6 dup=[] ruled=[]
+1440x900 light view /generate GREEN multi=13 dup=[] ruled=[]
+1440x900 light view /gradient GREEN multi=12 dup=[] ruled=[]
+1440x900 light view /atmosphere GREEN multi=1 dup=[] ruled=[]
+1440x900 light view /blob GREEN multi=4 dup=[] ruled=[]
+1440x900 light view /admin/users GREEN multi=1 dup=[] ruled=[]
+1440x900 light view /admin/names RED multi=2 dup=[{"name":"demo/palettes/admin/panels/AdminListItem.vue","n":47,"role":"UNREAD"}] ruled=[]
+1440x900 light view /admin/audit GREEN multi=1 dup=[] ruled=[]
+1440x900 light view /admin/flagged GREEN multi=1 dup=[] ruled=[]
+1440x900 light view /admin/tags GREEN multi=1 dup=[] ruled=[]
+1440x900 light view /nope/xyz GREEN multi=1 dup=[] ruled=[]
+1440x900 light overlay dock view select GREEN multi=6 dup=[] ruled=[{"name":"demo/shared/ui/ColorSpaceSelector.vue","n":2,"row":"A2-VA-K-1"}]
+1440x900 light overlay dock menu UNOPENED TimeoutError: locator.click: Timeout 60000ms exceeded.
+1440x900 light overlay dock attribution menu UNOPENED TimeoutError: locator.click: Timeout 60000ms exceeded.
+1440x900 light overlay color-space select GREEN multi=6 dup=[] ruled=[{"name":"demo/shared/ui/ColorSpaceSelector.vue","n":2,"row":"A2-VA-K-1"}]
+1440x900 light overlay dock color input UNOPENED TimeoutError: locator.click: Timeout 60000ms exceeded.
+1440x900 light overlay browse filters RED multi=12 dup=[{"name":"demo/palettes/browser/card/PaletteCardGrid.vue","n":2,"role":"UNREAD"}] ruled=[]
+1440x900 light overlay palette card menu RED multi=12 dup=[{"name":"demo/palettes/browser/card/PaletteCardGrid.vue","n":2,"role":"UNREAD"}] ruled=[]
+1440x900 light overlay tag-edit popover RED multi=12 dup=[{"name":"demo/palettes/browser/card/PaletteCardGrid.vue","n":2,"role":"UNREAD"}] ruled=[]
+1440x900 light overlay version drawer RED multi=12 dup=[{"name":"demo/palettes/browser/card/PaletteCardGrid.vue","n":2,"role":"UNREAD"}] ruled=[]
+1440x900 light overlay flag report dialog RED multi=12 dup=[{"name":"demo/palettes/browser/card/PaletteCardGrid.vue","n":2,"role":"UNREAD"}] ruled=[]
+1440x900 light overlay delete-all dialog GREEN multi=10 dup=[] ruled=[]
+1440x900 light overlay admin user delete confirm GREEN multi=1 dup=[] ruled=[]
+1440x900 light overlay admin flagged delete confirm GREEN multi=1 dup=[] ruled=[]
+1440x900 light overlay admin tag delete confirm GREEN multi=1 dup=[] ruled=[]
+RED 10 (read 26)

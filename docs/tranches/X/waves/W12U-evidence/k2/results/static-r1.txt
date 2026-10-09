@@ -1,0 +1,31 @@
+GREEN L1-16-one-owner demo/shared/usePopupMutex.ts 
+GREEN L1-16-hover-fork absent:demo/palettes/browser/card/composables/useHoverPopover.ts
+GREEN L1-16-prop-chain activeHover refs=0
+GREEN L1-17-admin-pane present:demo/palettes/admin/AdminPane.vue
+GREEN L1-17-admin-panels present:demo/palettes/admin/panels/AdminUsersPanel.vue
+GREEN L1-17-admin-composables present:demo/palettes/admin/composables/useAdminUsers.ts
+GREEN L1-17-user-sort present:demo/palettes/admin/UserSortMenu.vue
+GREEN L1-17-inspector present:demo/palettes/inspector/PaletteInspector.vue
+GREEN L1-17-shared-ActionFeedback present:demo/shared/ui/ActionFeedback.vue
+GREEN L1-17-shared-PaletteSpecimen present:demo/shared/ui/PaletteSpecimen.vue
+GREEN L1-17-shared-PaletteColorStrip present:demo/shared/ui/PaletteColorStrip.vue
+GREEN L1-17-shared-PaletteCardSkeleton present:demo/shared/ui/PaletteCardSkeleton.vue
+GREEN L1-17-shared-ColorSpaceSelector present:demo/shared/ui/ColorSpaceSelector.vue
+GREEN L1-17-shared-InterpolationFields present:demo/shared/ui/InterpolationFields.vue
+GREEN L1-17-color-chips present:demo/shared/ui/color-chips/PreviewRamp.vue
+GREEN L1-17-mix-owner present:demo/workbenches/mix/mix.ts
+GREEN L1-17-old-admin-dir absent:demo/palettes/browser/admin
+GREEN L1-17-old-paletteCard-dir absent:demo/palettes/browser/card/PaletteCard
+GREEN L1-17-no-vue-in-color-session vue=0
+GREEN L1-17-no-workbench-reach reaches=0
+GREEN L1-18-old-root absent:demo/color-picker
+GREEN L1-18-new-root present:demo/app/App.vue
+GREEN L1-18-no-old-refs live refs=0 (CHANGELOG + bench corpus are history)
+GREEN L1-18-dev-sh dev.sh color-picker refs=0 (never edited)
+GREEN L1-2-condense-fork absent:demo/picker/composables/useHeaderCondense.ts
+GREEN L1-12-height-morph absent:demo/palettes/browser/card/composables/useHeightTransition.ts
+GREEN L1-11-god-editor absent:demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue
+GREEN L1-9-lamp absent:demo/shell/dock/DockStatusLamp.vue
+GREEN L1-1-shell present:demo/shell/PaneShell.vue
+GREEN L1-1-panes-on-shell panes using PaneShell=10
+GREEN 30/30
