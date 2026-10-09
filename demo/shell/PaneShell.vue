@@ -1,3 +1,4 @@
+<!-- SERVED MODEL: claude-opus-5-5 -->
 <template>
     <div
         :class="[

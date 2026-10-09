@@ -1,3 +1,4 @@
+<!-- SERVED MODEL: claude-opus-5-5 -->
 <script setup lang="ts">
 /**
  * InterpolationFields — THE interpolation-space and hue-method pair

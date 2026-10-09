@@ -1,3 +1,4 @@
+<!-- SERVED MODEL: claude-opus-5-5 -->
 <template>
     <!-- A2-VA-L1-15 — THE ONE SWATCH-WITH-A-VERB. A colour you can press is a
          glass `Button` (text emphasis, icon-only) whose face is the

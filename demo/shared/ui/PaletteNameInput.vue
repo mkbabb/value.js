@@ -1,3 +1,4 @@
+<!-- SERVED MODEL: claude-opus-5-5 -->
 <template>
     <!-- A2-VA-L1-14 — THE ONE INLINE NAME FIELD, on glass `Input`. Inline name
          editing was built three ways (this file as PaletteRenameInput, a bare

@@ -1,3 +1,4 @@
+// SERVED MODEL: claude-opus-5-5
 /**
  * usePopupMutex — THE ONE single-open mutex for a group of popups
  * (A2-VA-L1-16). The app had three: this composable (a local fork of the one

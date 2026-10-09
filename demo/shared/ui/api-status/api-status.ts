@@ -1,3 +1,4 @@
+// SERVED MODEL: claude-opus-5-5
 /**
  * The API-status resolver — ONE status language, two seats (A2-VA-L1-9).
  *

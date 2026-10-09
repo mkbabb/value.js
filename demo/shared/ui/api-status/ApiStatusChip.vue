@@ -1,3 +1,4 @@
+<!-- SERVED MODEL: claude-opus-5-5 -->
 <template>
     <!-- A2-VA-L1-9 — THE ONE API-STATUS CHIP, rendered from both seats: the
          dock band's lamp (`seat="dock"`, dev-gated, the one place a

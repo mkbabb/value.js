@@ -1,3 +1,4 @@
+<!-- SERVED MODEL: claude-opus-5-5 -->
 <script setup lang="ts">
 /**
  * GradientStopInspector — the selected stop's inspector (A2-VA-L1-11: split out
