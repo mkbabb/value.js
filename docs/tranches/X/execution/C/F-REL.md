@@ -397,3 +397,76 @@ Groups: `[[F-REL.mem], [F-REL.w], [F-REL.vb], [F-REL.g], [F-REL.d]]`.
 | F-REL.d | §Units `.d` (F-REL.md:32-38) | `scripts/**` (prod-verify probe); evidence `value.js/docs/tranches/X/fourier/evidence/F-REL/` | G-smoke, G-cert > 14 d, G-outage (health polled through the deploy), G-d six production rows headless via `scripts/prod-verify.mjs`, openapi has publish/remix/diff, PATCH preflight 2xx | deploy via standing workflow + webhook only; host never hand-edited; R-h1/R-h2 named |
 
 ## RESUME 2026-10-09 — Unit receipts
+
+### F-REL.mem
+
+Seat `claude-opus-5-5`, 2026-10-09 11:38–13:45 local. Spec read whole: COHESION §0ew bullet 1 (L3773-3779), F-REL.md ADDENDUM (a) `.mem` (L40); §0eu/§0ev read for the rulings consumed. **Status: ESCALATED (ESC-FREL-mem-1). No commit.** Neither of §0ew's two named routes meets both gates at the bytes; the spec forbids substituting a third.
+
+**Crash recovery.** ⟨`git status --porcelain` (fourier), filtered to the writable set⟩ → 0 paths. Nothing inherited.
+
+**Lock and load.** I took `.worktrees/heavy.lock` at 15:41:15Z, touched it every 300 s and removed it at the end. ⟨`uptime`⟩ → load 475 at open, 183–590 through the runs. Memory peaks are counts, not timings, so they are robust to load (§0ev.1). Each probe row records the 1-minute load at its start and end.
+
+**Acts in order.**
+1. **The probe.** I built `bench/contours/memory.py` (new; `python -m bench.contours.memory`). Each stage runs in a fresh child and reports its `ru_maxrss` peak:
+   - `extraction`: one default extraction through `harness.run_pipeline`, the API route's own path.
+   - `model:<name>`: each ONNX model opened through `ml._get_session`, plus the LiteRT person parser, with one inference on the image.
+   - `server`: every image in one process.
+   - `masks`: saves `ensemble` (`isolation.subject_mask`) and `subject` (the mask after `parts.part_labels`).
+   - `--iou A B`: subject IoU against the 0.97/0.93 bar.
+   - ⟨`ruff check`⟩ → clean.
+2. **BEFORE on darwin, HEAD `94870dc`.**
+   - Calibration: ⟨`memory --tag mem-calib --only chef-2`⟩ → extraction **9838 MB**, `model:birefnet-general-lite` **9503 MB**, `model:u2net` 2416, `model:informative-drawings-contour-768` 2473.
+   - ⟨`memory --tag mem-before --stages --no-server`⟩ → 19/19 mask rows. Mask-stage peaks run 7821–10223 MB.
+   - ⟨`python -m bench.contours --tag frel-mem-before`⟩ → 19 rows, Σbar_failures **34**.
+3. **Mechanism by measurement** (⟨`~/.fourier-frel/mem/peak*.py`⟩, one inference per model).
+   - BiRefNet-lite's input is **static `[1,3,1024,1024]`** (⟨`ort.InferenceSession(...).get_inputs()`⟩). Its peak with the arena and memory pattern off is 6442 MB on darwin and **5545 MB on Linux** (the production image `fourier-backend:model-smoke`). That is past the 2G cap on its own. With those two options alone, no cure is possible while BiRefNet-lite runs at 1024.
+   - On **darwin-arm64**, u2net@320 and lines@768 peak at about 2.2 GB under every option I tried: arena off, threads 1 or 4, opt-level basic or none, and prepacking off. The same models on Linux peak at **464 MB and 780 MB**. The darwin ORT 1.24.3 wheel carries KleidiAI kernels and the host has `FEAT_SME: 1`; that this causes the gap is **unverified**. G-mem is therefore read in the production image (Linux), the runtime that the 2G cap and the CI runner both use. Darwin readings are recorded as information only.
+4. **Cure candidate**, kept as WIP and NOT landed. In `ml.py`:
+   - `_session_options()`: `enable_cpu_mem_arena=False`, `enable_mem_pattern=False`, on every session opened by `_get_session`.
+   - `SUBJECT_MODELS = (U2NET,)`: BiRefNet-lite dropped. This is §0ew's second route.
+
+   Supporting pieces:
+   - `tests/test_contour_ml_memory.py` (3 tests). Against a `git archive` of HEAD src → **RED 2/3**; against the candidate → **GREEN 3/3**.
+   - `scripts/model-smoke.sh`: reads `deploy.resources.limits.memory` from the prod compose and passes it as `--memory`/`--memory-swap`. It asserts `memory.max != max`, extracts every `assets/portraits/*` in one process, and prints the cgroup `memory.peak`.
+5. **G-mem on the candidate, Linux.** ⟨`linux-probe.sh mem-u2only-linux-1 --no-masks`⟩ → 19 images × 6 stages + server: **peak 1475.0 MB, failures 0, pass True**. Per-image extraction peaks run 1120.5–1388.4 MB. The server sweep plateaus at 1475.0 MB with no growth after the 7th image. Evidence: `~/.fourier-samples/evidence/mem-u2only-linux-1/memory.json` (sha256 `6a7f42d4a8ff0fab…`).
+6. **G-iou on the candidate.** ⟨`memory --iou mem-before mem-after`⟩ (darwin, the same platform on both sides):
+   - **subject mean 0.9791 (≥ 0.97 ✓), min 0.9056 (< 0.93 ✗, `animals-sponge-flower`)**. The next lowest are giraffe 0.9565, human 0.9629 and chef 0.9642.
+   - ensemble (U2-Net alone, before the parsers): mean 0.9532, min 0.4696 (portraits-human; the person parser restores it to 0.9629).
+   - Evidence: `~/.fourier-samples/evidence/mem-after/iou-vs-mem-before.json` (sha256 `5a9776f3d84b9d1a…`).
+7. **Harness metrics re-read**, ⟨`python -m bench.contours --tag frel-mem-after`⟩ against `frel-mem-before`:
+   - Σbar_failures **34 → 36**: portraits-chef 4→5 (bg 0.029→0.049) and animals-chef-2 3→4 (R 0.750→0.735).
+   - The serious regression is **animals-sponge-flower: R 0.761 → 0.522**, already one of §0eu's five recall regressions.
+   - Other moves: golden-retriever R 0.847→0.778, giraffe P 0.963→0.949. Gains: cauchy R 0.946→1.000, sponge-scared R 0.964→1.000, nes-rob R 0.957→0.973.
+   - Against the ISNet references, subject IoU before → after: sponge-flower 0.868→0.796, giraffe 0.923→0.888, human 0.977→0.951, sun 0.967→0.947. chef 0.888→0.923 and cauchy 0.986→0.997 improved.
+   - **Changed overlays (by sha256): all 19**: private-sample, portraits-{daraksha, nes-rob, cauchy, chef, euler, human, joseph-fourier}, animals-{chef-2, giraffe, golden-retriever, llama-1, llama-2, llama-3, sponge-flower, sponge-happy, sponge-pineapple, sponge-scared, sun}.
+   - Dropping BiRefNet removes subject that U2-Net misses. The quality gate is correct to refuse it.
+8. **The lighter-export route** (§0ew's first route).
+   - ⟨WebSearch "BiRefNet ONNX 512x512 export"⟩ → no BiRefNet-*lite* export at less than 1024 exists. `CoderViking/birefnet-lite-onnx` is static at 1024 (⟨WebFetch⟩). The only 512 export, `onnx-community/BiRefNet_512x512-ONNX`, is the full Swin-L BiRefNet: 940 MB fp32 weights (473 MB fp16), which is heavier, not lighter.
+   - A lite export at 512 or 768 would have to be produced from `ZhengPeng7/BiRefNet_lite`. That needs torch (not in the env), and its ONNX would need a sha-pinnable public URL for `ensure_model_downloaded` to bake. Both are outside this seat's writable set and authority.
+9. **Disposition.**
+   - No commit. Dropping BiRefNet fails G-iou, so landing it would ship a regression.
+   - The session-options half alone cures nothing, since BiRefNet@1024 is 5.5 GB on its own.
+   - Landing the probe, smoke or tests apart from the cure would split the one atomic commit.
+   - `ml.py` was restored to HEAD (⟨`git checkout -- src/fourier_analysis/contours/ml.py`⟩, my own path only) so that sibling seats' local stacks keep serving HEAD's pipeline. The failing test was removed.
+   - Left as WIP in the tree for the re-sit, inherited per the crash-recovery rule: `bench/contours/memory.py` (untracked) and `scripts/model-smoke.sh` (modified).
+   - The whole WIP diff is saved durably at `~/.fourier-frel/mem/frel-mem-wip.patch` (521 lines, sha256 `6e674eede942b1d6…`), with copies of `memory.py` and the test beside it.
+
+**Gate readings BEFORE → AFTER (candidate).**
+
+| Gate | BEFORE | AFTER (candidate, not landed) |
+|---|---|---|
+| G-mem ≤ 1.6 GB, every model × every image | RED: BiRefNet 5545 MB on Linux; extraction 9838 MB on darwin | GREEN on Linux: peak 1475.0 MB, 0 failures, 1 run (×2 not taken: moot, since the cure cannot land) |
+| G-mem2: smoke under 2G + read_only | RED: no cap in the smoke | script ready, not run (the image would need a rebuild; moot) |
+| G-iou subject mean ≥ 0.97 / min ≥ 0.93 | — | **RED**: 0.9791 / **0.9056** (sponge-flower) |
+| pytest + api ×2 | GREEN (banked 171/344) | not run (nothing landed) |
+
+**ESC-FREL-mem-1 (for the triumvirate / owner).** At the bytes, §0ew's two routes are: (1) a lighter BiRefNet export at a smaller input, which does not exist as a pinnable artifact; (2) dropping BiRefNet, which fails G-iou min (0.9056 < 0.93, sponge-flower; recall 0.761 → 0.522). The rulings that would unblock this, any one of them:
+- **(a)** Authorise producing a sha-pinned BiRefNet-lite ONNX export at 512 or 768 from `ZhengPeng7/BiRefNet_lite`. This needs a hosting location (a fourier GitHub release asset) and torch for the export. The memory of the result is then measured with this probe.
+- **(b)** Accept the U2-Net-only subject with G-iou re-ruled for sponge-flower. That makes it a named, measured regression handed to F.CT3, whose bar already holds sponge-flower's recall regression.
+- **(c)** Name another subject model that fits under 1.6 GB.
+
+Raising the cap stays rejected. A re-sit applies `frel-mem-wip.patch` (or the ruled variant), runs the Linux probe ×2 and the rebuilt 2G smoke, then pytest + api ×2, and lands one atomic commit.
+
+**Residuals.**
+- The darwin-arm64 ORT peak for u2net and lines (about 2.2 GB) is not explained (the KleidiAI/SME cause is unverified). It does not bind production.
+- `mem-calib` and the Linux probe ran without `--masks`.
