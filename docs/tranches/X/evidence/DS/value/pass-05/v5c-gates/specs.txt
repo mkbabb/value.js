@@ -1,0 +1,17 @@
+e2e/smoke/oracles/o11-header-gates.spec.ts
+e2e/smoke/oracles/o18-contrast-census.spec.ts
+e2e/smoke/oracles/o10-type-locks.spec.ts
+e2e/smoke/oracles/o10d-display-voice-census.spec.ts
+e2e/smoke/oracles/o12-blob-seat.spec.ts
+e2e/smoke/oracles/o14-preview-truth.spec.ts
+e2e/smoke/oracles/o20-generate-plate.spec.ts
+e2e/smoke/oracles/o21-gradient-rail.spec.ts
+e2e/smoke/oracles/o25-atmosphere-response.spec.ts
+e2e/smoke/oracles/w7-mutation-visibility.spec.ts
+e2e/smoke/oracles/w7-inspector-rows.spec.ts
+e2e/smoke/a11y-select-title.spec.ts
+e2e/smoke/scene-action-contract.spec.ts
+e2e/smoke/views/companion-pane-track-start.spec.ts
+e2e/smoke/dual-pane-1440.spec.ts
+e2e/smoke/flows/palette-edit.spec.ts
+e2e/smoke/x-w7l-detached.spec.ts

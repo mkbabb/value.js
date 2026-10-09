@@ -1,0 +1,609 @@
+(node:25339) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 20 tests using 1 worker
+
+[1A[2K(node:25421) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      43 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      44 |     // enter transition otherwise screenshots the rail mid-flight (see
+      45 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:42:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:69:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--fa6c7--s-color-no-mirrored-bleed--smoke/error-context.md
+
+
+[1A[2K(node:26973) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 4[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+ ][39m
+
+      107 |     expect(paint.clip).toBe("border-box, border-box");
+      108 |
+    > 109 |     expect(consoleErrors).toEqual([]);
+          |                           ^
+      110 | });
+      111 |
+      112 | test("pill silhouette (T-46): the rail rounds on the glass-ui slider-track register", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:109:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--8acc1-peat-border-box-origin-clip-smoke/error-context.md
+
+
+[1A[2K(node:27563) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+ ][39m
+
+      123 |     expect(radius).toBeGreaterThanOrEqual(height / 2);
+      124 |
+    > 125 |     expect(consoleErrors).toEqual([]);
+          |                           ^
+      126 | });
+      127 |
+      128 | /**
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:125:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--7e308-ss-ui-slider-track-register-smoke/error-context.md
+
+
+[1A[2K(node:28656) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K  4) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+ ][39m
+
+      188 |     }
+      189 |
+    > 190 |     expect(consoleErrors).toEqual([]);
+          |                           ^
+      191 | });
+      192 |
+      193 | test("the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:190:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--bb2b6-ramp-paints-its-own-ordinal-smoke/error-context.md
+
+
+[1A[2K(node:29873) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K  5) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      43 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      44 |     // enter transition otherwise screenshots the rail mid-flight (see
+      45 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:42:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:197:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--c9334-pixel-reads-its-own-ordinal-smoke/error-context.md
+
+
+[1A[2K(node:31236) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K  6) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.scrollIntoViewIfNeeded: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - attempting scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+
+
+      264 |     const main = await openGradient(page);
+      265 |     const rail = bar(main);
+    > 266 |     await rail.scrollIntoViewIfNeeded();
+          |                ^
+      267 |
+      268 |     // Measured at the shipped root size and at the type-scale step that used
+      269 |     // to pull the axis apart. The inset is half a handle seat and the seat is
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:266:16
+
+    Error Context: test-results/oracles-o21-gradient-rail--677eb-andles-stay-inside-the-rail-smoke/error-context.md
+
+
+[1A[2K(node:32321) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[7/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K  7) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+      114 | /**
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:46:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:332:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--e6126-nal-mints-at-any-rail-width-smoke/error-context.md
+
+
+[1A[2K(node:33722) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[8/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K  8) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      43 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      44 |     // enter transition otherwise screenshots the rail mid-flight (see
+      45 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:42:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:385:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--73481-the-ordinal-the-rail-paints-smoke/error-context.md
+
+
+[1A[2K(node:34671) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[9/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K  9) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+      114 | /**
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:46:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:444:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--5f1e1--a-terminal-holds-its-bound-smoke/error-context.md
+
+
+[1A[2K(node:36066) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[10/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K  10) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      43 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      44 |     // enter transition otherwise screenshots the rail mid-flight (see
+      45 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:42:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:513:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--99cb5-control-carrying-its-reason-smoke/error-context.md
+
+
+[1A[2K(node:37444) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[11/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K  11) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+      114 | /**
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:46:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:69:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--fa6c7--s-color-no-mirrored-bleed--smoke-repeat1/error-context.md
+
+
+[1A[2K(node:39031) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[12/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K  12) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+ ][39m
+
+      107 |     expect(paint.clip).toBe("border-box, border-box");
+      108 |
+    > 109 |     expect(consoleErrors).toEqual([]);
+          |                           ^
+      110 | });
+      111 |
+      112 | test("pill silhouette (T-46): the rail rounds on the glass-ui slider-track register", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:109:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--8acc1-peat-border-box-origin-clip-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:40003) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[13/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K  13) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-112" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:40:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:116:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--7e308-ss-ui-slider-track-register-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:41538) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[14/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K  14) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+      114 | /**
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:46:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:152:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--bb2b6-ramp-paints-its-own-ordinal-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:42960) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[15/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K  15) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:208:9
+
+    Error Context: test-results/oracles-o21-gradient-rail--c9334-pixel-reads-its-own-ordinal-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:44100) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[16/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K  16) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+ ][39m
+
+      291 |     });
+      292 |
+    > 293 |     expect(consoleErrors).toEqual([]);
+          |                           ^
+      294 | });
+      295 |
+      296 | /* ── X-W1 · R2 — DELETED: "ruler grammar: two terminal caps at the track
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:293:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--677eb-andles-stay-inside-the-rail-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:44793) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[17/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K  17) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m324[39m
+    Received: [31m323[39m
+
+      359 |         await rail.scrollIntoViewIfNeeded();
+      360 |         const c = await census(rail);
+    > 361 |         expect(c.addable).toBe(c.total);
+          |                           ^
+      362 |     }
+      363 |
+      364 |     // …and the meniscus itself: a press 3px inside the rail's left edge mints.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:361:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--e6126-nal-mints-at-any-rail-width-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:46074) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[18/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K  18) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+ ][39m
+
+      423 |     expect(Math.abs(skewPx)).toBeLessThanOrEqual(AXIS_TOL_PX);
+      424 |
+    > 425 |     expect(consoleErrors).toEqual([]);
+          |                           ^
+      426 | });
+      427 |
+      428 | /**
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:425:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--73481-the-ordinal-the-rail-paints-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:46774) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[19/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K  19) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+ ][39m
+
+      495 |     expect(await leftAt()).not.toBe(before);
+      496 |
+    > 497 |     expect(consoleErrors).toEqual([]);
+          |                           ^
+      498 | });
+      499 |
+      500 | /**
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:497:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--5f1e1--a-terminal-holds-its-bound-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:47580) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[20/20] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K  20) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9311 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",[39m
+    [31m+ ][39m
+
+      543 |     await expect(remove).toBeDisabled();
+      544 |
+    > 545 |     expect(consoleErrors).toEqual([]);
+          |                           ^
+      546 | });
+      547 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:545:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--99cb5-control-carrying-its-reason-smoke-repeat1/error-context.md
+
+
+[1A[2K  20 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+exit 1

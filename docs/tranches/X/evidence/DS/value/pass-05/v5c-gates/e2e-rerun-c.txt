@@ -1,0 +1,157 @@
+(node:5789) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 52 tests using 1 worker
+
+[1A[2K(node:5802) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      43 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      44 |     // enter transition otherwise screenshots the rail mid-flight (see
+      45 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:42:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:69:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--fa6c7--s-color-no-mirrored-bleed--smoke/error-context.md
+
+
+[1A[2K(node:7086) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[3/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[4/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K[5/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K[6/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K[7/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K[8/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K[9/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K[10/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K[11/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene
+[1A[2K[12/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced
+[1A[2K[13/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced
+[1A[2K[14/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:55:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced
+[1A[2K[15/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:63:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced
+[1A[2K[16/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:71:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced
+[1A[2K[17/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:80:5 › G13 · admin rows › name approve — the verdict is announced
+[1A[2K[18/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:124:5 › G13 · user rows › report — a success is announced on the card
+[1A[2K[19/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:129:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22)
+[1A[2K[20/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:156:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight)
+[1A[2K[21/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:170:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST)
+[1A[2K[22/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:179:5 › G13 · library rows › rename — the new name is what the card shows
+[1A[2K[23/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › delete — the card leaves the library
+[1A[2K[24/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:208:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced
+[1A[2K[25/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:244:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted
+[1A[2K[26/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:295:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate
+[1A[2K(node:12668) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[27/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-112" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:40:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:69:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--fa6c7--s-color-no-mirrored-bleed--smoke-repeat1/error-context.md
+
+
+[1A[2K(node:14114) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[28/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[29/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[30/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K[31/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K[32/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K[33/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m324[39m
+    Received: [31m323[39m
+
+      359 |         await rail.scrollIntoViewIfNeeded();
+      360 |         const c = await census(rail);
+    > 361 |         expect(c.addable).toBe(c.total);
+          |                           ^
+      362 |     }
+      363 |
+      364 |     // …and the meniscus itself: a press 3px inside the rail's left edge mints.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:361:27
+
+    Error Context: test-results/oracles-o21-gradient-rail--e6126-nal-mints-at-any-rail-width-smoke-repeat1/error-context.md
+
+
+[1A[2K(node:17674) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[34/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K[35/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K[36/52] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K[37/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene
+[1A[2K[38/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced
+[1A[2K[39/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced
+[1A[2K[40/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:55:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced
+[1A[2K[41/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:63:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced
+[1A[2K[42/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:71:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced
+[1A[2K[43/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:80:5 › G13 · admin rows › name approve — the verdict is announced
+[1A[2K[44/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:124:5 › G13 · user rows › report — a success is announced on the card
+[1A[2K[45/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:129:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22)
+[1A[2K[46/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:156:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight)
+[1A[2K[47/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:170:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST)
+[1A[2K[48/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:179:5 › G13 · library rows › rename — the new name is what the card shows
+[1A[2K[49/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › delete — the card leaves the library
+[1A[2K[50/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:208:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced
+[1A[2K[51/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:244:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted
+[1A[2K[52/52] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:295:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate
+[1A[2K  3 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+  49 passed (6.8m)
+exit 1

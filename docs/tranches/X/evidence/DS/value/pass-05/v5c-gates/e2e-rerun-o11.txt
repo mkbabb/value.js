@@ -1,0 +1,16 @@
+(node:31620) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+[1A[2K(node:31637) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/6] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)
+[1A[2K[2/6] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)
+[1A[2K[3/6] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders
+[1A[2K[4/6] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub
+[1A[2K[5/6] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated
+[1A[2K[6/6] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header
+[1A[2K  6 passed (2.3m)
+exit 0

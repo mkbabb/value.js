@@ -1,0 +1,2356 @@
+{
+  "census": "X-DS lighting census",
+  "app": "value.js",
+  "at": "2026-10-08T23:15:41.499Z",
+  "static": {
+    "scanned": 99,
+    "totals": {
+      "boxShadowDecls": 19,
+      "boxShadowLayers": 22,
+      "insetLayers": 7,
+      "insetHighlightLayers": 0,
+      "multiLayerShadowDecls": 3,
+      "textShadow": 0,
+      "filterDropShadow": 0,
+      "filterBlur": 0,
+      "backdropBlur": 4,
+      "gradientFills": 5,
+      "loopingKeyframes": 1,
+      "lightingTokenDefs": 4,
+      "twShadowUtilities": 2,
+      "twLoopUtilities": 13,
+      "twGradientUtilities": 0
+    },
+    "sites": [
+      {
+        "kind": "box-shadow",
+        "at": "demo/color-picker/composables/boot/overture.css:147",
+        "css": "box-shadow: var(--shadow-cartoon)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/color-session/ColorSpaceSelector.vue:385",
+        "css": "box-shadow: var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/color-session/color-chips/PreviewRamp.vue:47",
+        "css": "box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--foreground) 12%, transparent)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/color-session/color-chips/PreviewStrip.vue:63",
+        "css": "box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--foreground) 12%, transparent)"
+      },
+      {
+        "kind": "tw-shadow",
+        "at": "demo/palettes/PaletteInspector.vue:36",
+        "css": "shadow-cartoon-md"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/admin/AdminAuditPanel.vue:53",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/admin/AdminFlaggedPanel.vue:29",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/admin/AdminUsersPanel.vue:25",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/admin/AdminUsersPanel.vue:37",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/card/PaletteCardSkeleton.vue:19",
+        "css": "animate-pulse"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/card/PaletteCardSkeleton.vue:41",
+        "css": "animate-pulse"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/card/PaletteCardSkeleton.vue:45",
+        "css": "animate-pulse"
+      },
+      {
+        "kind": "gradient-fill",
+        "at": "demo/palettes/browser/search/MiniColorPicker.vue:196",
+        "css": "background: linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, hsl(calc(var(--hue) * 1deg), 100%, 50%))"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/search/SearchFilterBar.vue:120",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/palettes/browser/search/TagEditPopover.vue:20",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/picker/controls/ComponentSliders/ComponentSliders.vue:281",
+        "css": "box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--foreground) 50%, transparent)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/picker/controls/ComponentSliders/ConsoleRail.vue:290",
+        "css": "box-shadow: var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue:260",
+        "css": "box-shadow: var(--spectrum-stamp, 8px) var(--spectrum-stamp, 8px) 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black)"
+      },
+      {
+        "kind": "backdrop-blur",
+        "at": "demo/picker/debug/PointerDebugOverlay.vue:167",
+        "css": "backdrop-filter: blur(8px)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/picker/debug/PointerDebugOverlay.vue:198",
+        "css": "box-shadow: inset var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "looping-animation",
+        "at": "demo/picker/debug/PointerDebugOverlay.vue:210",
+        "css": "animation: blink 0.5s infinite"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue:164",
+        "css": "box-shadow: var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "backdrop-blur",
+        "at": "demo/picker/header.css:64",
+        "css": "backdrop-filter: var(--glass-blur-resting)"
+      },
+      {
+        "kind": "backdrop-blur",
+        "at": "demo/shared/ui/PaneHeader.vue:130",
+        "css": "backdrop-filter: var(--glass-blur-resting)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/shell/dock/ColorInput.vue:360",
+        "css": "box-shadow: 0 0 0 2px color-mix(in srgb, var(--destructive) 25%, transparent)"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/shell/dock/ColorInput.vue:77",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/shell/dock/layers/SlugEditLayer.vue:126",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/shell/dock/menus/MobileMenuDropdown.vue:72",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "tw-loop",
+        "at": "demo/shell/dock/menus/ProfileSection.vue:97",
+        "css": "animate-spin"
+      },
+      {
+        "kind": "lighting-token",
+        "at": "demo/styles/foundation.css:417",
+        "css": "--shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 80%, transparent)"
+      },
+      {
+        "kind": "lighting-token",
+        "at": "demo/styles/foundation.css:418",
+        "css": "--shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 85%, transparent)"
+      },
+      {
+        "kind": "lighting-token",
+        "at": "demo/styles/foundation.css:604",
+        "css": "--shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent)"
+      },
+      {
+        "kind": "lighting-token",
+        "at": "demo/styles/foundation.css:605",
+        "css": "--shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 55%, transparent)"
+      },
+      {
+        "kind": "gradient-fill",
+        "at": "demo/styles/foundation.css:699",
+        "css": "background-image: linear-gradient( 135deg, var(--saved-bg-0, var(--saved-bg, var(--background))) 0%, var(--saved-bg-1, var(--saved-bg, var(--background))) 33%, "
+      },
+      {
+        "kind": "gradient-fill",
+        "at": "demo/styles/foundation.css:742",
+        "css": "background-image: linear-gradient( 135deg, var(--saved-bg-0, var(--saved-bg, var(--background))) 0%, var(--saved-bg-1, var(--saved-bg, var(--background))) 33%, "
+      },
+      {
+        "kind": "backdrop-blur",
+        "at": "demo/styles/shell.css:502",
+        "css": "backdrop-filter: var(--glass-blur-resting)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/styles/utils.css:129",
+        "css": "box-shadow: var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "gradient-fill",
+        "at": "demo/styles/utils.css:230",
+        "css": "background-image: linear-gradient( 90deg, var(--palettes-ramp-0, oklch(0.632 0.214 333.5)), var(--palettes-ramp-1, oklch(0.632 0.214 13.5)), var(--palettes-ramp"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue:299",
+        "css": "box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 15%, transparent)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue:308",
+        "css": "box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 20%, transparent)"
+      },
+      {
+        "kind": "tw-shadow",
+        "at": "demo/workbenches/generate/GenerateControls.vue:238",
+        "css": "drop-shadow"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue:282",
+        "css": "box-shadow: var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "gradient-fill",
+        "at": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue:296",
+        "css": "background: linear-gradient(var(--dot-c), var(--dot-c)), var(--alpha-checker)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue:336",
+        "css": "box-shadow: var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue:821",
+        "css": "box-shadow: inset 0 0 0 1px var(--card-edge)"
+      },
+      {
+        "kind": "box-shadow-multi",
+        "at": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue:982",
+        "css": "box-shadow: inset 0 0 0 1px var(--focus-ring-inner), 0 0 0 2px var(--focus-ring-outer)"
+      },
+      {
+        "kind": "box-shadow-multi",
+        "at": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue:987",
+        "css": "box-shadow: inset 0 0 0 2px var(--focus-ring-inner), 0 0 0 3px var(--focus-ring-outer)"
+      },
+      {
+        "kind": "box-shadow-multi",
+        "at": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue:994",
+        "css": "box-shadow: 0 0 0 1px var(--focus-ring-inner), 0 0 0 3px var(--focus-ring-outer)"
+      }
+    ]
+  },
+  "computed": {
+    "base": "http://localhost:9000",
+    "routes": [
+      "/#/",
+      "/#/palettes",
+      "/#/browse",
+      "/#/extract",
+      "/#/mix",
+      "/#/generate",
+      "/#/gradient",
+      "/#/atmosphere",
+      "/#/blob"
+    ],
+    "widths": [
+      1440
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "totals": {
+      "elements": 5277,
+      "boxShadowElements": 304,
+      "boxShadowLayers": 812,
+      "multiLayerElements": 154,
+      "ringLayers": 12,
+      "insetLayers": 574,
+      "insetHighlightLayers": 310,
+      "textShadow": 0,
+      "filterDropShadow": 8,
+      "filterBlur": 0,
+      "backdropBlur": 128,
+      "gradientFillsOnControls": 22,
+      "contentGradientsExempt": 8,
+      "loopingAnimations": 16,
+      "maxLayersOnOneElement": 6
+    },
+    "byOwner": {
+      "glass": {
+        "boxShadowLayers": 696,
+        "multiLayerElements": 154,
+        "insetHighlightLayers": 310,
+        "backdropBlur": 110,
+        "filterDropShadow": 8,
+        "gradientFillsOnControls": 22
+      },
+      "consumer": {
+        "backdropBlur": 18,
+        "boxShadowLayers": 116,
+        "loopingAnimations": 16
+      }
+    },
+    "pages": [
+      {
+        "route": "/#/",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 1248,
+          "boxShadowElements": 12,
+          "boxShadowLayers": 25,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 3,
+          "ringLayers": 0,
+          "insetLayers": 13,
+          "insetHighlightLayers": 3,
+          "textShadow": 0,
+          "filterDropShadow": 1,
+          "filterBlur": 0,
+          "backdropBlur": 2,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 20,
+            "multiLayerElements": 3,
+            "insetHighlightLayers": 3,
+            "backdropBlur": 1,
+            "filterDropShadow": 1
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 5
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "filter-drop-shadow",
+            "owner": "glass",
+            "el": "div.goo-blob-wrapper.w-(--blob-fp)[data-v-8b05f03a]",
+            "detail": "drop-shadow(color(srgb 0.11 0.098 0.09 / 0.2) 0px 4px 14px) drop-shadow(color(srgb 0.11 0.098 0.09 / 0.38) 0px 1px 3px)",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.about-card.pane-row-follow[data-v-f13b4d11][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.about-card.pane-row-follow[data-v-f13b4d11][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/palettes",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 172,
+          "boxShadowElements": 12,
+          "boxShadowLayers": 25,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 3,
+          "ringLayers": 0,
+          "insetLayers": 13,
+          "insetHighlightLayers": 3,
+          "textShadow": 0,
+          "filterDropShadow": 1,
+          "filterBlur": 0,
+          "backdropBlur": 2,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 20,
+            "multiLayerElements": 3,
+            "insetHighlightLayers": 3,
+            "backdropBlur": 1,
+            "filterDropShadow": 1
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 5
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "filter-drop-shadow",
+            "owner": "glass",
+            "el": "div.goo-blob-wrapper.w-(--blob-fp)[data-v-8b05f03a]",
+            "detail": "drop-shadow(color(srgb 0.11 0.098 0.09 / 0.2) 0px 4px 14px) drop-shadow(color(srgb 0.11 0.098 0.09 / 0.38) 0px 1px 3px)",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/browse",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 80,
+          "boxShadowElements": 3,
+          "boxShadowLayers": 16,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 3,
+          "ringLayers": 0,
+          "insetLayers": 9,
+          "insetHighlightLayers": 3,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 1,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 2
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 16,
+            "multiLayerElements": 3,
+            "insetHighlightLayers": 3
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "loopingAnimations": 2
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.w-full.h-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.w-full.h-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "looping-animation",
+            "owner": "consumer",
+            "el": "div.skeleton.h-7.w-2/5.rounded-md[data-v-0d5ebb1f][data-slot]",
+            "detail": "skeleton-breathe-0d5ebb1f",
+            "count": 1
+          },
+          {
+            "kind": "looping-animation",
+            "owner": "consumer",
+            "el": "div.skeleton.h-4.w-3/4.rounded-md[data-v-0d5ebb1f][data-slot]",
+            "detail": "skeleton-breathe-0d5ebb1f",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/extract",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 117,
+          "boxShadowElements": 7,
+          "boxShadowLayers": 26,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 5,
+          "ringLayers": 0,
+          "insetLayers": 17,
+          "insetHighlightLayers": 5,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 3,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 7
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 24,
+            "multiLayerElements": 5,
+            "insetHighlightLayers": 5,
+            "backdropBlur": 2
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 2,
+            "loopingAnimations": 7
+          }
+        },
+        "offenders": [
+          {
+            "kind": "looping-animation",
+            "owner": "consumer",
+            "el": "div.shadow-seg.animate-pulse.h-full.min-w-0[data-v-5d73e53e][data-slot]",
+            "detail": "pulse",
+            "count": 5
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "looping-animation",
+            "owner": "consumer",
+            "el": "div.shadow-block-name.animate-pulse.text-subheading.h-[1lh][data-v-5d73e53e]",
+            "detail": "pulse",
+            "count": 1
+          },
+          {
+            "kind": "looping-animation",
+            "owner": "consumer",
+            "el": "div.shadow-block-count.animate-pulse.text-subheading.h-[1lh][data-v-5d73e53e]",
+            "detail": "pulse",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/mix",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 164,
+          "boxShadowElements": 17,
+          "boxShadowLayers": 43,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 8,
+          "ringLayers": 1,
+          "insetLayers": 30,
+          "insetHighlightLayers": 8,
+          "textShadow": 0,
+          "filterDropShadow": 1,
+          "filterBlur": 0,
+          "backdropBlur": 7,
+          "gradientFillsOnControls": 2,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 38,
+            "multiLayerElements": 8,
+            "insetHighlightLayers": 8,
+            "backdropBlur": 6,
+            "filterDropShadow": 1,
+            "gradientFillsOnControls": 2
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 5
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "gradient-on-control",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15), color(srgb 0.994 0",
+            "count": 2
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "filter-drop-shadow",
+            "owner": "glass",
+            "el": "div.goo-blob-wrapper.w-(--blob-fp)[data-v-8b05f03a]",
+            "detail": "drop-shadow(color(srgb 0.11 0.098 0.09 / 0.2) 0px 4px 14px) drop-shadow(color(srgb 0.11 0.098 0.09 / 0.38) 0px 1px 3px)",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.pane-scroll-fade[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.pane-scroll-fade[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track[data-v-a3e86846]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track[data-v-a3e86846]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/generate",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 142,
+          "boxShadowElements": 7,
+          "boxShadowLayers": 24,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 5,
+          "ringLayers": 0,
+          "insetLayers": 16,
+          "insetHighlightLayers": 5,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 3,
+          "gradientFillsOnControls": 2,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 23,
+            "multiLayerElements": 5,
+            "insetHighlightLayers": 5,
+            "backdropBlur": 2,
+            "gradientFillsOnControls": 2
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 1
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "gradient-on-control",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15), color(srgb 0.994 0",
+            "count": 2
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/gradient",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 165,
+          "boxShadowElements": 8,
+          "boxShadowLayers": 30,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 7,
+          "ringLayers": 5,
+          "insetLayers": 22,
+          "insetHighlightLayers": 7,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 5,
+          "gradientFillsOnControls": 3,
+          "contentGradientsExempt": 4,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 29,
+            "multiLayerElements": 7,
+            "insetHighlightLayers": 7,
+            "backdropBlur": 4,
+            "gradientFillsOnControls": 3
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 1
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-v-44c9d000][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0",
+            "count": 3
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-v-44c9d000][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 3
+          },
+          {
+            "kind": "gradient-on-control",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-v-44c9d000][data-slot]",
+            "detail": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15), color(srgb 0.994 0",
+            "count": 3
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/atmosphere",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 97,
+          "boxShadowElements": 12,
+          "boxShadowLayers": 37,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 9,
+          "ringLayers": 0,
+          "insetLayers": 30,
+          "insetHighlightLayers": 9,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 8,
+          "gradientFillsOnControls": 4,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 34,
+            "multiLayerElements": 9,
+            "insetHighlightLayers": 9,
+            "backdropBlur": 7,
+            "gradientFillsOnControls": 4
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 3
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)[data-v-51e9cc05][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0",
+            "count": 4
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)[data-v-51e9cc05][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 4
+          },
+          {
+            "kind": "gradient-on-control",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)[data-v-51e9cc05][data-slot]",
+            "detail": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15), color(srgb 0.994 0",
+            "count": 4
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 3
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 3
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.w-full.min-w-0[data-v-2b16afb7][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.w-full.min-w-0[data-v-2b16afb7][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/blob",
+        "theme": "light",
+        "width": 1440,
+        "totals": {
+          "elements": 445,
+          "boxShadowElements": 74,
+          "boxShadowLayers": 180,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 34,
+          "ringLayers": 0,
+          "insetLayers": 137,
+          "insetHighlightLayers": 34,
+          "textShadow": 0,
+          "filterDropShadow": 1,
+          "filterBlur": 0,
+          "backdropBlur": 33,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 144,
+            "multiLayerElements": 34,
+            "insetHighlightLayers": 34,
+            "backdropBlur": 32,
+            "filterDropShadow": 1
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 36
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 31
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 31
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "filter-drop-shadow",
+            "owner": "glass",
+            "el": "div.goo-blob-wrapper.w-(--blob-fp)[data-v-8b05f03a]",
+            "detail": "drop-shadow(color(srgb 0.11 0.098 0.09 / 0.2) 0px 4px 14px) drop-shadow(color(srgb 0.11 0.098 0.09 / 0.38) 0px 1px 3px)",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.w-full.min-w-0[data-v-2b16afb7][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.w-full.min-w-0[data-v-2b16afb7][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 1248,
+          "boxShadowElements": 12,
+          "boxShadowLayers": 25,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 3,
+          "ringLayers": 0,
+          "insetLayers": 13,
+          "insetHighlightLayers": 9,
+          "textShadow": 0,
+          "filterDropShadow": 1,
+          "filterBlur": 0,
+          "backdropBlur": 2,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 20,
+            "multiLayerElements": 3,
+            "insetHighlightLayers": 9,
+            "backdropBlur": 1,
+            "filterDropShadow": 1
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 5
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "filter-drop-shadow",
+            "owner": "glass",
+            "el": "div.goo-blob-wrapper.w-(--blob-fp)[data-v-8b05f03a]",
+            "detail": "drop-shadow(color(srgb 0.11 0.098 0.09 / 0.2) 0px 4px 14px) drop-shadow(color(srgb 0.11 0.098 0.09 / 0.38) 0px 1px 3px)",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.about-card.pane-row-follow[data-v-f13b4d11][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.about-card.pane-row-follow[data-v-f13b4d11][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.about-card.pane-row-follow[data-v-f13b4d11][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/palettes",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 172,
+          "boxShadowElements": 12,
+          "boxShadowLayers": 25,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 3,
+          "ringLayers": 0,
+          "insetLayers": 13,
+          "insetHighlightLayers": 9,
+          "textShadow": 0,
+          "filterDropShadow": 1,
+          "filterBlur": 0,
+          "backdropBlur": 2,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 20,
+            "multiLayerElements": 3,
+            "insetHighlightLayers": 9,
+            "backdropBlur": 1,
+            "filterDropShadow": 1
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 5
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "filter-drop-shadow",
+            "owner": "glass",
+            "el": "div.goo-blob-wrapper.w-(--blob-fp)[data-v-8b05f03a]",
+            "detail": "drop-shadow(color(srgb 0.11 0.098 0.09 / 0.2) 0px 4px 14px) drop-shadow(color(srgb 0.11 0.098 0.09 / 0.38) 0px 1px 3px)",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/browse",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 97,
+          "boxShadowElements": 3,
+          "boxShadowLayers": 16,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 3,
+          "ringLayers": 0,
+          "insetLayers": 9,
+          "insetHighlightLayers": 9,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 1,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 16,
+            "multiLayerElements": 3,
+            "insetHighlightLayers": 9
+          },
+          "consumer": {
+            "backdropBlur": 1
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-v-f13b4d11][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-v-f13b4d11][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-v-f13b4d11][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-v-f13b4d11][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-row-follow.flex[data-v-696a424a][data-v-f13b4d11]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/extract",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 117,
+          "boxShadowElements": 7,
+          "boxShadowLayers": 26,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 5,
+          "ringLayers": 0,
+          "insetLayers": 17,
+          "insetHighlightLayers": 15,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 3,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 7
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 24,
+            "multiLayerElements": 5,
+            "insetHighlightLayers": 15,
+            "backdropBlur": 2
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 2,
+            "loopingAnimations": 7
+          }
+        },
+        "offenders": [
+          {
+            "kind": "looping-animation",
+            "owner": "consumer",
+            "el": "div.shadow-seg.animate-pulse.h-full.min-w-0[data-v-5d73e53e][data-slot]",
+            "detail": "pulse",
+            "count": 5
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/mix",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 164,
+          "boxShadowElements": 17,
+          "boxShadowLayers": 43,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 8,
+          "ringLayers": 1,
+          "insetLayers": 30,
+          "insetHighlightLayers": 26,
+          "textShadow": 0,
+          "filterDropShadow": 1,
+          "filterBlur": 0,
+          "backdropBlur": 7,
+          "gradientFillsOnControls": 2,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 38,
+            "multiLayerElements": 8,
+            "insetHighlightLayers": 26,
+            "backdropBlur": 6,
+            "filterDropShadow": 1,
+            "gradientFillsOnControls": 2
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 5
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, ",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "gradient-on-control",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.165013 0.1326 / 0.15), co",
+            "count": 2
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/generate",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 142,
+          "boxShadowElements": 7,
+          "boxShadowLayers": 24,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 5,
+          "ringLayers": 0,
+          "insetLayers": 16,
+          "insetHighlightLayers": 15,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 3,
+          "gradientFillsOnControls": 2,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 23,
+            "multiLayerElements": 5,
+            "insetHighlightLayers": 15,
+            "backdropBlur": 2,
+            "gradientFillsOnControls": 2
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 1
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, ",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 2
+          },
+          {
+            "kind": "gradient-on-control",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-slot][data-state]",
+            "detail": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.165013 0.1326 / 0.15), co",
+            "count": 2
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/gradient",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 165,
+          "boxShadowElements": 8,
+          "boxShadowLayers": 30,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 7,
+          "ringLayers": 5,
+          "insetLayers": 22,
+          "insetHighlightLayers": 21,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 5,
+          "gradientFillsOnControls": 3,
+          "contentGradientsExempt": 4,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 29,
+            "multiLayerElements": 7,
+            "insetHighlightLayers": 21,
+            "backdropBlur": 4,
+            "gradientFillsOnControls": 3
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 1
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-v-44c9d000][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, ",
+            "count": 3
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-v-44c9d000][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 3
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-v-44c9d000][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 3
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-v-44c9d000][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 3
+          },
+          {
+            "kind": "gradient-on-control",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.tap-squish[data-v-44c9d000][data-slot]",
+            "detail": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.165013 0.1326 / 0.15), co",
+            "count": 3
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.pane-scroll-fade.w-full[data-slot][data-shadow]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/atmosphere",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 97,
+          "boxShadowElements": 12,
+          "boxShadowLayers": 37,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 9,
+          "ringLayers": 0,
+          "insetLayers": 30,
+          "insetHighlightLayers": 27,
+          "textShadow": 0,
+          "filterDropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 8,
+          "gradientFillsOnControls": 4,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 34,
+            "multiLayerElements": 9,
+            "insetHighlightLayers": 27,
+            "backdropBlur": 7,
+            "gradientFillsOnControls": 4
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 3
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)[data-v-51e9cc05][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, ",
+            "count": 4
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)[data-v-51e9cc05][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 4
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)[data-v-51e9cc05][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 4
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)[data-v-51e9cc05][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 4
+          },
+          {
+            "kind": "gradient-on-control",
+            "owner": "glass",
+            "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)[data-v-51e9cc05][data-slot]",
+            "detail": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.165013 0.1326 / 0.15), co",
+            "count": 4
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 3
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 3
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 3
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 3
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "route": "/#/blob",
+        "theme": "dark",
+        "width": 1440,
+        "totals": {
+          "elements": 445,
+          "boxShadowElements": 74,
+          "boxShadowLayers": 180,
+          "maxLayersOnOneElement": 6,
+          "multiLayerElements": 34,
+          "ringLayers": 0,
+          "insetLayers": 137,
+          "insetHighlightLayers": 102,
+          "textShadow": 0,
+          "filterDropShadow": 1,
+          "filterBlur": 0,
+          "backdropBlur": 33,
+          "gradientFillsOnControls": 0,
+          "contentGradientsExempt": 0,
+          "loopingAnimations": 0
+        },
+        "byOwner": {
+          "glass": {
+            "boxShadowLayers": 144,
+            "multiLayerElements": 34,
+            "insetHighlightLayers": 102,
+            "backdropBlur": 32,
+            "filterDropShadow": 1
+          },
+          "consumer": {
+            "backdropBlur": 1,
+            "boxShadowLayers": 36
+          }
+        },
+        "offenders": [
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 31
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 31
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 31
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "span.slider-range.glass-liquid-fill[data-orientation]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 31
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.1",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-dock.horizontal.shape-pill.expanded[data-v-c1c2eb17][data-backdrop-mode]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "box-shadow-multi",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / ",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset",
+            "count": 1
+          },
+          {
+            "kind": "inset-highlight",
+            "owner": "glass",
+            "el": "div.glass-resting.card.relative.flex[data-v-2bc1bc2c][data-slot]",
+            "detail": "color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset",
+            "count": 1
+          }
+        ]
+      }
+    ]
+  },
+  "gate": {
+    "verdict": "RED",
+    "allowance": {
+      "maxLayersOnOneElement": 1,
+      "insetHighlightLayers": 0,
+      "textShadow": 0,
+      "filterDropShadow": 0,
+      "filterBlur": 0,
+      "gradientFillsOnControls": 0,
+      "loopingAnimations": 0
+    },
+    "over": {
+      "maxLayersOnOneElement": {
+        "value": 6,
+        "allowance": 1
+      },
+      "insetHighlightLayers": {
+        "value": 310,
+        "allowance": 0
+      },
+      "filterDropShadow": {
+        "value": 8,
+        "allowance": 0
+      },
+      "gradientFillsOnControls": {
+        "value": 22,
+        "allowance": 0
+      },
+      "loopingAnimations": {
+        "value": 16,
+        "allowance": 0
+      }
+    }
+  }
+}

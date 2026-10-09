@@ -1,0 +1,16 @@
+(node:38637) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+[1A[2K(node:38735) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/6] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px
+[1A[2K[2/6] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px
+[1A[2K[3/6] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles
+[1A[2K[4/6] [smoke] › e2e/smoke/scene-action-contract.spec.ts:205:5 › D4 · a registered target is READY, and dispatches for real › Generate on the desktop branch: three ready seats, and one real dispatch
+[1A[2K[5/6] [smoke] › e2e/smoke/scene-action-contract.spec.ts:250:5 › §8 artefact 8 — the dock action bar's frames (desktop matrix) › the Mix view's bar, framed
+[1A[2K[6/6] [smoke] › e2e/smoke/scene-action-contract.spec.ts:262:5 › §8 artefact 8 — the dock action bar's frames (390 viewport) › the Mix view's bar with no pane registered, framed
+[1A[2K  6 passed (4.6m)
+exit 0

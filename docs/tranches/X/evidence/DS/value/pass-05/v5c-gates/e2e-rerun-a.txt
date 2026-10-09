@@ -1,0 +1,85 @@
+(node:26756) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+[1A[2K(node:26810) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/4] [smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds
+[1A[2K[smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds
+[W4-B3] producerSliderVars=12 declaredInternal=4 consumerReads=0
+
+
+[1A[2K[2/4] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('combobox', { name: 'Select view' })
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:63
+
+      61 |
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+    > 63 |     await expect(viewSelect).toBeVisible();
+         |                              ^
+      64 |     await viewSelect.click();
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:63:30)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:112:34
+
+    Error Context: test-results/oracles-o11-header-gates-O-5e2e5-r-feather-every-pane-light--smoke/error-context.md
+
+
+[1A[2K(node:28790) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/4] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('combobox', { name: 'Select view' })
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:63
+
+      61 |
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+    > 63 |     await expect(viewSelect).toBeVisible();
+         |                              ^
+      64 |     await viewSelect.click();
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:63:30)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:112:34
+
+    Error Context: test-results/oracles-o11-header-gates-O-5323e-or-feather-every-pane-dark--smoke/error-context.md
+
+
+[1A[2K(node:30303) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/4] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K  2 failed
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) 
+  2 passed (2.0m)
+exit 1
