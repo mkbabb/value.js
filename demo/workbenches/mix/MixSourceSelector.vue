@@ -6,7 +6,8 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/gla
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { WatercolorDot } from "../../shared/ui/watercolor-dot";
 import { Button } from "@mkbabb/glass-ui/button";
-import { PaletteColorStrip } from "../../palettes/browser/card";
+import { PaletteSpecimen } from "../../palettes/browser/card";
+import SwatchButton from "../../shared/ui/SwatchButton.vue";
 import EmptyState from "../../shared/ui/EmptyState.vue";
 import type { Palette } from "../../palettes/types";
 import type { SelectedColor } from "./composables/useMixingState";
@@ -86,14 +87,24 @@ function togglePalette(palette: Palette) {
     }
 }
 
+/** The row's press: the whole palette, so the mix turns to Palettes. */
+function onPalettePress(palette: Palette) {
+    if (mode !== "palettes") emit("update:mode", "palettes");
+    togglePalette(palette);
+}
+
+/** A disclosed swatch: one colour, so the mix turns to Colors. */
+function onSwatchAdd(css: string, source: string) {
+    if (mode !== "colors") emit("update:mode", "colors");
+    emit("addColor", css, source);
+}
+
 function addCurrentColor() {
     if (cssColorOpaque) {
         emit("addColor", cssColorOpaque, "picker");
     }
 }
 
-// --- Palette dropdown for "From palettes" in colors mode ---
-const paletteDropdownOpen = ref(false);
 
 // --- Identity keys for TransitionGroup ---
 // X.W7.f (fold N-5 · MSS-3 ≡ C-9 ≡ SH-7 — the two-site cure's second site;
@@ -246,57 +257,6 @@ const swatchKeys = computed(() => {
                     </TransitionGroup>
                 </div>
 
-                <!-- From palettes — collapsible dropdown of PaletteCards -->
-                <Collapsible v-if="savedPalettes.length > 0" v-model:open="paletteDropdownOpen">
-                    <!-- X-DS pass 6 (V6C-04): the count is the app's ONE count
-                         idiom, a muted mono tabular numeral on the head's
-                         baseline (items-baseline; the chevron centres itself). -->
-                    <CollapsibleTrigger class="flex items-baseline gap-2 w-full cursor-pointer group py-1">
-                        <span class="font-display text-subheading">From palettes</span>
-                        <span class="text-mono-small tabular-nums text-muted-foreground">{{ savedPalettes.length }}</span>
-                        <div class="flex-1" />
-                        <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha over
-                             the muted rung dies — the token IS the de-emphasis
-                             rung; attenuating it further is the guard-then-alpha
-                             class ("quieter" and "illegible" must never collapse). -->
-                        <ChevronDown
-                            class="w-4 h-4 self-center text-muted-foreground transition-transform group-hover:text-foreground"
-                            :class="paletteDropdownOpen && 'rotate-180'"
-                        />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent class="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
-                        <div class="flex flex-col gap-2 pt-2">
-                            <div
-                                v-for="palette in savedPalettes"
-                                :key="palette.slug"
-                                class="rounded-card border border-border/30 overflow-hidden"
-                            >
-                                <!-- Compact palette header with color strip + name -->
-                                <PaletteColorStrip :colors="palette.colors" />
-                                <div class="px-3 py-2 flex items-center justify-between gap-2">
-                                    <span class="text-small font-display font-semibold truncate">{{ palette.name }}</span>
-                                    <span class="font-mono text-micro text-muted-foreground shrink-0">{{ palette.colors.length }}</span>
-                                </div>
-                                <!-- Clickable swatches -->
-                                <div class="px-3 pb-3 flex flex-wrap gap-1.5">
-                                    <!-- W5-a11y: swatch button needs accessible name.
-                                         A2-VA-L1-15: the app's one SwatchButton. -->
-                                    <SwatchButton
-                                        v-for="(color, ci) in palette.colors"
-                                        :key="ci"
-                                        :color="color.css"
-                                        size="sm"
-                                        :seed="`palette-${palette.slug}-${ci}`"
-                                        class="palette-swatch-add"
-                                        :title="formatCssCaption(color.css)"
-                                        :aria-label="`Add color ${formatCssCaption(color.css)} from ${palette.name}`"
-                                        @click="emit('addColor', color.css, palette.name)"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </CollapsibleContent>
-                </Collapsible>
             </div>
 
             <!-- Palettes mode -->
@@ -308,75 +268,93 @@ const swatchKeys = computed(() => {
                 aria-label="Palettes"
                 class="flex flex-col gap-3"
             >
-                <!-- T.W6.5 · Lane S (R12 — the owner overrule of the D9
-                     as-filler deployment; MANDATE §0.6 t33-audit-12
-                     "superfluous shadow palettes everywhere"): TRUE EMPTY
-                     speaks the EmptyState invitation ALONE — the watercolor
-                     dot trio + dashes (its default register, N-3 re-aimed),
-                     never ghost cards before the caption. This store is
-                     synchronous — no loading species exists here, and none
-                     is announced (F3's semantics survive, honest). -->
-                <EmptyState
-                    v-if="savedPalettes.length === 0"
-                    message="No saved palettes yet."
-                    hint="Save two or more palettes, then pour them together here."
-                />
-                <!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
-                <button
-                    v-for="palette in savedPalettes"
-                    :key="palette.slug"
-                    type="button"
-                    :aria-pressed="isPaletteSelected(palette.slug)"
-                    :aria-label="`${isPaletteSelected(palette.slug) ? 'Deselect' : 'Select'} palette ${palette.name}`"
-                    :data-mix-source="isPaletteSelected(palette.slug) ? '' : undefined"
-                    :data-mix-colors="isPaletteSelected(palette.slug)
-                        ? JSON.stringify(palette.colors.slice(0, 4).map((c) => c.css))
-                        : undefined"
-                    :class="[
-                        'cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40',
-                        isPaletteSelected(palette.slug)
-                            ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
-                            : 'mix-palette--rest',
-                    ]"
-                    @click="togglePalette(palette)"
-                >
-                    <!-- X-W6 · X.W6.j (gate j2, the Mix canary — CC-056 · V·L3):
-                         ONE interaction owner. This button used to host the
-                         browse route's whole PaletteCard — a surface with its
-                         own press machine and click emit, a "Palette menu"
-                         button, a rename field and swatch buttons — so one
-                         press had two owners and the tree nested controls
-                         inside a control (measured: "Palette menu" inside
-                         "Select palette …", once per card). The selection's
-                         face is the palette's STATIC identity — the same strip
-                         + name + count the "From palettes" list above draws —
-                         and every verb on the palette itself stays on its own
-                         route. -->
-                    <span
-                        class="block rounded-card border border-border/30 overflow-hidden bg-well"
-                    >
-                        <PaletteColorStrip :colors="palette.colors" />
-                        <span
-                            class="px-3 py-2 flex items-center justify-between gap-2 min-w-0"
-                        >
-                            <!-- X.W12.u2 (UIA-V-351): an unselected palette never
-                                 dims its strip (opacity falsified the colors in a
-                                 color tool); only its name rests at the muted rung. -->
-                            <span
-                                class="mix-palette-name text-small font-display font-semibold truncate"
-                                >{{ palette.name }}</span
-                            >
-                            <span
-                                class="font-mono text-micro text-muted-foreground shrink-0"
-                                >{{ palette.colors.length }}</span
-                            >
-                        </span>
-                    </span>
-                </button>
-                <!-- W5-7: the "N palettes selected" line died — the ring-lit
-                     cards ARE the selection state. -->
+                <!-- A2-VA-L1-5: the palettes are chosen in the one list below
+                     (its ring-lit rows ARE the selection, W5-7); this panel
+                     only says what the mode wants. -->
+                <p class="text-caption text-muted-foreground">
+                    {{ selectedPalettes.length < 2
+                        ? "Pick two or more palettes below to pour together."
+                        : "Press a palette again to take it out of the mix." }}
+                </p>
             </div>
         </Transition>
+
+        <!-- A2-VA-L1-5 — THE ONE PALETTE LIST. The saved palettes were listed
+             twice in this pane (the Colors tab's "From palettes" collapsible
+             for single-colour adds; the Palettes tab's rows for whole-palette
+             selection): two lists, two row recipes, two empty states for one
+             collection. Now one list, one row, two verbs. Each row's face is
+             the props-only PaletteSpecimen (A2-VA-L1-4: strip + name + the
+             app's one count idiom, no hand-typed head); pressing the row
+             selects the whole palette (and turns the mix to Palettes); its
+             disclosure reveals the swatches, each adding one colour (and
+             turning the mix to Colors). X-W6 · X.W6.j's one-interaction-owner
+             law holds: the select press is the row's overlay button and the
+             disclosure is its sibling — no control nests in another. This
+             store is synchronous; TRUE EMPTY speaks the EmptyState alone
+             (T.W6.5 · Lane S). -->
+        <section class="flex flex-col gap-2" aria-label="Saved palettes">
+            <h3 class="font-display text-subheading">Saved palettes</h3>
+            <EmptyState
+                v-if="savedPalettes.length === 0"
+                message="No saved palettes yet."
+                hint="Save a palette, then pour it — or its colours — in here."
+            />
+            <ul v-else class="grid gap-2">
+                <li
+                    v-for="palette in savedPalettes"
+                    :key="palette.slug"
+                    class="mix-palette rounded-card border border-card-edge bg-well"
+                    :data-selected="isPaletteSelected(palette.slug) ? '' : undefined"
+                    :data-mix-source="mode === 'palettes' && isPaletteSelected(palette.slug) ? '' : undefined"
+                    :data-mix-colors="mode === 'palettes' && isPaletteSelected(palette.slug)
+                        ? JSON.stringify(palette.colors.slice(0, 4).map((c) => c.css))
+                        : undefined"
+                >
+                    <PaletteSpecimen :palette="palette" />
+                    <!-- W5-a11y: a native button for keyboard reach + aria-pressed
+                         for the selection state. -->
+                    <button
+                        type="button"
+                        class="mix-palette__select rounded-card cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                        :aria-pressed="isPaletteSelected(palette.slug)"
+                        :aria-label="`${isPaletteSelected(palette.slug) ? 'Deselect' : 'Select'} palette ${palette.name}`"
+                        @click="onPalettePress(palette)"
+                    />
+                    <Collapsible class="contents">
+                        <div class="mix-palette__actions pe-2">
+                            <CollapsibleTrigger as-child>
+                                <Button
+                                    icon-only
+                                    emphasis="quiet"
+                                    size="sm"
+                                    :aria-label="`Colors of ${palette.name}`"
+                                >
+                                    <ChevronDown class="mix-palette__chevron w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                                </Button>
+                            </CollapsibleTrigger>
+                        </div>
+                        <CollapsibleContent class="mix-palette__detail">
+                            <div class="px-3 pb-3 flex flex-wrap gap-1.5">
+                                <!-- W5-a11y: swatch button needs accessible name.
+                                     A2-VA-L1-15: the app's one SwatchButton. -->
+                                <SwatchButton
+                                    v-for="(color, ci) in palette.colors"
+                                    :key="ci"
+                                    :color="color.css"
+                                    size="sm"
+                                    :seed="`palette-${palette.slug}-${ci}`"
+                                    class="palette-swatch-add"
+                                    :title="formatCssCaption(color.css)"
+                                    :aria-label="`Add color ${formatCssCaption(color.css)} from ${palette.name}`"
+                                    @click="onSwatchAdd(color.css, palette.name)"
+                                />
+                            </div>
+                        </CollapsibleContent>
+                    </Collapsible>
+                </li>
+            </ul>
+        </section>
     </div>
 </template>
 
@@ -424,12 +402,51 @@ const swatchKeys = computed(() => {
     --vj-morph-y: 0px;
 }
 
-/* X.W12.u2 (UIA-V-351): the rest state speaks through the name's ink only. */
-.mix-palette--rest .mix-palette-name {
+/* A2-VA-L1-5 — the one palette row hosts the props-only specimen (strip +
+ * head), the select press laid over both, and the disclosure beside the head
+ * (the admin palette row's grid, AdminUsersPanel). The overlay press is a grid
+ * item spanning the strip and head rows; the actions cell paints above it. */
+.mix-palette {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "strip strip"
+        "head actions"
+        "detail detail";
+    align-items: center;
+    --specimen-radius: calc(var(--radius-card) - 1px);
+}
+.mix-palette__select {
+    grid-row: 1 / 3;
+    grid-column: 1 / -1;
+    align-self: stretch;
+    background: transparent;
+}
+.mix-palette__actions {
+    grid-area: actions;
+    position: relative;
+    z-index: 1;
+}
+.mix-palette__detail {
+    grid-area: detail;
+    min-inline-size: 0;
+}
+.mix-palette[data-selected] {
+    box-shadow:
+        0 0 0 2px var(--background),
+        0 0 0 4px var(--primary);
+}
+/* X.W12.u2 (UIA-V-351): the rest state speaks through the name's ink only —
+ * an unselected palette never dims its strip. */
+.mix-palette:not([data-selected]) :deep([data-palette-name]) {
     color: var(--muted-foreground);
 }
-.mix-palette--rest:hover .mix-palette-name {
+.mix-palette:not([data-selected]):hover :deep([data-palette-name]) {
     color: var(--foreground);
+}
+[data-state="open"] > .mix-palette__chevron {
+    rotate: 180deg;
 }
 
 /* R.W4 Lane A / A3 — the add-slot ghost hosts a centred Plus glyph.
