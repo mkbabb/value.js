@@ -279,3 +279,55 @@ The critic's own frames stay in `pass-05/critic/` (not committed by this seat).
 - /atmosphere now shows two stacked wells (selects, then "Field"); judge the rhythm between them.
 - The 6 px scalar rail: check that the thumbless default range still reads as a control at 390 and on coarse pointers (glass's coarse floor keeps the hit target).
 - V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11 wait on the owner.
+
+### pass 7
+
+This receipt covers the cure of the pass-7 critic's rows **V7C-01 … V7C-04**, judged after the pass-6 cure `5eecee0ac`. The workflow that dispatched this seat called it "pass 2" (its counter restarted after the limit reset). It is filed as pass 7, because `pass-02/` already holds pass 2's committed evidence and the critic's frames are in `pass-07/critic/`. Pass 6's cure is committed (`5eecee0ac`), but its evidence (`pass-06/`) and its receipt are not; that work belongs to the pass-6 seat.
+
+**Commits.** value.js `a85477894` (the cure, 7 files) and `2a3c686a1` (AFTER frames, census, probe, gate listings).
+
+**Consumer findings, cured at the root.**
+
+| id | cure | measured (`pass-07/`) |
+|---|---|---|
+| V7C-01 | The Interpolation band has two tracks at every width. Below sm the fields span both tracks, and the render tile (`order-last`, `col-start-2`, `w-12`, `min-h-10`) follows them, beside the Direction row it illustrates. The row sets the tile's height. From sm the layout is unchanged (`sm:order-none`, `sm:row-span-2`, the 96 px tile). | `probe-v7c.json`: at 390 the tile is 48×40 at y 654, on the 40 px Direction row (`gradient-tile-390-light.png`). At 1440 the tile is still 96×120. |
+| V7C-02 | The two config schemas use sentence case: "Color energy", "Body radius", "Satellite radius", "Orbit radius", "Smoothness" (was "Smooth K"), "Noise amplitude", "Noise frequency", "Pulse frequency", "Pulse amplitude", "Hue range", "Rim power", "Core glow", "Click impulse", and the section "Lit glass". Data only. | The slider names on /blob and /atmosphere read in sentence case (`probe-v7c.json` `labels`). |
+| V7C-03 | Atmosphere's select group is a section of its own, **"Character"**, with the same `h3.config-section-title.font-display.text-subheading` head as "Field" (ConfigSliderPane's section grammar). The head colour reaches the slotted head through `:slotted(.config-section-title)`. | The heads are Character and Field: Fraunces, 20.35 px, the same ink (`atmosphere-well-1440-light.png`). |
+| V7C-04 | The row is a follow companion's **ceiling**, not its height (shell.css, the row contract). The region wrapper becomes a column, and the companion takes its content height (`block-size: auto; flex: 0 1 auto`). It shrinks to the row, and scrolls, only when its content is longer. The 30rem floor stays on the wrapper, so the V3C-03 floor still holds. My Palettes now wraps its card the way Mix and the config pane do. Without the wrap, the T-45 blur carrier sat on the region wrapper, which the shorter card no longer fills, and painted a blur strip under the card (seen in the first frames and cured before commit). | 1440: Mix is 426 px inside a 621 px row (`companion-mix-1440-light.png`, first probe, empty Mix). My Palettes is 419 px beside Generate (415) and Browse (364), with no plate under "Add colors, then save." (`companion-generate-1440-light.png`). Blob follows its row and scrolls. On the final probe, Mix follows the row because another seat's uncommitted `MixSourceSelector.vue` adds a "Saved palettes" block, which is the contract working. |
+
+**Glass-owned rows.** None were raised this pass. The census's glass rows stay honest-RED on O-87 (no local override).
+
+**Gate re-aim, named** (no assertion weakened). x-w7l O-68 reads a section's actions without its select triggers. A `role="combobox"` is one of the section's fields, not an action, and Atmosphere's "Character" section holds four of them.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:9000 --widths 1440 --themes light,dark --settle 5000`; `census-after.json`).
+- Consumer rows are unchanged: box-shadow layers 116, backdrop blur 18, looping animations 14.
+- Glass rows read 704 box-shadow layers, 158 multi-layer elements and 326 inset highlights. They moved with the concurrent X-W12U .k2 glass adoptions (Collapsible, Input, Button), not with this cure.
+- A first census run under load ~500 captured six dark pages half-booted. It was re-run, and light and dark now agree page for page.
+- **Verdict RED**, on glass-owned chrome (O-87).
+
+**Frames.** `evidence/DS/value/pass-07/`, all headless real Chrome (§0ei):
+- 36 route frames (`capture.mjs`, 0 of 36 failed). The palettes, generate, browse, mix and picker frames were re-shot after the Palettes wrap.
+- The probe cells (`gradient-tile-390-light.png`, `atmosphere-well-1440-light.png`, `companion-*-1440-light.png`).
+
+The critic's own frames stay in `pass-07/critic/` (not committed by this seat).
+
+**Gates** (`v7c-gates/`, with a README). Host load was 107–530 throughout.
+- **Type-check:** 0 errors ×2.
+- **vitest:** 1104/1120 ×2 (8 skipped).
+  - The failures are the 7 pre-existing ones: `ink.test` resolveMutedInk ×2 and T-35 ×3, `spectrum-luma` C-5, `reka-binding-idiom` NG-6.
+  - The eighth, generate-rail EC-10, times out at the 5 s default under load. It passes alone with a 30 s timeout (2.9 s).
+- **e2e:**
+  - The pass-6 set plus o19 and o29 (153 tests) was **voided**: it was stopped at 37/153, and every failure was a 30 s timeout at load 270–530.
+  - The focused set (the specs that touch the changed files, `--timeout 240000`) ran ×2 plus a re-run. O-68 (re-aimed) passed 2/2 ×2. D8-1 passed ×2. companion-pane-track-start passed in run 1. gradient.spec T-21b (the tile carries type and direction) and the drag round-trip passed in the re-run.
+  - Remaining failure classes, none on a changed surface:
+    - Nav and settle timeouts: `getByRole(main)` not found, "Loading the scene" lazy-chunk plates, and "the region never settled" on the **picker's** `div.pane-shell`.
+    - o29's gradient leg: `regionsOf` gains a third, unnamed region, a glass Collapsible disclosure (`role="region"`) from the concurrent `cc38595c1`.
+    - **o19's canvas leg is pre-existing RED.** An A/B on the live tile, through the oracle's own window and dpr 2, reads 390 light 14.0 against **1.5** with the pre-cure classes, 390 dark 12.6 against 1.5, and 1280 (tile unchanged) 1.6. The netting plate it guarded was retired (X-W6). The oracle reads a plain render tile under either class set, so it is RED for a reason this pass does not own.
+  - **e2e is NOT ×2 GREEN**, because of the load classes and the pre-existing set.
+- **No visual golden was re-baselined.**
+
+**For the pass-8 critic.**
+- At 390 the tile is a small square beside Direction. Judge whether 48 px reads as the result of the controls or as a stray swatch, and check it with radial selected (no Direction row; the tile holds `min-h-10` on the right).
+- The companions now end at their content, so a pair can differ in height, as the original two cards did. Check that /mix with a result plate, and My Palettes with several saved cards, still follow the row and scroll inside the card.
+- "Character" is this seat's name for Harmony, Arrangement, Medium and Motion. "Palette" was the critic's other option; it fits Harmony only.
+- V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11 still wait on the owner.
