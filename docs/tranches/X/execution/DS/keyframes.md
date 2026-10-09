@@ -1085,3 +1085,49 @@ Every row is unchanged, because this pass changed fit, clipping, a caption's vis
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure. The host's load average was about 46–50 during the gates.
 - After the gates, the cure commit changed only the CSS comment on the re-measured budget, to state its final values. No rule changed.
 - The 390 phone sheet does not use the rail budget. Its sub-pane header takes the same one-row caption (`after/cube-easing-edit-390-light.png`, `after/layer-pane-cube-390-light.png`).
+
+### pass 16 (the redeployed workflow's pass 16; critic C20; evidence in `pass-20/`)
+
+**Cure commit:** keyframes.js `a4c358a4` (master, pushed fast-forward from `d0e6ffe6`). **Evidence:** value.js `3b3170506` (`evidence/DS/keyframes/pass-20/`: 28 census route frames, `census.json` + `census.log`, `before/` and `after/` with `square-corner-*`, `cube-easing-edit-*` at 1440 and 390, `layer-pane-cube-390-*` and `easing-390-*`, each with its `c20-probe.json`, and the probe `c20-probe.mjs`). All captures are headless real Chrome (§0ei). The task named `pass-16`, but `pass-16/` already holds the committed evidence of critic C16, so the frames go to `pass-20/`, following the sequential numbering of the earlier passes.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark identical) |
+|---|---|---|
+| KF-C20-01 | The plate's header band is now reserved by the grid, not by a magic number. In `SquareScene.vue`, the `SceneStageHeader` (title, status, x/y readouts) moves out of `SquareInstrument`'s absolute corner and becomes the plate's first grid row (`grid-rows-[auto_minmax(0,1fr)]`). In `SquareScene.css`, `.square-arena` is the second row and also the size container. `--square-size` and `--square-travel` are declared on the arena's children (a container cannot query itself), so the KF-C5-04 inequality now holds inside the room below the header's block end. The readout format moves with the header, and the readout's z-index was not raised. The legend balances its lines over the narrower field. In `sections-w13x.test.ts`, the Square's header site is re-pointed to `SquareScene.vue`; the assertion is unchanged. | **1440×900, box driven to (−1, −1):** the swollen box's top edge is at 239 px against the header's 215 px block end. Before, it was at 152 px, over the readout, and the box painted over the header. Size = travel = 156 px (was 184). The bottom at +1 is 725, inside the plate (750). **390×844:** size 91 px, unchanged (the inline half still binds), top at −1 is 300 against a header end of 170. 1024×768 and 1280×760 also clear (210 against 186). Frames: `after/square-corner-*`. |
+| KF-C20-02 | KF-C8-01's plot-frame cap is now **one rule in `layout.css`** for every EasingPicker host (`[data-slot="easing-picker"] > :has(> [data-slot="easing-curve"])`, `min(100%, var(--picker-cap, 100%))`, centred, lg only). `EasingSidebar.vue`'s scoped copy and `TimingFunctionPanel.vue`'s whole-host `max-w-(--picker-cap)` are deleted. The budget in `ChannelOptions.vue` was re-measured on the one-line strip: 28.5rem → 25.5rem. | **#/cube drill-in at 1440×900:** the mode strip, select and readout span the pane's 363 px (was 248), and the strip holds one line (controls 139 → 91 px). The readout prints `cubic-bezier(0.42, 0, 0.58, 1)` whole (scrollWidth 198 = clientWidth 198; it was 198 against 190). The plot is 296 px (was 248) and centred. The surface's scroll range is still 0. On the Easing route, the plot is still capped and centred under the shared rule (`easing-1440-*`). Frames: `after/cube-easing-edit-{light,dark}`. |
+| KF-C20-03 | In `ControlsPaneWrapper.css`, **one** timeline-driven fade rule now covers both scrollers: the desktop rail surface (`.controls-pane-wrapper .controls-surface`) and the phone sheet's body (`.controls-drawer-content .controls-pane`). It is crisp at each scroll limit. The static mask, keyed on useScrollFade's `scroll-fade-both` class, is kept only as the fallback where scroll timelines are unsupported. `SubPaneHeader.vue` gets `scroll-mt-(--mask-fade)`, so `reveal()` lands the header clear of a fade band even mid-scroll. | **390×844, cube easing drill-in:** the mask's start stop is 0 px (it was a static 40 px band). The title sits at full ink at the sheet's body top, matching 1440. The layer pane is the same. Frames: `after/cube-easing-edit-390-*` and `after/layer-pane-cube-390-*`. |
+| KF-C20-05 | In `EasingTarget.vue` and `.css`, KF-C10-06's `fn(` / args split and its atomic `.literal-args` inline-block are **deleted**. An atomic box is a break opportunity before itself, which is why `cubic-bezier(` was left on its own line. The call is now one text run whose only breaks are its comma-spaces (balanced), with a 2ch hanging indent. Copy still trails the line's end. | **#/easing at 390:** the lines are `cubic-bezier(0.25, 0.10,` (202 px) and `0.25, 1.00)` hung at +23 px. Before, they were `cubic-bezier(` (109 px) and the arguments flush left. At 1440 it is one line, unchanged. Frames: `after/easing-390-*`. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C20-04 | **Glass-owned: SHEET-POSITION (A2-KE-L2-2, BL F-21), cited under O-87/O-88.** The consumer already does what the critic asks. `drillIn` raises the store's open flag, and the sheet's detent goes to 0.36 within 400 ms, from height 171 to 304 px. But the sheet computes `position: relative`, because glass's `.glass-floating { position: relative }` (0,1,0, `material.css`) beats `:where([data-slot="sheet-content"]) { position: fixed }` (0,0,0). That rule is composed by SheetContent itself, both in `@layer components`, as read through CDP. So the sheet's top stays at about 719 and the raised detent grows the box below the viewport (bottom 1022 against 844). The body is on screen only in the peek strip. No local override (no consumer `position` on glass's sheet); it is re-judged at the 10.2.0 repin. |
+| KF-C20-G1 | **Glass, HELD-O87-RECHECK and O-88.** KF-C1-01/-02/-09/-10/-11/-12, KF-C7-04/-05/-09/-10/-11, KF-C8-05, KF-C9-05, KF-C11-08, KF-C12-03, KF-C13-03 and the O-88 dock collapse are unchanged at glass 10.1.0. They are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, on the final tree)
+
+| | pass 19 after | pass 20 after |
+|---|---:|---:|
+| chrome: elements with shadow | 428 | 428 |
+| chrome: shadow layers (max) | 1276 (6) | 1276 (6) |
+| chrome: shadows on non-floating surfaces | 310 | 310 |
+| chrome: inset highlights | 632 | 632 |
+| chrome: backdrop blur | 284 | 284 |
+| chrome: control gradients | 164 | 164 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+Every row is unchanged, because this pass changed layout, fit, a mask's timing and a line break, not lighting. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): 826/826 on the first run, which excluded `cube-autoplay-first-frame.test.ts` while it was still another seat's untracked file. Once that seat committed it (`d0e6ffe6`), the full suite ran **828/828, twice**.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
+- `before/c20-probe.json` read the phone mask on `.scroll-fade-both`, the element that carried the static mask then. The committed probe reads `.controls-pane`, the scroller the one rule now targets. The two elements are the same node (the class sits on the pane).
+- The layer-pane probe's title field reports the first visible sub-pane header. Both sub-panes stay in the DOM, so that field can name the detail pane. The frames show the layer pane.
