@@ -341,3 +341,59 @@ Close seat `claude-opus-5-5`, 2026-10-09, VERIFY-ONLY (cures nothing). **Wave ve
 **Residuals (named owners).** The merge `m/w1 → master` and the master push (`.g` re-sit, after g-1). G-outage, openapi and G-d AFTER readings (`.d` re-sit, scripted in `94870dc`). Two private draft rows in production, `mighty-drawing-umber-zebra` and `rich-pouring-mango-salmon` (owner admin delete). R-h2: the first post-merge deploy runs the host's old in-place hook, so expect a recreate-window outage (`.d`). `cli.py _cmd_download_models` swallows failures (outside `.m`'s set; F.CT owner). `.dockerignore` lacks `.worktrees/` (`.h` follow-up). `api/main.py:62` ruff-format blank line (`.m` owner).
 
 **Four-verb line:** unmoved. F.REL stays OPEN, **BLOCKED-ON ESC-FREL-g-1** (then `.g` merge → master CI GREEN → `.d` re-sit).
+
+## RESUME 2026-10-09 (§0ew + F-REL.md ADDENDUM (a)) — Open
+
+Seat 0 (RESUME OPEN), `claude-opus-5-5`, 2026-10-09 ~11:35 local, under the owner's 2026-09-17 begin-word and the 2026-10-09 order (§0ev: no deferral). Binding resume spec: COHESION §0ew (L3772-3789) + `fourier/waves/F-REL.md` ADDENDUM (a) (L39-43), read whole; §0ev (L3752-3770) read whole. Order: `.mem → .w → .vb → .g → .d`, strictly serial.
+
+### Preconditions (bytes and ledger)
+- ⟨`grep -n "^| F.REL" LEDGER.md`⟩ → line 91 `**BLOCKED-ON ESC-FREL-g-1**` (not CLOSED) → RESUME mode. ESC-FREL-g-1/g-2/g-3 are RULED by §0ew; ESC-FREL-d-1 dissolves with `.g` (a green master CI fires both deploy paths).
+- F.W14V CLOSED (L90) and F.CT phase 2 CLOSED honest-RED by §0eu — unchanged since the 2026-10-08 open. PASS.
+- Landed units (commits exist, ⟨`git log --oneline --all --grep="F.REL"`⟩ fourier → 12): `.m` `871cc1c` `4d98fa8` · `.c` `9876aad` · `.h` `1aa784a` `18c2077` `3af0d6f` `1015303` → **alreadyDone `F-REL.m` `F-REL.c` `F-REL.h`**. `.g` (`4bcdeaa` `5493e11` `4d8fb75` `c17c1ce`) and `.d` (`94870dc`) landed partial work but closed ESCALATED → owed as re-sits; their commits are not re-done.
+- No `.mem`/`.w`/`.vb` commit exists (same grep; none carries those ids).
+- fourier: ⟨`git status -sb`⟩ → `m/w1-bump-migration...origin/m/w1-bump-migration` (0/0, HEAD `94870dc`); `origin/master` = `ad62881` (unmerged).
+- F.CT3 is live on `f-ct3` (`.worktrees/f-ct3`, §0ev.4; `fe1749e` on m/w1). The heavy-run lock is `../fourier-analysis/.worktrees/heavy.lock` (the F.CT3 chassis's own name); every F.REL heavy run takes it.
+
+### Crash recovery
+⟨`git status --porcelain`⟩ (fourier) → `web/e2e/screenshots/f-w14/*.png` (~45, X-DS evidence) + `web/src/components/{equation/FunctionInput.vue, equation/convergence/ConvergenceLegend.vue, shared/CoefficientsPanel.vue, visualization/BasisSelector.vue, visualization/VisualizationView.vue}` + `web/src/style.css` + `.worktrees/`. No `.mem`/`.w`/`.vb` seat has run, so none is inherited F.REL work: they are X-DS's fourier lane WIP. `.w` writes `web/src` beside them under §0ev.3 (never edits/commits a path another writer holds dirty). value.js: only my own record/ledger/INBOX are touched.
+
+### E13 mail sweep
+Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` (⟨`ls -t glass-ui/docs/tranches | head -1`⟩ → `BL`, newest; it has no `coordination/`) · keyframes `V/coordination` · atlas `P/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path. ⟨`grep -nE "\| *UNREAD" INBOX.md`⟩ → 1 hit, line 406 (the 2026-09-22 prose sweep note, not a mail row). **0 unrowed · 0 UNREAD.** Sweep line appended to INBOX.
+
+## RESUME 2026-10-09 — Baseline (BEFORE, read-only)
+
+⟨`uptime`⟩ → `load averages: 441.11 468.35 328.73` (11:35). Under the phase-2 resource law no heavy run (extraction, pytest, e2e, docker) is taken at the open; the born-RED readings below are the `.g` sitting-2 measurements (this record, `### F-REL.g`) plus static reads of the current bytes. Each owed unit re-reads its own gate BEFORE under `heavy.lock` (§0ev.1/2: load-robust reads now, never deferred).
+
+| Gate (§0ew / addendum (a)) | Unit | BEFORE | Reading |
+|---|---|---|---|
+| G-mem: peak RSS ≤ 1.6 GB, one default extraction, every model, every harness image | `.mem` | ⟨`onnx_peak.py birefnet-general-lite.onnx 1024`⟩ → `peakMB 9049` (arena on) / `7505` (arena+mem-pattern off); ⟨`rss.py chef-2.jpeg`⟩ → killed inside the first default extraction, peak polled 8541 MB (`~/.dev-logs/frel/g2-*.log`) | **RED** |
+| G-mem harness memory probe exists | `.mem` | ⟨`grep -rln "rss\|RSS" bench/contours`⟩ → 0 files | **RED** (absent) |
+| G-mem2: container smoke under `memory: 2G` | `.mem` | ⟨`grep -n "memory\|read_only" scripts/model-smoke.sh`⟩ → asserts `read_only: true` only; no 2G extraction smoke | **RED** (absent) |
+| G-iou: subject-mask IoU vs the 1024 ensemble, mean ≥ 0.97, min ≥ 0.93 | `.mem` | the reference is the CURRENT ensemble (`SUBJECT_MODELS = (U2NET, BIREFNET_LITE)`, `ml.py:80-90`, `input_size=1024`); trivially 1.0 before a cure | n/a before (the cure's quality gate) |
+| G-w: e2e GREEN outside the manifest | `.w` | `g-e2e-diag-4-clean.log` → 23 failed serially: contrast-floor ×3 · gallery-admin-a11y ×4 · f-w14u-d d2 ×2 · f-w14v-p p3 ×1 · visual-checkpoint ×5 · OOM-dependent rest; CI 37876128973 e2e ✗ | **RED** |
+| G-w manifest `web/e2e/producer-held.json` | `.w` | ⟨`ls web/e2e/producer-held.json`⟩ → `No such file or directory` | **RED** (absent) |
+| G-vb: visual-checkpoint ×5 darwin + linux | `.vb` | ⟨`find web/e2e -path "*-snapshots*" -name "*.png"`⟩ → 6 `*-darwin.png`, **0 `*-linux.png`**; darwin drifted (card 240×301 → 277×238) | **RED** |
+| G-e2e master CI (named set explicit) | `.g` | `origin/master` = `ad62881`; CI 37876128973 e2e ✗ (runner killed, 4th extraction) | **RED** |
+| G-d: prod check / openapi / PATCH preflight | `.d` | `prod-verify.mjs` live 10/20; openapi `34 0.2.0 []`; PATCH preflight 400 (close-seat readings) | **RED** |
+| pytest / api / vue-tsc / vitest | all | 171 ×2 / 344 ×2 / 0 / 116 ×2 (banked, `.m` `.c` `.g` receipts; CI 37876128973 api ✓ web ✓) | GREEN (non-regression) |
+| prod-compose boot + health on CI | `.h` | CI 37870549697, 37876128973 ✓ | GREEN (landed) |
+
+Playwright for `.vb`: ⟨`node -p "require('./node_modules/@playwright/test/package.json').version"`⟩ (web) → `1.61.0` → image `mcr.microsoft.com/playwright:v1.61.0-noble` (match the repo's version).
+
+**Green-before-cure:** none. Every owed gate reads RED or absent.
+
+## RESUME 2026-10-09 — Unit plan
+
+alreadyDone: `F-REL.m` `F-REL.c` `F-REL.h` (never re-dispatched). Owed, **strictly serial** (§0ew; addendum (a)): `.mem → .w → .vb → .g → .d`, one concurrent, every seat Opus 5.5 (owner Opus-only 2026-09-23). Repo = fourier-analysis on `m/w1-bump-migration` until `.g`. Binding on every unit: X-DS's fourier lane and F.CT3 (merges m/w1 forward) also commit this branch — `git fetch` + `git pull --ff-only` (or a no-force merge) before every commit, never force; pathspec commits; §0ev.3 clean-window for any `web/src` path (poll `git status --porcelain -- <paths>` every 60 s, ≤ 30 min; never touch a path another writer holds dirty); headless only (§0ei); nothing durable in /tmp (§0eo; logs `~/.dev-logs/frel/`); one heavy run per repo at a time under `.worktrees/heavy.lock`; §0ev.2 functional reads under load (≤ 3 re-runs, load recorded, flakes reported never masked). ESCALATED units do not halt the wave.
+
+Groups: `[[F-REL.mem], [F-REL.w], [F-REL.vb], [F-REL.g], [F-REL.d]]`.
+
+| Unit | Spec section | Writable | Gates | Locks |
+|---|---|---|---|---|
+| F-REL.mem | §0ew bullet 1 (COHESION L3773-3779); addendum (a) `.mem` (F-REL.md:40) | `src/fourier_analysis/contours/ml.py`; its tests (`tests/test_contour_ml.py`, `tests/test_model_dir.py`, new `tests/test_*mem*.py`); the harness memory probe (`bench/contours/**` new probe module + its `__main__`/README wiring); `scripts/model-smoke.sh` (the 2G container smoke) | G-mem peak RSS ≤ 1.6 GB every model × every harness image; G-mem2 2G container smoke extracts; G-iou mean ≥ 0.97 min ≥ 0.93 vs the current 1024 ensemble; harness metrics re-read, every changed overlay named; pytest + api GREEN ×2 | ONE atomic commit on m/w1 (F.CT3 re-judges on it); raising the cap REJECTED; model sha pins stay from the `SubjectModelSpec`s; BiRefNet drop only if U2-Net + face/person parsers keep the mask |
+| F-REL.w | §0ew bullet 2 (L3780-3783); addendum (a) `.w` (F-REL.md:41) | `web/src/**` (only the defect sites, §0ev.3); `web/e2e/producer-held.json` (new); `web/playwright.config.ts`; `.github/workflows/ci.yml` (deploy gate excludes + prints the manifest); value.js INBOX/outbox relay rows to glass BK | G-w e2e GREEN outside the manifest (contrast-floor ×3, f-w14u-d d2 ×2, f-w14v-p p3 ×1 cured); manifest entries (test id, O-id, expiry "at glass 10.2.0 repin") printed by CI; vue-tsc/vitest ×2 | glass READ-ONLY (Toaster `aria-hidden` ×4 cured at consumer only if misconfigured, else relayed); no skip in spec files; clean-window |
+| F-REL.vb | §0ew bullet 3 (L3784-3787); addendum (a) `.vb` (F-REL.md:42) | `web/e2e/visual-checkpoint.spec.ts-snapshots/**` (darwin + linux PNGs) | G-vb visual-checkpoint ×5 GREEN on darwin ×2 and in `mcr.microsoft.com/playwright:v1.61.0-noble` ×2 | under `heavy.lock`; goldens only (no oracle/threshold edits); redesigned frames are the accepted state |
+| F-REL.g | §Units `.g` (F-REL.md:31) + §0ew last bullet (L3788) | the merge `m/w1-bump-migration → master` (no force); `web/playwright.config.ts`, `web/e2e/**`, `.github/workflows/**` | G-e2e master CI GREEN with the honest-RED set + producer-held manifest explicit; vue-tsc/vitest/e2e GREEN ×2 | merge only after `.mem` GREEN and e2e GREEN outside the manifest; fetch before merge; never force; receipt declares LW-1 (`4bcdeaa`/`c17c1ce` web/src) as adjacent edits |
+| F-REL.d | §Units `.d` (F-REL.md:32-38) | `scripts/**` (prod-verify probe); evidence `value.js/docs/tranches/X/fourier/evidence/F-REL/` | G-smoke, G-cert > 14 d, G-outage (health polled through the deploy), G-d six production rows headless via `scripts/prod-verify.mjs`, openapi has publish/remix/diff, PATCH preflight 2xx | deploy via standing workflow + webhook only; host never hand-edited; R-h1/R-h2 named |
+
+## RESUME 2026-10-09 — Unit receipts
