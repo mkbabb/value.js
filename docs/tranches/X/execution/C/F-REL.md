@@ -59,3 +59,42 @@ Groups: `[[F-REL.m], [F-REL.c], [F-REL.h], [F-REL.g], [F-REL.d]]`.
 | F-REL.d | §Units `.d` (F-REL.md:32-38) | none in code beyond `scripts/**` (a production verify probe); evidence under `value.js/docs/tranches/X/fourier/evidence/F-REL/` | G-smoke, G-cert, G-outage (health polled through the deploy), G-d: the six production rows headless | deploy via standing workflow + webhook only |
 
 ## Unit receipts
+
+### F-REL.m
+
+Seat `claude-opus-5-5`, 2026-10-08. Spec §Units `.m` (F-REL.md:16-20 at true bytes; the plan cites 20-24, drifted; INTENT read at the true lines), COHESION §0eu (C's four models sha-pinned) and §0em.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) → only `web/**` (X-DS lane) and `.worktrees/`; nothing in the .m writable set. Nothing inherited.
+
+**Anchors measured.** ⟨`git grep -n _CACHE_DIR`⟩ → `ml.py:30 _CACHE_DIR = Path.home()/".cache"/"fourier-analysis"/"models"`, read by `SubjectModelSpec.path` (ml.py:55). Production uses all six specs (`ensure_model_downloaded`, ml.py:100-109: U2NET + BIREFNET_LITE ensemble at ml.py:197, FACE_DETECTOR YuNet + FACE_PARSER BiSeNet parts.py:93/103, PERSON_PARSER person.py:39, LINE_MODEL contour-768 lines.py:50). `api/main.py:116` `@app.exception_handler(Exception)` — Starlette routes it to the outermost `ServerErrorMiddleware`, outside `CORSMiddleware`. Pre-cure failure reproduced: ⟨`HOME=<chmod 555 dir> uv run python -c "…compute_contours(joseph-fourier.png)…"`⟩ → `PermissionError: [Errno 13] Permission denied: '…/home/.cache'`.
+
+**Acts (fourier `m/w1-bump-migration`).**
+1. `871cc1c` fix(api · F.REL .m): the contour models are baked, not fetched — one commit family (loader + env + baked dir):
+   - `ml.py`: `MODEL_DIR_ENV = "FOURIER_MODEL_DIR"`, `model_dir()` = the env, else `~/.cache/fourier-analysis/models`; `SubjectModelSpec.path` reads it at call time.
+   - `api/Dockerfile` production stage: `ENV FOURIER_MODEL_DIR=/opt/fourier-models` + `RUN uv run --no-sync python -c "…ensure_model_downloaded()"` (the runtime loader: URLs and sha256s from the SubjectModelSpecs, the one source; a mismatch raises and fails the build) `&& chmod -R a=rX`, layered before `COPY . .`.
+   - `docker-compose.prod.yml`: `read_only: true` kept; a 3-line comment naming the baked dir and the smoke.
+   - docstrings `person.py:23`, `lines.py:12` → `ml.model_dir()`.
+   - falsifiers: `api/tests/test_model_dir_readonly.py` (a fresh interpreter, HOME chmod 555, FOURIER_MODEL_DIR = a chmod-555 dir of links to the sha-verified models, runs the API's `compute_contours` on the tracked `assets/portraits/joseph-fourier.png`; asserts contours > 0 and HOME still empty); `tests/test_model_dir.py` (default + env); `scripts/model-smoke.sh` (builds the production stage, reads the backend's `read_only`/`tmpfs`/`cap_drop`/`security_opt` from `docker compose -f docker-compose.yml -f docker-compose.prod.yml config --format json` and refuses unless `read_only: true`, then extracts in the image with `--network=none`, so an unbaked model cannot be fetched).
+   - adjacent edit: `.gitignore:60` `!scripts/model-smoke.sh` (the repo ignores `scripts/*` and tracks scripts by negation; without it the falsifier could not be committed).
+2. `4d98fa8` fix(api · F.REL .m): an unhandled exception answers the typed problem through CORS:
+   - `api/main.py`: the outer `exception_handler(Exception)` is replaced by `UnhandledErrorProblem`, a pure-ASGI boundary added BEFORE `CORSMiddleware` (so it sits inside it): logs, answers `internal_error(instance=path)`; an exception after the response started propagates unchanged. `logger` moved below the imports (ruff E402 9 → 0 on the file).
+   - `api/lib/crud/errors.py`: catalog row `internal_error = partial(problem, "urn:contract:internal-error", 500, "Internal server error")`; the two catalog tests take the row (counts 20/21 → 21/22).
+   - falsifier `api/tests/test_unhandled_error_cors.py`: drives the full ASGI stack with an `Origin`, a route that raises → asserts 500, `application/problem+json`, `access-control-allow-origin` = the origin, credentials true, the exact problem body. Measured RED on the pre-cure `main.py` (⟨`git show HEAD:api/main.py` as a probe module⟩ → `RuntimeError: an unhandled defect` escaped the stack), GREEN after.
+3. Pushed: ⟨`git pull --ff-only && git push origin m/w1-bump-migration`⟩ → `origin/m/w1-bump-migration` = `4d98fa8` (no force; X-DS's `9935f2c` pulled first).
+
+**Gates (BEFORE → AFTER, logs `~/.dev-logs/frel/`).**
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| G-m api test, read-only HOME + FOURIER_MODEL_DIR extracts | RED (no `FOURIER_MODEL_DIR`; the read-only-HOME reproduction raised `PermissionError …/home/.cache`) | GREEN — ⟨`uv run pytest api/tests/test_model_dir_readonly.py`⟩ → 1 passed (inside both full api runs below) |
+| G-m container smoke under `read_only: true` | RED (`api/Dockerfile` baked no model) | GREEN ×2 — ⟨`scripts/model-smoke.sh`⟩ → `hardening: --read-only --tmpfs=/tmp --cap-drop=ALL --security-opt=no-new-privileges:true --network=none` · `model dir: /opt/fourier-models · HOME /home/app read-only` · `contours: 59 · points: 9583` · `model-smoke: PASS`; ⟨`SKIP_BUILD=1 scripts/model-smoke.sh`⟩ → the same `59 · 9583 · PASS`. ⟨`docker run --network=none --entrypoint ls fourier-backend:model-smoke -la /opt/fourier-models`⟩ → the six models, `-r--r--r--`, dir `dr-xr-xr-x`. |
+| 500 → typed problem WITH CORS | RED (pre-cure probe: the exception escaped; no response through CORS) | GREEN — `test_unhandled_error_cors.py` 1 passed |
+| pytest `api/` ×2 | 302 ×2 (banked) | ⟨`timeout 1200 uv run pytest api/ -x -q`⟩ → **307 passed** ×2 (71.2 s, 48.0 s) = 302 + 1 read-only + 1 CORS + 3 catalog-row params |
+| pytest `tests/` ×2 | 169 ×2 (banked) | ⟨`timeout 1200 uv run pytest tests/ -x -q`⟩ → **171 passed** ×2 (475.8 s, 431.4 s) = 169 + 2 `test_model_dir.py` |
+
+Resource law: suites run strictly one at a time, each under `timeout 1200 -x`; the first api run waited for the 1-min load to fall to 40 (it read 40.08; 30-66 through the seat).
+
+**Residuals.** (a) `src/fourier_analysis/cli.py:311-322` `_cmd_download_models` swallows a download failure and returns 0; outside the writable set and not on the image path (the Dockerfile calls `ensure_model_downloaded` directly, which raises), so it is recorded, not touched. (b) The image grows by ~527 MB (six models); the layer re-downloads only when `src/` changes. (c) The build context carries the untracked `.worktrees/` (~700 MB transferred) since `.dockerignore` does not exclude it; a build-speed matter for `.h`, not a correctness one. (d) The host deploy itself (does the webhook build run this stage with network?) belongs to `.h`/`.d`.
+
+**Adjacent edits.** `fourier-analysis/.gitignore:60` `!scripts/model-smoke.sh`: same concern (the falsifier script), the repo tracks scripts by negation.
+
+**Escalations.** None. Status: **DONE**.
