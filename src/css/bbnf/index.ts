@@ -20,7 +20,7 @@ import { keyframeSelector } from "./value";
  * to the generated entry (value | `FAIL`), with no per-call rule lookup, no intermediate result object and
  * no generic wrapper. `success`/`failure` (`../result`) is the result layer shared with the retired parser.
  */
-const { colorTop, valueTop, scalarTop, keyframeSelector: selectorEntry, timingFunction, commaItems, semiItems, spaceItems } = parser.entries;
+const { colorTop, valueTop, customTop, scalarTop, keyframeSelector: selectorEntry, timingFunction, commaItems, semiItems, spaceItems } = parser.entries;
 
 const refusal = <T>(source: string, node: Refused): ParseResult<T> =>
     node.span === undefined
@@ -48,6 +48,15 @@ function valueResult<T extends CssValue>(source: string, node: ValueNode): Parse
 /** `parseCssValue` — a component-value list (comma, then slash, then space separated). */
 export function parseCssValue(source: string): ParseResult<CssValue> {
     const node = valueTop(source);
+    return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
+}
+
+/**
+ * A custom property's value (css-variables-1 §2, `<declaration-value>?`): `parseCssValue`'s component-value
+ * list, or the EMPTY value (`--x: ;`, whitespace and comments only). A standard property never reads it.
+ */
+export function parseCustomPropertyValue(source: string): ParseResult<CssValue> {
+    const node = customTop(source);
     return node === FAIL ? failure(source, "css_syntax", ["scalar"]) : valueResult(source, node as ValueNode);
 }
 

@@ -10,7 +10,7 @@
  * (`collectDeclarations`, `collectAnimationOptions`). It reaches NOTHING in
  * `./stylesheet` or `./serialize`; the seam runs one way only.
  */
-import { parseCssValue, splitTopLevel } from "./bbnf/index";
+import { parseCssValue, parseCustomPropertyValue, splitTopLevel } from "./bbnf/index";
 import { declaration, emptyListComma, isDashedIdent, opensTimeline } from "./bbnf/sheet";
 import { JUMP_ALIASES } from "./bbnf/value";
 import { failure, success } from "./result";
@@ -367,7 +367,8 @@ export function parseDeclarations(body: string): ParseResult<readonly Declaratio
         if (empty !== undefined) {
             return failure(source, "animation_option_invalid", ["nonempty animation list item"], empty, empty + 1) as ParseResult<readonly Declaration[]>;
         }
-        const value = parseCssValue(source);
+        // css-variables-1 §2: a custom property's value may be empty (`--x: ;`); a standard one's never is.
+        const value = name.startsWith("--") ? parseCustomPropertyValue(source) : parseCssValue(source);
         if (!value.ok) return value as ParseResult<readonly Declaration[]>;
         // css-variables-1 §3: "If a property contains one or more var() functions, and those
         // functions are syntactically valid, the entire property's grammar must be assumed to be

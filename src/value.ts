@@ -43,6 +43,17 @@ export type CssList = Readonly<{
     items: readonly CssValue[];
 }>;
 
+/**
+ * The EMPTY value: the space list of no components, serialized `""`. Only a custom property holds it —
+ * css-variables-1 §2 gives a custom property the grammar `<declaration-value>?`, so `--x: ;` (whitespace
+ * only, which css-syntax-3 trims) is valid — and a standard property's value is never empty (X.P.W8 `.e`).
+ */
+export type CssEmpty = Readonly<{
+    kind: "list";
+    separator: "space";
+    items: readonly [];
+}>;
+
 export type CssValue = CssScalar | CssCall | CssList;
 
 const LAYOUT_UNITS = new Set([

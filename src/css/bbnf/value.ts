@@ -6,7 +6,7 @@
 // which answers it as the `ParseResult` failure it names. Every node is built frozen: a published
 // result is immutable, and nothing walks it again (`../result`).
 
-import type { CssCall, CssScalar, CssValue } from "../../value";
+import type { CssCall, CssEmpty, CssScalar, CssValue } from "../../value";
 import { NAMED_COLORS } from "../named-colors";
 import type { CssLinearStop, CssTimingFunction, JumpPosition, KeyframeSelector, ParseIssue } from "../types";
 import type { ColorNode, MixMethodNode } from "./color";
@@ -275,6 +275,9 @@ function linearFn([first, rest]: readonly [CssLinearStop | Refused, readonly (Cs
     return stops.length >= 2 ? Object.freeze({ kind: "linear-function", stops: Object.freeze(stops) as CssLinearStop[] }) : timingRefused;
 }
 
+/** The value `customTop` answers when a custom property holds only whitespace and comments (css-variables-1 §2). */
+const EMPTY: CssEmpty = Object.freeze({ kind: "list", separator: "space", items: Object.freeze([]) as readonly [] });
+
 /**
  * `value.bbnf`'s semantic actions, by production. Each receives its rule's value where the grammar
  * puts it (positional sequences: an unmatched optional keeps its `undefined` slot).
@@ -305,6 +308,7 @@ export const valueActions = {
     spaceList: { kind: "map", fn: listOf("space") },
     slashList: { kind: "map", fn: listOf("slash") },
     commaList: { kind: "map", fn: listOf("comma") },
+    customTop: { kind: "map", fn: (value: ValueNode | undefined): ValueNode => value ?? EMPTY },
     // The leaf proved the token is `from` or `to` in some case, so its length names it.
     selectorKeyword: { kind: "map", fn: (token: string): SelectorNode => (token.length === 4 ? FROM : TO) },
     selectorNamed: { kind: "map", fn: namedSelector },

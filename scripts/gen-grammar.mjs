@@ -25,7 +25,7 @@ const ACTIONS = "src/css/bbnf/actions.ts";
 const OUT = "src/css/bbnf/generated/grammar.js";
 const ENTRIES = [
     // `/css` (index.ts)
-    "colorTop", "scalarTop", "valueTop", "keyframeSelector", "timingFunction",
+    "colorTop", "scalarTop", "valueTop", "customTop", "keyframeSelector", "timingFunction",
     "commaItems", "semiItems", "spaceItems",
     // the stylesheet layer's readers (sheet.ts)
     "ruleList", "atPrelude", "propertyName", "syntaxText", "syntaxAlts", "scopePrelude",

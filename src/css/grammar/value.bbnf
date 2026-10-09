@@ -12,6 +12,10 @@
 // ── component values ──────────────────────────────────────────────────────────────
 // Precedence, loosest first: the comma list, the slash list, the space list.
 valueTop   = sp >> commaList << sp ;
+// A custom property's value, css-variables-1 §2 `<declaration-value>?`: a component-value list, or
+// EMPTY — whitespace and comments only (`--x: ;`; css-syntax-3 §4 drops comments). Only `customTop`
+// reads the empty value; `valueTop` (every standard property, `parseCssValue`) never does (X.P.W8 `.e`).
+customTop  = sp >> commaList ? << sp ;
 commaList  = slashList , ( comma >> slashList ) * ;
 slashList  = spaceList , ( slash >> spaceList ) * ;
 spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
