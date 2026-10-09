@@ -291,3 +291,53 @@ Seat `claude-opus-5-5`, 2026-10-09, under COHESION §0ev (no deferral). Spec §U
 - G-outage, openapi, G-d AFTER readings owed to the `.d` re-sit after the deploy.
 
 **Status: ESCALATED** (ESC-FREL-d-1).
+
+## Close
+
+Close seat `claude-opus-5-5`, 2026-10-09, VERIFY-ONLY (cures nothing). **Wave verdict: BLOCKED-ON ESC-FREL-g-1** (`.m` `.c` `.h` DONE; `.g` `.d` ESCALATED). The four-verb line does NOT move to IMPLEMENTED: the spec's §Gates (master e2e GREEN, production smoke after a ship, the end-to-end production check, no outage through a deploy) are unread or RED.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) → only `web/e2e/screenshots/f-w14/*.png` + X-DS `web/src/**` WIP + `.worktrees/` (none in a close-seat path); value.js `docs/tranches/X/execution/` → only `B/KF-W13X.md` (Track B's). Nothing inherited.
+
+**Resource law.** ⟨`uptime`⟩ → load 515 / 509 at the close; heavy suites (pytest, api, vue-tsc, vitest, e2e) were NOT re-run locally (wait while > 40). Their ×2 readings are cited from the unit receipts and from CI, which ran them on independent runners.
+
+**E13.** Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` + `P/coordination` · keyframes `V/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path. ⟨`grep -nE "\| *UNREAD" INBOX.md`⟩ → 1 hit, line 406, which is the 2026-09-22 prose sweep note, not a mail row. **0 UNREAD in scope.**
+
+**Gates, BEFORE → AFTER (close-seat readings quoted by command).**
+
+| Gate (spec §Gates / unit) | BEFORE (open) | AFTER (close) | Reading |
+|---|---|---|---|
+| pytest `tests/` + api ×2 | 169 / 302 ×2 (banked) | `.m`: tests 171 ×2, api 307 ×2; `.c`: api 344 ×2. ⟨`gh run view 37876128973` / `37870549697 --json jobs`⟩ → `api/tests (with live Mongo) success` on both | GREEN (local re-run withheld at load 509) |
+| G-m read-only model dir + `read_only: true` container smoke | RED | `test_model_dir_readonly.py` + `scripts/model-smoke.sh` PASS ×2 (`.m` receipt) | GREEN (in the tree, not deployed) |
+| G-c preflight every verb × header, ETag exposed (local) | RED | `test_cors.py` 37 tests, `cors-probe.sh` PASS ×2 (`.c` receipt) | GREEN locally |
+| G-c on production | 400 | ⟨`curl -X OPTIONS … PATCH … if-match,idempotency-key …/api/visualizations/x`⟩ → `400` | RED (not deployed) |
+| G-h prod-compose boot + health on CI | RED | ⟨`gh run view … --json jobs`⟩ → `production compose boot + health success` on 37870549697 and 37876128973 | GREEN ×2 |
+| web vue-tsc / lint | exit 0 / 11+3 findings | CI `web (vue-tsc + vite build) success` (37876128973); local ×2 in `.g` | GREEN |
+| web vitest ×2 | 116 | 116 ×2 (`.g`) | GREEN |
+| **master e2e GREEN (named set explicit)** | RED (37498214674) | honest-RED set declared (`5493e11`); ⟨`gh run view 37876128973`⟩ → `e2e … failure` (runner killed, ESC-FREL-g-1); ⟨`git log -1 origin/master`⟩ → `ad62881` (unmerged) | **RED** |
+| production smoke | PASS | ⟨`bash scripts/pages-smoke.sh`⟩ → `PASS` rc 0 (still the hotfix SPA; nothing shipped) | GREEN as non-regression only |
+| cert > 14 d | Jan 4 2027 / Dec 22 2026 | ⟨`openssl s_client … -enddate`⟩ → `Jan  4 15:19:06 2027` / `Dec 22 20:13:07 2026` | GREEN |
+| host API = new code | 34 paths, no publish/remix/diff | ⟨`curl …/openapi.json`⟩ → `34 0.2.0 []` | **RED** |
+| end-to-end production check | RED by construction | `scripts/prod-verify.mjs` (`94870dc`), live 10/20 (`.d`) | **RED** |
+| no outage through the deploy | n/a | no deploy fired | NOT READ |
+
+**Commit roster** (fourier `m/w1-bump-migration`, pushed; ⟨`git show --stat`⟩ read for each):
+- `.m`: `871cc1c` (ml.py, person.py, lines.py, api/Dockerfile, api/tests, tests, docker-compose.prod.yml, scripts/model-smoke.sh, `.gitignore` adjacent) · `4d98fa8` (api/main.py, api/lib/crud/errors.py, api/tests). In set.
+- `.c`: `9876aad` (api/config.py, api/main.py, api/tests/test_cors.py, scripts/cors-probe.{sh,mjs}, `.gitignore` adjacent). In set.
+- `.h`: `1aa784a` · `18c2077` (+ `nginx/fourier.conf` adjacent, declared) · `3af0d6f` · `1015303` (+ `.deploy/edge/README.md`, declared adjacent). In set or declared.
+- `.g`: `4bcdeaa` · `5493e11` · `4d8fb75` · `c17c1ce`. Landed-wrong finding below.
+- `.d`: `94870dc` (scripts/prod-verify.mjs, `.gitignore` adjacent). In set.
+- value.js receipts: `1be91a2ac` (.m) · `a79667de4` (.c) · `5a76d4a3c` (.h) · the `.g`/`.d` receipts · `0af279f69` (.d).
+
+**Landed wrong (recorded, not fixed here).**
+- LW-1: `4bcdeaa` and `c17c1ce` edit `web/src/**` (`ConvergencePlot.vue`, `lib/api.ts`, `lib/svg-fourier.ts`, `ui/tooltip/Tooltip.vue`, `visualization/BasisCanvas.vue`). That path is outside `.g`'s declared writable set (`web/playwright.config.ts`, `web/e2e/**`, `.github/workflows/**`) and is X-DS's concurrent lane. The edits are lint-only and the same concern (master green), but the `.g` receipt does not list them under "adjacent edits" as §0bt requires. Owner: the `.g` re-sit should declare them, or X-DS should ratify them.
+
+**Escalations (open).**
+- **ESC-FREL-g-1** (blocking): BiRefNet-lite @1024² peaks at 7.5–9.0 GB per inference. CI's 16 GB runner dies, and the 2G production cap would OOM on every extraction. Home: `src/fourier_analysis/contours/ml.py` under F.CT / F.REL `.m`. Needs an owner/COHESION ruling on the shape of the cure, because §0eu adopted pipeline C whole.
+- **ESC-FREL-g-2**: contrast-floor ×3 (F.W4 owners), gallery-admin-a11y ×4 (glass Toaster `aria-hidden` focus proxies, glass mail row owed), dock/toast layout ×3 (X-DS `web/src/**`).
+- **ESC-FREL-g-3**: visual-checkpoint ×5. There are no linux goldens and the darwin goldens drifted. Needs a re-baseline ruling plus a linux render.
+- **ESC-FREL-d-1**: no deploy can fire. Both paths are fail-closed on a green master CI.
+- **R-h1** (owner act): the host's `hooks.json` fourier arm has no `FOURIER_DEPLOY_ALERT_WEBHOOK` and no `GITHUB_TOKEN`.
+
+**Residuals (named owners).** The merge `m/w1 → master` and the master push (`.g` re-sit, after g-1). G-outage, openapi and G-d AFTER readings (`.d` re-sit, scripted in `94870dc`). Two private draft rows in production, `mighty-drawing-umber-zebra` and `rich-pouring-mango-salmon` (owner admin delete). R-h2: the first post-merge deploy runs the host's old in-place hook, so expect a recreate-window outage (`.d`). `cli.py _cmd_download_models` swallows failures (outside `.m`'s set; F.CT owner). `.dockerignore` lacks `.worktrees/` (`.h` follow-up). `api/main.py:62` ruff-format blank line (`.m` owner).
+
+**Four-verb line:** unmoved. F.REL stays OPEN, **BLOCKED-ON ESC-FREL-g-1** (then `.g` merge → master CI GREEN → `.d` re-sit).
