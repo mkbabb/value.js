@@ -1177,3 +1177,52 @@ The drop is the easing tiles: the specimen tiles on the 4 Easing pages no longer
 **Disclosures**
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
 - Another seat was editing keyframes.js during the gates (`src/animation/group/*`, the transport files, `scene-facility`, and an untracked `kfa-69-group-seek` test). The gates ran on a tree that included its uncommitted work. The cure commit is pathspec-only and holds the six files of this pass.
+
+### pass 3 (the third redeploy's pass 3; critic C22, frames `evidence/DS/keyframes/critic-r3p3-2026-10-09/`; evidence in `pass-22/`)
+
+**Cure commit:** keyframes.js `d14fba92` (master, pushed fast-forward from `3ad7a78d`). **Evidence:** value.js `5e344d527` (`evidence/DS/keyframes/pass-22/`: 28 census route frames, `census.json` + `census.log`, and `after/` with `easing-{1440,390}-*`, `crop-easing-filter-1440-*`, `cube-easing-popover-*`, `crop-cube-pane-right-edge-*`, `spring-playing-1440-*`, `crop-spring-sweep-*` and `square-{1440,390}-*`, each with `c22-probe.json`, plus the probe `c22-probe.mjs`). All captures are headless real Chrome (§0ei). The task named `pass-03`, but `pass-03/` already holds the first workflow's pass-3 evidence, so the frames go to `pass-22/`. The BEFORE frames are the critic's own.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (light and dark) |
+|---|---|---|
+| KF-C22-01 | In `EasingCatalogue.vue`, the family filter uses glass's own `SegmentedTabs` axes, with no local sizing. `variant="underline"` gives the paper ink hairline with content-sized options and no capsule track, and the row wraps in the stage. `semantics="toggle"` keeps the filter semantics. `:responsive` collapses the filter to glass's Select below lg (the stage header's breakpoint), and always in the Controls pane's popover (`density="menu"`, which is narrow at every viewport). The `FadingScroll` and the max-content row are deleted along with the overflow they scrolled. The strip's own hairline is the divider, so the catalogue's `Separator` renders only next to the Select. That removes a double rule. | **1440 stage:** All…Bounce on line 1 and Steps on line 2. scrollWidth equals width (772 = 772), so nothing is hidden. Option widths follow their labels (All 47 px, Standard 114 px). **390 stage and cube popover:** glass's Select ("All"), with the Separator under it. Frames: `after/easing-*`, `after/crop-easing-filter-1440-*`, `after/cube-easing-popover-*`. |
+| KF-C22-02 | In `SpringTarget.vue`, while `.spring-target--sweeping` is set and the solver rests (not `--live`), the sampler takes the protagonist's rung: solid `--ball-tone` at `--plot-ball-size`. The resting live ball steps back to the quiet translucent rung. No glow and no scale-pop are used. The badge reads "tracking" while the Sweep runs, following the Square tour's UIA-KF-026 rule. The two "full glow" comments are restated. | During Play: sampler 24 px solid `oklch(0.56 0.17 295)`; origin ball 16 px at 65% alpha; badge TRACKING. Frames: `after/spring-playing-1440-*`, `after/crop-spring-sweep-*`. |
+| KF-C22-03 | In `SquareInstrument.vue`, the legend's measure is the drawn field, `2 × --square-travel + --square-size`, and it starts on the field's left edge. | **1440:** the caption is on one line (346 × 19 px) under the 312 px field, starting at x 802 like the field. **390:** two balanced lines that end inside the field. Frames: `after/square-*`. |
+| KF-C22-05 | The pane has one inline-end edge. `.panel-content` drops `w-full` (on both the main and the layer pane): with a 100% width the negative end margin never widened the box, so the fields ended one ring reach short. Now its ring-reach padding and margin cancel. `RibbonBar.vue` drops its `+0.25rem` end inset, which had matched the old shortened column. The layer row ends at `pe-3`, the field triggers' own `px-3`, so its chevron sits on the trailing glyph column. | **1440 #/cube:** field grid, separators, layer row, ribbon rule, time row and scrub track all end at x 457.4 (before: 449.4 vs 453.4). Trailing glyphs: select chevrons at 444.4, pencil at 443.4, layer chevron at 444.4 (before: 448.4). Frames: `after/crop-cube-pane-right-edge-*`. |
+
+**Cited, refused or banked (not cured locally)**
+
+| id | disposition |
+|---|---|
+| KF-C22-04 | **Owner DESIGN-RULING (§0dm).** U-K17's dashed idiom is owner-kept, so this seat leaves both the Spring preset cells and the Easing tiles untouched. Recommendation for the owner: preset selection takes the tile idiom (a solid ring on the hairline tile), and dashed stays reserved for target and ghost. |
+| KF-C22-06 | **Refused: owner-ruled composition.** The hero seat is the OD-4-approved, T.D9 P-HERO blessed reference, and the owner's words are recorded in `EditorStartScreen.vue`: *"it's OK if it sits a bit on top of the cube"*, and overlap with the die's lower quadrant is WELCOME. Moving the cube or capping the headline would overturn an owner ruling. Re-seating is the owner's call. |
+| KF-C22-G1 | **Glass (EasingPicker), relayed under O-87's proportion and hierarchy rider for the 10.2.0 repin:** draw only the active mode's curve, or label the inactive steps() ghost. Not overridden locally. |
+| KF-C22-G2 | **Glass, HELD-O87-RECHECK and O-88.** The dock tile halo, the collapsed dock tile, the switch thumb drop, the track-well and control-bit insets, the `glass-control-edge` stacks, the control-surface gradients, the `glass-resting`/`glass-floating` elevations, the cartoon stamp under the Scene menu, and the backdrop bloom in the Scene menu and the cube easing popover are all unchanged at glass 10.1.0. They are re-judged at the 10.2.0 repin. This seat did not write to the glass inbox. |
+| KF-C22-01 (residual) | The 1440 stage wraps nine families plus "Steps" on line 2, because content-sized underline options total about 814 px against 772. The option padding and type belong to glass, so the seat does not override them. Making the underline strip's type and padding fit a ten-way filter is a proportion rider under O-87. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, on the final tree)
+
+| | pass 21 (before) | pass 22 after |
+|---|---:|---:|
+| chrome: elements with shadow | 316 | 310 |
+| chrome: shadow layers (max) | 964 (6) | 938 (6) |
+| chrome: shadows on non-floating surfaces | 198 | 192 |
+| chrome: inset highlights | 432 | 416 |
+| chrome: backdrop blur | 284 | 278 |
+| chrome: control gradients | 52 | 54 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+The drops come from the pill filter's capsule track and indicator stack, which the underline strip does not draw. The +2 control gradients are glass's Select trigger, which now carries the filter on the two 390 Easing pages; that row is glass-owned under O-87. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **859/859, twice**.
+- Re-stated oracle (a design change; no assertion weakened): `test/demo/scenes/easing-picker-hierarchy.test.ts`. Its matchMedia stub now models a desktop viewport, where `min-width` queries match. Case (1)(2) asserts the underline strip and that no second rule is drawn. A new case (2) asserts the narrow-viewport Select, with the Separator between it and the grid.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
+- Another seat committed its transport work (`3ad7a78d` and earlier) while this pass ran. By commit time, every hunk left in `ChannelOptions.vue` was this pass's, so the commit is pathspec-only over the six files above.
