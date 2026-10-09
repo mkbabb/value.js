@@ -1,0 +1,54 @@
+webkit r0a0 parseCssColor          acc      n=6460 k=2 product x0.741 (30/31<1) spread 1.32
+webkit r0a0 parseCssScalar         acc      n=7460 k=1 product x0.647 (30/31<1) spread 1.25
+webkit r0a0 parseCssValue          acc      n=13023 k=1 product x0.372 (31/31<1) spread 1.134
+webkit r0a0 parseCssValues         acc      n=13023 k=1 product x0.38 (31/31<1) spread 1.195
+webkit r0a0 parseKeyframeSelector  acc      n=56 k=2048 product x0.704 (31/31<1) spread 1.391
+webkit r0a0 parseTimingFunction    acc      n=509 k=32 product x0.471 (31/31<1) spread 1.344
+webkit r0a0 parseStylesheet        acc      n=2503 k=1 product x0.556 (30/31<1) spread 1.265
+webkit r0a0 parseCssColor          rej      n=23484 k=1 product x0.794 (30/31<1) spread 1.367
+webkit r0a0 parseCssScalar         rej      n=22484 k=1 product x0.578 (31/31<1) spread 1.186
+webkit r0a0 parseCssValue          rej      n=16921 k=1 product x0.647 (31/31<1) spread 1.188
+webkit r0a0 parseCssValues         rej      n=16921 k=1 product x0.65 (31/31<1) spread 1.225
+webkit r0a0 parseKeyframeSelector  rej      n=29888 k=1 product x0.85 (30/31<1) spread 1.313
+webkit r0a0 parseTimingFunction    rej      n=29435 k=1 product x0.75 (30/31<1) spread 1.778 SET-ASIDE
+webkit r0a1 parseTimingFunction    rej      n=29435 k=1 product x0.75 (29/31<1) spread 1.737 SET-ASIDE
+webkit r0a2 parseTimingFunction    rej      n=29435 k=1 product x0.75 (31/31<1) spread 1.556
+webkit r0a0 parseStylesheet        rej      n=27441 k=1 product x0.667 (31/31<1) spread 1.22
+webkit r0a0 parseStylesheet        large-eq n=4 k=4 product x0.4 (31/31<1) spread 1.4
+webkit r1a0 parseCssScalar         acc      n=7460 k=2 product x0.647 (31/31<1) spread 1.344
+webkit r1a0 parseCssValue          acc      n=13023 k=1 product x0.356 (31/31<1) spread 1.183
+webkit r1a0 parseCssValues         acc      n=13023 k=1 product x0.374 (31/31<1) spread 1.146
+webkit r1a0 parseKeyframeSelector  acc      n=56 k=2048 product x0.731 (31/31<1) spread 1.478
+webkit r1a0 parseTimingFunction    acc      n=509 k=32 product x0.471 (31/31<1) spread 1.156
+webkit r1a0 parseStylesheet        acc      n=2503 k=1 product x0.514 (31/31<1) spread 1.457
+webkit r1a0 parseCssColor          acc      n=6460 k=2 product x0.731 (30/31<1) spread 1.56
+webkit r1a0 parseCssScalar         rej      n=22484 k=1 product x0.595 (31/31<1) spread 2.341 SET-ASIDE
+webkit r1a1 parseCssScalar         rej      n=22484 k=1 product x0.595 (31/31<1) spread 1.146
+webkit r1a0 parseCssValue          rej      n=16921 k=1 product x0.647 (31/31<1) spread 1.181
+webkit r1a0 parseCssValues         rej      n=16921 k=1 product x0.662 (31/31<1) spread 1.163
+webkit r1a0 parseKeyframeSelector  rej      n=29888 k=1 product x0.875 (31/31<1) spread 1.75 SET-ASIDE
+webkit r1a1 parseKeyframeSelector  rej      n=29888 k=1 product x0.875 (30/31<1) spread 1.438
+webkit r1a0 parseTimingFunction    rej      n=29435 k=1 product x0.75 (29/31<1) spread 1.368
+webkit r1a0 parseStylesheet        rej      n=27441 k=1 product x0.654 (31/31<1) spread 1.265
+webkit r1a0 parseCssColor          rej      n=23484 k=1 product x0.813 (29/31<1) spread 1.355
+webkit r1a0 parseStylesheet        large-eq n=4 k=4 product x0.406 (31/31<1) spread 1.516
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product webkit|acc|parseCssColor                 <1 x0.741 x0.731
+product webkit|acc|parseCssScalar                <1 x0.647 x0.647
+product webkit|acc|parseCssValue                 <1 x0.372 x0.356
+product webkit|acc|parseCssValues                <1 x0.38 x0.374
+product webkit|acc|parseKeyframeSelector         <1 x0.704 x0.731
+product webkit|acc|parseTimingFunction           <1 x0.471 x0.471
+product webkit|acc|parseStylesheet               <1 x0.556 x0.514
+product webkit|rej|parseCssColor                 <1 x0.794 x0.813
+product webkit|rej|parseCssScalar                <1 x0.578 x0.595(SA) x0.595
+product webkit|rej|parseCssValue                 <1 x0.647 x0.647
+product webkit|rej|parseCssValues                <1 x0.65 x0.662
+product webkit|rej|parseKeyframeSelector         <1 x0.85 x0.875(SA) x0.875
+product webkit|rej|parseTimingFunction           <1 x0.75(SA) x0.75(SA) x0.75 x0.75
+product webkit|rej|parseStylesheet               <1 x0.667 x0.654
+product webkit|large-eq|parseStylesheet          <1 x0.4 x0.406
+11:39  up 1 day, 21:06, 3 users, load averages: 441.52 463.22 356.27 
+ 11:41  up 1 day, 21:08, 3 users, load averages: 493.60 472.07 373.04 → bench/records/2026-09-24-x-p-w7-browser-w8lg1-webkit-n31-main.json
+DONE w8lg1-webkit-n31-main

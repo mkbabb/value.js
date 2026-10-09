@@ -1,0 +1,14 @@
+firefox r0a0 parseStylesheet        large-eq n=4 k=4 product x0.53 (81/101<1) spread 29.452 SET-ASIDE
+firefox r0a1 parseStylesheet        large-eq n=4 k=1 product x0.571 (59/101<1) spread 76.4 SET-ASIDE
+firefox r0a2 parseStylesheet        large-eq n=4 k=1 product x0.419 (68/101<1) spread 85.8 SET-ASIDE
+firefox r0a3 parseStylesheet        large-eq n=4 k=2 product x0.529 (71/101<1) spread 31.714 SET-ASIDE
+firefox r1a0 parseStylesheet        large-eq n=4 k=4 product x0.752 (69/101<1) spread 19.235 SET-ASIDE
+firefox r1a1 parseStylesheet        large-eq n=4 k=4 product x0.553 (83/101<1) spread 15.567 SET-ASIDE
+firefox r1a2 parseStylesheet        large-eq n=4 k=1 product x0.385 (74/101<1) spread 109.4 SET-ASIDE
+firefox r1a3 parseStylesheet        large-eq n=4 k=1 product x0.455 (69/101<1) spread 86.2 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|large-eq|parseStylesheet         RED x0.53(SA) x0.571(SA) x0.419(SA) x0.529(SA) x0.752(SA) x0.553(SA) x0.385(SA) x0.455(SA)
+13:04  up 1 day, 22:31, 3 users, load averages: 468.03 445.51 396.76 
+ 13:08  up 1 day, 22:36, 3 users, load averages: 269.64 362.49 374.79 → bench/records/2026-09-24-x-p-w7-browser-w8lg1-firefox-n101-leq-x1.json
+DONE w8lg1-firefox-n101-leq-x1

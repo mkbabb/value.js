@@ -1,0 +1,23 @@
+firefox r0a0 parseCssColor          acc      n=6460 k=1 product x1.006 (50/101<1) spread 51.143 SET-ASIDE
+firefox r0a1 parseCssColor          acc      n=6460 k=1 product x0.929 (53/101<1) spread 55.333 SET-ASIDE
+firefox r0a2 parseCssColor          acc      n=6460 k=2 product x0.881 (57/101<1) spread 33.478 SET-ASIDE
+firefox r0a3 parseCssColor          acc      n=6460 k=1 product x0.747 (61/101<1) spread 34.9 SET-ASIDE
+firefox r0a0 parseCssScalar         acc      n=7460 k=1 product x0.833 (59/101<1) spread 23.529 SET-ASIDE
+firefox r0a1 parseCssScalar         acc      n=7460 k=1 product x0.631 (69/101<1) spread 30.722 SET-ASIDE
+firefox r0a2 parseCssScalar         acc      n=7460 k=2 product x0.695 (74/101<1) spread 24.25 SET-ASIDE
+firefox r0a3 parseCssScalar         acc      n=7460 k=1 product x0.749 (65/101<1) spread 39.625 SET-ASIDE
+firefox r1a0 parseCssScalar         acc      n=7460 k=2 product x0.721 (76/101<1) spread 15 SET-ASIDE
+firefox r1a1 parseCssScalar         acc      n=7460 k=1 product x0.766 (66/101<1) spread 36.52 SET-ASIDE
+firefox r1a2 parseCssScalar         acc      n=7460 k=2 product x0.709 (78/101<1) spread 41.462 SET-ASIDE
+firefox r1a3 parseCssScalar         acc      n=7460 k=1 product x0.718 (65/101<1) spread 27.724 SET-ASIDE
+firefox r1a0 parseCssColor          acc      n=6460 k=2 product x0.836 (59/101<1) spread 49.778 SET-ASIDE
+firefox r1a1 parseCssColor          acc      n=6460 k=4 product x0.8 (77/101<1) spread 27.064 SET-ASIDE
+firefox r1a2 parseCssColor          acc      n=6460 k=4 product x0.794 (64/101<1) spread 5.488 SET-ASIDE
+firefox r1a3 parseCssColor          acc      n=6460 k=1 product x0.947 (55/101<1) spread 35.857 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseCssColor                RED x1.006(SA) x0.929(SA) x0.881(SA) x0.747(SA) x0.836(SA) x0.8(SA) x0.794(SA) x0.947(SA)
+product firefox|acc|parseCssScalar               RED x0.833(SA) x0.631(SA) x0.695(SA) x0.749(SA) x0.721(SA) x0.766(SA) x0.709(SA) x0.718(SA)
+12:49  up 1 day, 22:17, 3 users, load averages: 465.55 397.75 349.59 
+ 13:04  up 1 day, 22:31, 3 users, load averages: 469.25 445.37 396.42 → bench/records/2026-09-24-x-p-w7-browser-w8lg1-firefox-n101-acc-x2.json
+DONE w8lg1-firefox-n101-acc-x2

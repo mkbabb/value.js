@@ -1,0 +1,32 @@
+firefox r0a0 parseCssColor          rej      n=23484 k=1 product x0.9 (57/101<1) spread 23.508 SET-ASIDE
+firefox r0a1 parseCssColor          rej      n=23484 k=1 product x0.942 (54/101<1) spread 18.317 SET-ASIDE
+firefox r0a2 parseCssColor          rej      n=23484 k=1 product x0.931 (53/101<1) spread 20.156 SET-ASIDE
+firefox r0a3 parseCssColor          rej      n=23484 k=1 product x0.826 (62/101<1) spread 14.78 SET-ASIDE
+firefox r0a0 parseCssScalar         rej      n=22484 k=1 product x0.742 (72/101<1) spread 11.059 SET-ASIDE
+firefox r0a1 parseCssScalar         rej      n=22484 k=1 product x0.713 (77/101<1) spread 13.058 SET-ASIDE
+firefox r0a2 parseCssScalar         rej      n=22484 k=1 product x0.691 (77/101<1) spread 10.644 SET-ASIDE
+firefox r0a3 parseCssScalar         rej      n=22484 k=1 product x0.727 (73/101<1) spread 5.159 SET-ASIDE
+firefox r0a0 parseCssValue          rej      n=16921 k=1 product x0.957 (55/101<1) spread 8.328 SET-ASIDE
+firefox r0a1 parseCssValue          rej      n=16921 k=1 product x0.974 (53/101<1) spread 6.152 SET-ASIDE
+firefox r0a2 parseCssValue          rej      n=16921 k=1 product x0.951 (54/101<1) spread 10.186 SET-ASIDE
+firefox r0a3 parseCssValue          rej      n=16921 k=1 product x0.978 (53/101<1) spread 15.397 SET-ASIDE
+firefox r1a0 parseCssScalar         rej      n=22484 k=1 product x0.753 (69/101<1) spread 20.204 SET-ASIDE
+firefox r1a1 parseCssScalar         rej      n=22484 k=1 product x0.769 (74/101<1) spread 9.385 SET-ASIDE
+firefox r1a2 parseCssScalar         rej      n=22484 k=1 product x0.717 (71/101<1) spread 15.767 SET-ASIDE
+firefox r1a3 parseCssScalar         rej      n=22484 k=1 product x0.676 (82/101<1) spread 22.709 SET-ASIDE
+firefox r1a0 parseCssValue          rej      n=16921 k=1 product x0.896 (61/101<1) spread 21.155 SET-ASIDE
+firefox r1a1 parseCssValue          rej      n=16921 k=1 product x0.962 (53/101<1) spread 12.664 SET-ASIDE
+firefox r1a2 parseCssValue          rej      n=16921 k=1 product x0.937 (55/101<1) spread 8.214 SET-ASIDE
+firefox r1a3 parseCssValue          rej      n=16921 k=1 product x0.89 (60/101<1) spread 10.183 SET-ASIDE
+firefox r1a0 parseCssColor          rej      n=23484 k=1 product x0.886 (55/101<1) spread 10.791 SET-ASIDE
+firefox r1a1 parseCssColor          rej      n=23484 k=1 product x0.967 (51/101<1) spread 11.074 SET-ASIDE
+firefox r1a2 parseCssColor          rej      n=23484 k=1 product x0.832 (61/101<1) spread 7.6 SET-ASIDE
+firefox r1a3 parseCssColor          rej      n=23484 k=1 product x0.93 (55/101<1) spread 12.535 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|rej|parseCssColor                RED x0.9(SA) x0.942(SA) x0.931(SA) x0.826(SA) x0.886(SA) x0.967(SA) x0.832(SA) x0.93(SA)
+product firefox|rej|parseCssScalar               RED x0.742(SA) x0.713(SA) x0.691(SA) x0.727(SA) x0.753(SA) x0.769(SA) x0.717(SA) x0.676(SA)
+product firefox|rej|parseCssValue                RED x0.957(SA) x0.974(SA) x0.951(SA) x0.978(SA) x0.896(SA) x0.962(SA) x0.937(SA) x0.89(SA)
+12:28  up 1 day, 21:55, 3 users, load averages: 289.04 411.43 451.27 
+ 13:12  up 1 day, 22:40, 3 users, load averages: 280.39 310.21 347.79 → bench/records/2026-09-24-x-p-w7-browser-w8lg1-firefox-n101-rej-x1.json
+DONE w8lg1-firefox-n101-rej-x1

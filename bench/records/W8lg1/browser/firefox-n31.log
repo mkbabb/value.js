@@ -1,0 +1,140 @@
+firefox r0a0 parseCssColor          acc      n=6460 k=4 product x0.78 (21/31<1) spread 14.568 SET-ASIDE
+firefox r0a1 parseCssColor          acc      n=6460 k=2 product x0.871 (22/31<1) spread 4.72 SET-ASIDE
+firefox r0a2 parseCssColor          acc      n=6460 k=8 product x0.946 (16/31<1) spread 11.802 SET-ASIDE
+firefox r0a3 parseCssColor          acc      n=6460 k=1 product x1.008 (15/31<1) spread 32.083 SET-ASIDE
+firefox r0a0 parseCssScalar         acc      n=7460 k=1 product x0.66 (18/31<1) spread 17.238 SET-ASIDE
+firefox r0a1 parseCssScalar         acc      n=7460 k=1 product x0.774 (22/31<1) spread 10.526 SET-ASIDE
+firefox r0a2 parseCssScalar         acc      n=7460 k=4 product x0.773 (22/31<1) spread 6.133 SET-ASIDE
+firefox r0a3 parseCssScalar         acc      n=7460 k=4 product x0.695 (23/31<1) spread 15.836 SET-ASIDE
+firefox r0a0 parseCssValue          acc      n=13023 k=2 product x0.623 (28/31<1) spread 6.789 SET-ASIDE
+firefox r0a1 parseCssValue          acc      n=13023 k=1 product x0.469 (29/31<1) spread 11.407 SET-ASIDE
+firefox r0a2 parseCssValue          acc      n=13023 k=1 product x0.533 (28/31<1) spread 8.426 SET-ASIDE
+firefox r0a3 parseCssValue          acc      n=13023 k=1 product x0.482 (26/31<1) spread 8.397 SET-ASIDE
+firefox r0a0 parseCssValues         acc      n=13023 k=1 product x0.364 (30/31<1) spread 7.054 SET-ASIDE
+firefox r0a1 parseCssValues         acc      n=13023 k=1 product x0.42 (25/31<1) spread 11.812 SET-ASIDE
+firefox r0a2 parseCssValues         acc      n=13023 k=2 product x0.477 (31/31<1) spread 2.246 SET-ASIDE
+firefox r0a3 parseCssValues         acc      n=13023 k=1 product x0.589 (30/31<1) spread 11.352 SET-ASIDE
+firefox r0a0 parseKeyframeSelector  acc      n=56 k=1024 product x1.085 (15/31<1) spread 16.343 SET-ASIDE
+firefox r0a1 parseKeyframeSelector  acc      n=56 k=1024 product x1.329 (12/31<1) spread 25.963 SET-ASIDE
+firefox r0a2 parseKeyframeSelector  acc      n=56 k=256 product x0.7 (16/31<1) spread 66.4 SET-ASIDE
+firefox r0a3 parseKeyframeSelector  acc      n=56 k=1024 product x0.618 (22/31<1) spread 19.733 SET-ASIDE
+firefox r0a0 parseTimingFunction    acc      n=509 k=8 product x0.834 (19/31<1) spread 27.9 SET-ASIDE
+firefox r0a1 parseTimingFunction    acc      n=509 k=16 product x0.739 (17/31<1) spread 20.083 SET-ASIDE
+firefox r0a2 parseTimingFunction    acc      n=509 k=8 product x0.684 (20/31<1) spread 33.625 SET-ASIDE
+firefox r0a3 parseTimingFunction    acc      n=509 k=16 product x1.13 (12/31<1) spread 35.053 SET-ASIDE
+firefox r0a0 parseStylesheet        acc      n=2503 k=1 product x0.81 (20/31<1) spread 14.083 SET-ASIDE
+firefox r0a1 parseStylesheet        acc      n=2503 k=1 product x0.881 (18/31<1) spread 12.396 SET-ASIDE
+firefox r0a2 parseStylesheet        acc      n=2503 k=1 product x0.783 (23/31<1) spread 8.112 SET-ASIDE
+firefox r0a3 parseStylesheet        acc      n=2503 k=1 product x1.108 (11/31<1) spread 10.533 SET-ASIDE
+firefox r0a0 parseCssColor          rej      n=23484 k=1 product x0.972 (16/31<1) spread 12.484 SET-ASIDE
+firefox r0a1 parseCssColor          rej      n=23484 k=1 product x0.902 (17/31<1) spread 20.667 SET-ASIDE
+firefox r0a2 parseCssColor          rej      n=23484 k=1 product x0.971 (16/31<1) spread 9.457 SET-ASIDE
+firefox r0a3 parseCssColor          rej      n=23484 k=1 product x1.004 (15/31<1) spread 24.525 SET-ASIDE
+firefox r0a0 parseCssScalar         rej      n=22484 k=1 product x0.948 (18/31<1) spread 13.962 SET-ASIDE
+firefox r0a1 parseCssScalar         rej      n=22484 k=1 product x0.616 (26/31<1) spread 19.886 SET-ASIDE
+firefox r0a2 parseCssScalar         rej      n=22484 k=1 product x0.736 (26/31<1) spread 5.606 SET-ASIDE
+firefox r0a3 parseCssScalar         rej      n=22484 k=1 product x0.686 (25/31<1) spread 21.889 SET-ASIDE
+firefox r0a0 parseCssValue          rej      n=16921 k=1 product x0.977 (16/31<1) spread 5.839 SET-ASIDE
+firefox r0a1 parseCssValue          rej      n=16921 k=1 product x0.963 (16/31<1) spread 6.36 SET-ASIDE
+firefox r0a2 parseCssValue          rej      n=16921 k=1 product x1.088 (14/31<1) spread 4.489 SET-ASIDE
+firefox r0a3 parseCssValue          rej      n=16921 k=1 product x0.922 (17/31<1) spread 3.797 SET-ASIDE
+firefox r0a0 parseCssValues         rej      n=16921 k=1 product x1.043 (15/31<1) spread 3.591 SET-ASIDE
+firefox r0a1 parseCssValues         rej      n=16921 k=1 product x1.03 (14/31<1) spread 5.171 SET-ASIDE
+firefox r0a2 parseCssValues         rej      n=16921 k=1 product x0.888 (20/31<1) spread 6.057 SET-ASIDE
+firefox r0a3 parseCssValues         rej      n=16921 k=1 product x0.891 (19/31<1) spread 15.369 SET-ASIDE
+firefox r0a0 parseKeyframeSelector  rej      n=29888 k=1 product x0.85 (18/31<1) spread 22.769 SET-ASIDE
+firefox r0a1 parseKeyframeSelector  rej      n=29888 k=2 product x0.865 (16/31<1) spread 4.886 SET-ASIDE
+firefox r0a2 parseKeyframeSelector  rej      n=29888 k=1 product x0.882 (16/31<1) spread 10.167 SET-ASIDE
+firefox r0a3 parseKeyframeSelector  rej      n=29888 k=2 product x0.927 (20/31<1) spread 9.346 SET-ASIDE
+firefox r0a0 parseTimingFunction    rej      n=29435 k=1 product x0.7 (23/31<1) spread 10.975 SET-ASIDE
+firefox r0a1 parseTimingFunction    rej      n=29435 k=1 product x0.799 (17/31<1) spread 17.949 SET-ASIDE
+firefox r0a2 parseTimingFunction    rej      n=29435 k=1 product x0.712 (22/31<1) spread 11.338 SET-ASIDE
+firefox r0a3 parseTimingFunction    rej      n=29435 k=1 product x0.84 (19/31<1) spread 21.667 SET-ASIDE
+firefox r0a0 parseStylesheet        rej      n=27441 k=1 product x0.961 (17/31<1) spread 3.654 SET-ASIDE
+firefox r0a1 parseStylesheet        rej      n=27441 k=1 product x1.177 (9/31<1) spread 3.527 SET-ASIDE
+firefox r0a2 parseStylesheet        rej      n=27441 k=1 product x1.056 (14/31<1) spread 23.298 SET-ASIDE
+firefox r0a3 parseStylesheet        rej      n=27441 k=1 product x1.155 (12/31<1) spread 20.145 SET-ASIDE
+firefox r0a0 parseStylesheet        large-eq n=4 k=4 product x0.649 (22/31<1) spread 12 SET-ASIDE
+firefox r0a1 parseStylesheet        large-eq n=4 k=2 product x0.75 (20/31<1) spread 20.929 SET-ASIDE
+firefox r0a2 parseStylesheet        large-eq n=4 k=2 product x0.731 (19/31<1) spread 26.1 SET-ASIDE
+firefox r0a3 parseStylesheet        large-eq n=4 k=4 product x0.565 (22/31<1) spread 16.122 SET-ASIDE
+firefox r1a0 parseCssScalar         acc      n=7460 k=1 product x1.132 (14/31<1) spread 16.92 SET-ASIDE
+firefox r1a1 parseCssScalar         acc      n=7460 k=1 product x0.68 (19/31<1) spread 32.577 SET-ASIDE
+firefox r1a2 parseCssScalar         acc      n=7460 k=2 product x0.704 (26/31<1) spread 6.653 SET-ASIDE
+firefox r1a3 parseCssScalar         acc      n=7460 k=2 product x0.782 (20/31<1) spread 10.463 SET-ASIDE
+firefox r1a0 parseCssValue          acc      n=13023 k=1 product x0.493 (29/31<1) spread 4.819 SET-ASIDE
+firefox r1a1 parseCssValue          acc      n=13023 k=1 product x0.589 (27/31<1) spread 9.47 SET-ASIDE
+firefox r1a2 parseCssValue          acc      n=13023 k=1 product x0.534 (29/31<1) spread 9.189 SET-ASIDE
+firefox r1a3 parseCssValue          acc      n=13023 k=1 product x0.44 (30/31<1) spread 4.593 SET-ASIDE
+firefox r1a0 parseCssValues         acc      n=13023 k=1 product x0.511 (31/31<1) spread 4.061 SET-ASIDE
+firefox r1a1 parseCssValues         acc      n=13023 k=1 product x0.571 (27/31<1) spread 6.114 SET-ASIDE
+firefox r1a2 parseCssValues         acc      n=13023 k=1 product x0.549 (31/31<1) spread 4.729 SET-ASIDE
+firefox r1a3 parseCssValues         acc      n=13023 k=1 product x0.604 (29/31<1) spread 3.488 SET-ASIDE
+firefox r1a0 parseKeyframeSelector  acc      n=56 k=256 product x2.103 (13/31<1) spread 25.125 SET-ASIDE
+firefox r1a1 parseKeyframeSelector  acc      n=56 k=64 product x1.3 (12/31<1) spread Infinity SET-ASIDE
+firefox r1a2 parseKeyframeSelector  acc      n=56 k=1024 product x0.931 (18/31<1) spread 32.967 SET-ASIDE
+firefox r1a3 parseKeyframeSelector  acc      n=56 k=128 product x0.857 (17/31<1) spread 76.5 SET-ASIDE
+firefox r1a0 parseTimingFunction    acc      n=509 k=8 product x1.112 (15/31<1) spread 42.444 SET-ASIDE
+firefox r1a1 parseTimingFunction    acc      n=509 k=8 product x0.296 (23/31<1) spread 27.688 SET-ASIDE
+firefox r1a2 parseTimingFunction    acc      n=509 k=8 product x0.65 (21/31<1) spread 47.4 SET-ASIDE
+firefox r1a3 parseTimingFunction    acc      n=509 k=8 product x0.472 (20/31<1) spread 40.667 SET-ASIDE
+firefox r1a0 parseStylesheet        acc      n=2503 k=1 product x0.952 (19/31<1) spread 20.347 SET-ASIDE
+firefox r1a1 parseStylesheet        acc      n=2503 k=1 product x0.912 (19/31<1) spread 10.795 SET-ASIDE
+firefox r1a2 parseStylesheet        acc      n=2503 k=1 product x0.838 (23/31<1) spread 23.205 SET-ASIDE
+firefox r1a3 parseStylesheet        acc      n=2503 k=2 product x0.901 (20/31<1) spread 2.444 SET-ASIDE
+firefox r1a0 parseCssColor          acc      n=6460 k=1 product x0.643 (20/31<1) spread 46.526 SET-ASIDE
+firefox r1a1 parseCssColor          acc      n=6460 k=2 product x0.853 (20/31<1) spread 10.726 SET-ASIDE
+firefox r1a2 parseCssColor          acc      n=6460 k=2 product x0.933 (17/31<1) spread 20.444 SET-ASIDE
+firefox r1a3 parseCssColor          acc      n=6460 k=2 product x0.664 (20/31<1) spread 13.545 SET-ASIDE
+firefox r1a0 parseCssScalar         rej      n=22484 k=1 product x0.83 (22/31<1) spread 10 SET-ASIDE
+firefox r1a1 parseCssScalar         rej      n=22484 k=1 product x0.808 (23/31<1) spread 7.945 SET-ASIDE
+firefox r1a2 parseCssScalar         rej      n=22484 k=1 product x0.695 (22/31<1) spread 13.141 SET-ASIDE
+firefox r1a3 parseCssScalar         rej      n=22484 k=1 product x0.716 (22/31<1) spread 4.366 SET-ASIDE
+firefox r1a0 parseCssValue          rej      n=16921 k=1 product x1.074 (14/31<1) spread 4.077 SET-ASIDE
+firefox r1a1 parseCssValue          rej      n=16921 k=1 product x0.905 (20/31<1) spread 5.92 SET-ASIDE
+firefox r1a2 parseCssValue          rej      n=16921 k=1 product x1.046 (13/31<1) spread 3.314 SET-ASIDE
+firefox r1a3 parseCssValue          rej      n=16921 k=1 product x0.998 (16/31<1) spread 3.581 SET-ASIDE
+firefox r1a0 parseCssValues         rej      n=16921 k=1 product x1.071 (13/31<1) spread 3.598 SET-ASIDE
+firefox r1a1 parseCssValues         rej      n=16921 k=1 product x0.862 (20/31<1) spread 4.142 SET-ASIDE
+firefox r1a2 parseCssValues         rej      n=16921 k=1 product x0.952 (17/31<1) spread 2.549 SET-ASIDE
+firefox r1a3 parseCssValues         rej      n=16921 k=1 product x1.011 (15/31<1) spread 2.694 SET-ASIDE
+firefox r1a0 parseKeyframeSelector  rej      n=29888 k=2 product x0.956 (17/31<1) spread 4.959 SET-ASIDE
+firefox r1a1 parseKeyframeSelector  rej      n=29888 k=2 product x0.889 (22/31<1) spread 3.923 SET-ASIDE
+firefox r1a2 parseKeyframeSelector  rej      n=29888 k=1 product x0.667 (21/31<1) spread 10.87 SET-ASIDE
+firefox r1a3 parseKeyframeSelector  rej      n=29888 k=2 product x0.825 (17/31<1) spread 5.279 SET-ASIDE
+firefox r1a0 parseTimingFunction    rej      n=29435 k=2 product x0.876 (18/31<1) spread 8.153 SET-ASIDE
+firefox r1a1 parseTimingFunction    rej      n=29435 k=1 product x0.843 (17/31<1) spread 10.5 SET-ASIDE
+firefox r1a2 parseTimingFunction    rej      n=29435 k=1 product x0.947 (16/31<1) spread 13.458 SET-ASIDE
+firefox r1a3 parseTimingFunction    rej      n=29435 k=1 product x0.752 (18/31<1) spread 13.364 SET-ASIDE
+firefox r1a0 parseStylesheet        rej      n=27441 k=1 product x0.991 (16/31<1) spread 7.449 SET-ASIDE
+firefox r1a1 parseStylesheet        rej      n=27441 k=1 product x0.897 (18/31<1) spread 5.876 SET-ASIDE
+firefox r1a2 parseStylesheet        rej      n=27441 k=1 product x0.872 (18/31<1) spread 4.87 SET-ASIDE
+firefox r1a3 parseStylesheet        rej      n=27441 k=1 product x1.232 (10/31<1) spread 12.263 SET-ASIDE
+firefox r1a0 parseCssColor          rej      n=23484 k=1 product x0.927 (18/31<1) spread 17.232 SET-ASIDE
+firefox r1a1 parseCssColor          rej      n=23484 k=1 product x0.903 (18/31<1) spread 19.415 SET-ASIDE
+firefox r1a2 parseCssColor          rej      n=23484 k=1 product x0.838 (21/31<1) spread 3.426 SET-ASIDE
+firefox r1a3 parseCssColor          rej      n=23484 k=1 product x1.111 (12/31<1) spread 21.93 SET-ASIDE
+firefox r1a0 parseStylesheet        large-eq n=4 k=2 product x1 (15/31<1) spread 56.714 SET-ASIDE
+firefox r1a1 parseStylesheet        large-eq n=4 k=1 product x0.714 (19/31<1) spread 137.167 SET-ASIDE
+firefox r1a2 parseStylesheet        large-eq n=4 k=1 product x0.462 (21/31<1) spread 80.571 SET-ASIDE
+firefox r1a3 parseStylesheet        large-eq n=4 k=1 product x0.636 (19/31<1) spread 58.25 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseCssColor                RED x0.78(SA) x0.871(SA) x0.946(SA) x1.008(SA) x0.643(SA) x0.853(SA) x0.933(SA) x0.664(SA)
+product firefox|acc|parseCssScalar               RED x0.66(SA) x0.774(SA) x0.773(SA) x0.695(SA) x1.132(SA) x0.68(SA) x0.704(SA) x0.782(SA)
+product firefox|acc|parseCssValue                RED x0.623(SA) x0.469(SA) x0.533(SA) x0.482(SA) x0.493(SA) x0.589(SA) x0.534(SA) x0.44(SA)
+product firefox|acc|parseCssValues               RED x0.364(SA) x0.42(SA) x0.477(SA) x0.589(SA) x0.511(SA) x0.571(SA) x0.549(SA) x0.604(SA)
+product firefox|acc|parseKeyframeSelector        RED x1.085(SA) x1.329(SA) x0.7(SA) x0.618(SA) x2.103(SA) x1.3(SA) x0.931(SA) x0.857(SA)
+product firefox|acc|parseTimingFunction          RED x0.834(SA) x0.739(SA) x0.684(SA) x1.13(SA) x1.112(SA) x0.296(SA) x0.65(SA) x0.472(SA)
+product firefox|acc|parseStylesheet              RED x0.81(SA) x0.881(SA) x0.783(SA) x1.108(SA) x0.952(SA) x0.912(SA) x0.838(SA) x0.901(SA)
+product firefox|rej|parseCssColor                RED x0.972(SA) x0.902(SA) x0.971(SA) x1.004(SA) x0.927(SA) x0.903(SA) x0.838(SA) x1.111(SA)
+product firefox|rej|parseCssScalar               RED x0.948(SA) x0.616(SA) x0.736(SA) x0.686(SA) x0.83(SA) x0.808(SA) x0.695(SA) x0.716(SA)
+product firefox|rej|parseCssValue                RED x0.977(SA) x0.963(SA) x1.088(SA) x0.922(SA) x1.074(SA) x0.905(SA) x1.046(SA) x0.998(SA)
+product firefox|rej|parseCssValues               RED x1.043(SA) x1.03(SA) x0.888(SA) x0.891(SA) x1.071(SA) x0.862(SA) x0.952(SA) x1.011(SA)
+product firefox|rej|parseKeyframeSelector        RED x0.85(SA) x0.865(SA) x0.882(SA) x0.927(SA) x0.956(SA) x0.889(SA) x0.667(SA) x0.825(SA)
+product firefox|rej|parseTimingFunction          RED x0.7(SA) x0.799(SA) x0.712(SA) x0.84(SA) x0.876(SA) x0.843(SA) x0.947(SA) x0.752(SA)
+product firefox|rej|parseStylesheet              RED x0.961(SA) x1.177(SA) x1.056(SA) x1.155(SA) x0.991(SA) x0.897(SA) x0.872(SA) x1.232(SA)
+product firefox|large-eq|parseStylesheet         RED x0.649(SA) x0.75(SA) x0.731(SA) x0.565(SA) x1(SA) x0.714(SA) x0.462(SA) x0.636(SA)
+11:41  up 1 day, 21:08, 3 users, load averages: 492.19 472.13 373.64 
+ 12:48  up 1 day, 22:16, 3 users, load averages: 482.12 378.87 338.78 → bench/records/2026-09-24-x-p-w7-browser-w8lg1-firefox-n31-main.json
+DONE w8lg1-firefox-n31-main
