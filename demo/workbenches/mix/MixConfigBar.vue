@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import {
     Select,
     SelectContent,
@@ -21,14 +20,7 @@ import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { PickerSpace } from "../../color-session/picker-color";
 import type { LeftoverStrategy } from "./mix";
 import type { AcceptableValue } from "reka-ui";
-// S.W5-6 · F16: the interpolation vocabulary lives in its neutral @lib/ home
-// (color-space facts, not gradient facts) — no more cross-feature reach.
-import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "../../color-session/color-space-meta";
-// T.W6 · W6-4 (T-17): the preview-chip module — library-sampled ramps in
-// the Select #description lane. The chips render only while SelectContent
-// is mounted (reka unmounts it closed — the ColorSpaceSelector precedent),
-// so the sampling costs nothing at rest.
-import { PreviewRamp, sampleInterpolationRamp } from "../../color-session/color-chips";
+import InterpolationFields from "../../shared/ui/InterpolationFields.vue";
 import { usePanePopups } from "../../shell/usePanePopups";
 
 // A2-VA-L2-11 — this pane's popups close when the pane deactivates.
@@ -56,35 +48,6 @@ const {
     operandColors?: string[];
 }>();
 
-/**
- * T-17 (t-nav F6) — the preview ramps, library-sampled:
- *   - each SPACE row: the current operands interpolated through the
- *     CANDIDATE space (current hue arc);
- *   - each HUE row: the current space with the CANDIDATE arc — the
- *     four-arc quartet drawn with the user's own colors.
- * O-14 truth: the chip stamps the sampler's stops on `data-stops`; the
- * vitest oracle holds the sampler ≡ the library, the e2e leg holds the
- * paint ≡ the stamp.
- */
-const spaceRamps = computed(
-    () =>
-        new Map(
-            INTERPOLATION_SPACES.map((s) => [
-                s.value,
-                sampleInterpolationRamp(operandColors, s.value, hueMethod),
-            ]),
-        ),
-);
-const hueRamps = computed(
-    () =>
-        new Map(
-            HUE_INTERPOLATION_METHODS.map((m) => [
-                m.value,
-                sampleInterpolationRamp(operandColors, colorSpace, m.value),
-            ]),
-        ),
-);
-
 const emit = defineEmits<{
     "update:colorSpace": [value: PickerSpace];
     "update:hueMethod": [value: HueInterpolationMethod];
@@ -103,51 +66,18 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
 
 <template>
     <div class="flex flex-col gap-3">
+        <!-- A2-VA-L1-3: the interpolation pair is the app's one
+             InterpolationFields (shared with the gradient workbench). W5-7:
+             the permanent subtitles died — each row's own #description tells
+             the story once, on demand. -->
         <div class="grid grid-cols-2 gap-2">
-            <!-- W5-7: the permanent subtitles died — the dropdown's own
-                 #description rows already tell the story once, on demand. -->
-            <LabeledField label="Color space" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select v-bind="popups.bind('colorSpace')" :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as PickerSpace)">
-                    <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <!-- T-17: chip leading, description after (F7 — the
-                             producer #description lane, the one slot reka's
-                             SelectValue does NOT clone into the trigger). -->
-                        <SelectItem v-for="s in INTERPOLATION_SPACES" :key="s.value" :value="s.value">
-                            {{ s.label }}
-                            <template #description>
-                                <span class="flex items-center gap-2">
-                                    <PreviewRamp v-if="spaceRamps.get(s.value)" :stops="spaceRamps.get(s.value)!" />
-                                    <span class="text-micro text-muted-foreground">{{ s.description }}</span>
-                                </span>
-                            </template>
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
-            </LabeledField>
-
-            <LabeledField label="Hue method" :control-labelable="false" v-slot="{ labelledBy }">
-                <Select v-bind="popups.bind('hueMethod')" :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => emit('update:hueMethod', v as HueInterpolationMethod)">
-                    <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <!-- T-17: the four-arc quartet, drawn with the user's
-                             own colors (current space, candidate arc). -->
-                        <SelectItem v-for="m in HUE_INTERPOLATION_METHODS" :key="m.value" :value="m.value">
-                            {{ m.label }}
-                            <template #description>
-                                <span class="flex items-center gap-2">
-                                    <PreviewRamp v-if="hueRamps.get(m.value)" :stops="hueRamps.get(m.value)!" />
-                                    <span class="text-micro text-muted-foreground">{{ m.description }}</span>
-                                </span>
-                            </template>
-                        </SelectItem>
-                    </SelectContent>
-                </Select>
-            </LabeledField>
+            <InterpolationFields
+                :space="colorSpace"
+                :hue-method="hueMethod"
+                :operand-colors="operandColors"
+                @update:space="(v) => emit('update:colorSpace', v)"
+                @update:hue-method="(v) => emit('update:hueMethod', v)"
+            />
         </div>
 
         <!-- Leftover strategy (palette mode only) -->

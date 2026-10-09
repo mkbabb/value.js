@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, ref } from "vue";
+import { computed, inject, ref } from "vue";
 import {
     Select,
     SelectContent,
@@ -23,12 +23,7 @@ import GradientCodeEditor from "./GradientCodeEditor.vue";
 import GradientEasingEditor from "./GradientEasingEditor.vue";
 import { useGradientModel } from "../composables/useGradientModel";
 import type { GradientType } from "../model/types";
-import {
-    INTERPOLATION_SPACES,
-    HUE_INTERPOLATION_METHODS,
-} from "../../../color-session/color-space-meta";
-import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import type { PickerSpace } from "../../../color-session/picker-color";
+import InterpolationFields from "../../../shared/ui/InterpolationFields.vue";
 import { LIBRARY_PORT_KEY } from "../../../palettes/usePalettePorts";
 import type { AcceptableValue } from "reka-ui";
 import { usePanePopups } from "../../../shell/usePanePopups";
@@ -57,6 +52,9 @@ const {
     setStopsFromColors,
     applyCSS,
 } = useGradientModel();
+
+/** The interpolation specimens' operands: this gradient's stops, in order. */
+const operandColors = computed(() => stops.value.map((s) => s.cssColor));
 
 // The selected stop is the visualizer's OWN state (X-W6 · X.W6.c — G4d): its
 // one parent binds nothing, so a `defineModel` here was a local ref wearing a
@@ -203,73 +201,15 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                     </Select>
                 </LabeledField>
 
-                <LabeledField
-                    class="min-w-0"
-                    label="Space"
-                    :control-labelable="false"
-                    v-slot="{ labelledBy }"
-                >
-                    <Select
-                        v-bind="popups.bind('interpolationSpace')"
-                        :model-value="interpolationSpace"
-                        @update:model-value="
-                            (v: AcceptableValue) =>
-                                (interpolationSpace = v as PickerSpace)
-                        "
-                    >
-                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
-                            <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem
-                                v-for="s in INTERPOLATION_SPACES"
-                                :key="s.value"
-                                :value="s.value"
-                            >
-                                {{ s.label }}
-                                <template #description>
-                                    <span class="text-micro text-muted-foreground">{{
-                                        s.description
-                                    }}</span>
-                                </template>
-                            </SelectItem>
-                        </SelectContent>
-                    </Select>
-                </LabeledField>
-
-                <LabeledField
-                    class="min-w-0"
-                    label="Hue"
-                    :control-labelable="false"
-                    v-slot="{ labelledBy }"
-                >
-                    <Select
-                        v-bind="popups.bind('hueMethod')"
-                        :model-value="hueMethod"
-                        @update:model-value="
-                            (v: AcceptableValue) =>
-                                (hueMethod = v as HueInterpolationMethod)
-                        "
-                    >
-                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="labelledBy">
-                            <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem
-                                v-for="m in HUE_INTERPOLATION_METHODS"
-                                :key="m.value"
-                                :value="m.value"
-                            >
-                                {{ m.label }}
-                                <template #description>
-                                    <span class="text-micro text-muted-foreground">{{
-                                        m.description
-                                    }}</span>
-                                </template>
-                            </SelectItem>
-                        </SelectContent>
-                    </Select>
-                </LabeledField>
+                <!-- A2-VA-L1-3: the space + hue pair is the app's one
+                     InterpolationFields (shared with Mix): one label
+                     vocabulary, and the library-sampled specimens drawn with
+                     this gradient's own stops. -->
+                <InterpolationFields
+                    v-model:space="interpolationSpace"
+                    v-model:hue-method="hueMethod"
+                    :operand-colors="operandColors"
+                />
             </div>
 
             <!-- The render tile: type + direction APPLIED — a square-ish surface

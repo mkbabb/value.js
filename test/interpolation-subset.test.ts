@@ -57,12 +57,18 @@ describe("c4 · the interpolation set derives from the catalog", () => {
     });
 
     it("Gradient and Mix read the one derived list — no second list in either tree", () => {
+        // X-W12U .k2 (A2-VA-L1-3): both hosts compose the ONE
+        // InterpolationFields, which is the list's one reader.
+        const read = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
+        const fields = "demo/shared/ui/InterpolationFields.vue";
+        expect(read(fields)).toMatch(/INTERPOLATION_SPACES/);
         for (const path of [
+            fields,
             "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
             "demo/workbenches/mix/MixConfigBar.vue",
         ]) {
-            const src = readFileSync(resolve(process.cwd(), path), "utf8");
-            expect(src, path).toMatch(/INTERPOLATION_SPACES/);
+            const src = read(path);
+            if (path !== fields) expect(src, path).toMatch(/<InterpolationFields\b/);
             expect(src, path).not.toMatch(/label:\s*"OKLCh"/);
         }
     });
