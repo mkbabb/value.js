@@ -52,8 +52,29 @@
         <!-- Tag chips (+N) and the vote control — the card's, not the specimen's. -->
         <PaletteCardMeta :palette="palette" @vote="emit('vote', $event)" />
 
+        <!-- A2-VA-L1-12: the card's detail band is a glass Collapsible — the
+             app's one disclosure (the 104-line JS height-morph composable is
+             gone; glass's disclosure content owns the morph). The root is
+             `display: contents`, so the menu cell (which seats the trigger)
+             and the detail band stay the card grid's own cells. The host owns
+             `expanded` (selection); the trigger asks it to toggle. -->
+        <Collapsible class="contents" :open="expanded" @update:open="$emit('click')">
         <!-- Dropdown menu -->
         <div class="palette-card__menu flex items-center gap-1" @click.stop>
+            <CollapsibleTrigger v-if="collapsible" as-child>
+                <Button
+                    icon-only
+                    emphasis="quiet"
+                    size="sm"
+                    :aria-label="`Colors of ${palette.name}`"
+                    class="shrink-0"
+                >
+                    <ChevronDown
+                        class="palette-card__chevron w-4 h-4 text-muted-foreground"
+                        aria-hidden="true"
+                    />
+                </Button>
+            </CollapsibleTrigger>
             <PaletteCardMenu
                 :palette="palette"
                 :palette-kind="kind"
@@ -110,17 +131,14 @@
             @update:visible="feedbackVisible = $event"
         />
 
-        <!-- Expandable detail: color swatches -->
-        <Transition
-            @before-enter="onBeforeEnter"
-            @enter="onEnter"
-            @after-enter="onAfterEnter"
-            @before-leave="onBeforeLeave"
-            @leave="onLeave"
-            @after-leave="onAfterLeave"
+        <!-- Expandable detail: color swatches. A host that pins the band open
+             (Extract) seats it without a disclosure. -->
+        <component
+            :is="collapsible ? CollapsibleContent : 'div'"
+            v-if="collapsible || expanded"
+            @animationend="onDetailSettled"
         >
             <PaletteCardSwatches
-                v-if="expanded"
                 :colors="palette.colors"
                 :is-local="palette.isLocal"
                 :display-slug="showSlug ? displaySlug : undefined"
@@ -133,8 +151,9 @@
                 @popover-copy="onPopoverCopy"
                 @copy-slug="(slug) => copyWithVerdict(slug, slug)"
             />
-        </Transition>
+        </component>
         </div><!-- /detail band -->
+        </Collapsible>
     </div>
 </template>
 
@@ -150,7 +169,7 @@ import {
     watch,
 } from "vue";
 import { Button } from "@mkbabb/glass-ui/button";
-import { MoreHorizontal, GripVertical } from "@lucide/vue";
+import { ChevronDown, MoreHorizontal, GripVertical } from "@lucide/vue";
 import type { Palette, PaletteColor } from "./types";
 import { getPaletteKind, type PaletteKind } from "./utils";
 import { writeClipboard } from "@mkbabb/glass-ui";
@@ -164,7 +183,7 @@ import {
 } from "../color-session/keys";
 import { usePaletteExport } from "./usePaletteExport";
 import { usePopupMutex } from "../shared/usePopupMutex";
-import { useHeightTransition } from "./browser/card/composables/useHeightTransition";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
 import PaletteSpecimen from "./browser/card/PaletteSpecimen.vue";
 import type { SwatchSize } from "../shared/ui/SwatchButton.vue";
 import PaletteCardMenu from "./browser/card/PaletteCard/PaletteCardMenu.vue";
@@ -187,8 +206,11 @@ const props = withDefaults(
         layout?: "default" | "aside" | undefined;
         /** The swatch size token (SwatchButton; default `md`). */
         swatchSize?: SwatchSize | undefined;
+        /** The detail band is a disclosure the card toggles; a host that pins
+         *  it open (`expanded` always true) passes false — no trigger. */
+        collapsible?: boolean | undefined;
     }>(),
-    { layout: "default", swatchSize: "md" },
+    { layout: "default", swatchSize: "md", collapsible: true },
 );
 
 /**
@@ -269,16 +291,19 @@ const press = useLiquidPress({
     maxStretch: 1.03,
 });
 
-const {
-    onBeforeEnter,
-    onEnter,
-    onAfterEnter,
-    onBeforeLeave,
-    onLeave,
-    onAfterLeave,
-} = useHeightTransition({
-    onBeforeCollapse: closePopover,
-});
+// The band's popover never outlives its band; an opened band settles into view.
+watch(
+    () => props.expanded,
+    (open) => {
+        if (!open) closePopover();
+    },
+);
+function onDetailSettled(ev: AnimationEvent) {
+    const el = ev.currentTarget as HTMLElement;
+    if (ev.target === el && el.dataset.state === "open") {
+        el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+}
 
 function startRenaming() {
     menuOpen.value = false;
@@ -494,6 +519,17 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
     grid-area: menu;
     margin-inline: 0.5rem 0.75rem;
 }
+/* The disclosure trigger's chevron turns with the band (glass stamps
+ * `data-state` on the trigger). */
+[data-state="open"] > .palette-card__chevron {
+    rotate: 180deg;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .palette-card__chevron {
+        transition: rotate var(--duration-fast) var(--ease-standard);
+    }
+}
+
 .palette-card__detail {
     grid-area: detail;
     min-inline-size: 0;

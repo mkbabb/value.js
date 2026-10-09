@@ -76,21 +76,23 @@ test("BR-9: the admin user-row expander is keyboard-operable (role + focusable +
         page.getByRole("heading", { name: "Users" }).filter({ visible: true }).first(),
     ).toBeVisible();
 
-    // Locate the clickable header row (its `cursor-pointer` class survives the
-    // cure) via the slug text's ancestor — robust pre- and post-cure.
+    // Locate the row's disclosure trigger via the slug text's ancestor.
+    // A2-VA-L1-12 (X-W12U .k2): the row is a glass Collapsible, so the expander
+    // is its trigger — a native <button> (it was a div with role=button).
     const expander = page
         .getByText("azure-fox-01", { exact: true })
         .first()
-        .locator('xpath=ancestor::div[contains(@class,"cursor-pointer")][1]');
+        .locator("xpath=ancestor::button[1]");
     await expect(expander).toBeVisible();
 
     const facts = await keyboardFacts(expander);
-    // Born-RED: a bare <div> (focusable:false, role:null). GREEN: role=button,
-    // tabindex 0, aria-expanded present.
+    // Born-RED: a bare <div> (focusable:false, role:null). GREEN: a button —
+    // native since A2-VA-L1-12 (the implicit role, no attribute) — focusable,
+    // aria-expanded present.
     expect(facts.focusable, `expander keyboard facts: ${JSON.stringify(facts)}`).toBe(
         true,
     );
-    expect(facts.role).toBe("button");
+    expect(facts.tag).toBe("button");
     expect(facts.ariaExpanded).not.toBeNull();
 
     // Operate it by keyboard: focus + Enter expands (aria-expanded → true, the

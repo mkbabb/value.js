@@ -179,6 +179,7 @@
                         <PaletteInspector
                             :palette="session.extractedPalette.value"
                             :expanded="true"
+                            :collapsible="false"
                             :layout="layout === 'split' && isWide ? 'aside' : 'default'"
                             :css-color="cssColorOpaque ?? ''"
                             swatch-size="xl"

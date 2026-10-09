@@ -25,7 +25,8 @@
  * drive.
  */
 import { computed, ref } from "vue";
-import { Check, ChevronDown, Copy, SlidersHorizontal } from "@lucide/vue";
+import { Check, Copy, SlidersHorizontal } from "@lucide/vue";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@mkbabb/glass-ui";
 import { useClipboard } from "@mkbabb/glass-ui";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { serializeIntervalRamp } from "../composables/useGradientCSS";
@@ -74,9 +75,14 @@ const openIntervalRamp = computed<string | null>(() =>
         : serializeIntervalRamp(modelState, openInterval.value),
 );
 
-function toggleInterval(index: number) {
-    openInterval.value = openInterval.value === index ? null : index;
-}
+/** The Accordion's single-mode model: the open interval's index as its item
+ *  value; "" (no item) is the closed state. */
+const openValue = computed<string>({
+    get: () => (openInterval.value === null ? "" : String(openInterval.value)),
+    set: (v: string | undefined) => {
+        openInterval.value = v === undefined || v === "" ? null : Number(v);
+    },
+});
 
 function onTileSelect(index: number, tile: SpecimenTile) {
     // The tile and authoring canvas write the same complete interval value —
@@ -115,23 +121,25 @@ async function copyLiteral(index: number, css: string) {
 </script>
 
 <template>
-    <div class="easing-panel flex flex-col gap-2">
+    <!-- A2-VA-L1-12: the intervals are glass's Accordion (single, collapsible) —
+         the app's one disclosure; the hand-rolled button + v-show copy is gone. -->
+    <Accordion
+        v-model="openValue"
+        type="single"
+        collapsible
+        class="easing-panel flex flex-col gap-2"
+    >
         <!-- Z2 in-plate specimen rows: flat on the plate, --card-edge
              hairline, no shadow (DESIGN.md § Depth); each row strokes the
              interval's OWN ink through the producer's --motion-accent door. -->
-        <div
+        <AccordionItem
             v-for="row in specimenRows"
             :key="row.index"
+            :value="String(row.index)"
             class="easing-row border border-card-edge overflow-hidden"
             :style="row.ink ? { '--motion-accent': row.ink } : undefined"
         >
-            <button
-                type="button"
-                class="interval-head w-full flex items-center gap-2.5 py-2 text-left cursor-pointer"
-                :aria-expanded="openInterval === row.index"
-                :aria-controls="`easing-interval-${row.index}`"
-                @click="toggleInterval(row.index)"
-            >
+            <AccordionTrigger class="interval-head w-full flex items-center gap-2.5 py-2 text-left">
                 <span class="font-mono text-mono-small text-muted-foreground shrink-0">{{ row.label }}</span>
                 <!-- The specimen label (t-easing-pane §7): endpoint dots +
                      the interval-true micro glyph + the curve's name. -->
@@ -147,17 +155,8 @@ async function copyLiteral(index: number, css: string) {
                 <!-- X-DS pass 2 (V2C-07): the curve name is the live value, so it
                      reads at foreground; only the "1 → 2" index stays muted. -->
                 <span class="font-mono text-mono-small text-foreground truncate flex-1 min-w-0">{{ row.name }}</span>
-                <ChevronDown
-                    class="interval-chevron w-4 h-4 shrink-0 text-muted-foreground"
-                    :class="openInterval === row.index ? 'rotate-180' : ''"
-                    aria-hidden="true"
-                />
-            </button>
-            <div
-                v-show="openInterval === row.index"
-                :id="`easing-interval-${row.index}`"
-                class="easing-row-body flex flex-col gap-2.5"
-            >
+            </AccordionTrigger>
+            <AccordionContent class="easing-row-body flex flex-col gap-2.5">
                 <!-- The interval's live ramp (W5-9, kept verbatim): the
                      row's "ball" — its curve applied to ITS two colors,
                      sampled by the same law the gradient renders with. -->
@@ -224,9 +223,9 @@ async function copyLiteral(index: number, css: string) {
                         @authored="(v) => onPickerAuthored(row.index, v)"
                     />
                 </div>
-            </div>
-        </div>
-    </div>
+            </AccordionContent>
+        </AccordionItem>
+    </Accordion>
 </template>
 
 <style scoped>
@@ -350,9 +349,6 @@ async function copyLiteral(index: number, css: string) {
 @media (prefers-reduced-motion: no-preference) {
     .interval-head {
         transition: background-color var(--duration-fast) var(--ease-standard);
-    }
-    .interval-chevron {
-        transition: transform var(--duration-fast) var(--ease-standard);
     }
     .rail-btn {
         transition:

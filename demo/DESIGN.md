@@ -272,7 +272,6 @@ reveal/dock/tabs registers, the atmosphere arrival fade, and the PRM guard chain
 | `ActionButton.vue:117,120,121` | `action-pulse / action-spin 0.4s` | bespoke flash + spin; sits between `--duration-normal` (0.3 s) and `--duration-slow` (0.45 s) |
 | `PointerDebugOverlay.vue:266` | `blink 0.5s infinite` | bespoke; dev-only debug overlay |
 | `PaletteCard.vue:388` | `golden-text-shimmer 4s` | bespoke; sits between `--duration-shimmer-fast` (3 s) and `--duration-shimmer` (5 s) — paired with the 4-stop gradient's visual rhythm |
-| `useHeightTransition.ts` | `350 ms expand / 250 ms collapse` | bespoke; JS-runtime constants written as inline `style.transition` strings; tuned by hand at B-tranche for palette-card expand/collapse rhythm |
 
 **§ Reduced-motion carve-out** (animations.css:184-193 — the global guard; the `no-preference` arm at :43, B.W1 Lane B; line numbers re-measured at X.W5.a, where the former `:32-60` cite pointed at the stagger utility instead): the global `prefers-reduced-motion` guard neutralises all CSS animation + transition durations; a secondary block re-enables 150 ms opacity fades on `[data-state="open"|"closed"]` so reka-ui Dialog/Sheet/Popover state changes still communicate. WebGL RAF loops (GooBlob, aurora) fence on `prefers-reduced-motion` in their composables (see `useMetaballRenderer`); the global CSS guard does not reach them.
 

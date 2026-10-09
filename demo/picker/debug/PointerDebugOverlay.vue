@@ -1,29 +1,25 @@
 <template>
     <Teleport to="body">
-        <div
+        <!-- A2-VA-L1-12: the panel is a glass Collapsible — the app's one
+             disclosure; its header is the trigger (a native button). -->
+        <Collapsible
             v-if="debug.state.enabled"
+            v-model:open="open"
             class="debug-overlay"
-            :class="{ 'debug-collapsed': collapsed }"
+            :class="{ 'debug-collapsed': !open }"
         >
-            <!-- W5-a11y: debug header is a toggle control; button semantics needed -->
-            <button
-                type="button"
-                class="debug-header"
-                :aria-expanded="!collapsed"
-                aria-controls="debug-body"
-                @click="collapsed = !collapsed"
-            >
+            <CollapsibleTrigger class="debug-header">
                 <span class="debug-title">Debug</span>
                 <span v-if="debug.state.frozen" class="debug-frozen">FROZEN?</span>
                 <span v-if="copied" class="debug-copied">copied!</span>
                 <ChevronDown
                     class="debug-toggle"
-                    :class="{ 'debug-toggle-open': !collapsed }"
+                    :class="{ 'debug-toggle-open': open }"
                     aria-hidden="true"
                 />
-            </button>
+            </CollapsibleTrigger>
 
-            <template v-if="!collapsed">
+            <CollapsibleContent class="debug-body">
                 <!-- Scrollable content area -->
                 <div class="debug-scroll">
                     <!-- Gauges -->
@@ -63,19 +59,20 @@
                         Clear
                     </button>
                 </div>
-            </template>
-        </div>
+            </CollapsibleContent>
+        </Collapsible>
     </Teleport>
 </template>
 
 <script setup lang="ts">
 import { ref, inject } from "vue";
 import { ChevronDown } from "@lucide/vue";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
 import { POINTER_DEBUG_KEY, TIMESTAMP_GAUGES } from "./usePointerDebug";
 import DebugEventLog from "./DebugEventLog.vue";
 
 const debug = inject(POINTER_DEBUG_KEY)!;
-const collapsed = ref(true); // start collapsed so it doesn't interfere
+const open = ref(false); // start closed so it doesn't interfere
 const copied = ref(false);
 
 /** Format by gauge kind (UIA-V-671): a stamp reads as its age, an integer
@@ -167,6 +164,17 @@ async function copyJSON() {
     backdrop-filter: blur(8px);
     /* Only the header and buttons receive touches */
     pointer-events: none;
+}
+
+/* The disclosed body: the scroll column + the sticky actions, sharing the
+ * overlay's height (glass's disclosure content owns the open/close morph). */
+.debug-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    color: inherit;
+    font-size: inherit;
 }
 
 .debug-collapsed {

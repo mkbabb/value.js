@@ -100,33 +100,29 @@
         </EmptyState>
         <EmptyState v-else-if="users.length === 0" message="No users found." />
         <div v-else class="grid gap-3">
-            <div
+            <!-- A2-VA-L1-12: each user is a glass Collapsible — the app's one
+                 disclosure. U.W-A11Y · BR-9 (WCAG 2.1.1 Keyboard): the identity
+                 half of the row is the disclosure's TRIGGER, a native button
+                 (focusable, Enter/Space, aria-expanded), and it is the only
+                 keyboard path to a user's palettes. A 0-palette user has no
+                 trigger: its identity is plain text (inert, out of the tab
+                 order). The action cluster is the trigger's SIBLING, never
+                 nested inside it. -->
+            <Collapsible
                 v-for="user in users"
                 :key="user.slug"
                 class="rounded-md border border-card-edge overflow-hidden"
+                :open="expandedUserSlug === user.slug"
+                @update:open="toggleUserExpand(user.slug)"
             >
-                <!-- User header row. U.W-A11Y · BR-9 (WCAG 2.1.1 Keyboard):
-                     the expand affordance is the WHOLE row (its cursor-pointer
-                     class), and there is NO other keyboard path to a user's
-                     palettes — so when the row is interactive (paletteCount > 0)
-                     it is a real disclosure BUTTON: role=button + tabindex=0 +
-                     aria-expanded + Enter/Space. A 0-palette row carries none of
-                     these (it is inert), so it never enters the tab order as a
-                     dead control. -->
-                <div
-                    :class="[
-                        'flex items-center gap-3 px-3 py-2.5 transition-colors',
-                        user.paletteCount
-                            ? 'cursor-pointer hover:bg-accent/50 focus-visible:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring'
-                            : 'cursor-default',
-                    ]"
-                    :role="user.paletteCount ? 'button' : undefined"
-                    :tabindex="user.paletteCount ? 0 : undefined"
-                    :aria-expanded="user.paletteCount ? expandedUserSlug === user.slug : undefined"
-                    @click="user.paletteCount ? toggleUserExpand(user.slug) : undefined"
-                    @keydown="user.paletteCount ? onRowKeydown($event, user.slug) : undefined"
-                >
-                    <div class="flex-1 min-w-0 flex items-center gap-2">
+                <div class="flex items-center gap-3 pe-3">
+                    <component
+                        :is="user.paletteCount ? CollapsibleTrigger : 'div'"
+                        :class="[
+                            'flex-1 min-w-0 flex items-center gap-2 ps-3 py-2.5 text-left transition-colors',
+                            user.paletteCount ? 'cursor-pointer hover:bg-accent/50' : 'cursor-default',
+                        ]"
+                    >
                         <!-- Ag-11: slug-pill class replaces copy-pasted cluster.
                              W5-12 (F-13): tail-priority truncation — the head
                              ellipsizes, the last chars (the identity-bearing
@@ -140,8 +136,8 @@
                         <Badge variant="secondary" class="text-mono-small shrink-0">
                             {{ user.paletteCount ?? 0 }}
                         </Badge>
-                    </div>
-                    <div class="flex items-center gap-1.5 shrink-0" @click.stop>
+                    </component>
+                    <div class="flex items-center gap-1.5 shrink-0">
                         <!-- W5-12 (F-8): the disabled delete on 0-palette
                              users is DROPPED (superfluous furniture), and the
                              per-row destructive is quieted to ink-at-rest —
@@ -176,7 +172,8 @@
                     </div>
                 </div>
                 <!-- Expandable user palettes -->
-                <div v-if="expandedUserSlug === user.slug" class="border-t border-border bg-muted/30 px-3 py-3">
+                <CollapsibleContent class="border-t border-border bg-muted/30">
+                <div class="px-3 py-3">
                     <div v-if="loadingUserPalettes" class="grid gap-2" role="status" aria-label="Loading palettes">
                         <AdminListSkeleton v-for="i in 2" :key="i" />
                     </div>
@@ -230,7 +227,8 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+                </CollapsibleContent>
+            </Collapsible>
         </div>
 
         <!-- A2-VA-X-12: the roster's other pages. -->
@@ -284,6 +282,7 @@ import {
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
 import { Loader2, Trash2, Eraser, RefreshCw, Star, UserX } from "@lucide/vue";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
 import type { Palette } from "../../types";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
 import { PaletteSpecimen } from "../card";
@@ -460,21 +459,8 @@ function onDeletePaletteClick(palette: Palette) {
     });
 }
 
-// U.W-A11Y · BR-9: keyboard activation of the disclosure row. Enter/Space
-// toggle the row's palettes (Space is `.prevent`ed to suppress page scroll).
-// The `target === currentTarget` guard is load-bearing: the inner action
-// cluster (Palettes / Delete) lives INSIDE the row, and while its clicks are
-// `@click.stop`ped, a keydown still bubbles — without this guard, pressing
-// Enter on a nested button would ALSO toggle the row. Only a key that
-// originated on the row itself expands it.
-function onRowKeydown(e: KeyboardEvent, slug: string) {
-    if (e.target !== e.currentTarget) return;
-    if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
-        e.preventDefault();
-        void pm.toggleUserExpand(slug);
-    }
-}
-
+// U.W-A11Y · BR-9: the disclosure trigger (a native button) toggles the row's
+// palettes by pointer, Enter and Space alike.
 function toggleUserExpand(slug: string) {
     void pm.toggleUserExpand(slug);
 }

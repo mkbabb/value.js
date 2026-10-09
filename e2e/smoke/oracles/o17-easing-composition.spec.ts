@@ -35,11 +35,14 @@ async function openEasingBench(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
     const main = mainPane(page);
-    const head = main.locator("button[aria-controls^='easing-interval-']").first();
+    // A2-VA-L1-12 (X-W12U .k2): the rows are glass Accordion items; the head
+    // is the item's trigger button (`.interval-head`) and the row is the region
+    // its own aria-controls names (glass mints the ids).
+    const head = main.locator("button.interval-head").first();
     await expect(head).toBeVisible();
     // The bench mounts with row 0 open; normalize in case a prior step closed it.
     if ((await head.getAttribute("aria-expanded")) !== "true") await head.click();
-    const row = main.locator("#easing-interval-0");
+    const row = main.locator(`[id="${await head.getAttribute("aria-controls")}"]`);
     await expect(row).toBeVisible();
     return row;
 }
@@ -205,12 +208,12 @@ test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page 
         "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
     );
     // The head speaks the NAME, never the literal (closed-row anatomy).
-    const head = page.locator("button[aria-controls='easing-interval-0']").first();
+    const head = page.locator("button.interval-head").first();
     await expect(head).toContainText("ease-out-back");
     await head.click(); // close the row
     const benchLiteral = await page.evaluate(() => {
         for (const node of document.querySelectorAll<HTMLElement>(
-            "button[aria-controls^='easing-interval-']",
+            "button.interval-head",
         )) {
             if (/(cubic-bezier|steps)\s*\(/.test(node.textContent ?? "")) {
                 return node.textContent;
