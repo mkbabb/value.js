@@ -26,7 +26,7 @@ compiled utilities paint) and are deleted.
   `.font-display`, pane titles, the space-title plate caption, markdown headings,
   section headings. The variable axes (`opsz` 9–144, `WONK`/`SOFT`) apply via the
   glass-ui utilities. Fraunces' single brand source is the Google Fonts `<link>`
-  in `demo/color-picker/index.html`. **Never** on body/control text; italics
+  in `demo/app/index.html`. **Never** on body/control text; italics
   never on control text.
 - **Plus Jakarta Sans — the body voice.** Everything unmarked: prose, controls,
   labels, list rows. Real faces load from the corpus import
@@ -394,7 +394,7 @@ The pane-shell layout (`panes/PaneHeader.vue` + `.pane-container` / `.app-layout
 Explicit. A change-list reviewer should flag any of these.
 
 - **No `:deep()` for shadcn internals** — use role/label selectors or `data-*` attributes. (`PaletteCard.vue`'s `.featured-badge :deep(svg)` is the post-D.W4 Lane A survivor, scoped to the badge wrapper — no further `:deep()` reaches into reka-ui markup.)
-- **No numeric `z-[NN]` literals** in `demo/@/components/custom/` or `demo/color-picker/` — route through `--z-*` tokens via `z-dock`, `z-popover`, etc. Tailwind utilities (post-Lane A) or `z-[var(--z-popover)]` arbitrary reach.
+- **No numeric `z-[NN]` literals** in `demo/@/components/custom/` or `demo/app/` — route through `--z-*` tokens via `z-dock`, `z-popover`, etc. Tailwind utilities (post-Lane A) or `z-[var(--z-popover)]` arbitrary reach.
 - **No `100vh`** — use `100dvh` for mobile-safe viewports. The dock-band math depends on this; `100vh` would clip on iOS Safari with the URL bar collapsed.
 - **No hand-rolled Alert** — consume `Alert` / `AlertTitle` / `AlertDescription` from `@mkbabb/glass-ui` (the `demo/ui/*` re-export shims retired at X.W12U.k, A2-VA-L1-8) (B.W2 idiomatic-gestalt finding N1). The barrel exists for ergonomics; the implementation is upstream.
 - **No magic `[var(--…)]` reaches when a Tailwind utility exists** — post-D.W4 Lane A, ~43 sites collapse to first-class utilities (`z-dock` instead of `z-[var(--z-dock)]`, `duration-fast` instead of `duration-[var(--duration-fast)]`, `rounded-media` instead of `rounded-[var(--radius-media)]`). Truly-bespoke residuals (≤ 5) carry an inline rationale.

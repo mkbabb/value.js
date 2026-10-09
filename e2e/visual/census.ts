@@ -28,7 +28,7 @@
  * The axes below are product-consumer axes. Each combination is one a real user
  * reaches, and no combination is minted because a cross-product could produce it:
  *
- *  · ROUTE — the 15 names `demo/color-picker/router/index.ts` declares. Not a
+ *  · ROUTE — the 15 names `demo/app/router/index.ts` declares. Not a
  *    generated space: the router's own table, guarded for parity below.
  *  · VIEWPORT — 390 / 1024 / 3440, the three W1.md names.
  *  · SCHEME — light / dark, the two the app ships (`useGlobalDark`).

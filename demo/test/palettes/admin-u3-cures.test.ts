@@ -13,7 +13,7 @@ import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { useAdminAuth } from "../../platform/auth/useAdminAuth";
 import { markApiReachable } from "../../platform/transport/availability";
 import type { ViewId } from "../../shell/useViewManager";
-import { composeTitle } from "../../color-picker/router/useDocumentTitle";
+import { composeTitle } from "../../app/router/useDocumentTitle";
 
 type AdminView = "admin-users" | "admin-flagged" | "admin-audit" | "admin-names" | "admin-tags";
 

@@ -143,7 +143,7 @@ import { serializePickerColor } from "../color-session/picker-color";
 import { formatCssCaption } from "../color-session/format-color";
 import { COLOR_MODEL_KEY } from "../color-session/keys";
 import type { ColorSceneTarget } from "../color-session/keys";
-import { OVERTURE_KEY } from "../color-picker/composables/boot/useOverture";
+import { OVERTURE_KEY } from "../app/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { COLOR_TARGET_PORT_KEY } from "../palettes/usePalettePorts";
 
@@ -449,7 +449,7 @@ onUnmounted(() => {
  * `.hero-blob-anchor`, no-pop law) and the B1 plate SHADOW CAST-IN
  * (`plate-land` on `.pane-shell > :first-child`, the LCP reveal-only law)
  * live in the boot-colocated overture grammar sheet
- * (demo/color-picker/composables/boot/overture.css). Both selectors are
+ * (demo/app/composables/boot/overture.css). Both selectors are
  * unique to THIS template, so the global rules bind identically to the
  * former scoped ones (moved at the W2-close PP-8 cap cure). */
 </style>

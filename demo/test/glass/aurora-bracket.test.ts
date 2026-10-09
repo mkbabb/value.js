@@ -11,7 +11,7 @@ import {
     resolveCalibratedAtmosphere,
     vividnessForSeedChroma,
     seedChroma,
-} from "../../color-picker/composables/boot/atmosphere-calibration";
+} from "../../app/composables/boot/atmosphere-calibration";
 
 /**
  * T.W2 · W2-5 · O-6 — THE BRACKET RESOLVER TEST (SYNTHESIS §6.1 O-6; the

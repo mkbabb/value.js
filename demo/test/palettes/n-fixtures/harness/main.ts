@@ -3,7 +3,7 @@
  *
  * Every named fixture case renders one real `PaletteInspector` (X.W7.d2: the
  * selected-entity inspector that replaced `PaletteCard`) under the shipped
- * stylesheet cascade (the same three sheets `color-picker/main.ts` imports), so
+ * stylesheet cascade (the same three sheets `app/main.ts` imports), so
  * the measured geometry is the product's, not a jsdom zero. The harness adds
  * only the page gutter; every card sits in one shipped `PaletteCardGrid`.
  * It styles no card byte.
@@ -52,7 +52,7 @@ createApp({
         ]),
 })
     // The card menu reads the api-client seam (availability) — the same
-    // root provider `color-picker/main.ts` installs; no request is issued.
+    // root provider `app/main.ts` installs; no request is issued.
     .provide(API_CLIENT_KEY, createApiClient())
     // The ink referent the boot writer provides (`useAtmosphereBoot`): the
     // atmosphere's derived lightness — here its empty-palette value, 0.5.

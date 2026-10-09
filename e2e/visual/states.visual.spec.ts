@@ -54,7 +54,7 @@
  *                            … Ride the X-W1 matrix with the parameterised
  *                            space/color sweep."* The URL shape is the product's
  *                            own: `#/?space=…&color=…`, parsed by
- *                            `demo/color-picker/composables/boot/hydrate.ts`,
+ *                            `demo/app/composables/boot/hydrate.ts`,
  *                            which requires BOTH keys or falls through.
  *
  * ─── §OPEN — what these arms do NOT discharge, said rather than implied ──────

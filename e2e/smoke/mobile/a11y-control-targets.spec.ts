@@ -76,7 +76,7 @@ type SizedRow = {
 /**
  * Land a route COLD and wait for the view it names to be painted and at rest.
  *
- * The demo routes through `createWebHashHistory()` (`demo/color-picker/router/index.ts`),
+ * The demo routes through `createWebHashHistory()` (`demo/app/router/index.ts`),
  * so `page.goto("/#/gradient")` after a prior navigation is a SAME-DOCUMENT hash change:
  * `load` has already fired, vue-router swaps the panes behind an enter transition, and a
  * census taken on the way samples the OLD view. Measured at open: taken that way, the
@@ -112,7 +112,7 @@ async function ready(page: Page, route: string) {
         .toBe(wanted);
     // The view the route names must actually be MOUNTED before a census is banked.
     // `document.title` is the product's own route-driven signal (the router's
-    // `afterEach` guard in `demo/color-picker/router/useDocumentTitle.ts` composes it
+    // `afterEach` guard in `demo/app/router/useDocumentTitle.ts` composes it
     // from `VIEW_MAP[to.name].label`), so a wrong-view census now fails LOUDLY here
     // instead of silently reading the previous view's population — which is exactly
     // what happened at this unit's first baseline run.

@@ -261,8 +261,8 @@ export default [
         // `no-restricted-imports` (flat config does not array-merge that rule
         // across matching objects — the last match wins wholesale).
         files: [
-            "demo/color-picker/**/*.ts",
-            "demo/color-picker/**/*.vue",
+            "demo/app/**/*.ts",
+            "demo/app/**/*.vue",
             "demo/@/components/**/*.ts",
             "demo/@/components/**/*.vue",
             "demo/@/lib/**/*.ts",
@@ -289,7 +289,7 @@ export default [
         // G-DEMO-1 (U.W-DEMO · U-F45) + G-DEMO-3a (U-F47) — the shared
         // composables layer (`demo/@/composables/`) is a CLEAN LOWER LAYER. It
         // reaches DOWN into the library and sideways within itself; it must
-        // never reach UP into app-root boot (`demo/color-picker/`, the color-
+        // never reach UP into app-root boot (`demo/app/`, the color-
         // spine near-cycle G-DEMO-1 dissolves) and never into a feature's
         // internal composables (`@components/custom/*/composables/`, the E-1
         // colocation inversion G-DEMO-3a dissolves). Wired STANDING so a future
@@ -298,7 +298,7 @@ export default [
         // resolves `no-restricted-imports` by last-match-wins (no merge) — a
         // single object is the only override-safe encoding for a file region
         // that needs multiple bans. (The bare `@components/custom/color-picker`
-        // barrel is ALLOWED — `**/color-picker/**` requires a trailing segment,
+        // barrel is ALLOWED — `**/app/**` requires a trailing segment,
         // so only the raw-relative app-root reach + picker-internal subpaths are
         // banned; the G-DEMO-3b raw-`.vue` ban is re-declared here since this
         // object owns the composables region's rule value.)
@@ -312,9 +312,9 @@ export default [
                 {
                     patterns: [
                         {
-                            group: ["**/color-picker/**"],
+                            group: ["**/app/**"],
                             message:
-                                "G-DEMO-1: the shared color layer (demo/@/composables/color) must never import app-root boot (demo/color-picker) — the spine is a clean lower layer.",
+                                "G-DEMO-1: the shared color layer (demo/@/composables/color) must never import app-root boot (demo/app) — the spine is a clean lower layer.",
                         },
                         {
                             group: ["@components/custom/*/composables/**"],
@@ -363,7 +363,7 @@ export default [
         //     NAMED and escalated (Check 1 defects 3 and 4) — not excluded by a
         //     silent glob and not padded away.
         files: [
-            "demo/color-picker/App.vue",
+            "demo/app/App.vue",
             "demo/shell/usePaneRouter.ts",
             "demo/shell/dock/Dock.vue",
             "demo/shell/dock/layers/ActionBarLayer.vue",

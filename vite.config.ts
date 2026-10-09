@@ -224,7 +224,7 @@ export default defineConfig((mode) => {
         return {
             ...defaultOptions,
             base: "./",
-            root: "./demo/color-picker/",
+            root: "./demo/app/",
             build: {
                 outDir: path.resolve(import.meta.dirname, "./dist/gh-pages"),
                 emptyOutDir: true,
@@ -264,7 +264,7 @@ export default defineConfig((mode) => {
         // Dev mode: serve the demo app with HMR
         return {
             ...defaultOptions,
-            root: "./demo/color-picker/",
+            root: "./demo/app/",
             server: {
                 host: true,
             },

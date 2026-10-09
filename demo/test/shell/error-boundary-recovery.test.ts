@@ -18,7 +18,7 @@ import { describe, expect, it, vi } from "vitest";
 import { defineComponent, h, nextTick, ref } from "vue";
 import { mount } from "@vue/test-utils";
 
-import ErrorBoundary from "../../color-picker/ErrorBoundary.vue";
+import ErrorBoundary from "../../app/ErrorBoundary.vue";
 
 const global = {
     stubs: {

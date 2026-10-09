@@ -30,7 +30,7 @@ import {
     FIRST_VISIT_GROUND,
     GROUND_RECORD_VERSION,
     GROUND_STOP_COUNT,
-} from "../demo/color-picker/composables/boot/ground";
+} from "../demo/app/composables/boot/ground";
 
 /** Resolve every `__GROUND_*__` token in the boot HTML against the record. */
 export function injectGroundTokens(html: string): string {

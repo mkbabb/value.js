@@ -9,7 +9,7 @@
  * does not satisfy NG-11.**"*
  *
  * This file is that falsifier, standing. It re-derives the route table from the
- * PRODUCT'S OWN SOURCE TEXT — `demo/color-picker/router/index.ts` and
+ * PRODUCT'S OWN SOURCE TEXT — `demo/app/router/index.ts` and
  * `demo/shell/viewSchema.ts` — and fails if `census.ts` and the product
  * disagree in either direction. It reads the files as bytes rather than
  * importing them, deliberately: importing `viewSchema.ts` would drag the whole
@@ -38,7 +38,7 @@ import {
 } from "./census";
 
 const REPO_ROOT = resolve(import.meta.dirname, "../..");
-const ROUTER = resolve(REPO_ROOT, "demo/color-picker/router/index.ts");
+const ROUTER = resolve(REPO_ROOT, "demo/app/router/index.ts");
 const VIEW_SCHEMA = resolve(REPO_ROOT, "demo/shell/viewSchema.ts");
 
 /**
@@ -107,7 +107,7 @@ test("the visual census is exactly the router's route table", () => {
     const census = ROUTE_CENSUS.map((r) => r.id).sort();
     expect(
         census,
-        "census.ts and demo/color-picker/router/index.ts disagree. A route the app " +
+        "census.ts and demo/app/router/index.ts disagree. A route the app " +
             "serves and the matrix does not photograph is the five-route sample re-armed.",
     ).toEqual(declared);
 });

@@ -33,7 +33,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { defineComponent, h, nextTick, ref, type Component } from "vue";
 import { mount } from "@vue/test-utils";
-import ErrorBoundary from "../../color-picker/ErrorBoundary.vue";
+import ErrorBoundary from "../../app/ErrorBoundary.vue";
 
 /** A child that throws on render whenever `boom.value` is true. */
 function makeThrower(boom: { value: boolean }, label: string): Component {

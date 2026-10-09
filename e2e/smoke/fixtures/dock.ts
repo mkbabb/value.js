@@ -116,7 +116,7 @@ export async function paneSettled(page: Page): Promise<void> {
  *
  * X.W5.a retired the static `aria-label` naming for the live
  * landmark: `<main :aria-labelledby="route-title">`, named BY the route's one
- * visible `<h1 id="route-title">` (`demo/color-picker/App.vue`), so the name
+ * visible `<h1 id="route-title">` (`demo/app/App.vue`), so the name
  * now tracks the route ("Home", "Gradient", "Not Found", …) and can never
  * announce a scene that is no longer mounted. Every spec reaches the shell's
  * main pane through THIS export — never a per-file copy of the query — so the

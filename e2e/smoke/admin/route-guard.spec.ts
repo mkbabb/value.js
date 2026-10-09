@@ -6,7 +6,7 @@
 // spec lands FIRST"): at the baseline commit every assertion below fails for its
 // one intended reason —
 //
-//   G-18  `demo/color-picker/router/index.ts:31-35` declares `meta: { admin: true }`
+//   G-18  `demo/app/router/index.ts:31-35` declares `meta: { admin: true }`
 //         on five records while `grep -rn "beforeEach\|beforeEnter" demo` → 0.
 //         The flag is decorative; an anonymous visitor who types the URL mounts
 //         `AdminPane` in full.

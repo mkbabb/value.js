@@ -104,7 +104,7 @@ jobs:
             # ×5 incl. useAtmosphere.ts — the sites have since moved and split):
             #   ./blob        demo/picker/visual/HeroBlob.vue:34,:35
             #   ./blob-config demo/scenes/blob/BlobPane.vue:12,:13 ·
-            #                 demo/color-picker/composables/boot/useAtmosphere.ts:36
+            #                 demo/app/composables/boot/useAtmosphere.ts:36
             #   ./chip        demo/workbenches/gradient/.../EasingSpecimenStrip.vue:14
             # A build resolved through that branch tree dies at the first of them.
             # This step reds the deploy BEFORE the build if a producer bump ever
