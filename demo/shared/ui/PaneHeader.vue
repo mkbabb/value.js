@@ -8,7 +8,20 @@
          scroll-earned intensity (C2; the CC-3 bespoke recipe is dead), and
          the whole choreography is compositor-only (the F3 layout-animating
          fork is dead — O-11 gate 4). -->
-    <div class="pane-header px-4 sm:px-6 pt-4 pb-(--pane-header-gap) sticky top-0 z-header">
+    <!-- A2-VA-L1-2 (X-W12U .k2): the header IS glass's `<CardHeader shrink>`.
+         Inside PaneShell's `.card-scroll-host` it condenses on glass's real-box
+         discrete condense (hysteresis threshold + sufficiency gate, the
+         padding flip under `[data-condensed]`, the caption hidden); the
+         per-frame title-scale / caption scrub this file carried "until P3's
+         ScrollCardHeader knobs land" is retired with them landed. The rest
+         top padding rides glass's `--card-pad` (1rem, the retired `pt-4`) so
+         glass's condensed flip owns the block-start padding. A SEATED header
+         (no host above it) never condenses. The constitutive VEIL below stays
+         this file's until glass absorbs it (O-74d §1, ADOPT). -->
+    <CardHeader
+        shrink
+        class="pane-header px-4 sm:px-6 pb-(--pane-header-gap) [--card-pad:1rem] sticky top-0 z-header"
+    >
         <!-- Q5 (S.W4 W4-7): the pane title speaks the DISPLAY voice — the ONE
              site; all 9 panes inherit. The three-voice law's hierarchy fix:
              the largest text on a pane must not speak the body sans.
@@ -26,22 +39,22 @@
              LEVEL, defaulting to the one that sits directly beneath it. The
              prop is the producer seam's own shape (`as`/`level`), so a nested
              pane can state its depth instead of the shell guessing. -->
-        <component :is="`h${level}`" class="pane-header-title font-display">
+        <CardTitle :as="`h${level}`" class="pane-header-title font-display">
             <slot />
-        </component>
-        <div v-if="description" class="pane-header-desc-wrap">
-            <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks the CERTIFIED
-                 de-emphasis rung `--ink-muted` (the boot-stamped floor-clamped
-                 plate ink, ≥4.5 on the composited resting plate) — never raw
-                 `--muted-foreground`, which measured 4.29:1 on the TRUE header
-                 ground (veil `::before` included). One class-list edit; all 9
-                 panes inherit. The color rides the scoped rule below. -->
-            <p class="pane-header-desc text-caption">{{ description }}</p>
-        </div>
-    </div>
+        </CardTitle>
+        <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks the CERTIFIED
+             de-emphasis rung `--ink-muted` (the boot-stamped floor-clamped
+             plate ink, ≥4.5 on the composited resting plate) — never raw
+             `--muted-foreground`, which measured 4.29:1 on the TRUE header
+             ground (veil `::before` included). The color rides the scoped rule
+             below; glass hides the caption on the condensed strip. -->
+        <CardDescription v-if="description" class="pane-header-desc text-caption">{{ description }}</CardDescription>
+    </CardHeader>
 </template>
 
 <script setup lang="ts">
+import { CardDescription, CardHeader, CardTitle } from "@mkbabb/glass-ui/card";
+
 const { level = 2 } = defineProps<{
     description?: string;
     /** Heading level for the pane title — 2 by default: it sits one below the
@@ -53,13 +66,13 @@ const { level = 2 } = defineProps<{
 <style>
 /* Pane scroll host (D.W4 Lane A §4: colocated from styles/style.css).
  *
- * The `.pane-scroll-fade` host class lives on the ROOT element of each pane
- * Card (9 sibling panes: Browse/Admin/About/Palettes/Mix/Gradient/Extract/
- * Generate/ConfigSlider). Because the class is applied across siblings of
- * PaneHeader (not its descendants), the block must be UNSCOPED to reach
- * those consumers. It is colocated HERE because PaneHeader owns the only
- * consumers of `--pane-scroll` (the named scroll-timeline defined by this
- * block), so the producer + consumer live in one file.
+ * The `.pane-scroll-fade` host class lives on the ONE scroll owner of every
+ * pane (A2-VA-L1-1: PaneShell's `.card-scroll-host`, or its seated FadingScroll
+ * port). Because the class is applied by PaneShell, not by a descendant of
+ * PaneHeader, the block must be UNSCOPED. It is colocated HERE because
+ * PaneHeader owns the only consumer of `--pane-scroll` (the named
+ * scroll-timeline defined by this block), so producer + consumer live in one
+ * file.
  *
  * `contain: layout style paint` isolates the named scroll-timeline so
  * PaneHeader animations respond to THIS pane's scroll only, not
@@ -151,9 +164,6 @@ const { level = 2 } = defineProps<{
     text-wrap: balance;
 }
 
-.pane-header-desc-wrap {
-    margin-top: 0.125rem;
-}
 
 /* AB-2 (D6) — the caption ink: the boot-stamped certified de-emphasis rung.
  * `--ink-muted` is the floor-clamped plate ink useAtmosphereBoot writes on
@@ -173,73 +183,38 @@ const { level = 2 } = defineProps<{
     /* The one tunable: the ratified rest floor (Q9 bracket [0.45, 0.65] of
      * the veil; effect bracket 27–39% added card material — see above). */
     --pane-veil-rest: 0.52;
-    /* T.W4-1 — the RE-TARGETED endpoints on W3-4's PINNED compositor arm
-     * (no font-size keyframe returns): rest = scale 1 at display-1, stuck =
-     * heading/display-1 — the stuck title lands EXACTLY on the retired
-     * heading rung. The ratio is CLOSED-FORM, not a hand constant:
-     * tan(atan2(y, x)) is the CSS length-ratio identity, so the endpoint
-     * law survives display-1's viewport-fluid clamp at every band — ≈0.618
-     * (1/φ) at the ≥1440 cap, degenerating to exactly 1 on phones where
-     * display-1 floor-pins AT heading (the shrink self-neutralizes; the
-     * floor-pinned no-op needs no band arm). Guarded by the same @supports
-     * SDA gate as its one consumer (atan2: Chromium 111+ ⊂ SDA engines). */
-    --pane-title-shrink-ratio: calc(
-        tan(atan2(var(--type-heading), var(--type-display-1)))
-    );
 }
 
-/* ── THE SWELL + SHRINK (compositor-only; SDA-gated) ────────────────────
- * Every scroll-driven animation lives inside the @supports gate so the REST
- * state is engine-invariant (O-11 gate 5): non-SDA engines and the base
- * state paint the identical designed rest header; only the swell/shrink
- * degrade. A scroll SCRUB is position-mapped, not time-based motion, so it
- * needs no PRM gate (t-header-shading F5) — under PRM the rest state is
- * byte-identical by the same from-state = base-state construction.
+/* ── THE CONDENSED TITLE (A2-VA-L1-2) ───────────────────────────────────
+ * Glass's `<CardHeader shrink>` owns the condense: the state machine, the
+ * block-start padding flip, the caption's exit and the title's glide. The
+ * pane title's RUNGS stay the app's (T.W4-1 · D2): rest display-1, and on the
+ * condensed strip the heading rung — the stuck title lands exactly on the
+ * retired heading rung, as the retired compositor scrub's endpoint law said
+ * (on phones display-1 floor-pins AT heading, so the step is a no-op there).
+ * The per-frame title-scale / caption scrub is retired: the condense is ONE
+ * discrete transition at the threshold, never a scrub. */
+.pane-header[data-condensed="true"] > .pane-header-title {
+    font-size: var(--type-heading);
+}
+
+/* ── THE SWELL (compositor-only; SDA-gated) ────────────────────────────
+ * The veil's scroll-earned intensity lives inside the @supports gate so the
+ * REST state is engine-invariant (O-11 gate 5): non-SDA engines and the base
+ * state paint the identical designed rest header; only the swell degrades. A
+ * scroll SCRUB of opacity is position-mapped, not time-based motion, so it
+ * needs no PRM gate (t-header-shading F5).
  *
- * The F3 fork is RETIRED: the padding / font-size / grid-template-rows
- * keyframes (three layout-reflow channels scrubbed per frame) are dead. The
- * choreography is the producer scroll grammar's compositor transposition —
- * title `scale` (the title-collapse lane, transform-origin left top), desc
- * opacity+translate — until P3's ScrollCardHeader knobs land (BOOKED).
- *
- * The veil SWELL completes by 64px — decoupled from the 120px title range:
- * content reaches the title underside by ~24–48px (About/Gradient, the
- * earliest colliders), so the veil is near-full before any ink collision
- * (O-11 gate 3, the F2 double-exposure cure).
- *
- * T.W4-7 — THE RE-DERIVE AGAINST THE ×φ-TALLER BAND (T-23's geometry over
- * the settled post-W2 field; W4-1 grew the title heading→display-1): the
- * earn-range is keyed to OCCLUSION, not the shrink — occlusion onset is
- * GAP-driven (content crosses the sticky header's underside at a scroll
- * offset set by the header→content gap, which the type move left
- * unchanged), so the 0–64px veil range HOLDS over the taller band; the
- * ::before tracks the grown header box by construction (inset-derived).
- * The title-shrink range stays the producer grammar's own 0–120px (one
- * grammar — card-scroll.css's title-collapse lane; the ×φ travel rides the
- * same scrub). RE-VERIFIED at W4-7: O-11 gate 1 (rest floor inside the Q9
- * EFFECT bracket, both schemes, all panes — MATERIAL untouched, W3-4's) +
- * gate 3 (swell ≤64px, no naked window under the earliest colliders) green
- * over the settled field. */
+ * The veil SWELL completes by 64px — content reaches the title underside by
+ * ~24–48px (About/Gradient, the earliest colliders), so the veil is near-full
+ * before any ink collision (O-11 gate 3, the F2 double-exposure cure). The
+ * earn-range is keyed to OCCLUSION (gap-driven), re-verified at T.W4-7 over
+ * the ×φ-taller band. */
 @supports (animation-timeline: scroll()) {
     .pane-header::before {
         animation: pane-header-veil linear both;
         animation-timeline: --pane-scroll;
         animation-range: 0px 64px;
-    }
-    /* X-DS pass 3 (V3C-01): the title and caption condense only on a header
-     * that scrolls WITH its body (sticky inside the host). A seated header
-     * keeps its rest form: shrinking a box that cannot give back its height
-     * only leaves a dead band. */
-    .pane-scroll-fade .pane-header-title {
-        transform-origin: left top;
-        animation: pane-title-shrink linear both;
-        animation-timeline: --pane-scroll;
-        animation-range: 0px 120px;
-    }
-    .pane-scroll-fade .pane-header-desc-wrap > p {
-        animation: pane-desc-shrink linear both;
-        animation-timeline: --pane-scroll;
-        animation-range: 0px 80px;
     }
 }
 
@@ -249,26 +224,6 @@ const { level = 2 } = defineProps<{
     }
     to {
         opacity: 1;
-    }
-}
-
-@keyframes pane-title-shrink {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(var(--pane-title-shrink-ratio));
-    }
-}
-
-@keyframes pane-desc-shrink {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-0.25rem);
     }
 }
 </style>
