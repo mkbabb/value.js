@@ -1,6 +1,10 @@
 <template>
     <Dialog :open="open" @update:open="$emit('update:open', $event)">
-        <SheetContent side="right" class="w-[380px] sm:max-w-[420px] flex flex-col">
+        <SheetContent side="right" class="w-[380px] max-w-full sm:max-w-[420px] flex flex-col">
+            <!-- X.W12U.m2 · A2-VA-X-3 (consumer half): the drawer's 380 px is a
+                 preference, never wider than its containing block (`max-w-full`),
+                 so a 360 phone shows the whole sheet. Where the sheet lands
+                 (SheetContent `position`) is glass's half, O-74c G-1. -->
             <DialogHeader class="shrink-0">
                 <!-- T.W4-6 (T-15/F7): the producer DialogTitle default is the
                      body-voice `text-subheading` — drawer headers join the
