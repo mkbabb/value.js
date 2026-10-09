@@ -237,6 +237,24 @@
  * `vw`. Display type rungs are the named exception (viewport-fluid clamps). */
 .pane-wrapper {
     container-type: inline-size;
+    /* X.W12U.m2 · A2-VA-X-2 (COHESION §0et, ESC-W12U-r1-2): A REGION'S PAINT
+     * BAND IS INK, SO THE REGION SAYS SO. Two boxes inside a region overshoot
+     * it by design: the T-45 carrier (below; inset −2r, a paint-only band that
+     * `clip-path` cuts back to the card) and the plate's arrival pose (the
+     * `overture-plate-settle` half-degree turn on the pane root, which swings a
+     * tall plate's corner tens of px sideways for one beat). As in-flow layout
+     * boxes both entered the document's scrollable overflow, and on phones and
+     * tablets the band crossed the viewport edge: docSW = vw + 16 at rest,
+     * more through boot, the layout viewport widened and the page panned.
+     * Layout containment makes a region's descendant overflow INK overflow
+     * (CSS Containment §3.2): it clips nothing and repaints nothing, so the
+     * carrier still samples its full 2r backdrop (no t33 rim), the card's
+     * quiet edge and the stage's hero ornament keep painting past the region,
+     * and `.pane-wrapper--stage` gains no clip. (`container-type` no longer
+     * implies layout containment, so it is stated.) A root/shell clip is the
+     * rejected masking alternative; the carrier block retires with the
+     * producer's P3 ladder rider. Every `contain` below restates `layout`. */
+    contain: layout;
 }
 
 /* ── THE PLATE INKS: ONE POLARITY PER PLATE (X-DS pass 4 · V4C-01/V4C-02) ──
@@ -356,7 +374,7 @@
  * row and `contain: size` would collapse it. */
 @container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
     .pane-wrapper--inspector:has(> .pane-row-follow) {
-        contain: size;
+        contain: size layout;
         min-block-size: var(--pane-follow-floor, 0px);
         /* X-DS pass 7 (V7C-04): the row is the companion's CEILING, not its
          * height. Stretched to the row, a short companion (Mix beside the
