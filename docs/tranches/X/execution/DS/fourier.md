@@ -980,3 +980,42 @@ No local override was added for any of these.
 - crops: `v-stage-*`, `coeff-header-*-390` and `compute-hover-*-1440`;
 
 each in light and dark.
+
+### pass 4
+This is the cure for critic **F4**. The critic's frames are in `pass-04/critic-f4/`, and that set is the BEFORE.
+- fourier `010f2d4`, on `m/w1-bump-migration`, pushed fast-forward `24fce16..010f2d4`. Four files, committed by pathspec. `web/src/App.vue` is dirty with another seat's hunk and was not touched.
+- latex-paper `0be0e33` (DS-F4-C1's style half), local on `master`, with the 0.3.0 changeset extended. It is not pushed and not published.
+- value.js `994fce692` holds the AFTER frames, the cure probe and its JSON, the census and the e2e logs, all in `pass-04/f4/`. The subdirectory keeps the earlier loop's `pass-04/` sets (`critic-f6/`, `f6/`, `cure/`) intact.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F4-C1 | **The root is already cured:** latex-paper `5be04ae` (DS-F9-C3) parses `\item[term]` into the `<dt>`, and a parse test covers fourier's two items. **Style:** in `0be0e33` the `<dt>` moves to the semibold rung (600, was 700), flush, with its definition hanging 1.5rem under it, and no fill, rule or shadow. latex-paper vitest 128/128 ×2. **Served:** the terms are still empty, because fourier pins `^0.2.1` and the repin needs latex-paper 0.3.0. Publishing is an owner act: `npm whoami` returns E401 and this seat has no push grant for latex-paper. No fourier CSS papers over it. Measured: `paper-*` in the probe JSON still shows `dt` text "" at 700 in all 4 cells. **REFUSED (walled), not deferred:** the owner publishes 0.3.0 (`9e0200f` … `0be0e33`), then fourier bumps the pin. |
+| DS-F4-C2 | `NotFoundCard.vue`: "Browse the gallery" is `emphasis="text" size="sm"`, the same grammar as the load error and the empty stage: one primary and one quiet link. The card itself is unchanged. Measured in all 4 cells: `primary/md` + `text/sm`. Census: /no-such-route drops one shadow element, 3 layers and one backdrop blur per cell. |
+| DS-F4-C3 | `HarmonicLevelGrid.vue`: a fading side is at alpha 0 for a whole gap (`min(fade, 0.5rem)`; it was fade/12 = 4px), so a tile rim that lands in the last gap's width is cut, never left as a lone hairline. The strip also snaps (`scroll-snap-type: x mandatory`, cells `scroll-snap-align: start`), so a scrolled rest cuts at a tile boundary. Measured: the cut tile shows 6px at 1440 and 2px at 390, both inside the cleared band. The strip and the sliders share the card's content edges (617–1259 at 1440, 29–361 at 390). Frames: `morph-levels-*`. |
+| DS-F4-C4 | `GalleryInfiniteGrid.vue`: `auto-fit`, so a short set collapses its empty tracks and the cards run to the gutter the toolbar runs to. The grid's measure is capped at 24rem per card for the set it holds (`--gallery-count`), so one or two results stay card-sized. Measured at 1440: last card right = search right = 1424 (it was 1140 against 1424). A long gallery is unchanged. |
+| DS-F4-C5 | `epicycles.ts`: the sub-cut tail thread draws at 0.35 (it was 0.6, above the circles' 0.5). It is the quietest stroke in the chain, in its hue (§0dm). Frames: `v-stage-*-1440`, `v-epicycle-hover-*-1440`. |
+
+**Glass-owned, cited, not overridden.**
+- DS-F4-G1: primary and secondary `Button` are the same plate (10.1.0's primary sets only depth and 600 weight). Relayed beside O-87 (10.2.0 band 0): primary needs a real fill or ink step inside the flat material. Compute is not re-toned locally, since DS-F3-C3 removed exactly that.
+- DS-F4-G2: the stage capsule's ghost plate and the transport's thumbless speed bar are not regressed. They are held under O-88 and O-87 (DS-F3-G2/G3).
+
+**Census** (`scripts/ds-census.mjs` against the cured tree on `:3100`; `census-after.json`):
+- Static is unchanged: 8 box-shadow declarations, 10 gradients, 3 keyframes.
+- Computed sums: 384 shadow elements, 972 layers, 290 multi-layer stacks, 290 inset highlights, 212 backdrop blur, 0 control gradients, 0 looping chrome. Pass 3 read 388 / 984 / 294 / 294 / 216.
+- The only per-cell delta is /no-such-route (C2), at −1 element and −3 layers in each of its 4 cells. The /v cell follows the gallery's newest slug.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116, twice.
+- e2e covered 28 specs that reach the changed files (`e2e-specs.txt`: not-found, /morph, /gallery, /v, and the visual checkpoint). They ran on chromium plus mobile-chromium, headless, with 3 workers, against BASE_URL `:3100`. `:3000` is held by the value.js api.
+  - Run A: 318 passed, 10 failed.
+  - Run B: 319 passed, 5 failed. Two earlier attempts at B died in global-seed with a `POST /api/sessions` timeout at host load ~150–180; their logs are kept as `e2e-runB0/B1-seed-timeout.txt`.
+- **Every red also fails on the unmodified HEAD tree.** I checked this with a HEAD worktree served on `:3129` (`e2e-head-baseline.txt`, the same 10 red).
+  - The 5 `visual-checkpoint` goldens are stale: the card golden is 240×301 and HEAD renders 277×238.
+  - The 4 `gallery-admin-a11y` axe cells and `f-w14v-p` p3 failed in A and passed in B.
+  - None was introduced by this cure.
+- **No visual golden was re-baselined.** The checkpoint card golden was already RED at HEAD. Under C4 the card's width follows its row (358px in the checkpoint's short set). Re-baselining the card goldens is left to a named owner-ruled re-baseline (§0ej).
+- The `web/e2e/screenshots/` tree, including another seat's dirty files, was backed up before the runs and restored after each one. Nothing there was committed.
+
+**Frames** (`pass-04/f4/`). All were captured in headless real Chrome (channel `chrome`, DPR 2; §0ei) by `f4-cure-probe.mjs` against `:3100`, with the pointer parked at (0,0). The critic's cells are `gallery-*`, `gallery-hover-*-1440`, `morph-*`, `morph-scroll-*`, `paper-*` and `v-epicycle-hover-*-1440`. Added: `no-such-route-*`, the crops `morph-levels-*` and `paper-description-*`, and `v-stage-*-1440`. Each was taken in light and dark, at 1440 and 390 where it applies.
