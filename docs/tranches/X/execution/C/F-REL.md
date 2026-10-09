@@ -98,3 +98,38 @@ Resource law: suites run strictly one at a time, each under `timeout 1200 -x`; t
 **Adjacent edits.** `fourier-analysis/.gitignore:60` `!scripts/model-smoke.sh`: same concern (the falsifier script), the repo tracks scripts by negation.
 
 **Escalations.** None. Status: **DONE**.
+
+### F-REL.c
+
+Seat `claude-opus-5-5`, 2026-10-08. Spec §Units `.c` (F-REL.md:21 at true bytes; the plan cites :25, drifted; INTENT read at the true line) and §Why 4; COHESION §0em, §0ei (headless), §0eo (logs under `~/.dev-logs/frel/`).
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) → only `web/**` (X-DS lane) and `.worktrees/`; nothing in the .c writable set. Nothing inherited.
+
+**Anchors measured.** `api/main.py:96-102` (true bytes; the brief's :62-63 drifted after `.m`) `allow_methods=["GET","POST","PUT","DELETE","OPTIONS"]`, `allow_headers=["Content-Type","Authorization","X-Session-Token"]`, no `expose_headers`. The client, enumerated by grep: every request goes through `coreFetch` (`web/src/lib/api.ts:237`, the one `fetch(`; `lib/equation/api.ts` calls `apiFetch`); verbs ⟨`grep -rn 'method: "' web/src`⟩ → POST ×15, PUT ×2, PATCH ×1, DELETE ×5 (+ GET, the default); request headers set by assignment `api.ts:201 Authorization · :204 X-Session-Token · :207 If-Match · :210 Idempotency-Key · :226 Content-Type` (+ `:516/:533 If-Match`); response headers read `api.ts:264 headers.get("ETag")` and `api-problem.ts:172 headers.get("RateLimit-Reset")`.
+
+**Acts (fourier `m/w1-bump-migration`).**
+1. `9876aad` fix(api · F.REL .c): CORS is complete for the web client, from one source of truth — one commit (cure + falsifiers):
+   - `api/config.py`: `CORS_ALLOW_METHODS = (GET, POST, PUT, PATCH, DELETE)`, `CORS_ALLOW_HEADERS = (Authorization, Content-Type, Idempotency-Key, If-Match, X-Session-Token)`, `CORS_EXPOSE_HEADERS = (ETag, RateLimit-Reset)` — the one source; `api/main.py` `CORSMiddleware(allow_methods=…, allow_headers=…, expose_headers=…)` reads them.
+   - The one-source lock: `api/tests/test_cors.py` reads the client's bytes (`web/src/**/*.{ts,vue}`: `method: "X"`, `headers["X"] =`/`??=`, `.headers.get("X")`) and asserts set EQUALITY with the three tuples, both directions — a client header added without its allowance, or an allowance the client never sends, fails the api suite.
+   - Preflight falsifiers through the full ASGI stack: every verb (5), every verb × header (25), the browser's exact PATCH preflight, an unlisted header → 400, a foreign origin → 400 with no ACAO; `test_etag_is_exposed_to_the_client` (GET with Origin → `access-control-expose-headers` ⊇ {etag, ratelimit-reset}). 37 tests.
+   - `scripts/cors-probe.sh` + `scripts/cors-probe.mjs`: boots the API (:8077, Mongo `:27018/fourier_cors_probe`, dropped at exit) and Vite dev (:5187, `VITE_API_URL` = the API, so every call is cross-origin), then headless Chrome (`channel: "chrome", headless: true`) imports `/src/lib/api.ts` and runs session → upload → contour → create → read (ETag) → `updateVisualization` (If-Match) → a PATCH with If-Match + Idempotency-Key + Content-Type + X-Session-Token → `deleteVisualization` (If-Match) → owner read shows `deleted_at`, anonymous read 404; then reads the API access log for the preflights answered and fails on any 4xx/5xx OPTIONS.
+   - adjacent edit: `fourier-analysis/.gitignore:61-62` `!scripts/cors-probe.sh`, `!scripts/cors-probe.mjs` (the repo ignores `scripts/*` and tracks by negation; same reason `.m` added `:60`).
+2. Pulled ⟨`git pull --ff-only`⟩ → `Already up to date`; pushed ⟨`git push origin m/w1-bump-migration`⟩ → `4d98fa8..9876aad` (no force).
+
+**Gates (BEFORE → AFTER, logs `~/.dev-logs/frel/`).**
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| G-c preflight, every client verb × header | RED — production ⟨`curl -X OPTIONS … PATCH … if-match,idempotency-key`⟩ → 400 (baseline); in-process on the pre-cure `main.py` (⟨`git show HEAD:api/main.py` loaded as the app, the test's preflight driver⟩) → **14 of 30** verb/header preflights refused 400 (`GET/Idempotency-Key`, `GET/If-Match`, `POST/…`, `PUT/…`, `PATCH/*` …) | GREEN — ⟨`uv run pytest api/tests/test_cors.py -q`⟩ → 37 passed (inside both full runs) |
+| ETag exposed | RED — pre-cure GET with Origin → `access-control-expose-headers: None` | GREEN — `test_etag_is_exposed_to_the_client` passed |
+| one source shared with the client's headers | none (two hand lists, drifted) | GREEN — the three binding tests (set equality, both directions) |
+| headless browser edit + delete, local stack (§0ei) | RED by construction (the production preflight 400) | GREEN ×2 — ⟨`scripts/cors-probe.sh`⟩ run 1 and run 2 → `edit.title: F.REL .c cors probe` · `edit2.description: edited with every client header` · `delete: 204` · `owner-read-after-delete.deleted_at: 2026-10-09 00:57:04…` · `anon-read-after-delete: 404 urn:contract:not-found` · ETags read on create/read/edit · preflights answered `OPTIONS /api/contours 200 ×1 · /api/images 200 ×1 · /api/visualizations 200 ×1 · /api/visualizations/<slug> 200 ×4` · `cors-probe.sh: PASS` (logs `cors-probe-run1.log`, `cors-probe-run2.log`) |
+| pytest `api/` ×2 | 307 ×2 (after `.m`) | ⟨`timeout 1200 uv run pytest api/ -x -q`⟩ → **344 passed** ×2 (81.3 s, 81.6 s) = 307 + 37 `test_cors.py` (logs `c-api-run1.log`, `c-api-run2.log`) |
+| ruff | — | ⟨`ruff check api/main.py api/config.py api/tests/test_cors.py`⟩ → All checks passed; `test_cors.py` formatted |
+
+pytest `tests/` not re-run: no byte under `src/` or `tests/` moved (⟨`git show --stat 9876aad`⟩ → `.gitignore, api/config.py, api/main.py, api/tests/test_cors.py, scripts/cors-probe.{sh,mjs}`); banked 171 ×2 at `.m`.
+
+**Residuals.** (a) `RateLimit-Reset` is exposed beside `ETag`: the client reads it (`api-problem.ts:172`, the 429 backoff) and cross-origin it read `null`; the same gap as ETag, closed by the same one-source rule — recorded as an intent reading of "from one source of truth with the client". (b) `OPTIONS` left `allow_methods` (the client never sends it as a method; Starlette answers preflight itself). (c) `api/main.py:62` lacks one blank line before `class UnhandledErrorProblem` under `ruff format` — pre-existing from `4d98fa8` (`.m`), not reformatted here (another unit's bytes, cosmetic). (d) Production is still RED until `.h`/`.d` deploy `9876aad`; the production preflight read is `.d`'s.
+
+**Adjacent edits.** `fourier-analysis/.gitignore:61-62` (above).
+
+**Escalations.** None. Status: **DONE**.
