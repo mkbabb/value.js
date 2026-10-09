@@ -527,3 +527,43 @@ Order (W8.md ADDENDUM (a) + §0ev.5): **`.e` → `.lg1`**. `.e` changes bytes, s
 - `.lg1`: On `.e`'s final bytes: `node bench/paired/build.mjs` (manifest ok, srcDirty empty), record product hash. Add a bootstrap reader (new file under `bench/paired/`, seeded, ≥ 10,000 resamples) computing the median per-round ratio and its 95 % upper bound from raw per-round samples. Read node (`bench.mjs`) and the 3 browsers (`browser.mjs`) ×2 at ≥ 31 rounds; re-read straddling cells at more rounds up to 101; load at start/end per read. Cells: accepted, rejected, `large-eq`, + Firefox whole `parseCssScalar`. Bank raw JSON + MANIFEST under `bench/records/W8lg1/`. A cell straddling at 101 = RED (defect, escalate to a cure unit). Headless only.
 
 ## RESUME 2026-10-09 — Unit receipts
+
+### X.P.W8.e (2026-10-09, `claude-opus-5-5`) — the empty custom property `--x: ;` (ESC-W8v-2; css-variables-1 §2) read in BBNF; E-6 gz ceiling exceeded → **ESC-W8e-1**
+
+- **Crash recovery:** ⟨`git status --porcelain -- src test/css bench CHANGELOG.md docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md docs/tranches/X/execution/D/X-P-W8.md`⟩ → empty. No inherited work. parse-that ⟨`git log --oneline -1`⟩ → `cb9c0d4` (READ-ONLY; its dirty rust tree is another owner's).
+- **Emitter pin:** ⟨`git -C ../bbnf-lang-x-p-w7-typescript log -1 --format=%h`⟩ → `f0059db14`, ⟨`status --porcelain | wc -l`⟩ → `0` before and after. `node_modules/@mkbabb/bbnf-lang` (⟨`grep '"version"'`⟩ → `0.1.4`) moved aside as `.bbnf-lang-0.1.4-aside-W8e`; symlink to `…/typescript`. ⟨`node scripts/gen-grammar.mjs --check`⟩ before any change → `current (sha256 acd6e069…)`. Restored at the end: ⟨`grep '"version"'`⟩ → `0.1.4`; ⟨`git diff --stat -- package.json package-lock.json`⟩ → empty.
+- **Anchors at true bytes:** the refusal is `src/css/rules.ts` `parseDeclarations` → `parseCssValue(source)` with `source = ""`. ⟨probe `declaration("--x:")` / `("--x: ")` / `("--x: /**/ ")`⟩ → value `""` / `""` / `"/**/"`. The `stylesheet.bbnf` `declValue ?` already reads an absent value, so the cure is at the value level. `src/value.ts` has no empty `CssValue`. Runtime surface pinned: `test/v4-c1.test.ts:564` `Object.keys(value) == ["isLayoutTrackingUnit"]` and `scripts/ci/verify-packed-surface.mjs:47`. So the empty value is modelled as a **type** (`CssEmpty`), and its frozen instance lives in the actions.
+- **Born-RED falsifiers** `test/css/custom-property-empty.test.ts` (17 tests). The 12 acceptance tests: `--x: ;` · `--x:;` · `--x:   ` · `--x: /* none */ ;` → EMPTY; `a: 1; --x: ;`; `--x: !important`; round-trips of `--x: ;` / `--x:;` / `a: 1; --x: ;` / `--x: !important;`; `--x:;` serializes to `--x: ;`; `.a { --x: ; opacity: 1 }` through `parseStylesheet`. The 5 refusal tests: `a: ;` · `a:;` · `color:   ` · `a: /* none */ ;` · `a: 1; b: ;` stay `css_syntax`. ⟨`npx vitest run …` on `git archive 5408b73e7^ src` (+ test/support, tsconfigs, vitest.config) under `.worktrees/w8e-prior`⟩ ×2 → `Tests 12 failed | 5 passed (17)` both runs (`bench/records/W8e/red-before.log`). Each failure is `refused: "--x: ;" → [{"code":"css_syntax","start":0,"end":0,"expected":["scalar"],"actual":null}]`. The 5 refusals pass by design: they are stay-GREEN, not born-RED.
+- **Cure (one commit `5408b73e7`, 11 files):**
+  - `value.bbnf` `customTop = sp >> commaList ? << sp`. This is css-variables-1's `<declaration-value>?` transcribed; `valueTop` is untouched, so `parseCssValue("")` still refuses.
+  - The action `customTop: value ?? EMPTY` in `src/css/bbnf/value.ts`, with `EMPTY` frozen as `{kind:"list",separator:"space",items:[]}`.
+  - `CssEmpty` type in `src/value.ts`.
+  - `parseCustomPropertyValue` in `src/css/bbnf/index.ts`.
+  - `rules.ts`: `name.startsWith("--") ? parseCustomPropertyValue(source) : parseCssValue(source)`.
+  - Re-emitted ⟨`node scripts/gen-grammar.mjs`⟩ → sha256 `e979a963…`.
+  - `serialize.ts` is not touched: an empty space list joins to `""`.
+- **Adjacent edits (§0bt):** `scripts/gen-grammar.mjs:28` — `"customTop"` added to `ENTRIES`. Without it the entry is not emitted. Same repo, same concern; the `.x` precedent did the same for `ident`.
+- **Size variant measured (not landed):** `emptyValue = sp ; customTop = valueTop | emptyValue` → `104668` / `14632` gz (the emitter adds a 128-entry first-character dispatch table). The landed single-optional form is the smaller and the more literal transcription.
+
+| Gate | Command | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|---|
+| falsifiers ×2 | ⟨`npx vitest run test/css/custom-property-empty.test.ts`⟩ | 12 failed / 5 passed ×2 (archive) | `Tests 17 passed (17)` ×2 | **GREEN** (RED→GREEN) |
+| `a: ;` refused | same file, 5 cases | refused | refused `css_syntax` ×2 | GREEN |
+| E-4 `--check` ×2 (pinned) | ⟨`node scripts/gen-grammar.mjs --check`⟩ | current `acd6e069…` | `current (sha256 e979a963…)` ×2 before commit, ×2 after (`check.log`) | GREEN |
+| E-2 audit (pinned) | ⟨`node bench/paired/audit.mjs`⟩ | 0 | `rules 176 · checks 351774257 · violations 0 · modeDiffs 0`, exit 0 | GREEN |
+| **E-6 size** | ⟨`git show HEAD:…/grammar.js \| npx esbuild --minify --loader=js \| wc -c`⟩ / `\| gzip \| wc -c` ×2 | 103,938 / 14,512 | **`104398` / `14622`** ×2 (ceilings 125,646 / **14,517**: raw GREEN; **gz over by 105 B**) | **RED → ESC-W8e-1** (not shaved) |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | GREEN | `6267 cases · 3899 ruled rows` · `TOTAL 6267 2368 3899 … 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, exit 0 ×2 | GREEN |
+| test/css ×2 | ⟨`npx vitest run test/css`⟩ | 15 / 195 | `Test Files 16 passed (16) · Tests 212 passed (212)` ×2; and after the pin was restored | GREEN |
+| L-G2 ×2 | ⟨`node bench/paired/build.mjs`⟩ (`bankedManifestOk 79/79`) → ⟨`node bench/paired/equiv.mjs product bench/records/W8e/equiv-$i.json`⟩ | 981 | `mismatches 981` ×2, `cmp`-identical; ⟨`node bench/records/W8e/delta.mjs`⟩ vs `W8x/equiv-1.json.gz` → `identical 980 · gone 0 · moved 1 · new 0` ×2. The moved row is **W8e-EMPTY** (`collect:parseStylesheet(sheet)` key 3115; refused on both sides; the product now reads past the empty custom property to a later `color_context_required`). DIVERGENCE-LEDGER §19-E | GREEN (every row named) |
+| prefix ×2 | same reads | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | GREEN |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence`⟩ | 19/19 | exit 0, `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2; `parseStylesheet × 32021` line identical to the Close's; `STYLESHEET DEFECTS 0` | GREEN |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0 (`error TS` count 0 · 0) | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance --max-warnings=0`⟩ | 0 | exit 0 | GREEN |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 7.94s` | GREEN |
+| paired manifest on settled bytes | ⟨`node bench/paired/build.mjs`⟩ after commit | — | `valuejsHead 5408b73e7…` · `srcDirty ""` · `bankedManifestOk 79/79` | GREEN |
+
+- **Commits:** cure `5408b73e7` (grammar + actions + re-emission + falsifiers + model + CHANGELOG + DIVERGENCE-LEDGER §19-E, one family). Receipt + `bench/records/W8e/**` (MANIFEST.txt sha256) in the separate record commit.
+- **Escalation ESC-W8e-1 (owner/orchestrator ruling; W8.md ADDENDUM (a): "the ceiling question is escalated, not shaved").** The cure is lawful and complete, but E-6's gz ceiling of 14,517 B is exceeded by 105 B (14,622). Any BBNF cure adds an entry, which means its name strings plus an entry wrapper. The `.x` precedent measured a new rule + entry at about +40–80 B gz, against a 5 B headroom. The one smaller formulation is the landed one. Cutting below that would mean obfuscation or moving grammar out of BBNF, and both are barred. **Ask:** raise the E-6 gz ceiling to ≥ 14,622 B (for example 14,700) or rule otherwise. `.lg1` may time these bytes regardless, because the size gate is independent of L-G1.
+- **Residuals:** none in scope. ESC-W8v-2 is **cured** (§19-V's open row is discharged by §19-E). Host load during gates: `{ 457.52 476.26 322.94 }` (no timing claim).
+- **Mail:** no new sweep (the RESUME open's E13 sweep stands, the same sitting); ⟨`grep -cE "\| *UNREAD *\|" docs/tranches/V/coordination/INBOX.md`⟩ → `0`.

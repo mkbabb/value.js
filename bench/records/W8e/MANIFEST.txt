@@ -1,0 +1,21 @@
+SERVED MODEL: claude-opus-5-5
+X.P.W8.e evidence (2026-10-09, cure 5408b73e7, emitter pinned bbnf-lang f0059db14 then restored 0.1.4): red-before.log (falsifiers on git archive 5408b73e7^ src, x2), vc-{1,2}.log (V-C x2), equiv-{1,2}.json.gz + logs (L-G2/prefix x2), delta.mjs + delta-{1,2}.json (row delta vs W8x/equiv-1.json.gz), build-paired{,-after}.log, check.log (E-4 x2), audit.log (E-2), cssequiv-{1,2}.log, eslint.log, build.log, testcss-after-restore.log.
+4286bbde06fca81f4da3f101819f79a9f57687b1529bf1d8267e7dd7122b075a  audit.log
+744a209c4247cbe2d90081639cf88a1fcb978987ea92afa964abceaa5890b668  build-paired-after.log
+aec5bf9ef5f21232c3cb645fdee2a7d096b7a092a5da510c81a2ad63f645a325  build-paired.log
+a4db1c2b5e11fa0275a82fbe97fccf914fd5d347c674834639294f2e380d3478  build.log
+ef28872c8b75c21ea91e839865bd3f5c357c1edae2e810afe44c8ca097b7b25d  check.log
+f2bf20552724ace944bd93796d9f614cfdd5c0b58cc6875e1474723805624e9f  cssequiv-1.log
+8fa2681cb207f5a10f96ca8019e2aef5c9f6d9d7aa0363c4ceb486f0e71157eb  cssequiv-2.log
+7d8a1d18bf87e08c7f7560a55d9da9a8af8fecbe788bfebdfa851b7730ba889a  delta-1.json
+7d8a1d18bf87e08c7f7560a55d9da9a8af8fecbe788bfebdfa851b7730ba889a  delta-2.json
+e37cc894a7f4f562c719f3f5e602bb201633d90cc4795206774be092d8f95e4b  delta.mjs
+bedc85c59d3b6524be4f66527a615aadae7b078c3a2ada0bbdea1f8ba1241fcf  equiv-1.json.gz
+46d0a90c67b978b37a0e558547f7324cf1574ab6e0528c5b271456f41f9bd4a7  equiv-1.log
+ae959e1ea337122bcf2acafc137c25948cb340872c684e8098aff4b72202837d  equiv-2.json.gz
+46d0a90c67b978b37a0e558547f7324cf1574ab6e0528c5b271456f41f9bd4a7  equiv-2.log
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  eslint.log
+ddf8a23c257684102ac7e8d4729bce8decf7c1bf582f0173c101848c5060b132  red-before.log
+b7fa3130ce59880d62ec8e3f26498b7a8c7e162ad274c4443d29dd9d6e9f0d4e  testcss-after-restore.log
+93299ab8b63153f712eeb02443a99ca6c1eac6f6cc8fa4463447d5e268adcd26  vc-1.log
+e71a7eed47653a41ff83c8337a9d71fea62af76083da91ca7b8e1a14a2aff226  vc-2.log
