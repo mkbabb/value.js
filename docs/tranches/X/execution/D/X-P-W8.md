@@ -620,3 +620,59 @@ Order (W8.md ADDENDUM (a) + §0ev.5): **`.e` → `.lg1`**. `.e` changes bytes, s
   - ESC-W8e-1 (the E-6 gz ceiling, from `.e`) is still unruled and is not this unit's.
   - The verdicts are on the attempt-0 read of record. The strict all-attempts view is in `bootstrap-read.txt`: Chromium, WebKit and node are GREEN on every attempt, and Firefox is not.
 - **Mail:** ⟨`grep -cE "\| *UNREAD *\|" docs/tranches/V/coordination/INBOX.md`⟩ → `0` (the RESUME open's E13 sweep stands, the same sitting).
+
+## RESUME 2026-10-09 — Close (workflow close seat, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **PARTIAL**
+
+Evidence: `bench/records/W8close2/` (MANIFEST.txt sha256, 18 files; the `*.log` files are ignored by `.gitignore:44` and stay local in that durable dir; MANIFEST, `bootstrap-{1,2}.txt` and `equiv-{1,2}.json.gz` committed). Product bytes = `.e`'s `5408b73e7` (⟨`git rev-parse HEAD:src 5408b73e7:src`⟩ → `516e50f0…` both; grammar.js blob `64bd543b…` both). Host: ⟨`sysctl -n vm.loadavg`⟩ → `{ 165.88 154.42 185.30 }`, AC power (no timing claim by this seat). Crash recovery: ⟨`git status --porcelain -- src test bench scripts CHANGELOG.md docs/tranches/X/parse-that docs/tranches/X/execution/D`⟩ → empty at open (only `scripts/dev/dev.sh`, unowned, and another track's `execution/B/KF-W13X.md` dirty, untouched). Emitter pin taken WITHOUT moving `node_modules`: a copy of `scripts/gen-grammar.mjs` / `bench/paired/audit.mjs` under `.worktrees/w8close2/` with only the bbnf-lang path pointed at `../bbnf-lang-x-p-w7-typescript/typescript` @ `f0059db14` (`node_modules/@mkbabb/bbnf-lang` 0.1.4 never touched).
+
+### Act 1 — commit roster (⟨`git show --stat`⟩ per commit)
+
+| unit | commit | paths | in bounds |
+|---|---|---|---|
+| `.e` cure | `5408b73e7` | `src/css/grammar/value.bbnf` · `src/css/bbnf/{value,index}.ts` · `src/css/bbnf/generated/grammar.{js,d.ts}` · `src/value.ts` · `src/css/rules.ts` · `test/css/custom-property-empty.test.ts` · `CHANGELOG.md` · DIVERGENCE-LEDGER · `scripts/gen-grammar.mjs` (declared §0bt adjacent, `ENTRIES` += `customTop`) | yes (11 files, one family) |
+| `.e` receipt | `6c2750f76` | `bench/records/W8e/**` (7) · this record | yes |
+| `.lg1` reader | `fc7b757eb` | `bench/paired/bootstrap.mjs` (new) · `bench/paired/browser-page.mjs` (`raw: t`, 2 +-; the lock's named exception) | yes |
+| `.lg1` records | `8ed582fe4` · `06efe2c9b` | `bench/records/W8lg1/**` (49 + 13 logs force-added past `*.log`) · `docs/tranches/X/parse-that/evidence/W8/l-g1/{README.md,bootstrap-read.txt}` | yes |
+| `.lg1` receipt | `40d74e749` · `d66087f07` | this record | yes (see landed-wrong LW-1) |
+| `.lg1` ledger line | `44b088596` | `LEDGER.md` (1 appended line) | yes (append) |
+
+**Landed-wrong:** LW-1 (LOW, E-3 form): `d66087f07` corrects the committed `.lg1` receipt's item 3 in place (5 → 4 cells) instead of a dated erratum beside it. The corrected figure is right (this seat recounts 4 from the recomputed GATE block: acc `parseCssColor` rep0 1.006, rej `parseKeyframeSelector` rep0 1.027, rej `parseStylesheet` rep1 1.068 are the ≥ 1.0 medians). Recorded, not fixed here. No product byte outside a unit's bounds.
+
+### Act 2 — gates re-run by this seat (BEFORE = RESUME Baseline at `cfd529016`; AFTER = HEAD `44b088596`, product `5408b73e7`)
+
+| Gate (W8.md) | Command | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|---|
+| `.e` falsifiers (ADDENDUM (a) b2) ×2 | ⟨`npx vitest run test/css/custom-property-empty.test.ts`⟩ on HEAD; on `git archive 5408b73e7^ src test/support` + tsconfigs/vitest.config + the HEAD test file under `.worktrees/w8close2/prior` | RED ×2 (refused `css_syntax`) | prior: `Tests 12 failed \| 5 passed (17)` ×2; HEAD: `Tests 17 passed (17)` ×2 | **GREEN** (RED→GREEN reproduced) |
+| V-C (§Scope 2) ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | GREEN (Check 3) | `6267 cases · 3899 ruled rows` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, exit 0 ×2 | **GREEN** |
+| test/css ×2 | ⟨`npx vitest run test/css`⟩ | 15 / 195 | `Test Files 16 passed (16) · Tests 212 passed (212)` ×2 | **GREEN** |
+| L-G2 ×2 (§Scope 4) | ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 44b088596… · srcDirty "" · bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product …/equiv-$i.json`⟩ | 981 (`.e`) | `mismatches 981` ×2; ⟨`cmp equiv-1 equiv-2`⟩ identical; ⟨`gunzip -c W8e/equiv-1.json.gz \| cmp - equiv-1.json`⟩ identical → every row is a named class (980 + §19-E W8e-EMPTY), 0 new | **GREEN** |
+| prefix ×2 | same reads | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | **GREEN** |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | **GREEN** |
+| E-4 `--check` ×2 (pinned `f0059db14`) | ⟨`node .worktrees/w8close2/gen-pinned.mjs --check`⟩ | current `acd6e069…` | `is current (sha256 e979a963…)` ×2 | **GREEN** |
+| E-2 audit (pinned) | ⟨`node .worktrees/w8close2/audit-pinned.mjs`⟩ | 0 | `rules 176 · checks 351774257 · violations 0 · modeDiffs 0`, exit 0 | **GREEN** |
+| **E-6 size** (ceilings 125,646 / 14,517) ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c`⟩ / `\| gzip \| wc -c` | 103,938 / 14,512 | `104398` / **`14622`** ×2 | raw GREEN · **gz RED (+105 B) → ESC-W8e-1, unruled** |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence`⟩ | 19/19 | exit 0, `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2; `STYLESHEET DEFECTS 0` | **GREEN** |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0 (`error TS` 0 · 0) | **GREEN** |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/paired/bootstrap.mjs --max-warnings=0`⟩ | 0 | exit 0 | **GREEN** |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 13.51s` | **GREEN** |
+| **L-G1 ×2, four engines (§Scope 5, §0ev.1)** — audit of the banked read (§0eq) | ⟨`git archive HEAD bench/records/W8lg1 \| tar -x` → `shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ ×2; ⟨`node bench/paired/bootstrap.mjs bench/records/W8lg1/{node,browser}/*.json \| shasum -a 256`⟩ ×2; product hashes | unread | MANIFEST `59` ×2; reader output `a16f8dbf…` ×2 (= the `.lg1` receipt's determinism hash); `_build/product.mjs` `b7c2348f…` · `retired.mjs` `a65bcc4c…` · `grammar.js` `78afc105…` = `product-hash.txt`. GATE recomputed: node 15/15 · Chromium 15/15 · WebKit 15/15 GREEN ×2; Firefox whole `parseCssScalar` GREEN ×2 at 101 (0.782/ub 0.870 · 0.659/ub 0.718); Firefox 8/15 cells GREEN, **7 RED** (straddle at 101): acc `parseCssColor` · acc `parseCssScalar` · acc `parseStylesheet` · rej `parseCssColor` · rej `parseCssValue` · rej `parseKeyframeSelector` · rej `parseStylesheet` | node/Chromium/WebKit/Firefox-whole **GREEN**; **Firefox 7 cells RED → ESC-W8lg1-1** |
+
+L-G1 is audited (recomputed from the committed raw records), not re-timed: §0ev.1 makes a straddle at 101 a cure-unit defect, and a fresh read here would be a selection among reads, which the protocol bars.
+
+### Act 3 — verification artefacts
+W8.md has no separate §Verification Artefacts section; its artefacts are the gate records: `bench/records/W8e/` (MANIFEST.txt, verified by `.e`), `bench/records/W8lg1/` (MANIFEST.sha256 59/59 ×2 above), `docs/tranches/X/parse-that/evidence/W8/l-g1/` and this seat's `bench/records/W8close2/` (MANIFEST.txt, ⟨`shasum -a 256 -c`⟩ → 18/18 OK).
+
+### Act 4 — E13 mail
+⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ`. ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md \| wc -l`⟩ → `0` on value `V/`, `V/coordination/`, glass `BK/coordination/`, glass `BL/`, keyframes `V/coordination/`, atlas `P/coordination/`. ⟨`grep -cE "\| *UNREAD *\|" INBOX.md`⟩ → `0`. **0 UNREAD in scope**; sweep line appended to INBOX.
+
+### Escalations (standing, unruled — ⟨`grep -rln 'ESC-W8e-1\|ESC-W8lg1-1' docs/tranches/X`⟩ → only LEDGER, this record, the l-g1 README and DIVERGENCE-LEDGER; no COHESION ruling)
+- **ESC-W8e-1** (owner/orchestrator): E-6 gz 14,622 B > 14,517 B ceiling (+105 B), from the lawful BBNF cure of `--x: ;` at `5408b73e7`. Ask: raise the E-6 gz ceiling to ≥ 14,622 B (e.g. 14,700) or rule otherwise. W8.md ADDENDUM (a) bars shaving.
+- **ESC-W8lg1-1** (§0ev.1: a cure-unit defect, never a ruling): 7 Firefox L-G1 cells straddle 1.0 at 101 rounds. The orchestrator homes a cure unit; its diagnosis must separate SpiderMonkey product cost from the instrument's load-sensitive k calibration (the `.lg1` receipt's measured context: k 64–2048 for one cell, 0 ms raw passes at k = 64, retired-pass spread up to 131× at load 112.9–659.4).
+
+### Residuals (named owners)
+- R-1 ESC-W8e-1 → owner/orchestrator ruling on the E-6 gz ceiling.
+- R-2 ESC-W8lg1-1 → a Track D cure unit (orchestrator to mint) for the 7 Firefox cells; then a fresh L-G1 ×2 by §0ev.1 on its final bytes and a check-as-audit.
+- R-3 LW-1 (LOW) → the next W8 seat that writes this record adds a dated erratum line beside the `.lg1` receipt citing `d66087f07` (E-3 form); the figure itself is correct.
+
+### State
+Four-verb line: X.P.W8 → **PARTIAL** (not IMPLEMENTED): V-C GREEN ×2 and the whole stay-GREEN set reproduce on `5408b73e7`; ESC-W8v-2 cured; node/Chromium/WebKit L-G1 and the W7-carried Firefox whole `parseCssScalar` GREEN ×2. What remains: E-6 gz (ESC-W8e-1) and 7 Firefox L-G1 cells (ESC-W8lg1-1). VERIFIED is not this seat's stamp (W8.md §Units: the check follows).
