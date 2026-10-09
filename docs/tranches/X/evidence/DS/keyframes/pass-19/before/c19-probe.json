@@ -1,0 +1,284 @@
+{
+ "light": {
+  "edit": {
+   "scrollH": 489,
+   "clientH": 463,
+   "range": 26,
+   "surfBottom": 527,
+   "mask": "linear-gradient(rgba(0, 0, 0, 0), rgb(0,",
+   "readoutTop": 514,
+   "readoutBottom": 528,
+   "headerH": 59
+  },
+  "focus": [
+   {
+    "label": "v-7-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 2,
+     "right": 2,
+     "bottom": 292,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "v-8-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 46,
+     "right": 2,
+     "bottom": 248,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "v-9-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 90,
+     "right": 2,
+     "bottom": 204,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "v-10-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 134,
+     "right": 2,
+     "bottom": 160,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "v-12-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 178,
+     "right": 2,
+     "bottom": 116,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "reka-popover-trigger-v-17",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 235,
+     "right": 2,
+     "bottom": 59,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "Edit easing curve",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 237,
+     "right": 6,
+     "bottom": 61,
+     "left": 321
+    },
+    "whole": true
+   },
+   {
+    "label": "BUTTON",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 292,
+     "right": 2,
+     "bottom": 2,
+     "left": 2
+    },
+    "whole": false
+   }
+  ],
+  "legendPlaying": [
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   }
+  ],
+  "legendSettled": {
+   "op": 1,
+   "state": "SETTLED"
+  },
+  "ruler": []
+ },
+ "dark": {
+  "edit": {
+   "scrollH": 489,
+   "clientH": 463,
+   "range": 26,
+   "surfBottom": 527,
+   "mask": "linear-gradient(rgba(0, 0, 0, 0), rgb(0,",
+   "readoutTop": 514,
+   "readoutBottom": 528,
+   "headerH": 59
+  },
+  "focus": [
+   {
+    "label": "v-7-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 2,
+     "right": 2,
+     "bottom": 292,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "v-8-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 46,
+     "right": 2,
+     "bottom": 248,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "v-9-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 90,
+     "right": 2,
+     "bottom": 204,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "v-10-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 134,
+     "right": 2,
+     "bottom": 160,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "v-12-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 178,
+     "right": 2,
+     "bottom": 116,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "reka-popover-trigger-v-17",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 235,
+     "right": 2,
+     "bottom": 59,
+     "left": 105
+    },
+    "whole": false
+   },
+   {
+    "label": "Edit easing curve",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 237,
+     "right": 6,
+     "bottom": 61,
+     "left": 321
+    },
+    "whole": true
+   },
+   {
+    "label": "BUTTON",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 292,
+     "right": 2,
+     "bottom": 2,
+     "left": 2
+    },
+    "whole": false
+   }
+  ],
+  "legendPlaying": [
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   },
+   {
+    "op": 1,
+    "state": "TRACKING"
+   }
+  ],
+  "legendSettled": {
+   "op": 1,
+   "state": "SETTLED"
+  },
+  "ruler": []
+ }
+}
