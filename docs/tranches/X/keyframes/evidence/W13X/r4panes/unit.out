@@ -1,0 +1,8 @@
+unit-before-r1 start load { 334.64 262.58 279.76 }
+unit-before-r1 EXIT=1 end load { 362.42 301.65 293.52 }
+unit-cure-r1 start load { 362.42 301.65 293.52 }
+unit-cure-r1 EXIT=0 end load { 401.04 324.36 302.66 }
+unit-before-r2 start load { 401.04 324.36 302.66 }
+unit-before-r2 EXIT=1 end load { 461.27 359.33 317.73 }
+unit-cure-r2 start load { 461.27 359.33 317.73 }
+unit-cure-r2 EXIT=0 end load { 263.71 325.88 309.40 }

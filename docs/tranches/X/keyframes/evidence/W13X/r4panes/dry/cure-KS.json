@@ -1,0 +1,120 @@
+{
+ "tag": "dry-cure-KS",
+ "base": "http://localhost:5882/",
+ "pass": 10,
+ "of": 12,
+ "res": [
+  {
+   "cell": "K cube 1440 light",
+   "ok": {
+    "K172": false,
+    "K219": true,
+    "K173": false
+   },
+   "k172": {
+    "found": false
+   },
+   "names": {
+    "copy": [],
+    "compiled": [
+     "Rotations"
+    ]
+   },
+   "toastsAfterCopy": [
+    "Compiled CSS copied"
+   ],
+   "toastsAfterEdit": []
+  },
+  {
+   "cell": "K cube 390 dark",
+   "ok": {
+    "K172": true,
+    "K219": true,
+    "K173": true
+   },
+   "k172": {
+    "found": true,
+    "common": "pane-frame",
+    "separateCards": [],
+    "rowOneLine": true,
+    "rowInside": true,
+    "lead": "Apply CSS"
+   },
+   "names": {
+    "copy": [
+     "Rotations"
+    ],
+    "compiled": [
+     "Rotations"
+    ]
+   },
+   "toastsAfterCopy": [
+    "CSS copied to clipboard",
+    "Compiled CSS copied"
+   ],
+   "toastsAfterEdit": [
+    "Compiled CSS copied"
+   ]
+  },
+  {
+   "cell": "K square 1440 dark",
+   "ok": {
+    "K172": true,
+    "K219": true
+   },
+   "k172": {
+    "found": true,
+    "common": "glass-quiet card pane-frame",
+    "separateCards": [],
+    "rowOneLine": true,
+    "rowInside": true,
+    "lead": "Apply CSS"
+   },
+   "names": {
+    "copy": [
+     "Transform"
+    ],
+    "compiled": []
+   },
+   "toastsAfterCopy": [
+    "CSS copied to clipboard",
+    "Cannot compile to CSS — custom-renderercustom renderer (a transform closure, not the default DOM-style renderer) cannot be expressed as CSS — the JS playback is the only faithful path"
+   ],
+   "toastsAfterEdit": [
+    "Cannot compile to CSS — custom-renderercustom renderer (a transform closure, not the default DOM-style renderer) cannot be expressed as CSS — the JS playback is the only faithful path"
+   ]
+  },
+  {
+   "cell": "S spring 1440 light",
+   "ok": {
+    "Sart": true,
+    "S097": true
+   },
+   "m": {
+    "found": true,
+    "inks": 3,
+    "numInk": "oklch(0.56 0.17 295)",
+    "nameInk": "rgb(28, 25, 23)",
+    "fg": "rgb(28, 25, 23)",
+    "num": "oklch(0.56 0.17 295)",
+    "text": ".discrete-card {\n  opacity: 0;\n  transform: translateY(20px) scale(0.9);\n  display: none;\n  transition: opacity 592ms li"
+   }
+  },
+  {
+   "cell": "S spring 1440 dark",
+   "ok": {
+    "Sart": true,
+    "S097": true
+   },
+   "m": {
+    "found": true,
+    "inks": 3,
+    "numInk": "oklch(0.74 0.13 305)",
+    "nameInk": "rgb(233, 230, 226)",
+    "fg": "rgb(233, 230, 226)",
+    "num": "oklch(0.74 0.13 305)",
+    "text": ".discrete-card {\n  opacity: 0;\n  transform: translateY(20px) scale(0.9);\n  display: none;\n  transition: opacity 592ms li"
+   }
+  }
+ ]
+}

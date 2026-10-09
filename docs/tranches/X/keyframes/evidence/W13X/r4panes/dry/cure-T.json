@@ -1,0 +1,242 @@
+{
+ "tag": "dry-cure-T",
+ "base": "http://localhost:5882/",
+ "pass": 15,
+ "of": 21,
+ "res": [
+  {
+   "cell": "T square 1440 light",
+   "ok": {
+    "T179": true,
+    "T200": true,
+    "T295": false,
+    "T294": true
+   },
+   "r": {
+    "found": {
+     "undo": false,
+     "redo": false,
+     "clear": false,
+     "fold": false,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 1,
+    "rowFacts": [
+     {
+      "n": 5,
+      "oneLine": true,
+      "inside": true,
+      "w": 365
+     }
+    ],
+    "clearDisabled": null
+   },
+   "fit": {
+    "shown": true,
+    "inside": true,
+    "labelInside": true,
+    "dx": 0,
+    "dy": 0,
+    "stage": [
+     365,
+     96
+    ],
+    "subj": [
+     66,
+     66
+    ],
+    "demoBoxes": 2
+   }
+  },
+  {
+   "cell": "T square 1024 dark",
+   "ok": {
+    "T179": true,
+    "T200": true,
+    "T295": false,
+    "T294": true
+   },
+   "r": {
+    "found": {
+     "undo": false,
+     "redo": false,
+     "clear": false,
+     "fold": false,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 1,
+    "rowFacts": [
+     {
+      "n": 5,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     }
+    ],
+    "clearDisabled": null
+   },
+   "fit": {
+    "shown": true,
+    "inside": true,
+    "labelInside": true,
+    "dx": 0,
+    "dy": 0,
+    "stage": [
+     290,
+     96
+    ],
+    "subj": [
+     66,
+     66
+    ],
+    "demoBoxes": 2
+   }
+  },
+  {
+   "cell": "T square 390 light",
+   "ok": {
+    "T179": true,
+    "T200": true,
+    "T295": false,
+    "T294": true
+   },
+   "r": {
+    "found": {
+     "undo": false,
+     "redo": false,
+     "clear": false,
+     "fold": false,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 1,
+    "rowFacts": [
+     {
+      "n": 5,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     }
+    ],
+    "clearDisabled": null
+   },
+   "fit": {
+    "shown": true,
+    "inside": true,
+    "labelInside": true,
+    "dx": 0,
+    "dy": 0,
+    "stage": [
+     324,
+     96
+    ],
+    "subj": [
+     66,
+     66
+    ],
+    "demoBoxes": 2
+   }
+  },
+  {
+   "cell": "T cube 1440 light",
+   "ok": {
+    "T179": true,
+    "T200": true,
+    "T295": false
+   },
+   "r": {
+    "found": {
+     "undo": false,
+     "redo": false,
+     "clear": false,
+     "fold": false,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 1,
+    "rowFacts": [
+     {
+      "n": 5,
+      "oneLine": true,
+      "inside": true,
+      "w": 365
+     }
+    ],
+    "clearDisabled": null
+   },
+   "fit": null
+  },
+  {
+   "cell": "T cube 1024 dark",
+   "ok": {
+    "T179": true,
+    "T200": true,
+    "T295": false
+   },
+   "r": {
+    "found": {
+     "undo": false,
+     "redo": false,
+     "clear": false,
+     "fold": false,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 1,
+    "rowFacts": [
+     {
+      "n": 5,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     }
+    ],
+    "clearDisabled": null
+   },
+   "fit": null
+  },
+  {
+   "cell": "T cube 390 light",
+   "ok": {
+    "T179": true,
+    "T200": true,
+    "T295": false
+   },
+   "r": {
+    "found": {
+     "undo": false,
+     "redo": false,
+     "clear": false,
+     "fold": false,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 1,
+    "rowFacts": [
+     {
+      "n": 5,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     }
+    ],
+    "clearDisabled": null
+   },
+   "fit": null
+  }
+ ]
+}

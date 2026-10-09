@@ -1,0 +1,13 @@
+check-r1 start load { 314.10 243.41 235.46 }
+check-r1 EXIT=0 end load { 176.12 237.13 240.15 }
+check-r2 start load { 176.12 237.13 240.15 }
+check-r2 EXIT=0 end load { 231.04 242.35 241.92 }
+lint-r1 start load { 231.04 242.35 241.92 }
+lint-r1 EXIT=0 end load { 305.29 259.67 248.31 }
+lint-r2 start load { 305.29 259.67 248.31 }
+lint-r2 EXIT=0 end load { 356.40 285.25 259.00 }
+test-demo-r1 start load { 356.40 285.25 259.00 }
+test-demo-r1 EXIT=1 end load { 230.09 264.08 256.90 }
+test-demo-r2 start load { 230.09 264.08 256.90 }
+test-demo-r2 EXIT=1 end load { 309.37 279.41 263.98 }
+DONE

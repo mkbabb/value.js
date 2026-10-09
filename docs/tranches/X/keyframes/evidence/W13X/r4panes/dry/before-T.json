@@ -1,0 +1,253 @@
+{
+ "tag": "dry-before-T",
+ "base": "http://localhost:5881/",
+ "pass": 13,
+ "of": 21,
+ "res": [
+  {
+   "cell": "T square 1440 light",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": false,
+    "T294": false
+   },
+   "r": {
+    "found": {
+     "undo": false,
+     "redo": false,
+     "clear": false,
+     "fold": false,
+     "snapshot": false,
+     "import": false,
+     "add": false,
+     "export": false
+    },
+    "rows": 0,
+    "rowFacts": [],
+    "clearDisabled": null
+   },
+   "fit": {
+    "shown": false,
+    "demoBoxes": 1
+   }
+  },
+  {
+   "cell": "T square 1024 dark",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true,
+    "T294": true
+   },
+   "r": {
+    "found": {
+     "undo": true,
+     "redo": true,
+     "clear": true,
+     "fold": true,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     }
+    ],
+    "clearDisabled": true
+   },
+   "fit": {
+    "shown": true,
+    "inside": true,
+    "labelInside": true,
+    "dx": 0,
+    "dy": 0,
+    "stage": [
+     290,
+     96
+    ],
+    "subj": [
+     66,
+     66
+    ],
+    "demoBoxes": 2
+   }
+  },
+  {
+   "cell": "T square 390 light",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true,
+    "T294": true
+   },
+   "r": {
+    "found": {
+     "undo": true,
+     "redo": true,
+     "clear": true,
+     "fold": true,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     }
+    ],
+    "clearDisabled": true
+   },
+   "fit": {
+    "shown": true,
+    "inside": true,
+    "labelInside": true,
+    "dx": 0,
+    "dy": 0,
+    "stage": [
+     324,
+     96
+    ],
+    "subj": [
+     66,
+     66
+    ],
+    "demoBoxes": 2
+   }
+  },
+  {
+   "cell": "T cube 1440 light",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true
+   },
+   "r": {
+    "found": {
+     "undo": true,
+     "redo": true,
+     "clear": true,
+     "fold": true,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 365
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 365
+     }
+    ],
+    "clearDisabled": true
+   },
+   "fit": null
+  },
+  {
+   "cell": "T cube 1024 dark",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true
+   },
+   "r": {
+    "found": {
+     "undo": true,
+     "redo": true,
+     "clear": true,
+     "fold": true,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     }
+    ],
+    "clearDisabled": true
+   },
+   "fit": null
+  },
+  {
+   "cell": "T cube 390 light",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true
+   },
+   "r": {
+    "found": {
+     "undo": true,
+     "redo": true,
+     "clear": true,
+     "fold": true,
+     "snapshot": true,
+     "import": true,
+     "add": true,
+     "export": true
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     }
+    ],
+    "clearDisabled": true
+   },
+   "fit": null
+  }
+ ]
+}
