@@ -89,8 +89,14 @@
             class="rounded-md border border-card-edge overflow-hidden transition-opacity duration-fast"
             :class="refetching && 'opacity-60'"
         >
-            <!-- Palette header row -->
-            <div class="flex items-center gap-3 px-3 py-2.5">
+            <!-- Palette header row. X.W12U.m2 · A2-VA-X-5 (consumer half): the
+                 row WRAPS before it crushes. The name column holds a 10rem
+                 floor; when the report count and the action pair cannot sit
+                 beside it they drop together to their own line at the row's
+                 end, instead of squeezing the name to 14-22 px (one letter
+                 per line). The title's own wrap-vs-truncate is glass's
+                 `text-subheading` shorthand (O-74c G-2). -->
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 px-3 py-2.5">
                 <!-- Color swatches. X.W12U.s3 · UIA-V-646: the cluster is one
                      fixed column (five 20 px dots, 4 px overlap = 5.25rem), so
                      every name shares one left edge whatever the colour count;
@@ -109,7 +115,7 @@
                     />
                 </div>
 
-                <div class="flex flex-col gap-0.5 min-w-0 flex-1">
+                <div class="flex flex-col gap-0.5 min-w-0 flex-1 basis-40">
                     <!-- T.W4-6 (T-15/F7 population sweep): a palette NAME is a
                          title surface — display voice, ≤500 non-bold,
                          non-italic (user data), same register as PaletteCard. -->
@@ -129,11 +135,10 @@
                     </span>
                 </div>
 
-                <Badge tone="destructive" class="text-mono-caption shrink-0">
-                    {{ item.flagCount }}
-                </Badge>
-
-                <div class="flex items-center gap-1 shrink-0">
+                <div class="ms-auto flex items-center gap-1 shrink-0">
+                    <Badge tone="destructive" class="text-mono-caption shrink-0 me-2">
+                        {{ item.flagCount }}
+                    </Badge>
                     <!-- W5-12 (F-8): the pair weighted asymmetrically — the
                          labeled neutral Dismiss is the primary affordance;
                          the delete is a QUIET icon (ink at rest, red only on

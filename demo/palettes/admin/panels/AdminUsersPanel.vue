@@ -115,11 +115,16 @@
                 :open="expandedUserSlug === user.slug"
                 @update:open="toggleUserExpand(user.slug)"
             >
-                <div class="flex items-center gap-3 pe-3">
+                <!-- X.W12U.m2 · A2-VA-X-6: the row WRAPS before it crushes. The
+                     identity holds a 10rem floor (the slug head and its tail
+                     stay legible); when the labelled action cluster cannot
+                     sit beside it, the cluster drops to its own line at the
+                     row's end instead of squeezing the pill to "-1-f". -->
+                <div class="flex flex-wrap items-center gap-x-3 pe-3">
                     <component
                         :is="user.paletteCount ? CollapsibleTrigger : 'div'"
                         :class="[
-                            'flex-1 min-w-0 flex items-center gap-2 ps-3 py-2.5 text-left transition-colors',
+                            'flex-1 basis-40 min-w-0 flex items-center gap-2 ps-3 py-2.5 text-left transition-colors',
                             user.paletteCount ? 'cursor-pointer hover:bg-accent/50' : 'cursor-default',
                         ]"
                     >
@@ -137,7 +142,7 @@
                             {{ user.paletteCount ?? 0 }}
                         </Badge>
                     </component>
-                    <div class="flex items-center gap-1.5 shrink-0">
+                    <div class="ms-auto flex items-center gap-1.5 shrink-0 py-1.5">
                         <!-- W5-12 (F-8): the disabled delete on 0-palette
                              users is DROPPED (superfluous furniture), and the
                              per-row destructive is quieted to ink-at-rest —
