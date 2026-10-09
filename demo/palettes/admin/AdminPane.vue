@@ -1,10 +1,10 @@
 <template>
-    <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
-        <PaneHeader :description="headerDescription">
+    <PaneShell :description="headerDescription" :gap="3">
+        <!-- A2-VA-L1-1: the one pane shell. -->
+        <template #title>
             {{ headerTitle }}
             <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>
-        </PaneHeader>
-        <div class="px-4 sm:px-6 pb-4 flex flex-col gap-3 min-h-0">
+        </template>
             <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->
@@ -88,14 +88,12 @@
 
             <!-- Tags management sub-view -->
             <AdminTagsPanel v-if="subView === 'admin-tags'" />
-        </div>
-    </Card>
+    </PaneShell>
 </template>
 
 <script setup lang="ts">
 import { Search } from "@lucide/vue";
 import { inject, computed } from "vue";
-import { Card } from "@mkbabb/glass-ui/card";
 import { Badge } from "@mkbabb/glass-ui/badge";
 
 import { ADMIN_PORT_KEY } from "../usePalettePorts";
@@ -108,7 +106,7 @@ import {
     AdminTagsPanel,
 } from "../browser/admin";
 import { UserSortMenu } from "../browser/search";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import PaneShell from "../../shell/PaneShell.vue";
 import type { PaneId } from "../../shell/viewSchema";
 
 // X.W5.c2 · gate N14 (ATP-33): the admin view identity is DECLARED ONCE, in

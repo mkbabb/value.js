@@ -1,29 +1,23 @@
 <template>
-    <div class="relative w-full mx-auto h-full min-w-0">
-        <Card
-            tier="resting"
-            class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
-        >
-            <PaneHeader description="Pull palettes from any image.">Extract</PaneHeader>
-            <!-- The T20 collapse (R.W4 Lane E): the pane is a thin shell over
-                 the ONE extract workbench — session, camera, eyedropper, and
-                 the T19 dominance readout all live in ExtractWorkbench. -->
-            <ExtractWorkbench
-                class="pb-4 px-4 sm:px-6"
-                layout="column"
-                :color-space="colorSpace"
-                @pick="pm.emitSetCurrentColor"
-                @add-color="pm.emitAddColor"
-            />
-        </Card>
-    </div>
+    <PaneShell title="Extract" description="Pull palettes from any image.">
+        <!-- A2-VA-L1-1: the one pane shell (its body gutter replaces the
+             per-pane class string this workbench carried).
+             The T20 collapse (R.W4 Lane E): the pane is a thin shell over
+             the ONE extract workbench — session, camera, eyedropper, and
+             the T19 dominance readout all live in ExtractWorkbench. -->
+        <ExtractWorkbench
+            layout="column"
+            :color-space="colorSpace"
+            @pick="pm.emitSetCurrentColor"
+            @add-color="pm.emitAddColor"
+        />
+    </PaneShell>
 </template>
 
 <script setup lang="ts">
 import { inject } from "vue";
-import { Card } from "@mkbabb/glass-ui/card";
 import ExtractWorkbench from "./ExtractWorkbench.vue";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import PaneShell from "../../shell/PaneShell.vue";
 import { COLOR_TARGET_PORT_KEY } from "../../palettes/usePalettePorts";
 import type { SpaceId } from "@mkbabb/value.js/color";
 

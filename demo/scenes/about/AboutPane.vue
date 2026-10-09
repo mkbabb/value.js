@@ -1,7 +1,10 @@
 <template>
-    <Card
-        tier="resting"
-        class="about-card pane-row-follow flex flex-col w-full mx-auto overflow-hidden min-w-0 h-full"
+    <PaneShell
+        seated
+        follow
+        :gutter="false"
+        card-class="about-card"
+        description="The math, the science, the art, the beauty of color spaces."
     >
         <!-- X.W12.c (OA-5 / OA-21) — THE ABOUT PANE FOLLOWS THE ROW. The card is
              the Picker pane's height: `pane-row-follow` is the shell's row
@@ -31,7 +34,9 @@
              `useColorPipeline(model)` would double-instantiate the spine:
              a second storage writer + token sink against the W2-1 ONE-pipeline
              law). Both hosts get the W4-1 grammar verbatim (S-21). -->
-        <PaneHeader description="The math, the science, the art, the beauty of color spaces.">
+        <!-- A2-VA-L1-1: the one pane shell, seated (the header above the
+             FadingScroll port, X-DS V3C-01) and following the row. -->
+        <template #title>
             About the color spaces,
             <!-- T.W4-1: `inline` = the sanctioned host SIZE prop (1em) — the
                  member rides the sentence's display-1 rung + compositor
@@ -47,16 +52,13 @@
                     }
                 "
             />
-        </PaneHeader>
+        </template>
 
         <!-- X-DS pass 4 (V4C-06): no rule under the seated header. The header's
              block-end gap token (PaneHeader) is the one header-to-body rhythm on
              every pane, and the port's own top feather marks a scrolled body,
              as on My Palettes. -->
-        <FadingScroll
-            axis="y"
-            class="pane-scroll-fade flex-1 min-h-0 overflow-x-hidden"
-        >
+
             <!-- R.W4 Lane C / C1 (U5): consistent sectional + divider padding from
                  the φ ladder — every section clears its Separator by φ (1.618rem),
                  the guide closes at φ² (2.618rem). S.W4-8: the rungs read the
@@ -101,16 +103,14 @@
                     stated in full above.
                 </p>
             </CardContent>
-        </FadingScroll>
-    </Card>
+    </PaneShell>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { Separator } from "@mkbabb/glass-ui/separator";
-import { Card, CardContent } from "@mkbabb/glass-ui/card";
-import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import { CardContent } from "@mkbabb/glass-ui/card";
+import PaneShell from "../../shell/PaneShell.vue";
 import ColorNutritionLabel from "./ColorNutritionLabel.vue";
 import type { ColorModel } from "../../color-session/color-model";
 import { SPACE_CATALOG } from "../../color-session/space-catalog";

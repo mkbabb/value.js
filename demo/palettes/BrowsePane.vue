@@ -1,220 +1,218 @@
 <template>
-    <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
-        <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
-        <div class="px-4 sm:px-6 pb-4 flex flex-col gap-3 min-h-0">
-            <!-- S.W5-7: the twin placeholder is scoped — this one searches
-                 the public wall.
-                 T.W3-3 (T-12): a field on paper wears paper — the seated
-                 register (utils.css `.search-seated`; interim, booked onto
-                 the P3 seated rung / ASK-D). -->
-            <div class="input-bar search-seated">
-                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
-                <input
-                    v-model="pm.searchQuery.value"
-                    type="search"
-                    placeholder="Search palettes..."
-                    class="input-bar-field"
-                />
-                <SearchFilterBar
-                    :sort="pm.sortMode.value"
-                    :tier="pm.tierFilter.value"
-                    :selected-tags="pm.selectedTags.value"
-                    :available-tags="availableTags"
-                    @update:sort="pm.onSortChange"
-                    @update:tier="onTierChange"
-                    @update:selected-tags="onTagsChange"
-                    :color-active="colorSearchParams !== null"
-                    @clear-filters="onClearFilters"
-                    @color-search="onColorSearch"
-                    @clear-color-search="onClearColorSearch"
+    <PaneShell title="Browse" description="Discover palettes from the community." :gap="3">
+        <!-- A2-VA-L1-1: the one pane shell. -->
+        <!-- S.W5-7: the twin placeholder is scoped — this one searches
+             the public wall.
+             T.W3-3 (T-12): a field on paper wears paper — the seated
+             register (utils.css `.search-seated`; interim, booked onto
+             the P3 seated rung / ASK-D). -->
+        <div class="input-bar search-seated">
+            <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+            <input
+                v-model="pm.searchQuery.value"
+                type="search"
+                placeholder="Search palettes..."
+                class="input-bar-field"
+            />
+            <SearchFilterBar
+                :sort="pm.sortMode.value"
+                :tier="pm.tierFilter.value"
+                :selected-tags="pm.selectedTags.value"
+                :available-tags="availableTags"
+                @update:sort="pm.onSortChange"
+                @update:tier="onTierChange"
+                @update:selected-tags="onTagsChange"
+                :color-active="colorSearchParams !== null"
+                @clear-filters="onClearFilters"
+                @color-search="onColorSearch"
+                @clear-color-search="onClearColorSearch"
+            />
+        </div>
+
+        <div class="grid gap-3 pb-3">
+            <!-- T.W5-R8 (T-14 / D7 · F5): skeleton→content is "ONE
+                 surface, NEW content" — the wall's three states key the
+                 vj-morph family (out-in on the state container), so the
+                 developing plates SETTLE into the wall on the snappy
+                 spring instead of a hard v-if POP; the skeleton's last
+                 shimmer sweep hands off into the enter (one clock, no
+                 double-flash). The per-card stagger stays DORMANT on the
+                 PKT-4 seams (--skeleton-shimmer-delay writes in
+                 PaletteCardSkeleton — live the day the producer shimmer
+                 reads them; never re-defined here). -->
+            <Transition name="vj-morph" mode="out-in">
+            <!-- W5-1 (S-10): the wall loads as DEVELOPING PLATES — the
+                 palette-card shadow grammar, never a generic spinner. -->
+            <div
+                v-if="pm.browsing.value"
+                key="developing"
+                class="grid grid-cols-1 gap-3"
+                aria-label="Loading palettes"
+            >
+                <PaletteCardSkeleton
+                    v-for="i in SKELETON_COUNT"
+                    :key="i"
+                    variant="developing"
                 />
             </div>
 
-            <div class="grid gap-3 pb-3">
-                <!-- T.W5-R8 (T-14 / D7 · F5): skeleton→content is "ONE
-                     surface, NEW content" — the wall's three states key the
-                     vj-morph family (out-in on the state container), so the
-                     developing plates SETTLE into the wall on the snappy
-                     spring instead of a hard v-if POP; the skeleton's last
-                     shimmer sweep hands off into the enter (one clock, no
-                     double-flash). The per-card stagger stays DORMANT on the
-                     PKT-4 seams (--skeleton-shimmer-delay writes in
-                     PaletteCardSkeleton — live the day the producer shimmer
-                     reads them; never re-defined here). -->
-                <Transition name="vj-morph" mode="out-in">
-                <!-- W5-1 (S-10): the wall loads as DEVELOPING PLATES — the
-                     palette-card shadow grammar, never a generic spinner. -->
-                <div
-                    v-if="pm.browsing.value"
-                    key="developing"
-                    class="grid grid-cols-1 gap-3"
-                    aria-label="Loading palettes"
-                >
-                    <PaletteCardSkeleton
-                        v-for="i in SKELETON_COUNT"
-                        :key="i"
-                        variant="developing"
-                    />
-                </div>
-
-                <!-- W5-5: error ≠ empty — the PLAIN register (Q6: the
-                     "· signal lost ·" annotation is dead; error plates drop
-                     the specimen conceit). The raw machine string moves to
-                     the Fira detail line; Retry is a real Button, device-
-                     neutral, no dock atom mis-planted in a pane body. -->
-                <EmptyState
-                    v-else-if="pm.browseError.value && displayedBrowse.length === 0"
-                    key="error"
-                    variant="error"
-                    message="Couldn't load palettes."
-                    :detail="pm.browseError.value"
-                >
-                    <template #action>
-                        <Button
-                            size="sm"
-                            class="font-display"
-                            @click="pm.retryRemotePalettes()"
-                        >
-                            Retry
-                        </Button>
-                    </template>
-                </EmptyState>
-
-                <PaletteCardGrid
-                    v-else
-                    key="wall"
-                    :empty="displayedBrowse.length === 0"
-                    :empty-text="narrowed ? 'No palettes match.' : 'No palettes published yet.'"
-                    :empty-hint="narrowed ? 'Nothing on the wall matches your search and filters.' : 'Publish one of yours from My Palettes.'"
-                    :grid-class="
-                        'transition-opacity duration-fast ' +
-                        (pm.sortLoading.value ? 'opacity-50' : '')
-                    "
-                >
-                    <PaletteInspector
-                        v-for="palette in displayedBrowse"
-                        :ref="(el: any) => el && (cardRefs[palette.slug] = el)"
-                        :key="palette.slug"
-                        :palette="palette"
-                        :expanded="pm.expandedId.value === palette.slug"
-                        :css-color="cssColorOpaque"
-                        :is-owned="palette.userSlug === pm.userSlug.value"
-                        :is-admin="pm.isAdminAuthenticated.value"
-                        show-slug
-                        @click="pm.toggleExpand(palette.slug)"
-                        @save="(p) => onSave(p)"
-                        @delete="(p) => onRequestDeleteOwned(p)"
-                        @vote="(p) => onVote(p)"
-                        @rename="(p, name) => onRename(p, name)"
-                        @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
-                        @add-color="(css) => pm.onSwatchAddColor(css)"
-                        @feature="(p) => onFeature(p)"
-                        @admin-delete="(p) => onAdminDelete(p)"
-                        @set-visibility="onSetVisibility"
-                        @fork="(p) => onFork(p)"
-                        @versions="(p) => onVersions(p)"
-                        @flag="(p) => onFlag(p)"
-                        @edit-tags="(p) => onEditTags(p)"
-                    />
-                    <!-- X.W12U.s2 · UIA-V-122: a search that matches nothing says
-                         so, and offers the way out. -->
-                    <template v-if="narrowed" #emptyAction>
-                        <Button size="sm" class="font-display" @click="onClearNarrowing">
-                            Clear search and filters
-                        </Button>
-                    </template>
-                </PaletteCardGrid>
-                </Transition>
-
-                <!-- S.W5 · the LOAD-MORE trigger (W5-13's data seam, this
-                     lane's affordance): the wall pages past the 50-cap. The
-                     next page arrives as developing plates (the W5-1
-                     grammar); the button retires when the cursor exhausts. -->
-                <div
-                    v-if="pm.loadingMore.value"
-                    class="grid grid-cols-1 gap-3"
-                    aria-label="Loading more palettes"
-                >
-                    <PaletteCardSkeleton v-for="i in 2" :key="i" variant="developing" />
-                </div>
-                <div
-                    v-else-if="pm.hasMore.value && !pm.browsing.value && !pm.browseError.value"
-                    class="flex flex-col items-center gap-1 pt-1 pb-2"
-                >
+            <!-- W5-5: error ≠ empty — the PLAIN register (Q6: the
+                 "· signal lost ·" annotation is dead; error plates drop
+                 the specimen conceit). The raw machine string moves to
+                 the Fira detail line; Retry is a real Button, device-
+                 neutral, no dock atom mis-planted in a pane body. -->
+            <EmptyState
+                v-else-if="pm.browseError.value && displayedBrowse.length === 0"
+                key="error"
+                variant="error"
+                message="Couldn't load palettes."
+                :detail="pm.browseError.value"
+            >
+                <template #action>
                     <Button
                         size="sm"
                         class="font-display"
-                        @click="onLoadMore()"
+                        @click="pm.retryRemotePalettes()"
                     >
-                        Load more
+                        Retry
                     </Button>
-                    <p
-                        v-if="loadMoreFailure"
-                        role="status"
-                        class="text-caption text-destructive"
-                    >
-                        {{ loadMoreFailure }}
-                    </p>
-                </div>
+                </template>
+            </EmptyState>
+
+            <PaletteCardGrid
+                v-else
+                key="wall"
+                :empty="displayedBrowse.length === 0"
+                :empty-text="narrowed ? 'No palettes match.' : 'No palettes published yet.'"
+                :empty-hint="narrowed ? 'Nothing on the wall matches your search and filters.' : 'Publish one of yours from My Palettes.'"
+                :grid-class="
+                    'transition-opacity duration-fast ' +
+                    (pm.sortLoading.value ? 'opacity-50' : '')
+                "
+            >
+                <PaletteInspector
+                    v-for="palette in displayedBrowse"
+                    :ref="(el: any) => el && (cardRefs[palette.slug] = el)"
+                    :key="palette.slug"
+                    :palette="palette"
+                    :expanded="pm.expandedId.value === palette.slug"
+                    :css-color="cssColorOpaque"
+                    :is-owned="palette.userSlug === pm.userSlug.value"
+                    :is-admin="pm.isAdminAuthenticated.value"
+                    show-slug
+                    @click="pm.toggleExpand(palette.slug)"
+                    @save="(p) => onSave(p)"
+                    @delete="(p) => onRequestDeleteOwned(p)"
+                    @vote="(p) => onVote(p)"
+                    @rename="(p, name) => onRename(p, name)"
+                    @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
+                    @add-color="(css) => pm.onSwatchAddColor(css)"
+                    @feature="(p) => onFeature(p)"
+                    @admin-delete="(p) => onAdminDelete(p)"
+                    @set-visibility="onSetVisibility"
+                    @fork="(p) => onFork(p)"
+                    @versions="(p) => onVersions(p)"
+                    @flag="(p) => onFlag(p)"
+                    @edit-tags="(p) => onEditTags(p)"
+                />
+                <!-- X.W12U.s2 · UIA-V-122: a search that matches nothing says
+                     so, and offers the way out. -->
+                <template v-if="narrowed" #emptyAction>
+                    <Button size="sm" class="font-display" @click="onClearNarrowing">
+                        Clear search and filters
+                    </Button>
+                </template>
+            </PaletteCardGrid>
+            </Transition>
+
+            <!-- S.W5 · the LOAD-MORE trigger (W5-13's data seam, this
+                 lane's affordance): the wall pages past the 50-cap. The
+                 next page arrives as developing plates (the W5-1
+                 grammar); the button retires when the cursor exhausts. -->
+            <div
+                v-if="pm.loadingMore.value"
+                class="grid grid-cols-1 gap-3"
+                aria-label="Loading more palettes"
+            >
+                <PaletteCardSkeleton v-for="i in 2" :key="i" variant="developing" />
+            </div>
+            <div
+                v-else-if="pm.hasMore.value && !pm.browsing.value && !pm.browseError.value"
+                class="flex flex-col items-center gap-1 pt-1 pb-2"
+            >
+                <Button
+                    size="sm"
+                    class="font-display"
+                    @click="onLoadMore()"
+                >
+                    Load more
+                </Button>
+                <p
+                    v-if="loadMoreFailure"
+                    role="status"
+                    class="text-caption text-destructive"
+                >
+                    {{ loadMoreFailure }}
+                </p>
             </div>
         </div>
         <!-- These components portal themselves via reka-ui (Sheet/Dialog) -->
         <TagEditPopover
-            v-if="tagEditPalette"
-            :open="tagEditOpen"
-            :palette-slug="tagEditPalette.slug"
-            :current-tags="tagEditPalette.tags ?? []"
-            :anchor="tagEditAnchor"
-            @update:open="tagEditOpen = $event"
-            @update:tags="onTagsUpdated"
+        v-if="tagEditPalette"
+        :open="tagEditOpen"
+        :palette-slug="tagEditPalette.slug"
+        :current-tags="tagEditPalette.tags ?? []"
+        :anchor="tagEditAnchor"
+        @update:open="tagEditOpen = $event"
+        @update:tags="onTagsUpdated"
         />
 
         <VersionHistoryDrawer
-            v-if="versionPalette"
-            :open="versionDrawerOpen"
-            :palette-slug="versionPalette.slug"
-            :palette-name="versionPalette.name"
-            :current-hash="versionPalette.currentHash ?? null"
-            :can-revert="versionPalette.userSlug === pm.userSlug.value"
-            :pending="revertPending"
-            @update:open="onVersionsOpenChange"
-            @revert="onRevert"
-            @load-failed="onVersionsLoadFailed"
+        v-if="versionPalette"
+        :open="versionDrawerOpen"
+        :palette-slug="versionPalette.slug"
+        :palette-name="versionPalette.name"
+        :current-hash="versionPalette.currentHash ?? null"
+        :can-revert="versionPalette.userSlug === pm.userSlug.value"
+        :pending="revertPending"
+        @update:open="onVersionsOpenChange"
+        @revert="onRevert"
+        @load-failed="onVersionsLoadFailed"
         />
 
         <FlagReportDialog
-            v-if="flagPalette"
-            :open="flagDialogOpen"
-            :palette-name="flagPalette.name"
-            :pending="flagPending"
-            :error="flagError"
-            @update:open="onFlagOpenChange"
-            @submit="onFlagSubmit"
+        v-if="flagPalette"
+        :open="flagDialogOpen"
+        :palette-name="flagPalette.name"
+        :pending="flagPending"
+        :error="flagError"
+        @update:open="onFlagOpenChange"
+        @submit="onFlagSubmit"
         />
 
         <!-- X-W7 Repair 1 (§2a · ESC-W7e-AP6): the browse-wall admin delete is the
-             fifth destructive seat — confirmed first, composed exactly as the four
-             Admin seats compose it (the `dismiss="deliberate"` rung, glass 10.1.0). -->
+         fifth destructive seat — confirmed first, composed exactly as the four
+         Admin seats compose it (the `dismiss="deliberate"` rung, glass 10.1.0). -->
         <Dialog v-model:open="deleteConfirmOpen">
-            <DialogContent surface="glass" dismiss="deliberate">
-                <DialogHeader>
-                    <DialogTitle>Delete palette?</DialogTitle>
-                    <DialogDescription>
-                        This will delete the palette
-                        <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
-                        for its owner and every viewer.
-                    </DialogDescription>
-                </DialogHeader>
-                <DialogFooter>
-                    <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
-                    <Button tone="destructive" :disabled="!deleteConfirmAct" @click="onDeleteConfirm">
-                        <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
-                        Delete palette
-                    </Button>
-                </DialogFooter>
-            </DialogContent>
+        <DialogContent surface="glass" dismiss="deliberate">
+            <DialogHeader>
+                <DialogTitle>Delete palette?</DialogTitle>
+                <DialogDescription>
+                    This will delete the palette
+                    <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
+                    for its owner and every viewer.
+                </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+                <Button emphasis="text" @click="deleteConfirmOpen = false">Cancel</Button>
+                <Button tone="destructive" :disabled="!deleteConfirmAct" @click="onDeleteConfirm">
+                    <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                    Delete palette
+                </Button>
+            </DialogFooter>
+        </DialogContent>
         </Dialog>
-    </Card>
+    </PaneShell>
 </template>
 
 <script setup lang="ts">
@@ -228,7 +226,6 @@ import {
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
 import { Search, Trash2 } from "@lucide/vue";
-import { Card } from "@mkbabb/glass-ui/card";
 import { Button } from "@mkbabb/glass-ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
@@ -240,7 +237,7 @@ import {
     VersionHistoryDrawer,
     FlagReportDialog,
 } from "./browser/dialog";
-import PaneHeader from "../shared/ui/PaneHeader.vue";
+import PaneShell from "../shell/PaneShell.vue";
 import type { Palette, Tag } from "./types";
 import { useDialogBrowseActions } from "./browser/dialog";
 

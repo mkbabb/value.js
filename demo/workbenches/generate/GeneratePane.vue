@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { inject, ref } from "vue";
-import { Card } from "@mkbabb/glass-ui/card";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import PaneShell from "../../shell/PaneShell.vue";
 import GenerateControls from "./GenerateControls.vue";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
@@ -29,14 +28,8 @@ defineExpose({
 </script>
 
 <template>
-    <div class="relative w-full mx-auto h-full min-w-0">
-        <Card tier="resting" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
-            <PaneHeader description="Create pleasing random palettes with aesthetic presets.">
-                Generate
-            </PaneHeader>
-            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6">
-                <GenerateControls ref="controlsRef" @save="onSave" />
-            </div>
-        </Card>
-    </div>
+    <PaneShell title="Generate" description="Create pleasing random palettes with aesthetic presets.">
+        <!-- A2-VA-L1-1: the one pane shell. -->
+        <GenerateControls ref="controlsRef" @save="onSave" />
+    </PaneShell>
 </template>

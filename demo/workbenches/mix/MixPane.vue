@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { inject, computed } from "vue";
-import { Card } from "@mkbabb/glass-ui/card";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import PaneShell from "../../shell/PaneShell.vue";
 import MixSourceSelector from "./MixSourceSelector.vue";
 import MixConfigBar from "./MixConfigBar.vue";
 import MixResultDisplay from "./MixResultDisplay.vue";
@@ -63,14 +62,16 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
 </script>
 
 <template>
-    <div class="pane-row-follow relative w-full mx-auto h-full min-w-0">
+    <PaneShell title="Mix" description="Mix colors and palettes together." follow>
         <!-- X.W12U.h · A2-VA-L3-5: the Mix companion follows the picker's row
-             (shell.css row contract) and scrolls inside its own card. -->
-        <Card tier="resting" class="relative pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
-            <!-- The mix convergence overlay (S.W3-6 / Q10): drops from the
-                 selected chips arc to the result plate's awaiting well. Its
-                 rAF timeline is the ONE clock; @settled is the phase
-                 machine's only forward edge. -->
+             (shell.css row contract) and scrolls inside its own card.
+             A2-VA-L1-1: the one pane shell. -->
+        <!-- The mix convergence overlay (S.W3-6 / Q10): drops from the
+             selected chips arc to the result plate's awaiting well. Its rAF
+             timeline is the ONE clock; @settled is the phase machine's only
+             forward edge. It is a plate-level overlay, outside the scroll
+             owner. -->
+        <template #overlay>
             <MixAnimationCanvas
                 :phase="animationPhase"
                 :result="mixResult"
@@ -78,11 +79,8 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
                 :hue-method="hueMethod"
                 @settled="settleMix"
             />
+        </template>
 
-            <PaneHeader description="Mix colors and palettes together.">
-                Mix
-            </PaneHeader>
-            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6">
                 <!-- Source selection -->
                 <MixSourceSelector
                     :mode="mode"
@@ -124,7 +122,5 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
                         @reset="reset"
                     />
                 </Transition>
-            </div>
-        </Card>
-    </div>
+    </PaneShell>
 </template>

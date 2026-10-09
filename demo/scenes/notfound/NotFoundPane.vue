@@ -1,31 +1,26 @@
 <!-- SERVED MODEL: claude-opus-5[1m] -->
 <template>
-    <div class="relative w-full mx-auto h-full min-w-0">
-        <Card
-            tier="resting"
-            class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+    <PaneShell title="Not Found" :gutter="false">
+        <!-- A2-VA-L1-1: the one pane shell.
+             X.W12.u3 — the dead end speaks the app's EmptyState register
+             (UIA-V-447): one statement, the address that missed as the
+             plate's machine-truth line in Fira on the certified ink
+             (UIA-V-446/449; it replaces the two developer-voice sentences
+             and the static muted ink), and the way home on glass's quiet
+             emphasis, which paints its own hover (UIA-V-183/656). -->
+        <EmptyState
+            variant="error"
+            message="This address names no view of this app."
+            :detail="missedAddress"
         >
-            <PaneHeader>Not Found</PaneHeader>
-            <!-- X.W12.u3 — the dead end speaks the app's EmptyState register
-                 (UIA-V-447): one statement, the address that missed as the
-                 plate's machine-truth line in Fira on the certified ink
-                 (UIA-V-446/449; it replaces the two developer-voice sentences
-                 and the static muted ink), and the way home on glass's quiet
-                 emphasis, which paints its own hover (UIA-V-183/656). -->
-            <EmptyState
-                variant="error"
-                message="This address names no view of this app."
-                :detail="missedAddress"
-            >
-                <template #action>
-                    <Button size="sm" emphasis="quiet" @click="goHome">
-                        <Home class="w-4 h-4 shrink-0" aria-hidden="true" />
-                        Back to the picker
-                    </Button>
-                </template>
-            </EmptyState>
-        </Card>
-    </div>
+            <template #action>
+                <Button size="sm" emphasis="quiet" @click="goHome">
+                    <Home class="w-4 h-4 shrink-0" aria-hidden="true" />
+                    Back to the picker
+                </Button>
+            </template>
+        </EmptyState>
+    </PaneShell>
 </template>
 
 <script setup lang="ts">
@@ -50,9 +45,8 @@ import { computed, inject } from "vue";
 import { useRoute } from "vue-router";
 import { Home } from "@lucide/vue";
 
-import { Card } from "@mkbabb/glass-ui/card";
 import { Button } from "@mkbabb/glass-ui/button";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import PaneShell from "../../shell/PaneShell.vue";
 import EmptyState from "../../shared/ui/EmptyState.vue";
 import { VIEW_MANAGER_KEY } from "../../shell/useViewManager";
 

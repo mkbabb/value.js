@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useTemplateRef } from "vue";
-import { Card } from "@mkbabb/glass-ui/card";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import PaneShell from "../../shell/PaneShell.vue";
 import type { GradientSceneTarget } from "../../color-session/keys";
 import GradientVisualizer from "./GradientVisualizer/GradientVisualizer.vue";
 
@@ -39,14 +38,8 @@ defineExpose({
 </script>
 
 <template>
-    <div class="relative w-full mx-auto h-full min-w-0">
-        <Card tier="resting" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
-            <PaneHeader description="Build gradients with per-interval easing and CSS output.">
-                Gradient
-            </PaneHeader>
-            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6">
-                <GradientVisualizer ref="gradientVisualizer" />
-            </div>
-        </Card>
-    </div>
+    <PaneShell title="Gradient" description="Build gradients with per-interval easing and CSS output.">
+        <!-- A2-VA-L1-1: the one pane shell. -->
+        <GradientVisualizer ref="gradientVisualizer" />
+    </PaneShell>
 </template>
