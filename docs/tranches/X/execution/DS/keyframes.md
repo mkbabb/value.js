@@ -1274,3 +1274,52 @@ The census is unchanged because this pass's cures are proportion and hierarchy (
 - The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure.
 - Another seat (W13X.r4shell) was editing `demo/app/scene/*`, `EditorShell.vue` and their tests during the gates. One earlier demo run on their uncommitted mid-edit tree failed one test each time in their files (`scene-swap-w13x`, the `allScenes` keys check). Run alone, those files passed. Once they committed (`fdca483e`, `8514caed`), both counted runs were 863/863. The cure commit is pathspec-only over this pass's six files.
 - value.js's index held another seat's staged entries. The evidence commit and this receipt commit are pathspec-only and leave those entries staged as they were.
+
+### pass 5 (the fourth redeploy's pass 5; critic C24; evidence in `pass-24/`)
+
+**Cure commit:** keyframes.js `952d4ebf` (master, pushed fast-forward from `1508e68b`). **Evidence:** value.js `08710bf92` (`evidence/DS/keyframes/pass-24/`). It holds the fold probe `c24-probe.mjs` with its `c24-probe.json`; under `after/`, `pane-<scene>-{1440x900,1280x800}-<scheme>`, `spring-{1440x900,1280x800}-light`, `cube-keyframes-1440-*`, `crop-code-well-1440-*` and `cube-timeline-1440-*`; and `census.json` + `census.log` with the 28 route frames. All captures are headless real Chrome (§0ei). The task named `pass-05`, but `pass-05/` already holds the first workflow's pass-5 evidence, so the frames go to `pass-24/` (the pass-23 precedent). The BEFORE frames are the critic's own (`critic-r4p5-2026-10-09/`).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C24-01 | **The fold never lands in a gap, on every facet of every scene.** `useFoldLanding` (the desktop rail, `ControlsPaneWrapper/`) generalises the C15 rule. If a painted row (own text, replaced element, or a filled or bordered box; hairlines and cached `content-visibility` panes do not count) starts above the 16 px end fade and runs under it, the scroller is left alone, and that row is the cue that the content continues. Otherwise the scroller's `max-block-size` ends exactly on the last whole row's foot, and any trailing separator or gap goes under the fold. It re-lands on content and rail resize, on surface swaps and on motion end, never per frame. The spring figure's closed row is one line: the legend sentence rides the trigger's `title` and returns with the figure it keys. | Probe: **0 / 24 cells fail** (cube, amiga, square, easing, spring and sequence at 1440x900 and 1280x800, light and dark). Each cell has a row crossing the fade or ends on a whole row's foot, with no two hairlines within 32 px and nothing between them. **Spring 1440x900:** ends on the preset grid's foot (scroller 481, foot 480; was the divider at 501, a void and the rule at 528). **Spring 1280x800:** Bouncy and Gentle run under the fade (a 2-row grid that reads as four). **Cube, amiga and square at 1280:** end on the easing row's foot (407/407). **Easing at 1280:** ends on 416/416, with the 424/433 hairline pair gone. |
+| KF-C24-02 | **The code well's ink is the app's.** `defineGroundedTheme` writes its rules against the Monarch css tokens (`attribute.name`, `attribute.value`, `…number`, `…unit`, `keyword`, `tag`, `delimiter`, `string`, `comment`, plus vs-dark's three `.css`-qualified rules, which would otherwise outrank them), resolved from tokens the way the ground is. Structure takes `--foreground`, values and punctuation `--muted-foreground`, and numbers and units take the identity violet `--color-progress`, which is the one hue that carries meaning. `@keyframes` is no longer bold. The bracket-pair rainbow is off on the model (the standalone editor option does not reach the model), and `matchBrackets` stays. | Inks served, light: 28,25,23 / 124,102,80 / 126,90,204 (before: #FF0000, bold #0000FF, #0451A5, #098658 and a three-colour bracket rainbow). Dark: 233,230,226 / 172,160,145 / 190,149,236. Bracket-pair classes: 0 (was 22). Frames: `after/crop-code-well-1440-*`. |
+| KF-C24-03 | The preset value line is one nowrap run fitted to its tile: `min(--type-small, 100cqi / 9.5)` on a `container-type: inline-size` cell. Below a 7.25rem cell the two values stack at full size and the middot leaves. It never breaks at the join. | 1280: one line in all four tiles (13.2 px, 151 px cells). 390: one line (13.8 px). |
+| KF-C24-04 | `renderLineHighlightOnlyWhenFocus: true` (with `renderLineHighlight: "line"`). | At rest (editor unfocused) the current-line overlay paints nothing: transparent fill, 0 px border. |
+| KF-C24-05 | The Timeline's empty state no longer denies the scene. While the channel holds a parsed `@keyframes` (ChannelControls passes the store's buffer and the engine's stop count), it reads "`Rotations` has 2 keyframes in CSS — **Import** them to edit here." On an empty timeline the toolbar's Import opens already holding that CSS; a draft the user typed is kept. The timeline's buffer stays its own. | Served light and dark: `after/cube-timeline-1440-*`. |
+
+**Cited (glass, not overridden)**
+
+| id | disposition |
+|---|---|
+| KF-C24-G1 | **Glass, O-87 proportion rider (with KF-C23-G1) for 10.2.0.** On a coarse pointer, `--control-h-md` scales to 60 px while the type stays at 14 px, so SegmentedTabs' responsive Select trigger is 80x60. Glass should let a coarse control meet `--control-floor` without inflating to 1.5x (or scale its type with it), and could give the responsive Select a size axis. Not overridden locally. |
+| KF-C24-G2 | **Glass, O-87 hierarchy rider for 10.2.0.** In dark, DockControl's `:active` fill is a near-zero step on the plate (19,14,7 against 17,15,11), so the showing surface goes unmarked. It should be one tone step, with no glow. Held honest-RED, with no local fill. This seat did not write to the glass inbox. |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000 --frames`, 28 pages, on the final tree)
+
+| | pass 23 (before) | pass 24 after |
+|---|---:|---:|
+| chrome: elements with shadow | 310 | 310 |
+| chrome: shadow layers (max) | 938 (6) | 938 (6) |
+| chrome: shadows on non-floating surfaces | 192 | 192 |
+| chrome: inset highlights | 416 | 416 |
+| chrome: backdrop blur | 278 | 278 |
+| chrome: control gradients | 54 | 54 |
+| chrome: looping animations | 104 | 104 |
+| subject: control gradients | 4 | 4 |
+
+The census is unchanged because this pass's cures are fold, ink, fit and meaning, not lighting. The verdict stays **RED**, held by the glass-owned chrome rows and the banked loop row.
+
+**Gates** (on the final tree)
+- `npm run check` (vue-tsc on both configs, plus proof:structure): exit 0, twice.
+- `npm run lint` (depcruise and eslint): exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **863/863, twice**.
+- Re-stated oracle (a design change; no assertion weakened): `test/demo/scenes/spring-solver-truth.test.ts` (5). A2-KE-L3-12's "wrap at the join" becomes "one fitted run that never overflows; below the floor the values stack without the separator; each value keeps its unit; `items-stretch` kept."
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **A load flake, not a regression.** Three other full demo runs, all on the same tree, did not count. Two failed one file, `test/demo/scenes/ball-on-curve.test.ts`, at collection (6 skipped). The first of those overlapped the census run; the second, and a run with `--hookTimeout=120000`, ran alone. The file imports none of this pass's changed files, and it passes 6/6 on its own and in every other run, including the two counted ones. Its `beforeAll` warms the engine through a dynamic import. One more run reported 135 files and 843 tests, all passing, which I did not explain. These are recorded for the next seat, not cured here.
+- The first draft of the theme rules used `inherit: false`. In jsdom, every token resolves to the same black, which collapsed Monaco's colour map, and the seam test crashed in `MinimapTokensColorTracker`. The final rules inherit the base and outrank its `.css` rules instead.
+- The shared `:5173` dev server (the keyframes.js working tree, already running) was reused, and HMR served the cure. No other seat had dirty files in keyframes.js. The cure commit is pathspec-only over its eight files.
+- value.js's index held other seats' entries. The evidence commit and this receipt commit are pathspec-only.
