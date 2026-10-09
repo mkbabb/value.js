@@ -612,7 +612,7 @@ Order (W8.md ADDENDUM (a) + §0ev.5): **`.e` → `.lg1`**. `.e` changes bytes, s
   2. Firefox's k-rule (`browser-page.mjs`: k doubles until one retired pass is ≥ 100 ms) calibrates on a single pass taken under load.
      - k varied from 64 to 2048 for the same cell.
      - At k = 64, two raw passes measured 0 ms (acc `parseKeyframeSelector`, non-record attempts), so the ratios there are quantized by the timer.
-  3. Medians alone are below 1.0 on 5 of the 7 cells on both reps. The cells nearest parity, rej `parseCssValue` (0.957/0.896) and rej `parseStylesheet` (0.950/1.068), match W7's quiet-window readings (W7 (e)/(f): Firefox rej `parseStylesheet` 0.915–0.984).
+  3. Medians alone are below 1.0 on both reps for 4 of the 7 cells (acc `parseCssColor` rep 0, rej `parseKeyframeSelector` rep 0 and rej `parseStylesheet` rep 1 are ≥ 1.0). The cells nearest parity, rej `parseCssValue` (0.957/0.896) and rej `parseStylesheet` (0.950/1.068), match W7's quiet-window readings (W7 (e)/(f): Firefox rej `parseStylesheet` 0.915–0.984).
   - Whether the remaining cost is product cost on SpiderMonkey's refusal/accept paths or the instrument's load-sensitive k calibration is the cure unit's diagnosis.
   - This seat neither re-reads past 101 nor selects among attempts.
 - **Residuals:**
