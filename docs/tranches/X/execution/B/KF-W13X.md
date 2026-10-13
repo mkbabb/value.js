@@ -3623,3 +3623,82 @@ Self-count: 8 rows = 2 escalated + 1 cured in part + 2 carried + 3 INFO.
 ### Four-verb line
 
 Not moved by this seat. LEDGER status cell unchanged (PARTIAL); one event line appended.
+
+## RESUME 1 — Check 2
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, 2026-10-13 (execution under the owner's begin-word of 2026-09-17). Fresh adversarial L-20 pass 2, on the RESUME 1 Close as Repair 1 left it. VERIFY-ONLY: 0 keyframes.js bytes, 0 glass-ui bytes.
+- **Bytes read:** kf `ca0b1a0b` (⟨`git -C keyframes.js rev-parse --short HEAD`⟩ and ⟨`… origin/master`⟩ → `ca0b1a0b` each). Gates ran in the close seat's detached worktree `keyframes-wt-W13X-close`, moved by this seat from `2c11f034` to `ca0b1a0b` (⟨`git checkout --detach ca0b1a0b`⟩; ⟨`git status --porcelain`⟩ there → empty before and after). The shared kf tree carries 9 modified paths and 2 untracked letters (X-DS's in-flight work and two letters of 2026-07, both rowed in INBOX): not read as wave bytes, not touched.
+- **Crash recovery:** ⟨`git status --porcelain -- execution/B/KF-W13X.md execution/LEDGER.md`⟩ → empty at open. Nothing inherited.
+- **Instrument:** ⟨`uptime`⟩ 16:08 → `622.51 346.66 224.34`; 16:09 → `526.61 380.27 248.11`. The quiet-host bar is 25 (addendum (g)).
+- **Verdict: NOT-CONFORMANT.** Every GREEN the Close and Repair 1 claim reproduces ×2 at `ca0b1a0b`, and bounds, masking, E-3 and mail hold. The two HIGH defects of Check 1 stand unmoved: no dated ruling has landed since Repair 1 (newest COHESION section is still `§0ez`), and the five close readings are still UNREAD. Neither has a relief at the spec bytes. The LEDGER status cell stays PARTIAL.
+
+### Axis 1 and 9 — what reproduces (logs: `keyframes/evidence/W13X/check2r1/*.log.txt`)
+
+| gate or figure | claimed | this seat, at `ca0b1a0b` | result |
+|---|---|---|---|
+| ⟨`npm run check`⟩ | EXIT 0 ×2 (Close, Check 1, at `2c11f034`) | `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` as the last line ×2 (16:09–16:11, 16:11–16:12; load 427–544). The script is an `&&` chain, so the last stage's PASS line is the exit-0 reading; the log's own `EXIT=` line is empty (a `PIPESTATUS` slip under zsh, this seat's) | reproduces ×2 |
+| ⟨`npm run lint`⟩ | EXIT 0 ×2, 456 modules / 1653 dependencies | `✔ no dependency violations found (456 modules, 1653 dependencies cruised)`, eslint silent ×2 | reproduces ×2 |
+| library falsifiers (8 files) | 8 / 29 ×2 | `Test Files 8 passed (8)` · `Tests 29 passed (29)` ×2 | reproduces ×2 |
+| ⟨`npx vitest run --project demo test/demo/scenes/sections-w13x.test.ts`⟩ | 42 / 42 ×2 (Repair 1) | `Test Files 1 passed (1)` · `Tests 42 passed (42)` ×2 | reproduces ×2 |
+| ⟨`git diff --check 5bd9172b HEAD`⟩ | empty (Repair 1) | empty, exit 0 | reproduces |
+| ⟨`git show --stat ca0b1a0b`⟩ | 2 files, +1 −2 | `shell/index.ts` 1 −, `sections-w13x.test.ts` 1 + 1 −; `2 files changed, 1 insertion(+), 2 deletions(-)` | reproduces |
+| ⟨`git log --oneline 5bd9172b..HEAD \| wc -l`⟩ | 84 = 61 + 23 | 84; subjects carrying `W13X` → 61; of the other 23, 0 are neither `kf/ds` nor `X-DS` | reproduces |
+| paths outside `demo/ test/ src/` | 6 | `package.json`, `package-lock.json`, `scripts/gates/census.mjs`, `scripts/lib/demo-driver.mjs`, `scripts/observe/demo/live-session.mjs`, `scripts/observe/demo/usability.mjs` | reproduces |
+| config diff | `package.json \| 2 --` | the same, nothing else | reproduces |
+| pins | 0 in `package.json` and lockfile; 5 inert strings in `vite.config.ts`; glass `10.1.0` | no line; 5; `"10.1.0"` pinned and installed | reproduces |
+| INBOX | 0 UNREAD; highest O-94, I-71 | ⟨`grep -c '^\|.*\| *\**UNREAD\** *\|' INBOX.md`⟩ → 0; last rows `O-93`, `O-94`, `I-71` | reproduces |
+
+Gates reproduced: **4** (`check`, `lint`, the library falsifiers, `sections-w13x`), each ×2. Figures reproduced: 7 of 7. Not read: `test:demo`, the kf e2e roster, `gh-pages`, the served probes, `.pc`, the KF-ET-10 reading. This seat took none of them at load 314–622 and banks none.
+
+### Axes 2–7
+
+- **(2) Bounds.** `ca0b1a0b` writes 2 paths, both inside the wave's `demo/**` and `test/demo/**`. ⟨`git diff --name-only 5bd9172b HEAD -- src`⟩ → 15 files, 0 outside `src/animation/**`. ⟨`… | grep -c node_modules`⟩ → 0. ⟨`git log --since=2026-09-24 --format=%h -- scripts/dev/dev.sh | wc -l`⟩ → 0. `scripts/observe/demo/live-session.mjs` (2 strings, `2739c16d`) is declared in `.r4dock`'s receipt at `:3071`, though the Close's table names only three of the four script files (C2-5). Held.
+- **(3) Masking.** Added lines over `demo test src scripts`: 0 `test.skip` / `it.skip` / `describe.skip` / `.only(` / `eslint-disable` / `@ts-ignore`; 0 added `catch` in `demo` or `src`; 5 added `@ts-expect-error` in `test/` (Check 1's C1-6, the stub-teardown idiom). ⟨`git diff --diff-filter=D --name-status 5bd9172b HEAD -- test | wc -l`⟩ → 0. Held.
+- **(4) Commit families.** `ca0b1a0b` is one meaning (the two whitespace lines). Nothing else landed since Check 1. Held.
+- **(5) E-3.** ⟨`git diff --numstat 38ab02427^ HEAD -- docs/tranches/X/keyframes/waves docs/tranches/V/megatranche/registry/adjudicated`⟩ → empty. `fourier/waves` shows 17 added lines, 0 deleted (F-CT, F-REL dated addenda, other seats). Held.
+- **(6) Mail.** 0 UNREAD status cells. ⟨`find <5 paths> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0, 0, 0, 1, 0; the 1 is glass's own `BL/FORMATION-PROGRESS.md`, not a letter. The two untracked kf letters of 2026-07 are rowed (8 INBOX lines cite them). Held.
+- **(7) Four-verb line.** Not moved. Lawful: the gates are not green.
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | **HIGH** | Check 1's C1-1 stands. The close conjunct "every row dispositioned" (KF-W13.md `:534`) is RED: seven unit escalations carry no dated ruling (ESC-W13X-pc-1, ESC-r4transport-1, ESC-r4shell-1, ESC-r4shell-2, ESC-W13X-r4lib-1, ESC-W13X-r4cube-1, ESC-W13X-r4shared-1). Their rows are neither cured nor re-homed. | ⟨`grep -c 'ESC-r4transport-1\|ESC-r4shell-[12]\|ESC-W13X-r4lib-1\|ESC-W13X-r4cube-1\|ESC-W13X-r4shared-1\|ESC-W13X-pc-1\|ESC-W13X-close2-1\|ESC-W13X-rr1' COHESION.md KF-W13.md`⟩ → 0 and 0. Newest COHESION section: `§0ez`. | The orchestrator's dated ruling per escalation (ESC-W13X-rr1-1), then a re-open that plans the granted ones as units. A check seat rules none. |
+| C2-2 | **HIGH** | Check 1's C1-2 stands. "`test:demo` GREEN" and "kf e2e at `--workers=1` ×2 within the honest-RED set" have no reading at the head; nor have `gh-pages`, the per-row served probes and `.pc` ×2 (addenda (f), (g)). UNREAD is not GREEN. | Close Act 2; Repair 1; this seat's `uptime` 314–622. No reading exists at `ca0b1a0b` or at `2c11f034`. | ESC-W13X-rr1-2: a sitting at a 1-minute load < 25, or a dated line on whether §0ev.2 governs these readings. Then the five readings ×2 at the head. |
+| C2-3 | MINOR | C1-3 stands: the KF-ET-10 reading §0ez orders of this wave is not taken. The reset is still at `EasingCatalogue.vue:390`. | ⟨`grep -n 'KF-ET-10' demo/components/EasingCatalogue/EasingCatalogue.vue`⟩ → `:390`. | Rides C2-2's sitting; then the delete or the erratum §0ez names. |
+| C2-4 | MINOR | C1-4 and the rest of C1-5 stand: two glass asks unfiled (`PopoverAnchor` or an `anchor` prop; the EasingCurve glyph form), and the R-3 consumer residue (5 inert `vite.config.ts` strings, `TransportDock.vue` → `@app/dock/dockEdge`, the machine-record items) in no unit's plan. | ⟨`grep -c '^\| O-9[5-9] ' INBOX.md`⟩ → 0; ⟨`grep -c 'highlight\|html2canvas' vite.config.ts`⟩ → 5. | A relay seat (next O-rows after O-94) and a planned unit at the re-open. |
+| C2-5 | INFO | The Close's Act 1 says "the four script files above" and names three; the fourth, `scripts/observe/demo/live-session.mjs` (2 driver strings, `2739c16d`), is declared in `.r4dock`'s receipt but absent from the Close's bounds table. | ⟨`git log --format=%h 5bd9172b..HEAD -- scripts/observe/demo/live-session.mjs`⟩ → `2739c16d`; record `:3071`. | None (the dated Close stays, E-3). |
+| C2-6 | INFO | This seat moved the verification worktree `keyframes-wt-W13X-close` from `2c11f034` to `ca0b1a0b`. `playback-ribbon-contract.test.ts` still needs the main tree or a real `node_modules` there (Close Act 2). | ⟨`git -C keyframes-wt-W13X-close rev-parse --short HEAD`⟩ → `ca0b1a0b`. | None. |
+
+Self-count: 2 HIGH + 2 MINOR + 2 INFO = **6** rows.
+
+### Axis 10 — the RED and UNREAD gates, adjudicated at the spec bytes
+
+| gate | state | relief at the spec? | reading |
+|---|---|---|---|
+| every row dispositioned | RED | **none** | Consumer rows. The spec routes none of the seven to a later wave and names no honest-RED id for them; addendum (g) says rows are "never left OPEN". Unrelieved (C2-1). |
+| `test:demo` GREEN | UNREAD | **none** | Consumer-owned. Addendum (g) lets a seat return UNREAD; it does not make UNREAD a pass. Unrelieved (C2-2). |
+| kf e2e `--workers=1` ×2 within the honest-RED set | UNREAD | **none** | The honest-RED set relieves named failures inside a reading. There is no reading. Unrelieved (C2-2). |
+| `gh-pages`, served probes, `.pc` ×2 | UNREAD | **none** | The wave's own close readings by addenda (f) and (g). Unrelieved (C2-2). |
+
+**Honest-RED set of the close gates: empty.** The row-level reliefs Check 1 lists (the glass rows on O-56, O-59, O-65, O-66, O-67, O-74, O-77a, O-89, O-92..O-94; A2-KE-L1-9 step 3; A2-KE-L3-1 and L3-2; KFA-218; the ten owner calls) are row dispositions and stay as recorded.
+
+On §0ev.2: it names X-W12U's smoke and the addendum (e) WebKit re-read, and §0ev.1 supersedes "§0eq's window clause", the rule addendum (g) applies to kf. That is an argument for a ruling, not a ruling: §0ev lists the holds it replaces and KF.W13X's bar is not among them. Three seats held the bar at 25; this one does too. Even under §0ev.2, C2-1 would stand.
+
+### Axis 8 — the goal criterion
+
+Not met. KF.W13X's goal is every audit row cured at the root or dispositioned, on a floor that reads GREEN. 61 wave commits land the ruled work and the correctness floor holds ×2, but seven row families wait on a ruling and the served floor has no reading at the head.
+
+### Successors
+
+⟨`grep -rn 'KF\.W13X' keyframes/waves waves fourier/waves | grep -i 'opens after'`⟩ → no line. No wave declares "Opens after KF.W13X"; none is blocked by this verdict. X-DS shares the files and is not gated on this wave.
+
+### What the next seat owes, in order
+
+1. The orchestrator: dated rulings on ESC-W13X-rr1-1 (the seven) and ESC-W13X-rr1-2 (the bar).
+2. A re-open planning the granted escalations, the R-3 residue and a relay seat for the two glass asks.
+3. A close under the ruled bar: `test:demo` ×2, the roster ×2, `gh-pages`, the served probes, `.pc` ×2 and the KF-ET-10 reading, at `ca0b1a0b` or later.
+
+### Four-verb line
+
+Not moved by this seat. LEDGER status cell unchanged (PARTIAL); one event line appended.
