@@ -385,3 +385,45 @@ This receipt covers the cure of the pass-8 critic's rows **V3C-01 … V3C-07**, 
 - Generate's verbs now sit on the seed row. Judge whether Regenerate reads as the plate's verb there, and whether the title row (name alone) reads as a title rather than a field. The field edge is glass's.
 - The five workbench headers no longer condense on scroll (seated). Check the phone band, where Gradient's card is long, for header weight.
 - V3C-06 waits on the owner (A5), with V2C-05, V2C-15, V2C-16, V1C-02 and V3C-11.
+
+### pass 2 (re-dispatch, 2026-10-13): critic V7C — already cured at pass 7; re-read at HEAD, no source change
+
+The workflow relaunched on 2026-10-13 with its pass counter reset, and dispatched this seat as "pass 2" with the pass-7 critic's rows **V7C-01 … V7C-04**. Those four rows were cured at `a85477894` (the "### pass 7" receipt above). This seat read the tree and the served app, found every cure standing, and changed **no source file**. The evidence sits in `evidence/DS/value/pass-02/redispatch-2026-10-13/`, a sub-directory, so pass 2's own committed frames are not overwritten.
+
+**Commit.** value.js `584a31b08` (frames, probe, census, gate listings). This receipt is committed after it.
+
+**The four rows, re-read** (`probe-v7c-reread.json`, headless real Chrome, §0ei; the pass-7 probe plus a wait for the tile and a dark 390 cell).
+
+| id | state at HEAD | measured |
+|---|---|---|
+| V7C-01 | Cured (`a85477894`). The render tile is `order-last col-start-2 w-12 min-h-10` below sm, and `sm:order-none sm:row-span-2 sm:w-24` from sm. | At 390, light and dark: the tile is 48×40 at y 663, on the 40 px Direction row (y 663). It sits after Type, Color space and Hue method (`probe-shots/gradient-tile-390-*.png`). At 1440 it is 96×120. |
+| V7C-02 | Cured. Both config schemas are in sentence case. The one Title Case string left is "Van Gogh", a proper name. | /atmosphere: "Color energy", "Noise", "Zones". /blob: "Body radius", "Satellite radius", "Orbit radius", "Smoothness", "Noise amplitude", "Noise frequency", "Pulse frequency", … (31 labels, none in Title Case). |
+| V7C-03 | Cured. The select group is the section "Character". | The well's heads are Character and Field: Fraunces, 20.35 px, the same ink (`probe-shots/atmosphere-well-1440-light.png`). |
+| V7C-04 | Cured. The row is a follow companion's ceiling (shell.css); the 30rem floor stays on the wrapper. | 1440: 1 px under the last content in every companion. Mix is 598 px in a 621 px row. My Palettes is 425 px beside Generate (stage 459), Browse (370) and the picker (621). Blob follows its row (621) and scrolls. |
+
+Mix is taller than pass 7's 426 px because the tree now carries the "Saved palettes" block and the pass-8 footer seat; it still ends at its content.
+
+**Glass-owned rows.** None in this dispatch. The census's glass rows stay honest-RED on O-87, with no local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440 --themes light,dark`).
+- The first run (`census-after.json`, settle 15 s, load 150) caught seven cells half-booted. Its 16 "consumer looping animations" are all `skeleton-breathe` on the lazy-chunk loading plate, which is a loading register and carries state.
+- The re-run of those six routes (`census-after-rerun.json`, settle 30 s) reads **0 consumer looping animations** in all twelve cells.
+- **Verdict RED**, on glass-owned chrome (O-87): inset highlights (177 on the six re-run routes), multi-layer elements, the dock's drop-shadow, gradient fills on glass controls.
+
+**Frames.** 36 route frames (9 routes × light/dark × 1440/390; `capture.mjs`, headless real Chrome). Four 1440 light frames timed out at load 185 and were re-shot (`capture-reshoot.log`); the manifest marks them. The probe cells are in `probe-shots/`.
+
+**Gates** (`gates/README.txt`). They read HEAD `b50237f09` plus the tree's other dirty paths. Host load ran from 10 to 454 during the sitting.
+- **Type-check:** 0 errors ×2.
+- **vitest:** 1105/1122 ×2 (8 skipped); 9 tests and 2 suites failed ×2.
+  - The 7 pre-existing: `ink.test` resolveMutedInk ×2 and T-35 ×3, `spectrum-luma` C-5, `reka-binding-idiom` NG-6.
+  - `plate-mass` G20 and N-17: the test page imports `demo/palettes/browser/card/PaletteCardSkeleton.vue`, which X-W12U `.k2` moved to `demo/shared/ui/` (`785e522c5`). This is a stale path, not a timeout. It belongs to X-W12U `.k2` and was not touched here.
+  - `palette-card-layout` (suite) and `plate-mass` at 390: the harness's 30 s `page.goto` under load.
+- **e2e: NOT ×2 GREEN.** The pass-7 focused set, smoke project, warm server, one worker.
+  - Run 1 (load 97–153): 11 passed, 15 failed of 26. O-68: 2/2 passed.
+  - Run 2: the first attempt was voided at load 180–190. The second (load 107–454) was stopped at 20/26 with 6 passed and 14 failed. O-68 was not read a second time.
+  - The failure classes are pass 7's: o19's canvas leg ×4 (pre-existing RED); o29's gradient scene (a third unnamed region from glass's Collapsible); and gradient.spec, mix.spec and o29 j4, where the pane under test is not found or never settles. companion-pane-track-start failed run 1 and passed run 2.
+- **No visual golden was re-baselined.**
+
+**For the orchestrator.**
+- The workflow's critic findings for value are stale by at least two passes: the V7C rows were cured at pass 7 and the V3C rows at pass 8. `pass-09/` holds an uncommitted pass-9 critic and probe from 2026-10-09 (the dead session). The next value seat should be given the pass-9 critic's rows, or a fresh critic at HEAD.
+- The gradient.spec "main named Gradient has no Gradient heading" failures repeat in both runs, including at the lower load. They need a read on a quiet host to tell load from a defect in the dirty X-W12U `.h` header work (`demo/shared/ui/PaneHeader.vue`).
