@@ -6,7 +6,7 @@ Status ESCALATED (ESC-FREL-d-1 stands). `origin/master` = `ad62881` (unmoved sin
 
 | file | command | reading |
 |---|---|---|
-| `pages-smoke.log` | `bash scripts/pages-smoke.sh` | rc 0, PASS; bundle `/assets/index-BYSiPuAh.js` (the hotfix build, same hash as 10-09) |
+| `pages-smoke.log.txt` | `bash scripts/pages-smoke.sh` | rc 0, PASS; bundle `/assets/index-BYSiPuAh.js` (the hotfix build, same hash as 10-09) |
 | `certs.txt` | `openssl s_client … \| openssl x509 -noout -enddate` | api.fourier `Jan 4 15:19:06 2027 GMT`; fourier `Dec 22 20:13:07 2026 GMT` |
 | `openapi-reading.txt`, `openapi-paths.txt` | `curl …/openapi.json` | 34 paths, version 0.2.0, none of publish/remix/diff; path list identical to `../openapi-paths-now.txt` |
 | `patch-preflight.txt` | `curl -X OPTIONS …/api/visualizations/x` with `Access-Control-Request-Method: PATCH`, headers `if-match,content-type,x-session-token` | `HTTP/1.1 400`; allow-methods `GET, POST, PUT, DELETE, OPTIONS`; allow-headers lack `If-Match` |
