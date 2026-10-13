@@ -3702,3 +3702,51 @@ Not met. KF.W13X's goal is every audit row cured at the root or dispositioned, o
 ### Four-verb line
 
 Not moved by this seat. LEDGER status cell unchanged (PARTIAL); one event line appended.
+
+## RESUME 1 — Repair 2
+
+- **SERVED MODEL:** claude-opus-5-5. Track B repair seat (round 2) on RESUME 1 Check 2, 2026-10-13 (execution under the owner's begin-word of 2026-09-17).
+- **Read:** KF-W13.md's KF.W13X section and addenda (b)–(g) (`:521-587`); this record's RESUME 1 Repair 1 and RESUME 1 Check 2; COHESION §0ev and §0ez.
+- **Crash recovery:** ⟨`git -C keyframes.js status --porcelain`⟩ at open → 9 modified paths and 2 untracked letters, the same set Check 2 read (X-DS's in-flight work; the two letters of 2026-07 rowed in INBOX). None is a path a repair cure owns; none touched. ⟨`git -C value.js status --porcelain -- execution/B/KF-W13X.md execution/LEDGER.md`⟩ → empty. Nothing inherited.
+- **Instrument:** ⟨`uptime`⟩ 16:14 → `182.33 335.54 272.66`; 16:14 → `164.48`; 16:15 → `171.00`, `171.88`. Four samples, 1-minute load 164–182; the quiet-host bar is 25 (addendum (g)).
+- **Result: 0 defects cured; 2 HIGH escalated (the same two, unmoved); 2 MINOR carried with their owners; 2 INFO owe nothing.** No keyframes.js byte and no glass-ui byte was written. Nothing has changed since Check 2 that a repair seat can act on: no ruling landed, and the host is 6–7× over the bar.
+
+### Register — defect → cure → commit → gate re-reading
+
+| id | severity | cure | commit | gate re-reading |
+|---|---|---|---|---|
+| C2-1 | HIGH | **ESCALATED (ESC-W13X-rr2-1, restating rr1-1).** None by this seat. The seven escalations need a dated ruling each. COHESION and KF-W13.md are outside every KF.W13X writable set, and a ruling is the orchestrator's act; a repair seat that granted itself the seven would be writing its own bounds | none | ⟨`grep -c -- <id> COHESION.md KF-W13.md`⟩ for each of the seven ids, `ESC-W13X-rr1` and `ESC-W13X-close2-1` → 0 and 0, nine times. ⟨`grep -n '^## §0' COHESION.md \| tail -1`⟩ → `§0ez`. **RED, unchanged** |
+| C2-2 | HIGH | **ESCALATED (ESC-W13X-rr2-2, restating rr1-2).** None by this seat. The five readings are returned UNREAD: at a 1-minute load of 164–182 against a bar of 25, a reading taken now would be one "taken under thrash", which addendum (g) forbids banking. The §0ev.2 question is still unruled, and three seats before this one held the bar | none | **UNREAD, unchanged** (`test:demo` ×2, kf e2e ×2, `gh-pages`, the served probes, `.pc` ×2) |
+| C2-3 | MINOR | **Carried with C2-2.** Not a one-command cure: a served computed-style reading with and without the reset, then a delete or an erratum to glass BK. `EasingCatalogue.vue` is also dirty from a live sibling writer, so the reset's bytes are not this seat's to delete | none | ⟨`grep -n 'KF-ET-10' demo/components/EasingCatalogue/EasingCatalogue.vue`⟩ → `:390`, unchanged |
+| C2-4 | MINOR | **Carried (owners: a relay seat; a planned unit).** Not a one-command cure. The two asks need letters, O-rows, INBOX rows, the BK mirror in the glass tree (read-only here) and a live send. The R-3 residue touches `vite.config.ts` and `TransportDock.vue`, which no unit's bounds grant | none | ⟨`grep -c '^\| O-9[5-9] ' INBOX.md`⟩ → 0; ⟨`grep -c 'highlight\|html2canvas' vite.config.ts`⟩ → 5; both unchanged |
+| C2-5 | INFO | none owed (the dated Close stays, E-3) | — | — |
+| C2-6 | INFO | none owed | — | — |
+
+Self-count: 6 rows = 2 escalated + 2 carried + 2 INFO; 0 cured.
+
+### Gates
+
+No cure landed, so no gate could move and none was re-run. Check 2's ×2 readings at `ca0b1a0b` stand (`check`, `lint`, the 8 library falsifiers 29/29, `sections-w13x` 42/42). ⟨`git -C keyframes.js rev-parse --short HEAD`⟩ and ⟨`… origin/master`⟩ → `ca0b1a0b` each, the bytes Check 2 read.
+
+- **Bounds:** kf writes: none. Adjacent edits: none. glass-ui: 0 bytes. `scripts/dev/dev.sh`: untouched. value.js writes: this section and one LEDGER event line.
+- **Masking:** nothing written, so nothing masked.
+- **E13:** ⟨`grep -c '^|.*| *\**UNREAD\** *|' INBOX.md`⟩ → 0. Highest rows still O-94 and I-71.
+
+### Escalations from this seat
+
+| id | defect | asked of the orchestrator | measured reason |
+|---|---|---|---|
+| ESC-W13X-rr2-1 | C2-1 | A dated COHESION ruling on each of the seven (ESC-W13X-pc-1, ESC-r4transport-1, ESC-r4shell-1, ESC-r4shell-2, ESC-W13X-r4lib-1, ESC-W13X-r4cube-1, ESC-W13X-r4shared-1): grant, re-home by id, or relay row. Then a re-open that plans the granted ones, the R-3 residue and a relay seat for the two glass asks (next O-rows after O-94) | 0 mentions of any of the ids in COHESION.md or KF-W13.md; both files are outside the wave's writable set |
+| ESC-W13X-rr2-2 | C2-2, C2-3 | One of: (a) a sitting with Track B's close seat alone at a 1-minute load < 25; or (b) a dated line ruling whether §0ev.2 governs KF.W13X's close readings | load 164–182 at this seat, 314–622 at Check 2, 108–489 at Repair 1. The 15-minute average is 265–273, so no quiet window is in reach inside addendum (g)'s 60-minute wait |
+
+**A third check on these bytes would return the same two HIGH rows.** The loop is dry until the two rulings land; another check/repair round before then reads nothing new.
+
+### What the next seat owes, in order
+
+1. The orchestrator: the rulings of ESC-W13X-rr2-1 and ESC-W13X-rr2-2.
+2. A re-open planning, by id: the granted escalations; the R-3 residue; a relay seat for the two glass asks.
+3. A close under the ruled bar: `test:demo` ×2, the roster ×2, `gh-pages`, the served probes, `.pc` ×2 and the KF-ET-10 reading (§0ez), at `ca0b1a0b` or later.
+
+### Four-verb line
+
+Not moved by this seat. LEDGER status cell unchanged (PARTIAL); one event line appended.
