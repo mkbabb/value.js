@@ -68,17 +68,21 @@
                 <Label class="truncate">Chroma weight</Label>
                 <span class="text-mono-small plate-ink tabular-nums">{{ chromaWeight.toFixed(1) }}</span>
             </div>
-            <Slider
-                aria-label="Chroma weight"
-                size="sm"
-                :model-value="chromaWeightModel"
-                :disabled="standDown"
-                :min="0"
-                :max="1.5"
-                :step="0.1"
-                class="w-full"
-                @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
-            />
+            <!-- X-DS VR3-02: the same 24px band as "Colors", so the two
+                 sibling scalar rows share one label-to-track rhythm. -->
+            <div class="w-full h-6 flex items-center">
+                <Slider
+                    aria-label="Chroma weight"
+                    size="sm"
+                    :model-value="chromaWeightModel"
+                    :disabled="standDown"
+                    :min="0"
+                    :max="1.5"
+                    :step="0.1"
+                    class="w-full"
+                    @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
+                />
+            </div>
         </div>
 
         <!-- X-DS pass 3 (V3C-05): the image actions are ONE labelled action row,

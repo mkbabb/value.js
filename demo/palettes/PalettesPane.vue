@@ -327,8 +327,13 @@ async function onPublish(palette: Palette) {
  * seated at the top of the list: the list's gap above already separates it
  * from the "Start a new palette" well, and its plate padding starts at zero.
  * That lifts the message clear of the scroll feather; the hint below it
- * fades under the feather, which says "more below". */
+ * fades under the feather, which says "more below".
+ * X-DS VR3-05: the plate stays top-seated, but the well and the empty
+ * statement are two blocks, so the pane's block gap (--phi-3) parts them:
+ * the list's own 0.75rem gap, plus the remainder here. The list gap alone
+ * read as one attached block. */
 .palettes-companion-grid > :deep([role="status"]) {
     padding-block-start: 0;
+    margin-block-start: calc(var(--phi-3) - 0.75rem);
 }
 </style>

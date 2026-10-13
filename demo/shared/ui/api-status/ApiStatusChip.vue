@@ -13,7 +13,7 @@
         :class="
             chipVariants({
                 size: 'sm',
-                class: ['api-status-chip font-mono', seat === 'dock' && 'dock-status-lamp'],
+                class: ['api-status-chip text-mono-small', seat === 'dock' && 'dock-status-lamp'],
             })
         "
         :data-seat="seat"
@@ -48,11 +48,11 @@ const status = computed(() => resolveApiStatus(availability.value, isDev, seat))
 <style scoped>
 @reference "../../../styles/foundation.css";
 
-/* The instrument register both seats speak: a small-caps mono caption. The
- * pill, its hairline and its padding are glass's (`chipVariants`). */
+/* The instrument register both seats speak: the app's mono voice in sentence
+ * case (`text-mono-small`). X-DS VR3-06: the tracked small-caps died here as
+ * at every other call site (V5C-03). The pill, its hairline and its padding
+ * are glass's (`chipVariants`). */
 .api-status-chip {
-    font-variant: small-caps;
-    letter-spacing: 0.06em;
     line-height: 1;
     white-space: nowrap;
 }

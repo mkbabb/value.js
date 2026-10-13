@@ -25,8 +25,11 @@ import { readFileSync } from "node:fs";
  * swap in with no reflow once the deferred sheet loads. This mirrors the demo's
  * existing non-blocking Fraunces load (index.html `media="print" onload=…`).
  *
- * WIRING — `style.css` no longer `@import`s the corpus; it carries the MARKER
- * comment below in its place. This plugin owns the mode-conditional behaviour:
+ * WIRING — the demo's root stylesheet (`demo/styles/foundation.css`) no longer
+ * `@import`s the corpus; it carries the MARKER comment below in its place. The
+ * transform is gated on the MARKER in a stylesheet, never on the host's path:
+ * the path gate went stale when the sheet moved (9ef03576f), and dev served the
+ * Arial-metric fallback for the body and mono voices (X-DS VR3-01). This plugin owns the mode-conditional behaviour:
  *
  *   build (gh-pages / production): STRIP the marker (corpus stays out of the
  *     render-blocking bundle), emit `fonts.css` verbatim as a standalone hashed
@@ -42,7 +45,7 @@ import { readFileSync } from "node:fs";
  * BEFORE Tailwind's postcss `@import` resolution sees the file.
  */
 
-/** The placeholder `style.css` carries where the corpus `@import` used to sit. */
+/** The placeholder the root stylesheet carries where the corpus `@import` used to sit. */
 const MARKER = "/*__GLASS_FONTS_DEFERRED__*/";
 
 /** The producer's separate, deferrable font-corpus export (dist/styles/fonts.css). */
@@ -64,12 +67,12 @@ export function deferGlassFonts(): Plugin {
             isBuild = config.command === "build";
             base = config.base || "/";
             // Resolve the producer's fonts.css through its exports map (the same
-            // `./styles/fonts` subpath style.css used to @import).
+            // `./styles/fonts` subpath the root stylesheet used to @import).
             fontsCssPath = createRequire(import.meta.url).resolve(FONTS_SPECIFIER);
         },
 
         transform(code, id) {
-            if (!id.includes("demo/@/styles/style.css") || !code.includes(MARKER)) {
+            if (!/\.css(?:$|\?)/.test(id) || !code.includes(MARKER)) {
                 return null;
             }
             // dev → keep the corpus render-blocking (faithful); build → drop it.

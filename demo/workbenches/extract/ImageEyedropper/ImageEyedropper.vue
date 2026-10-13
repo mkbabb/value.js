@@ -318,14 +318,14 @@ watch(() => imageUrl, () => { loadAndFit(); });
 .swatch-pulse {
     width: 1.75rem;
     height: 1.75rem;
-    animation: swatch-pop 0.65s var(--spring-present) forwards;
+    animation: swatch-pop var(--duration-fast) var(--ease-standard) forwards;
 }
 
+/* X-DS VR3-07: one settle. The confirmation stays (a swatch was added); the
+ * 70% overshoot with a double bounce on a spring was affected motion. */
 @keyframes swatch-pop {
     0%   { transform: scale(1); }
-    25%  { transform: scale(1.7); }
-    50%  { transform: scale(0.85); }
-    75%  { transform: scale(1.1); }
+    40%  { transform: scale(1.15); }
     100% { transform: scale(1); }
 }
 </style>

@@ -71,8 +71,9 @@
                 </Transition>
             </div>
 
-            <!-- Controls + result column -->
-            <div class="flex flex-col gap-3 min-w-0">
+            <!-- Controls + result column. X-DS VR3-02: the controls and the
+                 result strip are two blocks, parted by the pane's section gap. -->
+            <div class="flex flex-col gap-phi-3 min-w-0">
                 <ExtractControls
                     class="shrink-0"
                     :k="session.colorCount.value"

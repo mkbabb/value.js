@@ -154,7 +154,7 @@ const SECTIONS: SliderSection[] = [
                 <div class="aurora-row">
                     <Label :id="`${labelId}-harmony`">Harmony</Label>
                     <Select v-bind="popups.bind('harmony')" :model-value="harmony()" @update:model-value="setHarmony">
-                        <SelectTrigger :aria-labelledby="`${labelId}-harmony`">
+                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="`${labelId}-harmony`">
                             <SelectValue>{{ label(harmony()) }}</SelectValue>
                         </SelectTrigger>
                         <SelectContent class="max-h-[16rem] min-w-menu">
@@ -174,7 +174,7 @@ const SECTIONS: SliderSection[] = [
                 <div class="aurora-row">
                     <Label :id="`${labelId}-arrangement`">Arrangement</Label>
                     <Select v-bind="popups.bind('arrangement')" :model-value="arrangement()" @update:model-value="setArrangement">
-                        <SelectTrigger :aria-labelledby="`${labelId}-arrangement`">
+                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="`${labelId}-arrangement`">
                             <SelectValue>{{ label(arrangement()) }}</SelectValue>
                         </SelectTrigger>
                         <SelectContent class="max-h-[16rem] min-w-menu">
@@ -188,7 +188,7 @@ const SECTIONS: SliderSection[] = [
                 <div class="aurora-row">
                     <Label :id="`${labelId}-medium`">Medium</Label>
                     <Select v-bind="popups.bind('medium')" :model-value="medium()" @update:model-value="setMedium">
-                        <SelectTrigger :aria-labelledby="`${labelId}-medium`">
+                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="`${labelId}-medium`">
                             <SelectValue>{{ label(medium()) }}</SelectValue>
                         </SelectTrigger>
                         <SelectContent class="max-h-[16rem] min-w-menu">
@@ -202,7 +202,7 @@ const SECTIONS: SliderSection[] = [
                 <div class="aurora-row">
                     <Label :id="`${labelId}-motion`">Motion</Label>
                     <Select v-bind="popups.bind('motion')" :model-value="motion()" @update:model-value="setMotion">
-                        <SelectTrigger :aria-labelledby="`${labelId}-motion`">
+                        <SelectTrigger class="h-(--control-h-sm)" :aria-labelledby="`${labelId}-motion`">
                             <SelectValue>{{ label(motion()) }}</SelectValue>
                         </SelectTrigger>
                         <SelectContent class="max-h-[16rem] min-w-menu">
