@@ -3322,3 +3322,43 @@ Self-count ⟨`sed -n '/^### KF.W13X.r4state/,$p' KF-W13X.md | grep -E '^\| KFA'
 - **Not run.** `test:demo` (the wave floor's third leg): no executable byte changed besides two unread CSS custom properties, and the 1-minute load was 127–194, above the quiet-host bar of 25. UNREAD here; the close's roster reads it.
 - **Residuals.** None for this row. `docs/**` in the kf tree still names `useRafLoop` in dated tranche C/D/E/G records; those are immutable (E-3) and out of scope.
 - **Escalations.** None.
+
+### KF.W13X.rel
+**Seat:** `claude-opus-5-5` · 2026-10-13 · addendum (g) C3-6; Close R-6 "asked for by units and not yet filed (3)"; plan row R17. Documents only: no keyframes byte, no glass byte.
+
+**Crash-recovery.** ⟨`git status --porcelain -- docs/tranches/X/relay docs/tranches/V/coordination/INBOX.md docs/tranches/X/execution/B/KF-W13X.md`⟩ → empty. Nothing inherited.
+
+**Anchors at true bytes (two drifted; INTENT taken at the true bytes).**
+- **The O-numbers.** The plan and the brief name O-90..O-92. ⟨`grep -o '^| O-[0-9]*' INBOX.md | sort -t- -k2 -n | tail -1`⟩ → `| O-91`: O-90 (TOAST-FOCUS-PROXY) and O-91 (DOCK-OUTSIDE-PRESS-DURING-MORPH) were filed by F.REL `.w` on 2026-10-09, after RESUME 1's open read O-89. Addendum (g) says "the next O-numbers", so the three take **O-92, O-93, O-94**.
+- **The focus-register row id.** Close R-6 item 1 and the brief say "A2-KE-L1-20". The `.lib` receipt's focus-register row is **A2-KE-L1-22** (`:1753`, RELAY → glass); `:1751` A2-KE-L1-20 is the Alert row, CURED-PRIOR. The letter cites L1-22 and names the L1-20 label.
+- glass 10.1.0 read-only: ⟨`sed -n 87,90p` and `144,150p src/styles/utilities/base.css`⟩ → `.popover-content:focus-visible { outline: none; box-shadow: var(--focus-ring-shadow); }` and `.focus-ring:focus-visible { outline: var(--focus-ring-width) solid color-mix(…) }`. ⟨`node -e` over `package.json` `exports`⟩ → version `10.1.0`, 68 keys, `filter(/alert|skeleton/i)` → `[]` (the installed copy in keyframes reads the same key list). ⟨`git grep -n 'Alert\b\|Skeleton\b' -- src/index.ts`⟩ → `:94`, `:310`. `EasingPicker.vue:61-76` props carry `surface` and no preset opt-out.
+- keyframes `2c11f034` read-only: ⟨`git grep -n 'import.*\(Alert\|Skeleton\).*glass-ui' -- demo src`⟩ → 4 sites (`SceneSkeleton.vue:17`, `CSSCodeEditor.vue:106`, `KeyframeTimeline.vue:422`, `StartingStyleTarget.vue:228`). ⟨`git grep -o kf-focus-ring -- demo src | wc -l`⟩ → 18 in 10 files (16 in 9 component files, 2 in `design-idioms.css`).
+
+**Acts.**
+1. Three letters under `docs/tranches/X/relay/`, in the O-89 idiom (site at true bytes, ask, consumer posture), each naming the BK mirror for glass to land:
+   - `X-KF-BK-FOCUS-REGISTER.md` (O-92) → mirror `valuejs-outbound-2026-10-13-focus-register.md`
+   - `X-KF-BK-ALERT-SKELETON-SUBPATHS.md` (O-93) → mirror `valuejs-outbound-2026-10-13-alert-skeleton-subpaths.md`
+   - `X-KF-BK-EASING-CATALOGUE-SEAMS.md` (O-94; KF.W13W `.p` R-1 `EasingPicker` preset-list opt-out, R-2 `ToggleGroup` track/plate opt-out, R-3 field-look popover trigger) → mirror `valuejs-outbound-2026-10-13-easing-catalogue-seams.md`
+2. ⟨`ListAgents`⟩ → 4 peers; one glass session, `glass-ui-15 [37acfb]` (interactive, busy).
+3. ⟨`SendMessage to=glass-ui-15`⟩, one message carrying all three asks, the letter paths and the mirror names → `success: true`, msg `9efa8702-4368-4a52-928a-42694b30103a`, "in that session's inbox, not yet read by its Claude". No reply and no delivery notice reached this seat. A reply lands in the value.js main session, which rows it as an I-row.
+4. INBOX: rows O-92..O-94 inserted after the O-91 row, plus one dated outbound line at the file end. The file was clean before the edit, so the whole-file diff is this seat's lines only.
+
+**Commits (value.js).**
+- `f4115a2ad` — the three letters and the INBOX edit. **Defective on INBOX:** the seat's insert command (an `awk` with a leading `/dev/null` operand, so `FNR==NR` held for every INBOX line) wrote the file back as one line. ⟨`git show --stat --format= f4115a2ad`⟩ → `INBOX.md | 602 +-----`, `1 insertion(+), 601 deletions(-)`.
+- `2c9738567` — the repair, next commit, no history rewrite: the 601 prior lines restored from `f4115a2ad~1`, the three rows and the dated line added. ⟨`git diff --stat f4115a2ad~1 2c9738567 -- INBOX.md`⟩ → `4 insertions(+)`; ⟨`… | grep -c '^-[^-]'`⟩ → 0 (no prior line lost or changed). ⟨`git log --oneline -3 -- INBOX.md`⟩ before the repair showed no other seat's commit between the two. INBOX was truncated at HEAD for the minutes between them; a seat that read it in that window read one line.
+
+**Gates, BEFORE → AFTER.**
+| Gate | Before | After |
+|---|---|---|
+| The three asks rowed in INBOX | 0 rows (Close R-6: "not yet filed") | ⟨`grep -c '^| O-9[234] ' INBOX.md`⟩ → 3, ×2 (as O-92..O-94, not O-90..O-92; see anchors) |
+| A live send to the glass session after `ListAgents` | none | sent to `glass-ui-15`, `success: true`, msg `9efa8702`; recorded in each row's status cell and the dated line |
+| 0 bytes in the glass-ui tree | — | ⟨`git -C ../glass-ui status --porcelain \| grep -c valuejs-outbound-2026-10-13`⟩ → 0; ⟨`ls BK/coordination \| grep -c 2026-10-13`⟩ → 0. The glass tree's own dirty paths (`BL/design/dock/harness/**`) are its session's |
+
+**Adjacent edits.** None.
+
+**Residuals.**
+- The send is delivered, not acknowledged: no I-row yet. The three rows read SENT; the close seat's E13 sweep picks up glass's reply or its BK mirrors.
+- The mirrors are glass's to land; none exists in `BK/coordination` at this writing.
+- Consumer dispositions stand as the units left them: A2-KE-L1-22 honest-RED (glass-owned); the four root imports of `Alert`/`Skeleton` stay; `.p` R-1..R-3 glass halves honest-RED. All three ADOPT-AT-LANDING.
+
+**Escalations.** None.
