@@ -26,6 +26,10 @@
 //            a load burst land on one arm only and the additive stalls pulled every ratio toward 1.0 (Firefox: retired
 //            spreads 5–131× at 1-min load 113–659). The least of repeats is unbiased only on a fine clock, so the page
 //            measures its timer tick and the k-rule sizes every slice to ≥ MIN_TICKS ticks when repeats > 1; slices = repeats = 1 is the unsliced pass of record (Chromium 0.1 ms and WebKit 1 ms clocks).
+//            Slices are cut by SOURCE LENGTH, each ≥ 1/slices of the class's characters (an underweight tail joins the
+//            slice before it), so every slice carries comparable work: cut by count, `large-eq`'s 4 sheets (61 B to
+//            46 KB) were 4 slices, and the least-slice k-rule sized the 61 B sheet to 200 ticks — k = 64, a 3 s pass,
+//            a cell that ran > 35 min unread at load ~200 (2026-10-13); by length they are 2 slices.
 //            A slice spans ≥ MIN_TICKS ticks of parsing, so it still carries the arm's own allocation and nursery GCs.
 // No gc() exists in a page (recorded, as `.v`'s receipt). Ratio = arm/retired: median of the per-round paired ratios.
 export const ENTRIES = ["parseCssColor", "parseCssScalar", "parseCssValue", "parseCssValues", "parseKeyframeSelector", "parseTimingFunction", "parseStylesheet"];
@@ -51,7 +55,10 @@ export function install(arms, inputs, sheets, prefixSheets) {
         if (xs === null) throw new Error(`class ${cls} for ${entry}`);
         const pass = (fn, k, lo = 0, hi = xs.length) => { const t = performance.now(); for (let j = 0; j < k; j++) for (let i = lo; i < hi; i++) { try { fn(xs[i]); } catch { } } return performance.now() - t; };
         for (let w = 0; w < WARMUP; w++) for (const a of names) pass(f[a], 1);
-        const S = Math.min(slices, xs.length), cut = Array.from({ length: S + 1 }, (_, s) => Math.round((s * xs.length) / S));
+        const cut = [0], total = xs.reduce((n, x) => n + x.length, 0);
+        for (let i = 0, w = 0; i < xs.length; i++) if ((w += xs[i].length) >= total / slices) { cut.push(i + 1); w = 0; }
+        if (cut[cut.length - 1] !== xs.length) cut.length > 1 ? (cut[cut.length - 1] = xs.length) : cut.push(xs.length);
+        const S = cut.length - 1;
         const tick = (() => { let a = performance.now(), d = Infinity; for (let i = 0, b; i < 1e6 && d === Infinity; i++) if ((b = performance.now()) !== a) d = b - a; return d; })();
         const least = (time) => Math.min(...Array.from({ length: CAL }, time));
         const leastSlice = (k) => Math.min(...Array.from({ length: S }, (_, j) => least(() => pass(f.retired, k, cut[j], cut[j + 1]))));
