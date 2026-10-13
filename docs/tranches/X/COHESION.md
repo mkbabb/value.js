@@ -3787,3 +3787,12 @@ Owner, verbatim: *"Continue. Re-deploy all workflows and agents thereof--no exce
   - **Linux goldens are rendered in the official Playwright docker image matching the repo's Playwright version**, which is how CI renders. This happens under the heavy-run lock.
   - Every later X-DS fourier pass that changes a checkpoint re-baselines it in its own receipt. That is the standing rule from today.
 - `.g` merges to master only when e2e is GREEN outside the manifest and `.mem` is GREEN. That ordering is why the master push was withheld, and it was correct.
+
+## §0ex — 2026-10-13: orphaned dirty paths after a session death are ADOPTED, never waited on (amends §0ev.3)
+Every workflow died with the session on 2026-10-09 at about 18:40, and all were relaunched on 2026-10-13 at 14:50. Tracked paths that were dirty with an mtime **before 2026-10-13 14:45** have no live writer. They are the half-finished work of a dead seat. At the relaunch they were: 14 paths in value.js `demo/**` and `e2e/smoke/**` (mtimes 10-09 18:23–18:40); fourier `scripts/model-smoke.sh` and `web/e2e/screenshots/f-w14/*.png`; and keyframes `demo/scenes/cube/useCubeDemo.ts`.
+- The clean-window protocol (§0ev.3) applies only to paths with a LIVE writer, meaning an mtime after 2026-10-13 14:45 that is still moving.
+- **An orphan is adopted by the first resumed seat whose unit it belongs to.** Belonging is read from the diff against that unit's spec and record: for example, X-W12U `.h` for the `demo/shared/ui/**` header work, F.REL `.m`/`.mem` for `model-smoke.sh`, and KF.W13X `.cube` for `useCubeDemo.ts`.
+  - The adopting seat reads the whole diff, finishes it to its unit's gates, and commits it under its own unit with the line "adopts the orphaned hunk of <date>".
+  - A hunk that is wrong for the unit is corrected forward by editing. It is never discarded with checkout, restore, stash or reset.
+- A seat that needs an orphaned path belonging to ANOTHER workflow's unit lands its own edit on top of the orphan's bytes. It commits only its own hunks, using an index blob built from HEAD plus its hunk (`git hash-object -w`, `git update-index --cacheinfo`, and a commit with no pathspec after reading `git diff --cached`). The orphan stays in the tree for its owner.
+- Orphaned evidence PNGs that were only re-rendered, with no unit claiming them, are adopted by that repo's next `.vb` or visual re-baseline unit.
