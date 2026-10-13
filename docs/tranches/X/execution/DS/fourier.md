@@ -1144,3 +1144,39 @@ One reading differs from the first receipt: /v's Coefficients heading carried no
 - No visual golden was re-baselined.
 
 **Frames** (`pass-02/f2r-rewitness/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f2r-cure-probe.mjs` against `:3100`: `equation-*`, `w-*`, `v-*` and `v-error-*` at 1440 and 390, plus `notation-*-1440` and `presets-*-390`, each in light and dark.
+
+### pass 3
+This is the cure for critic **F3R** (the redeploy's pass-3 critic). The BEFORE is the critic's set, `pass-03/critic-f3r/` (its frames, `f3r-critic-probe.mjs`, `f3r-critic-probe2.json`), plus the frames it cites from `pass-02/f2r-rewitness/`.
+- fourier `c4b6a0f`, on `m/w1-bump-migration`, pushed fast-forward `c6a242d..c4b6a0f`. Four files, committed by pathspec. `scripts/model-smoke.sh`, `src/fourier_analysis/contours/ml.py` and the `web/e2e/screenshots/` tree are dirty with other seats' changes and were not touched.
+- value.js `cbe5b632d` holds the AFTER frames, the cure probe and its JSON, the census and the e2e logs, all in `pass-03/f3r/`. The earlier loop's pass-03 sets (`cure/`, `f3/`, `f5/`, the top-level frames) are left as they were.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F3R-C1 | `BasisSelector.vue`: `.basis-group-label` takes `font-size: var(--control-label)`, the token glass Label (and so `.control-row-label`) is sized by. `--type-small` is deleted from the rule. **Measured** (`f3r-cure-probe-after.json`): heading = row label in all four cells, 14.54px at 1440 and 18.62px at 390 (was 14px under 18.6px at 390). At 1440 the heading was 16.4px over 14.5px; it now sits on the row's rung there too, which is what the pass-2 comment on the rule already claimed. Frames: `v-controls-*-390`, `v-loaded-*-1440`. |
+| DS-F3R-C2 | `GallerySearchBar.vue`: the Separator loses `h-5 shrink-0` and takes one scoped rule, `align-self: center; block-size: calc(var(--control-h-xs) - 0.5rem)`. Glass's vertical Separator is `align-self: stretch`, so a fixed height hung from the top of the actions run. **Measured:** off-centre 0 in all four cells; the rule is 20px in the 40px field at 1440 and 36px in the 60px field at 390. The actions slot did not top-align, so nothing is relayed to glass. Frames: `gallery-*`. |
+| DS-F3R-C3 | `style.css`, beside the paper bridge: `article.paper-article .paper-cite { hyphens: manual; white-space: nowrap; }`. The class is latex-paper's (`<cite class="paper-cite">`). **Measured:** each cite is one line box, none overflows the article at 390 (115px in a 358px column), and prose still computes `hyphens: auto`. The paper's longest cites are two-key (`szego_orthogonal, gray_toeplitz`); those sections were not scrolled into view, so their fit at 390 is by arithmetic, not by frame. Frames: `paper-scrolled-*`. |
+| DS-F3R-C5 | `VisualizationView.vue`: decided once, the critic's first option. `.drop-zone`'s border is `1px dashed transparent` at rest and is inked (`--focus-ring-color`) only under `.drop-target[data-dragging]`, the rule that already existed. The stage's own hairline is the one frame; the zone's box and radius are unchanged (5px in, radius 12px in a 16px stage), so the pass-2 C3 concentricity holds for the drag state. **Measured:** rest `rgba(0,0,0,0)`; dragging `rgb(28,25,23)` light, `rgb(186,183,171)` dark. Frames: `w-*`, `w-dragging-*-1440`. |
+
+**Refused: an owner ruling, not a cure.**
+- **DS-F3R-C4** (Epicycles and Series both wear the script-F). The glyph on both chips was restored by owner ruling at F.W14U.c2 (COHESION §0dc: "The ℱ glyph is back on the Epicycles and Series chips"). Swapping one for a Sigma or dropping both removes the identity mark from a chip, which §0dm reserves to the owner. Left as it stands; the row is open for the owner.
+
+**Glass-owned, cited, not overridden.**
+- **G1** (stacked bevel and casts on stage, aside, cards, buttons, docks), **G2** (the pointer-following `::before` specular) and **G7** (the progress rail's fill and sweep): held honest-RED on **O-87 FLAT-LIGHTING** until the 10.2.0 repin.
+- **G3** (dock collapse form, the transport pill, the 390 ellipse): held on **O-88 DOCK-COLLAPSE-MOTION**, with O-87 for the halo cast.
+- **G4** (the translucent section menu; no current-row paint, no icon gap), **G5** (text-emphasis Button is ink in light and violet in dark), **G6** (the coarse ramp grows labels but not values, inputs or captions; inputs under 16px), **G8** (Select and Input wear two field fills) and **G9** (the Strategy Select's chevron; not re-checked on a fresh load): for relay to glass beside O-87. This seat wrote no relay file and no local plate, colour, ramp or fill.
+
+**Census** (`scripts/ds-census.mjs` on `:3100`; `f3r/census-after.json`). Still RED on the glass rows; unchanged by this cure.
+- Static: 8 box-shadow declarations, 12 layers, 7 gradients, 3 keyframes, 0 infinite animations.
+- Computed sums: 378 shadow elements, 948 layers, 283 multi-layer stacks, 283 inset highlights, 212 backdrop blur, 0 control gradients, 1 looping animation (a cell read mid-load, as in the pass-2 re-witness). These equal the re-witness's read exactly.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116 (20 files), twice.
+- **e2e: NOT GREEN ×2.** Nine specs (`e2e-specs.txt`), headless, chromium plus mobile-chromium, 3 workers, against `:3100`, at host load 90–190.
+  - Run A: 78 passed, 4 failed. Run B: 78 passed, 4 failed. Three reds repeat: `f-w13-image-controls:200` (playback autostart never reads `aria-pressed="true"`), `f-w14u-vstage:300` e169 (the "Edit contour" button never appears) and `visual-checkpoint:164` item 3 (no `POST /api/equations/compute` response in 30s). All three wait on a backend compute.
+  - Serial recheck of those three (`e2e-recheck-3b.txt`, 1 worker): 3 passed (both e169 cells and item 3), 1 failed (the playback autostart again). The first recheck attempt died in global-seed: `POST /api/sessions` took 32–40s by `curl` at load ~190 (`e2e-recheck-3.txt`).
+  - None of the reds asserts on a surface this cure changed, but the playback-autostart red was not isolated against the parent commit, so it is unproven rather than cleared.
+- **No visual golden was re-baselined.** `web/e2e/screenshots/` was backed up before the runs and restored after each one.
+
+**Frames** (`pass-03/f3r/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f3r-cure-probe.mjs` against `:3100`, pointer parked at (0,0): `gallery-*`, `paper-scrolled-*` and `w-*` at 1440 and 390, `v-loaded-*-1440`, `v-controls-*-390` and `w-dragging-*-1440`, each in light and dark.
