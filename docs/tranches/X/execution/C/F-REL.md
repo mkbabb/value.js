@@ -841,3 +841,61 @@ Close seat `claude-opus-5-5`, 2026-10-13 ~19:13–19:25Z, VERIFY-ONLY (cures not
 - X-DS / `.g`: the dirty `web/e2e/screenshots/f-w14/*.png` evidence re-renders (§0ex orphans).
 
 **Four-verb line:** unmoved. F.REL stays OPEN, **BLOCKED-ON ESC-FREL-mem-1** (then `.mem` → `.w` → `.g` merge → master CI GREEN → `.d`).
+
+## RESUME 2026-10-13 (b) (§0ey + §0ex + F-REL.md ADDENDUM (b)) — Open
+
+Seat 0, `claude-opus-5-5`, 2026-10-13 ~15:16 local. LEDGER read first: F.REL = **BLOCKED-ON ESC-FREL-mem-1** (not CLOSED), this record exists → RESUME MODE. The block is lifted by COHESION §0ey (ESC-FREL-mem-1 RULED, routes a → c → b) and §0ex (orphans adopted). The file ends at §0ey (⟨`grep -n '^## §0e[v-z]' COHESION.md`⟩ → L3752 §0ev · L3772 §0ew · L3791 §0ex · L3800 §0ey).
+
+### Preconditions (bytes and ledger)
+- F.W14V CLOSED and F.CT phase 2 CLOSED honest-RED (§0eu): banked at the 2026-10-08 Open, unchanged.
+- ESC-FREL-mem-1 ruled: §0ey L3800-3807; spec addendum (b) at `fourier/waves/F-REL.md:45-46`.
+- fourier tree: ⟨`git rev-parse --abbrev-ref HEAD`⟩ → `m/w1-bump-migration`; ⟨`git rev-parse --short HEAD origin/m/w1-bump-migration origin/master`⟩ (after `git fetch`) → `c6a242d` · `c6a242d` · `ad62881`; ⟨`git rev-list --left-right --count origin/master...HEAD`⟩ → `1 439`.
+- **Not ruled (read to the file end):** ⟨`grep -n 'ESC-FREL-w-1\|ESC-FREL-w-2\|ESC-FREL-g-4' COHESION.md`⟩ → 0 lines. ESC-FREL-w-1 (the frozen oracle `web/e2e/contrast-pairs.ts` is outside `.w`'s set) stays open; `.w` is planned inside its §0ew set and re-escalates w-1 if the oracle still blocks. w-2 and g-4 are ordering findings that the serial order below discharges (`.mem2` first).
+
+### Crash recovery
+- value.js: ⟨`git status --porcelain -- execution/C/F-REL.md execution/LEDGER.md V/coordination/INBOX.md`⟩ → empty. Nothing inherited by seat 0.
+- fourier (read-only for seat 0; named for the adopting units, §0ex): ` M scripts/model-smoke.sh` (mtime Oct 9 11:50) and `?? bench/contours/memory.py` (Oct 9 13:05) — `.mem`'s orphans, adopted by `.mem2`; WIP patch also at `~/.fourier-frel/mem/frel-mem-wip.patch`. 43 × ` M web/e2e/screenshots/f-w14/*.png` — orphaned evidence re-renders, adopted by `.vb` (§0ex last bullet). ` M web/src/components/gallery/GallerySearchBar.vue`, `…/visualization/BasisSelector.vue`, `…/visualization/VisualizationView.vue`, `web/src/style.css` — X-DS fourier lane paths; `.w` reads their mtimes: after 2026-10-13 14:45 and moving = a live writer (§0ev.3 clean window), else orphans of the X-DS lane (left for it; `.w` commits only its own hunks by the §0ex index-blob idiom).
+
+### E13 mail sweep
+Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` (BL is the newest glass tranche dir and has no `coordination/`) · keyframes `V/coordination` · atlas `P/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path except glass `BL/FORMATION-PROGRESS.md` (a progress file, not mail; same reading as the earlier sweeps). ⟨`grep -nE "\| *UNREAD" INBOX.md`⟩ → L406 and L600, both prose sweep notes, no mail row. **0 unrowed · 0 UNREAD.** Sweep line appended to INBOX.
+
+## RESUME 2026-10-13 (b) — Baseline (BEFORE, read-only)
+
+⟨`uptime`⟩ → load `160.24 154.70 123.49`. Under the phase-2 resource law no heavy suite (pytest, api, e2e, extraction probe) is re-run at this open; those cells cite the banked readings of the `## RESUME 2026-10-13 — Close` table above. Static and network reads are taken now.
+
+| Gate | BEFORE (this open) | State |
+|---|---|---|
+| G-mem peak RSS ≤ 1.6 GB | ⟨`grep -n 'SUBJECT_MODELS\b.*=\|input_size=' src/fourier_analysis/contours/ml.py`⟩ → `76: input_size=320,` · `86: input_size=1024,` · `90: SUBJECT_MODELS … = (U2NET, BIREFNET_LITE)`; banked 5545 MB linux / 9838 MB darwin | RED |
+| route (a) artefacts | ⟨`ls scripts/export-birefnet-lite.py`⟩ → No such file; ⟨`gh release view models-2026-10`⟩ → `release not found` | RED (absent) |
+| G-mem2 2G container smoke | the smoke edit is an uncommitted orphan (` M scripts/model-smoke.sh`); not run | RED (unread) |
+| G-iou mean ≥ 0.97 / min ≥ 0.93 | banked U2-Net-only candidate 0.9791 / 0.9056 (not landed) | RED on min |
+| pytest + api ×2 | banked 171 ×2 / 344 ×2; CI 38452213569 api ✓ | GREEN (banked) |
+| vue-tsc / vitest ×2 | banked rc 0 ×2 / 116 ×2 (close seat, today) | GREEN (banked) |
+| G-w manifest | ⟨`node -e 'require("./web/e2e/producer-held.json").rows.length'`⟩ → `8` | GREEN |
+| G-vb goldens | ⟨`find web/e2e -path "*-snapshots*" -name "*.png"`⟩ → 6 `darwin.png` · 6 `linux.png` | GREEN at `8094890` (re-read owed after `.w`) |
+| e2e GREEN outside the manifest | ⟨`gh run list --branch m/w1-bump-migration --limit 2`⟩ → `failure … 38452213569` · `failure … 37876128973` | RED |
+| master merged / CI GREEN | `origin/master` `ad62881`, `1 439` | RED |
+| host API = new code | ⟨`curl …/openapi.json`⟩ → `34 0.2.0 []` | RED |
+| G-c on production | ⟨`curl -X OPTIONS … PATCH … if-match,idempotency-key …/api/visualizations/x`⟩ → `400` | RED |
+| host health | ⟨`curl …/health`⟩ → `200` | GREEN (non-regression) |
+| end-to-end production check / no-outage | banked 10/20; no deploy fired | RED / NOT READ |
+
+**Green before cure (R.2):** none among the gates the owed units turn. G-w manifest and G-vb are GREEN from their own landed cures (`7f807a3`, `8094890`), not before them.
+
+## RESUME 2026-10-13 (b) — Unit plan
+
+alreadyDone (commits exist, never re-dispatched): `F-REL.m` `F-REL.c` `F-REL.h`. `F-REL.mem` is superseded by `F-REL.mem2` (no fourier commit; its orphans are adopted). Owed, **strictly serial**, one concurrent, every seat Opus 5.5: `.mem2 → .w → .vb → .g → .d`. `.w` (PARTIAL: `0a88d44` `7f807a3`) and `.vb` (`8094890`) are RE-SITS named owed by the orchestrator: `.w` still owes contrast-floor ×3 and the e2e re-read once extraction fits in memory; `.vb` owes a re-read of the goldens after `.w`'s `web/src` edits and X-DS passes 5-7 (`56619fc` `64f7429` `c6a242d` landed around `8094890`), plus the 43 orphaned f-w14 PNGs (§0ex). A re-sit never redoes a landed commit.
+
+Binding on every unit: branch `m/w1-bump-migration` until `.g`; `git fetch` + `git pull --ff-only` (or a no-force merge) before every commit, never force; pathspec commits; §0ev.3 clean window only for paths with a live writer (mtime after 2026-10-13 14:45 and moving), §0ex adoption for orphans; headless only (§0ei); nothing durable in /tmp (§0eo; logs `~/.dev-logs/frel/`, work `~/.fourier-frel/`); one heavy run per repo at a time under `.worktrees/heavy.lock`; §0ev.2 functional reads under load. ESCALATED units do not halt the wave.
+
+Groups: `[[F-REL.mem2], [F-REL.w], [F-REL.vb], [F-REL.g], [F-REL.d]]`.
+
+| Unit | Spec section | Writable | Gates | Locks |
+|---|---|---|---|---|
+| F-REL.mem2 | COHESION §0ey (L3800-3807) + §0ew bullet 1 (L3773-3779) + §0ex (L3791-3798); addendum (b) (F-REL.md:45-46), addendum (a) `.mem` (F-REL.md:40) | `scripts/export-birefnet-lite.py` (new); `src/fourier_analysis/contours/ml.py`; its tests (`tests/test_contour_ml.py`, `tests/test_model_dir.py`, new `tests/test_*mem*.py`); the memory probe `bench/contours/memory.py` (+ its wiring); `scripts/model-smoke.sh`; the GitHub release asset under tag `models-2026-10` | G-mem peak RSS ≤ 1.6 GB every model × every harness image; G-mem2 `memory: 2G` container smoke extracts; G-iou mean ≥ 0.97, min ≥ 0.93 vs the 1024 ensemble; pytest + api GREEN ×2 | routes in order a → c → b, first to meet BOTH gates wins; torch at export time only (`uv run --with torch --with onnx`), never a runtime/image dep; sha256 pin in `SubjectModelSpec`; licence + weights sha recorded; raising the cap REJECTED; ONE atomic commit on m/w1 (F.CT3 re-judges); adopts the two orphans with the line "adopts the orphaned hunk of 2026-10-09" |
+| F-REL.w (re-sit) | §0ew bullet 2 (L3780-3783); addendum (a) `.w` (F-REL.md:41) | `web/src/**` (defect sites only); `web/e2e/producer-held.json`; `web/playwright.config.ts`; `.github/workflows/ci.yml`; value.js INBOX relay rows | G-w e2e GREEN outside the manifest (contrast-floor ×3 cured; the 19 latency timeouts re-read after `.mem2`); manifest rows printed by CI; vue-tsc / vitest ×2 | glass READ-ONLY; no skip in spec files; `web/e2e/contrast-pairs.ts` is NOT in the set — ESC-FREL-w-1 is unruled, re-escalate it by name if the oracle still blocks; 4 `web/src` paths are dirty from the X-DS lane (see Crash recovery) |
+| F-REL.vb (re-sit) | §0ew bullet 3 (L3784-3787); §0ex last bullet (L3798); addendum (a) `.vb` (F-REL.md:42) | `web/e2e/visual-checkpoint.spec.ts-snapshots/**`; the orphaned `web/e2e/screenshots/f-w14/*.png` | G-vb visual-checkpoint GREEN on darwin ×2 and in `mcr.microsoft.com/playwright:v1.61.0-noble` ×2 at the post-`.w` HEAD | under `heavy.lock`; goldens only (no oracle/threshold edits); re-baseline only frames that changed, name each |
+| F-REL.g | §Units `.g` (F-REL.md:31) + §0ew last bullet (L3788) | the merge `m/w1-bump-migration → master` (no force); `web/playwright.config.ts`, `web/e2e/**`, `.github/workflows/**` | master CI GREEN with the honest-RED set + producer-held manifest explicit; vue-tsc / vitest / e2e GREEN ×2 | merge only after `.mem2` GREEN and e2e GREEN outside the manifest; fetch before merge; `.gitignore` conflict resolved to m/w1's side whole; never force |
+| F-REL.d | §Units `.d` (F-REL.md:32-38) | `scripts/**` (prod-verify probe); evidence `value.js/docs/tranches/X/fourier/evidence/F-REL/` | G-smoke, cert > 14 d, G-outage (health polled through the deploy), `scripts/prod-verify.mjs` 20/20, openapi has publish/remix/diff, PATCH preflight 2xx | deploy via the standing workflow + webhook only; host never hand-edited; R-h1 / R-h2 named |
+
+## RESUME 2026-10-13 (b) — Unit receipts
