@@ -1,0 +1,44 @@
+(node:90661) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:90781) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[alpha-31] 1: moves=54 frames=129 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=136
+[alpha-31] 2: moves=55 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=134
+[alpha-31] 3: moves=49 frames=122 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=134
+[alpha-31] 4: moves=54 frames=124 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=133
+[alpha-31] 5: moves=56 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=133
+[alpha-31] 6: moves=61 frames=124 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=139
+[alpha-31] 7: moves=58 frames=122 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=140
+[alpha-31] 8: moves=51 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=140
+[alpha-31] 9: moves=59 frames=125 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=140
+[alpha-31] 10: moves=57 frames=122 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=140
+[alpha-31] 11: moves=61 frames=122 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=137
+[alpha-31] 12: moves=51 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=137
+[alpha-31] 13: moves=60 frames=122 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=131
+[alpha-31] 14: moves=57 frames=125 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=131
+[alpha-31] 15: moves=60 frames=123 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=131
+[alpha-31] 16: moves=57 frames=122 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=127
+[alpha-31] 17: moves=60 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=127
+[alpha-31] 18: moves=50 frames=125 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=129
+[alpha-31] 19: moves=56 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=129
+[alpha-31] 20: moves=61 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=128
+[alpha-31] 21: moves=58 frames=124 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=125
+[alpha-31] 22: moves=61 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=125
+[alpha-31] 23: moves=53 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=123
+[alpha-31] 24: moves=48 frames=123 p50=16.7 p95=16.7 longTasks=0 maxTask=0 load1=123
+[alpha-31] 25: moves=59 frames=124 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=124
+[alpha-31] 26: moves=54 frames=124 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=124
+[alpha-31] 27: moves=54 frames=121 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=122
+[alpha-31] 28: moves=59 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=122
+[alpha-31] 29: moves=52 frames=126 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=119
+[alpha-31] 30: moves=58 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=114
+[alpha-31] 31: moves=59 frames=123 p50=16.7 p95=16.8 longTasks=0 maxTask=0 load1=114
+[alpha-31] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) T=16.70 budget p50<=17.70 p95<=34.40 rounds=31 load1 144->114
+[alpha-31] p95 median=16.80 u95=16.80 u97.5=16.80 | p50 median=16.70 u95=16.70 u97.5=16.70 | over p95 0/31 p50 0/31 | GREEN
+  ✓  1 docs/tranches/X/waves/W12U-evidence/q/alpha-31.spec.ts:67:1 › alpha-31 — the alpha drag, >= 31 rounds, median and bootstrap bound in refresh intervals (1.6m)
+
+  1 passed (1.7m)
+exit=0

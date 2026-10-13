@@ -1,0 +1,6 @@
+### typecheck r1 start 15:51:04 load1=118.73 HEAD=2c9738567
+lib EXIT 0
+demo EXIT 0
+test EXIT 0
+e2e EXIT 0
+### end 15:52:01 load1=119.67
