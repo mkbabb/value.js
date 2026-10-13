@@ -1,0 +1,37 @@
+{"name":"palettes-1440-light.png","ok":false,"error":"TimeoutError: page.goto: Timeout 300000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"load\"\u001b[22m\n"}
+{"name":"extract-1440-light.png","ok":false,"error":"TimeoutError: page.goto: Timeout 300000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/extract\", waiting until \"load\"\u001b[22m\n"}
+{"name":"browse-1440-light.png","ok":false,"error":"TimeoutError: page.goto: Timeout 300000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"load\"\u001b[22m\n"}
+{"name":"picker-1440-light.png","ok":false,"error":"TimeoutError: page.goto: Timeout 300000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/\", waiting until \"load\"\u001b[22m\n"}
+{"name":"atmosphere-1440-light.png","ok":true,"attempt":1}
+{"name":"mix-1440-light.png","ok":true,"attempt":1}
+{"name":"generate-1440-light.png","ok":true,"attempt":1}
+{"name":"gradient-1440-light.png","ok":true,"attempt":1}
+{"name":"palettes-390-light.png","ok":true,"attempt":2}
+{"name":"browse-390-light.png","ok":true,"attempt":2}
+{"name":"blob-1440-light.png","ok":true,"attempt":2}
+{"name":"picker-390-light.png","ok":true,"attempt":2}
+{"name":"gradient-390-light.png","ok":true,"attempt":1}
+{"name":"mix-390-light.png","ok":true,"attempt":1}
+{"name":"extract-390-light.png","ok":true,"attempt":1}
+{"name":"generate-390-light.png","ok":true,"attempt":1}
+{"name":"atmosphere-390-light.png","ok":true,"attempt":1}
+{"name":"blob-390-light.png","ok":true,"attempt":1}
+{"name":"palettes-1440-dark.png","ok":true,"attempt":1}
+{"name":"picker-1440-dark.png","ok":true,"attempt":1}
+{"name":"browse-1440-dark.png","ok":true,"attempt":1}
+{"name":"extract-1440-dark.png","ok":true,"attempt":1}
+{"name":"mix-1440-dark.png","ok":true,"attempt":1}
+{"name":"generate-1440-dark.png","ok":true,"attempt":1}
+{"name":"gradient-1440-dark.png","ok":true,"attempt":1}
+{"name":"atmosphere-1440-dark.png","ok":true,"attempt":1}
+{"name":"blob-1440-dark.png","ok":true,"attempt":1}
+{"name":"picker-390-dark.png","ok":true,"attempt":1}
+{"name":"extract-390-dark.png","ok":true,"attempt":1}
+{"name":"browse-390-dark.png","ok":true,"attempt":1}
+{"name":"palettes-390-dark.png","ok":true,"attempt":1}
+{"name":"mix-390-dark.png","ok":true,"attempt":1}
+{"name":"atmosphere-390-dark.png","ok":true,"attempt":1}
+{"name":"gradient-390-dark.png","ok":true,"attempt":1}
+{"name":"generate-390-dark.png","ok":true,"attempt":1}
+{"name":"blob-390-dark.png","ok":true,"attempt":1}
+FAILED 4 OF 36
