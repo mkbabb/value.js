@@ -687,3 +687,57 @@ Seat `claude-opus-5-5`, 2026-10-13 18:45–19:06Z. Spec read whole (F-REL.md, 43
 - R-vb-1: the blank modal view count above. It is in `web/src` or the fixture, outside this unit's set. If it is cured, the modal golden re-baselines in that cure's receipt (§0ew standing rule).
 - R-vb-2: §0ex assigns the orphaned `web/e2e/screenshots/f-w14/*.png` re-renders (dirty since 10-09) to "that repo's next `.vb`". This unit's writable set is the snapshot directory only, so I left them untouched and uncommitted; the adoption needs a seat whose set includes that path.
 - The scratch API, vite and the container are stopped; the lock is released.
+
+### F-REL.g
+
+#### F-REL.g — RESUME 2026-10-13 (sitting 3; the merge lock read at the bytes)
+
+Seat `claude-opus-5-5`, 2026-10-13 19:03–19:15Z. Spec read whole (F-REL.md, 43 lines); §Units `.g` (L27) and addendum (a) (L39-43); COHESION §0ew (L3772-3789) and §0ex (L3791-3798, the file end) read at the bytes. **Status: ESCALATED. No merge, no push to master, no fourier commit.** The unit's lock ("merge only after `.mem` GREEN and e2e GREEN outside the manifest") is unmet on both arms, measured below.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier, 46 paths) → inside this unit's set only `web/e2e/screenshots/f-w14/*.png` (43 evidence re-renders, mtimes 10-09; §0ex orphans, see Residuals). `web/playwright.config.ts`, `web/e2e/**` code and `.github/workflows/**` are clean. Outside the set and untouched: `scripts/model-smoke.sh` (M, mtime 10-09 11:50) and `bench/contours/memory.py` (??, mtime 10-09 13:05) — both `.mem`'s orphans — and `.worktrees/`.
+
+**Seat-0 brief, act by act.**
+1. **Fetch.** ⟨`git fetch --all`; `git rev-parse HEAD origin/m/w1-bump-migration origin/master`⟩ → `c6a242d` · `c6a242d` · `ad62881`. m/w1 is 0/0 with its remote; master is unmoved since 10-06. ⟨`git rev-list --left-right --count origin/master...HEAD`⟩ → `1	439`.
+2. **`.mem` at the bytes: NOT landed.** ⟨`grep -n 'SUBJECT_MODELS\|input_size' src/fourier_analysis/contours/ml.py`⟩ → `86: input_size=1024,` · `90:SUBJECT_MODELS: tuple[SubjectModelSpec, ...] = (U2NET, BIREFNET_LITE)`. ⟨`git log --oneline -3 -- src/fourier_analysis/contours/ml.py`⟩ → newest is `871cc1c` (`.m`, 10-08); no `.mem` commit exists. The `.mem` receipt above reads "ESCALATED (ESC-FREL-mem-1). No commit", and ⟨`grep -n 'ESC-FREL-mem-1' COHESION.md`⟩ → 0 lines: the escalation is unruled.
+3. **CI dispatched on m/w1 at `c6a242d`.** ⟨`gh workflow run ci.yml --ref m/w1-bump-migration`⟩ → run **38452213569** (`workflow_dispatch`; `deploy-pages` guards on a master push, so nothing ships from it). ⟨`gh run view 38452213569 --json jobs`⟩ →
+
+| job | conclusion |
+|---|---|
+| api/tests (with live Mongo) | success |
+| web (vue-tsc + vite build) | success |
+| production compose boot + health | success |
+| e2e (Playwright, COMPUTE_RATE_LIMIT=1000) | **failure** |
+| inv-27 evidence | skipped |
+
+   - e2e steps: 11 "Producer-held manifest (excluded from the gate below)" success (the manifest's first CI print); 12 "Run Playwright e2e" **cancelled**; 13 "Producer-held set … still RED as declared" skipped (never reached).
+   - ⟨`gh run view 38452213569 --job 115485725549 --log`⟩ (`~/.dev-logs/frel/g3-ci-e2e-38452213569.log`, 684 lines) → `Running 530 tests using 1 worker`, 2 passed, then `✘ 3 [chromium] › e2e/contour-extraction.spec.ts:16:9 › … upload and extract contours — golden-retriever.webp (30.7s)` at 19:09:25Z and `##[error]The operation was canceled.` at 19:09:40Z. Annotation: `The operation was canceled.` This is the same signature as 37876128973 (the runner dies inside a contour extraction), one test earlier.
+4. **Merge dry-run (not performed).** ⟨`git merge-tree --write-tree --name-only origin/master HEAD`⟩ → tree `42a3035…`, `CONFLICT (content): Merge conflict in .gitignore` (auto-merging `deploy-pages.yml`, `pages-deploy.sh`). Sitting 1 read this merge clean; it no longer is. The conflict is mechanical: master's `ad62881` added `!scripts/pages-smoke.sh` at the line where m/w1 added that same entry plus six more (`model-smoke.sh`, `cors-probe.sh`, `cors-probe.mjs`, `prod-verify.mjs`, `prod-compose-smoke.sh`, `deploy-switch-smoke.sh`); the resolution is m/w1's side whole. The merging seat resolves it in the merge commit.
+5. **Local, under the resource law** (⟨`uptime`⟩ → load 130; light gates only, e2e not run). ⟨`npx vue-tsc -b --force`⟩ ×2 → rc 0, 0 bytes of output each (`~/.dev-logs/frel/g3-vuetsc-1/2.log`). ⟨`npx vitest run`⟩ ×2 → `Test Files 20 passed (20)` · `Tests 116 passed (116)` each (`g3-vitest-1/2.log`).
+
+**Why the merge is withheld (no substitute taken).** Both arms of the lock are RED, and each has a cause outside this unit's set:
+- **`.mem` is not GREEN.** HEAD still runs BiRefNet-lite at 1024² in the subject ensemble (act 2), which sitting 2 measured at 7.5–9.0 GB per inference. Pushing master fires the host webhook deploy (R-h2) of an API that OOMs under `docker-compose.prod.yml`'s `memory: 2G` on every extraction.
+- **e2e is not GREEN outside the manifest.** CI cannot finish the suite at all (act 3). Behind that, `.w` left `contrast-floor` ×3 RED (ESC-FREL-w-1, unruled: ⟨`grep -n 'ESC-FREL-w-1' COHESION.md`⟩ → 0 lines) and 19 latency rows unread on an uncontended runner (ESC-FREL-w-2), which only a completed CI e2e run can read.
+- `.vb` is GREEN (goldens `8094890`, measured ×2 per platform at `c6a242d`), but CI never reaches `visual-checkpoint` to witness it.
+
+**Gates (BEFORE → AFTER).**
+
+| Gate | BEFORE (sitting 2) | AFTER (this sitting) | Reading |
+|---|---|---|---|
+| G-e2e: master CI e2e GREEN, honest-RED set + manifest explicit | RED (37876128973, runner killed at the 4th extraction) | **RED** on m/w1 `c6a242d` (38452213569, cancelled at the 3rd test, an extraction); master not merged, so no master run exists | **RED** |
+| CI api + web + prod-compose on master | m/w1: ✓ ✓ ✓ | m/w1 `c6a242d`: ✓ ✓ ✓ (38452213569); **master: not read — unmerged** | GREEN on m/w1 only |
+| vue-tsc ×2 | rc 0 ×2 | rc 0 ×2 at `c6a242d` | GREEN |
+| vitest ×2 | 116/116 ×2 | 116/116 ×2 at `c6a242d` | GREEN |
+| e2e ×2 local | RED, not re-run | not run (load 130; CI is the witness and it is RED) | RED |
+| manifest printed by CI | first print pending | step 11 success on 38452213569 | GREEN |
+
+**Adjacent edits (LW-1, declared as the close seat asked).** Sitting 1's two lint cures edited `web/src/**`, outside `.g`'s set (`web/playwright.config.ts`, `web/e2e/**`, `.github/workflows/**`). Same repository, same concern (the CI `web` job's lint floor, which gated `deploy-pages` beside e2e); no behaviour change. ⟨`git show --stat 4bcdeaa c17c1ce`⟩ →
+- `4bcdeaa` (oxlint `--deny-warnings`): `web/src/components/equation/ConvergencePlot.vue` (9 lines: ternary-as-statement → if/else ×3) · `web/src/lib/api.ts` (1 line: `?? {}` inside an object spread dropped) · `web/src/lib/svg-fourier.ts` (13 lines: `new Array(n)` fill loops → `map` ×2). Its five `web/e2e/*.spec.ts` paths are inside the set.
+- `c17c1ce` (eslint `no-duplicate-imports`): `web/src/components/ui/tooltip/Tooltip.vue` (1 line) · `web/src/components/visualization/BasisCanvas.vue` (3 lines): type imports folded into their value imports.
+- This sitting: none.
+
+**Escalation — ESC-FREL-g-4: `.g` was dispatched ahead of its own lock.** The order `.mem → .w → .vb → .g` (addendum (a)) has `.mem` ESCALATED with no commit (ESC-FREL-mem-1: neither §0ew route meets both G-mem and G-iou; it asks a ruling between (a) a sha-pinned BiRefNet-lite export at 512/768 and (b) U2-Net-only with G-iou re-ruled for sponge-flower) and `.w` PARTIAL (ESC-FREL-w-1 asks a grant of `web/e2e/contrast-pairs.ts`; ESC-FREL-w-2 asks CI as the latency witness). None of the three is ruled in COHESION. `.g` cannot cure them: `src/fourier_analysis/contours/**` is outside its set, and its lock forbids the merge until they are GREEN. What unblocks it, in order: (1) rule ESC-FREL-mem-1 and re-seat `.mem`; (2) rule ESC-FREL-w-1 and re-seat `.w` (note `web/e2e/contrast-pairs.ts` is inside `.g`'s set, so a ruling may hand that re-baseline to `.g` instead); (3) dispatch CI on m/w1 and read e2e whole — that run answers ESC-FREL-w-2; (4) re-seat `.g` for the merge.
+
+**Residuals.**
+- The merge and master push, with the `.gitignore` resolution of act 4; the master CI read; `deploy-pages` not skipped.
+- R-vb-2 stands: the 43 orphaned `web/e2e/screenshots/f-w14/*.png` re-renders are inside this unit's path set, but §0ex assigns them to a visual re-baseline unit, and they were rendered on 10-09 against a tree with X-DS WIP that no longer exists, so I could not verify them as frames of HEAD. Left untouched and uncommitted.
+- `.mem`'s orphans (`scripts/model-smoke.sh`, `bench/contours/memory.py`) wait for the `.mem` re-seat (§0ex).
