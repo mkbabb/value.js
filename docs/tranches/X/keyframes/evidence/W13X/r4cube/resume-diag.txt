@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5 — resume-diag.mjs readings, 2026-10-13 (pointer vs keyboard Play after a paused cell edit + Reset; wait = no edit, 3 s idle)
+VARIANT=both KEY= load=149.40 98.23 65.36
+{"log": ["556:label=Expand dock", "1312:pointerdown>svg", "1312:focus>Play animation", "1312:label=null", "1316:pointerup>svg", "1316:click>DIV"], "mirrors": [{"w": 44, "x": 848, "y": 770, "inert": false, "op": "1"}], "afterPlay": {"cls": "idle-hover preserve-3d", "t": ["Play animation"]}, "errors": []}
+VARIANT=both KEY=1 load=191.96 114.85 72.76
+{"log": ["584:label=Expand dock", "1268:focus>Play animation", "1275:label=null", "1281:label=Pause animation"], "mirrors": [{"w": 44, "x": 848, "y": 770, "inert": false, "op": "1"}], "afterPlay": {"cls": "idle-hover preserve-3d playing", "t": ["Pause animation"]}, "errors": []}
+VARIANT=wait KEY= load=165.14 117.02 75.27
+{"log": ["1288:pointerdown>svg", "1288:pointerup>svg", "1290:label=Pause animation"], "mirrors": [{"w": 44, "x": 848, "y": 770, "inert": false, "op": "1"}], "afterPlay": {"cls": "idle-hover preserve-3d playing", "t": ["Pause animation"]}, "errors": []}
+VARIANT=wait KEY=1 load=146.59 117.45 77.09
+{"log": ["1280:label=Pause animation"], "mirrors": [{"w": 44, "x": 848, "y": 770, "inert": false, "op": "1"}], "afterPlay": {"cls": "idle-hover preserve-3d playing", "t": ["Pause animation"]}, "errors": []}

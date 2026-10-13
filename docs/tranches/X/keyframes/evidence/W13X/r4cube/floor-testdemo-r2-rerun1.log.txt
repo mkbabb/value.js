@@ -1,0 +1,6 @@
+load start 130.39 118.81 80.80
+EXIT=0
+ Test Files  4 passed (4)
+      Tests  14 passed (14)
+   Duration  9.13s (transform 10.19s, setup 212ms, import 5.43s, tests 14.23s, environment 7.97s)
+load end 128.12 118.71 81.21

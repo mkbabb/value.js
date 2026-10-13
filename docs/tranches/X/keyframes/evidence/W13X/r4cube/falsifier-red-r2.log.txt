@@ -1,0 +1,43 @@
+load 212.82 181.71 195.21
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+(node:94979) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |demo| test/demo/scenes/r4cube-playing-and-paused-edit.test.ts (3 tests | 2 failed) 9565ms
+     × MATRIX-PAUSED-EDIT-UNPAINTED — a cell edit while paused moves the die, at the channel's own playhead, and does not resume 493ms
+     × MATRIX-PAUSED-EDIT-UNPAINTED — a Reset while paused moves the die and does not resume 444ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/scenes/r4cube-playing-and-paused-edit.test.ts > X.KF.W13X.r4cube — the cube's playing state and the paused matrix edit > MATRIX-PAUSED-EDIT-UNPAINTED — a cell edit while paused moves the die, at the channel's own playhead, and does not resume
+AssertionError: expected 'matrix3d(1, 0, 0, 0, 0.02538629627356…' not to be 'matrix3d(1, 0, 0, 0, 0.02538629627356…' // Object.is equality
+ ❯ test/demo/scenes/r4cube-playing-and-paused-edit.test.ts:144:28
+    142|             await nextTick();
+    143|         }
+    144|         expect(pose()).not.toBe(before);
+       |                            ^
+    145|         expect(group.paused).toBe(true);
+    146|         expect(useSceneMachine().status.value).toBe("paused");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |demo| test/demo/scenes/r4cube-playing-and-paused-edit.test.ts > X.KF.W13X.r4cube — the cube's playing state and the paused matrix edit > MATRIX-PAUSED-EDIT-UNPAINTED — a Reset while paused moves the die and does not resume
+AssertionError: expected 'matrix3d(1, 0, 0, 0, 0.02538629627356…' not to be 'matrix3d(1, 0, 0, 0, 0.02538629627356…' // Object.is equality
+ ❯ test/demo/scenes/r4cube-playing-and-paused-edit.test.ts:168:28
+    166|             await nextTick();
+    167|         }
+    168|         expect(pose()).not.toBe(edited);
+       |                            ^
+    169|         expect(exposed.facility.group.paused).toBe(true);
+    170|         expect(useSceneMachine().status.value).toBe("paused");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  18:53:43
+   Duration  29.56s (transform 15.48s, setup 165ms, import 14.26s, tests 9.57s, environment 3.95s)
+
+EXIT=1

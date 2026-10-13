@@ -1,0 +1,13 @@
+load start 101.88 85.37 59.69
+TESTDEMO_EXIT=1
+     × one pressed toggle writes --motion-weight: 0 on the heading, and a second press releases it 6937ms
+     × (2) the ENGINE paints every dot, and never to a blank frame 5016ms
+ FAIL  |demo| test/demo/scenes/easing-picker-hierarchy.test.ts > X.KF.W13W.p · OA-58 — the easing picker's one hierarchy
+ FAIL  |demo| test/demo/scenes/matrix-editor.test.ts [ test/demo/scenes/matrix-editor.test.ts ]
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |demo| test/demo/instrument/hero-wave-pause.test.ts > KFA-134 — the hero wave's pause is reachable from the UI > one pressed toggle writes --motion-weight: 0 on the heading, and a second press releases it
+ FAIL  |demo| test/demo/instrument/typing-dots-engine-seam.test.ts > TypingDots — the inv-ζ engine seam > (2) the ENGINE paints every dot, and never to a blank frame
+ Test Files  4 failed | 138 passed (142)
+      Tests  2 failed | 861 passed | 9 skipped (872)
+   Duration  84.46s (transform 299.16s, setup 11.45s, import 510.11s, tests 272.60s, environment 456.27s)
+load end 184.71 117.11 74.31

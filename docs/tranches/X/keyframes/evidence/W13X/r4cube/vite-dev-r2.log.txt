@@ -1,0 +1,13 @@
+(node:12933) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+2:46:42 PM [vite] (client) Forced re-optimization of dependencies
+
+  VITE v8.0.16  ready in 2607 ms
+
+  ➜  Local:   http://localhost:5493/
+  ➜  Network: use --host to expose
+2:46:43 PM [vite] (client) [optimizer] bundling dependencies...
+2:53:44 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/keyframes.js/demo/scenes/cube/CubeScene.vue, /@fs/Users/mkbabb/Programming/keyframes.js/demo/styles/style.css
+2:55:15 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/keyframes.js/demo/scenes/cube/CubeScene.vue, /@fs/Users/mkbabb/Programming/keyframes.js/demo/styles/style.css
+2:57:50 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/keyframes.js/demo/styles/style.css
+2:58:22 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/keyframes.js/demo/styles/style.css
