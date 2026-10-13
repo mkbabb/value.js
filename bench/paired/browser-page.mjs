@@ -6,6 +6,11 @@
 //   classes  whole / acc / rej (split by the retired arm's verdict) over the 29,944 sources; large = parseStylesheet
 //            on the WHOLE G-large sheets (sheets/MANIFEST.json; INFO: unequal work); large-eq = parseStylesheet on the
 //            equal-work prefix corpus (bench/corpus/large-prefix-2026-09-25/, X.P.W7 `.eq`): the large cell of record
+//            acc-eq / rej-eq (X.P.W8 Repair 1, ESC-W8lg1-1) = the EQUAL-WORK cut of acc / rej: the sources EVERY arm in
+//            the page accepts (refuses). acc / rej split by the retired verdict alone, so they also time the product
+//            on sources it answers the other way (measured on 5408b73e7: of rej parseCssColor's 23,484 sources the
+//            product ACCEPTS 1,724 — 678 color-mix() it computes at 6.7 µs where retired refuses in 1.8 µs, Firefox);
+//            W7.md ADDENDUM (g) 1's law for `large-eq` (a speed gate compares the same work), applied per source
 //   R-v-3    a declared warm-up (WARMUP passes per arm at k = 1, identical for every arm) BEFORE the k-rule; then k
 //            doubles until the LEAST of CAL retired passes takes ≥ floor ms (X.P.W8 Repair 1, ESC-W8lg1-1: one pass
 //            taken under a load stall had set k as low as 64 for a cell read at k = 2048, and passes then timed 0 ms;
@@ -39,7 +44,9 @@ export function install(arms, inputs, sheets, prefixSheets) {
         if (rev) names = names.reverse();
         const f = Object.fromEntries(names.map((a) => [a, F[a][entry]]));
         const accepts = (s) => { try { return f.retired(s)?.ok === true; } catch { return false; } };
+        const agrees = (s, ok) => names.every((a) => { try { return (f[a](s)?.ok === true) === ok; } catch { return !ok; } });
         const xs = cls === "whole" ? inputs : cls === "acc" ? inputs.filter(accepts) : cls === "rej" ? inputs.filter((s) => !accepts(s))
+            : cls === "acc-eq" ? inputs.filter((s) => agrees(s, true)) : cls === "rej-eq" ? inputs.filter((s) => agrees(s, false))
             : cls === "large" && entry === "parseStylesheet" ? sheets : cls === "large-eq" && entry === "parseStylesheet" ? prefixSheets : null;
         if (xs === null) throw new Error(`class ${cls} for ${entry}`);
         const pass = (fn, k, lo = 0, hi = xs.length) => { const t = performance.now(); for (let j = 0; j < k; j++) for (let i = lo; i < hi; i++) { try { fn(xs[i]); } catch { } } return performance.now() - t; };
