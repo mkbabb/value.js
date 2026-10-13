@@ -127,12 +127,20 @@ function build([a, b, c, alpha]: Channels, readings: readonly [Reading, Reading,
 
 const LEGACY_ALPHA: Reading = ALPHA;
 
-/** A hex colour's digits (css-color-4 §5.2) as its `rgb` colour. */
+/**
+ * A hex colour's digits (css-color-4 §5.2) as its `rgb` colour: the digits are read ONCE as one integer and
+ * the channels taken from it — a 3/4-digit form's nibble `n` is the byte `n × 17` (`#abc` = `#aabbcc`). The
+ * grammar's `hex` admits exactly 3, 4, 6 or 8 hex digits, so the integer is < 2³² and `>>>` reads it exactly.
+ */
 function hexColor(token: string): ColorNode {
-    const digits = token.slice(1);
-    const full = digits.length <= 4 ? [...digits].map((d) => d + d).join("") : digits;
-    const byte = (i: number): number => parseInt(full.slice(i, i + 2), 16);
-    const made = rgb(byte(0), byte(2), byte(4), full.length === 8 ? byte(6) / 255 : 1);
+    const n = token.length - 1;
+    const v = parseInt(token.slice(1), 16);
+    let r: number, g: number, b: number, a = 255;
+    if (n === 6) { r = v >>> 16; g = (v >>> 8) & 255; b = v & 255; }
+    else if (n === 8) { r = v >>> 24; g = (v >>> 16) & 255; b = (v >>> 8) & 255; a = v & 255; }
+    else if (n === 3) { r = (v >>> 8) * 17; g = ((v >>> 4) & 15) * 17; b = (v & 15) * 17; }
+    else { r = (v >>> 12) * 17; g = ((v >>> 8) & 15) * 17; b = ((v >>> 4) & 15) * 17; a = (v & 15) * 17; }
+    const made = rgb(r, g, b, a / 255);
     return made.ok ? colorNode(made.value) : invalid(made.error.code);
 }
 
