@@ -41,3 +41,6 @@ pytest and the api tests GREEN ×2; web vue-tsc, vitest and e2e GREEN ×2 (the n
 - **`.w`:** consumer e2e defects cured in `web/src` under §0ev.3. Producer-owned failures go only into `web/e2e/producer-held.json` (test id, O-id, expiry), which CI's deploy gate excludes and prints. Relay each one to glass BK.
 - **`.vb`:** visual checkpoints re-baselined at HEAD, darwin locally and linux in the Playwright docker image, under the heavy-run lock. The redesigned frames are the accepted state.
 - `.g` then `.d` as specified, gated on `.mem` and the e2e being GREEN outside the manifest.
+
+## ADDENDUM 2026-10-13 (b) — ESC-FREL-mem-1 ruled (COHESION §0ey)
+`.mem2` tries the routes in order, and the first one meeting both gates wins: (a) our own BiRefNet-lite export (dynamic axes, or 768/512; `scripts/export-birefnet-lite.py`, with torch at export time only; a release asset `models-2026-10`, sha-pinned, licence recorded); (c) a measured alternative second model, ISNet-general-use first; (b) the best memory-conforming candidate, with each image under 0.93 handed by name to F.CT3. Then `.w → .vb → .g → .d`. Grant: `scripts/export-birefnet-lite.py`, `contours/ml.py`, its tests, the memory probe, and the release asset.
