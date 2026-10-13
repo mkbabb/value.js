@@ -741,3 +741,44 @@ Seat `claude-opus-5-5`, 2026-10-13 19:03–19:15Z. Spec read whole (F-REL.md, 43
 - The merge and master push, with the `.gitignore` resolution of act 4; the master CI read; `deploy-pages` not skipped.
 - R-vb-2 stands: the 43 orphaned `web/e2e/screenshots/f-w14/*.png` re-renders are inside this unit's path set, but §0ex assigns them to a visual re-baseline unit, and they were rendered on 10-09 against a tree with X-DS WIP that no longer exists, so I could not verify them as frames of HEAD. Left untouched and uncommitted.
 - `.mem`'s orphans (`scripts/model-smoke.sh`, `bench/contours/memory.py`) wait for the `.mem` re-seat (§0ex).
+
+### F-REL.d
+
+#### F-REL.d — RESUME 2026-10-13 (re-sit; the deploy precondition read at the bytes)
+
+Seat `claude-opus-5-5`, 2026-10-13 19:10–19:20Z. Spec read whole (F-REL.md, 43 lines); §Units `.d` (L32-38), §Gates (L36-37), addendum (a) (L39-43); COHESION §0ew and §0ex (the file end) read. **Status: ESCALATED (ESC-FREL-d-1 stands, now behind ESC-FREL-g-4). No deploy fired, no fourier commit.** The seat-0 brief opens "After master CI GREEN fires both deploys"; that event has not happened.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) inside `scripts/**` → ` M scripts/model-smoke.sh` only. Diff read whole (25+/10−): the smoke gains the compose memory cap (`--memory`, `--memory-swap`), runs every portrait in one process and prints `cgroup memory.peak`. That is `.mem`'s G-mem container smoke, and §0ex names it `.m`/`.mem`'s orphan; it is not `.d` work. Left untouched for the `.mem` re-seat. ⟨`git status --porcelain docs/tranches/X/fourier/evidence/F-REL/`⟩ (value.js) → empty.
+
+**The precondition (measured).**
+- ⟨`git fetch origin; git log --oneline -1 origin/master`⟩ → `ad62881` (unmoved since 10-06). ⟨`git rev-list --left-right --count origin/master...m/w1-bump-migration`⟩ → `1	439`. ⟨`git merge-base --is-ancestor m/w1-bump-migration origin/master`⟩ → rc 1 (not merged).
+- ⟨`gh run list --branch master --limit 5`⟩ → five `deploy-pages` runs, all `completed skipped` (newest 38452646640, 19:09:53Z, the `workflow_run` of `.g`'s m/w1 dispatch). No successful master CI exists, so the webhook's fail-closed check (`deploy-hook.sh:295`) and `deploy-pages.yml:55` both hold.
+- `.g` sitting 3 (above) withheld the merge: `.mem` never landed (ESC-FREL-mem-1 unruled) and CI e2e on `c6a242d` is RED (run 38452213569).
+
+**Acts (read-only against the live host; 1-min load 140).** Evidence: `docs/tranches/X/fourier/evidence/F-REL/d-resit-2026-10-13/` (README + 5 files).
+1. ⟨`bash scripts/pages-smoke.sh`⟩ → rc 0: `bundle /assets/index-BYSiPuAh.js carries the API base https://api.fourier.babb.dev` · `health: 200 application/json {"status":"ok"}` · `CORS: Access-Control-Allow-Origin https://fourier.babb.dev` · `PASS`. The bundle hash equals the 10-09 read: the live SPA is still the hotfix build.
+2. ⟨`openssl s_client -connect <host>:443 … | openssl x509 -noout -enddate`⟩ → api.fourier.babb.dev `notAfter=Jan  4 15:19:06 2027 GMT` · fourier.babb.dev `notAfter=Dec 22 20:13:07 2026 GMT` (83 and 70 days out).
+3. ⟨`curl -s https://api.fourier.babb.dev/openapi.json`; python path filter⟩ → `34 0.2.0` · `[]` (no publish/remix/diff path). ⟨`diff` of the sorted paths against `evidence/F-REL/openapi-paths-now.txt`⟩ → rc 0, identical.
+4. ⟨`curl -X OPTIONS https://api.fourier.babb.dev/api/visualizations/x -H 'Origin: https://fourier.babb.dev' -H 'Access-Control-Request-Method: PATCH' -H 'Access-Control-Request-Headers: if-match,content-type,x-session-token'`⟩ → `HTTP/1.1 400 Bad Request` · `access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS` · `access-control-allow-headers: Accept, Accept-Language, Authorization, Content-Language, Content-Type, X-Session-Token`. PATCH and `If-Match` are refused: the pre-`.c` host.
+5. `scripts/prod-verify.mjs` **not run**. Acts 1, 3 and 4 show the host and SPA unchanged from the 10-09 BEFORE read (10/20, `d-verify-before/`), and the probe writes to production. A second BEFORE run would add rows and no reading.
+6. G-outage: not read. There is no deploy to poll through.
+
+**Gates (BEFORE = 10-09 sitting → AFTER = this sitting).**
+
+| Gate | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| G-smoke `pages-smoke.sh` PASS on the new SPA | PASS on the hotfix SPA | PASS on the same hotfix SPA (`index-BYSiPuAh.js`) | **RED** as specified: no new SPA shipped (non-regression only) |
+| G-cert > 14 d | Jan 4 2027 / Dec 22 2026 | same | GREEN |
+| G-outage | not read | not read (no deploy) | **RED** (unread) |
+| openapi carries publish/remix/diff | 34 paths, none | 34 paths, none (identical) | **RED** |
+| PATCH preflight 2xx | blocked | 400 | **RED** |
+| G-d `prod-verify.mjs` six rows | 10/20 | not re-run (host unchanged) | **RED** |
+
+**Adjacent edits.** None.
+
+**Escalation.** ESC-FREL-d-1 stands unchanged in substance: `.d` has nothing to verify until `.g` merges, and `.g` waits on rulings for ESC-FREL-mem-1, ESC-FREL-w-1 and ESC-FREL-w-2 (ESC-FREL-g-4). Dispatching `.d` again before a successful master CI run exists will return this same receipt. The re-sit's script is unchanged: poll `/api/health` at ≤ 2 s through the webhook deploy, `pages-smoke.sh`, certs, openapi, the PATCH preflight of act 4, then `prod-verify.mjs` with `assets/portraits/daraksha.jpg` and the EXIF-6 original.
+
+**Residuals.**
+- The two private draft rows from 10-09 (`mighty-drawing-umber-zebra`, `rich-pouring-mango-salmon`) remain. No new rows were created this sitting. Removal needs the admin token (`DELETE /api/admin/visualizations/<slug>?hard=true`), an owner act; this seat holds no token.
+- R-h1 (hooks.json alert/token) and R-h2 (the first deploy runs under the old in-place hook, so the first master push may still cost an outage window) stand unread until the first deploy.
+- `scripts/model-smoke.sh` orphan stays for `.mem`.
