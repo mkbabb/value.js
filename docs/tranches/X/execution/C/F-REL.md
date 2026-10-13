@@ -782,3 +782,62 @@ Seat `claude-opus-5-5`, 2026-10-13 19:10–19:20Z. Spec read whole (F-REL.md, 43
 - The two private draft rows from 10-09 (`mighty-drawing-umber-zebra`, `rich-pouring-mango-salmon`) remain. No new rows were created this sitting. Removal needs the admin token (`DELETE /api/admin/visualizations/<slug>?hard=true`), an owner act; this seat holds no token.
 - R-h1 (hooks.json alert/token) and R-h2 (the first deploy runs under the old in-place hook, so the first master push may still cost an outage window) stand unread until the first deploy.
 - `scripts/model-smoke.sh` orphan stays for `.mem`.
+
+## RESUME 2026-10-13 — Close
+
+Close seat `claude-opus-5-5`, 2026-10-13 ~19:13–19:25Z, VERIFY-ONLY (cures nothing). **Wave verdict: BLOCKED-ON ESC-FREL-mem-1** (with ESC-FREL-w-1, ESC-FREL-w-2 and ESC-FREL-g-4 behind it). Of the resume's five owed units: `.vb` DONE, `.w` PARTIAL, `.mem` `.g` `.d` ESCALATED. The four-verb line does NOT move: master is unmerged, nothing deployed, and the spec's §Gates (e2e GREEN, the end-to-end production check, no outage through a deploy) read RED or unread.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) → ` M scripts/model-smoke.sh` (`.mem`'s orphan), `web/e2e/screenshots/f-w14/*.png` (evidence re-renders), `.worktrees/`; none is a close-seat path. value.js: the record and LEDGER are clean at the open of this sitting. Nothing inherited.
+
+**Resource law.** ⟨`uptime`⟩ → load 132 / 172 through the sitting. The light web gates were re-run ×2 here; pytest, the api suite and the e2e were NOT re-run locally (a default extraction peaks at 9.8 GB at HEAD, the very defect `.mem` escalates) and are read from CI run 38452213569 on `c6a242d` and from the unit receipts. `.worktrees/heavy.lock` absent (⟨`ls`⟩ → No such file), not taken.
+
+**E13.** Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` + `P/coordination` · keyframes `V/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path except glass `BL/FORMATION-PROGRESS.md` (a progress file, not mail; the same reading as the 2026-10-09 Track A sweep). ⟨`grep -nE "\| *UNREAD" INBOX.md`⟩ → 1 hit, line 406, the 2026-09-22 prose sweep note, not a mail row. **0 UNREAD in scope.**
+
+**Gates, BEFORE (RESUME baseline) → AFTER (this close; quoted by command).**
+
+| Gate (spec §Gates / addendum (a)) | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| G-mem: peak RSS ≤ 1.6 GB per default extraction | 9049 MB (BiRefNet-lite @1024) | ⟨`grep -n 'SUBJECT_MODELS\b.*=\|input_size=' src/fourier_analysis/contours/ml.py`⟩ → `86: input_size=1024,` · `90: SUBJECT_MODELS … = (U2NET, BIREFNET_LITE)` (HEAD unchanged; `.mem` landed nothing; its receipt reads 5545 MB Linux / 9838 MB darwin) | **RED** |
+| G-mem2: container smoke under `memory: 2G` | absent | not run; the smoke edit is uncommitted (` M scripts/model-smoke.sh`) | **RED** (unread) |
+| G-iou: mean ≥ 0.97, min ≥ 0.93 | n/a | the U2-Net-only candidate: mean 0.9791, min 0.9056 (`.mem` receipt; not landed) | **RED** on min |
+| pytest `tests/` + api ×2 | 171 ×2 / 344 ×2 (banked) | ⟨`gh run view 38452213569 --json jobs,headSha`⟩ → `c6a242d…` · `api/tests (with live Mongo) success`; no `src/` or `api/` commit since the banked ×2 | GREEN (CI + banked; local re-run withheld) |
+| G-h prod-compose boot + health on CI | GREEN | same run → `production compose boot + health success` | GREEN |
+| web vue-tsc ×2 | 0 | ⟨`npx vue-tsc -b --force`⟩ → rc 0, 0 lines ×2 | GREEN |
+| web vitest ×2 | 116 ×2 | ⟨`npx vitest run`⟩ → `Tests 116 passed (116)` ×2 | GREEN |
+| G-w manifest | absent | ⟨`node -e …producer-held.json`⟩ → 8 rows (`7f807a3`) | GREEN |
+| G-vb goldens darwin + linux | 6 darwin, 0 linux | ⟨`find web/e2e -path "*-snapshots*" -name "*.png"`⟩ → 6 `darwin.png`, 6 `linux.png` (`8094890`) | GREEN (`.vb` receipt ×2 each platform) |
+| **e2e GREEN outside the manifest ×2** | RED | same CI run → `e2e (Playwright, COMPUTE_RATE_LIMIT=1000) failure` (cancelled inside a contour extraction, `.g` sitting 3); `.w` local: 28 persistent failures | **RED** |
+| **master merged / master CI GREEN** | `ad62881` | ⟨`git rev-parse --short origin/master`⟩ → `ad62881`; ⟨`git rev-list --left-right --count origin/master...HEAD`⟩ → `1 439`; ⟨`git merge-base --is-ancestor HEAD origin/master`⟩ → rc 1; ⟨`gh run list --branch master --limit 3`⟩ → 3 × `deploy-pages completed skipped` | **RED** |
+| production smoke | PASS | ⟨`bash scripts/pages-smoke.sh`⟩ → `health: 200 … {"status":"ok"}` · `PASS` (the unchanged hotfix SPA) | GREEN as non-regression only |
+| cert > 14 d | GREEN | ⟨`openssl s_client … -enddate`⟩ → `Dec 22 20:13:07 2026` (SPA) / `Jan  4 15:19:06 2027` (API) | GREEN |
+| host API = new code | 34 paths | ⟨`curl …/openapi.json`⟩ → `34 0.2.0 []` (no publish/remix/diff) | **RED** |
+| G-c on production | 400 | ⟨`curl -X OPTIONS … PATCH … if-match,idempotency-key …/api/visualizations/x`⟩ → `400` | **RED** (not deployed) |
+| end-to-end production check | 10/20 | not re-run: no deploy fired, the host is byte-unchanged (`.d` re-sit) | **RED** |
+| no outage through the deploy | n/a | no deploy fired | NOT READ |
+
+**Commit roster (RESUME units; ⟨`git show --stat`⟩ read for each; fourier `m/w1-bump-migration` = `origin/m/w1-bump-migration` = `c6a242d`, all pushed).**
+- `.mem`: no fourier commit. value.js `fa1c6aafc` (receipt).
+- `.w`: fourier `0a88d44` (`web/src/App.vue`, 1 file) · `7f807a3` (`.github/workflows/ci.yml`, `web/e2e/producer-held.json`, `web/playwright.config.ts`, 3 files). In set. value.js `c72a86882` (INBOX O-90, O-91; 1 file) · `61ddd136b` (receipt + LEDGER cell).
+- `.vb`: fourier `8094890` (11 PNGs under `web/e2e/visual-checkpoint.spec.ts-snapshots/`). In set. value.js `b9393e221` (receipt).
+- `.g`: no fourier commit, no merge. value.js `ca66a8720` (receipt; declares LW-1 as adjacent edits).
+- `.d`: no fourier commit, no deploy. value.js `56a13fbe5` · `ebc5af8d6` (evidence) · `b717f3c8d` (receipt).
+
+**Landed wrong.** None in the RESUME commits: every one touches only its unit's writable set. LW-1 of the first close is now declared by `.g` sitting 3. Not a commit, but recorded: `.mem` left two uncommitted orphans in the fourier tree, ` M scripts/model-smoke.sh` and untracked `bench/contours/memory.py`; under §0ex the `.mem` re-seat adopts them (the WIP diff is also at `~/.fourier-frel/mem/frel-mem-wip.patch`, outside the repo).
+
+**Escalations (open, all unruled: ⟨`grep -n 'ESC-FREL-mem-1\|ESC-FREL-w-1\|ESC-FREL-w-2\|ESC-FREL-g-4' COHESION.md`⟩ → 0 lines; the file ends at §0ex).**
+- **ESC-FREL-mem-1** (blocking, head of the chain): neither §0ew route meets both G-mem and G-iou. No lighter BiRefNet-lite export exists (every lite ONNX is static at 1024; the one 512 ONNX is the 940 MB Swin-L). U2-Net only holds memory (Linux 1475 MB) but fails G-iou min (0.9056, `animals-sponge-flower`). Rulings offered: (a) author and host a sha-pinned lite export at 512/768; (b) accept U2-Net only and hand sponge-flower to F.CT3 as a named regression; (c) name another subject model.
+- **ESC-FREL-w-1**: contrast-floor ×3 is RED in the frozen oracle `web/e2e/contrast-pairs.ts` (about 20 stale rows, 6 unauthored stacks), outside `.w`'s set. Ruling: grant the oracle to a `.w` re-sit, or discharge the rebuilt pairs.
+- **ESC-FREL-w-2**: G-w cannot read GREEN locally: 19 of 28 persistent failures are backend-latency timeouts (12 `/equation`, 7 workspace extraction) that sit behind the `.mem` cure, plus 1 scratch-tree vite `fs.allow` 403.
+- **ESC-FREL-g-4**: `.g` and `.d` were dispatched ahead of their lock; no merge and no deploy is lawful until `.mem` lands and the e2e reads GREEN outside the manifest.
+- **ESC-FREL-d-1** stands: both deploy paths are fail-closed on a green master CI.
+- **R-h1** (owner act): the host `hooks.json` fourier arm lacks `FOURIER_DEPLOY_ALERT_WEBHOOK` and `GITHUB_TOKEN`.
+
+**Residuals (named owners).**
+- `.mem` re-seat after the mem-1 ruling: the cure in `ml.py`, G-mem / G-mem2 / G-iou, pytest + api ×2, and the two orphans above.
+- `.w` re-sit after the w-1 ruling: contrast-floor ×3; then a full e2e re-read once extraction fits in memory (w-2).
+- `.g` re-sit: the merge `m/w1 → master` and master CI GREEN. `.d` re-sit: the deploy, G-outage, openapi, PATCH preflight, `scripts/prod-verify.mjs` 20/20.
+- glass BK: O-90 TOAST-FOCUS-PROXY, O-91 DOCK-OUTSIDE-PRESS-DURING-MORPH; the 8 manifest rows expire "at glass 10.2.0 repin".
+- Owner: two private draft rows in production (`mighty-drawing-umber-zebra`, `rich-pouring-mango-salmon`). R-h2 (`.d`): the first post-merge deploy runs the host's old in-place hook.
+- X-DS / `.g`: the dirty `web/e2e/screenshots/f-w14/*.png` evidence re-renders (§0ex orphans).
+
+**Four-verb line:** unmoved. F.REL stays OPEN, **BLOCKED-ON ESC-FREL-mem-1** (then `.mem` → `.w` → `.g` merge → master CI GREEN → `.d`).
