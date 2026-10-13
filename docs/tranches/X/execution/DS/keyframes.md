@@ -1397,3 +1397,30 @@ The census is unchanged because this pass's cures are fold, emphasis and proport
 - `npm run lint` was not run (no source change). keyframes.js has no e2e suite and no visual golden.
 
 **For the orchestrator:** the next keyframes critic should be a fresh one judging today's frames (pass 25 and later), not C21.
+
+### pass 3 (the fifth redeploy's pass 3; critic C3R; evidence in `pass-26/`)
+
+**Cure commit:** keyframes.js `96acd853` (master, pushed fast-forward). **Evidence:** value.js `61147e2eb` (`evidence/DS/keyframes/pass-26/`: the fold probe `c3r-probe.mjs` with `c3r-probe.json`; `after/` with `pane-<scene>-{1440x900,1280x800,1024x768}-<scheme>`, `spring-1440x900-*`, `pane-spring-scrolled-1440x900-*` and `cube-timeline-1440-*`; `census.json`, `census.log`, `census-frames/`). All captures are headless real Chrome (§0ei). The task named `pass-03/`, which holds the first workflow's pass-3 evidence, so the frames go to `pass-26/` (the pass-23..25 precedent). The BEFORE state is the critic's reading and pass 25's `after/pane-spring-1440x900-*`.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C3R-01, the doubled edge | **The foot and the ribbon's rule are two lines.** `landFold`'s `"foot"` branch ends the scroller one row gap below the last whole row's foot, not on it. The gap is the scroller's own `scroll-padding-block-end` (`ControlsPaneWrapper.css`, `calc(var(--spacing) * 2)`, the facets' `gap-2`), read as a computed length; it also keeps a focused control scrolled into view clear of the fold. The air never reaches the next row or separator (`min(foot + gap, fold, floor(next top))`), so the separator 8 px under a row stays under the fold and pass 25's doubled-hairline case does not return. The end fade stays off while footed (KF-C25-01) and returns on scroll. No new element, no glass override. | Probe: **0 / 36 cells fail** (6 scenes x 1440x900, 1280x800, 1024x768 x light, dark), no stacked hairlines, no separator showing between a foot and the fold. Spring 1440x900: foot 480, rule 489 (was 481 / 481). Cube, amiga, square at 1280x800: 407 / 415; at 1024x768: 391 / 399. Easing 416 / 423 and 399 / 406. Scrolled 30 px, the spring scroller's end fade is back on; returned to the top it lands again at 480 / 489. |
+
+**Not cured, stated**
+- **KF-C3R-01, the more-below cue at spring 1440x900.** The critic asked for the `"cue"` landing wherever the next row can start above the fade. Measured, it cannot there: with the cap cleared the scroller's natural fold is 400 px and the next row (the "Peak overshoot" disclosure row) starts at 393, 7 px above the fold and inside the 16 px fade; a cue needs the row to start at or above fold - fade (384). A cap can only move the fold up, so the only row it could run under the fade is the Bouncy / Gentle tile row, which fits whole; cutting a row that fits to advertise the next one hides content. The rail's block budget is the work band's (KF-C23-02) and was not re-opened for 9 px at one viewport. `"cue"` is already taken wherever a row crosses the natural fold (spring 1280x800 is one). So at this cell the pane rests on the tiles' foot with 8 px of air and no fade, and the cue appears on the first scroll. This is a residual for the next critic: either the rail budget or the facet's 20 px rhythm around the separator would have to give.
+- **KF-C3R-02** (trivial, optional): kept, by the critic's second option. One row gap cannot even the ink: the 9 px / 17 px difference comes from the quiet buttons' invisible inline padding, which is glass's. A larger gap moves both numbers by the same amount, and a per-button margin is the instance fix the critic rules out. Re-judge at the glass 10.2.0 repin (single-quiet-edge Button). Frame: `after/cube-timeline-1440-*`.
+
+**Cited (glass, not overridden)**
+- **KF-C3R-G1:** a re-cite only, unchanged at glass 10.1.0. Held honest-RED against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION**, re-judged at the 10.2.0 repin. No local override; nothing written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): identical to pass 25 on every row (chrome 310 shadow elements, 938 layers, max 6; 192 non-floating; 416 inset highlights; 278 backdrop blur; 54 control gradients; 104 looping; subject control gradients 4). Verdict **RED**, held by the glass-owned rows and the banked loop row.
+
+**Gates**
+- `npm run check`: exit 0, twice (once in the live tree, once on a clean export of HEAD `f5f103fa` plus this change).
+- `npm run lint`: exit 0.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **885/885, 145 files, twice**, on the clean export of `f5f103fa` plus this change. In the live tree, with other seats' uncommitted work in it and load averages above 150, two runs each failed one test, a different one each time and neither in a file this pass touches (`r4dock-share-fallback.test.ts` (2), then `r4shared-structure.test.ts` limb (c), whose files another seat was moving at the time); they were not diagnosed here.
+- keyframes.js has no e2e suite and no visual golden; nothing was re-baselined. `landFold` has no unit falsifier because jsdom has no layout; the served probe is its falsifier.
+
+**Concurrency:** other seats committed to keyframes.js master during this pass (`bbdc3185` to `8dc03389`); the cure commit is pathspec-only over its two files, and the push carried their commits fast-forward. The evidence and receipt commits are pathspec-only.
