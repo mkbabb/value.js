@@ -1,0 +1,41 @@
+{
+ "heatmap-open-1440": {
+  "scrollTop": 175,
+  "clientHeight": 399,
+  "scrollHeight": 591,
+  "fadeStart": true,
+  "fadeEnd": true,
+  "section": {
+   "top": 314,
+   "bottom": 535
+  },
+  "port": {
+   "top": 128,
+   "bottom": 527
+  },
+  "shown": 213
+ },
+ "heatmap-open-1280": {
+  "scrollTop": 253,
+  "clientHeight": 274,
+  "scrollHeight": 580,
+  "fadeStart": true,
+  "fadeEnd": true,
+  "section": {
+   "top": 220,
+   "bottom": 440
+  },
+  "port": {
+   "top": 122,
+   "bottom": 396
+  },
+  "shown": 176
+ },
+ "phoneEditVisible": 1,
+ "phoneSubpane": {
+  "arrowX": 52,
+  "buttonX": 33,
+  "gutterX": 33,
+  "clipX": 29
+ }
+}
