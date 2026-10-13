@@ -1,0 +1,18 @@
+load { 148.03 189.56 242.12 } 16:32:53
+field 99.52..376.13
+spring-heatmap-plot                                        50.00..376.13 w=326.13 disp=grid ov=visible padL=0px padR=0px sw=326 cw=326 gtc=13.5156px 24px 276.609px minW=0px
+disclosure-content                                         50.00..376.13 w=326.13 disp=block ov=hidden padL=0px padR=0px sw=326 cw=326 gtc=- minW=auto
+disclosure spring-heatmap-section grid gap-2               50.00..338.00 w=288.00 disp=grid ov=visible padL=0px padR=0px sw=326 cw=288 gtc=326.125px minW=0px
+configurator-layer-body py-2 space-y-2 space-y-3           30.00..358.00 w=328.00 disp=block ov=visible padL=20px padR=20px sw=346 cw=328 gtc=- minW=0px
+min-h-0 overflow-hidden                                    30.00..358.00 w=328.00 disp=block ov=hidden padL=0px padR=0px sw=346 cw=328 gtc=- minW=auto
+configurator-layer-region grid motion-reduce:transition-no 30.00..358.00 w=328.00 disp=grid ov=visible padL=0px padR=0px sw=328 cw=328 gtc=328px minW=0px
+configurator-layer                                         29.00..359.00 w=330.00 disp=block ov=visible padL=0px padR=0px sw=328 cw=328 gtc=- minW=0px
+panel-content p-0                                          29.00..359.00 w=330.00 disp=block ov=visible padL=0px padR=0px sw=330 cw=330 gtc=- minW=0px
+w-full                                                     29.00..359.00 w=330.00 disp=block ov=visible padL=0px padR=0px sw=330 cw=330 gtc=- minW=0px
+                                                           29.00..359.00 w=330.00 disp=block ov=visible padL=0px padR=0px sw=330 cw=330 gtc=- minW=auto
+flex-1 min-h-0 overflow-y-auto flex flex-col               29.00..359.00 w=330.00 disp=flex ov=auto padL=0px padR=0px sw=330 cw=330 gtc=- minW=auto
+w-full flex-1 min-h-0 flex flex-col justify-start          29.00..359.00 w=330.00 disp=flex ov=visible padL=0px padR=0px sw=330 cw=330 gtc=- minW=auto
+flex flex-col h-full w-full overflow-hidden z-content rela 29.00..359.00 w=330.00 disp=flex ov=hidden padL=0px padR=0px sw=330 cw=330 gtc=- minW=0px
+fading-scroll fading-scroll--y controls-surface            29.00..359.00 w=330.00 disp=block ov=auto padL=0px padR=0px sw=330 cw=330 gtc=- minW=auto
+glass-quiet card pane-frame                                28.00..360.00 w=332.00 disp=flex ov=visible padL=0px padR=0px sw=330 cw=330 gtc=- minW=auto
+controls-content h-full flex flex-col                      0.00..400.00 w=400.00 disp=flex ov=visible padL=12px padR=12px sw=400 cw=400 gtc=- minW=auto
