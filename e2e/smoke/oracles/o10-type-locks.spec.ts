@@ -142,7 +142,7 @@ test.describe("O-10a/e — title type locks (desktop dual grid)", () => {
 test.describe("O-10a — the mobile matrix (390)", () => {
     test.use({ viewport: { width: 390, height: 844 } });
 
-    test("phones: pane title floor-pins AT heading (deliberate no-op); About = honest 2-line lock", async ({
+    test("phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock", async ({
         page,
     }) => {
         await page.goto("/");
@@ -163,12 +163,20 @@ test.describe("O-10a — the mobile matrix (390)", () => {
         await nav.getByRole("button", { name: "About", exact: true }).click();
         await expect(page.locator(ABOUT_TITLE)).toBeVisible();
 
-        // display-1 floor-pins at heading (1.618rem) — the deliberate no-op.
+        // display-1 floor-pins at heading (1.618rem) on phones, so the pane
+        // title's own rung (`--pane-title-size`, PaneHeader) floors one rung
+        // higher, at --type-title. X-DS pass 9 (V9C-02), a named re-aim: the
+        // former "deliberate no-op" left the title 1.27x the in-pane section
+        // heads (subheading, 600) and inverted the phone hierarchy. Tightened:
+        // the title now must hold a full step (>= 1.5x) over subheading.
         const display1 = await resolveTokenPx(page, "--type-display-1");
         const heading = await resolveTokenPx(page, "--type-heading");
+        const titleRung = await resolveTokenPx(page, "--type-title");
+        const subheading = await resolveTokenPx(page, "--type-subheading");
         expect(Math.abs(display1 - heading)).toBeLessThanOrEqual(0.5);
         const title = await readVoice(page, ABOUT_TITLE);
-        expect(Math.abs(title.sizePx - display1)).toBeLessThanOrEqual(0.5);
+        expect(Math.abs(title.sizePx - Math.max(titleRung, display1))).toBeLessThanOrEqual(0.5);
+        expect(title.sizePx / subheading).toBeGreaterThanOrEqual(1.5);
 
         // The HONEST 2-line lock (<sm): the sentence + inline member ink two
         // lines — a stable lock, not a value-dependent wrap. Count RENDERED

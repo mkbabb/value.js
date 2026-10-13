@@ -76,7 +76,9 @@
         <p class="font-display text-subheading text-foreground max-w-[30ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
-        <p v-if="hint" class="text-small plate-ink max-w-[36ch]">
+        <!-- X-DS pass 9 (V9C-08): the hint balances its lines, as the
+             statement above does, so no line ends on an orphan word. -->
+        <p v-if="hint" class="text-small plate-ink max-w-[36ch] text-balance">
             {{ hint }}
         </p>
         <slot name="action" />
@@ -105,7 +107,9 @@
  * that the pane title's `--type-display-1` clamp floors at on phones, so the
  * plate never out-ranks its pane title (it rendered 25.9 px/700 under a
  * 25.9 px/400 title at 390). The secondary line (hint, detail) speaks the
- * body sans at the small rung. The display-1 floor itself is glass's half.
+ * body sans at the small rung. Since X-DS pass 9 (V9C-02) the pane title
+ * floors one rung higher (`--pane-title-size`, PaneHeader), a full step
+ * above this statement at 390 (32.9 px against 20.4 px).
  *
  * X.W7.g (crash-battery R14 · ES-2): this note lived as a leading <template>
  * comment, which the dev compiler turns into a sibling root — a multi-root

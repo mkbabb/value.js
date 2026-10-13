@@ -26,9 +26,8 @@
              site; all 9 panes inherit. The three-voice law's hierarchy fix:
              the largest text on a pane must not speak the body sans.
              T.W4-1 (D2 · Q11a): the rung moves one full golden step,
-             heading → display-1 (×φ at the ≥1440 cap; phones floor-pinned =
-             the deliberate no-op, t-mobile F-4.2 — About is an honest 2-line
-             lock <sm). Weight rides the :root `--type-weight-display` pin
+             heading → display-1 (×φ at the ≥1440 cap; on phones floored one
+             rung above heading, X-DS pass 9 / V9C-02, `--pane-title-size`). Weight rides the :root `--type-weight-display` pin
              (non-bold; the P10 booked swap) — `text-heading`'s hardcoded 700
              is retired from this surface. -->
         <!-- X.W5.a · gate A5's OUTLINE arm (⟨PaneHeader PH-8⟩, BD-06's carve).
@@ -157,7 +156,7 @@ const { level = 2 } = defineProps<{
  * pairing (`text-display`), carried verbatim so the landing is the exact
  * shipped rung, not a hybrid. */
 .pane-header-title {
-    font-size: var(--type-display-1);
+    font-size: var(--pane-title-size);
     line-height: var(--type-leading-display);
     letter-spacing: var(--type-tracking-display);
     font-weight: var(--type-weight-display);
@@ -180,6 +179,14 @@ const { level = 2 } = defineProps<{
      * that compensated for the old `pb-2` set the rhythm per instance, and on
      * four panes jammed the first row against the header band. */
     --pane-header-gap: var(--phi-3);
+    /* X-DS pass 9 (V9C-02): THE PANE-TITLE RUNG — display-1, floored one
+     * full rung ABOVE heading (the title rung, 2.058rem). display-1's clamp
+     * floor-pins AT heading on phones (1.618rem = 25.9px), which left the pane
+     * title only 1.27x the in-pane section heads (`text-subheading`, 20.35px
+     * at 600) and inverted the phone hierarchy. The floor holds a full step
+     * (title / subhead = 1.62 at 390); from ~860px display-1 rises past it
+     * unchanged. The 400 title / 600 head pairing is kept. */
+    --pane-title-size: max(var(--type-title), var(--type-display-1));
     /* The one tunable: the ratified rest floor (Q9 bracket [0.45, 0.65] of
      * the veil; effect bracket 27–39% added card material — see above). */
     --pane-veil-rest: 0.52;
@@ -191,7 +198,8 @@ const { level = 2 } = defineProps<{
  * pane title's RUNGS stay the app's (T.W4-1 · D2): rest display-1, and on the
  * condensed strip the heading rung — the stuck title lands exactly on the
  * retired heading rung, as the retired compositor scrub's endpoint law said
- * (on phones display-1 floor-pins AT heading, so the step is a no-op there).
+ * (on phones the title rung floors at --type-title, one rung above heading,
+ * since X-DS pass 9 / V9C-02, so the condense is a real step there too).
  * The per-frame title-scale / caption scrub is retired: the condense is ONE
  * discrete transition at the threshold, never a scrub. */
 .pane-header[data-condensed="true"] > .pane-header-title {
