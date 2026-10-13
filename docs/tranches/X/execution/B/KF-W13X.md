@@ -3362,3 +3362,129 @@ Self-count ⟨`sed -n '/^### KF.W13X.r4state/,$p' KF-W13X.md | grep -E '^\| KFA'
 - Consumer dispositions stand as the units left them: A2-KE-L1-22 honest-RED (glass-owned); the four root imports of `Alert`/`Skeleton` stay; `.p` R-1..R-3 glass halves honest-RED. All three ADOPT-AT-LANDING.
 
 **Escalations.** None.
+
+## RESUME 1 — Close
+
+- **SERVED MODEL:** claude-opus-5-5. Track B close seat, 2026-10-13 (execution under the owner's begin-word of 2026-09-17). Verify-only: 0 keyframes.js product bytes, 0 glass-ui bytes.
+- **Bytes verified:** kf `2c11f034` (⟨`git rev-parse --short HEAD`⟩ = ⟨`… origin/master`⟩ = `2c11f034`). The shared kf tree carries 2 modified paths (`demo/components/instrument/pane/ControlsPaneWrapper.css`, `demo/scenes/spring/SpringPhysicsFacet.vue`; ⟨`git diff --stat | tail -1`⟩ → `2 files changed, 15 insertions(+), 3 deletions(-)`): a sibling writer's in-flight work, not this seat's, not read as wave bytes, not staged, restored or stashed. Gates ran in a detached worktree at `2c11f034` (`keyframes-wt-W13X-close`, `node_modules` linked to the installed tree, glass `10.1.0`).
+- **Crash recovery:** ⟨`git -C value.js status --porcelain -- docs/tranches/X/execution/B/KF-W13X.md docs/tranches/X/execution/LEDGER.md`⟩ → empty at open. Nothing inherited.
+- **Instrument:** ⟨`uptime`⟩ 15:51 → `113.34 137.41 161.38`; 15:56 → `123.93 125.38 149.27`. The 1-minute load never fell below 100 in this sitting; the quiet-host bar is 25 (addendum (g)).
+- **Verdict: PARTIAL.** All 17 RESUME units returned, every commit is in bounds or declared, and the correctness floor (`check`, `lint`) is GREEN ×2 at the head. The wave is not closeable for two reasons:
+  1. Every quiet-host reading the close owns is UNREAD: `test:demo` ×2, the kf e2e roster ×2, `gh-pages`, the per-row served probes (C1-8) and `.pc`'s second GREEN reading.
+  2. "Every row dispositioned" is not met: seven escalations raised by the RESUME units ask for a grant or a re-home that no dated ruling has given (Residuals R-2).
+
+### Act 1 — commits and bounds
+
+⟨`git -C keyframes.js log --oneline 5bd9172b..HEAD | wc -l`⟩ → **83**: 60 unit commits + 23 X-DS commits (17 `kf/ds`, 6 `X-DS`), which are not this wave's. `.pc` and `.rel` have 0 kf commits by design.
+
+Roster (kf, by unit; each sha's unit read from its subject):
+
+- `.dh2` (1): `97417fa9`
+- `.esc1` (4): `41b82bf7` `81fd8a09` `1688c84c` `0e1623ca`
+- `.esc2` (3): `a36b1b01` `fc07aff7` `f2c1ec07`
+- `.esc3` (3): `8def568e` `f8dcceec` `2f76c390`
+- `.cube2` (1): `d0e6ffe6`
+- `.r4lib` (7): `9984189b` `8b5f166d` `34066ce1` `bc98e8e7` `73fc7b07` `5d69133e` `ca8c0433`
+- `.r4state` (3): `8367d88a` `0e73764b` `4f1f123b`
+- `.r4pane` (8): `fcbaaed7` `ab843625` `8860b87f` `8b3314e6` `933250c6` `dd9776a5` `6eff1220` `646cb3d6`
+- `.r4transport` (9): `76531255` `5ce04f9d` `32ea8c65` `69c87efc` `5df394ab` `38ac8a59` `f823a4fa` `d86db077` `3ad7a78d`
+- `.r4shell` (2): `fdca483e` `8514caed`
+- `.r4dock` (3): `d7ca4ef5` `c68d86ac` `2739c16d`
+- `.r4panes` (6): `cb1a0672` `12711913` `5599bc5e` `eac5c149` `3c78ede6` `403064f7`
+- `.r4cube` (1): `bbdc3185`
+- `.r4shared` (8): `e0320d0c` `ce304d78` `9487fc58` `f5f103fa` `a5040219` `8dc03389` `baf57238` `83e9c266`
+- `.r4prose` (1): `2c11f034`
+
+Self-count: 1+4+3+3+1+7+3+8+9+2+3+6+1+8+1 = **60**.
+
+**Bounds.** Each commit's paths (⟨`git show --format= --name-only <sha>`⟩) were matched against its unit's row in the RESUME 1 Unit plan plus the common `test/demo/**` set. 27 paths fall outside a set, across 8 units. Each one is named in its unit's receipt (25 under "Adjacent edits (§0bt)", 2 as granted importer lines or the falsifier):
+
+| unit | paths outside the set | declared | reading |
+|---|---|---|---|
+| `.dh2` | `timeline/timelineTypes.ts` (`97417fa9`) | yes | the source type gains the three members the cure calls |
+| `.esc1` | `ChromeDock.vue`, `TransportDock.vue` (`41b82bf7`) · `controls-pane/ControlsPaneWrapper.vue` (`81fd8a09`, `0e1623ca`) | yes (`:2594`, `:2643-2645`) | the two granted importer lines (ESC-mobile-2) plus 2 glyph lines; the host loop ESC-mobile-1 was filed against |
+| `.esc2` | `shell/TypingDots.vue` (`f2c1ec07`) | yes | one adjacent |
+| `.r4state` | 6 paths (`useAnimationGroupPlayback.ts`, `useAnimationGroupActions.ts`, `EasingScene.vue`, `SpringScene.vue`, `useSweepScene.ts`, `useSpringDemo.ts`) in `0e73764b`, `8367d88a` | yes, itemised | **INFO.** The machine's set is `demo/state/**`; its dispatch sites are elsewhere by construction. Six files is wide for "a few lines"; the owning units were closed (serial run) |
+| `.r4pane` | `AnimationControlsGroup.vue`, `useControlsKeyboardShortcuts.ts` (`933250c6`) · `CubeScene.vue` (`8860b87f`) · `App.vue` (`ab843625`) | yes | the command object's call sites |
+| `.r4transport` | 5 `channel-controls/**` and `controls-pane/**` paths (`f823a4fa`, `38ac8a59`) · `scene-facility/index.ts` (`5ce04f9d`) · `test/group/kfa-69-group-seek.test.ts` (`76531255`) | yes; the test is named as the falsifier | the engine falsifier sits with the engine tests (the `.r` precedent, MINOR in form) |
+| `.r4dock` | `TransportDock.vue`, `scripts/lib/demo-driver.mjs` (`2739c16d`) · `shell/SharePopover.vue` (`c68d86ac`) | yes (`:3073-3076`) | UIA-KF-159's label and its driver strings (named by the plan); UIA-KF-321's fallback field |
+| `.r4panes` | `shell/useShareState.ts` (`cb1a0672`) | yes (`:3133`) | 2 toast strings |
+
+`.r4shared`'s set is the L1-15 moved trees and their importer lines; outside them it wrote `scripts/gates/census.mjs` (3 path strings) and `scripts/observe/demo/usability.mjs` (1 path string), both declared (`:3267-3268`). `.cube2`, `.r4lib`, `.r4shell`, `.r4cube`, `.r4prose`: 0 paths outside.
+
+- **Landed wrong: 0 in keyframes.js.** One in value.js, already repaired: `.rel` `f4115a2ad` wrote `INBOX.md` back as one line (`1 insertion(+), 601 deletions(-)`); `2c9738567` restored the 601 lines byte-for-byte and added the 4 owed lines. The receipt discloses it. ⟨`grep -c '^| O-9[234] ' INBOX.md`⟩ → 3 today.
+- **Whitespace (MINOR, not fixed here):** ⟨`git diff --check 5bd9172b HEAD`⟩ → 2 findings: `demo/components/instrument/shell/index.ts:2` blank line at EOF (`8dc03389`, `.r4shared`) and `test/demo/scenes/sections-w13x.test.ts:51` trailing whitespace (`83e9c266`, `.r4shared`).
+- **Deleted tests:** ⟨`git diff --diff-filter=DR --name-status 5bd9172b HEAD -- test`⟩ → empty. No modified test file lost net `expect(` lines or `it(` cases (per-file count over ⟨`git diff 5bd9172b HEAD -- <file>`⟩; 0 files flagged).
+- **Masking:** ⟨`git grep -c 'eslint-disable\|test\.skip\|it\.skip\|describe\.skip\|@ts-ignore\|@ts-expect-error' <ref> -- demo test/demo`⟩ summed → 3 at `5bd9172b`, 3 at HEAD. ⟨`git diff 5bd9172b HEAD -- test scripts | grep -c '^+.*\(test\.skip\|it\.skip\|\.only(\)'`⟩ → 0. ⟨`git diff 5bd9172b HEAD --stat -- .dependency-cruiser.cjs eslint.config.* vitest.config.* tsconfig*.json package.json`⟩ → `package.json | 2 --` only (ESC-W13X-kf-1's two uninstalls). `.dh2` `97417fa9` adds five `{ timeout: 30_000 }` per-test options in `sequence-retime-preview.test.ts` (3) and `sequence-stage-truth.test.ts` (2 re-written cases); the idiom stood at `5bd9172b` in 7 files (13 uses), so it is the house form for real-engine passes, not a new relaxation. No config timeout moved.
+- **Other trees:** ⟨`git diff --name-only 5bd9172b HEAD | grep -v '^demo/\|^test/\|^src/'`⟩ → 6 paths: `package.json`, `package-lock.json` (`.esc3`), the four script files above. No glass-ui or `node_modules` byte. `scripts/dev/dev.sh` untouched (⟨`git -C value.js log --since=2026-10-07 --format=%h -- scripts/dev/dev.sh | wc -l`⟩ → 0). Glass pin ⟨`grep '"@mkbabb/glass-ui"' package.json`⟩ → `"10.1.0"`; installed `10.1.0`.
+- **value.js:** ⟨`git log --since=2026-10-07 --grep='W13X' --format=%h | wc -l`⟩ → 31 commits. Their paths: `execution/B/KF-W13X.md`, `keyframes/evidence/W13X/**`, `KF-W13X-dh2-brief.md`, `LEDGER.md`, `INBOX.md` (2), three relay letters, `COHESION.md` (1). Nothing else. E-3: ⟨`git diff --numstat <2026-10-07 base> HEAD -- docs/tranches/X/keyframes/waves/`⟩ → empty; the adjudicated registry ⟨`--stat`⟩ → empty.
+
+### Act 2 — the gates, re-run by this seat at `2c11f034`
+
+The close line (KF-W13.md `:534`): every row dispositioned; `npm run check` 0; `test:demo` GREEN; kf e2e at `--workers=1` ×2 within the honest-RED set. Addendum (d) adds lint. Addendum (g) adds `gh-pages`, the served probes, and the quiet-host bar (1-minute load < 25) on every timing, e2e and served reading. Logs: `keyframes/evidence/W13X/close2/*.log.txt`.
+
+| gate | BEFORE (RESUME 1 baseline, `5bd9172b`) | AFTER (this seat, `2c11f034`; load beside it) | result |
+|---|---|---|---|
+| ⟨`npm run check`⟩ | EXIT 0 | `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` · `EXIT=0` ×2 (15:52:58–15:53:37, 15:53:37–15:54:20; load 111–116) | **GREEN ×2** (correctness read, not a timing) |
+| ⟨`npm run lint`⟩ | EXIT 0 (444 modules, 1610 dependencies) | `✔ no dependency violations found (456 modules, 1653 dependencies cruised)`, eslint silent · `EXIT=0` ×2 (load 110–116) | **GREEN ×2**; no disables added |
+| library falsifiers, `.r4lib` + KFA-69 (8 files) | born RED per receipt | ⟨`npx vitest run test/group/kfa-{31,68,69}-*.test.ts test/engine/kfa-{145,70}-*.test.ts test/waapi/kfa-{135,28}-*.test.ts test/compile/uia-kf-177-css-time.test.ts`⟩ → `Test Files 8 passed (8)` · `Tests 29 passed (29)` ×2 | **reproduces ×2** (deterministic unit reads) |
+| ⟨`npm run test:demo`⟩ ×2 | 121 files / 807 tests ×1 (run 2 UNREAD) | **UNREAD at the quiet bar.** A bounded waiter (`wait-quiet-testdemo.sh`, 30 s polls, `quiet-poll.txt`) polled 9 times over 15:53–15:58 and read 100.38–120.76; the seat stopped it there (a 5-minute wait, not the 60-minute bound: the 15-minute average was 149–161, so no quiet window was in reach). One reading taken under load and **not banked**: `Test Files 1 failed | 144 passed (145)` · `Tests 872 passed (872)` · `Duration 61.49s` (start load 110.33). The 1 failed file is an instrument fault of this seat's worktree: `playback-ribbon-contract.test.ts` → `Cannot find module '/@fs/…/keyframes.js/node_modules/@mkbabb/glass-ui/dist/slider.js'` (the linked `node_modules` puts the `vi.mock` actual-import outside the worktree root). The same file in the main tree → `Test Files 1 passed (1)` · `Tests 21 passed (21)` (`ribbon-contract-main.log.txt`). No test case failed; `hero-wave-pause` and `easing-picker-hierarchy` (the units' load flakes) passed | **UNREAD** (owed ×2 at load < 25) |
+| kf e2e ⟨`KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1`⟩ ×2 | UNREAD since `95c81b7b` (C3-2) | not run: load 100–124 | **UNREAD** |
+| ⟨`npm run gh-pages`⟩ | GREEN ×2 at `e8144b0c` (Repair 2); units read it GREEN at their own heads (`.dh2`, `.esc3`) | not run at `2c11f034`: load 100–124 | **UNREAD at the head** |
+| per-row served probes (C1-8) | each unit's own RED → GREEN ×2 logs | not re-run: load 100–124 | **UNREAD** |
+| `.pc` falsifier PC1 + PC2, second GREEN reading | 8/8 GREEN ×1 at `2bdfacbe` (load 22.96) | not run: load 100–124. The pane files moved since (`.r4shared` `83e9c266` `git mv` to `instrument/pane/`; X-DS `96acd853`), so the reading owed is ×2 at the head, not ×1 more | **UNREAD** |
+| rows dispositioned | 9 escalations + the R-4 rows open (C3-3) | the nine are RULED and landed (`.esc1`–`.esc3`); the R-4 rows are landed or re-homed by id; **7 new escalations stand unruled** (R-2) | **RED** |
+
+`git diff --check` and the bounds, masking and E-3 reads are in Act 1.
+
+### Act 3 — verification artefacts
+
+- Unit receipts: 17 of 17 under `## RESUME 1 — Unit receipts` (⟨`awk 'NR>=2500 && /^### KF.W13X\./' KF-W13X.md | wc -l`⟩ → 17).
+- Evidence directories: ⟨`ls keyframes/evidence/W13X/`⟩ holds one per RESUME unit that measured (`pc dh2 esc1 esc2 esc3 cube2 r4lib r4state r4pane r4transport r4shell r4dock r4panes r4cube r4shared r4prose`), plus `close2/` (this seat).
+- The dh2 brief exists (`execution/B/KF-W13X-dh2-brief.md`, `c3a33f539`).
+- Removed pins: ⟨`git grep -c 'highlight.js\|html2canvas' HEAD -- package.json package-lock.json`⟩ → no line (0 in both).
+
+### Act 4 — E13 mail sweep
+
+Paths: value `V/` · value `V/coordination` · glass `BK/coordination` · glass `BL` (+ `BL/coordination`, absent) · keyframes `V/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on each (INBOX was last written 15:53 today by another seat). ⟨`grep -c '^|.*| *\**UNREAD\** *|' INBOX.md`⟩ → **0**. Highest rows: `O-94`.
+
+Glass has landed the BK mirrors of this wave's three asks: ⟨`ls glass-ui/docs/tranches/BK/coordination | grep 2026-10-13`⟩ → `…-focus-register.md`, `…-alert-skeleton-subpaths.md`, `…-easing-catalogue-seams.md` (each named in its INBOX row), beside F.REL's `…-toast-focus-proxy.md` and `…-dock-outside-press-during-morph.md` (O-90, O-91; Track C's). The mirrors are the outbound letters' copies, not replies; no inbound letter to value.js exists. **0 UNREAD in scope.**
+
+### Residuals, with owners
+
+**R-1 · quiet-host readings owed (owner: the next close-side seat, at a 1-minute load < 25).** `test:demo` ×2 · the kf e2e roster `--workers=1` ×2 (after `npm run build`) · `gh-pages` at the head · the per-row served probes under `evidence/W13X/**` (C1-8) · `.pc` PC1 + PC2 ×2 at the head. These have been unreadable at every close-side sitting of this wave. This seat's worktree `keyframes-wt-W13X-close` is left in place at `2c11f034` for that seat; `playback-ribbon-contract.test.ts` needs the main tree or a real `node_modules` copy (Act 2).
+
+**R-2 · escalations raised by the RESUME units, unruled (owner: the orchestrator, by a dated COHESION ruling; then a unit).**
+
+| id | rows | ask | raised by |
+|---|---|---|---|
+| ESC-W13X-pc-1 | the Spring heatmap's inline cut at 1024 (PC1i) | `SpringHeatmap.vue` is `.esc3`'s and X-DS's. The unit measured `grid-template-columns: minmax(0, 1fr)` on `.spring-heatmap-section` as the cure. X-DS has re-written the file since (⟨`git diff --stat 5bd9172b HEAD -- demo/scenes/spring/SpringHeatmap.vue`⟩ → 262 insertions, 116 deletions; pass 11 KF-C11-05 re-sized the figure); the rule at `:580-582` carries no such track. Whether the cut still stands at the head is a served reading, UNREAD here | `.pc` |
+| ESC-r4transport-1 | A2-KE-L1-23 step 2 · A2-KE-L1-24 mount-once limb | a grant of `RibbonBar.vue`, `ChannelOptions.vue`, `ChannelControls.vue`, `injectionKeys.ts`, `App.vue`, `sceneExposedApi.ts` to one unit | `.r4transport` |
+| ESC-r4shell-1 | KFA-76 heavy-scene-init limb · KFA-81 stall limb | a unit holding `demo/scenes/amiga/**` and `CSSCodeEditor.vue` (defer WebGL and editor init past the first presented frame) | `.r4shell` |
+| ESC-r4shell-2 | UIA-KF-125 motion half | a unit holding `demo/app/transition/**` | `.r4shell` (re-homed in by `.esc1`) |
+| ESC-W13X-r4lib-1 | UIA-KF-277 | the cure site is value.js's BBNF stylesheet parser; a relay row to X·P | `.r4lib` |
+| ESC-W13X-r4cube-1 | the collapsed dock swallows the first pointer press on Play | the transport's owner; read against O-91 DOCK-OUTSIDE-PRESS-DURING-MORPH before any consumer byte | `.r4cube` |
+| ESC-W13X-r4shared-1 | A2-KE-L1-15 limbs (f) and (g) | a grant or a dated re-home | `.r4shared` |
+
+**R-3 · consumer residue the units routed to the close (owner: a unit under the same ruling; a verify-only close cures none).**
+- `vite.config.ts:244-245`, `:270`, `:327-328` still name `vendor-highlight` / `html2canvas` (⟨`grep -n 'highlight\|html2canvas' vite.config.ts`⟩ → 5 lines). Inert strings after ESC-W13X-kf-1's uninstalls (`.esc3`).
+- `TransportDock.vue` imports `@app/dock/dockEdge`, a component reaching into the app (`.r4shared`).
+- KFA-31 · KFA-85 consumer halves (`useCubeRelit`) and UIA-KF-177's authored-unit survival beyond the shortest form (`.r4lib`).
+- KFA-69's machine record: the group fallback's `SCRUB` records one `t` onto every snapshot (`sceneMachine.ts`, `.r4transport`); easing's `reset` dispatch order (`.r4state`); the Sweep's ribbon ball mirrors the thumb under Reverse (`.esc3`); the square axis readout (`.r4transport`); the 844×390 Matrix pane heading (`.r4dock`).
+- The two whitespace findings of Act 1.
+
+**R-4 · glass asks named by units and not filed (owner: a relay seat; next O-numbers after O-94).** `.esc2`: a glass `PopoverAnchor` export (or an `anchor` prop). `.r4pane`: the EasingCurve glyph-form ask. ⟨`grep -l 'PopoverAnchor\|glyph' relay/X-KF-BK-{FOCUS-REGISTER,ALERT-SKELETON-SUBPATHS,EASING-CATALOGUE-SEAMS}.md`⟩ → no file: neither rides O-92..O-94.
+
+**R-5 · held, unchanged.** The owner calls (UIA-KF-274 · 195 · 196 · 198 · 120 · 053 · 119 · 124 · KFA-225 · KFA-73), KFA-218 RULED-AS-DESIGNED, the glass rows honest-RED or ADOPT-AT-LANDING on their O-rows (O-56, O-59, O-65, O-66, O-67, O-74, O-77a, O-89, O-92..O-94), and A2-KE-L1-9 step 3 on O-59.
+
+### Escalation from this seat
+
+**ESC-W13X-close2-1:** the close cannot be read on this host while four tracks run. The quiet-host bar has now stopped the Close, Check 1, Repair 1, Repair 2, Check 3, eight RESUME units' `test:demo` legs and this close. Asked: one sitting in which Track B's close seat runs alone (or the bar is re-ruled by a dated addendum; this seat does not relax it).
+
+### Four-verb line
+
+Not moved. KF-W13.md §State holds IMPLEMENTED at NO "until the gates green"; they are not green (R-1, R-2). VERIFIED is a successor close's act.
+
+### Commits (value.js, RESUME 1)
+
+`.pc` `c97ce064a` `82f288599` · `.dh2` `c3a33f539` `cccb7930b` · `.esc1` `816370ed8` `0390f2a0b` · `.esc2` `6e0e85690` `d9ea2b5bd` · `.esc3` `f6608b19e` `4beb29152` `2909a44c1` · `.cube2` `a7a9d8962` `b10bec750` · `.r4lib` `148b6ff97` · `.r4state` `d0cffd211` · `.r4pane` `1e862a446` · `.r4transport` `46aa14b21` · `.r4shell` `1e227ad1e` · `.r4dock` `43156a427` · `.r4panes` `1ea80ce75` · `.r4cube` `cbbae67d3` `e15718f17` · `.r4shared` `032c7650c` `5f00126c7` · `.r4prose` `fd4428266` `b13997b28` · `.rel` `f4115a2ad` `2c9738567` `b7d992937` · the re-open `ed8522309`, a LEDGER line `774b4de19` · this Close (the commit that carries this section).

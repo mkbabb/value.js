@@ -1,0 +1,17 @@
+SERVED MODEL: claude-opus-5-5
+START 15:54:41 load { 110.31 126.07 152.09 }
+
+ Test Files  8 passed (8)
+      Tests  29 passed (29)
+   Start at  15:54:43
+   Duration  5.05s (transform 11.63s, setup 0ms, import 14.07s, tests 274ms, environment 15.07s)
+
+EXIT=0 END 15:54:48
+START 15:54:48 load { 111.41 126.04 151.92 }
+
+ Test Files  8 passed (8)
+      Tests  29 passed (29)
+   Start at  15:54:50
+   Duration  5.19s (transform 16.95s, setup 0ms, import 20.36s, tests 286ms, environment 11.73s)
+
+EXIT=0 END 15:54:55

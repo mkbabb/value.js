@@ -1,0 +1,10 @@
+SERVED MODEL: claude-opus-5-5
+main tree (HEAD 2c11f034 + 2 X-DS dirty paths, neither PlaybackRibbon's) START 15:56:12 load { 120.01 124.55 148.83 }
+(node:17930) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  21 passed (21)
+   Start at  15:56:15
+   Duration  13.33s (transform 7.49s, setup 29ms, import 6.77s, tests 4.01s, environment 2.11s)
+
