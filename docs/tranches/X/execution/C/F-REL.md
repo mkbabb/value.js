@@ -586,3 +586,104 @@ Any one of these readings unblocks G-w:
 - R-w3: `contrast-pairs.ts` stale-row debt since F.W4 (w-1).
 
 **E13 mail.** O-90 and O-91 SENT. Nothing in scope is UNREAD (the RESUME-open sweep, this record L360, plus the two rows this seat wrote).
+
+### F-REL.vb
+
+Seat `claude-opus-5-5`, 2026-10-09 ~15:27–19:30 local. Spec: COHESION §0ew bullet 3 (L3784-3788) and `fourier/waves/F-REL.md` addendum (a) `.vb` (L42), both read whole. Writable: `web/e2e/visual-checkpoint.spec.ts-snapshots/**` only.
+
+**Crash recovery.** ⟨`git status --porcelain | grep visual-checkpoint`⟩ (fourier) → 0 paths. Nothing inherited.
+
+**Lock.** `.worktrees/heavy.lock` was absent at 19:29:46Z. I took it then (`F-REL.vb claude-opus-5-5 …`), touched it every 120 s, and removed it at the end.
+
+**Instrument.** The wave's scratch worktree `~/.fourier-frel/g-wt`, detached at `56619fc` and later at `64f7429`, so X-DS's web/src WIP in the main tree cannot colour a frame.
+- API :8191 with CI's env (`COMPUTE_RATE_LIMIT`/`WRITE_RATE_LIMIT` 1000), on its own database `fourier_frel_vb`. Its seed extraction was warmed once (`curl … extract-contour` → `200 t 220.99`), so every run's `global-seed` hits the extraction cache.
+- vite dev :3192, as CI's `vite --port 3000`.
+- Linux runs happened in container `frel-vb` (`mcr.microsoft.com/playwright:v1.61.0-noble`, ⟨`npx playwright --version`⟩ → `Version 1.61.0`, matching the repo's `@playwright/test` 1.61.0). The container used its own `npm ci` (rc=0) on a copy of the tree, its own vite :3000, and the host API via `host.docker.internal:8191`.
+- Every verify ran `--project=chromium --project=mobile-chromium --workers=1`, which is CI's worker count. Logs are in `~/.dev-logs/frel/vb-*` and `~/.fourier-frel/vb/linux-out/`.
+
+**Instrument defects found and corrected (no product bytes touched).**
+1. My first linux `npm ci` bind-mounted the scratch tree. `web/node_modules` there was a symlink to the main repo's, and npm replaced it with a linux tree. I stopped the container within ~2 min. The main repo's `web/node_modules` was untouched (Sep 25 mtime, `.bin` 24 entries). The scratch symlink was restored, and the container was rebuilt on a copied tree.
+2. That symlinked `node_modules` resolves outside the scratch root. ⟨`grep -c "outside of Vite serving allow list" vb-vite.log`⟩ → KaTeX fonts were 403'd, so `/equation` frames would have rendered fallback fonts. Fix: a real `npm ci` in `g-wt/web`. After it ⟨same grep on `vb-vite-2.log`⟩ → `0`. Every golden below was rendered after this fix. This is also the likely cause of `.w`'s "1 instrument 403".
+3. zsh's `bgnice` started the background API at nice 5 (⟨`ps -o nice`⟩ → `5`). It was relaunched at nice 0 (`setopt no_bg_nice`).
+
+**BEFORE** (darwin, `56619fc`, load 527 → `vb-darwin-before3.log`): ⟨`playwright test visual-checkpoint`⟩ → **5 failed / 1 passed**.
+- card-resting: `Expected an image 240px by 301px, received 277px by 238px … ratio 0.19`
+- card-hover: `246×307 → 277×238, ratio 0.16`
+- card-modal: `448×636 → 448×628, ratio 0.16`
+- tooltip-trigger: `134 pixels (ratio 0.03)`
+- disclosure: test timeout on `/api/equations/compute`
+- admin-banner passed.
+
+⟨`find web/e2e -name "*-linux.png"`⟩ → 0, so linux had no goldens at all.
+
+**Acts, in order.**
+1. **Darwin re-baseline.** ⟨`npx playwright test visual-checkpoint --update-snapshots`⟩ in `g-wt` at `56619fc` → `vb-darwin-update4.log`: **6 passed**. Five frames were "re-generated, writing actual". admin-banner matched and was not rewritten.
+   - Two earlier attempts died in `global-seed` on a 120 s `extract-contour` timeout under load 290-500 (`vb-darwin-before*.log`, `update*.log`). The dedicated-DB warm-up cured that.
+   - One attempt (`update3`) rendered with the KaTeX 403 (defect 2) and was discarded: ⟨`git checkout -- <snapshots>`⟩ in the scratch tree, then re-rendered as `update4`.
+2. **Linux re-baseline.** ⟨`docker exec frel-vb … playwright test visual-checkpoint --update-snapshots`⟩ → `linux-update.log`: 5 written, and disclosure timed out on compute. ⟨`… --update-snapshots -g disclosure-content`⟩ → `linux-update-d.log`: 1 written, 1 passed. All six `*-linux.png` are new.
+3. **Eye-read, every frame on both platforms.**
+   - Card resting and card hover: one square tile in the card's own hue, because the stub thumbnail is `PIXEL_PNG`, a transparent 1×1. The title sits below. Hover is a radial lift in the same hue, matching X-DS pass 5 C3/C4.
+   - Modal: title, slug·date, the hue tile, views/likes, Decomposition "Epicycles", Parameters `N=64`, and the "Open Visualizer" pill.
+   - Disclosure: the Function panel (expression `x*(pi - x)`, domain 0..π, Compute, presets with `x(π−x)` active) and Controls. Harmonics reads **8** under Auto, the settled Parseval count rather than the seeded 20, and KaTeX glyphs render.
+   - Tooltip trigger: the "Auto" wand pill.
+   - Admin banner: six stat tiles.
+   - Linux frames match darwin up to font rasterisation.
+   - Every frame is the redesigned state, accepted by §0ew/§0ej/§0ek.
+4. **HEAD moved during the seat.** `64f7429` is X-DS pass 6: `GalleryCard.vue` hover now reads `--card-hover-step`, `style.css`, and `ConvergenceLegend.vue`.
+   - Light `--card-hover-step` is −0.02, which is the old light value, so it is paint-identical in light.
+   - The scratch tree and the container copy were moved to `64f7429`: ⟨`sha256` of `style.css`/`GalleryCard.vue`⟩ is the same in both (`1c45d662…`/`96cabe31…`).
+   - Verified without update at `64f7429`: darwin `-g cartoon-card|fused-card|GCM-22|admin-label` → **4 passed** (`vb-darwin-head-cards.log`); linux, the same plus `@coarse` → **5 passed** (`linux-head-cards.log`).
+5. **Commit (the 10-09 seat's, found at the 10-13 resume).** ⟨`git show --stat 8094890`⟩ (fourier, 2026-10-09 18:44:29 −0400) → 11 files: five darwin goldens rewritten, six linux goldens new. The session died at ~18:40–18:45 before this receipt gained its gate lines; the receipt above is that seat's uncommitted text, inherited and kept as written.
+
+#### F-REL.vb — RESUME 2026-10-13 (re-baseline at the current HEAD `c6a242d`)
+
+Seat `claude-opus-5-5`, 2026-10-13 18:45–19:06Z. Spec read whole (F-REL.md, 43 lines); §0ew bullet 3 and §0ex read at the bytes.
+
+**Crash recovery.** ⟨`git status --porcelain | grep visual-checkpoint`⟩ (fourier) → 0 paths. The only inherited path is this record (the 47-line receipt above, uncommitted). ⟨`git rev-list --left-right --count HEAD...origin/m/w1-bump-migration`⟩ → `0 0` after a fetch, so there was nothing to pull.
+
+**Why a second sitting.** HEAD moved from `64f7429` to `c6a242d` (X-DS pass 7) after the goldens were minted. ⟨`git diff --stat 8094890..HEAD`⟩ → 5 files, all `web/src` (`EquationView.vue`, `FunctionInput.vue`, `GalleryView.vue`, `PaperView.vue`, `useScrollNavigation.ts`); `/equation` and `/gallery` are both checkpoint surfaces.
+
+**Lock.** `.worktrees/heavy.lock` was held by `F.CT3 ct3-base-c … pid 11227 2026-10-13T18:46:07Z`. I waited (polling every 5 s) until it was released, took it at 18:58:21Z with a no-clobber write, touched it every 120 s, and removed it at ~19:05Z.
+
+**Instrument (the 10-09 one, rebuilt at HEAD).**
+- Scratch worktree `~/.fourier-frel/g-wt` moved to `c6a242d`. Its five uncommitted darwin goldens were first proven byte-equal to the committed ones (⟨`git hash-object` vs `git rev-parse c6a242d:<path>`⟩ → `same=6`), then dropped in the scratch tree only.
+- API :8191 from the main tree's venv with CI's env (`COMPUTE_RATE_LIMIT`/`WRITE_RATE_LIMIT` 1000) on database `fourier_frel_vb` (nice 0); vite :3192 from the scratch tree.
+- Linux: container `frel-vb` (`mcr.microsoft.com/playwright:v1.61.0-noble`; ⟨`npx playwright --version`⟩ → `Version 1.61.0`; repo pin `@playwright/test ^1.61.0`). Its tree copy was synced to HEAD by tar from the read-only mount: ⟨`diff -rq /src/web/src /repo/web/src`⟩ and the same for `e2e` → empty; ⟨sha256 of `style.css`, `GalleryView.vue`, `EquationView.vue`, `package-lock.json`⟩ equal host and container.
+- KaTeX check: ⟨`grep -c "outside of Vite serving allow list"`⟩ on both vite logs → `0` / `0`.
+- Every run: `--project=chromium --project=mobile-chromium --workers=1`. Logs: `~/.dev-logs/frel/vb-darwin-r2-*.log`, `~/.fourier-frel/vb/linux-out/linux-r2-*.log`.
+
+**Readings at `c6a242d` (the spec has 6 tests: 5 on `chromium`, 1 `@coarse` on `mobile-chromium`; load 93–182 throughout).**
+
+| run | darwin (headless local) | linux (v1.61.0-noble) |
+|---|---|---|
+| BEFORE, no update | 6 passed (1.0m), rc=0 | 6 passed (33.9s), rc=0 |
+| `--update-snapshots` | 6 passed (45.5s), 0 frames rewritten | 6 passed (34.7s), 0 frames rewritten |
+| verify 1, no update | 6 passed (57.7s), rc=0 | 6 passed (30.2s), rc=0 |
+| verify 2, no update | 6 passed (50.4s), rc=0 | 6 passed (23.3s), rc=0 |
+
+- **Pass 7 did not move a checkpoint frame.** The update runs wrote nothing: ⟨`git status --porcelain -- web/e2e/visual-checkpoint.spec.ts-snapshots | wc -l`⟩ → `0` in the scratch tree and in the main tree; ⟨sha256 of the container's 12 PNGs vs the main tree's⟩ → identical 12/12.
+- **So there is no new snapshot commit.** The goldens at HEAD are `8094890`'s bytes, now measured GREEN ×2 per platform at `c6a242d`.
+
+**The goldens (12; ⟨`stat -f "%z %N"`⟩, bytes).**
+
+| golden | darwin | linux |
+|---|---|---|
+| `checkpoint-admin-banner-chromium-*.png` | 29907 | 25539 |
+| `checkpoint-card-hover-chromium-*.png` | 7992 | 7654 |
+| `checkpoint-card-modal-chromium-*.png` | 29512 | 24685 |
+| `checkpoint-card-resting-chromium-*.png` | 3387 | 3037 |
+| `checkpoint-disclosure-body-chromium-*.png` | 50375 | 42331 |
+| `checkpoint-tooltip-trigger-mobile-chromium-*.png` | 3266 | 3138 |
+
+**Eye-read, all 12 frames again.** Each is the redesigned state and linux matches darwin up to font rasterisation: the card tile and its radial hover lift with the title below; the modal; the Function and Controls panels (Harmonics 8 under Auto, KaTeX glyphs present); the "Auto" wand pill; the six admin stat tiles. Two corrections to the 10-09 reading:
+- The stub thumbnail paints **solid green**, not the card's hue through a transparent pixel.
+- **The modal's view count is blank** on both platforms: the eye icon is followed by a gap and "views", while likes reads "3 likes". `GalleryCardModal.vue:136` renders `entry.views` and the fixture sets `views: 12` (`e2e/fixtures/gallery.ts:44`). I did not find the cause. The golden therefore encodes an empty count.
+
+**Gates.** G-vb darwin ×2: RED (5 failed / 1 passed at `56619fc`, 10-09) → **GREEN ×2** at `c6a242d`. G-vb linux ×2: no goldens (10-09) → **GREEN ×2** at `c6a242d`.
+
+**Adjacent edits.** None.
+
+**Residuals.**
+- R-vb-1: the blank modal view count above. It is in `web/src` or the fixture, outside this unit's set. If it is cured, the modal golden re-baselines in that cure's receipt (§0ew standing rule).
+- R-vb-2: §0ex assigns the orphaned `web/e2e/screenshots/f-w14/*.png` re-renders (dirty since 10-09) to "that repo's next `.vb`". This unit's writable set is the snapshot directory only, so I left them untouched and uncommitted; the adoption needs a seat whose set includes that path.
+- The scratch API, vite and the container are stopped; the lock is released.
