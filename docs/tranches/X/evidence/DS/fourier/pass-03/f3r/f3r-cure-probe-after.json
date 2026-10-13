@@ -1,0 +1,362 @@
+{
+ "light-1440": {
+  "c2": {
+   "rule": [
+    107.8,
+    127.8,
+    20
+   ],
+   "field": [
+    97.8,
+    137.8,
+    40
+   ],
+   "offCentre": 0,
+   "alignSelf": "center"
+  },
+  "c3": {
+   "n": 2,
+   "hyphens": "manual",
+   "ws": "nowrap",
+   "multiLine": 0,
+   "widest": [
+    {
+     "t": "[Fourier, 1878]",
+     "w": 129.609375,
+     "lines": 1,
+     "right": 1125.03125
+    },
+    {
+     "t": "[Fourier, 1878]",
+     "w": 129.609375,
+     "lines": 1,
+     "right": 700.609375
+    }
+   ],
+   "articleW": 768,
+   "articleRight": 1278,
+   "overflowing": 0,
+   "proseHyphens": "auto"
+  },
+  "c5": {
+   "zoneBorder": "1px dashed rgba(0, 0, 0, 0)",
+   "zoneRadius": "12px",
+   "zone": [
+    21,
+    93,
+    1398,
+    790
+   ],
+   "stage": [
+    16,
+    88,
+    1408,
+    800
+   ],
+   "stageRadius": "16px"
+  },
+  "c5drag": {
+   "dragging": true,
+   "zoneBorder": "1px dashed rgb(28, 25, 23)"
+  },
+  "c1": {
+   "headings": [
+    {
+     "t": "Fourier",
+     "px": 14.54,
+     "lh": "20.3576px"
+    },
+    {
+     "t": "Polynomial",
+     "px": 14.54,
+     "lh": "20.3576px"
+    }
+   ],
+   "rowLabels": [
+    {
+     "t": "Harmonics",
+     "px": 14.54,
+     "lh": "20.3576px"
+    },
+    {
+     "t": "Sample Points",
+     "px": 14.54,
+     "lh": "20.3576px"
+    },
+    {
+     "t": "ML Threshold",
+     "px": 14.54,
+     "lh": "20.3576px"
+    }
+   ]
+  }
+ },
+ "light-390": {
+  "c2": {
+   "rule": [
+    153.5,
+    189.5,
+    36
+   ],
+   "field": [
+    141.5,
+    201.5,
+    60
+   ],
+   "offCentre": 0,
+   "alignSelf": "center"
+  },
+  "c3": {
+   "n": 2,
+   "hyphens": "manual",
+   "ws": "nowrap",
+   "multiLine": 0,
+   "widest": [
+    {
+     "t": "[Fourier, 1878]",
+     "w": 115.203125,
+     "lines": 1,
+     "right": 336.53125
+    },
+    {
+     "t": "[Fourier, 1878]",
+     "w": 115.203125,
+     "lines": 1,
+     "right": 168.203125
+    }
+   ],
+   "articleW": 358,
+   "articleRight": 374,
+   "overflowing": 0,
+   "proseHyphens": "auto"
+  },
+  "c5": {
+   "zoneBorder": "1px dashed rgba(0, 0, 0, 0)",
+   "zoneRadius": "12px",
+   "zone": [
+    21,
+    85,
+    348,
+    750
+   ],
+   "stage": [
+    16,
+    80,
+    358,
+    760
+   ],
+   "stageRadius": "16px"
+  },
+  "c1": {
+   "headings": [
+    {
+     "t": "Fourier",
+     "px": 18.62,
+     "lh": "26.0676px"
+    },
+    {
+     "t": "Polynomial",
+     "px": 18.62,
+     "lh": "26.0676px"
+    }
+   ],
+   "rowLabels": [
+    {
+     "t": "Harmonics",
+     "px": 18.62,
+     "lh": "26.0676px"
+    },
+    {
+     "t": "Sample Points",
+     "px": 18.62,
+     "lh": "26.0676px"
+    },
+    {
+     "t": "ML Threshold",
+     "px": 18.62,
+     "lh": "26.0676px"
+    }
+   ]
+  }
+ },
+ "dark-1440": {
+  "c2": {
+   "rule": [
+    107.8,
+    127.8,
+    20
+   ],
+   "field": [
+    97.8,
+    137.8,
+    40
+   ],
+   "offCentre": 0,
+   "alignSelf": "center"
+  },
+  "c3": {
+   "n": 2,
+   "hyphens": "manual",
+   "ws": "nowrap",
+   "multiLine": 0,
+   "widest": [
+    {
+     "t": "[Fourier, 1878]",
+     "w": 129.609375,
+     "lines": 1,
+     "right": 1125.03125
+    },
+    {
+     "t": "[Fourier, 1878]",
+     "w": 129.609375,
+     "lines": 1,
+     "right": 700.609375
+    }
+   ],
+   "articleW": 768,
+   "articleRight": 1278,
+   "overflowing": 0,
+   "proseHyphens": "auto"
+  },
+  "c5": {
+   "zoneBorder": "1px dashed rgba(0, 0, 0, 0)",
+   "zoneRadius": "12px",
+   "zone": [
+    21,
+    93,
+    1398,
+    790
+   ],
+   "stage": [
+    16,
+    88,
+    1408,
+    800
+   ],
+   "stageRadius": "16px"
+  },
+  "c5drag": {
+   "dragging": true,
+   "zoneBorder": "1px dashed rgb(186, 183, 171)"
+  },
+  "c1": {
+   "headings": [
+    {
+     "t": "Fourier",
+     "px": 14.54,
+     "lh": "20.3576px"
+    },
+    {
+     "t": "Polynomial",
+     "px": 14.54,
+     "lh": "20.3576px"
+    }
+   ],
+   "rowLabels": [
+    {
+     "t": "Harmonics",
+     "px": 14.54,
+     "lh": "20.3576px"
+    },
+    {
+     "t": "Sample Points",
+     "px": 14.54,
+     "lh": "20.3576px"
+    },
+    {
+     "t": "ML Threshold",
+     "px": 14.54,
+     "lh": "20.3576px"
+    }
+   ]
+  }
+ },
+ "dark-390": {
+  "c2": {
+   "rule": [
+    153.5,
+    189.5,
+    36
+   ],
+   "field": [
+    141.5,
+    201.5,
+    60
+   ],
+   "offCentre": 0,
+   "alignSelf": "center"
+  },
+  "c3": {
+   "n": 2,
+   "hyphens": "manual",
+   "ws": "nowrap",
+   "multiLine": 0,
+   "widest": [
+    {
+     "t": "[Fourier, 1878]",
+     "w": 115.203125,
+     "lines": 1,
+     "right": 336.53125
+    },
+    {
+     "t": "[Fourier, 1878]",
+     "w": 115.203125,
+     "lines": 1,
+     "right": 168.203125
+    }
+   ],
+   "articleW": 358,
+   "articleRight": 374,
+   "overflowing": 0,
+   "proseHyphens": "auto"
+  },
+  "c5": {
+   "zoneBorder": "1px dashed rgba(0, 0, 0, 0)",
+   "zoneRadius": "12px",
+   "zone": [
+    21,
+    85,
+    348,
+    750
+   ],
+   "stage": [
+    16,
+    80,
+    358,
+    760
+   ],
+   "stageRadius": "16px"
+  },
+  "c1": {
+   "headings": [
+    {
+     "t": "Fourier",
+     "px": 18.62,
+     "lh": "26.0676px"
+    },
+    {
+     "t": "Polynomial",
+     "px": 18.62,
+     "lh": "26.0676px"
+    }
+   ],
+   "rowLabels": [
+    {
+     "t": "Harmonics",
+     "px": 18.62,
+     "lh": "26.0676px"
+    },
+    {
+     "t": "Sample Points",
+     "px": 18.62,
+     "lh": "26.0676px"
+    },
+    {
+     "t": "ML Threshold",
+     "px": 18.62,
+     "lh": "26.0676px"
+    }
+   ]
+  }
+ }
+}

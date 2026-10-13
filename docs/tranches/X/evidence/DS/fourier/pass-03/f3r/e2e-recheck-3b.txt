@@ -1,0 +1,63 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 4 tests using 1 worker
+
+[1/4] [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback
+  1) [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('button', { name: /(Play|Pause) animation/ })
+    Expected: "true"
+    Received: "false"
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 60000ms
+      - waiting for getByRole('button', { name: /(Play|Pause) animation/ })
+        56 × locator resolved to <button type="button" data-v-3c550e2c="" data-press-armed="" data-state="closed" aria-pressed="false" data-grace-area-trigger="" aria-label="Play animation" class="dock-icon-button glass-specular-track glass-capsule-hover play-control">…</button>
+           - unexpected value "false"
+
+
+      207 |
+      208 |         // Playback autostarts once the decomposition lands; toggle from there.
+    > 209 |         await expect(play).toHaveAttribute("aria-pressed", "true", { timeout: 60_000 });
+          |                            ^
+      210 |         await play.press("Enter");
+      211 |         await expect(play).toHaveAttribute("aria-pressed", "false");
+      212 |         await expect(play).toHaveAccessibleName("Play animation");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w13-image-controls.spec.ts:209:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w13-image-controls-G-b-—-c6fba-circle-and-toggles-playback-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w13-image-controls-G-b-—-c6fba-circle-and-toggles-playback-chromium/error-context.md
+
+
+[2/4] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[3/4] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[4/4] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+  1 failed
+    [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback 
+  3 passed (3.1m)
