@@ -1,0 +1,2 @@
+{"run":"before-r1","load":"207.66->178.06","verdict":{"S1":false,"S2":false,"S3":false,"S4":false,"S5":false,"S6":true,"S7":true},"link":{"w":16,"h":16,"rowH":44,"glyph":16},"field":{"layers":1,"borderEnd":"1px","px":[[223,220,215],[223,220,215],[202,187,169]]},"squareRest":{"sliders":2,"readouts":[],"hidden":true,"help":241},"squareNudged":[],"amiga":{"sliders":0,"readouts":["yaw 0°","pitch 0°"],"hidden":true,"help":183},"amigaChord":{"chordSwallowed":true,"bareHandled":true},"gradient":[1,{"count":1,"sameNode":false}],"badges":[[70],0],"errors":[]}
+EXIT=0

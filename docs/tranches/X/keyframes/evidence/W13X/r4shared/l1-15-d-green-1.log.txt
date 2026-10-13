@@ -1,0 +1,6 @@
+15:24  up 3 days, 20:27, 3 users, load averages: 243.91 179.63 142.75
+     × waits for the closing overlay, then holds the update callback until the scene is ready 20ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |demo| test/demo/app/scene-swap-w13x.test.ts > KFA-25 / KFA-26 / KFA-201 — the switch prepares, then captures the resolved scene > waits for the closing overlay, then holds the update callback until the scene is ready
+ Test Files  1 failed | 25 passed (26)
+      Tests  1 failed | 108 passed (109)

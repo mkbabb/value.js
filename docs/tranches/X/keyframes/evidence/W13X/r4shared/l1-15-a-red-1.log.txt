@@ -1,0 +1,7 @@
+15:29  up 3 days, 20:31, 3 users, load averages: 265.08 217.97 168.70
+     × transport/ holds the controls group, the dock, their keys and their composables 5ms
+     × pane/ holds the pane, its ribbon, its channel controls and (limb b) its composables/ 1ms
+     × the pane reaches transport/ for keys and the channel type only, and transport/ mounts the pane once 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  3 failed | 7 passed (10)

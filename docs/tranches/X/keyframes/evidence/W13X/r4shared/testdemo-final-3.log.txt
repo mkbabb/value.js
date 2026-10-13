@@ -1,0 +1,9 @@
+83e9c266
+15:37  up 3 days, 20:39, 3 users, load averages: 186.39 194.69 180.74
+     × one pressed toggle writes --motion-weight: 0 on the heading, and a second press releases it 5007ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |demo| test/demo/instrument/hero-wave-pause.test.ts > KFA-134 — the hero wave's pause is reachable from the UI > one pressed toggle writes --motion-weight: 0 on the heading, and a second press releases it
+ Test Files  1 failed | 144 passed (145)
+      Tests  1 failed | 892 passed (893)
+   Duration  71.57s (transform 206.28s, setup 14.69s, import 415.22s, tests 192.90s, environment 443.06s)
+15:38  up 3 days, 20:41, 3 users, load averages: 207.32 198.44 183.29

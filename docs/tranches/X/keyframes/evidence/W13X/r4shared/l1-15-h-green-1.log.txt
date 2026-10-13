@@ -1,0 +1,5 @@
+15:15  up 3 days, 20:18, 3 users, load averages: 162.95 154.04 121.38
+     × waits for the closing overlay, then holds the update callback until the scene is ready 21ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed | 17 passed (18)
+      Tests  1 failed | 72 passed (73)

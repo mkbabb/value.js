@@ -1,0 +1,5 @@
+15:18  up 3 days, 20:21, 3 users, load averages: 117.50 143.59 123.42
+     × DemoGlobalChrome lives in demo/app and App.vue is its one mount 4ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)

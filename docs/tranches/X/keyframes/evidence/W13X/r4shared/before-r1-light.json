@@ -1,0 +1,92 @@
+{
+ "run": "before-r1",
+ "theme": "light",
+ "base": "http://localhost:5494",
+ "loadStart": "207.66",
+ "squareRest": {
+  "sliders": 2,
+  "readouts": [],
+  "hidden": true,
+  "help": 241
+ },
+ "squareNudged": {
+  "sliders": 2,
+  "readouts": [],
+  "hidden": true,
+  "help": 241
+ },
+ "field": {
+  "layers": 1,
+  "borderEnd": "1px",
+  "box": {
+   "x": 801.765625,
+   "y": 326.125,
+   "width": 311.65625,
+   "height": 311.65625,
+   "top": 326.125,
+   "right": 1113.421875,
+   "bottom": 637.78125,
+   "left": 801.765625
+  }
+ },
+ "squareBadge": [
+  70
+ ],
+ "gradientBefore": 1,
+ "gradientAfter": {
+  "count": 1,
+  "sameNode": false
+ },
+ "sequenceBadges": 0,
+ "amiga": {
+  "sliders": 0,
+  "readouts": [
+   "yaw 0°",
+   "pitch 0°"
+  ],
+  "hidden": true,
+  "help": 183
+ },
+ "amigaChord": {
+  "chordSwallowed": true,
+  "bareHandled": true
+ },
+ "amigaNudged": [
+  "yaw -45°",
+  "pitch 0°"
+ ],
+ "link": {
+  "w": 16,
+  "h": 16,
+  "rowH": 44,
+  "glyph": 16
+ },
+ "pageErrors": [],
+ "loadEnd": "178.06",
+ "fieldEdgePx": [
+  [
+   223,
+   220,
+   215
+  ],
+  [
+   223,
+   220,
+   215
+  ],
+  [
+   202,
+   187,
+   169
+  ]
+ ],
+ "verdict": {
+  "S1": false,
+  "S2": false,
+  "S3": false,
+  "S4": false,
+  "S5": false,
+  "S6": true,
+  "S7": true
+ }
+}

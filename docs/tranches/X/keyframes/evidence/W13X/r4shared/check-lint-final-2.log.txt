@@ -1,0 +1,9 @@
+15:40  up 3 days, 20:42, 3 users, load averages: 208.85 204.46 187.36
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT=0
+
+✔ no dependency violations found (456 modules, 1653 dependencies cruised)
+
+LINT_EXIT=0
