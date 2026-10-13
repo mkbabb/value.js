@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5
+
+> @mkbabb/keyframes.js@6.0.0 lint
+> depcruise --config .dependency-cruiser.cjs src demo && eslint demo
+
+
+✔ no dependency violations found (456 modules, 1653 dependencies cruised)
+
+EXIT 0
