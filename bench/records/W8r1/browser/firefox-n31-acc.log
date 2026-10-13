@@ -1,0 +1,26 @@
+firefox r0a0 parseCssColor          acc      n=6460 k=8 S=15 product x0.88 (27/31<1) spread 2.687 SET-ASIDE
+firefox r0a0 parseCssScalar         acc      n=7460 k=8 S=15 product x0.706 (31/31<1) spread 1.284
+firefox r0a0 parseCssValue          acc      n=13023 k=2 S=15 product x0.487 (31/31<1) spread 1.273
+firefox r0a0 parseCssValues         acc      n=13023 k=2 S=15 product x0.476 (31/31<1) spread 1.162
+firefox r0a0 parseKeyframeSelector  acc      n=56 k=8192 S=13 product x0.84 (30/31<1) spread 1.989 SET-ASIDE
+firefox r0a0 parseTimingFunction    acc      n=509 k=128 S=15 product x0.642 (31/31<1) spread 1.636 SET-ASIDE
+firefox r0a0 parseStylesheet        acc      n=2503 k=4 S=15 product x0.745 (30/31<1) spread 1.538
+firefox r1a0 parseCssScalar         acc      n=7460 k=8 S=15 product x0.669 (31/31<1) spread 1.898 SET-ASIDE
+firefox r1a0 parseCssValue          acc      n=13023 k=1 S=15 product x0.468 (31/31<1) spread 1.174
+firefox r1a0 parseCssValues         acc      n=13023 k=1 S=15 product x0.481 (31/31<1) spread 1.242
+firefox r1a0 parseKeyframeSelector  acc      n=56 k=8192 S=13 product x0.769 (29/31<1) spread 2.737 SET-ASIDE
+firefox r1a0 parseTimingFunction    acc      n=509 k=128 S=15 product x0.661 (31/31<1) spread 1.343
+firefox r1a0 parseStylesheet        acc      n=2503 k=4 S=15 product x0.78 (31/31<1) spread 1.196
+firefox r1a0 parseCssColor          acc      n=6460 k=16 S=15 product x0.838 (29/31<1) spread 1.796 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseCssColor                RED x0.88(SA) x0.838(SA)
+product firefox|acc|parseCssScalar               <1 x0.706 x0.669(SA)
+product firefox|acc|parseCssValue                <1 x0.487 x0.468
+product firefox|acc|parseCssValues               <1 x0.476 x0.481
+product firefox|acc|parseKeyframeSelector        RED x0.84(SA) x0.769(SA)
+product firefox|acc|parseTimingFunction          <1 x0.642(SA) x0.661
+product firefox|acc|parseStylesheet              <1 x0.745 x0.78
+15:38  up 3 days, 20:41, 3 users, load averages: 220.14 201.50 184.55 
+ 16:01  up 3 days, 21:04, 3 users, load averages: 145.51 122.71 138.54 → bench/records/2026-09-24-x-p-w7-browser-w8r1-firefox-n31-acc.json
+DONE w8r1-firefox-n31-acc

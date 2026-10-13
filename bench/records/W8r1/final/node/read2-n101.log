@@ -1,0 +1,4 @@
+parseCssScalar         acc      n=7460 k=1 retired 20.002ms spread 14.881 | product x0.617 (83/101<1, min/min x0.562) | load 568.28 -> 559.91
+parseKeyframeSelector  acc      n=56 k=2048 retired 47.675ms spread 13.712 | product x0.661 (82/101<1, min/min x0.628) | load 559.91 -> 551.38
+parseKeyframeSelector  rej      n=29888 k=2 retired 23.364ms spread 17.387 | product x0.659 (72/101<1, min/min x0.729) | load 551.38 -> 548.05
+DONE read 2 rounds 101

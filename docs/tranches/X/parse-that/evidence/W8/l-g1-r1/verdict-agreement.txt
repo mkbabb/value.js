@@ -1,0 +1,7 @@
+parseCssColor          acc 6460 (product refuses 1625) rej 23484 (product accepts 1724)
+parseCssScalar         acc 7460 (product refuses 1625) rej 22484 (product accepts 1725)
+parseCssValue          acc 13023 (product refuses 2447) rej 16921 (product accepts 1102)
+parseCssValues         acc 13023 (product refuses 2447) rej 16921 (product accepts 1102)
+parseKeyframeSelector  acc 56 (product refuses 0) rej 29888 (product accepts 0)
+parseTimingFunction    acc 509 (product refuses 147) rej 29435 (product accepts 23)
+parseStylesheet        acc 2503 (product refuses 539) rej 27441 (product accepts 244)

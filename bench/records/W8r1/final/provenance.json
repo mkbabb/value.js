@@ -1,0 +1,26 @@
+{
+ "valuejsHead": "5c8918c6b2c153eea13527aa4adf7179681bfc77",
+ "srcDirty": "",
+ "retiredAt": "2155142bad8b7ac8292ad2263f232a47a656f36e",
+ "bankedManifestOk": "79/79",
+ "readers": [
+  "ruleList",
+  "atPrelude",
+  "isPropertyName",
+  "syntaxText",
+  "syntaxComponents",
+  "scopePrelude",
+  "functionHead",
+  "functionParam",
+  "paramHead",
+  "declaration",
+  "emptyListComma",
+  "timelineArgs",
+  "opensTimeline",
+  "isTimelineLength",
+  "isDashedIdent",
+  "isIdentifier"
+ ],
+ "node": "v26.0.0",
+ "esbuild": "0.27.7"
+}

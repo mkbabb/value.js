@@ -1,0 +1,4 @@
+firefox r0a0 parseStylesheet        acc      n=2503 k=4 S=16 product x0.753 (29/31<1) spread 5.368 SET-ASIDE
+firefox r0a0 parseStylesheet        rej      n=27441 k=4 S=16 product x0.99 (16/31<1) spread 4.673 SET-ASIDE
+firefox r0a0 parseStylesheet        large-eq n=4 k=64 S=4 product x0.569 (31/31<1) spread 2.938 SET-ASIDE
+firefox r1a0 parseStylesheet        acc      n=2503 k=2 S=16 product x0.692 (22/31<1) spread 3.931 SET-ASIDE

@@ -1,0 +1,28 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/bbnf-value.test.ts (7 tests) 11ms
+ ✓ test/css/bbnf-color5.test.ts (8 tests) 17ms
+ ✓ test/css/syntax-custom-ident.test.ts (39 tests) 8ms
+ ✓ test/css/bbnf-fonts.test.ts (8 tests) 16ms
+ ✓ test/css/bbnf-success-path.test.ts (11 tests) 8ms
+ ✓ test/css/custom-property-empty.test.ts (17 tests) 7ms
+ ✓ test/css/custom-property-case.test.ts (4 tests) 9ms
+ ✓ test/css/bbnf-depth.test.ts (2 tests) 8ms
+ ✓ test/css/bbnf-refusal.test.ts (13 tests) 11ms
+ ✓ test/css/css-var-animation.test.ts (4 tests) 16ms
+ ✓ test/css/bbnf-grid.test.ts (8 tests) 11ms
+ ✓ test/css/bbnf-values.test.ts (11 tests) 20ms
+ ✓ test/css/bbnf-gap.test.ts (25 tests) 45ms
+ ✓ test/css/css-color5.test.ts (23 tests) 69ms
+ ✓ test/css/bbnf-images.test.ts (10 tests) 820ms
+   ✓ X.P.W8 .i — gradients > accepts every valid WPT gradient and round-trips it  611ms
+ ✓ test/css/bbnf-frozen.test.ts (22 tests) 657ms
+ ✓ test/css/hex-color.test.ts (6 tests) 708ms
+
+ Test Files  17 passed (17)
+      Tests  218 passed (218)
+   Start at  16:08:55
+   Duration  6.68s (transform 2.62s, setup 5.21s, collect 20.22s, tests 2.44s, environment 38.16s, prepare 5.01s)
+
+exit 0

@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5
+product bytes = X.P.W8 Repair 1's final bytes 5c8918c6b (src tree 13c717b46263023b0109f72b3e2100572d4e5b65 == HEAD:src 13c717b46263023b0109f72b3e2100572d4e5b65); instrument bench/paired/browser.mjs + browser-page.mjs at b45cf83d4
+7b243fd091694f2bdae2f4c1ee627ed8eb998744b3de3968472e5e493264c4a0  bench/paired/_build/product.mjs
+a65bcc4c78e7d1aa72ce23e085895478982b1ac9d4333432604f2a7309efd4b8  bench/paired/_build/retired.mjs
+78afc105dcf7ee039e4a584e9ac4ef568dc4a0b293c9dd0cb1de0c5852b48d99  src/css/bbnf/generated/grammar.js
+64bd543be1bf2bd7afef61a6f7bc3da12ad94da4
+64bd543be1bf2bd7afef61a6f7bc3da12ad94da4

@@ -1,0 +1,3 @@
+parseKeyframeSelector  acc      n=56 k=1024 retired 30.302ms spread 35.201 | product x0.664 (69/101<1, min/min x0.692) | load 512.45 -> 542.14
+parseCssColor          rej      n=23484 k=1 retired 42.245ms spread 12.536 | product x0.74 (69/101<1, min/min x0.649) | load 542.14 -> 568.28
+DONE read 1 rounds 101

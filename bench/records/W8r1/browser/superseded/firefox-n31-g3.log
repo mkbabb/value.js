@@ -1,0 +1,17 @@
+firefox r0a0 parseKeyframeSelector  acc      n=56 k=8192 S=16 product x0.861 (22/31<1) spread 4.452 SET-ASIDE
+firefox r0a0 parseTimingFunction    acc      n=509 k=128 S=16 product x0.521 (29/31<1) spread 3.606 SET-ASIDE
+firefox r0a0 parseKeyframeSelector  rej      n=29888 k=4 S=16 product x0.979 (18/31<1) spread 4.449 SET-ASIDE
+firefox r0a0 parseTimingFunction    rej      n=29435 k=4 S=16 product x0.912 (19/31<1) spread 6.739 SET-ASIDE
+firefox r1a0 parseTimingFunction    acc      n=509 k=128 S=16 product x0.526 (31/31<1) spread 7.259 SET-ASIDE
+firefox r1a0 parseKeyframeSelector  acc      n=56 k=4096 S=16 product x0.717 (27/31<1) spread 2.981 SET-ASIDE
+firefox r1a0 parseTimingFunction    rej      n=29435 k=4 S=16 product x0.757 (26/31<1) spread 3.002 SET-ASIDE
+firefox r1a0 parseKeyframeSelector  rej      n=29888 k=8 S=16 product x0.852 (20/31<1) spread 4.059 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseKeyframeSelector        RED x0.861(SA) x0.717(SA)
+product firefox|acc|parseTimingFunction          RED x0.521(SA) x0.526(SA)
+product firefox|rej|parseKeyframeSelector        RED x0.979(SA) x0.852(SA)
+product firefox|rej|parseTimingFunction          RED x0.912(SA) x0.757(SA)
+17:07  up 2 days,  2:35, 3 users, load averages: 303.93 278.66 290.52 
+ 18:48  up 2 days,  4:16, 3 users, load averages: 135.61 172.62 201.93 → bench/records/2026-09-24-x-p-w7-browser-w8r1-firefox-n31-g3.json
+DONE w8r1-firefox-n31-g3

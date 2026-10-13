@@ -1,0 +1,18 @@
+firefox r0a0 parseCssColor          rej      n=23484 k=16 S=15 product x0.939 (23/31<1) spread 4.48 SET-ASIDE
+firefox r0a0 parseCssScalar         rej      n=22484 k=8 S=15 product x0.651 (31/31<1) spread 2.176 SET-ASIDE
+firefox r0a0 parseCssValue          rej      n=16921 k=2 S=15 product x0.839 (30/31<1) spread 1.795 SET-ASIDE
+firefox r0a0 parseCssValues         rej      n=16921 k=2 S=15 product x0.823 (29/31<1) spread 1.696 SET-ASIDE
+firefox r0a0 parseKeyframeSelector  rej      n=29888 k=16 S=15 product x0.901 (23/31<1) spread 3.134 SET-ASIDE
+firefox r0a0 parseTimingFunction    rej      n=29435 k=16 S=15 product x0.929 (26/31<1) spread 1.827 SET-ASIDE
+firefox r0a0 parseStylesheet        rej      n=27441 k=8 S=15 product x0.923 (28/31<1) spread 3.071 SET-ASIDE
+firefox r1a0 parseCssScalar         rej      n=22484 k=8 S=15 product x0.581 (30/31<1) spread 5.237 SET-ASIDE
+firefox r1a0 parseCssValue          rej      n=16921 k=2 S=15 product x0.872 (24/31<1) spread 2.311 SET-ASIDE
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Target page, context or browser has been closed
+    at /Users/mkbabb/Programming/value.js/bench/paired/browser.mjs:59:38
+
+Node.js v26.0.0
+FAILED w8r1-firefox-n31-rej

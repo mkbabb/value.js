@@ -1,0 +1,47 @@
+webkit r0a0 parseCssColor          acc-eq   n=4835 k=2 S=1 product x0.714 (31/31<1) spread 1.65 SET-ASIDE
+webkit r0a0 parseCssScalar         acc-eq   n=5835 k=2 S=1 product x0.688 (31/31<1) spread 1.462
+webkit r0a0 parseCssValue          acc-eq   n=10576 k=1 S=1 product x0.362 (31/31<1) spread 1.36
+webkit r0a0 parseCssValues         acc-eq   n=10576 k=1 S=1 product x0.38 (31/31<1) spread 1.198
+webkit r0a0 parseKeyframeSelector  acc-eq   n=56 k=2048 S=1 product x0.7 (29/31<1) spread 1.692 SET-ASIDE
+webkit r0a0 parseTimingFunction    acc-eq   n=362 k=32 S=1 product x0.452 (31/31<1) spread 1.24
+webkit r0a0 parseStylesheet        acc-eq   n=1964 k=1 S=1 product x0.531 (31/31<1) spread 1.267
+webkit r0a0 parseCssColor          rej-eq   n=21760 k=1 S=1 product x0.656 (31/31<1) spread 1.433
+webkit r0a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.437 (31/31<1) spread 1.465
+webkit r0a0 parseCssValue          rej-eq   n=15819 k=1 S=1 product x0.633 (31/31<1) spread 1.244
+webkit r0a0 parseCssValues         rej-eq   n=15819 k=1 S=1 product x0.644 (31/31<1) spread 1.262
+webkit r0a0 parseKeyframeSelector  rej-eq   n=29888 k=1 S=1 product x0.882 (27/31<1) spread 1.812 SET-ASIDE
+webkit r0a0 parseTimingFunction    rej-eq   n=29412 k=1 S=1 product x0.773 (30/31<1) spread 1.667 SET-ASIDE
+webkit r0a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.661 (30/31<1) spread 1.283
+webkit r1a0 parseCssScalar         acc-eq   n=5835 k=2 S=1 product x0.697 (30/31<1) spread 1.778 SET-ASIDE
+webkit r1a0 parseCssValue          acc-eq   n=10576 k=1 S=1 product x0.393 (31/31<1) spread 1.378
+webkit r1a0 parseCssValues         acc-eq   n=10576 k=1 S=1 product x0.412 (31/31<1) spread 1.198
+webkit r1a0 parseKeyframeSelector  acc-eq   n=56 k=2048 S=1 product x0.821 (29/31<1) spread 1.52
+webkit r1a0 parseTimingFunction    acc-eq   n=362 k=32 S=1 product x0.522 (31/31<1) spread 1.5
+webkit r1a0 parseStylesheet        acc-eq   n=1964 k=1 S=1 product x0.576 (30/31<1) spread 1.333
+webkit r1a0 parseCssColor          acc-eq   n=4835 k=2 S=1 product x0.783 (27/31<1) spread 1.364
+webkit r1a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.455 (31/31<1) spread 1.432
+webkit r1a0 parseCssValue          rej-eq   n=15819 k=1 S=1 product x0.637 (31/31<1) spread 1.221
+webkit r1a0 parseCssValues         rej-eq   n=15819 k=1 S=1 product x0.653 (31/31<1) spread 1.222
+webkit r1a0 parseKeyframeSelector  rej-eq   n=29888 k=1 S=1 product x0.85 (29/31<1) spread 1.778 SET-ASIDE
+webkit r1a0 parseTimingFunction    rej-eq   n=29412 k=1 S=1 product x0.773 (30/31<1) spread 1.636 SET-ASIDE
+webkit r1a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.655 (31/31<1) spread 1.214
+webkit r1a0 parseCssColor          rej-eq   n=21760 k=1 S=1 product x0.647 (31/31<1) spread 1.563
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product webkit|acc-eq|parseCssColor              <1 x0.714(SA) x0.783
+product webkit|acc-eq|parseCssScalar             <1 x0.688 x0.697(SA)
+product webkit|acc-eq|parseCssValue              <1 x0.362 x0.393
+product webkit|acc-eq|parseCssValues             <1 x0.38 x0.412
+product webkit|acc-eq|parseKeyframeSelector      <1 x0.7(SA) x0.821
+product webkit|acc-eq|parseTimingFunction        <1 x0.452 x0.522
+product webkit|acc-eq|parseStylesheet            <1 x0.531 x0.576
+product webkit|rej-eq|parseCssColor              <1 x0.656 x0.647
+product webkit|rej-eq|parseCssScalar             <1 x0.437 x0.455
+product webkit|rej-eq|parseCssValue              <1 x0.633 x0.637
+product webkit|rej-eq|parseCssValues             <1 x0.644 x0.653
+product webkit|rej-eq|parseKeyframeSelector      RED x0.882(SA) x0.85(SA)
+product webkit|rej-eq|parseTimingFunction        RED x0.773(SA) x0.773(SA)
+product webkit|rej-eq|parseStylesheet            <1 x0.661 x0.655
+16:26  up 3 days, 21:29, 3 users, load averages: 139.27 292.15 294.05 
+ 16:28  up 3 days, 21:31, 3 users, load averages: 138.07 236.66 271.45 → bench/records/2026-09-24-x-p-w7-browser-w8r1f-webkit-n31-eq.json
+DONE w8r1f-webkit-n31-eq

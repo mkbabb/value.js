@@ -1,0 +1,47 @@
+chromium r0a0 parseCssColor          acc-eq   n=4835 k=4 S=1 product x0.546 (31/31<1) spread 1.139
+chromium r0a0 parseCssScalar         acc-eq   n=5835 k=4 S=1 product x0.518 (31/31<1) spread 1.113
+chromium r0a0 parseCssValue          acc-eq   n=10576 k=1 S=1 product x0.317 (31/31<1) spread 1.047
+chromium r0a0 parseCssValues         acc-eq   n=10576 k=1 S=1 product x0.318 (31/31<1) spread 1.124
+chromium r0a0 parseKeyframeSelector  acc-eq   n=56 k=2048 S=1 product x0.724 (31/31<1) spread 1.044
+chromium r0a0 parseTimingFunction    acc-eq   n=362 k=64 S=1 product x0.596 (31/31<1) spread 1.099
+chromium r0a0 parseStylesheet        acc-eq   n=1964 k=2 S=1 product x0.528 (31/31<1) spread 1.098
+chromium r0a0 parseCssColor          rej-eq   n=21760 k=1 S=1 product x0.451 (31/31<1) spread 1.552
+chromium r0a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.381 (31/31<1) spread 1.165
+chromium r0a0 parseCssValue          rej-eq   n=15819 k=1 S=1 product x0.477 (31/31<1) spread 1.137
+chromium r0a0 parseCssValues         rej-eq   n=15819 k=1 S=1 product x0.47 (31/31<1) spread 1.071
+chromium r0a0 parseKeyframeSelector  rej-eq   n=29888 k=4 S=1 product x0.691 (31/31<1) spread 1.072
+chromium r0a0 parseTimingFunction    rej-eq   n=29412 k=4 S=1 product x0.624 (31/31<1) spread 1.091
+chromium r0a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.479 (31/31<1) spread 1.108
+chromium r1a0 parseCssScalar         acc-eq   n=5835 k=4 S=1 product x0.648 (31/31<1) spread 1.133
+chromium r1a0 parseCssValue          acc-eq   n=10576 k=1 S=1 product x0.335 (31/31<1) spread 1.092
+chromium r1a0 parseCssValues         acc-eq   n=10576 k=1 S=1 product x0.332 (31/31<1) spread 1.083
+chromium r1a0 parseKeyframeSelector  acc-eq   n=56 k=2048 S=1 product x0.813 (31/31<1) spread 1.064
+chromium r1a0 parseTimingFunction    acc-eq   n=362 k=64 S=1 product x0.632 (31/31<1) spread 1.156
+chromium r1a0 parseStylesheet        acc-eq   n=1964 k=2 S=1 product x0.551 (31/31<1) spread 1.149
+chromium r1a0 parseCssColor          acc-eq   n=4835 k=4 S=1 product x0.71 (31/31<1) spread 1.115
+chromium r1a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.382 (31/31<1) spread 1.102
+chromium r1a0 parseCssValue          rej-eq   n=15819 k=1 S=1 product x0.457 (31/31<1) spread 1.126
+chromium r1a0 parseCssValues         rej-eq   n=15819 k=1 S=1 product x0.461 (31/31<1) spread 1.08
+chromium r1a0 parseKeyframeSelector  rej-eq   n=29888 k=4 S=1 product x0.701 (31/31<1) spread 1.132
+chromium r1a0 parseTimingFunction    rej-eq   n=29412 k=4 S=1 product x0.628 (31/31<1) spread 1.068
+chromium r1a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.552 (31/31<1) spread 1.193
+chromium r1a0 parseCssColor          rej-eq   n=21760 k=1 S=1 product x0.44 (31/31<1) spread 1.071
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product chromium|acc-eq|parseCssColor            <1 x0.546 x0.71
+product chromium|acc-eq|parseCssScalar           <1 x0.518 x0.648
+product chromium|acc-eq|parseCssValue            <1 x0.317 x0.335
+product chromium|acc-eq|parseCssValues           <1 x0.318 x0.332
+product chromium|acc-eq|parseKeyframeSelector    <1 x0.724 x0.813
+product chromium|acc-eq|parseTimingFunction      <1 x0.596 x0.632
+product chromium|acc-eq|parseStylesheet          <1 x0.528 x0.551
+product chromium|rej-eq|parseCssColor            <1 x0.451 x0.44
+product chromium|rej-eq|parseCssScalar           <1 x0.381 x0.382
+product chromium|rej-eq|parseCssValue            <1 x0.477 x0.457
+product chromium|rej-eq|parseCssValues           <1 x0.47 x0.461
+product chromium|rej-eq|parseKeyframeSelector    <1 x0.691 x0.701
+product chromium|rej-eq|parseTimingFunction      <1 x0.624 x0.628
+product chromium|rej-eq|parseStylesheet          <1 x0.479 x0.552
+16:25  up 3 days, 21:28, 3 users, load averages: 231.00 348.90 312.45 
+ 16:26  up 3 days, 21:29, 3 users, load averages: 139.27 292.15 294.05 → bench/records/2026-09-24-x-p-w7-browser-w8r1f-chromium-n31-eq.json
+DONE w8r1f-chromium-n31-eq

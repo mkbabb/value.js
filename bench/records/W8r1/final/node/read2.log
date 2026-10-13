@@ -1,0 +1,16 @@
+parseCssColor          acc      n=6460 k=1 retired 22.697ms spread 8.813 | product x0.456 (28/31<1, min/min x0.433) | load 145.11 -> 145.11
+parseCssScalar         acc      n=7460 k=1 retired 39.411ms spread 29.504 | product x0.829 (17/31<1, min/min x0.627) | load 145.11 -> 140.69
+parseCssValue          acc      n=13023 k=1 retired 261.995ms spread 8.687 | product x0.376 (30/31<1, min/min x0.301) | load 143.67 -> 137.83
+parseCssValues         acc      n=13023 k=1 retired 278.202ms spread 3.365 | product x0.433 (31/31<1, min/min x0.472) | load 134.1 -> 131.48
+parseKeyframeSelector  acc      n=56 k=256 retired 4.927ms spread 15.062 | product x0.735 (20/31<1, min/min x0.711) | load 127.84 -> 127.84
+parseTimingFunction    acc      n=509 k=32 retired 37.328ms spread 5.491 | product x0.582 (29/31<1, min/min x0.519) | load 127.84 -> 127.84
+parseStylesheet        acc      n=2503 k=1 retired 52.977ms spread 8.869 | product x0.658 (26/31<1, min/min x0.618) | load 122.48 -> 119.56
+parseCssColor          rej      n=23484 k=1 retired 70.38ms spread 15.539 | product x0.661 (22/31<1, min/min x0.685) | load 119.56 -> 119.04
+parseCssScalar         rej      n=22484 k=1 retired 67.581ms spread 7.412 | product x0.687 (25/31<1, min/min x0.598) | load 119.04 -> 119.35
+parseCssValue          rej      n=16921 k=1 retired 169.359ms spread 4.734 | product x0.428 (30/31<1, min/min x0.403) | load 121.81 -> 117.63
+parseCssValues         rej      n=16921 k=1 retired 401.453ms spread 23.271 | product x0.537 (30/31<1, min/min x0.399) | load 117.63 -> 249.48
+parseKeyframeSelector  rej      n=29888 k=2 retired 43.449ms spread 29.151 | product x0.929 (16/31<1, min/min x0.698) | load 249.48 -> 275.63
+parseTimingFunction    rej      n=29435 k=2 retired 35.822ms spread 35.889 | product x0.689 (21/31<1, min/min x0.701) | load 302.65 -> 335.67
+parseStylesheet        rej      n=27441 k=1 retired 212.3ms spread 19.407 | product x0.473 (28/31<1, min/min x0.557) | load 335.67 -> 439.39
+parseStylesheet        large-eq n=4 k=2 retired 35.321ms spread 26.236 | product x0.441 (24/31<1, min/min x0.468) | load 439.39 -> 458.26
+DONE read 2 rounds 31

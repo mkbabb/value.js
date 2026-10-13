@@ -1,0 +1,11 @@
+firefox r0a0 parseCssColor          acc-eq   n=4835 k=16 S=16 product x0.961 (23/31<1) spread 1.66 SET-ASIDE
+firefox r0a0 parseCssScalar         acc-eq   n=5835 k=16 S=16 product x0.777 (31/31<1) spread 1.788 SET-ASIDE
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Target page, context or browser has been closed
+    at /Users/mkbabb/Programming/value.js/bench/paired/browser.mjs:59:38
+
+Node.js v26.0.0
+FAILED w8r1-firefox-n31-eq1
