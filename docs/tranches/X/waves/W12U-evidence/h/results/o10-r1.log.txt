@@ -1,0 +1,42 @@
+# load 70.29 73.12 51.17
+    > 163 |         await nav.getByRole("button", { name: "About", exact: true }).click();
+          |                                                                       ^
+      164 |         await expect(page.locator(ABOUT_TITLE)).toBeVisible();
+      165 |
+      166 |         // display-1 floor-pins at heading (1.618rem) on phones, so the pane
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:163:71
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-80763-02-About-honest-2-line-lock-smoke/error-context.md
+
+
+(node:53884) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[4/6] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:209:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional
+[5/6] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px
+  2) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+
+    Test timeout of 180000ms exceeded.
+
+    Error: locator.textContent: Test timeout of 180000ms exceeded.
+    Call log:
+      - waiting for locator('[role="option"]').nth(10).locator('span').first()
+
+
+      289 |                 const option = page.locator('[role="option"]').nth(i);
+      290 |                 const spaceName =
+    > 291 |                     (await option.locator("span").first().textContent())?.trim() ??
+          |                                                           ^
+      292 |                     `option-${i}`;
+      293 |                 await option.click();
+      294 |                 const readout = page.locator(".readout").first();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:291:59
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-80b61-locked-line-count-at-1440px-smoke/error-context.md
+
+
+(node:64007) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[6/6] [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px
+O10 EXIT 0
