@@ -1373,3 +1373,27 @@ The census is unchanged because this pass's cures are fold, emphasis and proport
 
   None of these imports this pass's changed files except `KeyframeTimeline.vue`, whose `sections-w13x` oracle (Snapshot leads when no scene is named) holds.
 - Another seat committed `KeyframeTimeline.vue` (`403064f7`) while this seat's hunks were uncommitted in it. Their commit carried none of these hunks, and the cure commit applies cleanly on top. The cure commit is pathspec-only over its six files, and the evidence and receipt commits are pathspec-only.
+
+### pass 2 (the fifth redeploy's pass 2; a REPLAY of critic C21; no cure owed; recheck in `pass-21/recheck-2026-10-13/`)
+
+**No cure commit.** The findings handed to this seat (KF-C21-01..05, KF-C21-G1) are critic C21's, word for word. They were cured at keyframes.js `d3401d4a` (2026-10-09, the receipt "pass 2 (the third redeploy's pass 2; critic C21)" above), and `d3401d4a` is an ancestor of today's master `550827c2`. The redeployed workflow replayed a stale critic; no fresh critic ran. This seat re-read each cure in the tree and on the served page instead of re-curing, and changed no keyframes.js file.
+
+**Evidence:** value.js `b419b20ae` (`evidence/DS/keyframes/pass-21/recheck-2026-10-13/`: `c21-probe.json`, `probe.log`, 16 frames from pass 21's own `c21-probe.mjs`, `census.json`, `census.log`). Headless real Chrome (§0ei). The task named `pass-02/`, which holds the first workflow's pass-2 evidence, so the recheck sits beside the C21 evidence it re-reads.
+
+| id | served at `550827c2` (light and dark) | verdict |
+|---|---|---|
+| KF-C21-01 | Every `.specimen-tile` at #/easing, ON or off: background-image `none`, background-color transparent, box-shadow `none`, 1px solid border at 16 px. The cube popover's tiles (`data-density=menu`) read the same. | holds |
+| KF-C21-02 | 390: stage title 32.928 px (Instrument Serif 400) over the section label 25.888 px on Spring, Easing, Sequence and Square. 1440: 41.888 px over 25.888 px. | holds |
+| KF-C21-03 | Stagger header: "Stagger" · labelled "Reel" · vertical separator · glyph-only Reset. | holds |
+| KF-C21-04 | #/cube layer row: label at the label ink (28,25,23 light; 233,230,226 dark), "single-target only" alone at the muted ink. | holds |
+| KF-C21-05 | The comment states the marker class; no `will-change` on `.cascade-chase`. | holds |
+| KF-C21-G1 | Glass 10.1.0, unchanged. Held honest-RED against **O-87** and **O-88**, re-judged at the 10.2.0 repin; no local override, nothing written to the glass inbox. The KF-C21-02 glass rider (display-1 flooring onto the section-label rung at phone width) stands as cited. | held |
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): identical to pass 25 on every row (chrome 310 shadow elements, 938 layers, max 6; 192 non-floating; 416 inset highlights; 278 backdrop blur; 54 control gradients; 104 looping; subject control gradients 4). Verdict **RED**, held by the glass-owned rows and the banked loop row.
+
+**Gates** (on master `550827c2` plus another seat's uncommitted `demo/scenes/cube/useCubeDemo.ts` and untracked `r4cube-playing-and-paused-edit.test.ts`)
+- `npm run check`: exit 0, twice.
+- `vitest run --project demo` (`--maxWorkers=4`, 120 s timeouts): **872/872 in two of three runs**. The middle run failed 2 tests in 1 file; the output was truncated, so the file is not named, and the next run on the same tree was clean. This seat changed no source, so the failure is not from this pass; it is a flake or the other seat's in-flight cube work, and it is not diagnosed here.
+- `npm run lint` was not run (no source change). keyframes.js has no e2e suite and no visual golden.
+
+**For the orchestrator:** the next keyframes critic should be a fresh one judging today's frames (pass 25 and later), not C21.
