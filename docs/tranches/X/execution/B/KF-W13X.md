@@ -3488,3 +3488,81 @@ Not moved. KF-W13.md §State holds IMPLEMENTED at NO "until the gates green"; th
 ### Commits (value.js, RESUME 1)
 
 `.pc` `c97ce064a` `82f288599` · `.dh2` `c3a33f539` `cccb7930b` · `.esc1` `816370ed8` `0390f2a0b` · `.esc2` `6e0e85690` `d9ea2b5bd` · `.esc3` `f6608b19e` `4beb29152` `2909a44c1` · `.cube2` `a7a9d8962` `b10bec750` · `.r4lib` `148b6ff97` · `.r4state` `d0cffd211` · `.r4pane` `1e862a446` · `.r4transport` `46aa14b21` · `.r4shell` `1e227ad1e` · `.r4dock` `43156a427` · `.r4panes` `1ea80ce75` · `.r4cube` `cbbae67d3` `e15718f17` · `.r4shared` `032c7650c` `5f00126c7` · `.r4prose` `fd4428266` `b13997b28` · `.rel` `f4115a2ad` `2c9738567` `b7d992937` · the re-open `ed8522309`, a LEDGER line `774b4de19` · this Close (the commit that carries this section).
+
+## RESUME 1 — Check 1
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, 2026-10-13 (execution under the owner's begin-word of 2026-09-17). Fresh adversarial L-20 pass 1 on the RESUME 1 Close. VERIFY-ONLY: 0 keyframes.js bytes, 0 glass-ui bytes.
+- **Bytes read:** kf `2c11f034` (⟨`git -C keyframes.js rev-parse --short HEAD origin/master`⟩ → `2c11f034` twice). Gates ran in the close seat's detached worktree `keyframes-wt-W13X-close` at `2c11f034` (⟨`git status --porcelain`⟩ there → empty). The shared kf tree now carries 3 modified paths (`pane/ControlsPaneWrapper.css`, `pane/composables/useFoldLanding.ts`, `scenes/spring/SpringPhysicsFacet.vue`; the Close read 2): a sibling writer's in-flight work, not read as wave bytes, not touched.
+- **Crash recovery:** ⟨`git status --porcelain -- execution/B/KF-W13X.md execution/LEDGER.md`⟩ → empty at open. Nothing inherited.
+- **Instrument:** ⟨`uptime`⟩ 15:59 → `92.72 109.08 137.27`; later readings `97.57`, `156.41`, `136.87`. The 1-minute load never fell below 90; the quiet-host bar is 25 (addendum (g)).
+- **Verdict: NOT-CONFORMANT.** The Close's own verdict is PARTIAL and it is right. Every GREEN it claims reproduces, the bounds, masking, E-3 and mail reads hold, but two close conjuncts are not met and neither has a relief at the spec bytes (C1-1, C1-2). The LEDGER status cell stays PARTIAL.
+
+### Axis 1 and 9 — what reproduces
+
+| gate or figure | Close | this seat | result |
+|---|---|---|---|
+| ⟨`npm run check`⟩ | EXIT 0 ×2 | `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` · `EXIT=0` ×2 | reproduces |
+| ⟨`npm run lint`⟩ | EXIT 0 ×2, 456 modules / 1653 dependencies | `✔ no dependency violations found (456 modules, 1653 dependencies cruised)`, eslint silent · `EXIT=0` ×2 | reproduces |
+| library falsifiers (8 files) | 8 / 29 ×2 | ⟨`npx vitest run test/group/kfa-{31,68,69}-*.test.ts test/engine/kfa-{145,70}-*.test.ts test/waapi/kfa-{135,28}-*.test.ts test/compile/uia-kf-177-css-time.test.ts`⟩ → `Test Files 8 passed (8)` · `Tests 29 passed (29)` ×2 | reproduces |
+| ⟨`git log --oneline 5bd9172b..HEAD \| wc -l`⟩ | 83 = 60 + 23 | 83; subjects carrying `W13X` → 60; the other 23 are all `kf/ds` or `X-DS` | reproduces |
+| ⟨`git diff --check 5bd9172b HEAD`⟩ | 2 findings | `shell/index.ts:2` blank line at EOF · `sections-w13x.test.ts:51` trailing whitespace | reproduces |
+| paths outside `demo/ test/ src/` | 6 | `package.json`, `package-lock.json`, `scripts/gates/census.mjs`, `scripts/lib/demo-driver.mjs`, `scripts/observe/demo/live-session.mjs`, `scripts/observe/demo/usability.mjs` | reproduces |
+| config diff | `package.json \| 2 --` | the same line, nothing else | reproduces |
+| removed pins | 0 | ⟨`git grep -c 'highlight.js\|html2canvas' HEAD -- package.json package-lock.json`⟩ → no line; ⟨`grep -c 'highlight\|html2canvas' vite.config.ts`⟩ → 5 (R-3) | reproduces |
+| glass pin | `10.1.0` | `package.json` `"10.1.0"`; installed `"version": "10.1.0"` | reproduces |
+| INBOX | 0 UNREAD, 3 rows O-92..O-94 | ⟨`grep -c '^\|.*\| *\**UNREAD\** *\|' INBOX.md`⟩ → 0; ⟨`grep -c '^\| O-9[234] ' INBOX.md`⟩ → 3 | reproduces |
+
+Gates reproduced: **3** (`check` ×2, `lint` ×2, the library falsifiers ×2). Figures reproduced: 7 of 7 read. Not reproducible on this host today: `test:demo`, the kf e2e roster, `gh-pages`, the served probes and `.pc` (the Close reads them UNREAD; so does this seat, at load 92–156).
+
+### Axes 2–7
+
+- **(2) Bounds.** ⟨`git diff --name-only 5bd9172b HEAD -- src`⟩ → 15 files, all under `src/animation/**`; ⟨`git log 5bd9172b..HEAD -- src`⟩ → 8 commits, 7 `.r4lib` and 1 `.r4transport` (`76531255`, KFA-69 group seek), each inside its row of the unit plan. ⟨`git log 5bd9172b..HEAD -- scripts`⟩ → 2 commits (`8dc03389` `.r4shared`, `2739c16d` `.r4dock`), 4 files, 9 insertions and 9 deletions: path and label strings, declared. No `node_modules` path in the diff (⟨`… | grep -c node_modules`⟩ → 0). value.js: 32 commits carry `W13X` since 2026-10-07 (the Close's 31 plus the Close itself); their paths outside `keyframes/evidence/W13X/**` are this record, the dh2 brief, `LEDGER.md`, `INBOX.md`, `COHESION.md` and the three relay letters. ⟨`git log --since=2026-09-24 --format=%h -- scripts/dev/dev.sh | wc -l`⟩ → 0. Held. The 27 out-of-set paths were not re-matched one by one; the Close's table was sampled at `src/` and `scripts/` and agrees.
+- **(3) Masking.** Added lines over `demo test src scripts`: 0 `test.skip` / `it.skip` / `describe.skip` / `.only(` / `eslint-disable` / `@ts-ignore`; 0 added `catch` in `demo` or `src`. 5 added `// @ts-expect-error — remove the stub` in three new library test files (`kfa-70-first-presented-tick` 2, `kfa-31-render-observer` 2, `kfa-135-external-pause` 1): the teardown idiom that stood at `5bd9172b` in `prm-engagement.test.ts:127` and `waapi-lifecycle.test.ts:64`. Not masking (C1-6). No test file deleted or renamed out; no modified test file lost `expect(` lines (per-file count, 0 flagged; one false hit was a removed regex `.test(` call in `overlays-w13x.test.ts`, whose case (7) was re-written for ESC-dock-1, 24 → 27 `expect(`). 5 per-test `timeout:` options added, as the Close states. Held.
+- **(4) Commit families.** One commit per row or per limb; `.r4shared`'s moves carry their importer lines in the same commit. No split read.
+- **(5) E-3.** ⟨`git diff --numstat 38ab02427^ HEAD -- docs/tranches/X/keyframes/waves docs/tranches/X/fourier/waves docs/tranches/V/megatranche/registry/adjudicated | awk '$2>0'`⟩ → empty (0 deleted lines; the 17 added lines are F-CT / F-REL dated addenda by other seats). No `W13X` commit touches a spec, the registry or a conformance artefact. Held.
+- **(6) Mail.** 0 UNREAD status cells. Highest rows O-94 and I-71 (glass's receipt of O-92..O-94, folded at `9eef8fd80`). ⟨`find <5 paths> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0, 0, 0, 1, 0; the 1 is glass's own `BL/FORMATION-PROGRESS.md`, not a letter. Held.
+- **(7) Four-verb line.** Not moved. Lawful: the gates are not green.
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | **HIGH** | The close conjunct "every row dispositioned" is RED. Seven escalations raised by the RESUME units stand without a ruling: ESC-W13X-pc-1, ESC-r4transport-1, ESC-r4shell-1, ESC-r4shell-2, ESC-W13X-r4lib-1, ESC-W13X-r4cube-1, ESC-W13X-r4shared-1. Their rows are neither cured nor re-homed by a dated addendum. | ⟨`grep -n 'ESC-r4transport-1\|ESC-r4shell-[12]\|ESC-W13X-r4lib-1\|ESC-W13X-r4cube-1\|ESC-W13X-r4shared-1\|ESC-W13X-pc-1' COHESION.md KF-W13.md`⟩ → no line. The newest sections are `§0ex`, `§0ey`, `§0ez`; none rules them. KF-W13.md `:534`. | A dated COHESION ruling per escalation (grant, re-home by id, or relay row), then a unit for each granted one. A verify-only seat cures none. |
+| C1-2 | **HIGH** | The close conjuncts "`test:demo` GREEN" and "kf e2e at `--workers=1` ×2 within the honest-RED set" are unread at the head, as are `gh-pages`, the per-row served probes (C1-8 of the first Check) and `.pc`'s ×2. UNREAD is not GREEN, and addendum (g) forbids banking a reading under load. The one `test:demo` reading the Close took (144 / 145 files, 872 tests, load 110) is rightly not banked. | Close Act 2; this seat's `uptime` 92–156. The kf e2e roster has been UNREAD since `95c81b7b`. | One sitting at a 1-minute load < 25 with Track B's close seat alone (ESC-W13X-close2-1), or a dated addendum that re-rules the bar. Then the five readings ×2 at the head; `playback-ribbon-contract.test.ts` from the main tree or a worktree with a real `node_modules`. |
+| C1-3 | MINOR | COHESION `§0ez` (committed `ed8522309`, before the Close) orders KF.W13X, "at its next keyframes seat (`.rel` or the close)", to measure whether the consumer reset KF-ET-10 still changes any computed style on glass 10.1.0. The record never names it. | ⟨`grep -n 'KF-ET-10' KF-W13X.md`⟩ → no line before this section. The reset stands at `demo/components/EasingCatalogue/EasingCatalogue.vue:390`. | The next close-side seat takes the reading with R-1's served probes (it is a served reading, so the same bar applies) and records it; add it to R-1. |
+| C1-4 | MINOR | Two glass asks named by units are unfiled (R-4: a `PopoverAnchor` export or `anchor` prop, `.esc2`; the EasingCurve glyph form, `.r4pane`). The spec makes glass rows relay-only, so the relay is part of the row's disposition. The Close names an owner. | Close R-4; the three letters carry neither. | A relay seat files them as the next O-rows after O-94, with INBOX rows and a live send. |
+| C1-5 | MINOR | Two whitespace findings and the R-3 consumer residue (5 inert `vite.config.ts` strings; `TransportDock.vue` importing `@app/dock/dockEdge`; the machine-record items) are owned by "a unit under the same ruling" that no plan yet holds. | ⟨`git diff --check`⟩ above; Close R-3. | Plan them by id at the next re-open, as addendum (g) required of the R-4 rows ("never left OPEN"). |
+| C1-6 | INFO | The Close's masking figure "3 → 3" is scoped to `demo` and `test/demo`. Over the whole `test/` tree `@ts-expect-error` rises by 5 (new library falsifiers, the house stub-teardown idiom). No relaxation. | Axis (3) above. | None. |
+| C1-7 | INFO | The Close's commit list calls `ed8522309` "the re-open"; its subject is `docs(X): COHESION §0ez — glass receipt I-71`. A label slip, not a bytes fault. | ⟨`git log -1 --format=%s ed8522309`⟩. | None. |
+| C1-8 | INFO | `.r4state` wrote six files outside `demo/state/**` (the machine's dispatch sites), declared. Wide for §0bt's "a few lines"; the owning units were already closed in a strictly serial run, so no sibling was crossed. | Close Act 1 table. | None; a later plan should grant dispatch sites with the machine. |
+
+Self-count: 2 HIGH + 3 MINOR + 3 INFO = **8** rows.
+
+### Axis 10 — the RED and UNREAD gates, adjudicated at the spec bytes
+
+| gate | state | relief at the spec? | reading |
+|---|---|---|---|
+| every row dispositioned | RED | **none** | The seven escalations are consumer rows (one, ESC-W13X-r4lib-1, asks a relay to X·P and is not yet rowed). The spec routes no part of them to a later wave and names no honest-RED id for them. Unrelieved (C1-1). |
+| `test:demo` GREEN | UNREAD | **none** | Consumer-owned. Addendum (g) lets a seat return UNREAD; it does not turn UNREAD into a pass. Unrelieved (C1-2). |
+| kf e2e `--workers=1` ×2 within the honest-RED set | UNREAD | **none** | The honest-RED set relieves named failures inside a reading; with no reading there is nothing to relieve. Unrelieved (C1-2). |
+| `gh-pages`, served probes, `.pc` ×2 | UNREAD | **none** | Addenda (f) and (g) own these as this wave's close readings. Unrelieved (C1-2). |
+
+Rows held with a relief (these are row dispositions, not close gates, and stay as the Close records them): the glass rows honest-RED or ADOPT-AT-LANDING on O-56, O-59, O-65, O-66, O-67, O-74, O-77a, O-89, O-92..O-94 (producer-owned; glass rows are relay-only by KF-W13.md `:533`); A2-KE-L1-9 step 3 on O-59 (addendum (g)); A2-KE-L3-1 and L3-2 HELD for glass §11 (addendum (b)); KFA-218 RULED-AS-DESIGNED (addendum (f)); the ten owner calls (§0dm). **Honest-RED set of the close gates: empty.** No RED gate is laundered as honest here.
+
+### Axis 8 — the goal criterion
+
+The wave's goal is "the keyframes audit rows, whole": every row cured at the root or dispositioned, on a floor that reads GREEN. At the bytes, 60 commits land the nine ruled escalations, `.cube2`, and the R-4 units, and the correctness floor holds. The goal is **not met**: seven row families wait on a ruling, and the served floor has no reading at the head.
+
+### Successors
+
+No LEDGER row and no wave spec declares "Opens after KF.W13X" (⟨`grep -rn 'KF\.W13X' keyframes/waves waves fourier/waves | grep -i 'opens after'`⟩ → only this wave's own header). No successor is blocked by this verdict. X-DS shares the files but is not gated on this wave.
+
+### What the next seat owes, in order
+
+1. The orchestrator: a dated ruling on each of the seven escalations (C1-1), and on ESC-W13X-close2-1 (a quiet sitting, or a re-ruled bar).
+2. A re-open that plans the granted escalations, R-3 and the two whitespace lines as units by id (C1-5), and a relay seat for R-4 (C1-4).
+3. A close at load < 25: `test:demo` ×2, the roster ×2, `gh-pages`, the served probes, `.pc` ×2, and the KF-ET-10 reading (C1-3).
+
+### Four-verb line
+
+Not moved by this seat.
