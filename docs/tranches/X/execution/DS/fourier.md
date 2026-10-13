@@ -1111,3 +1111,36 @@ This is the cure for critic **F6**. The BEFORE is the critic's set, `pass-06/cri
 - `v-*-1440`, `v-edit-light-1440` and `dock-menu-light-1440` (G2, G3).
 
 Each was taken in light and dark, at 1440 and 390 where it applies.
+
+### pass 2
+This is a **re-witness, not a new cure.** The workflow was redeployed and handed this seat critic **F2R**'s findings again. Those six consumer rows were cured on 2026-10-09 at fourier `a06c10e` (the earlier "### pass 2" receipt above, evidence `pass-02/f2r/`). The seat checked each cure against the tree before touching anything, found all six standing at fourier HEAD `c6a242d`, and changed no fourier file.
+- fourier: no commit and no push. `a06c10e` is an ancestor of `c6a242d` on `m/w1-bump-migration`.
+- value.js `b36045ef4` holds the re-read frames, the probe JSON and the census in `pass-02/f2r-rewitness/`. The original `pass-02/` frames and `f2r/`, `f4r/` are left as they were.
+
+**Consumer findings, re-measured on the served HEAD tree** (`f2r-cure-probe-after.json`, the pass's own probe re-run against `:3100`).
+
+| id | standing |
+|---|---|
+| DS-F2R-C1 | `style.css` holds no `.dark .katex` rule. Each notation glyph's ink equals its label's ink in all 4 /equation cells, the pressed Trig chip included. |
+| DS-F2R-C2 | Only two captions remain in `web/src`: Function's `f(t)` and Coefficients' count. /equation reads `Function f(t) · Controls · Coefficients 21 harmonics · n = ±20`; /v reads `Image · Basis · Contour · Coefficients`. |
+| DS-F2R-C3 | Stage 1408×800 at radius 16px; dashed zone 5px in at radius 12px (1440). At 390 the zone is 348px wide in a 358px stage. |
+| DS-F2R-C4 | "Browse the gallery" is `emphasis="text" size="sm"` on the empty stage, the error stage and NotFoundCard: 14.38px at 1440, 18.27px at 390 (glass's coarse-pointer ramp), after the format caption. |
+| DS-F2R-C5 | Legend 539.6px against a 539.6px plot at 1440, both themes. |
+| DS-F2R-C6 | Preset rows 4/4 at 1440 and 3/3/2 at 390, both themes. |
+
+One reading differs from the first receipt: /v's Coefficients heading carried no count in these frames (the first receipt read `all 201 harmonics`). The probe reads 6 s after load, and the census caught the same cell still loading, so this is most likely the list not yet filled; it was not chased further.
+
+**Glass-owned, cited, not overridden.** DS-F2R-G1 holds honest-RED on O-87 FLAT-LIGHTING until the glass 10.2.0 repin. DS-F2R-G2 holds on O-88 DOCK-COLLAPSE-MOTION, with O-87 for the cast. No local override exists or was added.
+
+**Owner ruling only.** DS-F2R-G3 (the morph sun reads as a gear at icon size) is identity (§0dm) and was not touched.
+
+**Census** (`scripts/ds-census.mjs` on `:3100`; `f2r-rewitness/census-after.json`). Still RED on the glass rows.
+- Static: 8 box-shadow declarations, 12 layers, 7 gradients, 3 keyframes, 0 infinite animations.
+- Computed sums: 378 shadow elements, 948 layers, 283 multi-layer stacks, 283 inset highlights, 212 backdrop blur, 0 control gradients, 1 looping animation. The one loop is the /v light 1440 cell read mid-load; it was not re-read.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116 (20 files), twice.
+- e2e: **not run.** No file changed, so no spec touches a changed file; the 22-spec set last ran for these cures in the first pass-2 receipt.
+- No visual golden was re-baselined.
+
+**Frames** (`pass-02/f2r-rewitness/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f2r-cure-probe.mjs` against `:3100`: `equation-*`, `w-*`, `v-*` and `v-error-*` at 1440 and 390, plus `notation-*-1440` and `presets-*-390`, each in light and dark.
