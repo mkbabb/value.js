@@ -1460,3 +1460,34 @@ The census is unchanged because this pass's cures are fold, emphasis and proport
 - keyframes.js has no e2e suite and no visual golden; nothing was re-baselined. `landFold` has no unit falsifier because jsdom has no layout; the served probe is its falsifier.
 
 **Concurrency:** other seats committed to keyframes.js master during this pass (`2c11f034`, `ca0b1a0b`, `33a1f509`). `33a1f509` committed its own CSS hunk in `SpringHeatmap.vue` by index blob while this pass's script hunk was uncommitted in the same file; the two do not touch. The cure commit is pathspec-only over its ten files, which then held this pass's hunks only; the push was fast-forward. The evidence and receipt commits are pathspec-only.
+
+### pass 3 (the sixth redeploy's pass 3; critic C3; evidence in `pass-28/`)
+
+**Cure commit:** keyframes.js `46335ebe` (master, pushed fast-forward). **Evidence:** value.js `11ba058ef` (`evidence/DS/keyframes/pass-28/`: the probe `c3-probe.mjs` with `c3-probe.json` and `probe.log`, a dry run `c3-probe-dry.json`; `after/` with 28 frames (7 routes x 1440 and 390 x light and dark); `census.json`, `census.log`, `census-frames/`; the gate logs `check-*`, `lint-*`, `test-demo-*`). All captures are headless real Chrome (§0ei). The task named `pass-03/`, which holds the first workflow's pass-3 evidence, so the frames go to `pass-28/` (the pass-23..27 precedent). The BEFORE state is the critic's reading and pass 27's `after/`.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C3-01 | **The figure sits under its heading.** The storyboard shared its free block over n + 1 gaps and centred the lanes, but only the n - 1 gaps between lanes are drawn, so the other two became empty bands. The lanes now start at the storyboard's own block padding under the title row (`justify-content: flex-start`), and the free block is shared over the n - 1 lane gaps (same 1rem floor and 4.5rem cap; past the cap the rest falls under lane 5). One rule in `SequenceTarget.css`; the template is unchanged. | Title row to lane 1: 24 px (was ~115 at 1440, ~120 at 390). Lane gap 66-67 px. Under lane 5: 57 px (was ~100). The same at 1440 and 390, light and dark. Frames `after/sequence-*`. |
+| KF-C3-04 | **One state, one row.** The partner readout (velocity, or position while the sweep leads) left the header's aside, which `justify-between` parked at the plate's far edge. Both readouts sit in the `#readouts` slot on one baseline row under the title, the partner a `gap-x-6` rung after the primary (the row may wrap on a narrow card; it never spreads). | Partner 24 px after position at 1440 and 390, both schemes; position on the title's left edge. Frames `after/spring-*`. |
+| KF-C3-03 | **A drawn rule is not a fill** (the census, `scripts/ds-census.mjs`). A background whose every layer is a hard-stop, two-tone (one ink plus transparent) linear gradient with ink runs of at most 1 px draws hairlines (a scale's ticks, a graph's rules). It is tallied as `drawnRules` and is not counted as a control gradient. The spring rail's quarter ticks are kept as drawn. Soft or multi-ink gradients and ink runs wider than 1 px are still counted (checked offline against five sample strings). | Subject control gradients 4 → 0. Chrome control gradients unchanged at 54, so no chrome fill was exempted. |
+
+**Not cured, stated**
+- **KF-C3-02 (owner ruling owed, not a cure).** The home page's 104 looping animations over 4 frames are the dock tile's TypingDots, the hero dots and the headline `charLift` wave. The canon routes these to an owner DESIGN-RULING (§0dm; ORIGIN's headline dot-fade is the analogue), and no ruling is recorded. **Ask for the owner:** one ruling covering the headline wave, the hero dots and the collapsed dock tile's TypingDots. Until it is given, the census check "chrome: no looping animations" is expected-RED for this reason alone. Nothing was stripped.
+- **KF-C3-05 (process, discharged).** The `pass-21/recheck-2026-10-13/` frames predate r5 passes 4 and 5. This seat recaptured every route at 1440 and 390, both schemes, from the served tree (`pass-28/after/`, `pass-28/census-frames/`). The next critic should judge those, not the recheck set.
+
+**Cited (glass, not overridden)**
+- **KF-C3-G1** (re-confirmation): the glass-resting/quiet cards' 5-layer stack with inset rim and dark halo, field-control/control-surface/segmented/control-bit inset edges, control-surface two-layer gradients (the 54 chrome control gradients), the slider-track inset, `switch__thumb` shadow, the collapsed dock's halo (O-88), the cube-pane easing popover's backdrop bloom, and the input/select fill mismatch. Unchanged at glass 10.1.0; held honest-RED against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION**, re-judged at the 10.2.0 repin. No local override; nothing written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): chrome identical to pass 27 on every row (310 shadow elements, 938 layers, max 6; 192 non-floating; 416 inset highlights; 278 backdrop blur; 54 control gradients; 104 looping). Subject: 0 on every row (control gradients 4 → 0, KF-C3-03). Verdict **RED**, held by the glass-owned rows and the KF-C3-02 loop row.
+
+**Gates** (the live tree: master plus this change plus another seat's uncommitted hunks in the same working tree)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **899/899, 146 files, twice.**
+- keyframes.js has no e2e suite and no visual golden; nothing was re-baselined.
+
+**Host (§0fb guard law):** every run went through `~/.claude/guard/guarded`. The first full vitest run took a slot. The second waited about 75 minutes in the slot queue, starved by long holders (runs of 100 to 240 min from other repos), and was re-run with `--light` (still contained: RSS cap, timeout, descendant reap) at load ~45 with 38 % memory free. The probes and the census also ran `--light`, one browser each, closed in `finally`. Nothing was left running. **For the owner:** the three-slot semaphore has no fairness or maximum hold, so one 240-minute run can starve every short seat. A per-run hold cap, or a separate slot class for long runs, would remove the starvation.
+
+**Concurrency:** another seat (r5 pass 5, KF-C5-10) holds uncommitted hunks in `SequenceTarget.css` and `SequenceTarget.vue`. This pass's `SequenceTarget.css` hunk (the storyboard block at the file's end) was staged by index blob (HEAD plus the own hunk), and its hunks were not touched. `SequenceTarget.vue` was not edited, so its "the storyboard's `my-auto` centres the lanes" comment is now stale for the next seat that owns the file. The evidence and receipt commits are pathspec-only.
