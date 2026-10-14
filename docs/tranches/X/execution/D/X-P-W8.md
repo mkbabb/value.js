@@ -818,3 +818,50 @@ GREEN-before-cure: none (the `.semi` falsifier's named case is RED; the `rgb()`/
 Groups: `[[".semi"], [".lg1r"]]`.
 
 ## RESUME 2026-10-14 — Unit receipts
+
+### X.P.W8.semi (2026-10-14, `claude-opus-5-5`) — a `;` inside a value is refused, naming the `;` (css-syntax-3 §5.4.6; ESC-W13X-r4lib-1 / UIA-KF-277, COHESION §0fa.5) — cured in BBNF
+
+- **Crash recovery:** ⟨`git status --porcelain -- src/css test/css bench/records/W8semi src/value.ts docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md docs/tranches/X/execution/D/X-P-W8.md`⟩ → empty at open: no inherited edits.
+- **Host / §0fb:** every test, probe, audit and build ran under `~/.claude/guard/guarded` (vitest `--maxWorkers=2`). The first heavy-slot run waited >4 min on three slots held by other sessions (⟨`lsof ~/.claude/guard/slots/*`⟩ → 3 holders), so each run of this unit — one file to one suite, ≤ 8 s of build, peak tree RSS ≤ 2.19 GB per the guard log — ran `guarded --light` (still RSS-capped, timed and reaped; the slot semaphore skipped). Load during the gates: ⟨`uptime`⟩ 44 → 108. No server, watcher or browser started.
+- **Emitter pin (the `.e` recipe):** ⟨`git -C ../bbnf-lang-x-p-w7-typescript log -1 --format=%h`⟩ → `f0059db14`, ⟨`status --porcelain | wc -l`⟩ → `0` before and after. `node_modules/@mkbabb/bbnf-lang` (`0.1.4`) moved aside as `.bbnf-lang-0.1.4-aside-W8semi`, symlinked to `…/typescript`; on HEAD `3666479cd` bytes ⟨`node scripts/gen-grammar.mjs --check`⟩ → `current (sha256 e979a963…)`. Restored after the commit: ⟨`grep '"version"'`⟩ → `0.1.4`; ⟨`git diff --stat -- package.json package-lock.json`⟩ → empty.
+
+**Acts, in order**
+1. **Born-RED falsifier** `test/css/bbnf-semicolon.test.ts` (20 cases): 9 sheets refused with `css_syntax` (`a{transform:rotate(0;1deg)}`, `@keyframes k{0%{transform:translate(0;1px)}}`, `drop-shadow(0 0;1px red)` in a keyframe, `translate(0 ; 1px)`, `scale(1;2)` after a function, `blur(1px;2px)`, `rgb(1;2;3)`, `calc(1px;2px)`, `var(--a,1px;2px)`); 6 `parseCssValue` sources whose one diagnostic names the `;` (`actual ";"`, its own 1-character span); 5 controls that parse (`rotate(0deg)`, `rotate(0)scale(1)`, `content:"a;b"`, `url(a;b.png)`, `translate(0,1px)` in a keyframe). On HEAD's grammar ⟨`guarded --light npx vitest run test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ → `Tests 13 failed | 7 passed (20)` ×2 (`falsifier-before-{1,2}.log`; the 7 passing are the `rgb()`/`calc()` sheets, which already refused, and the 5 controls).
+2. **Root found:** `value.bbnf` `operator = /<=|>=|==|!=|[+*<>=:;]|…/` read `;` as a keyword term, and `termSep`'s `(?=[:;])|(?<=[:;])` let it stand against its neighbours, so `rotate(0;1deg)` read as the call `rotate(0 ; 1deg)`. The declaration reader (`stylesheet.bbnf` `semiItems`) already keeps a `;` inside a `()` block, as css-syntax-3 §5.4.6 says, so the value parser receives it. The cure is at the value grammar, not the stylesheet layer or keyframes.
+3. **Cure (BBNF):** `operator` drops `;`; `badTerm = /[^\s(),\/:;"']+|;/` reads a lone `;` so its existing action refuses it naming the `;`; `termSep` unchanged. Re-emitted ⟨`node scripts/gen-grammar.mjs`⟩ → sha256 `9f54614b…`. A first cut (`;` dropped from `operator` and `termSep` only) refused with a whole-input span, measured 104,671 / 14,642 B; the `badTerm` form names the `;` and is smaller in gz, so it was kept.
+4. **Gate fallout, each cured at its own seam (§0bt adjacent edits, below):** V-C found one stale ruled row (`random-item(auto, ;)`, an invalid case now refused); `test:css-equivalence` found 134 + 4 `;` cells per value entry (the incumbent read `;` as a keyword), 2 of them PB-04/05 `ADJUDICATION_UNHONOURED` (`ok;lch(-220 .630 -0)`: the adjudication's repair test reads through the incumbent's `;`). Both were cured by the named class **W8semi-SEMI**, a mechanism test (repair `;` → space, must then read NOT RED, and the candidate's refusal must name a `;`).
+5. **Commit** `2f590daa8` (one family: grammar + re-emission + falsifier + ruled row + differential class + CHANGELOG + DIVERGENCE-LEDGER §19-S).
+
+**Gates (BEFORE = RESUME Baseline at `c7beb41ec`, product `5c8918c6b`; AFTER = product `2f590daa8`; outputs banked in `bench/records/W8semi/`, MANIFEST.txt sha256)**
+
+| Gate | Command | BEFORE | AFTER (×2) | Verdict |
+|---|---|---|---|---|
+| `.semi` falsifier | ⟨`guarded --light npx vitest run test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ | `13 failed \| 7 passed (20)` ×2 | `Tests 20 passed (20)` ×2 | **RED → GREEN** |
+| sheet probe | ⟨`npx vite-node bench/records/W8semi/probe.ts …`⟩ | `rotate(0;1deg)` / keyframes `translate(0;1px)` ACCEPTED | `refused css_syntax` (both; `var(--a,1px;2px)` too) | GREEN |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | `3899 ruled rows`, GREEN | `6267 cases · 3898 ruled rows · TOTAL 2369 pass · 0 MISS` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, exit 0 ×2 (before the row removal: `V-C RED: 0 unruled misses, 1 stale ruled rows`) | GREEN |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence`⟩ | 19/19 | `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2; `"W8semi-SEMI":134` assay, `:4` real, per value entry (before the class: `4 failed \| 15 passed`) | GREEN |
+| test/css ×2 | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | 17 files · 218 | `Test Files 18 passed (18) · Tests 238 passed (238)` ×2, after the pin was restored | GREEN |
+| L-G2 ×2 | ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 2f590daa8… · srcDirty "" · bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product bench/records/W8semi/equiv-$i.json`⟩ | 981 | `compared 1376531/1376531 rows · mismatches 2847` ×2, ⟨`cmp`⟩ identical; ⟨`node bench/records/W8semi/delta.mjs`⟩ vs `W8e/equiv-1.json.gz` → `identical 940 · gone 11 · moved 30 · new 1877` ×2; ⟨`node bench/records/W8semi/classify.mjs`⟩ → `new 1877 · moved 30` each holding a `;` with the product's refusal naming it, `gone 11` each holding a `;`, `odd 0` ×2 | GREEN (0 new unnamed rows: every delta row is W8semi-SEMI) |
+| prefix ×2 | same reads | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | GREEN |
+| `--check` ×2 (pinned) | ⟨`node scripts/gen-grammar.mjs --check`⟩ | current `e979a963…` | `current (sha256 9f54614b…)` ×2 after the commit (`check.log`) | GREEN |
+| audit (pinned) | ⟨`node bench/paired/audit.mjs`⟩ | 0 | `rules 176 · checks 350068857 · violations 0 · modeDiffs 0`, exit 0 | GREEN |
+| **E-6 size** ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c`⟩ / `\| gzip \| wc -c` | 104,398 / 14,622 | **`104733` / `14635`** ×2 (**+335 / +13 B**; ceilings 125,646 / 14,517: raw GREEN, gz over by 118 B) | gz honest-RED → **ESC-W8e-1** (unruled; not shaved) |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0 (`error TS` 0 · 0) | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence/w6-classes.ts --max-warnings=0`⟩ | 0 | exit 0 | GREEN |
+| build ×2 | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 7.04s` / `7.78s` | GREEN |
+
+**Adjacent edits (§0bt; same repo, same concern, in the cure commit)**
+- `bench/wpt-conformance/ruled.json` (the `random-item-invalid.html` / `font-family` / `random-item(auto, ;)` row, 9 lines removed; formatting preserved byte-for-byte). The cure refuses that invalid case, so the row named no miss and V-C read it STALE. A ruled row the cure discharges is removed, not kept.
+- `bench/css-equivalence/w6-classes.ts:34,38-39,235-247,263,270`: the **W8semi-SEMI** class, and `governs` widened to a verdict list that may include `ADJUDICATION_UNHONOURED` (the check reads `args.cell.verdict`). This is the oracle's named class for the divergence the cure opens, as `.g` (W8g-NAI) and `.t` (W8t-MIX) did.
+- `CHANGELOG.md:18`: the `[Unreleased]` line, as `.e` did.
+
+**Residuals (named, owner-routed; recorded in DIVERGENCE-LEDGER §19-S)**
+- **W8semi-CUSTOM:** `--x: f(a;b)` is valid css-variables-1 `<declaration-value>` and is refused. The custom value runs through the component grammar, as `{}` blocks and a bare `!` already do. No WPT case or corpus sheet holds one. Reading it needs a custom-property term set parallel to `valueTerm`, which E-6's gz ceiling (ESC-W8e-1) prices.
+- `:` is still an operator keyword (`rotate(0:1deg)` accepted, ⟨`probe-after.txt`⟩). ADDENDUM (b) names `;` only, and `:` is read by `if()`/style-query conditions.
+- **ESC-W8e-1** (E-6 gz ceiling) stays unruled: 14,635 B against 14,517.
+- L-G1 ×2 on the new bytes is owed to `.lg1r` (the Unit plan's row 2).
+
+**Escalations:** none new.
+
+**Commits:** `2f590daa8` (cure family) · the record commit (this receipt + `bench/records/W8semi/**`).

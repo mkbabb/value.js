@@ -1,0 +1,6 @@
+"a{transform:rotate(0;1deg)}" refused css_syntax
+"@keyframes k{0%{transform:translate(0;1px)}}" refused css_syntax
+"a{--x:f(a;b)}" refused css_syntax
+"a{width:var(--a,1px;2px)}" refused css_syntax
+"a{transform:rotate(0:1deg)}" ACCEPTED
+"a{background:url(a;b.png)}" ACCEPTED
