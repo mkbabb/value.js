@@ -899,3 +899,61 @@ Groups: `[[".semi"], [".lg1r"]]`.
 - **Residuals:** ESC-W8e-1 (E-6 gz ceiling, 14,635 B against 14,517) stays unruled and is not this unit's; ESC-W8r1-2 (named-colour / `var()` refusal dispatch in the emitted grammar, producer row, INFO) stands — no gate cell turns on it (acc `parseCssColor` Firefox ub 0.861). The close seat's check-as-audit (§0eq) reads these banked records; it does not re-time them.
 - **Escalations:** none (0 cells straddle; no ESC-W8lg1r-n minted).
 - **Mail:** ⟨`grep -nE "\| *UNREAD *\|" docs/tranches/V/coordination/INBOX.md`⟩ → 4 hits, all E13 sweep lines quoting the pattern itself (l.604–608); 0 UNREAD mail rows. The RESUME 2026-10-14 Open's sweep stands for this sitting.
+
+## RESUME 2026-10-14 — Close (workflow close seat, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **PARTIAL**
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D/X-P-W8.md docs/tranches/X/execution/LEDGER.md bench/records/W8close3`⟩ → empty at open: no inherited work. parse-that ⟨`git -C ../parse-that log --oneline -1`⟩ → `cb9c0d4` (unmoved; its dirty `rust/**`, `README.md`, `.cargo/config.toml` belong to another session and are untouched). `scripts/dev/dev.sh` untouched.
+- **§0fb:** one runner, `.worktrees/w8close3/gates.sh` (banked as `bench/records/W8close3/gates.sh`), ran every gate strictly in sequence under ⟨`~/.claude/guard/guarded --light --timeout 60 -- sh gates.sh`⟩ in `run_in_background`, vitest `--maxWorkers=2`. The 3 heavy slots were held by other sessions (⟨`lsof ~/.claude/guard/slots/*`⟩ → 4 lines), so this seat ran `--light`, the same choice `.semi` and `.lg1r` made: RSS-capped, timed, and descendants reaped. Load 59–112 (`run.log`). No browser, server or watcher was started. ⟨`ps -Ao command | grep w8close3 | grep -vc grep`⟩ → `0` at the end.
+- **Pinned emitter:** `--check` and the audit ran through `.worktrees/w8close3/{gen-pinned,audit-pinned}.mjs`, copied from the RESUME Close's `.worktrees/w8close2/`. Each reads `../bbnf-lang-x-p-w7-typescript` (⟨`log -1 --format=%h`⟩ → `f0059db14`, ⟨`status --porcelain | wc -l`⟩ → `0`) directly, so `node_modules` was not swapped.
+- **L-G1 was audited, not re-timed** (§0eq): the read of record is `.lg1r`'s `333b519ea`, taken on these product bytes. A fresh read here would be a selection among reads.
+
+### Act 1 — commit roster (⟨`git show --stat`⟩ per commit; ⟨`git rev-parse 2f590daa8:src HEAD:src`⟩ → equal, so the product is unmoved since `.semi`)
+
+| Unit | Commit | Paths | In bounds? |
+|---|---|---|---|
+| `.semi` | `2f590daa8` | `src/css/grammar/value.bbnf` · `src/css/bbnf/generated/grammar.{js,d.ts}` · `test/css/bbnf-semicolon.test.ts` · `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` + §0bt adjacent edits `bench/wpt-conformance/ruled.json` (stale row 3899→3898) · `bench/css-equivalence/w6-classes.ts` (W8semi-SEMI class) · `CHANGELOG.md:18` | yes; the three adjacent edits are declared in the receipt and share the concern (the oracles the cure moves) |
+| `.semi` | `5f773c608` | `bench/records/W8semi/**` (13) · this record | yes |
+| `.lg1r` | `333b519ea` | `bench/records/W8lg1r/**` (57 paths; ⟨`git show --name-only --format= 333b519ea \| grep -vc '^bench/records/W8lg1r/'`⟩ → `0`) | yes, 0 product bytes |
+| `.lg1r` | `99da3ef57` | this record | yes |
+
+Landed-wrong: none. One INFO: `333b519ea`'s subject names the max-ub cell "rej-eq/rej parseKeyframeSelector". The settled bytes show it is `rej` alone (0.954, ub 0.977). The `.lg1r` receipt already corrects this in place, and a commit message is not rewritten.
+
+### Act 2 — gates re-run by this seat (BEFORE = RESUME Baseline at `c7beb41ec`, product `5c8918c6b`; AFTER = HEAD `99da3ef57`, product `2f590daa8`; outputs in `bench/records/W8close3/`, MANIFEST.txt sha256)
+
+| Gate (W8.md) | Command | BEFORE | AFTER (this seat, ×2 where marked) | Verdict |
+|---|---|---|---|---|
+| `.semi` falsifier (ADDENDUM (b)) ×2 | ⟨`npx vitest run test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ on HEAD; on `git archive 2f590daa8^ src test/support` + tsconfigs/vitest.config + the HEAD test file, in `.worktrees/w8close3/prior` | RED (named case + keyframes sibling ACCEPTED) | prior: `Tests 13 failed \| 7 passed (20)` ×2 (`AssertionError: expected true to be false` on `rotate(0;1deg)`, keyframes `translate(0;1px)`, …); HEAD: `Tests 20 passed (20)` ×2 | **GREEN** (RED→GREEN reproduced) |
+| V-C (§Scope 2) ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | GREEN, 3899 ruled | `6267 cases · 3898 ruled rows` · `TOTAL 6267 2369 3898 … MISS 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, exit 0 ×2 | **GREEN** |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ | 19/19 | `Test Files 2 passed (2) · Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 | **GREEN** |
+| test/css ×2 | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | 17 / 218 | `Test Files 18 passed (18) · Tests 238 passed (238)` ×2 | **GREEN** |
+| L-G2 ×2 (§Scope 4) | ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 99da3ef57… · srcDirty "" · bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product …/equiv-$i.json`⟩ | 981 | `compared 1376531/1376531 rows · mismatches 2847` ×2; ⟨`cmp equiv-1 equiv-2`⟩ identical; ⟨`gunzip -c bench/records/W8semi/equiv-1.json.gz \| cmp - equiv-1.json`⟩ identical, so the delta is `.semi`'s classified delta (every new row W8semi-SEMI by mechanism, §19-S): 0 new unnamed rows | **GREEN** |
+| prefix ×2 | same reads | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | **GREEN** |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | **GREEN** |
+| E-4 `--check` ×2 (pinned `f0059db14`) | ⟨`node .worktrees/w8close3/gen-pinned.mjs --check`⟩ | current `e979a963…` | `is current (sha256 9f54614b…)` ×2 | **GREEN** |
+| E-2 audit (pinned) | ⟨`node .worktrees/w8close3/audit-pinned.mjs`⟩ | 0 | `rules 176 · checks 350068857 · violations 0 · modeDiffs 0`, exit 0 | **GREEN** |
+| **E-6 size** (ceilings 125,646 / 14,517) ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c`⟩ / `\| gzip \| wc -c` | 104,398 / 14,622 | `104733` / **`14635`** ×2 (+335 / +13 B) | raw GREEN · **gz honest-RED (+118 B over) → ESC-W8e-1, unruled** |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0 (`error TS` 0 · 0) | **GREEN** |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence/w6-classes.ts --max-warnings=0`⟩ | 0 | exit 0, empty output | **GREEN** |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 8.71s` | **GREEN** |
+| **L-G1 ×2, four engines (§Scope 5, §0ev.1): audit of the banked read** (§0eq) | ⟨`git archive HEAD bench/records/W8lg1r \| tar -x` → `shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ ×2; ⟨`node bench/paired/bootstrap.mjs <tree>/{node,browser}/*.json \| shasum -a 256`⟩ ×2 | owed on `.semi`'s bytes | MANIFEST `56` ×2. Reader output `590d5a9c…` ×2, equal to the committed `bootstrap-read.txt` and to `.lg1r`'s determinism hash. GATE recomputed: ⟨`grep -c '→ GREEN'`⟩ → `103` of 103 cells (node 15 · Chromium 29 · WebKit 29 · Firefox 29 + whole `parseCssScalar`), 0 RED, 0 straddles, all at 31 rounds. Product timed = `2f590daa8` (src tree equal at HEAD) | **GREEN** |
+
+### Act 3 — verification artefacts
+W8.md has no separate §Verification Artefacts section. Its gates are §Scope 2 (V-C), §Scope 4 (stay-GREEN), §Scope 5 (L-G1) and ADDENDUM (b)'s falsifiers, and Act 2 re-ran all of them. The five named misses at mint (§Scope 3) are covered by test/css 238/238 ×2 and V-C GREEN ×2. Evidence: `bench/records/W8close3/` (31 files: logs force-added past `*.log`, so ⟨`shasum -a 256 -c MANIFEST.txt`⟩ verifies from the tree; `equiv-1.json.gz`; `bootstrap-1.txt`; `gates.sh`; `run.log` with the load at each step).
+
+### Act 4 — E13 mail
+⟨`find <p> -maxdepth 1 -type f -newer docs/tranches/V/coordination/INBOX.md \| wc -l`⟩ returns `0` on every path: value `V/` · `V/coordination` · glass `BK/coordination` · glass `BL/` + `BL/coordination` (⟨`ls -td ../glass-ui/docs/tranches/*/ \| head -1`⟩ → `BL/`) · keyframes `V/coordination` · atlas `P/coordination`. ⟨`grep -cE '^\| .*\| *UNREAD *\|' INBOX.md`⟩ → `0`. No UNREAD mail is in scope. No sweep line is appended, because the RESUME 2026-10-14 Open's sweep stands and nothing has arrived since.
+
+### Escalations (standing, unruled: ⟨`grep -c 'ESC-W8e-1' docs/tranches/X/COHESION.md`⟩ → `0`)
+- **ESC-W8e-1** (owner/orchestrator): E-6 gz is 14,635 B against the 14,517 B ceiling, 118 B over. It came from two lawful BBNF cures: `.e` `--x: ;` at `5408b73e7` (+105 B) and `.semi` at `2f590daa8` (+13 B). The ask is to raise the E-6 gz ceiling to ≥ 14,635 B (e.g. 14,700) or rule otherwise. W8.md ADDENDUM (a) bars shaving the bytes to fit.
+- ESC-W8lg1-1 is **discharged**: RESUME Repair 1 cured it at three roots, and `.lg1r` reads Firefox 29/29 + whole GREEN ×2, which this seat re-derived as 103/103 from the banked bytes.
+
+### Residuals (named owners)
+- R-1 ESC-W8e-1 → owner ruling on the E-6 gz ceiling (above).
+- R-2 W8semi-CUSTOM (DIVERGENCE-LEDGER §19-S): `--x: f(a;b)` is valid css-variables-1 and is now refused. No WPT or corpus case holds it, and E-6 prices the cure. Owner-routed beside ESC-W8e-1.
+- R-3 `:` is still an operator keyword (`rotate(0:1deg)` accepted). This is outside ADDENDUM (b)'s scope, because `if()`/style queries read `:`. Owner: the orchestrator, if a future addendum names it.
+- R-4 ESC-W8r1-2 (producer row, INFO: named-colour / `var()` refusal dispatch in the emitted grammar) → bbnf-lang producer by mail. No gate cell turns on it.
+- R-5 (INFO, hygiene) `docs/tranches/X/parse-that/evidence/W8/l-g1-r1/bootstrap-read-e-bytes.txt` is untracked (mtime 2026-10-13 17:06). The killed RESUME Repair 1 seat left it; it is a Chromium/… reader output on `.e`'s bytes and sits outside this seat's writable set. It is untouched. Owner: the check-as-audit seat or the orchestrator, to bank or discard. No gate reads it.
+- R-6 (INFO) RESUME Repair 1's receipt ends at its gate table (its own L-G1 result and State were never written). `.lg1r`'s read on the final bytes supersedes it, so nothing is owed.
+
+### State
+Four-verb line: X.P.W8 → **PARTIAL** (not IMPLEMENTED). ADDENDUM (b) `.semi` is cured (falsifier RED 13/20 → GREEN 20/20 ×2 reproduced). V-C GREEN ×2 and the whole stay-GREEN set reproduce on `2f590daa8`. L-G1 ×2 is GREEN on all 103 cells on node, Chromium, WebKit and Firefox (incl. the W7-carried whole `parseCssScalar`), audited from `333b519ea`. The only RED is E-6 gz (ESC-W8e-1), which is the owner's ceiling ruling and not a cure. VERIFIED is not this seat's stamp: per W8.md §Units / ADDENDUM (b), the check-as-audit (§0eq) follows.
