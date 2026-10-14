@@ -899,3 +899,121 @@ Groups: `[[F-REL.mem2], [F-REL.w], [F-REL.vb], [F-REL.g], [F-REL.d]]`.
 | F-REL.d | §Units `.d` (F-REL.md:32-38) | `scripts/**` (prod-verify probe); evidence `value.js/docs/tranches/X/fourier/evidence/F-REL/` | G-smoke, cert > 14 d, G-outage (health polled through the deploy), `scripts/prod-verify.mjs` 20/20, openapi has publish/remix/diff, PATCH preflight 2xx | deploy via the standing workflow + webhook only; host never hand-edited; R-h1 / R-h2 named |
 
 ## RESUME 2026-10-13 (b) — Unit receipts
+
+### F-REL.mem2
+
+Seat `claude-opus-5-5`, 2026-10-13 15:17–… local. Spec read whole (`fourier/waves/F-REL.md`, 46 lines); COHESION §0ey (L3800-3807), §0ew bullet 1 (L3773-3779), §0ex (L3791-3798) read; the prior receipt `### F-REL.mem` read. **Route (a) wins: our own BiRefNet-lite export at a static 512 input meets BOTH gates.** Routes (c) and (b) were not opened.
+
+**Crash recovery (§0ex adoption).** ⟨`git status --porcelain` (fourier), filtered to the writable set⟩ → ` M scripts/model-smoke.sh` (mtime Oct 9 11:50) and `?? bench/contours/memory.py` (Oct 9 13:05). Both are `.mem`'s orphans, read whole (the smoke diff, 35 lines changed; `memory.py`, 296 lines, byte-identical to the durable copy at `~/.fourier-frel/mem/memory.py`). Both conform to the unit and are adopted: the commit carries the line "adopts the orphaned hunk of 2026-10-09". The WIP patch's `ml.py` hunk (U2-Net alone) was NOT applied: §0ey rules route (a) first. Its session-options half is kept; its test file was rewritten for the mechanism that landed.
+
+**Lock and load.** `.worktrees/heavy.lock` was absent at open and was held (content `F-REL.mem2`) through every mask sweep, Linux probe, smoke and pytest run. ⟨`uptime`⟩ → load 109 at open, 90–260 through the runs. Memory peaks and mask IoUs are counts, robust to load (§0ev.1). Work and evidence are durable: `~/.fourier-frel/mem2/` (scripts, exports), `~/.dev-logs/frel/mem2-*.log`, `~/.fourier-samples/evidence/mem2-*`. Nothing durable in /tmp.
+
+**Acts in order.**
+1. **Licence and weights, verified at the source.** ⟨`curl -s 'https://huggingface.co/api/models/ZhengPeng7/BiRefNet_lite?blobs=true'`⟩ → revision `aa62cd87eafb9cc43056d08ef3615a14628b831d`; `cardData.license` = `mit` (tag `license:mit`; README front matter L13 `license: mit`); `model.safetensors` 177,634,392 bytes, sha256 `4417d89795250e698c3cb0ae8df15743810065f646f48a694fdfa7ca052d0815`. The script pins the revision and refuses any other weights digest.
+2. **The export script**, `scripts/export-birefnet-lite.py` (new). PEP 723 inline metadata pins torch 2.5.1, torchvision 0.20.1, onnx 1.17.0, onnxruntime 1.20.1, transformers 4.46.3 and the model code's own imports, so `uv run scripts/export-birefnet-lite.py --size N --out DIR` is the pinned form of `uv run --with torch --with onnx …`. ⟨`grep -n 'torch\|onnx' pyproject.toml`⟩ → `13: "onnxruntime>=1.17",` only: torch is not a runtime or image dependency. The script fetches the pinned revision, verifies the weights sha, exports a static `[1,3,N,N]` graph at opset 17, folds it with onnxruntime's BASIC level, and refuses to write an export whose logits differ from the official torch model by more than 5e-3 on a random input. It writes a provenance JSON beside the ONNX.
+3. **Static, not dynamic axes** (§0ey allows either). The Swin backbone's window and padding arithmetic is traced as constants, so one static graph per size is the honest export.
+4. **The export's own memory, cured at its root, by measurement.** Every figure is one inference, model alone, in the production image (Linux), arena and memory pattern off (⟨`~/.fourier-frel/mem2/lpeak.sh <onnx> <size> x`⟩):
+
+   | Lowering of the decoder's deformable convolutions | 512 peak |
+   |---|---|
+   | `deform_conv2d_onnx_exporter` (one GatherND of all taps × 4 corners; the published exports' recipe) | **1686 MB** |
+   | GridSample per tap, one 1×1 conv term per tap | 1307 MB |
+   | GridSample per tap, one conv term per kernel ROW (landed) | 711 MB |
+   | the same, graph folded at BASIC (landed, published) | **646 MB** |
+
+   - onnxruntime's CPU provider has no DeformConv kernel (⟨a one-node opset-19 DeformConv model, ORT 1.24.3⟩ → `NOT_IMPLEMENTED`), so the operator must be lowered.
+   - The first lowering alone fails G-mem at 512 (1686 > 1638).
+   - Why per-tap terms still cost 1.3 GB was read, not guessed: a liveness simulation over ORT's profiled node order (⟨`live.py`⟩) → simulated peak 876 MB, of which **800 MB is `decoder_block1/dec_att/aspp_deforms.2`** (the 7×7 kernel: 49 terms × 16 MB all alive, because ORT's default order runs every term before the first sum). A first guess (swapping the Add's operands) measured no change (1307 MB) and was withdrawn. Per-row terms measured 240 MB simulated, 711 MB real.
+   - The lowering is exact: the script computes the reference logits from the official model (torchvision's `deform_conv2d`) BEFORE swapping the modules, so the agreement figure proves the lowering too. 512 → 6.7e-05, 640 → 1.3e-04, 768 → 1.5e-04.
+   - The export is byte-reproducible: ⟨a second `--size 512` run into `onnx-repro/`⟩ → the same sha256 `6dd4c52c…1793`.
+5. **Peak at 512 / 640 / 768** (§0ey's three sizes; same command, Linux, model alone, bare process):
+
+   | Size | ONNX sha256 | bytes | peak RSS | subject IoU vs the 1024 ensemble (mean / min) | G-iou |
+   |---|---|---|---|---|---|
+   | 512 | `6dd4c52c5acbf6264ace555acc4b61342c3fa0ed3e13f5a80935b74ae6241793` | 187,040,360 | **646 MB** | **0.9864 / 0.9444** (animals-chef-2) | **PASS** |
+   | 640 | `8984833867f172c3bf87bc49f8c52b759b768d739cdaf9cb2dd81967eb4362e2` | 189,740,994 | 810 MB | 0.9870 / 0.9261 (animals-chef-2) | FAIL on min |
+   | 768 | `ee80bd4800e17dd6c65f5422e426de328ad16e3af39b28a2e2208774635397be` | 193,603,864 | 1079 MB | 0.9817 / 0.8995 (animals-golden-retriever; animals-chef-2 0.9019) | FAIL on min |
+
+   - IoU: ⟨`~/.fourier-frel/mem2/dmasks.sh <size>`⟩ = `bench.contours.memory --tag mem2-<size> --stages --no-server`, then `--iou mem-before mem2-<size>`, darwin on both sides. `mem-before` is `.mem`'s banked 1024-ensemble masks (19 images, taken at `94870dc`); ⟨`git log --oneline 94870dc..HEAD -- src bench api`⟩ → empty, so they are still HEAD's pipeline.
+   - All three sizes hold memory. **Only 512 holds G-iou**, so 512 is the winner by measurement, not by preference. The larger inputs are not closer to the 1024 masks on this set: chef-2 and golden-retriever move more at 640 and 768 than at 512.
+   - 512's rows below 0.97: animals-chef-2 0.9444, animals-sun 0.9540, portraits-chef 0.9646. Against the U2-Net-only candidate `.mem` measured: sponge-flower 0.9056 → **0.9913**, min 0.9056 → 0.9444.
+6. **The release asset.** ⟨`gh release create models-2026-10 --target m/w1-bump-migration --title models-2026-10 --notes-file … birefnet-lite-512.onnx birefnet-lite-512.json`⟩ → `https://github.com/mkbabb/fourier-analysis/releases/tag/models-2026-10` (the repo's first release; the repo is PUBLIC, so the URL is fetchable without a token). ⟨`curl -sL …/releases/download/models-2026-10/birefnet-lite-512.onnx | shasum -a 256`⟩ → `6dd4c52c…1793`, 187,040,360 bytes: the published bytes are the pinned bytes. The notes carry source, revision, weights sha, licence (MIT) and the export command. Only the winner was published; 640 and 768 stay local at `~/.fourier-frel/mem2/onnx/`.
+7. **`ml.py`** (the cure's runtime half):
+   - `BIREFNET_LITE` is now `birefnet-lite-512`: the release URL, sha256 `6dd4c52c…1793`, `input_size=512`, `activation="sigmoid"`. Its docstring records source, revision, licence and weights sha.
+   - `_session_options`: `enable_cpu_mem_arena=False`, `enable_mem_pattern=False` on every session (§0ew's named options; adopted from `.mem`'s WIP).
+   - `_open_session` is the one place a session is opened. `_get_session` (held for the process: face detector, face parser, line model) calls it.
+   - `_predict_one` opens each subject model's session for its run and releases it after (§0ew: "run the ensemble members sequentially, releasing each ORT session"). Measured need: with both subject sessions held beside the line model's run, the banked U2-Net-only server sweep was already 1475 MB; BiRefNet's weights resident (about 270 MB) would put it past 1638.
+   - `load_subject_sessions` fetches the subject weights and opens the held sessions; it no longer holds a subject session.
+8. **The 2G container smoke found a second leak, at the allocator, and it is cured at its root.**
+   - The image was rebuilt with the new pin (⟨`docker build -f api/Dockerfile --target production -t fourier-backend:model-smoke-mem2 .`⟩): the model layer fetched `birefnet-lite-512.onnx` from the release URL and sha-verified it at build time, so `.m`'s bake holds for the new asset.
+   - ⟨`IMAGE=fourier-backend:model-smoke-mem2 SKIP_BUILD=1 scripts/model-smoke.sh`⟩ (the adopted orphan, first run ever) → NES-ROB, cauchy, chef extracted, then the container was **OOM-killed on the fourth portrait** (exit 137), although every extraction's own peak RSS is under 1.3 GB.
+   - Read with a diagnostic twin (`~/.fourier-frel/mem2/smoke-diag.sh`: same flags, `memory.stat` after each image): anon memory after each image was 463 → 924 → 1126 MB → killed. The smoke runs each image through `asyncio.run`, so each extraction lands on a FRESH executor thread; glibc gives each thread its own malloc arena, and an arena keeps its high-water mark.
+   - Two controls, both whole 7-portrait runs under the same 2G cap: one event loop for all images (one reused worker thread) → cgroup peak **1430 MB**, plateau, exit 0; fresh thread per image with `MALLOC_ARENA_MAX=1` → cgroup peak **1428 MB**, plateau, exit 0.
+   - This is production's shape, not a smoke artefact: `api/services/computation.py` runs an extraction with `asyncio.to_thread` under `compute_concurrency = 4`, so extractions land on whichever executor thread is idle and each such thread keeps its own arena.
+   - **Cure: `ENV MALLOC_ARENA_MAX=1` in the production stage of `api/Dockerfile`** (an adjacent edit, below). The smoke keeps its fresh-thread-per-image shape as the falsifier and now says why in its header. An intermediate rewrite of the smoke to one event loop was withdrawn: it would have passed by hiding the defect.
+   - ⟨`IMAGE=fourier-backend:model-smoke-mem2 scripts/model-smoke.sh`⟩ (rebuild with the ENV, image `3325d15bf07c`) → 7/7 portraits extracted, `cgroup memory.peak: 1490 MB of 2048 MB`, `model-smoke: PASS`, rc 0. **RED (exit 137) → GREEN.**
+9. **Tests and the probe.**
+   - `tests/test_contour_ml_memory.py` (new, 5 tests; `.mem`'s 3-test WIP rewritten for the landed mechanism): every session is opened with the arena and memory pattern off; a held session is opened once; a subject session is opened per run and none is kept; `load_subject_sessions` holds no subject session; no subject model runs at a megapixel input. At HEAD they are RED by construction (`ml._open_session` does not exist; `BIREFNET_LITE.input_size == 1024`).
+   - `bench/contours/memory.py` (the adopted orphan): the `model:<name>` stage now opens its session through `ml._open_session`, the one opener; its docstring cites §0ey. Nothing else in it changed.
+   - `tests/test_contour_ml.py` and `tests/test_model_dir.py`: no edit needed (they read `SUBJECT_MODELS` generically).
+   - ⟨`uv run --no-sync ruff check src/fourier_analysis/contours/ml.py tests/test_contour_ml_memory.py bench/contours/memory.py scripts/export-birefnet-lite.py`⟩ → `All checks passed!`
+
+**Adjacent edits (COHESION §0bt).**
+- `api/Dockerfile` (production stage, after `ENV WORKERS=1`): `ENV MALLOC_ARENA_MAX=1` with a 5-line comment. Reason: same repository, same concern (the extraction's memory bound under the backend's 2G cap); G-mem2 cannot hold without it (act 8: the smoke is OOM-killed on the fourth portrait). It is no package pin, no test or assertion deletion, and no sibling unit of this group owns the file (`.m`/`.h` landed it in an earlier sitting).
+10. **G-mem, every model × every harness image, Linux** (`bench.contours.memory --tag <tag> --no-masks`: 19 images × 7 stages + one 19-image server sweep = 134 rows; bar 1638.4 MB). Run 1 is the old image with the tree's `src` and the staged models mounted (default arenas). Runs 2 and 3 are the BUILT production image itself (the landed `src`, the baked release asset, `MALLOC_ARENA_MAX=1`; only the harness images and the evidence dir mounted). Run 3 is on the image rebuilt from the settled bytes (`b9594a84e48a`).
+
+    | Stage (n = 19 each) | run 1 `mem2-512-linux-1` | run 2 `mem2-512-linux-2` | run 3 `mem2-512-linux-3` |
+    |---|---|---|---|
+    | `extraction` (min–max MB) | 1087.6–1271.3 | 1087.9–1343.7 | 1079.5–1359.7 |
+    | `model:u2net` | 542.6–606.0 | 534.6–606.1 | 534.9–605.9 |
+    | `model:birefnet-lite-512` | 714.3–822.9 | 750.5–946.5 | 739.2–899.3 |
+    | `model:face-detection-yunet-2023mar` | 198.4–310.3 | 197.7–310.5 | 199.4–310.5 |
+    | `model:face-parsing-bisenet-resnet34` | 316.4–388.5 | 321.6–388.5 | 310.4–388.5 |
+    | `model:informative-drawings-contour-768` | 890.0–964.6 | 890.5–964.8 | 884.5–964.5 |
+    | `model:selfie_multiclass_256x256` | 263.2–323.7 | 264.2–323.1 | 263.3–325.1 |
+    | `server` (19 images, one process) | 1431.9 | 1412.3 | 1502.3 |
+    | **peak / failures / pass** | **1431.9 / 0 / True** | **1412.3 / 0 / True** | **1502.3 / 0 / True** |
+    | `memory.json` sha256 (first 16) | `8880c5bac7c6e513` | `1a459a8b31153d6a` | `f737845ecd0a0ab9` |
+
+    - Every one of the 3 × 134 rows is under the bar. The largest single extraction is portraits-joseph-fourier (1343.7 / 1359.7 MB). The server sweep plateaus by the 7th image in every run (no growth over the last 12).
+    - BEFORE, banked by `.mem`: `model:birefnet-general-lite` 5545 MB on Linux; extraction 9838 MB on darwin.
+11. **G-iou, double-run on the settled bytes** (darwin both sides; `--iou mem-before <tag>`): run 1 `mem2-512` and run 2 `mem2-512b` → **subject mean 0.9864, min 0.9444 (animals-chef-2), pass True** in both; ⟨`a['rows'] == b['rows']`⟩ → `True` over 19 rows. Ensemble (before the parsers): mean 0.9820, min 0.9075 (portraits-human; the person parser restores it to 0.9915). Evidence: `~/.fourier-samples/evidence/mem2-512/iou-vs-mem-before.json` (sha256 `2a4a59474d66a41b…`), `…/mem2-512b/iou-vs-mem-before.json` (`035e9b3c3c3f74fc…`; the two files differ only in the tag name).
+
+    | Image | subject IoU | Image | subject IoU |
+    |---|---|---|---|
+    | animals-chef-2 | 0.9444 | animals-sun | 0.9540 |
+    | animals-giraffe | 0.9811 | portraits-cauchy | 0.9901 |
+    | animals-golden-retriever | 0.9861 | portraits-chef | 0.9646 |
+    | animals-llama-1 | 0.9923 | portraits-daraksha | 0.9978 |
+    | animals-llama-2 | 0.9909 | portraits-euler | 0.9960 |
+    | animals-llama-3 | 0.9917 | portraits-human | 0.9915 |
+    | animals-sponge-flower | 0.9913 | portraits-joseph-fourier | 0.9972 |
+    | animals-sponge-happy | 0.9859 | portraits-nes-rob | 0.9996 |
+    | animals-sponge-pineapple | 0.9988 | private-sample | 0.9981 |
+    | animals-sponge-scared | 0.9897 | | |
+
+#### F-REL.mem2 — sitting 2 (seat `claude-opus-5-5`, 2026-10-14 11:11–… local; the 2026-10-13 seat died after act 11 without a commit)
+
+SERVED MODEL: claude-opus-5-5. **Crash recovery.** ⟨`git status --porcelain` (fourier), filtered to the writable set⟩ → ` M scripts/model-smoke.sh`, ` M src/fourier_analysis/contours/ml.py`, `?? bench/contours/memory.py`, `?? tests/test_contour_ml_memory.py`, and `scripts/export-birefnet-lite.py` (present, 11,050 bytes, hidden from status by `.gitignore:58 scripts/*`; it would need `git add -f` or a `!scripts/export-birefnet-lite.py` negation beside the other tracked scripts at L59-66); plus the adjacent ` M api/Dockerfile` (act 8's `MALLOC_ARENA_MAX=1`). value.js: ` M execution/C/F-REL.md` (+92 lines, the receipt above; adopted). Every hunk read whole against §0ey/§0ew: they conform (route (a), 512 static export, per-run subject sessions, arena/pattern off, the 2G smoke falsifier, the adjacent ENV). Branch ⟨`git rev-parse --short HEAD origin/m/w1-bump-migration` after `git fetch`⟩ → `3d2f80d` · `3d2f80d` (0/0). ⟨`gh release view models-2026-10 --json assets`⟩ → `birefnet-lite-512.onnx 187040360` · `birefnet-lite-512.json 712`: the asset stands.
+
+12. **The predecessor's gates chain had already read pytest RED.** ⟨`tail ~/.dev-logs/frel/mem2-pytest-tests-{1,2}.log`⟩ → `1 failed, 67 passed` both (run with `-x`), `FAILED tests/test_contour_strokes.py::test_person_cut_removes_what_stands_beside_the_sitter`; api `219 passed, 125 skipped` (rc 0).
+13. **Full suite, no `-x`, under the guard and `heavy.lock`.** ⟨`COMPUTE_CONCURRENCY=1 ~/.claude/guard/guarded --timeout 60 -- uv run --no-sync pytest tests/ -q -p no:cacheprovider`⟩ (log `~/.dev-logs/frel/mem2b-pytest-tests-1.log`) → **`1 failed, 175 passed in 871.81s`**, rc 1; the guard log reads `peakGB=11.82` for the run (darwin, one process). The one failure is the same test, the third read of it:
+   - `tests/test_contour_strokes.py:531` `assert removed.sum() > 0.03 * mask.sum()` → `assert np.int64(1458) > (0.03 * np.int64(331551))`: the person cut now removes 0.44 % of the saliency mask, against the test's 3 % premise.
+   - Cause, measured at the bytes: the test's docstring premise is "the saliency keeps a plant leaf against the sitter's cheek". The 1024 ensemble kept it (act 11: portraits-human ensemble IoU before the parsers 0.9075); the 512 export does not put the leaf in the mask, so the person cut has almost nothing to remove. The final subject is unchanged (portraits-human subject IoU 0.9915). The cure made the fixture's premise false; it did not break the person cut.
+   - The test is F.CT's (`afc3a87`, F.CT implement C), outside this unit's writable set, and it has a **live writer**: ⟨`git -C .worktrees/f-ct3 status --porcelain`⟩ → ` M tests/test_contour_strokes.py` (F.CT3, §0ew bullet 4). §0bt's adjacent-line rule excludes another unit's path and any weakening of an assertion; §0ev.3 forbids editing a path a live writer holds. So no edit is made to it.
+14. **No commit.** The spec's gate set is "pytest tests/ + api GREEN ×2" and the crash-recovery law forbids treating inherited edits as done until the unit's own gates read green; pytest tests/ reads RED ×3 (two `-x` reads 2026-10-13, one full read today) on a test this unit may not edit. Committing would land a known-RED test on `m/w1-bump-migration`, which F.CT3 merges forward. The cure stays in the tree as this unit's uncommitted work (no stash, no restore), with durable copies: `~/.fourier-frel/mem2/frel-mem2-wip.patch` (`ml.py` + `model-smoke.sh` + `api/Dockerfile`, 222 lines, sha256 `f15972ee7ad8df31…`) and `wip-memory.py`, `wip-test_contour_ml_memory.py`, `wip-export-birefnet-lite.py` beside it. The release asset `models-2026-10` stands (published 2026-10-13; nothing in the tree pins it until the commit lands).
+15. **api tests ×2, under the guard.** ⟨`COMPUTE_CONCURRENCY=1 ~/.claude/guard/guarded --timeout 20 -- uv run --no-sync pytest api/ -q -p no:cacheprovider`⟩ ×2 (logs `~/.dev-logs/frel/mem2b-pytest-api-{1,2}.log`) → `344 passed in 157.26s` rc 0 · `344 passed in 76.44s` rc 0. GREEN ×2.
+
+**Gates BEFORE → AFTER (this unit, settled bytes of the uncommitted cure).**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| G-mem peak RSS ≤ 1.6 GB, every model × 19 images + server sweep (Linux) | 5545 MB (birefnet 1024) | **1412.3 / 1502.3 MB** (act 10 runs 2-3), GREEN |
+| G-mem2 2G container smoke | never run (orphan) | **7/7, cgroup peak 1490 MB / 2048**, GREEN (act 8) |
+| G-iou subject mean ≥ 0.97 / min ≥ 0.93 | U2-Net-only 0.9791 / 0.9056 | **0.9864 / 0.9444** ×2, GREEN (act 11) |
+| pytest tests/ ×2 | 171 ×2 (banked, at HEAD) | **RED: 1 failed / 175 passed** (`test_person_cut_removes_what_stands_beside_the_sitter`) |
+| pytest api ×2 | 344 ×2 banked | **344 passed ×2**, GREEN |
+
+**ESCALATION ESC-FREL-mem2-1 (the unit returns ESCALATED; route (a) itself is GREEN on all three of its own gates).** `tests/test_contour_strokes.py::test_person_cut_removes_what_stands_beside_the_sitter` asserts a premise of the 1024 model ("the saliency keeps a plant leaf"); the 512 export's mask no longer contains the leaf, so `removed` is 0.44 % of the mask against a 3 % bar. The test is F.CT's, held dirty right now by F.CT3's live worktree. Owed ruling, one of: (i) F.CT3 re-founds the person-cut test on top of `.mem2` (for example a fixture or an explicit non-person region beside the sitter, so the person cut is still exercised), and `.mem2` lands first with this test named as the hand-off; or (ii) grant `.mem2` that test path for a re-premise that keeps every assertion, coordinated with F.CT3's live edit. Weakening or deleting the assertion is not offered. Also owed at landing: `scripts/export-birefnet-lite.py` is ignored by `.gitignore:58`, so the commit needs a `!scripts/export-birefnet-lite.py` negation (an ignore entry, which §0bt allows as an adjacent edit).
+
+**Host-memory note (the owner's crash question).** The darwin full `tests/` run peaks at 11.82 GB in one pytest process (guard log), inside the guard's 16 GB cap. It is darwin's allocator over many in-process extractions (Linux holds 1.5 GB with `MALLOC_ARENA_MAX=1`). Run it only through `guarded`, one at a time. `heavy.lock` was released at this seat's return.
