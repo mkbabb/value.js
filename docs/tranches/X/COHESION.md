@@ -3828,3 +3828,21 @@ KF.W13X's Check 3 returned NOT-CONFORMANT at kf `ca0b1a0b`: seven unit escalatio
 9. **ESC-W13X-rr2-2 → §0ev.2 GOVERNS KF.W13X's close readings; §0er's "load < 25" bar is superseded for functional readings.** `test:demo`, the kf e2e roster at `--workers=1`, gh-pages, the per-row served probes and `.pc` ×2 are read NOW. A failure is re-run up to 3× with the load recorded: passing on a re-run means a reported load-flake, and failing all three is a defect to cure. Timing readings follow §0ev.1. The KF-ET-10 reading (§0ez) rides the close.
 10. **Order:** `.pc2 → .r4ribbon → .r4init → .r4fade → .r4press → .r4shared2 → .r3res → .rel2 → close → check`. The check audits and never re-reads the same bytes a fourth time (C3r-5).
 - **Host-load rule (every seat of every workflow, from now).** The host read load 300–550 with six workflows plus sibling sessions. Every test or build a seat launches is bounded: vitest `--maxWorkers=2` (or `--no-file-parallelism` where already ruled), playwright `--workers=1`, pytest with no `-n`, and one heavy run per seat at a time. Before a heavy run, wait (poll 60 s, up to 20 min) while the 1-minute load is > 150, then proceed and record it. No seat leaves a watcher, a server it started, or a browser behind.
+
+## §0fb — 2026-10-14: the machine crashes ASSAYED; the guard + reaper law (supersedes §0fa's host-load rule)
+The owner asked: *"this machine keeps crashing after sometime--assay and fix what your testing process, or any satellite claude code sessions, are doing to crash the system."* The diagnostic reports, measured:
+- **JetsamEvent storms on 2026-10-08 22:38–22:43 and 2026-10-09:**
+  - At the worst point, 17 `python3.13` processes held 77.8 GB. These are fourier API `ProcessPoolExecutor` workers (`compute_concurrency = 4` per API instance, several instances started by seats), each loading the 7.5–9 GB BiRefNet session. That is ESC-FREL-g-1's model.
+  - 1,032 `node` processes held 66.7 GB (vitest/playwright/vite/esbuild fan-out from every session).
+  - VS Code held 21–28 GB, including 21 `vitest-vscode` extension workers.
+  - The compressor ran out, and launchd jettisoned system daemons.
+- **Kernel panic on 2026-10-10 13:07:** `zone map exhausted ... memory leak in zone [data.kalloc.1024] (20G, 21,079,328 elements)`. The kernel exhausted its zone map under extreme process churn (CrowdStrike Falcon tracks every exec).
+- **Leaks found live on 2026-10-14:**
+  - 41 automation-browser processes orphaned by dead sessions, 16–18 h old, a dozen of them spinning at 100 % CPU. Their launchers were value.js X-DS/W12U probes (`m1.mjs`, `probe-vr3.mjs`, `serve-built.mjs`), a sibling session's `.u-formation-scratch` probes, and 6 WebKit Playwright stacks.
+  - 14 stray vite preview/dev servers.
+  - All were killed, and load fell from 290 to 31.
+- **The cure (machine-wide, durable under `~/.claude/guard/`, stated in the user-level `~/.claude/CLAUDE.md` so every session and every seat receives it):**
+  - **`guarded`** admits at most 3 heavy runs machine-wide, waits for headroom, caps the run's tree RSS at 16 GB, has a 45 min timeout, and always kills every descendant, including detached browsers. Tested: the cap kills (rc 137), and a detached child is reaped.
+  - **The reaper** is a launchd agent running every 10 min (`dev.babb.reap-orphans`). It kills orphaned automation browsers, Python pool workers, node probes older than 3 h, and dev servers older than 6 h off the keep-ports.
+  - **fourier dev and test APIs run with `COMPUTE_CONCURRENCY=1`.** The restart recipe is amended.
+- §0fa's host-load rule stands, inside this law: bounded workers, `guarded` for every heavy run. F.REL `.mem` remains the root cure of the per-extraction peak.
