@@ -1,0 +1,10 @@
+12:25  up 4 days, 17:27, 2 users, load averages: 134.30 119.34 93.40
+firefox r0a0 parseStylesheet        large-eq n=4 k=32 S=2 product x0.571 (31/31<1) spread 1.102
+firefox r1a0 parseStylesheet        large-eq n=4 k=32 S=2 product x0.603 (31/31<1) spread 1.216
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|large-eq|parseStylesheet         <1 x0.571 x0.603
+12:25  up 4 days, 17:27, 2 users, load averages: 129.79 118.65 93.31 
+ 12:26  up 4 days, 17:29, 2 users, load averages: 62.10 98.06 88.11 → bench/records/2026-09-24-x-p-w7-browser-w8lg1r-firefox-n31-leq.json
+DONE w8lg1r-firefox-n31-leq
+12:27  up 4 days, 17:29, 2 users, load averages: 65.29 98.13 88.19

@@ -1,0 +1,28 @@
+11:58  up 4 days, 17:01, 2 users, load averages: 53.40 55.96 69.75
+firefox r0a0 parseCssColor          acc      n=6460 k=8 S=15 product x0.843 (31/31<1) spread 1.234
+firefox r0a0 parseCssScalar         acc      n=7460 k=8 S=15 product x0.672 (31/31<1) spread 1.174
+firefox r0a0 parseCssValue          acc      n=13023 k=2 S=15 product x0.46 (31/31<1) spread 1.138
+firefox r0a0 parseCssValues         acc      n=13023 k=2 S=15 product x0.467 (31/31<1) spread 1.366
+firefox r0a0 parseKeyframeSelector  acc      n=56 k=8192 S=13 product x0.891 (31/31<1) spread 1.146
+firefox r0a0 parseTimingFunction    acc      n=509 k=128 S=15 product x0.641 (31/31<1) spread 1.284
+firefox r0a0 parseStylesheet        acc      n=2503 k=4 S=15 product x0.747 (31/31<1) spread 1.158
+firefox r1a0 parseCssScalar         acc      n=7460 k=8 S=15 product x0.681 (31/31<1) spread 1.116
+firefox r1a0 parseCssValue          acc      n=13023 k=2 S=15 product x0.472 (31/31<1) spread 1.339
+firefox r1a0 parseCssValues         acc      n=13023 k=2 S=15 product x0.464 (31/31<1) spread 1.312
+firefox r1a0 parseKeyframeSelector  acc      n=56 k=8192 S=13 product x0.891 (31/31<1) spread 1.516
+firefox r1a0 parseTimingFunction    acc      n=509 k=128 S=15 product x0.68 (31/31<1) spread 1.293
+firefox r1a0 parseStylesheet        acc      n=2503 k=4 S=15 product x0.765 (31/31<1) spread 1.273
+firefox r1a0 parseCssColor          acc      n=6460 k=16 S=15 product x0.846 (31/31<1) spread 1.314
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseCssColor                <1 x0.843 x0.846
+product firefox|acc|parseCssScalar               <1 x0.672 x0.681
+product firefox|acc|parseCssValue                <1 x0.46 x0.472
+product firefox|acc|parseCssValues               <1 x0.467 x0.464
+product firefox|acc|parseKeyframeSelector        <1 x0.891 x0.891
+product firefox|acc|parseTimingFunction          <1 x0.641 x0.68
+product firefox|acc|parseStylesheet              <1 x0.747 x0.765
+11:58  up 4 days, 17:01, 2 users, load averages: 53.40 55.96 69.75 
+ 12:10  up 4 days, 17:12, 2 users, load averages: 36.32 40.48 54.90 → bench/records/2026-09-24-x-p-w7-browser-w8lg1r-firefox-n31-acc.json
+DONE w8lg1r-firefox-n31-acc
+12:10  up 4 days, 17:12, 2 users, load averages: 37.89 40.74 54.91

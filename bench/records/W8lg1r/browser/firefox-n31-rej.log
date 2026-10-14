@@ -1,0 +1,28 @@
+12:10  up 4 days, 17:12, 2 users, load averages: 37.89 40.74 54.91
+firefox r0a0 parseCssColor          rej      n=23484 k=4 S=14 product x0.902 (29/31<1) spread 1.5
+firefox r0a0 parseCssScalar         rej      n=22484 k=4 S=14 product x0.691 (31/31<1) spread 1.189
+firefox r0a0 parseCssValue          rej      n=16921 k=2 S=15 product x0.871 (31/31<1) spread 1.717 SET-ASIDE
+firefox r0a0 parseCssValues         rej      n=16921 k=2 S=15 product x0.89 (30/31<1) spread 1.455
+firefox r0a0 parseKeyframeSelector  rej      n=29888 k=4 S=7 product x0.904 (25/31<1) spread 1.679 SET-ASIDE
+firefox r0a0 parseTimingFunction    rej      n=29435 k=4 S=10 product x0.901 (30/31<1) spread 1.188
+firefox r0a0 parseStylesheet        rej      n=27441 k=4 S=14 product x0.889 (28/31<1) spread 1.67 SET-ASIDE
+firefox r1a0 parseCssScalar         rej      n=22484 k=4 S=14 product x0.658 (30/31<1) spread 1.845 SET-ASIDE
+firefox r1a0 parseCssValue          rej      n=16921 k=2 S=15 product x0.853 (31/31<1) spread 1.231
+firefox r1a0 parseCssValues         rej      n=16921 k=2 S=15 product x0.876 (31/31<1) spread 1.25
+firefox r1a0 parseKeyframeSelector  rej      n=29888 k=8 S=14 product x0.954 (28/31<1) spread 1.632 SET-ASIDE
+firefox r1a0 parseTimingFunction    rej      n=29435 k=8 S=14 product x0.883 (31/31<1) spread 1.264
+firefox r1a0 parseStylesheet        rej      n=27441 k=2 S=14 product x0.917 (30/31<1) spread 1.224
+firefox r1a0 parseCssColor          rej      n=23484 k=4 S=14 product x0.893 (31/31<1) spread 1.289
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|rej|parseCssColor                <1 x0.902 x0.893
+product firefox|rej|parseCssScalar               <1 x0.691 x0.658(SA)
+product firefox|rej|parseCssValue                <1 x0.871(SA) x0.853
+product firefox|rej|parseCssValues               <1 x0.89 x0.876
+product firefox|rej|parseKeyframeSelector        RED x0.904(SA) x0.954(SA)
+product firefox|rej|parseTimingFunction          <1 x0.901 x0.883
+product firefox|rej|parseStylesheet              <1 x0.889(SA) x0.917
+12:10  up 4 days, 17:12, 2 users, load averages: 37.34 40.58 54.77 
+ 12:25  up 4 days, 17:27, 2 users, load averages: 139.11 120.02 93.48 → bench/records/2026-09-24-x-p-w7-browser-w8lg1r-firefox-n31-rej.json
+DONE w8lg1r-firefox-n31-rej
+12:25  up 4 days, 17:27, 2 users, load averages: 134.30 119.34 93.40
