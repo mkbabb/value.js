@@ -1013,3 +1013,43 @@ Self-count: 15 gate rows; 15 reproduce as claimed (14 GREEN plus E-6 gz RED repr
 
 ### Verdict
 **CONFORMANT-HONEST-RED.** The register holds 0 BLOCKER, 0 CRITICAL and 0 HIGH, and every claimed GREEN reproduces (14/14). The one RED gate is E-6 gz, relieved by ADDENDUM (a)'s escalation route as ESC-W8e-1, owner-named. C1-1 is a named MEDIUM tied to the same ruling. Row 108 → `CLOSED 2026-09-17 (honest-RED: E-6 gz → ESC-W8e-1)`, plus an event line in the LEDGER.
+
+## RESUME 3 2026-10-14 — Open (seat 0, `claude-opus-5-5`, Track D) — COHESION §0fc + W8.md ADDENDUM (c)
+
+- **Ledger:** ⟨`grep -n "X.P.W8" execution/LEDGER.md`⟩ → row 108 status `CLOSED 2026-09-17 (honest-RED: E-6 gz → ESC-W8e-1)`. The row is re-opened by ruling, not presumed: COHESION §0fc.2 orders unit `X.P.W8.cust` now (§0ev no-deferral) and fixes the order `.cust → L-G1 owed cells → close (verify-only) → check`; W8.md ADDENDUM (c) carries it. → RESUME mode; status cell → OPEN.
+- **Rulings cited (never re-opened):** §0fc.1 **ESC-W8e-1 RULED** — E-6 gz ceiling 14,800 B, raw 125,646 B unchanged, ~165 B budgeted for `.cust`, a ceiling not an allowance, any crossing escalates and is never shaved. §0fc.2 C1-1 / W8semi-CUSTOM → `.cust`. §0ev.1 (L-G1 method). §0fb (every heavy run under `~/.claude/guard/guarded`, bounded workers). §0eq (check-as-audit). CSS grammar only in BBNF (owner 2026-09-23); bbnf-lang and parse-that READ-ONLY.
+- **Preconditions:** "Opens after X.P.W7 CLOSED" → row 106 `CLOSED 2026-09-17` (holds). `.semi`/`.lg1r` artefacts present: ⟨`git log --oneline -1 -- src`⟩ → `2f590daa8`; `bench/records/W8lg1r/` committed `333b519ea`; ⟨`git diff --stat ea3f99708..HEAD -- src test/css bench scripts/gen-grammar.mjs`⟩ → empty (product unmoved since Check 1). parse-that ⟨`git log --oneline -1`⟩ → `cb9c0d4` (unmoved). HEAD `d9fcea626`.
+- **alreadyDone** (commits exist): `.c .g .v .t .i .f .x` · `.e` (`5408b73e7` `6c2750f76`) · `.lg1` · `.semi` (`2f590daa8` `5f773c608`) · `.lg1r` (`333b519ea` `99da3ef57`). Never re-dispatched.
+- **Crash recovery:** ⟨`git status --porcelain -- src/css test/css bench docs/tranches/X/execution/D`⟩ → empty. Nothing inherited.
+- **Host:** ⟨`uptime`⟩ → `load averages: 59.59 59.21 62.79`; ⟨`pmset -g batt`⟩ → 21 %, charging (AC).
+- **E13 mail:** ⟨`ls -td ../glass-ui/docs/tranches/*/ | head -1`⟩ → `BL/` (BK swept too). ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ on value `V/` + `V/coordination` · glass `BK/coordination`, `BL`, `BL/coordination` · keyframes `V/coordination` · atlas `P/coordination` → 0 everywhere except glass `BL/FORMATION-PROGRESS.md` (progress file, not mail). ⟨`grep -cE '^\| .*\| *UNREAD *\|' INBOX.md`⟩ → `0`; highest inbound row I-71. Nothing new addressed to value.js; sweep line appended to INBOX.
+
+## RESUME 3 2026-10-14 — Baseline (BEFORE, read-only; HEAD `d9fcea626`, product `2f590daa8`; only the gates `.cust` turns — the rest cite Check 1 of the RESUME 2 Close on these same product bytes)
+
+| Gate | Command | BEFORE (×2) | Verdict |
+|---|---|---|---|
+| `.cust` falsifier (§0fc.2) | ⟨`guarded --light -- npx vite-node bench/records/W8semi/probe.ts 'a{--x:f(a;b)}' 'a{--x:[a;b]}' 'a{--x:{a;b}}' …`⟩ | `a{--x:f(a;b)}` → **refused css_syntax** ×2 · `a{--x:[a;b]}` → refused css_syntax ×2 · `a{--x:{a;b}}` → refused css_syntax ×2 | **RED** (born-RED: valid css-variables-1 `<declaration-value>` refused) |
+| top-level `;` control | same probe, `a{--x:a;b}` | refused css_syntax ×2 | recorded (a top-level `;` ends the declaration; `.cust` must not admit it as a value component) |
+| `.semi` stay-GREEN | same probe: `a{transform:rotate(0;1deg)}` · `@keyframes k{0%{transform:translate(0;1px)}}`; ⟨`guarded --light -- npx vitest run test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ | refused css_syntax ×2 · refused css_syntax ×2; `Tests 20 passed (20)` ×2 | GREEN (must stay) |
+| `.e` stay-GREEN | same probe, `a{--x: ;}` | ACCEPTED ×2 | GREEN (must stay) |
+| E-6 size ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c` / `\| gzip \| wc -c`⟩ | `104733` / `14635` ×2 | GREEN against §0fc.1 (125,646 / 14,800); headroom 165 B gz |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | cited Check 1: `6267 · 3898 ruled · V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | stay-GREEN (cited) |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ | cited Check 1: 19/19, MIRROR-DEFECTS 0 ×2 | stay-GREEN (cited) |
+| test/css ×2 | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | cited Check 1: 18 files / 238 tests ×2 | stay-GREEN (cited) |
+| L-G2 / prefix ×2 | ⟨`node bench/paired/equiv.mjs product …`⟩ | cited Check 1: mismatches 2847 ×2 (all named, W8semi-SEMI delta) · prefix 0 ×2 | stay-GREEN (cited) |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | cited Check 1: 0 | stay-GREEN (cited) |
+| `--check` / audit (pinned `f0059db14`) | ⟨`node .worktrees/w8close3/gen-pinned.mjs --check`⟩ / `audit-pinned.mjs` | cited Check 1: `9f54614b…` ×2 · violations 0 | stay-GREEN (cited) |
+| L-G1 ×2 (§0ev.1) | `bench/paired` four engines | read of record `.lg1r` `333b519ea` (103/103 GREEN) on `2f590daa8` | re-read owed only on entries whose emitted bytes `.cust` changes |
+
+GREEN-before-cure: none (the `.cust` falsifier is RED ×2; the GREEN rows above are stay-GREEN conjuncts, not the cure's evidence).
+
+## RESUME 3 2026-10-14 — Unit plan (strictly serial; 2 units owed; then the workflow close seat (verify-only), then check-as-audit per §0eq)
+
+| # | unit | model | executes | writable | gates | locks |
+|---|---|---|---|---|---|---|
+| 1 | `X.P.W8.cust` | opus | W8.md ADDENDUM (c) (l.30–40); COHESION §0fc.2; §Scope 2, 4 | `src/css/grammar/*.bbnf` · `src/css/bbnf/**` (incl. `generated/**` re-emitted only by the pinned emitter `f0059db14`) · `test/css/**` · `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` (§19-S closed by a dated addendum beside) · `bench/records/W8cust/**` · this record (receipt) | `a{--x:f(a;b)}` (+ `[a;b]`, `{a;b}`) RED→GREEN ×2, ACCEPTED and round-trips · top-level `;` still ends the declaration · `.semi` falsifiers 20/20 ×2 · `--x: ;` stays ACCEPTED · V-C GREEN ×2 · css-equiv 19/19 MIRROR 0 ×2 · test/css ×2 · L-G2 0 new unnamed ×2 · prefix 0 ×2 · L-G3 0 · `--check` ×2 · audit 0 · E-6 raw+gz ×2 vs 125,646 / 14,800 with delta · vue-tsc · eslint · build · names which L-G1 entries' emitted bytes changed | BBNF only; own term set parallel to `valueTerm`, reached only from `customTop`; grammar + re-emission + falsifier + ledger one commit; never shave; crossing 14,800 → escalate; §0fb guarded |
+| 2 | `X.P.W8.lg1c` | opus | W8.md ADDENDUM (c) order; COHESION §0fc.2 L-G1 clause + §0ev.1 | `bench/records/W8lg1c/**` · this record (0 product bytes; `bench/paired/**` READ) | per-entry emitted-bytes diff `2f590daa8` vs `.cust`; changed entries → L-G1 ×2 four engines by §0ev.1 (median AND 95 % bootstrap ub < 1.0, 31–101 rounds, load start/end), MANIFEST sha256; none changed → cite `.lg1r` `333b519ea` by hash | headless only; one engine at a time under `guarded`; no browser/server left behind |
+
+Groups: `[[".cust"], [".lg1c"]]`.
+
+## RESUME 3 2026-10-14 — Unit receipts
