@@ -32,7 +32,10 @@ valueTerm  = colorCall | mixCall | varCall | urlCall | urlString | typeCall | ma
 // A component no production above reads (`@` in `calc(1px @ 2px)`). It is matched only to be
 // REFUSED — its action answers `css_syntax` expecting a scalar, with the diagnostic spanning exactly
 // this run — so a malformed value names its offending component rather than the whole input.
-badTerm    = /[^\s(),\/:;"']+/ ;
+// A `;` is its own `<semicolon-token>` (css-syntax-3 §4.3.1), read here alone: a declaration ends at a
+// top-level `;` (§5.4.6), and one a value still holds stands inside a block (`rotate(0;1deg)`), where it
+// is a component of no property's grammar — refused, the diagnostic naming the `;` (X.P.W8 `.semi`).
+badTerm    = /[^\s(),\/:;"']+|;/ ;
 
 // var() / env(): the fallback is a `<declaration-value>?` (css-variables-1 §2), which may end in a
 // comma or be empty — `var(--a, red,)` and `var(--a,)` are valid; the trailing comma carries no item.
@@ -108,7 +111,8 @@ group      = /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> mathComma << close ;
 // Its two groups, the number and the unit, are the action's arguments (a `groups` leaf: no re-split).
 numeric    = /([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)([%a-zA-Z-]*)(?![\w\\.])/ ;
 // A `-` that starts an identifier (`-zπ`, `-\31`) is not the operator (css-syntax-3 §4.3.10).
-operator   = /<=|>=|==|!=|[+*<>=:;]|-(?![\w\u0080-\uffff\\-])/ ;
+// A `;` is never an operator: `badTerm` reads it, to refuse it (X.P.W8 `.semi`; UIA-KF-277).
+operator   = /<=|>=|==|!=|[+*<>=:]|-(?![\w\u0080-\uffff\\-])/ ;
 // An identifier's code points (css-syntax-3 §4.2 ident-start / ident code point, §4.3.11): ASCII
 // letters, `_`, digits after the start, `-`, any non-ASCII code point (`-zπ`), and an escape — a hex
 // escape of one to six digits with one optional whitespace it consumes (`\31 st`), or any other

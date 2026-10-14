@@ -34976,15 +34976,6 @@
       "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
     },
     {
-      "file": "css/css-values/random-item-invalid.html",
-      "kind": "invalid",
-      "property": "font-family",
-      "input": "random-item(auto, ;)",
-      "class": "W8r1-CSS-VALUES-5",
-      "reason": "random-item() is defined by CSS Values 5 (the vendored WPT file's rel=help names css-values-5 #funcdef-random-item), a level X.P.W8's corpus scope does not claim (W8.md §Scope 1: css-values-4 math, url, attr, units) and value.js's value model does not read as a function of its own (no item lists, no {} blocks); the BBNF cure written at .v (DIVERGENCE-LEDGER §19-V) measured 848 B gz over the E-6 ceiling. Measured: accepted as a generic <function> (invalid only against random-item()'s own grammar).",
-      "spec": "css-values-5 #funcdef-random-item (§9.2 random-item()); W8.md §Scope 1 (css-values-4)"
-    },
-    {
       "file": "css/css-values/random-item-valid.html",
       "kind": "valid",
       "property": "font-family",

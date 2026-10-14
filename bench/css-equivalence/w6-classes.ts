@@ -31,10 +31,12 @@ export type W6Args = {
 };
 
 type Edit = { start: number; end: number; text: string };
+type Governs = "MIS_ACCEPT" | "FALSE_REJECT_IN_SHAPE" | "ADJUDICATION_UNHONOURED";
 type W6Class = Readonly<{
     id: string;
-    /** The RED verdict the class can govern: which engine accepts. */
-    governs: "MIS_ACCEPT" | "FALSE_REJECT_IN_SHAPE";
+    /** The RED verdict(s) the class can govern: which engine accepts (or, for a construct an adjudication's
+     *  repair test reads through on the incumbent, the adjudication the candidate's refusal unhonours). */
+    governs: Governs | readonly Governs[];
     edits: (input: string) => Edit[];
     /** Extra conditions on the repaired source, beyond "not RED". */
     holds?: (args: W6Args, repaired: string) => string | null;
@@ -231,6 +233,20 @@ export const W6_CLASSES: readonly W6Class[] = [
         }) ? null : "a repaired color-mix() call is not one the candidate refuses alone as <color-mix()>",
     },
     {
+        // W8semi-SEMI (X.P.W8 `.semi`; DIVERGENCE-LEDGER §19-S; UIA-KF-277): a `;` is never a component value
+        // (css-syntax-3 §5.4.6 ends a declaration at a top-level `;`; inside a block it is a component of no
+        // property's grammar). The incumbent read it as an operator keyword — so an adjudication's repair test
+        // (PB-04/05's clamp on `ok;lch(-220 .630 -0)`) also reads through it, and the candidate's refusal
+        // unhonours that adjudication. Repair: each `;` spelled as a space — the rest must then read NOT RED
+        // under every ruling, and the candidate's refusal must name a `;` (`actual: ";"`).
+        id: "W8semi-SEMI",
+        governs: ["FALSE_REJECT_IN_SHAPE", "ADJUDICATION_UNHONOURED"],
+        edits: (input) => [...input.matchAll(/;/g)].map((m) => ({ start: m.index, end: m.index + 1, text: " " })),
+        holds: ({ candidate }) =>
+            (candidate.value?.diagnostics ?? []).some((d) => (d as { actual?: unknown }).actual === ";")
+                ? null : "the candidate's refusal does not name a `;`",
+    },
+    {
         // SC-2 (COHESION §0bx; W6.md `.b`): `display-p3-linear` (css-color-4 §10.5). Repair: the space
         // spelled `display-p3` — the incumbent must then read the colour.
         id: "SC-2",
@@ -244,14 +260,14 @@ export const W6_CLASSES: readonly W6Class[] = [
 export function resolveW6(args: W6Args): Cell {
     const failed: string[] = [];
     for (const klass of W6_CLASSES) {
-        if (args.cell.verdict !== klass.governs) continue;
+        if (![klass.governs].flat().includes(args.cell.verdict as Governs)) continue;
         const edits = klass.edits(args.input);
         if (edits.length === 0) continue;
         const repaired = spliceAll(args.input, edits);
         const after = args.reclassify(repaired);
         const why =
             args.red(after.verdict) ? `the repaired source still reads ${after.verdict}`
-            : klass.governs === "MIS_ACCEPT" && !ok(args.run.candidate(repaired)) ? "the candidate refuses the repaired source"
+            : args.cell.verdict === "MIS_ACCEPT" && !ok(args.run.candidate(repaired)) ? "the candidate refuses the repaired source"
             : (klass.holds?.(args, repaired) ?? null);
         if (why === null) return { verdict: "DECLARED_DIVERGENCE", why: `${klass.id} honoured — repaired to ${JSON.stringify(repaired).slice(0, 80)}`, ruling: klass.id };
         failed.push(`${klass.id}: ${why}`);
