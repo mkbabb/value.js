@@ -728,3 +728,93 @@ No parse-that wave declares "Opens after: X.P.W8" (⟨`grep -n 'Opens after' doc
 
 ### Verdict
 **NOT-CONFORMANT** — one HIGH (C1-1, unrelieved RED); the E-6 RED is honest under ESC-W8e-1. Row stays **PARTIAL**; event line appended to the LEDGER.
+
+## RESUME 2026-10-09 — Repair 1 (2026-10-13, repair seat round 1, `claude-opus-5-5`, Track D) — register = RESUME Check 1; ESC-W8lg1-1 cured at three roots (instrument ×2, product ×1); fresh L-G1 ×2 on the final bytes
+
+- **Crash recovery (inherited work, adopted per §0ex).** ⟨`git status --porcelain -- src test/css bench docs/tranches/X/execution/D docs/tranches/X/parse-that`⟩ at open → 4 untracked paths, all under `bench/records/W8r1/` (`browser-read.sh`, `browser/`, `product-hash.txt`, `provenance.json`): a killed 2026-10-09 repair seat's partial read. That seat had also committed the instrument cure `91dfed9b8` (not yet receipted). Judged hunk by hunk:
+  - `91dfed9b8` (`browser-page.mjs` + `browser.mjs`): least-of-3 k calibration; Firefox sliced rounds (16 slices, least of 5 interleaved repeats) on an unreduced clock. **Conforms** (it is the instrument half of the Check's cure) with **two defects found by this seat and cured below** (the sliced round's k-rule; slices cut by count).
+  - Its records: Chromium/WebKit n31 (GREEN ×2 at load 300–470), Firefox n31 groups g1–g3 + whole (6 cells still straddling at load 113–304), g4 and the n101 logs dead mid-read (0 B). All kept as evidence under `bench/records/W8r1/browser/superseded/`; **none is a read of record** (taken on `.e`'s bytes before this seat's instrument and product cures).
+  - parse-that ⟨`git log --oneline -1`⟩ → `cb9c0d4` (READ-ONLY; its dirty Rust tree is another owner's; untouched). `scripts/dev/dev.sh` untouched.
+- **Host:** ⟨`uptime`⟩ at open → load `11.56 9.16 6.77`; it rose to 64–510 during the sitting (sibling fleets redeployed). ⟨`pmset -g batt`⟩ → battery, 96 %. Load is recorded per cell, not gated (§0ev.1).
+
+### Diagnosis — the 7 straddling Firefox cells had three separate causes (the Check's cure: "separate SpiderMonkey product cost from the instrument's load-sensitive k calibration")
+
+1. **Instrument, load-sensitive (inherited cure `91dfed9b8` + this seat's two).** One stalled calibration pass set k; a whole pass per arm let a preemption land on one arm. Firefox's content process runs at default priority and got 12–56 % of a core at load 100–250 (⟨`ps -Ao pcpu,etime,command | grep plugin-container`⟩). Re-read on the cured instrument at load 64–250, every acc cell is GREEN ×2 at **31** rounds with ub − median ≤ 0.07 (the `.lg1` read needed 101 and still straddled).
+2. **The rej cells are not equal work.** `acc`/`rej` split by the retired verdict alone. ⟨`node …/verdict-agreement.mjs`⟩ on `5408b73e7`:
+
+   | entry | acc (product refuses) | rej (product accepts) |
+   |---|---|---|
+   | `parseCssColor` | 6,460 (1,625) | 23,484 (1,724) |
+   | `parseCssScalar` | 7,460 (1,625) | 22,484 (1,725) |
+   | `parseCssValue` / `parseCssValues` | 13,023 (2,447) | 16,921 (1,102) |
+   | `parseKeyframeSelector` | 56 (0) | 29,888 (0) |
+   | `parseTimingFunction` | 509 (147) | 29,435 (23) |
+   | `parseStylesheet` | 2,503 (539) | 27,441 (244) |
+
+   Per-bucket Firefox costs of rej `parseCssColor` (`bucket-diag.mjs`, least of 15 interleaved passes per bucket): `color-mix()` — 761 sources, retired 1,790 ns (a refusal), product 6,728 ns (678 of the 776 `color-mix()`/`light-dark()` sources are **accepted and computed**) → ×3.76, 20.8 % of the product's time in the cell. Without them the cell reads ≈ 0.72. W7.md ADDENDUM (g) 1's premise "the rejected cells … already compare equal work, each arm on its own refusal path" is **measured false** for 5 of 7 entries.
+3. **SpiderMonkey product cost on equal work (a real one).** Accepted `parseCssColor`, Firefox, per bucket: `#hex` — 1,554 sources, retired 734 ns, product **864 ns (×1.18)**, 17.6 % of the product's time; named colours ×1.26 (2.0 %); every functional form 0.77–0.93. The equal-work cell `acc-eq parseCssColor` read **0.961 (ub 0.992) · 1.000 (ub 1.006)** on `.e`'s bytes: parity, hidden in the `acc` cell (0.879 · 0.838) by the 1,625 sources the product refuses cheaply.
+
+### Cures (each at its root; 5 commits)
+
+| # | root | cure | commit | bounds |
+|---|---|---|---|---|
+| 1 | instrument: one stalled pass sets k; a preemption lands on one arm | inherited, adopted: k = least of 3 retired passes; Firefox sliced rounds (least of 5 interleaved repeats per slice) on an unreduced clock | `91dfed9b8` (2026-10-09 seat) | `bench/paired/{browser,browser-page}.mjs` |
+| 2 | instrument: the sliced k-rule doubled k until the CHEAPEST slice spanned 200 ticks | a slice shorter than 200 ticks is **joined to its neighbour**; k is the floor's alone. `large-eq` (4 sheets whose cost per character differs by orders) had been sized to a 1–3 s pass: the Firefox cell ran unread for > 35 min (q1) and for 16 min of CPU (leq), then read in < 2 min on the cure | `b45cf83d4` | `bench/paired/browser-page.mjs` |
+| 3 | instrument: slices cut by source COUNT | cut by source LENGTH, each ≥ 1/slices of the class's characters; the unsliced pass (Chromium, WebKit: slices = 1) is byte-for-byte the same loop | `105ae34f6` | same |
+| 4 | instrument: no equal-work reading of acc / rej | classes `acc-eq` / `rej-eq` = the sources EVERY arm in the page accepts (refuses); `acc` / `rej` unchanged. W7 (g) 1's `large-eq` law applied per source | `af86675dd` | same |
+| 5 | **product**: `hexColor` spread, mapped, joined and re-sliced the digits and called `parseInt` per channel | the digits are read **once as one integer** and the channels taken by shifts (`#abc`: nibble × 17). Firefox `#hex`: 864 ns → 700 ns, ×1.18 → **×1.00** against retired (`bucket-…-acc-candidate-hexColor.txt`, measured before the edit on a patched bundle). The reading is unchanged: 29,944 corpus sources JSON-identical (⟨`node bench/paired/_build/_cand-check.mjs`⟩ → `inputs 29944 differ 0`), L-G2 identical to `.e`'s report | `5c8918c6b` | `src/css/bbnf/color.ts`, `test/css/hex-color.test.ts` (new) |
+
+- **Not cured here, named:** the named-colour path (×1.22 after cure 5: 718 ns against 586) and `var()` refusals (×1.35) lose to the retired regexes in SpiderMonkey inside the EMITTED dispatch (`r89_color_v`: up to three failing sticky-regex alternatives before `colorKeyword`). The emitter is bbnf-lang's (READ-ONLY; "emitter defects are producer rows"). Shares: 1.6 % of acc `parseCssColor`, 1.9 % of rej. No gate cell turns on them (below). Escalated as **ESC-W8r1-2** (producer row, INFO).
+- **Lock for cure 5** `test/css/hex-color.test.ts` (6 tests): every `#rgb` (4,096) and `#rgba` (65,536) form, 20,000 seeded `#rrggbb` and 20,000 `#rrggbbaa` forms in both letter cases against an independent per-digit reference; named + `transparent`; 7 refused digit counts. It is a **stay-GREEN lock, not a born-RED falsifier** (the cure changes cost, not the reading): ⟨`npx vitest run test/css/hex-color.test.ts`⟩ on `git archive HEAD src test/support tsconfig*.json vitest.config.ts` at `b45cf83d4` under `.worktrees/w8r1-prior` → `Tests 6 passed (6)` ×2; on the cured bytes → `Tests 6 passed (6)`.
+- **Adjacent edits (§0bt):** none. **No masking:** no try/catch, skip, allowlist or narrowed assertion; no gate cell, class, floor or bound was redefined (`acc`/`rej` are read as before; the `-eq` classes are added beside them).
+
+### Gates a cure could move — re-run on the final bytes (BEFORE = RESUME Check 1 at `e407f2a6f`, product `5408b73e7`; AFTER = product `5c8918c6b`; outputs banked in `bench/records/W8r1/gates/`)
+
+| Gate (W8.md) | Command | BEFORE | AFTER (this seat) | Verdict |
+|---|---|---|---|---|
+| hex lock ×2 | ⟨`npx vitest run test/css/hex-color.test.ts`⟩ (prior bytes under `.worktrees/w8r1-prior`; cured bytes in the tree) | (new) | prior `Tests 6 passed (6)` ×2 · cured `Tests 6 passed (6)` | GREEN (stay-GREEN lock) |
+| test/css ×2 | ⟨`npx vitest run test/css`⟩ | 16 / 212 | `Test Files 17 passed (17)` · `Tests 218 passed (218)` · exit 0 ×2 | **GREEN** |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence`⟩ | 19/19 | `Tests 19 passed (19)` · exit 0 ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2; `STYLESHEET DEFECTS 0` | **GREEN** |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | GREEN | `6267 cases · 3899 ruled rows` · `TOTAL 6267 2368 3899 0 0 0 0 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` · exit 0 ×2 | **GREEN** |
+| L-G2 ×2 | ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 5c8918c6b… · srcDirty "" · bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product gates/equiv-$i.json`⟩ | 981 | `compared 1376531/1376531 rows · mismatches 981` ×2; ⟨`cmp equiv-1.json equiv-2.json`⟩ identical; ⟨`gunzip -c bench/records/W8e/equiv-1.json.gz \| cmp - equiv-1.json`⟩ identical → the same 981 named rows, **0 new** | **GREEN** |
+| prefix ×2 | same reads | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | **GREEN** |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0 | **GREEN** |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/paired/bootstrap.mjs --max-warnings=0`⟩ | exit 0 | exit 0 | **GREEN** |
+| build | ⟨`npm run build`⟩ | OK | `✓ built in 12.15s` · exit 0 | **GREEN** |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | **GREEN** |
+| E-6 size ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c`⟩ / `\| gzip \| wc -c` | 104,398 / 14,622 | `104398` / `14622` ×2 (unmoved: the grammar and its emission are untouched) | raw GREEN · gz **honest-RED, ESC-W8e-1** (unchanged) |
+| E-4 `--check` / E-2 audit (pinned emitter) | not re-run | GREEN | cited: ⟨`git diff --stat 5408b73e7 HEAD -- src scripts/gen-grammar.mjs`⟩ → `src/css/bbnf/color.ts \| 18 +++++++++++++-----` only; no grammar or emission byte moved (grammar.js blob `64bd543b…` at both) | cited |
+
+## RESUME 2026-10-14 — Open (seat 0, `claude-opus-5-5`, Track D) — COHESION §0fa.5 + §0fb + W8.md ADDENDUM (b)
+
+- **Ledger:** ⟨`grep -n "X.P.W8" execution/LEDGER.md`⟩ → row 108 status `PARTIAL` (not CLOSED) → RESUME mode.
+- **Authority:** W8.md ADDENDUM (b) (unit `.semi`, order `.e → .semi → L-G1 ×2 → close → check`); COHESION §0fa.5 (ESC-W13X-r4lib-1 RE-HOMED to X.P.W8 `.semi`, UIA-KF-277); §0ev.1 (L-G1 by median AND 95 % bootstrap ub < 1.0, 31–101 rounds, load recorded, never deferred); §0fb (every heavy run under `~/.claude/guard/guarded`; bounded workers: vitest `--maxWorkers=2`, playwright `--workers=1`; no watcher, server or browser left behind). ESC-W8e-1 (E-6 gz ceiling): ⟨`grep -c 'ESC-W8e-1' COHESION.md`⟩ → `0` — **still unruled**; it stays honest-RED and owner-routed per ADDENDUM (a); `.semi` must not shave to fit and must record its gz delta.
+- **Crash recovery:** ⟨`git status --porcelain -- src test/css bench docs/tranches/X/parse-that docs/tranches/X/execution/D`⟩ → only this record, ` M` +56 lines: the **RESUME Repair 1 receipt (2026-10-13) written by a killed repair seat**, ending at its gate table; its L-G1 result section and State were never written. Its 5 cure commits (`91dfed9b8` `b45cf83d4` `105ae34f6` `af86675dd` `5c8918c6b`) and its records (`ce293a5c5`, `bench/records/W8r1/`) are committed. The 56 lines are committed verbatim with this Open (E-3: not rewritten); the close seat audits the W8r1 L-G1 records. The product bytes are now `5c8918c6b` (⟨`git log --oneline -1 -- src`⟩), which `.semi` will move — so the L-G1 read of record is owed again on `.semi`'s bytes.
+- **alreadyDone** (commits exist): `.c .g .v .t .i .f .x` (first sitting) · `.e` (`5408b73e7`, `6c2750f76`) · `.lg1` (`fc7b757eb` … `44b088596`).
+- **Host:** ⟨`uptime`⟩ → `load averages: 38.73 90.55 138.64`; ⟨`pmset -g batt`⟩ → AC Power, 76 % charging. parse-that ⟨`git log --oneline -1`⟩ → `cb9c0d4` (READ-ONLY, unmoved). HEAD `c7beb41ec`.
+- **E13 mail:** paths value `V/` + `V/coordination` · glass `BK/coordination` (+ `BL`, now the newest glass tranche dir: ⟨`ls -td ../glass-ui/docs/tranches/*/ | head -1`⟩ → `BL/`; `BL/coordination` empty-of-new) · keyframes `V/coordination` · atlas `P/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path except glass `BL/FORMATION-PROGRESS.md` (progress file, not mail); UNREAD mail rows → `0`. Nothing new addressed to value.js; sweep line appended to INBOX.
+
+## RESUME 2026-10-14 — Baseline (BEFORE, read-only; HEAD `c7beb41ec`, product `5c8918c6b`; only the gates the owed units turn — the rest cite RESUME Repair 1's reads on these unchanged product bytes, `bench/records/W8r1/gates/`)
+
+| Gate | Command | BEFORE (×2) | Verdict |
+|---|---|---|---|
+| `.semi` falsifier (ADDENDUM (b)) | ⟨`npx vite-node semi.ts`⟩ (scratch probe: `parseStylesheet(s).ok` per source) | `a{transform:rotate(0;1deg)}` → **ACCEPTED** ×2 · `@keyframes k{0%{transform:translate(0;1px)}}` → **ACCEPTED** ×2 · `a{color:rgb(1;2;3)}` → refused ×2 · `a{width:calc(1px;2px)}` → refused ×2 · control `a{transform:rotate(0deg)}` → accepted ×2 | **RED** (born-RED: the named case and its keyframes sibling are accepted with no diagnostic) |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | cited Repair 1: `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | stay-GREEN (cited) |
+| css-equivalence | ⟨`npm run -s test:css-equivalence`⟩ | cited Repair 1: 19/19, MIRROR-DEFECTS 0 ×2 | stay-GREEN (cited) |
+| test/css | ⟨`npx vitest run test/css`⟩ | cited Repair 1: 17 files · 218 tests ×2 | stay-GREEN (cited) |
+| L-G2 / prefix | ⟨`node bench/paired/equiv.mjs product …`⟩ | cited Repair 1: 981 named ×2 · prefix 0 ×2 | stay-GREEN (cited) |
+| E-6 size | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c` / `\| gzip \| wc -c`⟩ | cited Repair 1: 104,398 / 14,622 (gz > 14,517) | raw GREEN · gz honest-RED (ESC-W8e-1, unruled) |
+| L-G1 ×2 (§0ev.1) | `bench/paired` node + Chromium/WebKit/Firefox | Repair 1's read on `5c8918c6b` (records `ce293a5c5`); stale once `.semi` moves the bytes | owed on `.semi`'s bytes |
+
+GREEN-before-cure: none (the `.semi` falsifier's named case is RED; the `rgb()`/`calc()` siblings already refuse and are recorded as stay-GREEN siblings, not as the cure's evidence).
+
+## RESUME 2026-10-14 — Unit plan (strictly serial; 2 units owed; then the workflow close seat, then check-as-audit per §0eq)
+
+| # | unit | model | executes | writable | gates | locks |
+|---|---|---|---|---|---|---|
+| 1 | `X.P.W8.semi` | opus | W8.md ADDENDUM (b) (l.27–28); §Scope 2, 4 | `src/css/grammar/*.bbnf` · `src/css/bbnf/**` (+ re-emission via pinned `scripts/gen-grammar.mjs`) · `src/css/stylesheet.ts` · `src/css/rules.ts` · `src/value.ts` · `test/css/**` · `bench/records/W8semi/**` · `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` · this record | falsifier RED→GREEN ×2 · V-C GREEN ×2 · css-equiv 19/19 MIRROR 0 · test/css ×2 · L-G2 0 new unnamed ×2 · prefix 0 ×2 · L-G3 0 · `--check` · audit 0 · E-6 (gz delta recorded; ESC-W8e-1 unruled) · vue-tsc · eslint · build | CSS grammar only in BBNF; cure at grammar/value-parser root, never kf-side; grammar + re-emission one commit; §0fb guarded |
+| 2 | `X.P.W8.lg1r` | opus | W8.md §Scope 5 + ADDENDUM (a)/(b); COHESION §0ev.1 | `bench/records/W8lg1r/**` · this record (0 product bytes; `bench/paired/**` READ unless an instrument defect is found → escalate) | L-G1 ×2 on node, Chromium, WebKit, Firefox (acc, rej, `-eq` classes, `large-eq`, Firefox whole `parseCssScalar`) by median AND bootstrap ub < 1.0, 31–101 rounds, load start/end per read, MANIFEST sha256 | headless only; one engine at a time under `guarded`; no browser left behind |
+
+Groups: `[[".semi"], [".lg1r"]]`.
+
+## RESUME 2026-10-14 — Unit receipts
