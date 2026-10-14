@@ -957,3 +957,59 @@ W8.md has no separate §Verification Artefacts section. Its gates are §Scope 2 
 
 ### State
 Four-verb line: X.P.W8 → **PARTIAL** (not IMPLEMENTED). ADDENDUM (b) `.semi` is cured (falsifier RED 13/20 → GREEN 20/20 ×2 reproduced). V-C GREEN ×2 and the whole stay-GREEN set reproduce on `2f590daa8`. L-G1 ×2 is GREEN on all 103 cells on node, Chromium, WebKit and Firefox (incl. the W7-carried whole `parseCssScalar`), audited from `333b519ea`. The only RED is E-6 gz (ESC-W8e-1), which is the owner's ceiling ruling and not a cure. VERIFIED is not this seat's stamp: per W8.md §Units / ADDENDUM (b), the check-as-audit (§0eq) follows.
+
+## RESUME 2026-10-14 — Check 1 (L-20 pass 1 of the RESUME 2 Close, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **CONFORMANT-HONEST-RED**
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D/X-P-W8.md docs/tranches/X/execution/LEDGER.md`⟩ → empty at open. parse-that ⟨`git log --oneline -1`⟩ → `cb9c0d4` (unmoved; its dirty `rust/**` belongs to another session, untouched). `scripts/dev/dev.sh` untouched.
+- **§0fb:** one sequential runner `.worktrees/w8check1/gates.sh` under ⟨`~/.claude/guard/guarded --light --timeout 60 -- sh gates.sh`⟩ in `run_in_background` (heavy slots held by other sessions: ⟨`lsof ~/.claude/guard/slots/*`⟩ → 4 lines); vitest `--maxWorkers=2`; load 41.9–85.7, free memory 44 %. No browser, server or watcher started. The prior-bytes tree was built independently by this seat (⟨`git archive 2f590daa8^ src test/support package.json tsconfig*.json vitest.config.ts`⟩ + HEAD's `test/css/bbnf-semicolon.test.ts`), not reused from the close's `w8close3/prior`. The pinned `--check`/audit helpers in `.worktrees/w8close3/` were read before use (each imports `../bbnf-lang-x-p-w7-typescript` directly).
+- **L-G1 audited, not re-timed** (§0eq), as the close did.
+
+### Gates re-run by this seat (AFTER = HEAD `ea3f99708`, product `2f590daa8`)
+
+| Gate | Command | Close claimed | This seat (×2 where marked) | Reproduces? |
+|---|---|---|---|---|
+| `.semi` falsifier ×2 | ⟨`npx vitest run test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ on prior tree / HEAD | prior 13 failed \| 7 passed; HEAD 20/20 | prior `Tests 13 failed \| 7 passed (20)` ×2 (exit 1); HEAD `Tests 20 passed (20)` ×2 | yes (RED→GREEN) |
+| sheet probe | ⟨`npx vite-node bench/records/W8semi/probe.ts …`⟩ on HEAD and prior | named case + keyframes sibling refused | HEAD: `rotate(0;1deg)` / keyframes `translate(0;1px)` → `refused css_syntax`; control `rotate(0deg)` ACCEPTED. Prior: `rotate(0;1deg)` ACCEPTED | yes |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | GREEN, 3898 ruled | `6267 cases · 3898 ruled rows` · `TOTAL 6267 2369 3898 0 …` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | yes |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ | 19/19, MIRROR 0 | `Test Files 2 passed (2) · Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 | yes |
+| test/css ×2 | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | 18 / 238 | `Test Files 18 passed (18) · Tests 238 passed (238)` ×2 | yes |
+| L-G2 ×2 | ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead ea3f9970… · srcDirty "" · bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product …`⟩ | 2847 ×2 = `.semi`'s classified read | `compared 1376531/1376531 rows · mismatches 2847` ×2 (exit 1 by the instrument's design, as in the close's `run.log`); ⟨`cmp equiv-1 equiv-2`⟩ identical; ⟨`gunzip -c bench/records/W8semi/equiv-1.json.gz \| cmp -`⟩ identical; re-derived ⟨`node bench/records/W8semi/delta.mjs` + `classify.mjs`⟩ → `identical 940 · gone 11 · moved 30 · new 1877` · `{"new:has;:names;":1877,"moved:has;:names;":30,"gone:has;:-":11}` · `odd 0` | yes (0 new unnamed) |
+| prefix ×2 | same reads | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | yes |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | yes |
+| `--check` ×2 (pinned `f0059db14`) | ⟨`node .worktrees/w8close3/gen-pinned.mjs --check`⟩ | current `9f54614b…` | `is current (sha256 9f54614b502d…)` ×2 | yes |
+| audit (pinned) | ⟨`node .worktrees/w8close3/audit-pinned.mjs`⟩ | violations 0 | `rules 176 · checks 350068857 · violations 0 · modeDiffs 0`, exit 0 | yes |
+| E-6 size ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c` / `\| gzip \| wc -c`⟩ | 104733 / 14635 | `104733` / `14635` ×2 | yes (raw GREEN; gz RED as claimed) |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0; `error TS` 0 · 0 | yes |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence/w6-classes.ts --max-warnings=0`⟩ | 0 | exit 0, 0 bytes of output | yes |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 5.37s` | yes |
+| L-G1 ×2 audit (§0eq) | ⟨`git archive HEAD bench/records/W8lg1r \| tar -x` → `shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ ×2; ⟨`node bench/paired/bootstrap.mjs <tree>/{node,browser}/*.json \| shasum -a 256`⟩ ×2 | 56; `590d5a9c…`; 103/103 GREEN | `56` ×2; `590d5a9c7ea5…` ×2, equal to the committed `bootstrap-read.txt`; ⟨`grep -c '→ GREEN'`⟩ → `103`; ⟨`grep -c 'STRADDLE\|RED'`⟩ → `0` | yes |
+
+Self-count: 15 gate rows; 15 reproduce as claimed (14 GREEN plus E-6 gz RED reproduced as claimed); 0 claimed GREEN fails.
+
+### Axes
+1. **Every claimed GREEN reproduces:** yes (table above; 14 GREEN rows, 0 failed).
+2. **File bounds:** ⟨`git show --stat`⟩ for `2f590daa8` (8 paths: `value.bbnf`, `generated/grammar.{js,d.ts}`, `test/css/bbnf-semicolon.test.ts`, DIVERGENCE-LEDGER + the three declared §0bt edits `ruled.json` −9, `w6-classes.ts`, `CHANGELOG.md` +1) · `5f773c608` (`bench/records/W8semi/**` 13 + this record) · `333b519ea` (`bench/records/W8lg1r/**` only) · `99da3ef57` (this record) · `ea3f99708` (`bench/records/W8close3/**` + record + LEDGER). All inside the Unit plan's writable sets; the §0bt edits share the cure's concern (the oracles the cure moves). ⟨`git diff --stat c7beb41ec..HEAD -- scripts/dev/dev.sh`⟩ → empty.
+3. **No masking fallback:** ⟨`git show 2f590daa8 \| grep -nE '^\+.*(\.skip\|\.todo\|try \{\|catch \()'`⟩ → 0. The cure is two BBNF regex edits at the value grammar's root (`operator` drops `;`; `badTerm` reads a lone `;` to refuse it). The `ruled.json` removal discharges a row the cure makes stale (an invalid case now refused), not a narrowing. The `W8semi-SEMI` class is a mechanism test (each `;` → space must read NOT RED, and the refusal must name a `;`), the spec's own §Scope 4 form ("a named class with a repair test"); this seat re-derived its 1918 delta rows, `odd 0`.
+4. **Commit families:** the cure family (grammar + re-emission + falsifier + oracle rows + DIVERGENCE-LEDGER) is one commit `2f590daa8`; records and receipts are separate meanings. Not split.
+5. **E-3:** ⟨`git diff --stat c7beb41ec..HEAD -- docs/tranches/X/parse-that/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/COHESION.md`⟩ → empty. DIVERGENCE-LEDGER §19-S is a dated section appended beside.
+6. **Mail:** ⟨`find <p> -maxdepth 1 -type f -newer docs/tranches/V/coordination/INBOX.md \| wc -l`⟩ → `0` on value `V/`, `V/coordination`, glass `BK/coordination`, `BL/`, `BL/coordination`, `P/coordination`, keyframes `V/coordination`; ⟨`grep -cE '^\| .*\| *UNREAD *\|' INBOX.md`⟩ → `0`.
+7. **Four-verb line:** row 108 moved PARTIAL (RESUME 2 Open) → PARTIAL (Close, with E-6 RED). That is lawful: the close does not stamp IMPLEMENTED over a RED gate, and per ADDENDUM (b) the order ends `close → check`.
+8. **Goal at the bytes:** ADDENDUM (b)'s named case and its keyframes sibling are refused with `css_syntax` naming the `;` (probe + falsifier). keyframes maps that to `PARSE_ERROR` (⟨`grep -rln PARSE_ERROR ../keyframes.js/src`⟩ → `validate.ts`, `adopt.ts`, `cssom.ts`; value.js has no such code). §Scope 2's V-C is GREEN ×2, and §Scope 3's five named misses are held by test/css 238 ×2. One regression of valid CSS against the §Why goal is registered below (C1-1).
+9. **Published figures reproduce:** 13/20→20/20, 6267/3898/0, 19/19, 18/238, 2847, 940/11/30/1877, 528/1405/0, 176/350068857/0, 104733/14635, 56, `590d5a9c…`, 103/103: every one matches the settled bytes.
+10. **Honest-RED adjudication:** one gate is RED: **E-6 gz** (14,635 B against 14,517 B). Its relief is the spec's own: W8.md ADDENDUM (a) l.21 says "if the cure exceeds the ceiling, the ceiling question is escalated, not shaved by obfuscation", and ADDENDUM (b) adds a cure that cannot lawfully be shaved. It is escalated as **ESC-W8e-1** to the owner (⟨`grep -c ESC-W8e-1 docs/tranches/X/COHESION.md`⟩ → `0`, so still unruled). The close's Residuals R-1 name the owner. RESUME Check 1 (C1-2) read it the same way. **Relieved.** No other gate is RED.
+
+### Successors
+⟨`grep -rn 'Opens after' docs/tranches/X \| grep 'P\.W8'`⟩ finds no wave that opens after X.P.W8. Only W8's own conjunct on X.P.W7 appears, and it holds. `X/waves/W12U.md:94` sequences its quiet reads after W8's L-G1 ×2. That L-G1 ×2 is now GREEN and banked (`333b519ea`), so the conjunct is GREEN and W12U is not blocked by this wave. KF.W13X's ESC-W13X-r4lib-1 was re-homed here (KF-W13.md:590). It is cured at `2f590daa8`, so no keyframes successor is blocked. No successor is lawfully blocked.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | **MEDIUM** (named, owner-routed; does not block) | `.semi` regresses one valid css-variables-1 form. `--x: f(a;b)` is a `<declaration-value>` (a `;` nested in a block is admitted) and was accepted. It is now refused, against §Why's "accepts every valid value in scope". No WPT case and no corpus sheet holds it, so no gate catches it. | ⟨`npx vite-node probe.ts "a{--x:f(a;b)}"`⟩ → prior tree `ACCEPTED`, HEAD `refused css_syntax`. Named by the unit as W8semi-CUSTOM (DIVERGENCE-LEDGER §19-S) and close Residual R-2, owner-routed beside ESC-W8e-1 | The owner's ESC-W8e-1 ruling decides it. If the ceiling is raised, a successor unit reads a custom property's `<declaration-value>` through its own term set (a `;` inside a block admitted), with a falsifier `a{--x:f(a;b)}` RED→GREEN. Until then it stays a named row. |
+| C1-2 | INFO (honest-RED) | E-6 gz is 14,635 B, 118 B over 14,517 B: `.e` +105 B and `.semi` +13 B, both lawful BBNF cures | ⟨`… \| gzip \| wc -c`⟩ → `14635` ×2 | Owner ruling on ESC-W8e-1, per ADDENDUM (a) |
+| C1-3 | INFO | ADDENDUM (b) words its falsifier as a "`PARSE_ERROR` diagnostic". The value.js falsifier asserts `css_syntax`. `PARSE_ERROR` is keyframes.js's code, and keyframes.js maps value.js's refusal to it. | ⟨`grep -rn PARSE_ERROR src \| wc -l`⟩ → `0`; ⟨`grep -rln PARSE_ERROR ../keyframes.js/src`⟩ → 3 files | None owed here. The keyframes-side `PARSE_ERROR` reading belongs to KF.W13X's close (§0fa.5) |
+| C1-4 | INFO | Close R-5: the untracked `docs/tranches/X/parse-that/evidence/W8/l-g1-r1/bootstrap-read-e-bytes.txt` was left by the killed Repair 1 seat | ⟨`git status --porcelain -- docs/tranches/X/parse-that`⟩ → `?? …bootstrap-read-e-bytes.txt` | The orchestrator banks or discards it. No gate reads it. It is outside this seat's writable set and was left untouched |
+| C1-5 | INFO | `333b519ea`'s subject names the max-ub cell "rej-eq/rej". The bytes say `rej` alone. | the close's Act 1; ⟨`bootstrap-read.txt`⟩ | Already corrected in the `.lg1r` receipt. A commit message is not rewritten |
+
+### Verdict
+**CONFORMANT-HONEST-RED.** The register holds 0 BLOCKER, 0 CRITICAL and 0 HIGH, and every claimed GREEN reproduces (14/14). The one RED gate is E-6 gz, relieved by ADDENDUM (a)'s escalation route as ESC-W8e-1, owner-named. C1-1 is a named MEDIUM tied to the same ruling. Row 108 → `CLOSED 2026-09-17 (honest-RED: E-6 gz → ESC-W8e-1)`, plus an event line in the LEDGER.
