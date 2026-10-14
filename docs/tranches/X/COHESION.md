@@ -3846,3 +3846,27 @@ The owner asked: *"this machine keeps crashing after sometime--assay and fix wha
   - **The reaper** is a launchd agent running every 10 min (`dev.babb.reap-orphans`). It kills orphaned automation browsers, Python pool workers, node probes older than 3 h, and dev servers older than 6 h off the keep-ports.
   - **fourier dev and test APIs run with `COMPUTE_CONCURRENCY=1`.** The restart recipe is amended.
 - §0fa's host-load rule stands, inside this law: bounded workers, `guarded` for every heavy run. F.REL `.mem` remains the root cure of the per-extraction peak.
+
+## §0fc — 2026-10-14: ESC-W8e-1 RULED (the E-6 gz ceiling is raised to 14,800 B); W8semi-CUSTOM is cured now, as unit X.P.W8.cust
+X.P.W8 closed honest-RED on one gate: E-6 gz measured 14,635 B against a 14,517 B ceiling (`9f5a13696`). Check 1 also named one MEDIUM finding, C1-1 (W8semi-CUSTOM).
+1. **ESC-W8e-1 is RULED.**
+   - The 14,517 B ceiling was set at the W7 baseline with about 5 B of headroom. Any lawful BBNF cure adds an entry: its name strings plus a wrapper.
+   - W8.md ADDENDUM (a) bars shaving. The overage (+118 B) comes from two spec cures, `--x: ;` and `.semi`, not from bloat.
+   - **The E-6 gz ceiling becomes 14,800 B.** The raw ceiling of 125,646 B is unchanged.
+   - The new ceiling leaves about 165 B, budgeted for `.cust` below. It is a ceiling, not an allowance: each unit still reports its own delta.
+   - A unit that would cross 14,800 B escalates again and never shaves.
+2. **C1-1 / W8semi-CUSTOM is cured now, by §0ev's no-deferral order, as unit `X.P.W8.cust`.**
+   - **The defect:** `.semi` regressed `--x: f(a;b)`. The value is a valid css-variables-1 `<declaration-value>` and is now refused.
+   - **The cure:** the custom property's value is read through its own BBNF term set, parallel to `valueTerm`. A `;` nested inside a `()`/`[]`/`{}` block is admitted only for a custom property's value. A `;` at the top level still ends the declaration. `.semi`'s refusals for registered properties stand (`a{transform:rotate(0;1deg)}` keeps `PARSE_ERROR`).
+   - **Falsifiers:**
+     - `a{--x:f(a;b)}` RED→GREEN ×2 (ACCEPTED, and the value round-trips);
+     - `.semi`'s falsifiers stay GREEN ×2;
+     - V-C GREEN ×2;
+     - MIRROR-DEFECTS 0;
+     - L-G2 and L-G3 stay GREEN;
+     - E-6 raw and gz are read ×2 against the §0fc.1 ceilings, with the delta reported.
+   - **L-G1:** run ×2 by §0ev.1, only on the entries whose emitted bytes `.cust` changes. If none change, the `.lg1r` read of record stands and is cited by hash.
+   - **Order:** `.cust`, then the cells L-G1 owes, then the close (verify-only), then the check.
+   - **Writable set:** `src/css/grammar/*.bbnf`, `src/css/bbnf/**`, the regenerated `src/css/bbnf/generated/**` through the pinned emitter, `test/css/**`, and the DIVERGENCE-LEDGER row §19-S, which closes by addendum. bbnf-lang and parse-that stay READ-ONLY.
+   - Every heavy run goes through `~/.claude/guard/guarded` (§0fb).
+3. W8.md ADDENDUM (c) carries this ruling.
