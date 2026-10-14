@@ -1,0 +1,32 @@
+{
+ "fails": [],
+ "seq": {
+  "sequence-1440-light": [
+   24,
+   67,
+   57
+  ],
+  "sequence-1440-dark": [
+   24,
+   67,
+   57
+  ],
+  "sequence-390-light": [
+   24,
+   66,
+   57
+  ],
+  "sequence-390-dark": [
+   24,
+   66,
+   57
+  ]
+ },
+ "spring": {
+  "spring-1440-light": 24,
+  "spring-1440-dark": 24,
+  "spring-390-light": 24,
+  "spring-390-dark": 24
+ },
+ "ticks": "repeating-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) calc(25% - 1px), rgb(198, 180, 159) calc(25% - 1px), rgb(198, 180, 159) 25%)"
+}
