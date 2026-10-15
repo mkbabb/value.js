@@ -1,0 +1,82 @@
+{
+ "1440-light": {
+  "cardTop": 127,
+  "cardBottom": 750.1,
+  "hostBottom": 750.1,
+  "drawerBottom": 638.6,
+  "band": 111.5,
+  "drawerH": 385,
+  "scrollH": 1867,
+  "maxBlock": "385px"
+ },
+ "1440-dark": {
+  "cardTop": 127,
+  "cardBottom": 750.1,
+  "hostBottom": 750.1,
+  "drawerBottom": 638.6,
+  "band": 111.5,
+  "drawerH": 385,
+  "scrollH": 1867,
+  "maxBlock": "385px"
+ },
+ "1280-light": {
+  "cardTop": 121,
+  "cardBottom": 654.7,
+  "hostBottom": 654.7,
+  "drawerBottom": 619.7,
+  "band": 35.1,
+  "drawerH": 359,
+  "scrollH": 1774,
+  "maxBlock": "359px"
+ },
+ "1280-dark": {
+  "cardTop": 121,
+  "cardBottom": 654.7,
+  "hostBottom": 654.7,
+  "drawerBottom": 618.7,
+  "band": 36.1,
+  "drawerH": 358,
+  "scrollH": 1774,
+  "maxBlock": "358px"
+ },
+ "1024-light": {
+  "cardTop": 105,
+  "cardBottom": 642.5,
+  "hostBottom": 642.5,
+  "drawerBottom": 601.3,
+  "band": 41.2,
+  "drawerH": 361,
+  "scrollH": 1949,
+  "maxBlock": "361px"
+ },
+ "1024-dark": {
+  "cardTop": 105,
+  "cardBottom": 642.5,
+  "hostBottom": 642.5,
+  "drawerBottom": 602.3,
+  "band": 40.2,
+  "drawerH": 362,
+  "scrollH": 1949,
+  "maxBlock": "362px"
+ },
+ "390-light": {
+  "cardTop": 101.5,
+  "cardBottom": 714.6,
+  "hostBottom": 714.6,
+  "drawerBottom": 689.6,
+  "band": 25,
+  "drawerH": 432,
+  "scrollH": 2721,
+  "maxBlock": "434px"
+ },
+ "390-dark": {
+  "cardTop": 101.5,
+  "cardBottom": 714.6,
+  "hostBottom": 714.6,
+  "drawerBottom": 689.6,
+  "band": 25,
+  "drawerH": 432,
+  "scrollH": 2721,
+  "maxBlock": "434px"
+ }
+}

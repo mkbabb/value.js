@@ -1,0 +1,109 @@
+{
+ "fails": [],
+ "easing": {
+  "easing-1440-light": [
+   29,
+   29
+  ],
+  "easing-1440-dark": [
+   29,
+   29
+  ],
+  "easing-390-light": [
+   25,
+   25
+  ],
+  "easing-390-dark": [
+   25,
+   25
+  ]
+ },
+ "title": {
+  "cube-1440-light": [
+   "Rotations",
+   140,
+   "25.888px 600"
+  ],
+  "amiga-1440-light": [
+   "Spin",
+   140,
+   "25.888px 600"
+  ],
+  "square-1440-light": [
+   "Transform",
+   140,
+   "25.888px 600"
+  ],
+  "cube-1440-dark": [
+   "Rotations",
+   140,
+   "25.888px 600"
+  ],
+  "amiga-1440-dark": [
+   "Spin",
+   140,
+   "25.888px 600"
+  ],
+  "square-1440-dark": [
+   "Transform",
+   140,
+   "25.888px 600"
+  ],
+  "cube-390-light": [
+   "Rotations",
+   800,
+   "25.888px 600"
+  ],
+  "amiga-390-light": [
+   "Spin",
+   800,
+   "25.888px 600"
+  ],
+  "square-390-light": [
+   "Transform",
+   800,
+   "25.888px 600"
+  ],
+  "cube-390-dark": [
+   "Rotations",
+   800,
+   "25.888px 600"
+  ],
+  "amiga-390-dark": [
+   "Spin",
+   800,
+   "25.888px 600"
+  ],
+  "square-390-dark": [
+   "Transform",
+   800,
+   "25.888px 600"
+  ]
+ },
+ "editor": {
+  "cube-keyframes-1440-light": [
+   20,
+   461.6,
+   465.2,
+   null
+  ],
+  "cube-keyframes-1440-dark": [
+   20,
+   461.6,
+   465.2,
+   null
+  ],
+  "cube-keyframes-390-light": [
+   24,
+   352,
+   369,
+   null
+  ],
+  "cube-keyframes-390-dark": [
+   24,
+   352,
+   369,
+   null
+  ]
+ }
+}
