@@ -1400,3 +1400,85 @@ Order of discharge: mem2-1 ruling → `.mem2` commit + push → w-1 ruling, then
 **Four-verb line.** Not moved. F.REL stays OPEN; the LEDGER status becomes `BLOCKED-ON ESC-FREL-mem2-1`.
 
 **Teardown.** No server, browser, container or poller was started. The two light guarded runs have exited, and the lock-wait loop has exited.
+
+## RESUME 2026-10-15 (c) (§0ff + F-REL.md ADDENDUM (c)) — Open
+
+Seat 0, `claude-opus-5-5`, 2026-10-15 ~19:50 local. LEDGER read first: F.REL = **BLOCKED-ON ESC-FREL-mem2-1** (not CLOSED), and this record exists, so this is RESUME MODE. The block is lifted by COHESION §0ff (L3915-3930; the file ends at L3930, ⟨`wc -l COHESION.md`⟩ → `3930`) and by spec addendum (c) at `fourier/waves/F-REL.md:48-54`.
+
+### Preconditions (bytes and ledger)
+- F.W14V CLOSED and F.CT phase 2 CLOSED honest-RED (§0eu): banked at the 2026-10-08 Open, unchanged.
+- ESC-FREL-mem2-1 RULED: option (ii) in §0ff's form. Unit `.mem3` re-premises the test on a committed fixture, keeping every assertion verbatim, and `.mem2` + `.mem3` land together.
+- fourier tree: ⟨`git rev-parse --short HEAD` / `origin/m/w1-bump-migration` / `origin/master`⟩ (after `git fetch`) → `512f5a9` · `512f5a9` · `ad62881`; ⟨`git rev-list --left-right --count origin/master...HEAD`⟩ → `1 443`.
+- Route (a) artefacts: ⟨`gh release view models-2026-10`⟩ → `birefnet-lite-512.json 712` · `birefnet-lite-512.onnx 187040360`. ⟨`ls -la scripts/export-birefnet-lite.py`⟩ → 11050 B, Oct 13 15:58. ⟨`git check-ignore -v scripts/export-birefnet-lite.py`⟩ → `.gitignore:58:scripts/*`, so the script is ignored until the granted negation lands.
+- **Still unruled** (⟨`grep -c 'ESC-FREL-w-[12]\|ESC-FREL-g-5\|ESC-FREL-d-1' COHESION.md`⟩ → 0): w-1 (the frozen oracle `contrast-pairs.ts`), w-2 (latency, read after `.mem2` lands), g-5 and d-1. The last three are ordering findings that the serial order discharges. w-1 is named in `.w`'s locks.
+
+### Crash recovery
+- value.js: ⟨`git status --porcelain -- execution/C/F-REL.md execution/LEDGER.md V/coordination/INBOX.md`⟩ → empty. Seat 0 inherits nothing.
+- fourier (seat 0 only reads it): ` M api/Dockerfile` · ` M scripts/model-smoke.sh` · ` M src/fourier_analysis/contours/ml.py` · `?? bench/contours/memory.py` · `?? tests/test_contour_ml_memory.py`. These are `.mem2`'s uncommitted cure, GREEN on G-mem, G-mem2 and G-iou, and are adopted by the `.mem2` landing seat. The durable copy is `~/.fourier-frel/mem2/frel-mem2-wip.patch`.
+- ` M web/src/components/equation/convergence/ConvergenceLegend.vue` and ` M …/visualization/BasisSelector.vue` belong to the live X-DS lane and are never touched.
+- `tests/test_contour_strokes.py` is clean in the main tree. F.CT3's dirty copy lives in `.worktrees/f-ct3`, which is never touched.
+- ⟨`cat .worktrees/heavy.lock`⟩ → `F.CT3 r1 (seat 3) scoped-pytest … pid 94482`, which is live (⟨`ps -p 94482 -o etime=`⟩ → `23:09`). The heavy slot is held, so every unit waits on it.
+
+### E13 mail sweep
+- Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` (⟨`ls glass-ui/docs/tranches | grep -E '^B[K-Z]'`⟩ → `BK` `BL`, so BL is the newest) · keyframes `V/coordination` · atlas `P/coordination`.
+- ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 0 · 0 · 0.
+- ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
+- **0 unrowed · 0 UNREAD.** A sweep line is appended to INBOX.
+
+## RESUME 2026-10-15 (c) — Baseline (BEFORE, read-only)
+
+⟨`uptime`⟩ → load `21.14 26.56 25.80`. The repo's heavy slot is held by F.CT3 (see Crash recovery), so no heavy suite is re-run at this open. Heavy cells cite the banked readings of `## RESUME 2026-10-13 (b) — Close`. Static and network reads are taken now.
+
+| Gate | BEFORE (this open) | State |
+|---|---|---|
+| `.mem3` falsifier: the person-cut test GREEN ×2 on the product | banked: ⟨pytest on `.mem2`'s bytes⟩ → 1 failed / 175 (`test_person_cut_removes_what_stands_beside_the_sitter`) ×3. ⟨`ls tests/fixtures`⟩ → No such file (no fixture yet) | RED |
+| `.mem3` assertions kept verbatim | ⟨`sed -n 508,560p tests/test_contour_strokes.py \| grep assert`⟩ → the 3 % share (`removed.sum() > 0.03 * mask.sum()`), one object (`sizes.max() > 0.9 * removed.sum()`), under 5 % person, and the sitter whole (`> 0.95`) | the reference text |
+| `.gitignore` negation | ⟨`git check-ignore -v scripts/export-birefnet-lite.py`⟩ → ignored by `.gitignore:58:scripts/*` | RED |
+| G-mem peak RSS ≤ 1.6 GB (landed) | ⟨`git show HEAD:…/ml.py \| grep -c '_open_session\|birefnet-lite-512'`⟩ → `0`; working tree → `6`; banked 1412.3 / 1502.3 MB on the uncommitted bytes | RED at HEAD |
+| G-mem2 2G container smoke (landed) | banked 1490 / 2048 MB on the uncommitted bytes | RED at HEAD |
+| G-iou mean ≥ 0.97 / min ≥ 0.93 (landed) | banked 0.9864 / 0.9444 ×2 on the uncommitted bytes | RED at HEAD |
+| api pytest ×2 | banked 344 ×2 (`.mem2`); CI 38824079821 api ✓ | GREEN (banked) |
+| web vue-tsc / vitest ×2 | banked rc 0 ×2 / 116 ×2 (close seat, today) | GREEN (banked) |
+| G-w manifest | ⟨`node -e '…producer-held.json…rows.length'`⟩ → `8` | GREEN |
+| G-vb goldens | ⟨`find web/e2e -path '*-snapshots*' -name '*.png'`⟩ → 6 `darwin.png` · 6 `linux.png` | GREEN at `8094890` (a re-read is owed after `.w`) |
+| e2e GREEN outside the manifest | ⟨`gh run list --branch m/w1-bump-migration --limit 2`⟩ → `38824079821 failure 512f5a9` · `38452213569 failure c6a242d` | RED |
+| contrast-floor ×3 | banked: light 18/36, dark 10/36 | RED (ESC-FREL-w-1 unruled) |
+| master merged + master CI GREEN | `origin/master` `ad62881`, `1 443` | RED |
+| host API = new code | ⟨`curl -s https://api.fourier.babb.dev/openapi.json` + path filter⟩ → `34 0.2.0 []` | RED |
+| G-c on production | ⟨`curl -X OPTIONS …/api/visualizations/x` with PATCH + `if-match,idempotency-key,content-type`⟩ → `400` | RED |
+| host health | ⟨`curl …/health`⟩ → `{"status":"ok"}` | GREEN (non-regression) |
+| end-to-end production check 20/20 / no outage during deploy | banked 10/20; no deploy has fired | RED / NOT READ |
+
+**Green before cure (R.2):** none among the gates the owed units turn. G-w and G-vb are GREEN from their own landed cures (`7f807a3`, `8094890`/`512f5a9`), not before them.
+
+## RESUME 2026-10-15 (c) — Unit plan
+
+- **alreadyDone** (their commits exist; never re-dispatched): `F-REL.m`, `F-REL.c`, `F-REL.h`.
+- **Owed, strictly serial,** one unit at a time, every seat Opus 5.5: `.mem3 → .mem2 (landing) → .w → .vb → .g → .d`.
+- `.mem2`'s cure is finished but uncommitted. Its seat is the landing seat:
+  - It adopts the five uncommitted paths and adds the granted `.gitignore` negation, which makes the export script trackable.
+  - It re-reads the gates ×2 on the combined `.mem2` + `.mem3` bytes.
+  - It pushes the `.mem3` and `.mem2` commits together in one push (§0ff ruling 2).
+- `.mem3` commits locally and does not push.
+- `.w` is PARTIAL (`0a88d44` `7f807a3`) and `.vb` landed `8094890` and `512f5a9`. Both are re-sits named owed by §0ff ruling 2. A re-sit never redoes a landed commit.
+
+**Binding on every unit:**
+- Branch `m/w1-bump-migration` until `.g`.
+- `git fetch` + `git pull --ff-only` before every commit and push. Never force. Pathspec commits only.
+- Headless only (§0ei). Nothing durable in /tmp (§0eo): logs go to `~/.dev-logs/frel/`, work to `~/.fourier-frel/`.
+- Every heavy run goes through `~/.claude/guard/guarded` and through the repo's `.worktrees/heavy.lock`, one at a time. The API runs at `COMPUTE_CONCURRENCY=1`. WebKit runs use `guarded --exclusive webkit`.
+- Reads under load are taken by §0ev.2. ESCALATED units do not halt the wave.
+- **`.worktrees/f-ct3` is never touched** (§0ff ruling 3).
+
+Groups: `[[F-REL.mem3], [F-REL.mem2], [F-REL.w], [F-REL.vb], [F-REL.g], [F-REL.d]]`.
+
+| Unit | Spec section | Writable | Gates | Locks |
+|---|---|---|---|---|
+| F-REL.mem3 | COHESION §0ff ruling 1 (L3922-3926); addendum (c) (F-REL.md:48-54) | `tests/test_contour_strokes.py` (`test_person_cut_removes_what_stands_beside_the_sitter` only); `tests/fixtures/**` (new: the boolean leaf-region PNG + its provenance note) | falsifier RED with the person cut disabled by a local revert (never committed); GREEN ×2 on the product (`.mem2`'s bytes in the tree); the 5 assertions byte-identical (diff shows no `assert` line changed) | mask = `subject_mask` ∪ fixture, then `part_labels`; fixture = the 1024-era leaf region beside the sitter from `human.png`, derived from the 1024 model at `512f5a9`'s `ml.py`; provenance named (source image + sha, model + sha, derivation command, commit); heavy via guarded + heavy.lock; one commit, local only, not pushed |
+| F-REL.mem2 (landing) | §0ey (L3800-3807) + §0ff ruling 2 (L3927); addendum (b)+(c) | adopted: `api/Dockerfile`, `scripts/model-smoke.sh`, `src/fourier_analysis/contours/ml.py`, `bench/contours/memory.py`, `tests/test_contour_ml_memory.py`; `scripts/export-birefnet-lite.py`; `.gitignore` (the one negation line `!scripts/export-birefnet-lite.py`, granted by §0ff ruling 1) | G-mem ≤ 1.6 GB, G-mem2 2G smoke, G-iou ≥ 0.97 / ≥ 0.93 — each ×2 on the combined bytes; `pytest tests/` GREEN ×2; api GREEN ×2; CI on the push: api ✓ | ONE atomic commit (adopts the uncommitted cure by name); pushed TOGETHER with `.mem3`'s commit; fetch + ff-only first; the release asset sha256 is pinned in `SubjectModelSpec`; raising the cap is not a cure |
+| F-REL.w (re-sit) | §0ew bullet 2 (L3780-3783); addendum (a) `.w` (F-REL.md:41) | `web/src/**` (defect sites only); `web/e2e/producer-held.json`; `web/playwright.config.ts`; `.github/workflows/ci.yml`; value.js INBOX relay rows | e2e GREEN outside the manifest on the post-`.mem2` CI (w-2: the latency rows re-read); contrast-floor ×3; manifest printed by CI; vue-tsc / vitest ×2 | glass READ-ONLY; no skips; `web/e2e/contrast-pairs.ts` is NOT in the set (ESC-FREL-w-1 is unruled, so re-escalate it by name); the X-DS lane's dirty paths are left alone |
+| F-REL.vb (re-sit) | §0ew bullet 3 (L3784-3787); addendum (a) `.vb` (F-REL.md:42) | `web/e2e/visual-checkpoint.spec.ts-snapshots/**` | visual-checkpoint GREEN ×2 on darwin and ×2 in `mcr.microsoft.com/playwright:v1.61.0-noble` at the post-`.w` HEAD | heavy.lock; goldens only; re-baseline only the frames that changed, and name each |
+| F-REL.g | §Units `.g` (F-REL.md:31) + §0ew last bullet | the merge `m/w1-bump-migration → master` (no force); `web/playwright.config.ts`, `web/e2e/**`, `.github/workflows/**` | master CI GREEN with the honest-RED set + manifest explicit; vue-tsc / vitest / e2e GREEN ×2 | merge only after `.mem2` has landed and e2e is GREEN outside the manifest; fetch before the merge; the `.gitignore` conflict is resolved to m/w1's side whole; never force |
+| F-REL.d | §Units `.d` (F-REL.md:32-38) | `scripts/**` (the prod-verify probe); value.js `docs/tranches/X/fourier/evidence/F-REL/` | smoke GREEN; cert > 14 d; no outage (health polled through the deploy); `scripts/prod-verify.mjs` 20/20; openapi has publish/remix/diff; PATCH preflight 2xx | deploy only via the standing workflow + webhook; the host is never hand-edited; R-h1/R-h2 named; the two 10-09 draft rows are residual R-7 |
+
+## RESUME 2026-10-15 (c) — Unit receipts
