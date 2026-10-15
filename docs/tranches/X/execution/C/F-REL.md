@@ -1278,3 +1278,40 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-15 ~19:25– local. Spec read whole 
 **E13.** ⟨`find <value V/coordination, glass BK/coordination, keyframes V/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0/0/0. The glass BL path does not exist at `../glass-ui/docs/tranches/BL/coordination` (0). ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
 
 **Status: ESCALATED.**
+
+### F-REL.d — RESUME 2026-10-15 (re-sit after `.g` sitting 4; the deploy precondition read at the bytes)
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-15 ~19:33– local. Spec read whole (46 lines); §Units `.d`, §Gates, addenda (a)/(b); prior `.d` receipt (L745-785) and `.g` sitting 4 (L1223-) read; COHESION §0fb..§0fe scanned to the file end. **Status: ESCALATED (ESC-FREL-d-1, behind ESC-FREL-g-5). No deploy, no fourier commit.**
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ inside `scripts/**` → ` M scripts/model-smoke.sh` only: `.mem`/`.mem2`'s uncommitted G-mem2 container smoke (diff read: compose memory cap, every portrait in one process), not `.d` work; left untouched for `.mem2`. value.js `evidence/F-REL/` → clean.
+
+**The precondition (measured).** ⟨`git fetch -q origin; git log --oneline -1 origin/master`⟩ → `ad62881` (unmoved since 10-06). ⟨`git merge-base --is-ancestor origin/m/w1-bump-migration origin/master`⟩ → rc 1 (`512f5a9` not merged). ⟨`gh run list --branch master --limit 3`⟩ → three `deploy-pages` runs, all `completed skipped` (newest 38824392708, 23:34:28Z, the `workflow_run` of `.g`'s dispatch 38824079821). ⟨`grep -c 'ESC-FREL-mem2-1\|ESC-FREL-g-5' COHESION.md`⟩ → 0 (unruled). Load 27.
+
+**Read-only acts.** Evidence: `docs/tranches/X/fourier/evidence/F-REL/d-resit-2026-10-15/` (README + 5 files).
+1. ⟨`bash scripts/pages-smoke.sh`⟩ → rc 0: bundle `/assets/index-BYSiPuAh.js` carries `https://api.fourier.babb.dev` · health 200 `{"status":"ok"}` · ACAO `https://fourier.babb.dev` · `PASS`. Same hotfix bundle as 10-09 and 10-13.
+2. ⟨`openssl s_client … | openssl x509 -noout -enddate`⟩ → api `notAfter=Jan  4 15:19:06 2027 GMT` · SPA `notAfter=Dec 22 20:13:07 2026 GMT` (81 / 68 days).
+3. ⟨`curl -s …/openapi.json`; path filter⟩ → `34 0.2.0` · `[]`; ⟨`diff` vs `evidence/F-REL/openapi-paths-now.txt`⟩ → rc 0 (identical).
+4. ⟨`curl -i -X OPTIONS …/api/visualizations/x` with PATCH + `if-match,content-type,x-session-token`⟩ → `HTTP/1.1 400 Bad Request` · `access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS`. The pre-`.c` host.
+5. `prod-verify.mjs` not run, and no health poller started: there is no deploy, and the probe writes to production.
+
+**Gates (BEFORE = 10-13 sitting → AFTER).**
+
+| Gate | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| production smoke GREEN (new SPA) | PASS on hotfix SPA | PASS on the same hotfix SPA | **RED** as specified (no new SPA; non-regression only) |
+| cert > 14 d (SPA + API) | Dec 22 / Jan 4 | Dec 22 / Jan 4 | GREEN |
+| G-outage | not read | not read (no deploy) | **RED** (unread) |
+| prod-verify.mjs 20/20 | 10/20 (10-09) | not run | **RED** |
+| openapi publish/remix/diff; PATCH preflight 2xx | none / 400 | none / 400 | **RED** |
+
+**Commits.** fourier: none. value.js: the evidence dir and this record (one commit).
+
+**Adjacent edits.** None.
+
+**Escalation — ESC-FREL-d-1 (restated at `512f5a9`).** `.d` has nothing to deploy or verify until `.g` merges m/w1 to master on a GREEN CI. `.g` waits on ESC-FREL-g-5: ESC-FREL-mem2-1 (unruled; `.mem2` uncommitted), then ESC-FREL-w-1/w-2. A further `.d` dispatch before a successful master CI will return this receipt again.
+
+**Residuals.** R-h1 (hooks.json lacks `FOURIER_DEPLOY_ALERT_WEBHOOK`/`GITHUB_TOKEN`, owner act) and R-h2 (the first post-merge deploy runs the host's old in-place hook, so that push may still cost an outage window) remain unread until the first deploy. The two 10-09 private draft rows (`mighty-drawing-umber-zebra`, `rich-pouring-mango-salmon`) remain (removal needs the admin token, owner act).
+
+**Teardown.** No server, browser, container or poller started.
+
+**Status: ESCALATED.**
