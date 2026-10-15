@@ -1086,3 +1086,67 @@ SERVED MODEL: claude-opus-5-5. Spec re-read whole (`F-REL.md`, 46 lines); COHESI
    - **Reading:** the stalls are I/O and swap saturation from compressed and encrypted swap paging plus three resident I/O daemons: Backblaze uploading, Spotlight indexing the repos' churn (`mds_stores` / `spotlightknowledged` cpu_resource reports at 13:37 and 14:10), and FileProvider. That sits on top of the workflow fan-out. It is the same kernel VM pressure that aborted WindowServer on 10-14.
    - **Carry 5:** exclude `~/Programming/**/node_modules`, `.worktrees`, `~/.dev-logs`, `~/.fourier-*` and the Playwright output dirs from Spotlight (`mdutil` / Privacy) and from Backblaze, or pause Backblaze during runs.
    - **Carry 6:** the guard's headroom check is load-only. Under I/O-bound load it holds a slot for 30 min and then proceeds anyway. A swap-used admission (for example, wait while swap > 80 %) would gate the real constraint.
+7. **The e2e read is withdrawn, not taken.**
+   - At 17:35 the run had been queued for 5 h 15 m: slot0 had been held since about 15:xx inside the headroom wait, with no child process.
+   - Load at the time: ⟨`uptime`⟩ → `79.25 95.76 73.93`.
+   - Two facts make a read now worthless, or harmful:
+     - **(i) The brief's premise is false at the bytes.** `.mem2` is NOT landed: `ml.py` is uncommitted, ESC-FREL-mem2-1 is unruled (0 lines in COHESION), and `origin/m/w1-bump-migration` = `3d2f80d` still carries the 1024 BiRefNet. A local read off the uncommitted venv cannot serve as the CI witness that ESC-FREL-w-2 (a) names, and CI cannot read "after `.mem2`" until it lands.
+     - **(ii) The host is I/O-saturated (act 6).** The 10-09 sitting already measured that the 19 latency rows fail when compute is starved at load 120–200. A 534-test run at load 80–105 would re-measure the host, not the product, and would add a browser, a backend and vite to a machine that stalled for 33 minutes this afternoon.
+   - ⟨`kill 39318`⟩ → stopped. The slot was released to the other waiters.
+   - ⟨`pgrep -fl w2/run.sh`⟩ → none. ⟨`lsof -iTCP:8191 -iTCP:3192 -sTCP:LISTEN`⟩ → none. Nothing of this unit is left running; `heavy.lock` was never taken (it still reads F.CT3's line).
+
+**ESC-FREL-w-1, re-escalated by name with the exact rows (unruled since 10-09).** contrast-floor ×3 stays RED, and solely on the frozen oracle.
+- ⟨`git log -1 --format=%h -- web/e2e/contrast-pairs.ts`⟩ → `a6d317d`. The oracle has not changed since the 10-09 reading.
+- Each failing row's stack is a literal, or a producer token at a dilution that `web/src` no longer paints. Checked at the bytes on 10-15:
+  - ⟨`grep -c info-chip` on live markup⟩ → comments only;
+  - ⟨`grep -nE 'foreground/12|foreground/30|placeholder:.*foreground/40' UserSlugBar.vue`⟩ → 0;
+  - ⟨`grep -nE 'muted-foreground[^-]' PaperSearchModal.vue`⟩ → 0;
+  - ⟨`grep -n section-color-4 EquationResult.vue`⟩ → L224;
+  - `AdminAuditLog.vue` paints glass `Badge` tones (L254-262);
+  - `GalleryAdminBanner.vue` paints `--viz-amber` (L261-266).
+- No `web/src` edit can move these readings. The rows, from ⟨`w2-t1.log` L34-60, L106-125, L162-180⟩ (10-14, at `3d2f80d`):
+  - **light arm, 18 of 36:**
+    - `FR-MSP-7` 1.035
+    - `HLG-37[grid-cell-fill]` 1.035
+    - `FR-USB-5[resting-border]` 1.283, `[focused-border]` 1.929, `[placeholder]` 1.720
+    - `PSM-4[muted-foreground@40%]` 1.739, `@45%` 1.888, `@50%` 2.042
+    - `FR-EQR-7[instance]` 2.110
+    - `GAB-1[plate/page]` 1.031, `[border]` 1.250, `[--tier-featured value]` 1.536, `[--tier-saved value]` 2.731
+    - `AA-3[delete]` 1.547, `[set_user_status]` 1.243, `[set_tier/dismiss]` 1.289, `[batch]` 1.510, `[default]` 1.219
+  - **dark arm, 10 of 36:**
+    - `FR-MSP-7` 1.086
+    - `HLG-37[grid-cell-fill]` 1.418
+    - `FR-USB-5` ×3 (1.383 / 2.340 / 2.046)
+    - `PSM-4` ×3 (2.117 / 2.378 / 2.686)
+    - `GAB-1[plate/page]` 1.038, `[border]` 1.772
+  - **awaiting a stack, 6:** `FR-CP-D1`, `ECD D-5`, `ECD D-6`, `EV D·D-B3`, `PS D-B2`, `PV D/M-8`.
+- The producer-owned rows inside that set are `GAB-1[--tier-*]` (glass tier registers) and `HLG-37[grid-cell-fill]` (palette `--background`/`--card` equality). The rest are stale rows for chrome that was retired or moved.
+- The unblocking rulings are unchanged from L531-533: (a) grant `contrast-pairs.ts` (and the spec, for the producer split) to a `.w` re-sit; or (b) rule the awaiting pairs discharged where X-DS rebuilt the painter.
+
+**ESC-FREL-w-2, re-escalated: unread after `.mem2`, because `.mem2` has not landed.**
+- G-w's 19 latency rows can only be re-read "after `.mem2`" once ESC-FREL-mem2-1 is ruled and `.mem2`'s commit is on `origin/m/w1-bump-migration`. The CI run on that push is then the uncontended witness (w-2 (a)).
+- The orchestrator's order is therefore: rule mem2-1, then `.mem2` lands, then CI e2e at that head, then this unit reads the CI log for the 19 rows plus contrast-floor (w-1), then `.vb`.
+- A quiet-host local read (w-2 (b)) is the fallback, but only through `guarded`, and only with carries 4–6 fixed: today's queue starved it for 5 h.
+
+**Gates BEFORE → AFTER (sitting 2).**
+
+| Gate | BEFORE | AFTER | Verdict |
+|---|---|---|---|
+| G-w e2e GREEN outside the manifest | 28 RED after 3 re-runs (10-09); contrast ×3 RED, d2 ✓ (10-14 t1) | not re-read. The run was withdrawn (act 7): `.mem2` is unlanded and the host is I/O-saturated | **RED** (w-1, w-2) |
+| contrast-floor ×3 | RED (18 L / 10 D / 6 awaiting) | unchanged; the oracle is unchanged (`a6d317d`) and no `web/src` cure exists | **ESCALATED** (w-1, exact rows above) |
+| f-w14u-d d2 | load-flake (O-91) | ✓ ×3 viewports (10-14 t1, load 61.7) | GREEN (reported load-flake; no edit) |
+| Manifest rows printed by CI | 8 rows (`7f807a3`) | CI 38452213569 printed `Producer-held e2e rows excluded from the gate: 8` + the table (act 1) | **GREEN** |
+| vue-tsc ×2 | rc 0 (10-09) | rc 0, 0 lines ×2 at `3d2f80d` | **GREEN** |
+| vitest ×2 | 116 (10-09) | 116/116, 20 files ×2 at `3d2f80d` | **GREEN** |
+
+**Commits.**
+- fourier: none in this sitting. No `web/src` defect of `.w`'s exists at the bytes; `0a88d44` and `7f807a3` stand, not redone.
+- value.js: `c112c49bf` (interim record) and this record.
+
+**Adjacent edits.** None. **Inherited:** the 10-14 seat's 14 receipt lines (L1021-1034), adopted.
+
+**Residuals.** R-w1..R-w3 carry over from 10-09. Host carries 1–6 are above (VS Code vitest workers; a process-count admission; lid-on-battery; the guard's FIFO slot queue; Spotlight and Backblaze exclusions; a swap-based admission).
+
+**E13.** ⟨`grep -nE '\| *UNREAD' INBOX.md`⟩ → prose sweep lines only. ⟨`find V/coordination glass/BK/coordination -maxdepth 1 -newer INBOX.md`⟩ → 0 / 0. **0 UNREAD.** No new producer row this sitting, so no BK relay.
+
+**Status: PARTIAL.** Gates landed: manifest/CI, vue-tsc ×2, vitest ×2. G-w is RED on w-1 (oracle) and w-2 (unread until `.mem2` lands).
