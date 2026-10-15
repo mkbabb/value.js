@@ -88,10 +88,15 @@ describe("G8 · G10 · tags — every tag is reachable, and +N counts what it hi
                 return;
             }
             expect(more.attributes("aria-label")).toBe(`Show all ${n} tags`);
-            // One `+N` label per declared band: band k renders k chips.
+            // One label per declared band: band k renders k chips; after a chip
+            // the count reads `+N`, in band 0 it names its noun (VC6-01).
             const labels = more.findAll(".palette-meta__band").map((b) => b.text());
             expect(labels).toEqual(
-                [0, 1, 2, 3].map((k) => (n - Math.min(k, n) > 0 ? `+${n - Math.min(k, n)}` : "")),
+                [0, 1, 2, 3].map((k) => {
+                    const hidden = n - Math.min(k, n);
+                    if (hidden === 0) return "";
+                    return k === 0 ? `${hidden} ${hidden === 1 ? "tag" : "tags"}` : `+${hidden}`;
+                }),
             );
 
             // The reveal: the +N chip opens the WHOLE set.

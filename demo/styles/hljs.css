@@ -62,7 +62,12 @@
 }
 
 .dark {
-    --code-ground: oklch(from var(--accent-live) 0.345 min(c, 0.03) h);
+    /* X-DS pass 6 (VC6-05): in dark the 0.03 cap drained the live hue — the
+     * paper read as a grey slab foreign to the wine card's wells. The dark
+     * cap rises to 0.05 (light keeps 0.03); L stays pinned, and every crayon
+     * re-certifies over all hues at the cap (worst: keyword 4.75 at h 175;
+     * pass-06/vc6-2026-10-15/certify-code-ground.json). */
+    --code-ground: oklch(from var(--accent-live) 0.345 min(c, 0.05) h);
     /* The same set, lifted for the dark chocolate WELL field. */
     --code-comment: hsl(34 14% 66%); /* warm muted gray (well-guarded) */
     --code-keyword: oklch(0.75 0.15 27);

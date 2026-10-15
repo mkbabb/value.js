@@ -33,7 +33,7 @@
                         v-for="band in bands"
                         :key="band.visible"
                         :class="`palette-meta__band palette-meta__band-${band.visible}`"
-                    >{{ band.hidden > 0 ? `+${band.hidden}` : "" }}</span>
+                    >{{ band.label }}</span>
                 </button>
             </PopoverTrigger>
             <PopoverContent align="start" class="w-auto max-w-64 p-2">
@@ -90,12 +90,16 @@ onDeactivated(() => {
 /** X.W7.f · G17 — the count reads compact (`12.3k`); `title` keeps it exact. */
 const votes = computed(() => formatCount(palette.voteCount ?? 0));
 
-/** One `+N` label per band — the count of tags that band leaves unrendered. */
+/** One label per band — the count of tags that band leaves unrendered. After a
+ *  real chip it reads `+N`; in band 0 nothing precedes it, so the count carries
+ *  its noun (`2 tags`) instead of a bare `+2` (X-DS pass 6 · VC6-01). */
 const bands = computed(() =>
-    Array.from({ length: MAX_CHIPS + 1 }, (_, visible) => ({
-        visible,
-        hidden: tags.value.length - Math.min(visible, tags.value.length),
-    })),
+    Array.from({ length: MAX_CHIPS + 1 }, (_, visible) => {
+        const hidden = tags.value.length - Math.min(visible, tags.value.length);
+        const label =
+            hidden === 0 ? "" : visible === 0 ? `${hidden} ${hidden === 1 ? "tag" : "tags"}` : `+${hidden}`;
+        return { visible, hidden, label };
+    }),
 );
 
 /** In a band that renders every tag the `+N` chip has nothing to reveal. */
@@ -117,25 +121,34 @@ const moreClasses = computed(() =>
     margin-inline-start: 0.5rem;
 }
 
-/* The declared priority — width bands of the CARD (container `palette-card`):
- *   band 0  < 30rem   no chip  · `+N` = every tag
- *   band 1  30–36rem  1 chip
- *   band 2  36–42rem  2 chips
- *   band 3  ≥ 42rem   3 chips
- * Chip k renders from band k+1 up; exactly one `+N` label renders per band. */
+/* The declared priority — width bands of the CARD (container `palette-card`).
+ * X-DS pass 6 (VC6-01): the bands are derived from the room the meta row
+ * actually has. Below 30rem the cluster takes its OWN row under the name
+ * (PaletteInspector's UIA-V-30 rule), the card width less the menu column:
+ * a 9ch chip is ~4.5rem and the `+N` + vote pair ~6rem, so one chip fits
+ * from 18rem of card and two from 24rem. From 30rem the cluster rejoins the
+ * head row and shares it with the name, so the head-row bands keep their
+ * old steps. The shipped two-column wall (≈29rem cards at 1440, ≈20rem at
+ * 390) therefore always shows its first tag; band 0 is a narrow-card
+ * remainder only, and its count names its noun.
+ *   band 0  < 18rem                  no chip · `N tags`
+ *   band 1  18–24rem | 30–36rem      1 chip  · `+N`
+ *   band 2  24–30rem | 36–42rem      2 chips · `+N`
+ *   band 3  ≥ 42rem                  3 chips · `+N`
+ * Exactly one label renders per band. */
 .palette-meta__chip,
 .palette-meta__band {
     display: none;
 }
-@container palette-card (width < 30rem) {
+@container palette-card (width < 18rem) {
     .palette-meta__band-0 { display: inline; }
     .palette-meta__more--none-0 { display: none; }
 }
-@container palette-card (30rem <= width < 36rem) {
+@container palette-card ((18rem <= width < 24rem) or (30rem <= width < 36rem)) {
     .palette-meta__band-1 { display: inline; }
     .palette-meta__more--none-1 { display: none; }
 }
-@container palette-card (36rem <= width < 42rem) {
+@container palette-card ((24rem <= width < 30rem) or (36rem <= width < 42rem)) {
     .palette-meta__band-2 { display: inline; }
     .palette-meta__more--none-2 { display: none; }
 }
@@ -143,10 +156,10 @@ const moreClasses = computed(() =>
     .palette-meta__band-3 { display: inline; }
     .palette-meta__more--none-3 { display: none; }
 }
-@container palette-card (width >= 30rem) {
+@container palette-card (width >= 18rem) {
     .palette-meta__rank-0 { display: inline-block; }
 }
-@container palette-card (width >= 36rem) {
+@container palette-card ((24rem <= width < 30rem) or (width >= 36rem)) {
     .palette-meta__rank-1 { display: inline-block; }
 }
 @container palette-card (width >= 42rem) {
