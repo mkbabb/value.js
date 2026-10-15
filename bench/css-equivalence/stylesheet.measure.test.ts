@@ -135,6 +135,27 @@ const hasUpperCustomProperty = (node: unknown): boolean =>
             ("important" in node && "name" in node && typeof node.name === "string" && node.name.startsWith("--") && node.name !== node.name.toLowerCase())
             || Object.values(node).some(hasUpperCustomProperty));
 
+/**
+ * SH-3 · NESTED BLOCK IN A DECLARATION LIST (css-syntax-3 §5.4.8 — a `{}` or `[]` block runs to its
+ * matching bracket, so a `;` inside it does not end the declaration list's item). The retired layer
+ * split a declaration list at every `;` outside a `()` block and a string, so it cut a nested rule
+ * (`img { @container (…) { nav { margin: 0; … } } transition: … }`) into declarations NAMED
+ * `@container (…) { nav { margin` and `} } transition`. `stylesheet.bbnf`'s `semiRun` pairs `[]`/`{}`
+ * blocks as well (X.P.W8 `.cust2`, COHESION §0fe.1 / §0fc.2; DIVERGENCE-LEDGER §19-S addendum
+ * 2026-10-15). The class governs a cell only when both layers accept the sheet, the hybrid's value holds
+ * a declaration whose name holds a `{`/`}` (a fragment of a cut block — no property name can) and
+ * HEAD's holds none, and every name HEAD reads is one of the hybrid's with the cut block's text before
+ * its last bracket removed: the cut is then the whole of the difference.
+ */
+const declarationNames = (node: unknown): string[] =>
+    Array.isArray(node)
+        ? node.flatMap(declarationNames)
+        : node === null || typeof node !== "object"
+            ? []
+            : [...("important" in node && "name" in node && typeof node.name === "string" ? [node.name] : []),
+                ...Object.values(node).flatMap(declarationNames)];
+const CUT = /[{}]/;
+
 const SHEET_CLASSES: Readonly<Record<string, (sheet: string, after: ParseResult<Stylesheet>) => boolean>> = {
     "SH-1": (sheet, after) => {
         if (after.ok) return false;
@@ -148,6 +169,14 @@ const SHEET_CLASSES: Readonly<Record<string, (sheet: string, after: ParseResult<
         if (!after.ok || !hasUpperCustomProperty(after.value)) return false;
         const before = hybrid.parseStylesheet(sheet);
         return before.ok && isDeepStrictEqual(before, { ...after, value: foldCustomPropertyNames(after.value) });
+    },
+    "SH-3": (sheet, after) => {
+        const before = hybrid.parseStylesheet(sheet);
+        if (!after.ok || !before.ok) return false;
+        const cut = declarationNames(before.value);
+        const read = declarationNames(after.value);
+        const healed = new Set(cut.map((name) => name.replace(/^[\s\S]*[{}]\s*/, "")));
+        return cut.some((name) => CUT.test(name)) && !read.some((name) => CUT.test(name)) && read.every((name) => healed.has(name));
     },
 };
 

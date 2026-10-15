@@ -15,7 +15,16 @@ valueTop   = sp >> commaList << sp ;
 // A custom property's value, css-variables-1 §2 `<declaration-value>?`: a component-value list, or
 // EMPTY — whitespace and comments only (`--x: ;`; css-syntax-3 §4 drops comments). Only `customTop`
 // reads the empty value; `valueTop` (every standard property, `parseCssValue`) never does (X.P.W8 `.e`).
-customTop  = sp >> commaList ? << sp ;
+customTop  = sp >> ( customRaw | commaList ) ? << sp ;
+// The custom property's own term set, parallel to `valueTerm` and read only by `customTop`: a
+// `<declaration-value>` may hold a `;` nested inside a `()`, `[]` or `{}` block (css-variables-1 §2),
+// never at its top level, where css-syntax-3 §5.4.6 ends the declaration. A value holding a `;`
+// outside its strings is read as the raw token sequence it is — runs, strings and blocks whose
+// brackets pair (`customBlk`, shared with the stylesheet's `semiRun`) — kept whole as authored. Any
+// other value reads as `commaList`; `valueTop` (every standard property) still refuses a `;` (X.P.W8 `.cust2`).
+customRaw  = /(?=(?:[^;"']|"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*')*;)/ , ( /[^()[\]{};"']+/ | quoted | customBlk ) * ;
+customBlk  = "(" , blockRun , ")" | "[" , blockRun , "]" | "{" , blockRun , "}" ;
+blockRun   = ( /[^()[\]{}"']+/ | quoted | customBlk ) * ;
 commaList  = slashList , ( comma >> slashList ) * ;
 slashList  = spaceList , ( slash >> spaceList ) * ;
 spaceList  = valueTerm , ( termSep >> valueTerm ) * ;

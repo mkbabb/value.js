@@ -309,6 +309,8 @@ export const valueActions = {
     slashList: { kind: "map", fn: listOf("slash") },
     commaList: { kind: "map", fn: listOf("comma") },
     customTop: { kind: "map", fn: (value: ValueNode | undefined): ValueNode => value ?? EMPTY },
+    // A value holding a `;` nested in a block, kept whole as authored (css-variables-1 §2; X.P.W8 `.cust2`).
+    customRaw: { kind: "text", fn: keyword },
     // The leaf proved the token is `from` or `to` in some case, so its length names it.
     selectorKeyword: { kind: "map", fn: (token: string): SelectorNode => (token.length === 4 ? FROM : TO) },
     selectorNamed: { kind: "map", fn: namedSelector },

@@ -22,7 +22,10 @@ textBody   = ( /[^()"']+/ | quoted | textGroup ) * ;
 // ── top-level lists ──────────────────────────────────────────────────────────────────
 commaRun   = ( /[^(),"']+/ | quoted | textGroup ) * ;
 commaItems = commaRun , ( "," >> commaRun ) * ;
-semiRun    = ( /[^();"']+/ | quoted | textGroup ) * ;
+// A `[]` or `{}` block pairs too (css-syntax-3 §5.4.8): a custom property's `[a;b]` / `{a;b}` is one
+// declaration (`customBlk`, `value.bbnf`; X.P.W8 `.cust2`). A `[`/`{` no bracket closes is read alone,
+// as before: the item it sits in is then refused by its own reader.
+semiRun    = ( /[^()[{;"']+/ | quoted | textGroup | customBlk | /[[{]/ ) * ;
 semiItems  = semiRun , ( ";" >> semiRun ) * ;
 spaceRun   = ( /[^()\s"']+/ | quoted | textGroup ) + ;
 spaceItems = ws >> ( spaceRun << ws ) * ;
