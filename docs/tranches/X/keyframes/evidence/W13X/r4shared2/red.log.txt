@@ -1,0 +1,135 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+ ❯ |demo| test/demo/r4shared-structure.test.ts (16 tests | 6 failed) 63ms
+     × iosTextEntry and toastGuard live in demo/utils; instrument/ keeps no utils directory 3ms
+     × no importer reaches the old root 23ms
+     × SequenceTimelineLane and SequenceTimelineSource are declared beside the facility, once 0ms
+     × no composable reaches up into demo/components 1ms
+     × useEasingPickerSeat lives in demo/composables, not under the pane 0ms
+     × both hosts import it from @composables, and no scene reaches into the pane's composables 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/r4shared-structure.test.ts > limb (f) — one utils root: demo/utils > iosTextEntry and toastGuard live in demo/utils; instrument/ keeps no utils directory
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ test/demo/r4shared-structure.test.ts:154:51
+    152| describe("limb (f) — one utils root: demo/utils", () => {
+    153|     it("iosTextEntry and toastGuard live in demo/utils; instrument/ ke…
+    154|         expect(has("demo/utils/iosTextEntry.ts")).toBe(true);
+       |                                                   ^
+    155|         expect(has("demo/utils/toastGuard.ts")).toBe(true);
+    156|         expect(has("demo/components/instrument/utils")).toBe(false);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |demo| test/demo/r4shared-structure.test.ts > limb (f) — one utils root: demo/utils > no importer reaches the old root
+AssertionError: expected [ …(6) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "demo/app/dock/menu/KeyboardShortcutsModal.vue <- @components/instrument/utils/toastGuard",
++   "demo/app/dock/menu/SharePopover.vue <- @components/instrument/utils/toastGuard",
++   "demo/components/instrument/keyframes/CSSCodeEditor.vue <- @components/instrument/utils/iosTextEntry",
++   "demo/components/instrument/shell/EditorShell.vue <- @components/instrument/utils/iosTextEntry",
++   "demo/components/instrument/timeline/CSSPasteDialog.vue <- @components/instrument/utils/toastGuard",
++   "test/demo/instrument/ios-text-entry.test.ts <- ../../../demo/components/instrument/utils/iosTextEntry",
++ ]
+
+ ❯ test/demo/r4shared-structure.test.ts:165:23
+    163|                 .map((s) => `${f} <- ${s}`),
+    164|         );
+    165|         expect(stale).toEqual([]);
+       |                       ^
+    166|     });
+    167| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |demo| test/demo/r4shared-structure.test.ts > limb (g1) — the Sequence descriptor is the facility's type, not a component's > SequenceTimelineLane and SequenceTimelineSource are declared beside the facility, once
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ test/demo/r4shared-structure.test.ts:173:31
+    171|
+    172|     it("SequenceTimelineLane and SequenceTimelineSource are declared b…
+    173|         expect(has(facility)).toBe(true);
+       |                               ^
+    174|         for (const name of ["SequenceTimelineLane", "SequenceTimelineS…
+    175|             const pattern = new RegExp(`^export interface ${name}\\b`,…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |demo| test/demo/r4shared-structure.test.ts > limb (g1) — the Sequence descriptor is the facility's type, not a component's > no composable reaches up into demo/components
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "demo/composables/scene-facility/index.ts <- @components/instrument/timeline/timelineTypes",
++ ]
+
+ ❯ test/demo/r4shared-structure.test.ts:186:20
+    184|                 .map((s) => `${f} <- ${s}`),
+    185|         );
+    186|         expect(up).toEqual([]);
+       |                    ^
+    187|     });
+    188| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |demo| test/demo/r4shared-structure.test.ts > limb (g2) — a composable with hosts in two layers lives in demo/composables > useEasingPickerSeat lives in demo/composables, not under the pane
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ test/demo/r4shared-structure.test.ts:192:64
+    190| describe("limb (g2) — a composable with hosts in two layers lives in d…
+    191|     it("useEasingPickerSeat lives in demo/composables, not under the p…
+    192|         expect(has("demo/composables/useEasingPickerSeat.ts")).toBe(tr…
+       |                                                                ^
+    193|         expect(has("demo/components/instrument/pane/channel-controls/c…
+    194|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |demo| test/demo/r4shared-structure.test.ts > limb (g2) — a composable with hosts in two layers lives in demo/composables > both hosts import it from @composables, and no scene reaches into the pane's composables
+AssertionError: expected [ '@state', …(4) ] to include '@composables/useEasingPickerSeat'
+ ❯ test/demo/r4shared-structure.test.ts:201:38
+    199|             "demo/scenes/easing/EasingSidebar.vue",
+    200|         ]) {
+    201|             expect(specifiers(host)).toContain("@composables/useEasing…
+       |                                      ^
+    202|         }
+    203|         const deep = walk("demo/scenes").flatMap((f) =>
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 10 passed (16)
+   Start at  19:17:47
+   Duration  684ms (transform 20ms, setup 17ms, import 14ms, tests 63ms, environment 471ms)
+
