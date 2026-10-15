@@ -1,0 +1,358 @@
+{
+ "timeline": {
+  "timeline-cube-controls-1440-light": {
+   "expandedCell": 0,
+   "tracks": 0,
+   "trackHost": null,
+   "trackShown": false,
+   "floatingCards": 0,
+   "sheet": null,
+   "panelHeads": [
+    "Rotations",
+    "cubic-bézier",
+    "layer",
+    "Rotations"
+   ],
+   "playheads": 0,
+   "stopCount": null
+  },
+  "timeline-cube-timeline-1440-light": {
+   "expandedCell": 0,
+   "tracks": 1,
+   "trackHost": "pane-frame",
+   "trackShown": true,
+   "floatingCards": 0,
+   "sheet": null,
+   "panelHeads": [
+    "Rotations"
+   ],
+   "playheads": 0,
+   "stopCount": 0
+  },
+  "timeline-cube-controls-1440-dark": {
+   "expandedCell": 0,
+   "tracks": 0,
+   "trackHost": null,
+   "trackShown": false,
+   "floatingCards": 0,
+   "sheet": null,
+   "panelHeads": [
+    "Rotations",
+    "cubic-bézier",
+    "layer",
+    "Rotations"
+   ],
+   "playheads": 0,
+   "stopCount": null
+  },
+  "timeline-cube-timeline-1440-dark": {
+   "expandedCell": 0,
+   "tracks": 1,
+   "trackHost": "pane-frame",
+   "trackShown": true,
+   "floatingCards": 0,
+   "sheet": null,
+   "panelHeads": [
+    "Rotations"
+   ],
+   "playheads": 0,
+   "stopCount": 0
+  },
+  "timeline-cube-controls-390-light": {
+   "expandedCell": 0,
+   "tracks": 0,
+   "trackHost": null,
+   "trackShown": false,
+   "floatingCards": 0,
+   "sheet": {
+    "top": 723,
+    "bottom": 894
+   },
+   "panelHeads": [
+    "Animation controls",
+    "Rotations",
+    "cubic-bézier",
+    "layer",
+    "Rotations"
+   ],
+   "playheads": 0,
+   "stopCount": null
+  },
+  "timeline-cube-timeline-390-light": {
+   "expandedCell": 0,
+   "tracks": 1,
+   "trackHost": "sheet",
+   "trackShown": true,
+   "floatingCards": 0,
+   "sheet": {
+    "top": 723,
+    "bottom": 894
+   },
+   "panelHeads": [
+    "Animation controls",
+    "Rotations"
+   ],
+   "playheads": 0,
+   "stopCount": 0
+  },
+  "timeline-cube-controls-390-dark": {
+   "expandedCell": 0,
+   "tracks": 0,
+   "trackHost": null,
+   "trackShown": false,
+   "floatingCards": 0,
+   "sheet": {
+    "top": 723,
+    "bottom": 894
+   },
+   "panelHeads": [
+    "Animation controls",
+    "Rotations",
+    "cubic-bézier",
+    "layer",
+    "Rotations"
+   ],
+   "playheads": 0,
+   "stopCount": null
+  },
+  "timeline-cube-timeline-390-dark": {
+   "expandedCell": 0,
+   "tracks": 1,
+   "trackHost": "sheet",
+   "trackShown": true,
+   "floatingCards": 0,
+   "sheet": {
+    "top": 723,
+    "bottom": 894
+   },
+   "panelHeads": [
+    "Animation controls",
+    "Rotations"
+   ],
+   "playheads": 0,
+   "stopCount": 0
+  }
+ },
+ "easing": {
+  "easing-1440-light": {
+   "boot": {
+    "scrollTop": 0,
+    "max": 1482,
+    "pad": 16,
+    "first": "heading:Standard",
+    "firstOffset": 2,
+    "firstCut": false,
+    "selectedWhole": true
+   },
+   "ease-in": {
+    "top": {
+     "scrollTop": 0,
+     "max": 1482,
+     "pad": 16,
+     "first": "heading:Standard",
+     "firstOffset": 2,
+     "firstCut": false,
+     "selectedWhole": true
+    },
+    "fold": {
+     "cut": [
+      "tile:ease-in-sinesinusoidal:11/133",
+      "tile:ease-out-sinesinusoidal:11/133",
+      "tile:ease-in-out-sinesinusoidal:11/133"
+     ]
+    }
+   },
+   "steps": {
+    "top": {
+     "scrollTop": 1471,
+     "max": 1482,
+     "pad": 16,
+     "first": "heading:Bounce",
+     "firstOffset": 16,
+     "firstCut": false,
+     "selectedWhole": true
+    },
+    "fold": {
+     "cut": []
+    }
+   }
+  },
+  "easing-1440-dark": {
+   "boot": {
+    "scrollTop": 0,
+    "max": 1482,
+    "pad": 16,
+    "first": "heading:Standard",
+    "firstOffset": 2,
+    "firstCut": false,
+    "selectedWhole": true
+   },
+   "ease-in": {
+    "top": {
+     "scrollTop": 0,
+     "max": 1482,
+     "pad": 16,
+     "first": "heading:Standard",
+     "firstOffset": 2,
+     "firstCut": false,
+     "selectedWhole": true
+    },
+    "fold": {
+     "cut": [
+      "tile:ease-in-sinesinusoidal:11/133",
+      "tile:ease-out-sinesinusoidal:11/133",
+      "tile:ease-in-out-sinesinusoidal:11/133"
+     ]
+    }
+   },
+   "steps": {
+    "top": {
+     "scrollTop": 1471,
+     "max": 1482,
+     "pad": 16,
+     "first": "heading:Bounce",
+     "firstOffset": 16,
+     "firstCut": false,
+     "selectedWhole": true
+    },
+    "fold": {
+     "cut": []
+    }
+   }
+  },
+  "easing-390-light": {
+   "boot": {
+    "scrollTop": 0,
+    "max": 2329,
+    "pad": 16,
+    "first": "heading:Standard",
+    "firstOffset": 2,
+    "firstCut": false,
+    "selectedWhole": true
+   },
+   "ease-in": {
+    "top": {
+     "scrollTop": 0,
+     "max": 2329,
+     "pad": 16,
+     "first": "heading:Standard",
+     "firstOffset": 2,
+     "firstCut": false,
+     "selectedWhole": true
+    },
+    "fold": {
+     "cut": []
+    }
+   },
+   "steps": {
+    "top": {
+     "scrollTop": 2042,
+     "max": 2096,
+     "pad": 16,
+     "first": "heading:Bounce",
+     "firstOffset": 16,
+     "firstCut": false,
+     "selectedWhole": true
+    },
+    "fold": {
+     "cut": [
+      "tile:step-endjump:69/107"
+     ]
+    }
+   }
+  },
+  "easing-390-dark": {
+   "boot": {
+    "scrollTop": 0,
+    "max": 2329,
+    "pad": 16,
+    "first": "heading:Standard",
+    "firstOffset": 2,
+    "firstCut": false,
+    "selectedWhole": true
+   },
+   "ease-in": {
+    "top": {
+     "scrollTop": 0,
+     "max": 2329,
+     "pad": 16,
+     "first": "heading:Standard",
+     "firstOffset": 2,
+     "firstCut": false,
+     "selectedWhole": true
+    },
+    "fold": {
+     "cut": []
+    }
+   },
+   "steps": {
+    "top": {
+     "scrollTop": 2042,
+     "max": 2096,
+     "pad": 16,
+     "first": "heading:Bounce",
+     "firstOffset": 16,
+     "firstCut": false,
+     "selectedWhole": true
+    },
+    "fold": {
+     "cut": [
+      "tile:step-endjump:69/107"
+     ]
+    }
+   }
+  }
+ },
+ "menu": {
+  "fold": {
+   "cut": []
+  },
+  "top": {
+   "scrollTop": 0,
+   "max": 1812,
+   "pad": 16,
+   "first": "heading:Standard",
+   "firstOffset": 2,
+   "firstCut": false,
+   "selectedWhole": true
+  }
+ },
+ "square": {
+  "390": {
+   "stage": "Square",
+   "pane": [
+    "Transform",
+    "cubic-bézier",
+    "layer"
+   ]
+  },
+  "1440": {
+   "stage": "Square",
+   "pane": [
+    "Transform",
+    "cubic-bézier",
+    "layer"
+   ]
+  }
+ },
+ "frames": [
+  "timeline-cube-controls-1440-light",
+  "timeline-cube-timeline-1440-light",
+  "cube-easing-popover-1440-light",
+  "easing-1440-light",
+  "square-1440-light",
+  "spring-1440-light",
+  "sequence-1440-light",
+  "timeline-cube-controls-1440-dark",
+  "timeline-cube-timeline-1440-dark",
+  "easing-1440-dark",
+  "timeline-cube-controls-390-light",
+  "timeline-cube-timeline-390-light",
+  "easing-390-light",
+  "square-390-light",
+  "timeline-cube-controls-390-dark",
+  "timeline-cube-timeline-390-dark",
+  "easing-390-dark"
+ ],
+ "fails": []
+}
