@@ -3928,3 +3928,28 @@ Rulings:
 2. **Order:** `.mem2` and `.mem3` land together on `m/w1-bump-migration`, then `.w`, `.vb`, `.g`, `.d` per F-REL.
 3. **F.CT3** (worktree `.worktrees/f-ct3`, branch `f-ct3`) is not edited. Its merge-forward takes `.mem3`'s test as the base and re-applies its own hunks on top. A conflict is resolved by keeping the union of assertions, never by weakening one. The worktree's dirty file is F.CT3's and is never touched by Track C.
 4. F-REL addendum (c) carries this ruling.
+
+## §0fg — 2026-10-15: ESC-W8close5-1 RULED. if() is IN scope and cured now by unit X.P.W8.ifsemi; the E-6 budget is settled up front so the cure cannot loop
+X.P.W8 RESUME 4 landed `.cust2` (product `7516f0d8c`, E-6 gz 15,239 B; the stdin form `gzip < min.js` is the method of record). The check then failed three times on one HIGH:
+- `.semi` (`2f590daa8`) refuses the `;` that separates css-values-5 `if()` branches, as in `if(supports(color: red): red; else: blue)`.
+- The product's own `test/v4-css-emerging.test.ts` is RED 2/22.
+
+Rulings:
+1. **if() is in scope.** The product already pins it in its own suite, so this is a regression, not new scope.
+2. **The cure is unit `X.P.W8.ifsemi`.**
+   - **Grammar:** a BBNF `if()` arm in which `;` separates `<if-branch>`es: `<if-condition> : <declaration-value>?`, with `else` as a condition.
+   - **Scope of the `;`:** it is admitted only between `if()` branches. Every `.semi` refusal for registered properties stands: `a{transform:rotate(0;1deg)}` keeps `PARSE_ERROR`.
+   - **Falsifiers:**
+     - `test/v4-css-emerging.test.ts` RED 2/22 → GREEN 22/22 ×2;
+     - `.semi`'s and `.cust2`'s falsifiers stay GREEN ×2;
+     - V-C ×2, MIRROR 0, L-G2 and L-G3, `--check` ×2.
+3. **E-6 is settled up front.**
+   - The gz ceiling becomes whatever `.ifsemi` measures, rounded up to the next 50 B, with a hard cap of 15,700 B. Raw stays at 125,646 B.
+   - The unit records the measured figure (stdin gzip ×2) and writes the new ceiling into W8.md ADDENDUM (e) as its receipt.
+   - Only a cure above 15,700 B escalates, and that escalation carries its measured variants.
+4. **L-G1:** run ×2 by §0ev.1 only for entries whose emitted bytes change; otherwise cite `.lg1r` `333b519ea`. Browser WebKit cells run through `guarded --exclusive webkit`.
+5. **Residuals of RESUME 4 are discharged in the same unit:**
+   - R-2 is FILED as https://github.com/mkbabb/bbnf-lang/issues/2 (relay `X-P-BBNF-EMITTER-RECURSIVE-TEXT-SIZE.md`);
+   - R-3: the CHANGELOG line for `.cust2` and `.ifsemi` is written in the product's CHANGELOG under Unreleased;
+   - R-4: the untracked `evidence/W8/l-g1-r1/bootstrap-read-e-bytes.txt` is committed to its MANIFEST.
+6. **Order:** `.ifsemi`, then L-G1 by entry diff, then the close (verify-only), then the check. W8.md ADDENDUM (e) carries this ruling.
