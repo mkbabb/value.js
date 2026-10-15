@@ -1,0 +1,9 @@
+test-css-1 rc=0
+test-css-2 rc=0
+css-equiv-1 rc=0
+css-equiv-2 rc=0
+build-paired rc=0
+equiv-1 rc=1
+equiv-2 rc=1
+build rc=0
+DONE

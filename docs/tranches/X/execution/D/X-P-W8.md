@@ -1189,3 +1189,55 @@ Row 108 is set to **BLOCKED-ON ESC-W8cust-1 (owner ruling: E-6 gz ceiling / bbnf
 Groups: `[["X.P.W8.cust2"], ["X.P.W8.lg1c2"]]`.
 
 ## RESUME 4 2026-10-15 — Unit receipts
+
+### X.P.W8.cust2 — DONE (seat `claude-opus-5-5`, 2026-10-15) — W8.md ADDENDUM (d); COHESION §0fe.1 + §0fc.2; §Scope 2, 4 — variant F landed in BBNF
+
+1. **Crash recovery.** ⟨`git status --porcelain -- src/css test/css bench/records/W8cust2 docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md docs/tranches/X/execution/D/X-P-W8.md bench/wpt-conformance/ruled.json bench/css-equivalence/w6-classes.ts scripts/gen-grammar.mjs`⟩ → empty. Nothing inherited. (An untracked `docs/tranches/X/parse-that/evidence/W8/l-g1-r1/bootstrap-read-e-bytes.txt` lies outside this unit's set and was left untouched.)
+2. **Variant F re-authored from `bench/records/W8cust/e6.txt`.**
+   - `value.bbnf`: `customTop = sp >> ( customRaw | commaList ) ? << sp`.
+   - `customRaw` = a string-aware guard `/(?=(?:[^;"']|"…"|'…')*;)/` followed by `( /[^()[\]{};"']+/ | quoted | customBlk ) *`.
+   - `customBlk = "(" , blockRun , ")" | "[" , blockRun , "]" | "{" , blockRun , "}"` and `blockRun = ( /[^()[\]{}"']+/ | quoted | customBlk ) *`, recursive over all three brackets.
+   - `value.ts`: `customRaw: { kind: "text", fn: keyword }`. A raw `<declaration-value>` is kept whole as authored (css-variables-1 §2).
+   - Re-emitted by ⟨`guarded --light -- node bench/records/W8cust/gen-pinned.mjs`⟩ (pinned `f0059db14`).
+3. **The first `semiRun` draft was withdrawn on measurement.** The draft was `semiRun = ( /[^()[{;"']+/ | quoted | customBlk ) *`.
+   - E-6 read `109697 / 15182` ×2, and the falsifiers were GREEN.
+   - But `test:css-equivalence` failed (`STYLESHEET DEFECTS 2`), and L-G2 showed `new 1455` rows, because `splitTopLevel(;)` now refused every unclosed `[`/`{` and every `]`/`}` inside `()`. No ruling orders that change.
+   - The landed `semiRun = ( /[^()[{;"']+/ | quoted | textGroup | customBlk | /[[{]/ ) *` keeps `textGroup` for `()` and reads a `[`/`{` that no bracket closes alone, as before. It now differs from `.semi` only where a closing `[]`/`{}` block holds a `;`.
+   - This was found with ⟨`npx vite-node bench/records/W8cust2/find-defects.ts <git-archive 2f590daa8>`⟩ → `changed 2 of 31021` (the two `@property … img { @container (…) { nav {…;…} } transition … }` sheets).
+4. **Falsifier file `test/css/bbnf-custom-semicolon.test.ts`** (adapted from `bench/records/W8cust/bbnf-custom-semicolon.test.ts.candidate`, 43 tests).
+   - Coverage: `f(a;b)`, `[a;[b]]`, `{a;b}` and `"a;b"` ACCEPTED and round-trip; the values are kept as authored (`--x: f(a;b);`, `--x: [a;[b]];`, `--x: {a;b};`, `--x: "a;b";`); a top-level `;` is refused; unbalanced `[`/`{`/`(` is refused; `.semi`'s four registered-property refusals; `a{--x: ;}` ACCEPTED.
+   - The candidate's "keeps the call `kind: call`" assertion was replaced by the raw-token-sequence assertion (css-variables-1 §2, per §0fe.1).
+   - RED read on the archive: ⟨`git archive 2f590daa8 | tar -x -C <scratch>; guarded --light -- npx vitest run --maxWorkers=2 test/css/bbnf-custom-semicolon.test.ts`⟩ → `Tests 20 failed | 23 passed (43)` ×2 (`falsifier-before-{1,2}.log`). The 23 that pass before the cure are the `"a;b"` stay-GREEN rows, the refusals and `.semi`'s rows.
+   - AFTER (with `bbnf-semicolon.test.ts`): `Tests 63 passed (63)` ×2 (`falsifier-after-{1,2}.log`), that is 43 + `.semi` 20/20.
+5. **Custom-property assertion corrections (§0fe.1):** ⟨`grep -rn "parseCustomPropertyValue\|\"--" test/css`⟩ → no existing `test/css` assertion expects a structured parse of a custom-property value that holds a `;`. F routes only such values through `customRaw`, and `test/css` 19/281 is GREEN ×2 with no edit. **0 corrections were needed** (css-variables-1 §2). Registered-property assertions are untouched.
+6. **Commit `7516f0d8c`** (one pathspec commit: grammar + re-emission + action + falsifier file + §19-S addendum + the adjacent oracle class). It contains `src/css/grammar/{value,stylesheet}.bbnf`, `src/css/bbnf/value.ts`, `src/css/bbnf/generated/grammar.{js,d.ts}`, `test/css/bbnf-custom-semicolon.test.ts`, `bench/css-equivalence/stylesheet.measure.test.ts` and `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` (§19-S addendum 2026-10-15, closing W8semi-CUSTOM).
+
+**Gates** (BEFORE = RESUME 4 Baseline at `1592e47b4`, product `2f590daa8`. AFTER = the final bytes, committed as `7516f0d8c`. Outputs are in `bench/records/W8cust2/`. Each run used `~/.claude/guard/guarded --light`: every run was measured quick, ≤ 2.6 GB peak and seconds long, and heavy-slot admission was starved by two sibling runs of 55 and 170 min.)
+
+| Gate | Command | BEFORE | AFTER | Verdict |
+|---|---|---|---|---|
+| `--x:f(a;b)` · `--x:[a;[b]]` · `--x:{a;b}` | ⟨`npx vite-node bench/records/W8semi/probe.ts …`⟩ + falsifier file | refused css_syntax ×2 | ACCEPTED + round-trip ×2 (`probe-after.txt`, 63/63 ×2) | **GREEN** (RED→GREEN) |
+| `--x:"a;b"` | same | ACCEPTED (GREEN before cure) | ACCEPTED + round-trips `--x: "a;b";` ×2 | GREEN (stay) |
+| top-level `a{--x:a;b}` | same | refused | refused css_syntax ×2 | GREEN |
+| unbalanced `[a;b}` · `{a;b]` · `[a` · `f(a;[b)` | same | refused | refused css_syntax ×2 | GREEN |
+| `.semi` 20/20 + refusals | ⟨`vitest run test/css/bbnf-semicolon.test.ts`⟩; probe `rotate(0;1deg)` · keyframes `translate(0;1px)` | 20/20; refused | 20/20 ×2; refused css_syntax | GREEN |
+| `a{--x: ;}` | probe | ACCEPTED | ACCEPTED ×2 | GREEN |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | 6267/3898/0 | `TOTAL 6267 2369 3898 … 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | GREEN |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ | 19/19, MIRROR 0 | `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2; classes `{"SH-2":1,"SH-1":13,"SH-3":2}` (before SH-3: `1 failed \| 18 passed`, STYLESHEET DEFECTS 2) | GREEN |
+| test/css ×2 | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | 18/238 | `Test Files 19 passed (19) · Tests 281 passed (281)` ×2 | GREEN |
+| L-G2 ×2 | ⟨`node bench/paired/build.mjs`⟩ (`bankedManifestOk 79/79`); ⟨`node bench/paired/equiv.mjs product …`⟩ | 2847 | `compared 1376531/1376531 rows · mismatches 3371` ×2, ⟨`cmp`⟩ identical; ⟨`node bench/records/W8cust2/delta.mjs`⟩ → `identical 2847 · gone 0 · moved 0 · new 524` ×2; ⟨`node bench/records/W8cust2/classify.mjs`⟩ → `splitTopLevel(;) W8cust2-BLOCK 522 · parseStylesheet W8cust2-BLOCK 2`, `odd 0` ×2 | GREEN (every new row is the named class W8cust2-BLOCK, §19-S addendum; repair test SH-3 + classify mechanism) |
+| prefix ×2 | same | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | GREEN |
+| `--check` ×2 (pinned `f0059db14`) | ⟨`node bench/records/W8cust/gen-pinned.mjs --check`⟩ | `9f54614b…` | `is current (sha256 75c8393d4949…)` rc 0 ×2 | GREEN |
+| audit (pinned) | ⟨`node bench/records/W8cust/audit-pinned.mjs`⟩ | 0 | `rules 179 · checks 1401189321 · violations 0 · modeDiffs 0` | GREEN |
+| E-6 ×2 | ⟨`git show 7516f0d8c:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c` / `\| gzip \| wc -c`⟩ | 104733 / 14635 | `110324 / 15239` ×2; **delta +5591 / +604** | GREEN (≤ 125,646 / 15,300; 61 B gz headroom; under D's 15,278) |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0; `error TS` 0 · 0 | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence/w6-classes.ts bench/css-equivalence/stylesheet.measure.test.ts --max-warnings=0`⟩ | 0 | exit 0, 0 bytes | GREEN |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 4.08s` | GREEN |
+| L-G1 entries changed | ⟨`node bench/records/W8lg1c/entry-diff.mjs <scratch> 2f590daa8 7516f0d8c`⟩ ×2 | — | **`ENTRIES CHANGED 7 of 7`** ×2 (src `aed2aa08`→`23f39f33`, grammar.js `406bb5a1`→`c64092a5`): parseCssColor, parseCssScalar, parseCssValue, parseCssValues, parseKeyframeSelector, parseTimingFunction, parseStylesheet | owed to `X.P.W8.lg1c2` (all 7 entries, §0ev.1); `.lg1r` no longer covers these bytes |
+
+Self-count: 19 gate rows. 18 are GREEN. 1 is handed on as owed: L-G1 ×2 on the 7 changed entries, which is unit 2 of the plan and not this unit's gate.
+
+**Adjacent edits (§0bt):** `bench/css-equivalence/stylesheet.measure.test.ts`, the `SH-3` doc block plus `declarationNames`/`CUT` before `SHEET_CLASSES`, and the `"SH-3"` predicate after `"SH-2"`. This is the oracle's named class for the divergence the cure opens (pairing `{}` in a declaration list is required for `a{--x:{a;b}}`). It parallels `.semi`'s `w6-classes.ts` W8semi-SEMI class. No assertion was removed.
+**Residuals:** (a) L-G1 ×2 on all 7 entries → `X.P.W8.lg1c2`. (b) The §0fe.2 bbnf-lang emitter-size producer row is still unfiled; it belongs to the orchestrator and does not block. (c) No CHANGELOG `[Unreleased]` line yet for the widened custom-property acceptance; CHANGELOG is outside this unit's set, so the close seat or the orchestrator writes it.
+**Evidence:** `bench/records/W8cust2/` (e6.txt, probe-after.txt, falsifier-{before,after}-{1,2}.log, test-css-{1,2}.log, css-equiv-{1,2}.log, vc-{1,2}.log, equiv-{1,2}.{txt,json.gz}, delta-{1,2}.txt, classify-{1,2}.txt, entry-diff-{1,2}.txt, check-{1,2}.log, audit.log, vue-tsc-*.log, eslint.log, build*.log, gates.sh, delta.mjs, classify.mjs, find-defects.ts).

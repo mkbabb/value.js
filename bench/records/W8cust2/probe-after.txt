@@ -1,0 +1,11 @@
+"a{--x:f(a;b)}" ACCEPTED
+"a{--x:[a;[b]]}" ACCEPTED
+"a{--x:{a;b}}" ACCEPTED
+"a{--x:\"a;b\"}" ACCEPTED
+"a{--x:a;b}" refused css_syntax
+"a{--x:[a;b}" refused css_syntax
+"a{--x:{a;b]}" refused css_syntax
+"a{--x:[a}" refused css_syntax
+"a{transform:rotate(0;1deg)}" refused css_syntax
+"@keyframes k{0%{transform:translate(0;1px)}}" refused css_syntax
+"a{--x: ;}" ACCEPTED
