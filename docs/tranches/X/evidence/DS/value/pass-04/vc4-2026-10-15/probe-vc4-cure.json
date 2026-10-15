@@ -1,0 +1,116 @@
+{
+ "light": {
+  "stampInk": "color(srgb 0.755441 0.281207 0.391462) 8px 8px 0px 0px",
+  "samples": {
+   "stamp": {
+    "rgb": [
+     193,
+     72,
+     100
+    ],
+    "Y": 0.1689
+   },
+   "ground": {
+    "rgb": [
+     226,
+     70,
+     157
+    ],
+    "Y": 0.2298
+   },
+   "stampDarkerThanGround": true
+  },
+  "factKeys": [
+   "Device Dependency: · normal · \"Plus Jakarta Sans\", \"Pl",
+   "White Point: · normal · \"Plus Jakarta Sans\", \"Pl",
+   "Gamut: · normal · \"Plus Jakarta Sans\", \"Pl",
+   "Created: · normal · \"Plus Jakarta Sans\", \"Pl",
+   "to · normal · \"Plus Jakarta Sans\", \"Pl",
+   "to · normal · \"Plus Jakarta Sans\", \"Pl"
+  ],
+  "#/mix": [
+   {
+    "t": "No saved palettes yet.",
+    "fs": "18.608px",
+    "fw": "500",
+    "ff": "Fraunces, \"F",
+    "head": "Saved palettes 20.352px/600"
+   }
+  ],
+  "#/browse": [
+   {
+    "t": "No saved palettes yet.",
+    "fs": "18.608px",
+    "fw": "500",
+    "ff": "Fraunces, \"F",
+    "head": null
+   }
+  ],
+  "#/palettes": [
+   {
+    "t": "No saved palettes yet.",
+    "fs": "18.608px",
+    "fw": "500",
+    "ff": "Fraunces, \"F",
+    "head": null
+   }
+  ]
+ },
+ "dark": {
+  "stampInk": "oklch(0.210833 0.07 9.84042) 8px 8px 0px 0px",
+  "samples": {
+   "stamp": {
+    "rgb": [
+     49,
+     6,
+     17
+    ],
+    "Y": 0.0082
+   },
+   "ground": {
+    "rgb": [
+     92,
+     13,
+     43
+    ],
+    "Y": 0.0274
+   },
+   "stampDarkerThanGround": true
+  },
+  "factKeys": [
+   "Device Dependency: · normal · \"Plus Jakarta Sans\", \"Pl",
+   "White Point: · normal · \"Plus Jakarta Sans\", \"Pl",
+   "Gamut: · normal · \"Plus Jakarta Sans\", \"Pl",
+   "Created: · normal · \"Plus Jakarta Sans\", \"Pl",
+   "to · normal · \"Plus Jakarta Sans\", \"Pl",
+   "to · normal · \"Plus Jakarta Sans\", \"Pl"
+  ],
+  "#/mix": [
+   {
+    "t": "No saved palettes yet.",
+    "fs": "18.608px",
+    "fw": "500",
+    "ff": "Fraunces, \"F",
+    "head": "Saved palettes 20.352px/600"
+   }
+  ],
+  "#/browse": [
+   {
+    "t": "No saved palettes yet.",
+    "fs": "18.608px",
+    "fw": "500",
+    "ff": "Fraunces, \"F",
+    "head": null
+   }
+  ],
+  "#/palettes": [
+   {
+    "t": "No saved palettes yet.",
+    "fs": "18.608px",
+    "fw": "500",
+    "ff": "Fraunces, \"F",
+    "head": null
+   }
+  ]
+ }
+}
