@@ -1017,3 +1017,72 @@ SERVED MODEL: claude-opus-5-5. **Crash recovery.** ⟨`git status --porcelain` (
 **ESCALATION ESC-FREL-mem2-1 (the unit returns ESCALATED; route (a) itself is GREEN on all three of its own gates).** `tests/test_contour_strokes.py::test_person_cut_removes_what_stands_beside_the_sitter` asserts a premise of the 1024 model ("the saliency keeps a plant leaf"); the 512 export's mask no longer contains the leaf, so `removed` is 0.44 % of the mask against a 3 % bar. The test is F.CT's, held dirty right now by F.CT3's live worktree. Owed ruling, one of: (i) F.CT3 re-founds the person-cut test on top of `.mem2` (for example a fixture or an explicit non-person region beside the sitter, so the person cut is still exercised), and `.mem2` lands first with this test named as the hand-off; or (ii) grant `.mem2` that test path for a re-premise that keeps every assertion, coordinated with F.CT3's live edit. Weakening or deleting the assertion is not offered. Also owed at landing: `scripts/export-birefnet-lite.py` is ignored by `.gitignore:58`, so the commit needs a `!scripts/export-birefnet-lite.py` negation (an ignore entry, which §0bt allows as an adjacent edit).
 
 **Host-memory note (the owner's crash question).** The darwin full `tests/` run peaks at 11.82 GB in one pytest process (guard log), inside the guard's 16 GB cap. It is darwin's allocator over many in-process extractions (Linux holds 1.5 GB with `MALLOC_ARENA_MAX=1`). Run it only through `guarded`, one at a time. `heavy.lock` was released at this seat's return.
+
+### F-REL.w — RESUME 2026-10-14 (re-sit after `.mem2`; seat `claude-opus-5-5`, ~11:40– local)
+
+SERVED MODEL: claude-opus-5-5. Spec read whole: `fourier/waves/F-REL.md` (46 lines; addendum (a) `.w` L41), COHESION §0ew bullet 2, §0ev.2/.3, §0ex, §0fb (the guard + reaper law, read to the file end at L3848). Prior receipt read: `### F-REL.w` (L474-589, PARTIAL). **Not ruled at the bytes:** ⟨`grep -n 'ESC-FREL-w-[12]\|ESC-FREL-mem2' COHESION.md`⟩ → 0 lines. **`.mem2` is NOT landed**: its last receipt (sitting 2, above) returned ESC-FREL-mem2-1 with the cure uncommitted in the main tree (` M src/fourier_analysis/contours/ml.py`). This re-sit reads the e2e "after `.mem2`" by running its backend from the main tree's venv, which carries those uncommitted bytes (instrument only; nothing of `.mem2`'s is committed or edited here).
+
+**Crash recovery.** ⟨`git status --porcelain -- web/src web/e2e/producer-held.json web/playwright.config.ts .github/workflows/ci.yml`⟩ (fourier) → ` M web/src/components/visualization/lib/canvas-drawing/labels.ts` only. Every hunk is marked "X-DS DS-F3C-C2" (the legend title in `--font-text`), mtime `Oct 14 11:26` = a LIVE writer (X-DS's fourier lane, §0ex: after 2026-10-13 14:45). Not `.w`'s work; never touched, never staged (§0ev.3). The four paths the brief named (`GallerySearchBar.vue`, `BasisSelector.vue`, `VisualizationView.vue`, `style.css`) are clean at HEAD (landed by X-DS passes 3/4). value.js: ⟨`git status --porcelain -- execution/C/F-REL.md`⟩ → empty. Nothing inherited inside `.w`'s set.
+
+**E13 mail.** ⟨`grep -nE '\| *UNREAD' INBOX.md`⟩ → L406/L604-608, prose sweep notes only, no mail row; ⟨`find <V/coordination, glass BK/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → `0` / `0`. **0 UNREAD.**
+
+**Instrument (rebuilt under §0fb).** Scratch worktree `~/.fourier-frel/g-wt` moved `c6a242d → 3d2f80d` (= HEAD = `origin/m/w1-bump-migration`; its re-rendered evidence PNGs dropped in the scratch tree only). Script `~/.fourier-frel/w2/run.sh`: backend :8191 from the main tree's venv with CI's env (`COMPUTE_RATE_LIMIT`/`WRITE_RATE_LIMIT` 1000) plus **`COMPUTE_CONCURRENCY=1`** (§0fb), database `fourier_frel_w`; vite :3192 from the scratch tree (`VITE_PROXY_API=:8191`); playwright headless; all three torn down by the script's EXIT trap. Every run is launched as ⟨`~/.claude/guard/guarded --timeout N -- run.sh …`⟩ (the guard's slot semaphore, 16 GB tree cap, full descendant reap); the full run also holds `.worktrees/heavy.lock` (`HEAVY=1`, touched every 120 s, removed on exit). Logs `~/.dev-logs/frel/w2-*`.
+
+**Acts, in order.**
+1. **CI witness for the manifest print.** ⟨`gh run view 38452213569 --log --job <e2e>`⟩ (CI at `c6a242d`, 2026-10-13) → step "Producer-held manifest (excluded from the gate below)" printed `Producer-held e2e rows excluded from the gate: 8` and the 8-row `test | O-id | expiry` table (O-74b, O-76 ×2, O-84, O-90 ×4; every expiry "at glass 10.2.0 repin"). Gate "manifest rows printed by CI" is read from CI's own log. That run's Playwright step itself was cancelled at test 3 (`##[error]The operation was canceled.` 19:09:40Z, after `golden-retriever.webp` extraction ✘ at 30.7 s — the 1024 BiRefNet on the runner, the very peak `.mem2` cures); no newer CI run exists at `3d2f80d`.
+2. **Targeted re-read** ⟨`guarded --timeout 30 -- run.sh t1 contrast-floor f-w14u-d --project=chromium --project=mobile-chromium --workers=1`⟩ (load 61.7 at end; `w2-t1.log`) → **3 failed / 6 passed**: contrast-floor ×3 ✘; **f-w14u-d d1+d2 ×3 viewports all ✓** (1440 light, 1440 dark, 390 dark).
+
+#### F-REL.w — re-sit, sitting 2 (seat `claude-opus-5-5`, 2026-10-15 ~12:16– local; the 2026-10-14 seat died after act 2 above, when WindowServer aborted at 13:24:18)
+
+SERVED MODEL: claude-opus-5-5. Spec re-read whole (`F-REL.md`, 46 lines); COHESION §0ev, §0ew, §0ex, §0ey, §0fa, §0fb, §0fc read to the file end (L3872). ⟨`grep -n 'ESC-FREL-w-[12]\|ESC-FREL-mem2-1' COHESION.md`⟩ → 0 lines: w-1, w-2 and mem2-1 are all still unruled.
+
+**Crash recovery.**
+- value.js: ⟨`git status --porcelain -- execution/C/F-REL.md`⟩ → ` M` (+14 lines, L1021-1034). That is the dead seat's receipt for this unit (above). It is adopted as is and committed with this sitting.
+- fourier: ⟨`git status --porcelain -- web/src web/e2e/producer-held.json web/playwright.config.ts .github/workflows/ci.yml`⟩ → ` M web/src/components/visualization/lib/canvas-drawing/labels.ts` only. Every hunk is "X-DS DS-F3C-C2", mtime `Oct 14 11:26`. That is X-DS's fourier lane, not `.w`. It is neither touched nor staged, and `.w` commits nothing in `web/src` (below).
+- `.mem2` is still not landed: ⟨`git diff --stat src/`⟩ → `ml.py | 81` (uncommitted, mtime Oct 13 16:26), and ⟨`git log -1 -- src/fourier_analysis/contours/ml.py`⟩ → `871cc1c`. As on 10-14, the e2e "after `.mem2`" is read with the backend run from the main tree's venv, which carries those bytes. This is an instrument read, not a landing.
+
+**Host assay: why the machine "crashed" again (owner question, 2026-10-15).** Every reading below was taken on this seat.
+- **There was no reboot and no kernel panic.** ⟨`sysctl -n kern.boottime`⟩ → `Fri Oct 9 18:57:55 2026`. The newest `*.panic` is still `panic-base+socd-2026-10-10-130707` (§0fb).
+- **What killed every session: WindowServer aborted at 2026-10-14 13:24:18.** ⟨`/Library/Logs/DiagnosticReports/WindowServer-2026-10-14-132418.ips`⟩ → `EXC_CRASH SIGABRT`, `"ktriageinfo" : "VM - (arg = 0x1) vm_map_copyout_kernel_buffer failed"`. ⟨`pmset -g log`⟩ → `13:24:06 PID 90097(WindowServer) ClientDied` and then `13:24:09 Display is turned on / powerd ws.initialize`, the GUI session restarting.
+  - A WindowServer death tears down the login session and every terminal hosted in it. That takes every Claude session and its workflow seats with it, including this unit's 10-14 seat after act 2.
+  - Seven `Playwright-2026-10-14-1324*/1325*/1326*.ips` reports follow within two minutes: the browsers dying with it.
+  - It is the second time: the day before there was `WindowServer_2026-10-13-184231….userspace_watchdog_timeout.spin` plus `WindowServer-2026-10-13-184221.ips`.
+  - ⟨`guarded.log`⟩ records nothing between `2026-10-14 13:26` and `2026-10-15 12:11`, except two `rc=124 timeout after 240.0 min` reaps at 15:16. No session ran overnight.
+- **The cause is kernel virtual-memory pressure, not user RAM.** In the guard log just before the abort, `memfree` read 37–47 %, with load climbing 39 → 109 in six minutes (13:18 → 13:24) as seven `gen-pinned.mjs` runs and three vitest runs started. Free memory jumped to 79–86 % the instant WindowServer died, so it held a large share of memory.
+  - The failing call is a kernel-buffer copy-out. That is the same family as 10-10's zone-map panic: kernel map and zone exhaustion under process churn, with CrowdStrike tracking every exec.
+- **Standing pressure read now** (12:20, load 12):
+  - ⟨`sysctl vm.swapusage`⟩ → `used = 9065.31M` of 10240M (89 %).
+  - ⟨`ps -A | wc -l`⟩ → 1333 processes.
+  - Resident memory by process: VS Code 25.3 GB over 167 processes, including **42 `vitest-vscode` workers (2.6 GB)**; node 7.1 GB over 36; codex ×14 1.3 GB.
+  - The 10-14 guard log also shows one F.CT3 seat's `pytest tests/test_contour_strokes.py` killed at **17.1 GB** (`e42d731d0a`, rc 137). That is the 1024 BiRefNet path that `.mem2`'s uncommitted cure removes. It was caught by the guard and did not cause the crash.
+- **This morning's event (2026-10-15 11:43–12:07) is a separate one.** pmset reads `Clamshell Sleep … Using Batt` at 11:43, then `Thermal Emergency Sleep` and `Dark Wake Thermal Emergency` (37 thermal lines) at 11:46, until a lid wake at 12:07. The lid was closed on battery while work was running, and the SoC slept for heat. It was not a crash, but every session is suspended through it.
+- **Carry (not `.w`'s to cure; for the orchestrator and owner):**
+  1. VS Code's vitest extension is the largest standing user-memory holder. Disable its auto-run, or close the workspaces that are not in use.
+  2. WindowServer is the process that dies when the kernel VM tightens. The guard bounds RSS but not process count or churn, so a process-count admission (for example, wait while `ps -A | wc -l` > 1100) would cover the gap.
+  3. Do not close the lid on battery during runs.
+
+**Acts, in order (sitting 2).**
+3. **vue-tsc ×2 and vitest ×2, at HEAD `3d2f80d`.** These ran in the scratch tree `~/.fourier-frel/g-wt`, so X-DS's dirty `labels.ts` cannot colour them.
+   - ⟨`guarded --light -- npx vue-tsc -b --force`⟩ ×2 → rc 0 with 0 output lines, both times (`w2-vuetsc-r{1,2}.log`).
+   - ⟨`guarded --light -- npx vitest run --maxWorkers=2`⟩ ×2 → `Test Files 20 passed (20)` / `Tests 116 passed (116)`, both times (`w2-vitest-r{1,2}.log`).
+   - **GREEN ×2.** `.w` makes no `web/src` edit in this sitting (act 5), so these readings stand for the unit's bytes.
+4. **Own orphan reaped.** ⟨`ps -o pid,ppid,etime,command -p 92141`⟩ → `92141 1 23:53:44 /bin/bash ~/.fourier-frel/w2/run.sh full1 … --workers=2`.
+   - This was the dead 10-14 seat's full-e2e launcher. It was reparented to launchd and had looped `sleep 30` on `heavy.lock` for 24 h.
+   - Had the lock freed, it would have started an unguarded e2e run (backend, vite and browser) into the same log name.
+   - It is this unit's own instrument, so it was killed (`kill 92141` → gone).
+   - The reaper does not see it, because it is a bash loop with no browser and no server. This is the gap named in carry 2 above.
+5. **The full e2e is queued behind the guard's heavy slots.**
+   - Launched 12:20 as ⟨`HEAVY=1 guarded --timeout 200 -- run.sh full1 --project=chromium --project=mobile-chromium --workers=1`⟩ (pid 39318).
+   - At 14:30 it had still not been admitted. ⟨`lsof -p 39318 | grep -c slot`⟩ → `0`, and ⟨`sample 39318`⟩ shows it in `time.sleep`, inside `acquire_slot`'s 5 s poll.
+   - ⟨`guarded.log`⟩ shows 35 heavy admissions from 13:00 to 14:30, all to later arrivals. At 14:28, **16 heavy guards were waiting** for the 3 slots, and this one was the oldest (2 h 12 m).
+   - **Guard defect (carry 4): `acquire_slot` is a non-blocking `flock` poll with no queue.** A newcomer that arrives inside a waiter's 5 s sleep takes the freed slot, so the oldest waiter can starve indefinitely. The cure belongs to the guard's owner: a ticket queue (FIFO), or a blocking `flock` on one slot chosen by ticket.
+   - `.w` cannot bypass the guard (§0fb), so the read waits.
+6. **The host stalled again, 15:17 → 15:50 (measured while this unit was queued).** This answers the owner's "crashed again" for today.
+   - ⟨`pmset -g log`, lines per 10 min⟩ → `15:1x 78 · 15:2x 0 · 15:3x 21 · 15:4x 0 · 15:5x 87`.
+   - ⟨`guarded.log`⟩ has no entry between 15:17:21 and 15:5x.
+   - This seat's own `sleep 10 ×11` loops overran a 120 s timeout. The session's wall clock jumped from about 14:58 to 15:52 between two tool calls.
+   - At 16:11 and 16:58: ⟨`uptime`⟩ → load `84–93` (1-min) with only about 3 cores busy (⟨`ps -r`⟩: `bztransmit` (Backblaze) 98 % at 3.5 GB RSS, `mds_stores` 98 %, CrowdStrike 31 %). ⟨`vm.swapusage`⟩ → 8.8 GB of 10 GB used. ⟨`memory_pressure`⟩ → 47 % free.
+   - Load far above busy CPU means threads are blocked on I/O. The newest diagnostic, ⟨`fileproviderd_2026-10-15-155512….diag`⟩, reads `Event: disk writes … 2147.49 MB of file backed memory dirtied over 10858 seconds … exceeding limit`, covering 12:52 → 15:53.
+   - **Reading:** the stalls are I/O and swap saturation from compressed and encrypted swap paging plus three resident I/O daemons: Backblaze uploading, Spotlight indexing the repos' churn (`mds_stores` / `spotlightknowledged` cpu_resource reports at 13:37 and 14:10), and FileProvider. That sits on top of the workflow fan-out. It is the same kernel VM pressure that aborted WindowServer on 10-14.
+   - **Carry 5:** exclude `~/Programming/**/node_modules`, `.worktrees`, `~/.dev-logs`, `~/.fourier-*` and the Playwright output dirs from Spotlight (`mdutil` / Privacy) and from Backblaze, or pause Backblaze during runs.
+   - **Carry 6:** the guard's headroom check is load-only. Under I/O-bound load it holds a slot for 30 min and then proceeds anyway. A swap-used admission (for example, wait while swap > 80 %) would gate the real constraint.
