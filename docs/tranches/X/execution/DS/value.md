@@ -477,3 +477,52 @@ The critic's other cure note was to re-read pass-02's e2e failures where "main G
 - Judge the My Palettes card at 390, where the well and the hint-rung trio stack.
 - Browse's twin trio is now one voice beside a quieter one. Check whether it still reads as two plates.
 - The VR3 re-dispatch (`fbc2affa9`) left `pass-03/redispatch-2026-10-13/` uncommitted, with no receipt here. It is not this seat's to commit.
+
+### pass 4 (re-dispatch, 2026-10-15): critic VC4 — the dark stamp, one empty register, the admin sweep, the faux italic, the census's loading loops
+
+The relaunched workflow dispatched this seat as "pass 4" with critic VC4's rows **VC4-01 … VC4-11** (frames `evidence/DS/value/pass-04/critic-vc4-2026-10-15/`). `pass-04/` already holds pass 4's own committed evidence, so this cure's evidence sits in `pass-04/vc4-2026-10-15/`.
+
+**Commits.** value.js `7ccdddee1` (the cure, 7 files) and `c30a5acfd` (AFTER frames, probe, census, gate listings). This receipt is committed after them.
+
+| id | cure | measured (`pass-04/vc4-2026-10-15/`) |
+|---|---|---|
+| VC4-01 (medium) | **One token, `--spectrum-stamp-ink`, per scheme** at the one declaration (`SpectrumCanvas.vue`). Light keeps the live colour half-way to black. Dark takes the live hue at the stone caster's band: `oklch(from <live> calc(l * 0.22) min(c, 0.07) h)`. The 8px / 0-blur register and the hue are kept. The critic's example (30 % live into `--shadow-color`) was computed and rejected: for a light live colour (L 0.92) it lands at L ~0.42, still over the ~0.32 dark ground. Without the chroma cap, the gamut clip swung the ink to pure red (110,0,0), still brighter than the ground. | `probe-vc4-cure.json`. Dark: the stamp is (49,6,17), Y 0.008, over a ground of (92,13,43), Y 0.027. It was (193,72,100), Y 0.169. Light: unchanged, (193,72,100) over (226,70,157). `stamp-crop-1440-*.png`. |
+| VC4-02 (medium) | **EmptyState settles the true-empty statement once:** `font-display text-body font-medium`, body at 500, one step over the hint, for every host. PalettesPane's VC3-03 `:deep` instance override is deleted. The error statement stays at subheading. The filtered register stays body at 400, a weight under. | Mix, Browse and My Palettes all read 18.6 px / 500 Fraunces at 1440, light and dark. Mix's "Saved palettes" head is 20.35 / 600, so the statement no longer ties with its own heading. |
+| VC4-03 (medium) | The admin view-menu entry (`DockViewSelect.vue`) and the admin profile trigger (`ProfileSection.vue`) swap glass `.gold-shimmer` for the flat `.gold-shimmer-icon` (the gold identity hue, §0dm). The trigger's redundant inline `color` is dropped. | Source-verified; the admin dock is authed and not in the 9-route capture. O-18's A-1 admin-pill row stays born-RED by arithmetic (the gold is unchanged). |
+| VC4-04 (low) | About's fact keys and the range "to" are **upright**: `italic` is dropped. The body voice ships no italic face, and Fraunces stays on the display rungs (three-voice law). The muted plate ink against the weighted value carries the contrast. No local `@font-face`. | `font-style: normal` on every key and connector. `picker-1440-*.png` reads "0% to 100%" and "-125 to 125". |
+| VC4-05 (low, glass) | **Glass half:** cited against O-87 (optional versus swap is decided at the 10.2.0 band-0 wave). **Consumer harness half, cured:** `capture.mjs` gates on the voice the page renders. A probe span in `"Plus Jakarta Sans", monospace` must measure differently from one in monospace alone. If not, the page is reloaded (up to 4 times) and then the attempt fails. | 36/36 frames shot in the declared body voice. |
+| VC4-06, -07 (glass) | Cited against **O-87**. These are the translucent floater plate with its stacked shadow, and the disabled-primary register. No local override. | — |
+| VC4-08 (glass) | Cited against **O-88 DOCK-COLLAPSE-MOTION**. No shim. | — |
+| VC4-09 (trivial) | **The owner's call**, recorded only. The route h1 caption was ruled visible at gate A5. | — |
+| VC4-10 (trivial) | `scripts/ds-census.mjs` tallies a loop inside an in-flight loading register apart as `stateLoopsExempt`, never as chrome. A loading register is `[aria-busy="true"]`, or `[role=status][aria-label^="Loading"]` (Browse's developing PaletteCardSkeleton). | Consumer looping animations: 0, with 64 exempt. |
+| VC4-11 (trivial, optional) | **Not taken.** The config list scrolls in glass's FadingScroll port, so whether its end edge feathers is the port's behaviour. A local mask would be the counter-style the canon forbids. Re-judge at the 10.2.0 repin. | — |
+
+**Census** (`census-after.json`, `--widths 1440 --themes light,dark --settle 15000`).
+- **Verdict RED, on glass rows only (O-87):** max 6 layers, inset highlights 364, drop-shadow 8, gradient fills on controls 22.
+- **Consumer:** 0 offenders, looping 0, box-shadow layers 116 (single-layer stamps), backdrop blur 18.
+- Every route read clean; no renderer crashed.
+
+**Frames.** 36 route frames (9 routes × light/dark × 1440/390), headless real Chrome (§0ei); 0 of 36 failed under the role=alert gate and the rendered-voice gate. Also in the directory: `stamp-crop-1440-light/dark.png` and `probe-vc4-cure.mjs/.json`.
+
+**Gates** (`gates/README.txt`). Host load 5–20.
+- **Type-check:** 0 errors ×2.
+- **vitest:** 1182/1191 ×2. The same 9 as pass 3 failed ×2, none in this diff: ink D6 ×2 and T-35 ×3, spectrum-luma C-5, reka NG-6, and v4-css-emerging ×2.
+- **e2e:** smoke project, headless, one worker, own server :9171. The specs were mix, o9, o10d, o11, companion-pane-track-start, o21, crash-battery and o18.
+  - Run 1 passed 56/63, run 2 54/63. Every failure is outside this diff:
+    - the O-10d browse wall ×2, red since pass 1;
+    - O-18 F-3 dark (5.74 against 5.75), the admin pill A-1 (born-RED) and the profile-menu row labels N-3, all three already red at pass 5;
+    - O-18 T-35, the same row as vitest T-35;
+    - run 2 only: an O-10d Gradient heading, and the O-9 Extract ghost height (46.84 against 46.49, on Extract files another seat has dirty).
+  - Passed ×2: mix, o9's true-empty legs, o10d's empty-statement face, o11, o21, crash-battery's R15/R16 (the nutrition label), and companion-pane-track-start.
+- **No visual golden was re-baselined.**
+- **The guard:** another repo's runs held the heavy slot for 20 min. vitest, e2e, the census and the capture ran under `guarded --light`, which is still RSS- and timeout-contained, one heavy run at a time from this seat.
+
+**Host, 2026-10-15 ~14:00.**
+- There has been no reboot since 2026-10-09 (up 5 d 19 h).
+- `/Library/Logs/DiagnosticReports` holds no WindowServer or kernel-panic report after the 2026-10-14 13:24 IOSurface abort named in pass 3. Today's entries are `cpu_resource` and `.diag` reports (spotlightknowledged, media-indexer, mysqld, rsync, git).
+- Load was 5–20, memfree 72–79 % and swap 87 %. That swap level is the standing pressure the next crash would ride on.
+
+**For the next critic.**
+- Judge the dark stamp's register at other live colours. A dark live colour gives a near-black stamp, since `l × 0.22`.
+- Judge the true-empty line at 18.6 / 500 beside the My Palettes well label (16.4 / 600). It is larger and lighter, one step over the hint.
+- `critic-vc4-2026-10-15/` (the critic's own frames and probe) is still uncommitted. It is not this seat's to commit.
