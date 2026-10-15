@@ -1407,3 +1407,55 @@ Honest-RED set: **none.** Neither RED gate carries spec relief.
 | C1-3 INFO (R-2/R-3/R-4) | Orchestrator, as named. Nothing in a repair seat's scope. | none | n/a |
 
 Self-count: 3 defects; 1 cured (C1-2), 1 escalated (C1-1), 1 INFO routed. Gates a cure could move: vue-tsc lib and test (re-read ×2, all `0`). No product byte changed, so V-C, MIRROR, L-G2, L-G3, E-6 and `--check` keep their Check 1 reads. Row 108 stays **PARTIAL** until ESC-W8close5-1 is ruled.
+
+## RESUME 4 2026-10-15 — Check 2 (L-20 pass 2 of the RESUME 4 Close, after Repair 1, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **NOT-CONFORMANT**
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md`⟩ → empty. Nothing inherited. HEAD `0dafeb4a0`; product `7516f0d8c` (⟨`git diff --stat 7516f0d8c HEAD -- src test package.json`⟩ → empty). parse-that `cb9c0d4` (unmoved; its dirty `rust/**` is another session's, untouched). Host 1-min load ~28 (no timing gate read; L-G1 audited from the bank, §0eq).
+- **Runner:** one sequential script under ⟨`~/.claude/guard/guarded --light --timeout 40`⟩ in `run_in_background`, vitest `--maxWorkers=2`; outputs in this seat's scratchpad (a check reproduces, it does not mint evidence).
+
+### Gates re-run by this seat (AFTER = HEAD `0dafeb4a0`, product `7516f0d8c`)
+| Gate | Command | Read | Verdict |
+|---|---|---|---|
+| ADDENDUM (d) probe (11 inputs) | ⟨`npx vite-node bench/records/W8semi/probe.ts …`⟩ ×2 | `f(a;b)` · `[a;[b]]` · `{a;b}` · `"a;b"` · `--x: ;` ACCEPTED; `--x:a;b` · `[a;b}` · `{a;b]` · `[a` · `rotate(0;1deg)` · keyframes `translate(0;1px)` refused css_syntax; result lines identical ×2 | GREEN |
+| falsifier + `.semi` files | ⟨`npx vitest run test/css/bbnf-custom-semicolon.test.ts test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ ×2 | `Tests 63 passed (63)` ×2 | GREEN |
+| V-C | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ ×2 | `TOTAL 6267 2369 3898 0 …` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | GREEN |
+| css-equivalence / MIRROR | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ ×2 | `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 | GREEN |
+| test/css | ⟨`npx vitest run test/css --maxWorkers=2`⟩ ×2 | `Tests 281 passed (281)` ×2 | GREEN |
+| `--check` (pinned `f0059db14`) | ⟨`node .worktrees/w8close3/gen-pinned.mjs --check`⟩ ×2 | `is current (sha256 75c8393d4949…)` rc 0 ×2 | GREEN |
+| E-6 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c`; `gzip \| wc -c`⟩ ×2 | `110324` / `15239` ×2 (≤ 125,646 / 15,300) | GREEN |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ ×2 | rc 0 · rc 0 ×2 | GREEN (Repair 1 `18e9446fd` cure of C1-2 reproduces) |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence --max-warnings=0`⟩ | rc 0 | GREEN |
+| build | ⟨`npm run build`⟩ | rc 0 | GREEN |
+| L-G1 ×2 bank audit (§0eq) | ⟨`cd bench/records/W8lg1c2 && shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ | `58` | GREEN |
+| Repair 1 addendum manifest | ⟨`grep -v '^#' MANIFEST-repair1-2026-10-15.sha256 \| shasum -a 256 -c`⟩ in `bench/records/W8close5` | `ifprobe.ts: OK` | GREEN |
+| **`test/v4-css-emerging.test.ts`** | ⟨`npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩ ×2 | **`Tests 2 failed \| 20 passed (22)` ×2** — `if(supports(color: red): red; else: blue)` and `if(supports(color: lch(0 0 0)): red; else: blue)` | **RED** (ESC-W8close5-1, unruled) |
+
+Self-count: 14 rows; 13 GREEN reproduce; 1 RED. Not re-run (cited, product unmoved since the close's read): L-G2 3371 / prefix 0, audit 179/0/0.
+
+### Axes
+1. **Claimed GREENs reproduce:** every one (the close's 21 GREEN rows as re-read, plus Repair 1's vue-tsc test cure). GREEN.
+2. **Bounds:** ⟨`git show --name-only`⟩ `7516f0d8c` (8 paths in the RESUME 4 plan set; `bench/css-equivalence/stylesheet.measure.test.ts` the declared §0bt oracle class SH-3) · `754743689` (`bench/records/W8cust2/**` + record) · `68f8fea2a` (`bench/records/W8lg1c2/**`) · `fc89035e7` · `22c7fefac` · `0dafeb4a0` (record [+ LEDGER]) · `f8f587daa` (`bench/records/W8close5/**`) · `9f826852a` (record, LEDGER, INBOX sweep) · `18e9446fd` (`bench/records/W8close5/{ifprobe.ts,MANIFEST-repair1-2026-10-15.sha256}`). ⟨`git log --format=%h 1592e47b4..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`. GREEN.
+3. **Masking:** none. Repair 1 adds `export {};` at the probe's root (no tsconfig exclude, no narrowing); the `.cust2` diff is BBNF plus one `kind: "text"` action. GREEN.
+4. **Commit families:** `.cust2` one product commit + evidence; `.lg1c2` evidence + receipt; Repair 1 one commit for one meaning. GREEN.
+5. **E-3:** ⟨`git diff --stat 1592e47b4..HEAD -- docs/tranches/X/parse-that/waves docs/tranches/V/megatranche/registry/adjudicated`⟩ → empty. Repair 1 appended to a banked probe in place (prescribed by Check 1's cure: "makes the probe a module at its root … naming the correction beside"); the original hash stays on `MANIFEST.sha256` line 18 and the new bytes sit in a dated manifest beside. GREEN (INFO C2-2).
+6. **Mail:** ⟨`grep -cE '^\| .*\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`. The X-W12U C4-6 routed note is read and still uncured (C2-1). GREEN on UNREAD.
+7. **Four-verb line:** row 108 PARTIAL with its escalation named; lawful. Stays PARTIAL.
+8. **Goal at the bytes:** ADDENDUM (d)'s custom-property cure is MET. The wave's goal ("accepts every valid value in scope") still fails for the product's own `if()` claim, regressed by this wave's `.semi`. RED (C2-1).
+9. **Published figures:** 63/63, 6267/3898/0, 19/19 MIRROR 0, 281, 110324/15239, `75c8393d…`, 58, vue-tsc 0/0 (after Repair 1), 2 of 22 RED all reproduce. GREEN.
+10. **Honest-RED adjudication:** `test/v4-css-emerging` 2/22 — NOT relieved. The grammar is value.js BBNF (not producer-owned), no successor wave is routed the cure, W8.md names no honest-RED id for it, and the ruling that could relieve or scope it does not exist: ⟨`grep -c 'ESC-W8close5-1' docs/tranches/X/COHESION.md`⟩ → `0` (latest section §0fe). The record names an owner (R-1 orchestrator/owner); that is necessary but not relief. Real defect, HIGH.
+
+### Successors
+Only `waves/W12U.md:94` references X.P.W8 (⟨`grep -rn 'after X\.P\.W8' docs/tranches/X --include='*.md' \| grep -v /execution/`⟩): its conjunct, quiet reads "after X.P.W8's L-G1 ×2", is GREEN (`.lg1c2` bank, 58/58 MANIFEST). No successor is blocked by this verdict.
+
+### Register
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2-1 | HIGH | (= C1-1, unchanged) `.semi` `2f590daa8` regresses css-values-5 `if()`'s `;` branch separator; `test/v4-css-emerging.test.ts` RED 2/22 with no spec relief; ESC-W8close5-1 unruled. | ⟨`npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩ ×2 → `Tests 2 failed \| 20 passed (22)`; ⟨`grep -c 'ESC-W8close5-1' docs/tranches/X/COHESION.md`⟩ → `0`. | Owner/orchestrator rules ESC-W8close5-1 (R-1: is `if()` in scope; E-6 headroom 61 B gz); a dispatched unit adds a BBNF `if()` branch arm admitting `;` while `.semi`'s refusals stand, then L-G1 entry-diff, close, check. A repair seat cannot pre-empt the ruling. |
+| C2-2 | INFO | Repair 1 edited a banked evidence file in place (append only, as Check 1's cure prescribed) with the original hash kept and a dated manifest beside. | ⟨`git show 18e9446fd -- bench/records/W8close5/ifprobe.ts`⟩ → +2 lines (dated CORRECTION comment, `export {};`). | None; recorded. |
+| C2-3 | INFO | R-2 (bbnf-lang emitter-size producer row unfiled), R-3 (CHANGELOG line for `.cust2`), R-4 (untracked l-g1-r1 file) stand with named owners; non-blocking. | RESUME 4 Close §Residuals. | Orchestrator, as named. |
+
+Honest-RED set: **none.** The single RED gate has no spec relief.
+
+### Verdict
+**NOT-CONFORMANT**: 0 BLOCKER, 0 CRITICAL, 1 HIGH (C2-1), 2 INFO. 13 of 14 gates re-run reproduce GREEN, and Repair 1 cured C1-2. Row 108 stays **PARTIAL**. Next: the ESC-W8close5-1 ruling, then the `if()` cure unit, close and check.
