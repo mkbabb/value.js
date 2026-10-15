@@ -3888,3 +3888,26 @@ The owner asked why the computer crashed again. The kernel did not crash: uptime
   - `guarded` admits heavy runs only at 1-min load ≤ 2 × cores (36) and fewer than 1,400 processes. Light runs need load ≤ 72 and fewer than 1,600 processes. The old gate of load 150 never bit.
   - The user-level CLAUDE.md carries a WindowServer rule: no screen or window capture, no headed browsers, and one WebKit run per seat.
   - All six chassis workflows were relaunched from their journals.
+
+## §0fe — 2026-10-15: ESC-W8cust-1 RULED. Correctness over the gz ceiling: E-6 gz goes to 15,300 B, the smallest lawful full cure lands, and the emitter cost goes to the producer
+`.cust` measured every lawful cure of W8semi-CUSTOM at 15,168–15,278 B gz (`bench/records/W8cust/e6.txt`):
+- Blocks of all three kinds nest, and a top-level `;` is refused. That needs a recursive three-bracket rule pair, because JS regex cannot recurse.
+- Under the pinned emitter that pair costs about 430 B gz.
+- Variant F, the compact raw set with a string-aware guard and recursive `customBlk`/`blockRun` shared with `semiRun`, read 15,200 B ×2.
+
+Rulings:
+1. **Option (a) is GRANTED.** A valid css-variables-1 `<declaration-value>` that is refused is a correctness defect, and 15.3 KB gz is within the product's budget.
+   - **The E-6 gz ceiling becomes 15,300 B.** Raw stays at 125,646 B.
+   - **The smallest variant that fully meets §0fc.2 lands.** F is preferred over D on its measured 15,200 B, provided its falsifiers are GREEN. The probes E, G, H and I are not cures and are refused.
+   - **Any `test/css` assertion that expects a structured parse of a custom property's value** is corrected to css-variables-1 §2: the value is a raw `<declaration-value>` token sequence. The correction is named in the receipt, with its spec citation. Assertions about registered properties are untouched.
+   - **Gates:**
+     - `a{--x:f(a;b)}`, `a{--x:[a;[b]]}`, `a{--x:{a;b}}` and the string-guarded `a{--x:"a;b"}` read RED→GREEN ×2;
+     - a top-level `a{--x:a;b}` still ends the declaration;
+     - unbalanced `[`/`{` is refused;
+     - `.semi`'s falsifiers stay GREEN ×2;
+     - V-C ×2, MIRROR 0, L-G2 and L-G3, `--check` ×2;
+     - E-6 ×2 at or under 125,646 and 15,300;
+     - L-G1 ×2 by §0ev.1 only for entries whose emitted bytes change; otherwise cite `.lg1r` `333b519ea`.
+2. **Option (b) runs in parallel and does not block:** a producer row to bbnf-lang, "the emitter's size cost for recursive text-mode rules (≈430 B gz per recursive rule pair; variant A's recognize twin of the whole value grammar)". It is filed through the coordination mail to the bbnf-lang owner. bbnf-lang stays READ-ONLY here. When a later emitter shrinks the bytes, the ceiling is re-measured downward.
+3. **Option (c) is refused** under §0ev, the no-deferral order.
+4. W8.md ADDENDUM (d) carries this ruling.
