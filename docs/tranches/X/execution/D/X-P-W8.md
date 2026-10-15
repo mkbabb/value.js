@@ -1459,3 +1459,16 @@ Honest-RED set: **none.** The single RED gate has no spec relief.
 
 ### Verdict
 **NOT-CONFORMANT**: 0 BLOCKER, 0 CRITICAL, 1 HIGH (C2-1), 2 INFO. 13 of 14 gates re-run reproduce GREEN, and Repair 1 cured C1-2. Row 108 stays **PARTIAL**. Next: the ESC-W8close5-1 ruling, then the `if()` cure unit, close and check.
+
+## RESUME 4 2026-10-15 — Repair 2 (repair seat round 2, `claude-opus-5-5`, Track D) — register of Check 2
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D src/css test/css bench`⟩ → empty. Nothing inherited. HEAD `87c6cca3f`.
+- **Ruling search:** ⟨`grep -c 'ESC-W8close5-1' docs/tranches/X/COHESION.md`⟩ → `0`. W8.md runs to ADDENDUM (d) (§0fe), and no addendum rules `if()`.
+
+| Defect | Cure | Commit | Gate re-read (AFTER) |
+|---|---|---|---|
+| C2-1 HIGH (= C1-1; `.semi` `2f590daa8` refuses the css-values-5 `if()` `;` branch separator; `test/v4-css-emerging` 2/22 RED) | **ESCALATED, not cured.** The register's cure starts with an owner/orchestrator ruling on ESC-W8close5-1 (R-1: is `if()` in scope; E-6 gz headroom is 61 B). That ruling is absent. A repair seat that added an `if()` arm would make the scope call itself and spend the headroom without a ruling, so the seat does not pre-empt it. | none | ⟨`guarded --light -- npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩ ×2 → `Tests 2 failed \| 20 passed (22)` both runs (unchanged) |
+| C2-2 INFO (Repair 1 appended to `ifprobe.ts`) | None; recorded. | none | n/a |
+| C2-3 INFO (R-2/R-3/R-4) | Orchestrator, as named. | none | n/a |
+
+Self-count: 3 defects; 0 cured, 1 escalated (C2-1), 2 INFO recorded. No product byte changed, so every other gate keeps its Check 2 read. Row 108 stays **PARTIAL** until ESC-W8close5-1 is ruled.
