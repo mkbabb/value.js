@@ -1486,3 +1486,48 @@ Four-verb line: **IMPLEMENTED is NOT stamped.** The §3 Close bar is unmet at th
 - the served falsifiers were not re-read by this seat (admission starved).
 
 Every unit owed by RESUME 2 has landed (`.k2` DONE, `.m2` PARTIAL with honest-REDs, `.h` DONE, `.q` ESCALATED). The LEDGER row is **PARTIAL**. X-W8 stays blocked.
+
+## Check 4 (L-20 fresh adversarial pass 1 on Close 2, 2026-10-15)
+
+SERVED MODEL: claude-opus-5-5. VERIFY-ONLY, Track A, HEAD `b960ebeff` (the close commit `7587727fd` + one KF.W13X receipt, no W12U path). Spec `W12U.md` read whole (96 lines, addenda (a)–(f)); record read: header → Unit plan, Check 3, RESUME 2 open/plan/baseline, `.q` escalations (:1390-1422), Close 2. Pre-wave base `7f5808564`; RESUME 2 base `cfd529016`. Crash recovery ⟨`git status --porcelain -- <record> LEDGER.md`⟩ → empty. Host at open: ⟨`uptime`⟩ → load 10.5 / 12.9 / 28.0; ⟨`memory_pressure`⟩ → free 72 %. (The task names this section "Check 1"; the record already holds Check 1–3 of the first close, so it is numbered 4, as X-W12's CHECK 4 on its Close 2.)
+
+### Gates re-run by this seat
+- typecheck, 4 programs ⟨`guarded --light -- sh W12U-evidence/close2/tc.sh`⟩ ×2 → `lib 0 demo 0 test 0 e2e 0` (load 12.66) · the same (load 12.36). **GREEN ×2, reproduces.**
+- lint ⟨`guarded --light -- npx eslint . --max-warnings=0`⟩ ×2 → `lint 0` · `lint 0`. **GREEN ×2, reproduces.**
+- `.k2` static ⟨`sh W12U-evidence/k2/check-k2-static.sh | tail -1`⟩ ×2 → `GREEN 30/30` · `GREEN 30/30`. **Reproduces.**
+- L1-18 rename ⟨`test -e demo/color-picker; test -e demo/app`⟩ → absent / present (Close 2 reading; tree unchanged since). **Reproduces.**
+- Bounds ⟨`git merge-base --is-ancestor` + `git show --name-only` over the 31 RESUME 2 commits, minus `demo/` · `e2e/smoke/w12u-` · `W12U-evidence/` · record · LEDGER · INBOX⟩ → 23 paths, exactly Close 2's declared list (L1-18 grant: `vite.config.ts` · `eslint.config.js` · `tsconfig.test.json`; §0bt adjacent: the old-root strings, `test/{dock-status-lamp,status-lamp,interpolation-subset,preview-chips}.test.ts`, `e2e/smoke/admin/a11y-authed-admin.spec.ts`, `oracles/{o10,o17,o27}`, `w12-dock.spec.ts`). 31/31 on HEAD. The close commit `7587727fd` touches record · LEDGER · `close2/**` only. **HELD.** `src/**` changes in `cfd529016..HEAD` are X.P.W8's (`5408b73e7` `5c8918c6b` `2f590daa8` `7516f0d8c`), not this wave's.
+- Masking ⟨`git diff cfd529016..75c056d02 -- demo e2e test src | grep '^+' | grep -E 'skip|fixme|force: ?true|catch|allowlist|eslint-disable|ts-ignore|ts-expect-error|retries'`⟩ → 0 lines. The three oracle edits read whole: o10 is TIGHTENED (adds `title/subheading ≥ 1.5`), o17 re-addresses the head to the glass Accordion trigger and the row via its own `aria-controls` (no assertion dropped), o27 renames a cited site. **HELD.**
+- dev.sh ⟨`git log 7f5808564..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → 0 (dirty in the tree by standing arrangement, never staged). **HELD.**
+- E-3 ⟨`git diff --stat 7f5808564..HEAD -- W12U.md registry/adjudicated/ AUDIT-2-value.md`⟩ → `W12U.md | 18 +` only, the orchestrator's dated addenda (e) `2f1b095e1` and (f) `00aeacdea` (COHESION §0en / §0et). **HELD.**
+- E13 ⟨`grep -cE "^\|.*\| *UNREAD *\|" INBOX.md`⟩ → 0. **GREEN.**
+- Rulings ⟨`grep -n 'ESC-W12Uq\|ESC-W12Um2\|ESC-W12Uh' COHESION.md`⟩ → 0 lines: ESC-W12Uq-1..4, ESC-W12Um2-1, ESC-W12Uh-1/-2 are all unruled.
+
+### Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C4-1 | HIGH | §3 "smoke GREEN `--workers=1`" is RED and no spec relief covers it: ≈30 deterministic stale oracles wait on ESC-W12Uq-1 (unruled) and ≈15 product/producer rows on ESC-W12Uq-3 (unruled, no named owners). Neither is producer-owned by the spec's words, routed to a later wave, or an honest-RED id the spec names | Close 2 gate table (`.q` s2: `smoke` 229 ✓ / 62 ✘, `oracles-safari` 111 ✓ / 55 ✘); COHESION grep → 0 rulings | orchestrator rules ESC-W12Uq-1 (an oracle re-baseline unit or a grant for the listed files) and names owners for each ESC-W12Uq-3 row (X-W10 · atmosphere design · `src/**` o23 clamp · X-W2 §3a · software-GL floor); then whole smoke `--workers=1` re-read |
+| C4-2 | HIGH | Goal criterion unmet at the bytes for A2-VA-L2-4 and X-13: L2-4 is marked honest-RED, but its glass half names no O-74 row (ESC-W12Um2-1 "still unrelayed"); X-13's run residual (X-13-RUN) is a consumer row awaiting an owner design ruling with no O-row and no spec relief. The goal requires CURED or "an honest-RED id whose glass half is a named O-74 row" | record :1161, :1166, :1442, :1444; ⟨`grep -n 'ESC-W12Um2-1\|pill-block' relay/*.md`⟩ → 0 | relay the L2-4 pill-block ask as a dated O-74 addendum (INBOX row); owner rules R-m-2 (H1 band) and X-13-RUN (which seats a 360 phone shows); then cure or re-state honest-RED with the O-row |
+| C4-3 | MEDIUM | §3 "served falsifiers GREEN ×2" not re-read at the close: admission starved; only the units' own ×2 readings exist | Close 2 gate table (`close2/served.sh` not admitted) | re-read `k2/probe-k2-rows.mjs` and `m2/probe-x2.mjs` ×2 on :9000 at the re-close |
+| C4-4 | MEDIUM | addendum (e) WebKit 3× re-read owed (1 GREEN read each at load 44–60) | `.q` verdict; Close 2 | `guarded --exclusive webkit` 3× at load < 12 (ESC-W12Uq-4 protocol) |
+| C4-5 | MEDIUM | ESC-W12Uq-2: seven `.q`-authored edits (`(X-W12U .q)` in their comments) sit uncommitted in the shared tree since `.q` sitting 1; `.q`'s s2 smoke-admin/mobile/safari GREEN readings were taken with them in the tree, so those readings are not of committed bytes | ⟨`git status --porcelain -- demo e2e/smoke`⟩ lists all seven dirty; record :1395-1403 | the ESC-W12Uq-1 ruling decides: commit them under a grant, or revert by their author; re-read after |
+| C4-6 | MEDIUM | §3 "`npm test` GREEN" not met. This seat's read at HEAD (working tree incl. the C4-5 orphans and X-DS dirty paths): ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ ×1 → `Tests 9 failed \| 1182 passed (1191)`: the standing 7 (ink D6 ×2 + T-35 ×3 = INK-VEIL-MIDBAND → O-62 (a), C-5 and NG-6 → X-W8 `.i`, all relieved at X-W7L CHECK 1) + 2 new `test/v4-css-emerging.test.ts` `if(supports(...): red; else: blue)` round-trips. The 2 new failures are not this wave's: `src/**` changed in `cfd529016..HEAD` only by X.P.W8 (`2f590daa8` refuses a `;` inside a value), and `src/**` is outside §1. ×2 not taken: the heavy slot was admitted only after ≈10 min of starvation (queued ≈19:16, admitted 19:26:04) | `scratchpad/chk/vt1.txt` | route the 2 `v4-css-emerging` failures to X.P.W8 (Track D) as a cross-track note; re-read `npm test` ×2 at the re-close |
+| C4-7 | INFO | ESC-W12Uq-4 reproduced: the guard has no FIFO, so a heavy run waits on whoever polls first (this seat's vitest waited ≈10 min at load 11–20 while three later heavy runs were admitted first). 19 `vitest-vscode` workers (VS Code extension, 1.6 GB RSS) were live on the host during this check | ⟨`grep heavy ~/.claude/guard/log/guarded.log`⟩; ⟨`ps -axo rss,command \| grep -c vitest-vscode`⟩ → 19 | owner (user-level guard; outside every repo bound) |
+
+### Honest-RED set (relieved by the spec's own words, owner named)
+- DOCK-CAP-ELLIPSE: addendum (d), glass O-83 / O-83a; owner glass.
+- A2-VA-L3-6 / X-8: HELD for glass §11 (spec §2 `.h`.2); owner glass.
+- A2-VA-L2-1: O-74 / O-59 (overlay block cap absent at 10.1.0); owner glass.
+- X-3 / X-5 glass halves: O-74c G-1 / G-2; owner glass.
+- L3-2 pane limb / L3-3: O-74 L3-2 / L3-3, absent at 10.1.0; owner glass.
+- The standing vitest 7: INK-VEIL-MIDBAND → O-62 (a); C-5 / NG-6 → X-W8 `.i` (X-W7L CHECK 1).
+
+**Not relieved:** smoke RED (C4-1), A2-VA-L2-4 and X-13-RUN (C4-2), the served re-read (C4-3), the WebKit 3× (C4-4), `npm test` ×2 at HEAD (C4-6).
+
+### Successors
+X-W8: W12U.md :4 "Blocks: X-W8"; LEDGER :42 X-W8 `planned`. The conjunct "X-W12U CLOSED" is NOT GREEN, so X-W8 stays lawfully blocked. No other successor names X-W12U.
+
+### Four-verb line
+IMPLEMENTED was not stamped by Close 2 and is not stamped here; the row stays **PARTIAL** (moved lawfully: PARTIAL → RESUME 2 → PARTIAL at Close 2).
+
+**Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 2 HIGH · 4 MEDIUM · 1 INFO). Gates reproduced by this seat: 9 (typecheck ×2 · lint ×2 · `.k2` static ×2 · L1-18 · bounds 31/31 · masking 0 · dev.sh 0 · E-3 · E13). Failed or unmet: smoke (banked RED), `npm test` (9 failed, 7 standing + 2 X.P.W8), served ×2 (unread), WebKit 3× (owed).
