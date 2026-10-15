@@ -1219,3 +1219,62 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-15 ~18:10– loc
 **E13.** ⟨`find <value V/coordination, glass BK/coordination, glass BL/coordination, keyframes V/coordination> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0/0/0/0. ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
 
 **Status: DONE.**
+
+### F-REL.g — RESUME 2026-10-15 (sitting 4; the merge lock read at the bytes)
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-15 ~19:25– local. Spec read whole (`fourier/waves/F-REL.md`, 46 lines); §Units `.g` (L31), §Gates (L39), addenda (a) and (b); COHESION §0ew (L3772-3789), §0ex, §0ey, §0fb, §0fd, §0fe read to the file end (L3913). **Status: ESCALATED. No merge, no push to master, no fourier commit.** The lock's first arm (`.mem2` landed GREEN) is unmet at the bytes, so the brief's own stop rule applies.
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → inside this unit's set (`web/playwright.config.ts`, `web/e2e/**`, `.github/workflows/**`): **nothing dirty**. Outside it, untouched: ` M api/Dockerfile`, ` M scripts/model-smoke.sh`, ` M src/fourier_analysis/contours/ml.py`, `?? bench/contours/memory.py`, `?? tests/test_contour_ml_memory.py` (`.mem2`'s uncommitted cure, ESCALATED) and ` M web/src/components/equation/convergence/ConvergenceLegend.vue`, ` M web/src/components/visualization/BasisSelector.vue` (mtimes 10-15 19:28-19:29, moving: a live X-DS writer). The value.js record was clean.
+
+**Seat-0 brief, act by act.**
+1. **Fetch.** ⟨`git fetch -q origin`; `git rev-parse HEAD origin/m/w1-bump-migration`⟩ → `512f5a9` · `512f5a9` (0/0 with its remote); ⟨`git log --oneline -1 origin/master`⟩ → `ad62881` (unmoved since 10-06).
+2. **Lock arm 1 — `.mem2` at the bytes: NOT landed.** ⟨`git log --oneline -3 -- src/fourier_analysis/contours/ml.py`⟩ → newest `871cc1c` (`.m`, 10-08); no `.mem2` commit. ⟨`git show HEAD:src/fourier_analysis/contours/ml.py | grep -c '_open_session\|birefnet-lite-512'`⟩ → `0`; the same grep on the working tree → `6` (the cure sits uncommitted, mtime 10-13 16:26). The `.mem2` receipt (sitting 2) reads G-mem GREEN (1412.3 / 1502.3 MB), G-mem2 GREEN (1490 / 2048 MB) and G-iou GREEN (0.9864 / 0.9444 ×2), but **pytest tests/ RED** (`test_person_cut_removes_what_stands_beside_the_sitter`, 1458 > 0.03 × 331551 false) and status **ESCALATED, ESC-FREL-mem2-1, no commit**. ⟨`grep -n 'ESC-FREL-mem2-1' COHESION.md`⟩ → 0 lines (L3913 end): unruled. origin's m/w1 still runs BiRefNet-lite at 1024 in the subject ensemble.
+3. **Merge dry-run (not performed).** ⟨`git merge-tree --write-tree --name-only origin/master origin/m/w1-bump-migration | grep -i conflict`⟩ → `CONFLICT (content): Merge conflict in .gitignore` only: the mechanical conflict sitting 3 named, still the sole one.
+4. **Local gates at `512f5a9` (working tree; two live X-DS `web/src` edits present), under the guard** (⟨`uptime`⟩ → load 22). ⟨`~/.claude/guard/guarded --light -- npx vue-tsc -b --force`⟩ ×2 → rc 0, 0 bytes each (`~/.dev-logs/frel/g4-vuetsc-{1,2}.log`). ⟨`~/.claude/guard/guarded --light --timeout 10 -- npx vitest run --maxWorkers=2`⟩ ×2 → `Test Files 20 passed (20)` · `Tests 116 passed (116)` rc 0 each (`g4-vitest-{1,2}.log`). Local e2e not run: CI is the lock's witness, and the lock is already unmet on arm 1.
+5. **Lock arm 2 — CI dispatched on m/w1 at `512f5a9`.** ⟨`gh workflow run ci.yml --ref m/w1-bump-migration`⟩ → run **38824079821** (`workflow_dispatch`; `deploy-pages` guards on a master push, so nothing ships). ⟨`gh run view 38824079821 --json jobs`⟩ →
+
+   | job | conclusion |
+   |---|---|
+   | web (vue-tsc + vite build) | success |
+   | api/tests (with live Mongo) | success |
+   | production compose boot + health | success |
+   | e2e (Playwright, COMPUTE_RATE_LIMIT=1000) | **failure** |
+   | inv-27 evidence | skipped |
+
+   - The manifest printed (step "Producer-held manifest", success): ⟨log grep⟩ → `Producer-held e2e rows excluded from the gate: 8` — au3 L1-12 (O-74b); c3 c3m, c3g (O-76); pd playback dock (1440 light/dark); gallery-admin-a11y ×4 (O-90). Each row's expiry reads `at glass 10.2.0 repin`.
+   - ⟨`gh run view --job 116727297497 --log`⟩ (`~/.dev-logs/frel/g4-ci-e2e-38824079821.log`, 663 lines) → `Running 530 tests using 1 worker`, then ✓ 1 chef-2 (5.6 s), ✓ 2 giraffe (6.5 s), ✓ 3 golden-retriever (12.4 s), then at 23:33:59Z `##[error]Process completed with exit code 143` during the 4th contour extraction. The step was SIGTERMed and the suite never got past the extractions. This has the same shape as sitting 2 (37876128973, killed at the 4th extraction) and sitting 3 (38452213569, cancelled at the 3rd), and it is consistent with the 1024 BiRefNet still on origin (act 2; 7.5–9 GB per inference by `.mem`'s measure). The run log gives no OOM line, so the kill's cause is inferred, not read. "Producer-held set … still RED as declared" was skipped because the run never reached it.
+
+**Why the merge is withheld (no substitute taken).** Both arms of the lock are RED, and the cause sits upstream of this unit's set:
+- **`.mem2` is not landed GREEN.** Its cure is uncommitted, and the unit is ESCALATED on ESC-FREL-mem2-1, which is unruled (act 2).
+- **e2e is not GREEN outside the manifest.** CI is killed at the 4th extraction (act 5). Behind that, ESC-FREL-w-1 (contrast-floor ×3, the frozen oracle) and ESC-FREL-w-2 (19 latency rows, unread until `.mem2` lands) are still unruled: ⟨`grep -n 'ESC-FREL-w-[12]' COHESION.md`⟩ → 0 lines.
+- A master push now would fire the host webhook deploy (R-h2) of an API that runs the 1024 ensemble under `memory: 2G`. That is the exact defect §0ew withheld the push for.
+
+**Gates (BEFORE → AFTER).**
+
+| Gate | BEFORE (sitting 3, `c6a242d`) | AFTER (this sitting, `512f5a9`) | Reading |
+|---|---|---|---|
+| m/w1 CI e2e GREEN outside the manifest | RED (38452213569, cancelled at test 3) | **RED** (38824079821, exit 143 at the 4th extraction) | **RED** |
+| master CI GREEN (api, web, prod-compose, e2e) | not read (unmerged) | not read: unmerged; m/w1 api ✓ web ✓ prod-compose ✓ e2e ✗ | **RED** (not reached) |
+| manifest printed by CI | step success | step success, 8 rows | GREEN |
+| web vue-tsc ×2 | rc 0 ×2 | rc 0 ×2 | GREEN |
+| web vitest ×2 | 116/116 ×2 | 116/116 ×2 | GREEN |
+| web e2e ×2 | RED, not run locally | not run locally (the CI witness is RED) | RED |
+
+**Commits.** None in fourier. value.js: this record only.
+
+**Adjacent edits.** None.
+
+**Escalation — ESC-FREL-g-5 (supersedes nothing; it restates g-4 at `512f5a9`).** `.g` was dispatched again ahead of its own lock. `.mem2` is ESCALATED and uncommitted (ESC-FREL-mem2-1 is unruled: the F.CT fixture `test_person_cut_removes_what_stands_beside_the_sitter` assumes a 1024-model premise, and the test is held by F.CT3's live worktree). `.w` is PARTIAL (ESC-FREL-w-1 and w-2 are unruled). Owed, in order:
+1. A ruling on mem2-1, then `.mem2`'s commit on `origin/m/w1-bump-migration`.
+2. A ruling on w-1, and w-2 re-read on the CI run of that push.
+3. Then `.g` re-sits.
+
+`.d` stays blocked behind `.g`. The `.gitignore` resolution (act 3) is mechanical and waits for the merge.
+
+**Residuals.** The merge and master push; the master CI read; the deploy hand-off to `.d` (R-h2: a master push fires the webhook) is not reached.
+
+**Teardown.** No server, browser or container was started locally. The CI watch processes have exited.
+
+**E13.** ⟨`find <value V/coordination, glass BK/coordination, keyframes V/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0/0/0. The glass BL path does not exist at `../glass-ui/docs/tranches/BL/coordination` (0). ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
+
+**Status: ESCALATED.**
