@@ -297,12 +297,26 @@ onUpdated(() => {
      * .katex { white-space: nowrap }` let wide formulas (the L-a-b lightness
      * row) overflow and clip at the card edge with content loss. `:has(>
      * .katex-display)` is the display-block's true structure; the wide row scrolls
-     * honestly inside its own overflow-x:auto box (no card overflow). */
+     * honestly inside its own overflow-x:auto box (no card overflow).
+     * X-DS VC5-03: that scroll had no cue on a phone (the scrollbar is
+     * hidden), so a cut glyph read as a clipped formula. The row's trailing
+     * edge fades by a flat MASK while there is more of the row to the right;
+     * the fade's width rides the row's own inline scroll timeline, so a row
+     * that fits (an inactive timeline) or a row scrolled to its end carries
+     * no mask, and an engine without scroll timelines resolves to the end
+     * state (no mask) - never a shadow. */
     > div.inline-block:has(> .katex-display) {
         display: block;
         @apply overflow-x-auto;
         padding: var(--phi-1) 0 var(--phi-1) var(--phi-3);
         margin-block: var(--phi-1);
+        mask-image: linear-gradient(
+            to right,
+            #000 calc(100% - var(--katex-row-edge)),
+            transparent
+        );
+        animation: katex-row-edge linear both;
+        animation-timeline: scroll(self inline);
     }
 
     /* Horizontal rule — the section divider carries even φ air (U5). */
@@ -403,6 +417,25 @@ onUpdated(() => {
 
     .toc a {
         @apply text-primary hover:underline transition-colors duration-fast;
+    }
+}
+
+/* X-DS VC5-03 - the display-math row's trailing-edge fade width. Registered
+ * so the scroll timeline interpolates it; its initial value (0) is the
+ * no-mask state a fitting row keeps. */
+@property --katex-row-edge {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+@keyframes katex-row-edge {
+    0%,
+    90% {
+        --katex-row-edge: 1.5rem;
+    }
+    100% {
+        --katex-row-edge: 0px;
     }
 }
 </style>
