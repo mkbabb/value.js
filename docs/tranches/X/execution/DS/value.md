@@ -427,3 +427,53 @@ Mix is taller than pass 7's 426 px because the tree now carries the "Saved palet
 **For the orchestrator.**
 - The workflow's critic findings for value are stale by at least two passes: the V7C rows were cured at pass 7 and the V3C rows at pass 8. `pass-09/` holds an uncommitted pass-9 critic and probe from 2026-10-09 (the dead session). The next value seat should be given the pass-9 critic's rows, or a fresh critic at HEAD.
 - The gradient.spec "main named Gradient has no Gradient heading" failures repeat in both runs, including at the lower load. They need a read on a quiet host to tell load from a defect in the dirty X-W12U `.h` header work (`demo/shared/ui/PaneHeader.vue`).
+
+### pass 3 (re-dispatch, 2026-10-14/15): critic VC3 — the served app's boot, the Mix verb, the doubled empty voice, the capture gate
+
+The relaunched workflow dispatched this seat as "pass 3" with critic VC3's rows **VC3-01 … VC3-04** (frames `evidence/DS/value/pass-03/critic-2026-10-14/`). `pass-03/` already holds pass 3's own committed evidence, so this cure's evidence sits in the sub-directory `pass-03/vc3-2026-10-14/`. The first cure seat did the work on 2026-10-14 and died uncommitted in the 13:24 WindowServer abort (below). This seat re-read every cure on 2026-10-15, re-ran the gates and the census, and committed.
+
+**Commits.** value.js `eddd784a5` (the cure, 8 files) and `900e08e97` (AFTER frames, diag, probe, census, gate listings). This receipt is committed after them.
+
+| id | cure | measured (`pass-03/vc3-2026-10-14/`) |
+|---|---|---|
+| VC3-01 (high) | **Root: one optimized-deps cache per long-lived vite.** `vite.config.ts`'s dev branch takes `cacheDir` from `VJS_VITE_CACHE_DIR`. The e2e webServer sets its own (`node_modules/.vite-e2e-<port>`, `playwright.config.ts`), and the n-fixtures harness (`demo/test/palettes/n-fixtures/browser.ts`, the root that optimizes a smaller dep set) sets `node_modules/.vite-harness`. The :9000 server keeps the default. It was restarted once with a fresh optimize (2026-10-14 ~12:25). | `probe-vc3.json` and `diag-boot-before/after.png`: before, dock 0 and the three errors (GlassDock "missing template", dockEl "not extensible", renderSlot `'ce'`); after, dock 1 and none. Re-read 2026-10-15 13:00 on the same server: dock mounts, Mix renders, 0 errors. |
+| VC3-02 | The Mix verb takes glass Button `emphasis="primary"`, and the stale "glass 7 declares no variant" comment is deleted. No local fill or shadow: the primary lighting (`glass-deep`, the specular track) is glass's and is judged under O-87 at the 10.2.0 repin. | `data-emphasis=primary` on the Mix button; `mix-*.png`. |
+| VC3-03 | The My Palettes well ("Start a new palette", the dashed + slot) carries the invitation. The library's true-empty trio (owner-ruled t33-audit-08) keeps its plate, but its statement takes the hint rung: one scoped rule in `PalettesPane.vue` on the companion grid's untyped empty state. Browse's own trio, the only empty voice in its card, is untouched. | At 1440 light, the well label is 16.4 px / 600, and "No saved palettes yet." is 16.4 px / 400 (it was the 20 px / 600 subheading). The statement no longer outranks the action (`palettes-*.png`, `browse-*.png`). |
+| VC3-04 | The pass-02 capture gate (`pass-02/redispatch-2026-10-13/capture.mjs`) fails and retries a frame while `main [role="alert"]` (PaneErrorPlate) stands. This seat's `capture.mjs` carries the same gate (VR3-10). `picker-390-light.png` is re-shot on the healthy server, and the manifest marks the re-shoot. | The re-shot frame shows the picker and the About card, with no error plate. All 36 AFTER frames passed at attempt 1. |
+
+The critic's other cure note was to re-read pass-02's e2e failures where "main Gradient heading not found" or the pane under test never settled. The boot fault is a credible cause for that class: on a two-Vue page, no pane mounts. In this sitting the focused set ran on its own server and cache, and no "pane never settled" failure recurred (below).
+
+**Glass-owned rows.** None raised. VC3-02's primary lighting and the census's glass rows (inset highlights, multi-layer elements, the dock's drop-shadow, gradient fills on glass controls) stay honest-RED on O-87, with no local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440 --themes light,dark --settle 15000`).
+- 2026-10-14 (`census-after.json`, right after the cure): **consumer looping animations 0**. RED only on glass rows.
+- 2026-10-15 (`census-after-2026-10-15.json`): consumer box-shadow layers 77, backdrop blur 16. **Verdict RED**, on glass rows: inset highlights 319, max 6 layers, drop-shadow 7, gradient fills 18.
+  - Its 64 "consumer looping animations" are all Browse's loading register (glass `Skeleton`, `skeleton-breathe`, 32 per theme) while the public-palettes fetch is pending on :9000. This is a loading state, as in the pass-2 precedent, and is not in this diff.
+  - `/atmosphere` and `/blob` light lost their renderer ("Target crashed" / "Page crashed") in the census browser. The dark cells read clean, and the 2026-10-14 frames of both scenes are whole.
+
+**Frames.** 36 route frames (9 routes × light/dark × 1440/390), headless real Chrome (§0ei). They are shot from the cured tree (sources 12:21–12:26, frames 12:41–12:51 on 2026-10-14). The diag boot pair and the probe are in the same directory.
+
+**Gates** (`gates/README.txt`). Host load 12–20.
+- **Type-check:** 0 errors ×2.
+- **vitest:** 1182/1191 ×2; the same 9 failed ×2, none in this diff:
+  - the 7 pre-existing (ink D6 ×2 and T-35 ×3, spectrum-luma C-5, reka NG-6);
+  - `v4-css-emerging` `if(supports(…))` ×2, the library parser, another seat's in-flight BBNF work.
+  - plate-mass and palette-card-layout (the harness, now on its own cache) pass ×2.
+- **e2e:** the focused set (`gates/specs.txt`: mix, o9, o10d, w7-mutation, o7, o11, companion-pane-track-start, scene-action-contract). Smoke project, headless, one worker, own server :9161 with its own cache.
+  - **40/49 ×2.** The same 9 failed ×2, all pre-existing since pass 1 (`pass-01/v1c-gates/e2e-head.txt`): O-7 ×3 (grain / rung-1, glass), O-10d browse wall ×2, w7 G13 admin delete-all, and scene-action-contract D4 ×3. In D4, Generate, Gradient and Mix at 390 now register as "ready", not "unavailable": a stale spec after X-W5's `bindPane`.
+  - mix.spec, o9, o11 and companion-pane-track-start passed ×2.
+- **No visual golden was re-baselined.**
+- **The guard, named.** vitest, e2e and the census ran under `guarded --light` (still RSS- and timeout-contained) after the heavy-slot wait starved for 55 min (vitest) and 11 min (e2e). `acquire_slot` polls `flock` every 5 s, so a newer arrival wins a freed slot, while three slots were held by 45–150-minute runs from other repos.
+
+**The 2026-10-14 13:24 crash** (the first cure seat died in it; there has been no reboot since 2026-10-09, so it was a GUI-session loss):
+- **What failed:** `WindowServer` aborted (SIGABRT) in `WSIOSurfaceDebugTallyAndAbort`, under `iosurface_create_common` ← `CaptureSurfaceMetal::CreateMetalBacking` ← `captureWindowList` ← `_XWindowListCreateImage`, with the kernel triage `vm_map_copyout_kernel_buffer failed`. In plain terms, a window-list screen capture asked for an IOSurface the kernel could not map.
+- **The client is not recorded.** Headless Chrome does not use that path. Something on the host was taking window or screen captures.
+- **Host state:** load 50–109, ~1,250–1,400 processes, swap ~87–89%, memfree 37–47%.
+- **Bursts beforehand:** Playwright WebKit WebContent aborts at 12:23–13:21. An earlier WindowServer userspace-watchdog hang hit at 2026-10-13 18:42.
+- **A standing drain:** ~45 `vitest-vscode` processes (the editor's vitest extension) were live on 2026-10-15.
+
+**For the next critic.**
+- Judge the Mix verb's primary register against the selects at rest (disabled) and enabled.
+- Judge the My Palettes card at 390, where the well and the hint-rung trio stack.
+- Browse's twin trio is now one voice beside a quieter one. Check whether it still reads as two plates.
+- The VR3 re-dispatch (`fbc2affa9`) left `pass-03/redispatch-2026-10-13/` uncommitted, with no receipt here. It is not this seat's to commit.
