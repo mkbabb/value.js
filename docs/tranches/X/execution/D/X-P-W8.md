@@ -1279,3 +1279,65 @@ Self-count: 9 gate rows, 9 GREEN, 0 RED. The L-G1 cell count is 103 of 103 GREEN
   - The §0fe.2 bbnf-lang emitter-size producer row and the CHANGELOG line (both named in the `.cust2` receipt) are not this unit's.
 - **Escalations:** none (0 cells straddle; no ESC-W8lg1c2-n minted).
 - **Mail:** the RESUME 4 Open's E13 sweep stands for this sitting. This unit added no mail.
+
+## RESUME 4 2026-10-15 — Close (workflow close seat, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **PARTIAL**
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D/X-P-W8.md docs/tranches/X/execution/LEDGER.md`⟩ → empty. Nothing inherited. parse-that ⟨`git log --oneline -1`⟩ → `cb9c0d4` (unmoved; its dirty `rust/**` belongs to another session, untouched).
+- **§0fb / §0fd:** one sequential runner `bench/records/W8close5/gates.sh` under ⟨`~/.claude/guard/guarded --light --timeout 60 -- sh gates.sh`⟩ in `run_in_background`; vitest `--maxWorkers=2`; 1-min load 21.0–28.7 (`run.log`). No browser, server or watcher. L-G1 is audited from the banked records and not re-timed (§0eq).
+
+### Act 1 — commit roster (⟨`git show --stat`⟩)
+| unit | commit | paths | in writable set? |
+|---|---|---|---|
+| `.cust2` | `7516f0d8c` | `src/css/grammar/{value,stylesheet}.bbnf` · `src/css/bbnf/value.ts` · `src/css/bbnf/generated/grammar.{js,d.ts}` · `test/css/bbnf-custom-semicolon.test.ts` · `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` · `bench/css-equivalence/stylesheet.measure.test.ts` | yes; the last path is a declared §0bt adjacent edit (oracle class SH-3), inside the wave's `bench/**` repo scope |
+| `.cust2` | `754743689` | `bench/records/W8cust2/**` (35 files) + this record | yes |
+| `.lg1c2` | `68f8fea2a` | `bench/records/W8lg1c2/**` (59 files) | yes |
+| `.lg1c2` | `fc89035e7` | this record (+38) | yes |
+
+⟨`git show --name-only --format= 754743689 \| grep -v '^bench/records/W8cust2/'`⟩ → only this record. ⟨`git show --name-only --format= 68f8fea2a \| grep -v '^bench/records/W8lg1c2/'`⟩ → empty. ⟨`git diff --stat 7516f0d8c HEAD -- src test/css`⟩ → empty, so the product is `7516f0d8c`'s. Landed-wrong (bounds): none.
+
+### Act 2 — gates re-run by this seat (BEFORE = RESUME 4 Baseline at `1592e47b4`, product `2f590daa8`; AFTER = HEAD, product `7516f0d8c`; outputs in `bench/records/W8close5/`, commit `f8f587daa`, MANIFEST.sha256 33/33 OK)
+| Gate (ADDENDUM (d) / Unit plan) | Command | BEFORE | AFTER (×2) | GREEN def. | Verdict |
+|---|---|---|---|---|---|
+| `--x:f(a;b)` · `--x:[a;[b]]` · `--x:{a;b}` | ⟨`npx vite-node bench/records/W8semi/probe.ts …`⟩ (`probe-{1,2}.txt`, bodies identical) | refused css_syntax ×2 | ACCEPTED ×3 ×2 | ACCEPTED + round-trip | GREEN (RED→GREEN) |
+| `--x:"a;b"` | same | ACCEPTED (GREEN before cure) | ACCEPTED ×2 | stays ACCEPTED | GREEN |
+| top-level `a{--x:a;b}` | same | refused | refused css_syntax ×2 | refused | GREEN |
+| unbalanced `[a;b}` · `{a;b]` · `[a` · `f(a;[b)` | same | refused | refused css_syntax ×4 ×2 | refused | GREEN |
+| `.semi` refusals | same, `rotate(0;1deg)` · keyframes `translate(0;1px)` | refused | refused css_syntax ×2 ×2 | refused | GREEN |
+| `a{--x: ;}` · control `rotate(0deg)` | same | ACCEPTED | ACCEPTED ×2 | ACCEPTED | GREEN |
+| falsifier file + `.semi` file | ⟨`npx vitest run test/css/bbnf-custom-semicolon.test.ts test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ | `20 failed \| 23 passed (43)` ×2 (cited `falsifier-before-{1,2}.log`) | `Tests 63 passed (63)` ×2 | all pass (round-trips included) | GREEN |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | 6267/3898/0 | `TOTAL 6267 2369 3898 0 …` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | 0 unruled, 0 stale | GREEN |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ | 19/19, MIRROR 0 | `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 (27 lines `MIRROR-DEFECTS 0` each) | 19/19, MIRROR 0 | GREEN |
+| test/css ×2 | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | 18/238 | `Test Files 19 passed (19) · Tests 281 passed (281)` ×2 | all pass | GREEN |
+| L-G2 ×2 | ⟨`node bench/paired/build.mjs`⟩ → `srcDirty "" · bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product …`⟩ | 2847 | `compared 1376531/1376531 rows · mismatches 3371` ×2; ⟨`cmp equiv-1 equiv-2`⟩ identical; ⟨`gunzip -c bench/records/W8cust2/equiv-1.json.gz \| cmp - equiv-1.json`⟩ identical | every new row a named class | GREEN (byte-identical to `.cust2`'s read: +524 all W8cust2-BLOCK, §19-S addendum) |
+| prefix ×2 | same | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | 0 | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | 0 | GREEN |
+| `--check` ×2 (pinned `f0059db14`) | ⟨`node .worktrees/w8close3/gen-pinned.mjs --check`⟩ (⟨`cmp`⟩ = `bench/records/W8cust/gen-pinned.mjs`) | `9f54614b…` | `is current (sha256 75c8393d4949…)` ×2 | current | GREEN |
+| audit (pinned) | ⟨`node .worktrees/w8close3/audit-pinned.mjs`⟩ | 0 | `rules 179 · checks 1401189321 · violations 0 · modeDiffs 0` | 0 | GREEN |
+| E-6 ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c` / `\| gzip \| wc -c`⟩ | 104733 / 14635 | `110324` / `15239` ×2; delta +5591 / +604 | ≤ 125,646 / ≤ 15,300 (§0fe.1) | GREEN (61 B gz headroom) |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0; `error TS` 0 · 0 | 0 | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence --max-warnings=0`⟩ | 0 | exit 0, 0 bytes | 0 | GREEN |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 4.42s` | OK | GREEN |
+| L-G1 entry diff | ⟨`node bench/records/W8lg1c/entry-diff.mjs <scratch> 2f590daa8 7516f0d8c`⟩ | — | `ENTRIES CHANGED 7 of 7` (src `aed2aa08`→`23f39f33`, grammar.js `406bb5a1`→`c64092a5`) | changed → re-read owed | reproduces `.lg1c2` |
+| L-G1 ×2 audit (§0eq) | ⟨`git archive HEAD bench/records/W8lg1c2 \| tar -x`; `shasum -a 256 -c MANIFEST.sha256`⟩; ⟨`node bench/paired/bootstrap.mjs <tree>/{node,browser}/*.json \| shasum -a 256`⟩ ×2 | `.lg1r` 103/103 on old bytes | `58` OK ×2; `1c5aa2ad5f16…` ×2 = committed `bootstrap-read.txt`; GATE block STRADDLE\|RED `0`; tightest Firefox acc-eq `parseCssColor` rep1 0.977 / ub 0.984 | median AND ub < 1.0 every cell | GREEN |
+| **not a spec gate — routed mail (X-W12U C4-6):** `test/v4-css-emerging.test.ts` | ⟨`npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩; ⟨`npx vite-node bench/records/W8close5/ifprobe.ts <root>`⟩ on a `git archive 2f590daa8^ src` tree and on HEAD (`if-probe-{1,2}.txt`, identical) | pre-`.semi` product: `if(supports(color: red): red; else: blue)`, `if(supports(color: lch(0 0 0)): red; else: blue)`, `if(style(--x: 1): red; else: blue)` ACCEPTED | `Tests 2 failed \| 20 passed (22)` ×2; all three refused `css_syntax` at the `;` (`expected ["scalar"]`) | the product's own `if()` round-trips hold | **RED** — regression landed by `.semi` `2f590daa8` |
+
+Self-count: 22 rows; 21 GREEN; 1 RED (the `if()` regression, outside ADDENDUM (d)'s falsifier list but routed to this wave by mail and landed by this wave's own `.semi`). Every `.cust2`/`.lg1c2` published figure reproduces: 63/63, 6267/3898/0, 19/19 MIRROR 0, 19/281, 3371 identical, 0 prefix, `75c8393d…`, 179/0/0, 110324/15239, 7 of 7, 58/58, `1c5aa2ad…`.
+
+### Act 3 — verification artefacts
+W8.md has no separate §Verification Artefacts section. ADDENDUM (d)'s falsifier list is the artefact set, and every item is read in Act 2 (the `"a;b"` row stays ACCEPTED; it was GREEN before the cure, as the RESUME 4 Baseline found).
+
+### Act 4 — E13 mail
+⟨`find <p> -maxdepth 1 -type f -newer docs/tranches/V/coordination/INBOX.md \| wc -l`⟩ → `0` on value `V/`, `V/coordination`, glass `BK/coordination`, keyframes `V/coordination`. Glass `BL/` → `FORMATION-PROGRESS.md` only (a progress file, not mail); glass `BL/coordination` and atlas `P/coordination` do not exist. ⟨`grep -cE '^\| .*\| *UNREAD *\|' INBOX.md`⟩ → `0`. **One note in scope:** the 2026-10-15 cross-track note from the X-W12U repair seat (Track A → X.P.W8) routes the two `v4-css-emerging` `if()` failures to this wave ("X.P.W8 owns the cure"). It is read and reproduced here (Act 2, last row); a verify-only seat cannot cure it, so it is escalated below. A sweep line is appended to INBOX.
+
+### Escalations
+- **ESC-W8close5-1 (HIGH, regression):** `.semi` `2f590daa8` refuses every `;` inside a function block of a registered-property value. css-values-5 `if()` separates its branches with `;` (`if( <if-branch> [ ; <if-branch> ]* ;? )`), so `parseCssValue("if(supports(color: red): red; else: blue)")` went from ACCEPTED (product `2f590daa8^`) to refused `css_syntax` at the `;`. The product's own `test/v4-css-emerging.test.ts` turns RED 2 of 22, and `npm test` is RED by 2. W8.md ADDENDUM (b)'s premise ("inside a function block it is not a valid component of any property grammar") does not hold for `if()`. The cure is a BBNF arm that admits `;` as the `if()` branch separator while `.semi`'s refusals (`rotate(0;1deg)` and its siblings) stand. It needs an orchestrator/owner ruling: whether `if()` is in scope (it is css-values-5, like the ruled-out `random-item()`, but the product claimed and tested it before `.semi`), and a dispatched unit (e.g. `.if`) with its own E-6 delta against the 61 B gz headroom.
+
+### Residuals (named owners)
+- **R-1 · orchestrator/owner:** rule ESC-W8close5-1, then dispatch the `if()` cure unit → L-G1 entry-diff for that unit's bytes → close → check.
+- **R-2 · orchestrator:** the §0fe.2 bbnf-lang emitter-size producer row is still unfiled (⟨`grep -rln 'ESC-W8cust-1\|emitter-size' docs/tranches/V/coordination ../bbnf-lang/docs`⟩ → none). Non-blocking by ruling.
+- **R-3 · orchestrator:** no CHANGELOG `[Unreleased]` line yet for the widened custom-property acceptance (`.cust2`); CHANGELOG is outside every unit's set this sitting.
+- **R-4 · orchestrator** (carried): untracked `docs/tranches/X/parse-that/evidence/W8/l-g1-r1/bootstrap-read-e-bytes.txt`.
+- **R-5 · check seat (§0eq):** the tightest L-G1 margin is Firefox acc-eq `parseCssColor` rep 1 (median 0.977, ub 0.984).
+
+### State
+ADDENDUM (d)'s own falsifiers are all GREEN ×2, and its order (`.cust2` → L-G1 owed cells → close) is complete. Row 108 is nonetheless set to **PARTIAL — ESC-W8close5-1** and not IMPLEMENTED: the wave's own `.semi` bytes regress the product's `if()` round-trips, and in-scope mail routes that cure to this wave. Next: the ruling (R-1), then the check-as-audit per §0eq.
