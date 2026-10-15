@@ -1421,3 +1421,68 @@ The Chromium-only APIs in `oracles-safari` are the same class: `o4-order-invaria
 - Gates GREEN: typecheck 0 ×2 · lint 0 ×2 · `.t` r2 alpha leg ×2. The alpha leg is sitting 1's: 31 drags each, p95 median 16.80 = u95, against a budget of 34.40 (T 16.70), load 111–144, at `5f00126c7`.
 - Gates RED or unread: the whole smoke (≈ 30 deterministic stale oracles outside the set, plus ≈ 15 owner rows) · rounds 2–3 · the `oracles-safari` re-runs · the WebKit 3× re-read (1 GREEN read each) · `npm test` ×2.
 - Escalations: ESC-W12Uq-1..4.
+
+## Close 2 (RESUME 2 close seat, 2026-10-15)
+
+SERVED MODEL: claude-opus-5-5. Track A close seat, VERIFY-ONLY, HEAD at open `75c056d02` (`.q`'s receipt); glass 10.1.0. Spec `W12U.md` read whole (96 lines, addenda (a)–(f)); record read: RESUME 2 open → baseline, the `.k2` / `.m2` / `.h` (second sitting) / `.q` receipts. Crash recovery ⟨`git status --porcelain -- docs/tranches/X/execution/ docs/tranches/V/coordination/INBOX.md`⟩ → empty: no inherited partial close. The dirty `e2e/smoke/**` and `demo/**` paths in the tree are `.q`'s ESC-W12Uq-2 orphans and X-DS's paths; this seat touched none of them.
+
+**Host at this sitting:** ⟨`sysctl -n vm.loadavg`⟩ → `113.75 103.20 75.37`; ⟨`sysctl vm.swapusage`⟩ → `used = 8841.44M` of 10240M; 975 processes, CrowdStrike Falcon at 110 % CPU. This is the signature `.q` named as ESC-W12Uq-4: the 10-14 13:24 WindowServer abort (`vm_map_copyout_kernel_buffer failed`, after 57 Playwright WebKit WebContent crashes; glass `BL/FORMATION-PROGRESS.md:366`). Heavy runs were therefore limited to what the guard would admit as `--light`. The whole smoke, the WebKit re-read and `npm test` were **not** queued into this host (machine-resource law).
+
+### Commit roster (act 1)
+⟨`git merge-base --is-ancestor <c> HEAD` and `git show --name-only --format= <c>` minus each unit's set⟩, for each commit:
+- `.k2` (18): `8b5b48347` `d860c136a` `a1f349a3f` `d5aa11fb7` `cc38595c1` `096040ca9` `508b3518b` `ca65ae049` `94ec8d527` `ad6b8c861` `2e8d019b5` `3abe9d7d5` `785e522c5` `41985dd89` `41d2effc2` `1991cf594` `80fbaf82f` `9e0c95ec2`. All are on HEAD. The paths outside the set are `test/{dock-status-lamp,status-lamp,interpolation-subset,preview-chips}.test.ts`, `e2e/smoke/admin/a11y-authed-admin.spec.ts`, `e2e/smoke/oracles/{o17,o27}*.spec.ts`, and `41985dd89`'s old-root strings (`.github/workflows/deploy-pages.yml`, `e2e/smoke/{a11y-control-targets,mobile/a11y-control-targets,admin/route-guard}.spec.ts`, `e2e/smoke/fixtures/dock.ts`, `e2e/visual/{census-parity.spec,census,states.visual.spec}.ts`, `plugins/vite-ground-tokens.ts`, `scripts/ci/boot-smoke.mjs`, `scripts/fonts/build-fraunces-tnum.py`). Every one is declared under the `.k2` receipt's §0bt adjacent edits or the RESUME 2 plan's L1-18 grant.
+- `.m2` (7): `16cf1a225` `a38aa39a9` `63fd29547` `c3f038d46` `b3370092e` `3dfc69b02` `a0c97ac93`. All are on HEAD. The one path outside the set is `e2e/smoke/w12-dock.spec.ts` (`b3370092e`), which is the plan's named §0bt adjacent for R-m-3.
+- `.h` second sitting (3): `3f79672a6` `43263bb16` `10c30c7de`. All are on HEAD. The one path outside the set is `e2e/smoke/oracles/o10-type-locks.spec.ts` (`3f79672a6`), declared §0bt adjacent in the receipt.
+- `.q` (3): `0c4628734` `03fe0aff6` `75c056d02`. All are on HEAD, all evidence and record only.
+
+### Landed wrong (recorded, not fixed here)
+None. 31 of 31 commits are on HEAD, and every out-of-set path is a declared adjacent edit or a granted path. `scripts/dev/dev.sh` ⟨`git log cfd529016..HEAD --oneline -- scripts/dev/dev.sh | wc -l`⟩ → 0.
+
+### Residuals (named owners)
+- **X-13-RUN** (owner design ruling): at 360 a coarse Tools face needs 346 px (seven 44 px seats), but the dock run is 304 px. Choosing which seats a 360 phone shows is a design decision. `.m2` measured it.
+- **A2-VA-L2-1**: honest-RED. The glass half is O-74 / O-59: overlay roles other than menu and tooltip have no block cap at 10.1.0.
+- **A2-VA-L2-4**: honest-RED, stage 98 vs 80 at 844×390. It needs the owner's H1-band ruling (R-m-2) and a glass pill-block ask that no O-row names yet (ESC-W12Um2-1, still unrelayed).
+- **X-3 / X-5 glass halves**: O-74c G-1 / G-2 (glass).
+- **L3-2 pane limb / L3-3**: O-74 L3-2 / L3-3 (glass), absent at 10.1.0.
+- **A2-VA-L3-6 / X-8**: HELD for glass §11. Four 390 heading-vs-control reads are RED.
+- **DOCK-CAP-ELLIPSE**: O-83 / O-83a (glass).
+- **R-h-5**: `gate-l35b` restates `gate-l35`'s /generate and /mix limbs. The Check audits the restatement.
+- **The whole smoke `--workers=1`, rounds 2–3, the `oracles-safari` re-runs, the addendum (e) WebKit 3× re-read and `npm test` ×2**: owed to a host where the guard admits them (`.q` `batch C` / `batch W`, `q-run.sh`). Owner of the protocol: ESC-W12Uq-4.
+- **The ~30 deterministic stale smoke oracles**: outside every unit's set. The cure waits on the ESC-W12Uq-1 ruling (orchestrator / COHESION).
+- **`.q` sitting-1 orphans still dirty in the tree** (ESC-W12Uq-2, 7 paths): they wait on the same ruling. This seat did not commit or revert them.
+- **The product/producer rows of `.q` Act 4** (ESC-W12Uq-3):
+  - X-W10 (gold ink)
+  - the atmosphere design rows (o19 / o26 / o28 / webgl-blob-idle)
+  - `src/**` parser clamp vs o23
+  - X-W2 §3a (G2 / G3-G4 / o5)
+  - the software-GL drag floor
+- **ESC-W12Uh-1**: `:9000` saturates in fsevents dispatch because `vite.config.ts` has no `server.watch.ignored`. This is a different concern, unowned; the orchestrator needs to route it.
+- **ESC-W12Uh-2**: a same-tree mirror goes stale across a `dist/` rebuild.
+- **Residual from `.k2`**: the untracked `.vscode/launch.json` still points at `demo/color-picker`. That is the owner's call.
+
+### Escalations
+Carried open, none ruled in this sitting: ESC-W12Uq-1 · ESC-W12Uq-2 · ESC-W12Uq-3 · ESC-W12Uq-4 · ESC-W12Um2-1 · ESC-W12Uh-1 · ESC-W12Uh-2.
+
+### Gate table (acts 2–4), re-run by this seat
+| gate (spec) | BEFORE (RESUME 2 baseline, 10-09) | AFTER (this seat, 10-15, HEAD `75c056d02`) | verdict |
+|---|---|---|---|
+| typecheck, 4 programs (§3 `npm run check`) | `lib 0 · demo 0 · test 0 · e2e 0` (r1) | ⟨`guarded --light -- close2/tc.sh`⟩ ×2 → r1 `lib 0 demo 0 test 0 e2e 0` (load 97) · r2 the same (load 78) (`close2/tc-r{1,2}.txt`) | **GREEN ×2** |
+| lint (§3 `npm run check`) | `lint 0` | ⟨`guarded --light -- npx eslint . --max-warnings=0`⟩ ×2 → `lint 0` (load 41) · `lint 0` (load 42) (`close2/lint-r{1,2}.txt`) | **GREEN ×2** |
+| L1-18 rename | `present demo/color-picker · absent demo/app` | ⟨`test -e demo/color-picker; test -e demo/app`⟩ → `absent-cp · present-app` | **GREEN** |
+| `.k2` static falsifier | RED (13 rows OPEN) | ⟨`sh k2/check-k2-static.sh \| tail -1`⟩ ×2 → `GREEN 30/30` · `GREEN 30/30` | **GREEN ×2** |
+| served falsifiers ×2 (§3): `k2/probe-k2-rows.mjs`, `m2/probe-x2.mjs` | X-2 `RED 2/2`; L1 rows RED | ⟨`guarded --timeout 12 -- close2/served.sh r1`⟩: **NOT ADMITTED.** The run waited 19:01 → 19:15 for a heavy slot (all 3 held by other sessions' runs: a vite server, a glass build, pytest); the load fell to 13 meanwhile. This seat stopped its own unadmitted runner. No browser had launched, and its empty output was removed. The banked readings are the units' own ×2: `.k2` 37/37 ×4 and mounts 29/29 ×2; `.m2` X-2 90/90 ×2 and L2-10 90/90 ×2 (committed logs) | **banked ×2 (units); unread by this seat** |
+| `npm test` GREEN (§3) | banked 7 standing of 987 | not queued: heavy run, starved admission (ESC-W12Uq-4). Last reading is `.k2`'s whole vitest, 9/1120 failed (7 standing + PNG §7 ×2 load), not at this HEAD | **UNREAD at HEAD** |
+| smoke GREEN `--workers=1` (§3) | unread | `.q` s2 of record: `smoke` 229 ✓ / 62 ✘, `oracles-safari` 111 ✓ / 55 ✘. q1 at load 11–27: 42 failed / 57. These are classified as ~30 stale oracles (ESC-W12Uq-1) plus owner/producer rows (ESC-W12Uq-3). Not re-run here (hours of browser load into the crash-signature host) | **RED** |
+| addendum (e) WebKit re-read | unread | `.q`: 1 GREEN read each at load 44–60; the 3× re-read is owed | **PARTIAL** |
+| `.t` r2 alpha leg | owed | `.q` sitting 1: 31 drags, p95 median 16.80 = u95 ≤ 34.40 (T 16.70) ×2 | **GREEN ×2** (banked) |
+| E-3 | — | ⟨`git diff --stat cfd529016..HEAD -- W12U.md AUDIT-2-value.md`⟩ → empty | **HELD** |
+| E13 | 0 UNREAD | ⟨`grep -cE "^\|.*\| *UNREAD *\|" INBOX.md`⟩ → 0. ⟨`find <path> -maxdepth 1 -type f -newer INBOX.md`⟩: value V/ 0 · V/coordination 0 · glass BK/coordination 0 · glass BL 1 (`FORMATION-PROGRESS.md`, glass's own log; its 10-15 entries are the WindowServer crash assay, the WebKit lock and `guarded --exclusive webkit`, none addressed to value.js as a letter) · BL/coordination 0 · keyframes V/coordination 0 · atlas P/coordination 0 | **GREEN** |
+
+### State
+Four-verb line: **IMPLEMENTED is NOT stamped.** The §3 Close bar is unmet at the bytes:
+- smoke is RED, with ESC-W12Uq-1/-3 unruled;
+- `npm test` is unread at HEAD;
+- the WebKit 3× re-read is owed;
+- the served falsifiers were not re-read by this seat (admission starved).
+
+Every unit owed by RESUME 2 has landed (`.k2` DONE, `.m2` PARTIAL with honest-REDs, `.h` DONE, `.q` ESCALATED). The LEDGER row is **PARTIAL**. X-W8 stays blocked.
