@@ -3870,3 +3870,21 @@ X.P.W8 closed honest-RED on one gate: E-6 gz measured 14,635 B against a 14,517 
    - **Writable set:** `src/css/grammar/*.bbnf`, `src/css/bbnf/**`, the regenerated `src/css/bbnf/generated/**` through the pinned emitter, `test/css/**`, and the DIVERGENCE-LEDGER row §19-S, which closes by addendum. bbnf-lang and parse-that stay READ-ONLY.
    - Every heavy run goes through `~/.claude/guard/guarded` (§0fb).
 3. W8.md ADDENDUM (c) carries this ruling.
+
+## §0fd — 2026-10-15: the 10-14 13:24 outage ASSAYED (WindowServer, not the kernel); the guard gate tightened
+The owner asked why the computer crashed again. The kernel did not crash: uptime runs from 10-09. Measured:
+- **10-14 13:24:18.** WindowServer aborted (`SIGABRT`) on `captureWindowList → CreateCaptureSurface → IOSurface create`, with kernel triage `vm_map_copyout_kernel_buffer failed`. That logged the owner out and killed every terminal, session and workflow.
+- **10-13 18:42.** WindowServer hit a watchdog hang: its main thread was unresponsive for 40 s under load about 290.
+- **The conditions from 10:55 to 13:24 on 10-14:**
+  - 397 guarded runs machine-wide at a 1-min load of 50–136, on 18 cores.
+  - The battery drained from 100 % to 16 % while on AC, because power draw exceeded the charger.
+  - 57 Playwright WebKit WebContent processes aborted.
+  - Memory was not the cause: free memory was 37–45 %.
+- **Attribution, from peer replies:**
+  - glass-ui BL ran five seats of WebKit `page.screenshot()` loops, unguarded. On macOS each such screenshot is a WindowServer window capture.
+  - hassio, gaggle and value.js do no window capture.
+  - glass-ui adopted: one WebKit run at a time, closes in a `finally`, through the guard.
+- **The cure:**
+  - `guarded` admits heavy runs only at 1-min load ≤ 2 × cores (36) and fewer than 1,400 processes. Light runs need load ≤ 72 and fewer than 1,600 processes. The old gate of load 150 never bit.
+  - The user-level CLAUDE.md carries a WindowServer rule: no screen or window capture, no headed browsers, and one WebKit run per seat.
+  - All six chassis workflows were relaunched from their journals.
