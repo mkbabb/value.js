@@ -1341,3 +1341,56 @@ W8.md has no separate §Verification Artefacts section. ADDENDUM (d)'s falsifier
 
 ### State
 ADDENDUM (d)'s own falsifiers are all GREEN ×2, and its order (`.cust2` → L-G1 owed cells → close) is complete. Row 108 is nonetheless set to **PARTIAL — ESC-W8close5-1** and not IMPLEMENTED: the wave's own `.semi` bytes regress the product's `if()` round-trips, and in-scope mail routes that cure to this wave. Next: the ruling (R-1), then the check-as-audit per §0eq.
+
+## RESUME 4 2026-10-15 — Check 1 (L-20 pass 1 of the RESUME 4 Close, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **NOT-CONFORMANT**
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D/X-P-W8.md docs/tranches/X/execution/LEDGER.md`⟩ → empty. Nothing inherited. HEAD `9f826852a`; product `7516f0d8c` (⟨`git diff --stat HEAD -- src/css bench/paired package.json`⟩ → empty). Host 1-min load ~22 (no timing gate read; L-G1 audited from the bank, §0eq).
+- **Runner:** two sequential scripts under ⟨`~/.claude/guard/guarded --light`⟩ in `run_in_background`, vitest `--maxWorkers=2`; outputs in this seat's scratchpad (not banked — a check reproduces, it does not mint evidence).
+
+### Gates re-run by this seat (AFTER = HEAD `9f826852a`, product `7516f0d8c`)
+| Gate | Command | Read (×2 where run twice) | Verdict |
+|---|---|---|---|
+| ADDENDUM (d) probe (11 inputs) | ⟨`npx vite-node bench/records/W8semi/probe.ts …`⟩ ×2 | `f(a;b)` · `[a;[b]]` · `{a;b}` · `"a;b"` ACCEPTED; `--x:a;b` · `[a;b}` · `{a;b]` · `[a` · `rotate(0;1deg)` · keyframes `translate(0;1px)` refused css_syntax; `--x: ;` ACCEPTED; bodies identical ×2 | GREEN (reproduces) |
+| falsifier + `.semi` files | ⟨`npx vitest run test/css/bbnf-custom-semicolon.test.ts test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ ×2 | `Tests 63 passed (63)` ×2 | GREEN |
+| V-C | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ ×2 | `TOTAL 6267 2369 3898 0 …` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | GREEN |
+| css-equivalence / MIRROR | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ ×2 | `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 | GREEN |
+| test/css | ⟨`npx vitest run test/css --maxWorkers=2`⟩ ×2 | `Test Files 19 passed (19) · Tests 281 passed (281)` ×2 | GREEN |
+| E-6 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c`; `gzip < min.js \| wc -c`⟩ ×2 | `110324` / `15239` ×2 (≤ 125,646 / 15,300) | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | GREEN |
+| `--check` (pinned `f0059db14`) | ⟨`node .worktrees/w8close3/gen-pinned.mjs --check`⟩ ×2 | `is current (sha256 75c8393d4949…)` rc 0 ×2 | GREEN |
+| L-G1 ×2 audit (§0eq) | ⟨`cd bench/records/W8lg1c2 && shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩; ⟨`node bench/paired/bootstrap.mjs W8lg1c2/{node,browser}/*.json \| shasum -a 256`⟩ | `58`; `1c5aa2ad5f16…` = committed `bootstrap-read.txt`; ⟨`grep -cE 'STRADDLE\|RED'`⟩ → `0` | GREEN |
+| build | ⟨`npm run build`⟩ | rc 0, `✓ built in 4.32s` | GREEN |
+| vue-tsc lib | ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit`⟩ | rc 0 | GREEN |
+| **vue-tsc test** | ⟨`npx vue-tsc -p tsconfig.test.json --noEmit`⟩ | **rc 2**; `bench/records/W8close5/ifprobe.ts(3,27): error TS1375: 'await' expressions are only allowed at the top level of a file when that file is a module…` (the only `error TS`) | **RED** — the close's claimed `exit 0` does not reproduce at HEAD (C1-2) |
+| `test/v4-css-emerging.test.ts` | ⟨`npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩ ×2 | `Tests 2 failed \| 20 passed (22)` ×2 | **RED** — reproduces the close's ESC-W8close5-1 (C1-1) |
+
+Self-count: 13 rows; 11 GREEN reproduce; 2 RED (vue-tsc test, `v4-css-emerging`). Not re-run (cited, product unmoved since the close's read): L-G2 3371 / prefix 0, audit 179/0/0, eslint.
+
+### Axes
+1. **Claimed GREENs reproduce:** all but one. The close's `vue-tsc lib · test exit 0 · exit 0` row fails at HEAD: its own evidence commit `f8f587daa` added `bench/records/W8close5/ifprobe.ts` (a top-level `await` with no import/export), which `tsconfig.test.json` type-checks (C1-2).
+2. **Bounds:** ⟨`git show --stat`⟩ `7516f0d8c` (8 paths, all in the RESUME 4 plan set; `bench/css-equivalence/stylesheet.measure.test.ts` the declared §0bt oracle class SH-3) · `754743689` (`bench/records/W8cust2/**` + record) · `68f8fea2a` (`bench/records/W8lg1c2/**`) · `fc89035e7` (record) · `f8f587daa` (`bench/records/W8close5/**`, 8 files) · `9f826852a` (record, LEDGER, INBOX sweep line). `scripts/dev/dev.sh` untouched by every one. GREEN.
+3. **Masking:** none. The `.cust2` diff is BBNF (`customRaw`/`customBlk`/`blockRun`, `semiRun` pairs `[]`/`{}`) plus one `kind: "text"` action; no try/catch, skip, allowlist or narrowed assertion; 0 test assertions removed (43 new). GREEN.
+4. **Commit families:** `.cust2` landed as one product commit (grammar + re-emission + action + falsifiers + §19-S addendum + oracle class) plus its evidence; `.lg1c2` evidence + receipt. GREEN.
+5. **E-3:** ⟨`git diff 1592e47b4..HEAD -- docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md \| grep -c '^-[^-]'`⟩ → `0` (append-only addendum); none of the wave's six commits touches `docs/tranches/X/parse-that/waves/**`, `docs/tranches/V/megatranche/registry/adjudicated/**` or `CONFORMANCE-2026-08-03.md`. GREEN.
+6. **Mail:** ⟨`grep -cE '^\| .*\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`. The X-W12U C4-6 note (routing the `if()` failures here) is read and not cured (C1-1). GREEN on UNREAD; the routed item is open.
+7. **Four-verb line:** row 108 moved OPEN → PARTIAL at the close with its escalation named; lawful (not IMPLEMENTED, not CLOSED). GREEN.
+8. **Goal at the bytes:** ADDENDUM (d)'s custom-property cure is MET (accept/round-trip/refuse as ruled). The wave's goal — "accepts every valid value in scope, refuses every invalid one" — is not met for the product's own `if()` claim: `.semi` `2f590daa8` now refuses `if(supports(color: red): red; else: blue)`, which the product accepted and tested before. RED (C1-1).
+9. **Published figures:** 63/63, 6267/3898/0, 19/19 MIRROR 0, 19/281, 110324/15239, `75c8393d…`, 58/58, `1c5aa2ad…`, 2 of 22 RED all reproduce; `vue-tsc test 0` does not (C1-2).
+10. **Honest-RED adjudication:**
+    - `test/v4-css-emerging` 2/22 (ESC-W8close5-1): NOT relieved by the spec bytes. It is not producer-owned (the grammar is value.js BBNF), no successor wave is routed it, and W8.md names no honest-RED id for it; the only relief is a future owner ruling (unruled: ⟨`grep -c 'ESC-W8close5-1' docs/tranches/X/COHESION.md`⟩ → `0`). The record names an owner (R-1 orchestrator/owner), which is necessary but not relief. Real defect.
+    - vue-tsc test: no relief of any kind; the close did not see it.
+
+### Successors
+No wave declares "Opens after X.P.W8 CLOSED" (⟨`grep -rn 'after X\.P\.W8' docs/tranches/X --include=*.md`⟩ outside `execution/` → only `waves/W12U.md:94`). W12U's conjunct — quiet reads banked "after X.P.W8's L-G1 ×2" — is GREEN (`.lg1c2` 103/103, audited above). No successor is blocked by this verdict.
+
+### Register
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | HIGH | `.semi` `2f590daa8` regresses the product's css-values-5 `if()` branch separator: `parseCssValue("if(supports(color: red): red; else: blue)")` and two siblings are refused `css_syntax` at the `;`; the product's own `test/v4-css-emerging.test.ts` is RED 2/22 with no spec relief (ESC-W8close5-1, unruled). | ⟨`npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩ ×2 → `Tests 2 failed \| 20 passed (22)`; close Act 2 last row (pre-`.semi` ACCEPTED on `2f590daa8^`). | Owner/orchestrator rules ESC-W8close5-1 (R-1); a dispatched unit adds a BBNF `if()` arm that admits `;` as the branch separator while `.semi`'s refusals stand, with its own E-6 delta against the 61 B gz headroom (escalate, never shave), then L-G1 entry-diff, close, check. |
+| C1-2 | HIGH | The close's own evidence file breaks a stay-GREEN gate (§Scope 4 vue-tsc): `tsconfig.test.json` type-checks `bench/records/**`, and `bench/records/W8close5/ifprobe.ts` has a top-level `await` with no import/export. The close published `vue-tsc … test exit 0`, which does not reproduce at HEAD (`npm run typecheck` RED). | ⟨`npx vue-tsc -p tsconfig.test.json --noEmit`⟩ → rc 2, 1 `error TS` (TS1375 at `ifprobe.ts(3,27)`); lib rc 0. | A repair seat makes the probe a module at its root (e.g. `export {};`; `bench/records/W8semi/probe.ts` and `W8cust2/find-defects.ts` are modules by their imports) in a dated, receipted commit naming the correction beside the original read (E-3); no `exclude` of `bench/records` and no tsconfig narrowing (masking). Re-read vue-tsc lib · test ×2. |
+| C1-3 | INFO | R-2 (bbnf-lang emitter-size producer row unfiled), R-3 (CHANGELOG `[Unreleased]` line for `.cust2`), R-4 (untracked l-g1-r1 file) stand with named owners; non-blocking by ruling/scope. | close §Residuals. | Orchestrator, as named. |
+
+Honest-RED set: **none.** Neither RED gate carries spec relief.
+
+### Verdict
+**NOT-CONFORMANT** — 0 BLOCKER · 0 CRITICAL · 2 HIGH (C1-1, C1-2) · 1 INFO. 11 of 13 gates re-run reproduce GREEN; ADDENDUM (d)'s `.cust2` cure and `.lg1c2`'s L-G1 bank are sound and in bounds. Row 108 stays **PARTIAL**; next: the ESC-W8close5-1 ruling, the `if()` cure unit and the `ifprobe.ts` repair, then close and check.
