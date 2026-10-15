@@ -1315,3 +1315,88 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-15 ~19:33– local. Spec read whole 
 **Teardown.** No server, browser, container or poller started.
 
 **Status: ESCALATED.**
+
+## RESUME 2026-10-13 (b) — Close
+
+Close seat `claude-opus-5-5`, 2026-10-15 ~19:35– local, VERIFY-ONLY (cures nothing). **Wave verdict: BLOCKED-ON ESC-FREL-mem2-1** (ESC-FREL-w-1, ESC-FREL-w-2, ESC-FREL-g-5 and ESC-FREL-d-1 stand behind it). Of the five owed units: `.vb` DONE; `.mem2` `.w` `.g` `.d` ESCALATED (`.w` PARTIAL). The four-verb line does not move: F.REL is not IMPLEMENTED (master unmerged, nothing deployed).
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → ` M api/Dockerfile`, ` M scripts/model-smoke.sh`, ` M src/fourier_analysis/contours/ml.py`, `?? bench/contours/memory.py`, `?? tests/test_contour_ml_memory.py` (`.mem2`'s uncommitted cure, ESCALATED; durable copy `~/.fourier-frel/mem2/`) and ` M web/src/components/{equation/convergence/ConvergenceLegend,visualization/BasisSelector}.vue` (the live X-DS lane). None is a close-seat path; all left untouched. value.js: the record and LEDGER were clean at open. Nothing inherited.
+
+**Resource law.** ⟨`uptime`⟩ → load 26 / 24 / 23; ⟨`memory_pressure`⟩ → free 68 %. ⟨`cat fourier-analysis/.worktrees/heavy.lock`⟩ → `F.CT3 r1 (seat 3) scoped-pytest … pid 94482` (live, ⟨`ps -p 94482`⟩ → 9 min elapsed). The repo's one heavy slot was held by a sibling seat, so this seat ran only the light web gates (guarded `--light`, in the scratch tree `~/.fourier-frel/g-wt` at `3084b6c`; ⟨`git diff --stat 3084b6c 512f5a9 -- web/src`⟩ → empty, so its `web/src` bytes are HEAD's and exclude the live X-DS edits).
+
+The heavy slot was waited on for 10 min (⟨`while [ -e heavy.lock ]; …`⟩ → still held at 19:48:27 by the same F.CT3 pid, 20 min elapsed). pytest and the api suite were therefore NOT re-run locally by this seat. They are read from CI run 38824079821 at `512f5a9` (job `api/tests (with live Mongo)` = `pytest api/`) and from `.mem2`'s banked double runs.
+
+**E13.** Paths: value `V/coordination` · glass `BK/coordination` + `BL` · keyframes `V/coordination` · atlas `P/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md | wc -l`⟩ → 0 · 0 · 1 · 0 · 0. The single hit is `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md`, which is a progress file, not mail (the same reading as every prior sweep). ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. **0 unrowed · 0 UNREAD.**
+
+**Act 1: commits exist and stay inside their sets.**
+- ⟨`git show --stat`⟩ on the value.js receipts:
+  - `2be200dc3` (`.mem2`), `c112c49bf` and `e83350453` (`.w`), `644d1d294` (`.vb`) and `6c587041f` (`.g`) each touch only `execution/C/F-REL.md`.
+  - `d887cb0cd` (`.d`) touches the record and `fourier/evidence/F-REL/d-resit-2026-10-15/` (6 files). That is inside `.d`'s set.
+- fourier `512f5a9` (`.vb`): ⟨`git show --name-only --format= 512f5a9 | grep -vc '^web/e2e/screenshots/f-w14/'`⟩ → `0`, so all 43 paths are the §0ex orphans `.vb` was granted.
+- No other fourier commit landed this resume. ⟨`git log --oneline -1 -- src/fourier_analysis/contours/ml.py`⟩ → `871cc1c` (`.m`, 10-08).
+- **landedWrong: none.**
+
+**Act 2: gates, BEFORE (the RESUME (b) baseline) → AFTER (this close; quoted by command).**
+
+| Gate (spec §Gates · addenda) | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| G-mem: peak RSS ≤ 1.6 GB | RED (5545 / 9838 MB at 1024) | ⟨`git show HEAD:…/ml.py \| grep -c '_open_session\|birefnet-lite-512'`⟩ → `0` at `512f5a9`; working tree → `6` (uncommitted). `.mem2` measured 1412.3 / 1502.3 MB on the uncommitted bytes | **RED at HEAD** (GREEN only on uncommitted bytes) |
+| route (a) release asset | absent | ⟨`gh release view models-2026-10`⟩ → `birefnet-lite-512.onnx 187040360` · `birefnet-lite-512.json 712` | GREEN (asset exists) |
+| G-mem2: 2G container smoke | unread | `.mem2` banked 1490 / 2048 MB on uncommitted bytes; not landed | **RED at HEAD** |
+| G-iou mean ≥ 0.97 / min ≥ 0.93 | RED on min | `.mem2` banked 0.9864 / 0.9444 ×2 on uncommitted bytes | **RED at HEAD** (not landed) |
+| pytest tests/ ×2 | banked 171 ×2 at HEAD | not re-run (the heavy slot was held). On `.mem2`'s bytes: 1 failed / 175 (`test_person_cut_removes_what_stands_beside_the_sitter`) ×3 | **RED** (behind ESC-FREL-mem2-1) |
+| api pytest ×2 | banked 344 ×2 | ⟨`gh run view 38824079821 --json jobs`⟩ → `api/tests (with live Mongo) success` at `512f5a9`; `.mem2` 344 ×2 | GREEN (CI ×1 + banked ×2) |
+| web vue-tsc ×2 | rc 0 ×2 | ⟨`guarded --light -- npx vue-tsc -b --force`⟩ ×2 → rc 0, 0 bytes each (`~/.dev-logs/frel/close-vuetsc-{1,2}.log`) | GREEN |
+| web vitest ×2 | 116 ×2 | ⟨`guarded --light --timeout 10 -- npx vitest run --maxWorkers=2`⟩ ×2 → `Tests 116 passed (116)` rc 0 each | GREEN |
+| G-w manifest printed by CI | 8 rows | ⟨`node -e '…producer-held.json…rows.length'`⟩ → `8`; CI 38824079821 step success, 8 rows | GREEN |
+| G-vb goldens | 6 darwin · 6 linux | ⟨`find web/e2e -path '*-snapshots*' -name '*.png'`⟩ → 6 darwin · 6 linux; `.vb` re-sit 3 read 6/6 ×2 on both | GREEN |
+| e2e GREEN outside the manifest ×2 | RED | ⟨`gh run list --branch m/w1-bump-migration --limit 3`⟩ → `38824079821 failure 512f5a9` (exit 143 at the 4th extraction) · `38452213569 failure` · `37876128973 failure` | **RED** |
+| contrast-floor ×3 | RED (oracle) | not re-read; `.w` sitting 2: light 18/36, dark 10/36 on the frozen `contrast-pairs.ts` | **RED** (ESC-FREL-w-1) |
+| master merged + master CI GREEN | `ad62881`, unmerged | ⟨`git rev-parse --short origin/master`⟩ → `ad62881`; latest master ci.yml `37498214674 failure` | **RED** |
+| production smoke GREEN (new SPA) | PASS on the hotfix SPA | ⟨`bash scripts/pages-smoke.sh`⟩ → bundle `index-BYSiPuAh.js` · health 200 · ACAO · `PASS` (the same hotfix SPA) | **RED as specified** (non-regression only) |
+| cert > 14 d | Dec 22 / Jan 4 | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ → API `Jan  4 15:19:06 2027` · SPA `Dec 22 20:13:07 2026` | GREEN |
+| openapi has publish/remix/diff | `34 0.2.0 []` | ⟨`curl …/openapi.json`⟩ → `34 0.2.0 []` | **RED** |
+| PATCH preflight 2xx (G-c on prod) | 400 | ⟨`curl -X OPTIONS … PATCH … if-match,idempotency-key,content-type`⟩ → `400` | **RED** |
+| end-to-end production check 20/20 | 10/20 (10-09) | not run (no deploy; the probe writes to production) | **RED** |
+| no API outage during deploy | not read | not read (no deploy) | **RED** (unread) |
+| host health | 200 | ⟨`curl …/health`⟩ → `{"status":"ok"}` | GREEN (non-regression) |
+
+**Act 3: §Verification Artefacts.** The spec has no section by that name. Its falsifiers are the gates above. `scripts/prod-verify.mjs` is `.d`'s artefact, and running it is withheld because there is no deploy to verify.
+
+**Commit roster (RESUME (b)).**
+- fourier: `512f5a9` (`.vb`, the 43 f-w14 orphans). That is the only one. `.mem2`'s cure is uncommitted, and `.g` and `.d` made no commit.
+- value.js: `2be200dc3` (`.mem2`) · `c112c49bf` and `e83350453` (`.w`) · `644d1d294` (`.vb`) · `6c587041f` (`.g`) · `d887cb0cd` (`.d`) · this close.
+
+**Escalations (all unruled).** ⟨`grep -n 'ESC-FREL-mem2-1\|ESC-FREL-w-[12]\|ESC-FREL-g-5\|ESC-FREL-d-1' COHESION.md`⟩ → 0 lines (the file ends at L3913).
+- **ESC-FREL-mem2-1 (root).** F.CT's `test_person_cut_removes_what_stands_beside_the_sitter` rests on a premise about the 1024 model. The test file is held dirty by F.CT3's live worktree.
+  - Ruling (i): F.CT3 re-founds the test, and `.mem2` lands first.
+  - Ruling (ii): `.mem2` is granted the test path.
+  - At landing, the `.gitignore` gets a `!scripts/export-birefnet-lite.py` negation.
+- **ESC-FREL-w-1.** The frozen oracle `contrast-pairs.ts` is outside `.w`'s set.
+- **ESC-FREL-w-2.** The 19 latency rows can be read only after `.mem2` lands.
+- **ESC-FREL-g-5.** The merge lock is unmet on both arms.
+- **ESC-FREL-d-1.** There is nothing to deploy until `.g` lands.
+
+Order of discharge: mem2-1 ruling → `.mem2` commit + push → w-1 ruling, then w-2 read on that push's CI → `.g` → `.d`.
+
+**Residuals (named owners).**
+- R-1. `.mem2`'s uncommitted cure is in the main tree (5 paths) and at `~/.fourier-frel/mem2/frel-mem2-wip.patch`. Owner: the `.mem2` re-sit after the mem2-1 ruling.
+- R-2. The person-cut test re-premise. Owner: F.CT3, or the `.mem2` re-sit under ruling (ii).
+- R-3. contrast-floor ×3 on `contrast-pairs.ts`. Owner: the `.w` re-sit after the w-1 ruling.
+- R-4. The `.gitignore` merge conflict. Owner: `.g`.
+- R-5. R-h1: hooks.json lacks the alert webhook and token. Owner: the owner.
+- R-6. R-h2: the first post-merge deploy runs the old in-place hook. Owner: `.d`.
+- R-7. The two 10-09 private draft rows on production need the admin token to remove. Owner: the owner.
+- R-8. pytest tests/ ×2 at HEAD was not re-read by this seat because F.CT3 held the heavy slot. Owner: the next F.REL seat.
+
+**Host assay (the owner's "why did it crash again"; read-only).**
+- ⟨`sysctl -n kern.boottime`; `last reboot`⟩ → booted Fri Oct 9 18:57:55, uptime 6 days. **There has been no kernel panic or reboot since 10-09.**
+- The last session-level crash on disk is ⟨`ls DiagnosticReports | grep -i WindowServer`⟩ → `WindowServer-2026-10-14-132418.ips` (`.w`'s note). No WindowServer, panic or Jetsam report is dated 10-15.
+- Today's reports are `cpu_resource` diags (spotlightknowledged ×2, mds_stores, media-indexer, fseventsd) and 4 × `plugin-container-2026-10-15-1925*.ips` (Firefox content processes from a Playwright run, 19:25).
+- ⟨`ps -axo rss,command | awk '$1>1000000'`⟩ at 19:37 → `/Library/Backblaze.bzpkg/bztransmit -completesync` at **9.2 GB RSS**, a `vite --port 9000` at 2.5 GB, mds_stores at 1.1 GB. No test process was resident.
+- The heavy contour suites peak at 11.8 GB per pytest process (`.mem2`, guard log). That sits inside guarded's 16 GB cap only one at a time, which the heavy.lock serialises.
+- Inference, not read: on a 6-day uptime, a 9 GB backup daemon plus Spotlight reindexing, stacked under one 11.8 GB guarded run and the open browsers, is the pressure profile of the 10-14 WindowServer abort.
+
+**Four-verb line.** Not moved. F.REL stays OPEN; the LEDGER status becomes `BLOCKED-ON ESC-FREL-mem2-1`.
+
+**Teardown.** No server, browser, container or poller was started. The two light guarded runs have exited, and the lock-wait loop has exited.
