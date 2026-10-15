@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5
+# read 1 — ⟨node bench/records/W8lg1c/entry-diff.mjs <scratch> 2f590daa8 fc39e096e⟩ under guarded --light; 12:20  up 5 days, 17:23, 2 users, load averages: 11.60 28.30 55.92
+BASE 2f590daa8bca6fa7dba526c97e7357f865ff8801 src aed2aa0817eeb70d45af7cdf3e0175ba1edc6fd9 grammar.js 406bb5a1cc486e5271ba0dbb28282c27d7a8870d
+CUST fc39e096e37bbc56c9337f1d8a4d6aacbade84f5 src aed2aa0817eeb70d45af7cdf3e0175ba1edc6fd9 grammar.js 406bb5a1cc486e5271ba0dbb28282c27d7a8870d
+parseCssColor           145622 cc685faf3f384e0e   145622 cc685faf3f384e0e  UNCHANGED
+parseCssScalar          145593 09d7723be9331093   145593 09d7723be9331093  UNCHANGED
+parseCssValue           145592 0d258c3cd5895267   145592 0d258c3cd5895267  UNCHANGED
+parseCssValues          145750 6f131424fca97ef7   145750 6f131424fca97ef7  UNCHANGED
+parseKeyframeSelector   145787 72c9207b2e0cc117   145787 72c9207b2e0cc117  UNCHANGED
+parseTimingFunction     145593 552f454d6190eb06   145593 552f454d6190eb06  UNCHANGED
+parseStylesheet         167101 b38a97df64baf2d0   167101 b38a97df64baf2d0  UNCHANGED
+ENTRIES CHANGED 0 of 7
