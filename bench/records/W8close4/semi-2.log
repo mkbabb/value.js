@@ -1,0 +1,10 @@
+
+ RUN  v3.2.6 ~/Programming/value.js
+
+ ✓ test/css/bbnf-semicolon.test.ts (20 tests) 8ms
+
+ Test Files  1 passed (1)
+      Tests  20 passed (20)
+   Start at  12:22:39
+   Duration  582ms (transform 158ms, setup 46ms, collect 203ms, tests 8ms, environment 136ms, prepare 27ms)
+
