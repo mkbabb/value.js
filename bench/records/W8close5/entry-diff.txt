@@ -1,0 +1,10 @@
+BASE 2f590daa8bca6fa7dba526c97e7357f865ff8801 src aed2aa0817eeb70d45af7cdf3e0175ba1edc6fd9 grammar.js 406bb5a1cc486e5271ba0dbb28282c27d7a8870d
+CUST 7516f0d8ca89bd7c10575573cbd7ba280437127b src 23f39f33371c357ad38cbd8678ec80450463e21e grammar.js c64092a58c695ce5422df04712c1d20dd9e77ff1
+parseCssColor           145622 6e5f7bcba590269b   151181 bd1ff5775f14a2e3  CHANGED
+parseCssScalar          145593 e6189c0f0d7e9a07   151152 878f5c34c97b2d32  CHANGED
+parseCssValue           145592 00bb7fba93253b7c   151151 9ef390adfaf0e2b0  CHANGED
+parseCssValues          145750 67e0f95c357177f6   151309 24e4c60395cbbbdc  CHANGED
+parseKeyframeSelector   145787 8f095afe840c63a3   151346 aaa3a78158cab504  CHANGED
+parseTimingFunction     145593 5b4cf04132fb5c29   151152 e1fe18d6755122eb  CHANGED
+parseStylesheet         167101 bbb1ebf7c5928592   172662 0e43dd87903995ae  CHANGED
+ENTRIES CHANGED 7 of 7
