@@ -1,0 +1,7 @@
+after/easing-1440-dark.png 2.51
+after/easing-1440-light.png 1.75
+after/spring-1440-dark.png 4.22
+after/spring-1440-light.png 2.82
+after/square-1440-light.png 1.64
+after/timeline-cube-timeline-1440-dark.png 23.04
+after/timeline-cube-timeline-1440-light.png 23.67

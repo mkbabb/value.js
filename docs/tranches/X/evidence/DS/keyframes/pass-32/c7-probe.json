@@ -1,0 +1,324 @@
+{
+ "stageBottoms": {
+  "square": {
+   "top": 127,
+   "bottom": 750,
+   "left": 550,
+   "right": 1365,
+   "cls": "glass-resting.card.square-stage"
+  },
+  "spring": {
+   "top": 127,
+   "bottom": 750,
+   "left": 550,
+   "right": 1365,
+   "cls": "glass-resting.card.spring-target"
+  },
+  "sequence": {
+   "top": 127,
+   "bottom": 750,
+   "left": 550,
+   "right": 1365,
+   "cls": "glass-resting.card.seq-target"
+  },
+  "easing": {
+   "top": 127,
+   "bottom": 750,
+   "left": 550,
+   "right": 1365,
+   "cls": "glass-resting.card.easing-target"
+  }
+ },
+ "easing": {
+  "easing-1440-light": {
+   "boot": {
+    "scrollTop": 0,
+    "left": 1400,
+    "port": 467,
+    "cut": [
+     "tile:ease-in-sinesinusoidal:93/133",
+     "tile:ease-out-sinesinusoidal:93/133",
+     "tile:ease-in-out-sinesinusoidal:93/133"
+    ],
+    "selectedWhole": true
+   },
+   "plate": {
+    "top": 127,
+    "bottom": 750,
+    "left": 550,
+    "right": 1365,
+    "cls": "glass-resting.card.easing-target"
+   },
+   "ease-in": {
+    "scrollTop": 0,
+    "left": 1400,
+    "port": 467,
+    "cut": [
+     "tile:ease-in-sinesinusoidal:93/133",
+     "tile:ease-out-sinesinusoidal:93/133",
+     "tile:ease-in-out-sinesinusoidal:93/133"
+    ],
+    "selectedWhole": true
+   },
+   "steps": {
+    "scrollTop": 1400,
+    "left": 0,
+    "port": 467,
+    "cut": [],
+    "selectedWhole": true
+   }
+  },
+  "easing-1440-dark": {
+   "boot": {
+    "scrollTop": 0,
+    "left": 1400,
+    "port": 467,
+    "cut": [
+     "tile:ease-in-sinesinusoidal:93/133",
+     "tile:ease-out-sinesinusoidal:93/133",
+     "tile:ease-in-out-sinesinusoidal:93/133"
+    ],
+    "selectedWhole": true
+   },
+   "plate": {
+    "top": 127,
+    "bottom": 750,
+    "left": 550,
+    "right": 1365,
+    "cls": "glass-resting.card.easing-target"
+   },
+   "ease-in": {
+    "scrollTop": 0,
+    "left": 1400,
+    "port": 467,
+    "cut": [
+     "tile:ease-in-sinesinusoidal:93/133",
+     "tile:ease-out-sinesinusoidal:93/133",
+     "tile:ease-in-out-sinesinusoidal:93/133"
+    ],
+    "selectedWhole": true
+   },
+   "steps": {
+    "scrollTop": 1400,
+    "left": 0,
+    "port": 467,
+    "cut": [],
+    "selectedWhole": true
+   }
+  },
+  "easing-390-light": {
+   "boot": {
+    "scrollTop": 0,
+    "left": 2317,
+    "port": 404,
+    "cut": [
+     "heading:Sine:11/24"
+    ],
+    "selectedWhole": true
+   },
+   "plate": {
+    "top": 102,
+    "bottom": 715,
+    "left": 28,
+    "right": 362,
+    "cls": "glass-resting.card.easing-target"
+   },
+   "ease-in": {
+    "scrollTop": 0,
+    "left": 2317,
+    "port": 404,
+    "cut": [
+     "heading:Sine:11/24"
+    ],
+    "selectedWhole": true
+   },
+   "steps": {
+    "scrollTop": 2032,
+    "left": 0,
+    "port": 456,
+    "cut": [],
+    "selectedWhole": true
+   }
+  },
+  "easing-390-dark": {
+   "boot": {
+    "scrollTop": 0,
+    "left": 2317,
+    "port": 404,
+    "cut": [
+     "heading:Sine:11/24"
+    ],
+    "selectedWhole": true
+   },
+   "plate": {
+    "top": 102,
+    "bottom": 715,
+    "left": 28,
+    "right": 362,
+    "cls": "glass-resting.card.easing-target"
+   },
+   "ease-in": {
+    "scrollTop": 0,
+    "left": 2317,
+    "port": 404,
+    "cut": [
+     "heading:Sine:11/24"
+    ],
+    "selectedWhole": true
+   },
+   "steps": {
+    "scrollTop": 2032,
+    "left": 0,
+    "port": 456,
+    "cut": [],
+    "selectedWhole": true
+   }
+  }
+ },
+ "spring": {
+  "spring-1440-light": {
+   "reseat": 1230,
+   "legend": 1230,
+   "plot": 1230,
+   "track": 1230,
+   "presetGridClass": "toggle-group preset-grid grid w-auto max-w-none grid-cols-2 items-stretch gap-2 rounded-none bg-transparent p-0"
+  },
+  "spring-1440-dark": {
+   "reseat": 1230,
+   "legend": 1230,
+   "plot": 1230,
+   "track": 1230,
+   "presetGridClass": null
+  },
+  "spring-390-light": {
+   "reseat": 131,
+   "legend": 289,
+   "plot": 299,
+   "track": 299,
+   "presetGridClass": null
+  }
+ },
+ "ruler": {
+  "cube-timeline-1440-light": {
+   "trackHeight": 48,
+   "trackLeft": 92,
+   "trackRight": 457,
+   "ticks": [
+    {
+     "label": "0%",
+     "line": 114,
+     "centre": 115,
+     "left": 105,
+     "right": 125
+    },
+    {
+     "label": "25%",
+     "line": 195,
+     "centre": 196,
+     "left": 180,
+     "right": 211
+    },
+    {
+     "label": "50%",
+     "line": 275,
+     "centre": 276,
+     "left": 261,
+     "right": 291
+    },
+    {
+     "label": "75%",
+     "line": 355,
+     "centre": 356,
+     "left": 341,
+     "right": 371
+    },
+    {
+     "label": "100%",
+     "line": 435,
+     "centre": 436,
+     "left": 416,
+     "right": 456
+    }
+   ]
+  },
+  "cube-timeline-1440-dark": {
+   "trackHeight": 48,
+   "trackLeft": 92,
+   "trackRight": 457,
+   "ticks": [
+    {
+     "label": "0%",
+     "line": 114,
+     "centre": 115,
+     "left": 105,
+     "right": 125
+    },
+    {
+     "label": "25%",
+     "line": 195,
+     "centre": 196,
+     "left": 180,
+     "right": 211
+    },
+    {
+     "label": "50%",
+     "line": 275,
+     "centre": 276,
+     "left": 261,
+     "right": 291
+    },
+    {
+     "label": "75%",
+     "line": 355,
+     "centre": 356,
+     "left": 341,
+     "right": 371
+    },
+    {
+     "label": "100%",
+     "line": 435,
+     "centre": 436,
+     "left": 416,
+     "right": 456
+    }
+   ]
+  },
+  "cube-timeline-390-light": null
+ },
+ "square": {
+  "square-1440-light": {
+   "plate": 623,
+   "arena": 470,
+   "headerToField": 100,
+   "captionToFoot": 107
+  },
+  "square-390-light": {
+   "plate": 473,
+   "arena": 332,
+   "headerToField": 75,
+   "captionToFoot": 73
+  },
+  "square-390-dark": {
+   "plate": 473,
+   "arena": 332,
+   "headerToField": 75,
+   "captionToFoot": 73
+  }
+ },
+ "frames": [
+  "easing-1440-light",
+  "spring-1440-light",
+  "timeline-cube-timeline-1440-light",
+  "square-1440-light",
+  "easing-1440-dark",
+  "spring-1440-dark",
+  "timeline-cube-timeline-1440-dark",
+  "easing-390-light",
+  "spring-390-light",
+  "timeline-cube-timeline-390-light",
+  "square-390-light",
+  "easing-390-dark",
+  "square-390-dark"
+ ],
+ "fails": []
+}
