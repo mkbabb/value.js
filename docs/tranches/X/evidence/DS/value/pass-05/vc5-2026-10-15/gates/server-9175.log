@@ -1,0 +1,58 @@
+(node:69736) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+  VITE v8.0.16  ready in 1245 ms
+
+  ➜  Local:   http://localhost:9175/
+  ➜  Network: http://192.168.1.167:9175/
+6:53:17 PM [vite] (client) ✨ new dependencies optimized: katex
+6:53:37 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:53:43 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:54:00 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:54:21 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:54:57 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:54:57 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:54:57 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:54:57 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:55:21 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:55:21 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:55:37 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:55:37 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:55:42 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:55:42 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:55:42 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:55:57 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:56:02 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:57:48 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:57:49 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:57:49 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:57:58 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:58:05 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:58:17 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:58:33 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:58:49 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:58:55 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+6:59:00 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:02:07 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:02:27 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:02:50 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:04:55 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:08:44 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:04 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:25 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:44 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:47 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:15:56 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:16:09 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:16:18 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+7:16:21 PM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css

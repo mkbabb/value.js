@@ -1,0 +1,105 @@
+{
+ "base": "http://localhost:9000",
+ "katex": {
+  "light": {
+   "rows": 4,
+   "overflowing": 2,
+   "detail": [
+    {
+     "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases",
+     "scrollWidth": 332,
+     "clientWidth": 332,
+     "overflows": false,
+     "edgeAtRest": "0px",
+     "edgeAtEnd": "0px",
+     "maskImage": "linear-gradient(to right, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0))"
+    },
+    {
+     "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=",
+     "scrollWidth": 332,
+     "clientWidth": 332,
+     "overflows": false,
+     "edgeAtRest": "0px",
+     "edgeAtEnd": "0px",
+     "maskImage": "linear-gradient(to right, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0))"
+    },
+    {
+     "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac{L",
+     "scrollWidth": 431,
+     "clientWidth": 332,
+     "overflows": true,
+     "edgeAtRest": "24px",
+     "edgeAtEnd": "0px",
+     "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0))"
+    },
+    {
+     "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n \\c",
+     "scrollWidth": 505,
+     "clientWidth": 332,
+     "overflows": true,
+     "edgeAtRest": "24px",
+     "edgeAtEnd": "0px",
+     "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0))"
+    }
+   ]
+  },
+  "dark": {
+   "rows": 4,
+   "overflowing": 2,
+   "detail": [
+    {
+     "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases",
+     "scrollWidth": 332,
+     "clientWidth": 332,
+     "overflows": false,
+     "edgeAtRest": "0px",
+     "edgeAtEnd": "0px",
+     "maskImage": "linear-gradient(to right, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0))"
+    },
+    {
+     "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=",
+     "scrollWidth": 332,
+     "clientWidth": 332,
+     "overflows": false,
+     "edgeAtRest": "0px",
+     "edgeAtEnd": "0px",
+     "maskImage": "linear-gradient(to right, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0))"
+    },
+    {
+     "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac{L",
+     "scrollWidth": 431,
+     "clientWidth": 332,
+     "overflows": true,
+     "edgeAtRest": "24px",
+     "edgeAtEnd": "0px",
+     "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0))"
+    },
+    {
+     "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n \\c",
+     "scrollWidth": 505,
+     "clientWidth": 332,
+     "overflows": true,
+     "edgeAtRest": "24px",
+     "edgeAtEnd": "0px",
+     "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0))"
+    }
+   ]
+  }
+ },
+ "tooltips": {
+  "light": {
+   "Reset color": {
+    "text": "Reset to the default color.",
+    "descLines": 1,
+    "descBox": {
+     "x": 490.9894714355469,
+     "y": 110.77342224121094,
+     "width": 310.0210266113281,
+     "height": 23.017059326171875,
+     "top": 110.77342224121094,
+     "right": 801.010498046875,
+     "bottom": 133.7904815673828,
+     "left": 490.9894714355469
+    },
+    "cardText": "Reset colorReset to the default color."
+   }
