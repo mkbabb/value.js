@@ -23,6 +23,10 @@ export async function openHarness(viewport = { width: 390, height: 844 }): Promi
         configFile: path.join(REPO, "vite.config.ts"),
         mode: "development",
         root: path.join(import.meta.dirname, "harness"),
+        // Its own optimized-deps cache: the harness root optimizes a smaller
+        // dep set, and writing it into the shared `node_modules/.vite` broke
+        // the live :9000 dev server's boot (X-DS VC3-01).
+        cacheDir: path.join(REPO, "node_modules/.vite-harness"),
         server: { port: 0, host: "127.0.0.1", strictPort: false },
         logLevel: "error",
     });

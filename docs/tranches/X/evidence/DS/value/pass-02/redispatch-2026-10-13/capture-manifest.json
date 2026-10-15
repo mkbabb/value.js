@@ -190,7 +190,8 @@
     {
       "name": "picker-390-light.png",
       "ok": true,
-      "attempt": 2
+      "attempt": 1,
+      "reshot": "2026-10-14 X-DS VC3-04: the 2026-10-13 frame held PaneErrorPlate (a lazy chunk failed at load 185) and passed the old gate; re-shot with the role=alert gate on the restarted :9000 (VC3-01), tree of 2026-10-14"
     }
   ]
 }

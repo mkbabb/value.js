@@ -122,7 +122,12 @@ export default defineConfig({
             // optional reads (`/colors/approved`) fall back to the SPA 200; other
             // reads 404 same-origin (already absorbed by setupEnvNoise). The demo's
             // production default (`api.color.babb.dev`) is unchanged for real builds.
-            env: { VITE_API_URL: E2E_ORIGIN },
+            env: {
+                VITE_API_URL: E2E_ORIGIN,
+                // Its own optimized-deps cache, never the :9000 dev server's
+                // (X-DS VC3-01; vite.config.ts dev branch).
+                VJS_VITE_CACHE_DIR: `${import.meta.dirname}/node_modules/.vite-e2e-${E2E_PORT}`,
+            },
         },
         {
             // S.W3 ORACLE — the BUILT-bundle server for `smoke-perf`. The §6.2

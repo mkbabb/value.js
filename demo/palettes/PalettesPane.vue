@@ -336,4 +336,12 @@ async function onPublish(palette: Palette) {
     padding-block-start: 0;
     margin-block-start: calc(var(--phi-3) - 0.75rem);
 }
+/* X-DS VC3-03: the well above ("Start a new palette", with its + slot) is the
+ * card's invitation. The library's true-empty plate keeps its owner-ruled trio
+ * (t33-audit-08) but speaks one voice under it: its statement takes the hint
+ * rung, so it never outranks the well's label. */
+.palettes-companion-grid > :deep([role="status"]:not([data-empty-register])) > p.font-display {
+    font-size: var(--type-small);
+    font-weight: 400;
+}
 </style>

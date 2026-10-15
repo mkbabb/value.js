@@ -265,6 +265,13 @@ export default defineConfig((mode) => {
         return {
             ...defaultOptions,
             root: "./demo/app/",
+            // One optimized-deps cache per long-lived server. Two vite servers
+            // that share `node_modules/.vite` re-optimize it under each other,
+            // and the survivor then serves a page whose deps bind two copies
+            // of Vue (X-DS VC3-01: GlassDock "missing template", dockEl "not
+            // extensible"). The e2e webServer and the unit-test harness set
+            // their own directory; the :9000 dev server keeps the default.
+            cacheDir: process.env.VJS_VITE_CACHE_DIR || undefined,
             server: {
                 host: true,
             },

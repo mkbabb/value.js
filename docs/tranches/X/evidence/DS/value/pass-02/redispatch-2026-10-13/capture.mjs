@@ -43,6 +43,14 @@ async function shoot({ theme, width, name }) {
             // lazy pane chunks: no "Loading the scene" plate may be standing
             await page.waitForFunction(() => !document.querySelector('main [aria-busy="true"]'), null, { timeout: 300_000 });
             await page.waitForTimeout(5000);
+            // X-DS VC3-04 (2026-10-14): a pane error plate (PaneErrorPlate, a
+            // resting Card with role=alert) also passes the gates above; it is
+            // not the scene, so the attempt fails and is retried.
+            const plate = await page.evaluate(() => {
+                const el = document.querySelector('main [role="alert"]');
+                return el ? (el.textContent || "role=alert").trim().slice(0, 80) : "";
+            });
+            if (plate) throw new Error("pane error plate: " + plate);
             await page.screenshot({ path: target });
             await browser.close();
             return { name: file, ok: true, attempt };
