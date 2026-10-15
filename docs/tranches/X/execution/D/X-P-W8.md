@@ -1090,3 +1090,64 @@ Groups: `[[".cust"], [".lg1c"]]`.
 7. **Residuals.**
    - If ESC-W8cust-1 is ruled (a) and `.cust` lands candidate D, the product bytes move. This unit's diff must then be re-run against that product commit (`entry-diff.mjs <scratch> 2f590daa8 <commit>`). L-G1 ×2 by §0ev.1 is owed on every changed entry. This receipt does not discharge that future read.
    - Escalations: none of this unit's own. ESC-W8cust-1 stands, unruled, and is owned by `.cust`.
+
+## RESUME 3 2026-10-15 — Close (workflow close seat, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **BLOCKED-ON ESC-W8cust-1**
+
+- **Crash recovery:** ⟨`git status --porcelain -- src test bench docs/tranches/X/execution`⟩ → only `M docs/tranches/X/execution/C/F-REL.md` (Track C's, untouched) and `M scripts/dev/dev.sh` (unowned, untouched). Nothing in this seat's writable set was inherited. parse-that ⟨`git log --oneline -1`⟩ → `cb9c0d4` (unmoved; its dirty `rust/**` belongs to another session, untouched).
+- **§0fb / §0fd:** one sequential runner `bench/records/W8close4/gates.sh` under ⟨`~/.claude/guard/guarded --light --timeout 60 -- sh gates.sh`⟩ in `run_in_background`; vitest `--maxWorkers=2`; 1-min load 10.5–16.3 throughout (`run.log`). No browser, server, watcher or window capture. Outputs banked in `bench/records/W8close4/` (MANIFEST.sha256 29/29 OK).
+- **L-G1:** audited, not re-timed (§0eq, §0fc.2): no emitted byte moved.
+
+### Act 1 — commit roster (⟨`git show --stat`⟩)
+| unit | commit | paths | in writable set? |
+|---|---|---|---|
+| `.cust` | `fc39e096e` | `bench/records/W8cust/{audit-pinned.mjs, gen-pinned.mjs, bbnf-custom-semicolon.test.ts.candidate, candidate-raw-termset.patch, e6.txt}` + this record (+13) | yes (0 product bytes) |
+| `.lg1c` | `c2a1c49a9` | `bench/records/W8lg1c/{entry-diff.mjs, entry-diff-read{1,2}.txt, entry-diff-head.txt, lg1r-cite.txt, MANIFEST.sha256}` | yes |
+| `.lg1c` | `03219c6c9` | this record (+24) | yes |
+
+⟨`git diff --stat fc39e096e^..HEAD -- src test scripts/dev/dev.sh docs/tranches/X/parse-that/waves docs/tranches/X/COHESION.md`⟩ → empty. Product = `2f590daa8` (src tree `aed2aa08…`). Landed-wrong: none. Adjacent edits: none declared, none found.
+
+### Act 2 — gates re-run by this seat (BEFORE = RESUME 3 Baseline at `d9fcea626`, product `2f590daa8`; AFTER = HEAD `03219c6c9`, product `2f590daa8`)
+| Gate (ADDENDUM (c) / Unit plan) | Command | BEFORE | AFTER (×2 where marked) | GREEN def. | Verdict |
+|---|---|---|---|---|---|
+| `.cust` falsifier | ⟨`npx vite-node bench/records/W8semi/probe.ts 'a{--x:f(a;b)}' 'a{--x:[a;b]}' 'a{--x:{a;b}}' …`⟩ | refused css_syntax ×3 ×2 | `refused css_syntax` ×3 ×2 (`probe-{1,2}.txt`) | ACCEPTED + round-trips | **RED** (cure not landed: ESC-W8cust-1) |
+| top-level `;` control | same, `a{--x:a;b}` | refused ×2 | refused css_syntax ×2 | refused | GREEN (holds) |
+| `.semi` falsifiers ×2 | same probe `rotate(0;1deg)` · keyframes `translate(0;1px)`; ⟨`npx vitest run test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ | refused ×2; 20/20 ×2 | refused css_syntax ×2; `Tests 20 passed (20)` ×2 | refused; 20/20 | GREEN |
+| `.e` stay | same, `a{--x: ;}` | ACCEPTED ×2 | ACCEPTED ×2 | ACCEPTED | GREEN |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | cited 6267/3898/0 | `TOTAL 6267 2369 3898 0 …` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | 0 unruled, 0 stale | GREEN |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ | cited 19/19, MIRROR 0 | `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 (26 lines `MIRROR-DEFECTS 0` each) | 19/19, MIRROR 0 | GREEN |
+| test/css ×2 | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | cited 18/238 | `Test Files 18 passed (18) · Tests 238 passed (238)` ×2 | all pass | GREEN |
+| L-G2 ×2 | ⟨`node bench/paired/build.mjs`⟩ → `valuejsHead 03219c6c… · srcDirty "" · bankedManifestOk 79/79`; ⟨`node bench/paired/equiv.mjs product …`⟩ | cited 2847 (named W8semi-SEMI) | `compared 1376531/1376531 rows · mismatches 2847` ×2; ⟨`cmp equiv-1 equiv-2`⟩ identical; ⟨`gunzip -c bench/records/W8semi/equiv-1.json.gz \| cmp - equiv-1.json`⟩ identical | 0 new unnamed | GREEN (byte-identical to `.semi`'s classified read) |
+| prefix ×2 | same | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | 0 | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | 0 | GREEN |
+| `--check` ×2 (pinned `f0059db14`) | ⟨`node .worktrees/w8close3/gen-pinned.mjs --check`⟩ | `9f54614b…` | `is current (sha256 9f54614b502d…)` ×2 | current | GREEN |
+| audit (pinned) | ⟨`node .worktrees/w8close3/audit-pinned.mjs`⟩ | 0 | `rules 176 · checks 350068857 · violations 0 · modeDiffs 0` | 0 | GREEN |
+| E-6 ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c` / `\| gzip \| wc -c`⟩ | 104733 / 14635 | `104733` / `14635` ×2; delta 0 / 0 | ≤ 125,646 / ≤ 14,800 (§0fc.1) | GREEN (headroom 165 B gz; no cure landed) |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0; `error TS` 0 · 0 | 0 | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence/w6-classes.ts --max-warnings=0`⟩ | 0 | exit 0, 0 bytes | 0 | GREEN |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 3.74s` | OK | GREEN |
+| L-G1 entry diff | ⟨`node bench/records/W8lg1c/entry-diff.mjs <scratch> 2f590daa8 HEAD`⟩ | `.lg1c` 0 of 7 ×2 | `ENTRIES CHANGED 0 of 7` (src `aed2aa08` = `aed2aa08`, grammar.js `406bb5a1` both sides) | 0 changed → cite `.lg1r` | GREEN |
+| L-G1 ×2 audit (§0eq) | ⟨`git archive HEAD bench/records/W8lg1r bench/records/W8lg1c \| tar -x`; `shasum -a 256 -c MANIFEST.sha256`⟩; ⟨`node bench/paired/bootstrap.mjs <tree>/{node,browser}/*.json \| shasum -a 256`⟩ ×2 | 56; `590d5a9c…`; 103/103 | `56` + `5` OK ×2; `590d5a9c7ea58864…` ×2, equal to the committed `bootstrap-read.txt`; `→ GREEN` 103, `STRADDLE\|RED` 0 | median AND ub < 1.0 every cell | GREEN (`.lg1r` `333b519ea` stands) |
+
+Self-count: 18 gate rows; 17 GREEN; 1 RED (the `.cust` falsifier — the wave's own cure, not landed, escalated). Every `.cust`/`.lg1c` published figure reproduces: 104733/14635, 0 of 7, 56/56, `590d5a9c…`, 103/103, `9f54614b…`.
+
+### Act 3 — verification artefacts
+W8.md has no separate §Verification Artefacts section. ADDENDUM (c)'s falsifier list is the artefact set, and every item is read in Act 2. The `.cust` candidate (`bench/records/W8cust/candidate-raw-termset.patch` + `bbnf-custom-semicolon.test.ts.candidate`) is evidence only. It was not applied here, because a verify-only seat cures nothing.
+
+### Act 4 — E13 mail
+⟨`find <p> -maxdepth 1 -type f -newer docs/tranches/V/coordination/INBOX.md | wc -l`⟩ → `0` on value `V/`, `V/coordination`, glass `BK/coordination`, `BL/coordination`, keyframes `V/coordination`, atlas `P/coordination`. Glass `BL/` → `1`, `FORMATION-PROGRESS.md`, which is a progress file, not mail. ⟨`grep -cE '^\| .*\| *UNREAD *\|' INBOX.md`⟩ → `0`. No UNREAD mail is in scope.
+
+### Escalations (standing, unruled: ⟨`grep -c 'ESC-W8cust-1' docs/tranches/X/COHESION.md`⟩ → `0`)
+- **ESC-W8cust-1** (`.cust`, `fc39e096e`) is the owner's to rule. Every lawful W8semi-CUSTOM cure needs a recursive `()`/`[]`/`{}` BBNF rule pair. Under the pinned emitter `f0059db14`, every such cure measures 15,168–15,278 B gz, which is over the 14,800 B ceiling of §0fc.1 (never shaved). The owner's options are (a), (b) or (c):
+  - **(a)** Raise the gz ceiling to at least about 15,300 B and land candidate D.
+  - **(b)** Open a bbnf-lang producer row on emitter size for recursive text rules.
+  - **(c)** Rule W8semi-CUSTOM out of scope until (a) or (b) happens.
+  - This seat re-read the RED falsifier (×2) and the unchanged E-6. It did not re-measure the candidate variants (`e6.txt` is the `.cust` seat's ×2).
+
+### Residuals (named owners)
+- **R-1 · owner:** rule ESC-W8cust-1. Until then, `a{--x:f(a;b)}`, `[a;b]` and `{a;b}` are refused. This is C1-1 / W8semi-CUSTOM, a named MEDIUM, DIVERGENCE-LEDGER §19-S.
+- **R-2 · `.cust` successor seat:** this applies on ruling (a) only. Land candidate D and turn the full Unit-plan gate row ×2 on it: the falsifier RED→GREEN, V-C, MIRROR, test/css, L-G2 with every new delta row a named class, prefix, L-G3, `--check`, audit, E-6 with its delta, vue-tsc, eslint, build. Then close §19-S by a dated addendum.
+- **R-3 · `.lg1c` successor:** this applies on ruling (a) only. Re-run `entry-diff.mjs` against the landed product commit, and run L-G1 ×2 by §0ev.1 on every entry that changed.
+- **R-4 · orchestrator** (carried from Check 1 C1-4): the untracked `docs/tranches/X/parse-that/evidence/W8/l-g1-r1/bootstrap-read-e-bytes.txt` is still outside this seat's set.
+
+### State
+Row 108 is set to **BLOCKED-ON ESC-W8cust-1 (owner ruling: E-6 gz ceiling / bbnf-lang emitter row / ruled row)**. The close does not stamp IMPLEMENTED over the RED cure falsifier, which is ADDENDUM (c)'s own goal. Every stay-GREEN conjunct holds on the unchanged product `2f590daa8`. Order after the ruling: `.cust` (R-2) → `.lg1c` re-diff (R-3) → close → check.
