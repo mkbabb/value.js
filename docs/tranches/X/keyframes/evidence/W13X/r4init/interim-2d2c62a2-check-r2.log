@@ -1,0 +1,6 @@
+kf 2d2c62a2 · 13:23  up 5 days, 18:25, 2 users, load averages: 12.42 11.47 13.04
+> node scripts/gates/structure/index.mjs
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+check EXIT 0

@@ -1,0 +1,26 @@
+swap cube->amiga · load 60.50 · LoAF>50 [{"start":6228,"dur":104,"scripts":[]},{"start":6349,"dur":212,"scripts":["ViewTransitionCallback /assets/index-C43enX_8.js 7","import.then /assets/index-C43enX_8.js 150","FrameRequestCallback /assets/progress-Bnzf-W0u.js 29"]},{"start":6564,"dur":53,"scripts":["import.then /assets/index-C43enX_8.js 7","import.then /assets/KeyframesStringControls-KtCiCObT.js 26","import.then /assets/formatEditorCSS-DjIHDfKm.js 7","FrameRequestCallback /assets/vendor-monaco-nwzXcI7Q.js 10"]}]
+JS self by file:
+  59.1ms /assets/vendor-three-nw0IrzH_.js
+  42.5ms /assets/vendor-reka-ui-C_Tr5-Vi.js
+  16.6ms /assets/glass-ui-ClrkbClX.js
+  15.2ms /assets/vendor-monaco-nwzXcI7Q.js
+  14.8ms /assets/KeyframesStringControls-KtCiCObT.js
+  14.5ms /assets/index-C43enX_8.js
+  7.1ms /assets/AmigaScene-9I_2OE6k.js
+  5.3ms /assets/public-BzaX3NtH.js
+  2.1ms /assets/vendor-prettier-BlTWbCTH.js
+  1.0ms /assets/keyboard-DBqyvHKw.js
+  0.9ms /assets/binary-search-U2Hj7143.js
+JS self by function:
+  19.3ms C /assets/vendor-three-nw0IrzH_.js:4046
+  15.0ms so /assets/glass-ui-ClrkbClX.js:1
+  14.8ms v /assets/KeyframesStringControls-KtCiCObT.js:6
+  12.0ms setSize /assets/vendor-three-nw0IrzH_.js:4104
+  4.6ms n /assets/vendor-three-nw0IrzH_.js:3956
+  3.5ms o /assets/index-C43enX_8.js:15
+  3.3ms (anon) /assets/index-C43enX_8.js:19
+  2.9ms (anon) /assets/index-C43enX_8.js:15
+  2.4ms (anon) /assets/vendor-reka-ui-C_Tr5-Vi.js:3
+  2.2ms s /assets/vendor-reka-ui-C_Tr5-Vi.js:3
+  1.8ms (anon) /assets/AmigaScene-9I_2OE6k.js:1
+  1.7ms get /assets/vendor-reka-ui-C_Tr5-Vi.js:3

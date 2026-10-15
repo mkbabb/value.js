@@ -1,0 +1,8 @@
+first samples /vendor-three|three\.module/: +22 ha:vendor-three-nw0IrzH_.js | +40 ke:vendor-three-nw0IrzH_.js | +41 ke:vendor-three-nw0IrzH_.js | +41 ke:vendor-three-nw0IrzH_.js | +41 init:vendor-three-nw0IrzH_.js | +42 n:vendor-three-nw0IrzH_.js
+first samples /vendor-monaco|monaco-editor/: +97 _deliverQueue:vendor-monaco-nwzXcI7Q.js | +98 Lt:vendor-monaco-nwzXcI7Q.js | +98 _onWillDispose:vendor-monaco-nwzXcI7Q.js | +98 Lt:vendor-monaco-nwzXcI7Q.js | +198 i:vendor-monaco-nwzXcI7Q.js | +212 addRule:vendor-monaco-nwzXcI7Q.js
+swap cube->amiga · load 11.05 · pageerrors 0
+dest(.amiga-canvas) inserted +22 ms · rAF +156 · painted +185 ms (end of the destination's LoAF; message +186)
+first vendor-three sample +22 ms -> paint-before-three RED · first vendor-monaco sample +97 ms -> paint-before-monaco RED
+swap LoAF>50: 1 · max JS self 95 ms -> GREEN (<= 200)
+  +15 dur 170 jsSelf 95 [vendor-three 45.5, vendor-reka-ui 24.6, glass-ui 14.6, index 3.6, AmigaScene 3.0] ["ViewTransitionCallback /assets/index-C43enX_8.js 6","import.then /assets/index-C43enX_8.js 129","FrameRequestCallback /assets/progress-Bnzf-W0u.js 21"]
+window JS self 165.2 ms [vendor-three 50.9, vendor-reka-ui 40.7, vendor-monaco 14.8, glass-ui 14.6, KeyframesStringControls 13.3] · marker offset resolution 0.25 ms

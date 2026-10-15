@@ -1,0 +1,34 @@
+kf HEAD 8343dbe8 tree demo@2d2c62a2 + case (6) · 14:10  up 5 days, 19:12, 2 users, load averages: 10.80 9.32 11.17
+
+ RUN  v4.1.8 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/redwt/kf
+
+ ❯ |demo| test/demo/instrument/css-code-editor-seam.test.ts (6 tests | 1 failed) 2570ms
+     × (6) KFA-81: the outgoing editor's teardown also waits for the paint (a swap unmounts one pane and mounts the next in one frame) 112ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/instrument/css-code-editor-seam.test.ts > G-KFW12-4 — the Monaco seam > (6) KFA-81: the outgoing editor's teardown also waits for the paint (a swap unmounts one pane and mounts the next in one frame)
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ test/demo/instrument/css-code-editor-seam.test.ts:333:55
+    331|             mounted.unmount();
+    332|             mounted = undefined;
+    333|             expect(monaco.editor.getEditors().length).toBe(live);
+       |                                                       ^
+    334|             idle.splice(0).forEach((run) => run());
+    335|             expect(monaco.editor.getEditors().length).toBe(live - 1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  14:10:12
+   Duration  7.02s (transform 2.86s, setup 29ms, import 3.65s, tests 2.57s, environment 638ms)
+

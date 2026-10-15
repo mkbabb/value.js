@@ -1,0 +1,5 @@
+kf b0ba5ba2 · 14:15  up 5 days, 19:18, 2 users, load averages: 15.54 11.64 11.50
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+check EXIT 0

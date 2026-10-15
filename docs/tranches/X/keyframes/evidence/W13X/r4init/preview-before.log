@@ -1,0 +1,5 @@
+(node:20733) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ➜  Local:   http://localhost:5396/
+  ➜  Network: use --host to expose
+[guarded] KILLED: timeout after 40.0 min

@@ -1,0 +1,6 @@
+cold #/cube · load 10.40 · pageerrors 0
+dest(.cube-bob) inserted +76 ms · rAF +23 · painted +79 ms (end of the destination's LoAF; message +80)
+first vendor-three sample +100 ms -> paint-before-three GREEN · first vendor-monaco sample +114 ms -> paint-before-monaco GREEN
+swap LoAF>50: 1 · max JS self 35 ms -> GREEN (<= 200)
+  +0 dur 79 jsSelf 35 [vendor-reka-ui 24.6, index 6.6, keyboard 0.8, progress 0.7, public 0.7] ["import.then /assets/keyboard-DBqyvHKw.js 54"]
+window JS self 218.4 ms [vendor-reka-ui 141.2, index 25.4, vendor-monaco 21.6, public 12.3, progress 5.1] · marker offset resolution 0.25 ms
