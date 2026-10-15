@@ -1258,3 +1258,166 @@ Floors: ⟨`npx vue-tsc -p tsconfig.demo.json --noEmit`⟩ → `TC EXIT 0` ×2 (
 - **Note on §0ec.** `--type-title` is already a published rung at 10.1.0 (`scale.css:121`, 2.058rem, φ^(3/2)); §0ec records glass publishing a token of that name at 10.2.0 for CardTitle at body × √φ (23.67 px). If 10.2.0 re-points the name, `--pane-title-size` falls back to display-1 on phones and `o10`'s added `≥ 1.5` leg reads RED at that repin. To be read at the 10.2.0 repin, not before.
 
 **Verdict: DONE, with one reading the Check must audit (R-h-5).** R-h-1's /blob limb GREEN ×2, while the committed `gate-l35` as a whole reads RED at 1440 on two non-/blob limbs that `gate-l35b` restates; every L3 row re-read ×2 at 1440 and 390 in both themes (committed instrument 8/8 cells, corrected instrument 8/8 cells, frames 68 + 68); L3-1, L3-2 consumer half, L3-4, L3-5, L3-7, L3-8 hold; L3-2 pane limb and L3-3 honest-RED on O-74 at the 10.1.0 bytes; L3-6 / X-8 HELD. The mirror this seat started is stopped (⟨`lsof -nP -iTCP:9131 -sTCP:LISTEN -t | wc -l`⟩ → 0).
+
+
+### X.W12U.q
+
+SERVED MODEL: claude-opus-5-5. Seat 0, 2026-10-13 15:43 → close, HEAD at open `5f00126c7`; glass 10.1.0. Spec read whole (`W12U.md`, 96 lines: §3 Close :58-59, addendum (e) :80-87, ADDENDUM (f) :89-96); record: header → Unit plan, Check 3 (:923-955), RESUME 2 open / plan / baseline, the second `.h` receipt (:1168-1260); COHESION §0ev (:3752-3770) and §0ex → the file end. Evidence: `docs/tranches/X/waves/W12U-evidence/q/` (instruments at its root, `logs/`, `results/`, `probes/`).
+
+- **Crash recovery** ⟨`git status --porcelain | grep -E 'W12U-evidence/q|execution/A/X-W12U.md|demo/'`⟩ → no `q/` path and no record hunk; 10 modified + 1 untracked under `demo/**`, every mtime 10-09 18:23–18:29 (⟨`stat -f '%Sm %N'`⟩). They are the X-DS value pass-9 orphans `.h` named and left for their owner (R-h-7; §0ex): design-critic rows of another workflow, not a killed `.q` seat's work, and `demo/**` is in this unit's set only for the root cure of a test that fails three runs. None was staged, edited or reverted. **Every reading below ran over them.**
+- **Host.** 18 cores. 1-minute load at open `181.80`; through the sitting it ranged **87 → 648** (other tracks: keyframes vitest, fourier benches, a VM, 370 simulator processes; ⟨`ps -axo pcpu,command | awk …`⟩ at 16:08). No read was deferred for load (§0ev.1/.2); the load is beside each.
+
+#### Act 0 · the instrument, and three corrections to it (all this seat's own)
+- **`:9000` was hung at open** ⟨`curl -s -m 15 -o /dev/null -w "%{http_code} %{time_total}" localhost:9000/`⟩ → `000 15.01` (PID 7025 at 79 % CPU: ESC-W12Uh-1, the fsevents saturation `.h` diagnosed, still standing). Named fallback: a same-tree mirror from `q/vite.q.config.ts`, which is the repository's own `vite.config.ts` imported unmodified with `server.watch = null` (no watcher, no HMR) and its own `cacheDir`. `:9141` (the whole-suite chain), `:9143` (the re-run lane), `:9145` (the `smoke` project), each `VITE_API_URL` = its own origin as `playwright.config.ts` sets it; the built-bundle server on `:9142` (`e2e/smoke/perf/serve-built.mjs`). Runner `q/run-smoke.sh` / `q/rerun.sh`: `npx playwright test --project=<p> --workers=1 --trace=retain-on-failure`, the config's `retries: 0` untouched, traces under `~/.dev-logs/w12u-q/` (outside the tree).
+- **Correction 1 · the first mirror still watched.** `mergeConfig(resolved, { server: { watch: null } })` skips null values, so the mirror started at 15:46 hot-updated pages under running tests (its log: `hmr update /App.vue, …/ColorPicker.vue …` at 16:06–16:07 while another seat saved demo files) and shared `node_modules/.vite` with every other server on the tree (`probe-webkit-gl` read `504 (Outdated Optimize Dep)` at 16:07). Fixed at 16:08 by assigning `server.watch = null` after the merge and giving each mirror its own `cacheDir`. **The runs taken on the watching mirror are named as such below** (`smoke-safari` r1, r2; `smoke-mobile`, `smoke-reactivity`, `smoke-perf`, `smoke-admin` r1) and are not counted as clean reads where a later clean read disagrees.
+- **Correction 2 · this seat killed two of its own runs at 16:10:55** while replacing the `:9142` server (⟨`pkill -f 'PERF_PORT=9142'; kill $(lsof -t -iTCP:9142 -sTCP:LISTEN)`⟩): `smoke` r1 (1 test in) and `smoke-mobile` r2 (0 tests in) ended `exit=143`, and `smoke-reactivity` r2 read `Process from config.webServer was not able to start` (two builders raced for the port). The three partial logs are kept under `logs/aborted/`, their JSON deleted, and the runs retaken. No process of another seat was touched.
+- **Correction 3 · this seat's first `npx vitest run` pair (16:05) was stopped by its own hand at 16:07** when the load read 601–648, and retaken after the browser lanes (below). Its partial logs are under `logs/aborted/`.
+- **`dist/` moved under every server during the sitting.** `dist/gh-pages` (built 14:53) was gone at 16:09 (⟨`ls -la dist`⟩ → `dist` mtime 16:06: another seat's library build empties `dist/`), so the built bundle `smoke-perf` reads was rebuilt by the harness's own self-heal (`serve-built.mjs:27-30`) at 16:11. The `smoke-perf` r1 bundle and the r2/r3 bundle are therefore two builds of one tree (G2 reads `329298` then `329330` B).
+
+
+
+#### Act 1 · `.t` r2 alpha leg by the §0ev.1 protocol (C3-5) — GREEN ×2
+Instrument `q/alpha-31.spec.ts` under `q/playwright.q.config.ts`: the alpha leg of `e2e/smoke/w12u-p-drag.spec.ts` restated without touching that spec (same boot, same 2000 ms there-and-back path over 8 % → 92 % of the slider, the same CDP profiler at 200 µs and timeline trace through every drag, 400 ms rest; helpers imported from `e2e/smoke/perf/frame-budget.ts` and `real-gpu.ts`). The one difference is that it drags alpha N times where the committed spec drags surface, L, a, b once before it. ≥ 31 drags, more in blocks of 10 up to 101 while the bootstrap bound straddles the budget; per drag p50 and p95 of the rAF deltas; the statistic is the **median over drags** with a seeded (mulberry32) percentile bootstrap of that median, 10 000 resamples. The gate is stricter than the spec's single read: median ≤ budget AND the 97.5th-percentile bound ≤ budget, for both p50 (≤ T + 1 ms) and p95 (≤ 2·T + 1 ms).
+
+⟨`Q_ALPHA_OUT=q/results/alpha-rN.json npx playwright test --config q/playwright.q.config.ts`⟩ (renderer `ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)` asserted in the test; real Chrome new-headless; mirror `:9141`); figures read from `results/alpha-r{1,2}.json` and again from `logs/alpha-r{1,2}.log.txt`, identical:
+
+| run | load start → end | drags | T | budget p50 / p95 | p95 median · u95 · u97.5 (min–max) | p50 median · u97.5 (max) | drags over | long tasks | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| r1 15:47 | 144 → 114 | 31 | 16.70 | 17.70 / 34.40 | **16.80 · 16.80 · 16.80** (16.7–16.8) = 1.006 T | 16.70 · 16.70 (16.7) | 0 / 31 | 0 | **GREEN** |
+| r2 15:49 | 111 → 117 | 31 | 16.70 | 17.70 / 34.40 | **16.80 · 16.80 · 16.80** (16.7–16.8) = 1.006 T | 16.70 · 16.70 (16.7) | 0 / 31 | 0 | **GREEN** |
+
+62 drags, none over either budget, no long task, 45–61 pointer moves and 121–129 frames per drag. `.t`'s r2 reading (alpha p95 116.6 ms, 12 long tasks, 26 moves, load 73) does not reproduce at load 111–144: it was one starved drag, as `.t` read it. **C3-5 is closed.** The bound did not straddle, so no round past 31 was owed.
+
+#### Act 2 · typecheck · lint — GREEN ×2
+⟨`npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit; npx tsc -p tsconfig.e2e.json --noEmit`⟩ r1 (15:51, load 119, HEAD `2c9738567`) → `lib EXIT 0 · demo EXIT 0 · test EXIT 0 · e2e EXIT 0`; r2 (15:58, load 90, HEAD `b45cf83d4`) → the same four `EXIT 0` (`logs/typecheck-r{1,2}.log.txt`). ⟨`npx eslint . --max-warnings=0`⟩ r1 → `LINT EXIT 0` (15:52–15:58) · r2 → `LINT EXIT 0` (15:58–16:05) (`logs/lint-r{1,2}.log.txt`). Both over the working tree with the 11 orphan paths. They were read again after this unit's own edits (Act 7).
+
+_(Sitting 1's draft ends at Act 2. Its later acts were not written before its session died; sittings 2–3 follow.)_
+
+#### Sitting 3 (2026-10-15, seat 0, `claude-opus-5-5`) — re-run 1 read, every failure classified; rounds 2–3 refused admission by the host
+
+- **Why sitting 2 stopped.** ⟨`last -5`⟩ → `console Wed Oct 14 10:54 - 13:24`; ⟨`ls /Library/Logs/DiagnosticReports | grep WindowServer`⟩ → `WindowServer-2026-10-14-132418.ips`, whose ⟨`grep -o '"ktriageinfo"…'`⟩ reads `VM - (arg = 0x1) vm_map_copyout_kernel_buffer failed` and `EXC_CRASH SIGABRT`. The machine did not reboot (⟨`uptime`⟩ → up 5 days). WindowServer aborted when a kernel buffer copy-out failed under VM pressure, and that ended the GUI login and every session in it. The guard's own header (2026-10-15 rewrite) records the state around it: hours at load 50–136 on 18 cores, 1,200+ processes, swap near full. Seven `com.apple.WebKit.WebContent.Development` crash reports were written between 13:19 and 13:21. This seat's s3 `smoke` round was running then, on Chromium only. The WebKit stacks belonged to other sessions. At this sitting's open: load 13, memory free 64 %, swap 87–89 %, 1,280–1,340 processes.
+- **Crash recovery.** ⟨`git status --porcelain`⟩ over this unit's set gave: `q/failures.mjs` and `q/tally.mjs` modified, and the s2/s3 logs, results and runner scripts untracked. All of it is sitting 2's work (`run-guarded.sh`, `run-perf-guarded.sh`, `rerun-chain.sh`, `rerun-ids.sh`) and is adopted here. Sitting 1's `receipt-part1.md`/`-part2.md` drafts were adopted and folded into this receipt. One outside-set orphan family also belongs to `.q`: six `e2e/smoke/**` specs carrying `(X-W12U .q)` comments, mtimes 10-13 16:28–16:46, and `demo/test/palettes/plate-mass.test.ts` (10-13 17:08). See *Escalations*. The other dirty `demo/**` paths are X-DS's (10-09 pass-9 orphans, and the 10-14 12:21–12:26 VC3-01 work in `playwright.config.ts`, `n-fixtures/browser.ts`, `MixConfigBar.vue` and `PalettesPane.vue`). This seat did not touch them, and every reading below ran over them.
+- **Instrument (sitting 3).** These are sitting 2's guarded runners, changed in three ways:
+  1. `run-guarded.sh` takes the machine-wide WebKit lock (`guarded --exclusive webkit`, new on 10-15) for any `*safari*` project, and its default timeout is the guard law's 45 min (sitting 2 had 120).
+  2. `Q_INNER=1` runs a step unguarded inside one batch.
+  3. `q-batch.sh` and `q-run.sh` admit the remaining rounds as two guarded batches: C (Chromium, no lock) and W (WebKit, `--exclusive webkit`).
+
+  The reason for the batches was measured. `q-chain.sh`'s q1 `oracles-safari` step waited **1 h 51 min** for a guard slot (13:02 → 14:34). In that time three other sessions' 20–170 min runs (glass-ui BL harnesses and others) held all three slots. The guard's `acquire_slot` polls every 5 s and keeps no queue, so a single poller can starve. This seat stopped its own starved chain (⟨`kill <its guarded pid> <its sh pid>`⟩; recorded in `logs/q1-chain.txt`) and folded what remained into the batches. No process of another seat was touched.
+
+#### Act 3 · the whole `--workers=1` smoke and the §0ev.2 rounds: what was read, and what was not
+- **The whole run of record is sitting 2's s2** (10-14 11:14 → 13:00; HEAD `c7beb41ec`/`3666479cd`/`2be200dc3` as the tree moved; load 30–157). ⟨`grep -E '^\s+[0-9]+ (failed|passed|skipped|did not run)' logs/s2-*.log.txt`⟩:
+
+  | project | passed | failed | other |
+  |---|---|---|---|
+  | `smoke` | 229 | 62 | 2 skipped |
+  | `smoke-admin` | 21 | 0 | |
+  | `smoke-mobile` | 7 | 0 | |
+  | `smoke-safari` | 4 | 0 | |
+  | `smoke-perf` | — | 7 | |
+  | `smoke-reactivity` | — | 1 | 1 did not run |
+  | `oracles-safari` | 111 | 55 | |
+
+  ⟨`node failures.mjs results/s2-smoke.json`⟩ → `COUNT passed=230 failed=50 timedOut=11 skipped=2 total=293` (the list reporter's 62 = 50 + 11 + 1 interrupted-at-end).
+- **Re-run 1.**
+  - s3 (10-14 13:11–13:21, load 31–41): `smoke-reactivity` 1/1 passed. `smoke-perf` 3/7 passed. `smoke` reached 9 of its 50 ids: 3 ✓ and 6 ✘. The session then died at 13:24 (WindowServer).
+  - q1 (this sitting, 12:30–12:43, **load 11–27**, HEAD `2229dc7ab`): the other 41 `smoke` ids → ⟨`node failures.mjs results/q1-smoke.json`⟩ `COUNT passed=10 failed=42 timedOut=5 total=57` (parametrised titles expand the 41 ids to 57 tests).
+  - q1 `smoke-perf` (12:59–13:02, load 11→20, HEAD `39e0a55de`): `drag-frame-budget` ✓; `eager-payload` G2, G3/G4 and `o5-boot-pacing` ✘ (re-run 2 of those three).
+- **Re-runs 2 and 3 were NOT read, and the `oracles-safari` 45 were never re-run.**
+  - Admission was starved first: 1 h 51 min for a guard slot, then batch C was not admitted from 14:35 to 16:46.
+  - Then the host re-entered the pre-crash regime: ⟨`sysctl -n vm.loadavg`⟩ 81–133 sustained from 15:15; ⟨`sysctl vm.swapusage`⟩ `used = 8841.44M` of 10240M; 1,331 processes; CrowdStrike Falcon at 84–100 % CPU. That is the same signature as the 10-14 WindowServer abort.
+  - This seat would not queue more heavy runs into it. It stopped its own unadmitted runner at 16:46 (`logs/q1-chain.txt`). No test was killed mid-run.
+- **The addendum (e) WebKit re-read.**
+  - s2: `smoke-safari` dual-webgl-atmosphere ✓ ×2 (11:16–11:17, load 44–47) and `oracles-safari` o3 ✓ ×2 (dark, light; ~12:59, load ≈ 60), both on the tree carrying sitting 1's `/#/` cure of `dual-webgl-atmosphere.spec.ts`.
+  - Sitting 1 (10-13, load 118–126): o3 ✘ r2 and ✘ r3, cause *Test timeout* at the cold load.
+  - Read of record: **one GREEN read each at load 44–60. The 3× re-read is owed.** It is the W batch, never admitted.
+
+#### Act 4 · classification of every s2 failure: cause read from the q1/s2 traces (`logs/q1-trace-causes.txt`, `logs/s2-trace-causes.txt`, `logs/s2-safari-trace-causes.txt`) and the bytes
+**LOAD-FLAKE (passed on a re-run; the failed run's trace shows a starved action, not a wrong page).** Reported, never masked:
+- `a11y-control-targets:352` · `a11y-modality-support:86` · `a11y-web-modality:33`: s3 ✓.
+- `reactivity-instant:42`: s3 ✓.
+- `o11-header-gates:220` · `o14-preview-truth:361,:373,:440` · `o15-dock-register:50` · `webgl-blob:13`: q1 ✓.
+- `o18-contrast-census:992,:1296`: one of their two parametrised cells ✓ in q1.
+- `perf/drag-frame-budget:33`: s2/s3 timed out at load 55 on a 7.1 s canvas evaluate and 4 s mouse moves; q1 ✓ at load 11. It ran with sitting 1's `/#/` address cure (see *Escalations*).
+
+**DETERMINISTIC (failed s2 + its re-run at load 11–27, so not load). The cause is read, and the cure lies OUTSIDE this unit's writable set.** Stale oracles, against bytes that landed in later waves:
+- `a11y-select-title:304,:393` waits for `h3.pane-header-title`. The title is `h${level}` with default 2 (X.W5.a, `PaneHeader.vue:41,57`).
+- `w12-about-clip:124` ×3 reads `region.firstElementChild` as the card. Since `.k2`'s PaneShell (A2-VA-L1-1, `ca65ae049`) that child is the `.pane-shell` wrapper, whose `overflow` is `visible visible`; the card (`PaneShell.vue:33`) is `overflow-hidden`. `o7-card-census:190 ×2, :438` (`(none)` for rung) is the same class.
+- `o10-type-locks:73` and `o17-easing-composition:121 ×2, :147` are strict-mode violations: `.pane-shell .space-trigger` and `#easing-authoring-0 svg` now resolve to 2 elements.
+- `o10d-display-voice-census:217,:264` expect `line-clamp`. The specimen name truncates by design since X.W7.c (`9250dd192`, G12 priority-collapse).
+- `o22-status-lamp:80` expects `.dock-status-lamp`. That class now renders only from the dock seat (`.k2` A2-VA-L1-9, `8b5b48347`).
+- `scene-action-contract:172 ×3` expects `unavailable` on mobile. X-W5's `bindPane` cured the registration the oracle encodes as absent, so the bar reads `ready`.
+- `walk:17` and `o20-generate-plate:60` name a "Generation preset" combobox. The label is `Preset` since CC-047 (`583715162`).
+- `views/gradient:613` asserts a docs letter's text (`glass-ui **10.1.0**`).
+- `o29-scene-contracts:109` gets an extra `undefined:null` region.
+- `o15-dock-register:87,:125` read glass 7-era dock padding (`8px 12px` vs glass 10.1.0's `4px`).
+- `w7-inspector-rows:86,:130` and `w7-mutation-visibility:43`: verbs and rows moved (`palette.save` no longer in the inspector set; the seeded row's xpath never resolves).
+- `o14-preview-truth:294` ×2: the click on "Select view" never lands (pending 25–28 s at load 22–27).
+- `o27-focus-affordance:103` (target 24 vs `< 22`) and `:321` (no `option "Picker"`).
+- `w12-dock:358` (the focus-visible frame).
+
+The Chromium-only APIs in `oracles-safari` are the same class: `o4-order-invariance:41` (CDP) and `o11-header-gates:220` (tracing) carry no engine guard.
+
+**DETERMINISTIC, product or producer readings (owner rows, not oracle drift):**
+- `o23-specimen-gamut-honesty:225`: the specimen prints `hsl(346deg -1295% 103.7%)`, and `parseCssColor` clamps the negative saturation to 0. The parser behaviour is `src/**`, which W12U.md §1 forbids.
+- `o18-contrast-census:712` (5.74 vs the walked 5.75), `:1296` (`--color-gold` ceiling 2.10:1; the oracle names "X-W10's treatment decision") and `:1321` (profile-menu rows, the census's own "learns them" leg).
+- `o19-netting-luma:71` ×4: luma delta 1.6–14 vs ≥ 45/59.
+- `o22-specimen-legibility:76`: caption 539 px > 438 px.
+- `o26-aurora-perceptibility:52`: field delta 0.000 over 10 s.
+- `o28-atmosphere-coldload:114`: first paint ΔE 0.159.
+- `webgl-blob-idle:210` ×2: painted chroma 0.138/0.177 vs 0.179/0.253.
+- `w12-drag:75` / `w12u-p-drag:205`: "collector dead" means 6–11 frames per 2 s drag. That is not a dead collector: the `smoke` project is SwiftShader by config (`playwright.config.ts:76`), and the 1440 page paints at ~5 fps there (p50 175–259 ms). The `> 10` frame floor is a software-GL floor the soft path does not relieve. The refresh-relative gate of record is the real-GPU leg (Act 1, GREEN).
+- perf (re-run ×2, failing all three):
+  - `eager-payload` G2: s3 `eager JS gzip 329373 B > 286720 B`; q1 could not read it, because the private build leaves no `dist/gh-pages` at the repo root.
+  - `eager-payload` G3/G4: q1 `mobile-4x-cpu p75 TBT 1040 ms > 300 ms`.
+  - `o5-boot-pacing`: q1 `1925 ms = 33.5× median`.
+
+  These are X-W2 bars "fixed at wave-open", whose own text names a §3a triumvirate, not a re-baseline.
+- **None of these is a `demo/**` root cure this unit can land without design or ruling authority.** The contrast and gold ink are X-W10's (per the oracle). Netting and aurora are atmosphere design. The parser is `src/**`. The perf bars are X-W2's.
+
+#### Act 5 · typecheck · lint (this sitting): GREEN ×2
+- ⟨`guarded --light -- npx vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit; … tsc -p tsconfig.e2e.json --noEmit`⟩:
+  - r1 (12:18, load 12, HEAD `5546aa900`) → `lib EXIT 0 · demo EXIT 0 · test EXIT 0 · e2e EXIT 0`.
+  - r2 (12:25, load 23, HEAD `03219c6c9`) → the same four `EXIT 0` (`logs/q-typecheck-r{1,2}.log.txt`).
+- ⟨`guarded --light -- npx eslint . --max-warnings=0`⟩ → r1 (12:21, HEAD `c2a1c49a9`) `LINT EXIT 0` · r2 (12:23, HEAD `03219c6c9`) `LINT EXIT 0` (`logs/q-lint-r{1,2}.log.txt`).
+- An earlier lint read at 12:19 printed the exit of `tail`, not of eslint. It is superseded and kept only as `logs/q-lint-r1.log.txt`'s predecessor line.
+- **`npm test` ×2 was NOT read this sitting.** It is a heavy run, and it would have queued behind the same starved slots into a load-81–133 host. Sitting 1's vitest pair (10-13, `logs/vitest-r{1,2}.log.txt`, load 87–648) stands as the last reading. It is not a reading at the current HEAD.
+
+#### Residuals
+- Re-runs 2 and 3 for `smoke` and `oracles-safari`; re-run 1 for `oracles-safari`'s 45; the WebKit 3× re-read; and `npm test` ×2. All are owed to a host where admission is possible: `batch C` / `batch W` are ready as `q-run.sh`.
+- LEDGER: not edited. The row stays PARTIAL.
+
+#### Escalations
+- **ESC-W12Uq-1 (bounds).**
+  - About 30 deterministic smoke and oracles failures (Act 4, "stale oracles") are cured only in `e2e/smoke/**`. This unit's writable set grants `demo/**` alone, "only for a test failing all 3 runs".
+  - W12U.md §1 grants `e2e/smoke/**` only for new `w12u-*` specs, and the §0bt adjacent rule excludes "a different concern". Re-pointing ~20 oracle files at the bytes of X.W5.a / X.W7.c / `.k2` / CC-047 / X-W5 is a different concern.
+  - A ruling is needed: a smoke-oracle re-baseline unit (or a grant to `.q`) for the listed files.
+- **ESC-W12Uq-2 (orphans of this unit outside its set).** Sitting 1 of `.q` left uncommitted edits, named `(X-W12U .q)` in their comments:
+  - `e2e/smoke/admin/a11y-authed-admin.spec.ts`
+  - `e2e/smoke/admin/flows/color-reject.spec.ts`
+  - `e2e/smoke/admin/flows/tag-delete.spec.ts`
+  - `e2e/smoke/mobile/blob-presence-mobile.spec.ts`
+  - `e2e/smoke/perf/drag-frame-budget.spec.ts`
+  - `e2e/smoke/safari/dual-webgl-atmosphere.spec.ts`
+  - `demo/test/palettes/plate-mass.test.ts`
+
+  They are the stale-address / re-homed-path / confirm-dialog cures of the same class as ESC-W12Uq-1, and s2 read the affected tests GREEN with them in the tree (`smoke-admin` 21/21, `smoke-mobile` 7/7, `smoke-safari` 4/4, `drag-frame-budget` q1 ✓). This seat did NOT commit them: six are outside its set, and the seventh fixes a test that never failed three runs. It did not revert them either (§0ex). They wait for the ESC-W12Uq-1 ruling.
+- **ESC-W12Uq-3 (owner/product rows).** The Act 4 "product or producer" list needs its named owners:
+  - X-W10 (gold ink / contrast)
+  - the atmosphere design rows (o19 / o26 / o28 / webgl-blob-idle)
+  - `src/**` parser clamp vs the o23 oracle
+  - X-W2 §3a (G2 / G3-G4 / o5)
+  - the software-GL frame floor of `w12-drag` / `w12u-p-drag`
+- **ESC-W12Uq-4 (host).** The §0ev.2 protocol cannot finish while the guard's slot admission starves and the host sits at load 81–133 with swap 8.8 / 10 GB. This is the 10-14 WindowServer-abort signature.
+  - The guard keeps no admission queue: `acquire_slot` is a 5 s non-blocking poll.
+  - The machine-wide load is other sessions'.
+  - A FIFO admission in `~/.claude/guard/guarded`, which is user-level and not a repo path, is the owner's to rule.
+
+#### Commits
+- `0c4628734`: evidence 1 (sitting 1).
+- `03fe0aff6`: evidence 2 (sittings 2–3).
+- This record commit.
+
+**Verdict: ESCALATED.**
+- Gates GREEN: typecheck 0 ×2 · lint 0 ×2 · `.t` r2 alpha leg ×2. The alpha leg is sitting 1's: 31 drags each, p95 median 16.80 = u95, against a budget of 34.40 (T 16.70), load 111–144, at `5f00126c7`.
+- Gates RED or unread: the whole smoke (≈ 30 deterministic stale oracles outside the set, plus ≈ 15 owner rows) · rounds 2–3 · the `oracles-safari` re-runs · the WebKit 3× re-read (1 GREEN read each) · `npm test` ×2.
+- Escalations: ESC-W12Uq-1..4.
