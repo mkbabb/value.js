@@ -1394,3 +1394,16 @@ Honest-RED set: **none.** Neither RED gate carries spec relief.
 
 ### Verdict
 **NOT-CONFORMANT** — 0 BLOCKER · 0 CRITICAL · 2 HIGH (C1-1, C1-2) · 1 INFO. 11 of 13 gates re-run reproduce GREEN; ADDENDUM (d)'s `.cust2` cure and `.lg1c2`'s L-G1 bank are sound and in bounds. Row 108 stays **PARTIAL**; next: the ESC-W8close5-1 ruling, the `if()` cure unit and the `ifprobe.ts` repair, then close and check.
+
+## RESUME 4 2026-10-15 — Repair 1 (repair seat round 1, `claude-opus-5-5`, Track D) — register of Check 1
+
+- **Crash recovery:** ⟨`git status --porcelain -- bench/records src/css test/css docs/tranches/X/execution/D`⟩ → empty. Nothing inherited. HEAD `22c7fefac`.
+- **Runner:** one script under ⟨`~/.claude/guard/guarded --light`⟩ in `run_in_background`; logs in this seat's scratchpad.
+
+| Defect | Cure | Commit | Gate re-read (AFTER) |
+|---|---|---|---|
+| C1-2 HIGH (vue-tsc test rc 2, TS1375 in `bench/records/W8close5/ifprobe.ts`) | Appended a dated `// CORRECTION 2026-10-15` line and `export {};` at the probe's root, so it is a module. No tsconfig exclude and no narrowing. Line 18 of `MANIFEST.sha256` keeps the original bytes (`602e6147…` = ⟨`git show f8f587daa:bench/records/W8close5/ifprobe.ts \| shasum -a 256`⟩). The new bytes go in the addendum `MANIFEST-repair1-2026-10-15.sha256` beside it (E-3). | `18e9446fd` | ⟨`npx vue-tsc -p tsconfig.lib.json --noEmit`⟩ rc `0` ×2; ⟨`npx vue-tsc -p tsconfig.test.json --noEmit`⟩ rc `0` ×2. ⟨`grep -v '^#' MANIFEST-repair1-2026-10-15.sha256 \| shasum -a 256 -c`⟩ → `ifprobe.ts: OK`. The other 32 lines of `MANIFEST.sha256` → `32` OK. The probe still runs under ⟨`npx vite-node bench/records/W8close5/ifprobe.ts $PWD`⟩ and prints the same 3 rows `refused … css_syntax` at the `;` (HEAD, unchanged behaviour). **GREEN** |
+| C1-1 HIGH (`if()` `;` branch separator regressed by `.semi`; `test/v4-css-emerging` 2/22 RED) | **ESCALATED, not cured.** The register's own cure needs the owner/orchestrator to rule ESC-W8close5-1 (R-1) first, and that ruling does not exist: ⟨`grep -c 'ESC-W8close5-1' docs/tranches/X/COHESION.md`⟩ → `0`. Only after that ruling does a dispatched unit add the BBNF `if()` arm, against 61 B of gz headroom. A repair seat that lands it without the ruling would pre-empt that ruling. | none | Not re-run: product bytes unmoved (`7516f0d8c`), so the Check 1 read stands (`Tests 2 failed \| 20 passed (22)` ×2). The probe above re-confirms the 3 refusals. |
+| C1-3 INFO (R-2/R-3/R-4) | Orchestrator, as named. Nothing in a repair seat's scope. | none | n/a |
+
+Self-count: 3 defects; 1 cured (C1-2), 1 escalated (C1-1), 1 INFO routed. Gates a cure could move: vue-tsc lib and test (re-read ×2, all `0`). No product byte changed, so V-C, MIRROR, L-G2, L-G3, E-6 and `--check` keep their Check 1 reads. Row 108 stays **PARTIAL** until ESC-W8close5-1 is ruled.
