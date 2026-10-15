@@ -1,0 +1,49 @@
+### cure-admin-r3 (smoke-admin e2e/smoke/admin/a11y-authed-admin.spec.ts e2e/smoke/admin/flows/tag-delete.spec.ts e2e/smoke/admin/flows/color-reject.spec.ts) start 17:43:00 load1=79.02
+(node:14822) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:15193) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size (58.2s)
+
+
+  1) [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size 
+
+    Test was interrupted.
+
+    Error: browserContext.close: Test ended.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-SRnzeb --remote-debugging-pipe --no-startup-window
+    <launched> pid=15807
+    [pid=15807] <gracefully close start>
+    [pid=15807] <kill>
+    [pid=15807] <will force kill>
+
+    Error: page.goto: Test ended.
+    Call log:
+    [2m  - navigating to "http://localhost:9143/#/admin/users", waiting until "load"[22m
+
+
+      39 |         page,
+      40 |     }) => {
+    > 41 |         await page.goto(view.hash);
+         |                    ^
+      42 |         await expect(
+      43 |             page
+      44 |                 .getByRole("heading", { name: view.heading })
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/a11y-authed-admin.spec.ts:41:20
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/cure-admin-r3/a11y-authed-admin-battery--9e658-accessible-name-target-size-smoke-admin/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/cure-admin-r3/a11y-authed-admin-battery--9e658-accessible-name-target-size-smoke-admin/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 interrupted
+    [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size 
+  6 did not run

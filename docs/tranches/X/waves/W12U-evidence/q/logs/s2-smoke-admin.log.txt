@@ -1,0 +1,208 @@
+### smoke-admin (s2) start 10-14 11:25:45 load1=110.11 head=3666479cd
+(node:71225) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:71418) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22mFound 16 warnings while optimizing generated CSS:
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #1:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var();
+[2m[WebServer] [22m[2m┆[22m                  [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #2:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var(--z-*);
+[2m[WebServer] [22m[2m┆[22m                      [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-background\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #3:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     width: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                       [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     height: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #4:
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│     width: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│[22m     height: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--ui-glyph\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #5:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .\[max-height\:var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     max-height: var(...);
+[2m[WebServer] [22m[2m┆[22m                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .max-h-0 {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #6:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #7:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\/panel\/dialog\/input\/button\/badge\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var(--radius-card/panel/dialog/input/button/badge);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('/')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-dialog\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #8:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[var\(…\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     color: var(…);
+[2m[WebServer] [22m[2m┆[22m                [33m[2m^--[22m Unexpected token Ident("…")[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #9:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #10:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var();
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(--duration-fast\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #11:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #12:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #13:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var();
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #14:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var();
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(--ease-standard\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #15:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var(...);
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #16:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var(...);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-accelerate {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m3362 │[0m /* #__PURE__ */
+[2m[WebServer] [22m [38;5;240m     │[0m ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m        ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+[2m[WebServer] [22m [38;5;240m     │[0m                       ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+
+Running 21 tests using 1 worker
+
+(node:72718) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size (6.7s)
+  ✓   2 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Names populated admin passes accessible-name + target-size (4.8s)
+  ✓   3 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Flagged populated admin passes accessible-name + target-size (6.0s)
+  ✓   4 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:79:1 › BR-9: the admin user-row expander is keyboard-operable (role + focusable + Enter expands) (3.8s)
+  ✓   5 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:123:1 › U-F58: an induced admin render error surfaces a focus-managed role=alert boundary (1.8s)
+  ✓   6 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:19:1 › battery: the populated browse wall passes accessible-name + target-size (3.8s)
+  ✓   7 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:45:1 › battery: the authed Profile identity menu passes accessible-name (the login surface) (12.4s)
+  ✓   8 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows (4.1s)
+  ✓   9 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:51:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows (7.3s)
+  ✓  10 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:92:1 › admin-flagged renders a seeded flagged palette + moderation actions (3.4s)
+  ✓  11 [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors (10.5s)
+  ✓  12 [smoke-admin] › e2e/smoke/admin/flows/color-approve.spec.ts:13:1 › admin approve color name POSTs /admin/colors/<id>/approve (2.7s)
+  ✓  13 [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject (4.8s)
+  ✓  14 [smoke-admin] › e2e/smoke/admin/flows/palette-feature.spec.ts:13:1 › admin feature palette POSTs /admin/palettes/<slug>/feature (5.8s)
+  ✓  15 [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category (3.0s)
+  ✓  16 [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name> (6.1s)
+  ✓  17 [smoke-admin] › e2e/smoke/admin/flows/user-status.spec.ts:15:1 › admin delete user DELETEs /admin/users/<slug> (4.9s)
+  ✓  18 [smoke-admin] › e2e/smoke/admin/o10d-admin-title-voice.spec.ts:17:1 › O-10d (admin) — the flagged-panel palette name speaks the display voice, ≤500, non-italic (2.8s)
+  ✓  19 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:51:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (1.9s)
+  ✓  20 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:72:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (1.9s)
+  ✓  21 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:89:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (1.8s)
+
+  21 passed (2.4m)
+### smoke-admin end 10-14 11:28:10 load1=106.42 exit=0

@@ -1,0 +1,37 @@
+### plate-mass after the path cure, read 5 start 17:30:03 load1=343.79
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:71632) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ demo/test/palettes/plate-mass.test.ts (4 tests | 4 skipped) 140505ms
+   ↓ plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+   ↓ plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+Error: Hook timed out in 60000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/plate-mass.test.ts:82:5
+     80| ])("plate at $width px", (viewport) => {
+     81|     let seat: HarnessSeat;
+     82|     beforeAll(async () => {
+       |     ^
+     83|         seat = await openHarness(viewport);
+     84|     }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 skipped (4)
+   Start at  17:30:10
+   Duration  147.59s (transform 78ms, setup 82ms, collect 669ms, tests 140.50s, environment 0ms, prepare 134ms)
+
+JSON report written to /Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U-evidence/q/results/vitest-cure-plate-mass-r5.json
+VITEST EXIT 1
+### end 17:32:43 load1=236.60

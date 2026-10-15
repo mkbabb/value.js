@@ -4,6 +4,7 @@
 //   default: one line per NOT-passed test: file:line · status · seconds ·
 //            1-min load at its start (nearest logs/load-samples.txt row) · first error line
 //   --ids:   only `file:line` (the re-run list)
+//   --notrun: only `file:line` of the tests an interrupted report never reached
 // Last line (default mode): counts, read from the same walk.
 import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
@@ -22,12 +23,19 @@ const strip = (s) => String(s ?? "").replace(/\u001b\[[0-9;]*m/g, "");
 const report = JSON.parse(readFileSync(file, "utf8"));
 const count = { passed: 0, failed: 0, timedOut: 0, skipped: 0, interrupted: 0 };
 const rows = [];
+const notrun = new Set();
 const walk = (suite) => {
     for (const s of suite.suites ?? []) walk(s);
     for (const spec of suite.specs ?? [])
         for (const t of spec.tests ?? []) {
             const r = t.results?.[t.results.length - 1];
             const st = r?.status ?? "skipped";
+            // --notrun: the tests an INTERRUPTED report never reached (no result, or the
+            // 0 ms "skipped" rows it writes for them) and the one it was interrupted in.
+            if (flag === "--notrun") {
+                if (!r || st === "interrupted" || (st === "skipped" && (r.duration ?? 0) === 0)) notrun.add(`${spec.file}:${spec.line}`);
+                continue;
+            }
             count[st] = (count[st] ?? 0) + 1;
             if (st === "passed" || st === "skipped") continue;
             const err = strip(r?.error?.message ?? r?.errors?.[0]?.message ?? "").split("\n").filter(Boolean);
@@ -36,7 +44,8 @@ const walk = (suite) => {
         }
 };
 for (const s of report.suites ?? []) walk(s);
-if (flag === "--ids") console.log([...new Set(rows.map((r) => r.id))].join("\n"));
+if (flag === "--notrun") console.log([...notrun].join("\n"));
+else if (flag === "--ids") console.log([...new Set(rows.map((r) => r.id))].join("\n"));
 else {
     for (const r of rows) console.log(`${r.id} · ${r.st} · ${r.s}s · load ${r.load} · ${r.title} · at${r.at} ${r.err}`);
     console.log(`COUNT passed=${count.passed} failed=${count.failed} timedOut=${count.timedOut} skipped=${count.skipped} interrupted=${count.interrupted} total=${Object.values(count).reduce((a, b) => a + b, 0)}`);

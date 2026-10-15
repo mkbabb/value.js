@@ -1,0 +1,8 @@
+### smoke-safari (r4, re-run of r3: 2 ids) start 10-13 16:46:33 load1=572.35
+(node:48230) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Error: No tests found.
+Make sure that arguments are regular expressions matching test files.
+You may need to escape symbols like "$" or "*" and quote the arguments.
+
+### smoke-safari end 10-13 16:46:36 load1=572.80 exit=1

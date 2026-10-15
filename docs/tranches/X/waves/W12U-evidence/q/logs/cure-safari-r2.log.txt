@@ -1,0 +1,183 @@
+### smoke-safari whole, cured address, read 2 start 17:09:59 load1=986.80
+(node:22496) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:22954) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:90:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify) (1.0m)
+(node:29898) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:163:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro) (1.0m)
+(node:33345) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  3 [smoke-safari] › e2e/smoke/safari/mix-flow.spec.ts:19:1 › mix convergence completes on WebKit with zero console errors (1.0m)
+(node:38277) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  4 [smoke-safari] › e2e/smoke/safari/sustained-30s.spec.ts:81:1 › iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zero console failures (2.0m)
+
+
+  1) [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:90:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=23160
+    [pid=23160] <gracefully close start>
+    [pid=23160] <kill>
+    [pid=23160] <will force kill>
+
+    Error: locator._expect: Target page, context or browser has been closed
+
+       96 |
+       97 |         const atmosphere = page.getByTestId("atmosphere-canvas");
+    >  98 |         await expect(atmosphere).toBeAttached();
+          |                                  ^
+       99 |         const box = await atmosphere.boundingBox();
+      100 |         expect(box, "atmosphere canvas must be laid out").not.toBeNull();
+      101 |         expect(box!.width).toBeGreaterThan(0);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:98:34
+
+    Error Context: ../../.dev-logs/w12u-q/cure-safari-r2/dual-webgl-atmosphere-S-W6-e687b-t-L1-shader-cure-re-verify--smoke-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/cure-safari-r2/dual-webgl-atmosphere-S-W6-e687b-t-L1-shader-cure-re-verify--smoke-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/cure-safari-r2/dual-webgl-atmosphere-S-W6-e687b-t-L1-shader-cure-re-verify--smoke-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:163:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+
+    Locator: getByTestId('goo-blob-canvas').last()
+    Expected: attached
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeAttached" with timeout 8000ms[22m
+    [2m  - waiting for getByTestId('goo-blob-canvas').last()[22m
+
+
+      172 |         // BOTH GL surfaces live — the dual-WebGL2-contention vehicle.
+      173 |         const canvas = page.getByTestId("goo-blob-canvas").last();
+    > 174 |         await expect(canvas).toBeAttached();
+          |                              ^
+      175 |         await expect(page.getByTestId("atmosphere-canvas")).toBeAttached();
+      176 |
+      177 |         // Settle the first blob frame (W3-2 idle-callback defer).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:174:30
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=30020
+    [pid=30020] <gracefully close start>
+    [pid=30020] <kill>
+    [pid=30020] <will force kill>
+
+    Error Context: ../../.dev-logs/w12u-q/cure-safari-r2/dual-webgl-atmosphere-S-W6-3b43f-l-WebGL2-drive-spazz-repro--smoke-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/cure-safari-r2/dual-webgl-atmosphere-S-W6-3b43f-l-WebGL2-drive-spazz-repro--smoke-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/cure-safari-r2/dual-webgl-atmosphere-S-W6-3b43f-l-WebGL2-drive-spazz-repro--smoke-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [smoke-safari] › e2e/smoke/safari/mix-flow.spec.ts:19:1 › mix convergence completes on WebKit with zero console errors 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=33388
+    [pid=33388] <gracefully close start>
+    [pid=33388] <kill>
+    [pid=33388] <will force kill>
+
+    Error: locator._expect: Target page, context or browser has been closed
+
+      53 |
+      54 |     // The announced destination (the ghost well) — the convergence target.
+    > 55 |     await expect(main.locator("[data-mix-target]")).toBeVisible({
+         |                                                     ^
+      56 |         timeout: 4000,
+      57 |     });
+      58 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/mix-flow.spec.ts:55:53
+
+    Error Context: ../../.dev-logs/w12u-q/cure-safari-r2/mix-flow-mix-convergence-c-cbdf7-it-with-zero-console-errors-smoke-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/cure-safari-r2/mix-flow-mix-convergence-c-cbdf7-it-with-zero-console-errors-smoke-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/cure-safari-r2/mix-flow-mix-convergence-c-cbdf7-it-with-zero-console-errors-smoke-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [smoke-safari] › e2e/smoke/safari/sustained-30s.spec.ts:81:1 › iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zero console failures 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 60000ms.[39m
+
+    Error: browserContext.close: Test timeout of 60000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=40023
+    [pid=40023] <gracefully close start>
+    [pid=40023] <kill>
+    [pid=40023] <will force kill>
+
+    Error: page.goto: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9143/", waiting until "load"[22m
+
+
+      111 |     // ── Boot ────────────────────────────────────────────────────────────
+      112 |     const tStart = Date.now();
+    > 113 |     await page.goto("/");
+          |                ^
+      114 |
+      115 |     const main = mainPane(page);
+      116 |     await expect(main).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/sustained-30s.spec.ts:113:16
+
+    Error Context: ../../.dev-logs/w12u-q/cure-safari-r2/sustained-30s-iOS-Safari-s-dfa30-ender-zero-console-failures-smoke-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/cure-safari-r2/sustained-30s-iOS-Safari-s-dfa30-ender-zero-console-failures-smoke-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/cure-safari-r2/sustained-30s-iOS-Safari-s-dfa30-ender-zero-console-failures-smoke-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:90:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify) 
+    [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:163:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro) 
+    [smoke-safari] › e2e/smoke/safari/mix-flow.spec.ts:19:1 › mix convergence completes on WebKit with zero console errors 
+    [smoke-safari] › e2e/smoke/safari/sustained-30s.spec.ts:81:1 › iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zero console failures 
+### end 17:20:42 load1=237.64

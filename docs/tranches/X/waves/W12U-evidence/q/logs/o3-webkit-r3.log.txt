@@ -1,0 +1,81 @@
+### oracles-safari o3 read 3 start 17:29:12 load1=118.68
+(node:67808) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:68666) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark) (1.0m)
+(node:76402) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light) (1.0m)
+
+
+  1) [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=68780
+    [pid=68780] <gracefully close start>
+    [pid=68780] <kill>
+    [pid=68780] <will force kill>
+
+    Error: expect.toBeVisible: Test timeout of 30000ms exceeded.
+
+      42 |
+      43 |         await page.goto("/#/?space=oklch&color=" + encodeURIComponent(SEED));
+    > 44 |         await expect(mainPane(page)).toBeVisible();
+         |                                      ^
+      45 |
+      46 |         const renderer = await detectRenderer(page);
+      47 |         test.skip(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:44:38
+
+    Error Context: ../../.dev-logs/w12u-q/o3-webkit-r3/o3-headed-gpu-probe-O-3-he-26830-he-field-is-chromatic-dark--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/o3-webkit-r3/o3-headed-gpu-probe-O-3-he-26830-he-field-is-chromatic-dark--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/o3-webkit-r3/o3-headed-gpu-probe-O-3-he-26830-he-field-is-chromatic-dark--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light) 
+
+    [31mTest timeout of 30000ms exceeded while setting up "page".[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=77907
+    [pid=77907] <gracefully close start>
+    [pid=77907] <kill>
+    [pid=77907] <will force kill>
+
+    Error: browserContext.newPage: Test timeout of 30000ms exceeded.
+
+    Error Context: ../../.dev-logs/w12u-q/o3-webkit-r3/o3-headed-gpu-probe-O-3-he-1275c-e-field-is-chromatic-light--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/o3-webkit-r3/o3-headed-gpu-probe-O-3-he-1275c-e-field-is-chromatic-light--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/o3-webkit-r3/o3-headed-gpu-probe-O-3-he-1275c-e-field-is-chromatic-light--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark) 
+    [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light) 
+### end 17:34:02 load1=99.92

@@ -1,0 +1,6 @@
+### q1 chain start 10-15 12:18:37 head=5546aa900
+### smoke: 41 ids
+### smoke-perf: 4 ids 12:43:18
+### oracles-safari: 45 ids 13:02:48
+### q1 chain STOPPED by this seat 10-15 14:34:16 before oracles-safari: the guard slot never came free to this poller in 1 h 51 min (13:02 → 14:34; holders were other sessions' 20–170 min runs). The rest of the round is folded into one guarded batch (q-batch.sh)
+### q-run STOPPED by this seat 10-15 16:46:41 load1=83.28 swap=8841.44M — batch C never admitted (14:35 → now); no step ran

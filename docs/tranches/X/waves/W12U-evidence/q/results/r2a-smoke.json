@@ -1,0 +1,1340 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/a11y-control-targets.spec.ts",
+      "file": "smoke/a11y-control-targets.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "A1 · fine-pointer target size — every attributed target box is ≥24×24",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 360443,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 180000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "message": "\u001b[31mTearing down \"context\" exceeded the test timeout of 180000ms.\u001b[39m"
+                    },
+                    {
+                      "message": "Error: browserContext.close: Test timeout of 180000ms exceeded.\nBrowser logs:\n\n<launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-IqhkXA --remote-debugging-pipe --no-startup-window\n<launched> pid=71018\n[pid=71018] <gracefully close start>\n[pid=71018] <kill>\n[pid=71018] <will force kill>"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-control-targets.spec.ts",
+                        "column": 16,
+                        "line": 112
+                      },
+                      "message": "TimeoutError: page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9147/\", waiting until \"load\"\u001b[22m\n\n\n  110 |     // the two URLs differ only by hash (the same-document case this cures).\n  111 |     await page.goto(\"about:blank\");\n> 112 |     await page.goto(route, { timeout: 60_000 });\n      |                ^\n  113 |     await expect(mainPane(page)).toBeVisible({\n  114 |         timeout: 20000,\n  115 |     });\n    at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-control-targets.spec.ts:112:16)\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-control-targets.spec.ts:357:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T21:30:01.123Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke/a11y-control-targets-A1-·--0b352-ibuted-target-box-is-≥24×24-smoke/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke/a11y-control-targets-A1-·--0b352-ibuted-target-box-is-≥24×24-smoke/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "07ac07ebf1139f41d528-8d50b921914feed8ffb8",
+          "file": "smoke/a11y-control-targets.spec.ts",
+          "line": 352,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/a11y-modality-support.spec.ts",
+      "file": "smoke/a11y-modality-support.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 55,
+                  "error": {
+                    "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-HlPUvZ --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=93918\u001b[22m\n",
+                    "stack": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-HlPUvZ --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=93918\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-HlPUvZ --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=93918\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T21:37:05.894Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "f596f621a2a8cbace27b-7bc29797f8833e8417d5",
+          "file": "smoke/a11y-modality-support.spec.ts",
+          "line": 151,
+          "column": 1
+        },
+        {
+          "title": "BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2,
+                  "error": {
+                    "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-NlCsbi --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=8981\u001b[22m\n",
+                    "stack": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-NlCsbi --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=8981\u001b[22m\n"
+                  },
+                  "errors": [
+                    {
+                      "message": "TimeoutError: browserType.launch: Timeout 180000ms exceeded.\nCall log:\n\u001b[2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-NlCsbi --remote-debugging-pipe --no-startup-window\u001b[22m\n\u001b[2m  - <launched> pid=8981\u001b[22m\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T21:40:36.591Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "f596f621a2a8cbace27b-35d97c48183067ec5e37",
+          "file": "smoke/a11y-modality-support.spec.ts",
+          "line": 187,
+          "column": 1
+        },
+        {
+          "title": "U-F57 · screen-reader landmark structure + live region (role/landmark battery)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "interrupted",
+                  "duration": 55088,
+                  "error": {
+                    "message": "Error: browserContext.close: Test ended.\nBrowser logs:\n\n<launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-5OBfX3 --remote-debugging-pipe --no-startup-window\n<launched> pid=16147\n[pid=16147][err] [16186:12322454:1013/174348.224518:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c0059c600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=16147][err] [16186:12322454:1013/174348.266483:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c0059c600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=16147] <gracefully close start>\n[pid=16147] <kill>\n[pid=16147] <will force kill>",
+                    "stack": "Error: browserContext.close: Test ended.\nBrowser logs:\n\n<launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-5OBfX3 --remote-debugging-pipe --no-startup-window\n<launched> pid=16147\n[pid=16147][err] [16186:12322454:1013/174348.224518:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c0059c600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=16147][err] [16186:12322454:1013/174348.266483:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c0059c600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=16147] <gracefully close start>\n[pid=16147] <kill>\n[pid=16147] <will force kill>"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: browserContext.close: Test ended.\nBrowser logs:\n\n<launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-5OBfX3 --remote-debugging-pipe --no-startup-window\n<launched> pid=16147\n[pid=16147][err] [16186:12322454:1013/174348.224518:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c0059c600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=16147][err] [16186:12322454:1013/174348.266483:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c0059c600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels\n[pid=16147] <gracefully close start>\n[pid=16147] <kill>\n[pid=16147] <will force kill>"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts",
+                        "column": 16,
+                        "line": 44
+                      },
+                      "message": "Error: page.goto: Test ended.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9147/\", waiting until \"load\"\u001b[22m\n\n\n  42 |\n  43 | async function ready(page: Page) {\n> 44 |     await page.goto(\"/\");\n     |                ^\n  45 |     await expect(mainPane(page)).toBeVisible({\n  46 |         timeout: 20000,\n  47 |     });\n    at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:44:16)\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:274:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T21:43:42.605Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-U-F5-c7fc3-gion-role-landmark-battery--smoke/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "f596f621a2a8cbace27b-fa013010572e0cc0ef27",
+          "file": "smoke/a11y-modality-support.spec.ts",
+          "line": 271,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/a11y-select-title.spec.ts",
+      "file": "smoke/a11y-select-title.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce903613fe13f318b881-f069fb47ae51b2d39e21",
+          "file": "smoke/a11y-select-title.spec.ts",
+          "line": 304,
+          "column": 1
+        },
+        {
+          "title": "B2 · trigger height rides the size axis — and lifts with the coarse rung",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce903613fe13f318b881-5195f491ec75068a6323",
+          "file": "smoke/a11y-select-title.spec.ts",
+          "line": 393,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/a11y-web-modality.spec.ts",
+      "file": "smoke/a11y-web-modality.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cb02799eafdde4106750-2057f5179cc32bc5c57c",
+          "file": "smoke/a11y-web-modality.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical)",
+          "ok": true,
+          "tags": [
+            "media"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cb02799eafdde4106750-7ae0e8aa2fff4145aa11",
+          "file": "smoke/a11y-web-modality.spec.ts",
+          "line": 95,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/atmosphere-cold-load.spec.ts",
+      "file": "smoke/atmosphere-cold-load.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "cold load at a URL color paints the DERIVED field first frame (light)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "f913ec5a3bf13af344a8-d14ccc30b3f0f38061ed",
+          "file": "smoke/atmosphere-cold-load.spec.ts",
+          "line": 74,
+          "column": 5
+        },
+        {
+          "title": "cold load at a URL color paints the DERIVED field first frame (dark)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "f913ec5a3bf13af344a8-da2401e66de49b969a3e",
+          "file": "smoke/atmosphere-cold-load.spec.ts",
+          "line": 74,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "smoke/color-space-switching.spec.ts",
+      "file": "smoke/color-space-switching.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "color-space select switches the active space",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "4992b7ae3843cd156a8c-116b4ac1f76e51e5bb95",
+          "file": "smoke/color-space-switching.spec.ts",
+          "line": 9,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/crash-battery.spec.ts",
+      "file": "smoke/crash-battery.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R15 · an achromatic colour then LCh does not kill the pane grid",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7959767bd41b031e3dc2-a26b6acb2b6622322592",
+          "file": "smoke/crash-battery.spec.ts",
+          "line": 147,
+          "column": 1
+        },
+        {
+          "title": "R18 · a real image file develops a palette",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7959767bd41b031e3dc2-2027f639d3391a182ceb",
+          "file": "smoke/crash-battery.spec.ts",
+          "line": 331,
+          "column": 1
+        },
+        {
+          "title": "R18 · a corrupt file surfaces a visible error, never a silent half-state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7959767bd41b031e3dc2-8bd7d285e17e272d3668",
+          "file": "smoke/crash-battery.spec.ts",
+          "line": 374,
+          "column": 1
+        }
+      ],
+      "suites": [
+        {
+          "title": "R19 · the mobile menu dropdown",
+          "file": "smoke/crash-battery.spec.ts",
+          "line": 397,
+          "column": 6,
+          "specs": [
+            {
+              "title": "opens, publishes its rows, and its external link is operable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "7959767bd41b031e3dc2-eff24f2376c3a8998a81",
+              "file": "smoke/crash-battery.spec.ts",
+              "line": 400,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/color-propose.spec.ts",
+      "file": "smoke/flows/color-propose.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "propose cycle reaches 'Propose color name' state for an unnamed color",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0d62ffd9c5671be51a08-cb737884867b94a7289e",
+          "file": "smoke/flows/color-propose.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "the sub-layer cycle keeps exactly one active layer, the other inert",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0d62ffd9c5671be51a08-7c6870ac27a5863d7eb4",
+          "file": "smoke/flows/color-propose.spec.ts",
+          "line": 89,
+          "column": 1
+        },
+        {
+          "title": "a successful propose returns the toolbar to its actions state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0d62ffd9c5671be51a08-e9e7643832c5d7dbbb90",
+          "file": "smoke/flows/color-propose.spec.ts",
+          "line": 128,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-delete.spec.ts",
+      "file": "smoke/flows/palette-delete.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "delete an owned remote palette DELETEs /palettes/<slug>",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "f551dfc27f9615d97d5a-a418fba45c76fb457109",
+          "file": "smoke/flows/palette-delete.spec.ts",
+          "line": 22,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-edit.spec.ts",
+      "file": "smoke/flows/palette-edit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "rename a remote palette PATCHes /palettes/<slug> with new name",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "969ad6f024b83587ef73-66c62821ac301d02d880",
+          "file": "smoke/flows/palette-edit.spec.ts",
+          "line": 22,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-flag.spec.ts",
+      "file": "smoke/flows/palette-flag.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "flag a remote palette POSTs /palettes/<slug>/flag with reason",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9d42ba24c5315135d096-6cdda4da41885b89cf9a",
+          "file": "smoke/flows/palette-flag.spec.ts",
+          "line": 21,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-fork.spec.ts",
+      "file": "smoke/flows/palette-fork.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "remix a remote palette POSTs /palettes/<slug>/fork with parent slug",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "15a500c9b5bd7176eb75-5a23cf0c07f7892ca1ce",
+          "file": "smoke/flows/palette-fork.spec.ts",
+          "line": 21,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/flows/palette-save.spec.ts",
+      "file": "smoke/flows/palette-save.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "save current palette persists to localStorage 'color-palettes'",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "98460e44b8798a0a810f-bafc76ebcf082a6601d5",
+          "file": "smoke/flows/palette-save.spec.ts",
+          "line": 20,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o10-type-locks.spec.ts",
+      "file": "smoke/oracles/o10-type-locks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "O-10a/e — title type locks (desktop dual grid)",
+          "file": "smoke/oracles/o10-type-locks.spec.ts",
+          "line": 70,
+          "column": 6,
+          "specs": [
+            {
+              "title": "host-independence: family/style/weight identical; size ≡ each host's exact D2 token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c58aa6b4de398bfe9e4c-549a0aaa10d1a8fe5de6",
+              "file": "smoke/oracles/o10-type-locks.spec.ts",
+              "line": 73,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "O-10a — the mobile matrix (390)",
+          "file": "smoke/oracles/o10-type-locks.spec.ts",
+          "line": 142,
+          "column": 6,
+          "specs": [
+            {
+              "title": "phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c58aa6b4de398bfe9e4c-5a2a932a4c9361835eab",
+              "file": "smoke/oracles/o10-type-locks.spec.ts",
+              "line": 145,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "O-10b — line locks (32rem band)",
+          "file": "smoke/oracles/o10-type-locks.spec.ts",
+          "line": 264,
+          "column": 10,
+          "specs": [
+            {
+              "title": "every space inks its own locked line count at 1440px",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c58aa6b4de398bfe9e4c-3248bb862e1683d81cbe",
+              "file": "smoke/oracles/o10-type-locks.spec.ts",
+              "line": 267,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-10b — line locks (390 phone)",
+          "file": "smoke/oracles/o10-type-locks.spec.ts",
+          "line": 264,
+          "column": 10,
+          "specs": [
+            {
+              "title": "every space inks its own locked line count at 390px",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "c58aa6b4de398bfe9e4c-c917d36dd8571a46a30e",
+              "file": "smoke/oracles/o10-type-locks.spec.ts",
+              "line": 267,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o10d-display-voice-census.spec.ts",
+      "file": "smoke/oracles/o10d-display-voice-census.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "17bed4512afe5618f6ea-23194e2de0192cd31f9e",
+          "file": "smoke/oracles/o10d-display-voice-census.spec.ts",
+          "line": 165,
+          "column": 1
+        },
+        {
+          "title": "O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "17bed4512afe5618f6ea-7c1dcfbf5524a71e0e17",
+          "file": "smoke/oracles/o10d-display-voice-census.spec.ts",
+          "line": 217,
+          "column": 1
+        },
+        {
+          "title": "O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "17bed4512afe5618f6ea-5438186d019a1106cd93",
+          "file": "smoke/oracles/o10d-display-voice-census.spec.ts",
+          "line": 264,
+          "column": 1
+        },
+        {
+          "title": "O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "17bed4512afe5618f6ea-9c7917e8889c8edc2ef3",
+          "file": "smoke/oracles/o10d-display-voice-census.spec.ts",
+          "line": 290,
+          "column": 1
+        },
+        {
+          "title": "O-10d census — the rename-input morph re-verified under the serif (seeded local palette)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "17bed4512afe5618f6ea-9c69c3ab861f67000405",
+          "file": "smoke/oracles/o10d-display-voice-census.spec.ts",
+          "line": 377,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o11-header-gates.spec.ts",
+      "file": "smoke/oracles/o11-header-gates.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "2905e7a42e327352a832-34bc46b2d24f5157fc04",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 100,
+          "column": 5
+        },
+        {
+          "title": "O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "2905e7a42e327352a832-5cbbb81fa50ff9277454",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 100,
+          "column": 5
+        },
+        {
+          "title": "O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "2905e7a42e327352a832-74d04cfb01bf0c8c6606",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 220,
+          "column": 1
+        },
+        {
+          "title": "O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated",
+          "ok": true,
+          "tags": [
+            "supports-gated"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "2905e7a42e327352a832-26de5c046d97dba2d063",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 332,
+          "column": 1
+        },
+        {
+          "title": "O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "2905e7a42e327352a832-a88973e8567f41d14d43",
+          "file": "smoke/oracles/o11-header-gates.spec.ts",
+          "line": 402,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o12-blob-seat.spec.ts",
+      "file": "smoke/oracles/o12-blob-seat.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "52d3f1ba5ebecc9bea3c-6001c6cace604315fd82",
+          "file": "smoke/oracles/o12-blob-seat.spec.ts",
+          "line": 122,
+          "column": 1
+        },
+        {
+          "title": "O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "52d3f1ba5ebecc9bea3c-db0d70e65720cef44efa",
+          "file": "smoke/oracles/o12-blob-seat.spec.ts",
+          "line": 176,
+          "column": 1
+        },
+        {
+          "title": "O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "52d3f1ba5ebecc9bea3c-c1eb504375e2211871c2",
+          "file": "smoke/oracles/o12-blob-seat.spec.ts",
+          "line": 241,
+          "column": 1
+        },
+        {
+          "title": "O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "52d3f1ba5ebecc9bea3c-2f41bc43b9b75dc97478",
+          "file": "smoke/oracles/o12-blob-seat.spec.ts",
+          "line": 285,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T21:29:59.379Z",
+    "duration": 919977.631,
+    "expected": 0,
+    "skipped": 38,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

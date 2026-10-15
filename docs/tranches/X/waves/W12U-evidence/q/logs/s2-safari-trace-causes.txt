@@ -1,0 +1,153 @@
+SERVED MODEL: claude-opus-5-5
+== cold-nav-scene-enter-X-W5--ada8f-tion-→-0-stuck-enter-states-oracles-safari  span=32.3s actions=26 pendingAtEnd=0
+  +0.8s Test.expect  dur=31.3s ERR Error: the loading plate shows on a slow chunk
+  +0.8s Frame.expect .pane-plate >> nth=0 dur=30.0s ERR Expect failed
+== o10-type-locks-O-10a-e-—-t-9ed54--each-host-s-exact-D2-token-oracles-safari  span=1.7s actions=23 pendingAtEnd=0
+  +1.3s Test.expect  dur=0.3s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +1.3s Frame.expect .pane-shell .space-trigger dur=0.3s ERR Expect failed
+== o10-type-locks-O-10a-—-the-afa85-02-About-honest-2-line-lock-oracles-safari  span=30.7s actions=28 pendingAtEnd=1
+  +1.9s Test.pw:api internal:role=navigation[name="Application navigation"i] >> internal:r dur=28.8s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +1.9s PENDING Frame.click internal:role=navigation[name="Application navigation"i] >> internal:r
+== o10d-display-voice-census--61eca-o-TWO-lines-under-the-serif-oracles-safari  span=3.9s actions=751 pendingAtEnd=0
+  +3.7s Test.expect  dur=0.0s ERR Error: line-clamp-2 not active <sm
+== o10d-display-voice-census--f3ea6--line-clamp-under-the-serif-oracles-safari  span=3.1s actions=760 pendingAtEnd=0
+  +2.9s Test.expect  dur=0.0s ERR Error: sm:line-clamp-1 not active at desktop
+== o11-header-gates-O-11-gate-31c8e--is-FLAT-under-a-live-scrub-oracles-safari  span=2.3s actions=31 pendingAtEnd=0
+  +2.1s Test.pw:api  dur=0.0s ERR Error: browser.startTracing: Tracing is only available in Chromium
+== o11-header-gates-O-11-gate-51517-l-binding-is-supports-gated-oracles-safari  span=3.2s actions=38 pendingAtEnd=0
+  +3.0s Test.expect  dur=0.0s ERR Error: PRM rest veil diverges from normal rest
+== o14-preview-truth-O-14-·-t-2aa13--never-the-near-black-clamp-oracles-safari  span=31.3s actions=52 pendingAtEnd=1
+  +3.2s Test.pw:api internal:role=combobox[name="Select view"i] dur=28.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +3.2s PENDING Frame.click internal:role=combobox[name="Select view"i]
+== o14-preview-truth-O-14-·-t-a5225--never-the-near-black-clamp-oracles-safari  span=30.8s actions=50 pendingAtEnd=1
+  +2.2s Test.pw:api internal:role=combobox[name="Select view"i] dur=28.6s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +2.2s PENDING Frame.click internal:role=combobox[name="Select view"i]
+== o14-preview-truth-O-14-·-t-f3186-ite-certified-outputs-WR-8--oracles-safari  span=30.6s actions=64 pendingAtEnd=1
+  +2.4s Test.pw:api internal:role=combobox[name="Select view"i] dur=28.1s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +2.4s PENDING Frame.click internal:role=combobox[name="Select view"i]
+== o15-dock-register-O-15b-·--69d0d-capsule-shadow-render-whole-oracles-safari  span=3.8s actions=110 pendingAtEnd=0
+  +3.4s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Obje
+== o15-dock-register-O-15b-·--a3a8b-s-the-true-button-box-model-oracles-safari  span=2.8s actions=30 pendingAtEnd=0
+  +2.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+== o17-easing-composition-O-1-1f953-oss-curve-regimes-—-desktop-oracles-safari  span=3.9s actions=47 pendingAtEnd=0
+  +3.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +3.6s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+== o17-easing-composition-O-1-3f306-t-rest-one-literal-mint-law-oracles-safari  span=4.9s actions=49 pendingAtEnd=0
+  +4.4s Test.expect  dur=0.1s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +4.4s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+== o17-easing-composition-O-1-559d5--across-curve-regimes-—-390-oracles-safari  span=4.4s actions=49 pendingAtEnd=0
+  +4.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +4.0s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+== o18-contrast-census-O-18-U-780e6-nst-its-rendered-tier-BR-2--oracles-safari  span=30.7s actions=614 pendingAtEnd=1
+  +17.3s Test.expect  dur=8.0s ERR Error: Timeout 8000ms exceeded while waiting on the predicate
+  +17.3s Test.pw:api t => getComputedStyle(document.documentE dur=13.4s ERR Error: page.evaluate: Test ended.
+  +17.3s PENDING Frame.evaluateExpression 
+== o18-contrast-census-O-18-W-90fc7-ck-hue-held-C-≥-0-35×-T-35--oracles-safari  span=2.2s actions=648 pendingAtEnd=0
+  +2.0s Test.expect  dur=0.0s ERR Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.
+== o18-contrast-census-O-18-c-27e88--fill-derived-ink-together--oracles-safari  span=3.2s actions=660 pendingAtEnd=0
+  +2.8s Test.expect  dur=0.0s ERR Error: component-name ink rgb(255 249 247) vs rgb(101 99 97) — raw oklch(0.985253 0.007203 31.584818) α 1 stac
+== o18-contrast-census-O-18-c-3dbdc-bypasses-certification-A-1--oracles-safari  span=2.0s actions=650 pendingAtEnd=0
+  +1.7s Test.expect  dur=0.0s ERR Error: admin gold ink rgb(218 165 31) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.199997), stack []. --colo
+== o18-contrast-census-O-18-c-a26f7-he-rung-1-plate-h-gaps-G-2--oracles-safari  span=32.8s actions=607 pendingAtEnd=1
+  +32.7s Test.pw:api t => getComputedStyle(document.documentE dur=0.0s ERR Error: page.evaluate: Test timeout of 30000ms exceeded.
+  +32.7s Test.expect  dur=0.0s ERR Error: page.evaluate: Test timeout of 30000ms exceeded.
+  +17.7s PENDING Route.continue 
+== o18-contrast-census-O-18-c-a9f41-he-generalized-guard-proof--oracles-safari  span=32.8s actions=606 pendingAtEnd=2
+  +32.8s Test.pw:api t => getComputedStyle(document.documentE dur=0.0s ERR Error: page.evaluate: Test timeout of 30000ms exceeded.
+  +32.8s Test.expect  dur=0.0s ERR Error: page.evaluate: Test timeout of 30000ms exceeded.
+  +2.7s PENDING Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title)
+== o18-contrast-census-O-18-c-b6a55--fill-derived-ink-together--oracles-safari  span=2.9s actions=660 pendingAtEnd=0
+  +2.7s Test.expect  dur=0.0s ERR Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.584818) α 1 stack
+== o18-contrast-census-O-18-c-c830f-tion-over-live-content-N-3--oracles-safari  span=2.9s actions=672 pendingAtEnd=0
+  +2.7s Test.expect  dur=0.0s ERR Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content thr
+== o18-contrast-census-O-18-c-ca642-tion-over-live-content-N-3--oracles-safari  span=3.8s actions=674 pendingAtEnd=0
+  +3.5s Test.expect  dur=0.0s ERR Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content thr
+== o19-netting-luma-netting-luma-delta-≥45-255-—-390-dark-oracles-safari  span=32.2s actions=28 pendingAtEnd=1
+  +32.0s Test.pw:api internal:role=combobox[name="Select view"i] dur=0.1s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +16.8s PENDING Frame.expect internal:role=combobox[name="Select view"i]
+== o19-netting-luma-netting-luma-delta-≥45-255-—-desktop-dark-oracles-safari  span=32.6s actions=26 pendingAtEnd=1
+  +32.5s Test.expect  dur=0.1s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +2.4s PENDING Frame.queryCount .glass-dock.collapsed
+== o19-netting-luma-netting-luma-delta-≥59-255-—-390-light-oracles-safari  span=32.1s actions=29 pendingAtEnd=1
+  +17.0s Test.pw:api internal:role=combobox[name="Select view"i] dur=15.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +17.0s PENDING Frame.click internal:role=combobox[name="Select view"i]
+== o19-netting-luma-netting-luma-delta-≥59-255-—-desktop-light-oracles-safari  span=14.5s actions=71 pendingAtEnd=0
+  +3.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +3.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +6.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[2
+== o20-generate-plate-O-20-·--f1ba5-palette-selecting-it-yields-oracles-safari  span=31.4s actions=34 pendingAtEnd=1
+  +3.2s Test.pw:api internal:role=combobox[name="Generation preset"i] dur=28.2s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +3.2s PENDING Frame.click internal:role=combobox[name="Generation preset"i]
+== o22-specimen-legibility-every-specimen-caption-fits-its-box-oracles-safari  span=2.5s actions=35 pendingAtEnd=0
+  +2.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+== o22-status-lamp-O-22-·-the-fdcea-ant-first-paint-band-chrome-oracles-safari  span=10.6s actions=31 pendingAtEnd=0
+  +0.5s Test.expect  dur=10.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +0.5s Frame.expect .dock-status-lamp dur=10.0s ERR Expect failed
+== o23-specimen-gamut-honesty-96173-ed-coordinate-was-projected-oracles-safari  span=2.4s actions=51 pendingAtEnd=0
+  +2.2s Test.expect  dur=0.0s ERR Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))
+== o27-focus-affordance-BR-1--2184e-ia-a-computed-outline-≥-2px-oracles-safari  span=15.2s actions=365 pendingAtEnd=0
+  +6.5s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+  +6.5s Frame.expect [data-stop-id]:focus dur=8.0s ERR Expect failed
+== o27-focus-affordance-BR-1--5966e-ng-layer-over-the-stop-fill-oracles-safari  span=16.7s actions=365 pendingAtEnd=0
+  +7.7s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+  +7.7s Frame.expect [data-stop-id]:focus dur=8.0s ERR Expect failed
+== o27-focus-affordance-BR-1--ba086-ne-not-only-the-rail-handle-oracles-safari  span=10.9s actions=35 pendingAtEnd=0
+  +2.6s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +2.6s Frame.expect internal:role=option[name="Picker"s] dur=8.0s ERR Expect failed
+== o27-focus-affordance-BR-3--485f2-px-the-20px-visual-dot-HELD-oracles-safari  span=3.9s actions=44 pendingAtEnd=0
+  +3.5s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+== o27-focus-affordance-BR-4--03e01-man-readable-aria-valuetext-oracles-safari  span=32.4s actions=30 pendingAtEnd=0
+  +32.3s Test.pw:api main[aria-labelledby="route-title"]:has(> h1#route-title) >> internal: dur=0.0s ERR Error: locator.count: Test timeout of 30000ms exceeded.
+== o28-atmosphere-coldload-th-de626-eeded-pick-s-on-a-cold-load-oracles-safari  span=48.5s actions=36 pendingAtEnd=0
+  +48.5s Test.expect  dur=0.0s ERR Error: oklch(0.62 0.2 30): no ground write precedes first paint (NaNms)
+== o29-scene-contracts-gradie-b1793-ctor-and-its-stable-actions-oracles-safari  span=3.1s actions=41 pendingAtEnd=0
+  +1.9s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.1s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.3s Test.expect  dur=0.0s ERR Error: the region never settled
+== o29-scene-contracts-j4-sho-ec90a-e-both-reachable-at-720×450-oracles-safari  span=2.8s actions=41 pendingAtEnd=0
+== o4-order-invariance-O-4-or-a99bd-old-the-DAG-order-at-1×-CPU-oracles-safari  span=0.4s actions=19 pendingAtEnd=0
+  +0.3s Test.pw:api  dur=0.0s ERR Error: browserContext.newCDPSession: CDP session is only available in Chromium
+  +0.3s BrowserContext.newCDPSession  dur=0.0s ERR CDP session is only available in Chromium
+== o4-order-invariance-O-4-or-b8fb8-old-the-DAG-order-at-6×-CPU-oracles-safari  span=0.9s actions=21 pendingAtEnd=0
+  +0.8s Test.pw:api  dur=0.0s ERR Error: browserContext.newCDPSession: CDP session is only available in Chromium
+  +0.8s BrowserContext.newCDPSession  dur=0.0s ERR CDP session is only available in Chromium
+== o7-card-census-O-7-census--210cb-d-fixture-on-its-rung-dark--oracles-safari  span=8.9s actions=269 pendingAtEnd=0
+  +2.4s Test.expect  dur=0.0s ERR Error: Home (dark): a card off rung-1
+  +2.4s Test.expect  dur=0.0s ERR Error: Home (dark): grain not on
+  +2.4s Test.expect  dur=0.0s ERR Error: Home (dark): a card off rung-1
+== o7-card-census-O-7-census--78001--fixture-on-its-rung-light--oracles-safari  span=8.2s actions=261 pendingAtEnd=0
+  +1.9s Test.expect  dur=0.0s ERR Error: Home (light): a card off rung-1
+  +1.9s Test.expect  dur=0.0s ERR Error: Home (light): grain not on
+  +1.9s Test.expect  dur=0.0s ERR Error: Home (light): a card off rung-1
+== o7-card-census-O-7-·-t-mob-3b668-one-band-captures-attached--oracles-safari  span=1.9s actions=28 pendingAtEnd=0
+  +1.7s Test.expect  dur=0.0s ERR Error: 390 (light): a card off rung-1
+== o9-shadow-palette-O-9-·-Ex-ed7b1-ng-STILL-at-rest-PRM-static-oracles-safari  span=2.4s actions=76 pendingAtEnd=0
+  +2.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+== w7-destructive-seats-G14-·-1e3bf-once-flagged-palette-delete-oracles-safari  span=30.7s actions=73 pendingAtEnd=1
+  +2.9s Test.pw:api internal:role=dialog >> internal:role=button[name="Delete palette"s] dur=27.7s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +2.9s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Delete palette"s]
+== w7-destructive-seats-G14-·-a8a90-ruction-G15-then-deliberate-oracles-safari  span=31.8s actions=75 pendingAtEnd=1
+  +3.1s Test.pw:api internal:role=dialog >> internal:role=button[name="Delete all palettes dur=28.6s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +3.1s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Delete all palettes
+== w7-destructive-seats-G14-·-d5ba4-ject-Names-→-Pending-W7-93--oracles-safari  span=31.0s actions=75 pendingAtEnd=1
+  +3.1s Test.pw:api internal:role=dialog >> internal:role=button[name="Reject name"s] dur=27.9s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +3.1s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Reject name"s]
+== w7-destructive-seats-G14-·-e69e3-rest-S-14-b-then-deliberate-oracles-safari  span=31.1s actions=79 pendingAtEnd=1
+  +3.2s Test.pw:api internal:role=dialog >> internal:role=button[name="Delete tag"s] dur=27.9s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +3.2s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Delete tag"s]
+== w7-destructive-seats-G14-·-e9c7c-me-delete-Names-→-Approved--oracles-safari  span=11.4s actions=75 pendingAtEnd=0
+  +3.0s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +3.0s Frame.expect internal:role=dialog dur=8.0s ERR Expect failed
+== w7-destructive-seats-G14-·-fb68a-r-disclosure-palette-delete-oracles-safari  span=31.9s actions=79 pendingAtEnd=1
+  +4.5s Test.pw:api internal:role=dialog >> internal:role=button[name="Delete palette"s] dur=26.9s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +4.5s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Delete palette"s]
+== w7-inspector-rows-G13-·-th-28707-ve-is-said-on-the-inspector-oracles-safari  span=30.9s actions=716 pendingAtEnd=1
+  +2.9s Test.pw:api internal:role=dialog >> internal:role=checkbox >> nth=0 dur=28.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +2.9s PENDING Frame.click internal:role=dialog >> internal:role=checkbox >> nth=0
+== w7-inspector-rows-the-sele-36ddd-t-runs-the-inspector-s-path-oracles-safari  span=11.2s actions=752 pendingAtEnd=0
+  +3.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +3.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +4.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+== w7-mutation-visibility-G13-259a8--—-confirmed-then-announced-oracles-safari  span=31.1s actions=64 pendingAtEnd=1
+  +1.0s Test.pw:api internal:text="azure-fox-01"s >> nth=0 >> xpath=ancestor::div[contains dur=30.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +1.0s PENDING Frame.click internal:text="azure-fox-01"s >> nth=0 >> xpath=ancestor::div[contains

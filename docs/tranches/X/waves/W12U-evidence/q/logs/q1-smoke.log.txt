@@ -1,0 +1,3240 @@
+### smoke (q1) start 10-15 12:30:14 load1=16.11 head=2229dc7ab
+(node:71788) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:71857) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22mFound 16 warnings while optimizing generated CSS:
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #1:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var();
+[2m[WebServer] [22m[2m┆[22m                  [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #2:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var(--z-*);
+[2m[WebServer] [22m[2m┆[22m                      [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-background\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #3:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     width: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                       [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     height: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #4:
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│     width: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│[22m     height: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--ui-glyph\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #5:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .\[max-height\:var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     max-height: var(...);
+[2m[WebServer] [22m[2m┆[22m                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .max-h-0 {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #6:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #7:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\/panel\/dialog\/input\/button\/badge\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var(--radius-card/panel/dialog/input/button/badge);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('/')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-dialog\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #8:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[var\(…\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     color: var(…);
+[2m[WebServer] [22m[2m┆[22m                [33m[2m^--[22m Unexpected token Ident("…")[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #9:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #10:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var();
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(--duration-fast\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #11:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #12:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #13:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var();
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #14:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var();
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(--ease-standard\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #15:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var(...);
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #16:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var(...);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-accelerate {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m3362 │[0m /* #__PURE__ */
+[2m[WebServer] [22m [38;5;240m     │[0m ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m        ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+[2m[WebServer] [22m [38;5;240m     │[0m                       ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugins. Here is a breakdown:
+[2m[WebServer] [22m  - source-export (58%)
+[2m[WebServer] [22m  - unplugin-vue-markdown (27%)
+[2m[WebServer] [22m  - value-defer-glass-fonts (9%)
+[2m[WebServer] [22mSee https://rolldown.rs/options/checks#plugintimings for more details.
+[2m[WebServer] [22m[39m
+
+Running 57 tests using 1 worker
+
+(node:72394) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token (2.6s)
+(node:72639) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   2 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif (9.5s)
+(node:73181) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   3 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif (7.4s)
+(node:73519) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   4 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub (13.3s)
+  ✘   5 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (30.7s)
+(node:75488) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   6 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (30.4s)
+(node:76859) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   7 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (9.3s)
+  ✓   8 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops (5.6s)
+  ✓   9 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (8.5s)
+  ✓  10 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots (3.9s)
+  ✘  11 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole (1.3s)
+(node:77920) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  12 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model (5.0s)
+(node:78406) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  13 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — desktop (9.7s)
+(node:78950) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  14 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — 390 (9.5s)
+(node:79604) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  15 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:147:1 › O-17 composition: stamps, dot rest, one-literal, mint law (9.1s)
+(node:80000) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  16 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) (8.0s)
+  ✘  17 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) (2.6s)
+(node:80530) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  18 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) (6.9s)
+(node:80986) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  19 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) (7.2s)
+  ✘  20 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) (1.5s)
+(node:81574) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  21 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) (8.2s)
+(node:82046) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  22 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) (5.9s)
+  ✘  23 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) (5.1s)
+(node:82659) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  24 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light (23.1s)
+(node:83809) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  25 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark (21.4s)
+(node:84828) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  26 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light (21.1s)
+(node:85789) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  27 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark (19.0s)
+(node:86551) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  28 [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields (30.1s)
+(node:87935) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+X.W6.f f4 CENSUS — 1/18 captions overflow
+  box (narrowest clientWidth): 76px
+  worst scrollWidth: 539px (64 chars, "color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%)")
+  per-character advance: 8.422px
+  caption type: font-size 14.048px letter-spacing normal
+  OVER  539/438 px  64ch  color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%)
+  fits  278/278 px  33ch  hsl(346deg -1295% 103.7% / 82.7%)
+  fits  219/219 px  26ch  hsv · 346 · 0.6279 · 1.511
+  fits  278/278 px  33ch  hwb(346deg 56.23% -51.1% / 82.7%)
+  fits  202/202 px  24ch  lab(92% 88.8 20 / 82.7%)
+  fits  261/261 px  31ch  lch(92% 91.02 12.69deg / 82.7%)
+  fits  295/295 px  35ch  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  fits  312/312 px  37ch  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  fits  320/320 px  38ch  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  fits  110/110 px  13ch  kelvin · 5309
+  fits  379/379 px  45ch  color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  fits  379/379 px  45ch  color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  fits  354/354 px  42ch  color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  fits  388/388 px  46ch  color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  fits  345/345 px  41ch  color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  fits  270/270 px  32ch  ictcp · 0.5591 · 0.0437 · 0.1739
+  fits  278/278 px  33ch  jzazbz · 0.2215 · 0.1177 · 0.0428
+  fits   76/76 px   9ch  #ff8fc8d3
+  ✘  29 [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box (7.7s)
+(node:88415) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  30 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome (11.4s)
+(node:89250) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+X.W6.f f6 CENSUS — seed lab(92% 88.8 20 / 82.70%)
+  rgb           css       MARKED    color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%)
+  hsl           css       MARKED    hsl(346deg -1295% 103.7% / 82.7%)
+  hsv           channels  MARKED    hsv · 346 · 0.6279 · 1.511
+  hwb           css       MARKED    hwb(346deg 56.23% -51.1% / 82.7%)
+  lab           css       in-gamut  lab(92% 88.8 20 / 82.7%)
+  lch           css       in-gamut  lch(92% 91.02 12.69deg / 82.7%)
+  oklab         css       in-gamut  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  oklch         css       in-gamut  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  xyz           css       in-gamut  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  kelvin        channels  in-gamut  kelvin · 5309
+  srgb-linear   css       MARKED    color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  display-p3    css       MARKED    color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  a98-rgb       css       MARKED    color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  prophoto-rgb  css       MARKED    color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  rec2020       css       MARKED    color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  ictcp         channels  in-gamut  ictcp · 0.5591 · 0.0437 · 0.1739
+  jzazbz        channels  in-gamut  jzazbz · 0.2215 · 0.1177 · 0.0428
+  hex           css       MARKED    #ff8fc8d3
+  ✘  31 [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected (3.8s)
+(node:89668) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[O-26] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) (software-GL — CSS placeholder still; authoritative read is the O-3 headed annex)
+[O-26] calm 2s glance diff = 0.000/255
+[O-26] 10s migration diff (max pairwise) = 0.000/255 (need ≥ 4)
+  ✘  32 [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s (19.9s)
+(node:90669) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  33 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD (10.0s)
+(node:91242) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  34 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:321:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle (11.7s)
+(node:91949) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+oklch(0.62 0.2 30): first-paint 184ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.1595; settled vs unseeded max 0.1845
+oklch(0.62 0.2 150): first-paint 576ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.2933; settled vs unseeded max 0.3699
+oklch(0.62 0.2 260): first-paint 200ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.2433; settled vs unseeded max 0.2938
+  ✘  35 [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load (22.4s)
+(node:93247) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  36 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions (4.0s)
+(node:93728) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  37 [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light) (23.6s)
+(node:94829) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  38 [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark) (21.7s)
+(node:95944) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  39 [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:438:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached) (2.4s)
+(node:96187) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  40 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector (30.1s)
+(node:97434) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  41 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path (14.5s)
+(node:98189) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  42 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced (30.2s)
+(node:99333) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  43 [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable (7.9s)
+(node:99694) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  44 [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable (8.6s)
+(node:341) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  45 [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable (9.7s)
+(node:1016) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  46 [smoke] › e2e/smoke/views/gradient.spec.ts:613:1 › gradient selector aurora (8.2s)
+(node:1542) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[w12-about-clip] 1440x900 {"picker":621.265625,"about":621.265625,"docScroll":900,"innerHeight":900,"scroller":{"glass":true,"clientHeight":459,"scrollHeight":7451,"insideCard":true},"card":{"overflow":"visible visible","radius":0}}
+  ✘  47 [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller (5.4s)
+(node:1888) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[w12-about-clip] 1280x800 {"picker":617.015625,"about":617.015625,"docScroll":800,"innerHeight":800,"scroller":{"glass":true,"clientHeight":460,"scrollHeight":7394,"insideCard":true},"card":{"overflow":"visible visible","radius":0}}
+  ✘  48 [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller (5.5s)
+(node:2130) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[w12-about-clip] 2846x1650-eq {"picker":621.265625,"about":621.265625,"docScroll":825,"innerHeight":825,"scroller":{"glass":true,"clientHeight":459,"scrollHeight":7449,"insideCard":true},"card":{"overflow":"visible visible","radius":0}}
+  ✘  49 [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller (5.3s)
+(node:2506) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{
+ "focusVisible": false,
+ "frames": {
+  "rest": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "hover": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "selected": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "focus-visible": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ]
+ }
+}
+  ✘  50 [smoke] › e2e/smoke/w12-dock.spec.ts:358:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census (10.4s)
+(node:2938) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[w12-drag SOFTWARE-GL] surface: moves=6 frames=6 p50=258.7 p95=816.9 longTasks=0 maxTask=0
+    hot: get scrollTop@:0=32ms · visitNode@:267=27ms · getBoundingClientRect@:0=9ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=7ms · (garbage collector)@:0=5ms · visitChild@:322=5ms
+[w12-drag SOFTWARE-GL] slider L: moves=11 frames=10 p50=208.4 p95=241.9 longTasks=0 maxTask=0
+    hot: get scrollTop@:0=89ms · visitNode@:267=66ms · getBoundingClientRect@:0=50ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=18ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=7ms · visitChild@:322=6ms
+[w12-drag SOFTWARE-GL] slider a: moves=11 frames=10 p50=192.0 p95=508.5 longTasks=0 maxTask=0
+    hot: get scrollTop@:0=85ms · visitNode@:267=69ms · getBoundingClientRect@:0=39ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=23ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=8ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=6ms
+[w12-drag SOFTWARE-GL] slider b: moves=12 frames=11 p50=200.0 p95=275.3 longTasks=0 maxTask=0
+    hot: get scrollTop@:0=89ms · visitNode@:267=80ms · getBoundingClientRect@:0=50ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=17ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=7ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=7ms
+[w12-drag SOFTWARE-GL] slider alpha: moves=28 frames=27 p50=59.1 p95=125.1 longTasks=0 maxTask=0
+    hot: get scrollTop@:0=179ms · visitNode@:267=149ms · getBoundingClientRect@:0=28ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=26ms · visitChild@:322=18ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=11ms
+[w12-drag] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev T=8.30 budget p50<=9.30 p95<=17.60
+  ✘  51 [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget (21.7s)
+(node:3919) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[w12u-p SOFTWARE-GL] surface: moves=9 frames=9 p50=174.9 p95=1299.2 longTasks=1 maxTask=81 dockRoving=0/0f dockText=8
+    dock: 
+    main: UpdateLayoutTree=91ms · Layout=45ms · PrePaint=4ms · Paint=11ms · Layerize=2ms · Commit=2ms · FunctionCall=19ms · RunTask=411ms
+    self: get scrollTop@:0=66ms · visitNode@:267=41ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=14ms · visitChild@:322=11ms · getBoundingClientRect@:0=9ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=7ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=9ms
+    demo: certify@ink.ts:85=10ms · attempt@ink.ts:87=10ms · certifyAccentInk@ink.ts:170=9ms · safeCss@useContrastSafeColor.ts:302=4ms · resolvePalettesRamp@palettes-ramp.ts:103=3ms · (anon)@useMarkdownColors.ts:24=3ms
+[w12u-p SOFTWARE-GL] slider L: moves=8 frames=10 p50=191.6 p95=750.0 longTasks=1 maxTask=729 dockRoving=0/0f dockText=8
+    dock: 
+    main: UpdateLayoutTree=115ms · Layout=52ms · PrePaint=4ms · Paint=11ms · Layerize=2ms · Commit=3ms · FunctionCall=43ms · RunTask=1187ms
+    self: getContext@:0=722ms · get scrollTop@:0=68ms · visitNode@:267=58ms · getBoundingClientRect@:0=30ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=14ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=6ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=28ms · getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Bn6S7la1.js:4<-d@createCanvasLifecycle-hJHobVTn-Bn6S7la1.js:115=2ms
+    demo: resolveViewAccent@view-accent.ts:12=3ms · resolvePalettesRamp@palettes-ramp.ts:103=3ms · (anon)@ColorSpaceSelector.vue:203=3ms · _sfc_render@WatercolorDot.vue:113=3ms · watch.immediate@HeroBlob.vue:98=2ms · reseedHeroStops@HeroBlob.vue:88=2ms
+[w12u-p SOFTWARE-GL] slider a: moves=12 frames=11 p50=200.1 p95=391.7 longTasks=0 maxTask=0 dockRoving=0/0f dockText=12
+    dock: 
+    main: UpdateLayoutTree=161ms · Layout=76ms · PrePaint=5ms · Paint=15ms · Layerize=3ms · Commit=4ms · FunctionCall=56ms · RunTask=638ms
+    self: get scrollTop@:0=91ms · visitNode@:267=78ms · getBoundingClientRect@:0=44ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=19ms · visitChild@:322=11ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=9ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=44ms · getBoundingClientRect<-visitNode@:267<-visitChild@:322=0ms
+    demo: resolvePalettesRamp@palettes-ramp.ts:103=4ms · _sfc_render@WatercolorDot.vue:113=4ms · resolveViewAccent@view-accent.ts:12=3ms · certifyAccentInk@ink.ts:170=2ms · parseOklch@ink.ts:43=2ms · (anon)@useWatercolorBlob.ts:54=2ms
+[w12u-p SOFTWARE-GL] slider b: moves=13 frames=12 p50=191.7 p95=241.7 longTasks=0 maxTask=0 dockRoving=0/0f dockText=13
+    dock: 
+    main: UpdateLayoutTree=170ms · Layout=79ms · PrePaint=6ms · Paint=17ms · Layerize=3ms · Commit=4ms · FunctionCall=56ms · RunTask=655ms
+    self: get scrollTop@:0=100ms · visitNode@:267=78ms · getBoundingClientRect@:0=43ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=20ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=10ms · visitChild@:322=8ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=43ms · getBoundingClientRect<-visitNode@:267<-visitChild@:322=0ms
+    demo: resolvePalettesRamp@palettes-ramp.ts:103=4ms · _sfc_render@WatercolorDot.vue:113=3ms · resolveViewAccent@view-accent.ts:12=3ms · certifyAccentInk@ink.ts:170=2ms · (anon)@ColorSpaceSelector.vue:203=2ms · watch.immediate@HeroBlob.vue:98=2ms
+[w12u-p SOFTWARE-GL] slider alpha: moves=30 frames=29 p50=59.0 p95=100.0 longTasks=0 maxTask=0 dockRoving=0/0f dockText=30
+    dock: 
+    main: UpdateLayoutTree=181ms · Layout=125ms · PrePaint=6ms · Paint=13ms · Layerize=5ms · Commit=6ms · FunctionCall=51ms · RunTask=891ms
+    self: get scrollTop@:0=195ms · visitNode@:267=155ms · getBoundingClientRect@:0=35ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=26ms · visitChild@:322=25ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=13ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=34ms · getBoundingClientRect<-visitNode@:267<-visitChild@:322=1ms
+    demo: (anon)@ColorSpaceSelector.vue:203=6ms · _sfc_render@WatercolorDot.vue:113=6ms · _sfc_render@Markdown.vue:82=5ms · (anon)@useMarkdownColors.ts:24=4ms · certifyAccentInk@ink.ts:170=2ms · (anon)@useWatercolorBlob.ts:54=2ms
+[w12u-p] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev bisect=none T=8.30 budget p50<=9.30 p95<=17.60
+  ✘  52 [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame (24.7s)
+(node:5107) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  53 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (20.1s)
+(node:6519) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 356.43 · ΔC -0.02105 (stated ±0.04) · px 2324
+  ✓  54 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — lab(92% 88.8 20) (14.0s)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.6175 C 0.13792 h 140.47 · ΔC -0.04109 (stated ±0.04) · px 2324
+  ✘  55 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150) (10.1s)
+(node:8104) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.5634 C 0.17687 h 318.70 · ΔC -0.07638 (stated ±0.04) · px 2324
+  ✘  56 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328) (13.9s)
+(node:9150) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  57 [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost (12.5s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.pane-shell .space-trigger')
+    Expected: visible
+    Error: strict mode violation: locator('.pane-shell .space-trigger') resolved to 2 elements:
+        1) <button dir="ltr" type="button" role="combobox" data-v-f1e2f8a9="" data-state="closed" aria-expanded="false" aria-required="false" aria-autocomplete="none" data-slot="select-trigger" aria-label="Select color space" aria-controls="reka-select-content-v-7" class="control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disable…>…</button> aka getByRole('region', { name: 'Picker' }).getByLabel('Select color space')
+        2) <button dir="ltr" type="button" role="combobox" data-v-f1e2f8a9="" data-state="closed" aria-expanded="false" aria-required="false" aria-autocomplete="none" data-slot="select-trigger" aria-label="Select color space" aria-controls="reka-select-content-v-61" class="control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabl…>…</button> aka getByRole('region', { name: 'About' }).getByLabel('Select color space')
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('.pane-shell .space-trigger')[22m
+
+
+      76 |         await page.goto("/");
+      77 |         await expect(mainPane(page)).toBeVisible();
+    > 78 |         await expect(page.locator(PICKER_TRIGGER)).toBeVisible();
+         |                                                    ^
+      79 |         await expect(page.locator(ABOUT_TRIGGER)).toBeVisible();
+      80 |
+      81 |         const picker = await readVoice(page, PICKER_TRIGGER);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:78:52
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o10-type-locks-O-1-f2ee7--each-host-s-exact-D2-token-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o10-type-locks-O-1-f2ee7--each-host-s-exact-D2-token-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o10-type-locks-O-1-f2ee7--each-host-s-exact-D2-token-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+
+    Error: sm:line-clamp-1 not active at desktop
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"1"[39m
+    Received: [31m"none"[39m
+
+      253 |         .first();
+      254 |     const desktop = await typeVoice(longTitle);
+    > 255 |     expect(desktop.lineClamp, "sm:line-clamp-1 not active at desktop").toBe("1");
+          |                                                                        ^
+      256 |     expect(desktop.overflow).toBe("hidden");
+      257 |     const oneLine = await longTitle.evaluate((el) => {
+      258 |         const cs = getComputedStyle(el);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:255:72
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+
+    Error: line-clamp-2 not active <sm
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"2"[39m
+    Received: [31m"none"[39m
+
+      280 |     const voice = await typeVoice(longTitle);
+      281 |     expect(voice.fontFamily, "390: name off the display face").toMatch(DISPLAY_FACE);
+    > 282 |     expect(voice.lineClamp, "line-clamp-2 not active <sm").toBe("2");
+          |                                                            ^
+      283 |     const twoLinesMax = await longTitle.evaluate((el) => {
+      284 |         const cs = getComputedStyle(el);
+      285 |         return el.getBoundingClientRect().height <= parseFloat(cs.lineHeight) * 2.5;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:282:60
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    38 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:336:13
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o14-preview-truth--1d3c7--never-the-near-black-clamp-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o14-preview-truth--1d3c7--never-the-near-black-clamp-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o14-preview-truth--1d3c7--never-the-near-black-clamp-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <div class="dock-plate" aria-hidden="true">…</div> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not visible[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    32 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:336:13
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o14-preview-truth--c70ff--never-the-near-black-clamp-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o14-preview-truth--c70ff--never-the-near-black-clamp-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o14-preview-truth--c70ff--never-the-near-black-clamp-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"none"[39m
+
+      118 |             }
+      119 |         }
+    > 120 |         expect(shadow).not.toBe("none");
+          |                            ^
+      121 |         // …and the shadow's canvas is unclipped (asserted above: the inner
+      122 |         // computes overflow visible at settled rest).
+      123 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:120:28
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o15-dock-register--5d424-capsule-shadow-render-whole-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o15-dock-register--5d424-capsule-shadow-render-whole-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o15-dock-register--5d424-capsule-shadow-render-whole-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7m8px 12[27mpx"[39m
+    Received: [31m"[7m4[27mpx"[39m
+
+      144 |         // delivered through the producer's own --dock-compact-control-padding
+      145 |         // token hook, so a producer register change surfaces here.
+    > 146 |         expect(box.padding).toBe("8px 12px");
+          |                             ^
+      147 |         expect(box.marginLeft).toBe("4px");
+      148 |         expect(box.marginRight).toBe("4px");
+      149 |         expect(box.gap).not.toBe("normal");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:146:29
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o15-dock-register--85717-s-the-true-button-box-model-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o15-dock-register--85717-s-the-true-button-box-model-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o15-dock-register--85717-s-the-true-button-box-model-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — desktop 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-124"]').locator('#easing-authoring-0 svg')
+    Expected: visible
+    Error: strict mode violation: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-124"]').locator('#easing-authoring-0 svg') resolved to 4 elements:
+        1) <svg role="img" viewBox="-0.1 -0.1 1.2 1.2" aria-label="Easing curve 1 → 2" preserveAspectRatio="xMidYMid meet" class="block aspect-square w-full select-none text-(--easing-curve-accent)">…</svg> aka getByRole('img', { name: 'Easing curve 1 →' })
+        2) <svg data-slot="easing-handles" viewBox="-0.1 -0.1 1.2 1.2" preserveAspectRatio="xMidYMid meet" class="absolute inset-0 block size-full touch-none select-none">…</svg> aka locator('.absolute.inset-0')
+        3) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-chevron-down-icon lucide-chevron-down transition-disclosure in-data-[state=open]:rotate-180 h-4 w-4 shrink-0 opacity-(--select-chevron-opacity)">…</svg> aka getByRole('combobox', { name: 'Easing preset' })
+        4) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-copy-icon lucide-copy size-4 shrink-0">…</svg> aka getByRole('button', { name: 'Copy curve literal' })
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-124"]').locator('#easing-authoring-0 svg')[22m
+
+
+      65 |     // Triumvirate trigger, so the cure is routed, not hacked in here.
+      66 |     const svg = row.locator("#easing-authoring-0 svg");
+    > 67 |     await expect(svg).toBeVisible();
+         |                       ^
+      68 |     await expect(
+      69 |         svg,
+      70 |         'the authoring canvas must wear the role the seat\'s Law-3 override keys on — glass-ui EasingPicker ships role="group", so `.easing-authoring :deep(svg[role="img"])` never matches and the zero-letterbox law is unenforced',
+        at discloseAuthoring (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:67:23)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:130:21
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-24ab6-oss-curve-regimes-—-desktop-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-24ab6-oss-curve-regimes-—-desktop-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-24ab6-oss-curve-regimes-—-desktop-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — 390 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-132"]').locator('#easing-authoring-0 svg')
+    Expected: visible
+    Error: strict mode violation: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-132"]').locator('#easing-authoring-0 svg') resolved to 4 elements:
+        1) <svg role="img" viewBox="-0.1 -0.1 1.2 1.2" aria-label="Easing curve 1 → 2" preserveAspectRatio="xMidYMid meet" class="block aspect-square w-full select-none text-(--easing-curve-accent)">…</svg> aka getByRole('img', { name: 'Easing curve 1 →' })
+        2) <svg data-slot="easing-handles" viewBox="-0.1 -0.1 1.2 1.2" preserveAspectRatio="xMidYMid meet" class="absolute inset-0 block size-full touch-none select-none">…</svg> aka locator('.absolute.inset-0')
+        3) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-chevron-down-icon lucide-chevron-down transition-disclosure in-data-[state=open]:rotate-180 h-4 w-4 shrink-0 opacity-(--select-chevron-opacity)">…</svg> aka getByRole('combobox', { name: 'Easing preset' })
+        4) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-copy-icon lucide-copy size-4 shrink-0">…</svg> aka getByRole('button', { name: 'Copy curve literal' })
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-132"]').locator('#easing-authoring-0 svg')[22m
+
+
+      65 |     // Triumvirate trigger, so the cure is routed, not hacked in here.
+      66 |     const svg = row.locator("#easing-authoring-0 svg");
+    > 67 |     await expect(svg).toBeVisible();
+         |                       ^
+      68 |     await expect(
+      69 |         svg,
+      70 |         'the authoring canvas must wear the role the seat\'s Law-3 override keys on — glass-ui EasingPicker ships role="group", so `.easing-authoring :deep(svg[role="img"])` never matches and the zero-letterbox law is unenforced',
+        at discloseAuthoring (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:67:23)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:130:21
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-6b26a--across-curve-regimes-—-390-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-6b26a--across-curve-regimes-—-390-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-6b26a--across-curve-regimes-—-390-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:147:1 › O-17 composition: stamps, dot rest, one-literal, mint law 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-132"]').locator('#easing-authoring-0 svg')
+    Expected: visible
+    Error: strict mode violation: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-132"]').locator('#easing-authoring-0 svg') resolved to 4 elements:
+        1) <svg role="img" viewBox="-0.1 -0.1 1.2 1.2" aria-label="Easing curve 1 → 2" preserveAspectRatio="xMidYMid meet" class="block aspect-square w-full select-none text-(--easing-curve-accent)">…</svg> aka getByRole('img', { name: 'Easing curve 1 →' })
+        2) <svg data-slot="easing-handles" viewBox="-0.1 -0.1 1.2 1.2" preserveAspectRatio="xMidYMid meet" class="absolute inset-0 block size-full touch-none select-none">…</svg> aka getByRole('img').nth(5)
+        3) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-chevron-down-icon lucide-chevron-down transition-disclosure in-data-[state=open]:rotate-180 h-4 w-4 shrink-0 opacity-(--select-chevron-opacity)">…</svg> aka getByRole('combobox', { name: 'Easing preset' })
+        4) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-copy-icon lucide-copy size-4 shrink-0">…</svg> aka getByRole('button', { name: 'Copy curve literal' })
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-132"]').locator('#easing-authoring-0 svg')[22m
+
+
+      65 |     // Triumvirate trigger, so the cure is routed, not hacked in here.
+      66 |     const svg = row.locator("#easing-authoring-0 svg");
+    > 67 |     await expect(svg).toBeVisible();
+         |                       ^
+      68 |     await expect(
+      69 |         svg,
+      70 |         'the authoring canvas must wear the role the seat\'s Law-3 override keys on — glass-ui EasingPicker ships role="group", so `.easing-authoring :deep(svg[role="img"])` never matches and the zero-letterbox law is unenforced',
+        at discloseAuthoring (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:67:23)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:160:17
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-02be9-t-rest-one-literal-mint-law-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-02be9-t-rest-one-literal-mint-law-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o17-easing-composi-02be9-t-rest-one-literal-mint-law-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [div.glass-resting=color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m5.75[39m
+    Received:    [31m5.74[39m
+
+      761 |                 nameRow!.ratio,
+      762 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+    > 763 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+          |               ^
+      764 |         });
+      765 |
+      766 |         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:763:15
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+
+    Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m0.037180607112331766[39m
+    Received:    [31m0.006968179459289377[39m
+
+      1015 |                 accent.C,
+      1016 |                 `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+    > 1017 |             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);
+           |               ^
+      1018 |
+      1019 |             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
+      1020 |             //     space trigger wears `--space-title-ink` = the safe accent at
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1017:15
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    Error: admin gold ink rgb(218 165 31) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.2), stack []. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.31[39m
+
+      1316 |                 row!.ratio,
+      1317 |                 `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+    > 1318 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+           |               ^
+      1319 |         });
+      1320 |
+      1321 |         test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1318:15
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 5[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+   "Switch account: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",[39m
+    [31m+   "Logout: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",[39m
+    [31m+ ][39m
+
+      1359 |                 failures,
+      1360 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1361 |             ).toEqual([]);
+           |               ^
+      1362 |         });
+      1363 |     });
+      1364 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1361:15
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 5[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+   "Switch account: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",[39m
+    [31m+   "Logout: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",[39m
+    [31m+ ][39m
+
+      1359 |                 failures,
+      1360 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1361 |             ).toEqual([]);
+           |               ^
+      1362 |         });
+      1363 |     });
+      1364 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1361:15
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m59[39m
+    Received:    [31m1.6129999999999995[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m45[39m
+    Received:    [31m1.6129999999999995[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m59[39m
+    Received:    [31m14.04480000000001[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m45[39m
+    Received:    [31m12.626000000000005[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Generation preset' })[22m
+
+
+      69 |
+      70 |         // Open the Preset menu; every row carries a stamped preview strip.
+    > 71 |         await page.getByRole("combobox", { name: "Generation preset" }).click();
+         |                                                                         ^
+      72 |         const listbox = page.getByRole("listbox");
+      73 |         await expect(listbox).toBeVisible();
+      74 |         const chips = listbox.locator("[data-stops]");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o20-generate-plate.spec.ts:71:73
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o20-generate-plate-216a9-palette-selecting-it-yields-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o20-generate-plate-216a9-palette-selecting-it-yields-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o20-generate-plate-216a9-palette-selecting-it-yields-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%) (539px > 438px)",[39m
+    [31m+ ][39m
+
+      113 |             (row) => `${row.text} (${row.scrollWidth}px > ${row.clientWidth}px)`,
+      114 |         ),
+    > 115 |     ).toEqual([]);
+          |       ^
+      116 | });
+      117 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o22-specimen-legibility.spec.ts:115:7
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o22-specimen-legib-1355d-ecimen-caption-fits-its-box-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o22-specimen-legib-1355d-ecimen-caption-fits-its-box-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o22-specimen-legib-1355d-ecimen-caption-fits-its-box-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.dock-status-lamp')
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('.dock-status-lamp')[22m
+
+
+      92 |         // saving a palette.
+      93 |         const lamp = page.locator(".dock-status-lamp");
+    > 94 |         await expect(lamp).toBeVisible({ timeout: 10000 });
+         |                            ^
+      95 |         await expect(lamp).toHaveAttribute("data-variant", "unavailable");
+      96 |         // The quiet honest register — a status, not an alert.
+      97 |         await expect(lamp).toHaveAttribute("role", "status");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o22-status-lamp.spec.ts:94:28
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o22-status-lamp-O--9654b-ant-first-paint-band-chrome-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o22-status-lamp-O--9654b-ant-first-paint-band-chrome-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o22-status-lamp-O--9654b-ant-first-paint-band-chrome-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+
+    Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.006482236542402211[39m
+    Received:    [31m12.951521561243181[39m
+
+      293 |                 Math.abs(channel - truth),
+      294 |                 `${row.space} channel ${index} printed ${channel} against ${truth} (${row.text})`,
+    > 295 |             ).toBeLessThanOrEqual(policyResolution(truth));
+          |               ^
+      296 |         });
+      297 |
+      298 |         // (ii)(c) the same claim in Lab, against the measured bound
+        at forEach (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:295:15)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:288:31
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o23-specimen-gamut-0e794-ed-coordinate-was-projected-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o23-specimen-gamut-0e794-ed-coordinate-was-projected-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o23-specimen-gamut-0e794-ed-coordinate-was-projected-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s 
+
+    Error: aurora field does not migrate perceptibly over 10s (0.000 < 4/255) — the T-25/T-26 still, cured at W2-5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4[39m
+    Received:    [31m0.00023792220376522703[39m
+
+      108 |         migration,
+      109 |         `aurora field does not migrate perceptibly over 10s (${migration.toFixed(3)} < ${MIGRATION_MIN}/255) — the T-25/T-26 still, cured at W2-5`,
+    > 110 |     ).toBeGreaterThanOrEqual(MIGRATION_MIN);
+          |       ^
+      111 | });
+      112 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:110:7
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o26-aurora-percept-745af-rates-unmistakably-over-10s-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o26-aurora-percept-745af-rates-unmistakably-over-10s-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o26-aurora-percept-745af-rates-unmistakably-over-10s-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m22[39m
+    Received:   [31m24[39m
+
+      125 |     // …while the VISUAL dot stays 20×20 (the mount box HELD — no reflow).
+      126 |     expect(geom.visualW).toBeGreaterThan(18);
+    > 127 |     expect(geom.visualW).toBeLessThan(22);
+          |                          ^
+      128 |     expect(geom.visualH).toBeGreaterThan(18);
+      129 |     expect(geom.visualH).toBeLessThan(22);
+      130 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:127:26
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o27-focus-affordan-8fe4a-px-the-20px-visual-dot-HELD-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o27-focus-affordan-8fe4a-px-the-20px-visual-dot-HELD-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o27-focus-affordan-8fe4a-px-the-20px-visual-dot-HELD-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:321:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('option', { name: 'Picker', exact: true })
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('option', { name: 'Picker', exact: true })[22m
+
+
+       at smoke/fixtures/dock.ts:77
+
+      75 |     // so the assertion and the action share one truth.
+      76 |     const option = page.getByRole("option", { name, exact: true });
+    > 77 |     await expect(option).toBeVisible();
+         |                          ^
+      78 |     await option.click();
+      79 | }
+      80 |
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:77:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:338:9
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o27-focus-affordan-b8f34-ne-not-only-the-rail-handle-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o27-focus-affordan-b8f34-ne-not-only-the-rail-handle-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o27-focus-affordan-b8f34-ne-not-only-the-rail-handle-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+
+    Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.15948859187521458[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 150): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.29330989323473755[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.24326322147615295[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 0[39m
+    [31m+ Received  + 1[39m
+
+    [2m  Array [[22m
+    [2m    "stage:Gradient",[22m
+    [31m+   "undefined:null",[39m
+    [2m    "inspector:Palettes",[22m
+    [2m  ][22m
+
+      115 |
+      116 |     // The route resolves ONE scene row: the Gradient stage, the Palettes companion.
+    > 117 |     expect(await regionsOf(page)).toEqual(["stage:Gradient", "inspector:Palettes"]);
+          |                                   ^
+      118 |
+      119 |     // STAGE: the authoring surface lives in the stage and nowhere else.
+      120 |     const rail = stage.getByTestId("gradient-stop-bar");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:117:35
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o29-scene-contract-23e43-ctor-and-its-stable-actions-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o29-scene-contract-23e43-ctor-and-its-stable-actions-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o29-scene-contract-23e43-ctor-and-its-stable-actions-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  29) [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light) 
+
+    Error: Home (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Home (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Home (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Home (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Home (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Home (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Palettes (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Palettes (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Palettes (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Palettes (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Palettes (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Palettes (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Browse (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Browse (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Browse (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Browse (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Browse (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Browse (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Extract (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Extract (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Extract (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Extract (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Mix (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Mix (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Mix (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Generate (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Generate (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Generate (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Generate (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Generate (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Generate (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Gradient (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Gradient (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Gradient (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Gradient (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-7ecbf--fixture-on-its-rung-light--smoke/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-7ecbf--fixture-on-its-rung-light--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-7ecbf--fixture-on-its-rung-light--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  30) [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark) 
+
+    Error: Home (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Home (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Home (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Home (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Home (dark): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Home (dark): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Palettes (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Palettes (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Palettes (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Palettes (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Palettes (dark): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Palettes (dark): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Browse (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Browse (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Browse (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Browse (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Extract (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Extract (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Extract (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Extract (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Mix (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Mix (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (dark): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Mix (dark): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Generate (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Generate (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Generate (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Generate (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Generate (dark): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Generate (dark): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Gradient (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Gradient (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Gradient (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Gradient (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-6fb27-d-fixture-on-its-rung-dark--smoke/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-6fb27-d-fixture-on-its-rung-dark--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-6fb27-d-fixture-on-its-rung-dark--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  31) [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:438:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached) 
+
+    Error: 390 (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      451 |         const census = await censusView(page);
+      452 |         for (const card of census.cards) {
+    > 453 |             expect(card.tier, `390 (${scheme}): a card off rung-1`).toBe(
+          |                                                                     ^
+      454 |                 "resting",
+      455 |             );
+      456 |         }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:453:69
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-edc63-one-band-captures-attached--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-edc63-one-band-captures-attached--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-o7-card-census-O-7-edc63-one-band-captures-attached--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  32) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('dialog').getByRole('checkbox').first()[22m
+
+
+       95 |         await menu(page, /Edit Tags/);
+       96 |         // The editor's own box (the browse filter bar lists the same catalog).
+    >  97 |         await page.getByRole("dialog").getByRole("checkbox").first().click();
+          |                                                                      ^
+       98 |         await expect(verdict(page, /The tags were not saved: Server exploded/)).toBeVisible();
+       99 |     });
+      100 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:97:70
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-inspector-rows--353ce-ve-is-said-on-the-inspector-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-inspector-rows--353ce-ve-is-said-on-the-inspector-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-inspector-rows--353ce-ve-is-said-on-the-inspector-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  33) [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 0[39m
+
+    [33m@@ -1,7 +1,6 @@[39m
+    [2m  Array [[22m
+    [32m-   "palette.save",[39m
+    [2m    "palette.rename",[22m
+    [2m    "palette.tags",[22m
+    [2m    "palette.versions",[22m
+    [2m    "palette.visibility",[22m
+    [2m    "palette.fork",[22m
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      137 |         await expect
+      138 |             .poll(() => seats.evaluateAll((els) => els.map((el) => el.getAttribute("data-scene-action"))))
+    > 139 |             .toEqual([
+          |              ^
+      140 |                 "palette.save",
+      141 |                 "palette.rename",
+      142 |                 "palette.tags",
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-inspector-rows.spec.ts:139:14
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-inspector-rows--61d4d-t-runs-the-inspector-s-path-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-inspector-rows--61d4d-t-runs-the-inspector-s-path-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-inspector-rows--61d4d-t-runs-the-inspector-s-path-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  34) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByText('azure-fox-01', { exact: true }).first().locator('xpath=ancestor::div[contains(@class,"cursor-pointer")][1]').getByRole('button', { name: 'Delete all palettes of azure-fox-01', exact: true })[22m
+
+
+      48 |             .locator('xpath=ancestor::div[contains(@class,"cursor-pointer")][1]');
+      49 |         // X.W7.e (G15): the control is named for what it destroys.
+    > 50 |         await row.getByRole("button", { name: "Delete all palettes of azure-fox-01", exact: true }).click();
+         |                                                                                                     ^
+      51 |         await page.getByRole("dialog").getByRole("button", { name: "Delete all palettes" }).click();
+      52 |         await expect(verdict(page, "users")).toContainText("Deleted 1 palette of azure-fox-01");
+      53 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:50:101
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-mutation-visibi-7850f--—-confirmed-then-announced-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-mutation-visibi-7850f--—-confirmed-then-announced-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/oracles-w7-mutation-visibi-7850f--—-confirmed-then-announced-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  35) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-abb86--unavailable-and-inoperable-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-abb86--unavailable-and-inoperable-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-abb86--unavailable-and-inoperable-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  36) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-94d05--unavailable-and-inoperable-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-94d05--unavailable-and-inoperable-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-94d05--unavailable-and-inoperable-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  37) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-50666--unavailable-and-inoperable-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-50666--unavailable-and-inoperable-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/scene-action-contract-D4-·-50666--unavailable-and-inoperable-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  38) [smoke] › e2e/smoke/views/gradient.spec.ts:613:1 › gradient selector aurora ──────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected substring: [32m"`@mkbabb/glass-ui` **10.1.0**"[39m
+    Received string:    [31m"SERVED MODEL: claude-opus-5-5[1m]·[39m
+    [31m# Glass-forward ask — a strip-scale aurora motion primitive for the gradient selector·[39m
+    [31m**Row**: CC-064 · MT-F041 · gate **e1** (`W6.md` §5 X.W6.e).[39m
+    [31m**Dated**: 2026-09-22, branch `tranche-u`, against installed `@mkbabb/glass-ui` **7.0.0**.[39m
+    [31m**Direction**: consumer (value.js) → producer (glass-ui). **glass-ui is READ-ONLY, ALWAYS** — this is a[39m
+    [31mletter; no byte of the producer tree was written to author it.[39m
+    [31m**Follows**: the early notice **B-1** in `valuejs-outbound-2026-07-28-o18-watercolor-toggle-loupe.md`[39m
+    [31m§B — *\"If the wave mechanism lands as a variant of your aurora/gradient primitives rather than[39m
+    [31mdemo-side, a follow-up ask will carry the exact shape.\"* This is that follow-up.[39m
+    [31m**Authority for the branch**: `W6.md` X.W6.e — *\"If the wave mechanism proves to belong inside the[39m
+    [31mglass gradient/aurora primitive, it leaves as a marked BJ ask (same two-way falsifier as d2).\"*[39m
+    [31m**Machine oracle**: `npx playwright test e2e/smoke/views/gradient.spec.ts -g \"gradient selector aurora\"`.[39m
+    [31mIt re-runs the census in §2 on every run and **reds the day a fitting primitive ships** — so this letter[39m
+    [31mcannot outlive the fact that justifies it — and it reds equally if the wave animates the ramp locally.·[39m
+    [31m---·[39m
+    [31m## 1. The mandate, verbatim·[39m
+    [31mOwner, 2026-07-28 (MT-F041): *\"let's plan to add a bit of dyannism to the gradient selector--it should[39m
+    [31mbecome a SUBTLE aurora insofar as the gradient waves a bit.\"* Standing constraints (`W6.md` X.W6.e):[39m
+    [31mconsume the shared field/motion law from `@mkbabb/glass-ui/aurora`; **no new animation species**; **no[39m
+    [31mprivate rAF loop**; PRM honoured **structurally** (declared inside[39m
+    [31m`@media (prefers-reduced-motion: no-preference)`), never by leaning on the global reduce guard.·[39m
+    [31m## 2. The census — why no published primitive fits (re-run by the gate)·[39m
+    [31m`@mkbabb/glass-ui` **7.0.0**, 74 published subpaths. `./aurora` (`dist/components/aurora/index.d.ts`,[39m
+    [31msha256 `6c9b1bce53361513260ccea723826dd724604d6cc220a58383856f0c1694466d`) publishes:·[39m
+    [31m| export | what it is | fits a strip wave? |[39m
+    [31m|---|---|---|[39m
+    [31m| `Aurora` (component) | the full-field painterly background: one WebGL2 canvas sized to its container | **no** — see (a), (b) |[39m
+    [31m| `useAurora`, `createAurora`, `useCursorInteraction` | the WebGL runtime and its pointer bridge | **no** — the same substrate |[39m
+    [31m| `resolveRenderMode`, `isSoftwareWebGLRenderer` | the substrate selector (`\"webgl\" \\| \"css\" \\| \"auto\"`) | — (a guard, not a surface) |[39m
+    [31m| `deriveAurora`, `paletteToCssGradient`, `cssToOklch`, `flattenPalette`, … | colour helpers: palette derivation and a **static** CSS gradient string | **no** — no motion |[39m
+    [31m| `auroraFallbackGround`, `sampleAuroraField`, `nucleiFieldStatic` | the **static** first-frame ground | **no** — no motion |[39m
+    [31m| `DEFAULT_AURORA_CONFIG`, atoms, presets | configuration | — |·[39m
+    [31mAnd the stylesheet: `grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' dist` → **0**. The aurora motion[39m
+    [31mvocabulary exists **only** inside the WebGL runtime.·[39m
+    [31mThree measured facts close the local routes:·[39m
+    [31m- **(a) The CSS substrate is still.** `renderMode.d.ts`: a software rasteriser takes the `\"css\"`[39m
+    [31m  substrate — *\"the static gradient placeholder\"* — by the producer's own safe default, and the named[39m
+    [31m  escape `forceWebGLUnderSoftwareRaster` exists *\"for a deterministic test that ACCEPTS the[39m
+    [31m  per-composite raster cost\"*, not for a product surface. A strip that waves only on a GPU is a strip[39m
+    [31m  that never waves on the smoke cell and on every GPU-blocklisted device (value.js's own[39m
+    [31m  `o26-aurora-perceptibility` records the same: the atmosphere is a still under headless GL).[39m
+    [31m- **(b) A second full-field WebGL canvas per gradient pane** is a second GPU context on the route that[39m
+    [31m  already hosts the atmosphere's — for a ~40 px strip.[39m
+    [31m- **(c) The rail's one-axis law forbids moving the ramp.** The gradient rail paints each colour at the[39m
+    [31m  ordinal its handle sits on (X.W6.a a3/a4; X.W6.c c2: the ghost, the caret and the rail agree to the[39m
+    [31m  sample). A wave that displaces colour along the axis would put a colour under a handle that does not[39m
+    [31m  own it. The motion therefore has to live on an axis the ordinal does not — a veil, a luminance drift,[39m
+    [31m  a silhouette — which is a new primitive, not a configuration of `Aurora`.·[39m
+    [31mA consumer-side cure would therefore mint either a new `@keyframes` species (banned) or a private rAF[39m
+    [31mloop (banned). **The mechanism belongs to the producer.**·[39m
+    [31m## 3. The ask·[39m
+    [31mA **strip-scale aurora motion primitive** in `./aurora` (or a sibling subpath), one of:·[39m
+    [31m1. **`<AuroraStrip>`** — wraps a caller-supplied background (a CSS gradient string, or `OklchStop[]`)[39m
+    [31m   and overlays the aurora field's drift as a **veil** that never displaces the caller's colours along[39m
+    [31m   the strip's long axis (luminance / chroma breathing, or a gently waving silhouette); or[39m
+    [31m2. **a utility + keyframes pair** (e.g. `glass-aurora-drift`) applicable to any element as an extra[39m
+    [31m   background layer, with the drift's tempo and amplitude from the motion tokens (`--motion-tempo`,[39m
+    [31m   the aurora breath).·[39m
+    [31mEither way, the contract we need:·[39m
+    [31m- a **CSS substrate that moves** (no WebGL context per strip), so the wave exists on every renderer;[39m
+    [31m- motion declared **inside `prefers-reduced-motion: no-preference`** in the producer's own stylesheet[39m
+    [31m  (still, not merely slowed, under reduce);[39m
+    [31m- subtle by default (the owner's word), with one documented amplitude knob;[39m
+    [31m- no colour displacement along the long axis (the one-axis law above).·[39m
+    [31m**Consumer commitment**: value.js composes it on the gradient rail (`GradientStopEditor.vue`'s[39m
+    [31m`.gradient-rail`) and nowhere else in this wave; the e1 oracle then flips to the composing branch and[39m
+    [31mmeasures the motion as a settled-frame delta at a fixed colour.·[39m
+    [31m*Sent by the value.js X-W6 wave (Repair 1), 2026-09-22. Reply folds per E13.*[39m
+    [31m"[39m
+
+      724 |         expect(existsSync(askPath), "no fitting primitive and no dated ask").toBe(true);
+      725 |         const ask = readFileSync(askPath, "utf8");
+    > 726 |         expect(ask).toContain(`\`@mkbabb/glass-ui\` **${manifest.version}**`);
+          |                     ^
+      727 |         expect(ask, "the ask's census hash is stale — re-run the census").toContain(indexHash);
+      728 |         for (const name of ["Aurora", "useAurora", "createAurora", "paletteToCssGradient", "auroraFallbackGround"]) {
+      729 |             expect(exported, `the census row ${name} is no longer published`).toContain(name);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:726:21
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/views-gradient-gradient-selector-aurora-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/views-gradient-gradient-selector-aurora-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/views-gradient-gradient-selector-aurora-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  39) [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller 
+
+    Error: the card clips its scroller
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/^(hidden|clip) (hidden|clip)$/[39m
+    Received string:  [31m"visible visible"[39m
+
+      157 |                     `the body overflows its scroller (${s.scrollHeight} > ${s.clientHeight})`,
+      158 |                 ).toBeGreaterThan(s.clientHeight);
+    > 159 |                 expect(r.card.overflow, "the card clips its scroller").toMatch(
+          |                                                                        ^
+      160 |                     /^(hidden|clip) (hidden|clip)$/,
+      161 |                 );
+      162 |                 expect(r.card.radius, "the card has a corner radius").toBeGreaterThan(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-about-clip.spec.ts:159:72
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-cf492-1px-radius-clipped-scroller-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-cf492-1px-radius-clipped-scroller-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-cf492-1px-radius-clipped-scroller-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  40) [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller 
+
+    Error: the card clips its scroller
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/^(hidden|clip) (hidden|clip)$/[39m
+    Received string:  [31m"visible visible"[39m
+
+      157 |                     `the body overflows its scroller (${s.scrollHeight} > ${s.clientHeight})`,
+      158 |                 ).toBeGreaterThan(s.clientHeight);
+    > 159 |                 expect(r.card.overflow, "the card clips its scroller").toMatch(
+          |                                                                        ^
+      160 |                     /^(hidden|clip) (hidden|clip)$/,
+      161 |                 );
+      162 |                 expect(r.card.radius, "the card has a corner radius").toBeGreaterThan(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-about-clip.spec.ts:159:72
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-d616d-1px-radius-clipped-scroller-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-d616d-1px-radius-clipped-scroller-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-d616d-1px-radius-clipped-scroller-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  41) [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller 
+
+    Error: the card clips its scroller
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/^(hidden|clip) (hidden|clip)$/[39m
+    Received string:  [31m"visible visible"[39m
+
+      157 |                     `the body overflows its scroller (${s.scrollHeight} > ${s.clientHeight})`,
+      158 |                 ).toBeGreaterThan(s.clientHeight);
+    > 159 |                 expect(r.card.overflow, "the card clips its scroller").toMatch(
+          |                                                                        ^
+      160 |                     /^(hidden|clip) (hidden|clip)$/,
+      161 |                 );
+      162 |                 expect(r.card.radius, "the card has a corner radius").toBeGreaterThan(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-about-clip.spec.ts:159:72
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-c4e74-1px-radius-clipped-scroller-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-c4e74-1px-radius-clipped-scroller-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/w12-about-clip-X-W12-c-·-t-c4e74-1px-radius-clipped-scroller-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  42) [smoke] › e2e/smoke/w12-dock.spec.ts:358:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census 
+
+    Error: the focus-visible frame is a keyboard focus
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      438 |             writeFileSync(`${OUT_DIR}/trigger-clip-${Date.now()}.json`, JSON.stringify({ focusVisible, frames }, null, 1));
+      439 |         }
+    > 440 |         expect(focusVisible, "the focus-visible frame is a keyboard focus").toBe(true);
+          |                                                                             ^
+      441 |         // value.js's half: no consumer ancestor clips the dock trigger. The
+      442 |         // producer row's clip (glass `.dock-layer--full`, O-63) is reported
+      443 |         // above and carried as honest-RED DOCK-TRIGGER-CLIP.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:440:77
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/w12-dock-X-W12-e-—-the-doc-452f9--ancestor-chain-clip-census-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/w12-dock-X-W12-e-—-the-doc-452f9--ancestor-chain-clip-census-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/w12-dock-X-W12-e-—-the-doc-452f9--ancestor-chain-clip-census-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  43) [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget 
+
+    Error: surface: collector dead
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m10[39m
+    Received:   [31m6[39m
+
+      125 |     );
+      126 |     for (const r of results) {
+    > 127 |         expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(10);
+          |                                                       ^
+      128 |         if (soft) {
+      129 |             expect(r.maxTask, `${r.name}: in-drag freeze`).toBeLessThanOrEqual(SOFT_MAX_TASK_MS);
+      130 |         } else {
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-drag.spec.ts:127:55
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/w12-drag-w12-drag-—-2-s-dr-5224f-h-slider-holds-frame-budget-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/w12-drag-w12-drag-—-2-s-dr-5224f-h-slider-holds-frame-budget-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/w12-drag-w12-drag-—-2-s-dr-5224f-h-slider-holds-frame-budget-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  44) [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame 
+
+    Error: surface: collector dead
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m10[39m
+    Received:   [31m9[39m
+
+      267 |     console.log(`[w12u-p] renderer=${renderer} origin=${ORIGIN ?? "dev"} bisect=${BISECT ?? "none"} T=${budget.T.toFixed(2)} budget p50<=${budget.p50Ms.toFixed(2)} p95<=${budget.p95Ms.toFixed(2)}`);
+      268 |     for (const r of results) {
+    > 269 |         expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(10);
+          |                                                       ^
+      270 |         expect(
+      271 |             r.rovingFrames,
+      272 |             `${r.name}: the dock run's roving observer fired on ${r.rovingFrames} of ${r.frames} frames`,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12u-p-drag.spec.ts:269:55
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/w12u-p-drag-w12u-p-—-colou-0b5e5-s-not-re-rendered-per-frame-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/w12u-p-drag-w12u-p-—-colou-0b5e5-s-not-re-rendered-per-frame-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/w12u-p-drag-w12u-p-—-colou-0b5e5-s-not-re-rendered-per-frame-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  45) [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main').getByRole('combobox', { name: 'Generation preset' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main').getByRole('combobox', { name: 'Generation preset' }).last()[22m
+
+
+      91 |                     .getByRole("combobox", { name: "Generation preset" })
+      92 |                     .last(),
+    > 93 |             ).toBeVisible();
+         |               ^
+      94 |         },
+      95 |         Mix: async () => {
+      96 |             await expect(
+        at Object.Generate (/Users/mkbabb/Programming/value.js/e2e/smoke/walk.spec.ts:93:15)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/walk.spec.ts:129:9
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/walk-walk-all-user-views-s-862ed-ly-with-zero-console-errors-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/walk-walk-all-user-views-s-862ed-ly-with-zero-console-errors-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/walk-walk-all-user-views-s-862ed-ly-with-zero-console-errors-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  46) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: painted dominant chroma 0.13792 vs the gamut-mapped current chroma 0.17901
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.04108769298399498[39m
+
+      288 |             Math.abs(paintedC - targetC),
+      289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      291 |     });
+      292 | }
+      293 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:290:11
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  47) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: painted dominant chroma 0.17687 vs the gamut-mapped current chroma 0.25325
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.07638282794245993[39m
+
+      288 |             Math.abs(paintedC - targetC),
+      289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      291 |     });
+      292 | }
+      293 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:290:11
+
+    Error Context: ../../.dev-logs/w12u-q/q1-smoke/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/q1-smoke/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/q1-smoke/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  47 failed
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+    [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — desktop 
+    [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — 390 
+    [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:147:1 › O-17 composition: stamps, dot rest, one-literal, mint law 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+    [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+    [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box 
+    [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome 
+    [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+    [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s 
+    [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD 
+    [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:321:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle 
+    [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+    [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light) 
+    [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark) 
+    [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:438:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached) 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector 
+    [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:130:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:613:1 › gradient selector aurora ────────────────────
+    [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller 
+    [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller 
+    [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller 
+    [smoke] › e2e/smoke/w12-dock.spec.ts:358:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census 
+    [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget 
+    [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame 
+    [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+  10 passed (13.0m)
+### smoke end 10-15 12:43:14 load1=17.96 exit=1

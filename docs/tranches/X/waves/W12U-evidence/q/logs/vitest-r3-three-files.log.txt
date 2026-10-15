@@ -1,0 +1,113 @@
+### vitest r3 (the two file-level failures + admin-destructive, alone) start 17:03:55 load1=507.79
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:97408) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugin `externalize-deps`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+
+ ❯ demo/test/palettes/plate-mass.test.ts (4 tests | 2 failed | 2 skipped) 130484ms
+   ↓ plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+   × plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them 190ms
+     → page.evaluate: TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:5173/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/PaletteCardSkeleton.vue
+   × plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card 4ms
+     → page.evaluate: TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:5173/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/PaletteCardSkeleton.vue
+(node:7076) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ demo/test/palettes/palette-card-layout.test.ts (6 tests | 6 skipped) 36260ms
+   ↓ G9 · the meta row at 390×844 with a legal payload > does not overflow; the name keeps a rendered width
+   ↓ G10 · the no-overflow law and the height law at every fixture N > no fixture overflows its card or the page
+   ↓ G10 · the no-overflow law and the height law at every fixture N > one card height across the whole fixture set
+   ↓ G11 · root-only: the cast and the hover register live on the card root > the card casts nothing, and the hover register is the root's own rise
+   ↓ N-13 · the reduced-motion disclosure completes > collapse under prefers-reduced-motion removes the swatch subtree
+   ↓ N-13 · the reduced-motion disclosure completes > the animated disclosure (no preference) still completes on its height morph
+(node:9180) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/admin-destructive.test.ts (10 tests) 1818ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > color-name delete (AdminNamesPanel)  393ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/palette-card-layout.test.ts [ demo/test/palettes/palette-card-layout.test.ts ]
+TimeoutError: page.goto: Timeout 30000ms exceeded.
+Call log:
+[2m  - navigating to "http://127.0.0.1:5173/", waiting until "load"[22m
+
+ ❯ openHarness demo/test/palettes/n-fixtures/browser.ts:34:16
+     32|     const browser: Browser = await chromium.launch();
+     33|     const page = await browser.newPage({ viewport });
+     34|     await page.goto(`http://127.0.0.1:${address.port}/`);
+       |                ^
+     35|     await page.waitForSelector("[role=article][data-case]");
+     36|     return {
+ ❯ demo/test/palettes/palette-card-layout.test.ts:27:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px
+Error: Hook timed out in 60000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/plate-mass.test.ts:77:5
+     75| ])("plate at $width px", (viewport) => {
+     76|     let seat: HarnessSeat;
+     77|     beforeAll(async () => {
+       |     ^
+     78|         seat = await openHarness(viewport);
+     79|     }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+Error: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/plate-mass.test.ts:80:5
+     78|         seat = await openHarness(viewport);
+     79|     }, 60_000);
+     80|     afterAll(async () => {
+       |     ^
+     81|         await seat?.close();
+     82|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+Error: page.evaluate: TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:5173/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/PaletteCardSkeleton.vue
+ ❯ plateHeight demo/test/palettes/plate-mass.test.ts:22:17
+     20|     // Shipped to the page as source text: the test runner rewrites a …
+     21|     // dynamic `import()` in this module for its own loader, never the…
+     22|     return page.evaluate(`(async () => {
+       |                 ^
+     23|         // The harness page already loaded Vue through Vite's dep cach…
+     24|         // the SAME module instance the SFC's own \`import "vue"\` res…
+ ❯ demo/test/palettes/plate-mass.test.ts:89:33
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+Error: page.evaluate: TypeError: Failed to fetch dynamically imported module: http://127.0.0.1:5173/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/card/PaletteCardSkeleton.vue
+ ❯ plateHeight demo/test/palettes/plate-mass.test.ts:22:17
+     20|     // Shipped to the page as source text: the test runner rewrites a …
+     21|     // dynamic `import()` in this module for its own loader, never the…
+     22|     return page.evaluate(`(async () => {
+       |                 ^
+     23|         // The harness page already loaded Vue through Vite's dep cach…
+     24|         // the SAME module instance the SFC's own \`import "vue"\` res…
+ ❯ demo/test/palettes/plate-mass.test.ts:103:35
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  2 failed | 10 passed | 8 skipped (20)
+   Start at  17:04:02
+   Duration  182.37s (transform 1.22s, setup 472ms, collect 5.68s, tests 168.56s, environment 973ms, prepare 450ms)
+
+JSON report written to /Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U-evidence/q/results/vitest-r3-three-files.json
+VITEST EXIT 1
+### end 17:07:05 load1=960.49

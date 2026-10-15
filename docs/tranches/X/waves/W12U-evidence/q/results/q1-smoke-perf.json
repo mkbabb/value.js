@@ -1,0 +1,490 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/perf/drag-frame-budget.spec.ts",
+      "file": "smoke/perf/drag-frame-budget.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16116,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[frame-budget:drag] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))\n  frames=91 p50=58.3ms p95=300.1ms longTasks>50ms=1 maxTask=316ms\n  §6.2 GATE: p50 ≤ 20ms · 0 long tasks > 50ms  [asserted on real GPU — see w3-frame-budget-measure.md]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T16:59:19.184Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0dcc027130b82bc329ac-3aee31975a04101acb9a",
+          "file": "smoke/perf/drag-frame-budget.spec.ts",
+          "line": 33,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/eager-payload.spec.ts",
+      "file": "smoke/perf/eager-payload.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "X-W2 G2 — the eager module set's JS gzip budget, from the built artifact",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 83,
+                  "error": {
+                    "message": "Error: Command failed: /opt/homebrew/Cellar/node/26.0.0/bin/node /Users/mkbabb/Programming/value.js/scripts/perf/eager-bytes.mjs\n[eager-bytes] no built artifact at /Users/mkbabb/Programming/value.js/dist/gh-pages/index.html — run `npm run gh-pages` first. This instrument measures the BUILT bundle and will not substitute another origin (W2.md §ENV).\n",
+                    "stack": "Error: Command failed: /opt/homebrew/Cellar/node/26.0.0/bin/node /Users/mkbabb/Programming/value.js/scripts/perf/eager-bytes.mjs\n[eager-bytes] no built artifact at /Users/mkbabb/Programming/value.js/dist/gh-pages/index.html — run `npm run gh-pages` first. This instrument measures the BUILT bundle and will not substitute another origin (W2.md §ENV).\n\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:317:20",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                      "column": 20,
+                      "line": 317
+                    },
+                    "snippet": "  315 |     // here is byte-identical to the one a reviewer gets from the shell.\n  316 |     builtOrigin();\n> 317 |     const stdout = execFileSync(process.execPath, [INSTRUMENT], {\n      |                    ^\n  318 |         cwd: REPO_ROOT,\n  319 |         encoding: \"utf8\",\n  320 |         maxBuffer: 16 * 1024 * 1024,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                        "column": 20,
+                        "line": 317
+                      },
+                      "message": "Error: Command failed: /opt/homebrew/Cellar/node/26.0.0/bin/node /Users/mkbabb/Programming/value.js/scripts/perf/eager-bytes.mjs\n[eager-bytes] no built artifact at /Users/mkbabb/Programming/value.js/dist/gh-pages/index.html — run `npm run gh-pages` first. This instrument measures the BUILT bundle and will not substitute another origin (W2.md §ENV).\n\n\n  315 |     // here is byte-identical to the one a reviewer gets from the shell.\n  316 |     builtOrigin();\n> 317 |     const stdout = execFileSync(process.execPath, [INSTRUMENT], {\n      |                    ^\n  318 |         cwd: REPO_ROOT,\n  319 |         encoding: \"utf8\",\n  320 |         maxBuffer: 16 * 1024 * 1024,\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:317:20"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [
+                    {
+                      "text": "[eager-bytes] no built artifact at /Users/mkbabb/Programming/value.js/dist/gh-pages/index.html — run `npm run gh-pages` first. This instrument measures the BUILT bundle and will not substitute another origin (W2.md §ENV).\n"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-10-15T16:59:36.009Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf/eager-payload-X-W2-G2-—-th-e3033-get-from-the-built-artifact-smoke-perf/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf/eager-payload-X-W2-G2-—-th-e3033-get-from-the-built-artifact-smoke-perf/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                    "column": 20,
+                    "line": 317
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "788a1a78543e345a9dc6-a0cc65b6baf1466ff8e1",
+          "file": "smoke/perf/eager-payload.spec.ts",
+          "line": 313,
+          "column": 1
+        },
+        {
+          "title": "X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1200000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 176664,
+                  "error": {
+                    "message": "Error: G3 mobile-4x-cpu: p75 TBT 1040ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9152]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m1040\u001b[39m",
+                    "stack": "Error: G3 mobile-4x-cpu: p75 TBT 1040ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9152]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m1040\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:533:14",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                      "column": 14,
+                      "line": 533
+                    },
+                    "snippet": "  531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,\n  532 |             )\n> 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);\n      |              ^\n  534 |         expect\n  535 |             .soft(\n  536 |                 s.p75Lcp,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                        "column": 14,
+                        "line": 533
+                      },
+                      "message": "Error: G3 mobile-4x-cpu: p75 TBT 1040ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9152]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m1040\u001b[39m\n\n  531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,\n  532 |             )\n> 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);\n      |              ^\n  534 |         expect\n  535 |             .soft(\n  536 |                 s.p75Lcp,\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:533:14"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[X-W2 CWV] pin: macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9152\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] renderer(raw): ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] origin=http://localhost:9152 route=#/ N=20 settle=3000ms cold-cache=CDP Network.setCacheDisabled\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV desktop-unthrottled] warmup (DISCARDED from p75): lcp=1060ms tbt=161ms fcp=376ms longTasks=1\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV desktop-unthrottled] N=20 p75 LCP=704ms p75 TBT=135ms p75 FCP=344ms p75 TBT[FCP,end]=0ms (reported, not gated) p75 CLS=0.0120 median longTasks=1 p75 longest task=185ms max TBT=227ms median transfer(uncompressed, diagnostic)=2387604 B resources=25\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV mobile-4x-cpu] warmup (DISCARDED from p75): lcp=1324ms tbt=639ms fcp=776ms longTasks=5\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV mobile-4x-cpu] N=20 p75 LCP=1216ms p75 TBT=1040ms p75 FCP=820ms p75 TBT[FCP,end]=552ms (reported, not gated) p75 CLS=0.0007 median longTasks=6 p75 longest task=535ms max TBT=1274ms median transfer(uncompressed, diagnostic)=2387604 B resources=25\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] record\n{\n  \"schema\": \"x-w2.cwv/1\",\n  \"gate\": \"W2.md §6 G3 (p75 TBT ≤ 300 ms) · G4 (p75 LCP ≤ 2500 ms)\",\n  \"generatedAt\": \"2026-10-15T17:02:33.659Z\",\n  \"pin\": \"macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9152\",\n  \"rendererRaw\": \"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)\",\n  \"origin\": \"http://localhost:9152\",\n  \"originKind\": \"BUILT dist/gh-pages via e2e/smoke/perf/serve-built.mjs (MT-F011: never a dev server)\",\n  \"route\": \"#/\",\n  \"n\": 20,\n  \"settleMs\": 3000,\n  \"coldCache\": \"CDP Network.setCacheDisabled + a fresh browser context per load\",\n  \"tbtDefinition\": \"Lighthouse calculateSumOfBlockingTime (every long task ≥ 50 ms, CLIPPED to the window, contributes clippedDuration − 50 ms), evaluated over TWO windows. GATED: [navigationStart, observationEnd]. REPORTED BESIDE IT: Lighthouse's strict [FCP, TTI≈observationEnd], which reads 0 on this product because FCP===LCP — nothing paints until Vue mounts, so the boot's blocking task ends before first paint and the strict window is structurally blind to the cost this wave cuts (L-19). observationEnd (per-sample `windowEndMs`) stands in for TTI, which this harness cannot derive without a trace.\",\n  \"configs\": {\n    \"desktop-unthrottled\": {\n      \"viewport\": {\n        \"width\": 1440,\n        \"height\": 900\n      },\n      \"cpuThrottleRate\": 1,\n      \"n\": 20,\n      \"warmupLoadsDiscarded\": 1,\n      \"warmup\": {\n        \"lcp\": 1060,\n        \"fcp\": 376,\n        \"tbt\": 161,\n        \"tbtLighthouseWindow\": 0,\n        \"cls\": 0.011968219935010979,\n        \"longTasks\": 1,\n        \"tasks\": [\n          {\n            \"start\": 32.69999998807907,\n            \"dur\": 211\n          }\n        ],\n        \"windowEndMs\": 3387.5,\n        \"transferBytes\": 2387604,\n        \"resources\": 25\n      },\n      \"p75Lcp\": 704,\n      \"p75Tbt\": 135,\n      \"p75Fcp\": 344,\n      \"p75TbtLighthouseWindow\": 0,\n      \"medianLcp\": 652,\n      \"medianTbt\": 100,\n      \"maxTbt\": 227,\n      \"p75LongestTaskMs\": 185,\n      \"p75Cls\": 0.011968219935010979,\n      \"medianLongTasks\": 1,\n      \"medianTransferBytesUncompressed\": 2387604,\n      \"medianResources\": 25,\n      \"gates\": {\n        \"G3 p75 TBT ≤ 300 ms\": {\n          \"measured\": 135,\n          \"window\": \"[navigationStart, observationEnd] — the gated window\",\n          \"bar\": 300,\n          \"verdict\": \"GREEN\",\n          \"lighthouseWindowReading\": 0,\n          \"lighthouseWindowNote\": \"[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19).\"\n        },\n        \"G4 p75 LCP ≤ 2500 ms\": {\n          \"measured\": 704,\n          \"bar\": 2500,\n          \"verdict\": \"GREEN\"\n        }\n      },\n      \"samples\": [\n        {\n          \"lcp\": 556,\n          \"fcp\": 296,\n          \"tbt\": 93,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 31.100000023841858,\n              \"dur\": 143\n            }\n          ],\n          \"windowEndMs\": 3315,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 704,\n          \"fcp\": 336,\n          \"tbt\": 100,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 33.80000001192093,\n              \"dur\": 150\n            }\n          ],\n          \"windowEndMs\": 3316.800000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 716,\n          \"fcp\": 344,\n          \"tbt\": 135,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 35,\n              \"dur\": 185\n            }\n          ],\n          \"windowEndMs\": 3367.5,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 664,\n          \"fcp\": 356,\n          \"tbt\": 142,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 34.5,\n              \"dur\": 192\n            }\n          ],\n          \"windowEndMs\": 3367.899999976158,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 700,\n          \"fcp\": 368,\n          \"tbt\": 132,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 34.69999998807907,\n              \"dur\": 182\n            }\n          ],\n          \"windowEndMs\": 3359.900000035763,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 664,\n          \"fcp\": 304,\n          \"tbt\": 92,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 32.80000001192093,\n              \"dur\": 142\n            }\n          ],\n          \"windowEndMs\": 3321.599999964237,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 708,\n          \"fcp\": 360,\n          \"tbt\": 135,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 35.09999996423721,\n              \"dur\": 185\n            }\n          ],\n          \"windowEndMs\": 3374.699999988079,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 616,\n          \"fcp\": 332,\n          \"tbt\": 124,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 34.30000001192093,\n              \"dur\": 174\n            }\n          ],\n          \"windowEndMs\": 3345.199999988079,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 568,\n          \"fcp\": 320,\n          \"tbt\": 84,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 34.89999997615814,\n              \"dur\": 134\n            }\n          ],\n          \"windowEndMs\": 3313,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 652,\n          \"fcp\": 344,\n          \"tbt\": 89,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 31.899999976158142,\n              \"dur\": 139\n            }\n          ],\n          \"windowEndMs\": 3315.599999964237,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 656,\n          \"fcp\": 304,\n          \"tbt\": 93,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 33.60000002384186,\n              \"dur\": 143\n            }\n          ],\n          \"windowEndMs\": 3330.400000035763,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 604,\n          \"fcp\": 304,\n          \"tbt\": 227,\n          \"tbtLighthouseWindow\": 138,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 2,\n          \"tasks\": [\n            {\n              \"start\": 34.59999996423721,\n              \"dur\": 139\n            },\n            {\n              \"start\": 2177.899999976158,\n              \"dur\": 188\n            }\n          ],\n          \"windowEndMs\": 3317.5,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 596,\n          \"fcp\": 304,\n          \"tbt\": 84,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 32.5,\n              \"dur\": 134\n            }\n          ],\n          \"windowEndMs\": 3315.300000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 612,\n          \"fcp\": 312,\n          \"tbt\": 94,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 34.39999997615814,\n              \"dur\": 144\n            }\n          ],\n          \"windowEndMs\": 3323.800000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 624,\n          \"fcp\": 324,\n          \"tbt\": 106,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 32.89999997615814,\n              \"dur\": 156\n            }\n          ],\n          \"windowEndMs\": 3324.800000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 556,\n          \"fcp\": 288,\n          \"tbt\": 88,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 32.5,\n              \"dur\": 138\n            }\n          ],\n          \"windowEndMs\": 3318.900000035763,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 592,\n          \"fcp\": 292,\n          \"tbt\": 82,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 34.19999998807907,\n              \"dur\": 132\n            }\n          ],\n          \"windowEndMs\": 3311.199999988079,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 888,\n          \"fcp\": 452,\n          \"tbt\": 173,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 33,\n              \"dur\": 223\n            }\n          ],\n          \"windowEndMs\": 3390.699999988079,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 920,\n          \"fcp\": 312,\n          \"tbt\": 102,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 24.69999998807907,\n              \"dur\": 152\n            }\n          ],\n          \"windowEndMs\": 3348.7999999523163,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 600,\n          \"fcp\": 332,\n          \"tbt\": 91,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0.011968219935010979,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 31.19999998807907,\n              \"dur\": 141\n            }\n          ],\n          \"windowEndMs\": 3318.800000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        }\n      ]\n    },\n    \"mobile-4x-cpu\": {\n      \"viewport\": {\n        \"width\": 390,\n        \"height\": 844\n      },\n      \"cpuThrottleRate\": 4,\n      \"n\": 20,\n      \"warmupLoadsDiscarded\": 1,\n      \"warmup\": {\n        \"lcp\": 1324,\n        \"fcp\": 776,\n        \"tbt\": 639,\n        \"tbtLighthouseWindow\": 166,\n        \"cls\": 0.0006848911966099887,\n        \"longTasks\": 5,\n        \"tasks\": [\n          {\n            \"start\": 131.39999997615814,\n            \"dur\": 503\n          },\n          {\n            \"start\": 637.1999999880791,\n            \"dur\": 70\n          },\n          {\n            \"start\": 787.0999999642372,\n            \"dur\": 92\n          },\n          {\n            \"start\": 1034.199999988079,\n            \"dur\": 172\n          },\n          {\n            \"start\": 4210.199999988079,\n            \"dur\": 52\n          }\n        ],\n        \"windowEndMs\": 4277.5,\n        \"transferBytes\": 2387604,\n        \"resources\": 25\n      },\n      \"p75Lcp\": 1216,\n      \"p75Tbt\": 1040,\n      \"p75Fcp\": 820,\n      \"p75TbtLighthouseWindow\": 552,\n      \"medianLcp\": 1120,\n      \"medianTbt\": 718,\n      \"maxTbt\": 1274,\n      \"p75LongestTaskMs\": 535,\n      \"p75Cls\": 0.0006848911966099887,\n      \"medianLongTasks\": 6,\n      \"medianTransferBytesUncompressed\": 2387604,\n      \"medianResources\": 25,\n      \"gates\": {\n        \"G3 p75 TBT ≤ 300 ms\": {\n          \"measured\": 1040,\n          \"window\": \"[navigationStart, observationEnd] — the gated window\",\n          \"bar\": 300,\n          \"verdict\": \"RED\",\n          \"lighthouseWindowReading\": 552,\n          \"lighthouseWindowNote\": \"[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19).\"\n        },\n        \"G4 p75 LCP ≤ 2500 ms\": {\n          \"measured\": 1216,\n          \"bar\": 2500,\n          \"verdict\": \"GREEN\"\n        }\n      },\n      \"samples\": [\n        {\n          \"lcp\": 1216,\n          \"fcp\": 860,\n          \"tbt\": 718,\n          \"tbtLighthouseWindow\": 159,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 135.5,\n              \"dur\": 595\n            },\n            {\n              \"start\": 733.8000000119209,\n              \"dur\": 64\n            },\n            {\n              \"start\": 873.3000000119209,\n              \"dur\": 92\n            },\n            {\n              \"start\": 1125.699999988079,\n              \"dur\": 165\n            },\n            {\n              \"start\": 4294.400000035763,\n              \"dur\": 52\n            }\n          ],\n          \"windowEndMs\": 4359.900000035763,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1088,\n          \"fcp\": 780,\n          \"tbt\": 622,\n          \"tbtLighthouseWindow\": 146,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 135.30000001192093,\n              \"dur\": 510\n            },\n            {\n              \"start\": 648.8000000119209,\n              \"dur\": 66\n            },\n            {\n              \"start\": 791,\n              \"dur\": 89\n            },\n            {\n              \"start\": 1038.1000000238419,\n              \"dur\": 157\n            }\n          ],\n          \"windowEndMs\": 4302.699999988079,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1088,\n          \"fcp\": 772,\n          \"tbt\": 624,\n          \"tbtLighthouseWindow\": 147,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 133.39999997615814,\n              \"dur\": 514\n            },\n            {\n              \"start\": 651.0999999642372,\n              \"dur\": 63\n            },\n            {\n              \"start\": 790.8000000119209,\n              \"dur\": 87\n            },\n            {\n              \"start\": 1035.5,\n              \"dur\": 160\n            }\n          ],\n          \"windowEndMs\": 4307.699999988079,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1104,\n          \"fcp\": 788,\n          \"tbt\": 1042,\n          \"tbtLighthouseWindow\": 560,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 127.5,\n              \"dur\": 509\n            },\n            {\n              \"start\": 639.6999999880791,\n              \"dur\": 68\n            },\n            {\n              \"start\": 783,\n              \"dur\": 91\n            },\n            {\n              \"start\": 1035.699999988079,\n              \"dur\": 158\n            },\n            {\n              \"start\": 2765.300000011921,\n              \"dur\": 435\n            },\n            {\n              \"start\": 3200.600000023842,\n              \"dur\": 81\n            },\n            {\n              \"start\": 4195.800000011921,\n              \"dur\": 50\n            }\n          ],\n          \"windowEndMs\": 4261.100000023842,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1048,\n          \"fcp\": 748,\n          \"tbt\": 601,\n          \"tbtLighthouseWindow\": 152,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 132.9000000357628,\n              \"dur\": 487\n            },\n            {\n              \"start\": 623.8000000119209,\n              \"dur\": 62\n            },\n            {\n              \"start\": 762.7000000476837,\n              \"dur\": 91\n            },\n            {\n              \"start\": 1015,\n              \"dur\": 159\n            },\n            {\n              \"start\": 4177.300000011921,\n              \"dur\": 52\n            }\n          ],\n          \"windowEndMs\": 4243.5,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1228,\n          \"fcp\": 892,\n          \"tbt\": 732,\n          \"tbtLighthouseWindow\": 131,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 122.09999996423721,\n              \"dur\": 632\n            },\n            {\n              \"start\": 757,\n              \"dur\": 69\n            },\n            {\n              \"start\": 907.5999999642372,\n              \"dur\": 90\n            },\n            {\n              \"start\": 1185.3999999761581,\n              \"dur\": 141\n            }\n          ],\n          \"windowEndMs\": 4392.699999988079,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1104,\n          \"fcp\": 780,\n          \"tbt\": 1009,\n          \"tbtLighthouseWindow\": 522,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 124.60000002384186,\n              \"dur\": 515\n            },\n            {\n              \"start\": 642.5,\n              \"dur\": 72\n            },\n            {\n              \"start\": 795.6999999880791,\n              \"dur\": 93\n            },\n            {\n              \"start\": 1051,\n              \"dur\": 158\n            },\n            {\n              \"start\": 2657.5,\n              \"dur\": 396\n            },\n            {\n              \"start\": 3053.600000023842,\n              \"dur\": 75\n            }\n          ],\n          \"windowEndMs\": 4321.899999976158,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1124,\n          \"fcp\": 808,\n          \"tbt\": 674,\n          \"tbtLighthouseWindow\": 172,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 133.4000000357628,\n              \"dur\": 535\n            },\n            {\n              \"start\": 671.5,\n              \"dur\": 67\n            },\n            {\n              \"start\": 819.6000000238419,\n              \"dur\": 87\n            },\n            {\n              \"start\": 1061.1000000238419,\n              \"dur\": 161\n            },\n            {\n              \"start\": 2702.100000023842,\n              \"dur\": 74\n            },\n            {\n              \"start\": 4225.300000011921,\n              \"dur\": 50\n            }\n          ],\n          \"windowEndMs\": 4289.199999988079,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1216,\n          \"fcp\": 832,\n          \"tbt\": 1106,\n          \"tbtLighthouseWindow\": 591,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 131.80000001192093,\n              \"dur\": 545\n            },\n            {\n              \"start\": 679.7000000476837,\n              \"dur\": 70\n            },\n            {\n              \"start\": 832.5,\n              \"dur\": 91\n            },\n            {\n              \"start\": 1082.9000000357628,\n              \"dur\": 162\n            },\n            {\n              \"start\": 2777.600000023842,\n              \"dur\": 451\n            },\n            {\n              \"start\": 3229.400000035763,\n              \"dur\": 87\n            }\n          ],\n          \"windowEndMs\": 4353.100000023842,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1108,\n          \"fcp\": 760,\n          \"tbt\": 1274,\n          \"tbtLighthouseWindow\": 812,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 130.30000001192093,\n              \"dur\": 496\n            },\n            {\n              \"start\": 629.4000000357628,\n              \"dur\": 66\n            },\n            {\n              \"start\": 764,\n              \"dur\": 91\n            },\n            {\n              \"start\": 1010,\n              \"dur\": 162\n            },\n            {\n              \"start\": 2659.400000035763,\n              \"dur\": 67\n            },\n            {\n              \"start\": 2741.400000035763,\n              \"dur\": 652\n            },\n            {\n              \"start\": 3393.600000023842,\n              \"dur\": 90\n            }\n          ],\n          \"windowEndMs\": 4287.800000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1396,\n          \"fcp\": 1072,\n          \"tbt\": 659,\n          \"tbtLighthouseWindow\": 59.10000002384186,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 148.30000001192093,\n              \"dur\": 521\n            },\n            {\n              \"start\": 672.9000000357628,\n              \"dur\": 67\n            },\n            {\n              \"start\": 807.2000000476837,\n              \"dur\": 82\n            },\n            {\n              \"start\": 992.1000000238419,\n              \"dur\": 182\n            },\n            {\n              \"start\": 1207.1000000238419,\n              \"dur\": 55\n            },\n            {\n              \"start\": 2678.5,\n              \"dur\": 52\n            }\n          ],\n          \"windowEndMs\": 4328.300000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1168,\n          \"fcp\": 812,\n          \"tbt\": 1141,\n          \"tbtLighthouseWindow\": 650.8000000119209,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 140.30000001192093,\n              \"dur\": 520\n            },\n            {\n              \"start\": 663.8000000119209,\n              \"dur\": 70\n            },\n            {\n              \"start\": 811.8000000119209,\n              \"dur\": 93\n            },\n            {\n              \"start\": 1071.5,\n              \"dur\": 156\n            },\n            {\n              \"start\": 2701.199999988079,\n              \"dur\": 530\n            },\n            {\n              \"start\": 3231.800000011921,\n              \"dur\": 72\n            },\n            {\n              \"start\": 4230.5,\n              \"dur\": 50\n            }\n          ],\n          \"windowEndMs\": 4296.300000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1124,\n          \"fcp\": 792,\n          \"tbt\": 646,\n          \"tbtLighthouseWindow\": 146,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 126.30000001192093,\n              \"dur\": 534\n            },\n            {\n              \"start\": 663.6000000238419,\n              \"dur\": 66\n            },\n            {\n              \"start\": 810,\n              \"dur\": 87\n            },\n            {\n              \"start\": 1047.9000000357628,\n              \"dur\": 159\n            },\n            {\n              \"start\": 4208.5,\n              \"dur\": 50\n            }\n          ],\n          \"windowEndMs\": 4273,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1092,\n          \"fcp\": 760,\n          \"tbt\": 608,\n          \"tbtLighthouseWindow\": 143,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 125.19999998807907,\n              \"dur\": 505\n            },\n            {\n              \"start\": 634.6000000238419,\n              \"dur\": 60\n            },\n            {\n              \"start\": 773.1000000238419,\n              \"dur\": 85\n            },\n            {\n              \"start\": 1014.9000000357628,\n              \"dur\": 157\n            },\n            {\n              \"start\": 4174.100000023842,\n              \"dur\": 51\n            }\n          ],\n          \"windowEndMs\": 4242.600000023842,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1084,\n          \"fcp\": 768,\n          \"tbt\": 615,\n          \"tbtLighthouseWindow\": 137,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 126.20000004768372,\n              \"dur\": 518\n            },\n            {\n              \"start\": 647.5,\n              \"dur\": 60\n            },\n            {\n              \"start\": 781.6000000238419,\n              \"dur\": 85\n            },\n            {\n              \"start\": 1018.2000000476837,\n              \"dur\": 152\n            }\n          ],\n          \"windowEndMs\": 4281.600000023842,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1352,\n          \"fcp\": 800,\n          \"tbt\": 999,\n          \"tbtLighthouseWindow\": 503,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 127.60000002384186,\n              \"dur\": 525\n            },\n            {\n              \"start\": 656.5,\n              \"dur\": 71\n            },\n            {\n              \"start\": 810.1000000238419,\n              \"dur\": 93\n            },\n            {\n              \"start\": 1041.6000000238419,\n              \"dur\": 157\n            },\n            {\n              \"start\": 2883.2000000476837,\n              \"dur\": 399\n            },\n            {\n              \"start\": 3284.100000023842,\n              \"dur\": 54\n            }\n          ],\n          \"windowEndMs\": 4263.700000047684,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1120,\n          \"fcp\": 780,\n          \"tbt\": 621,\n          \"tbtLighthouseWindow\": 147,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 138.60000002384186,\n              \"dur\": 509\n            },\n            {\n              \"start\": 650.2000000476837,\n              \"dur\": 65\n            },\n            {\n              \"start\": 792.2000000476837,\n              \"dur\": 87\n            },\n            {\n              \"start\": 1038.800000011921,\n              \"dur\": 160\n            }\n          ],\n          \"windowEndMs\": 4266.5,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1056,\n          \"fcp\": 740,\n          \"tbt\": 591,\n          \"tbtLighthouseWindow\": 144,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 4,\n          \"tasks\": [\n            {\n              \"start\": 128.0999999642372,\n              \"dur\": 485\n            },\n            {\n              \"start\": 615.5,\n              \"dur\": 62\n            },\n            {\n              \"start\": 754.8999999761581,\n              \"dur\": 88\n            },\n            {\n              \"start\": 1004.5999999642372,\n              \"dur\": 156\n            }\n          ],\n          \"windowEndMs\": 4222.399999976158,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1052,\n          \"fcp\": 736,\n          \"tbt\": 993,\n          \"tbtLighthouseWindow\": 552,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 129.60000002384186,\n              \"dur\": 478\n            },\n            {\n              \"start\": 610.8000000119209,\n              \"dur\": 63\n            },\n            {\n              \"start\": 746.5,\n              \"dur\": 94\n            },\n            {\n              \"start\": 999.8000000119209,\n              \"dur\": 155\n            },\n            {\n              \"start\": 2595.5,\n              \"dur\": 425\n            },\n            {\n              \"start\": 3020.900000035763,\n              \"dur\": 78\n            }\n          ],\n          \"windowEndMs\": 4258.300000011921,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        },\n        {\n          \"lcp\": 1120,\n          \"fcp\": 820,\n          \"tbt\": 1040,\n          \"tbtLighthouseWindow\": 535.5,\n          \"cls\": 0.0006848911966099887,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 135.30000001192093,\n              \"dur\": 530\n            },\n            {\n              \"start\": 668.8999999761581,\n              \"dur\": 69\n            },\n            {\n              \"start\": 814.5,\n              \"dur\": 90\n            },\n            {\n              \"start\": 1066.6000000238419,\n              \"dur\": 169\n            },\n            {\n              \"start\": 2768.600000023842,\n              \"dur\": 406\n            },\n            {\n              \"start\": 3175.399999976158,\n              \"dur\": 74\n            },\n            {\n              \"start\": 4237.899999976158,\n              \"dur\": 52\n            }\n          ],\n          \"windowEndMs\": 4303.100000023842,\n          \"transferBytes\": 2387604,\n          \"resources\": 25\n        }\n      ]\n    }\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T16:59:36.709Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf/eager-payload-X-W2-G3-G4-—-2a4c3-≥20-cold-loads-both-configs-smoke-perf/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf/eager-payload-X-W2-G3-G4-—-2a4c3-≥20-cold-loads-both-configs-smoke-perf/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                    "column": 14,
+                    "line": 533
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "788a1a78543e345a9dc6-e58474358c63168a557b",
+          "file": "smoke/perf/eager-payload.spec.ts",
+          "line": 377,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/o5-boot-pacing.spec.ts",
+      "file": "smoke/perf/o5-boot-pacing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-5 boot pacing — no jitter spike over the boot window",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6300,
+                  "error": {
+                    "message": "Error: boot jitter spike 1925.4ms = 33.5× median (> 3×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m172.5\u001b[39m\nReceived:    \u001b[31m1925.4\u001b[39m",
+                    "stack": "Error: boot jitter spike 1925.4ms = 33.5× median (> 3×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m172.5\u001b[39m\nReceived:    \u001b[31m1925.4\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts:110:7",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts",
+                      "column": 7,
+                      "line": 110
+                    },
+                    "snippet": "  108 |         maxDelta,\n  109 |         `boot jitter spike ${maxDelta.toFixed(1)}ms = ${(maxDelta / median).toFixed(1)}× median (> ${SPIKE_RATIO}×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload`,\n> 110 |     ).toBeLessThanOrEqual(SPIKE_RATIO * median);\n      |       ^\n  111 |     expect(\n  112 |         dropFraction,\n  113 |         `dropped-frame ratio ${(dropFraction * 100).toFixed(1)}% > ${DROP_FRACTION_MAX * 100}%`,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts",
+                        "column": 7,
+                        "line": 110
+                      },
+                      "message": "Error: boot jitter spike 1925.4ms = 33.5× median (> 3×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m172.5\u001b[39m\nReceived:    \u001b[31m1925.4\u001b[39m\n\n  108 |         maxDelta,\n  109 |         `boot jitter spike ${maxDelta.toFixed(1)}ms = ${(maxDelta / median).toFixed(1)}× median (> ${SPIKE_RATIO}×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload`,\n> 110 |     ).toBeLessThanOrEqual(SPIKE_RATIO * median);\n      |       ^\n  111 |     expect(\n  112 |         dropFraction,\n  113 |         `dropped-frame ratio ${(dropFraction * 100).toFixed(1)}% > ${DROP_FRACTION_MAX * 100}%`,\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts:110:7"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[O-5] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) frames=20 median=57.5ms max=1925.4ms (33.5× median) dropped=6 (30.0%)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T17:02:35.647Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf/o5-boot-pacing-O-5-boot-pa-aca4a--spike-over-the-boot-window-smoke-perf/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/q1-smoke-perf/o5-boot-pacing-O-5-boot-pa-aca4a--spike-over-the-boot-window-smoke-perf/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts",
+                    "column": 7,
+                    "line": 110
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db0812e1daf4f2dada58-ed2689d1cc206f7b6b80",
+          "file": "smoke/perf/o5-boot-pacing.spec.ts",
+          "line": 74,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T16:59:18.790Z",
+    "duration": 203757.454,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

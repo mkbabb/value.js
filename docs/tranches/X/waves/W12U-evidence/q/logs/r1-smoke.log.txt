@@ -1,0 +1,1806 @@
+### smoke start 10-13 16:12:43 load1=383.02
+(node:70298) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 293 tests using 1 worker
+
+(node:70622) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[W4-CENSUS] {"route":"/","rows":[{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Save edit","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Cancel edit","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"input","id":"","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","name":"Slug or admin token","w":224,"h":36,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Switch to slug","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Cancel","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Back","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Reset color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Copy color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Random color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Palettes","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Extract palette","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"send-btn btn-interactive","name":"Apply color","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Open color input","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none","name":"Select view","w":105.8,"h":32,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn","name":"Toggle action bar","w":103.1,"h":32,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-tab-button glass-specular-track gap-1.5 text-small font-display","name":"Login","w":86.8,"h":38,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-dropdown-menu-trigger-v-5","cls":"menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap","name":"@mbabb","w":75.1,"h":30.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]","name":"Select color space","w":109.3,"h":83.2,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"l channel","w":24,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"a channel","w":24,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"b channel","w":24,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"alpha channel","w":24.5,"h":25.4,"attributedTo":"self"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"L channel","w":342.7,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"A channel","w":342.7,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"B channel","w":342.7,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"ALPHA channel","w":342.7,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em] space-trigger--inline","name":"Select color space","w":84.5,"h":46.3,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"DefinitionThe L*a*b* color space is a three-dimensional color model designed to be perceptually uniform and device-independent. Basic Information Device Dependency:Device-independentWhite Point:Variable (typically D50 or D65)Gamut:UnlimitedCreated:1976 Components L* (Lightness)0% to 100%a* (Green-Red)-125 to 125b* (Blue-Yellow)-125 to 125 Key Properties Perceptual Uniformity:YesHue Linearity:NoLightness Separation:Yes Conversion Graph LabXYZLabLChLabXYZOKLabLabLChOKLChUsageCommon Applications: Color management, Image processing, Color difference calculationsIndustries: Printing, Textile, Paint manufacturing, Color researchDetailed Guide","w":514.8,"h":465.1,"attributedTo":"self"}]}
+[W4-CENSUS] {"route":"/#/gradient","rows":[{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Save edit","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Cancel edit","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"input","id":"","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","name":"Slug or admin token","w":224,"h":36,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Switch to slug","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Cancel","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Back","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Reset","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Copy CSS","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Seed from palette","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none","name":"Select view","w":126.4,"h":32,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn","name":"Toggle action bar","w":103.1,"h":32,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-tab-button glass-specular-track gap-1.5 text-small font-display","name":"Login","w":86.8,"h":38,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"reka-dropdown-menu-trigger-v-5","cls":"menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap","name":"@mbabb","w":75.1,"h":30.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"Stops Select a stop on the rail to set its position or remove it.  Interpolation TypeLinear Color spaceOKLCh Hue methodShorter Direction90°Easing1 → 2linearCSSlinear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(65% 0.18 265deg) 100%)","w":517,"h":673.9,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-caret rail-swatch absolute rounded-full border-2 border-dashed border-white/70 z-0","name":"Add gradient stop at 50%","w":24.3,"h":24.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0","name":"Gradient stop 1 of 2","w":24.3,"h":24.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0","name":"Gradient stop 2 of 2","w":24.3,"h":24.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Type","w":110.4,"h":37.1,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Color space","w":110.4,"h":37.1,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Hue method","w":110.4,"h":37.1,"attributedTo":"self"},{"route":"/#/gradient","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"Gradient direction","w":354.1,"h":12.7,"attributedTo":"span.glass-slider"},{"route":"/#/gradient","tag":"button","id":"glass-disclosure-trigger-v-29","cls":"disclosure-trigger disclosure-group-trigger interval-head w-full flex items-center gap-2.5 py-2 text-left","name":"1 → 2linear","w":460.4,"h":48.8,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact","name":"Copy rendered CSS (easing baked in)","w":28.3,"h":28.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"Start a new paletteNo saved palettes yet.Add colors, then save.","w":513.2,"h":314.9,"attributedTo":"self"},{"route":"/#/gradient","tag":"input","id":"","cls":"input-bar-field","name":"Search your palettes","w":414.2,"h":28.3,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"button tap-squish focus-ring add-slot-ghost btn-interactive shrink-0 cursor-pointer","name":"Add current color lab(92% 88.8 20) to palette","w":44.5,"h":44.5,"attributedTo":"self"}]}
+[W4-A1] undersized=1
+/#/gradient · <span> "Gradient direction" 354.1×12.7 [class="slider-thumb glass-specular-track"] attributedTo=span.glass-slider
+  ✘    1 [smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24 (1.1m)
+(node:73738) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[W4-SIZED] {"route":"/","rows":[{"route":"/","tag":"input","slot":"input","size":"sm","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","blockSize":36,"token":0,"controlFloor":0}]}
+[W4-SIZED] {"route":"/#/gradient","rows":[{"route":"/#/gradient","tag":"input","slot":"input","size":"sm","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","blockSize":36,"token":0,"controlFloor":0},{"route":"/#/gradient","tag":"button","slot":"button","size":"lg","cls":"button tap-squish focus-ring add-slot-ghost btn-interactive shrink-0 cursor-pointer","blockSize":44,"token":44,"controlFloor":0}]}
+[W4-A3] measured=1 mismatches=0
+
+  ✓    2 [smoke] › e2e/smoke/a11y-control-targets.spec.ts:377:1 › A3 · the size axis owns control height — computed blockSize == the producer size token (27.4s)
+[W4-A4] nameless=0
+
+  ✓    3 [smoke] › e2e/smoke/a11y-control-targets.spec.ts:411:1 › A4 · zero nameless interactive elements (24.1s)
+[W4-C1] caretLeft=252.891 mintedLeft=252.891 inline="calc(var(--rail-inset) + var(--rail-track) * 0.55)"
+[W4-C1] pointerEventsDuringKeyboardJourney=0
+  ✓    4 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:259:1 › C1 · a keyboard-only journey mints a stop — and the pointer-add gesture still mints (12.1s)
+[W4-C2] [{"role":"slider","min":"0","max":"100","now":"0","text":"Stop 1 of 3, position 0%","name":"Gradient stop 1 of 3"},{"role":"slider","min":"0","max":"100","now":"50","text":"Stop 2 of 3, position 50%","name":"Gradient stop 2 of 3"},{"role":"slider","min":"0","max":"100","now":"100","text":"Stop 3 of 3, position 100%","name":"Gradient stop 3 of 3"}]
+  ✓    5 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:319:1 › C2 · every stop handle is a slider in the a11y tree — role, value triple, valuetext, ordinal (8.0s)
+[W4-C3] home=12 end=450 unit=4.3800px/% inline="calc(var(--rail-inset) + var(--rail-track) * 1)"
+[W4-C3-LEDGER] {"unitPxPerPercent":4.38,"presses":[{"key":"Home","before":231,"after":12,"delta":-219,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowLeft","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"End","before":12,"after":450,"delta":438,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"ArrowRight","before":450,"after":450,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"Home","before":450,"after":12,"delta":-438,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"PageUp","before":12,"after":55.797,"delta":43.797,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.1)"},{"key":"PageDown","before":55.797,"after":12,"delta":-43.797,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowUp","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowDown","before":16.375,"after":12,"delta":-4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowLeft","before":16.375,"after":12,"delta":-4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":16.375,"after":20.75,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"ArrowRight","before":20.75,"after":25.125,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.03)"},{"key":"Escape","before":25.125,"after":12,"delta":-13.125,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":16.375,"after":20.75,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":" ","before":20.75,"after":20.75,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"Escape","before":20.75,"after":20.75,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"}]}
+[W4-C3] defects=0
+
+  ✓    6 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:374:1 › C3 · the full keyboard grammar moves the stop — every key measured at style.left (10.6s)
+[W4-C4-SETTLE] geometry inFlightAtEntry=["div:overture-plate-settle@pending:0ms"]
+[W4-C4-FINE] [{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16},{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16}]
+[W4-C4-SETTLE] clip inFlightAtEntry=[]
+[W4-C4-RING] {"shadow":"rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px","spread":3,"clippers":[],"focusVisible":true}
+  ✓    7 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:552:1 › C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fine pointer) (15.9s)
+[W4-C4-COARSE] [{"w":24,"h":24,"hitW":44,"hitH":44},{"w":24,"h":24,"hitW":44,"hitH":44}]
+  ✓    8 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:640:5 › C4 coarse pointer › C4 · handle target ≥24×24 with the producer's coarse hit rung (coarse pointer) (7.1s)
+[BR-5] forced-color-adjust spectrum: auto → none; atmosphere-canvas: none
+[BR-5] max focus outline width under forced-colors: 2px
+  ✓    9 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:86:1 › BR-5 · forced-colors:active — color surfaces preserved + chrome operable + focus outline (17.3s)
+  ✘   10 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) (32.7s)
+(node:80515) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   11 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) (31.9s)
+(node:81903) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   12 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) (14.5s)
+(node:82714) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   13 [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition (37.9s)
+(node:85214) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   14 [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung (41.3s)
+(node:87450) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[W4-B3] producerSliderVars=12 declaredInternal=4 consumerReads=0
+
+  ✓   15 [smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds (447ms)
+[BR-8] channel sliders found: 4
+[BR-8] L channel: Home=0 End=1 ArrowLeft=0.9990000000000001 → MOVES
+[BR-8] A channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+[BR-8] B channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+[BR-8] ALPHA channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+  ✓   16 [smoke] › e2e/smoke/a11y-slider-operation.spec.ts:34:1 › BR-8 · slider keyboard OPERATION — Home/End/Arrow drive the value across the range (6.6s)
+[BR-10] <html dir> = ltr
+  ✘   17 [smoke] › e2e/smoke/a11y-web-modality.spec.ts:33:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow) (30.4s)
+(node:89195) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   18 [smoke] › e2e/smoke/a11y-web-modality.spec.ts:95:1 › BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical) (30.4s)
+(node:91210) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   19 [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (light) (20.2s)
+(node:92763) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   20 [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (dark) (24.1s)
+(node:94783) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   21 [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:186:1 › the body carries the paper-field contract — no orphan amber field-floor on glass cards (13.6s)
+  ✘   22 [smoke] › e2e/smoke/color-space-switching.spec.ts:9:1 › color-space select switches the active space (36.1s)
+(node:97606) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   23 [smoke] › e2e/smoke/crash-battery.spec.ts:66:1 › R14 · pressing Retry on a dead Browse wall leaves a plate behind (15.9s)
+  ✘   24 [smoke] › e2e/smoke/crash-battery.spec.ts:147:1 › R15 · an achromatic colour then LCh does not kill the pane grid (30.3s)
+(node:99363) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   25 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=black (7.0s)
+  ✓   26 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=white (9.4s)
+  ✓   27 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#000000 (6.1s)
+  ✓   28 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#808080 (5.8s)
+  ✓   29 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#fefefe (2.2s)
+  ✓   30 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=rgb(17,17,17) (4.2s)
+  ✓   31 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=hsl(0 0% 50%) (4.3s)
+  ✓   32 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: oklch(0.5 0 none) (5.9s)
+  ✓   33 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: lch(50 0 none) (5.6s)
+  ✓   34 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: hsl(none 0% 50%) (5.0s)
+  ✘   35 [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette (30.4s)
+(node:3950) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   36 [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state (32.6s)
+(node:7996) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   37 [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable (30.5s)
+(node:10146) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[dual-pane-1440] {
+  "probe": "R.W2.4 regions-1440 (re-pointed X.W5.c)",
+  "viewport": "1440×900",
+  "cascadeRoot": {
+    "importSite": 1,
+    "indexUnlayered": false,
+    "indexLayered": true,
+    "deferredUnlayered": false,
+    "deferredLayered": false,
+    "componentsHasBareHidden": true,
+    "componentsLayerCount": 0
+  },
+  "importSiteCite": "dist/styles/index.css:1",
+  "cssom": {
+    "hiddenRuleSites": [
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "fouc-guard"
+      },
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "utilities"
+      },
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "components"
+      }
+    ],
+    "winningHref": null,
+    "winningLayered": true,
+    "anyUnlayeredHidden": false
+  },
+  "baseline": {
+    "count": 2,
+    "displays": [
+      "block",
+      "flex"
+    ],
+    "visible": 2,
+    "displayUtilities": [],
+    "roles": [
+      "Picker",
+      "About"
+    ]
+  },
+  "d8_1": "PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume",
+  "anyUnlayeredHidden": false,
+  "verdict": "REGIONS_RENDER_CASCADE_IMMUNE",
+  "note": "Both regions render at 1440 with zero display utilities on the wrappers. Producer state: PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume (import at dist/styles/index.css:1)."
+}
+  ✓   38 [smoke] › e2e/smoke/dual-pane-1440.spec.ts:248:1 › D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune (18.0s)
+  ✘   39 [smoke] › e2e/smoke/flows/color-propose.spec.ts:34:1 › propose cycle reaches 'Propose color name' state for an unnamed color (30.5s)
+(node:12161) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   40 [smoke] › e2e/smoke/flows/color-propose.spec.ts:89:1 › the sub-layer cycle keeps exactly one active layer, the other inert (30.9s)
+(node:13997) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   41 [smoke] › e2e/smoke/flows/color-propose.spec.ts:128:1 › a successful propose returns the toolbar to its actions state (30.5s)
+(node:15696) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   42 [smoke] › e2e/smoke/flows/login-register.spec.ts:27:1 › cold-boot vote auto-registers via POST /sessions and persists token (26.8s)
+  ✘   43 [smoke] › e2e/smoke/flows/palette-delete.spec.ts:22:1 › delete an owned remote palette DELETEs /palettes/<slug> (30.9s)
+(node:18649) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   44 [smoke] › e2e/smoke/flows/palette-edit.spec.ts:22:1 › rename a remote palette PATCHes /palettes/<slug> with new name (30.2s)
+(node:21236) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   45 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason (30.4s)
+(node:23454) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   46 [smoke] › e2e/smoke/flows/palette-fork.spec.ts:21:1 › remix a remote palette POSTs /palettes/<slug>/fork with parent slug (32.9s)
+(node:26599) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   47 [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' (30.6s)
+(node:28835) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   48 [smoke] › e2e/smoke/flows/vote-toggle.spec.ts:20:1 › vote heart on a remote palette POSTs /vote and toggles voted flag (23.1s)
+  ✓   49 [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/gradient: 5 fresh contexts × cold first navigation → 0 stuck enter states (51.2s)
+  ✓   50 [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states (40.6s)
+[O-1] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) (software-GL CSS placeholder) sample rgb=(81,9,21) → OKLCh L=0.283 C=0.101 h=18.9° (seed h≈28°)
+  ✓   51 [smoke] › e2e/smoke/oracles/o1-color-truth-boot.spec.ts:39:1 › O-1 color-truth — the settled boot field is the DERIVED seed's material (26.4s)
+  ✘   52 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token (6.0s)
+(node:34877) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   53 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:119:5 › O-10a/e — title type locks (desktop dual grid) › height gate @900px: the ×φ header never pushes the picker console into scroll (C1) (12.9s)
+  ✘   54 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock (30.2s)
+(node:37247) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   55 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:209:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional (9.2s)
+  ✘   56 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px (3.0m)
+(node:45593) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   57 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px (3.0m)
+(node:53305) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   58 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) (1.7m)
+(node:58178) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   59 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif (1.0m)
+(node:65040) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   60 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif (1.0m)
+(node:70480) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   61 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles (3.0m)
+(node:80873) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   62 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) (1.0m)
+(node:84158) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   63 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:454:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row (207ms)
+  ✘   64 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) (2.0m)
+(node:89978) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   65 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) (4.0m)
+(node:9355) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   66 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders (32.4s)
+  ✘   67 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub (3.0m)
+(node:28916) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   68 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated (1.0m)
+(node:33160) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   69 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header (2.0m)
+(node:39275) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   70 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc (1.0m)
+(node:44355) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   71 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget (1.0m)
+(node:49162) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   72 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms (1.0m)
+(node:54147) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   73 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2) (1ms)
+(node:64099) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   74 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) (299ms)
+(node:77744) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   75 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column (22ms)
+(node:87106) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   76 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (3ms)
+(node:1783) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   77 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (6ms)
+(node:13128) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   78 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (1ms)
+[31mWorker teardown timeout of 30000ms exceeded.[39m
+
+[31mFailed worker ran 1 test:[39m
+[smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip
+
+
+  1) [smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24 
+
+    Error: sub-24×24 interactive targets (fine pointer)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "/#/gradient · <span> \"Gradient direction\" 354.1×12.7 [class=\"slider-thumb glass-specular-track\"] attributedTo=span.glass-slider",[39m
+    [31m+ ][39m
+
+      372 |     }
+      373 |     console.log(`[W4-A1] undersized=${undersized.length}\n${undersized.join("\n")}`);
+    > 374 |     expect(undersized, `sub-24×24 interactive targets (fine pointer)`).toEqual([]);
+          |                                                                        ^
+      375 | });
+      376 |
+      377 | test("A3 · the size axis owns control height — computed blockSize == the producer size token", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-control-targets.spec.ts:374:72
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/a11y-control-targets-A1-·--0b352-ibuted-target-box-is-≥24×24-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/a11y-control-targets-A1-·--0b352-ibuted-target-box-is-≥24×24-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/a11y-control-targets-A1-·--0b352-ibuted-target-box-is-≥24×24-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+      56 | // Read the resolved value of a CSS custom property on :root.
+      57 | async function rootVar(page: Page, name: string): Promise<string> {
+    > 58 |     return page.evaluate(
+         |                 ^
+      59 |         (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim(),
+      60 |         name,
+      61 |     );
+        at rootVar (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:58:17)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:169:30
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+      56 | // Read the resolved value of a CSS custom property on :root.
+      57 | async function rootVar(page: Page, name: string): Promise<string> {
+    > 58 |     return page.evaluate(
+         |                 ^
+      59 |         (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim(),
+      60 |         name,
+      61 |     );
+        at rootVar (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:58:17)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:228:35
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('navigation', { name: 'Application navigation' })
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('navigation', { name: 'Application navigation' })[22m
+
+
+      278 |     await expect(
+      279 |         page.getByRole("navigation", { name: "Application navigation" }),
+    > 280 |     ).toBeVisible();
+          |       ^
+      281 |     await expect(mainPane(page)).toBeVisible();
+      282 |
+      283 |     // The picker exposes a live region for the color-change announcement (an
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:280:7
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-U-F5-c7fc3-gion-role-landmark-battery--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-U-F5-c7fc3-gion-role-landmark-battery--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/a11y-modality-support-U-F5-c7fc3-gion-role-landmark-battery--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition 
+
+    TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+
+      147 |     // (`PaneHeader`'s `h3.pane-header-title`) is the product's own signal, and it is also
+      148 |     // the anchor the census scope is resolved from.
+    > 149 |     await page.waitForFunction(
+          |                ^
+      150 |         (v) =>
+      151 |             Array.from(document.querySelectorAll("h3.pane-header-title")).some(
+      152 |                 (h) => (h.textContent ?? "").trim() === v,
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:149:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:312:9
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/a11y-select-title-B1-·-com-bf845-nside-the-field-composition-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/a11y-select-title-B1-·-com-bf845-nside-the-field-composition-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/a11y-select-title-B1-·-com-bf845-nside-the-field-composition-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung 
+
+    TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+
+      147 |     // (`PaneHeader`'s `h3.pane-header-title`) is the product's own signal, and it is also
+      148 |     // the anchor the census scope is resolved from.
+    > 149 |     await page.waitForFunction(
+          |                ^
+      150 |         (v) =>
+      151 |             Array.from(document.querySelectorAll("h3.pane-header-title")).some(
+      152 |                 (h) => (h.textContent ?? "").trim() === v,
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:149:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:400:9
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/a11y-select-title-B2-·-tri-a4b0b--lifts-with-the-coarse-rung-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/a11y-select-title-B2-·-tri-a4b0b--lifts-with-the-coarse-rung-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/a11y-select-title-B2-·-tri-a4b0b--lifts-with-the-coarse-rung-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [smoke] › e2e/smoke/a11y-web-modality.spec.ts:33:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - taking element screenshot[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - attempting scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+
+
+      52 |     await page
+      53 |         .locator(".app-layout")
+    > 54 |         .screenshot({ path: resolve(PI_DIR, "rtl-layout.png") });
+         |          ^
+      55 |
+      56 |     // Integrity 1 — no horizontal overflow (a clipped/overflowing layout scrolls
+      57 |     // sideways). The app-layout is `overflow: hidden` at 100dvh; the honest probe
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-web-modality.spec.ts:54:10
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/a11y-web-modality-BR-10-·--5f664-grity-no-clipping-overflow--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/a11y-web-modality-BR-10-·--5f664-grity-no-clipping-overflow--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/a11y-web-modality-BR-10-·--5f664-grity-no-clipping-overflow--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [smoke] › e2e/smoke/a11y-web-modality.spec.ts:95:1 › BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - taking element screenshot[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - attempting scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+
+
+      104 |     await page
+      105 |         .locator(".app-layout")
+    > 106 |         .screenshot({ path: resolve(PI_DIR, "print-artifact.png") });
+          |          ^
+      107 |
+      108 |     // DELTA (chrome hidden): the interactive/decorative chrome is display:none in
+      109 |     // print — the dock nav does not print.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-web-modality.spec.ts:106:10
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/a11y-web-modality-BR-11-·--7feb4-rome-hidden-ink-economical--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/a11y-web-modality-BR-11-·--7feb4-rome-hidden-ink-economical--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/a11y-web-modality-BR-11-·--7feb4-rome-hidden-ink-economical--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (light) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCSS[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByTestId('atmosphere-canvas')
+    Expected: [32m"1"[39m
+    Received: [31m"0"[39m
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toHaveCSS" with timeout 8000ms[22m
+    [2m  - waiting for getByTestId('atmosphere-canvas')[22m
+    [2m    20 × locator resolved to <canvas data-v-f13b4d11="" aria-hidden="true" data-glass-field-canvas="" data-testid="atmosphere-canvas" class="atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"></canvas>[22m
+    [2m       - unexpected value "0"[22m
+
+
+      177 |         // The entrance settles fully arrived — no half-present limbo, and the
+      178 |         // derive-in class is the one opacity authority (no snap re-hide).
+    > 179 |         await expect(page.getByTestId(ATMOSPHERE_TESTID)).toHaveCSS(
+          |                                                           ^
+      180 |             "opacity",
+      181 |             "1",
+      182 |         );
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/atmosphere-cold-load.spec.ts:179:59
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/atmosphere-cold-load-cold--f7ffe-ED-field-first-frame-light--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/atmosphere-cold-load-cold--f7ffe-ED-field-first-frame-light--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/atmosphere-cold-load-cold--f7ffe-ED-field-first-frame-light--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (dark) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCSS[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByTestId('atmosphere-canvas')
+    Expected: [32m"1"[39m
+    Received: [31m"0"[39m
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toHaveCSS" with timeout 8000ms[22m
+    [2m  - waiting for getByTestId('atmosphere-canvas')[22m
+    [2m    20 × locator resolved to <canvas data-v-f13b4d11="" aria-hidden="true" data-glass-field-canvas="" data-testid="atmosphere-canvas" class="atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"></canvas>[22m
+    [2m       - unexpected value "0"[22m
+
+
+      177 |         // The entrance settles fully arrived — no half-present limbo, and the
+      178 |         // derive-in class is the one opacity authority (no snap re-hide).
+    > 179 |         await expect(page.getByTestId(ATMOSPHERE_TESTID)).toHaveCSS(
+          |                                                           ^
+      180 |             "opacity",
+      181 |             "1",
+      182 |         );
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/atmosphere-cold-load.spec.ts:179:59
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/atmosphere-cold-load-cold--aeac5-VED-field-first-frame-dark--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/atmosphere-cold-load-cold--aeac5-VED-field-first-frame-dark--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/atmosphere-cold-load-cold--aeac5-VED-field-first-frame-dark--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [smoke] › e2e/smoke/color-space-switching.spec.ts:9:1 › color-space select switches the active space 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'OKLCh', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f1e2f8a9="" data-space="oklch" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-120" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+
+
+      25 |
+      26 |     await trigger.click();
+    > 27 |     await page.getByRole("option", { name: target, exact: true }).click();
+         |                                                                   ^
+      28 |
+      29 |     await expect(trigger).toHaveText(target);
+      30 |     expect(before).not.toBe(target);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/color-space-switching.spec.ts:27:67
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/color-space-switching-colo-ff8a8-t-switches-the-active-space-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/color-space-switching-colo-ff8a8-t-switches-the-active-space-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/color-space-switching-colo-ff8a8-t-switches-the-active-space-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [smoke] › e2e/smoke/crash-battery.spec.ts:147:1 › R15 · an achromatic colour then LCh does not kill the pane grid 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: /^lch$/i }).first()[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-space="lch" data-v-f1e2f8a9="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-116" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      162 |     await expect(spaceTrigger).toBeVisible({ timeout: 10_000 });
+      163 |     await spaceTrigger.click();
+    > 164 |     await page.getByRole("option", { name: /^lch$/i }).first().click();
+          |                                                                ^
+      165 |
+      166 |     await expect(
+      167 |         page.locator('[role="alert"]').filter({ visible: true }),
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:164:64
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R15-·-an-ach-2f7ef-does-not-kill-the-pane-grid-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R15-·-an-ach-2f7ef-does-not-kill-the-pane-grid-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R15-·-an-ach-2f7ef-does-not-kill-the-pane-grid-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette ─
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByRole('heading', { name: 'Extract' }).last()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByRole('heading', { name: 'Extract' }).last()[22m
+
+
+      315 |     await expect(
+      316 |         mainPane(page).getByRole("heading", { name: "Extract" }).last(),
+    > 317 |     ).toBeVisible({ timeout: 10_000 });
+          |       ^
+      318 | }
+      319 |
+      320 | /**
+        at openExtract (/Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:317:7)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:333:5
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R18-·-a-real-image-file-develops-a-palette-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R18-·-a-real-image-file-develops-a-palette-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R18-·-a-real-image-file-develops-a-palette-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('option', { name: 'Extract', exact: true })
+    Expected: visible
+    Received: undefined
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('option', { name: 'Extract', exact: true })[22m
+
+
+       at smoke/fixtures/dock.ts:77
+
+      75 |     // so the assertion and the action share one truth.
+      76 |     const option = page.getByRole("option", { name, exact: true });
+    > 77 |     await expect(option).toBeVisible();
+         |                          ^
+      78 |     await option.click();
+      79 | }
+      80 |
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:77:26)
+        at openExtract (/Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:314:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:377:5
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R18-·-a-corr-46ba5-r-never-a-silent-half-state-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R18-·-a-corr-46ba5-r-never-a-silent-half-state-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R18-·-a-corr-46ba5-r-never-a-silent-half-state-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Menu' })[22m
+    [2m    - locator resolved to <button type="button" aria-label="Menu" data-state="closed" aria-haspopup="menu" aria-expanded="false" data-slot="menu-trigger" id="reka-dropdown-menu-trigger-v-4" class="menu__trigger dock-trigger dock-dropdown-trigger">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      410 |             "the mobile dropdown's trigger never rendered — replacing this component with an empty `lg:hidden` div keeps every other gate green, which is the vacuity C-9 proved",
+      411 |         ).toBeVisible({ timeout: 10_000 });
+    > 412 |         await trigger.click();
+          |                       ^
+      413 |
+      414 |         const menu = page.getByRole("menu").filter({ visible: true }).first();
+      415 |         await expect(menu).toBeVisible({ timeout: 4000 });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:412:23
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R19-·-the-mo-25c8f-s-external-link-is-operable-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R19-·-the-mo-25c8f-s-external-link-is-operable-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/crash-battery-R19-·-the-mo-25c8f-s-external-link-is-operable-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [smoke] › e2e/smoke/flows/color-propose.spec.ts:34:1 › propose cycle reaches 'Propose color name' state for an unnamed color 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Toggle action bar' })[22m
+    [2m    - locator resolved to <button type="button" data-v-69d6f73e="" data-press-armed="" aria-pressed="false" aria-label="Toggle action bar" class="dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      42 |     // Toggle action bar → cycle to input → cycle to propose (real clicks — the
+      43 |     // controls are reachable on the expanded dock; no `force:true`).
+    > 44 |     await page.getByRole("button", { name: "Toggle action bar" }).click();
+         |                                                                   ^
+      45 |     // "Toggle action bar" swaps the dock's active layer via a DockLayerGroup
+      46 |     // spring morph. Until it settles, the entering ActionBarLayer sits in a
+      47 |     // still-transitioning (inert) dock layer, so a click on its "Open color
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/color-propose.spec.ts:44:67
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-propos-a3bdb--state-for-an-unnamed-color-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-propos-a3bdb--state-for-an-unnamed-color-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-propos-a3bdb--state-for-an-unnamed-color-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [smoke] › e2e/smoke/flows/color-propose.spec.ts:89:1 › the sub-layer cycle keeps exactly one active layer, the other inert 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Toggle action bar' })[22m
+    [2m    - locator resolved to <button type="button" data-v-69d6f73e="" data-press-armed="" aria-pressed="false" aria-label="Toggle action bar" class="dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      93 |     await expect(mainPane(page)).toBeVisible();
+      94 |     await expandDock(page);
+    > 95 |     await page.getByRole("button", { name: "Toggle action bar" }).click();
+         |                                                                   ^
+      96 |     await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
+      97 |         timeout: 5000,
+      98 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/color-propose.spec.ts:95:67
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-the-su-30103-ctive-layer-the-other-inert-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-the-su-30103-ctive-layer-the-other-inert-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-the-su-30103-ctive-layer-the-other-inert-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [smoke] › e2e/smoke/flows/color-propose.spec.ts:128:1 › a successful propose returns the toolbar to its actions state 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Toggle action bar' })[22m
+    [2m    - locator resolved to <button type="button" data-v-69d6f73e="" data-press-armed="" aria-pressed="false" aria-label="Toggle action bar" class="dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      142 |     await expect(mainPane(page)).toBeVisible();
+      143 |     await expandDock(page);
+    > 144 |     await page.getByRole("button", { name: "Toggle action bar" }).click();
+          |                                                                   ^
+      145 |     await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
+      146 |         timeout: 5000,
+      147 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/color-propose.spec.ts:144:67
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-a-succ-f8807-oolbar-to-its-actions-state-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-a-succ-f8807-oolbar-to-its-actions-state-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/flows-color-propose-a-succ-f8807-oolbar-to-its-actions-state-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) [smoke] › e2e/smoke/flows/palette-delete.spec.ts:22:1 › delete an owned remote palette DELETEs /palettes/<slug> 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('menuitem', { name: /^Delete$/ })[22m
+    [2m    - locator resolved to <div tabindex="-1" role="menuitem" data-slot="menu-item" data-reka-collection-item="" class="menu__item interactive-item glass-menu-row gap-2 cursor-pointer text-destructive focus:text-destructive">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      47 |     await expect(main).toBeVisible();
+      48 |     await main.getByRole("button", { name: "Palette menu" }).first().click();
+    > 49 |     await page.getByRole("menuitem", { name: /^Delete$/ }).click();
+         |                                                            ^
+      50 |     // UIA-V-111 (X.W12U.s1): the owner's delete is confirmed first.
+      51 |     await page.getByRole("dialog").getByRole("button", { name: "Delete palette" }).click();
+      52 |     await expect.poll(() => deleteCalled).toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-delete.spec.ts:49:60
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/flows-palette-delete-delet-ab676-ette-DELETEs-palettes-slug--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/flows-palette-delete-delet-ab676-ette-DELETEs-palettes-slug--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/flows-palette-delete-delet-ab676-ette-DELETEs-palettes-slug--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) [smoke] › e2e/smoke/flows/palette-edit.spec.ts:22:1 › rename a remote palette PATCHes /palettes/<slug> with new name 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('menuitem', { name: /Rename/ })[22m
+    [2m    - locator resolved to <div tabindex="-1" role="menuitem" data-slot="menu-item" data-reka-collection-item="" class="menu__item interactive-item glass-menu-row gap-2 cursor-pointer">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      47 |     await expect(main).toBeVisible();
+      48 |     await main.getByRole("button", { name: "Palette menu" }).first().click();
+    > 49 |     await page.getByRole("menuitem", { name: /Rename/ }).click();
+         |                                                          ^
+      50 |     const renameInput = main.getByPlaceholder("Palette name...").last();
+      51 |     await renameInput.fill("Renamed");
+      52 |     await renameInput.press("Enter");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-edit.spec.ts:49:58
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/flows-palette-edit-rename--28d70-palettes-slug-with-new-name-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/flows-palette-edit-rename--28d70-palettes-slug-with-new-name-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/flows-palette-edit-rename--28d70-palettes-slug-with-new-name-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('menuitem', { name: /Report/ })[22m
+    [2m    - locator resolved to <div tabindex="-1" role="menuitem" data-slot="menu-item" data-reka-collection-item="" class="menu__item interactive-item glass-menu-row gap-2 cursor-pointer text-muted-foreground">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      43 |     await expect(main).toBeVisible();
+      44 |     await main.getByRole("button", { name: "Palette menu" }).first().click();
+    > 45 |     await page.getByRole("menuitem", { name: /Report/ }).click();
+         |                                                          ^
+      46 |     // FlagReportDialog: Spam radio + Report button.
+      47 |     await page.getByRole("radio", { name: "Spam" }).click();
+      48 |     await page.getByRole("button", { name: "Report" }).click();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-flag.spec.ts:45:58
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/flows-palette-flag-flag-a--15b16-ettes-slug-flag-with-reason-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/flows-palette-flag-flag-a--15b16-ettes-slug-flag-with-reason-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/flows-palette-flag-flag-a--15b16-ettes-slug-flag-with-reason-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) [smoke] › e2e/smoke/flows/palette-fork.spec.ts:21:1 › remix a remote palette POSTs /palettes/<slug>/fork with parent slug 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByRole('button', { name: 'Palette menu' }).first()[22m
+
+
+      46 |     const main = mainPane(page);
+      47 |     await expect(main).toBeVisible();
+    > 48 |     await main.getByRole("button", { name: "Palette menu" }).first().click();
+         |                                                                      ^
+      49 |     await page.getByRole("menuitem", { name: /Remix/ }).click();
+      50 |     await expect.poll(() => forkCalled).toBe(true);
+      51 | });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-fork.spec.ts:48:70
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/flows-palette-fork-remix-a-87bf8--slug-fork-with-parent-slug-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/flows-palette-fork-remix-a-87bf8--slug-fork-with-parent-slug-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/flows-palette-fork-remix-a-87bf8--slug-fork-with-parent-slug-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/flows/palette-save.spec.ts:27:5
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/flows-palette-save-save-cu-cc5fe-ocalStorage-color-palettes--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/flows-palette-save-save-cu-cc5fe-ocalStorage-color-palettes--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/flows-palette-save-save-cu-cc5fe-ocalStorage-color-palettes--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.pane-shell .space-trigger')
+    Expected: visible
+    Error: strict mode violation: locator('.pane-shell .space-trigger') resolved to 2 elements:
+        1) <button dir="ltr" type="button" role="combobox" data-v-f1e2f8a9="" data-state="closed" aria-expanded="false" aria-required="false" aria-autocomplete="none" data-slot="select-trigger" aria-label="Select color space" aria-controls="reka-select-content-v-7" class="control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disable…>…</button> aka getByRole('region', { name: 'Picker' }).getByLabel('Select color space')
+        2) <button dir="ltr" type="button" role="combobox" data-v-f1e2f8a9="" data-state="closed" aria-expanded="false" aria-required="false" aria-autocomplete="none" data-slot="select-trigger" aria-label="Select color space" aria-controls="reka-select-content-v-61" class="control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabl…>…</button> aka getByRole('region', { name: 'About' }).getByLabel('Select color space')
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('.pane-shell .space-trigger')[22m
+
+
+      76 |         await page.goto("/");
+      77 |         await expect(mainPane(page)).toBeVisible();
+    > 78 |         await expect(page.locator(PICKER_TRIGGER)).toBeVisible();
+         |                                                    ^
+      79 |         await expect(page.locator(ABOUT_TRIGGER)).toBeVisible();
+      80 |
+      81 |         const picker = await readVoice(page, PICKER_TRIGGER);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:78:52
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-f2ee7--each-host-s-exact-D2-token-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-f2ee7--each-host-s-exact-D2-token-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-f2ee7--each-host-s-exact-D2-token-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('navigation', { name: 'Application navigation' }).getByRole('button', { name: 'About', exact: true })[22m
+
+
+      161 |             name: "Application navigation",
+      162 |         });
+    > 163 |         await nav.getByRole("button", { name: "About", exact: true }).click();
+          |                                                                       ^
+      164 |         await expect(page.locator(ABOUT_TITLE)).toBeVisible();
+      165 |
+      166 |         // display-1 floor-pins at heading (1.618rem) on phones, so the pane
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:163:71
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-80763-02-About-honest-2-line-lock-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-80763-02-About-honest-2-line-lock-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-80763-02-About-honest-2-line-lock-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 180000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.pane-shell .space-trigger').first()[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f1e2f8a9="" data-state="closed" aria-expanded="false" aria-required="false" aria-autocomplete="none" data-slot="select-trigger" aria-label="Select color space" aria-controls="reka-select-content-v-7" class="control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disable…>…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+
+
+      286 |             const failures: string[] = [];
+      287 |             for (let i = 0; i < optionCount; i++) {
+    > 288 |                 await trigger.click();
+          |                               ^
+      289 |                 const option = page.locator('[role="option"]').nth(i);
+      290 |                 const spaceName =
+      291 |                     (await option.locator("span").first().textContent())?.trim() ??
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:288:31
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-80b61-locked-line-count-at-1440px-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-80b61-locked-line-count-at-1440px-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-80b61-locked-line-count-at-1440px-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 180000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.pane-shell .space-trigger').first()[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f1e2f8a9="" data-state="closed" aria-expanded="false" aria-required="false" aria-autocomplete="none" data-slot="select-trigger" aria-label="Select color space" aria-controls="reka-select-content-v-7" class="control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disable…>…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      286 |             const failures: string[] = [];
+      287 |             for (let i = 0; i < optionCount; i++) {
+    > 288 |                 await trigger.click();
+          |                               ^
+      289 |                 const option = page.locator('[role="option"]').nth(i);
+      290 |                 const spaceName =
+      291 |                     (await option.locator("span").first().textContent())?.trim() ??
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:288:31
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-4cfad--locked-line-count-at-390px-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-4cfad--locked-line-count-at-390px-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10-type-locks-O-1-4cfad--locked-line-count-at-390px-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByRole('heading', { name: 'My Palettes' }).filter({ visible: true }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByRole('heading', { name: 'My Palettes' }).filter({ visible: true }).last()[22m
+
+
+      186 |                 .filter({ visible: true })
+      187 |                 .last(),
+    > 188 |         ).toBeVisible();
+          |           ^
+      189 |
+      190 |         const headings = await censusHeadings(page);
+      191 |         expect(headings.length, `${view}: census walked zero headings`).toBeGreaterThan(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:188:11
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-c5977-lay-voice-the-picker-title--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-c5977-lay-voice-the-picker-title--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-c5977-lay-voice-the-picker-title--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  29) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Browse', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-108" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:225:5
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  30) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Browse', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-108" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:273:5
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  31) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 90000ms.[39m
+
+    Error: browserContext.close: Test timeout of 90000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-6Wserh --remote-debugging-pipe --no-startup-window
+    <launched> pid=70574
+    [pid=70574][err] [70621:11602705:1013/165439.014687:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240054b400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=70574][err] [70621:11602705:1013/165439.019727:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240054b400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=70574] <gracefully close start>
+    [pid=70574] <kill>
+    [pid=70574] <will force kill>
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-6Wserh --remote-debugging-pipe --no-startup-window
+    <launched> pid=70574
+    [pid=70574][err] [70621:11602705:1013/165439.014687:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240054b400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=70574][err] [70621:11602705:1013/165439.019727:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240054b400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=70574] <gracefully close start>
+    [pid=70574] <kill>
+    [pid=70574] <will force kill>
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Browse', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-108" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:298:5
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-e293c--drawer-·-hover-card-titles-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-e293c--drawer-·-hover-card-titles-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-e293c--drawer-·-hover-card-titles-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  32) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Palettes', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-107" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:410:5
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-6dfeb-serif-seeded-local-palette--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-6dfeb-serif-seeded-local-palette--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o10d-display-voice-6dfeb-serif-seeded-local-palette--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  33) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('combobox', { name: 'Select view' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:63
+
+      61 |
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+    > 63 |     await expect(viewSelect).toBeVisible();
+         |                              ^
+      64 |     await viewSelect.click();
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:63:30)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:112:34
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-5e2e5-r-feather-every-pane-light--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-5e2e5-r-feather-every-pane-light--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-5e2e5-r-feather-every-pane-light--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  34) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 120000ms.[39m
+
+    Error: browserContext.close: Test timeout of 120000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-bNbyB2 --remote-debugging-pipe --no-startup-window
+    <launched> pid=90232
+    [pid=90232][err] [90241:11719326:1013/170240.322074:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240059ae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=90232][err] [90241:11719326:1013/170240.325368:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240059ae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=90232] <gracefully close start>
+    [pid=90232] <kill>
+    [pid=90232] <will force kill>
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-bNbyB2 --remote-debugging-pipe --no-startup-window
+    <launched> pid=90232
+    [pid=90232][err] [90241:11719326:1013/170240.322074:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240059ae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=90232][err] [90241:11719326:1013/170240.325368:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240059ae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=90232] <gracefully close start>
+    [pid=90232] <kill>
+    [pid=90232] <will force kill>
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:112:34
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-5323e-or-feather-every-pane-dark--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-5323e-or-feather-every-pane-dark--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-5323e-or-feather-every-pane-dark--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  35) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 90000ms.[39m
+
+    Error: browserContext.close: Test timeout of 90000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-dRYPgO --remote-debugging-pipe --no-startup-window
+    <launched> pid=9422
+    [pid=9422][err] [9448:11819762:1013/170712.442290:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1040054cc00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=9422][err] [9448:11819762:1013/170712.445592:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1040054cc00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=9422][err] [9448:11819762:1013/170739.633822:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.633890:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.633907:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634026:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634103:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634120:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634138:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634151:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634287:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634306:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634323:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634339:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634391:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634411:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634427:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634513:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634527:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634538:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634578:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634614:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634637:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634662:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634688:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634711:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634735:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634760:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634775:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634789:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170739.634803:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170740.381283:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170740.381761:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170740.382019:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170740.382036:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170740.382077:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170740.382091:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170741.594847:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170741.594908:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170741.595442:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170741.596830:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170741.596868:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170741.596883:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170741.596914:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170741.596939:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:253] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=9422][err] [9448:11819762:1013/170744.055946:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240051b400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=9422][err] [9448:11819762:1013/170744.251219:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x1240051b400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+    [pid=9422] <gracefully close start>
+    [pid=9422] <kill>
+    [pid=9422] <will force kill>
+
+    Error: locator._expect: Target page, context or browser has been closed
+
+      305 |             /* PRM/css-substrate mounts carry no b4 wait — fall through */
+      306 |         });
+    > 307 |     await expect(page.getByTestId("goo-blob-canvas").last()).toBeAttached({
+          |                                                              ^
+      308 |         timeout: 15_000,
+      309 |     });
+      310 |     await scrub();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:307:62
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-ecc5b--is-FLAT-under-a-live-scrub-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-ecc5b--is-FLAT-under-a-live-scrub-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-ecc5b--is-FLAT-under-a-live-scrub-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  36) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated 
+
+    [31mTest timeout of 30000ms exceeded while setting up "page".[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-YhELtu --remote-debugging-pipe --no-startup-window
+    <launched> pid=29768
+    [pid=29768] <gracefully close start>
+    [pid=29768] <kill>
+    [pid=29768] <will force kill>
+
+    Error: browserContext.newPage: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-YhELtu --remote-debugging-pipe --no-startup-window
+    <launched> pid=29768
+    [pid=29768] <gracefully close start>
+    [pid=29768] <kill>
+    [pid=29768] <will force kill>
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-1d281-l-binding-is-supports-gated-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-1d281-l-binding-is-supports-gated-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-1d281-l-binding-is-supports-gated-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  37) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 60000ms.[39m
+
+    Error: browserContext.close: Test timeout of 60000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-XOQrnT --remote-debugging-pipe --no-startup-window
+    <launched> pid=33391
+    [pid=33391][err] [33908:11946473:1013/171418.316539:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x11400549600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=33391][err] [33908:11946473:1013/171418.349656:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x11400549600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=33391] <gracefully close start>
+    [pid=33391] <kill>
+    [pid=33391] <will force kill>
+
+    Error: page.goto: Test timeout of 60000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9145/", waiting until "load"[22m
+
+
+      404 | }) => {
+      405 |     test.setTimeout(60_000);
+    > 406 |     await page.goto("/");
+          |                ^
+      407 |     await expect(mainPane(page)).toBeVisible();
+      408 |     for (const view of ["Home", "Palettes", "Gradient"] as const) {
+      409 |         if (view !== "Home") await openView(page, view);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:406:16
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-16b72-thing-out-stacks---z-header-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-16b72-thing-out-stacks---z-header-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o11-header-gates-O-16b72-thing-out-stacks---z-header-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  38) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc 
+
+    [31mTest timeout of 30000ms exceeded while setting up "page".[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-AGsHHU --remote-debugging-pipe --no-startup-window
+    <launched> pid=40048
+    [pid=40048] <gracefully close start>
+    [pid=40048] <kill>
+    [pid=40048] <will force kill>
+
+    Error: browserContext.newPage: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-AGsHHU --remote-debugging-pipe --no-startup-window
+    <launched> pid=40048
+    [pid=40048] <gracefully close start>
+    [pid=40048] <kill>
+    [pid=40048] <will force kill>
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-4e9fa--occluded-by-the-bead-s-arc-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-4e9fa--occluded-by-the-bead-s-arc-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-4e9fa--occluded-by-the-bead-s-arc-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  39) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget 
+
+    [31mTest timeout of 30000ms exceeded while setting up "page".[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-SKQfDl --remote-debugging-pipe --no-startup-window
+    <launched> pid=44608
+    [pid=44608] <gracefully close start>
+    [pid=44608] <kill>
+    [pid=44608] <will force kill>
+
+    Error: browserContext.newPage: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-SKQfDl --remote-debugging-pipe --no-startup-window
+    <launched> pid=44608
+    [pid=44608] <gracefully close start>
+    [pid=44608] <kill>
+    [pid=44608] <will force kill>
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-10b08-per-frame-cadence-in-budget-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-10b08-per-frame-cadence-in-budget-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-10b08-per-frame-cadence-in-budget-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  40) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms 
+
+    [31mTest timeout of 30000ms exceeded while setting up "page".[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-tXsvvi --remote-debugging-pipe --no-startup-window
+    <launched> pid=50461
+    [pid=50461] <gracefully close start>
+    [pid=50461] <kill>
+    [pid=50461] <will force kill>
+
+    Error: browserContext.newPage: Test timeout of 30000ms exceeded.
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-b4a4b-ointermove-sweep-p50-≤-20ms-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-b4a4b-ointermove-sweep-p50-≤-20ms-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-b4a4b-ointermove-sweep-p50-≤-20ms-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  41) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2) 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-i2L0VO --remote-debugging-pipe --no-startup-window[22m
+    [2m  - <launched> pid=55447[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-81722-ge-presize-wreck-boot-G-R2--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-81722-ge-presize-wreck-boot-G-R2--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o12-blob-seat-O-12-81722-ge-presize-wreck-boot-G-R2--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  42) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-28yNbj --remote-debugging-pipe --no-startup-window[22m
+    [2m  - <launched> pid=65921[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--3acd0-ite-certified-outputs-WR-8--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--3acd0-ite-certified-outputs-WR-8--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--3acd0-ite-certified-outputs-WR-8--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  43) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-VCoNLX --remote-debugging-pipe --no-startup-window[22m
+    [2m  - <launched> pid=78103[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--a6059-static-tokens-no-dot-column-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--a6059-static-tokens-no-dot-column-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--a6059-static-tokens-no-dot-column-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  44) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-PMzzdx --remote-debugging-pipe --no-startup-window[22m
+    [2m  - <launched> pid=88613[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--1d3c7--never-the-near-black-clamp-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--1d3c7--never-the-near-black-clamp-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--1d3c7--never-the-near-black-clamp-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  45) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-NBoG4v --remote-debugging-pipe --no-startup-window[22m
+    [2m  - <launched> pid=3098[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--c70ff--never-the-near-black-clamp-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--c70ff--never-the-near-black-clamp-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke/oracles-o14-preview-truth--c70ff--never-the-near-black-clamp-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  45 failed
+    [smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24 
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) 
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) 
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) 
+    [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition 
+    [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung 
+    [smoke] › e2e/smoke/a11y-web-modality.spec.ts:33:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow) 
+    [smoke] › e2e/smoke/a11y-web-modality.spec.ts:95:1 › BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical) 
+    [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (light) 
+    [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (dark) 
+    [smoke] › e2e/smoke/color-space-switching.spec.ts:9:1 › color-space select switches the active space 
+    [smoke] › e2e/smoke/crash-battery.spec.ts:147:1 › R15 · an achromatic colour then LCh does not kill the pane grid 
+    [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette ───
+    [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state 
+    [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable 
+    [smoke] › e2e/smoke/flows/color-propose.spec.ts:34:1 › propose cycle reaches 'Propose color name' state for an unnamed color 
+    [smoke] › e2e/smoke/flows/color-propose.spec.ts:89:1 › the sub-layer cycle keeps exactly one active layer, the other inert 
+    [smoke] › e2e/smoke/flows/color-propose.spec.ts:128:1 › a successful propose returns the toolbar to its actions state 
+    [smoke] › e2e/smoke/flows/palette-delete.spec.ts:22:1 › delete an owned remote palette DELETEs /palettes/<slug> 
+    [smoke] › e2e/smoke/flows/palette-edit.spec.ts:22:1 › rename a remote palette PATCHes /palettes/<slug> with new name 
+    [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason 
+    [smoke] › e2e/smoke/flows/palette-fork.spec.ts:21:1 › remix a remote palette POSTs /palettes/<slug>/fork with parent slug 
+    [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:267:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2) 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+  1 interrupted
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip 
+  215 did not run
+  32 passed (1.5h)
+  1 error was not a part of any test, see above for details

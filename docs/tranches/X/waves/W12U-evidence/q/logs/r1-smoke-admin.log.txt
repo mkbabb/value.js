@@ -1,0 +1,183 @@
+### smoke-admin start 10-13 15:59:42 load1=96.06
+(node:27461) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 21 tests using 1 worker
+
+(node:27486) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Users populated admin passes accessible-name + target-size (11.6s)
+(node:28364) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   2 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Names populated admin passes accessible-name + target-size (9.9s)
+(node:29863) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   3 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Flagged populated admin passes accessible-name + target-size (15.6s)
+(node:30875) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   4 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:71:1 › BR-9: the admin user-row expander is keyboard-operable (role + focusable + Enter expands) (9.8s)
+  ✓   5 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:115:1 › U-F58: an induced admin render error surfaces a focus-managed role=alert boundary (20.6s)
+  ✓   6 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:19:1 › battery: the populated browse wall passes accessible-name + target-size (7.0s)
+  ✓   7 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:45:1 › battery: the authed Profile identity menu passes accessible-name (the login surface) (8.9s)
+  ✓   8 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows (8.0s)
+  ✓   9 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:51:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows (14.1s)
+  ✓  10 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:92:1 › admin-flagged renders a seeded flagged palette + moderation actions (18.2s)
+  ✓  11 [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors (20.6s)
+  ✓  12 [smoke-admin] › e2e/smoke/admin/flows/color-approve.spec.ts:13:1 › admin approve color name POSTs /admin/colors/<id>/approve (4.6s)
+  ✘  13 [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject (11.6s)
+(node:37482) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  14 [smoke-admin] › e2e/smoke/admin/flows/palette-feature.spec.ts:13:1 › admin feature palette POSTs /admin/palettes/<slug>/feature (19.0s)
+  ✓  15 [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category (18.3s)
+  ✘  16 [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name> (17.9s)
+(node:39865) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  17 [smoke-admin] › e2e/smoke/admin/flows/user-status.spec.ts:15:1 › admin delete user DELETEs /admin/users/<slug> (19.2s)
+  ✓  18 [smoke-admin] › e2e/smoke/admin/o10d-admin-title-voice.spec.ts:17:1 › O-10d (admin) — the flagged-panel palette name speaks the display voice, ≤500, non-italic (5.7s)
+  ✓  19 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:51:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (4.3s)
+  ✓  20 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:72:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (9.9s)
+  ✓  21 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:89:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (3.6s)
+
+
+  1) [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Users populated admin passes accessible-name + target-size 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      59 |         ).toEqual([]);
+      60 |         // The battery saw real controls (guards against an empty-scope false green).
+    > 61 |         expect(report.controlsChecked).toBeGreaterThan(0);
+         |                                        ^
+      62 |     });
+      63 | }
+      64 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/a11y-authed-admin.spec.ts:61:40
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--9e658-accessible-name-target-size-smoke-admin/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--9e658-accessible-name-target-size-smoke-admin/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--9e658-accessible-name-target-size-smoke-admin/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Names populated admin passes accessible-name + target-size 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      59 |         ).toEqual([]);
+      60 |         // The battery saw real controls (guards against an empty-scope false green).
+    > 61 |         expect(report.controlsChecked).toBeGreaterThan(0);
+         |                                        ^
+      62 |     });
+      63 | }
+      64 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/a11y-authed-admin.spec.ts:61:40
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--c5158-accessible-name-target-size-smoke-admin/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--c5158-accessible-name-target-size-smoke-admin/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--c5158-accessible-name-target-size-smoke-admin/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Flagged populated admin passes accessible-name + target-size 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      59 |         ).toEqual([]);
+      60 |         // The battery saw real controls (guards against an empty-scope false green).
+    > 61 |         expect(report.controlsChecked).toBeGreaterThan(0);
+         |                                        ^
+      62 |     });
+      63 | }
+      64 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/a11y-authed-admin.spec.ts:61:40
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--69f80-accessible-name-target-size-smoke-admin/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--69f80-accessible-name-target-size-smoke-admin/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke-admin/a11y-authed-admin-battery--69f80-accessible-name-target-size-smoke-admin/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      37 |         .last()
+      38 |         .click();
+    > 39 |     await expect.poll(() => rejectCalled).toBe(true);
+         |                                           ^
+      40 | });
+      41 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/flows/color-reject.spec.ts:39:43
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke-admin/flows-color-reject-admin-r-2ae80-OSTs-admin-colors-id-reject-smoke-admin/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke-admin/flows-color-reject-admin-r-2ae80-OSTs-admin-colors-id-reject-smoke-admin/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke-admin/flows-color-reject-admin-r-2ae80-OSTs-admin-colors-id-reject-smoke-admin/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name> 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+    Call Log:
+    - Timeout 8000ms exceeded while waiting on the predicate
+
+      48 |         .filter({ visible: true })
+      49 |         .dispatchEvent("click");
+    > 50 |     await expect.poll(() => deleteCalled).toBe(true);
+         |                                           ^
+      51 | });
+      52 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/flows/tag-delete.spec.ts:50:43
+
+    Error Context: ../../.dev-logs/w12u-q/r1-smoke-admin/flows-tag-delete-admin-tag-delete-DELETEs-admin-tags-name--smoke-admin/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r1-smoke-admin/flows-tag-delete-admin-tag-delete-DELETEs-admin-tags-name--smoke-admin/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r1-smoke-admin/flows-tag-delete-admin-tag-delete-DELETEs-admin-tags-name--smoke-admin/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Users populated admin passes accessible-name + target-size 
+    [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Names populated admin passes accessible-name + target-size 
+    [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:34:5 › battery: Flagged populated admin passes accessible-name + target-size 
+    [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject 
+    [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name> 
+  16 passed (5.0m)
+### smoke-admin end 10-13 16:04:45 load1=115.06 exit=1

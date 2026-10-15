@@ -1,0 +1,6 @@
+### plate-mass + palette-card-layout, patient harness budget (--hookTimeout=300000 --testTimeout=300000), read 2 start 17:39:22 load1=94.13
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:7874) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

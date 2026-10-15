@@ -1,0 +1,2 @@
+STEADYx3 · smoke/reactivity-instant.spec.ts:42 · spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths · timedOut@114/36s · timedOut@696/36s · timedOut@611/30s · Test timeout of 30000ms exceeded.
+COUNT smoke-reactivity [r1,r2,r3] total=2 PASS=0 FLAKE=0 STEADY=1 SKIPPED=1 notRunInFirstTag=0

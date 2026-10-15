@@ -1,0 +1,5 @@
+STEADYx3 · smoke/safari/dual-webgl-atmosphere.spec.ts:86 · aurora paints on WebKit (L1 shader cure re-verify) · timedOut@?/33s · timedOut@134/33s · timedOut@544/35s · Test timeout of 30000ms exceeded.
+STEADYx3 · smoke/safari/dual-webgl-atmosphere.spec.ts:159 · blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro) · timedOut@?/32s · timedOut@124/35s · failed@521:170/12s · Error: expect(locator).toBeAttached() failed
+FLAKE · smoke/safari/mix-flow.spec.ts:19 · mix convergence completes on WebKit with zero console errors · timedOut@?/32s · timedOut@116/35s · passed@532/8s · Test timeout of 30000ms exceeded.
+FLAKE · smoke/safari/sustained-30s.spec.ts:81 · iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zero cons · failed@?:123/33s · failed@108:123/51s · passed@532/35s · Error: expect(locator).toBeAttached() failed
+COUNT smoke-safari [r1,r2,r3] total=4 PASS=0 FLAKE=2 STEADY=2 SKIPPED=0 notRunInFirstTag=0

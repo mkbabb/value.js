@@ -1,0 +1,39 @@
+### smoke-reactivity (r2, re-run of r1: 1 ids) start 10-13 16:06:29 load1=440.49
+(node:51186) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:51233) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths (30.3s)
+
+
+  1) [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: mouse.move: Test timeout of 30000ms exceeded.
+
+      78 |         await page.mouse.move(fx, fy);
+      79 |         await page.mouse.down();
+    > 80 |         await page.mouse.move(tx, ty);
+         |                          ^
+      81 |
+      82 |         // t0 captured AFTER the pointer interaction protocol completes
+      83 |         // and BEFORE pointer-up commits — measures the reactivity chain
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/reactivity-instant.spec.ts:80:26
+
+    Error Context: ../../.dev-logs/w12u-q/r2-smoke-reactivity/reactivity-instant-spectru-87f31--50ms-median-across-5-paths-smoke-reactivity/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-smoke-reactivity/reactivity-instant-spectru-87f31--50ms-median-across-5-paths-smoke-reactivity/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-smoke-reactivity/reactivity-instant-spectru-87f31--50ms-median-across-5-paths-smoke-reactivity/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths 
+### smoke-reactivity end 10-13 16:07:17 load1=578.98 exit=0

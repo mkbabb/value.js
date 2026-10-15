@@ -1,0 +1,54 @@
+### oracles-safari o3 read 2 start 17:20:47 load1=232.46
+(node:48460) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:50395) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark) (94ms)
+(node:56338) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light) (5ms)
+
+
+  1) [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark) 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window[22m
+    [2m  - <launched> pid=50551[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/o3-webkit-r2/o3-headed-gpu-probe-O-3-he-26830-he-field-is-chromatic-dark--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/o3-webkit-r2/o3-headed-gpu-probe-O-3-he-26830-he-field-is-chromatic-dark--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/o3-webkit-r2/o3-headed-gpu-probe-O-3-he-26830-he-field-is-chromatic-dark--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light) 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window[22m
+    [2m  - <launched> pid=56834[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/o3-webkit-r2/o3-headed-gpu-probe-O-3-he-1275c-e-field-is-chromatic-light--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/o3-webkit-r2/o3-headed-gpu-probe-O-3-he-1275c-e-field-is-chromatic-light--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/o3-webkit-r2/o3-headed-gpu-probe-O-3-he-1275c-e-field-is-chromatic-light--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark) 
+    [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light) 
+### end 17:29:09 load1=118.68

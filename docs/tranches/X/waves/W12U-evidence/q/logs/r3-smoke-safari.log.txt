@@ -1,0 +1,93 @@
+### smoke-safari (r3, re-run of r2: 4 ids) start 10-13 16:08:59 load1=549.92
+(node:57016) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:57220) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:86:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify) (35.1s)
+(node:60656) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:159:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro) (11.7s)
+(node:61610) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  3 [smoke-safari] › e2e/smoke/safari/mix-flow.spec.ts:19:1 › mix convergence completes on WebKit with zero console errors (7.8s)
+[sustained-30s] spectrum-drive: 109 moves over 10000ms
+[sustained-30s] total wall-clock: 34184ms
+[sustained-30s] console-failures: 0
+  ✓  4 [smoke-safari] › e2e/smoke/safari/sustained-30s.spec.ts:81:1 › iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zero console failures (34.5s)
+
+
+  1) [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:86:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  locator('main[aria-labelledby="route-title"]:has(> h1#route-title)')
+    Expected: visible
+    Received: undefined
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)')[22m
+
+
+      89 |
+      90 |         await page.goto(BOOT_URL);
+    > 91 |         await expect(mainPane(page)).toBeVisible();
+         |                                      ^
+      92 |
+      93 |         const atmosphere = page.getByTestId("atmosphere-canvas");
+      94 |         await expect(atmosphere).toBeAttached();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:91:38
+
+    Error Context: ../../.dev-logs/w12u-q/r3-smoke-safari/dual-webgl-atmosphere-S-W6-e687b-t-L1-shader-cure-re-verify--smoke-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r3-smoke-safari/dual-webgl-atmosphere-S-W6-e687b-t-L1-shader-cure-re-verify--smoke-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r3-smoke-safari/dual-webgl-atmosphere-S-W6-e687b-t-L1-shader-cure-re-verify--smoke-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:159:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+
+    Locator: getByTestId('goo-blob-canvas').last()
+    Expected: attached
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeAttached" with timeout 8000ms[22m
+    [2m  - waiting for getByTestId('goo-blob-canvas').last()[22m
+
+
+      168 |         // BOTH GL surfaces live — the dual-WebGL2-contention vehicle.
+      169 |         const canvas = page.getByTestId("goo-blob-canvas").last();
+    > 170 |         await expect(canvas).toBeAttached();
+          |                              ^
+      171 |         await expect(page.getByTestId("atmosphere-canvas")).toBeAttached();
+      172 |
+      173 |         // Settle the first blob frame (W3-2 idle-callback defer).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:170:30
+
+    Error Context: ../../.dev-logs/w12u-q/r3-smoke-safari/dual-webgl-atmosphere-S-W6-3b43f-l-WebGL2-drive-spazz-repro--smoke-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r3-smoke-safari/dual-webgl-atmosphere-S-W6-3b43f-l-WebGL2-drive-spazz-repro--smoke-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r3-smoke-safari/dual-webgl-atmosphere-S-W6-3b43f-l-WebGL2-drive-spazz-repro--smoke-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:86:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify) 
+    [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:159:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro) 
+  2 passed (1.7m)
+### smoke-safari end 10-13 16:10:43 load1=497.24 exit=0
