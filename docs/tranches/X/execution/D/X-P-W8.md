@@ -1066,3 +1066,27 @@ Groups: `[[".cust"], [".lg1c"]]`.
 4. **Finding.** §0fc.2's cure needs a `;` admitted only inside nested `()`/`[]`/`{}` blocks, and the sheet's declaration splitter (`semiRun`) must pair `[]`/`{}` too. JS regex cannot recurse, so this needs a recursive three-bracket rule pair. In this emitter, that pair costs about 430 B gz. Every lawful variant measured lands at `15168 … 15278` B gz, which is over the 14,800 B ceiling of §0fc.1 (headroom 165 B). By §0fc.1 / ADDENDUM (c) ("any crossing escalates and is never shaved"), the seat stops: **ESC-W8cust-1**.
 5. **Product restored** to `2f590daa8` bytes (only my own paths were checked out): ⟨`gen-pinned.mjs --check`⟩ → `is current (sha256 9f54614b…)` rc 0 ×2; gz `14635` ×2. Gates not turned: falsifier RED→GREEN, V-C, MIRROR, L-G2/L-G3, vue-tsc/eslint/build. These are owed after the ruling. L-G1: no emitted bytes changed, so `.lg1r` `333b519ea` stands.
 6. **ESC-W8cust-1 asks the owner to choose one:** (a) raise the E-6 gz ceiling to at least about 15,300 B, to admit candidate D (`bench/records/W8cust/candidate-raw-termset.patch`, ready to land with its falsifier); or (b) open a bbnf-lang producer row for emitter size on recursive text rules (bbnf-lang is READ-ONLY here); or (c) rule W8semi-CUSTOM a ruled row until (a) or (b). Evidence: `bench/records/W8cust/` (committed with this receipt).
+
+### .lg1c — DONE (seat `claude-opus-5-5`, 2026-10-15; 0 product bytes) — W8.md ADDENDUM (c) order; COHESION §0fc.2 L-G1 clause; §0ev.1
+
+1. **Crash recovery.** ⟨`git status --porcelain -- bench/records/W8lg1c docs/tranches/X/execution/D/X-P-W8.md`⟩ → empty. Nothing inherited.
+2. **Anchors.** `.cust` (above) is ESCALATED (ESC-W8cust-1) and committed 0 product bytes; its commit is `fc39e096e` (evidence + receipt only). ⟨`git log --oneline 2f590daa8..HEAD -- src`⟩ → 0 lines. Host at open: ⟨`uptime`⟩ → `load averages: 12.35 29.00 56.49`.
+3. **Per-entry emitted-bytes diff ×2.** ⟨`guarded --light -- node bench/records/W8lg1c/entry-diff.mjs <scratch> 2f590daa8 fc39e096e`⟩. Each commit's `src` is taken by `git archive`, and each of the 7 L-G1 entries is bundled alone (esbuild, minified ESM). Those 7 bundles cover the cell set: acc, rej, acc-eq, rej-eq and large-eq on every engine, plus the Firefox whole `parseCssScalar`.
+   - BASE and CUST share src tree `aed2aa08…` and `grammar.js` blob `406bb5a1…`.
+   - Per entry, BASE = CUST in both bytes and sha256: `parseCssColor` 145622 · `parseCssScalar` 145593 · `parseCssValue` 145592 · `parseCssValues` 145750 · `parseKeyframeSelector` 145787 · `parseTimingFunction` 145593 · `parseStylesheet` 167101.
+   - Result: **`ENTRIES CHANGED 0 of 7`**. Read 1 and read 2 are identical (⟨`diff`⟩ → `IDENTICAL`).
+   - HEAD control (`entry-diff-head.txt`) also reads 0 of 7.
+4. **No entry changed, so no L-G1 re-read is owed (§0fc.2).** The `.lg1r` read of record `333b519ea` stands, cited by hash (`lg1r-cite.txt`). The cited tree comes from ⟨`git archive 333b519ea bench/records/W8lg1r`⟩:
+   - MANIFEST `56 of 56` OK ×2;
+   - ⟨`node bench/paired/bootstrap.mjs <tree>/{node,browser}/*.json | shasum -a 256`⟩ → `590d5a9c7ea58864…` ×2, equal to the committed `bootstrap-read.txt`;
+   - GREEN `103` of 103, STRADDLE|RED `0`;
+   - product timed = `2f590daa8` (src `aed2aa08…`, equal to `fc39e096e:src`).
+   - No browser was launched; no server was started.
+5. **Commit.** `c2a1c49a9`: `bench/records/W8lg1c/` (entry-diff.mjs, entry-diff-read{1,2}.txt, entry-diff-head.txt, lg1r-cite.txt, MANIFEST.sha256: 5/5 OK).
+6. **Gates.**
+   - Per-entry diff: BEFORE unread → AFTER 0/7 changed ×2. **GREEN.**
+   - Changed-entry L-G1 ×2: not applicable (0 entries).
+   - `.lg1r` citation: 103/103 GREEN, `590d5a9c…` ×2. **GREEN.**
+7. **Residuals.**
+   - If ESC-W8cust-1 is ruled (a) and `.cust` lands candidate D, the product bytes move. This unit's diff must then be re-run against that product commit (`entry-diff.mjs <scratch> 2f590daa8 <commit>`). L-G1 ×2 by §0ev.1 is owed on every changed entry. This receipt does not discharge that future read.
+   - Escalations: none of this unit's own. ESC-W8cust-1 stands, unruled, and is owned by `.cust`.
