@@ -62,12 +62,16 @@
 }
 
 .dark {
-    /* X-DS pass 6 (VC6-05): in dark the 0.03 cap drained the live hue — the
-     * paper read as a grey slab foreign to the wine card's wells. The dark
-     * cap rises to 0.05 (light keeps 0.03); L stays pinned, and every crayon
-     * re-certifies over all hues at the cap (worst: keyword 4.75 at h 175;
+    /* X-DS pass 6 (VC6-05): in dark the paper read as a grey slab foreign to
+     * the wine card's wells. The cap was not what drained it: the dark
+     * `--accent-live` is the contrast-guarded LIGHT ink (default pick: L 0.958,
+     * C 0.021), so its own chroma is already a tenth of the pick's. The dark
+     * paper therefore takes 2.5x the ink's chroma, capped at 0.05 (light keeps
+     * its 0.03 cap on the pick's own chroma); a grey pick (C ~ 0) still stays
+     * neutral, and L stays pinned. Every crayon re-certifies over all hues at
+     * the cap (worst: keyword 4.75 at h 175;
      * pass-06/vc6-2026-10-15/certify-code-ground.json). */
-    --code-ground: oklch(from var(--accent-live) 0.345 min(c, 0.05) h);
+    --code-ground: oklch(from var(--accent-live) 0.345 min(c * 2.5, 0.05) h);
     /* The same set, lifted for the dark chocolate WELL field. */
     --code-comment: hsl(34 14% 66%); /* warm muted gray (well-guarded) */
     --code-keyword: oklch(0.75 0.15 27);
