@@ -1,0 +1,52 @@
+14:40  up 5 days, 19:43, 2 users, load averages: 11.12 12.60 13.61
+[guarded] waiting for the 'webkit' lock
+[guarded] waiting for headroom (load 203 > 72)
+webkit r0a0 parseCssColor          acc-eq   n=4835 k=4 S=1 product x0.769 (31/31<1) spread 11.136 SET-ASIDE
+webkit r0a0 parseCssScalar         acc-eq   n=5835 k=4 S=1 product x0.7 (31/31<1) spread 1.345
+webkit r0a0 parseCssValue          acc-eq   n=10439 k=1 S=1 product x0.365 (31/31<1) spread 1.182
+webkit r0a0 parseCssValues         acc-eq   n=10439 k=1 S=1 product x0.375 (31/31<1) spread 1.144
+webkit r0a0 parseKeyframeSelector  acc-eq   n=56 k=512 S=1 product x0.762 (30/31<1) spread 1.875 SET-ASIDE
+webkit r0a0 parseTimingFunction    acc-eq   n=362 k=16 S=1 product x0.438 (31/31<1) spread 1.714 SET-ASIDE
+webkit r0a0 parseStylesheet        acc-eq   n=1962 k=1 S=1 product x0.521 (31/31<1) spread 1.942 SET-ASIDE
+webkit r0a0 parseCssColor          rej-eq   n=21760 k=1 S=1 product x0.648 (31/31<1) spread 1.286
+webkit r0a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.44 (31/31<1) spread 5 SET-ASIDE
+webkit r0a0 parseCssValue          rej-eq   n=15821 k=1 S=1 product x0.612 (31/31<1) spread 1.745 SET-ASIDE
+webkit r0a0 parseCssValues         rej-eq   n=15821 k=1 S=1 product x0.616 (31/31<1) spread 1.139
+webkit r0a0 parseKeyframeSelector  rej-eq   n=29888 k=1 S=1 product x0.889 (29/31<1) spread 2.714 SET-ASIDE
+webkit r0a0 parseTimingFunction    rej-eq   n=29412 k=1 S=1 product x0.774 (30/31<1) spread 1.235
+webkit r0a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.656 (31/31<1) spread 4.897 SET-ASIDE
+webkit r1a0 parseCssScalar         acc-eq   n=5835 k=4 S=1 product x0.677 (31/31<1) spread 8.267 SET-ASIDE
+webkit r1a0 parseCssValue          acc-eq   n=10439 k=1 S=1 product x0.405 (31/31<1) spread 2.878 SET-ASIDE
+webkit r1a0 parseCssValues         acc-eq   n=10439 k=1 S=1 product x0.404 (31/31<1) spread 1.5
+webkit r1a0 parseKeyframeSelector  acc-eq   n=56 k=1024 S=1 product x0.839 (31/31<1) spread 1.5
+webkit r1a0 parseTimingFunction    acc-eq   n=362 k=16 S=1 product x0.519 (31/31<1) spread 1.8 SET-ASIDE
+webkit r1a0 parseStylesheet        acc-eq   n=1962 k=1 S=1 product x0.548 (31/31<1) spread 1.338
+webkit r1a0 parseCssColor          acc-eq   n=4835 k=1 S=1 product x0.769 (31/31<1) spread 1.792 SET-ASIDE
+webkit r1a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.458 (31/31<1) spread 4.917 SET-ASIDE
+webkit r1a0 parseCssValue          rej-eq   n=15821 k=1 S=1 product x0.633 (31/31<1) spread 1.313
+webkit r1a0 parseCssValues         rej-eq   n=15821 k=1 S=1 product x0.602 (31/31<1) spread 1.108
+webkit r1a0 parseKeyframeSelector  rej-eq   n=29888 k=1 S=1 product x0.86 (29/31<1) spread 1.333
+webkit r1a0 parseTimingFunction    rej-eq   n=29412 k=1 S=1 product x0.769 (31/31<1) spread 1.216
+webkit r1a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.659 (31/31<1) spread 1.189
+webkit r1a0 parseCssColor          rej-eq   n=21760 k=2 S=1 product x0.629 (29/31<1) spread 1.676 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product webkit|acc-eq|parseCssColor              RED x0.769(SA) x0.769(SA)
+product webkit|acc-eq|parseCssScalar             <1 x0.7 x0.677(SA)
+product webkit|acc-eq|parseCssValue              <1 x0.365 x0.405(SA)
+product webkit|acc-eq|parseCssValues             <1 x0.375 x0.404
+product webkit|acc-eq|parseKeyframeSelector      <1 x0.762(SA) x0.839
+product webkit|acc-eq|parseTimingFunction        RED x0.438(SA) x0.519(SA)
+product webkit|acc-eq|parseStylesheet            <1 x0.521(SA) x0.548
+product webkit|rej-eq|parseCssColor              <1 x0.648 x0.629(SA)
+product webkit|rej-eq|parseCssScalar             RED x0.44(SA) x0.458(SA)
+product webkit|rej-eq|parseCssValue              <1 x0.612(SA) x0.633
+product webkit|rej-eq|parseCssValues             <1 x0.616 x0.602
+product webkit|rej-eq|parseKeyframeSelector      <1 x0.889(SA) x0.86
+product webkit|rej-eq|parseTimingFunction        <1 x0.774 x0.769
+product webkit|rej-eq|parseStylesheet            <1 x0.656(SA) x0.659
+16:47  up 5 days, 21:49, 2 users, load averages: 67.49 85.68 58.61 
+ 17:02  up 5 days, 22:05, 2 users, load averages: 101.03 98.10 70.21 → bench/records/2026-09-24-x-p-w7-browser-w8lg1c2-webkit-n31-eq.json
+DONE w8lg1c2-webkit-n31-eq
+guarded exit 0
+17:02  up 5 days, 22:05, 2 users, load averages: 95.18 96.93 69.96

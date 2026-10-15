@@ -1,0 +1,19 @@
+14:27  up 5 days, 19:29, 2 users, load averages: 16.81 17.47 14.94
+parseCssColor          acc      n=6460 k=4 retired 28.533ms spread 1.512 | product x0.608 (31/31<1, min/min x0.566) | load 16.81 -> 18.51
+parseCssScalar         acc      n=7460 k=4 retired 35.995ms spread 1.459 | product x0.551 (31/31<1, min/min x0.529) | load 18.51 -> 18.51
+parseCssValue          acc      n=13023 k=1 retired 49.279ms spread 1.745 | product x0.362 (31/31<1, min/min x0.352) | load 18.51 -> 18.31
+parseCssValues         acc      n=13023 k=1 retired 49.386ms spread 1.764 | product x0.373 (31/31<1, min/min x0.351) | load 18.31 -> 18.31
+parseKeyframeSelector  acc      n=56 k=4096 retired 31.262ms spread 1.356 | product x0.684 (31/31<1, min/min x0.673) | load 18.31 -> 17.8
+parseTimingFunction    acc      n=509 k=64 retired 27.281ms spread 1.221 | product x0.514 (31/31<1, min/min x0.505) | load 17.8 -> 17.8
+parseStylesheet        acc      n=2503 k=1 retired 19.071ms spread 1.656 | product x0.543 (31/31<1, min/min x0.513) | load 17.8 -> 17.8
+parseCssColor          rej      n=23484 k=1 retired 15.947ms spread 1.544 | product x0.664 (31/31<1, min/min x0.656) | load 17.8 -> 17.1
+parseCssScalar         rej      n=22484 k=2 retired 39.122ms spread 1.462 | product x0.576 (31/31<1, min/min x0.529) | load 17.1 -> 17.1
+parseCssValue          rej      n=16921 k=1 retired 52.205ms spread 1.652 | product x0.454 (31/31<1, min/min x0.449) | load 17.1 -> 17.01
+parseCssValues         rej      n=16921 k=1 retired 57.848ms spread 1.656 | product x0.449 (31/31<1, min/min x0.455) | load 17.01 -> 17.01
+parseKeyframeSelector  rej      n=29888 k=8 retired 34.885ms spread 1.477 | product x0.729 (31/31<1, min/min x0.732) | load 16.77 -> 16.77
+parseTimingFunction    rej      n=29435 k=4 retired 25.9ms spread 1.86 | product x0.717 (29/31<1, min/min x0.717) | load 16.77 -> 16.77
+parseStylesheet        rej      n=27441 k=1 retired 35.277ms spread 1.792 | product x0.516 (31/31<1, min/min x0.453) | load 16.77 -> 16.06
+parseStylesheet        large-eq n=4 k=8 retired 21.87ms spread 1.731 | product x0.579 (31/31<1, min/min x0.548) | load 16.06 -> 16.06
+DONE read 2 rounds 31
+guarded exit 0
+14:27  up 5 days, 19:30, 2 users, load averages: 15.90 17.24 14.98
