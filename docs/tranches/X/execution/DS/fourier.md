@@ -1180,3 +1180,39 @@ This is the cure for critic **F3R** (the redeploy's pass-3 critic). The BEFORE i
 - **No visual golden was re-baselined.** `web/e2e/screenshots/` was backed up before the runs and restored after each one.
 
 **Frames** (`pass-03/f3r/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f3r-cure-probe.mjs` against `:3100`, pointer parked at (0,0): `gallery-*`, `paper-scrolled-*` and `w-*` at 1440 and 390, `v-loaded-*-1440`, `v-controls-*-390` and `w-dragging-*-1440`, each in light and dark.
+
+### pass 3
+This is the cure for critic **F3C** (the third redeploy's pass-3 critic). The BEFORE is the critic's frame set, `critic-p3-2026-10-14/`.
+- fourier `3084b6c`, on `m/w1-bump-migration`, one file (`labels.ts`), committed by pathspec and pushed fast-forward `3d2f80d..512f5a9`. The push also carried `512f5a9`, another seat's evidence commit that landed on the branch after this one.
+- value.js `615e13215` holds the AFTER frames, the cure probe and its JSON, the census and the e2e logs, all in `pass-03/f3c/`. The earlier sets under `pass-03/` are left as they were.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F3C-C2 | `canvas-drawing/labels.ts`: the legend title ("Epicycles", in both `drawBasisLabels` and `drawEpicycleLabel`) is set in `--font-text`, read off the canvas at draw time the way the caption ink is read, with the CM serif stack as the fallback. Mono stays on the count caption only, and the hue is unchanged. **Measured** (`f3c-cure-probe-after.json`, 1440, both themes): the title font is `bold 16px "Computer Modern Serif", …`, which is the chip's computed face. The count is still `13px "Fira Code"`. Frames: `v-*-1440`. **At 390 the legend was not witnessed.** The probe read the default Controls tab, where the stage is not drawn (`v-*-390` shows the aside). The probe now clicks the Canvas tab, but its re-run never got a guard slot (see Gates). |
+
+**Refused (walled), not deferred.**
+- **DS-F3C-C1** (/paper `<dt>` empty). This is the same row as DS-F9-C3, DS-F4-C1 and DS-F5-C2.
+  - The parser root is already cured in latex-paper: `5be04ae` parses `\item[term]` into `DescriptionNode.term`, and `0be0e33` styles the term. Both are local on latex-paper `master` under the 0.3.0 changeset, which is not published.
+  - Publishing is an owner act: `npm whoami` still returns E401 (2026-10-15). After the release, fourier bumps `^0.2.1`.
+  - **Measured:** `dt` text is `""` at weight 700 in all 4 cells (`paper-*`). No local CSS was added and the TeX was not rewritten, as the finding rules.
+
+**Glass-owned, cited, not overridden.** No local override exists or was added for any of these.
+- **G1** (the coarse-pointer type ramp inverts label, value and card title at 390) is for relay to glass as a type-ramp row beside **O-87**. Once glass ships it, `.config-card-title` (MorphPhaseConfig.vue:195) moves to the heading rung. No per-instance font-size was set.
+- **G2** (the in-stage fit-content docks draw a doubled plate and ellipse ring, and carry a floating cast) is held honest-RED on **O-88 DOCK-COLLAPSE-MOTION**, with **O-87** for the cast, until the 10.2.0 repin.
+- **G3** (text-emphasis Button is ink in light and violet in dark, because `--primary` differs between the arms) and **G4** (the SelectTrigger's resting fill differs from field-control's in dark) are for relay to glass beside O-87.
+
+**Census** (`scripts/ds-census.mjs` on `:3100`; `f3c/census-after.json`). Still RED on the glass rows.
+- Static: 7 box-shadow declarations, 11 layers, 7 gradients, 3 keyframes, 0 infinite animations. That is one fewer declaration and layer than at F3R, from fourier `3d2f80d` (pass 4), not from this cure.
+- Computed sums: 378 shadow elements, 950 layers, 284 multi-layer stacks, 284 inset highlights, 212 backdrop blur, 0 control gradients, 0 looping animations.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run`: 116/116 (20 files), twice.
+- **e2e: GREEN ×1 only; the second run is owed.** The specs that read the canvas legend, `f-w14v-u4` and `f-w14u-vstage`, ran headless on chromium plus mobile-chromium with 1 worker against `:3100`.
+  - Run A: 29/29 passed (`e2e-runA.txt`).
+  - Run B died in global-seed: `POST /api/sessions` timed out after 30s at host load about 80–120 (`e2e-runB.txt`). The same call answered in 16 ms by `curl` afterwards.
+  - The re-run of B, together with the 390 probe, waited more than 3 hours for one of `guarded`'s 3 heavy slots, with 15–55 heavy runs queued machine-wide. Two background waits were also killed from outside the seat (exit 144). It was stopped unrun.
+- **No visual golden was re-baselined.** `web/e2e/screenshots/` was backed up before the runs and restored after each one; this seat left no changes in it.
+
+**Frames** (`pass-03/f3c/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f3c-cure-probe.mjs` against `:3100`: `paper-*` and `v-*` at 1440 and 390, each in light and dark. The `v-*-390` frames show the Controls tab, not the stage.
