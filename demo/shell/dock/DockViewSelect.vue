@@ -154,10 +154,11 @@ const viewRing = computed(() => {
                         <!-- W6-4: the dot column died with the legend (the
                              admin rows shed theirs identically — S-12
                              superfluity). Gold ink stays: mode identity,
-                             the ledger's second sanctioned exception. -->
+                             the ledger's second sanctioned exception.
+                             X-DS VC4-03: flat gold ink, no idle sweep. -->
                         <span v-if="!isAdminMode" class="flex items-center gap-2">
                             <Shield class="w-4 h-4 shrink-0 gold-shimmer-icon" />
-                            <span class="gold-shimmer">Admin</span>
+                            <span class="gold-shimmer-icon">Admin</span>
                         </span>
                         <span v-else class="flex items-center gap-2">
                             <ArrowLeft class="w-4 h-4 shrink-0 text-muted-foreground" />

@@ -34,21 +34,27 @@
                  "Definition: A cylindrical representation of the OKLab color
                  space"). One sentence, said once. -->
             <!-- X-DS VR3-03: the fact table's key/value hierarchy — the key is
-                 the italic label in the muted plate ink, the value carries the
+                 the label in the muted plate ink, the value carries the
                  weight (the original's bold-against-italic, 684c818f), both in
                  the body voice. A component name is a value-sized weighted
                  line in its accent ink, never a larger regular line that
-                 reads as a link. -->
+                 reads as a link.
+                 X-DS VC4-04: the key and the range's "to" are UPRIGHT. The body
+                 voice (Plus Jakarta Sans) ships no italic face, so `italic`
+                 was a synthetic slant, and the slanted "to" overhung the word
+                 space ("0% to100%"). The muted plate ink against the weighted
+                 value carries the key/value contrast alone; Fraunces stays
+                 reserved for the display rungs (three-voice law). -->
             <div class="grid grid-cols-2 gap-2 text-small">
-                <div class="italic plate-ink">Device Dependency:</div>
+                <div class="plate-ink">Device Dependency:</div>
                 <div class="font-medium" data-fact="device-dependency">
                     {{ currentColorSpaceInfo.deviceDependency }}
                 </div>
-                <div class="italic plate-ink">White Point:</div>
+                <div class="plate-ink">White Point:</div>
                 <div class="font-medium" data-fact="white-point">{{ currentColorSpaceInfo.whitePoint }}</div>
-                <div class="italic plate-ink">Gamut:</div>
+                <div class="plate-ink">Gamut:</div>
                 <div class="font-medium" data-fact="gamut">{{ currentColorSpaceInfo.gamut }}</div>
-                <div class="italic plate-ink">Created:</div>
+                <div class="plate-ink">Created:</div>
                 <div class="font-medium" data-fact="created">{{ currentColorSpaceInfo.created }}</div>
             </div>
         </section>
@@ -74,7 +80,7 @@
                     </div>
                     <div class="font-medium">
                         {{ range.min }}
-                        <span class="italic font-normal plate-ink">to</span>
+                        <span class="font-normal plate-ink">to</span>
                         {{ range.max }}
                     </div>
                 </div>
@@ -88,15 +94,15 @@
                 Key Properties
             </h2>
             <div class="grid grid-cols-2 gap-2 text-small">
-                <div class="italic plate-ink">Perceptual Uniformity:</div>
+                <div class="plate-ink">Perceptual Uniformity:</div>
                 <div class="font-medium">
                     {{ currentColorSpaceInfo.perceptualUniformity }}
                 </div>
-                <div class="italic plate-ink">Hue Linearity:</div>
+                <div class="plate-ink">Hue Linearity:</div>
                 <div class="font-medium">
                     {{ currentColorSpaceInfo.hueLinearity }}
                 </div>
-                <div class="italic plate-ink">Lightness Separation:</div>
+                <div class="plate-ink">Lightness Separation:</div>
                 <div class="font-medium">
                     {{ currentColorSpaceInfo.lightnessSeparation }}
                 </div>
@@ -162,13 +168,13 @@
             <h2 class="font-display text-subheading mb-2">Usage</h2>
             <div class="space-y-2 text-small">
                 <div>
-                    <span class="italic plate-ink">Common Applications: </span>
+                    <span class="plate-ink">Common Applications: </span>
                     <span class="font-medium">{{
                         currentColorSpaceInfo.applications.join(", ")
                     }}</span>
                 </div>
                 <div>
-                    <span class="italic plate-ink">Industries: </span>
+                    <span class="plate-ink">Industries: </span>
                     <span class="font-medium">{{ currentColorSpaceInfo.industries.join(", ") }}</span>
                 </div>
             </div>

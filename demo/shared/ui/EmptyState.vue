@@ -21,7 +21,8 @@
     <!-- X.W12U.s3 · UIA-V-635: a FILTERED zero is its own register — the
          query found nothing, the collection is not empty — so it never wears
          the true-empty ghost trio (the one voice of TRUE empty, below). A plain
-         statement one rung under the empty headline, plus the host's way out. -->
+         statement (body at 400, a weight under the true-empty line), plus the
+         host's way out. -->
     <div
         v-else-if="variant === 'filtered'"
         ref="root"
@@ -72,8 +73,13 @@
              de-emphasis rung `--ink-muted` (boot-stamped, floor-clamped against
              the live resting plate; D6) — the STATIC `text-muted-foreground`
              composited 3.84:1 over the My Palettes plate in light (< the 4.5:1
-             small-text floor). -->
-        <p class="font-display text-subheading text-foreground max-w-[30ch] text-balance leading-snug">
+             small-text floor).
+             X-DS VC4-02: the true-empty statement speaks the body rung at 500,
+             one step over the hint, at every host (Mix, Browse, My Palettes):
+             under Mix's "Saved palettes" head (subheading, 600) it no longer
+             ties with its own heading. One register, set here; no host
+             re-ranks it. -->
+        <p class="font-display text-body font-medium text-foreground max-w-[30ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
         <!-- X-DS pass 9 (V9C-08): the hint balances its lines, as the
@@ -102,8 +108,9 @@
  * quiet destructive glyph, the Fraunces statement of failure, the
  * machine truth in Fira, and a real Retry in the action slot.
  *
- * X.W12U.h · A2-VA-L3-1 (consumer half): the statement sits on the
- * subheading rung (`text-subheading`, 600), one step under the heading rung
+ * X.W12U.h · A2-VA-L3-1 (consumer half): the error statement sits on the
+ * subheading rung (`text-subheading`, 600; the true-empty statement one rung
+ * lower again, body at 500, since X-DS VC4-02), one step under the heading rung
  * that the pane title's `--type-display-1` clamp floors at on phones, so the
  * plate never out-ranks its pane title (it rendered 25.9 px/700 under a
  * 25.9 px/400 title at 390). The secondary line (hint, detail) speaks the

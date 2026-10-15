@@ -29,7 +29,9 @@
  *   - zero inset highlights, text-shadows, drop-shadows, filter blurs on chrome;
  *   - zero gradient fills on controls (content gradients are exempt: see
  *     CONTENT_GRADIENT below — a gradient that IS the content survives);
- *   - zero looping animations on chrome.
+ *   - zero looping animations on chrome (a loop inside an in-flight loading
+ *     register — aria-busy, or a role=status "Loading…" plate — carries its
+ *     state and is tallied apart as stateLoopsExempt; VC4-10).
  * The verdict is RED when any allowance is exceeded, GREEN otherwise. A
  * 0/0/0 spread ring (a hairline border or a focus ring drawn as box-shadow) is
  * not lighting: it is tallied apart as ringLayers and never counts as a layer.
@@ -320,6 +322,7 @@ function pageProbe(top) {
         gradientFillsOnControls: 0,
         contentGradientsExempt: 0,
         loopingAnimations: 0,
+        stateLoopsExempt: 0,
     };
     const byOwner = { glass: {}, consumer: {} };
     const bump = (o, k, n = 1) => (byOwner[o][k] = (byOwner[o][k] || 0) + n);
@@ -410,6 +413,15 @@ function pageProbe(top) {
         if (tgt.closest("canvas,svg,img,video")) continue;
         const it = a.effect.getComputedTiming().iterations;
         if (it === Infinity && a.playState === "running") {
+            // X-DS VC4-10: a loop inside an in-flight LOADING register carries
+            // that state (the canon's allowance): an aria-busy region, or a
+            // role=status plate whose accessible name says it is loading
+            // (Browse's developing PaletteCardSkeleton). Counted apart, never
+            // as chrome.
+            if (tgt.closest('[aria-busy="true"], [role="status"][aria-label^="Loading"]')) {
+                t.stateLoopsExempt++;
+                continue;
+            }
             t.loopingAnimations++;
             bump(owner(tgt), "loopingAnimations");
             note("looping-animation", tgt, a.animationName || a.id || "web-animation");

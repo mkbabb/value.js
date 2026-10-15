@@ -118,13 +118,15 @@ function openRepository(): void {
         <!-- UIA-V-21/215/227: the admin identity is a menu, like the user's,
              with its exits — the inert gold pill it replaces looked like a
              control, opened nothing, and stranded the admin (no Login, no
-             Sign out) until site data was cleared. -->
+             Sign out) until site data was cleared.
+             X-DS VC4-03: the gold is the flat identity ink (.gold-shimmer-icon);
+             glass's .gold-shimmer swept a clipped gradient on an infinite loop
+             under an inline colour that hid it — motion with no state. -->
         <template v-else-if="pm.isAdminAuthenticated.value">
             <DropdownMenu v-model:open="profileMenuOpen">
                 <DockTrigger
                     for="dropdown"
-                    class="gap-1.5 text-mono-small font-bold whitespace-nowrap gold-shimmer"
-                    style="color: var(--color-gold)"
+                    class="gap-1.5 text-mono-small font-bold whitespace-nowrap gold-shimmer-icon"
                     data-o18="admin-trigger"
                 >
                     <Shield class="w-3.5 h-3.5" aria-hidden="true" />
