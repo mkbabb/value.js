@@ -1,0 +1,36 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+(node:22109) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22108) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22381) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22403) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22622) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |demo| test/demo/app/scene-swap-w13x.test.ts (5 tests | 1 failed) 56ms
+     × waits for the closing overlay, then holds the update callback until the scene is ready 22ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/app/scene-swap-w13x.test.ts > KFA-25 / KFA-26 / KFA-201 — the switch prepares, then captures the resolved scene > waits for the closing overlay, then holds the update callback until the scene is ready
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ test/demo/app/scene-swap-w13x.test.ts:134:25
+    132|         exitFinished.resolve();
+    133|         await flush();
+    134|         expect(startVT).toHaveBeenCalledTimes(1);
+       |                         ^
+    135|         expect(mutate).toHaveBeenCalledWith(HOME_SCENE_ID);
+    136|         expect(whenSceneReady).toHaveBeenCalledWith(HOME_SCENE_ID);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  1 failed | 122 passed (123)
+   Start at  11:13:52
+   Duration  10.58s (transform 4.14s, setup 126ms, import 7.85s, tests 5.05s, environment 6.00s)
+

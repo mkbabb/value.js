@@ -1,0 +1,26 @@
+diff --git a/demo/components/instrument/pane/RibbonBar.vue b/demo/components/instrument/pane/RibbonBar.vue
+index 0ce12825..69d3d47f 100644
+--- a/demo/components/instrument/pane/RibbonBar.vue
++++ b/demo/components/instrument/pane/RibbonBar.vue
+@@ -139,7 +139,11 @@
+                     title="Format"
+                     @click="keyframes?.format()"
+                 >
+-                    <Sparkles class="icon-sm" />
++                    <!-- X-DS r5 pass 5 (KF-C5-05) — a glyph that says
++                         formatting (set lines), in the row's neutral ink.
++                         Sparkles says "magic", which Format is not, and it
++                         stood alone once the word yielded. -->
++                    <AlignLeft class="icon-sm" />
+                     <span class="@max-[25rem]:sr-only">Format</span>
+                 </Button>
+                 <!-- K.W10 CC-4 — Export CSS: compile the orchestration graph
+@@ -177,7 +181,7 @@
+ </template>
+ 
+ <script setup lang="ts">
+-import { Copy, FileCode, Paintbrush, Sparkles } from "@lucide/vue";
++import { AlignLeft, Copy, FileCode, Paintbrush } from "@lucide/vue";
+ import { computed, inject, watch } from "vue";
+ import { Button, Separator } from "@mkbabb/glass-ui";
+ import type { StoredAnimationGroupControlOptions } from "@state";
