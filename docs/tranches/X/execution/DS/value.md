@@ -526,3 +526,52 @@ The relaunched workflow dispatched this seat as "pass 4" with critic VC4's rows 
 - Judge the dark stamp's register at other live colours. A dark live colour gives a near-black stamp, since `l × 0.22`.
 - Judge the true-empty line at 18.6 / 500 beside the My Palettes well label (16.4 / 600). It is larger and lighter, one step over the hint.
 - `critic-vc4-2026-10-15/` (the critic's own frames and probe) is still uncommitted. It is not this seat's to commit.
+
+### pass 5 (re-dispatch, 2026-10-15): critic VC5 — the route caption, the picker's tooltip register, the display-math edge
+
+The relaunched workflow dispatched this seat as "pass 5" with critic VC5's rows **VC5-01, -02, -03** and **VC5-G1**. `pass-05/` already holds pass 5's own committed evidence, so this cure's evidence sits in `pass-05/vc5-2026-10-15/`. The critic's own frames (`tools-1440-*`, `scroll-4600`) were not on disk for this seat.
+
+**Commits.** value.js `c040b8ea8` (the cure, 2 files) and `0265948c3` (AFTER frames, probe, census, gate listings). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-05/vc5-2026-10-15/`) |
+|---|---|---|---|
+| VC5-01 (low) | **Not taken; owner's call (A5 lock read).** | W5.md gate A5 iterates all fourteen `ViewId`s and fails "on a label that disagrees with `VIEW_MAP`". The lead pane's own title cannot carry that text on every view: Home has no pane title (its About head reads "About the color spaces, Lab"), the Palettes view's lead pane reads "My Palettes", and the admin and Not Found views title their panes in their own words. A5 is therefore read as requiring the shell-level node. The critic's fallback (tie the node to the dock row) would move the H1 out of `<main>`, which breaks the main's `aria-labelledby`, the seven focus origins and e2e's `MAIN_PANE` (`main:has(> h1#route-title)`). The node already sits centred directly under the dock as its caption. VC4-09 recorded the same row as the owner's call; it stays there. | — |
+| VC5-02 (low) | **Cured.** | The picker's three descriptions join the house register of terse imperatives (`demo/picker/sceneActions.ts`): "Reset to the default color.", "Copy the current color.", "Pick a random color." | `probe-vc5-cure.json`: all three tooltips read on **one line** (desc box 310 px), light and dark; `tools-1440-light/dark.png`. No spec or unit test asserted the old strings. |
+| VC5-03 (trivial) | **Cured, at the one shared rule.** | `Markdown.vue`'s display-math scroll row (AB-1) gets a flat trailing-edge **mask**, not a shadow. Its width is a registered `--katex-row-edge` (`@property`, initial 0) driven by the row's own `scroll(self inline)` timeline: 1.5rem while more of the row lies to the right, 0 at the row's end. A row that fits has an inactive timeline, so it keeps the initial 0 and carries no mask. An engine without scroll timelines resolves the 0 s animation to its end state, which is also no mask. The markdown sources are untouched. | 390 Home, both schemes: 4 display rows; the 2 overflowing (`f_y…`, 431/332 px, and `X = Xn·f⁻¹…`, 505/332 px) measure `--katex-row-edge` **24 px at rest → 0 px scrolled to the end**; the fitting rows 0 px. `katex-row-390-light/dark.png` show the bracket fading at the card edge. Census: the scroll-linked animation is not counted as a loop (looping 0). |
+| VC5-G1 (glass) | **Held, cited O-87 / O-88.** | The 6-layer dock rim and halo, the name field's 48 % ring and insets with a 14 px backdrop, the translucent tooltip and floater plates (VC4-06), the disabled primary (VC4-07), and the body-voice fallback (VC4-05's glass half) are honest-RED until the 10.2.0 repin. VC4-08 and the 390 dock fill stay on O-88. No local override. | — |
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`). Byte-identical to pass 4's totals.
+- **Verdict RED, on glass rows only (O-87):** max 6 layers, inset highlights 364, drop-shadow 8, gradient fills on controls 22.
+- **Consumer:** box-shadow layers 116 (single-layer), backdrop blur 18, looping 0 (64 loading loops tallied apart).
+
+**Frames.** 36 route frames (9 routes × light/dark × 1440/390), headless real Chrome (§0ei), under the pass-4 gates (rendered body voice; no role=alert plate). 0 of 36 failed. The four Browse frames were re-shot against `:9000`, because this seat's e2e server (`:9175`) points `VITE_API_URL` at itself and Browse rendered its load-error plate, which the gate correctly refused. Also in the directory: `katex-row-390-*.png`, `tools-1440-*.png`, `probe-vc5-cure.mjs/.json`.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 errors ×2.
+- **vitest:** 1169/1191 ×2 (10 skipped). Stable across both runs:
+  - the pass-4 nine (ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6, v4-css-emerging ×2);
+  - plate-mass 390/1440, whose test and PaletteCardSkeleton/PaletteSpecimen/SwatchButton are another seat's dirty files;
+  - palette-card-layout, a hook timeout.
+
+  The other three per run differ between runs; all are "timed out" at host load 60–170. The two suites that read this diff's files (`katex-corpus`, `picker-blob-config`) pass ×2. **Not GREEN; nothing in this diff.**
+- **e2e:** the 5 specs that touch the changed surfaces (scene-action-contract, o29, o15, w12-about-clip, o21; 29 tests; smoke project, headless, workers 1, own server :9175). 19/29 ×2, with the **same 10 failures both runs**:
+  - D4 ×3, the O-88 class already red at pass 4;
+  - O-15b ×2, the glass dock Tools register;
+  - o29 gradient: a stray `undefined:null` region in the scene row, from the shell, not this diff;
+  - o29 j4 blob: a born-RED `test.fail` now passes;
+  - w12-about-clip ×3: `.about-card` overflow is `visible`, About's FadingScroll-port contract since `340ec4250`.
+
+  o21 (the About guide's facts) passes ×2. **e2e is NOT ×2 GREEN; nothing in this diff.**
+- **No visual golden was re-baselined.**
+
+**Host — the user's "why did the computer crash again", as measured from this seat (2026-10-15, 14:45–19:40).**
+- **No kernel crash or reboot since 2026-10-09 18:57** (`last reboot`; up 6 days). `/Library/Logs/DiagnosticReports` holds no panic or WindowServer report.
+- What it holds today:
+  - a burst of **WebKit WebContent crashes, 14:42–14:50**, in `~/Library/Logs/DiagnosticReports`. These are headless Playwright WebKit pages from another seat; the reaper killed orphaned WebKit GPU and Networking helpers at 14:34;
+  - `cpu_resource` reports for mds_stores and spotlightknowledged.
+- **The load was the hazard.** The 1-minute load ran **100–171** from about 15:15 to 18:50, with memory free at 47–73 % and **swap 8.8 of 10 GB**. The CPU went to Backblaze `bztransmit` (3.4 GB RSS), the CrowdStrike agent, fileproviderd and Spotlight. There were also **42 `vitest-vscode` processes**, which belong to VS Code's Vitest extension (not to any guarded run), and roughly 38 guard waiters.
+- The guard held this seat's vitest for about 70 minutes, past its 72 load threshold, and nothing was killed for RSS. Any freeze the user saw in that window rides on CPU starvation and near-full swap, not on a test OOM from this seat.
+
+**For the next critic.**
+- Judge the 1.5rem fade at 390 on other colour spaces' formulas: OKLab/OKLCh carry the widest matrices.
+- VC5-01 waits on the owner, alongside VC4-09.
