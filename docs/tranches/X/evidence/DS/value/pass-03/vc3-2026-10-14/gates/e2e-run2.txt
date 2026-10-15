@@ -1,0 +1,1396 @@
+(node:83982) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:84033) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 49 tests using 1 worker
+
+[1A[2K(node:84123) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title)
+[1A[2K[2/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+
+    Error: sm:line-clamp-1 not active at desktop
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"1"[39m
+    Received: [31m"none"[39m
+
+      253 |         .first();
+      254 |     const desktop = await typeVoice(longTitle);
+    > 255 |     expect(desktop.lineClamp, "sm:line-clamp-1 not active at desktop").toBe("1");
+          |                                                                        ^
+      256 |     expect(desktop.overflow).toBe("hidden");
+      257 |     const oneLine = await longTitle.evaluate((el) => {
+      258 |         const cs = getComputedStyle(el);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:255:72
+
+    Error Context: test-results/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/error-context.md
+
+
+[1A[2K(node:85259) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+
+    Error: line-clamp-2 not active <sm
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"2"[39m
+    Received: [31m"none"[39m
+
+      280 |     const voice = await typeVoice(longTitle);
+      281 |     expect(voice.fontFamily, "390: name off the display face").toMatch(DISPLAY_FACE);
+    > 282 |     expect(voice.lineClamp, "line-clamp-2 not active <sm").toBe("2");
+          |                                                            ^
+      283 |     const twoLinesMax = await longTitle.evaluate((el) => {
+      284 |         const cs = getComputedStyle(el);
+      285 |         return el.getBoundingClientRect().height <= parseFloat(cs.lineHeight) * 2.5;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:282:60
+
+    Error Context: test-results/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/error-context.md
+
+
+[1A[2K(node:85457) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles
+[1A[2K[5/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette)
+[1A[2K[6/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:454:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row
+[1A[2K[7/49] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)
+[1A[2K[8/49] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)
+[1A[2K[9/49] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders
+[1A[2K[10/49] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub
+[1A[2K[11/49] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated
+[1A[2K[12/49] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header
+[1A[2K[13/49] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light)
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light) 
+
+    Error: Home (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Home (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Home (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Home (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Home (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Home (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Palettes (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Palettes (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Palettes (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Palettes (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Palettes (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Palettes (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Browse (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Browse (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Browse (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Browse (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Browse (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Browse (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Extract (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Extract (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Extract (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Extract (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Mix (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Mix (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (light): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Mix (light): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Generate (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Generate (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Generate (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Generate (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Gradient (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Gradient (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Gradient (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Gradient (light): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error Context: test-results/oracles-o7-card-census-O-7-7ecbf--fixture-on-its-rung-light--smoke/error-context.md
+
+
+[1A[2K(node:87751) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[14/49] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark)
+[1A[2K  4) [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark) 
+
+    Error: Home (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Home (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Home (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Home (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Home (dark): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Home (dark): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Palettes (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Palettes (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Palettes (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Palettes (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Palettes (dark): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Palettes (dark): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Browse (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Browse (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Browse (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Browse (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Extract (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Extract (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Extract (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Extract (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Mix (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Mix (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Mix (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Generate (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Generate (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Generate (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Generate (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Generate (dark): veil off the quiet rung
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"quiet"[39m
+    Received: [31m"(none)"[39m
+
+      254 |                 expect
+      255 |                     .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+    > 256 |                     .toBe("quiet");
+          |                      ^
+      257 |                 expect
+      258 |                     .soft(
+      259 |                         veil.backdrop,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:256:22
+
+    Error: Generate (dark): the veil is not seated inside a resting plate
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      278 |                         `${view} (${scheme}): the veil is not seated inside a resting plate`,
+      279 |                     )
+    > 280 |                     .toBe("resting");
+          |                      ^
+      281 |                 expect
+      282 |                     .soft(
+      283 |                         veil.bg,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:280:22
+
+    Error: Gradient (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Gradient (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error: Gradient (dark): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      227 |                 expect
+      228 |                     .soft(card.tier, `${view} (${scheme}): a card off rung-1`)
+    > 229 |                     .toBe("resting");
+          |                      ^
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+      232 |                     .toBe("true");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:229:22
+
+    Error: Gradient (dark): grain not on
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"true"[39m
+    Received: [31m"(none)"[39m
+
+      230 |                 expect
+      231 |                     .soft(card.grain, `${view} (${scheme}): grain not on`)
+    > 232 |                     .toBe("true");
+          |                      ^
+      233 |                 expect
+      234 |                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
+      235 |                     .toBe(true);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:232:22
+
+    Error Context: test-results/oracles-o7-card-census-O-7-6fb27-d-fixture-on-its-rung-dark--smoke/error-context.md
+
+
+[1A[2K(node:88301) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[15/49] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:400:1 › O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead where it bit (captures attached)
+[1A[2K[16/49] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:438:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached)
+[1A[2K  5) [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:438:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached) 
+
+    Error: 390 (light): a card off rung-1
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"resting"[39m
+    Received: [31m"(none)"[39m
+
+      451 |         const census = await censusView(page);
+      452 |         for (const card of census.cards) {
+    > 453 |             expect(card.tier, `390 (${scheme}): a card off rung-1`).toBe(
+          |                                                                     ^
+      454 |                 "resting",
+      455 |             );
+      456 |         }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o7-card-census.spec.ts:453:69
+
+    Error Context: test-results/oracles-o7-card-census-O-7-edc63-one-band-captures-attached--smoke/error-context.md
+
+
+[1A[2K(node:88947) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[17/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static
+[1A[2K[18/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:189:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[19/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:208:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[20/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:220:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[21/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:251:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics)
+[1A[2K[22/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene
+[1A[2K[23/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced
+[1A[2K[24/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced
+[1A[2K  6) [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByText('azure-fox-01', { exact: true }).first().locator('xpath=ancestor::div[contains(@class,"cursor-pointer")][1]').getByRole('button', { name: 'Delete all palettes of azure-fox-01', exact: true })[22m
+
+
+      48 |             .locator('xpath=ancestor::div[contains(@class,"cursor-pointer")][1]');
+      49 |         // X.W7.e (G15): the control is named for what it destroys.
+    > 50 |         await row.getByRole("button", { name: "Delete all palettes of azure-fox-01", exact: true }).click();
+         |                                                                                                     ^
+      51 |         await page.getByRole("dialog").getByRole("button", { name: "Delete all palettes" }).click();
+      52 |         await expect(verdict(page, "users")).toContainText("Deleted 1 palette of azure-fox-01");
+      53 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-mutation-visibility.spec.ts:50:101
+
+    Error Context: test-results/oracles-w7-mutation-visibi-7850f--—-confirmed-then-announced-smoke/error-context.md
+
+
+[1A[2K(node:91825) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[25/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:55:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced
+[1A[2K[26/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:63:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced
+[1A[2K[27/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:71:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced
+[1A[2K[28/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:80:5 › G13 · admin rows › name approve — the verdict is announced
+[1A[2K[29/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:124:5 › G13 · user rows › report — a success is announced on the card
+[1A[2K[30/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:129:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22)
+[1A[2K[31/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:156:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight)
+[1A[2K[32/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:170:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST)
+[1A[2K[33/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:179:5 › G13 · library rows › rename — the new name is what the card shows
+[1A[2K[34/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › delete — the card leaves the library
+[1A[2K[35/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:208:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced
+[1A[2K[36/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:244:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted
+[1A[2K[37/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:295:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate
+[1A[2K[38/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:106:5 › D1 · one contract, ONE render path › the color scene renders through the one action row
+[1A[2K[39/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:125:5 › D1 · one contract, ONE render path › a workbench scene renders through the SAME row and shape
+[1A[2K[40/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:139:5 › D1 · one contract, ONE render path › the Picker priority is GONE: /mix renders the mix set, not the picker's
+[1A[2K[41/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  7) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-abb86--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:93874) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[42/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  8) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-94d05--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:94394) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[43/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  9) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-50666--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:94800) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[44/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:205:5 › D4 · a registered target is READY, and dispatches for real › Generate on the desktop branch: three ready seats, and one real dispatch
+[1A[2K[45/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:250:5 › §8 artefact 8 — the dock action bar's frames (desktop matrix) › the Mix view's bar, framed
+[1A[2K[46/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:262:5 › §8 artefact 8 — the dock action bar's frames (390 viewport) › the Mix view's bar with no pane registered, framed
+[1A[2K[47/49] [smoke] › e2e/smoke/scene-action-contract.spec.ts:272:5 › AB-32 · the collapse CARRIES the active/selected member › the palette-open indicator survives the contract collapse
+[1A[2K[48/49] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+[1A[2K[49/49] [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget
+[1A[2K  9 failed
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+    [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light) 
+    [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:190:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark) 
+    [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:438:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached) 
+    [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+  40 passed (4.1m)

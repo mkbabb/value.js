@@ -1,0 +1,4 @@
+{"palettes_1440_light":{"statement":{"t":"No saved palettes yet.","fontSize":"16.4px","fontWeight":"400"},"well_label":{"t":"Start a new palette","fontSize":"16.4px","fontWeight":"600"}},
+ "mix_1440":{"button":"data-emphasis=primary data-tone=neutral; classes glass-capsule glass-specular-track glass-deep (glass's primary lighting, O-87)"},
+ "boot_before_restart":{"dock":0,"errs":["Cannot define property dockEl, object is not extensible","Component is missing template or render function: GlassDock","Cannot read properties of null (reading 'ce') at renderSlot"]},
+ "boot_after_restart":{"dock":1,"errs":[]}}
