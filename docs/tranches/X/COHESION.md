@@ -3911,3 +3911,20 @@ Rulings:
 2. **Option (b) runs in parallel and does not block:** a producer row to bbnf-lang, "the emitter's size cost for recursive text-mode rules (≈430 B gz per recursive rule pair; variant A's recognize twin of the whole value grammar)". It is filed through the coordination mail to the bbnf-lang owner. bbnf-lang stays READ-ONLY here. When a later emitter shrinks the bytes, the ceiling is re-measured downward.
 3. **Option (c) is refused** under §0ev, the no-deferral order.
 4. W8.md ADDENDUM (d) carries this ruling.
+
+## §0ff — 2026-10-15: ESC-FREL-mem2-1 RULED. `.mem2` re-premises the person-cut test on a model-independent fixture, keeping every assertion, and lands first; F.CT3 takes it on merge-forward
+The case: `.mem2` (route (a), the 512-px BiRefNet-lite export of §0ey) is GREEN on G-mem, G-mem2 and G-iou, and api 344 ×2. One test is RED: F.CT's `test_person_cut_removes_what_stands_beside_the_sitter`.
+- The test's premise is a property of the retired 1024 model: its saliency mask kept a plant leaf against the sitter's cheek.
+- The 512 export's mask does not keep it, so the cut removes 0.44 % of the mask against the test's 3 % bar.
+- The final subject is unchanged (portraits-human subject IoU 0.9915), so the person cut is not broken; the premise moved.
+
+Rulings:
+1. **Option (ii) is GRANTED, in this form.** Unit `F.REL.mem3` re-premises the test so it no longer depends on which model's saliency happens to keep the leaf.
+   - The mask under test is the model's `subject_mask` united with an explicit non-person region beside the sitter. That region is a committed fixture: the 1024-era leaf region from `human.png`, banked as a boolean PNG under `tests/fixtures/`, with its provenance named.
+   - `part_labels` then runs on that mask.
+   - **Every assertion is kept verbatim:** the 3 % share, one object above 90 %, under 5 % person, and the sitter whole above 95 %.
+   - **Falsifier:** the re-premised test is RED on a person cut disabled by a local revert, and GREEN on the product ×2.
+   - **Writable:** `tests/test_contour_strokes.py` (this test only), `tests/fixtures/**`, and the `.gitignore` negation `!scripts/export-birefnet-lite.py`, an adjacent ignore-entry edit that is granted.
+2. **Order:** `.mem2` and `.mem3` land together on `m/w1-bump-migration`, then `.w`, `.vb`, `.g`, `.d` per F-REL.
+3. **F.CT3** (worktree `.worktrees/f-ct3`, branch `f-ct3`) is not edited. Its merge-forward takes `.mem3`'s test as the base and re-applies its own hunks on top. A conflict is resolved by keeping the union of assertions, never by weakening one. The worktree's dirty file is F.CT3's and is never touched by Track C.
+4. F-REL addendum (c) carries this ruling.

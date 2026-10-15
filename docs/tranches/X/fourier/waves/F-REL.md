@@ -44,3 +44,11 @@ pytest and the api tests GREEN ×2; web vue-tsc, vitest and e2e GREEN ×2 (the n
 
 ## ADDENDUM 2026-10-13 (b) — ESC-FREL-mem-1 ruled (COHESION §0ey)
 `.mem2` tries the routes in order, and the first one meeting both gates wins: (a) our own BiRefNet-lite export (dynamic axes, or 768/512; `scripts/export-birefnet-lite.py`, with torch at export time only; a release asset `models-2026-10`, sha-pinned, licence recorded); (c) a measured alternative second model, ISNet-general-use first; (b) the best memory-conforming candidate, with each image under 0.93 handed by name to F.CT3. Then `.w → .vb → .g → .d`. Grant: `scripts/export-birefnet-lite.py`, `contours/ml.py`, its tests, the memory probe, and the release asset.
+
+## ADDENDUM 2026-10-15 (c): ESC-FREL-mem2-1 RULED (COHESION §0ff)
+- **Unit `.mem3`** re-premises `test_person_cut_removes_what_stands_beside_the_sitter`. The mask is the model mask united with a committed fixture: the 1024-era leaf region beside the sitter, as a boolean PNG under `tests/fixtures/` with its provenance named.
+- **Every assertion is kept verbatim.** Falsifier: RED with the person cut disabled, GREEN ×2 on the product.
+- **Also granted:** the `.gitignore` negation `!scripts/export-birefnet-lite.py`.
+- **Landing:** `.mem2` and `.mem3` land together on `m/w1-bump-migration`, then `.w → .vb → .g → .d`.
+- **F.CT3's worktree is never touched.** F.CT3 takes the re-premised test on merge-forward, keeping the union of assertions.
+- **Heavy runs** go through `~/.claude/guard/guarded`, with the API at `COMPUTE_CONCURRENCY=1`.
