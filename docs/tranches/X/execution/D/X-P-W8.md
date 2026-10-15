@@ -1053,3 +1053,16 @@ GREEN-before-cure: none (the `.cust` falsifier is RED ×2; the GREEN rows above 
 Groups: `[[".cust"], [".lg1c"]]`.
 
 ## RESUME 3 2026-10-14 — Unit receipts
+
+### .cust — ESCALATED (seat `claude-opus-5-5`, 2026-10-14 → resumed 2026-10-15; 0 product bytes committed)
+
+1. **Crash recovery.** ⟨`git status --porcelain -- src/css test/css bench/records/W8cust docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md`⟩ → only `?? bench/records/W8cust/` (a killed predecessor seat's evidence: `gen-pinned.mjs`, `audit-pinned.mjs`, `bbnf-custom-semicolon.test.ts.candidate`, `candidate-raw-termset.patch`, `falsifier-before-{1,2}.log`, `e6.txt`). No product path dirty. Inherited and read whole; the candidate falsifier is RED ×2 at `2f590daa8` (`29 tests | 18 failed`, `a{--x:f(a;b)}` → `css_syntax`), matching the Baseline.
+2. **Inherited E-6 reads** (`e6.txt`, pinned emitter `f0059db14`): HEAD `104733 / 14635` ×2; five lawful variants A–E measured `15073 … 18881` B gz; the candidate D (raw term set + `semiRun` bracket pairing; falsifiers GREEN, test/css 266/267) `109302 / 15278` ×2.
+3. **Re-measured this seat** (⟨`guarded --light -- node bench/records/W8cust/gen-pinned.mjs`; `npx esbuild --minify --loader=js < src/css/bbnf/generated/grammar.js | gzip | wc -c`⟩):
+   - F compact set (string-aware guard; `customBlk`/`blockRun` recursive over `()`/`[]`/`{}`, shared with `semiRun`) → `109796 / 15200` ×2;
+   - J the recursive three-bracket pair alone (simple guard, `semiRun` unchanged) → `15168`;
+   - H floor probe: ONE trivial new alternative in `customTop` (no cure) → `14742` (+107 B gz for any new entry);
+   - I non-cure probe (reuse `textBody`: nests `()` only, admits a top-level `;` and unbalanced `[]{}`) → `14732` — under the ceiling but not the cure §0fc.2 specifies, so not landed.
+4. **Finding.** §0fc.2's cure needs a `;` admitted only inside nested `()`/`[]`/`{}` blocks, and the sheet's declaration splitter (`semiRun`) must pair `[]`/`{}` too. JS regex cannot recurse, so this needs a recursive three-bracket rule pair. In this emitter, that pair costs about 430 B gz. Every lawful variant measured lands at `15168 … 15278` B gz, which is over the 14,800 B ceiling of §0fc.1 (headroom 165 B). By §0fc.1 / ADDENDUM (c) ("any crossing escalates and is never shaved"), the seat stops: **ESC-W8cust-1**.
+5. **Product restored** to `2f590daa8` bytes (only my own paths were checked out): ⟨`gen-pinned.mjs --check`⟩ → `is current (sha256 9f54614b…)` rc 0 ×2; gz `14635` ×2. Gates not turned: falsifier RED→GREEN, V-C, MIRROR, L-G2/L-G3, vue-tsc/eslint/build. These are owed after the ruling. L-G1: no emitted bytes changed, so `.lg1r` `333b519ea` stands.
+6. **ESC-W8cust-1 asks the owner to choose one:** (a) raise the E-6 gz ceiling to at least about 15,300 B, to admit candidate D (`bench/records/W8cust/candidate-raw-termset.patch`, ready to land with its falsifier); or (b) open a bbnf-lang producer row for emitter size on recursive text rules (bbnf-lang is READ-ONLY here); or (c) rule W8semi-CUSTOM a ruled row until (a) or (b). Evidence: `bench/records/W8cust/` (committed with this receipt).

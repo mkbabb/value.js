@@ -1,0 +1,148 @@
+diff --git a/src/css/bbnf/value.ts b/src/css/bbnf/value.ts
+index 405829cac..8ad839b77 100644
+--- a/src/css/bbnf/value.ts
++++ b/src/css/bbnf/value.ts
+@@ -309,6 +309,8 @@ export const valueActions = {
+     slashList: { kind: "map", fn: listOf("slash") },
+     commaList: { kind: "map", fn: listOf("comma") },
+     customTop: { kind: "map", fn: (value: ValueNode | undefined): ValueNode => value ?? EMPTY },
++    //  A value holding a `;` nested in a block, kept whole as authored (css-variables-1 §2; X.P.W8 `.cust`).
++    customRaw: { kind: "text", fn: keyword },
+     // The leaf proved the token is `from` or `to` in some case, so its length names it.
+     selectorKeyword: { kind: "map", fn: (token: string): SelectorNode => (token.length === 4 ? FROM : TO) },
+     selectorNamed: { kind: "map", fn: namedSelector },
+diff --git a/src/css/grammar/stylesheet.bbnf b/src/css/grammar/stylesheet.bbnf
+index 5b418fdec..c6b457b8b 100644
+--- a/src/css/grammar/stylesheet.bbnf
++++ b/src/css/grammar/stylesheet.bbnf
+@@ -22,7 +22,7 @@ textBody   = ( /[^()"']+/ | quoted | textGroup ) * ;
+ // ── top-level lists ──────────────────────────────────────────────────────────────────
+ commaRun   = ( /[^(),"']+/ | quoted | textGroup ) * ;
+ commaItems = commaRun , ( "," >> commaRun ) * ;
+-semiRun    = ( /[^();"']+/ | quoted | textGroup ) * ;
++semiRun    = ( /[^()[{;"']+/ | quoted | textGroup | customBlock ) * ;
+ semiItems  = semiRun , ( ";" >> semiRun ) * ;
+ spaceRun   = ( /[^()\s"']+/ | quoted | textGroup ) + ;
+ spaceItems = ws >> ( spaceRun << ws ) * ;
+diff --git a/src/css/grammar/value.bbnf b/src/css/grammar/value.bbnf
+index 7312b5cd5..2462cbba4 100644
+--- a/src/css/grammar/value.bbnf
++++ b/src/css/grammar/value.bbnf
+@@ -15,7 +15,17 @@ valueTop   = sp >> commaList << sp ;
+ // A custom property's value, css-variables-1 §2 `<declaration-value>?`: a component-value list, or
+ // EMPTY — whitespace and comments only (`--x: ;`; css-syntax-3 §4 drops comments). Only `customTop`
+ // reads the empty value; `valueTop` (every standard property, `parseCssValue`) never does (X.P.W8 `.e`).
+-customTop  = sp >> commaList ? << sp ;
++customTop  = sp >> ( customRaw | commaList ) ? << sp ;
++// The custom property's own term set, parallel to `valueTerm` and read only here: a `<declaration-value>`
++// may hold a `;` nested inside a `()`, `[]` or `{}` block (css-variables-1 §2) — never at its top level,
++// where css-syntax-3 §5.4.6 ends the declaration. A value holding such a `;` (outside a string, an escape
++// and an unquoted url's token) is read as the token stream it is: runs, strings and blocks whose brackets
++// pair, kept whole as authored (`f(a;b)`, `[a;b]`, `{a;b}`). Any other value reads as `commaList`, and
++// every standard property's value (`valueTop`) still refuses a `;` (X.P.W8 `.cust`; C1-1).
++customRaw   = /(?=(?:[^;"'u\\]|\\[\s\S]|u(?!rl\()|url\([^)]*\)|"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*')*;)/i ,
++              /(?:[^()[\]{}"';\\]|\\[\s\S]|"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*')*/ , ( customBlock , /(?:[^()[\]{}"';\\]|\\[\s\S]|"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*')*/ ) * ;
++customBlock = "(" , blockRun , ")" | "[" , blockRun , "]" | "{" , blockRun , "}" ;
++blockRun    = /(?:[^()[\]{}"'\\]|\\[\s\S]|"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*')*/ , ( customBlock , /(?:[^()[\]{}"'\\]|\\[\s\S]|"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*')*/ ) * ;
+ commaList  = slashList , ( comma >> slashList ) * ;
+ slashList  = spaceList , ( slash >> spaceList ) * ;
+ spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
+diff --git a/test/css/bbnf-custom-semicolon.test.ts b/test/css/bbnf-custom-semicolon.test.ts
+new file mode 100644
+index 000000000..f0c00cdf0
+--- /dev/null
++++ b/test/css/bbnf-custom-semicolon.test.ts
+@@ -0,0 +1,93 @@
++// SERVED MODEL: claude-opus-5-5
++//
++// X.P.W8 `.cust` (W8.md ADDENDUM 2026-10-14 (c); COHESION §0fc.2; C1-1 / W8semi-CUSTOM): a custom property's
++// value is a css-variables-1 §2 `<declaration-value>`, which may hold a `;` nested inside a `()`, `[]` or
++// `{}` block — only a TOP-LEVEL `;` ends the declaration (css-syntax-3 §5.4.6). `.semi` refused a `;` in
++// every value, so `--x: f(a;b)` regressed; a registered property's value still refuses it.
++
++import { describe, expect, it } from "vitest";
++
++import { parseStylesheet, serializeCssValue } from "../../src/css/index";
++import { parseCustomPropertyValue } from "../../src/css/bbnf/index";
++import { parseDeclarations } from "../../src/css/rules";
++import type { Declaration } from "../../src/css/types";
++
++const declarations = (body: string): readonly Declaration[] => {
++    const parsed = parseDeclarations(body);
++    if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} → ${JSON.stringify(parsed.diagnostics)}`);
++    return parsed.value;
++};
++
++const serialize = (rows: readonly Declaration[]): string =>
++    rows.map(({ name, value, important }) => {
++        const text = serializeCssValue(value);
++        if (!text.ok) throw new Error(`unserializable: ${name}`);
++        return `${name}: ${text.value}${important ? " !important" : ""};`;
++    }).join(" ");
++
++describe("a custom property admits a `;` nested inside a block (css-variables-1 §2)", () => {
++    it.each([
++        "a{--x:f(a;b)}",
++        "a{--x:[a;b]}",
++        "a{--x:{a;b}}",
++        "a{--x:f(a ; b) c}",
++        "a{--x:f(g(a;b))}",
++        "a{--x:f(;)}",
++        "a{--x:f(a, b; c)}",
++        "a{--x:[a;b] f(1px;2px)}",
++        "a{--x:{a:b;c:d}; color: red}",
++    ])("%j is ACCEPTED", (source) => {
++        const parsed = parseStylesheet(source);
++        expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.diagnostics)).toBe(true);
++    });
++
++    it.each(["--x:f(a;b)", "--x:[a;b]", "--x:{a;b}", "--x:f(a ; b) c", "--x:f(g(a;b))", "--x:f(;)", "--x:f(a, b; c)",
++        "--x:{a:b;c:d}; color: red"])("%j round-trips", (body) => {
++        const once = declarations(body);
++        const text = serialize(once);
++        expect(declarations(text)).toEqual(once);
++        expect(serialize(declarations(text))).toBe(text);
++    });
++
++    it("keeps the call: `--x:f(a;b)` is `f` with the `;` among its components", () => {
++        const [row] = declarations("--x:f(a;b)");
++        expect(row?.value).toMatchObject({ kind: "call", name: "f" });
++        expect(serialize(declarations("--x:f(a;b)"))).toBe("--x: f(a; b);");
++    });
++
++    it("keeps a `[]` / `{}` block as authored", () => {
++        expect(serialize(declarations("--x:[a;b]"))).toBe("--x: [a;b];");
++        expect(serialize(declarations("--x:{a;b}"))).toBe("--x: {a;b};");
++    });
++
++    it("the empty custom value stays ACCEPTED: `a{--x: ;}`", () => {
++        expect(parseStylesheet("a{--x: ;}").ok).toBe(true);
++    });
++});
++
++describe("a top-level `;` still ends the declaration (css-syntax-3 §5.4.6)", () => {
++    it("`a{--x:a;b}` is not one value: the second row is no declaration", () => {
++        const parsed = parseStylesheet("a{--x:a;b}");
++        expect(parsed.ok).toBe(false);
++        if (parsed.ok) return;
++        expect(parsed.diagnostics.map((row) => row.code)).toContain("css_syntax");
++    });
++
++    it.each(["a;b", ";", "f(a);b", "a ; b"])("parseCustomPropertyValue(%j) is refused", (source) => {
++        expect(parseCustomPropertyValue(source).ok).toBe(false);
++    });
++});
++
++describe("a registered property's value still refuses a nested `;` (X.P.W8 `.semi`)", () => {
++    it.each([
++        "a{transform:rotate(0;1deg)}",
++        "@keyframes k{0%{transform:translate(0;1px)}}",
++        "a{grid-template-columns:[a;b] 1fr}",
++        "a{color:f(a;b)}",
++    ])("%j yields ok:false with a css_syntax diagnostic", (source) => {
++        const parsed = parseStylesheet(source);
++        expect(parsed.ok).toBe(false);
++        if (parsed.ok) return;
++        expect(parsed.diagnostics.map((row) => row.code)).toContain("css_syntax");
++    });
++});
