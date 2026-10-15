@@ -1150,3 +1150,72 @@ SERVED MODEL: claude-opus-5-5. Spec re-read whole (`F-REL.md`, 46 lines); COHESI
 **E13.** ⟨`grep -nE '\| *UNREAD' INBOX.md`⟩ → prose sweep lines only. ⟨`find V/coordination glass/BK/coordination -maxdepth 1 -newer INBOX.md`⟩ → 0 / 0. **0 UNREAD.** No new producer row this sitting, so no BK relay.
 
 **Status: PARTIAL.** Gates landed: manifest/CI, vue-tsc ×2, vitest ×2. G-w is RED on w-1 (oracle) and w-2 (unread until `.mem2` lands).
+
+#### F-REL.vb — RESUME 2026-10-15 (re-sit 3: re-read at the post-`.w` HEAD `3084b6c`; the f-w14 orphans adopted)
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-15 ~18:10– local. Spec read whole (F-REL.md); §0ew bullet 3, §0ex, §0fb and §0fd read at the bytes.
+
+**Crash recovery.** ⟨`git status --porcelain | grep -E 'visual-checkpoint|screenshots/f-w14'`⟩ (fourier) → 0 snapshot paths; 43 ` M web/e2e/screenshots/f-w14/*.png`. The 43 are the §0ex orphans this unit adopts (act 1). ⟨`git rev-list --left-right --count HEAD...@{u}`⟩ → `1 0`: `3084b6c` (X-DS pass 3 critic F3C) is local and unpushed, and belongs to the X-DS seat.
+
+**What moved since the 10-13 reading at `c6a242d`.** ⟨`git diff --stat c6a242d..HEAD`⟩ → 13 files. 11 are `web/src` (`EquationResult.vue`, `EquationView.vue`, `FunctionInput.vue`, `GallerySearchBar.vue`, `CoefficientsPanel.vue`, `NotFoundCard.vue`, `BasisSelector.vue`, `VisualizationView.vue`, `canvas-drawing/labels.ts`, `style.css`) plus `f-w13-radius.spec.ts`. ⟨`git log --oneline c6a242d..HEAD -- web/e2e/visual-checkpoint.spec.ts-snapshots`⟩ → `3d2f80d`: X-DS pass 4 already re-baselined `checkpoint-disclosure-body` on both platforms (darwin 50375 → 49944 B, linux 42331 → 42055 B) under the §0ew standing rule. So this sitting re-reads all 12 goldens at HEAD and rewrites only frames that fail.
+
+**Act 1 — the f-w14 orphans adopted (§0ex last bullet).**
+- ⟨`git status --porcelain web/e2e/screenshots/f-w14 | wc -l`⟩ → `43`, all ` M`. ⟨`file … | grep -vc 'PNG image data'`⟩ → `0`. Mtimes are 2026-10-13 16:24:30–16:24:33 (the f-w14 specs write `after-*` frames into the tree when run), with no writer since. That is later than §0ex's 14:45 cut-off, but the paths have no live writer, and the brief names them as this unit's adoption.
+- I read two samples against HEAD:
+  - `after-users-1440-dark` (27783 B vs 22676 B at HEAD) is the X-DS admin Users table, with column heads User/Entries/Joined/Seen.
+  - `after-page-home-1440` (401621 B vs 388218 B) is the paper home with contents rail and title.
+  - Both are the redesigned state, not a defect.
+- ⟨`git fetch && git pull --ff-only`⟩ → up to date. ⟨`git add --pathspec-from-file=… && git commit … --pathspec-from-file=…`⟩ → fourier **`512f5a9`**, 43 files, carrying the line "adopts the orphaned hunk of 2026-10-09". Not pushed: `3084b6c` beneath it is the X-DS seat's unpushed commit.
+
+**Act 2 — instrument.**
+- The scratch worktree `~/.fourier-frel/g-wt` was moved to `3084b6c`. ⟨`git status --porcelain`⟩ there → 0.
+- **The Homebrew mongod is down.** ⟨`launchctl list | grep mongo`⟩ → exit status 14. ⟨`mongo.log`⟩ at 2026-10-15 11:43:59 → `WiredTiger metadata corruption detected … Fatal assertion`, which is likely a consequence of the 10-14 outage. I did not repair it: it is shared machine state outside this unit.
+- The run used a private `mongod --dbpath ~/.fourier-frel/vb/mongo-r3 --port 27118` instead.
+- API :8191 ran from the main tree's venv with `COMPUTE_CONCURRENCY=1` (§0fb) and CI's rate env, on DB `fourier_frel_vb`. Vite :3192 ran from the scratch tree.
+- Linux ran in container `frel-vb` (`mcr.microsoft.com/playwright:v1.61.0-noble`, ⟨`npx playwright --version`⟩ → `Version 1.61.0`). Docker Desktop was off and I started it for the run. The container tree was re-synced from the read-only mount:
+  - ⟨`diff -rq /src/web/src /repo/web/src`; same for `e2e`⟩ → `synced`;
+  - ⟨sha256 of `package-lock.json`, host vs container⟩ → `62eef004…` both.
+- `linux-in.sh` was changed from `--workers=2` to `--workers=1`, as the user-level law requires.
+- Seed warm: ⟨`curl … extract-contour`⟩ → `200 7.18 s`.
+- Harness: `~/.fourier-frel/vb/r3-outer.sh` takes `heavy.lock` with no-clobber, then runs `~/.claude/guard/guarded --rss-gb 20 --timeout 90 -- r3.sh D1 D2 L1 L2`.
+- My first wrapper took the guard slot before the lock, which could have held a slot while waiting on F.CT3's lock. I killed it before it was admitted and reordered the wrapper.
+- The lock was held by F.CT3 (`scoped-pytest`), whose guard waited ~5 h for a slot. I took the lock at 23:27:39Z, was admitted at 23:28:24Z, and released at 23:29:54Z. Logs: `~/.dev-logs/frel/vb3-*.log`, `~/.fourier-frel/vb/linux-out/linux-r3-L*.log`.
+
+**Readings at `3084b6c` (no `--update-snapshots`; load 25–32):**
+
+| run | darwin (headless local) | linux (v1.61.0-noble) |
+|---|---|---|
+| 1 | ⟨`vb3-darwin-D1.log`⟩ → 6 passed (17.8s), rc=0 | ⟨`linux-r3-L1.log`⟩ → 6 passed (15.8s), rc=0 |
+| 2 | ⟨`vb3-darwin-D2.log`⟩ → 6 passed (12.9s), rc=0 | ⟨`linux-r3-L2.log`⟩ → 6 passed (13.8s), rc=0 |
+
+- **No checkpoint changed, so there is no snapshot commit.** ⟨`git status --porcelain web/e2e/visual-checkpoint.spec.ts-snapshots | wc -l`⟩ → `0` (main tree), and `0` in the scratch tree.
+- ⟨sha256 of the container's 6 `*-linux.png` after L2 vs the main tree's⟩ → `6 same`.
+- The only post-`8094890` golden change is X-DS pass 4's own `checkpoint-disclosure-body` re-baseline in `3d2f80d`, which follows the §0ew standing rule and is now measured GREEN ×2 on both platforms.
+- Golden bytes (⟨`stat -f "%z"`⟩, darwin/linux):
+  - admin-banner 29907/25539
+  - card-hover 7992/7654
+  - card-modal 29512/24685
+  - card-resting 3387/3037
+  - disclosure-body 49944/42055
+  - tooltip-trigger 3266/3138
+
+**Gates.**
+- G-vb darwin ×2: GREEN ×2 at `c6a242d` (10-13) → **GREEN ×2 at `3084b6c`**.
+- G-vb linux ×2: GREEN ×2 at `c6a242d` → **GREEN ×2 at `3084b6c`**.
+
+**Commits.** fourier `512f5a9` (the f-w14 adoption); value.js this record.
+
+**Adjacent edits.** None.
+
+**Residuals.**
+- R-vb-1 (the modal's blank view count, which the golden encodes) carries.
+- R-vb-2 is discharged by `512f5a9`.
+- New, outside this unit:
+  - the Homebrew mongod's WiredTiger corruption (any seat using `localhost:27017` will fail until it is repaired);
+  - guard slot starvation: `acquire_slot` is a non-FIFO 5 s poll, so a lock-holding waiter can starve for hours, as F.CT3 did today for ~5 h.
+
+**Teardown.** ⟨`lsof -iTCP:8191 -iTCP:3192 -iTCP:27118 -iTCP:4190 -sTCP:LISTEN | wc -l`⟩ → `0`. Container stopped, Docker Desktop quit, `heavy.lock` absent.
+
+**E13.** ⟨`find <value V/coordination, glass BK/coordination, glass BL/coordination, keyframes V/coordination> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0/0/0/0. ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
+
+**Status: DONE.**
