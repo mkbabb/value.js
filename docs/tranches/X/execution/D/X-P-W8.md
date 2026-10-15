@@ -1472,3 +1472,56 @@ Honest-RED set: **none.** The single RED gate has no spec relief.
 | C2-3 INFO (R-2/R-3/R-4) | Orchestrator, as named. | none | n/a |
 
 Self-count: 3 defects; 0 cured, 1 escalated (C2-1), 2 INFO recorded. No product byte changed, so every other gate keeps its Check 2 read. Row 108 stays **PARTIAL** until ESC-W8close5-1 is ruled.
+
+## RESUME 4 2026-10-15 — Check 3 (L-20 pass 3 of the RESUME 4 Close, after Repair 2, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **NOT-CONFORMANT**
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D/X-P-W8.md docs/tranches/X/execution/LEDGER.md`⟩ → empty. Nothing inherited. HEAD `32b36b88e` at open (`e01678540` by the commit, a Track C record-only commit); product `7516f0d8c` (⟨`git diff --stat 7516f0d8c HEAD -- src test package.json`⟩ → empty). parse-that `cb9c0d4` (unmoved; its dirty `rust/**` is another session's, untouched). Host 1-min load 25.6–30.0; no timing gate read (L-G1 audited from the bank, §0eq).
+- **Ruling search:** ⟨`grep -n 'ESC-W8close5-1\|if()' docs/tranches/X/COHESION.md`⟩ → nothing; the latest section is §0fe. W8.md ends at ADDENDUM (d). ESC-W8close5-1 is still unruled.
+- **Runner:** one sequential script under ⟨`~/.claude/guard/guarded --light --timeout 40`⟩ in `run_in_background`, vitest `--maxWorkers=2`; outputs in this seat's scratchpad.
+
+### Gates re-run by this seat (product `7516f0d8c`)
+| Gate | Command | Read (×2 unless noted) | Verdict |
+|---|---|---|---|
+| ADDENDUM (d) probe (11 inputs) | ⟨`npx vite-node bench/records/W8semi/probe.ts …`⟩ | `f(a;b)` · `[a;[b]]` · `{a;b}` · `"a;b"` · `--x: ;` ACCEPTED; `--x:a;b` · `[a;b}` · `{a;b]` · `[a` · `rotate(0;1deg)` · keyframes `translate(0;1px)` refused css_syntax; ⟨`diff` of the result lines⟩ → identical | GREEN |
+| falsifier + `.semi` files | ⟨`npx vitest run test/css/bbnf-custom-semicolon.test.ts test/css/bbnf-semicolon.test.ts --maxWorkers=2`⟩ | `Tests 63 passed (63)` ×2 | GREEN |
+| V-C | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | `6267 cases · 3898 ruled` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows`, rc 0 ×2 | GREEN |
+| css-equivalence / MIRROR | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ | `Tests 19 passed (19)` ×2; ⟨`grep -c 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 | GREEN |
+| test/css | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | `Tests 281 passed (281)` ×2 | GREEN |
+| `--check` (pinned `f0059db14`) | ⟨`node .worktrees/w8close3/gen-pinned.mjs --check`⟩ | `is current (sha256 75c8393d4949…)` rc 0 ×2 | GREEN |
+| E-6 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c`; `gzip < min.js \| wc -c`⟩ | `110324` / `15239` (≤ 125,646 / 15,300). Note: ⟨`gzip -c min.js`⟩ reads 15246, the +7 B is the stored filename `min.js\0`; the stdin form is the record's method. | GREEN |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | rc 0 · rc 0 ×2; `error TS` 0 · 0 | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | `0` | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence --max-warnings=0`⟩ | rc 0 | GREEN |
+| build | ⟨`npm run build`⟩ | rc 0, `✓ built in 4.30s` | GREEN |
+| L-G1 ×2 bank audit (§0eq) | ⟨`cd bench/records/W8lg1c2 && shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ | `58` | GREEN |
+| audit (pinned) | ⟨`node .worktrees/w8close3/audit-pinned.mjs`⟩ | `rules 179 · checks 1401189321 · violations 0 · modeDiffs 0`, rc 0 | GREEN |
+| **`test/v4-css-emerging.test.ts`** | ⟨`npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩; ⟨`npx vite-node bench/records/W8close5/ifprobe.ts $PWD`⟩ | **`Tests 2 failed \| 20 passed (22)` ×2**; the 3 `if()` inputs refused `css_syntax` at the `;` (`expected ["scalar"]`) ×2 | **RED** (ESC-W8close5-1, unruled) |
+
+Self-count: 14 rows; 13 GREEN reproduce; 1 RED. Cited, not re-run (product unmoved since the close read them): L-G2 3371 ×2 identical / prefix 0.
+
+### Axes
+1. **Claimed GREENs reproduce:** every one. The close's 21 GREEN rows (as re-read above or cited on unmoved bytes), Repair 1's vue-tsc test cure, and Repair 2's RED read (`2 failed | 20 passed`) all reproduce. GREEN.
+2. **Bounds:** ⟨`git show --name-only --format= <c> \| grep -v '^bench/records/W8'`⟩ over `7516f0d8c 754743689 68f8fea2a fc89035e7 f8f587daa 9f826852a 22c7fefac 18e9446fd 0dafeb4a0 87c6cca3f 32b36b88e` → only the `.cust2` plan set (incl. the declared §0bt oracle `bench/css-equivalence/stylesheet.measure.test.ts`, SH-3 named class with mechanism), this record, LEDGER and the INBOX sweep. ⟨`git log --format=%h 1592e47b4..HEAD -- scripts/dev/dev.sh \| wc -l`⟩ → `0`. GREEN.
+3. **Masking:** none. SH-3 is a named class that governs a cell only when the cut is the whole difference (not an allowlist); Repair 1's `export {};` is a root cure. GREEN.
+4. **Commit families:** `.cust2` grammar + re-emission + falsifier + §19-S addendum in one commit (`7516f0d8c`); evidence and receipts apart; one commit per meaning. GREEN.
+5. **E-3:** ⟨`git diff --stat 1592e47b4..HEAD -- docs/tranches/X/parse-that/waves docs/tranches/V/megatranche/registry/adjudicated`⟩ → empty. GREEN.
+6. **Mail:** ⟨`grep -cE '^\| .*\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`; ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → nothing on value `V/`, `V/coordination`, glass `BK/coordination`, `BL`, keyframes `V/coordination`. The routed X-W12U C4-6 note is read and still uncured (C3-1). GREEN on UNREAD.
+7. **Four-verb line:** row 108 PARTIAL with ESC-W8close5-1 named; lawful. It stays PARTIAL.
+8. **Goal at the bytes:** ADDENDUM (d)'s custom-property cure is MET. The wave goal ("accepts every valid value in scope", §Scope 4 stay-GREEN) still fails for the product's own tested `if()` claim, regressed by this wave's `.semi`. RED (C3-1).
+9. **Published figures:** 63/63, 6267/3898/0, 19/19 MIRROR 0, 281, 110324/15239, `75c8393d…`, 58, 179/0/0, vue-tsc 0/0, 2 of 22 RED all reproduce. GREEN.
+10. **Honest-RED adjudication:** `test/v4-css-emerging` 2/22 is NOT relieved. The grammar is value.js BBNF, so it is not producer-owned. No successor wave is routed the cure, and W8.md names no honest-RED id for it. ADDENDUM (b)'s premise ("inside a function block it is not a valid component of any property grammar") is the spec's text, but css-values-5 `if()` falsifies it. Whether `if()` is in scope, as `random-item()` was ruled out, is a ruling only the owner or orchestrator can make. ⟨`grep -c 'ESC-W8close5-1' docs/tranches/X/COHESION.md`⟩ → `0`. An owner is named (R-1), but naming an owner is not relief. Real defect, HIGH.
+
+### Successors
+⟨`grep -rn 'after X\.P\.W8' docs/tranches/X --include='*.md' \| grep -v /execution/`⟩ → only `waves/W12U.md:94` (quiet reads banked "after X.P.W8's L-G1 ×2"). That conjunct is GREEN (`.lg1c2` bank 58/58 MANIFEST). No successor is blocked by this verdict.
+
+### Register
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3-1 | HIGH | (= C2-1 = C1-1, unchanged) `.semi` `2f590daa8` refuses css-values-5 `if()`'s `;` branch separator, and `test/v4-css-emerging.test.ts` is RED 2/22 with no spec relief. ESC-W8close5-1 is unruled. | ⟨`npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩ ×2 → `Tests 2 failed \| 20 passed (22)`; ⟨`ifprobe.ts`⟩ ×2 → 3 refusals at the `;`; ⟨`grep -c 'ESC-W8close5-1' COHESION.md`⟩ → `0`. | Owner/orchestrator rules ESC-W8close5-1 (R-1: is `if()` in scope, either ruled out with a row like W8r1-CSS-VALUES-5 or cured; E-6 gz headroom 61 B). Then a dispatched unit adds a BBNF `if()` branch arm that admits `;` while `.semi`'s refusals stand, followed by the L-G1 entry-diff, close and check. A third repair round cannot cure this without the ruling, so this is now a loop-stop for the orchestrator. |
+| C3-2 | INFO | R-2 (the bbnf-lang emitter-size producer row is unfiled), R-3 (the CHANGELOG line for `.cust2`) and R-4 (the untracked l-g1-r1 file) stand with named owners. They do not block. | RESUME 4 Close §Residuals. | Orchestrator, as named. |
+| C3-3 | INFO | The E-6 gz figure depends on method: `gzip -c file` adds the stored filename (+7 B, 15246). The record's stdin form gives 15239, and it is the method of record. | ⟨`gzip < min.js \| wc -c`⟩ → `15239`. | None. A future close names the stdin form. |
+
+Honest-RED set: **none.** The single RED gate has no spec relief.
+
+### Verdict
+**NOT-CONFORMANT**: 0 BLOCKER, 0 CRITICAL, 1 HIGH (C3-1), 2 INFO. 13 of 14 re-run gates reproduce GREEN. Row 108 stays **PARTIAL**. Next: the ESC-W8close5-1 ruling, then the `if()` cure unit, close and check.
