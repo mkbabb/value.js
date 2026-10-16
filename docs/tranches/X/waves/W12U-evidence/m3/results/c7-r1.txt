@@ -1,0 +1,112 @@
+SERVED MODEL: claude-opus-5-5
+# round c7-r1 2026-10-16 16:53:05 HEAD 23be73cee load averages: 16.47 14.87 17.56
+## m2/probe-dock-layers-m2.mjs 360 780 light
+360x780 light rest GEO {"docSW":360,"plate":"86-274","run":"dock-layer.dock-layer--full 98-262 sw/cw 346/164 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+360x780 light toggled GEO {"docSW":360,"plate":"17-343","run":"dock-layer.dock-layer--full 29-331 sw/cw 302/302 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+360x780 light colour-input GEO {"docSW":360,"plate":"17-343","run":"dock-layer.dock-layer--full 29-331 sw/cw 304/302 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+360x780 light slug-edit GEO {"docSW":360,"plate":"26-335","run":"dock-layer.dock-layer--full 38-323 sw/cw 346/285 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+## m3/probe-tools-run-m3.mjs 360 780 light
+360x780 light toggled {"coarse":true,"docSW":360,"run":"98-262 cw 164 layoutExtent 164","layoutOverflow":0,"seats":["Select view:56x32","Toggle action bar:48x40","Menu:40x32"],"small":["Select view","Toggle action bar","Menu"],"hidden":[],"out":[]} RED
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: 'Open color input' }).first()[22m
+
+    at /Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U-evidence/m3/probe-tools-run-m3.mjs:48:71 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+## m2/probe-dock-layers-m2.mjs 390 844 light
+390x844 light rest GEO {"docSW":390,"plate":"101-289","run":"dock-layer.dock-layer--full 113-277 sw/cw 346/164 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+390x844 light toggled GEO {"docSW":390,"plate":"32-358","run":"dock-layer.dock-layer--full 44-346 sw/cw 302/302 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+390x844 light colour-input GEO {"docSW":390,"plate":"32-358","run":"dock-layer.dock-layer--full 44-346 sw/cw 304/302 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+390x844 light slug-edit GEO {"docSW":390,"plate":"35-356","run":"dock-layer.dock-layer--full 47-344 sw/cw 346/297 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+## m3/probe-tools-run-m3.mjs 390 844 light
+390x844 light toggled {"coarse":true,"docSW":390,"run":"44-346 cw 302 layoutExtent 302","layoutOverflow":0,"seats":["Back:44x44","Copy color:44x44","Random color:44x44","Palettes:44x44","More actions:44x44","Open color input:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+390x844 light colour-input {"coarse":true,"docSW":390,"run":"44-346 cw 302 layoutExtent 302","layoutOverflow":0,"seats":["Back:44x44","Apply color:44x44","Propose color name:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+390x844 light menu RUN ["Copy color","Random color","Palettes"] MENU ["Reset color","Extract palette"] menuOut [] union true GREEN
+390x844 light colour-input-after-menu (producer residual, not gating) {"run":"41-349 cw 308 layoutExtent 308","layoutOverflow":0,"hidden":[],"out":[]}
+GREEN 3/3
+## m2/probe-dock-layers-m2.mjs 430 932 light
+430x932 light rest GEO {"docSW":430,"plate":"121-309","run":"dock-layer.dock-layer--full 133-297 sw/cw 346/164 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+430x932 light toggled GEO {"docSW":430,"plate":"30-400","run":"dock-layer.dock-layer--full 42-388 sw/cw 346/346 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+430x932 light colour-input GEO {"docSW":430,"plate":"30-400","run":"dock-layer.dock-layer--full 42-388 sw/cw 348/346 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+430x932 light slug-edit GEO {"docSW":430,"plate":"47-384","run":"dock-layer.dock-layer--full 59-372 sw/cw 346/313 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+## m3/probe-tools-run-m3.mjs 430 932 light
+430x932 light toggled {"coarse":true,"docSW":430,"run":"42-388 cw 346 layoutExtent 346","layoutOverflow":0,"seats":["Back:44x44","Reset color:44x44","Copy color:44x44","Random color:44x44","Palettes:44x44","Extract palette:44x44","Open color input:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+430x932 light colour-input {"coarse":true,"docSW":430,"run":"42-388 cw 346 layoutExtent 346","layoutOverflow":0,"seats":["Back:44x44","Apply color:44x44","Propose color name:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+430x932 light menu RUN ["Reset color","Copy color","Random color","Palettes","Extract palette"] MENU [] menuOut [] union true GREEN
+GREEN 3/3
+## m2/probe-dock-layers-m2.mjs 844 390 light
+844x390 light rest GEO {"docSW":844,"plate":"328-516","run":"dock-layer.dock-layer--full 340-504 sw/cw 346/164 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+844x390 light toggled GEO {"docSW":844,"plate":"237-607","run":"dock-layer.dock-layer--full 249-595 sw/cw 346/346 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+844x390 light colour-input GEO {"docSW":844,"plate":"235-609","run":"dock-layer.dock-layer--full 247-597 sw/cw 352/350 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+844x390 light slug-edit GEO {"docSW":844,"plate":"228-617","run":"dock-layer.dock-layer--full 240-605 sw/cw 365/365 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+## m3/probe-tools-run-m3.mjs 844 390 light
+844x390 light toggled {"coarse":true,"docSW":844,"run":"249-595 cw 346 layoutExtent 346","layoutOverflow":0,"seats":["Back:44x44","Reset color:44x44","Copy color:44x44","Random color:44x44","Palettes:44x44","Extract palette:44x44","Open color input:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+844x390 light colour-input {"coarse":true,"docSW":844,"run":"247-597 cw 350 layoutExtent 350","layoutOverflow":0,"seats":["Back:44x44","Apply color:44x44","Propose color name:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+844x390 light menu RUN ["Reset color","Copy color","Random color","Palettes","Extract palette"] MENU [] menuOut [] union true GREEN
+GREEN 3/3
+## m3/probe-h1-rung-m3.mjs 844 390 light
+844x390 light / {"fontSize":"13.1324px","lineHeight":"15.7589px","family":"Fraunces, \"Fraunces Fallback\", serif","displayToken":"\"Fraunces\", \"Fraunces Fallback\", serif","rungs":{"micro":"11px","caption":"13.1324px","small":"14.91px"},"h1":[86,101],"bandBottom":78,"stageTop":101} onRung(caption) true fits true face true GREEN
+## m/probe-shell.mjs l844 light landscape /
+/ {"docSH":8456,"ih":390,"docSW":844,"iw":844,"h1":[47,86,750,16],"h1Top":"h1","band":[47,8,750,70],"stage":[47,101,750,541],"inspector":[47,658,750,7777],"env":[0,47,21,47],"runs":["dock-layer.dock-layer--full.dock-run:346/164","dock-layer.dock-layer--summary
+## m2/probe-dock-layers-m2.mjs 360 780 dark
+360x780 dark rest GEO {"docSW":360,"plate":"86-274","run":"dock-layer.dock-layer--full 98-262 sw/cw 346/164 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+360x780 dark toggled GEO {"docSW":360,"plate":"17-343","run":"dock-layer.dock-layer--full 29-331 sw/cw 302/302 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+360x780 dark colour-input GEO {"docSW":360,"plate":"17-343","run":"dock-layer.dock-layer--full 29-331 sw/cw 304/302 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+360x780 dark slug-edit GEO {"docSW":360,"plate":"26-335","run":"dock-layer.dock-layer--full 38-323 sw/cw 346/285 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+## m3/probe-tools-run-m3.mjs 360 780 dark
+360x780 dark toggled {"coarse":true,"docSW":360,"run":"29-331 cw 302 layoutExtent 302","layoutOverflow":0,"seats":["Back:44x44","Copy color:44x44","Random color:44x44","Palettes:44x44","More actions:44x44","Open color input:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+360x780 dark colour-input {"coarse":true,"docSW":360,"run":"29-331 cw 302 layoutExtent 302","layoutOverflow":0,"seats":["Back:44x44","Apply color:44x44","Propose color name:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+360x780 dark menu RUN ["Copy color","Random color","Palettes"] MENU ["Reset color","Extract palette"] menuOut [] union true GREEN
+360x780 dark colour-input-after-menu (producer residual, not gating) {"run":"28-332 cw 304 layoutExtent 308","layoutOverflow":4,"hidden":["Propose color name"],"out":[]}
+GREEN 3/3
+## m2/probe-dock-layers-m2.mjs 390 844 dark
+390x844 dark rest GEO {"docSW":390,"plate":"101-289","run":"dock-layer.dock-layer--full 113-277 sw/cw 346/164 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+390x844 dark toggled GEO {"docSW":390,"plate":"32-358","run":"dock-layer.dock-layer--full 44-346 sw/cw 302/302 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+390x844 dark colour-input GEO {"docSW":390,"plate":"32-358","run":"dock-layer.dock-layer--full 44-346 sw/cw 304/302 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+390x844 dark slug-edit GEO {"docSW":390,"plate":"35-356","run":"dock-layer.dock-layer--full 47-344 sw/cw 346/297 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+## m3/probe-tools-run-m3.mjs 390 844 dark
+390x844 dark toggled {"coarse":true,"docSW":390,"run":"44-346 cw 302 layoutExtent 302","layoutOverflow":0,"seats":["Back:44x44","Copy color:44x44","Random color:44x44","Palettes:44x44","More actions:44x44","Open color input:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+390x844 dark colour-input {"coarse":true,"docSW":390,"run":"44-346 cw 302 layoutExtent 302","layoutOverflow":0,"seats":["Back:44x44","Apply color:44x44","Propose color name:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+390x844 dark menu RUN ["Copy color","Random color","Palettes"] MENU ["Reset color","Extract palette"] menuOut [] union true GREEN
+390x844 dark colour-input-after-menu (producer residual, not gating) {"run":"41-349 cw 308 layoutExtent 308","layoutOverflow":0,"hidden":[],"out":[]}
+GREEN 3/3
+## m2/probe-dock-layers-m2.mjs 430 932 dark
+430x932 dark rest GEO {"docSW":430,"plate":"121-309","run":"dock-layer.dock-layer--full 133-297 sw/cw 346/164 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+430x932 dark toggled GEO {"docSW":430,"plate":"30-400","run":"dock-layer.dock-layer--full 42-388 sw/cw 346/346 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+430x932 dark colour-input GEO {"docSW":430,"plate":"30-400","run":"dock-layer.dock-layer--full 42-388 sw/cw 348/346 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+430x932 dark slug-edit GEO {"docSW":430,"plate":"47-384","run":"dock-layer.dock-layer--full 59-372 sw/cw 346/313 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+## m3/probe-tools-run-m3.mjs 430 932 dark
+430x932 dark toggled {"coarse":true,"docSW":430,"run":"42-388 cw 346 layoutExtent 346","layoutOverflow":0,"seats":["Back:44x44","Reset color:44x44","Copy color:44x44","Random color:44x44","Palettes:44x44","Extract palette:44x44","Open color input:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+430x932 dark colour-input {"coarse":true,"docSW":430,"run":"42-388 cw 346 layoutExtent 346","layoutOverflow":0,"seats":["Back:44x44","Apply color:44x44","Propose color name:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+430x932 dark menu RUN ["Reset color","Copy color","Random color","Palettes","Extract palette"] MENU [] menuOut [] union true GREEN
+GREEN 3/3
+## m2/probe-dock-layers-m2.mjs 844 390 dark
+844x390 dark rest GEO {"docSW":844,"plate":"328-516","run":"dock-layer.dock-layer--full 340-504 sw/cw 346/164 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+844x390 dark toggled GEO {"docSW":844,"plate":"237-607","run":"dock-layer.dock-layer--full 249-595 sw/cw 346/346 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+844x390 dark colour-input GEO {"docSW":844,"plate":"235-609","run":"dock-layer.dock-layer--full 247-597 sw/cw 352/350 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+844x390 dark slug-edit GEO {"docSW":844,"plate":"228-617","run":"dock-layer.dock-layer--full 240-605 sw/cw 365/365 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+## m3/probe-tools-run-m3.mjs 844 390 dark
+844x390 dark toggled {"coarse":true,"docSW":844,"run":"249-595 cw 346 layoutExtent 346","layoutOverflow":0,"seats":["Back:44x44","Reset color:44x44","Copy color:44x44","Random color:44x44","Palettes:44x44","Extract palette:44x44","Open color input:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+844x390 dark colour-input {"coarse":true,"docSW":844,"run":"247-597 cw 350 layoutExtent 350","layoutOverflow":0,"seats":["Back:44x44","Apply color:44x44","Propose color name:44x44"],"small":[],"hidden":[],"out":[]} GREEN
+844x390 dark menu RUN ["Reset color","Copy color","Random color","Palettes","Extract palette"] MENU [] menuOut [] union true GREEN
+GREEN 3/3
+## m3/probe-h1-rung-m3.mjs 844 390 dark
+844x390 dark / {"fontSize":"13.1324px","lineHeight":"15.7589px","family":"Fraunces, \"Fraunces Fallback\", serif","displayToken":"\"Fraunces\", \"Fraunces Fallback\", serif","rungs":{"micro":"11px","caption":"13.1324px","small":"14.91px"},"h1":[86,101],"bandBottom":78,"stageTop":101} onRung(caption) true fits true face true GREEN
+## m/probe-shell.mjs l844 dark landscape /
+/ {"docSH":8456,"ih":390,"docSW":844,"iw":844,"h1":[47,86,750,16],"h1Top":"h1","band":[47,8,750,70],"stage":[47,101,750,541],"inspector":[47,658,750,7777],"env":[0,47,21,47],"runs":["dock-layer.dock-layer--full.dock-run:346/164","dock-layer.dock-layer--summary
+# end 16:59:25 load averages: 19.34 16.77 17.48
