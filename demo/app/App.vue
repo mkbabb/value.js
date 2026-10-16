@@ -186,6 +186,7 @@
 <script setup lang="ts">
 import {
     computed,
+    defineAsyncComponent,
     onMounted,
     provide,
     ref,
@@ -200,15 +201,6 @@ import { ColorPicker } from "../picker";
 import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "../color-session/keys";
 
 import { Dock } from "../shell/dock";
-// U.W-DEMO · U-F47 (G-DEMO-3b): reached through the `dialog/` sub-barrel (a
-// barrel the top-level palette-browser seam re-exports), never the raw `.vue`
-// file. BOOK (PI-6 residual): the root `package.json` marks `./demo/**`
-// side-effecting, so this eager-chunk barrel reach does NOT tree-shake the lazy
-// sibling dialogs by static analysis — the bundle-hygiene reconciliation
-// (narrow the `demo/**` sideEffects glob, or a manualChunk for this dialog) is a
-// build-config change to be verified once the demo builds (currently blocked by
-// the glass-ui 5.0.0 adopt-gap); tracked to U.W-CLOSE's re-probe.
-import { MigratePalettesDialog } from "../palettes/browser/dialog";
 import PaneSlot from "../shell/PaneSlot.vue";
 // U.W-A11Y · U-F58: the focus-managed / SR-announced boundary that catches a
 // pane render throw instead of white-screening (never a silent dead plate).
@@ -228,6 +220,16 @@ import { resolveHydratedBootModel } from "./composables/boot/hydrate";
 import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
 import { useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
+
+// X.W12U.g2d (COHESION §0fr.1): the migrate dialog opens only on a login that
+// finds local palettes to move, never before first paint, so it is a LAZY
+// import here at its root (the eager-graph audit, W12U-evidence/g2d/). It is
+// still reached through the `dialog/` sub-barrel (U-F47 · G-DEMO-3b: never the
+// raw `.vue` file), and the barrel's siblings now ride the same lazy chunk
+// instead of the eager index.
+const MigratePalettesDialog = defineAsyncComponent(() =>
+    import("../palettes/browser/dialog").then((m) => m.MigratePalettesDialog),
+);
 
 // X.W5.a · gate A1 — the four stylesheet imports, the global dark-mode store
 // and the API-client install all moved to the composition root (`main.ts`).
