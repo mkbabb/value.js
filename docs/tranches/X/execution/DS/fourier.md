@@ -1248,7 +1248,7 @@ This is the cure seat for critic **F4X** (the redeploy's pass-4 critic, 2026-10-
 ### pass 5
 This is the cure seat for critic **F5X** (the redeploy's pass-5 critic, 2026-10-16). The BEFORE is the critic's cells (`equation-*-390`, `dock-equation-late`, `toc-hover`), which the critic did not commit; the earlier sets under `pass-05/` (`critic-f7`, `f5`, `f7`) are left as they were.
 - fourier `52a68a0`, on `m/w1-bump-migration`, one file (`web/src/components/paper/PaperTocTree.vue`), committed by pathspec and pushed fast-forward `9c82849..52a68a0`. The push also carried `6b46ef1`, another seat's F.REL commit that was local on the branch.
-- value.js (this commit) holds the AFTER frames, the probe and its JSON, the census and the gate logs, all in `pass-05/f5x/`.
+- value.js `f91799a7b` holds the AFTER frames, the probe and its JSON, the census and the gate logs, all in `pass-05/f5x/`.
 
 **Consumer findings.**
 
