@@ -1,0 +1,8 @@
+# SERVED MODEL: claude-opus-5-5 — X.KF.W13X.r3res2f E-6 (COHESION §0fj item 6 · §0fg item 3; stdin-gzip method of record)
+run 1: git show HEAD:src/css/bbnf/generated/grammar.js | npx esbuild --minify --loader=js > min.js; wc -c < min.js; gzip < min.js | wc -c -> 112913 / 15644
+run 2: same -> 112913 / 15644
+HEAD 5d0e0371c; grammar.js untouched by this unit (the cure is in src/css/rules.ts + types.ts; no BBNF/generated change); git status --porcelain src/css/bbnf/generated/ -> empty
+before (.ifsemi 4eaf27fbe): 112913 / 15644; delta 0 / 0
+ceiling (§0fj 6): measured 15,644 rounded up to 50 B = 15,650 B (<= 15,700 cap; unchanged from parse-that/waves/W8.md addendum (e)); raw 112,913 <= 125,646
+=> GREEN
+post-commit: git diff --stat 5d0e0371c 4dab1a454 -- src/css/bbnf/generated/ -> 0 lines (grammar.js unchanged at the cure commit 4dab1a454)

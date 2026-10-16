@@ -1,0 +1,19 @@
+# SERVED MODEL: claude-opus-5-5 — X.KF.W13X.r3res2f L-G1 entry scope (§0fj 6: L-G1 ×2 only for entries whose emitted bytes change)
+# method: esbuild --bundle --minify-whitespace --minify-syntax --format=esm --platform=neutral of 'export { <entry> } from src/css/index.ts', HEAD (5d0e0371c, git archive) vs the cured work tree; sha256 prefix. Identifier mangling is off: --minify renames by whole-graph frequency, so it differs for unchanged reachable code.
+r1 parseCssColor head=196299 6fe809bd53f8bd82 work=196299 6fe809bd53f8bd82 SAME
+r1 parseCssScalar head=196307 745152de89377400 work=196307 745152de89377400 SAME
+r1 parseCssValue head=196304 d553d75baffe508f work=196304 d553d75baffe508f SAME
+r1 parseCssValues head=196535 c2a670b8ba039d8d work=196535 c2a670b8ba039d8d SAME
+r1 parseKeyframeSelector head=196553 909abac6c9611638 work=196553 909abac6c9611638 SAME
+r1 parseTimingFunction head=196295 208a0b8fc079d9d6 work=196295 208a0b8fc079d9d6 SAME
+r1 parseStylesheet head=227490 7a367c88ea4b838f work=227490 7a367c88ea4b838f SAME
+r1 collectAnimationOptions head=203406 81bb3cb344295b8b work=203863 3634e4534016c2c0 CHANGED
+r2 parseCssColor head=196299 6fe809bd53f8bd82 work=196299 6fe809bd53f8bd82 SAME
+r2 parseCssScalar head=196307 745152de89377400 work=196307 745152de89377400 SAME
+r2 parseCssValue head=196304 d553d75baffe508f work=196304 d553d75baffe508f SAME
+r2 parseCssValues head=196535 c2a670b8ba039d8d work=196535 c2a670b8ba039d8d SAME
+r2 parseKeyframeSelector head=196553 909abac6c9611638 work=196553 909abac6c9611638 SAME
+r2 parseTimingFunction head=196295 208a0b8fc079d9d6 work=196295 208a0b8fc079d9d6 SAME
+r2 parseStylesheet head=227490 7a367c88ea4b838f work=227490 7a367c88ea4b838f SAME
+r2 collectAnimationOptions head=203406 81bb3cb344295b8b work=203863 3634e4534016c2c0 CHANGED
+=> the seven L-G1 entries emit identical bytes ×2; only collectAnimationOptions (no L-G1 cell) changes. L-G1 not owed.
