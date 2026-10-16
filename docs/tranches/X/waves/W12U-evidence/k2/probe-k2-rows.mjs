@@ -46,18 +46,46 @@ const go = async (route) => {
         if (c > 0 && c === last) break;
         last = c;
     }
-    // Repair 3 (2026-10-15): the header count can settle before the KeepAlive
-    // swap re-activates the cached pane (under host load 27-31 the census walk
-    // read the incoming pane's instances still `isDeactivated`, names [] beside
-    // a seated DOM). The census is read only once two walks 1.5 s apart agree.
-    let prev = "";
-    for (let i = 0; i < 20; i++) {
-        const cur = JSON.stringify((await mounted()).sort());
-        if (cur === prev) break;
-        prev = cur;
-        await p.waitForTimeout(1500);
+    // X.W12U.k3 (COHESION §0fh.7, C6-3): the view is read only once the ROUTED
+    // pane's own instance is ACTIVE in every visible region. Repair 3 settled
+    // on two census walks agreeing, and two walks taken while the incoming
+    // KeepAlive pane is still `isDeactivated` agree on a census without it
+    // (Check 6 run a, load 17.8: names [] beside a seated DOM). Each region
+    // wrapper `[data-pane=K]` must hold the KeepAlive child keyed K (PaneSlot's
+    // `:key="liveKey"`), present, not `isUnmounted`, not `isDeactivated`, with
+    // its root element inside that wrapper. Census agreement alone never settles.
+    for (let i = 0; i < 40; i++) {
+        if (await routedActive()) return;
+        await p.waitForTimeout(500);
     }
+    throw new Error(`settle: the routed pane instance never went active on ${route}`);
 };
+
+/** Every visible region's routed pane instance is active (C6-3's settle). */
+const routedActive = () => p.evaluate(() => {
+    const app = document.querySelector("#app")?.__vue_app__;
+    const wrappers = [...document.querySelectorAll("main .pane-wrapper[data-pane]")].filter((w) => w.getClientRects().length);
+    if (!app || !wrappers.length) return false;
+    const live = [];
+    const seen = new Set();
+    const vi = (inst) => {
+        if (!inst || seen.has(inst)) return;
+        seen.add(inst);
+        if (inst.parent?.type?.__isKeepAlive) live.push(inst);
+        if (inst.isUnmounted || inst.isDeactivated) return;
+        vv(inst.subTree);
+    };
+    const vv = (v) => {
+        if (!v || typeof v !== "object") return;
+        if (v.component) vi(v.component);
+        if (v.suspense?.activeBranch) vv(v.suspense.activeBranch);
+        if (Array.isArray(v.children)) for (const k of v.children) vv(k);
+        if (v.dynamicChildren) for (const k of v.dynamicChildren) vv(k);
+    };
+    vi(app._instance);
+    return wrappers.every((w) => live.some((inst) => inst.vnode.key === w.dataset.pane &&
+        !inst.isUnmounted && !inst.isDeactivated && inst.vnode.el instanceof Element && w.contains(inst.vnode.el)));
+});
 
 /** The SFC files mounted in the live tree (the census walk, names only). */
 const mounted = () => p.evaluate(() => {
