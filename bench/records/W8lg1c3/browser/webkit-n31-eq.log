@@ -1,0 +1,51 @@
+20:19  up 6 days,  1:22, 2 users, load averages: 22.91 20.19 19.63
+[guarded] waiting for the 'webkit' lock
+webkit r0a0 parseCssColor          acc-eq   n=4835 k=2 S=1 product x0.789 (31/31<1) spread 1.25
+webkit r0a0 parseCssScalar         acc-eq   n=5835 k=2 S=1 product x0.682 (31/31<1) spread 1.5
+webkit r0a0 parseCssValue          acc-eq   n=10441 k=1 S=1 product x0.375 (31/31<1) spread 1.48
+webkit r0a0 parseCssValues         acc-eq   n=10441 k=1 S=1 product x0.39 (31/31<1) spread 1.204
+webkit r0a0 parseKeyframeSelector  acc-eq   n=56 k=2048 S=1 product x0.76 (31/31<1) spread 1.208
+webkit r0a0 parseTimingFunction    acc-eq   n=362 k=64 S=1 product x0.459 (31/31<1) spread 1.235
+webkit r0a0 parseStylesheet        acc-eq   n=1962 k=1 S=1 product x0.52 (31/31<1) spread 1.45
+webkit r0a0 parseCssColor          rej-eq   n=21760 k=1 S=1 product x0.65 (31/31<1) spread 1.235
+webkit r0a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.457 (31/31<1) spread 1.333
+webkit r0a0 parseCssValue          rej-eq   n=15821 k=1 S=1 product x0.62 (31/31<1) spread 1.441
+webkit r0a0 parseCssValues         rej-eq   n=15821 k=1 S=1 product x0.621 (31/31<1) spread 1.411
+webkit r0a0 parseKeyframeSelector  rej-eq   n=29888 k=2 S=1 product x0.862 (31/31<1) spread 1.304
+webkit r0a0 parseTimingFunction    rej-eq   n=29412 k=2 S=1 product x0.763 (31/31<1) spread 1.483
+webkit r0a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.667 (31/31<1) spread 1.273
+webkit r1a0 parseCssScalar         acc-eq   n=5835 k=2 S=1 product x0.696 (31/31<1) spread 1.4
+webkit r1a0 parseCssValue          acc-eq   n=10441 k=1 S=1 product x0.4 (31/31<1) spread 1.15
+webkit r1a0 parseCssValues         acc-eq   n=10441 k=1 S=1 product x0.418 (31/31<1) spread 1.5
+webkit r1a0 parseKeyframeSelector  acc-eq   n=56 k=2048 S=1 product x0.826 (31/31<1) spread 1.263
+webkit r1a0 parseTimingFunction    acc-eq   n=362 k=32 S=1 product x0.526 (31/31<1) spread 1.235
+webkit r1a0 parseStylesheet        acc-eq   n=1962 k=1 S=1 product x0.55 (31/31<1) spread 1.263
+webkit r1a0 parseCssColor          acc-eq   n=4835 k=4 S=1 product x0.794 (31/31<1) spread 1.393
+webkit r1a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.481 (31/31<1) spread 1.231
+webkit r1a0 parseCssValue          rej-eq   n=15821 k=1 S=1 product x0.625 (31/31<1) spread 1.222
+webkit r1a0 parseCssValues         rej-eq   n=15821 k=1 S=1 product x0.63 (31/31<1) spread 1.271
+webkit r1a0 parseKeyframeSelector  rej-eq   n=29888 k=2 S=1 product x0.857 (31/31<1) spread 1.28
+webkit r1a0 parseTimingFunction    rej-eq   n=29412 k=1 S=1 product x0.75 (31/31<1) spread 1.278
+webkit r1a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.659 (31/31<1) spread 1.636 SET-ASIDE
+webkit r1a0 parseCssColor          rej-eq   n=21760 k=1 S=1 product x0.667 (31/31<1) spread 1.35
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product webkit|acc-eq|parseCssColor              <1 x0.789 x0.794
+product webkit|acc-eq|parseCssScalar             <1 x0.682 x0.696
+product webkit|acc-eq|parseCssValue              <1 x0.375 x0.4
+product webkit|acc-eq|parseCssValues             <1 x0.39 x0.418
+product webkit|acc-eq|parseKeyframeSelector      <1 x0.76 x0.826
+product webkit|acc-eq|parseTimingFunction        <1 x0.459 x0.526
+product webkit|acc-eq|parseStylesheet            <1 x0.52 x0.55
+product webkit|rej-eq|parseCssColor              <1 x0.65 x0.667
+product webkit|rej-eq|parseCssScalar             <1 x0.457 x0.481
+product webkit|rej-eq|parseCssValue              <1 x0.62 x0.625
+product webkit|rej-eq|parseCssValues             <1 x0.621 x0.63
+product webkit|rej-eq|parseKeyframeSelector      <1 x0.862 x0.857
+product webkit|rej-eq|parseTimingFunction        <1 x0.763 x0.75
+product webkit|rej-eq|parseStylesheet            <1 x0.667 x0.659(SA)
+20:20  up 6 days,  1:22, 2 users, load averages: 18.93 19.52 19.41 
+ 20:21  up 6 days,  1:24, 2 users, load averages: 15.89 18.57 19.06 → bench/records/2026-09-24-x-p-w7-browser-w8lg1c3-webkit-n31-eq.json
+DONE w8lg1c3-webkit-n31-eq
+guarded exit 0
+20:21  up 6 days,  1:24, 2 users, load averages: 16.30 18.61 19.08

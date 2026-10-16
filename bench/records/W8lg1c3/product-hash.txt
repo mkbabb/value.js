@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5
+product bytes = X.P.W8.ifsemi's final bytes 4eaf27fbe (src tree de34956d9058a0f143aa5d8b4a9c6f20299f1c9c == HEAD:src de34956d9058a0f143aa5d8b4a9c6f20299f1c9c); grammar.js blob 46151e469a39a17d6d58b3e40bf25aa1d6ff134c; instrument bench/paired/** at b45cf83d4 (Repair 1 instrument, unchanged since .lg1r)
+80d0c0ca470bdf47804c69b76faf3c5597b6787a77e52728569fa6c22d5aff46  bench/paired/_build/product.mjs
+a65bcc4c78e7d1aa72ce23e085895478982b1ac9d4333432604f2a7309efd4b8  bench/paired/_build/retired.mjs
+d8a768ad5d24f27b007ab659fdde9f19e76e68715222f9366f1350b393fe1478  src/css/bbnf/generated/grammar.js
