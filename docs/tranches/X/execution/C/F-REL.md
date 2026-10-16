@@ -2603,3 +2603,68 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 20:44Z–. Sp
 ESC-FREL-pd-1 (the `RateLimit-*` exposure) stays with the orchestrator. R-4 and R-6 are owner items and do not block. **Teardown.** No server, browser, container or poller was started, and the background CI waiters ended.
 
 **Status: ESCALATED: BLOCKED-ON-OWNER (R-h1).** Every gate that does not need a deploy reads GREEN ×2. The deploy-dependent gates are owed on R-h1.
+
+## RESUME 2026-10-16 (f) — Close
+
+Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~21:40Z–, VERIFY-ONLY (cures nothing). Spec read whole (`fourier/waves/F-REL.md`, 83 L). Record read: header, RESUME (f) Open → Unit plan (L2449-2505), the three RESUME (f) receipts (`.pd` L2507, `.g2` L2543, `.d` L2563) and the RESUME (e) Close (format).
+
+**Crash recovery.** ⟨`git status --porcelain -- execution/C/F-REL.md execution/LEDGER.md fourier/evidence/F-REL`⟩ → empty. Nothing inherited. fourier (read-only for this seat): ` M web/e2e/contrast-pairs.ts`, `web/e2e/screenshots/f-w14/*.png`, `web/src/components/morph/HarmonicLevelGrid.vue`, `?? .worktrees/` = the live X-DS lane's; never touched. `.worktrees/f-ct3` never touched.
+
+**E13.** Paths: value `V/` + `V/coordination`; glass `BK/coordination`, `BL`, `BL/coordination` (absent), `P/coordination` (⟨`ls glass-ui/docs/tranches | grep -E '^B[K-Z]'`⟩ → `BK` `BL`); keyframes `V/coordination`; atlas (⟨`ls atlas/docs/tranches`⟩ → absent). ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → only `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (glass's formation log, not a letter; same as the open). ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`; highest O-row `O-97`. **0 unrowed · 0 UNREAD.**
+
+**Act 1: commits exist and stay inside their sets** (⟨`git show --stat`⟩; ⟨`git rev-parse --short origin/master`⟩ → `67e503b`).
+- fourier `f97d9cb` (`.pd` PD-2): `api/main.py` (+18 −12, middleware order + comments only; CORS block moved after `reject_dollar_keys`) + `api/tests/test_cors_rate_limited.py` (new, +67). In set.
+- fourier `01253e3` (`.pd` PD-1): `nginx/fourier.conf` only (+5 −1: `application/json` out of `gzip_types` + a 4-line comment). In set.
+- fourier `67e503b` (`.g2`): merge commit, ⟨`git log -1 --format=%p`⟩ → `79f1a43 01253e3`; ⟨`git diff --quiet 01253e3 67e503b`⟩ → tree == `01253e3` (m/w1 at merge time). On `origin/master`, fast-forward. In set. (`origin/m/w1-bump-migration` has since moved to X-DS `4de08dc`, `web/` only, not this wave's.)
+- value.js `de8293bd0` (`.pd`): record + `fourier/evidence/F-REL/pd/` (3 files). `464c7ac1b` (`.g2`): record only. `e1431c8a6` (`.d`): record + `fourier/evidence/F-REL/d-blocked/` (4 files). All in set.
+- **landedWrong: none.** `api/config.py` and `api/tests/test_cors.py` unchanged by `.pd` (ESC-FREL-pd-1, below).
+
+**Resource law.** ⟨`uptime`⟩ → load ~15-17 throughout. Heavy gates ran through `~/.fourier-frel/close-f/outer.sh`: it takes `.worktrees/heavy.lock` (noclobber; lock 21:44:18Z, unlock 22:02:49Z), then `guarded --rss-gb 20 --timeout 90 -- pd/all.sh` (private mongod :27118, `COMPUTE_CONCURRENCY=1`, no `-n`; it waited for guard admission until 21:51:35Z), then `guarded --timeout 10 -- pd/pd1.sh after 2`. The main tree is at `4de08dc`. ⟨`git diff --stat 67e503b HEAD -- api tests src nginx contours pyproject.toml uv.lock`⟩ → empty, and ⟨`git status --porcelain -- api tests src nginx contours`⟩ → empty, so the backend bytes under test equal master `67e503b`. ⟨`diff <(git show 67e503b:nginx/fourier.conf) pd/conf-after/fourier.conf`⟩ → identical. Log: `~/.dev-logs/frel/close-f.log`. Teardown: ⟨`lsof -iTCP:8191,27118,27119,8088 -sTCP:LISTEN | wc -l`⟩ → `0`; ⟨`docker ps -a | grep -c frel-pd`⟩ → `0`; heavy.lock absent.
+
+**Act 2: gates, BEFORE (the RESUME (f) baseline) → AFTER (this close; quoted by command).**
+
+| Gate (spec §Gates · addendum (f)) | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| api tests ×2 (incl. `test_cors.py` + the new `test_cors_rate_limited.py`) | 344 banked | ⟨`guarded -- pytest api/ -q` (live Mongo)⟩ → `345 passed in 45.96s` rc 0 · `345 passed in 60.57s` rc 0 | GREEN ×2 |
+| pytest `tests/` ×2 | 188 banked | ⟨`guarded -- pytest tests/ -q`⟩ → `188 passed in 310.45s` rc 0 · `188 passed in 227.29s` rc 0 | GREEN ×2 |
+| PD-2: cross-origin 429 carries ACAO + `RateLimit-*` | RED at `73fc6ec` (`KeyError: 'access-control-allow-origin'`, `.pd` evidence) | inside the 345 ×2 above (`api/tests/test_cors_rate_limited.py`, tracked) | GREEN ×2 |
+| PD-2: `RateLimit-*` in `CORS_EXPOSE_HEADERS` | PARTIAL (Reset only) | unchanged: `("ETag", "RateLimit-Reset")` (oracle `test_cors.py:118-120` binds it to the client's reads) | **ESC-FREL-pd-1** (orchestrator) |
+| PD-1 local nginx-in-docker (gzip GET → replayed If-Match 200; stale 412; SPA js/css/svg gzip) | RED (`W/` tag → 412) | ⟨`pd1.sh after 2`, edge nginx/1.31.2, conf == `67e503b`⟩ → reading 1: strong `"c0d4…"`, no content-encoding → PATCH `200`, stale `412`, DELETE `204`, `app.js`/`app.css`/`icon.svg` `Content-Encoding: gzip`; reading 2: `"48c2…"` → `200` · `412` · `204` · gzip ×3 | GREEN ×2 |
+| strong If-Match comparison kept | `etag.py:41` | unchanged (no `api/lib` diff in `f97d9cb`/`01253e3`) | GREEN |
+| `.g2` master contains `.pd` | `79f1a43` | ⟨`git rev-parse --short origin/master`⟩ → `67e503b` (parents `79f1a43 01253e3`) | GREEN |
+| master CI GREEN ×2 (web vue-tsc + vitest unit floor + build · api/tests · e2e · prod compose boot + health · inv-27) | not reached | ⟨`gh run view 38964281712`⟩ → `push completed success 67e503b`, 5/5 jobs `success`; ⟨`gh run view 38964317279`⟩ → `workflow_dispatch completed success 67e503b`, 5/5 `success`. e2e steps: `Producer-held manifest (excluded from the gate below)=success` · `Run Playwright e2e=success` · `Producer-held set … still RED as declared=success`. Web steps include `Unit floor (… G-F4-VITEST …)=success` and `Type-check=success` | GREEN ×2 (named set explicit) |
+| SPA ships via the standing workflow | June/hotfix-era `index-BSzuH9o_.js` | ⟨`gh run view 38971075205`⟩ → `workflow_run completed success 67e503b`, gate `success` and ship `success` | GREEN |
+| production smoke | PASS (`BSzuH9o_`) | ⟨`bash scripts/pages-smoke.sh; echo $?`⟩ ×2 (21:44Z) → `bundle /assets/index-Cze8HIRf.js carries the API base`, health `200`, ACAO `https://fourier.babb.dev`, cert > 14 d, `PASS`; rc `0` · `0` | GREEN ×2 |
+| cert > 14 d | Dec 22 / Jan 4 | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ → SPA `Dec 22 20:13:07 2026 GMT` · API `Jan  4 15:19:06 2027 GMT` | GREEN |
+| openapi publish/remix/diff · PATCH preflight · health (×2) | GREEN | `42 0.2.0 ['diff', 'publish', 'remix', 'unpublish']` · `preflight 200` · `{"status":"ok"} 200`, each ×2 | GREEN ×2 |
+| `.d` R-h1 set | unset | ⟨read-only ssh: `grep -c FOURIER_DEPLOY_ALERT_WEBHOOK /opt/deploy/hooks.json`; `cut -d= -f1 /opt/deploy/.env`; host `git rev-parse --short HEAD`; `journalctl -u webhook --since 20:43 \| grep -c REFUSE`⟩ → `0` · `WEBHOOK_SECRET` · `79f1a43` · `1` | **BLOCKED-ON-OWNER (R-h1)** |
+| PD-1 on prod ×2 | RED (banked weak tag) | not run: no deploy. ⟨`curl -D - -H 'Accept-Encoding: gzip' …/api/gallery/cursor?limit=2`⟩ → `Content-Encoding: gzip` (the prod edge is still `79f1a43`) | RED (on R-h1) |
+| end-to-end production check (prod-verify) 21/21 ×2 | 15/21 ×2 banked | not run: no deploy, and the probe writes to production | RED (on R-h1) |
+| no API outage during the deploy (health polled through it) | unread | not run: no deploy (the hook REFUSEd before any act, so the host never moved and had no outage) | RED (on R-h1) |
+
+**Act 3: §Verification Artefacts.** The spec has no section by that name; its falsifiers are the gates above. The committed evidence is `fourier/evidence/F-REL/pd/` (`pd2-red-at-73fc6ec.txt`, `pd2-green-and-suites.txt`, `pd1-local-nginx-docker.txt`) and `fourier/evidence/F-REL/d-blocked/` (`r-h1-hook-journal.txt`, `gates-read-2026-10-16.txt`, `master-ci-67e503b.txt`, `README.md`). This close reproduced the PD-1 and PD-2 falsifiers ×2 at master's bytes (above).
+
+**Commit roster (RESUME (f)).**
+- fourier: `f97d9cb` (`.pd` PD-2), `01253e3` (`.pd` PD-1), `67e503b` (`.g2`, the merge into master). All are pushed with no force (`.pd` on m/w1; `67e503b` = `origin/master`).
+- value.js: `de8293bd0` (`.pd`), `464c7ac1b` (`.g2`), `e1431c8a6` (`.d`), and this close.
+
+**Escalations (unruled).**
+- **ESC-FREL-pd-1** (orchestrator). §0fq.2 names `RateLimit-*` in `CORS_EXPOSE_HEADERS`. Only `RateLimit-Reset` is exposed, because the exposure oracle `api/tests/test_cors.py:118-120` binds the exposed set to the client's `.headers.get` reads (`ETag`, `RateLimit-Reset`). The 429 carries all three fields on the wire (asserted GREEN ×2). There are two possible rulings: (a) Reset alone satisfies §0fq.2; (b) `web/src` gains the reads and `config.py` gains the exposure. This does not block the deploy.
+- **BLOCKED-ON-OWNER (R-h1)** (§0fq.3). The owner sets `FOURIER_DEPLOY_ALERT_WEBHOOK` in the fourier hook's environment on the host. At this close it was still unset, read above.
+
+**Residuals (named owners).**
+- R-1. R-h1: `FOURIER_DEPLOY_ALERT_WEBHOOK` is unset (hooks.json count `0`, and the `67e503b` hook REFUSEd under inv-31 at 20:43:21Z). Owner: the owner.
+- R-2. The `.d` re-run on R-h1: (1) start the off-host health poller before the trigger; (2) re-trigger the hook through the standing path; (3) read the health-gated switch with no non-200; (4) run prod-verify 21/21 ×2; (5) run the PD-1 prod curl pair ×2. Then the close and the check. Owner: the `.d` seat that sits after R-h1.
+- R-3. ESC-FREL-pd-1 (the `RateLimit-Limit/-Remaining` exposure). Owner: the orchestrator's ruling.
+- R-4. Five private drafts remain on production (R-d-1/R-6, carried from RESUME (e)). Owner: the owner (admin hard-delete).
+- R-5. O-97 (GAB-1 `--tier-*` and HLG-37, held by pair id) and R-x5-2 (glass O-85 DOCK-PRIORITY-OVERFLOW), carried. Owner: glass BK.
+- R-6. ECD D-6 light headroom 3.032 against 3:1, carried. Owner: the F.W4 contrast oracle.
+- R-7. vue-tsc and vitest ×2 were read from master CI ×2 at `67e503b`, not re-run locally. The main tree's `web/` is X-DS-dirty and m/w1 has moved to `4de08dc`. Owner: record only.
+
+**Four-verb line.** Not moved. F.REL stays OPEN, and its LEDGER status becomes `BLOCKED-ON-OWNER (R-h1)`.
+
+**Push.** fourier: the main tree is on `m/w1-bump-migration` at `4de08dc` = `origin/m/w1-bump-migration`, so ⟨`git push origin HEAD`⟩ has nothing of this wave's to send. `67e503b` is already `origin/master`. value.js: this close is pushed with `git push origin HEAD` (no force).
+
+**Teardown.** The harness traps stopped mongod :27118/:27119, the API :8191 and the `frel-pd-*` containers. ⟨`lsof … | wc -l`⟩ → `0`; ⟨`docker ps -a | grep -c frel-pd`⟩ → `0`; heavy.lock was released. No browser was started.
+
+**Close verdict: BLOCKED (BLOCKED-ON-OWNER R-h1).** `.pd` and `.g2` are DONE and every non-deploy gate reads GREEN ×2. The deploy gates (prod PD-1, prod-verify 21/21, the no-outage poll) are owed on R-h1. ESC-FREL-pd-1 is open with the orchestrator.
