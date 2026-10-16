@@ -2016,3 +2016,49 @@ The verdict stays **RED**, held by the glass-owned rows and the named Skeleton l
 - Every run went through `~/.claude/guard/guarded`, one after the other: probes and the census `--light`, the suites `--light --rss-gb 4`.
 - Each probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 8 (the seventh redeploy's pass 8; critic C8r; evidence in `pass-41/`)
+
+**Cure commit:** keyframes.js `547d188c` (master, pushed fast-forward `9c1ececf..547d188c`). **Evidence:** value.js `da2d37855` (`evidence/DS/keyframes/pass-41/`):
+- `c8-probe.mjs`, `c8-probe.json` (0 fails);
+- `after/`: `square` and `spring` at 1440 and 390, plus `square-keyframes` at 1440, each in light and dark;
+- `cure/`: `geo.mjs`, `geo-before.json` (the Square plate at 390 and its ancestors), `exp.mjs` and `exp-390.png` (the content-sized plate experiment for -03);
+- `census.json`, `census.log`;
+- the gate logs `check-*`, `lint-*` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-08/`, which already holds the first workflow's pass-8 evidence, so the frames go to `pass-41/`, following the pass-23..40 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C8r-01 (low) | **The well's gutter and guides take the app's inks.** In `CSSCodeEditor.vue`'s `defineGroundedTheme` colours map: `editorLineNumber.foreground` = `var(--muted-foreground)`, `editorLineNumber.activeForeground` = `CODE_INK.structure`, `editorIndentGuide.background1` and `activeBackground1` = `var(--border)`. They are resolved as the ground is and re-defined on every scheme flip. No new token. | Light: numerals rgb(124 102 80), active rgb(28 25 23), guides rgb(198 180 159). Dark: rgb(172 160 145), rgb(233 230 226), rgb(101 87 73). No stock teal, navy, #D3D3D3, #858585 or #404040 is left (81 numerals, 139 guides read). Frames: `after/square-keyframes-*`. |
+| KF-C8r-02 (low) | **The Square readout pairs stand on Spring's pair rung.** `.square-telemetry-axes` `column-gap` 0.75rem → 1.5rem (Spring's `gap-x-6`, KF-C3-04). Only two scenes carry a pair row, so the rung stays on the instance and was not lifted into `.stage-readout`. | Pair gap 1.5rem and inner gap 0.5rem at 1440 and 390 in both schemes. Frames: `after/square-*`. |
+
+**Refused (named): raised as an owner layout DESIGN-RULING**
+- **KF-C8r-03, the Square plate at 390.** The cure's premise, "the sheet rises", is false as measured. The phone stage is a fixed full-bleed layer and the bottom sheet is anchored to the dock reserve, not to the plate. With the plate content-sized below lg (the experiment `cure/exp.mjs`: plate `block-size: auto`, an inline-size container, the arena at the field's block reach of 1.04 × (inline − 2 × pad) + 3rem), the plate ran 102..593, the field stayed at 195 px, and the sheet stayed at 788. About 195 px of bare grid opened between the plate and the sheet (`cure/exp-390.png`). That is the band KF-C9-04 cured, and it is wider than before. The void inside the plate is the inline term binding (the KF-C25-04 inequality), and size, travel and centring are fixed by the row. So no consumer cure removes the void without re-opening KF-C9-04. The plate keeps standing at the stage height (unchanged). **The owner's question:** on phones, should the Square plate stand at the stage height with a band above and below its field (as now), or hug its content and leave a bare band of grid above the sheet? The row closes on the owner's answer.
+
+**Cited (glass, not overridden)**
+- **KF-C8r-G1:** the pane and stage card material, filled Inputs beside grey or transparent Selects, the closed Select's up caret, the secondary Button capsule and halo, the thumbless sliders and the empty scrubber groove, the EasingPicker ghost staircase and "Custom" label, the pill field radius, the collapsed dock tile and the play-bubble halo. These are cited against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION** and are re-judged at the 10.2.0 repin. No local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): **identical to pass 40 on every tally.**
+- Static: 5 box-shadow declarations, 1 looping animation.
+- Chrome: 310 shadow elements, 938 layers (max 6), 192 non-floating, 416 inset highlights, 278 backdrop blur, 54 control gradients.
+
+The verdict stays **RED**, held by the glass-owned rows and the named Skeleton loop row.
+
+**Gates** (the live tree at `547d188c`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **936/936 (154 files), twice.** Pass 7's two born-RED falsifiers in `square-axis-readout.test.ts` are now green under the other seat's `9c1ececf`.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- The served probe (`c8-probe.mjs`, 0 fails) is the falsifier for -01 and -02.
+
+**Disclosures**
+- **Push range:** the fast-forward push also carried another seat's committed `9c1ececf` (already on master locally).
+- **Concurrency:** `KeyframeTimeline.vue` and `SquareScene.vue` (another seat's, committed mid-pass as `9c1ececf`) were not touched. Every commit is pathspec-only.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: probes and the census `--light`, the suites `--light --rss-gb 4`.
+- Each probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
