@@ -975,3 +975,36 @@ The workflow dispatched this seat as "pass 12" with critic V12's two rows. Neith
 - This is pass 12, the X-DS floor. Its critic found nothing that a consumer seat may cure: one owner ruling and the standing glass rows.
 - The open owner rulings are P5C-02 (P5-B1), VC6-04 / V12-01 (P6-B1, the dark stamp's register; one knob, both poles framed and measured), VC5-01 and VC4-09.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 13 (2026-10-16): critic V13 — the dock's slug field, and two glass rows
+
+The critic named one consumer row and two glass rows. The consumer row is cured at the token seat. Evidence is in `pass-13/`.
+
+**Commits.** value.js `973ae490e` (the cure in `demo/styles/shell.css`, plus frames, the login probe, census and gates). This receipt is committed after it.
+
+| id | verdict | cure / reason | measured (`pass-13/`) |
+|---|---|---|---|
+| V13-01 (low) | **CURED at the token seat.** | V5C-05 ("fields on glass stay glass") re-seated glass's `--input-on-glass` to `--well-bg` only on `.pane-wrapper, .glass-floating`. The dock is a glass host in neither list, so its login layer's slug field fell back to glass's opaque cream paper ground. `.glass-dock` now joins the same rule in `shell.css`. That is one selector: it adds no wrapper and no counter-style, and it leaves glass's lighting untouched. | `login.json` (`login.mjs`, headless real Chrome). At 1440 and 390, light and dark, the field's fill equals the Browse search pill's **4/4**. Light is `oklab(0.216 0.004 0.005 / 0.08)`; dark is `oklab(0.925 0.002 0.006 / 0.08)`. Before, it was opaque rgb(243,236,226) / rgb(63,55,49). Frames: `login-{1440,390}-{light,dark}.png`. |
+| V13-02 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING** as an ink-rung addendum. No local override. | Glass's dock adaptive-legibility rule (`:where(.glass-dock){--muted-foreground: contrast-color(var(--card))}`) collapses the muted rung onto the contrast pole. The field's `::placeholder` therefore paints at full ink, which is louder than a typed value. The ask: the dock's muted rung should stay a step toward the ground, or the placeholder should take its own rung. This waits on the 10.2.0 repin. | `login.json`: the placeholder is rgb(0,0,0) in light and rgb(255,255,255) in dark; the typed ink is rgb(28,25,23) / rgb(233,230,226). |
+| V13-T1 (trivial) | **Glass-owned (O-87 menu refinement).** There is no consumer cure. | In light, glass's unchecked `DropdownMenuCheckboxItem` draws an empty indicator slot. A local glyph would bring back the retired sun/moon idiom (UIA-V-254/268). | `overflow-menu-390-light.png` is unchanged. |
+
+**Census** (`census-after.json` plus `census-after-supplement.json`, `--base :9011 --widths 1440 --themes light,dark --settle 15000`, guarded).
+- **Verdict RED, on glass rows only (O-87).** This is identical to pass 12 on all 18 route cells and the 8 overlay cells: max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, and floater max layers 8. Consumer static totals are unchanged: 17 box-shadow declarations and 2 lighting-token definitions.
+- **Run 1 is void** (`census-after-run1-underloaded.json`). At a 1-minute load of about 15, five light cells and two dark cells were read before their panes mounted: 4451 elements against 5304, and 10 loading spinners.
+- **Run 2** read 16 of the 18 cells identical to pass 12, then timed out on `goto` for `/#/` and `/#/palettes` light. The supplement re-read those two cells, and both are identical to pass 12.
+
+**Frames.** Headless real Chrome (§0ei), served by `vite --port 9011 --strictPort` (same-origin `VITE_API_URL`, its own deps cache) and stopped afterwards.
+- Counts: 36 of 36 route frames, 8 opened-overlay frames with 0 paint-top failures, and 4 login-layer frames.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1214/1221 ×2, with the **same 7** standing failures as pass 12.
+- **e2e** (headless, workers 1, own server :9190), **strict ×2 GREEN.** Pass 12's set was re-run, plus the specs that drive the dock login layer (`w12-dock`, `flows/login-register`, `admin/a11y-authed-user`):
+  - smoke, 16 specs: 72/72 ×2;
+  - smoke-admin: 5/5 ×2.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- Pass 13 found one consumer row (cured) and two glass rows (V13-02 and V13-T1, cited on O-87).
+- The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01 and VC4-09.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
