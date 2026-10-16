@@ -1960,3 +1960,59 @@ The verdict stays **RED**, held by the glass-owned rows and pass 38's named Skel
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probes with `--light --timeout 10`, check and lint with `--light --timeout 15`, the suites with `--light --rss-gb 4 --timeout 15`, and the census with `--light --timeout 20`.
 - Each probe and the census used one browser, closed in `finally`. The keyframes dev server on :5173 (a kept port, not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 7 (the seventh redeploy's pass 7; critic C7; evidence in `pass-40/`)
+
+**Cure commit:** keyframes.js `c4113dee` (master, pushed fast-forward `cd2025d9..c4113dee`). **Evidence:** value.js `573af6dd7` (`evidence/DS/keyframes/pass-40/`):
+- `c7-probe.mjs`, `c7-probe.json` (0 fails, 16 cells);
+- `after/`: `square`, `square-dock`, `spring` and `easing` at 1440 and 390, plus `cube-controls`, `amiga-controls` and `square-keyframes` at 1440, each in light and dark;
+- `cure/`: `geo.mjs`, `geo-before.json`, `geo2.mjs` (the drill-row block budget), `shot.mjs` and `kf-surface-1440.png` (the Keyframes well diagnosis);
+- `census.json`, `census.log`, `census-frames/`;
+- the gate logs `check-*`, `lint-*` and `test-demo-1..4`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-07/`, which already holds the first workflow's pass-7 evidence, so the frames go to `pass-40/`, following the pass-23..39 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C7-01 (low) | **`SquareMini.vue` shows the path at rest.** The frame is the path's own reach (2 × `TOUR_CORNER` + 20 = 200), and the box is drawn at 0.8 × corner (72 units), so the resting box sits at the dart's heart and all four segments run out from under it to their corners. The corner radius is a proportion (20 %, the authored 24 of 120). Hairline kept: 5 units at the new scale (0.5 px), opacity 0.35. No new element; the tour data and motion are unchanged (OA-32). | Box 7.2 px in an 18 px path box (0.40) at every cell. Frames: `after/square-dock-*`. |
+| KF-C7-02 (low) | **The ribbon's rule follows the last row.** Three stacked causes: (1) each closed sub-pane row still stood 12 px tall (a 0fr track cannot shrink its content's own padding), so 24 px of nothing sat under the `layer` row; (2) the column's `pb-3` foot; (3) the scroller took the pane's whole free block, and KF-C5-02's `margin-block-start: auto` put whatever the fold cap gave back above the rule. Now the sub-pane block inset applies only to an open row (and ends 0.5rem above the rule, the inset glass's body gives the main row), `pb-3` is deleted, the desktop `.controls-surface` is `flex: 0 1 auto` (it still grows for a `.rail-fill` figure, excluding a cached `.inactive` Keyframes pane, and still shrinks to scroll), and the ribbon's auto margin is deleted. The left-over block now stands under the transport rows inside the one frame, which still ends on the stage's foot (KF-C10-10). Glass's body padding is not touched. | 1440×900: `layer` on Square, cube and amiga **8 above / 9 below** (was 8 / 22); Spring `Peak overshoot` **12 / 9** (was 12 / 19; 12 is the facet's own `space-y-3`). Frames: `after/cube-controls-*`, `after/amiga-controls-*`, `after/spring-1440-*`. |
+| fold (found while curing -02) | **The Keyframes code well was landed away.** `landFold` asked only the innermost box across the fold, a line overlay inside Monaco, so it landed the scroller on the header's foot: a 71 px port, with the editor hidden whole. This was **served at HEAD `1d18c6f0` as well** (measured: cap 71 px, ribbon margin 489 px). Text inside a figure (a painted box taller than `ROW_MAX_FADES` fades) is now the figure's cue. | Square Keyframes surface at 1440: scroller 128..688, no cap. Frames: `after/square-keyframes-*`. |
+| KF-C7-04 (low) | **The off specimen curve takes the label ink.** `.tile-sparkline path` uses `var(--muted-foreground)` at full strength (it was 22 % foreground). The selected tile keeps the ink curve (1.5) and the solid outline. | The off stroke equals the off tile's `.tile-name` colour in both schemes (light rgb(112 89 66), dark rgb(195 185 172)). Frames: `after/easing-*`. |
+| KF-C7-05 (low, partial) | **Below lg the Square arena takes the plate's free row.** KF-C7-08's `aspect-ratio: 1` arena charged the field's block term with the arena's inline side, so the block term (91 px) bound under the inline one. That rule is deleted, so the inline term binds: the subject's full reach (field plus box, 3 × size) is the plate's measure less its pad. The caption block and the centring (KF-C5-08) are kept, and lg is unchanged. | 390: size 91 → 97.3 px, field **182 → 195 px**, arena 332×473. Frames: `after/square-390-*`. |
+
+**Refused (named)**
+- **KF-C7-03, the dashed outline on the selected Spring preset:** this is **U-K17**, an owner verdict ("the main-controls red with dashed outline for the final state", `keyframes.js docs/tranches/K/audit/live-spring-sequence-mp-verdict.md §5`), which K applied to this very preset cell. As the critic asked, it is **raised for owner re-ruling under §0dm** and not changed silently. The owner's question: should the Spring preset's selected tile take the Easing gallery's solid-ink outline (keeping the violet wash), so that dashed means only ghost or target across the app? Frames: `after/spring-*`.
+
+**Partial (named)**
+- **KF-C7-05:** the field cannot grow past the inline term. At full travel the box would leave the plate (the KF-C25-04 inequality, 3 × size = plate inline − 2 × pad). The remaining band above and below is the portrait plate's aspect: the plate stands at the stage height by the sibling rule (KF-C9-04). The next critic re-judges whether that band is acceptable or whether it is an owner layout call.
+
+**Cited (glass, not overridden)**
+- **KF-C7-G1:** the closed Select's up caret, filled Inputs beside transparent or grey Selects, the secondary Button's plate and dark halo, the pane and stage card material (inset edge stack, drop, blur), the Bezier-mode ghost staircase, the asymmetric collapsed dock tile and the play-bubble halo. These are cited against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION** and are re-judged at the 10.2.0 repin. No local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): **identical to pass 39 on every tally** (only hit line numbers moved).
+- Static: 5 box-shadow declarations, 1 looping animation.
+- Chrome: 310 shadow elements, 938 layers (max 6), 192 non-floating, 416 inset highlights, 278 backdrop blur, 54 control gradients.
+
+The verdict stays **RED**, held by the glass-owned rows and the named Skeleton loop row.
+
+**Gates** (the live tree, master `c4113dee`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`:
+  - run 1: **934/934, 153 files**.
+  - runs 2–4: 934 passed and 2 failed. The two failures are both in `test/demo/scenes/square-axis-readout.test.ts`, which another seat committed mid-run (`4a8228ed`, "born RED at cd2025d9: 2 of 2"). It is a §0fj 3 falsifier waiting for that seat's cure in `useSquareDemo`, and this pass touched none of its subject. Every other file is green on every run.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- The served probe (`c7-probe.mjs`, 0 fails) is the falsifier for -01, -02, -04, -05 and the fold.
+
+**Disclosures**
+- **The 1280×800 Controls column overflows its port by 13 px.** The fold lands under the `layer` row's text (scroller end 512, text ends about 506), the same landing as before the cure (gap 5 → about 6). The critic's cells were 1440 and 390.
+- **KF-C5-02 is reversed in part:** the px the fold cap gives back now stand under the transport rows, not above the rule. C7's measured asymmetry is the reason. The frame's foot is unchanged.
+- **Push range:** the fast-forward push also carried another seat's committed `4a8228ed` (already on master locally).
+- **Concurrency:** `KeyframeTimeline.vue` was not touched. Every commit is pathspec-only. For the HEAD comparison measure, two of this seat's own files were briefly restored to HEAD and then put back; no other file was touched.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: probes and the census `--light`, the suites `--light --rss-gb 4`.
+- Each probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
