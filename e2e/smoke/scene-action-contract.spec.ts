@@ -186,7 +186,13 @@ test.describe("D4 · the mobile branch registers its scene panes — every seat 
             expect(await tokens(page)).toEqual([...expected]);
 
             // (1) The state is MODELLED, and the registered pane makes it ready.
-            expect(await states(page)).toEqual(expected.map(() => "ready"));
+            // The pane is lazy and binds on its own mount (X.W5.a `bindPane`,
+            // `de99ec156`), so the seats read the typed `unavailable` until it
+            // registers: the read polls for the registered state (an instant
+            // snapshot raced the Gradient pane's mount at r4, X-W12U .q2).
+            await expect
+                .poll(() => states(page))
+                .toEqual(expected.map(() => "ready"));
 
             // (2) The seat is operable: no aria-disabled, no "unavailable" name.
             const buttons = row(page).locator("[data-scene-action] button");
@@ -210,7 +216,7 @@ test.describe("D4 · a registered target is READY, and dispatches for real", () 
     }) => {
         await landAndOpenBar(page, "Generate");
 
-        expect(await states(page)).toEqual(["ready", "ready", "ready"]);
+        await expect.poll(() => states(page)).toEqual(["ready", "ready", "ready"]);
         const regenerate = row(page).locator(
             '[data-scene-action="generate.regenerate"] button',
         );
