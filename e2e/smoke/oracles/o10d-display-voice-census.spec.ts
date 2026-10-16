@@ -79,6 +79,12 @@ async function censusHeadings(page: import("@playwright/test").Page) {
         const main = document.querySelector("main");
         return Array.from(main?.querySelectorAll("h1, h2, h3") ?? [])
             .filter((el) => el.getClientRects().length > 0)
+            // Re-baselined X-W12U .q2 to .k2's one disclosure (A2-VA-L1-12,
+            // `cc38595c1`): glass's Disclosure renders each row head as a WAI
+            // accordion `<h3 class="disclosure-header">` whose only content is
+            // the row's TRIGGER button — a control label ("1 → 2 linear"),
+            // not a title — so it is outside the title-voice census.
+            .filter((el) => !el.classList.contains("disclosure-header"))
             .map((el) => {
                 const cs = getComputedStyle(el);
                 return {
@@ -97,9 +103,9 @@ async function typeVoice(locator: import("@playwright/test").Locator) {
             fontFamily: cs.fontFamily,
             fontWeight: cs.fontWeight,
             fontStyle: cs.fontStyle,
-            lineClamp:
-                (cs as unknown as Record<string, string>).webkitLineClamp ?? "none",
             overflow: cs.overflow,
+            textOverflow: cs.textOverflow,
+            whiteSpace: cs.whiteSpace,
         };
     });
 }
@@ -246,22 +252,27 @@ test("O-10d census — user-data names (browse wall): display voice, ≤500, non
         expect(voice.fontStyle, `"${name}" italicized user data`).toBe("normal");
     }
 
-    // line-clamp re-verified under the serif — desktop (≥sm) locks ONE line.
+    // The name's fit re-verified under the serif — desktop locks ONE line.
+    // Re-baselined X-W12U .q2 to X.W7.c (`9250dd192`, G12 priority-collapse):
+    // the specimen name TRUNCATES by design (`PaletteSpecimen.vue`
+    // `.palette-specimen__name`: nowrap + ellipsis + overflow hidden), the
+    // successor of the retired `line-clamp-2 sm:line-clamp-1` metric.
     const longTitle = page
         .getByText(LONG_NAME, { exact: true })
         .filter({ visible: true })
         .first();
     const desktop = await typeVoice(longTitle);
-    expect(desktop.lineClamp, "sm:line-clamp-1 not active at desktop").toBe("1");
+    expect(desktop.whiteSpace, "desktop: the name does not hold one line").toBe("nowrap");
+    expect(desktop.textOverflow, "desktop: the truncation is not an ellipsis").toBe("ellipsis");
     expect(desktop.overflow).toBe("hidden");
     const oneLine = await longTitle.evaluate((el) => {
         const cs = getComputedStyle(el);
         return el.getBoundingClientRect().height <= parseFloat(cs.lineHeight) * 1.5;
     });
-    expect(oneLine, "long name overflows its 1-line clamp box").toBe(true);
+    expect(oneLine, "long name overflows its 1-line box").toBe(true);
 });
 
-test("O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif", async ({
+test("O-10d census — the 390 phone band: the card name truncates to ONE line under the serif", async ({
     page,
 }) => {
     test.setTimeout(60_000);
@@ -279,12 +290,16 @@ test("O-10d census — the 390 phone band: the card name clamps to TWO lines und
     await expect(longTitle).toBeVisible();
     const voice = await typeVoice(longTitle);
     expect(voice.fontFamily, "390: name off the display face").toMatch(DISPLAY_FACE);
-    expect(voice.lineClamp, "line-clamp-2 not active <sm").toBe("2");
-    const twoLinesMax = await longTitle.evaluate((el) => {
+    // X.W7.c (`9250dd192`, G12): one truncating line at every width (see the
+    // desktop leg) — re-baselined X-W12U .q2 from the retired 2-line clamp.
+    expect(voice.whiteSpace, "390: the name does not hold one line").toBe("nowrap");
+    expect(voice.textOverflow, "390: the truncation is not an ellipsis").toBe("ellipsis");
+    expect(voice.overflow).toBe("hidden");
+    const oneLine = await longTitle.evaluate((el) => {
         const cs = getComputedStyle(el);
-        return el.getBoundingClientRect().height <= parseFloat(cs.lineHeight) * 2.5;
+        return el.getBoundingClientRect().height <= parseFloat(cs.lineHeight) * 1.5;
     });
-    expect(twoLinesMax, "390: long name exceeds its 2-line clamp box").toBe(true);
+    expect(oneLine, "390: long name exceeds its 1-line box").toBe(true);
 });
 
 test("O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles", async ({
