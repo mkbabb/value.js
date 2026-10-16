@@ -1754,3 +1754,53 @@ The census is unchanged because this pass's cures are fold, emphasis and proport
 - Nothing of this seat's was left running.
 
 **Concurrency:** keyframes.js master had no other seat's commits during this pass. The cure, evidence and receipt commits are pathspec-only.
+
+### pass 10 (the sixth redeploy's pass 10; critic C10; evidence in `pass-35/`)
+
+**Cure commit:** keyframes.js `8963ea28` (master, pushed fast-forward `81486e3c..8963ea28`). **Evidence:** value.js `756ecce7c` (`evidence/DS/keyframes/pass-35/`: `c10-probe.mjs` with `c10-probe.json` (0 fails); `after/` with `easing-{1440,390}-{light,dark}` (after picking `ease-in` and then `steps`), `easing-back-row-{1440,390}-{light,dark}`, `spring-{1440,390}-{light,dark}`, `sequence-1440-{light,dark}`, `square-1440-{light,dark}`, `timeline-cube-timeline-{1440,390}-{light,dark}` and `timeline-cube-timeline-fullpage-390-{light,dark}`; `cure/` (`measure.mjs` with `measure-before.json` and `measure-after.json`, `cards.mjs`, `tl.mjs`, and the collapsed-glyph frames `glyph-after-{spring,sequence,easing}-rest.png`, `glyph-after-spring-playing.png` and `glyph-after-strip.png`); `census.json`, `census.log`, `census-frames/`; the gate logs `check-*`, `lint-*`, `test-demo-*`). The critic's BEFORE frames are `pass-34/after/` and `pass-34/cure/`. Every capture is headless real Chrome (§0ei). The task named `pass-10/`, which already holds the first workflow's pass-10 evidence, so the frames go to `pass-35/`, following the pass-23..34 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C10-02 (low) | **One row baseline.** `.specimen-tile` starts its contents at the tile's top (`justify-content: flex-start`; the producer item centred them). Stage and name sit on the same lines in every tile, and the bounce tile's note (KF-C9-07) hangs into the row's spare height. | Back row, every tile: ball top 1661 and name 1689 at 1440 (the bounce tile was 13 px high); at 390 the pair is level as well. |
+| KF-C10-03 (low) | **A lane runs gate to end,** as the Stagger pane's bar does. The solid rail starts at the lane's gate (`left: --row-start × column`) and runs to the time column's end. The traveller rests on the rail's start, and the room keeps its dashed "past the scale" mark. | At 1440 each rail starts at its resting ball's centre: 611, 695, 780, 864 and 948 (every rail used to start at 611). |
+| KF-C10-04 (low) | **(a, b)** SpringMini is redrawn as the stage's subject: a ball on a rail that springs into the dashed target ring, under the scene's born spring (`smooth`: 0.5 s, ζ 0.86). It uses one ink (`--color-progress`) and the strip's common 1.5 px stroke at 45 %, and its rail stops at the ring's edge. The four-lane field, which was the Sequence glyph's idiom, is gone. **(c)** ChromeDock takes `scenePlaying` (App binds it to `machine.status === "playing"`), and the chosen glyph is `live` only while the transport plays. A settled or paused scene's glyph rests. | `cure/glyph-after-strip.png`: Spring (at rest, then playing) beside Sequence and Easing at rest. At 1440 and 390, in both schemes, the glyph carries no `data-live` at rest, and it does carry it once Play is pressed. Census: chrome looping animations **104 → 80**. |
+| KF-C10-05 (low) | **No caret row on an empty track.** The track's 1.5rem bottom margin holds the stops' caret readouts. An empty track (`data-empty`) now keeps none, and the three timeline notices drop their top padding. | `#/cube` Timeline, empty, at 1440 and 390: the notice is **20 px** under the track (it was 44). 20 px is the layer body's own pitch (gap-3 plus glass's `space-y-2`). |
+| KF-C10-07 (low) | **The ring is empty.** The groove is masked one ring radius either side of the target (`--target-ring` names the ring's diameter once, for both the marker and the mask; `--target-v` is the value the marker is drawn at). At rest it starts at the ring's edge at every width, and a target moved along the rail keeps its ring clear. The quarter gridlines, the fill and the marks are unchanged. | Painted check (`c10-probe`): the pixels inside the ring match the plate above them (distance **0**), and the groove outside the ring stays visible (55 to 88), at 1440 and 390 in both schemes. |
+| KF-C10-08 (low) | **Below lg a resting drawer shows the row above.** `scroll-padding-block-start` is set to glass's 1rem fade, plus the same 0.75rem peek the fold keeps at the end, plus the 1.25rem section gap. A heading rest keeps the previous family's last row edge in view, and the user's own snap uses the same rest. The 1440 rest is unchanged (KF-C9-03). | After `ease-in` then `steps` at 390: the first row is the `ease-in-back` row, cut under the rule (its bottom 25 px into the port), the bounce row is whole, `steps` is whole, and there is no end room. |
+| KF-C10-10 (trivial) | **One foot.** At lg the rail stretches over its stage row (`align-self: stretch`), and the pane, its column and the frame fill it. Pane and stage end on one line in every scene, and the ribbon stands at the pane's foot. | At 1440, pane and stage both end at **750** on easing, spring, square, sequence and cube (they were 710, 741, 724, 481 and 724). |
+
+**Cited (glass, not overridden)**
+- **KF-C10-01:** glass SelectTrigger's chevron uses `in-data-[state=open]:rotate-180`, which matches any ancestor with `data-state=open`. ConfiguratorLayer marks its root, trigger and region open, so every closed Select in an expanded layer shows an up chevron. This seat measured none outside a layer. It is relayed beside **O-87** as a glass component defect: scope the rotation to the trigger's own state (a named group, or `[[data-state=open]>&]`). There is no local override.
+- **KF-C10-06:** the steps-count control in glass EasingPicker has no label or value text, and its thumb uses the ball idiom. This is an **O-87** proportion and affordance rider (it joins KF-C8-03), with no local override (OA-8).
+- **KF-C10-05, 390 half:** the sheet's position (`.glass-floating { position: relative }` outranks the sheet's `fixed`; see KF-C8/C9). It is captured full-page and not patched.
+- **KF-C10-G1:** these rows stay honest-RED until the 10.2.0 repin, under **O-87** and **O-88**: the stacked card shadows and rim halo, the collapsed dock tile and its halo, the play-bubble halo, the mismatched input and select fills, the control-surface fills, the 390 sheet's growth, the scrubber that draws nothing at t = 0, and the ghost staircase.
+
+**Not cured (named)**
+- **KF-C10-09:** this is an owner **DESIGN-RULING** (§0dm). ORIGIN-24 and ORIGIN-26 did not overlap the headline and the cube (the headline sat top-left above the cube). The current seat, however, is the owner's OD-4 ruling, recorded in `EditorStartScreen.vue`: "it's OK if it sits a bit on top of the cube … overlap with the die's lower quadrant is WELCOME". The critic's clause is that if the overlap is deliberate, it stays and becomes an owner call. Splitting title and cube into separate areas at lg is the owner's choice and was not made here.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): chrome looping animations **104 → 80**, from the resting dock glyph (KF-C10-04). Every other row is identical to pass 34: 310 shadow elements, 938 layers (max 6), 192 non-floating, 416 inset highlights, 278 backdrop blur, 54 control gradients. The static tally is unchanged, and the subject is 0. The verdict stays **RED**, held by the glass-owned rows and the KF-C3-02 loop row (the charLift wave and TypingDots, which wait on the owner's ruling).
+
+**Gates** (the live tree: master at `8963ea28`)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **926/926, 151 files, twice.**
+- Two tests were restated, with no assertion weakened:
+  - `scene-icon-miniatures`: Spring now plays one animation, not four lanes. Both chosen-icon mounts pass `scenePlaying: true`. A new case (2b) asserts that both sites rest when the transport does not play.
+  - `sequence-stage-truth` (KFA-48): the rail's `left` and `width` are asserted, and together they still span the time column `100cqw / (1 + --seq-room)`.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. The served probe (`c10-probe.mjs`, 0 fails) is the falsifier for -02, -03, -04, -05, -07, -08 and -10.
+
+**Disclosures**
+- **KF-C10-10 takes the critic's first option, "end both at the stage height".** A pane with little content now holds blank plate between that content and its ribbon at the foot: the Stagger pane, and the empty Timeline pane, whose notice sits at the top. This follows the run's one-stage-height precedent for plates (KF-C7-03, KF-C9-04). The alternative, a content-sized pane kept clear of near-misses, has no CSS expression. It would need a measured snap.
+- **KF-C10-07 is a mask, not an inset.** An inset groove ended one ring radius short of the 100 % tick at the right, and gave the two ends different anatomies. The mask follows the target, so the groove keeps its full length and is broken only under the ring.
+- **KF-C10-05's 20 px pitch:** the Timeline layer's body passes `space-y-0`, but glass's `space-y-2` still applies. Its effective pitch is therefore 20 px (gap-3 plus 8), and the notice uses the same pitch as every other row in the column. This seat did not change it, because the body class comes from KF-C9-05's adoption of the glass layer.
+- **KF-C10-04's ring class is `.target`,** because `.ring` is a Tailwind utility that painted a box-shadow ring over the glyph. That was caught in the first glyph frame and cured before the commit.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probes with `--light`, check and lint with `--light --timeout 15`, the suites with `--light --rss-gb 4 --timeout 15`, and the census with `--timeout 20`.
+- At the start, memory was 67 % free and the 1-minute load was 15.
+- Each probe and the census used one browser, closed in `finally`. The keyframes dev server on :5173 (a kept port) was reused.
+- Nothing of this seat's was left running.
+
+**Concurrency:** keyframes.js master had no other seat's commits during this pass. The cure, evidence and receipt commits are pathspec-only.
