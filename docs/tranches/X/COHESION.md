@@ -4137,3 +4137,19 @@ X-W12U Close 3 verified `.q2 .k3 .m3`. Checks 7–9 read one HIGH three times id
    - They are named by id in a dated addendum beside `waves/W10.md`, which the W12U close seat is granted to write.
    - X·P is CLOSED (Track D), so any cell that cited X·P is re-homed to X-W10 in the same addendum.
 5. **Order:** `.g2s → .g2d → close (verify-only; smoke `--workers=1` ×2 except the named (c)/(c′) rows; G2 at its settled bar; O-5 on the GPU witness ×2) → check`. W12U.md ADDENDUM (h) carries this ruling.
+
+## §0fs — 2026-10-16: ESC-FREL-pd-1 RULED arm (a); F.REL stands BLOCKED-ON-OWNER (R-h1) only
+`.pd` and `.g2` landed:
+- fourier `f97d9cb` (PD-2, CORS outermost) and `01253e3` (PD-1, the edge stops gzipping API JSON);
+- master `67e503b`, CI GREEN ×2;
+- api 345 ×2.
+
+**ESC-FREL-pd-1 is ruled arm (a).** The exposure oracle `api/tests/test_cors.py:118-120` (exposed set equals the set the client reads) is the source of truth. The client reads only `RateLimit-Reset`, which is already exposed. §0fq.2's "`RateLimit-*` exposed" is satisfied by that set, and exposing headers no script reads would break a lawful oracle. The 429 carries all three fields on the wire.
+
+**F.REL's one open item is the owner act R-h1.** The owner sets `FOURIER_DEPLOY_ALERT_WEBHOOK` in the fourier hook's environment (`/opt/deploy/hooks.json` on the host). Then a `.d` re-run does the following, in order:
+1. the poller;
+2. the hook;
+3. the health-gated switch;
+4. prod-verify 21/21 ×2;
+5. the PD-1 prod curl pair ×2;
+6. close and check.
