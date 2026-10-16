@@ -129,6 +129,21 @@ test("a successful propose returns the toolbar to its actions state", async ({
     page,
 }) => {
     let proposed = false;
+    // The propose path mints the anonymous session FIRST (`ColorInput.vue`
+    // `submitProposedName` → `session.ensureSession()` → POST /sessions, since
+    // `50633f195`). This harness serves no backend, so that POST 404'd and the
+    // propose never left the page (r1 trace: "[ColorInput] Failed to propose
+    // name: Not Found"). The session leg is stubbed as login-register's is —
+    // re-baselined X-W12U .q2.
+    await page.route("**/sessions", (route) =>
+        route.request().method() === "POST"
+            ? route.fulfill({
+                  status: 200,
+                  contentType: "application/json",
+                  body: JSON.stringify({ token: "propose-token", userSlug: "propose-slug" }),
+              })
+            : route.fulfill({ status: 204, body: "" }),
+    );
     await page.route("**/colors/propose", (route) => {
         proposed = true;
         return route.fulfill({
