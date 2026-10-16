@@ -14,14 +14,28 @@
  * carries neither the sub-layer nor its toggle, and the layer needs no scene
  * test of its own.
  */
-import { computed, inject, nextTick, onMounted, ref, useTemplateRef, watch } from "vue";
+import {
+    computed,
+    defineAsyncComponent,
+    inject,
+    nextTick,
+    onMounted,
+    ref,
+    useTemplateRef,
+    watch,
+} from "vue";
 import { useEventListener, useResizeObserver } from "@vueuse/core";
 import { EllipsisVertical, Type, Tag } from "@lucide/vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { SceneActionSet } from "../../../color-session/keys";
 import GenericActionBar from "./GenericActionBar.vue";
-import ColorInput from "../ColorInput.vue";
 import { DockControl, DockCrossfade, DockLayer, DockSeparator } from "@mkbabb/glass-ui/dock";
+
+// X.W12U.g2d (COHESION §0fr.1): the colour-input sub-layer shows only when the
+// mode toggle is pressed (`toolbarMode` starts at "actions"), so it is a LAZY
+// import at its root and leaves the eager graph with its popover, tooltip and
+// parse-echo dependencies (the eager-graph audit, W12U-evidence/g2d/).
+const ColorInput = defineAsyncComponent(() => import("../ColorInput.vue"));
 
 const { actionSet } = defineProps<{
     actionSet: SceneActionSet;
