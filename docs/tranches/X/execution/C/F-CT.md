@@ -185,3 +185,139 @@ fourier-analysis (`origin/m/w1-bump-migration`, all pushed, no force; pathspec-o
 **Status: F.CT OPEN — bar NOT met.** It is not closable until every judge passes every image in one round, the metrics meet the bar on two consecutive runs, no public image regresses against the original baseline, and runtime is read on a quiet host.
 
 **Addendum 2026-10-09 (F.CT3 step 0, COHESION §0eu.4): the sun reference is re-derived.** The documented derivation (`derive_reference_mask`, ISNet) reproduces the stored `animals-sun.png` byte for byte. ISNet scores the upper-right ray at about 0.2, below its 0.5 cut, so re-deriving cannot restore the ray. The defect is ISNet's, and the eye-check is made measurable instead. Background = the border-connected region within CIELAB ΔE 15 of the border's median colour. Missed regions = outside that background and outside the ISNet mask, opened by the derivation's own element. A missed region is added only if it holds a disc of the harness tolerance (13.06 px): the ray, 14,455 px, has an inscribed radius of 44.8; every rim sliver is ≤ 9.5. Result: 0.3147 → 0.3321 of the frame, +14,455 px, 0 removed. fourier `fe1749e` (f-ct3, fast-forwarded to `m/w1-bump-migration`) holds the PNG and the rule in `bench/contours/README.md`. The pipeline was not fitted to it. Evidence: `~/.fourier-samples/evidence/ct3-sunref/` (the script is `scripts/correct_sun.py`). The step-0 baseline run (the current harness over the old pipeline at `603ae37`, and at the true pre-F.CT tree `4c38b12`) is NOT yet read. Host load was 420–700, and F.REL `.mem` held `heavy.lock`.
+
+## Phase 3 — F.CT3 (four root-cure rounds of C, then close)
+
+Close seat, `claude-opus-5-5`, 2026-10-16. Spec: addendum (d) and COHESION §0eu (the restated bar), §0ev.1 (runtime protocol), §0ev.4 (the `f-ct3` worktree). Workflow `wf_0e9cfc5e-6f1`. fourier head of the work = `bf16b1e` on `f-ct3`, contained in `origin/m/w1-bump-migration` (now `73fc6ec`; later commits there are other lanes'). Every gate below ran at `bf16b1e`.
+
+**Verdict: NOT MET — honest-RED after round 4, as addendum (d) prescribes.** The unit and api gates are GREEN ×2 and the harness is deterministic ×2. The judge bar fails on 9 rows (daraksha on fidelity and drawable; seven images with a judge mean under 5). Runtime is RED: the C pipeline is 2.13× the pre-F.CT pipeline. The served check reads as the face.
+
+### Baselines
+
+- **Pre-F.CT pipeline** = `4c38b12` (the parent of CT-1 `94a60bf`; its contour code dates from `8818ae5`). It is the tree the "original baseline" metrics in this record were read on, and it is the runtime study's reference arm.
+- **The pre-F.CT judged baseline (§0eu.1) was NEVER read.** The step-0 run of the current harness over the old tree (`ct3-base-old`) never started: the host sat at load 416–698 and F.REL `.mem` held `heavy.lock` until the seat's deadline (10-09). The three base-old judges saw no evidence and returned no scores (empty, recorded as UNJUDGED, nothing inferred). So the bar clause "every other image at or above its baseline on each lens" had no floor; the workflow's bar check fell back to the mean ≥ 5 clause alone. The only measured judge baseline is **C at the start of phase 3** (`ct3-base-c`, phase-2 head `c6a242d`'s pipeline = `e26d48a`), judged 10-13 by the same panel.
+
+### Judge scores, C at start → final (round 4), per image, fidelity / clean / drawable (0–10; P = the judge passed it)
+
+| image | C at start (`ct3-base-c`) | final (`ct3-r4`) | mean |
+|---|---|---|---|
+| portraits-daraksha | 5 / 6 / 6.5 | 5 / 7.5 P / 6 | 5.83 → 6.17 |
+| PRIVATE-SAMPLE | 4.5 / 6 / 6.5 | 4.5 / 7.5 P / 6 | 5.67 → 6.00 |
+| portraits-nes-rob | 6 / 5 / 5 | 5.5 / 6.5 P / 5 | 5.33 → 5.67 |
+| portraits-cauchy | 4 / 4 / 4.5 | 4.5 / 5 / 4 | 4.17 → 4.50 |
+| portraits-chef | 3 / 3 / 4 | 3 / 3 / 4 | 3.33 → 3.33 |
+| portraits-euler | 4 / 4 / 4.5 | 4 / 4.5 / 4 | 4.17 → 4.17 |
+| portraits-human | 5 / 7 P / 8 P | 6.5 / 8 P / 7 P | 6.67 → 7.17 |
+| portraits-joseph-fourier | 4 / 4 / 5 | 4.5 / 4 / 4 | 4.33 → 4.17 |
+| animals-chef-2 | 2 / 2 / 3 | 2.5 / 3 / 3 | 2.33 → 2.83 |
+| animals-giraffe | 6 / 5 / 5.5 | 6 / 5 / 5 | 5.50 → 5.33 |
+| animals-golden-retriever | 4 / 3 / 5 | 5 / 4.5 / 5 | 4.00 → 4.83 |
+| animals-llama-1 | 4 / 3 / 4.5 | 5 / 5.5 / 5 | 3.83 → 5.17 |
+| animals-llama-2 | 5 / 4 / 5.5 | 6 / 5.5 / 6 | 4.83 → 5.83 |
+| animals-llama-3 | 5 / 4 / 5.5 | 6 / 6 / 6 | 4.83 → 6.00 |
+| animals-sponge-flower | 5 / 6 / 7.5 P | 5 / 7 P / 6 | 6.17 → 6.00 |
+| animals-sponge-happy | 5 / 5 / 5.5 | 5 / 5 / 4 | 5.17 → 4.67 |
+| animals-sponge-pineapple | 5 / 5 / 5 | 5.5 / 5.5 / 5 | 5.00 → 5.33 |
+| animals-sponge-scared | 6 / 5 / 5 | 6 / — / 5 | 5.33 → 5.50 (the r4 clean judge returned no row for it) |
+| animals-sun | 8 P / 7 P / 8 P | 7.5 P / 7.5 P / 7 P | 7.67 → 7.33 |
+
+Lens passes (of 57): 6 at start, 6 / 1 / 5 / 9 after rounds 1–4. Against C at start, three images lost mean: joseph-fourier (−0.17), giraffe (−0.17), sponge-happy (−0.50), and sun (−0.33, still passing all three). Llama-1/2/3, golden-retriever and chef-2 gained most, from round 2's texture-line drop.
+
+### Rounds (fourier, `f-ct3`, each merged forward into `m/w1-bump-migration` without force)
+
+| round | commits | workflow bar-fails | what landed |
+|---|---|---|---|
+| start | — | (C at start) | — |
+| 1 | `40491a3`, `8a5e1bc`; merge `67bb8b1` (F.REL `.mem2` `e89b032`) | 15 | Features hang together; the nose drawn down both sides; detail-weighted resampling; the upper lip parted from the teeth below `LIP_THIN_FRACTION`; `isolation.confident_pieces` keeps detached pieces both subject models are sure of (sun recall 0.929 → 1.000). |
+| 2 | `5d7c126`; merge `4be7443` | 11 | Brows hang by whichever end is cheaper (`brow_roots` removed); `drop_texture_lines` drops faint, meandering, non-closed learned lines (chef-2 38 → 24 strokes, llama-1 48 → 37); `straightness(reflect=)`. |
+| 3 | `a6a9c6b`; merge `be5ede6` | 11 | A brow joins the nose before its eye (`feature_kinds` ranking); `merge_forks` draws two connectors that run together once; `thin_to_line` counts the frame as a side. |
+| 4 | `a654cfd`; merge `bf16b1e` | 9 | `parts.teeth_rows` replaces `teeth_parting`: a dark row thinner than the doubled-strand width goes to the lower lip, so the mouth's lower line is drawn once. |
+| step 0 | `fe1749e` | — | The sun reference re-derived with its ray (addendum above). |
+
+### Metrics (harness `ct3-close1` = `ct3-close2`, every metric but `runtime_s` identical)
+
+Columns: the original pre-F.CT baseline → C at start (`ct3-base-c`) → final. The final non-runtime bar failures are listed; runtime now meets ≤ 8 s on every image (3.2–7.0 s).
+
+| image | P | R | bg | wiggle | failures now |
+|---|---|---|---|---|---|
+| PRIVATE-SAMPLE | 1.000 → 1.000 → 1.000 | 0.857 → 1.000 → 1.000 | 0.000 → 0.000 → 0.000 | 0.039 → 0.009 → 0.010 | none |
+| portraits-daraksha | — → 1.000 → 1.000 | — → 1.000 → 1.000 | — → 0.000 → 0.000 | — → 0.008 → 0.009 | none |
+| portraits-nes-rob | 0.983 → 0.988 → 0.987 | 0.996 → 0.957 → 0.973 | 0.016 → 0.012 → 0.013 | 0.019 → 0.019 → 0.019 | none |
+| portraits-cauchy | 1.000 → 1.000 → 1.000 | 0.995 → 0.946 → 1.000 | 0.016 → 0.000 → 0.000 | 0.049 → 0.019 → 0.018 | none |
+| portraits-chef | 0.919 → 0.969 → 0.957 | 0.830 → 0.843 → 0.820 | 0.106 → 0.029 → 0.043 | 0.045 → 0.022 → 0.024 | P, R, bg |
+| portraits-euler | 0.990 → 0.987 → 0.981 | 0.930 → 0.951 → 0.951 | 0.019 → 0.015 → 0.019 | 0.040 → 0.020 → 0.020 | none |
+| portraits-human | 0.337 → 1.000 → 1.000 | 0.554 → 0.964 → 0.964 | 0.672 → 0.000 → 0.000 | 0.032 → 0.012 → 0.010 | none |
+| portraits-joseph-fourier | 0.998 → 1.000 → 1.000 | 1.000 → 1.000 → 1.000 | 0.001 → 0.000 → 0.000 | 0.057 → 0.026 → 0.028 | wiggle |
+| animals-chef-2 | 0.955 → 0.989 → 0.988 | 0.672 → 0.750 → 0.611 | 0.056 → 0.015 → 0.013 | 0.068 → 0.040 → 0.028 | R, wiggle |
+| animals-giraffe | 0.950 → 0.963 → 0.972 | 0.996 → 0.971 → 0.966 | 0.065 → 0.036 → 0.028 | 0.064 → 0.046 → 0.045 | bg, wiggle |
+| animals-golden-retriever | 0.976 → 1.000 → 0.999 | 0.440 → 0.847 → 0.868 | 0.033 → 0.000 → 0.001 | 0.032 → 0.025 → 0.018 | R |
+| animals-llama-1 | 0.993 → 0.994 → 0.997 | 0.979 → 0.992 → 0.968 | 0.025 → 0.006 → 0.002 | 0.054 → 0.041 → 0.026 | wiggle |
+| animals-llama-2 | 0.986 → 1.000 → 1.000 | 0.961 → 0.990 → 0.991 | 0.019 → 0.000 → 0.000 | 0.054 → 0.033 → 0.020 | none |
+| animals-llama-3 | 0.932 → 1.000 → 1.000 | 0.989 → 1.000 → 1.000 | 0.100 → 0.000 → 0.000 | 0.045 → 0.039 → 0.028 | wiggle |
+| animals-sponge-flower | 1.000 → 1.000 → 1.000 | 0.772 → 0.761 → 0.760 | 0.005 → 0.000 → 0.000 | 0.031 → 0.018 → 0.017 | R |
+| animals-sponge-happy | 0.971 → 1.000 → 1.000 | 0.968 → 0.998 → 0.997 | 0.033 → 0.000 → 0.000 | 0.017 → 0.018 → 0.019 | none |
+| animals-sponge-pineapple | 1.000 → 1.000 → 1.000 | 1.000 → 1.000 → 1.000 | 0.000 → 0.000 → 0.000 | 0.013 → 0.016 → 0.018 | none |
+| animals-sponge-scared | 1.000 → 1.000 → 1.000 | 0.728 → 0.964 → 0.924 | 0.000 → 0.000 → 0.000 | 0.025 → 0.011 → 0.011 | none |
+| animals-sun | 1.000 → 0.995 → 1.000 | 0.995 → 0.991 → 1.000 | 0.009 → 0.006 → 0.000 | 0.031 → 0.019 → 0.014 | none |
+
+(The sun's middle and final columns are against the corrected reference; its baseline column is against the old one.) Non-runtime failing lines: 17 on 10 images at phase 2's close → **12 on 8 images** now.
+
+**The five recall regressions against the pre-F.CT baseline (§0eu.5):** cauchy R 0.995 → 1.000 **cured**; sun P/bg **cured** (1.000 / 0.000, with the corrected reference); nes-rob R 0.996 → 0.973 **open** (−0.023, improved from 0.957); giraffe R 0.996 → 0.966 **open** (worse than phase 2's 0.971); sponge-flower R 0.772 → 0.760 **open** (−0.012). None was ruled with frames. **New against the baseline:** chef-2 R 0.672 → 0.611 and chef R 0.830 → 0.820. Round 1's seat attributed both to F.REL `.mem2` (BiRefNet-512, `e89b032`): identical on the merged head without F.CT3's diff.
+
+### Gates
+
+| Gate | Run 1 | Run 2 | Reading |
+|---|---|---|---|
+| `uv run pytest tests/` | 188 passed (312 s) | 188 passed (273 s) | GREEN ×2 |
+| `uv run pytest api/` (`MONGO_TEST_URI=mongodb://localhost:27018`, throwaway DBs) | 344 passed | 344 passed | GREEN ×2 |
+| harness `ct3-close1` / `ct3-close2` | 8 images fail non-runtime lines | identical | deterministic; metric bar NOT met |
+| judge bar (round 4) | — | — | **NOT MET** (9 rows below) |
+| runtime (§0ev.1) | — | — | **RED** (below) |
+| served check | — | — | reads as the face (below) |
+
+Every heavy run took `heavy.lock` and went through `~/.claude/guard/guarded`. The guard's headroom wait (the host held 1,500–1,670 processes, none of them this seat's) expired at 30 min on five of the seven runs, which then proceeded as the guard records. Load during the gates was 8–36.
+
+### Runtime (§0ev.1, paired against the pre-F.CT pipeline)
+
+Two warm workers, one in the `f-ct3` tree and one in a detached `4c38b12` tree, each timing the harness's own `run_pipeline` (`extract_contours` + `build_contour_tour`, the API's settings), sessions warmed by one discarded round. Fixed subset: daraksha, euler, NES-ROB, golden-retriever, llama-1, sponge-happy. Every round runs all six on both arms, and the arm order alternates by round. Round ratio = current / pre.
+
+- **31 rounds; median ratio 2.135; 95 % bootstrap interval of the median [2.082, 2.203]** (10,000 resamples). The bound does not straddle 1.0, so the run stopped at 31. **RED**: C costs about 2.1× the iso-contour pipeline (median 6.1 s against 2.9 s per image, under this load).
+- Load (1/5/15 min): 8.4 / 9.1 / 9.8 at start, 20.1 / 20.6 / 20.0 at end.
+- Absolute: the harness's `runtime_s` ≤ 8 s holds on all 19 images on both close runs.
+- Driver and rounds: `~/.fourier-samples/evidence/ct3-close/` (`scripts/rt_driver.py`, `runtime/rounds.jsonl`, `runtime/summary.json`).
+
+### Served check
+
+`:8000` had been up since 10-15 23:36, before every F.CT3 commit, from the main checkout (its local branch lags `origin`). It was restarted from the `f-ct3` worktree at `bf16b1e` with `MONGO_URI=mongodb://localhost:27018/fourier`, `BLOB_DIR=~/.mongo-dev/fourier-blobs` and `COMPUTE_CONCURRENCY=1`. The committed `assets/portraits/daraksha.jpg` was uploaded through the Visualize page's `image-file-input` in headless Chromium. The API de-duplicated it to its 09-25 image. Extraction ran fresh under the pipeline-version cache key: new contour `f23c0406…`, 1,024 points, epicycles 401 circles at N = 200. Frames are in `~/.fourier-samples/evidence/ct3-served/` (local).
+
+By eye, the contour, the preview and the epicycle trace read as the face:
+- present: the hair outline with the centre part, both eyes with irises, both brows, the nose, the smile with its teeth band and lower lip, the jaw and chin, the image-right ear, the neckline and shoulders, and the braid.
+- still wrong (the judges' defects): the image-right brow runs on down into the nose side; the left shoulder line ends in the air at the left edge; the braid is a knotted outline without plaits.
+
+The API was then restarted from the main checkout as it had been (with `COMPUTE_CONCURRENCY=1` added), so that the `f-ct3` worktree could be removed.
+
+### Residuals, by name
+
+1. **portraits-daraksha, fidelity (5) and drawable (6), at N = 100/200:**
+   - the nose is one U-shaped outline, with no alar sides and no nostrils;
+   - the brows are tied into seams, one to the face edge and one into the nose, so they read as a Y;
+   - a cheek chord runs from the nose base to the mouth corner;
+   - the upper lip has no philtrum or cupid's bow, and the lip strands are doubled;
+   - the teeth line is a closed sliver;
+   - the braids have no plaits, and the left braid is missing;
+   - the necklace is absent;
+   - at N = 50 the eyes and the mouth are loops;
+   - the shoulder line is retraced, and the right ear is a doubled loop.
+2. **Judge mean < 5:** cauchy 4.50 · chef 3.33 · euler 4.17 · joseph-fourier 4.17 · chef-2 2.83 · golden-retriever 4.83 · sponge-happy 4.67. Across these images the common defects are:
+   - engraving and fur become scribble;
+   - eyes and faces are lost at N = 50;
+   - outlines are doubled at N = 100.
+3. **Judged pre-F.CT baseline:** never read (above). "At or above baseline" is unmeasured against the pre-F.CT pipeline. Against C at start, joseph-fourier, giraffe, sponge-happy and sun lost mean.
+4. **Metric bar:** 12 non-runtime lines on 8 images (chef P/R/bg · joseph-fourier wiggle · chef-2 R/wiggle · giraffe bg/wiggle · golden-retriever R · llama-1 wiggle · llama-3 wiggle · sponge-flower R).
+5. **Recall regressions open:** nes-rob, giraffe, sponge-flower (unruled, no frames); chef-2 and chef (new, attributed to F.REL `.mem2`).
+6. **Runtime RED:** 2.13× [2.08, 2.20] against the pre-F.CT pipeline.
+7. **Main checkout lag:** the main checkout's local `m/w1-bump-migration` (`6b98e22`) lags `origin` and serves `:8000` without the F.CT3 rounds. It was not fast-forwarded, because other writers hold dirty `web/` files there.
+
+**Housekeeping:** the `f-ct3` worktree is removed (the branch is wholly contained in `origin/m/w1-bump-migration` and in `origin/f-ct3`), as is this seat's throwaway `4c38b12` worktree. Neither the GPS-bearing original nor any model weight entered git.
+
+**Status: F.CT3 CLOSED honest-RED** (addendum (d): four rounds, then close with what remains).
