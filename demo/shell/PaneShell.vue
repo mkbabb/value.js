@@ -4,6 +4,7 @@
         :class="[
             'pane-shell relative w-full mx-auto h-full min-w-0',
             follow && 'pane-row-follow',
+            !seated && 'pane-shell--overlying',
         ]"
     >
         <!-- A2-VA-L1-1 — THE ONE PANE SHELL. The wrapper → `Card tier=resting` →
@@ -20,6 +21,9 @@
                  header sits ABOVE glass's FadingScroll port as its sibling, so
                  nothing scrolls under the title and the header keeps its rest
                  form; an optional flex-none `#footer` sits below the port.
+             X.W12U.k3 · A2-VA-X-14 (§0fh.6): at desktop the overlying owner is
+             BOUNDED like the seated ports (`pane-shell--overlying`, the style
+             block below), so its host scrolls and the header condenses on it.
              Both owners carry `.pane-scroll-fade` (PaneHeader.vue): the named
              `--pane-scroll` timeline the header veil reads.
              The `follow` row contract (`pane-row-follow`, shell.css) seats on
@@ -119,3 +123,52 @@ const bodyClass = computed(() => [
     gap === 3 ? "gap-3" : "gap-4",
 ]);
 </script>
+
+<style>
+/* X.W12U.k3 · A2-VA-X-14 (§0fh.6, OVERLYING-HOST-UNBOUNDED-1440): THE OVERLYING
+ * OWNER IS BOUNDED AT DESKTOP, AS THE SEATED PORTS ARE.
+ *
+ * The overlying owner (AdminPane, Not Found) is a one-region scene: no stage
+ * sets its row, so its region grew to its content (the 47-user roster read
+ * host 3177 = 3177 at 1440×900) and the DOCUMENT scrolled (3299 over 900).
+ * Glass's `<CardHeader shrink>` condense reads the `.card-scroll-host`, so on
+ * the one overlying route with content it could never fire.
+ *
+ * The cure is the row contract's own idiom (shell.css, `.pane-row-follow`),
+ * keyed on the overlying owner: the scene's grid fills the band `<main>` takes
+ * from the shell's `100svh` floor, the region wrapper takes `contain: size` so
+ * its content no longer sets the row (a stretched grid item is definite), and
+ * the pane takes its content height with the band as its CEILING — a short
+ * pane (Not Found) keeps its content height, a long one shrinks to the band
+ * and scrolls in its own host. Nothing is clipped: the host is glass's scroll
+ * owner, and the shell's block law (shell.css X.W5.b) is untouched.
+ *
+ * WHY THE CONTAINER QUERY: in one track (phones, portrait tablets) the
+ * document is the one scrolling column (X.W5.b), and `contain: size` would
+ * collapse the region; the bound holds only where the row contract's
+ * two-track condition holds (the same `pane-row` query, token values written
+ * out as shell.css does). Below it the wrapper is a plain column and the pane
+ * keeps its content height, so the fill changes no box a phone paints.
+ *
+ * Unscoped because every selector keys on the shell's layout classes
+ * (`.pane-container`, `.pane-wrapper`) around this component's root; it is
+ * colocated with the owner it bounds, as PaneHeader colocates
+ * `.pane-scroll-fade`. */
+.pane-container:has(> .pane-wrapper > .pane-shell--overlying) {
+    flex: 1 1 auto;
+}
+.pane-wrapper:has(> .pane-shell--overlying) {
+    display: flex;
+    flex-direction: column;
+}
+.pane-wrapper:has(> .pane-shell--overlying) > .pane-shell--overlying {
+    block-size: auto;
+    flex: 0 1 auto;
+    min-block-size: 0;
+}
+@container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .pane-wrapper:has(> .pane-shell--overlying) {
+        contain: size layout;
+    }
+}
+</style>
