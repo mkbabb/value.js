@@ -1,0 +1,4 @@
+# 2026-10-16 04:19:01 load: 33.35 31.95 26.24 head: 099a1627
+[guarded] waiting for the 'webkit' lock
+EXIT=143
+# end 04:39:14 load: 19.32 16.45 20.28

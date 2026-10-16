@@ -1,0 +1,6 @@
+# 03:41:16 load: 21.84 21.94 21.14
+EXIT=0
+
+> @mkbabb/value.js@4.1.0 typecheck
+> vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit && vue-tsc -p tsconfig.test.json --noEmit && tsc -p tsconfig.e2e.json --noEmit
+

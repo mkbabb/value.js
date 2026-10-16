@@ -4693,3 +4693,80 @@ READ-ONLY at kf `fa09924b` (X-DS's 6 dirty paths in place) and value.js `c4c3517
 - **Gates not turned:** kf "css-text.ts writes the authored unit" falsifier RED → GREEN ×2 and kf check at the cure — blocked on the acts below (kf bytes unchanged by this unit).
 - **Commits (value.js):** `4dab1a454` (cure + falsifier + oracle + CHANGELOG) · `89089729b` (E-6/L-G1/gate records) · this receipt. **Commits (kf):** none.
 - **Escalation — ESC-W13X-r3res2f-1.** The value.js half of UIA-KF-177 is landed and green; the consumer half needs three acts outside this unit's grant: (1) **publish** `@mkbabb/value.js` with `durationUnit`/`delayUnit` (an additive minor on top of the tree's 4.1.0 + Unreleased); (2) **bump kf's pin** `package.json:71` `"@mkbabb/value.js": "4.0.0"` to that version; (3) **grant kf's unit plumbing**: `AnimationOptions` (`src/animation/constants/types.ts`) carries `durationUnit`/`delayUnit` from the ingest (`compile/parse-facade.ts`), and the emit sites (`format/options.ts`, `entry.ts`, `backward/backward.ts`) pass it to `css-text.ts`, where `reverseCSSTime` writes the authored unit when one is given and the shortest exact form otherwise. Asked of the ruling seat: a dated grant of (1)–(3) as one follow-on unit, or a re-home by id of UIA-KF-177's consumer half to the wave that owns the next value.js publish + kf pin.
+
+## RESUME 3 — Close
+
+- **SERVED MODEL:** claude-opus-5-5. Track B close seat, 2026-10-16, VERIFY-ONLY (0 product bytes): COHESION §0fj item 8 · KF-W13.md ADDENDUM (i) `:592-593` · §0ev.2 (read now, load recorded). kf HEAD = origin `099a1627`; value.js HEAD `1960910cf` at open. Runs at the clean worktree `keyframes-wt-W13X-close3` moved to `099a1627` (detached; its `node_modules` is a symlink to the main tree's, glass `10.1.0`); value.js gates at the value.js tree. Logs: `keyframes/evidence/W13X/close4/` (runner `run-close.sh`).
+- **Crash recovery:** ⟨`git -C keyframes.js status --porcelain`⟩ → `M demo/components/instrument/timeline/KeyframeTimeline.vue` (X-DS) + 2 untracked old letters — none in a close-seat writable path; untouched. value.js: the record and LEDGER clean at open.
+
+### Act 1 — commits and bounds
+
+⟨`git show --stat <sha>`⟩ per commit (kf, all on `master`, pushed: ⟨`git rev-parse --short HEAD origin/master`⟩ → `099a1627 099a1627`):
+
+| unit | kf commits → paths | value.js commits → paths | in grant? |
+|---|---|---|---|
+| `.r3res2a` | `e8ffb117` → `test/demo/scenes/easing-reset-order.test.ts` (+162) · `bb2dc68d` → `demo/scenes/easing/useEasingDemo.ts` (+19 −8) | `3d91d36a9` → record + `evidence/W13X/r3res2a/**` | YES |
+| `.r3res2b` | `e4ea7eb1` → `test/demo/scenes/spring-reverse-one-time-base.test.ts` · `cd2025d9` → `demo/scenes/spring/{SpringScene.vue,useSpringDemo.ts}` | `d44027814` → record + `evidence/W13X/r3res2b/**` | YES (`spring/**`) |
+| `.r3res2c` | `4a8228ed` → `test/demo/scenes/square-axis-readout.test.ts` · `9c1ececf` → `demo/scenes/square/SquareScene.vue` + `test/demo/scenes/r4shared-subject-axes.test.ts` (declared §0bt adjacent) | `b42bd1b63` → record + `evidence/W13X/r3res2c/**` | YES |
+| `.r3res2d` | `3dfb3467` → `test/demo/scenes/matrix-heading-port.test.ts` · `8bf24249` → `demo/components/instrument/pane/{ControlsPaneWrapper.css,channel-controls/ChannelControls.vue}` + `demo/scenes/cube/matrix-editor/MatrixEditor.vue` | `34178a2e0` → record + `evidence/W13X/r3res2d/**` | YES (`pane/**`, `matrix-editor/**`) |
+| `.r3res2e` | none (ESCALATED) | `431c23990` → record + `evidence/W13X/r3res2e/measure-r{1,2}.txt` | YES |
+| `.r3res2f` | none (consumer half ESCALATED) | `4dab1a454` → `CHANGELOG.md`, `src/css/{index,rules,types}.ts`, `test/css/animation-time-unit.test.ts`, `test/v4-css-emerging.test.ts` (declared §0bt adjacent) · `89089729b` → `bench/records/W13Xr3res2f/**` · `1960910cf` → record | YES |
+
+**Landed wrong: 0.** 8 kf commits, 8 value.js commits (+ this close); every path inside its unit's §0fj grant or a declared adjacent; X-DS's interleaved kf commits (`c4113dee 547d188c f266ed44 127cfeb2 099a1627`) are X-DS's, not this wave's.
+
+### Act 2 — the gates, re-run by this seat at kf `099a1627` (load beside each; §0ev.2)
+
+Logs: `keyframes/evidence/W13X/close4/` (committed: runners `run-close.sh` · `run-a3-bisect.sh`, the `.txt` readings; probe copies under `probes/<unit>/`, frames gitignored).
+
+| gate | BEFORE (RESUME 3 baseline / unit receipts) | AFTER (this seat) | result |
+|---|---|---|---|
+| kf ⟨`guarded --light -- npm run check`⟩ ×2 | EXIT 0 ×2 (cited, `fa09924b`) | `proof:structure — PASS … (0 violations across R1–R6)` · `EXIT=0` ×2 (03:40:16–03:40:53, load 20.3 / 21.0) | **GREEN ×2** |
+| kf ⟨`npm run lint`⟩ ×2 | EXIT 0 ×2 (457 modules / 1660 deps) | `✔ no dependency violations found (457 modules, 1661 dependencies cruised)` · `EXIT=0` ×2 (load 23.3 / 23.2) | **GREEN ×2** |
+| kf `test:demo` ⟨`npx vitest run --project demo --maxWorkers=2`⟩ ×2 at the worktree (`099a1627`, heavy slot) | 151/928 ×2 (cited) | `Test Files 1 failed \| 154 passed (155)` · `Tests 917 passed (917)` ×2 (03:51–03:55, load 12–21): the one file `test/demo/instrument/playback-ribbon-contract.test.ts` fails to LOAD — `Cannot find module '/@fs/…/keyframes.js/node_modules/@mkbabb/glass-ui/dist/slider.js'` from its `vi.importActual("@mkbabb/glass-ui/slider")` (the file exists; the worktree's `node_modules` is a symlink into the main tree, so the subpath resolves outside the worktree root). Instrument, not product: the same file in the main tree ⟨`guarded --light -- npx vitest run --project demo … playback-ribbon-contract.test.ts`⟩ ×2 → `21 passed (21)` ×2; in the worktree ×1 → the same load error | **instrument-RED at the worktree** |
+| kf `test:demo` ×2 in the main tree (`guarded --light`, heavy queue 6+ deep) | — | head had moved to `4ed8637a` (X-DS passes 13–15 landed during this close) with X-DS's dirty `RibbonBar.vue` · `KeyframeTimeline.vue` · `ribbon-ke…test.ts` in place (disclosed): `Test Files 155 passed (155)` · `Tests 941 passed (941)` · `EXIT=0` ×2 (05:05:46–05:09:08, load 21.1→30.6) | **GREEN ×2** (917 + 21 = 938 at `099a1627` plus X-DS's 3 new tests) |
+| kf ⟨`npm run build`⟩ · ⟨`npm run gh-pages`⟩ (`guarded --light`) | GREEN (RESUME 2) | `✓ built in 3.76s` (+ dts) `EXIT=0` · `✓ built in 2.11s` `EXIT=0` | **GREEN** |
+| kf e2e ⟨`KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1`⟩ ×2 over the `099a1627` gh-pages dist | RESUME 2 Repair 1 (`71480d85`): within B7 · SHEET-POSITION | r1 (`guarded --exclusive webkit`, heavy; 04:15–04:19, load 33→33) · r2 (the roster launches chromium only, `scripts/lib/demo-driver.mjs:564`: a webkit-lock wait of 20 min and a heavy-slot wait of 12 min were stopped, both logs kept as `e2e-r2-{lockwait,slotwait}-stopped.log.txt`; read under `guarded --light --timeout 40`, 04:51–04:55, load 22.6→28.1): **`passed: 4/6` · `✗ failed: live-session, live-session-mobile` ×2**. live-session: only `✗ B7 the glass ::before carry NO bloom at rest` (honest-RED). live-session-mobile: `✗ M1 sheet OPEN / SCROLL / RE-OPEN` (honest-RED SHEET-POSITION) **and `✗ A3 appearance — a ghost rail SURVIVES on the home sweep (… sequence: railless=false ghostCol=true)` ×2** | **RED ×2 outside the honest-RED set (A3)** |
+| A3 attribution (diagnosis only) — ⟨`run-a3-bisect.sh <sha>`⟩: gh-pages + `--only=live-session-mobile` per sha | A3 `✓ ghost rail ABSENT` ×6 at `71480d85` (`repair-r2c1/e2e-*.log.txt`) | `71480d85` ✓ ABSENT · `fa09924b` ✗ · `1d18c6f0` ✗ · `9c1ececf` ✗ · `3dfb3467` ✗ · `8bf24249` ✗ · `099a1627` ✗ ×2 (above). The one commit between the last GREEN and the first RED is ⟨`git log --oneline 71480d85..fa09924b`⟩ → `fa09924b` **X-DS r7 pass 5 (critic C5)**, which the RESUME 3 open read as the baseline head. **No r3res2 commit is in that range.** | **pre-existing at the RESUME 3 baseline; X-DS's** |
+| served `.r3res2a` — ⟨`node probes/r3res2a/probe.mjs http://localhost:5396/ close4-r<n>`⟩ ×2 (own `vite --force` on :5396, worktree cache, glass 10.1.0) | 724–1018 ms after Reset ×2 (before) → 0 ×2 (unit) | R / Escape / dock: `scrubNow` 887 / 875 / … while playing → **`"0"` at +150 ms and +1350 ms on all three paths, 6/6 ×2**; `errs: []` ×2 | **GREEN ×2** |
+| served `.r3res2b` — ⟨`node probes/r3res2b/probe.mjs …`⟩ ×2 | MIRRORS ×4 → TRACKS ×2 | forward `TRACKS` · Reverse `TRACKS` (`maxTrackErr 0`, `maxMirrorErr 0.984 / 0.996`) · Reverse scrub `RIGHT` (`dThumb +0.045 / +0.05`, `ballErr 0`) ×2; `errs: []` (load 33–38) | **GREEN ×2** |
+| served `.r3res2c` — ⟨`node probes/r3res2c/probe.mjs …`⟩ ×2 | STALE ×2 → IDENTITY ×2 | after drag axes = header `{x 0.58, y 1}`; after Esc `axes {0,0}` · `header {0,0}` · `translate [0,0]` → `"verdict":"IDENTITY"` ×2 (load 33.6 / 32.0) | **GREEN ×2** |
+| served `.r3res2d` — ⟨`BASE=http://localhost:5396 RUN=close4-r<n> node probes/r3res2d/probe.mjs`⟩ ×2 | 844×390 `SCROLLED-OUT` ×2 → `IN-VIEW` ×2 | 844×390 · 1440×900 · 390×844 × light/dark → `IN-VIEW` 6/6 ×2; 844×390 title at scroll end `[131,170]`, 1440 title `[149,188]` unchanged, the one host `fading-scroll` (sh 505 / ch 229) | **GREEN ×2** |
+| `.r3res2e` lighting-tracks-group | not authorable (ESC-W13X-r3res2e-1) | re-measured at `099a1627`: ⟨`git grep -n 'onRender\|GROUP_PAINTS_KEY' 099a1627 -- demo/scenes/cube \| wc -l`⟩ → `0` · ⟨`git grep -n 'litFor\|--spec-x\|--spec-y\|--veil-angle\|faceLit' … \| wc -l`⟩ → `0` · ⟨`git grep -n requestAnimationFrame … -- demo/scenes/cube`⟩ → `useCubeDemo.ts:163` only — the unit's ×2 measurement reproduces; no lighting input exists to sample | **ESCALATED (no subject)** |
+| value.js `.r3res2f` falsifier + css suites ⟨`guarded --light -- npx vitest run --maxWorkers=2 test/css test/v4-c1.test.ts test/parser-totality.test.ts test/v4-css-emerging.test.ts`⟩ ×2 | RED 3/4 ×2 → GREEN 4/4 ×2; 487/487 ×2 | `Test Files 24 passed (24)` · `Tests 487 passed (487)` ×2 (03:40:21 / 03:40:34, load 20.8 / 21.0, value.js `1960910cf`) | **GREEN ×2** |
+| value.js ⟨`guarded --light -- npm run typecheck`⟩ ×2 | EXIT 0 ×2 | `EXIT=0` ×2 (lib · demo · test · e2e projects; load 23.3 / 21.8) | **GREEN ×2** |
+| value.js E-6 ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js > min.js; wc -c < min.js; gzip < min.js \| wc -c`⟩ ×2 | `112913 / 15644` ×2; ceiling 15,650 | `112913 15644` ×2 (`vjs-e6.txt`; grammar.js last touched `4eaf27fbe`) | **GREEN ×2** (≤ 15,650) |
+| `.r3res2f` kf consumer half | — | no kf commit (ESC-W13X-r3res2f-1: publish + pin bump + kf `AnimationOptions` unit plumbing, none granted) | **ESCALATED** |
+| every row dispositioned (addendum (h)/(i): "none is left OPEN") | six R-3 rows OPEN | 4 CURED (`.r3res2a` `.r3res2b` `.r3res2c` `.r3res2d`); `.r3res2f` value.js half CURED, kf half ESCALATED; `.r3res2e` ESCALATED (KILLED-BY-DELETION asked) | **RED (2 escalations unruled)** |
+
+### Act 3 — verification artefacts
+
+- Unit receipts: 6 of 6 under `## RESUME 3 — Unit receipts` (`.r3res2a .r3res2b .r3res2c .r3res2d .r3res2e .r3res2f`).
+- Evidence directories: ⟨`ls keyframes/evidence/W13X/`⟩ ⊇ `r3res2a r3res2b r3res2c r3res2d r3res2e` + value.js `bench/records/W13Xr3res2f/` (`e6.txt`, `gates.txt`, `lg1-entries.{sh,txt}`), plus this seat's `close4/` (2 runners, 4 floor logs, 2 worktree + 2 main-tree `test:demo`, `build`, `gh-pages`, 2 e2e + 2 stopped-wait logs, 6 A3 bisect logs, 4 value.js gate logs + `vjs-e6.txt`, 8 served probe readings under `probes/`).
+- Falsifiers in kf: ⟨`git ls-tree --name-only 099a1627 test/demo/scenes/ | grep -E 'easing-reset-order|spring-reverse-one-time-base|square-axis-readout|matrix-heading-port'`⟩ → 4 files, all inside the GREEN main-tree `test:demo` ×2.
+- Hygiene: the :5396 dev server stopped (⟨`lsof -iTCP:5396 -sTCP:LISTEN`⟩ → empty); every probe closes its browser in a `finally`; the worktree `keyframes-wt-W13X-close3` is returned to `099a1627` (clean apart from its untracked `vite.close3.config.ts` and `.vite-close3/`).
+
+### Act 4 — E13 mail sweep
+
+Reference = the INBOX work-tree mtime 2026-10-16 00:00:47 (the RESUME 3 open's reference). ⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ → value `V/` 0 · value `V/coordination` 0 · glass `BK/coordination` 0 · glass `BL/coordination` 0 · keyframes `V/coordination` 0 · atlas `P/coordination` 0 · glass `BL/`: `FORMATION-PROGRESS.md` only (glass's own formation file, not a letter). ⟨`git show HEAD:docs/tranches/V/coordination/INBOX.md | grep -c '^|.*| *\**UNREAD\** *|'`⟩ → **0**. **0 UNREAD in scope.** A dated sweep line is appended to INBOX's HEAD bytes by index blob (the work-tree file stays the clobbered orphan the open reported).
+
+### Residuals, with owners
+
+- **R3-1 · ESC-W13X-r3res2e-1 (KFA-31 · KFA-85 consumer halves), unruled — owner: the orchestrator (a dated COHESION ruling).** The cube re-light was deleted at kf `e8144b0c` (X-DS KF-P1-02, owner-directed) before the seam `73fc7b07`; re-measured 0 / 0 / one settle rAF at `099a1627`. Asked: KILLED-BY-DELETION by id, or an owner ruling reinstating a lit channel.
+- **R3-2 · ESC-W13X-r3res2f-1 (UIA-KF-177 kf consumer half), unruled — owner: the orchestrator / owner (publish act).** value.js half landed and GREEN (`4dab1a454`); the kf half needs (1) an `@mkbabb/value.js` publish carrying `durationUnit`/`delayUnit`, (2) kf's pin `package.json:71` `4.0.0` → that version, (3) a grant for kf `AnimationOptions` unit plumbing (ingest `compile/parse-facade.ts`, emit sites beyond `css-text.ts`).
+- **R3-3 · A3 ghost rail on the mobile `#/sequence` (live-session-mobile, RED ×2 + 5 bisect readings) — owner: X-DS's keyframes lane (introduced by X-DS r7 pass 5 `fa09924b`; GREEN at `71480d85`, RED from `fa09924b` on).** Not a KF.W13X unit's bytes and not in the honest-RED set; it reads RED at this wave's own baseline head. Routed by id to X-DS (its next pass), with this seat's bisect logs as the receipt; the check adjudicates relief.
+- **R3-4 · instrument: the worktree `test:demo` cannot load `playback-ribbon-contract.test.ts` (`vi.importActual("@mkbabb/glass-ui/slider")` through a symlinked `node_modules`) — owner: the next close/check seat (read `test:demo` in the main tree or a worktree with its own install).** The file is GREEN 21/21 ×2 in the main tree; it loaded at `c761d639` in the same worktree (RESUME 2 close), so the change is in the environment, not the test (not measured further).
+- **R3-5 · carried, unchanged:** honest-RED B7 SPECULAR-REST · SHEET-POSITION (glass, relayed); `.r3res2d` residuals (title truncates to "Transform m…" in the 304 px sheet header at 844×390; the sheet's lower edge under the transport — glass top-clearance lever, O-74); RESUME 2's R-3/R-4/R-5 as ruled at its checks.
+
+### Escalation from this seat
+
+None new. ESC-W13X-r3res2e-1 and ESC-W13X-r3res2f-1 (the units') stand unruled. Guard admission again starved heavy runs (webkit lock 20 min, heavy queue 6 deep behind 90–240 min runs); the e2e r2 and main-tree `test:demo` were read under `guarded --light`, disclosed in each log header (ESC-W13X-close3-1's class).
+
+### Four-verb line
+
+Not moved. KF-W13.md §State holds IMPLEMENTED at NO "until the gates green": two unit escalations (R3-1, R3-2) are unruled, so addendum (h)'s "none is left OPEN" is not met, and the kf e2e roster carries one RED outside the honest-RED set (R3-3, X-DS's). VERIFIED is a successor close's act.
+
+### Commits (RESUME 3)
+
+kf (8, pushed by the units; ⟨`git rev-parse --short origin/master`⟩ at this close → `4ed8637a`, which contains `099a1627`): `e8ffb117` `bb2dc68d` · `e4ea7eb1` `cd2025d9` · `4a8228ed` `9c1ececf` · `3dfb3467` `8bf24249`. value.js: `93aeafe78` (open) · `3d91d36a9` · `d44027814` · `b42bd1b63` · `34178a2e0` · `431c23990` · `4dab1a454` `89089729b` `1960910cf` · this close (record + `close4/**` + INBOX sweep line + LEDGER), one commit.
+
+- **Self-count:** ⟨`sed -n '/^## RESUME 3 — Close/,$p' KF-W13X.md | grep -c '^- \*\*R3-'`⟩ → **5** residual rows (2 unruled escalations, 1 X-DS-owned e2e RED, 1 instrument, 1 carried); 8 kf wave commits; 0 landed wrong; 0 UNREAD.
