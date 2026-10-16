@@ -52,3 +52,18 @@ pytest and the api tests GREEN ×2; web vue-tsc, vitest and e2e GREEN ×2 (the n
 - **Landing:** `.mem2` and `.mem3` land together on `m/w1-bump-migration`, then `.w → .vb → .g → .d`.
 - **F.CT3's worktree is never touched.** F.CT3 takes the re-premised test on merge-forward, keeping the union of assertions.
 - **Heavy runs** go through `~/.claude/guard/guarded`, with the API at `COMPUTE_CONCURRENCY=1`.
+
+## ADDENDUM 2026-10-16 (d): ESC-FREL-w-1 and ESC-FREL-vb-1 RULED (COHESION §0fk)
+- **`.w2` (w-1 (a)).** Grant: `web/e2e/contrast-pairs.ts`, `producer-held.json`, the F-W4 §4 list addendum, and a BK relay.
+  - Stale rows are re-pointed to today's paint. Each keeps its floor and is graded live; a RED here is cured in `web/src`.
+  - FR-USB-5 is retired (R-e-2) and relayed.
+  - GAB-1 `--tier-*` and HLG-37 are held BY PAIR ID and relayed.
+  - The six awaiting stacks are authored.
+  - Gate: contrast-floor GREEN ×2 outside the pair-level manifest.
+- **`.vb2` (vb-1 (a)+(b)+(c)).**
+  - A deterministic gallery detail-route stub in `fixtures/gallery.ts`; item 5 is re-baselined only on a read lawful diff.
+  - The CI e2e job runs in `mcr.microsoft.com/playwright:v1.61.0-noble`.
+  - A report artefact is uploaded on failure.
+  - Gate: visual-checkpoint GREEN ×2 locally and on a fresh m/w1 CI.
+- **Then:** `.g` (merge, as ruled), then `.d` (deploy), then close, then check. g-6 and d-1 dissolve in that order.
+- R-4 and R-6 are owner items and do not block. R-8 is cured by the orchestrator.
