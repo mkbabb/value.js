@@ -1,0 +1,7 @@
+# SERVED MODEL: claude-opus-5-5 — X.P.W8 .ifsemi E-6 (COHESION §0fg.3; stdin-gzip method of record)
+run 1: git show 4eaf27fbe:src/css/bbnf/generated/grammar.js | npx esbuild --minify --loader=js > min.js; wc -c < min.js; gzip < min.js | wc -c -> 112913 / 15644
+run 2: git show 4eaf27fbe:src/css/bbnf/generated/grammar.js | npx esbuild --minify --loader=js > min.js; wc -c < min.js; gzip < min.js | wc -c -> 112913 / 15644
+before (.cust2 7516f0d8c): 110324 / 15239; delta +2589 / +405
+ceiling (§0fg.3): measured gz rounded up to the next 50 B, hard cap 15,700; raw ceiling 125,646
+variants (worktree emission, same method): A all-inline structured 114151/16005 · B rules ifCond/ifTerm 114025/15903 · C B with sp-token colon/semi 113577/15907 · E condition+colon in BBNF, one value stream 113407/15810 · D flat stream 112544/15662 · D' (landed) ifSemi-separated branches, shape in action 112913/15644
+=> measured 15,644 B gz ×2 on 4eaf27fbe; ceiling 15,650 B (≤ 15,700 cap); raw 112,913 ≤ 125,646. GREEN
