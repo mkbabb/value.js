@@ -5086,3 +5086,43 @@ Not moved. KF-W13.md §State holds IMPLEMENTED at NO "until the gates green": ES
 kf: none (`57fb241a` unmoved; ⟨`git -C keyframes.js rev-parse --short origin/master`⟩ → `57fb241a`). value.js: `469ec377e` (open) · `b2389ada6` (`.a3`) · this close (record + `close5/**` + INBOX sweep line + LEDGER), one commit.
 
 - **Self-count:** ⟨`sed -n '/^## RESUME 4 — Close/,$p' KF-W13X.md | grep -c '^- \*\*R4-'`⟩ → **4** residual rows (1 unruled escalation, 1 relieved by ruling, 1 intermittent, 1 carried); 0 kf wave commits; 0 landed wrong; 0 UNREAD.
+
+## RESUME 4 — Check 1
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, L-20 pass 1 on the RESUME 4 Close, 2026-10-16. VERIFY-ONLY, 0 kf/glass bytes. kf `57fb241a` = origin/master (unmoved). The gates were re-run by this seat in the clean worktree `keyframes-wt-W13X-open4` (detached `57fb241a`, `status --porcelain -uno` empty). `test:demo` ran in the main tree (R3-4), with X-DS's dirty `KeyframeTimeline.vue` in place. Load at the starts: 24.0 / 30.3 / 34.4 / 33.5.
+- **Verdict: NOT-CONFORMANT.** The row stays PARTIAL. There is 1 HIGH: the A3 gate is RED with no spec relief.
+
+### Axes
+
+1. **GREENs reproduce: 4 of 4 claimed.**
+   - ⟨`guarded --light -- npm run check`⟩ ×2 → `PASS: scope=src clean (0 violations across R1–R6)` `EXIT=0` ×2.
+   - ⟨`npm run lint`⟩ ×2 → `no dependency violations found (457 modules, 1661 dependencies cruised)` `EXIT=0` ×2.
+   - ⟨`npm run gh-pages`⟩ → `✓ built in 2.37s`.
+   - ⟨`guarded --light -- npx vitest run --project demo --maxWorkers=2`⟩ → `Test Files 155 passed (155)` · `Tests 941 passed (941)`.
+   - The claimed RED also reproduces. ⟨`guarded --light -- env KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1 --only=live-session-mobile`⟩ → `✗ A3 appearance — a ghost rail SURVIVES … (sequence: railless=false ghostCol=true)` · M1 OPEN/SCROLL/RE-OPEN ✗ · `passed: 0/1`.
+2. **Bounds.**
+   - ⟨`git show --stat`⟩ was read for `469ec377e`, `b2389ada6` and `e49ff56b3`. Every path is the record, the LEDGER, the INBOX, or `keyframes/evidence/W13X/{open-r4,a3,close5}/**`, all inside RESUME 4's common writable set.
+   - kf: ⟨`git -C keyframes.js log 57fb241a..HEAD`⟩ → empty.
+   - `scripts/dev/dev.sh`: ⟨`git diff --stat aafc8e6d8..HEAD -- scripts/dev/dev.sh`⟩ → empty. The file stays dirty-unstaged by standing arrangement.
+3. **Masking: none.** 0 product bytes. The `.a3` unit declined a token-strip or oracle edit and escalated, which is correct under the brief's stop rule.
+4. **Families:** one commit per meaning (open · unit · close). Not split.
+5. **E-3:** ⟨`git diff --stat aafc8e6d8..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/COHESION.md`⟩ → empty.
+6. **Mail:** ⟨`grep -c '^|.*| *\**UNREAD\** *|' INBOX.md`⟩ → 0.
+7. **Four-verb line:** not moved (IMPLEMENTED held). This is lawful, because the close is PARTIAL.
+8. **Goal criterion: NOT MET.** Addendum (j) (`KF-W13.md:599`) says: "A3 must go RED → GREEN ×2". A3 reads RED at the bytes.
+9. **Figures reproduce:** check/lint ×2 (457/1661), test:demo 155/941, and e2e A3 RED. The `close5/e2e-r{1,2}` logs read `passed: 3/6` and `4/6`, matching the record.
+10. **Honest-RED adjudication.**
+    - **B7 SPECULAR-REST · SHEET-POSITION:** relieved. Addenda (i)/(j) name them by id, and both are glass-owned and relayed.
+    - **smoke vendor-three intermittent (R4-3):** relieved under §0fa item 9 (it passes on re-read). Recurrent; see MINOR below.
+    - **A3: NOT relieved.** It is not producer-owned: the oracle and the `rail-fill` token are both kf. No later wave owns it: ⟨`grep -n 'a3-1' COHESION.md`⟩ returns no ESC-W13X-a3-1 ruling. The spec does not name it as an honest-RED; addendum (j) requires that it go GREEN. R4-1 names an owner (the orchestrator) only as an unruled escalation.
+- **Successors:** no LEDGER row declares "Opens after KF.W13X". None is blocked by this wave.
+
+### Register
+
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| HIGH | Addendum (j) A3 gate RED ×2 (now ×3) outside the honest-RED set; ESC-W13X-a3-1 unruled | this seat's roster run `✗ A3 … sequence: ghostCol=true` `passed: 0/1`; `close5/e2e-r{1,2}`; no `a3-1` row in COHESION | the orchestrator rules ESC-W13X-a3-1 (a dated COHESION § + KF-W13 addendum (k)): arm (a) rename the `rail-fill` marker across X-DS's file set under a §0ev.3 grant, or arm (b) grant the observation script an exact-token selector (`live-session-mobile.mjs:1151`) explicitly ruled not-masking. Then the A3 falsifier RED → GREEN ×2, and a fresh close |
+| MINOR | smoke `vendor-three` heavy-chunk at first paint is recurrent across 3 sittings (2/5 here). It is relieved only as a load-flake | `close5/smoke-reread-r{1,2}`; R4-3 | the next X-DS/KF boot-path pass reproduces it at a quiet host and either cures it or rules it |
+| INFO | the `.a3` diagnosis is sound: the oracle's `[class*=rail]` substring (`:1151`) matches the `rail-fill` token; in-page token strip → rects unchanged, oracle 0 | `a3/diag2-57fb241a.txt`; oracle bytes read at `57fb241a` | — |
+
+- **Self-count:** 1 HIGH · 1 MINOR · 1 INFO; 4 GREENs reproduced; gates failed: A3.
