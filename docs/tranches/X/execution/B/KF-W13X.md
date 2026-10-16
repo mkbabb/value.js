@@ -5372,3 +5372,82 @@ None. ESC-W13X-a3-1 is RULED (§0fm) and discharged by `.a3o`.
 kf: `389e31d2` (`.a3o`; pushed `57fb241a..389e31d2 → master`). value.js: `14bb06f9a` (open) · `35b0b40e0` (`.a3o` receipt + `a3o/**`) · this close (record + `close6/**` + INBOX sweep line + LEDGER), one pathspec commit.
 
 - **Self-count:** ⟨`sed -n '/^## RESUME 5 — Close/,$p' KF-W13X.md | grep -c '^- \*\*R5-'`⟩ → **4** residual rows (1 honest-RED carried, 1 intermittent, 1 relieved by ruling, 1 carried instruments); 1 kf wave commit; 0 landed wrong; 0 UNREAD.
+
+## RESUME 5 — Check 1
+
+- **SERVED MODEL:** claude-opus-5-5. Fresh adversarial check (L-20 pass 1) of the RESUME 5 Close, Track B, 2026-10-16. VERIFY-ONLY: 0 kf bytes, 0 glass bytes. This seat authored no unit byte, no receipt and no close line. Authority: KF-W13.md (read whole; addenda (h)–(k) at `:589-606`) · COHESION §0fm (`:4043-4060`) · §0fa item 9 (`:3828`, the re-read rule).
+- **Bytes:** ⟨`git -C keyframes.js rev-parse --short HEAD origin/master`⟩ → `389e31d2` · `389e31d2`. ⟨`git log --oneline 389e31d2..origin/master`⟩ → empty. The worktree `keyframes-wt-W13X-open4` is detached at `389e31d2` with dirty 0 (`-uno`). The value.js record and LEDGER were clean at open.
+- **Runs:** serial, all through `guarded --light` (the §0fl.4 reason, as at the close), headless, `--workers=1`. Logs went to the session scratchpad and are quoted here. Loads ranged from 17.2 to 24.2.
+
+### Axis 1 — the close's GREENs, re-run at kf `389e31d2`
+
+| gate | command | this seat | result |
+|---|---|---|---|
+| check | ⟨`guarded --light -- npm run check`⟩ (worktree) | `proof:structure — PASS: scope=src clean (0 violations across R1–R6)`, `EXIT=0` (07:18) | **REPRODUCES** |
+| lint | ⟨`npm run lint`⟩ | `✔ no dependency violations found (457 modules, 1661 dependencies cruised)`, `EXIT=0` | **REPRODUCES** |
+| gh-pages | ⟨`npm run gh-pages`⟩ | `EXIT=0` | **REPRODUCES** |
+| `.a3o` falsifier | ⟨`node a3o/falsifier-a3o.mjs`⟩ (`KF_ROOT`=worktree) | `{"selector":".controls-pane-wrapper","before":{"ghostCol":false,…,"n":0},"injected":{"ghostCol":true,…,"n":1},"removed":{"ghostCol":false,…,"n":0},"verdict":"FALSIFIER-TRIPS-AND-CLEARS"}`, `EXIT=0` (07:19, load 22.7) | **REPRODUCES** |
+| kf e2e roster ×2 | ⟨`env KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1`⟩ | r1 (07:19–07:23): `passed: 3/6`, `✗ failed: smoke, live-session, live-session-mobile`. r2 (07:23–07:28): `passed: 3/6`, the same three. live-session fails only on `✗ B7 the glass ::before carry NO bloom at rest`. live-session-mobile fails only on the three `✗ M1 sheet OPEN/SCROLL/RE-OPEN` lines. **`✓ A3 appearance — ghost rail ABSENT on the home sweep` ×2.** smoke fails on `✗ heavy chunks requested at first paint: …/vendor-three-nw0IrzH_.js` ×2. | **A3 GREEN ×2 REPRODUCES.** B7 and M1 are the honest-RED set. smoke: see D-1 |
+| smoke re-read (§0fa item 9) | ⟨`… run-demo-roster.mjs --workers=1 --only=smoke`⟩ ×3 | r1 07:29:51 `EXIT=1` (vendor-three) · r2 07:29:57 `EXIT=1` (vendor-three) · r3 07:30:03 `passed: 1/1`, `EXIT=0` | passes on a re-run, so by the letter of §0fa item 9 it is not RED. **D-1** |
+| test:demo | ⟨`guarded --light -- npx vitest run --project demo --maxWorkers=2`⟩ (main tree, per R3-4; X-DS's dirty `KeyframeTimeline.vue` in place) | `Test Files 155 passed (155)` · `Tests 941 passed (941)`, `EXIT=0` (07:28–07:29) | **REPRODUCES** (×1; the close read it ×2) |
+| A3 at `71480d85` | — | Not re-run. The oracle and that dist are byte-fixed, and the cited log reads `✓ A3`. | cited |
+
+**Seven of seven re-run gates reproduce.** None of the close's GREENs fails.
+
+### Axes 2–9
+
+- **(2) Bounds.**
+  - ⟨`git show --stat 389e31d2`⟩ → `scripts/observe/demo/live-session-mobile.mjs | 8 +++++++-` (1 file). The hunk sits at `:1151-1157`, inside the A3 block, which is the §0fm.1 grant.
+  - The value.js commits stay inside the record, LEDGER, the INBOX line and `evidence/W13X/{open-r5,a3o,close6}/**`: `14bb06f9a` (6 files) · `35b0b40e0` (12) · `f98d87ee2` (19).
+  - ⟨`git log --oneline -1 -- scripts/dev/dev.sh`⟩ → `85cfea2cf` (T-era). **dev.sh is untouched.**
+- **(3) No masking.** The selector is the exact class `.controls-pane-wrapper`, with no substring match and no `:not()`. The geometry predicate is byte-identical (`b.width >= vw - 8`, `> 200`, `> 300`). The diff has no skip, no allowlist and no try/catch.
+  - The emitted class is verified at the bytes. `ControlsPaneWrapper.vue:247-257` (`v-else-if="!isMobileLayout"`, `ref="railEl"`) carries static class `controls-pane-wrapper`. ⟨`git grep -n -E 'grid-(column|area)' HEAD -- …/AnimationControlsGroup.css`⟩ → `:242 grid-column: rail` and `:258 grid-column: stage`, so exactly one element is seated in `[rail]`.
+  - The falsifier reads the selector from the shipped oracle's own bytes, so it tests what ships.
+- **(4) Commit families.** One kf commit for one meaning (`.a3o`). The value.js open, receipt and close are one commit each. No §Commit plan family is touched.
+- **(5) E-3.** ⟨`git diff --stat 7b28bd516..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/COHESION.md`⟩ → empty.
+- **(6) Mail.** ⟨`grep -c '^|.*| *\**UNREAD\** *|' INBOX.md`⟩ → **0**.
+- **(7) Four-verb line.** IMPLEMENTED moved NO → YES on the gates of addendum (k). VERIFIED stays NO for the designated successor seat. **Lawful.**
+- **(8) Goal criterion at the bytes.** §0fm's goal is an oracle that names the rail track and still catches a real ghost. It is met:
+  - The selector names the one `[rail]` occupant.
+  - The synthetic hollow column trips the oracle and then clears it.
+  - `rail-fill` is kept: ⟨`git grep -l rail-fill 389e31d2 -- demo | wc -l`⟩ → 7.
+  - The addendum (h) line "every row cured, re-homed by id, or relayed" holds: 0 OPEN (`.r3res2e` per §0fl.1, the `.r3res2f` kf half per §0fl.2).
+- **(9) Published figures.** test:demo 155/941, lint 457/1661, check PASS and the e2e roster lines all reproduce. The close's e2e r1 `4/6` and r2 `3/6` sit inside the band this seat read (`3/6` ×2); the difference is the smoke race (D-1).
+
+### Axis 10 — honest-RED adjudication
+
+| gate (RED at close) | relief at the spec bytes | owner named in the register? | adjudication |
+|---|---|---|---|
+| live-session `B7` SPECULAR-REST | Addenda (i), (j) and (k) (`KF-W13.md:592-606`): "honest-RED exactly B7 SPECULAR-REST · SHEET-POSITION", producer-owned | R5-1: glass-ui, relayed, ADOPT-AT-LANDING | **RELIEVED** |
+| live-session-mobile `M1` SHEET-POSITION (OPEN/SCROLL/RE-OPEN) | the same addenda; producer-owned | R5-1: glass-ui | **RELIEVED** |
+| `.r3res2f` kf half | §0fl.2 / addendum (j): RE-HOMED BY ID to X-W11 | R5-3 | **RELIEVED** (owned by a later wave) |
+| smoke `heavy chunks requested at first paint: vendor-three` | Not in the honest-RED set. §0fa item 9: "passing on a re-run means a reported load-flake". It passed on re-read r3 here, and on both of the close's re-reads. | R5-2: "the next X-DS/KF pass that touches the home boot path" (not by id) | **relieved by the letter of §0fa item 9 only; D-1** |
+
+### Register
+
+- **D-1 · MEDIUM (does not block) · The smoke RED is a deterministic race created by this wave's own cure. It is not a load-flake.**
+  - Readings at this seat: **4 RED in 5** (roster r1, roster r2, re-read r1, re-read r2; green only on re-read r3). Across the close and this check it is RED in 3 of 4 full-roster readings.
+  - Receipt, the product side. `demo/app/scene/scenes.ts:144-150` `warmScenesAtIdle()` is KFA-76 (`86b8878a`, X.KF.W13X.scene). It runs `requestIdleCallback(warmAll)` from `useSceneTransition.ts:74` (`onMounted`) and warms every scene chunk. That includes amiga, which imports `three` (`demo/scenes/amiga/{AmigaTarget.vue,useAmigaThree.ts,…}`), so `vendor-three` is fetched.
+  - Receipt, the oracle side. `scripts/observe/demo/smoke.mjs:129-134` pushes every `vendor-three` request from page open until the assertion at `:191-194`. The assertion runs only after the hero-text poll at `:170-181`, which can take up to 30 × 300 ms.
+  - The product keeps KFA-76's stated intent: the warm runs after first paint and never competes with it. The oracle's window is wider than "first paint", so whether it fails depends on whether idle arrives before the hero poll ends. This is a stale-oracle class (§0fh item 1 (a)), the same shape as A3.
+  - The close's R5-2 calls it a load-flake and names a non-id owner. **Both are inexact.**
+  - Mitigation: §0fa item 9 relieves it by the letter (it passed on a re-run), and the product is not wrong.
+  - **Cure:** the orchestrator homes it by id. Either (a) the smoke records heavy requests only up to first paint (snapshot `heavyRequests` at FCP or at the `#app` mount, before the idle window), or (b) a ruling that the idle warm excludes the `vendor-three` scenes. Either one needs a grant outside RESUME 5's `.a3o` bounds (`smoke.mjs` or `scenes.ts`), so it is filed here for a by-id home and not cured in this check.
+- **D-2 · INFO · The close appended no LEDGER event line; it edited only its row cell** (⟨`git show f98d87ee2 -- LEDGER.md`⟩ → one `-|`/`+|` pair). This check's event line covers it.
+- **D-3 · INFO · test:demo was re-read ×1 here, not ×2.** It reproduced exactly (155/941). The close's ×2 logs (`close6/test-demo-r{1,2}.log.txt`) read the same figures.
+
+**Count:** BLOCKER 0 · CRITICAL 0 · HIGH 0 · MEDIUM 1 · INFO 2. Self-count: ⟨`grep -c '^- \*\*D-[0-9]' <this section>`⟩ → 3.
+
+### Successors, "Opens after"
+
+The X-W11 LEDGER row (`:43`) opens after "everything". With this check, KF.W13X's conjunct reads CLOSED (GREEN). X-W11 stays lawfully blocked on the other rows that are not yet CLOSED and on the owner act (the value.js 4.1.x publish, §0fl.2). No other successor names KF.W13X in its "Opens after" (⟨`grep -rn -E 'Opens after[^|]*KF\.W13X' docs/tranches/X`⟩ → none outside this wave).
+
+### Verdict
+
+**CONFORMANT-HONEST-RED** — honest-RED: B7 SPECULAR-REST · SHEET-POSITION.
+- There is no BLOCKER, CRITICAL or HIGH.
+- Every GREEN that was re-run reproduces (7 of 7).
+- Every remaining RED is relieved under axis 10 and has an owner: B7 and SHEET-POSITION go to glass-ui (R5-1); the `.r3res2f` kf half goes to X-W11 (R5-3).
+- smoke is relieved by §0fa item 9 and is carried as D-1 for a by-id home.
+
+LEDGER row → `CLOSED 2026-09-17 (honest-RED: B7 SPECULAR-REST · SHEET-POSITION)`.
