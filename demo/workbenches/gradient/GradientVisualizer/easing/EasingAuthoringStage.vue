@@ -103,13 +103,18 @@ useMutationObserver(rootEl, syncVbRatio, {
 </template>
 
 <style scoped>
-/* Law 1 — one column: the 18rem chrome rail dies at this seat. */
-.easing-authoring :deep([data-testid="easing-picker"]) {
-    grid-template-columns: 1fr;
-}
+/* Law 1 — one column: the 18rem chrome rail dies at this seat. Held BY
+ * CONSTRUCTION since glass 10.1.0 (X.W7L.m `c8a4959dd`): the EasingPicker root
+ * is a single `flex flex-col` (`[data-slot="easing-picker"]`), with no grid
+ * rail to collapse, so the seat's former `[data-testid]` grid override (a
+ * hook 10.1.0 no longer emits) is retired (X-W12U .q2). */
 
-/* Law 2 — wells, not cards (nothing live sits behind an in-plate fixture). */
-.easing-authoring :deep(.glass-card) {
+/* Law 2 — wells, not cards (nothing live sits behind an in-plate fixture).
+ * The hook is the picker root's own `[data-slot="easing-picker"]`: at glass
+ * 10.1.0 the root wears `glass-resting` and no `.glass-card` exists, so the
+ * former `.glass-card` selector matched nothing and the well painted as a
+ * resting card with its rim shadow (X-W12U .q2, o17 :152 falsifier). */
+.easing-authoring :deep([data-slot="easing-picker"]) {
     /* The well is a surface nested one inset inside the interval row, so it
        takes the panel register's INNER radius (X-W6 · X.W6.d — d1), inherited
        from `.easing-panel` — never a second card-scale corner on a card-scale
