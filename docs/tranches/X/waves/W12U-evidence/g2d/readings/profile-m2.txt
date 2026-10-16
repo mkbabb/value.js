@@ -1,0 +1,47 @@
+SERVED MODEL: claude-opus-5-5
+[boot-profile m2 s1] renderer=ANGLE ANGLE Metal Renderer: Apple M5 Max firstLongtask=[25,+164] longtasks=1 busyTotal=248.8ms (to main+500ms)
+    88.9ms npm:@mkbabb/glass-ui
+    32.0ms npm:@vue/runtime-core
+    15.8ms anchors-DtONOvhx.js
+    14.8ms demo/color-session/useContrastSafeColor.ts
+    11.9ms npm:@vue/reactivity
+    9.8ms npm:katex
+    8.1ms npm:@vue/runtime-dom
+    7.7ms ((garbage collector))
+    7.6ms operations-CeP11Miy.js
+    6.8ms glass-ui-vnvRH6nS.js
+    6.6ms demo/picker/ColorPicker.vue
+    4.4ms npm:reka-ui
+    3.2ms (elementsFromPoint)
+    2.7ms subpaths/css.js
+    2.2ms npm:@vue/shared
+    2.1ms npm:vue-router
+    1.6ms result-CZJK1CwL.js
+    1.5ms (appendChild)
+    1.1ms npm:@vueuse/core
+    1.1ms demo/app/App.vue
+    0.9ms 
+    0.8ms demo/app/composables/boot/useAtmosphere.ts
+[boot-profile m2 s2] renderer=ANGLE ANGLE Metal Renderer: Apple M5 Max firstLongtask=[19,+146] longtasks=1 busyTotal=235.6ms (to main+500ms)
+    74.0ms npm:@mkbabb/glass-ui
+    30.6ms npm:@vue/runtime-core
+    14.4ms anchors-DtONOvhx.js
+    13.6ms npm:@vue/runtime-dom
+    12.9ms demo/color-session/useContrastSafeColor.ts
+    11.6ms npm:@vue/reactivity
+    10.2ms npm:katex
+    7.7ms ((garbage collector))
+    7.2ms operations-CeP11Miy.js
+    6.5ms glass-ui-vnvRH6nS.js
+    6.2ms demo/picker/ColorPicker.vue
+    5.1ms npm:reka-ui
+    3.3ms (elementsFromPoint)
+    3.2ms npm:@vue/shared
+    2.8ms subpaths/css.js
+    2.2ms demo/app/composables/useDevicePixelSnap.ts
+    1.8ms result-CZJK1CwL.js
+    1.5ms npm:vue-router
+    1.1ms (appendChild)
+    1.1ms demo/app/App.vue
+    0.8ms npm:@vueuse/shared
+    0.7ms (query)

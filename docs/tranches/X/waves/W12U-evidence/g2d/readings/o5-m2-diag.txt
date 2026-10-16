@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5
+load 9.52 11.75 12.57
+[o5-gpu m2-diag s1] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@217 frames=248 median=16.7ms max=116.6ms (7.0x) gapEnd@136 dropped=3 (1.2%) canvases=[[107,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1063,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+    diag: gap=[19,136] longtasksInGap=[[20,111]] loafInGap=[[15,132,77,116,["index-C5nRNpeZ.js:http://127.0.0.1:8197/assets/index-C5nRNpeZ.js:110","index-C5nRNpeZ.js:FrameRequestCallback:9","index-C5nRNpeZ.js:FrameRequestCallback:5"]]] allLongtasks=[[20,111]]
+[o5-gpu m2-diag s2] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@231 frames=250 median=16.7ms max=133.4ms (8.0x) gapEnd@156 dropped=1 (0.4%) canvases=[[116,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1084,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+    diag: gap=[22,156] longtasksInGap=[[20,121]] loafInGap=[[20,138,87,123,["index-C5nRNpeZ.js:http://127.0.0.1:8197/assets/index-C5nRNpeZ.js:120","index-C5nRNpeZ.js:FrameRequestCallback:8","index-C5nRNpeZ.js:FrameRequestCallback:5"]]] allLongtasks=[[20,121]]
+[o5-gpu m2-diag s3] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@230 frames=249 median=16.7ms max=116.6ms (7.0x) gapEnd@148 dropped=2 (0.8%) canvases=[[117,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1079,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+    diag: gap=[32,148] longtasksInGap=[[22,122]] loafInGap=[[20,140,88,124,["index-C5nRNpeZ.js:http://127.0.0.1:8197/assets/index-C5nRNpeZ.js:120","index-C5nRNpeZ.js:FrameRequestCallback:8","index-C5nRNpeZ.js:FrameRequestCallback:5"]]] allLongtasks=[[22,122]]
+VERDICT RED 0/3 green, 0 fault

@@ -1,0 +1,6 @@
+SERVED MODEL: claude-opus-5-5
+typecheck r1 rc=0
+typecheck r2 rc=0
+lint r1 rc=0
+lint r2 rc=0
+error TS r1=0 r2=0

@@ -1,0 +1,46 @@
+SERVED MODEL: claude-opus-5-5
+⟨node audit-classify.mjs final-files-r1.txt⟩
+sources=487 attributed gz=329636
+P    257400 gz  409 sources
+R1    33221 gz  1 sources
+R2    21555 gz  60 sources
+R3     6810 gz  3 sources
+R4     7977 gz  13 sources
+R5     2673 gz  1 sources
+-- R1
+    33221  subpaths/css.js
+-- R2
+     2029  @mkbabb/glass-ui/dist/sheet-BQJyER59.js
+     1875  @mkbabb/glass-ui/dist/glass-ui.js
+     1426  @internationalized/number/dist/private/NumberParser.mjs
+      911  @mkbabb/glass-ui/dist/collapsible-DFzK29Oh.js
+      789  reka-ui/dist/NumberField/NumberFieldRoot.js
+      788  @mkbabb/glass-ui/dist/DialogContent-CwIBvou_.js
+      744  reka-ui/dist/HoverCard/HoverCardContentImpl.js
+      687  @internationalized/number/dist/private/NumberFormatter.mjs
+      640  reka-ui/dist/Collapsible/CollapsibleContent.js
+      634  @mkbabb/glass-ui/dist/toggle-group-CC5b3o1R.js
+      606  reka-ui/dist/NumberField/NumberFieldInput.js
+      586  reka-ui/dist/Toggle/Toggle.js
+      447  reka-ui/dist/Switch/SwitchRoot.js
+      409  @mkbabb/glass-ui/dist/configurator-CPxIo3q2.js
+-- R3
+     3066  demo/shell/dock/menus/ProfileSection.vue
+     2667  demo/shell/dock/menus/MobileMenuDropdown.vue
+     1077  demo/shell/dock/layers/SlugEditLayer.vue
+-- R4
+     1813  demo/palettes/admin/composables/useAdminUsers.ts
+     1223  demo/palettes/useSlugMigration.ts
+     1085  demo/palettes/useColorNameQueue.ts
+      694  demo/palettes/admin/composables/useAdminTags.ts
+      641  demo/palettes/admin/composables/useAdminFlagged.ts
+      617  demo/palettes/api/admin-call.ts
+      345  demo/palettes/api/admin-colors.ts
+      332  demo/palettes/useTagEdit.ts
+      305  demo/palettes/useVersionHistory.ts
+      293  demo/palettes/api/admin-users.ts
+      268  demo/palettes/admin/composables/useAdminAudit.ts
+      201  demo/palettes/api/admin-palettes.ts
+      160  demo/palettes/api/admin-audit.ts
+-- R5
+     2673  vue-router/dist/devtools-DCoWQoU_.js

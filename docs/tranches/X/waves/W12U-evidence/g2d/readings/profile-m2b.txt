@@ -1,0 +1,24 @@
+SERVED MODEL: claude-opus-5-5
+[boot-profile m2b s1] renderer=ANGLE ANGLE Metal Renderer: Apple M5 Max firstLongtask=[23,+175] longtasks=1 busyTotal=266.2ms (to main+500ms)
+    37.2ms npm:@vue/runtime-core
+    30.5ms npm:@mkbabb/glass-ui/dist/dock.js
+    22.1ms npm:@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js
+    17.6ms anchors-DtONOvhx.js
+    14.9ms demo/color-session/useContrastSafeColor.ts
+    14.7ms npm:@vue/runtime-dom
+    14.3ms npm:@mkbabb/glass-ui/dist/scrollReader-Brf5cQNo.js
+    9.4ms npm:@vue/reactivity
+    9.3ms npm:katex
+    8.0ms ((garbage collector))
+    7.1ms operations-CeP11Miy.js
+    6.7ms glass-ui-vnvRH6nS.js
+    6.7ms demo/picker/ColorPicker.vue
+    5.9ms npm:reka-ui
+    5.1ms npm:@mkbabb/glass-ui/dist/motionTempo-tscp92Nm.js
+    4.5ms npm:@mkbabb/glass-ui/dist/aurora.js
+    3.4ms npm:@mkbabb/glass-ui/dist/class-names-FlXcvRRT.js
+    3.2ms npm:@vue/shared
+    2.6ms npm:@mkbabb/glass-ui/dist/useResizeObserver-CdUlm2QZ.js
+    2.2ms subpaths/css.js
+    2.1ms (elementsFromPoint)
+    2.1ms npm:@mkbabb/glass-ui/dist/createCanvasLifecycle-hJHobVTn.js

@@ -1,0 +1,50 @@
+SERVED MODEL: claude-opus-5-5
+X.W12U.g2d — THE EAGER-GRAPH AUDIT (COHESION §0fr.1 `.g2d`; W12U.md ADDENDUM (h) :116)
+Committed trees, each built in a detached worktree (g2d/build-tree.sh), read x2, r1 == r2 (cmp):
+  base   5c00616a1  eager JS count=9  raw=1,095,664  gz=331,628   readings/base-eager-r{1,2}.json
+  m1     410e9ea60  eager JS count=9  raw=1,092,891  gz=330,872   readings/m1-eager-r{1,2}.json
+  m2     ec470afa4  eager JS count=11 raw=1,087,586  gz=329,595   readings/m2-eager-r{1,2}.json
+  final  3fd1ba884  eager JS count=11 raw=1,087,578  gz=329,628   readings/final-eager-r{1,2}.json
+Cap (§0fr.1): 307,200 B gz.  Final over cap: +22,428 B gz.
+
+== MOVES LANDED (each at its root import; no wrapper module) ==
+| # | commit    | move                                                                  | gz (tree delta) | what left the eager set (readings/*-files diff)                         |
+|---|-----------|-----------------------------------------------------------------------|-----------------|-------------------------------------------------------------------------|
+| 1 | 410e9ea60 | App.vue: MigratePalettesDialog -> defineAsyncComponent(import barrel)  | -756            | MigratePalettesDialog.vue 1,510 + 2 lucide icons; rest re-chunked       |
+| 2 | ec470afa4 | ActionBarLayer.vue: ColorInput -> defineAsyncComponent(import .vue)    | -1,277          | ColorInput.vue 2,344 · ParseEchoReadout 214 · crown icon 151 · part of  |
+|   |           |                                                                       |                 | picker-color/color-names (now a shared chunk; count 9 -> 11)            |
+| 3 | 3fd1ba884 | 6 eager importers: useClipboard/writeClipboard/useTouchGate from glass | +33 (alone)     | nothing alone: Skeleton/Avatar still reach the glass root barrel        |
+|   |           | "/dom" (same exports), not the root barrel                            | -19,474 (arm C) | measured with the root unreachable (see R2)                             |
+Total landed: 331,628 -> 329,628 = -2,000 B gz (x2).
+
+== CLASSES OF WHAT REMAINS (final tree; audit-classify.mjs x2, readings/final-audit-r{1,2}.txt, identical) ==
+attributed 329,636 (pro-rata rounding vs the instrument's 329,628)
+| class | gz      | sources | why eager / why not moved here                                                                 | owner of the move                                  |
+|-------|---------|---------|-------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| P     | 257,400 | 409     | needed before first paint: Vue runtime, router, shell + PaneSlot/plates, picker, colour session,| —                                                  |
+|       |         |         | dock face (glass dock), atmosphere ground + ink (glass aurora/color), boot hydration            |                                                    |
+| R1    | 33,221  | 1       | lib `./css` (the whole BBNF grammar): six demo/color-session boot importers AND glass           | ESC-W12U-g2s-1 (orchestrator; glass producer row   |
+|       |         |         | value-*.js import parseCssColor from ./css                                                       | arm (a) or lib-emission arm (b))                   |
+| R2    | 21,555  | 60      | glass families any LAZY chunk uses (Dialog/Sheet, NumberField+@internationalized, Collapsible/   | glass producer: Skeleton and Avatar on a subpath   |
+|       |         |         | Accordion, RadioGroup, Switch, ToggleGroup, HoverCard, Configurator, the root module itself):   | (glass exports them from NO subpath today), so no  |
+|       |         |         | the glass ROOT module is reachable from eager PaneLoadingPlate (Skeleton) and the dock menus     | eager importer reaches the root. Measured arm C:   |
+|       |         |         | (Avatar), and every family a lazy chunk takes then rides the eager glass-ui chunk                | -19,474 B gz                                       |
+| R3    | 6,810   | 3       | ProfileSection / MobileMenuDropdown (their trigger paints; the menu bodies are interaction-only) | X-DS clean window: Dock.vue is X-DS-dirty          |
+|       |         |         | and SlugEditLayer (interaction-only): all three are imported at Dock.vue, an X-DS dirty path     | (§0ev.3); a later seat once X-DS commits           |
+| R4    | 7,977   | 13      | admin roster/names/tags/flagged/audit + slug migration + version/tag edit: route-only state, but | a port redesign (async admin port) — not a root-   |
+|       |         |         | providePalettePorts composes them synchronously into injected ports at boot                      | import move; outside "lazy at its root, KISS"      |
+| R5    | 2,673   | 1       | vue-router's devtools chunk (bundler define __VUE_PROD_DEVTOOLS__ path)                          | vite.config.ts (outside this unit's bounds)        |
+
+== ARITHMETIC (measured, no projection beyond the arms) ==
+final 329,628 ; cap 307,200 ; gap 22,428.
+  R2 cure alone (arm C, measured): 310,154  -> still +2,954 over the cap.
+  R2 + R5 (2,673 attributed) : ~307,481 (attributed, not built) -> still over by ~281.
+  R2 + R3 SlugEditLayer + menu bodies, or + the g2s arm, closes it — none of these is a demo/** root-import act at these bytes.
+=> G2 RED x2 at 329,628; the residual is not in this unit's power (ESC-W12U-g2d-1).
+
+== EXPERIMENT ARMS (scratch worktrees of ec470afa4, never committed; exp/*.sh, readings/exp-arm*) ==
+  armA  the 6 eager re-points (= move 3)                         329,628 (count 11)
+  armB  armA + 9 lazy root importers re-pointed to /dom too       340,516 (count 22: chunking fans out; worse — not landed)
+  armC  armA + Skeleton/Avatar stubbed (MEASUREMENT ONLY)          310,154 (count 11) — the R2 weight
+  exp/root-barrel-rolldown.mjs: the root barrel itself shakes (root entry 1,512 gz, no families) — the pin is
+  reachability from the app's eager graph, not an unshakeable barrel.
