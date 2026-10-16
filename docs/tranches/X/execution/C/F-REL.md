@@ -1729,3 +1729,80 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 local. Spec read whole (`fourier/
 **Escalation — ESC-FREL-d-1 (restated at `ad62881`/`e89b032`).** `.d` is locked behind `.g` (merged + master CI GREEN), which is ESCALATED as ESC-FREL-g-6 on the unruled ESC-FREL-w-1 (contrast-floor ×3, the frozen oracle) and ESC-FREL-vb-1 (visual-checkpoint items 3/5 on CI's renderer). Once both are ruled, `.w`/`.vb` re-sit, `.g` merges and master CI reads GREEN, `.d` re-sits: health polled through the Pages workflow and the webhook deploy, then `prod-verify.mjs` headless (daraksha + EXIF-6, contours, preview, publish/remix/diff, edit/delete, gallery), evidence banked under `fourier/evidence/F-REL/`. R-h1/R-h2 and R-7 (the two 10-09 draft rows) carry unchanged.
 
 **Status: ESCALATED** (ESC-FREL-d-1 ← ESC-FREL-g-6).
+
+## RESUME 2026-10-15 (c) — Close
+
+Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~08:40Z–, VERIFY-ONLY (cures nothing). **Wave verdict: BLOCKED-ON ESC-FREL-w-1 + ESC-FREL-vb-1** (ESC-FREL-g-6 and ESC-FREL-d-1 stand behind them). Of the six owed units: `.mem3` `.mem2` `.vb` DONE; `.w` `.g` `.d` ESCALATED. The four-verb line does not move: F.REL is not IMPLEMENTED (master unmerged at `ad62881`, nothing deployed).
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → ` M web/e2e/f-w14-control-row.spec.ts` · ` M web/src/components/paper/PaperTocBar.vue` · ` M …/PaperTocDrawer.vue` · ` M web/src/components/ui/SliderControl.vue` · `?? .worktrees/` (the live X-DS fourier pass-7 lane, as `.g` sitting 5 read). None is a close-seat path; all left untouched. value.js: ⟨`git status --porcelain -- execution/C/F-REL.md execution/LEDGER.md V/coordination/INBOX.md`⟩ → empty. Nothing inherited.
+
+**Resource law.** ⟨`uptime`⟩ → up 7:07 (the host rebooted since the (b) close), load 22.25 / 19.90 / 20.75. ⟨`cat .worktrees/heavy.lock`⟩ → `F.CT3 r1 (seat 4) ct3-r1-full-pytest … pid 31152 2026-10-16T08:40:43Z`, live (⟨`ps -p 31152 -o etime=`⟩ → `11:29`). The repo's one heavy slot is held by a sibling seat, so this seat ran the light web gates only (guarded `--light`, scratch tree `~/.fourier-frel/g-wt` ⟨`git rev-parse --short HEAD`⟩ → `e89b032`, ⟨`git status --porcelain | wc -l`⟩ → `0`, so its bytes are HEAD's and exclude the live X-DS edits). pytest and the api suite are read from `.mem2`'s landing double runs on the same bytes (`e89b032`) and CI `38868934803`.
+
+**E13.** Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` (⟨`ls glass-ui/docs/tranches | grep -E '^B[K-Z]'`⟩ → `BK` `BL`) + `P/coordination` · keyframes-v-exec `V/coordination` · atlas `sci-report/atlas/docs/tranches/P/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 0 · 0 · 0 · 0. ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. **0 unrowed · 0 UNREAD.**
+
+**Act 1: commits exist and stay inside their sets.**
+- fourier `6b46ef1` (`.mem3`): ⟨`git show --stat`⟩ → `.gitignore` +1 · `tests/fixtures/derive_human_leaf.py` · `tests/fixtures/human-leaf.md` · `tests/fixtures/human-leaf.png` · `tests/test_contour_strokes.py` (+8 −3). The `.gitignore` hunk is `+!tests/fixtures/*.png`, declared as a §0bt adjacent edit in the receipt. ⟨`git show 6b46ef1 -- tests/test_contour_strokes.py | grep -c '^[-+].*assert'`⟩ → `0`: the assertions are untouched (the diff is the docstring + the fixture union).
+- fourier `e89b032` (`.mem2`): ⟨`git show --stat`⟩ → `.gitignore` +1 (the granted `!scripts/export-birefnet-lite.py`) · `api/Dockerfile` · `bench/contours/memory.py` · `scripts/export-birefnet-lite.py` · `scripts/model-smoke.sh` · `src/fourier_analysis/contours/ml.py` · `tests/test_contour_ml_memory.py`: exactly the adopted set.
+- value.js ⟨`git show --name-only`⟩: `1785aaa41` (`.mem3`), `944f79f1b` (`.mem2`), `153559294` (`.w`), `7a26dcdf1` (`.vb`), `b735e22de` (`.g`), `256336e44` (`.d`) each touch only `execution/C/F-REL.md`; `954b8d863` (`.w`) touches only `V/coordination/INBOX.md` (in `.w`'s set: the relay rows).
+- **landedWrong: none.**
+
+**Act 2: gates, BEFORE (the RESUME (c) baseline) → AFTER (this close; quoted by command).**
+
+| Gate (spec §Gates · addenda) | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| `.mem3`: person-cut test GREEN ×2 on the product | RED (1 failed / 175 ×3; no fixture) | not re-run here (heavy slot held by F.CT3 pid 31152); `.mem3` banked 1 passed ×2 (4.77 s / 5.18 s) on `.mem2`'s bytes, falsifier RED with the cut reverted; `.mem2` landing `pytest tests/` 176 passed ×2 at `e89b032` | GREEN (banked ×2, HEAD unchanged since) |
+| `.mem3`: assertions verbatim | the reference text | ⟨`git show 6b46ef1 -- tests/test_contour_strokes.py \| grep -c '^[-+].*assert'`⟩ → `0` | GREEN |
+| `.gitignore` negation landed | RED (`.gitignore:58:scripts/*`) | in `e89b032` (`+!scripts/export-birefnet-lite.py`) | GREEN |
+| G-mem peak RSS ≤ 1.6 GB | RED at HEAD | landed `e89b032`; `.mem2` landing 1432.8 / 1457.1 MB (built production image) | GREEN (banked ×2) |
+| G-mem2 2G container smoke | RED at HEAD | `.mem2` landing 7/7, cgroup peak 1460 / 1405 MB of 2048 | GREEN (banked ×2) |
+| G-iou mean ≥ 0.97 / min ≥ 0.93 | RED at HEAD | `.mem2` landing 0.9864 / 0.9444 ×2 | GREEN (banked ×2) |
+| pytest tests/ ×2 | RED (person-cut) | `.mem2` landing 176 passed ×2 at `e89b032`; not re-run here (heavy slot) | GREEN (banked ×2) |
+| api pytest ×2 | banked 344 ×2 | ⟨`gh run view 38868934803 --json jobs`⟩ → `api/tests (with live Mongo) success` at `e89b032`; `.mem2` landing 344 ×2 | GREEN (CI ×1 + banked ×2) |
+| web vue-tsc ×2 | rc 0 ×2 (banked) | ⟨`guarded --light -- npx vue-tsc -b --force`⟩ ×2 at `e89b032` → rc 0, 0 bytes each (`~/.dev-logs/frel/close-c-vuetsc-{1,2}.log`) | GREEN |
+| web vitest ×2 | 116 ×2 (banked) | ⟨`guarded --light --timeout 10 -- npx vitest run --maxWorkers=2`⟩ ×2 → `Tests 116 passed (116)` rc 0 each | GREEN |
+| G-w manifest printed by CI | 8 rows | ⟨`node -e '…producer-held.json…length'`⟩ → `8`; CI 38868934803 printed 8 rows, honest-red step ✓ | GREEN |
+| G-vb goldens ×2 darwin + ×2 linux | 6 + 6 at `8094890` | ⟨`find web/e2e -path '*-snapshots*' -name '*.png'`⟩ → 6 darwin · 6 linux; `.vb` re-sit 4: 6 passed ×2 darwin, ×2 v1.61.0-noble at `e89b032` | GREEN |
+| w-2: latency rows | unread | 19/19 first attempt on CI 38868934803 (`.w` re-sit 3) | GREEN (discharged) |
+| e2e GREEN outside the manifest | RED | ⟨`gh run list --branch m/w1-bump-migration --limit 3`⟩ → `38868934803 failure` (newest, 07:42Z) · `38824079821 failure` · `38452213569 failure`; jobs: api ✓ · web ✓ · prod-compose ✓ · e2e ✗ (contrast-floor ×3 + visual-checkpoint items 3/5) | **RED** (w-1, vb-1) |
+| contrast-floor ×3 | RED (oracle) | light 18/36, dark 10/36, 6 awaiting (`.w` re-sit 3 on CI) | **RED** (ESC-FREL-w-1) |
+| master merged + master CI GREEN | `ad62881`, `1 443` | ⟨`git rev-parse --short origin/master`⟩ → `ad62881`; ⟨`rev-list --left-right --count`⟩ → `1 448`; ⟨`gh run list --branch master`⟩ → `deploy-pages skipped` ×3 | **RED** |
+| production smoke GREEN (new SPA) | PASS on the hotfix SPA | ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ → bundle `index-BYSiPuAh.js` · health 200 · ACAO `https://fourier.babb.dev` · `PASS` (the same hotfix SPA) | **RED as specified** (non-regression only) |
+| cert > 14 d | Jan 4 / Dec 22 | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ → API `Jan  4 15:19:06 2027` · SPA `Dec 22 20:13:07 2026` | GREEN |
+| openapi has publish/remix/diff | `34 0.2.0 []` | ⟨`curl …/openapi.json` + path filter⟩ → `34 0.2.0 []` | **RED** |
+| PATCH preflight 2xx (G-c on prod) | 400 | ⟨`curl -X OPTIONS …/api/visualizations/x` PATCH + `if-match,idempotency-key,content-type`⟩ → `400` | **RED** |
+| end-to-end production check 20/20 | 10/20 (banked) | not run (no deploy; the probe writes to production) | **RED** |
+| no API outage during deploy | not read | not read (no deploy) | **RED** (unread) |
+| host health | 200 | ⟨`curl …/health`⟩ → `{"status":"ok"}` | GREEN (non-regression) |
+
+**Act 3: §Verification Artefacts.** The spec has no section by that name; its falsifiers are the gates above. `.mem3`'s falsifier (RED with the cut reverted) is banked in its receipt. `scripts/prod-verify.mjs` is `.d`'s artefact and stays unrun: there is no deploy to verify.
+
+**Commit roster (RESUME (c)).**
+- fourier: `6b46ef1` (`.mem3`) · `e89b032` (`.mem2`, pushed `52a68a0..e89b032`, no force). `.w` `.vb` `.g` `.d` made no fourier commit. ⟨`git rev-parse --short HEAD origin/m/w1-bump-migration`⟩ → `e89b032` · `e89b032` (in sync; nothing to push).
+- value.js: `1785aaa41` (`.mem3`) · `944f79f1b` (`.mem2`) · `954b8d863` + `153559294` (`.w`) · `7a26dcdf1` (`.vb`) · `b735e22de` (`.g`) · `256336e44` (`.d`) · this close.
+
+**Escalations (all unruled).** ⟨`grep -n 'ESC-FREL-w-1\|ESC-FREL-vb-1\|ESC-FREL-g-6\|ESC-FREL-d-1' COHESION.md`⟩ → 0 lines (⟨`wc -l COHESION.md`⟩ → `4005`; the last F.REL ruling is §0ff).
+- **ESC-FREL-w-1 (root, contrast-floor ×3).** The frozen oracle `web/e2e/contrast-pairs.ts` (`a6d317d`) names chrome `web/src` no longer paints; it is outside `.w`'s set. Rulings asked: grant the oracle + the F-W4 §4 pair list to a `.w` re-sit, or rule the stale rows out by name.
+- **ESC-FREL-vb-1 (root, visual-checkpoint items 3/5 on CI).** GREEN ×2 ×2 in the docker image, RED on CI's `ubuntu-latest` (no `container:`). Rulings asked: (a) a `web/e2e/fixtures/gallery.ts` detail-route stub (the item-5 `recordView` race) + item-5 re-baseline; (b) CI e2e in `mcr.microsoft.com/playwright:v1.61.0-noble` or CI-minted linux goldens; (c) a CI reporter artefact for item 3.
+- **ESC-FREL-g-6.** The merge lock arm 2 (e2e GREEN outside the manifest) is unmet; arm 1 (`.mem2` landed) is met.
+- **ESC-FREL-d-1.** Nothing to deploy until `.g` merges and master CI reads GREEN.
+
+Order of discharge: w-1 + vb-1 rulings → `.w`/`.vb` re-sits → a fresh m/w1 CI GREEN outside the manifest → `.g` (merge, `.gitignore` → m/w1's side whole, master CI ×2) → `.d`.
+
+**Residuals (named owners).**
+- R-1. contrast-floor ×3 on `contrast-pairs.ts`. Owner: the `.w` re-sit after the w-1 ruling.
+- R-2. visual-checkpoint items 3/5 on CI's renderer; R-vb-1 (blank modal view count, cause measured). Owner: the `.vb` re-sit after the vb-1 ruling.
+- R-3. The `.gitignore` merge conflict (⟨`git merge-tree`⟩ sole conflict, `.g` sitting 5). Owner: `.g`.
+- R-4. R-h1: hooks.json lacks the alert webhook and token. Owner: the owner.
+- R-5. R-h2: the first post-merge deploy runs the old in-place hook. Owner: `.d`.
+- R-6. R-7: the two 10-09 private draft rows on production need the admin token. Owner: the owner.
+- R-7. R-mem2l-1: X-DS `52a68a0` carried `.mem3`'s `6b46ef1` to origin ahead of `.mem2` (never pushed alone by an F.REL seat). Owner: record only (no act).
+- R-8. R-mem2l-2: the shared Docker VM disk near full (52/59 GB). Owner: the owner / the next heavy F.REL seat.
+- R-9. pytest tests/ ×2 not re-read by this seat at `e89b032` (F.CT3 held the heavy slot); banked 176 ×2 by `.mem2` landing on the same bytes. Owner: the next F.REL seat (`.w` re-sit).
+- R-10. UIA-F-42 CI flake (retry #1). Owner: `.w`.
+- R-11. F.CT3 takes the re-premised person-cut test on merge-forward (§0ff ruling 3). Owner: F.CT3.
+
+**Four-verb line.** Not moved. F.REL stays OPEN; the LEDGER status becomes `BLOCKED-ON ESC-FREL-w-1 + ESC-FREL-vb-1`.
+
+**Push.** fourier: `HEAD` = `origin/m/w1-bump-migration` = `e89b032` (nothing to push; master is not this seat's to push). value.js: this close is pushed with `git push origin HEAD` (no force).
+
+**Teardown.** No server, browser, container or poller was started. The four light guarded runs exited rc 0.
