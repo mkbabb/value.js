@@ -457,7 +457,12 @@ onMounted(() => {
     flex: none;
     margin: 0 0 0.5rem;
     text-align: center;
-    font-size: 0.8125rem;
+    /* X.W12U.m3 · R-m-2 (COHESION §0fh.5): the H1 sits on the type scale's
+     * nearest rung — caption (glass `--type-caption`, 12–16 px; 13.1 px at
+     * 844) — in place of the off-scale 0.8125rem; its 1.2 line box (15.8 px at
+     * 844×390) fits the measured 16 px title band. No new rung; the display
+     * face is kept. */
+    font-size: var(--text-caption);
     font-weight: 500;
     line-height: 1.2;
     /* X-DS pass 1 (V1C-03): the schema's own label in sentence case — the
