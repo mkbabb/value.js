@@ -2360,3 +2360,50 @@ The subject tallies are 0. The cures change geometry and layout, not lighting. T
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light --rss-gb 6`, the suites `--light --rss-gb 4`.
 - The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 15 (the seventh redeploy's pass 15; critic C15; evidence in `pass-48/`)
+
+**Cure commit:** keyframes.js `4ed8637a` (pushed fast-forward to master, `5dfa3688..4ed8637a`). **Evidence:** value.js `bee0e9fb9` (`evidence/DS/keyframes/pass-48/`):
+- `c15-probe.mjs`, `c15-probe.json`, `c15-probe.log` (the served falsifier for -01, 0 fails);
+- `after/`: home, `cube`, `amiga`, `square`, `easing`, `spring` and `sequence` at 1440 and 390 in light and dark, the `dock-<scene>-<width>-<scheme>` frames of the dock opened by hovering its face, and `crop-spring-presets-1440-{light,dark}.png` (54 frames);
+- `census.json`, `census.log`;
+- the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-15/`, but `pass-15/` already holds the first workflow's committed evidence, so the frames go to `pass-48/` (the pass-23..47 precedent).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C15-01 (low) | **Selection is a solid ring.** One root rule in `SpringPhysicsFacet.vue`: `.preset-cell { outline: 1px solid transparent }` (was `dashed`). The hover and `[data-state=on]` rules only recolour it, so the selected preset speaks the selected specimen's grammar (EasingCatalogue §5, a solid ring) in the violet authority over the 8 % wash; hover is the 6 % wash and a faint solid ring. The dashed stroke stays this app's final-state / target ghost alone (U-K17), as KF-C13-01 did for the empty dock seat. Unit falsifier in `spring-heatmap-reversibility.test.ts`: the scoped style (comments stripped) carries no dashed stroke and the base outline is solid (born RED against `5dfa3688`). | Probe: every visible preset tile's computed `outline-style` is `solid` (on and off), and an off tile on hover is `solid`, in both schemes at 1440 and 390. `after/crop-spring-presets-1440-{light,dark}.png`: the selected Smooth tile wears a solid violet ring over its wash. |
+
+**Not cured (owner composition calls)**
+- **KF-C15-02 (trivial):** the blank 4th dock seat keeps its full width on amiga, square and sequence. Collapsing it would change the dock's width between scenes, which OA-37/46 may forbid. The critic marks it "owner composition call only; no automatic cure", so it is left (`after/dock-{amiga,square,sequence}-*.png`).
+- **KF-C15-03 (trivial):** the hero headline sits across the cube at 1440. This is the same row as KF-C14-04 (§0dm identity hero), left to the owner and not re-opened (`after/home-1440-*.png`).
+
+**Cited (glass, not overridden)**
+- **KF-C15-G1 (medium):** the glass rows are re-observed unchanged at 10.1.0: (a) the dark dock's active capsule is in the plate's tone, and the items carry the specular track; (b) the dark `.glass-resting` backdrop blur smears `.grid-background` inside the stage plates; (c) filled Inputs beside taupe or transparent Selects; (d) the closed Select's up caret; (e) the Bezier ghost staircase; (f) the heavy taupe active segment; (g) the collapsed dock tile, `TypingDots` and the play-bubble halo; (h) pill fields; (i) the card drop and dark halo. Cited against **O-87 FLAT-LIGHTING** (a–f, h, i) and **O-88 DOCK-COLLAPSE-MOTION** (g), and re-judged at the 10.2.0 repin. No local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`): every chrome tally is identical to pass 47:
+- 310 shadow elements, 938 layers (max 6);
+- 416 inset highlights;
+- 278 backdrop blurs;
+- 54 control gradients;
+- 80 looping animations (the owner-ruled `wave-char` and `TypingDots`).
+
+The subject tallies are 0. An outline style is not lighting. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `4ed8637a`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 940/940 (155 files), ×2. That is +1, the KF-C15-01 falsifier.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk and the two untracked coordination files were not touched. Every commit is pathspec-only.
+- **Identity:** no identity hue, type or motion changed (§0dm). The violet `--color-progress` ring is kept; only its stroke style changed.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light --rss-gb 6`, the suites `--light --rss-gb 4`.
+- The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
