@@ -5126,3 +5126,18 @@ kf: none (`57fb241a` unmoved; ⟨`git -C keyframes.js rev-parse --short origin/m
 | INFO | the `.a3` diagnosis is sound: the oracle's `[class*=rail]` substring (`:1151`) matches the `rail-fill` token; in-page token strip → rects unchanged, oracle 0 | `a3/diag2-57fb241a.txt`; oracle bytes read at `57fb241a` | — |
 
 - **Self-count:** 1 HIGH · 1 MINOR · 1 INFO; 4 GREENs reproduced; gates failed: A3.
+
+## RESUME 4 — Repair 1
+
+SERVED MODEL: claude-opus-5-5 · seat: REPAIR round 1 · kf HEAD `57fb241a` (unmoved since Check 1; ⟨`git -C keyframes.js rev-parse --short HEAD`⟩ → `57fb241a`).
+
+Crash-recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → ` M demo/components/instrument/timeline/KeyframeTimeline.vue` + two untracked coordination files. KeyframeTimeline.vue is KF.W7's ("counted, routed, never edited", KF-W13.md §B.2 Do-NOT-touch). It is outside this wave's writable set, so it is a sibling's work and was left alone. No inherited edits fall in scope.
+
+| Check 1 defect | Disposition | Commit | Gate re-reading |
+|---|---|---|---|
+| HIGH: A3 ghost-rail RED, ESC-W13X-a3-1 unruled | **ESCALATED, not cured.** Check 1's own cure is an orchestrator ruling (a dated COHESION section and KF-W13 addendum (k)) that chooses arm (a) or arm (b). Neither choice is a seat's to make. ⟨`grep -n '^## §0f[m-z]' COHESION.md`⟩ → none; ⟨`grep -n 'a3-1' COHESION.md`⟩ → only the unrelated `ESC-a3-1` at :2479. KF-W13.md ends at addendum (j) (599 lines). **Arm (a)** renames the owner-canon KF-C5-01 marker. It is `.rail-fill`, defined at `ControlsPaneWrapper.css:172-213`, bound at `ChannelControls.vue:83`, and cited at `CSSCodeEditor.vue:709`, which falls outside the §0fl grant's file list. **Arm (b)** edits the oracle `scripts/observe/demo/live-session-mobile.mjs:1151`. That file is not in KF-W13 §B.2, and the §0fl grant does not cover it. Narrowing that selector without an explicit not-masking ruling would itself be a masking HIGH. | none | not re-run: no byte moved, so Check 1's reading stands (`passed: 0/1`, `railless=false ghostCol=true`) |
+| MINOR: smoke vendor-three intermittent (R4-3) | **NOT CURED; carried.** It has no one-command cure: the cure needs a quiet-host reproduction on the next X-DS/KF boot-path pass. It stays relieved under §0fa.9 as residual R4-3. | none | n/a |
+| INFO: .a3 diagnosis sound | no action | none | n/a |
+
+Self-count: 3 defects read · 0 cured · 2 escalated/carried (1 HIGH escalation, 1 MINOR carried) · 0 product bytes · 1 commit (this record section).
+Row stays **PARTIAL** pending the orchestrator's ESC-W13X-a3-1 ruling. After that: A3 RED → GREEN ×2, a fresh close, and a fresh check.
