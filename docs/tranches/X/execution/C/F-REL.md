@@ -2379,3 +2379,69 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~18:21Z–19:35Z. Spec read whole
    Order to close: the PD-1/PD-2 ruling → cure + tests on m/w1 → owner sets R-h1 → master merge (CI GREEN ×2) → webhook health-gated switch, polled from before the push → `prod-verify` 21/21 ×2 → close.
 
 **Status: ESCALATED** (ESC-FREL-d-3: PD-1/PD-2 product defects outside `.d`'s set + R-h1 owner act).
+
+## RESUME 2026-10-16 (e) — Close
+
+Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~19:30Z–, VERIFY-ONLY (cures nothing). Spec read whole (`fourier/waves/F-REL.md`, 76 lines). Record read: RESUME (e) Open → Unit plan (L2143-2198), `.g` sitting 7 (L2297) and `.d` sitting (L2328) receipts, the `.x5` receipt located by grep (L2200-2296, gate rows only), and the RESUME (d) Close (L2068). **Wave verdict: BLOCKED-ON ESC-FREL-d-3** (unruled: ⟨`grep -n 'FREL-d-3' COHESION.md`⟩ → 0 lines; ⟨`wc -l`⟩ → `4091`). Of the three owed units, `.x5` is DONE, `.g` is DONE (its pending master CI ×2 is read GREEN below), and `.d` is ESCALATED on PD-1/PD-2 (product defects in `nginx/`/`api/`, outside every granted set) and on R-h1 (owner act).
+
+**Crash recovery.** ⟨`git status --porcelain -- execution/C/F-REL.md execution/LEDGER.md`⟩ → empty. Nothing inherited. fourier (read only by this seat): ` M web/src/App.vue` · ` M web/src/components/morph/HarmonicLevelGrid.vue` · `?? .worktrees/`, the live X-DS lane's, never touched. Every local gate ran in the track's clean instrument worktree `~/.fourier-frel/g-wt`, moved detached to `origin/master` = `79f1a43` (⟨`git checkout --detach 79f1a43; git status --porcelain | wc -l`⟩ → `0`; ⟨`git diff --stat 6b98e22 79f1a43 -- web/package*.json`⟩ → empty, so its `node_modules` stand).
+
+**E13.** Paths: value `V/` + `V/coordination`; glass `BK/coordination`, `BL` (+ its subtree, depth 2) and `P/coordination` (⟨`ls glass-ui/docs/tranches | grep -E '^B[K-Z]'`⟩ → `BK` `BL`); keyframes `V/coordination`; keyframes-v-exec `V/coordination`; atlas (⟨`find atlas -maxdepth 4 -type d -name coordination`⟩ → none). ⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ → only `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (glass's formation log); depth 2 adds glass's own `BL/driver/*` and `BL/waves/W-D.*` (its wave docs, not letters). ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`; highest O-row `O-97` (no O-98: `.x5` took arm (a)). **0 unrowed · 0 UNREAD.**
+
+**Act 1: commits exist and stay inside their sets** (⟨`git show --stat`⟩; ⟨`git branch -r --contains`⟩).
+- fourier `2a519c9` (`.x5`, parent `dfc0a34`): `web/src/components/layout/AppDock.vue` only (+67 −12). On `origin/m/w1-bump-migration` and `origin/master`. In set (arm (a)).
+- fourier `79f1a43` (`.g`): merge commit, parents `ad62881` · `2a519c9`; tree = `origin/m/w1` at `2a519c9` (`.g` receipt: `diff --stat` empty; `.gitignore` → m/w1's side whole, R-3). On `origin/master`. In set.
+- fourier `e7066b6`, `06c2d92` (`.d`): `scripts/prod-verify.mjs` only (+27 −3, +37 −2). On `origin/m/w1-bump-migration` (not on master; scripts are not deployed). In set. Between them sits `2f99aa1` (`test(e2e)`, `web/playwright.config.ts` local workers), not an F.REL commit and not claimed by any unit.
+- value.js `a53c8553e` (`.x5`): `execution/C/F-REL.md` + `fourier/evidence/F-REL/x5/` (6 files). `c0d5115c9` (`.g`): `execution/C/F-REL.md` only. `54065dffd` + `a1e239d0b` (`.d`): `execution/C/F-REL.md` + `fourier/evidence/F-REL/d-final/`. All in set.
+- **landedWrong: none.**
+
+**Resource law.** ⟨`uptime`⟩ → load 9.77 / 10.44 / 10.40 at the open. Heavy gates ran through the track's instrument `~/.fourier-frel/close-e/{outer,all}.sh`: `outer.sh` takes `.worktrees/heavy.lock` with noclobber, waited while F.CT3 close (`runtime`, 19:07–20:06Z) held it, took it at 20:06:16Z and ran `all.sh` under `~/.claude/guard/guarded --rss-gb 20 --timeout 90`. `all.sh` = `close-d/pytest.sh` (×2 at `g-wt`) then `x5/run.sh L1 L2 D1 D2` (private mongod :27118, API :8191 at `COMPUTE_CONCURRENCY=1`, vite :3192 from `g-wt` at `79f1a43`, container `frel-vb` = `mcr.microsoft.com/playwright:v1.61.0-noble`, synced: ⟨`sha256sum` lockfiles⟩ → `62eef004…` both, `diff -rq` → `synced`). ⟨drive log⟩ → `guarded rc=0 20:18:05Z` · `unlock 20:18:05Z`. Playwright `--workers=1`. No pytest `-n`; vitest `--maxWorkers=2`.
+
+**Act 2: gates, BEFORE (the RESUME (e) baseline) → AFTER (this close; quoted by command).**
+
+| Gate (spec §Gates · addendum (e)) | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| pytest ×2 | banked 187 ×2 at `be5ede6` | ⟨`guarded -- pytest tests/ -q`, `PYTHONPATH=g-wt/src:g-wt`, ×2 at `79f1a43`⟩ → `188 passed in 304.26s` rc 0 · `188 passed in 287.62s` rc 0 | GREEN ×2 |
+| api tests ×2 | banked | ⟨`gh run view 38946507416` / `38946553889 --json jobs`⟩ → `api/tests (with live Mongo) success` on both, at `79f1a43` | GREEN ×2 (CI) |
+| web vue-tsc ×2 | rc 0 ×2 (banked) | ⟨`guarded --light -- npx vue-tsc -b --force`⟩ ×2 at `79f1a43` → rc 0 · rc 0 (logs 0 bytes) | GREEN ×2 |
+| web vitest ×2 | 116 ×2 (banked) | ⟨`guarded --light -- npx vitest run --maxWorkers=2`⟩ ×2 → `Test Files 20 passed (20)` · `Tests 116 passed (116)` each, rc 0 | GREEN ×2 |
+| `.x5` diagnosis table in `v1.61.0-noble` | absent | in `a53c8553e` (`evidence/F-REL/x5/diag-{before,after}-{linux,darwin}-*.json`, the receipt's Act 1 table): linux 348/346 → 281/281; consumer root (Sections label + ℱ fallback glyph), glass run sizing identical on both renderers | GREEN (artefact read) |
+| `.x5` au1 X-5 ×2 in the container | RED ×2 at `be5ede6` (348/346) | ⟨`run.sh L1 L2`, `-g "au1 X-5"`, at `79f1a43`⟩ → L1 `✓ X-5 (360)` `✓ X-5 (390)` `2 passed (27.1s)` rc 0 · L2 `2 passed (24.6s)` rc 0 | GREEN ×2 |
+| `.x5` darwin X-5 stays GREEN | GREEN | ⟨`run.sh D1 D2`⟩ → `2 passed (23.9s)` rc 0 · `2 passed (22.0s)` rc 0 | GREEN ×2 |
+| fresh m/w1 CI e2e GREEN outside the manifest | RED (38899400446) | ⟨`gh run view 38938542799`⟩ → `success` at `2a519c9`, all 5 jobs `success` | GREEN (ESC-FREL-g-7 dissolved) |
+| `.g` master merged + master CI GREEN ×2 | `ad62881`, `1 464` | ⟨`git rev-parse --short origin/master`⟩ → `79f1a43`; ⟨`gh run view 38946507416` / `38946553889`⟩ → `success` (push) · `success` (workflow_dispatch), jobs prod-compose · e2e · api · web · inv-27 all `success`; e2e `528 passed · 2 flaky · 3 skipped · 13 failed` and `523 passed · 7 flaky · 3 skipped · 13 failed`, the 13 failed = the `[honest-red]` project only (⟨`gh run view 38946507416 --log | grep ✘`⟩ → `[honest-red]` lines 1-13: `f-w14v-au3` L1-12, `f-w14v-c3` c3m and c3g, `f-w14v-pd` collapsed; the two `[chromium]` ✘ lines passed on retry = the flakies), the manifest rows run RED as declared | GREEN ×2 (ESC-FREL-d-2 dissolved) |
+| production smoke GREEN (new SPA) | PASS on the hotfix SPA | ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ ×2 (19:33Z, 20:18Z) → `bundle /assets/index-BSzuH9o_.js carries the API base` · health `200` · ACAO `https://fourier.babb.dev` · `PASS` rc 0 | GREEN ×2 |
+| cert > 14 d | Dec 22 / Jan 4 | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ → SPA `Dec 22 20:13:07 2026 GMT` · API `Jan  4 15:19:06 2027 GMT` | GREEN |
+| openapi has publish/remix/diff | `34 0.2.0 []` | ⟨`curl …/openapi.json` + path filter⟩ → `42 0.2.0 ['…/{slug}/diff', '…/publish', '…/remix', '…/unpublish']` | GREEN |
+| PATCH preflight 2xx | `400` | ⟨`curl -X OPTIONS …/api/visualizations/x` PATCH + `if-match,idempotency-key,content-type`⟩ → `200`; DELETE + `if-match,x-session-token` → `200` | GREEN |
+| end-to-end production check (prod-verify) 20/20 | 10/20 | banked by `.d`: `15/21` ×2 (`d-final/verify-{3,4}/rows.json`), RED ×6 = PD-1. Not re-run here: no deploy since, PD-1 is a standing product defect, and the probe writes to production. Static re-read at `origin/master`: ⟨`git show origin/master:nginx/fourier.conf`⟩ → `gzip on;` · `gzip_types … application/json …` (L75-76); ⟨`…:api/lib/crud/etag.py`⟩ → `if header != expected_etag:` → 412 (L41); ⟨`curl …/api/gallery/cursor?limit=2`⟩ → `{"items": [], …}` (nothing could publish) | **RED** (ESC-FREL-d-3) |
+| no API outage during the deploy | unread | SPA deploy: `.d`'s poll 1994 / 0 non-200. API deploy (R-h2 old in-place hook, recreate 18:21:09→18:21:31) not polled off-host. ⟨`curl …/health`⟩ now → `{"status":"ok"}` | **RED** (unread for the API deploy; ESC-FREL-d-3) |
+
+**Act 3: §Verification Artefacts.** The spec has no section by that name; its falsifiers are the gates above. `.x5`'s evidence (`F-REL/x5/`) and `.d`'s (`F-REL/d-final/`, incl. `pd1-weak-etag-repro.txt`, `preflight.txt`, `openapi-after.json`) are committed and were read.
+
+**Commit roster (RESUME (e)).**
+- fourier: `2a519c9` (`.x5`); `79f1a43` (`.g`, merge into master); `e7066b6`, `06c2d92` (`.d`, `scripts/prod-verify.mjs`). All pushed, no force (`2a519c9` on both branches; `79f1a43` on master; the `.d` pair on m/w1).
+- value.js: `a53c8553e` (`.x5`); `c0d5115c9` (`.g` sitting 7); `54065dffd`, `a1e239d0b` (`.d`); and this close.
+
+**Escalations (unruled).** ⟨`grep -n 'FREL-d-3' COHESION.md`⟩ → 0 lines.
+- **ESC-FREL-d-3 (root).** This close confirms it at the bytes. prod-verify reads `15/21` ×2, and all 6 REDs are PD-1. The edge gzips `application/json` (`nginx/fourier.conf:75-76`), which weakens the API's strong ETag, while `require_if_match` compares strongly (`api/lib/crud/etag.py:41`). So every browser publish, PATCH and DELETE that replays an ETag from a GET gets `412`, and the production gallery is empty. PD-2: `api/main.py` registers `RateLimitHeaderMiddleware` after `CORSMiddleware`, which makes it outermost, so its 429 carries no ACAO. The cure lies in `nginx/` or `api/`, outside every granted F.REL unit set, and its shape needs a ruling: (a) keep the strong validator through the edge, or (b) compare opaque-tags. The no-outage gate also needs R-h1 (owner), so that the next deploy runs the health-gated switch and is polled off-host from before the push.
+- ESC-FREL-g-7 and ESC-FREL-d-2: **dissolved** (§0fo.4), read above.
+
+Order of discharge: the PD-1/PD-2 ruling → its cure + tests on m/w1 → the owner sets R-h1 (`FOURIER_DEPLOY_ALERT_WEBHOOK`) → master merge, CI GREEN ×2 → the webhook's health-gated switch, polled from before the push → prod-verify 21/21 ×2 → close.
+
+**Residuals (named owners).**
+- R-1. PD-1/PD-2 → prod-verify 15/21 (ESC-FREL-d-3). Owner: the unit the d-3 ruling grants (`nginx/` and/or `api/`).
+- R-2. The API deploy's no-outage reading (R-h2's window was not polled off-host). Owner: the `.d` re-sit after R-h1.
+- R-3. R-h1 / R-4: the host's `/opt/deploy/.env` lacks `FOURIER_DEPLOY_ALERT_WEBHOOK`, and the `79f1a43` hook refuses every deploy without it (inv-31). Owner: the owner.
+- R-4. R-d-1 / R-6: five private drafts remain on production (named in `.d`'s receipt: 2 from 10-09, 3 from its pre-read). Owner: the owner (admin hard-delete).
+- R-5. CI flakies passed on retries: 2 on 38946507416 (`equation-interaction.spec.ts:77` S2, `f-w14v-eq2.spec.ts:39` q1) and 7 on 38946553889 (R-x5-1 class). Owner: the F.W14V/e2e stability sitting.
+- R-6. R-x5-2: the measured dock-label fit is a consumer stand-in for glass O-85 DOCK-PRIORITY-OVERFLOW. Owner: glass BK, then a fourier retire-at-landing.
+- R-7. O-97 (GAB-1 `--tier-*` and HLG-37, held by pair id) awaits glass. Owner: glass BK, and the `producer-held.json` expiry.
+- R-8. ECD D-6 light has thin headroom (3.032 against a 3:1 floor). Owner: the F.W4 contrast oracle.
+- R-9. The local X-5 runs used the main-tree API (m/w1 `06c2d92`; its `api/` bytes equal `79f1a43`'s, since the `.d` pair and `2f99aa1` touch only `scripts/` and `web/playwright.config.ts`). Owner: record only.
+
+**Four-verb line.** Not moved. F.REL stays OPEN, and its LEDGER status becomes `BLOCKED-ON ESC-FREL-d-3`.
+
+**Push.** fourier: the main tree is on `m/w1-bump-migration` at `06c2d92` = `origin/m/w1-bump-migration` (⟨`git rev-list --count origin/m/w1-bump-migration..HEAD`⟩ → `0`), so ⟨`git push origin HEAD`⟩ has nothing to send. value.js: this close is pushed with `git push origin HEAD`, without force.
+
+**Teardown.** `run.sh`'s trap stopped the private mongod, the API :8191, vite :3192 and the `frel-vb` container (⟨`docker ps --filter name=frel-vb -q | wc -l`⟩ → `0`; ⟨`lsof -iTCP:8191,3192,27118 -sTCP:LISTEN | wc -l`⟩ → `0`). `heavy.lock` was released (absent). The instrument worktree `~/.fourier-frel/g-wt` is left clean and detached at `79f1a43`. No browser or watcher is left running.
