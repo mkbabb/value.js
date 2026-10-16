@@ -1,0 +1,2 @@
+10-16 01:53:43 r2 smoke rev=2c1ba07e1 exit=1 load1=26.95
+10-16 01:54:17 r2 smoke-mobile rev=2c1ba07e1 exit=0 load1=24.79

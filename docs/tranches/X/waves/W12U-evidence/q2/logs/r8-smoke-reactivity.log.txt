@@ -1,0 +1,19 @@
+### smoke-reactivity (r8) start 10-16 05:29:40 load1=17.67 tree=/Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0
+(node:1882) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:1922) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:2080) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[reactivity-instant] spectrum-drag deltas (ms): 27.50, 30.40, 30.50, 32.20, 41.00
+[reactivity-instant] spectrum-drag median (ms): 30.50
+  ✓  1 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths (21.4s)
+[reactivity-instant] slider-keyboard deltas (ms): 36.80, 99.10, 265.70
+[reactivity-instant] slider-keyboard median (ms): 99.10
+  ✓  2 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps (1.8s)
+
+  2 passed (26.7s)
+### smoke-reactivity end 10-16 05:30:07 load1=22.62 exit=0
