@@ -175,9 +175,12 @@ test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page 
         return count;
     });
     expect(stampCount).toBeLessThanOrEqual(1);
-    // The canvas well itself is FLAT (census CC-4's inversion cured).
+    // The canvas well itself is FLAT (census CC-4's inversion cured). At glass
+    // 10.1.0 (X.W7L.m `c8a4959dd`) the well is the picker root
+    // `[data-slot="easing-picker"]`; no `.glass-card` exists (re-baselined
+    // X-W12U .q2 beside the seat's own Law-2 hook cure).
     const cardShadow = await row
-        .locator("#easing-authoring-0 .glass-card")
+        .locator('#easing-authoring-0 [data-slot="easing-picker"]')
         .first()
         .evaluate((el) => getComputedStyle(el).boxShadow);
     expect(cardShadow).toBe("none");
