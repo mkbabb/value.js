@@ -1,0 +1,164 @@
+{
+ "morph-light-1440": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.11 0.098 0.09 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.574 0.216 27.5)",
+   "ring": "oklch(0.574 0.216 27.5) 0px 0px 0px 1px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px"
+  },
+  "ringOnCard": {
+   "accent-red solid (the cure)": 4.534,
+   "accent-red 15% (before)": 1.264
+  },
+  "selectVsField": {
+   "trigger": "rgba(0, 0, 0, 0)",
+   "field": "rgb(243, 236, 226)",
+   "triggerOnCard": 1,
+   "fieldOnCard": 1.086
+  }
+ },
+ "morph-light-1024": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.11 0.098 0.09 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.574 0.216 27.5)",
+   "ring": "oklch(0.574 0.216 27.5) 0px 0px 0px 1px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px"
+  },
+  "ringOnCard": {
+   "accent-red solid (the cure)": 4.534,
+   "accent-red 15% (before)": 1.264
+  },
+  "selectVsField": {
+   "trigger": "rgba(0, 0, 0, 0)",
+   "field": "rgb(243, 236, 226)",
+   "triggerOnCard": 1,
+   "fieldOnCard": 1.086
+  }
+ },
+ "morph-light-390": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.11 0.098 0.09 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.574 0.216 27.5)",
+   "ring": "oklch(0.574 0.216 27.5) 0px 0px 0px 1px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px"
+  },
+  "ringOnCard": {
+   "accent-red solid (the cure)": 4.534,
+   "accent-red 15% (before)": 1.264
+  },
+  "selectVsField": {
+   "trigger": "rgba(0, 0, 0, 0)",
+   "field": "rgb(243, 236, 226)",
+   "triggerOnCard": 1,
+   "fieldOnCard": 1.086
+  }
+ },
+ "morph-dark-1440": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.914 0.9 0.886 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.644 0.165 22.9)",
+   "ring": "oklch(0.644 0.165 22.9) 0px 0px 0px 1px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px"
+  },
+  "ringOnCard": {
+   "accent-red solid (the cure)": 3.889,
+   "accent-red 15% (before)": 1.193
+  },
+  "selectVsField": {
+   "trigger": "rgba(0, 0, 0, 0)",
+   "field": "rgb(63, 55, 49)",
+   "triggerOnCard": 1,
+   "fieldOnCard": 1.197
+  }
+ },
+ "morph-dark-1024": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.914 0.9 0.886 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.644 0.165 22.9)",
+   "ring": "oklch(0.644 0.165 22.9) 0px 0px 0px 1px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px"
+  },
+  "ringOnCard": {
+   "accent-red solid (the cure)": 3.889,
+   "accent-red 15% (before)": 1.193
+  },
+  "selectVsField": {
+   "trigger": "rgba(0, 0, 0, 0)",
+   "field": "rgb(63, 55, 49)",
+   "triggerOnCard": 1,
+   "fieldOnCard": 1.197
+  }
+ },
+ "morph-dark-390": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.914 0.9 0.886 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.644 0.165 22.9)",
+   "ring": "oklch(0.644 0.165 22.9) 0px 0px 0px 1px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px"
+  },
+  "ringOnCard": {
+   "accent-red solid (the cure)": 3.889,
+   "accent-red 15% (before)": 1.193
+  },
+  "selectVsField": {
+   "trigger": "rgba(0, 0, 0, 0)",
+   "field": "rgb(63, 55, 49)",
+   "triggerOnCard": 1,
+   "fieldOnCard": 1.197
+  }
+ }
+}
