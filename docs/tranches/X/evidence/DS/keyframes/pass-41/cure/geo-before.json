@@ -1,0 +1,264 @@
+{
+ "390": {
+  "plate": {
+   "t": 102,
+   "b": 715,
+   "l": 28,
+   "w": 334,
+   "h": 613
+  },
+  "header": {
+   "t": 103,
+   "b": 176,
+   "l": 29,
+   "w": 332,
+   "h": 74
+  },
+  "arena": {
+   "t": 176,
+   "b": 650,
+   "l": 29,
+   "w": 332,
+   "h": 473
+  },
+  "field": {
+   "t": 316,
+   "b": 510,
+   "l": 98,
+   "w": 195,
+   "h": 195
+  },
+  "caption": {
+   "t": 522,
+   "b": 578,
+   "l": 49,
+   "w": 292,
+   "h": 55
+  },
+  "box": {
+   "t": 364,
+   "b": 462,
+   "l": 146,
+   "w": 97,
+   "h": 97
+  },
+  "sheet": {
+   "t": 788,
+   "b": 873,
+   "l": 13,
+   "w": 364,
+   "h": 85
+  },
+  "pad": "1.25rem",
+  "anc": [
+   {
+    "cls": "glass-resting card square-stage grid h-full max-h-full w-ful",
+    "ct": "normal",
+    "r": {
+     "t": 102,
+     "b": 715,
+     "l": 28,
+     "w": 334,
+     "h": 613
+    }
+   },
+   {
+    "cls": "scene-host h-full w-full",
+    "ct": "normal",
+    "r": {
+     "t": 102,
+     "b": 715,
+     "l": 0,
+     "w": 390,
+     "h": 613
+    }
+   },
+   {
+    "cls": "stage-cell justify-self-stretch self-center min-h-0 h-full o",
+    "ct": "normal",
+    "r": {
+     "t": 0,
+     "b": 844,
+     "l": 0,
+     "w": 390,
+     "h": 844
+    }
+   },
+   {
+    "cls": "controls-layout justify-items-stretch items-start relative c",
+    "ct": "inline-size",
+    "r": {
+     "t": 36,
+     "b": 808,
+     "l": 0,
+     "w": 390,
+     "h": 772
+    }
+   },
+   {
+    "cls": "grid place-items-center place-self-stretch",
+    "ct": "normal",
+    "r": {
+     "t": 0,
+     "b": 844,
+     "l": 0,
+     "w": 390,
+     "h": 844
+    }
+   },
+   {
+    "cls": "editor-shell relative grid h-dvh max-h-dvh w-dvw overflow-hi",
+    "ct": "normal",
+    "r": {
+     "t": 0,
+     "b": 844,
+     "l": 0,
+     "w": 390,
+     "h": 844
+    }
+   },
+   {
+    "cls": "",
+    "ct": "normal",
+    "r": {
+     "t": 0,
+     "b": 844,
+     "l": 0,
+     "w": 390,
+     "h": 844
+    }
+   }
+  ]
+ },
+ "1440": {
+  "plate": {
+   "t": 127,
+   "b": 750,
+   "l": 550,
+   "w": 814,
+   "h": 623
+  },
+  "header": {
+   "t": 128,
+   "b": 215,
+   "l": 551,
+   "w": 812,
+   "h": 87
+  },
+  "arena": {
+   "t": 215,
+   "b": 749,
+   "l": 551,
+   "w": 812,
+   "h": 535
+  },
+  "field": {
+   "t": 326,
+   "b": 638,
+   "l": 802,
+   "w": 312,
+   "h": 312
+  },
+  "caption": {
+   "t": 650,
+   "b": 695,
+   "l": 724,
+   "w": 468,
+   "h": 46
+  },
+  "box": {
+   "t": 404,
+   "b": 560,
+   "l": 880,
+   "w": 156,
+   "h": 156
+  },
+  "sheet": {
+   "t": 127,
+   "b": 750,
+   "l": 71,
+   "w": 407,
+   "h": 623
+  },
+  "pad": "1.25rem",
+  "anc": [
+   {
+    "cls": "glass-resting card square-stage grid h-full max-h-full w-ful",
+    "ct": "normal",
+    "r": {
+     "t": 127,
+     "b": 750,
+     "l": 550,
+     "w": 814,
+     "h": 623
+    }
+   },
+   {
+    "cls": "scene-host h-full w-full",
+    "ct": "normal",
+    "r": {
+     "t": 127,
+     "b": 750,
+     "l": 518,
+     "w": 878,
+     "h": 623
+    }
+   },
+   {
+    "cls": "stage-cell justify-self-stretch self-center min-h-0 h-full o",
+    "ct": "normal",
+    "r": {
+     "t": 54,
+     "b": 846,
+     "l": 518,
+     "w": 878,
+     "h": 792
+    }
+   },
+   {
+    "cls": "controls-layout justify-items-stretch items-start relative c",
+    "ct": "inline-size",
+    "r": {
+     "t": 54,
+     "b": 846,
+     "l": 43,
+     "w": 1354,
+     "h": 792
+    }
+   },
+   {
+    "cls": "grid place-items-center place-self-stretch",
+    "ct": "normal",
+    "r": {
+     "t": 0,
+     "b": 900,
+     "l": 0,
+     "w": 1440,
+     "h": 900
+    }
+   },
+   {
+    "cls": "editor-shell relative grid h-dvh max-h-dvh w-dvw overflow-hi",
+    "ct": "normal",
+    "r": {
+     "t": 0,
+     "b": 900,
+     "l": 0,
+     "w": 1440,
+     "h": 900
+    }
+   },
+   {
+    "cls": "",
+    "ct": "normal",
+    "r": {
+     "t": 0,
+     "b": 900,
+     "l": 0,
+     "w": 1440,
+     "h": 900
+    }
+   }
+  ]
+ }
+}
