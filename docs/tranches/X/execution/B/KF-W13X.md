@@ -4834,3 +4834,47 @@ kf (8, pushed by the units; ⟨`git rev-parse --short origin/master`⟩ at this 
 - **Gates:** no cure landed, so no gate could move, and none was re-run. The check's double-run figures stand as banked: check ×2, lint 457/1661 ×2, test:demo 155/941 ×2 (main tree), value.js css 487 ×2, E-6 15,644 ×2.
 - **Verdict:** NOT-CONFORMANT carries forward. Cured 0 of 2 at ≥MEDIUM, and both are escalated to the orchestrator for a ruling. No seat is at fault: both escalations are lawful.
 - **Self-count:** ⟨`sed -n '/^## RESUME 3 — Repair 1/,$p' KF-W13X.md | grep -c '^| C1r3-'`⟩ → 5 (re-read ×2: 2 HIGH escalated · 3 INFO; cured 0).
+
+## RESUME 3 — Check 2
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, L-20 pass 2 on RESUME 3 Repair 1, 2026-10-16, VERIFY-ONLY (0 kf / glass / value.js product bytes). Read: spec whole (ADDENDUM (h) `:589-590`, (i) `:592-593`, base close line `:530`); this record's RESUME 3 Open → Unit plan, the RESUME 3 Close, Check 1 and Repair 1. Logs: `keyframes/evidence/W13X/check2-r3/`.
+- **Bytes:** kf HEAD `57fb241a` (X-DS r7 passes 13–16 landed after `099a1627`; X-DS dirty `timeline/KeyframeTimeline.vue` + 2 untracked old letters, untouched). value.js HEAD `06f16e7b1` (Repair 1).
+- **Crash recovery:** ⟨`git status --porcelain -- execution/B/KF-W13X.md execution/LEDGER.md`⟩ → empty. No inherited partial work.
+- **Rulings since Check 1:** ⟨`grep -c 'r3res2e-1\|r3res2f-1' COHESION.md`⟩ → **0**; ⟨`git log -1 --format=%h -- COHESION.md KF-W13.md`⟩ → `efa8d3fda` (§0fk, F.REL; not this wave). No addendum after (i). Repair 1 changed 0 product bytes (⟨`git show --stat 06f16e7b1`⟩ → record +18, LEDGER +1).
+- **Verdict: NOT-CONFORMANT.** Every claimed GREEN reproduces, but nothing that Check 1 found RED has moved. The two §0fj rows are still unruled, and A3 still reads RED at the new kf head.
+
+### Axes
+
+- **(1) GREENs reproduce.** kf main tree at `57fb241a`: ⟨`guarded --light -- npm run check`⟩ ×2 → `PASS … (0 violations across R1–R6)` EXIT 0 ×2 (load 29.8 / 38.0). ⟨`npm run lint`⟩ ×2 → `457 modules, 1661 dependencies` EXIT 0 ×2. ⟨`npx vitest run --project demo --maxWorkers=2`⟩ ×2 → `Test Files 155 passed (155)` · `Tests 941 passed (941)` EXIT 0 ×2 (05:45–05:49, load 20.5 / 30.5). The heavy slot queue was 10 deep, so the first heavy wait was stopped, with its log kept as `kf-test-demo-heavy-slotwait-stopped.log.txt`, and the run was read under `guarded --light --timeout 30`. Disclosed in each log header. value.js `06f16e7b1`: ⟨`guarded --light -- npx vitest run --maxWorkers=2 test/css test/v4-c1.test.ts test/parser-totality.test.ts test/v4-css-emerging.test.ts`⟩ ×2 → `24 passed` · `487 passed` EXIT 0 ×2. E-6 ⟨`git show HEAD:src/css/bbnf/generated/grammar.js | npx esbuild --minify --loader=js | …; wc -c; gzip | wc -c`⟩ ×2 → `112913 15644` ×2, at or under 15,650.
+- **(2) Bounds.** There are no new wave commits since Check 1. Check 1's per-sha `--stat` audit of the 8 kf and 10 value.js shas stands. Repair 1 `06f16e7b1` touched only the record and the LEDGER. `scripts/dev/dev.sh`: ⟨`git log 93aeafe78^..HEAD -- scripts/dev/dev.sh`⟩ → empty.
+- **(3) Masking.** No new diff, and Check 1 found 0. **0.**
+- **(4) Families.** Unsplit, as in Check 1. The repair added no commits.
+- **(5) E-3.** ⟨`git diff --stat 93aeafe78^..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty.
+- **(6) Mail.** ⟨`git show HEAD:docs/tranches/V/coordination/INBOX.md | grep -c '…UNREAD…'`⟩ → **0**.
+- **(7) Four-verb line.** Not moved, and lawfully: IMPLEMENTED stays at NO.
+- **(8) Goal criterion.** "Every row cured, re-homed by id, or relayed; none OPEN" (h)/(i) is still **NOT MET**. `.r3res2e` and the kf half of `.r3res2f` remain OPEN on unruled escalations.
+- **(9) Figures.** 155/941 ×2, 487 ×2, 15,644 ×2 and 457/1661 all reproduce at this check's own clock.
+- **(10) Honest-RED adjudication.** The relief set stays *exactly* B7 SPECULAR-REST · SHEET-POSITION (§0fj 8):
+
+| RED gate | relief at the spec bytes | owner | ruling |
+|---|---|---|---|
+| e2e B7 SPECULAR-REST (live-session) | YES: §0fj 8, glass producer | glass (relayed) | honest-RED |
+| e2e M1 SHEET-POSITION (live-session-mobile). Re-read here at `57fb241a`: `✗ M1 sheet OPEN / SCROLL / RE-OPEN` | YES: §0fj 8, glass Drawer | glass (relayed) | honest-RED |
+| e2e A3 ghost rail, mobile `#/sequence`. Re-read here in worktree `keyframes-wt-W13X-close3` at `57fb241a` (⟨`guarded --light -- npm run gh-pages`⟩ then ⟨`guarded --light --timeout 15 -- … run-demo-roster.mjs --workers=1 --only=live-session-mobile`⟩, load 46.8): `✗ A3 … sequence: railless=false ghostCol=true` · `passed: 0/1` · EXIT 1 (`a3-57fb241a-r1.log.txt`). X-DS passes 13–16 did not cure it. | **NO.** It is not in §0fj 8 and no routing homes it. Its X-DS origin (bisect `71480d85` → `fa09924b`) does not relieve the gate. | X-DS (named by the close); no ruling | **unrelieved RED** |
+| rows dispositioned: `.r3res2e` (ESC-W13X-r3res2e-1) | **NO.** (h): "none is left OPEN" | orchestrator | **unrelieved RED** |
+| rows dispositioned: `.r3res2f` kf half (ESC-W13X-r3res2f-1) | **NO.** Same law; the publish and pin act was not granted | orchestrator / owner | **unrelieved RED** |
+
+**Successors.** ⟨`grep -rn 'Opens after[^.]*W13X\|after KF.W13X' keyframes/waves EXECUTION-RUNBOOK.md execution/LEDGER.md`⟩ → only LEDGER event lines. No wave declares an "Opens after" conjunct on KF.W13X, so no successor is blocked. The only conjunct of KF.W13X's own "Opens after" is KF.W13W, which is CLOSED and **GREEN**.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C2r3-1 | HIGH | C1r3-1 carries forward. Two of the six §0fj rows are still OPEN on unruled escalations: ESC-W13X-r3res2e-1 (KFA-31/85: the subject was deleted at kf `e8144b0c`) and ESC-W13X-r3res2f-1 (UIA-KF-177 kf half: publish + pin `4.0.0` → new + `AnimationOptions` plumbing). This fails (h)/(i) "none is left OPEN". | axis (8)/(10); COHESION count `0`; no commit after `efa8d3fda` | A dated orchestrator/owner ruling: KILLED-BY-DELETION by id or a reinstatement for r3res2e; for r3res2f, grant the publish, pin and plumbing as one unit, or re-home the kf half by id. No seat can cure this. |
+| C2r3-2 | HIGH | C1r3-2 carries forward. The kf e2e roster is RED outside the honest-RED set: A3 ghost rail on mobile `#/sequence`, still RED at the new head `57fb241a` after X-DS passes 13–16. This fails the base close line "`--workers=1` ×2 within the honest-RED set". | `check2-r3/a3-57fb241a-r1.log.txt` (`passed: 0/1`, A3 ✗); close bisect `71480d85` ✓ → `fa09924b` ✗ | X-DS cures A3 at the root (its bytes; `KeyframeTimeline.vue` is X-DS-dirty), or the orchestrator rules A3 into the relief set by id. |
+| C2r3-3 | INFO | Guard starvation: the heavy queue was 10 deep, so `test:demo` and e2e were read under `--light` and disclosed. This is the same class as ESC-W13X-close3-1. | `kf-test-demo-heavy-slotwait-stopped.log.txt` | None owed. |
+
+- **Gates reproduced:** 7. They are kf check ×2 · lint ×2 · test:demo ×2 (155/941) · value.js css ×2 (487) · E-6 ×2 · the B7/M1 honest-RED reading (M1 RED as relieved) · the worktree gh-pages build. **Failed:** e2e A3, which is outside the honest-RED set, and rows-dispositioned, which has 2 unruled escalations.
+- **Hygiene:** no dev server was started. The roster closes its own browser. The worktree is returned to `099a1627`, as found.
+- **LEDGER:** the row stays PARTIAL (NOT-CONFORMANT). One event line was appended.
+- **Self-count:** ⟨`sed -n '/^## RESUME 3 — Check 2/,$p' KF-W13X.md | grep -c '^| C2r3-'`⟩ → 3 (2 HIGH, 1 INFO).

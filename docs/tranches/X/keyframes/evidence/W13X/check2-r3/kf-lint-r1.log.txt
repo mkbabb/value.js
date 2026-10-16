@@ -1,0 +1,9 @@
+ 5:38  up  8:01, 2 users, load averages: 32.17 26.16 22.23
+
+> @mkbabb/keyframes.js@6.0.0 lint
+> depcruise --config .dependency-cruiser.cjs src demo && eslint demo
+
+
+✔ no dependency violations found (457 modules, 1661 dependencies cruised)
+
+EXIT=0
