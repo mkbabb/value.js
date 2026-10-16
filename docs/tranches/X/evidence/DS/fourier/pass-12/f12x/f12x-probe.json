@@ -1,0 +1,134 @@
+{
+ "morph-light-1440": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.11 0.098 0.09 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.574 0.216 27.5)",
+   "ring": "color(srgb 0.859497 0.139733 0.139504 / 0.15) 0px 0px 0px 2px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px"
+  },
+  "contrastOnCard": {
+   "foreground 50% (the kept ink)": 3.295,
+   "--border (the critic's arm)": 1.865,
+   "--border-soft": 1.309
+  }
+ },
+ "morph-light-1024": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.11 0.098 0.09 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.574 0.216 27.5)",
+   "ring": "color(srgb 0.859497 0.139733 0.139504 / 0.15) 0px 0px 0px 2px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px"
+  },
+  "contrastOnCard": {
+   "foreground 50% (the kept ink)": 3.295,
+   "--border (the critic's arm)": 1.865,
+   "--border-soft": 1.309
+  }
+ },
+ "morph-light-390": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.11 0.098 0.09 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.574 0.216 27.5)",
+   "ring": "color(srgb 0.859497 0.139733 0.139504 / 0.15) 0px 0px 0px 2px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px"
+  },
+  "contrastOnCard": {
+   "foreground 50% (the kept ink)": 3.295,
+   "--border (the critic's arm)": 1.865,
+   "--border-soft": 1.309
+  }
+ },
+ "morph-dark-1440": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.914 0.9 0.886 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.644 0.165 22.9)",
+   "ring": "color(srgb 0.877849 0.362313 0.362194 / 0.15) 0px 0px 0px 2px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px"
+  },
+  "contrastOnCard": {
+   "foreground 50% (the kept ink)": 3.993,
+   "--border (the critic's arm)": 2.001,
+   "--border-soft": 1.352
+  }
+ },
+ "morph-dark-1024": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.914 0.9 0.886 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.644 0.165 22.9)",
+   "ring": "color(srgb 0.877849 0.362313 0.362194 / 0.15) 0px 0px 0px 2px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px"
+  },
+  "contrastOnCard": {
+   "foreground 50% (the kept ink)": 3.993,
+   "--border (the critic's arm)": 2.001,
+   "--border-soft": 1.352
+  }
+ },
+ "morph-dark-390": {
+  "resting": {
+   "w": "1px",
+   "c": "color(srgb 0.914 0.9 0.886 / 0.5)",
+   "ring": "none"
+  },
+  "active": {
+   "w": "1px",
+   "c": "oklch(0.644 0.165 22.9)",
+   "ring": "color(srgb 0.877849 0.362313 0.362194 / 0.15) 0px 0px 0px 2px"
+  },
+  "card": {
+   "w": "1px",
+   "c": "oklab(0.925196 0.00238398 0.00574207 / 0.16)",
+   "ring": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px"
+  },
+  "contrastOnCard": {
+   "foreground 50% (the kept ink)": 3.993,
+   "--border (the critic's arm)": 2.001,
+   "--border-soft": 1.352
+  }
+ }
+}
