@@ -1,0 +1,666 @@
+[
+ {
+  "cell": "easing@1440x900/light",
+  "PC1": true,
+  "PC1i": true,
+  "PC2": true,
+  "geomOk": true,
+  "pxOk": true,
+  "rest": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 71.203125,
+     "t": 127,
+     "r": 478.390625,
+     "b": 710,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-track.track-well",
+     "top": 475,
+     "bottom": 495,
+     "portT": 184,
+     "portB": 503
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 48,
+     "port": 319,
+     "x": "93..456",
+     "portX": "73..476"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 376,
+    "ch": 376
+   }
+  },
+  "end": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 71.203125,
+     "t": 127,
+     "r": 478.390625,
+     "b": 710,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-track.track-well",
+     "top": 475,
+     "bottom": 495,
+     "portT": 184,
+     "portB": 503
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 48,
+     "port": 319,
+     "x": "93..456",
+     "portX": "73..476"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 376,
+    "ch": 376
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "easing@1440x900/dark",
+  "PC1": true,
+  "PC1i": true,
+  "PC2": true,
+  "geomOk": true,
+  "pxOk": true,
+  "rest": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 71.203125,
+     "t": 127,
+     "r": 478.390625,
+     "b": 710,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-track.track-well",
+     "top": 475,
+     "bottom": 495,
+     "portT": 184,
+     "portB": 503
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 48,
+     "port": 319,
+     "x": "93..456",
+     "portX": "73..476"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 376,
+    "ch": 376
+   }
+  },
+  "end": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 71.203125,
+     "t": 127,
+     "r": 478.390625,
+     "b": 710,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-track.track-well",
+     "top": 475,
+     "bottom": 495,
+     "portT": 184,
+     "portB": 503
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 48,
+     "port": 319,
+     "x": "93..456",
+     "portX": "73..476"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 376,
+    "ch": 376
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "easing@1024x768/light",
+  "PC1": true,
+  "PC1i": true,
+  "PC2": true,
+  "geomOk": true,
+  "pxOk": true,
+  "rest": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 28,
+     "t": 105,
+     "r": 360,
+     "b": 604.984375,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-range.glass-liquid-fill",
+     "top": 443,
+     "bottom": 463,
+     "portT": 162,
+     "portB": 471
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 47,
+     "port": 309,
+     "x": "50..338",
+     "portX": "30..358"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 366,
+    "ch": 366
+   }
+  },
+  "end": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 28,
+     "t": 105,
+     "r": 360,
+     "b": 604.984375,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-range.glass-liquid-fill",
+     "top": 443,
+     "bottom": 463,
+     "portT": 162,
+     "portB": 471
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 47,
+     "port": 309,
+     "x": "50..338",
+     "portX": "30..358"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 366,
+    "ch": 366
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "easing@1024x768/dark",
+  "PC1": true,
+  "PC1i": true,
+  "PC2": true,
+  "geomOk": true,
+  "pxOk": true,
+  "rest": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 28,
+     "t": 105,
+     "r": 360,
+     "b": 604.984375,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-range.glass-liquid-fill",
+     "top": 443,
+     "bottom": 463,
+     "portT": 162,
+     "portB": 471
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 47,
+     "port": 309,
+     "x": "50..338",
+     "portX": "30..358"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 366,
+    "ch": 366
+   }
+  },
+  "end": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 28,
+     "t": 105,
+     "r": 360,
+     "b": 604.984375,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.slider-range.glass-liquid-fill",
+     "top": 443,
+     "bottom": 463,
+     "portT": 162,
+     "portB": 471
+    },
+    "lastWho": "span.slider-thumb.glass-specular-track",
+    "named": {
+     "found": true,
+     "fits": true,
+     "inRange": true,
+     "inline": true,
+     "h": 47,
+     "port": 309,
+     "x": "50..338",
+     "portX": "30..358"
+    }
+   },
+   "surfaceScroll": {
+    "sh": 366,
+    "ch": 366
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "spring@1440x900/light",
+  "PC1": false,
+  "PC1i": false,
+  "PC2": true,
+  "geomOk": true,
+  "pxOk": true,
+  "rest": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 71.203125,
+     "t": 127,
+     "r": 478.390625,
+     "b": 740.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.text-small.font-medium",
+     "top": 489,
+     "bottom": 525,
+     "portT": 184,
+     "portB": 533
+    },
+    "lastWho": "button.button.tap-squish",
+    "named": {
+     "found": false
+    }
+   },
+   "surfaceScroll": {
+    "sh": 406,
+    "ch": 406
+   }
+  },
+  "end": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 71.203125,
+     "t": 127,
+     "r": 478.390625,
+     "b": 740.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.text-small.font-medium",
+     "top": 489,
+     "bottom": 525,
+     "portT": 184,
+     "portB": 533
+    },
+    "lastWho": "button.button.tap-squish",
+    "named": {
+     "found": false
+    }
+   },
+   "surfaceScroll": {
+    "sh": 406,
+    "ch": 406
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "spring@1440x900/dark",
+  "PC1": false,
+  "PC1i": false,
+  "PC2": true,
+  "geomOk": true,
+  "pxOk": true,
+  "rest": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 71.203125,
+     "t": 127,
+     "r": 478.390625,
+     "b": 740.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.text-small.font-medium",
+     "top": 489,
+     "bottom": 525,
+     "portT": 184,
+     "portB": 533
+    },
+    "lastWho": "button.button.tap-squish",
+    "named": {
+     "found": false
+    }
+   },
+   "surfaceScroll": {
+    "sh": 406,
+    "ch": 406
+   }
+  },
+  "end": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 71.203125,
+     "t": 127,
+     "r": 478.390625,
+     "b": 740.5,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.text-small.font-medium",
+     "top": 489,
+     "bottom": 525,
+     "portT": 184,
+     "portB": 533
+    },
+    "lastWho": "button.button.tap-squish",
+    "named": {
+     "found": false
+    }
+   },
+   "surfaceScroll": {
+    "sh": 406,
+    "ch": 406
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "spring@1024x768/light",
+  "PC1": false,
+  "PC1i": false,
+  "PC2": true,
+  "geomOk": true,
+  "pxOk": true,
+  "rest": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 28,
+     "t": 105,
+     "r": 360,
+     "b": 619,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "div.px-(--configurator-pad-inline).py-3",
+     "top": 503,
+     "bottom": 539,
+     "portT": 162,
+     "portB": 486
+    },
+    "lastWho": "button.button.tap-squish",
+    "named": {
+     "found": false
+    }
+   },
+   "surfaceScroll": {
+    "sh": 442,
+    "ch": 380
+   }
+  },
+  "end": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 28,
+     "t": 105,
+     "r": 360,
+     "b": 619,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.text-small.font-medium",
+     "top": 441,
+     "bottom": 477,
+     "portT": 106,
+     "portB": 485
+    },
+    "lastWho": "button.button.tap-squish",
+    "named": {
+     "found": false
+    }
+   },
+   "surfaceScroll": {
+    "sh": 442,
+    "ch": 380
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ },
+ {
+  "cell": "spring@1024x768/dark",
+  "PC1": false,
+  "PC1i": false,
+  "PC2": true,
+  "geomOk": true,
+  "pxOk": true,
+  "rest": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 28,
+     "t": 105,
+     "r": 360,
+     "b": 619,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": false,
+     "hit": false,
+     "hitWho": "div.px-(--configurator-pad-inline).py-3",
+     "top": 503,
+     "bottom": 539,
+     "portT": 162,
+     "portB": 486
+    },
+    "lastWho": "button.button.tap-squish",
+    "named": {
+     "found": false
+    }
+   },
+   "surfaceScroll": {
+    "sh": 442,
+    "ch": 380
+   }
+  },
+  "end": {
+   "cut": [],
+   "boxes": [
+    {
+     "name": "div.glass-quiet.card.pane-frame",
+     "l": 28,
+     "t": 105,
+     "r": 360,
+     "b": 619,
+     "radius": 16
+    }
+   ],
+   "reach": {
+    "last": {
+     "found": true,
+     "inView": true,
+     "hit": true,
+     "hitWho": "span.text-small.font-medium",
+     "top": 441,
+     "bottom": 477,
+     "portT": 106,
+     "portB": 485
+    },
+    "lastWho": "button.button.tap-squish",
+    "named": {
+     "found": false
+    }
+   },
+   "surfaceScroll": {
+    "sh": 442,
+    "ch": 380
+   }
+  },
+  "restPx": [],
+  "endPx": []
+ }
+]

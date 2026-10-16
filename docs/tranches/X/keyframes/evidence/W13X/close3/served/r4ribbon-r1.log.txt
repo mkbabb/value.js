@@ -1,0 +1,22 @@
+# 20:26:49 load: { 13.67 15.57 17.48 } base=http://localhost:5398/ kf=c761d639
+GREEN cube     [rest] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN cube     [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN cube     [keyframes] ribbons=0 inBar=0 ids=none panel=Keyframes
+GREEN cube     [timeline] ribbons=0 inBar=0 ids=none panel=Timeline
+GREEN cube     [controls] ribbons=1 inBar=1 ids=none panel=Controls
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 5000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('menuitem', { name: /Fold timeline into the pane/ })[22m
+
+    at fold (/Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/W13X/r4ribbon/probe.mjs:64:64)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/keyframes/evidence/W13X/r4ribbon/probe.mjs:73:13 {
+  name: 'TimeoutError'
+}
+
+Node.js v26.0.0
+EXIT=0
+# end 20:27:13 load: { 13.19 15.32 17.35 }

@@ -1,0 +1,10 @@
+# 2026-10-15 20:10:55 load: 16.39 18.47 19.89 head: c761d639
+
+> @mkbabb/keyframes.js@6.0.0 lint
+> depcruise --config .dependency-cruiser.cjs src demo && eslint demo
+
+
+✔ no dependency violations found (457 modules, 1658 dependencies cruised)
+
+EXIT=0
+# end 20:11:03 load: 15.96 18.35 19.84

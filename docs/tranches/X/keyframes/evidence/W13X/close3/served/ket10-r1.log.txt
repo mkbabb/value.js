@@ -1,0 +1,10 @@
+# 20:29:21 load: { 15.42 15.67 17.21 } base=http://localhost:5398/ kf=c761d639
+light: rules=1 removed=[".specimen-grid-group[data-v-72f92839] { border-radius }",".specimen-grid-group[data-v-72f92839] { background }",".specimen-grid-group[data-v-72f92839] { backdrop-filter }",".specimen-grid-group[data-v-72f92839] { box-shadow }"] data-type=single
+light: served {"border-radius":"0px","background-color":"rgba(0, 0, 0, 0)","background-image":"none","backdrop-filter":"none","-webkit-backdrop-filter":"","box-shadow":"none"}
+light: reset changes NOTHING (computed style identical without it)
+dark: rules=1 removed=[".specimen-grid-group[data-v-72f92839] { border-radius }",".specimen-grid-group[data-v-72f92839] { background }",".specimen-grid-group[data-v-72f92839] { backdrop-filter }",".specimen-grid-group[data-v-72f92839] { box-shadow }"] data-type=single
+dark: served {"border-radius":"0px","background-color":"rgba(0, 0, 0, 0)","background-image":"none","backdrop-filter":"none","-webkit-backdrop-filter":"","box-shadow":"none"}
+dark: reset changes NOTHING (computed style identical without it)
+TOTAL changed-properties=0
+EXIT=0
+# end 20:29:33 load: { 14.88 15.55 17.15 }

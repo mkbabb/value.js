@@ -1,0 +1,4 @@
+(node:15975) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ➜  Local:   http://localhost:5399/
+  ➜  Network: use --host to expose
