@@ -2033,3 +2033,34 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~09:05– local. Spec read whole 
 **E13.** ⟨`grep -E '^\| I-' V/coordination/INBOX.md | grep -c '| UNREAD'`⟩ → `0`; ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 1 · 0; the one is `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (glass's formation log, not a letter). 0 UNREAD in scope.
 
 **Status: ESCALATED** (ESC-FREL-g-7 ← ESC-FREL-vb2-1).
+
+### F-REL.d — re-sit (RESUME 2026-10-16 (d); after `.g` sitting 6; the deploy precondition read at the bytes)
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 local. Spec read whole (`fourier/waves/F-REL.md`, 69 lines; §Units `.d` L32-38, §Gates L39, addenda (a)–(d)); record read: RESUME (d) Unit plan (L1857-1872) and `.g` sitting 6 (L2005-2035). COHESION to the file end (⟨`wc -l COHESION.md`⟩ → `4074`); §0fk.4-5 (L4022-4026) consumed; ⟨`grep -n 'vb2-1\|g-7\|ESC-FREL-d-' COHESION.md`⟩ → only §0fk.4's `ESC-FREL-d-1 dissolves` (L4022): ESC-FREL-vb2-1 and ESC-FREL-g-7 are unruled; §0fl–§0fn rule KF.W13X only. **Status: ESCALATED (ESC-FREL-d-2). No deploy, no push, no fourier commit.**
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → no path under `scripts/` (the dirty paths are the X-DS lane's `web/**`, not touched); ⟨`git status --porcelain -- execution/C/F-REL.md`⟩ → empty; `fourier/evidence/F-REL/` absent. Nothing inherited.
+
+**Act 1 — the lock (§0fk.4: "ESC-FREL-d-1 dissolves on a green master CI"): UNMET.**
+- ⟨`git fetch -q origin; git rev-parse --short origin/master origin/m/w1-bump-migration`⟩ → `ad62881` · `be5ede6`; ⟨`git rev-list --left-right --count origin/master...origin/m/w1-bump-migration`⟩ → `1 462`. The merge has not happened.
+- ⟨`gh run list --branch master --limit 3`⟩ → `deploy-pages skipped 38905243799` · `38873269746` · `38824392708`: no master CI green, no new SPA shipped.
+- ⟨`gh run list --branch m/w1-bump-migration --limit 3`⟩ → `38899400446 failure` (newest) · `38868934803 failure` · `38824079821 failure`: no fresh run since `.g` sitting 6; `.g` is ESCALATED (ESC-FREL-g-7 ← ESC-FREL-vb2-1).
+
+**Act 2 — read-only production readings (non-regression; no probe against the old API, no deploy fired).**
+| Gate | Reading | State |
+|---|---|---|
+| pages smoke GREEN on the new SPA | ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ → bundle `/assets/index-BYSiPuAh.js` carries `https://api.fourier.babb.dev` · health `200 application/json {"status":"ok"}` · ACAO `https://fourier.babb.dev` · cert > 14 d · `PASS`. This is the OLD (June + hotfix) SPA | GREEN non-regression; **NOT READ** on a new SPA |
+| cert > 14 d | api `Jan  4 15:19:06 2027 GMT` (smoke) · ⟨`openssl s_client -connect fourier.babb.dev:443 … \| openssl x509 -noout -enddate`⟩ → SPA `Dec 22 20:13:07 2026 GMT` | GREEN |
+| health polled through the deploy (no outage) | no deploy fired (lock unmet) | NOT READ |
+| `scripts/prod-verify.mjs` 20/20 headless | not run: the host API is still `f2fe447`-era (banked 10/20) | RED / NOT READ |
+| openapi has publish/remix/diff | ⟨`curl -s …/openapi.json \| python3 -I -c '<paths filter>'`⟩ → `34 0.2.0 []` | RED |
+| PATCH preflight 2xx | ⟨`curl -X OPTIONS …/api/visualizations/x` Origin fourier.babb.dev, PATCH, `if-match,idempotency-key,content-type`⟩ → `400` | RED |
+
+**Owner items (named, non-blocking, §0fk.5).** R-4 (the hook webhook token) and R-6 (the admin token for the two private draft rows) are OWNER items. **R-h2 named:** any push to master fires the host webhook deploy, so the master push belongs to `.g`'s green merge, never ahead of it.
+
+**Commits.** fourier: none. value.js: this record only. **Adjacent edits.** None. **Evidence.** Nothing banked under `fourier/evidence/F-REL/` (no deploy to evidence).
+**Teardown.** No server, browser, container, watcher or CI run started.
+**E13.** ⟨`grep -E '^\| I-' V/coordination/INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
+
+**Escalation — ESC-FREL-d-2 (restates d-1 at `ad62881`/`be5ede6`).** `.d` is locked behind a green master CI (§0fk.4), which needs `.g` to merge. `.g` is ESCALATED as ESC-FREL-g-7 on the unruled ESC-FREL-vb2-1 (au1 X-5 @390 RED, `/equation` dock scrollWidth 348 > clientWidth 346 in `playwright:v1.61.0-noble`). Once vb2-1 is ruled and cured, a fresh m/w1 CI reads GREEN, `.g` merges and master CI reads GREEN ×2, `.d` re-sits: health polled through the Pages workflow and the webhook deploy, then `prod-verify.mjs` headless (daraksha + EXIF-6, contours, preview, publish/remix/diff, edit/delete, gallery), evidence banked under `fourier/evidence/F-REL/`.
+
+**Status: ESCALATED** (ESC-FREL-d-2 ← ESC-FREL-g-7 ← ESC-FREL-vb2-1).
