@@ -778,3 +778,42 @@ The relaunched workflow dispatched this seat as "pass 7" with critic V7R's 4 row
 - Judge the now-visible menus' material. In the census they are glass's 5-layer `menu-content` and 8-layer `select-content` (O-87).
 - Check that no other portaled glass surface (tooltip, hover card, toast) lands under the stage. The overlay cells now make that a census read.
 - The open owner rulings are unchanged: P5C-02 (P5-B1), VC6-04 (P6-B1), VC5-01 and VC4-09.
+
+### pass 8 (re-dispatch, 2026-10-16): critic V8C — the RGB specimen's digits, the My Palettes hierarchy, the select floater and trigger
+
+The relaunched workflow dispatched this seat as "pass 8" with critic V8C's 5 rows. `pass-08/` already holds the first pass 8, so this seat's evidence is in `pass-08/p8-2026-10-16/`.
+
+**Commits.** value.js `ff7ea01b3` (the cure, the unit case, the O-87 relay addendum) and `84c2b5f26` (frames, census, gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-08/p8-2026-10-16/`) |
+|---|---|---|---|
+| V8C-01 (low) | **Cured at the root.** | `formatSpecimen` applied the digit policy on the picker's 0..255 scale, and the library's `serializeCssColor` then divided an out-of-range rgb by 255 for `color(srgb …)`, bringing back 12 decimals. An rgb colour outside 0..255 now has its policy applied in the serialized domain (0..1 channels budgeted to 4 significant digits). No projection; the gamut mark is unchanged. New unit case `demo/test/color-session/specimen-format.test.ts`: Lab(92% 88.8 20 / 0.827) gives an RGB specimen ≤ 52 chars ending in `/ 82.7%)`, 4 significant digits per channel, and it round-trips `parseCssColor`. | `mix-select-1440-{light,dark}.png`: the RGB row reads `color(srgb 1.511 0.5623 0.7829 / 82.7%)` (39 chars; was 66, cut before its alpha). The o23 census print in `gates/e2e-run*.txt` shows the same. |
+| V8C-02 (low) | **Cured, by lifting the action.** | `CurrentPaletteEditor.vue`: the well label moves from `text-small` muted to `text-body` foreground, keeping `font-display font-semibold`. It now ranks one step over EmptyState's single register (body, 500) on every host. EmptyState is untouched, so Mix's VC4-02 fix still holds. | `palettes-1440-*`, `browse-*`, `extract-*`, `generate-*` and `gradient-*` frames: "Start a new palette" at the body rung in full ink above "No saved palettes yet." |
+| V8C-03 (low) | **Glass-owned: cited, not overridden.** | The select floater's translucency over the spectrum field, and the three-signal highlighted row. Cited as an addendum to V7R-02 in `relay/X-ALL-BK-FLAT-LIGHTING.md` (O-87). Honest-RED until the 10.2.0 repin. | Census overlay `floaterMaxLayers` 8 (glass `select-content`), unchanged. |
+| V8C-04 (low) | **Glass-owned: cited.** | Wide `SelectTrigger`s take `--radius-control` (pill). The ask is `--radius-field` for wide, field-holding triggers (OA-54; O-58's radius table is the precedent). Cited in the same addendum. No consumer restyle. | `atmosphere-1440-*`, `mix-1440-*`, `generate-1440-*`, `gradient-390-*`. |
+| V8C-05 (trivial) | **Left to the seat holding V9C-07.** | The `fill` cap sits in another seat's uncommitted hunks (`SwatchButton.vue`, `GenerateControls.vue`). This seat did not touch them. | — |
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`, guarded).
+- **Verdict RED, on glass rows only (O-87).** Routes: max 6 layers, inset highlights 367, drop-shadow 8, gradient fills on controls 22. Overlays: floater max layers 8.
+- **Consumer:** unchanged. Static box-shadow declarations 17, with no inset highlights, drop-shadows or control gradients; looping 0.
+- Overlay paint-top failures: 0.
+
+**Frames.** Headless real Chrome (§0ei), on :9000. That server serves the working tree, so other seats' uncommitted hunks show in the frames.
+- 36/36 route frames.
+- 8 opened-overlay frames: `{view-menu-1440, card-menu-1440, overflow-menu-390, mix-select-1440}-{light,dark}`.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1214/1221 ×2. The 2 new V8C-01 cases pass. The **same 7** standing failures remain (ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6).
+- **e2e** (smoke, headless, workers 1, own server :9184): o7, o10d, o18, o21, o22, o23, o24 and palette-save, 43 tests.
+  - **36/43 ×2**, with the same 7 failures both runs: the 6 standing o18 rows (F-3, T-35, A-1 ×2, N-3 ×2), plus o23's projection leg.
+  - o23 fails on the **HSL** row: the printed saturation reads back as 0 against a true −12.95, because the parser clamps a negative `hsl()` saturation. It does not fail on the RGB row this diff changes.
+  - Falsifier: `gates/o23-at-HEAD.txt` runs the same spec with HEAD's `specimen-format.ts`, and it fails identically.
+
+  Not a strict ×2 GREEN; nothing in this diff. No visual golden was re-baselined.
+
+**For the next critic.**
+- The o23 HSL row is standing and unowned. Either the specimen's HSL row for out-of-gamut colours, or the oracle's read-back through a clamping parser, needs a ruling. It is not a lighting row.
+- `docs/tranches/X/gates/gate-specimen-grammar.mjs` is stale: it still reads `demo/color-session/ColorSpaceSelector.vue`, which moved to `shared/ui/` at `785e522c5`. Its 52-char sweep therefore never saw this row.
+- Judge the well label at 390, where it now sits at the body rung beside the add slot.
+- The glass rows wait on O-87 / O-88.
