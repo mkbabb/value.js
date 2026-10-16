@@ -661,3 +661,44 @@ The relaunched workflow dispatched this seat as "pass 4" with critic P4R's rows 
 - Judge the light ramp's warm end (h 70 at L 0.37) against T-56's "pleasing pastel". A cooler light end needs the owner's register call.
 - Judge the dark ghost's 1 px seams at 390.
 - P4R-02 and P4R-03 wait on glass (O-87). P4R-05 is open as a judgement call.
+
+### pass 5 (re-dispatch, 2026-10-16): critic P5C — the collapsed dock seal, the light Palettes ramp, Extract's idle ghost
+
+The relaunched workflow dispatched this seat as "pass 5" with critic P5C's rows **P5C-01..03** (evidence `pass-05/critic-p5-2026-10-16/`). `pass-05/` already holds the earlier pass-5 evidence, so this cure's evidence is in `pass-05/p5c-2026-10-16/`.
+
+**Commits.**
+- value.js `7de5c708e`: P5C-03. `PaletteCardSkeleton.vue` was staged as HEAD plus this seat's hunks only. Another seat's uncommitted V9C-04 hunks in the same file stay in the tree.
+- value.js `94292cb81`: probe, AFTER frames, crops, census and gates.
+
+This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-05/p5c-2026-10-16/`) |
+|---|---|---|---|
+| P5C-01 (low) | **Held. The fill is owner-ruled identity; the lighting is glass's (O-87 / O-88).** | Consumer check as asked: no demo token feeds the tile's fill. The seal markup and its computed styles carry neither `--dock-ring` nor `--accent-view`. The filled tile is the **wax**: `Dock.vue #collapsed`, a WatercolorDot in the **live colour** (`cssColorOpaque`), with the view glyph inked over it in `--seal-ink`. That is the owner-ruled seal (T.W6 W6-7, Q12/T-28; T-37 "the wax speaks live"). Quieting it would strip identity, which §0dm forbids for a cure. `--dock-ring` only reaches the expanded trigger's focus ring. The ring and halo around the collapsed tile come from glass's `.glass-dock.collapsed`, so no local override. | `probe-p5c.json` `p5c01`: in both schemes the wax is `lab(92 88.8 20)` (the live pick) and `sealUsesDockRing` / `sealUsesAccentView` are both false. The collapsed `.glass-dock` box-shadow is one `0 0 12px` halo (glass). Crops: `crops/dock-collapsed-1440-{light,dark}`. |
+| P5C-02 (low) | **Not a seat's cure: owner DESIGN-RULING (P5-B1, under T-56 / P4-B1).** | As the critic says, this is a register call. Both poles are framed at the ramp tokens, injected by the probe on the two consume sites; nothing ships. **Pole A** is today's ±60° fan around the pick (h 310 / 10 / 70). **Pole B** re-centres the light fan cool (violet 300, rose 350, coral 30), using the same max-chroma solve and held at **Pole A's own measured contrast**. Pole B is one resolver change (the light shifts), with no second recipe. Certifying the title at a bare 3:1 was not chosen: pass 4 measured a thin margin falling under 3:1 on real plate pixels. | **Title, 1440 light** (plate rgb 215/132/124): Pole A L 0.40/0.39/0.37, C 0.20/0.16/**0.08**, 3.72–3.75:1. Pole B L 0.40/0.39/0.39, C 0.21/0.16/**0.155**, 3.73–3.74:1. The warm end moves from brown to coral at the same contrast (`crops/palettes-title-pole{A,B}-{1440,390}-light`). **Menu entry** (normal text, 4.5 floor, plate 211/122/101): both poles land at L about 0.30, 4.54–4.57:1. Pole B lifts the warm end's C from 0.06 to 0.12, but at that floor the word stays dark (`crops/view-menu-entry-pole{A,B}-1440-light`). The menu entry stays near one ink at the 4.5 floor under either pole. |
+| P5C-03 (trivial) | **Cured, at the one component (the critic's option b).** | The instrument face is now an **outline**: the card's one hairline, plus a `--card-edge` hairline between the k cells. It has no `bg-well` ground and no `--skeleton-ink` fill step. The mount stays as it is: R7 / T-13 (owner) seat the shadow palette at Extract's true-empty, so option (a) was not taken. The loading registers keep their ground and motion. The cure adds no counter-style: the fill rule is deleted and the seams replace the gap-px. | `p5c03`, all 4 cells: ground `0.08α well` → **transparent**; cell fill `0.218α ink` → **transparent**; seams `0px` → **1px card-edge**; height **42 px unchanged**. Crops: `crops/extract-card-{before,after}-{1440,390}-{light,dark}`. In light the slab no longer outweighs the sliders. In dark the seams now read. |
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`, guarded `--light`).
+- **Verdict RED, on glass rows only (O-87):** max 6 layers, inset highlights 364, drop-shadow 8, gradient fills on controls 22.
+- **Consumer:** box-shadow layers 116 (single-layer), backdrop blur 18, looping 0. No inset highlights, drop-shadows or control gradients.
+- Unchanged from pass 4's read.
+
+**Frames.** Headless real Chrome (§0ei), through the pass-4 `harness.mjs`, on :9000. That server serves the working tree, so other seats' uncommitted V9C hunks show in the frames: the image actions sit under the drop zone, and the instrument has no meta blocks.
+- The critic's cells: `gradient-stop-1440-*`, `card-open-1440-*` (Browse fixture), `view-menu-1440-*` and `extract-{1440,390}-*`.
+- Plus the crops above.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1212/1219 ×2, with the **same 7** standing failures both runs: ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6. plate-mass passes ×2.
+- **e2e** (smoke, headless, workers 1, own server :9179): o9-shadow-palette, browse-loading, crash-battery.
+  - Run 1: **21/21**.
+  - Run 2: **20/21**. In o9's no-growth leg, `boundingBox` read 46.836 vs 46.724 px, a sub-pixel transient from the plate's arrival transform. The cure adds no block-axis box.
+  - Re-run alone `--repeat-each=3`: **3/3**.
+  - Another seat's `4d6d0f96d`, which landed during this run, re-reads that leg as layout height for exactly this transient.
+
+  Not a strict ×2 GREEN; the one miss is the known transient. No visual golden was re-baselined.
+
+**For the next critic.**
+- Judge the outline instrument's 1 px seams at 390 dark, and the swap from outline to the filled imminent skeleton when a run starts. That swap is now a material change; the layout is unchanged.
+- P5C-02 waits on the owner (P5-B1), alongside VC6-04, VC5-01 and VC4-09.
+- P5C-01's halo and rims wait on glass (O-87 / O-88). The wax tile itself is owner-ruled identity.
