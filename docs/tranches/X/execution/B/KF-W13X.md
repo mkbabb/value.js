@@ -5451,3 +5451,24 @@ The X-W11 LEDGER row (`:43`) opens after "everything". With this check, KF.W13X'
 - smoke is relieved by §0fa item 9 and is carried as D-1 for a by-id home.
 
 LEDGER row → `CLOSED 2026-09-17 (honest-RED: B7 SPECULAR-REST · SHEET-POSITION)`.
+
+### KF.W13X.smk
+
+SERVED MODEL: claude-opus-5-5. Authority: COHESION §0fn (arm (a)), D-1 above. Grant: `scripts/observe/demo/smoke.mjs`, the heavy-request block only. kf `389e31d2` → **`2944fa41`** (pushed to master). The other dirty kf paths were not touched.
+
+- **BEFORE (RED).** The dist was built at `389e31d2` (`npm run gh-pages`), and every run went through `guarded`.
+  - Standalone `node scripts/observe/demo/smoke.mjs`: GREEN 4 of 4. The race needs the roster's shared, already-warm chromium.
+  - Through the roster (`run-demo-roster.mjs --workers=1 --only=smoke`): **RED 3 of 4** (r1, r3 and r4 RED; r2 GREEN). The log line was `✗ heavy chunks requested at first paint: http://127.0.0.1:60999/assets/vendor-three-nw0IrzH_.js`, which is D-1 reproduced.
+- **Cure.**
+  - Each heavy request (`vendor-monaco|vendor-three|.worker`, same regex) is stamped with its wall-clock issue time.
+  - The first-paint boundary is the page's own `first-contentful-paint` entry, as `performance.timeOrigin + startTime`. Where that entry is absent, the boundary is the `#app` mount: an init-script MutationObserver records when `#app` gains its first child.
+  - The assertion reads only the snapshot of requests issued at or before that boundary. If no boundary can be read, the check fails.
+  - Not done: no exclusion by name, no retry, no timeout widened. The hero poll and the mount wait are unchanged.
+  - The GREEN line now reports the boundary used and how many heavy requests came after it.
+- **Falsifier (scratch, never committed; `demo/app/main.ts` restored with `git checkout --`, then rebuilt).**
+  - First attempt: `import * as T from "three"` reading only `T.REVISION`. The constant was inlined and `three` was tree-shaken, so the build did not change (same `vendor-three-nw0IrzH_` hash, static check GREEN) and the attempt does not count.
+  - With `new T.Scene()` assigned to `window`, both falsifier roster runs read **RED**:
+    - r2: `✗ heavy chunks requested at first paint (first-contentful-paint): …/assets/vendor-three-nw0IrzH_.js`, together with the static `✗ entry statically imports heavy lazy vendors`.
+    - r1: the static check RED, and the browser half crashed on `page.goto` load timeout (30 s; three is now on the load path). The snapshot assertion was not reached in r1.
+- **AFTER (GREEN ×2).** At HEAD, rebuilt, through the roster: r1 and r2 both read `✓ no vendor-monaco / vendor-three / worker request at first paint (first-contentful-paint; 1 after it)`, exit 0. The "1 after it" is KFA-76's lawful idle warm of `vendor-three`, recorded and correctly outside the snapshot.
+- D-1 → **CURED** (kf `2944fa41`).
