@@ -1702,3 +1702,55 @@ The census is unchanged because this pass's cures are fold, emphasis and proport
 **Concurrency**
 - Other seats committed r3res, r4shared2 and r4press work to keyframes.js master during this pass. The cure commit is pathspec-only over its ten files.
 - The evidence and receipt commits are pathspec-only.
+
+### pass 9 (the sixth redeploy's pass 9; critic C9; evidence in `pass-34/`)
+
+**Cure commit:** keyframes.js `81486e3c` (master, pushed fast-forward `c761d639..81486e3c`). **Evidence:** value.js `4ab97ab28` (`evidence/DS/keyframes/pass-34/`: `c9-probe.mjs` with `c9-probe.json` (0 fails); `after/` with `easing-{1440,390}-{light,dark}` (after picking `ease-in` and then `steps`), `spring-{1440,390}-{light,dark}`, `sequence-1440-{light,dark}`, `square-{1440,390}-{light,dark}`, `timeline-cube-timeline-{1440,390}-{light,dark}` and `timeline-cube-timeline-fullpage-390-{light,dark}`; `cure/` (`dock-explore.mjs`, the dock route to a pane surface, and `glyph-probe.mjs` with the collapsed-glyph strips `glyph-{before,after}-strip.png`); `census.json`, `census.log`, `census-frames/`; the gate logs `check-*`, `lint-*`, `test-demo-*`). The critic's BEFORE frames are `pass-33/after/`. Every capture is headless real Chrome (§0ei). The task named `pass-09/`, which already holds the first workflow's pass-9 evidence, so the frames go to `pass-34/`, following the pass-23..33 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C9-01 (medium, evidence) | **Every pane frame is picked through the UI and checked.** The probe no longer writes `selectedControl` into localStorage. It presses the dock's surface item (`[data-dock-surface-item][data-surface=…]`), hovering the collapsed tile first when the item is hidden. It then reads the pane's visible title (a configurator section label with no ancestor below 0.5 opacity, hidden or inert) and fails if the title does not match. The title is read again right before the frame is taken. At 390 the opened Timeline sheet is also captured full-page, because glass's sheet grows down past the viewport (the glass half, cited below). | Timeline frames at 1440 and 390, in both schemes, show the Timeline pane (title asserted). The full-page 390 frames show the opened sheet with its track and caption (detent 0.36; sheet 723 to 1026 against an 844 viewport). The Spring frames at 1440 show Physics. |
+| KF-C9-02 (low) | **One right edge on the spring figure.** One lg rule now gives the legend row (`.trace-title-row`) and Re-seat the same end-side margin (`--plot-inset-end`, the rail's overshoot band). The figure has one right edge, and the text keeps its left gutter (KF-C8-01). | At 1440 in both schemes, the legend, the plot, the track and Re-seat all end at **1230** (the legend was at 1342). |
+| KF-C9-03 (low) | **End room is at most one gap.** If resting on a family heading would need more end room than the catalogue's section gap (1.25rem), `landTop` does not take that rest. The drawer rests at its end instead, with the last row whole and the plate ending one padding under it. KF-C8-05's heading rest still holds wherever it needs no more than one gap. | After `ease-in` then `steps` at 1440: end room **0** (was 71 px), **16 px** of plate under the last row (was about 115), `steps` whole, 0 px of scroll left. 390 is unchanged (no end room). |
+| KF-C9-04 (low) | **The square plate stands at the stage height** (the critic's first option, one rule for all scenes). Below lg, KF-C7-08's content-sized plate override (`block-size: auto; align-self: start; grid-template-rows: auto auto`) is deleted, so the plate keeps the sibling `h-full` with a header row and a free row. The square arena (`aspect-ratio: 1`) is centred in the free row. | At 390 the plate spans 102 to 715 and the sheet starts at 723 (the plate used to end at about 573). Field 182 px; 146 px above the field and 143 px under the caption (balanced). |
+| KF-C9-05 (low) | **One pane header.** The Controls surface's main row (ChannelOptions) and the Timeline (KeyframeTimeline) now wear glass's `ConfiguratorLayer`, the header the Easing, Physics and Stagger facets already wear: the same title row, baseline and trailing chevron, so every pane collapses the same way. Both bare `h3`s are deleted. The layer owns the inline inset. The two drill-in sub-panes keep the column inset through one scoped rule (`.panel-row--sub`). | At 1440, in both schemes, every pane title (Easing, Physics, Stagger, Rotations, Timeline) has its top at **137** with x 93, and every one is a layer header with a chevron (they were at 156, 159 and 155, with no chevron on Controls or Timeline). |
+| KF-C9-06 (low) | **One stage-readout rule.** `.stage-readout` (design-idioms.css) now owns the value's rung (body), weight (500) and ink (`--ball-tone`). `data-readout="primary"` takes the subheading rung. Spring's private `.spring-readout-primary/-secondary` rules and the scenes' `readout-accent text-mono-small` are deleted. Sequence's clock moves to the row under its title, as Square's and Spring's readouts already sit. Each scene keeps its own precision. | At 1440 every primary value is **20.35 px** (Sequence clock, Square x and y, Spring position). Spring's partner is 18.6 px, the body rung. The Sequence clock sits under the title. |
+| KF-C9-07 (low) | **The bounce tile shows its shape.** A catalogue item can set `noteShown` (easingGroups.ts). Only `ease-in-bounce` sets it, and its description "fast rise, overshoots" shows as a muted second line under the name. It stays the tile's aria description, never part of its name (OA-31). The engine name is unchanged. | The note is visible on one tile only (`c9-probe.json` easing.*.bounce). |
+| KF-C9-09 (low) | **The empty track shows the CSS it counts.** ChannelControls passes the channel's percent stops to KeyframeTimeline, and TimelineTrack draws them as dashed, inert, `aria-hidden` ghost diamonds (the dashed ghost idiom) only while the timeline holds no stops. The channel name is set in the sentence's own face (the `code` run is gone). | `#/cube` Timeline surface: **2** ghost marks at 0 % and 100 % at 1440 and 390, in both schemes. The sentence reads "Rotations has 2 keyframes in CSS — Import them to edit here." with no mono run. |
+| KF-C9-11 (trivial) | **The Amiga glyph's subject fills the glyph.** In AmigaMini the ball's radius goes from 4.5 to 6 units (of 20), and the travel scale from 0.9 to 0.4 so the ball stays inside the room. | `cure/glyph-after-strip.png`: the ball now reads at the size of the other scenes' marks in the 20 px dock glyph. |
+
+**Cited (glass, not overridden)**
+- **KF-C9-10:** at t = 0, glass's scrubber recipe draws nothing, because the elapsed fill is the handle. The groove therefore reads as disabled at rest. This is an **O-87** proportion and affordance rider: show a minimal leading-edge mark at zero. No local thumb override (OA-8).
+- **KF-C9-01, glass half:** `.glass-floating { position: relative }` outranks the sheet's `position: fixed`, so the 390 sheet grows off-screen (named at pass 8). It is captured full-page here and not patched.
+- **KF-C9-G1:** these rows stay honest-RED and are re-judged at the 10.2.0 repin under **O-87** and **O-88**: the stacked card shadows and rim halo, the collapsed dock tile and the play-bubble halos, the input/select fill mismatch, the control-surface fills (Bezier/Steps, the 'All' pill, Import), the sheet position, and the EasingPicker ghost diagonal.
+
+**Not cured (named)**
+- **KF-C9-08:** the dashed (preset) and solid (specimen) selected idioms. This is an owner **DESIGN-RULING** (§0dm/U-K17), as the critic states. It was not changed.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): identical to pass 33 on every row. Chrome has 310 shadow elements, 938 layers (max 6); 192 non-floating; 416 inset highlights; 278 backdrop blur; 54 control gradients; 104 looping. The static tally is unchanged (5 box-shadow declarations, 2 layers, 5 gradient fills), and the subject is 0. The verdict stays **RED**, held by the glass-owned rows and the KF-C3-02 loop row. This pass's cures are geometry, anatomy, copy and evidence, which the census does not count.
+
+**Gates** (the live tree: master at `81486e3c`)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **925/925, 151 files, twice.**
+- Two tests were restated, selectors only, with no assertion weakened:
+  - `channel-options-w13x`: the `layerEntry` helper now excludes `[data-slot=configurator-layer-trigger]`. The layer's header trigger is also an `aria-controls`/`aria-expanded` button, and the old selector clicked it, which collapsed the row.
+  - `timeline-expanded-surface`: the inset is read from the ConfiguratorLayer (the label is "Timeline" and the body keeps `pb-4`), not from the deleted CardContent padding classes.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. The served probe (`c9-probe.mjs`, 0 fails) is the falsifier for -01 through -07 and -09. `cure/glyph-probe.mjs` is the falsifier for -11.
+
+**Disclosures**
+- **KF-C9-03 trades KF-C8-05's heading rest.** At 1440 after `steps`, the drawer's top line again crosses the Circ row, which is under glass's start fade. A rest on the Back heading would cost 71 px of painted empty plate, and the critic ranked the dead plate as the defect. The heading rest is kept wherever it needs at most one gap.
+- **KF-C9-04 reverses KF-C7-08's content-sized phone plate.** At 390 the field is still bound by the inline term (182 px), so the plate now holds about 145 px of balanced room above and below the field and caption. The other option, a content-sized card centred in the free band, was not taken because the critic asked for one rule for all scenes.
+- **KF-C9-05 makes the Controls and Timeline panes collapsible,** like the facets ("every pane collapses"). The Timeline's teleported ribbon verbs stay in the ribbon when it collapses.
+- **KF-C9-06 leaves Easing's header as it is.** Its slot holds the specimen's literal (the name's spelling), not live telemetry, and KF-C8-06 had just landed its one-line layout.
+- **KF-C9-09's ghost diamonds at 0 % and 100 %** are half-clipped by the track's `overflow-x: clip`, exactly as live stops at the ends are.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`: check, lint and the probes with `--light`, the suites with `--light --rss-gb 4 --timeout 15`, and the census with `--timeout 20`, one after the other.
+- The 1-minute load ran between about 14 and 20.
+- Each probe and the census used one browser, closed in `finally`. The keyframes dev server on :5173 (a kept port) was reused.
+- Nothing of this seat's was left running.
+
+**Concurrency:** keyframes.js master had no other seat's commits during this pass. The cure, evidence and receipt commits are pathspec-only.
