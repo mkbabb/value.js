@@ -155,10 +155,18 @@ test.describe("D1 · one contract, ONE render path", () => {
     });
 });
 
-test.describe("D4 · an unregistered target is a TYPED, SURFACED state — never silence", () => {
-    // The mobile branch: `App.vue`'s single `<PaneSlot>` carries no `:on-mount`,
-    // so no scene pane registers. The cure for THAT is X-W5's `bindPane`; what
-    // this wave owes is that the silence is unrepresentable.
+test.describe("D4 · the mobile branch registers its scene panes — every seat READY", () => {
+    // Re-baselined X-W12U .q2 to X.W5.a (`de99ec156`). This describe used the
+    // mobile layout as its UNREGISTERED fixture: `App.vue`'s single
+    // `<PaneSlot>` carried no `:on-mount`, so no scene pane registered, and the
+    // cure was named as X-W5's `bindPane`. That cure landed: the mobile slot
+    // binds its pane, so the bar is modelled `ready` (q1/s2 read
+    // `["ready","ready","ready"]` for all three scenes). The UNREGISTERED leg —
+    // a null target modelled `unavailable` with the scene's reason, never
+    // `undefined` — is no longer reachable from any layout, so it is held
+    // falsifiable at the builder (`demo/test/shell/scene-actions-unregistered.test.ts`),
+    // and its rendered half (an inoperable seat is aria-disabled and SAYS so)
+    // at `demo/test/shell/pane-popups-and-seats.test.ts` (A2-VA-L2-6).
     test.use({ viewport: { width: 390, height: 844 } });
 
     for (const [view, expected] of [
@@ -169,7 +177,7 @@ test.describe("D4 · an unregistered target is a TYPED, SURFACED state — never
         ],
         ["Mix", ["mix.clearSelection", "mix.startMix", "mix.copyResult"]],
     ] as const) {
-        test(`${view}: every action is named, modelled 'unavailable', and inoperable`, async ({
+        test(`${view}: every action is named, modelled 'ready', and operable`, async ({
             page,
         }) => {
             await landAndOpenBar(page, view);
@@ -177,26 +185,21 @@ test.describe("D4 · an unregistered target is a TYPED, SURFACED state — never
             await expect(row(page)).toHaveCount(1);
             expect(await tokens(page)).toEqual([...expected]);
 
-            // (1) The state is MODELLED, not absent. `undefined` is not a state.
-            expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+            // (1) The state is MODELLED, and the registered pane makes it ready.
+            expect(await states(page)).toEqual(expected.map(() => "ready"));
 
-            // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+            // (2) The seat is operable: no aria-disabled, no "unavailable" name.
             const buttons = row(page).locator("[data-scene-action] button");
             await expect(buttons).toHaveCount(expected.length);
             for (let i = 0; i < expected.length; i += 1) {
                 const button = buttons.nth(i);
-                await expect(button).toBeDisabled();
-                await expect(button).toHaveAttribute("aria-disabled", "true");
-                // (3) …and it SAYS so: the accessible name carries the state,
-                // so a screen-reader user is not told a dead control is live.
-                await expect(button).toHaveAccessibleName(/unavailable/i);
+                await expect(button).toBeEnabled();
+                await expect(button).not.toHaveAttribute("aria-disabled", "true");
+                await expect(button).not.toHaveAccessibleName(/unavailable/i);
             }
 
-            // (4) One announced status message names the condition for AT.
-            await expect(row(page).locator('[role="status"]')).toHaveCount(1);
-            await expect(row(page).locator('[role="status"]')).toContainText(
-                /not registered/i,
-            );
+            // (3) No "not registered" condition is announced.
+            await expect(row(page).getByText(/not registered/i)).toHaveCount(0);
         });
     }
 });
