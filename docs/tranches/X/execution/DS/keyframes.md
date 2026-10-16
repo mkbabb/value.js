@@ -2199,3 +2199,52 @@ Every capture is headless real Chrome (§0ei). `pass-11/` already holds the firs
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probes and the census `--light`, the suites `--light --rss-gb 4`.
 - Each probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 12 (the seventh redeploy's pass 12; critic C12; evidence in `pass-45/`)
+
+**Cure commit:** keyframes.js `099a1627` (pushed fast-forward to master, `8bf24249..099a1627`). **Evidence:** value.js `1c69aeb71` (`evidence/DS/keyframes/pass-45/`):
+- `c12-probe.mjs`, `c12-probe.json` (the served falsifier for -01);
+- `after/`: `cube`, `amiga`, `square`, `easing`, `spring` and `sequence` at 1440 and 390, each in light and dark, plus `dock-<scene>-<width>-<scheme>` frames of the dock opened by hovering its face;
+- `census.json`, `census.log`;
+- the gate logs `check-*`, `lint-*` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). `pass-12/` already holds the first workflow's pass-12 evidence, so the frames go to `pass-45/`, following the pass-23..44 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C12-01 (low) | **The facet slot names its facet.** The slot stays (OA-37/46/51); its content is fixed at the descriptor root, `controlSurfaces.ts`. A new pure `channelFacetsOf(channels)` lists the conditional facets a scene's channels carry and the channel that gates each one. `dockSurfaceItems(surfaces, channelFacets)` gives every item a `title`, used as its tooltip and accessible name. When no facet is live, a scene with a conditional facet shows that facet disabled, with its own glyph and label and the reason (cube: Grid3X3, "Matrix: select the Matrix channel"). A scene with no facet shows "No facet for this scene" with a dashed-circle empty-slot glyph. `FACET_PLACEHOLDER` ("Scene facet", Activity) is deleted. `App.vue` feeds the resolved scene's channel facets to `ChromeDock`. No new component. | On every scene route, at 1440 and 390 in both schemes (probe, 0 fails): cube's 4th item reads "Matrix: select the Matrix channel" with the Grid3X3 glyph, disabled; amiga, square and sequence read "No facet for this scene" with CircleDashed; easing and spring keep their live Curve and Physics. No "Scene facet" and no Activity glyph on a disabled slot. Unit falsifier: a new `dock-surface-items` case for the Matrix-at-rest, Matrix-selected and no-facet slots. It cannot pass at `8bf24249`, where `channelFacetsOf` does not exist and the slot reads "Scene facet". It is GREEN after. |
+
+**Cited (glass, not overridden)**
+- **KF-C12-G1:** the hover capsule tone is almost the active capsule tone (light ink 0.14 against 0.18, dark 0.18 against 0.22), so a hovered item reads as a second selected tab. This is glass's DockControl `glass-capsule-hover` / `glass-capsule`. It is cited against **O-87 FLAT-LIGHTING** as an affordance and proportion rider: a markedly lighter hover tone, or hover on the glyph ink alone, with the active seat keeping the solid capsule. Re-judge at the 10.2.0 repin. No local override. The frame `after/dock-cube-1440-light.png` shows the hovered Keyframes item beside the active Controls.
+- **KF-C12-G2:** the held glass rows are unchanged at glass 10.1.0:
+  - the cream Input fills beside the grey or transparent Select fills;
+  - the closed Select's up caret inside an open ConfiguratorLayer;
+  - the pill field radius;
+  - the control-surface gradients and the `glass-control-edge` insets;
+  - the resting plate's backdrop blur smearing the grid crossings;
+  - the 5-layer resting stack;
+  - the dark secondary-Button halo;
+  - the collapsed dock tile, its halo, and the play-bubble halo;
+  - the EasingPicker ghost staircase and its 'Custom' label at `ease`;
+  - the scrubber that draws nothing at t = 0.
+
+  Cited against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION**. Re-judge at the 10.2.0 repin.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`): every tally is identical to pass 44: chrome 310 shadow elements, 938 layers (max 6), 416 inset highlights, 278 backdrop blurs, 54 control gradients and 80 looping animations (the owner-ruled `wave-char` and `TypingDots`). The cure changes a glyph and a label, not the lighting. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `099a1627`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **938/938 (155 files), twice.**
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk was not touched. Every commit is pathspec-only. Master had moved to `8bf24249` (another seat) since pass 11; the cure sits on it fast-forward.
+- **Identity:** no identity hue, type or motion changed (§0dm). Only the empty slot's glyph and words changed.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light`, the suites `--light --rss-gb 4`.
+- The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
