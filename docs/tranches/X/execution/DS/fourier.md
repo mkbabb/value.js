@@ -1481,3 +1481,33 @@ This is the cure seat for critic **F11X** (the redeploy's pass-11 critic, 2026-1
 - `morph-*-{1440,1024,390}-{readout,levels,levels-card}`;
 - `v-error-{bare,detail}-*-1440`;
 - each in light and dark.
+
+### pass 12
+This is the cure seat for critic **F12X** (the redeploy's pass-12 critic, 2026-10-16). The AFTER frames are in `evidence/DS/fourier/pass-12/f12x/`. The other sets under `pass-12/` (`critic-f12x/`, `before/` and the F14 cure set at the root of `pass-12/`) are left as they were.
+- fourier `d9ebf2a`, on `m/w1-bump-migration`, two files, committed by pathspec and pushed fast-forward `4de08dc..d9ebf2a`. The files: `HarmonicLevelGrid.vue` and `e2e/contrast-pairs.ts`.
+- value.js `f9b7b8215` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F12X-C1 | **Weight arm cured, tone arm refused.** The resting tile edge is now a 1 px hairline instead of 1.5 px. That is the weight of the card's own edge (1 px, measured), so the inner tile no longer outweighs its container. The selection keeps the accent edge and its 2 px 15% ring, and is the only heavier mark. The change is one declaration at `HarmonicLevelGrid.vue:271`, with no shadow and no wrapper. The press scale, the accent-red shapes and the mono captions are unchanged (§0dm). **Why the tone arm is refused:** the 50% `--foreground` ink is the WCAG 1.4.11 non-text floor that `contrast-floor` grades as **HLG-37[grid-cell-border]**. On `--card` the probe measures the kept ink at 3.295 L / 3.993 D, `--border` at 1.865 L / 2.001 D, and `--border-soft` at 1.309 L / 1.352 D. Both of the critic's tokens fall below 3:1. Taking either one would turn the gate RED, or would mean retiring an a11y row that `SP-3` raised for exactly this grid. That trade is the owner's to rule, so it is not made here. The pair's `what` is restated for the 1 px width; its stack and floor are unchanged. The f-w14u-misc spec does not read the edge's width or alpha. |
+
+**Glass-owned, cited, not overridden.**
+- **DS-F12X-G0** has no new witness. Everything measured falls within the held rows: DS-F2R-G1, DS-F6X-G1 and DS-F8X-G1, DS-F7X-G1, DS-F4X-G1, DS-F2R-G2 and DS-F5X-G1 (O-88), DS-F3C-G1 and DS-F9X-G1, DS-F3C-G2, DS-F3C-G3, DS-F3C-G4, DS-F5-G2 and DS-F4X-G2. The census reads the dark `.dock-plate` at `blur(16px) saturate(1.3) brightness(1.14)`. These rows are held honest-RED on **O-87 FLAT-LIGHTING** and **O-88**, and re-judged at the glass 10.2.0 repin. There is no local override.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3132`; `f12x/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 11. They are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- The cure adds no lighting site. The census is still RED, on the glass rows only.
+
+**Gates** (`f12x/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`. After the final comment-only edit, `vue-tsc -b` was run once more and exited 0.
+- **e2e:** 14 specs (`e2e-specs.txt`), being every spec that reaches /morph or the levels card, plus `contrast-floor`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8012` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018`, `BLOB_DIR` under `~/.cache`) behind vite on `:3132`. Both were stopped at the end.
+  - Runs A and B passed 142/142 each.
+  - An earlier launch never reached the tests: the seed got ECONNREFUSED because the guard had reaped the vite server. Its log was overwritten by run A.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD.
+
+**Frames** (`pass-12/f12x/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f12x-probe.mjs` against the final tree:
+- `morph-*-{1440,1024,390}-{levels,levels-card}`, in light and dark;
+- `f12x-probe.json`, which records the resting edge, the active edge and ring, and the card's edge for each cell, plus the contrast of the three candidate inks on `--card`.
