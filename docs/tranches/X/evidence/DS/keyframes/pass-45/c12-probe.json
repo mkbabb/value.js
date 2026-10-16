@@ -1,0 +1,749 @@
+{
+  "cells": {
+    "cube-1440-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Matrix: select the Matrix channel",
+        "title": "Matrix: select the Matrix channel",
+        "surface": "matrix-controls",
+        "disabled": true,
+        "glyph": "lucide lucide-grid3x3-icon lucide-grid-3x3"
+      }
+    ],
+    "cube-1440-light-expanded-visible": 4,
+    "amiga-1440-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "amiga-1440-light-expanded-visible": 4,
+    "square-1440-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "square-1440-light-expanded-visible": 4,
+    "easing-1440-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Curve",
+        "title": "Curve",
+        "surface": "easing",
+        "disabled": false,
+        "glyph": "lucide lucide-activity-icon lucide-activity"
+      }
+    ],
+    "easing-1440-light-expanded-visible": 4,
+    "spring-1440-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Physics",
+        "title": "Physics",
+        "surface": "spring",
+        "disabled": false,
+        "glyph": "lucide lucide-atom-icon lucide-atom"
+      }
+    ],
+    "spring-1440-light-expanded-visible": 4,
+    "sequence-1440-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": true,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": true,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "sequence-1440-light-expanded-visible": 4,
+    "cube-390-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Matrix: select the Matrix channel",
+        "title": "Matrix: select the Matrix channel",
+        "surface": "matrix-controls",
+        "disabled": true,
+        "glyph": "lucide lucide-grid3x3-icon lucide-grid-3x3"
+      }
+    ],
+    "cube-390-light-expanded-visible": 4,
+    "amiga-390-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "amiga-390-light-expanded-visible": 4,
+    "square-390-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "square-390-light-expanded-visible": 4,
+    "easing-390-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Curve",
+        "title": "Curve",
+        "surface": "easing",
+        "disabled": false,
+        "glyph": "lucide lucide-activity-icon lucide-activity"
+      }
+    ],
+    "easing-390-light-expanded-visible": 4,
+    "spring-390-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Physics",
+        "title": "Physics",
+        "surface": "spring",
+        "disabled": false,
+        "glyph": "lucide lucide-atom-icon lucide-atom"
+      }
+    ],
+    "spring-390-light-expanded-visible": 4,
+    "sequence-390-light": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": true,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": true,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "sequence-390-light-expanded-visible": 4,
+    "cube-1440-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Matrix: select the Matrix channel",
+        "title": "Matrix: select the Matrix channel",
+        "surface": "matrix-controls",
+        "disabled": true,
+        "glyph": "lucide lucide-grid3x3-icon lucide-grid-3x3"
+      }
+    ],
+    "cube-1440-dark-expanded-visible": 4,
+    "amiga-1440-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "amiga-1440-dark-expanded-visible": 4,
+    "square-1440-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "square-1440-dark-expanded-visible": 4,
+    "easing-1440-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Curve",
+        "title": "Curve",
+        "surface": "easing",
+        "disabled": false,
+        "glyph": "lucide lucide-activity-icon lucide-activity"
+      }
+    ],
+    "easing-1440-dark-expanded-visible": 4,
+    "spring-1440-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Physics",
+        "title": "Physics",
+        "surface": "spring",
+        "disabled": false,
+        "glyph": "lucide lucide-atom-icon lucide-atom"
+      }
+    ],
+    "spring-1440-dark-expanded-visible": 4,
+    "sequence-1440-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": true,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": true,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "sequence-1440-dark-expanded-visible": 4,
+    "cube-390-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Matrix: select the Matrix channel",
+        "title": "Matrix: select the Matrix channel",
+        "surface": "matrix-controls",
+        "disabled": true,
+        "glyph": "lucide lucide-grid3x3-icon lucide-grid-3x3"
+      }
+    ],
+    "cube-390-dark-expanded-visible": 4,
+    "amiga-390-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "amiga-390-dark-expanded-visible": 4,
+    "square-390-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "square-390-dark-expanded-visible": 4,
+    "easing-390-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Curve",
+        "title": "Curve",
+        "surface": "easing",
+        "disabled": false,
+        "glyph": "lucide lucide-activity-icon lucide-activity"
+      }
+    ],
+    "easing-390-dark-expanded-visible": 4,
+    "spring-390-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": false,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": false,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "Physics",
+        "title": "Physics",
+        "surface": "spring",
+        "disabled": false,
+        "glyph": "lucide lucide-atom-icon lucide-atom"
+      }
+    ],
+    "spring-390-dark-expanded-visible": 4,
+    "sequence-390-dark": [
+      {
+        "label": "Controls",
+        "title": "Controls",
+        "surface": "controls",
+        "disabled": true,
+        "glyph": "lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
+      },
+      {
+        "label": "Keyframes",
+        "title": "Keyframes",
+        "surface": "keyframes",
+        "disabled": true,
+        "glyph": "lucide lucide-braces-icon lucide-braces"
+      },
+      {
+        "label": "Timeline",
+        "title": "Timeline",
+        "surface": "timeline",
+        "disabled": false,
+        "glyph": "lucide lucide-clock-icon lucide-clock"
+      },
+      {
+        "label": "No facet for this scene",
+        "title": "No facet for this scene",
+        "surface": null,
+        "disabled": true,
+        "glyph": "lucide lucide-circle-dashed-icon lucide-circle-dashed"
+      }
+    ],
+    "sequence-390-dark-expanded-visible": 4
+  },
+  "fails": []
+}
