@@ -1820,3 +1820,128 @@ Re-run at baseline only the gates the owed units turn (`.q2` smoke; `.k3` A2-VA-
 
 ## RESUME 3 — Unit receipts
 
+
+### X.W12U.q2
+
+SERVED MODEL: claude-opus-5-5 (seat `.q2`, Track A, 2026-10-15/16). Authority: W12U.md ADDENDUM (g) `.q2` (:99-103), §3 (:58-59), COHESION §0fh.1/.2/.3/.8 (:3957-3980), §0fi; `.q` Act 3-4 + escalations (:1307-1424); RESUME 3 plan (:1807-1819). Spec read whole (110 lines).
+
+#### Act 0 · crash recovery and the clean window
+- ⟨`git status --porcelain`⟩ over this unit's set at open → the seven ESC-W12Uq-2 orphans (`.q` sitting 1, `(X-W12U .q)` comments) and nothing else of this unit's; the X-DS pass-9 dirty paths (`demo/shared/ui/{PaletteCardSkeleton,PaletteSpecimen,SwatchButton}.vue`, `demo/shell/dock/Dock.vue`, `demo/styles/utils.css`, `demo/test/extract/extract-controls.test.ts`, `demo/workbenches/{extract/ExtractControls,extract/ExtractWorkbench,generate/GenerateControls,mix/MixSourceSelector}.vue`, untracked `demo/test/extract/extract-image-actions.test.ts`) were read only (two `git diff`/`git show HEAD:` reads to classify; never staged, never edited — §0ev.3). `scripts/dev/dev.sh` untouched.
+- **GREEN on committed bytes only (§0fh.3).** Every smoke read ran on a detached export of a COMMITTED revision, never on the shared working tree: `W12U-evidence/q2/export.sh <rev>` → `~/.dev-logs/w12u-q2/tree-<rev>` (a `git worktree add --detach` from r2 on; r1 was a `git archive`, see Act 2), APFS-cloned `node_modules` + `api/node_modules`, the library `dist/` and `dist/gh-pages` built from those bytes. `batch.sh` takes ONE guard ticket per engine batch (Chromium; WebKit under `--exclusive webkit`) and runs the projects serially with `--workers=1`, private ports 9161/9162, traces kept on failure (`~/.dev-logs/w12u-q2/out/`), lists + JSON under `W12U-evidence/q2/{logs,results}/`.
+
+#### Act 1 · the seven `.q` orphans adopted (§0fh.3, extended §0ex) — each diff read whole, each correct, one commit per cause
+| orphan | cause verified at the bytes | commit |
+|---|---|---|
+| `admin/flows/color-reject.spec.ts`, `admin/flows/tag-delete.spec.ts` | the destructive seats confirm first — X.W7.e `4cb3d4869` (`AdminNamesPanel.vue:327-330` "Reject color name?"/"Reject name"; `AdminTagsPanel.vue:177` "Delete tag?") | `970f6d9fd` |
+| `admin/a11y-authed-admin.spec.ts` | the route `<h1>` paints before the lazy admin pane; the battery now waits for the fixture's own seeded row (`admin-populated.ts:65/90/139`) | `02d022c2d` |
+| `perf/drag-frame-budget.spec.ts`, `safari/dual-webgl-atmosphere.spec.ts` | `/#/picker` is the `not-found` scene since X-W3 G-20 (`504819eac`; router `path: "/" name: "picker"`, catch-all `not-found`) | `197467e42` |
+| `mobile/blob-presence-mobile.spec.ts` | About composes PaneShell since `.k2` (`ca65ae049`), so `.pane-shell > *` (last) read the second pane's card | `6aad1f70c` |
+| `demo/test/palettes/plate-mass.test.ts` | PaletteCardSkeleton re-homed to `demo/shared/ui/` (`.k2` A2-VA-L1-17 `785e522c5`); the string mount path no typechecker follows | `5731fe6ce` |
+
+Read on committed bytes: r1 `smoke-admin` **21 passed** (`logs/r1-smoke-admin.log.txt`), r3 21 passed; `drag-frame-budget` ✓ r1/r3; `blob-presence-mobile` ✓ r1/r2/r3; `plate-mass` ⟨`guarded --light -- npx vitest run demo/test/palettes/plate-mass.test.ts`⟩ in `tree-75ebff961` → `4 passed`. None was corrected forward: all seven were right as written.
+
+#### Act 2 · r1 baseline on committed `5731fe6ce` (the orphans in, nothing else), load₁ 13–42
+⟨`sh W12U-evidence/q2/batch.sh r1 5731fe6ce C`⟩ → smoke-admin **21/21** · smoke-reactivity **2/2** · smoke-mobile 5 passed / 2 failed (`a11y-control-targets` :316/:345, "Execution context was destroyed" on a cold vite-e2e cache reload; r2/r3 green: harness, not product) · smoke-perf 3 failed (X-W2 G2 330 840 B > 286 720 B; G3/G4 mobile TBT 1259 ms > 300; O-5 545.7 ms = 14.5×) · smoke **235 passed / 56 failed / 2 skipped** (34.7 min). The r1 WebKit ticket was withdrawn (the webkit lock was held by another repo's seat); WebKit was read at r3 on the cured tree (Act 5). Chain-log caveat: r1's `exit=` column printed 0 for every project (a `$?`-after-`tee` slip in `batch.sh`, fixed before r2); the r1 counts above are from the list-reporter footers, not that column.
+
+#### Act 3 · the cures — every one of the 56+ r1/r2/r3 non-(c) RED, by cause
+**Class (b) — a product defect, root-cured in `demo/**` (no X-DS dirty path), each with a falsifier read RED→GREEN on committed bytes:**
+| commit | cure | falsifier RED → GREEN |
+|---|---|---|
+| `6e36259db` | `ActionBarToggle.vue` sets `--dock-icon-padding: 0.5rem 0.75rem` on its own root: the in-dock glass rule `.glass-dock [data-slot=dock-icon-button]` (0,2,0) out-ranked the compact hook, so the scene toggles painted 4 px square in a 44 px seat | o15 :125 (r1 ✘ → r2/r3 ✓); `probes/probe-tools-btn.mjs` padding `4px` → `8px 12px` |
+| `cafb0dcf6` | `paper-grain-overlay` on the PaneShell, ColorPicker, PaneErrorPlate, PaneLoadingPlate and ErrorBoundary cards — X-W7L RES-m-2 / C-CARD-STAMP: glass 10.1.0 moved the grain to a class-opted `::after`, and these five card roots never opted in | o7 card census (r1 ✘ → r2/r3 ✓); `probes/probe-card-pseudo.mjs` `::after` `none` → the grain image |
+| `a48486226` | `EasingAuthoringStage.vue` keys the well's Law 2 on the picker root `:deep([data-slot="easing-picker"])`: glass 10.1.0's picker has no `.glass-card`, so the stage's override missed and the well painted as a resting card with its rim shadow; the dead Law 1 `[data-testid]` grid hook retires (10.1.0's picker is one flex column) | o17 :152 well leg (r2 ✘ "shadow" → r3 ✓ past it); `probes/probe-easing-well.mjs` box-shadow rim → `none` |
+
+**Class (a) — the oracle read a superseded contract; each re-baseline cites the lawful commit in the spec's own comment, assertion strength kept (the same property, read where the product now holds it):**
+| commit | spec(s) | lawful cause |
+|---|---|---|
+| `01a6f3c30` | a11y-select-title | `.pane-header-title` — X.W5.a `de99ec156` |
+| `46d886ad1` | w12-about-clip, o10-type-locks | About composes PaneShell — `.k2` `ca65ae049`; the same file also reaches mobile About by scroll — X.W5.c `50633f195` (two causes, one file) |
+| `6a2623146` | o17 `svg[role=img]`, o15 :87 outline ring, o7 tier/grain reads | glass 10.1.0 — X.W7L.m `c8a4959dd` |
+| `cde1c5bc3` | w12-dock + `fixtures/dock.ts` `expandDock` (settles the morph, rests the pointer at dock x+3 — adjacent fixture edit) | C-DOCK-IDLE, glass 9.0.0+ idle-collapse — `c8a4959dd` |
+| `bdd365c6c` | o10d display-voice census | truncation law — X.W7.c `9250dd192`; `.disclosure-header` headings excluded — `.k2` `cc38595c1` (two causes) |
+| `6c6c4d4ae` | walk, o20 "Preset" | LabeledField title — CC-047 `583715162` |
+| `7b780d4cc` | w7-mutation-visibility | delete-all by exact name — `cc38595c1` |
+| `532b72288` | w7-inspector-rows | no palette.save — s1 `d5d93a5bb`; tag chips — s2 `b9cc52737` |
+| `c94e575f6` | o22-status-lamp | the offline leg aborts fetch/xhr only — `a61094e31` |
+| `49f4c7212` | o27 | `.rail-handle-face` — X-W4 C4 `666978d4c`; view option "Home" |
+| `57164d2e0` | scene-action-contract (mobile reads `ready`) + NEW `demo/test/shell/scene-actions-unregistered.test.ts` (3 ✓) carrying the unregistered-is-typed leg the e2e can no longer reach | X.W5.a `bindPane` — `de99ec156` |
+| `c9bccc02a` | color-propose stubs `POST /sessions` | `50633f195` |
+| `177301823` | o29 `.pane-container > [role=region]`; the j4-blob `test.fail` retired — the property now HOLDS (J4-SHORT-LANDSCAPE-BLOB discharged to X-W8 `.i`) | glass Disclosure regions — `c8a4959dd` |
+| `511968c02` | views/gradient aurora census at 10.1.0 + dated addendum `q2/census/gradient-aurora-census-2026-10-16.md` (no strip primitive; CC-064 open, nothing new asked) | `c8a4959dd` |
+| `2c1ba07e1` | w12-drag, w12u-p-drag soft-GL collector floor `soft ? 1 : 10` | addendum (e) §0en/§0ei |
+| `f8dd62931` | o17 well locator `[data-slot=easing-picker]` | `c8a4959dd` (pairs with (b) `a48486226`) |
+| `f78d154aa` | o20 reads the painted colour on the SwatchButton face `[data-testid=watercolor-swatch]` (r2: 5× `rgba(0,0,0,0)` on the Button; `probes/probe-swatch-paint.mjs`) | `.k2` A2-VA-L1-15 `d860c136a` |
+| `75ebff961` | o29 reads the minted stop's own selection, then selects away and back (a press on the selected handle is a re-tap that deselects) | X.W12.u2 UIA-V-373 `5ccc0e3e7` |
+| `6e4efc775` | o17 counts 2 canvas endpoints + 2 `role=slider` handles on `[data-slot=easing-handles]` | `c8a4959dd` (`glass-ui/dist/easing.js:635-670`) |
+| `ecd15ca5d` | BR-5 a11y-modality-support, BR-10 a11y-web-modality open the dock before reading the view-select | C-DOCK-IDLE — `c8a4959dd` |
+| `c615eed19` | admin-populated reads the Users pane's h2 title (`level: 2`, `/^Users\b/`): the route `<h1>` "Users" paints, so the substring name raced the pane title's count ("Users 3") into a strict-mode violation (r4) | X.W12U.m A2-VA-L2-2 `5e512fb7f` |
+| `3c0f663a3` | scene-action-contract D4 polls for the registered state (mobile + desktop cells): the lazy pane binds on its own mount, and an instant snapshot raced Gradient's mount at r4 (r2/r3 ✓) — forward correction of this seat's `57164d2e0` | X.W5.a `bindPane` `de99ec156` |
+| `4d6d0f96d` | O-9 :142's no-growth leg reads the ghost's LAYOUT height: `boundingBox()` is the transformed box, and the plate's arrival pose inflates it for one beat (`probes/probe-ghost-height.mjs`: box 92.732 → 92.516 px over ~300 ms, pane-shell `matrix(1, -0.00047, …)`, layout 92.516 px throughout) — r3/r6 read that turn as 0.035 px of growth | `overture-plate-settle`, X.W12.b `1a696ca61` |
+| `bd9e828e0` | harness only: G7 export (w7-mutation-visibility :174) opens the Export sub-menu by its own ArrowRight when the click landed during the menu's entrance (r6 snapshot: `menuitem "Export" [active]`, no JSON row; r3/r4/r5 ✓). The assertion is unchanged | WAI-ARIA menu pattern (sub-trigger ArrowRight) |
+
+**Class (b), late:** `56906df11` — `GradientEasingEditor.vue`: the easing row prints its literal ONCE. Glass 10.1.0's EasingPicker carries its own "Copy curve literal" readout (`c8a4959dd`; `glass-ui/dist/easing.js:586-592`), so with the authoring stage disclosed the row printed `cubic-bezier(…)` twice (the rail's `<code>` + the picker's). While the stage is disclosed the rail yields its literal + copy to the picker's readout and keeps only the disclosure toggle. Falsifier ⟨`guarded --light -- sh q2/probes/serve-probe.sh tree-75ebff961 q2/probes/probe-literal-leaves.mjs`⟩: committed bytes → **2** literal leaves (`code.font-mono…` in `.readout-rail` + `code.min-w-0.truncate.text-micro` in the picker's button) = o17 :152 r4 ✘ `expect(literalLeaves).toBe(1)`; with the cure applied in the export → **1** leaf, and the mint-law leg reads through it (after the ease-out-back tile the row's first `<code>` = `cubic-bezier(0.175, 0.885, 0.32, 1.275)`). The export's file was restored with `git checkout --` after the read; the cure is read GREEN in the whole runs r5/r6 below. `views/gradient.spec.ts:455` reads `.readout-rail code` with the stage CLOSED, so it is untouched.
+
+#### Act 4 · the classified table (every Chromium RED of r1→r6 maps to exactly one class)
+| row(s) | class | disposition |
+|---|---|---|
+| the r1 smoke RED outside the (c) rows below (41 of 56; r1 carried 15 (c) cells) + o15 :125 + o7 + o17 :152 + o20 :60 + o29 :114 + BR-5 + BR-10 + admin-populated :13 + D4 :180 + o9 :142 (r3/r6) + w7-mutation-visibility :174 (r6) | (a) / (b) / harness | cured above, one commit per cause; none RED at r8/r9 |
+| o18 :712 · :992 · :1296 ×2 · :1321 ×2 (contrast census: component-name ink, the identity-accent leg, admin gold `--color-gold` ceiling, profile-menu rows) | (c) | **X-W10** — the oracle itself names X-W10's treatment decision (`o18-contrast-census.spec.ts:1252`); `.q` ESC-W12Uq-3 |
+| o19 :71 ×4 (netting luma) · o26 :52 (aurora field Δ) · o28 :114 (cold-load first paint ΔE) · webgl-blob-idle :210 ×2 (painted chroma) | (c) | **X-W10 design** — chroma fidelity / motion (`W10.md` §3); the atmosphere design rows of ESC-W12Uq-3 |
+| o23 :225 (`hsl(346deg -1295% 103.7%)` printed, the parser clamps saturation to 0) · o22-specimen-legibility :76 (the same out-of-range literal overflows its caption, 539 px > 438 px) | (c) | **X·P parser track** — `src/**`, forbidden to W12U by §1; ESC-W12Uq-3 |
+| smoke-perf X-W2 G2 (330 840 B > 286 720 B) · G3/G4 (mobile p75 TBT > 300 ms) · O-5 boot pacing | (c) | **X-W2 §3a** — LEDGER :30 "CLOSED (honest-RED: G3 · G5)"; ESC-W12Uq-3 |
+| a11y-control-targets :316/:345 (r1 only; "Execution context was destroyed" = a cold vite-e2e cache reload mid-read) · o12-blob-seat (r1, 54 draws/51 frames at load 42) · reactivity-instant :42 (r3 only, median 637.7 ms at load₁ 27; r1 25.9 · r4/r5 ✓) · view-switch-frame-budget (r3 only, long task 319 ms at load₁ 35.6; r4/r5 ✓) | harness/load | not product, not oracle: none reproduced on a later committed read; each is listed so the table is total |
+
+No row is unnamed, so no new O-74 relay addendum is opened (§0fh.8). No assertion was deleted, skipped, fixme'd or loosened: every (a) reads the same property at its lawful seat, and the two polls (`3c0f663a3`) wait for the lawful registered state with the default expect timeout.
+
+#### Act 5 · gates, read on committed bytes (BEFORE → AFTER)
+Every read below ran in a detached export of the named revision (`~/.dev-logs/w12u-q2/tree-<rev>`), `--workers=1`, one guard ticket per batch; load₁ is the chain log's at each project's end (`q2/logs/<tag>-chain.txt`).
+
+| gate | BEFORE (r1 `5731fe6ce`) | AFTER |
+|---|---|---|
+| smoke (Chromium) whole | 235 ✓ / **56 ✘** / 2 skipped | **r8 `bd9e828e0`: 275 ✓ / 16 ✘ — all 16 (c)** (load₁ 22.6) · **r11 `bd9e828e0`: 275 ✓ / 16 ✘ — all 16 (c)** (load₁ 21.1). Intermediate: r5/r6 `3c0f663a3` 275/273 ✓ (r6: o9 :142 + w7 :174, cured at `4d6d0f96d`/`bd9e828e0`); r9 `bd9e828e0` 273 ✓ / 18 ✘ = the 16 (c) + two timing transients at load₁ 28-32 — views/mix :28 (the result plate's 2.5 s convergence budget) and webgl-blob :13 (canvas not attached within 8 s); both ✓ in r1/r3/r4/r5/r6/r8/r11 |
+| smoke-admin | 21/21 | r8 21/21 · r11 21/21 |
+| smoke-mobile | 5 ✓ / 2 ✘ (cold-cache reload) | r8 7/7 · r11 7/7 |
+| smoke-reactivity | 2/2 | r8 2/2 · r11 2/2 |
+| smoke-perf | 3 ✘ (G2 · G3/G4 · O-5) | r8 / r11: the same 3 ✘, all (c) X-W2 §3a; drag-frame-budget, idle-frame-budget, O-24, view-switch ✓ |
+| WebKit `smoke-safari` dual-webgl-atmosphere + `oracles-safari` o3 (`guarded --exclusive webkit`) | unread (r1 ticket withdrawn) | **r3 `75ebff961`: 2/2 + 2/2** (inside the whole-project read: smoke-safari 4/4) · **w10 `bd9e828e0`: 2/2 + 2/2** · w12 unread: the ticket waited 61 min behind another repo's 240-min `--exclusive webkit` holder plus 4 other waiters, then was withdrawn (`kill -9` on its own guard pid, which had no children; confirmed gone). **2 of 3 reads.** |
+| typecheck, 4 programs (lib · demo · test via vue-tsc, e2e via tsc) | — | 0 ×2 on `75ebff961`, `3c0f663a3`, `bd9e828e0` (`q2/logs/typecheck-*.txt`; the export needs `api/node_modules` for demo/test, now cloned by `export.sh`) |
+| lint (`eslint . --max-warnings=0`) | — | 0 ×2 on `75ebff961`, `3c0f663a3`, `bd9e828e0` (`q2/logs/lint-*.txt`) |
+| unit: plate-mass + scene-actions-unregistered | — | 7/7 on `75ebff961` |
+| (b) falsifiers RED→GREEN | — | o15 :125 ✘→✓ · o7 ✘→✓ · o17 :152 well ✘→✓ · o17 :152 one-literal 2→1 leaf, ✓ r5/r6/r8/r11 |
+
+The full `oracles-safari` project was read once (r3, `75ebff961`): 138 ✓ / 28 ✘. It sits outside this unit's WebKit gate (two named specs); its rows are logged for the record (`q2/logs/r3-oracles-safari.log.txt`). Beyond the Chromium (c) rows, it holds o4 ×2 and o11 :220, which call Chromium-only APIs (`newCDPSession`, `startTracing`). It also holds rows that never fail in Chromium and so are WebKit-specific: o11 :332 PRM veil, o15 :87, o27 :71/:201 keyboard reach, and w7-destructive-seats ×6 dblclick-on-unstable. These are residuals R-2 below; they were not diagnosed here.
+
+#### Residuals
+- **R-1 (c) owner rows — not this seat's to cure.** In every whole read the same 16 Chromium cells are RED, plus 3 smoke-perf cells, all mapped in Act 4: X-W10 (o18 ×6; o19 ×4, o26, o28, webgl-blob-idle ×2) · X·P parser (o23, o22-specimen-legibility) · X-W2 §3a (G2, G3/G4, O-5). Their owners were already named at `.q` ESC-W12Uq-3, so no relay was opened.
+- **R-2 WebKit-only `oracles-safari` rows** (r3, outside the gate): the Chromium-only API calls (o4 ×2, o11 :220) and a set of Safari-behaviour rows (o11 :332, o15 :87, o27 :71/:201, w7-destructive-seats ×6). The latter group needs its own WebKit diagnosis seat. It was not started here because the machine-wide webkit lock was held by other repos' runs for most of this sitting, including one with a 240-min `--exclusive webkit` ticket.
+- **R-3 timing budgets under host load.** r9 read two transients at load₁ 28–32: views/mix :28 (2.5 s convergence) and webgl-blob :13 (8 s attach). Both were green in 7 other whole reads. They are recorded and were not loosened.
+
+#### Adjacent edits
+- `e2e/smoke/fixtures/dock.ts` `expandDock` (`cde1c5bc3`): settles the morph and rests the pointer on the dock. BR-5 and BR-10 (`ecd15ca5d`) consume it.
+- `demo/test/shell/scene-actions-unregistered.test.ts` (new, `57164d2e0`).
+- `q2/export.sh` now also clones `api/node_modules`.
+- The X-DS dirty paths, `scripts/dev/dev.sh`, glass-ui, `src/**` and package pins were never staged or edited.
+- Cleanup: the six export worktrees were removed with `git worktree remove --force`, the r1 archive was deleted, and `git worktree list` shows 0 `w12u-q2` entries. No server or browser of this seat is left running. Traces stay in `~/.dev-logs/w12u-q2/out/` (outside the repo).
+
+#### Process notes (owned)
+- **One-heavy-per-seat breach, ~30 s.** At 07:08 I withdrew a WebKit ticket with `kill` on its guard pid. The guard did not exit while it was waiting on the webkit lock. It acquired the lock at 07:39 and ran its two WebKit specs (w10, 10.5 s) while the r11 Chromium batch was still running. Both runs served the same export (`bd9e828e0`). r11 read clean, and the w10 result stands. The r7 withdrawal (05:25) did exit (143). Rule taken: withdraw a ticket by its batch's shell, then confirm with `pgrep` that it is gone.
+- The r1 chain-log `exit=` column is unreliable (fixed before r2). Counts come from the reporter footers.
+
+#### Escalations
+- **ESC-W12Uq2-1 (host, WebKit gate 2 of 3).** The third WebKit read of `dual-webgl-atmosphere` + o3 could not be taken. The machine-wide webkit lock was held by another repo's `--exclusive webkit --timeout 240` run (`run-h4-wk.sh`, rest1 then rest2, more than 63 min each), with 4–5 waiters behind it. Both reads that were taken are GREEN (r3 `75ebff961`, w10 `bd9e828e0`). The third read is owed to the next seat that holds the lock, using `sh q2/batch.sh <tag> <rev> W -- dual-webgl-atmosphere o3-headed-gpu-probe`. Lock fairness is the owner's to rule, as in `.q` ESC-W12Uq-4.
+
+#### Commits (pathspec-only, `--no-verify`)
+- Orphans (Act 1): `970f6d9fd` · `02d022c2d` · `197467e42` · `6aad1f70c` · `5731fe6ce`.
+- (b) cures: `6e36259db` · `cafb0dcf6` · `a48486226` · `56906df11`.
+- (a) re-baselines: `01a6f3c30` · `46d886ad1` · `6a2623146` · `cde1c5bc3` · `bdd365c6c` · `6c6c4d4ae` · `7b780d4cc` · `532b72288` · `c94e575f6` · `49f4c7212` · `57164d2e0` · `c9bccc02a` · `177301823` · `511968c02` · `2c1ba07e1` · `f8dd62931` · `f78d154aa` · `75ebff961` · `6e4efc775` · `ecd15ca5d` · `c615eed19` · `3c0f663a3` · `4d6d0f96d`.
+- Harness: `bd9e828e0`.
+- Evidence: `1b8d209b6` · `60271c98c`.
+- This record.
+
+**Verdict: PARTIAL.**
+- GREEN on committed `bd9e828e0`:
+  - smoke whole ×2 (r8, r11), each RED only in the 16 named (c) cells, plus the 3 (c) smoke-perf cells
+  - the classified table is total
+  - every (b) falsifier went RED→GREEN
+  - typecheck 0 ×2 and lint 0 ×2
+- Short of the gate: WebKit is GREEN on both reads taken, 2 of the 3 required (ESC-W12Uq2-1).
