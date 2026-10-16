@@ -8,7 +8,7 @@ Tokens live in two places, in this cascade order (style.css:1-4):
 
 1. `@import "tailwindcss"` → `@import "tw-animate-css"` → `@import "@mkbabb/glass-ui/styles"` — glass-ui ships the full contract surface (durations, easings, z-tiers, radii, shadows, glass tiers, type scale, layout/sizing — see glass-ui DESIGN.md §Token Architecture). Consume by name, not by re-declaring.
 2. `@import "./animations.css"` — project-specific keyframes + `prefers-reduced-motion` carve-out.
-3. `:root` in `style.css` — the demo's narrow override surface: the font root (`--font-stack-display` → Fraunces — the SOURCE cure, R.W3 Lane A), the accent axis (`--accent-live` + the `--primary` re-point + the glass tint feed), the `--card-edge` hairline mint (§ Depth), `--shadow-cartoon` / `--shadow-cartoon-hover` (heavier rung) with `--shadow-card` routed through cartoon, the layout tokens (§ Layout), and the `.dark` shadow re-pin. Add new project tokens here under a commented rationale; do NOT spin up a parallel `design-idioms.css` (see § Idioms NOT used).
+3. `:root` in `style.css` — the demo's narrow override surface: the font root (`--font-stack-display` → Fraunces — the SOURCE cure, R.W3 Lane A), the accent axis (`--accent-live` + the `--primary` re-point + the glass tint feed), the `--card-edge` hairline mint (§ Depth), `--shadow-cartoon` (heavier rung) with `--shadow-card` routed through cartoon, the layout tokens (§ Layout), and the `.dark` shadow re-pin. Add new project tokens here under a commented rationale; do NOT spin up a parallel `design-idioms.css` (see § Idioms NOT used).
 
 ## § Type
 
@@ -163,9 +163,9 @@ hairline, and rounding — never ad-hoc per component.
    protagonist (Z3) cast the full cartoon rung. Dual views ≤ 3 full-rung casters
    total. Chip-scale rungs (`--shadow-cartoon-sm/md`) don't count against the
    budget but obey law 1.
-3. **Hover lifts never lurch.** A hover may deepen the SAME shadow
-   (`--shadow-card` → `--shadow-card-hover`) and translate ≤ 2px; it never
-   changes shadow voice, rounding, or layout size.
+3. **Hover lifts never lurch.** A plate's shadow does not change on hover
+   (the hover rung was deleted, X-DS V11-T1); a hover never changes shadow
+   voice, rounding, or layout size.
 4. **Hairlines are glassy.** In-house edges only: glass tiers use their built-in
    `--glass-border-accent`; opaque/flat cards use the ONE mint —
    `--card-edge: color-mix(in oklab, var(--foreground) 12%, transparent)`
@@ -188,10 +188,10 @@ glass tier's hairline — one rank, one voice, one edge.
 One cartoon language. The demo overrides `--shadow-cartoon` to a heavier rung (style.css:44-47):
 
 - Rest: `8px 8px 0 0 color-mix(in srgb, var(--shadow-color) 80%, transparent)` — flat offset, pop-art aesthetic.
-- Hover: `10px 10px 0 0 ... 85% ...` — same offset shape, lifted opacity.
-- `--shadow-card` + `--shadow-card-hover` are routed through `--shadow-cartoon` + `--shadow-cartoon-hover` (style.css:46-47). One language for `shadow-card`, `shadow-[var(--shadow-card)]`, and `shadow-cartoon` consumers — no fourth ad-hoc recipe.
+- No hover rung: the 10px `--shadow-cartoon-hover` override and its `--shadow-card-hover` alias were dead and are deleted (X-DS V11-T1).
+- `--shadow-card` is routed through `--shadow-cartoon`. One language for `shadow-card`, `shadow-[var(--shadow-card)]`, and `shadow-cartoon` consumers — no fourth ad-hoc recipe.
 
-Dark mode lightens the cartoon rung (style.css:146-147) by dropping the shadow-color mix to 50% / 55% so the offset stays legible against the dark substrate. Glass-ui's `--shadow-cartoon-sm/md/lg` rungs (MiniColorPicker, SearchFilterBar) are consumed unchanged for chip-scale shadows where the heavier 8px rung would dominate.
+Dark mode lightens the cartoon rung (style.css:146-147) by dropping the shadow-color mix to 50% so the offset stays legible against the dark substrate. Glass-ui's `--shadow-cartoon-sm/md/lg` rungs (MiniColorPicker, SearchFilterBar) are consumed unchanged for chip-scale shadows where the heavier 8px rung would dominate.
 
 ## § Radii
 

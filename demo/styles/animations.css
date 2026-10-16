@@ -347,8 +347,9 @@
  * springs and the direction arm are byte-kept (the preserve-animations
  * edict; P-5a/P-5b REFUSED).
  * `overflow-clip-margin` keeps the card's cartoon offset shadow unclipped by
- * the paint containment — 10px is `--shadow-cartoon-hover`'s own reach
- * (foundation.css), the widest the plate ever casts. */
+ * the paint containment — the plate's widest cast is `--shadow-cartoon`'s
+ * 8px reach (foundation.css; no hover stamp exists), and 10px keeps a 2px
+ * margin over it. */
 .pane-wrapper--stage > .vj-enter-enter-active,
 .pane-wrapper--stage > .vj-enter-leave-active,
 .pane-wrapper--inspector > .vj-enter-enter-active,

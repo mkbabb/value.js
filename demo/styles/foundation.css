@@ -122,7 +122,6 @@
      * shell's own top padding.) */
     --max-width-tooltip:      12.5rem;
     --min-width-menu:         var(--menu-min-w);
-    --shadow-card-hover:      var(--shadow-cartoon-hover);
 
     /* ── The bare-utility transition default (S.W3-5) ──
      * Tailwind v4's un-modified `transition` / `transition-*` utilities fall
@@ -428,9 +427,7 @@
      * `shadow-card` consumers and explicit `shadow-cartoon` consumers render
      * one cartoon language — no fourth ad-hoc shadow recipe. */
     --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 80%, transparent);
-    --shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 85%, transparent);
     --shadow-card: var(--shadow-cartoon);
-    --shadow-card-hover: var(--shadow-cartoon-hover);
 
     /* The DropdownMenu/Select font pins are BOTH deleted — inert declarations,
      * not a ruled change of voice.
@@ -612,10 +609,11 @@
      * the owner rules which register dark speaks in. */
     --shadow-color: color(srgb 0.11 0.098 0.09);
 
-    /* Lighter cartoon shadows in dark mode; --shadow-card / --shadow-card-hover
-     * resolve through these via the var() reference set in :root. */
+    /* Lighter cartoon shadow in dark mode; --shadow-card resolves through it
+     * via the var() reference set in :root. (The 10px hover rung and its
+     * --shadow-card-hover alias are deleted, X-DS pass 11 · V11-T1: no plate
+     * lifts its stamp on hover any more.) */
     --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
-    --shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 55%, transparent);
 
     --shadow: hsl(0 0% 45%);
 
