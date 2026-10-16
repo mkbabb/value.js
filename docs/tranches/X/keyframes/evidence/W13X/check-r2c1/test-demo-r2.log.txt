@@ -1,0 +1,3 @@
+21:32  up 6 days,  2:34, 2 users, load averages: 10.63 9.94 10.59
+EXIT=1
+21:36  up 6 days,  2:39, 2 users, load averages: 11.55 10.52 10.66

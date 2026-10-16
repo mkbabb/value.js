@@ -1,0 +1,5 @@
+21:24  up 6 days,  2:26, 2 users, load averages: 5.42 8.30 11.06
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT=0

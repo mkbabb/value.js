@@ -1,0 +1,31 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes-wt-W13X-close3
+
+ ❯ |demo| test/demo/instrument/playback-ribbon-contract.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/instrument/playback-ribbon-contract.test.ts [ test/demo/instrument/playback-ribbon-contract.test.ts ]
+Error: [vitest] There was an error when mocking a module. If you are using "vi.mock" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock
+ ❯ demo/components/playback/PlaybackRibbon.vue:204:1
+    202| // test file is not this packet's to edit. The move lands the day that…
+    203| // widened by its owner.
+    204| import { Button, Slider } from "@mkbabb/glass-ui";
+       | ^
+    205| import { useMediaQuery } from "@vueuse/core";
+    206| import { useDragScrub } from "@composables/useDragScrub";
+
+Caused by: Error: Cannot find module '/@fs/Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/glass-ui/dist/slider.js' imported from /Users/mkbabb/Programming/keyframes-wt-W13X-close3/test/demo/instrument/playback-ribbon-contract.test.ts
+ ❯ test/demo/instrument/playback-ribbon-contract.test.ts:58:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  23:39:59
+   Duration  1.79s (transform 600ms, setup 23ms, import 0ms, tests 0ms, environment 856ms)
+
+EXIT=1

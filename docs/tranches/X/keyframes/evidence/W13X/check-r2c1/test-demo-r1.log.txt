@@ -1,0 +1,11 @@
+21:23  up 6 days,  2:26, 2 users, load averages: 5.36 8.43 11.16
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 150 passed (151)
+      Tests  1 failed | 924 passed (925)
+   Start at  21:31:13
+   Duration  54.93s (transform 5.13s, setup 447ms, import 24.33s, tests 29.42s, environment 40.85s)
+
+EXIT=0
+21:32  up 6 days,  2:34, 2 users, load averages: 11.29 10.06 10.63
