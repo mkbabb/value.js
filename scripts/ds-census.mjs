@@ -8,9 +8,9 @@
  *             utilities in Vue templates), under demo/** minus the vendored
  *             shadcn tree (demo/ui/**) and tests. glass-ui is NOT scanned
  *             statically: it is read-only to us (O-87 FLAT-LIGHTING).
- *   computed  The served pages, via real Chrome in new-headless mode
- *             (channel "chrome", headless: true; §0ei — never a visible
- *             window). Every rendered element is read with getComputedStyle,
+ *   computed  The served pages, via one headless browser per run (--gpu: the
+ *             real Chrome binary in new-headless mode, channel "chrome"; §0ei —
+ *             never a visible window). Every rendered element is read with getComputedStyle,
  *             so glass-owned lighting shows up here too, attributed by owner.
  *
  * Metrics (both halves where they apply):
@@ -45,7 +45,7 @@
  *   node scripts/ds-census.mjs [--base http://localhost:9000] [--routes /#/,/#/mix]
  *        (the demo router is hash-history: routes are /#/<view>)
  *        [--static-only] [--widths 1440,390] [--themes light,dark]
- *        [--settle 2500] [--out file.json] [--top 12] [--no-overlays]
+ *        [--settle 2500] [--out file.json] [--top 12] [--no-overlays] [--gpu]
  * Output: JSON on stdout (or --out).
  *
  * OPENED-OVERLAY CELLS (X-DS pass 7 · V7R-03). The route cells never open a
@@ -64,6 +64,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { withBrowser } from "./lib/probe-browser.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const args = process.argv.slice(2);
@@ -563,12 +564,12 @@ function floaterProbe() {
     };
 }
 
-async function overlayCensus(browser) {
+async function overlayCensus(newCell) {
     const out = [];
     for (const theme of THEMES)
         for (const c of OVERLAY_CELLS) {
             const rec = { cell: c.cell, route: c.route, width: c.width, theme };
-            const ctx = await browser.newContext({
+            const ctx = await newCell({
                 viewport: { width: c.width, height: c.width <= 500 ? 844 : 900 },
                 colorScheme: theme,
             });
@@ -611,15 +612,15 @@ async function overlayCensus(browser) {
 }
 
 async function computedCensus() {
-    const { chromium } = await import(path.join(ROOT, "node_modules/playwright/index.mjs"));
-    // §0ei: the real Chrome binary, new-headless; never a visible window.
-    const browser = await chromium.launch({ channel: "chrome", headless: true });
+    // One browser for the whole run, one fresh context per cell (scripts/lib/probe-browser.mjs).
+    // Computed style is not a GPU reading, so the headless shell serves; --gpu keeps the
+    // real Chrome binary in new-headless mode (§0ei). Never a visible window.
     const pages = [];
     let overlays = null;
-    try {
+    await withBrowser(async (newCell) => {
         for (const theme of THEMES)
             for (const width of WIDTHS) {
-                const ctx = await browser.newContext({
+                const ctx = await newCell({
                     viewport: { width, height: width <= 500 ? 844 : 900 },
                     colorScheme: theme,
                 });
@@ -649,10 +650,8 @@ async function computedCensus() {
                 }
                 await ctx.close();
             }
-        if (!flag("no-overlays")) overlays = await overlayCensus(browser);
-    } finally {
-        await browser.close();
-    }
+        if (!flag("no-overlays")) overlays = await overlayCensus(newCell);
+    }, { gpu: flag("gpu") });
     const sum = {};
     const sumOwner = { glass: {}, consumer: {} };
     let maxLayers = 0;
