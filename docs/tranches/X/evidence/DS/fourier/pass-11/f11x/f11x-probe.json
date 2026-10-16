@@ -1,0 +1,334 @@
+{
+ "dock-light-390-home": {
+  "labelShown": false,
+  "labelText": "Paper",
+  "name": "Navigate — current section Paper",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-light-390-paper": {
+  "labelShown": false,
+  "labelText": "Paper",
+  "name": "Navigate — current section Paper",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-light-390-gallery": {
+  "labelShown": false,
+  "labelText": "Gallery",
+  "name": "Navigate — current section Gallery",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-light-390-visualize": {
+  "labelShown": false,
+  "labelText": "Visualize",
+  "name": "Navigate — current section Visualize",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-light-390-equation": {
+  "labelShown": false,
+  "labelText": "Equation",
+  "name": "Navigate — current section Equation",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-light-390-morph": {
+  "labelShown": false,
+  "labelText": "Morph",
+  "name": "Navigate — current section Morph",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "morph-light-1440": {
+  "readout": {
+   "width": 297,
+   "rows": 2,
+   "tops": [
+    616,
+    616,
+    646,
+    646
+   ],
+   "display": "grid"
+  },
+  "tiles": [
+   {
+    "label": "n=5",
+    "active": false,
+    "bound": true,
+    "edge": "color(srgb 0.11 0.098 0.09 / 0.5)",
+    "ring": "none",
+    "caption": "rgb(28, 25, 23)",
+    "captionWeight": "600"
+   },
+   {
+    "label": "n=50",
+    "active": true,
+    "bound": true,
+    "edge": "oklch(0.574 0.216 27.5)",
+    "ring": "color(srgb 0.859497 0.139733 0.139504 / 0.15) 0px 0px 0px 2px",
+    "caption": "rgb(28, 25, 23)",
+    "captionWeight": "600"
+   }
+  ]
+ },
+ "morph-light-1024": {
+  "readout": {
+   "width": 280,
+   "rows": 2,
+   "tops": [
+    608,
+    608,
+    636,
+    636
+   ],
+   "display": "grid"
+  },
+  "tiles": [
+   {
+    "label": "n=5",
+    "active": false,
+    "bound": true,
+    "edge": "color(srgb 0.11 0.098 0.09 / 0.5)",
+    "ring": "none",
+    "caption": "rgb(28, 25, 23)",
+    "captionWeight": "600"
+   },
+   {
+    "label": "n=50",
+    "active": true,
+    "bound": true,
+    "edge": "oklch(0.574 0.216 27.5)",
+    "ring": "color(srgb 0.859497 0.139733 0.139504 / 0.15) 0px 0px 0px 2px",
+    "caption": "rgb(28, 25, 23)",
+    "captionWeight": "600"
+   }
+  ]
+ },
+ "morph-light-390": {
+  "readout": {
+   "width": 230,
+   "rows": 4,
+   "tops": [
+    179,
+    211,
+    243,
+    275
+   ],
+   "display": "grid"
+  },
+  "tiles": [
+   {
+    "label": "n=5",
+    "active": false,
+    "bound": true,
+    "edge": "color(srgb 0.11 0.098 0.09 / 0.5)",
+    "ring": "none",
+    "caption": "rgb(28, 25, 23)",
+    "captionWeight": "600"
+   },
+   {
+    "label": "n=50",
+    "active": true,
+    "bound": true,
+    "edge": "oklch(0.574 0.216 27.5)",
+    "ring": "color(srgb 0.859497 0.139733 0.139504 / 0.15) 0px 0px 0px 2px",
+    "caption": "rgb(28, 25, 23)",
+    "captionWeight": "600"
+   }
+  ]
+ },
+ "v-error-bare-light-1440": {
+  "lines": [
+   "Could not open this visualization",
+   "No saved visualization loaded from “f11x-missing”."
+  ]
+ },
+ "v-error-detail-light-1440": {
+  "lines": [
+   "Could not open this visualization",
+   "No saved visualization loaded from “f11x-missing”.",
+   "The visualization store is unreachable."
+  ]
+ },
+ "dock-dark-390-home": {
+  "labelShown": false,
+  "labelText": "Paper",
+  "name": "Navigate — current section Paper",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-dark-390-paper": {
+  "labelShown": false,
+  "labelText": "Paper",
+  "name": "Navigate — current section Paper",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-dark-390-gallery": {
+  "labelShown": false,
+  "labelText": "Gallery",
+  "name": "Navigate — current section Gallery",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-dark-390-visualize": {
+  "labelShown": false,
+  "labelText": "Visualize",
+  "name": "Navigate — current section Visualize",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-dark-390-equation": {
+  "labelShown": false,
+  "labelText": "Equation",
+  "name": "Navigate — current section Equation",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "dock-dark-390-morph": {
+  "labelShown": false,
+  "labelText": "Morph",
+  "name": "Navigate — current section Morph",
+  "dockW": 303,
+  "runClient": 279,
+  "runScroll": 279,
+  "childrenEndMinusRunEnd": 0
+ },
+ "morph-dark-1440": {
+  "readout": {
+   "width": 297,
+   "rows": 2,
+   "tops": [
+    616,
+    616,
+    646,
+    646
+   ],
+   "display": "grid"
+  },
+  "tiles": [
+   {
+    "label": "n=5",
+    "active": false,
+    "bound": true,
+    "edge": "color(srgb 0.914 0.9 0.886 / 0.5)",
+    "ring": "none",
+    "caption": "rgb(233, 230, 226)",
+    "captionWeight": "600"
+   },
+   {
+    "label": "n=50",
+    "active": true,
+    "bound": true,
+    "edge": "oklch(0.644 0.165 22.9)",
+    "ring": "color(srgb 0.877849 0.362313 0.362194 / 0.15) 0px 0px 0px 2px",
+    "caption": "rgb(233, 230, 226)",
+    "captionWeight": "600"
+   }
+  ]
+ },
+ "morph-dark-1024": {
+  "readout": {
+   "width": 280,
+   "rows": 2,
+   "tops": [
+    608,
+    608,
+    636,
+    636
+   ],
+   "display": "grid"
+  },
+  "tiles": [
+   {
+    "label": "n=5",
+    "active": false,
+    "bound": true,
+    "edge": "color(srgb 0.914 0.9 0.886 / 0.5)",
+    "ring": "none",
+    "caption": "rgb(233, 230, 226)",
+    "captionWeight": "600"
+   },
+   {
+    "label": "n=50",
+    "active": true,
+    "bound": true,
+    "edge": "oklch(0.644 0.165 22.9)",
+    "ring": "color(srgb 0.877849 0.362313 0.362194 / 0.15) 0px 0px 0px 2px",
+    "caption": "rgb(233, 230, 226)",
+    "captionWeight": "600"
+   }
+  ]
+ },
+ "morph-dark-390": {
+  "readout": {
+   "width": 230,
+   "rows": 4,
+   "tops": [
+    179,
+    211,
+    243,
+    275
+   ],
+   "display": "grid"
+  },
+  "tiles": [
+   {
+    "label": "n=5",
+    "active": false,
+    "bound": true,
+    "edge": "color(srgb 0.914 0.9 0.886 / 0.5)",
+    "ring": "none",
+    "caption": "rgb(233, 230, 226)",
+    "captionWeight": "600"
+   },
+   {
+    "label": "n=50",
+    "active": true,
+    "bound": true,
+    "edge": "oklch(0.644 0.165 22.9)",
+    "ring": "color(srgb 0.877849 0.362313 0.362194 / 0.15) 0px 0px 0px 2px",
+    "caption": "rgb(233, 230, 226)",
+    "captionWeight": "600"
+   }
+  ]
+ },
+ "v-error-bare-dark-1440": {
+  "lines": [
+   "Could not open this visualization",
+   "No saved visualization loaded from “f11x-missing”."
+  ]
+ },
+ "v-error-detail-dark-1440": {
+  "lines": [
+   "Could not open this visualization",
+   "No saved visualization loaded from “f11x-missing”.",
+   "The visualization store is unreachable."
+  ]
+ }
+}
