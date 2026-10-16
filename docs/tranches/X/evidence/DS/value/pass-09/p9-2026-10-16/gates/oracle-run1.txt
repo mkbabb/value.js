@@ -1,0 +1,14 @@
+(node:49971) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:50025) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 2 tests using 1 worker
+
+[1A[2K(node:50103) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/2] [smoke] › e2e/smoke/oracles/p9r-card-detail-row.spec.ts:21:5 › P9R-01 · expanded card at 1440: the detail band sits below the meta row
+[1A[2K[2/2] [smoke] › e2e/smoke/oracles/p9r-card-detail-row.spec.ts:21:5 › P9R-01 · expanded card at 390: the detail band sits below the meta row
+[1A[2K  2 passed (14.8s)
