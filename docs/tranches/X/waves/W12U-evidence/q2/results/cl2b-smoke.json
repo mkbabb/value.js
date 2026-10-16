@@ -1,0 +1,435 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl2b-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl2b-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl2b-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl2b-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl2b-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl2b-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl2b-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl2b-smoke",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/w12-dock.spec.ts",
+      "file": "smoke/w12-dock.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "X.W12.e — the dock sits on glass's primitives",
+          "file": "smoke/w12-dock.spec.ts",
+          "line": 106,
+          "column": 6,
+          "specs": [
+            {
+              "title": "(1) Login + @mbabb pills: glass dock-control plate and a stadium radius",
+              "ok": true,
+              "tags": [
+                "mbabb"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19220,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[\n {\n  \"name\": \"Login\",\n  \"classes\": \"dock-tab-button glass-specular-track gap-1.5 text-small font-display\",\n  \"rest\": \"rgba(0, 0, 0, 0)\",\n  \"hoverToken\": \"color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)\",\n  \"reference\": \"rgba(0, 0, 0, 0)\",\n  \"height\": 38,\n  \"radii\": [\n   9999,\n   9999,\n   9999,\n   9999\n  ],\n  \"hover\": \"color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)\"\n },\n {\n  \"name\": \"@mbabb\",\n  \"classes\": \"menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap\",\n  \"rest\": \"rgba(0, 0, 0, 0)\",\n  \"hoverToken\": \"color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)\",\n  \"reference\": \"rgba(0, 0, 0, 0)\",\n  \"height\": 30.96875,\n  \"radii\": [\n   9999,\n   9999,\n   9999,\n   9999\n  ],\n  \"hover\": \"color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)\"\n }\n]\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-16T16:09:09.665Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f3ae99ce00f8f2f67283-ee689adc69113f24edbe",
+              "file": "smoke/w12-dock.spec.ts",
+              "line": 109,
+              "column": 5
+            },
+            {
+              "title": "(2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6339,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "{\n \"switch\": \"action-sub-layer\",\n \"before\": \"|\",\n \"during\": \"|lab(92% 88.8 20 / 82.7%)\",\n \"after\": \"|\",\n \"faces\": 6,\n \"names\": [\n  \"element:CSSAnimation:gl-dock-cap-inline-end\",\n  \"element:CSSAnimation:gl-dock-cap-inline-start\",\n  \"element:CSSAnimation:input-mode-flash\",\n  \"element:CSSTransition:transition(--specular-x)\",\n  \"element:CSSTransition:transition(--specular-y)\",\n  \"element:CSSTransition:transition(background-color)\",\n  \"element:CSSTransition:transition(border-bottom-color)\",\n  \"element:CSSTransition:transition(border-left-color)\",\n  \"element:CSSTransition:transition(border-right-color)\",\n  \"element:CSSTransition:transition(border-top-color)\",\n  \"element:CSSTransition:transition(color)\",\n  \"element:CSSTransition:transition(opacity)\",\n  \"element:CSSTransition:transition(scale)\",\n  \"element:CSSTransition:transition(stroke)\",\n  \"element:CSSTransition:transition(transform)\"\n ],\n \"consumer\": []\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-16T16:09:29.472Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f3ae99ce00f8f2f67283-f6538515edf48f99cde9",
+              "file": "smoke/w12-dock.spec.ts",
+              "line": 303,
+              "column": 9
+            },
+            {
+              "title": "(2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5171,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "{\n \"switch\": \"tools-action-bar\",\n \"before\": \"|HomeTools Login  @mbabb\",\n \"during\": \"|lab(92% 88.8 20 / 82.7%)\",\n \"after\": \"|HomeTools Login  @mbabb\",\n \"faces\": 6,\n \"names\": [\n  \"element:CSSAnimation:gl-dock-cap-inline-end\",\n  \"element:CSSAnimation:gl-dock-cap-inline-start\",\n  \"element:CSSTransition:transition(--specular-x)\",\n  \"element:CSSTransition:transition(--specular-y)\",\n  \"element:CSSTransition:transition(background-color)\",\n  \"element:CSSTransition:transition(color)\",\n  \"element:CSSTransition:transition(opacity)\",\n  \"element:CSSTransition:transition(scale)\",\n  \"element:CSSTransition:transition(stroke)\",\n  \"element:CSSTransition:transition(transform)\"\n ],\n \"consumer\": []\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-16T16:09:35.817Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f3ae99ce00f8f2f67283-09ddd5aebea8a2ff3193",
+              "file": "smoke/w12-dock.spec.ts",
+              "line": 303,
+              "column": 9
+            },
+            {
+              "title": "(2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4599,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "{\n \"switch\": \"login-slug-edit\",\n \"before\": \"|HomeTools Login  @mbabb\",\n \"during\": \"|\",\n \"after\": \"|HomeTools Login  @mbabb\",\n \"faces\": 6,\n \"names\": [\n  \"element:CSSAnimation:gl-dock-cap-inline-end\",\n  \"element:CSSAnimation:gl-dock-cap-inline-start\",\n  \"element:CSSTransition:transition(--specular-x)\",\n  \"element:CSSTransition:transition(--specular-y)\",\n  \"element:CSSTransition:transition(background-color)\"\n ],\n \"consumer\": []\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-16T16:09:40.996Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f3ae99ce00f8f2f67283-e943fd820003923a31a0",
+              "file": "smoke/w12-dock.spec.ts",
+              "line": 303,
+              "column": 9
+            },
+            {
+              "title": "(2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9008,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "{\n \"switch\": \"mobile-edit\",\n \"before\": \"|Login  @mbabb\",\n \"during\": \"|→\",\n \"after\": \"|Login  @mbabb\",\n \"faces\": 5,\n \"names\": [\n  \"element:CSSAnimation:gl-dock-cap-inline-end\",\n  \"element:CSSAnimation:gl-dock-cap-inline-start\",\n  \"element:CSSTransition:transition(--accent-view)\",\n  \"element:CSSTransition:transition(--specular-x)\",\n  \"element:CSSTransition:transition(background-color)\",\n  \"element:CSSTransition:transition(border-bottom-left-radius)\",\n  \"element:CSSTransition:transition(border-bottom-right-radius)\",\n  \"element:CSSTransition:transition(border-top-left-radius)\",\n  \"element:CSSTransition:transition(border-top-right-radius)\",\n  \"element:CSSTransition:transition(color)\",\n  \"element:CSSTransition:transition(opacity)\",\n  \"element:CSSTransition:transition(transform)\"\n ],\n \"consumer\": []\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-16T16:09:45.604Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f3ae99ce00f8f2f67283-e2979bce1f98c69d8896",
+              "file": "smoke/w12-dock.spec.ts",
+              "line": 303,
+              "column": 9
+            },
+            {
+              "title": "(3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7117,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "{\n \"focusVisible\": true,\n \"frames\": {\n  \"rest\": [\n   {\n    \"node\": \"div.dock-layer.dock-layer--full.dock-run.is-active\",\n    \"overflow\": \"auto hidden\",\n    \"clipPath\": \"none\",\n    \"contain\": \"none\",\n    \"owner\": \"producer\",\n    \"cutBlock\": 0\n   }\n  ],\n  \"hover\": [\n   {\n    \"node\": \"div.dock-layer.dock-layer--full.dock-run.is-active\",\n    \"overflow\": \"auto hidden\",\n    \"clipPath\": \"none\",\n    \"contain\": \"none\",\n    \"owner\": \"producer\",\n    \"cutBlock\": 0\n   }\n  ],\n  \"selected\": [\n   {\n    \"node\": \"div.dock-layer.dock-layer--full.dock-run.is-active\",\n    \"overflow\": \"auto hidden\",\n    \"clipPath\": \"none\",\n    \"contain\": \"none\",\n    \"owner\": \"producer\",\n    \"cutBlock\": 0\n   }\n  ],\n  \"focus-visible\": [\n   {\n    \"node\": \"div.dock-layer.dock-layer--full.dock-run.is-active\",\n    \"overflow\": \"auto hidden\",\n    \"clipPath\": \"none\",\n    \"contain\": \"none\",\n    \"owner\": \"producer\",\n    \"cutBlock\": 0\n   }\n  ]\n }\n}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-16T16:09:54.631Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f3ae99ce00f8f2f67283-893b6898fa64c2319c25",
+              "file": "smoke/w12-dock.spec.ts",
+              "line": 359,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T16:09:07.009Z",
+    "duration": 55019.069,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,29 @@
+SERVED MODEL: claude-opus-5-5
+# round r1 2026-10-16 10:37:47 HEAD ff7ea01b3 load { 17.39 21.97 22.15 }
+## typecheck (close2/tc.sh)
+lib 0
+demo 0
+test 0
+e2e 0
+load { 18.80 22.00 22.16 }
+## lint
+rc=0
+## k2 static
+GREEN 30/30
+## A2-VA-X-14 r4/diag-admin-room.mjs 1440 900 light
+1440x900 light A2-VA-X-14 overlying-with-room /admin/users GREEN {"hostSH":3177,"hostCH":777,"docSH":900,"before":"false","after":"true","back":"false"}
+1440x900 light A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+GREEN 2/2
+## A2-VA-X-14 r4/diag-admin-room.mjs 1440 900 dark
+1440x900 dark A2-VA-X-14 overlying-with-room /admin/users GREEN {"hostSH":3177,"hostCH":777,"docSH":900,"before":"false","after":"true","back":"false"}
+1440x900 dark A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+GREEN 2/2
+## served pair (k3/served.sh r1-close3)
+# load { 16.71 19.72 21.15 }
+GREEN 38/38
+390x844 light / maxSW=390 F1=true(bleed carrier 26.5 vs t33 0.9) F2=true F3=true F4=true F5=true → GREEN
+390x844 light /palettes maxSW=390 F1=true(bleed carrier 27.8 vs t33 0.8) F2=true F3=true F4=true F5=true → GREEN
+390x844 light /admin/users maxSW=390 F1=true(bleed carrier 27.7 vs t33 1.1) F2=true F3=true F4=true F5=true → GREEN
+GREEN 3/3
+# load { 16.30 19.34 20.85 }
+# end 10:43:46 load { 16.27 19.28 20.82 }

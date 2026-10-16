@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5
+# X-W12U close 3 — :9000 hang, diagnosed before any served read (Instrument law), 2026-10-16
+- 10:17-10:28 ⟨curl -w '%{http_code} %{time_total}' --max-time 20 localhost:9000/⟩ → 000 every 30 s for 11 min (and 000 at 60 s on /demo/app/main.ts).
+- ⟨ps -o etime,%cpu,rss -p 47358⟩ → vite --port 9000 (the dev.sh up child) up 10:42, 96 % CPU, RSS 3.09 GB, state RN.
+- ⟨sample 47358 3⟩ → main thread in JS: Builtins_SetPrototypeForEach / StringIndexOf / StringAdd + Scavenger GC — a module-graph walk, not I/O.
+- ⟨tail ~/.dev-logs/value-dev-2026-10-15b.log⟩ → `[vite] (client) hmr update /@fs/.../demo/styles/foundation.css` every ~20 s up to 10:04, then silence; foundation.css mtime is Oct 9 (not edited) — an HMR update storm on an unchanged file.
+- The signature of ESC-W12Uh-1 (COHESION §0fh.10: vite on :9000 up 1 d 9 h at 3.7 GB RSS), recurring.
+- Act: the hung vite (pid 47358, serving no request) was stopped (SIGTERM; gone); :9000 restarted from the repo root with dev.sh's own command, under the guard:
+  guarded --light --rss-gb 6 --timeout 180 -- npx vite --port 9000 --strictPort  → 200 0.045 s. scripts/dev/dev.sh not edited; its api/build:watch children untouched.
+- The killed light round (r0) is kept: light-r0-9000-hung.txt (typecheck 0 0 0 0 · lint rc=0 · k2 static GREEN 30/30 · the two A2-VA-X-14 reads printed nothing: the guard's 8-min cap ended them on the hung server).
+- First restart was env-less (no .env, no VITE_API_URL): light-r0b-noenv.txt read the app "dev misconfigured" (L1-9 chip) and /admin/users unseeded (hostSH 600 = hostCH 600) → that round is VOID (instrument fault, not product). Restarted with dev.sh's own frontend env (.env sourced; VITE_API_URL=http://localhost:3000, the running dev.sh api on :3000 → /health 200):
+  ⟨node r4/diag-admin-room.mjs 1440 900 light⟩ spot read → GREEN 2/2 (hostSH 3177 > hostCH 777 · docSH 900 · after true). Counted rounds are light-r1 / light-r2 after this.
