@@ -22,7 +22,7 @@ import { fileURLToPath } from "node:url";
  * **mix / generate / gradient**". Unit b's §4 writable set is exactly those three SFCs
  * (`MixConfigBar.vue`, `GenerateControls.vue`, `GradientVisualizer.vue`). So the census
  * is scoped to THE PANE THE ROUTE NAMES — resolved structurally at run time from the
- * pane's own title (`h3.pane-header-title` whose text is the view label, then its pane
+ * pane's own title (`.pane-header-title` whose text is the view label, then its pane
  * card), never from a hand-fitted element allowlist and never by naming an element to
  * skip.
  *
@@ -144,11 +144,11 @@ async function ready(page: Page, route: string, view: string) {
         { timeout: 15_000 },
     );
     // The pane the route names must be MOUNTED, not merely routed to: its own title
-    // (`PaneHeader`'s `h3.pane-header-title`) is the product's own signal, and it is also
+    // (`PaneHeader`'s `.pane-header-title`, `h${level}` since X.W5.a de99ec156 — re-baselined X-W12U .q2) is the product's own signal, and it is also
     // the anchor the census scope is resolved from.
     await page.waitForFunction(
         (v) =>
-            Array.from(document.querySelectorAll("h3.pane-header-title")).some(
+            Array.from(document.querySelectorAll(".pane-header-title")).some(
                 (h) => (h.textContent ?? "").trim() === v,
             ),
         view,
@@ -218,7 +218,7 @@ async function triggerCensus(
             // The scope: the pane card whose OWN title is the view's label.
             let scope: Element | null = null;
             for (const h of Array.from(
-                document.querySelectorAll("h3.pane-header-title"),
+                document.querySelectorAll(".pane-header-title"),
             )) {
                 if ((h.textContent ?? "").trim() !== viewArg) continue;
                 scope = h.closest(".pane-scroll-fade") ?? h.closest(".pane-wrapper");
@@ -354,7 +354,7 @@ test("B1 · composed trigger title — the combobox name derives from a rendered
         for (const handle of await page.locator(TRIGGER).all()) {
             const expected = await handle.evaluate((el, v) => {
                 const title = Array.from(
-                    document.querySelectorAll("h3.pane-header-title"),
+                    document.querySelectorAll(".pane-header-title"),
                 ).find((h) => (h.textContent ?? "").trim() === v);
                 const root =
                     title?.closest(".pane-scroll-fade") ??
