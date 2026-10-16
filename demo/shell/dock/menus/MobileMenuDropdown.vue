@@ -45,7 +45,7 @@ function openRepository(): void {
             <DockTrigger for="dropdown" aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
             </DockTrigger>
-            <DropdownMenuContent align="end" class="min-w-menu font-display">
+            <DropdownMenuContent align="end" class="z-popover min-w-menu font-display">
                 <!-- Login / slug section -->
                 <template v-if="pm.userSlug.value">
                     <DropdownMenuLabel class="px-2 py-1.5">

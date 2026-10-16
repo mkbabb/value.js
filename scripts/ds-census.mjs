@@ -45,8 +45,22 @@
  *   node scripts/ds-census.mjs [--base http://localhost:9000] [--routes /#/,/#/mix]
  *        (the demo router is hash-history: routes are /#/<view>)
  *        [--static-only] [--widths 1440,390] [--themes light,dark]
- *        [--settle 2500] [--out file.json] [--top 12]
+ *        [--settle 2500] [--out file.json] [--top 12] [--no-overlays]
  * Output: JSON on stdout (or --out).
+ *
+ * OPENED-OVERLAY CELLS (X-DS pass 7 · V7R-03). The route cells never open a
+ * floater, yet a floater (menu, select, popover over content) is the one
+ * surface the canon allows a shadow, so its lighting and its LAYER went
+ * unjudged for six passes (V7R-01: glass's menus painted under the stage).
+ * Unless --no-overlays, each theme also opens OVERLAY_CELLS (the dock's view
+ * menu, a Browse card's "..." menu at 1440 on an in-page fixture, the 390
+ * overflow menu, one Mix select) and records, apart from the route totals:
+ *   floaterMaxLayers    max box-shadow layers on one element of the floater
+ *   floaterGradients    gradient fills inside the floater
+ *   paintTopFailures    floaters NOT on top in paint order at 5 inner points
+ *                       (pointer-events forced on: reka's modal layer turns
+ *                       them off, so a plain hit test "finds" a buried menu)
+ * floaterMaxLayers and paintTopFailures join the verdict's allowance.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -439,11 +453,169 @@ function pageProbe(top) {
     };
 }
 
+const OVERLAY_CELLS = [
+    { cell: "view-menu", route: "/#/", width: 1440, trigger: '[aria-label="Select view"]' },
+    { cell: "card-menu", route: "/#/browse", width: 1440, trigger: '[aria-label="Palette menu"]', browse: true },
+    { cell: "overflow-menu", route: "/#/", width: 390, trigger: '[aria-label="Menu"]' },
+    { cell: "mix-select", route: "/#/mix", width: 1440, trigger: "main [role=combobox]" },
+];
+
+// GET /palettes has no server on a bare host: answered in-page (a fetch shim,
+// not page.route, which disables the HTTP cache) in the API's keyset shape.
+const BROWSE_FIXTURE = JSON.stringify({
+    data: [
+        ["Harbor at Dusk", ["#0f172a", "#1e3a8a", "#f59e0b", "#fde68a"]],
+        ["Terracotta Garden", ["#9a3412", "#ea580c", "#84cc16", "#365314"]],
+        ["Neon Arcade", ["#f0abfc", "#a21caf", "#22d3ee", "#0e7490"]],
+    ].map(([name, cols], i) => ({
+        name,
+        slug: name.toLowerCase().replace(/\s+/g, "-"),
+        userSlug: "gallery",
+        colors: cols.map((css, position) => ({ css, position })),
+        tags: [],
+        createdAt: "2026-07-05T00:00:00.000Z",
+        updatedAt: "2026-07-05T00:00:00.000Z",
+        isLocal: false,
+        voteCount: i,
+        visibility: "public",
+        tier: "standard",
+        published: true,
+    })),
+    nextCursor: null,
+    hasMore: false,
+});
+
+function browseShim(body) {
+    const real = window.fetch.bind(window);
+    window.fetch = (input, init) => {
+        const href = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+        const u = new URL(href, location.href);
+        const method = (init?.method || (typeof input === "object" && input.method) || "GET").toUpperCase();
+        if (method === "GET" && !/\/(@fs|@id|@vite|node_modules)\//.test(u.pathname) && !/\.\w+$/.test(u.pathname) && /(^|\/)palettes\/?$/.test(u.pathname))
+            return Promise.resolve(new Response(body, { status: 200, headers: { "content-type": "application/json" } }));
+        return real(input, init);
+    };
+}
+
+/** Runs in the page with one overlay open: the floater's layer, paint order and lighting. */
+function floaterProbe() {
+    const vis = (el) => {
+        const r = el.getBoundingClientRect();
+        const cs = getComputedStyle(el);
+        return r.width > 1 && r.height > 1 && cs.visibility !== "hidden" && cs.display !== "none";
+    };
+    const f = [...document.querySelectorAll('[role="menu"],[role="listbox"]')].filter(vis).pop();
+    if (!f) return { error: "no open floater" };
+    const wrapper = f.closest("[data-reka-popper-content-wrapper]");
+    const r = f.getBoundingClientRect();
+    const st = document.createElement("style");
+    st.textContent = "*{pointer-events:auto!important}";
+    document.head.appendChild(st);
+    const onTop = [[0.5, 0.5], [0.3, 0.25], [0.7, 0.25], [0.3, 0.8], [0.7, 0.8]].map(([fx, fy]) => {
+        const top = document.elementFromPoint(r.left + r.width * fx, r.top + r.height * fy);
+        return !!top && f.contains(top);
+    });
+    st.remove();
+    const lengths = (l) => (l.replace(/[a-z-]+\([^)]*\)/g, "").match(/-?[\d.]+px/g) || []).map(parseFloat);
+    const splitTop = (v) => {
+        const o = [];
+        let d = 0,
+            c = "";
+        for (const ch of v) {
+            if (ch === "(") d++;
+            else if (ch === ")") d--;
+            if (ch === "," && !d) {
+                o.push(c.trim());
+                c = "";
+            } else c += ch;
+        }
+        if (c.trim()) o.push(c.trim());
+        return o;
+    };
+    let maxLayers = 0,
+        maxShadow = "",
+        gradients = 0;
+    for (const el of [f, ...f.querySelectorAll("*")]) {
+        if (el.closest("svg")) continue;
+        const cs = getComputedStyle(el);
+        if (cs.boxShadow && cs.boxShadow !== "none") {
+            const layers = splitTop(cs.boxShadow).filter((l) => {
+                const [x = 0, y = 0, b = 0] = lengths(l);
+                return (x || y || b) && !/rgba?\([^)]*,\s*0\)|\/ 0\)/.test(l);
+            });
+            if (layers.length > maxLayers) {
+                maxLayers = layers.length;
+                maxShadow = cs.boxShadow.slice(0, 400);
+            }
+        }
+        if (/-gradient\(/.test(cs.backgroundImage)) gradients++;
+    }
+    return {
+        role: f.getAttribute("role"),
+        slot: f.getAttribute("data-slot"),
+        zContent: getComputedStyle(f).zIndex,
+        zWrapper: wrapper ? getComputedStyle(wrapper).zIndex : null,
+        paintOnTop: onTop.every(Boolean),
+        onTop,
+        floaterMaxLayers: maxLayers,
+        floaterMaxShadow: maxShadow,
+        floaterGradients: gradients,
+    };
+}
+
+async function overlayCensus(browser) {
+    const out = [];
+    for (const theme of THEMES)
+        for (const c of OVERLAY_CELLS) {
+            const rec = { cell: c.cell, route: c.route, width: c.width, theme };
+            const ctx = await browser.newContext({
+                viewport: { width: c.width, height: c.width <= 500 ? 844 : 900 },
+                colorScheme: theme,
+            });
+            try {
+                await ctx.addInitScript((th) => {
+                    try {
+                        localStorage.setItem("vueuse-color-scheme", th);
+                    } catch {}
+                }, theme);
+                const page = await ctx.newPage();
+                if (c.browse) await page.addInitScript(browseShim, BROWSE_FIXTURE);
+                await page.goto(BASE + c.route, { waitUntil: "load", timeout: 300_000 });
+                await page.locator(".glass-dock").first().waitFor({ timeout: 300_000 });
+                await page.locator(".pane-wrapper .card").first().waitFor({ timeout: 300_000 });
+                await page.waitForFunction(() => !document.querySelector('main [aria-busy="true"]'), null, { timeout: 300_000 });
+                if (c.browse) await page.getByRole("article").first().waitFor({ timeout: 120_000 });
+                await page.waitForTimeout(SETTLE);
+                await page.locator(c.trigger).first().click();
+                await page.locator('[role="menu"],[role="listbox"]').first().waitFor({ timeout: 30_000 });
+                await page.waitForTimeout(800);
+                Object.assign(rec, await page.evaluate(floaterProbe));
+            } catch (e) {
+                rec.error = String(e).slice(0, 240);
+            } finally {
+                await ctx.close();
+            }
+            out.push(rec);
+        }
+    const ok = out.filter((o) => !o.error);
+    return {
+        cells: out,
+        totals: {
+            cells: out.length,
+            errors: out.length - ok.length,
+            floaterMaxLayers: Math.max(0, ...ok.map((o) => o.floaterMaxLayers)),
+            floaterGradients: ok.reduce((n, o) => n + o.floaterGradients, 0),
+            paintTopFailures: ok.filter((o) => !o.paintOnTop).length,
+        },
+    };
+}
+
 async function computedCensus() {
     const { chromium } = await import(path.join(ROOT, "node_modules/playwright/index.mjs"));
     // §0ei: the real Chrome binary, new-headless; never a visible window.
     const browser = await chromium.launch({ channel: "chrome", headless: true });
     const pages = [];
+    let overlays = null;
     try {
         for (const theme of THEMES)
             for (const width of WIDTHS) {
@@ -477,6 +649,7 @@ async function computedCensus() {
                 }
                 await ctx.close();
             }
+        if (!flag("no-overlays")) overlays = await overlayCensus(browser);
     } finally {
         await browser.close();
     }
@@ -493,7 +666,7 @@ async function computedCensus() {
             for (const [k, v] of Object.entries(p.byOwner[o])) sumOwner[o][k] = (sumOwner[o][k] || 0) + v;
     }
     sum.maxLayersOnOneElement = maxLayers;
-    return { base: BASE, routes: ROUTES, widths: WIDTHS, themes: THEMES, totals: sum, byOwner: sumOwner, pages };
+    return { base: BASE, routes: ROUTES, widths: WIDTHS, themes: THEMES, totals: sum, byOwner: sumOwner, pages, overlays };
 }
 
 // ─── verdict ─────────────────────────────────────────────────────────────────
@@ -507,6 +680,8 @@ const ALLOWANCE = {
     gradientFillsOnControls: 0,
     loopingAnimations: 0,
 };
+// V7R-03: a true floater may carry the canon's one quiet shadow, and it must paint on top.
+const OVERLAY_ALLOWANCE = { floaterMaxLayers: 1, paintTopFailures: 0 };
 
 function verdict(computed) {
     if (!computed) return { verdict: "UNMEASURED", reason: "static-only run" };
@@ -515,6 +690,10 @@ function verdict(computed) {
         const v = computed.totals[k] ?? 0;
         if (v > cap) over[k] = { value: v, allowance: cap };
     }
+    const ot = computed.overlays?.totals;
+    if (ot)
+        for (const [k, cap] of Object.entries(OVERLAY_ALLOWANCE))
+            if ((ot[k] ?? 0) > cap) over[`overlay.${k}`] = { value: ot[k], allowance: cap };
     return { verdict: Object.keys(over).length ? "RED" : "GREEN", allowance: ALLOWANCE, over };
 }
 
@@ -531,5 +710,5 @@ const json = JSON.stringify(result, null, 2);
 if (OUT) {
     fs.mkdirSync(path.dirname(path.resolve(OUT)), { recursive: true });
     fs.writeFileSync(OUT, json + "\n");
-    console.log(JSON.stringify({ out: OUT, gate: result.gate, static: result.static.totals, computed: result.computed?.totals }, null, 2));
+    console.log(JSON.stringify({ out: OUT, gate: result.gate, static: result.static.totals, computed: result.computed?.totals, overlays: result.computed?.overlays?.totals }, null, 2));
 } else console.log(json);
