@@ -1274,3 +1274,33 @@ This is the cure seat for critic **F5X** (the redeploy's pass-5 critic, 2026-10-
 - `paper-*-1440` (at rest) and `toc-hover-*-1440` (pointer on a non-selected row);
 - `equation-*-390` and `dock-equation-late` (light, after 8 s idle);
 - each in light and dark.
+
+### pass 6
+This is the cure seat for critic **F6X** (the redeploy's pass-6 critic, 2026-10-16). The BEFORE is the critic's set, `pass-06/critic-f6x/` (its frames, `probe.mjs`/`.json` and `metric.mjs`), plus `pass-05/f5x/equation-dark-390.png`. The other sets under `pass-06/` (`critic-f6`, `f6`) are left as they were.
+- fourier `6f2748e`, on `m/w1-bump-migration`, one file (`web/src/components/gallery/GalleryCard.vue`), a comment-only change committed by pathspec. It reached origin fast-forward under another seat's later F.REL push (`e89b032`, on top of it).
+- value.js `d23ac91c1` holds the AFTER frames, the probe and its JSON, the census and the gate logs, all in `pass-06/f6x/`.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F6X-T1 | The stale sentence in the `.gallery-card` style comment ("Hover lifts the cast one rung — glass's own `--card-cast-rung` …") is replaced by one that names what the rule below does: hover is the F1-13 tone step, never a cast promotion or a transform. No behaviour change. |
+| DS-F6X-T2 | **No cure, as the finding rules.** The empty fifth track at 1440 is honest `auto-fill` with the 4-item seed corpus, and it resolves with a real corpus. `auto-fit` would make few cards over-wide, so `auto-fill` is kept; the owner may rule otherwise. Frame: `gallery-dark-1440`. |
+
+**Glass-owned, cited, not overridden.** fourier defines no `--shadow-color` and no per-instance cast (grep of `web/src`: 0 hits), and none was added.
+- **DS-F6X-G1** (in dark, every glass cast is a cream glow halo, not a shadow). Re-measured at fourier HEAD (`f6x-probe.json`, dark 1440): the /equation Compute capsule's cast is `color(srgb 0.914 0.9 0.886 / 0.14) 0 8px 24px`, and `article.glass-resting.gallery-card` stacks `oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px` under two cream layers (`/ 0.12 0 4px 20px`, `/ 0.08 0 4px 16px`). The cause is glass 10.1.0 binding `--shadow-color: var(--foreground)`, which flips to cream under `.dark`. This is a new witness on **O-87 FLAT-LIGHTING**, distinct from DS-F2R-G1 (that row is the stack and recipe; this one is the inverted cast colour): in dark, glass derives the cast from a near-black ink, or drops resting casts and lets the single quiet edge carry the separation. Held honest-RED and re-judged at the 10.2.0 repin. Frames: `equation-dark-390`, `equation-dark-1440`, `visualize-dark-1440(-hover)`, `gallery-dark-1440`, `morph-dark-390`.
+- **DS-F6X-G2** (the /morph 390 `.demo-info` glass Metric row: the label outweighs its value on the coarse ramp). Folded into **DS-F3C-G1** (the coarse type-ramp relay beside O-87) as a new witness: Metric's label must stay at or below its value on every ramp. No consumer override was added. Frame: `morph-dark-390`.
+
+**Census** (`scripts/ds-census.mjs` on `:3100`; `f6x/census-after.json`). Still RED on the glass rows, and unchanged by this cure (the change is a comment).
+- Static: 7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations.
+- Computed sums: 378 shadow elements, 950 layers, 284 multi-layer stacks, 284 inset highlights, 212 backdrop blur, 0 control gradients, 0 looping animations. These equal pass 5 F5X's read exactly.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run --maxWorkers=2`: 116/116 (20 files), twice (under `guarded --light`).
+- **e2e: GREEN ×2.** The three specs that read the gallery card (`e2e-specs.txt`: `f-w14u-gallery`, `gallery`, `f-w14v-au4`) ran headless with `--project=chromium --project=mobile-chromium`, 1 worker, against `:3100`; the specs select chromium only. Run A: 49/49 passed. Run B: 49/49 passed. `visual-checkpoint` was not run, because a comment cannot move a pixel.
+- **No visual golden was re-baselined**; `web/e2e/` was left clean after both runs.
+
+**Frames** (`pass-06/f6x/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f6x-probe.mjs` (the critic's probe, with /equation 390 added) against `:3100`:
+- `visualize-*` at 1440 and 390, plus `visualize-*-1440-hover`;
+- `equation-*`, `morph-*` and `gallery-*` at 1440 and 390;
+- each in light and dark.
