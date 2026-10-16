@@ -24,10 +24,14 @@
 import { adminPopulatedTest as test, expect } from "./fixtures/admin-populated";
 import { runBattery, keyboardFacts } from "./fixtures/a11y-battery";
 
-const ADMIN_VIEWS: { hash: string; heading: string }[] = [
-    { hash: "/#/admin/users", heading: "Users" },
-    { hash: "/#/admin/names", heading: "Names" },
-    { hash: "/#/admin/flagged", heading: "Flagged" },
+// `seeded` is one datum of the admin-populated fixture that the view paints only
+// once its rows are in (X-W12U .q): the route <h1> (App.vue) carries the same
+// name as the view and is visible BEFORE the lazy admin pane mounts, so the
+// heading alone let the battery run over an empty <main> (controlsChecked 0).
+const ADMIN_VIEWS: { hash: string; heading: string; seeded: string }[] = [
+    { hash: "/#/admin/users", heading: "Users", seeded: "azure-fox-01" },
+    { hash: "/#/admin/names", heading: "Names", seeded: "Wax Seal" },
+    { hash: "/#/admin/flagged", heading: "Flagged", seeded: "Sunset Riot" },
 ];
 
 for (const view of ADMIN_VIEWS) {
@@ -40,6 +44,10 @@ for (const view of ADMIN_VIEWS) {
                 .getByRole("heading", { name: view.heading })
                 .filter({ visible: true })
                 .first(),
+        ).toBeVisible();
+        // The battery reads a POPULATED pane: wait for the fixture's own row.
+        await expect(
+            page.getByText(view.seeded, { exact: true }).filter({ visible: true }).first(),
         ).toBeVisible();
 
         const report = await runBattery(page, `admin-${view.heading}`);
