@@ -4089,3 +4089,13 @@ D-1 (MEDIUM) is the smoke check `heavy chunks requested at first paint: vendor-t
    - A fresh m/w1 CI must read e2e GREEN outside the manifest. That dissolves ESC-FREL-g-7, and `.g` merges as ruled.
    - A green master CI then dissolves ESC-FREL-d-2, and `.d` deploys.
 5. **Order:** `.x5 → .g → .d → close → check`. F-REL.md ADDENDUM (e) carries this ruling.
+
+## §0fp — 2026-10-16: F.CT3 CLOSED honest-RED, as addendum (d) prescribes; no phase 4 is minted
+F.CT3 ran its four bounded rounds. The failing rows fell 15 → 11 → 11 → 9. It closes honest-RED by the letter of F-CT addendum (d) ("after round 4 it closes honest-RED with whatever remains"). The close is value.js `ae715548e`, and fourier `bf16b1e` is contained in `m/w1-bump-migration`.
+- **GREEN:** pytest 188 ×2, api 344 ×2, a deterministic harness ×2, and the served daraksha read as the face.
+- **RED, named:**
+  - (1) The judge bar is unmet on 9 rows: daraksha's fidelity and drawable lenses; cauchy, chef, euler, joseph-fourier, chef-2, golden-retriever and sponge-happy each have a mean under 5.
+  - (2) Runtime: the median ratio is 2.135× against pre-F.CT `4c38b12` (95% CI [2.082, 2.203]).
+  - (3) The pre-F.CT judged baseline (§0eu.1) was never taken.
+  - (4) The chef-2, chef, llama-1 and sponge-scared recall drops are attributed to F.REL `.mem2` (BiRefNet-512), with frames.
+- **Ruled:** (d)'s bound is honoured, and a fifth round of the same method is not opened. §0eg's lesson stands: past the bound, more rounds converge on the method's ceiling. Any further contour phase is an OWNER decision, named in the close report with these four residuals. F.REL ships the contour pipeline as it stands at `bf16b1e`.
