@@ -1,0 +1,48 @@
+390 [
+ {
+  "rect": [
+   13,
+   1282,
+   364,
+   450
+  ],
+  "anim": "skeleton-breathe-0d5ebb1f",
+  "vis": "visible",
+  "chain": [
+   "div.skeleton.absolute.inset-0",
+   "div.code-well__body.relative",
+   "div.code-well.w-full.overflow-hidden",
+   "div.relative",
+   "section.min-w-0",
+   "div.monaco-pane.inactive",
+   "div.flex-1.min-h-0.overflow-y-auto",
+   "div.w-full.flex-1.min-h-0"
+  ],
+  "checkVisibility": false,
+  "skippedByContentVisibility": "hidden"
+ }
+]
+1440 [
+ {
+  "rect": [
+   72,
+   623,
+   405,
+   450
+  ],
+  "anim": "skeleton-breathe-0d5ebb1f",
+  "vis": "visible",
+  "chain": [
+   "div.skeleton.absolute.inset-0",
+   "div.code-well__body.relative",
+   "div.code-well.w-full.overflow-hidden",
+   "div.relative",
+   "section.min-w-0",
+   "div.monaco-pane.inactive",
+   "div.flex-1.min-h-0.overflow-y-auto",
+   "div.w-full.flex-1.min-h-0"
+  ],
+  "checkVisibility": false,
+  "skippedByContentVisibility": "hidden"
+ }
+]
