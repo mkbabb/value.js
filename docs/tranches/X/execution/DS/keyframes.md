@@ -2308,3 +2308,55 @@ The cure removes a glyph, not lighting. The verdict stays **RED**, held by the g
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light`, the suites `--light --rss-gb 4`.
 - The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 14 (the seventh redeploy's pass 14; critic C14; evidence in `pass-47/`)
+
+**Cure commit:** keyframes.js `5dfa3688` (pushed fast-forward to master, `83958f48..5dfa3688`). **Evidence:** value.js `36788646b` (`evidence/DS/keyframes/pass-47/`):
+- `c14-probe.mjs`, `c14-probe.json`, `c14-probe.log` (the served falsifier for -03, 0 fails);
+- `after/`: home, `cube`, `amiga`, `square`, `easing`, `spring` and `sequence` at 1440 and 390, each in light and dark, plus `dock-<scene>-<width>-<scheme>` frames of the dock opened by hovering its face (52 frames);
+- `census.json`, `census.log`;
+- the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-14/`, but `pass-14/` already holds the first workflow's committed evidence, so the frames go to `pass-47/`, following the pass-23..46 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C14-02 (low) | **The amiga floor closes inside the frame.** Fitted the way the walls' tops were (KF-C25-03), never by a dolly (UIA-KF-196 kept). `useAmigaThree.ts` derives `FLOOR_CUT_Z`, the z at which the closest framing's lower frustum edge meets the floor plane (≈ +0.32 u), and seats the floor's front rule at the last whole ruled row behind it, less a 0.1 u inset: `FLOOR_FRONT = 0`. That is the ball's plane, where the side walls' front verticals already stand. The floor runs from the back wall (z = −6) to z = 0, 6 u deep instead of 12, so its front edge is a ruled line. Unit falsifier in `amiga-room.test.ts`: the floor's z-extent is [−6, `FLOOR_FRONT`], `FLOOR_FRONT` is an integer, the front rule projects above the canvas bottom at the 878×646 envelope-fit stage, and the old z = +6 front projects below it. That last assertion is the failure the critic named. | `after/amiga-1440-{light,dark}.png`: the floor radials end on a front rule above the play button, and the room is closed. `after/amiga-390-*.png`: closed, with the floor ending at the side walls' fronts. |
+| KF-C14-03 (low) | **The easing stage seats a family per row.** Only `[data-density="stage"] .specimen-grid` changed: its track floor is `max(min(--tile-min, 50% − .25rem), (100% − 1rem) / 3)`, so the stage never holds more than three columns. Each in / out / in-out triad fills one row, with the three kinds in the same columns. The menu density is unchanged. | Probe at 1440, both schemes: Standard 3+2; Sine, Quad, Expo, Circ and Steps each 3 (one row); Cubic and Back 3+1. At 390: 2 columns everywhere (the KF-C4-06 floor holds). |
+
+**Correction to the critic's premise (-03).** Not every family other than Standard has three members. Cubic (+ `smooth-step-3`) and Back (+ `ease-in-bounce`, KF-C8-02) have four, so at three columns each carries its extra curve on a second row. That reads as the triad followed by an appendix. At four columns those two filled a row, but the five triads each left an empty slot and Standard left an orphan. The prescribed cure was taken as written.
+
+**Not cured**
+- **KF-C14-04 (trivial):** the hero headline sits across the cube at 1440. This is an identity-hero composition call (§0dm), and the critic marks it "owner composition call only; no automatic cure". It is left for the owner. The frames are `after/home-1440-{light,dark}.png`.
+
+**Cited (glass, not overridden)**
+- **KF-C14-01 (medium):** in dark mode, the dock's active and hover capsule is the plate's own tone. glass 10.1.0 `icon-button.css` `[data-active]` resolves `--dock-control-active-bg` to `--glass-plate-floating`, which is the dark plate's fill. The open surface therefore has no signifier in dark. Relayed as an **O-87** tone/state rider (dock, adjacent to O-88): the dark capsule needs its own flat tonal step, one rung off the plate, with no glow and no inset. It is re-judged at the 10.2.0 repin. No local token override in keyframes (`after/dock-*-1440-dark.png`).
+- **KF-C14-G1:** the held glass rows are re-observed unchanged at 10.1.0: (a) the stage cards' backdrop-blur grid bands and the dark halo; (b) the dark secondary-Button halo; (c) the closed Select's up caret; (d) filled Inputs beside grey or transparent Selects; (e) the Bezier ghost staircase; (f) the collapsed dock tile, `TypingDots` and the play-bubble halo. Cited against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION**, and re-judged at the 10.2.0 repin.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`): every chrome tally is identical to pass 46:
+- 310 shadow elements, 938 layers (max 6);
+- 416 inset highlights;
+- 278 backdrop blurs;
+- 54 control gradients;
+- 80 looping animations (the owner-ruled `wave-char` and `TypingDots`).
+
+The subject tallies are 0. The cures change geometry and layout, not lighting. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `5dfa3688`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 939/939 (155 files), ×2. That is +1, the KF-C14-02 falsifier.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk and the two untracked coordination files were not touched. Every commit is pathspec-only.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+- **The 390 amiga floor** now also ends at z = 0, where it used to end at z = +6. This is the same fit as the walls (one static rule, fitted at the closest framing), so the portrait room is shallower in front and still closed.
+- **The 1440 easing drawer:** the tiles are wider at three columns (2:1 stage), so fewer rows sit above the fold. The drawer's fold landing (KF-C8-05/C9-03) is measured at runtime and was not changed.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light --rss-gb 6`, the suites `--light --rss-gb 4`.
+- The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
