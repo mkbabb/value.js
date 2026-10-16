@@ -575,3 +575,50 @@ The relaunched workflow dispatched this seat as "pass 5" with critic VC5's rows 
 **For the next critic.**
 - Judge the 1.5rem fade at 390 on other colour spaces' formulas: OKLab/OKLCh carry the widest matrices.
 - VC5-01 waits on the owner, alongside VC4-09.
+
+### pass 6 (re-dispatch, 2026-10-15): critic VC6 — the tag chip's noun, the probes' body voice, a framed Browse wall, the dark cast's register, the code paper
+
+The relaunched workflow dispatched this seat as "pass 6" with critic VC6's rows **VC6-01..05** and **VC6-G1**. `pass-06/` already holds pass 6's own evidence from 2026-10-08, so this cure's evidence sits in `pass-06/vc6-2026-10-15/`. The critic's own `browse-cards-*` frames were not on disk; this seat framed its own before and after.
+
+**Commits.** value.js `b623b3737` (VC6-01 + the test), `01aaf6a9c` (VC6-05) and `158dcbff3` (AFTER frames, harness, probes, census, gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-06/vc6-2026-10-15/`) |
+|---|---|---|---|
+| VC6-01 (medium) | **Cured, at the band rules.** | `PaletteCardMeta.vue`'s bands now come from the room the meta row actually has. Below 30rem, PaletteInspector's UIA-V-30 rule already puts the cluster on its **own row** under the name (the card less the menu column). There, one 9ch chip fits from **18rem** and two from **24rem**. From 30rem the cluster rejoins the head row, so the 30/36/42 steps stand for that range. The bands are still declared in CSS only (`@container … or …`), with no JS measuring. Band 0 (now under 18rem only) gives its count a noun: **"2 tags"**, not "+2". The n-fixtures label test follows. | `probe-browse-meta-before/after.json`, `browse-cards-{before,after}-*`. At 1440 the card is 462 px (28.9rem): **0 chips → 2**. At 390 the card is 324 px (20.25rem): **0 chips → 1**. "+N" now only follows a real chip. No meta row clips (`scrollWidth = clientWidth`) in any of the 4 cells. palette-card-layout (G9/G10, real Chromium at 390) passes ×2. |
+| VC6-02 (low) | **Cured, in the harness.** | One shared `harness.mjs` holds the boot, the VR3-01/VC4-05 **rendersJakarta** gate (reload up to 4 times, then fail) and the role=alert refusal. `capture.mjs` and both probes import it, so a cure probe can no longer shoot without the gate. Root cause found while wiring the Browse fixture: Playwright's `page.route` **disables the HTTP cache**, so every gate reload fetched the faces cold and `font-display: optional` kept the fallback. The fixture is therefore answered in-page, by a fetch shim installed before boot. | `probe-vc6.json`: the tools and katex frames were re-shot with `voice: true` in both schemes. VC5-02 re-taken under the real face, **dark included**: all three descriptions are **1 line**, text 156–199 px in the 310 px box, in "Plus Jakarta Sans" in both schemes. The katex rows are unchanged (24 px at rest → 0 px at the end; the fitting rows 0). |
+| VC6-03 (low) | **Cured.** | For `/#/browse`, `capture.mjs` answers `GET /palettes` with six varied palettes, in the e2e fixture's shape (`{ data, nextCursor, hasMore }`): 0 to 4 tags, votes 0 to 1203, 3 to 6 colours. It shoots only once a `role=article` card stands. | `browse-{1440,390}-{light,dark}.png` frame real community cards, the first Browse set to do so in six passes. |
+| VC6-04 (low) | **Not a seat's cure: owner DESIGN-RULING (P6-B1).** | Both poles are framed at the one knob, injected by the probe; nothing ships. **Pole A** is today's stone at 50 %. **Pole B** is the original's (`684c818f`) `dark:shadow-gray-700`, an opaque, lighter offset: `--shadow-color: color-mix(in oklab, var(--foreground) 34%, var(--background))`, cast unblended at the same 8 px / 10 px hover geometry. Only `--shadow-color` / `--shadow-cartoon(-hover)` move. | `poles-A-picker-1440-dark.png` vs `poles-B-picker-1440-dark.png`. Pole B gives the dark cards a visible grey stamp against the wine field; Pole A reads as a faint darker band. |
+| VC6-05 (trivial) | **Cured, at the token.** | The suggested cap raise alone **did not bind**. The dark `--accent-live` is the contrast-guarded light ink (default pick: L 0.958, **C 0.021**), so `min(c, 0.05)` = 0.021, the same grey slab. In dark the paper now takes `min(c * 2.5, 0.05)`; light keeps its 0.03 cap. A grey pick (C ≈ 0) stays neutral, and L stays pinned at 0.345. | Default pick, dark: ground C **0.021 → 0.05** (h 9.8). Live crayon ratios: ink 9.49, comment 5.15, keyword 4.99, entity 5.47, string 5.95, number 6.27. `certify-code-ground.json` covers every hue at the cap (step 5°): worst keyword **4.75** (h 175); all ≥ 4.5. Crop: `code-plate-1440-dark.png`. |
+| VC6-G1 (glass) | **Held, cited O-87 / O-88.** | The dock's 6-layer rim and halo, inset top-lights on fields, the 8 drop-shadows (the bead's double drop, the dock), gradient fills on glass controls, the translucent tooltip and floater plates, the bead's specular body, and the 390 dock fill (O-88) are honest-RED until the 10.2.0 repin. No local override. | — |
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`, guarded `--light`).
+- **Verdict RED, on glass rows only (O-87):** max 6 layers, inset highlights 318, drop-shadow 8, gradient fills on controls 13.
+- **Consumer:** box-shadow layers 111 (single-layer), backdrop blur 18, looping 0 (70 loading loops tallied apart), with no inset highlights, drop-shadows or control gradients.
+- The glass tallies moved from pass 5 (364 → 318, 22 → 13) with no glass change from this seat. The served state differs between runs (the dock register, lazy panes), so this is not counted as a cure.
+
+**Frames.** 36/36 route frames (9 routes × light/dark × 1440/390), headless real Chrome (§0ei), all through `harness.mjs`; 0 failed. Also in the directory: `browse-cards-{before,after}-*` (16), `tools-1440-*`, `katex-row-390-*`, `poles-{A,B}-picker-1440-dark.png` and `code-plate-1440-dark.png`.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 errors ×2.
+- **vitest:** 1182/1191 ×2, the **same 9** failures both runs, all from the pass-4 set: ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6, v4-css-emerging ×2. The suites that read this diff's files pass ×2 (n-fixtures, compact-counts, format-color, palette-card-layout). plate-mass also passed this time.
+- **e2e:** projects smoke + smoke-admin, headless, workers 1, own server :9175. Five specs, 24 tests: browse-loading, browse-pagination, gradient, w7-inspector-rows, a11y-authed-user. **21/24 ×2**, with the **same 3** failures both runs, none touching the bands or the code paper:
+  - w7-inspector-rows "tag": the Edit Tags dialog shows no checkbox;
+  - w7-inspector-rows: the dock's scene set lacks `palette.save`;
+  - gradient "selector aurora": a census-hash assertion that expects the "glass-ui 10.1.0" text.
+
+  **Not ×2 GREEN; nothing in this diff.** No visual golden was re-baselined.
+
+**Host: the user's "why did the computer crash again", from this seat (2026-10-15, 19:36–20:50).**
+- **No kernel panic or reboot since 2026-10-09 18:57.** `/Library/Logs/DiagnosticReports` holds no panic.
+- `~/Library/Logs/DiagnosticReports` has 40 reports dated today:
+  - **18:53–18:55:** a burst of **SIGABRT at launch**. 15 `node`, plus `cat`, `echo` and `env`, each dying within about 0.15 s of spawning from zsh. Ordinary processes failing to start is the signature of process or memory exhaustion, not of any one test.
+  - **19:25:** 5 Firefox Nightly `plugin-container` SIGSEGVs.
+  - **13:10:** 7 `python3.13` SIGSEGVs.
+  - **14:16 / 14:50:** Safari and WebKit WebContent aborts.
+- **Swap stayed at 8.8 of 10 GB the whole session.** The 1-minute load was 15–28, with about 1,130–1,250 processes.
+- The guard's three heavy slots were saturated by other seats: this seat's census waited more than 20 minutes for a slot and was re-run under `--light`. Nothing was killed for RSS.
+- Any freeze or "crash" today rides on near-full swap and process count, not on a test OOM from this seat.
+
+**For the next critic.**
+- Judge the bands at the widths that switch rows (29.9rem vs 30rem): the cluster drops from 2 chips on its own row to 1 in the head row by design.
+- VC6-04 waits on the owner (P6-B1), alongside VC5-01 and VC4-09.
