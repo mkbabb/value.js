@@ -1304,3 +1304,34 @@ This is the cure seat for critic **F6X** (the redeploy's pass-6 critic, 2026-10-
 - `visualize-*` at 1440 and 390, plus `visualize-*-1440-hover`;
 - `equation-*`, `morph-*` and `gallery-*` at 1440 and 390;
 - each in light and dark.
+
+### pass 7
+This is the cure seat for critic **F7X** (the redeploy's pass-7 critic, 2026-10-16). The BEFORE is the critic's cells (`/v`, `/visualize`, `/equation`, `/paper` 1440 and 390, `/morph` 1440), which the critic did not commit, plus `pass-06/f6x/morph-light-1440.png` and `pass-00/ref-576e40a/morph-light-1440.png` (PRE-DOCK). The other sets under `pass-07/` (`f7`, the loose `pass-07/*` files) are left as they were.
+- fourier `5fbe1cf`, on `m/w1-bump-migration`, four files (`web/src/components/paper/PaperTocBar.vue`, `web/src/components/paper/PaperTocDrawer.vue`, `web/src/components/ui/SliderControl.vue`, `web/e2e/f-w14-control-row.spec.ts`), committed by pathspec. Origin had moved on (F.CT3 r1, `8a5e1bc`), so it was merged in (`9338e26`, no file overlap) and pushed fast-forward `8a5e1bc..9338e26`.
+- value.js (this commit's sibling) holds the AFTER frames, the probe and its JSON, the census and the gate logs, all in `pass-07/f7x/`.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F7X-C1 | Glass first. The two hand-assembled ToC plates leave the `.glass-opaque` class (whose `--glass-level: 0` never reaches the tier's finished blur token, G1) for glass's own `data-surface="opaque"`, which is the rule Card `surface="opaque"` renders (`surface-axis.css`: solid `--card`, `backdrop-filter: none`). The rail keeps its `glass-quiet` rung and the bar its `glass-resting` rung. No local `backdrop-filter`. **Measured** (`f7x-probe.json`): `nav.sidebar-nav` at 1440 and `.floating-toc-bar` at 390 read `backdrop-filter: none`, `data-surface="opaque"`, in light and dark (before: `blur(14px) saturate(1.5)` and `blur(16px) saturate(1.5)`). On /paper 390 the only blur left is the dock plate. The f-w14u-paper chip and rail assertions are green ×2. |
+| DS-F7X-C2 | Revive the PRE-DOCK density at the root (`SliderControl`, the one control-row idiom). The row marks its kind (`data-row-kind`: `hint` or `plain`). At `(min-width: 1024px) and (pointer: fine)`, a plain row lays label, field and track on one line, and the track takes the free space. The order is label, field, track, which is the DOM order (so the tab order is unchanged) and PRE-DOCK's measured order in `576e40a` (the finding's cure text says label, track, field, but its own description of the reference frame and the frame itself read label, field, track). Labels get PRE-DOCK's 2.5 rem column (`.level-label`), so Low and High start on one x. The track has an 8 rem floor, and a row too narrow for it wraps back to today's stack: line 1 takes the full width, the field sits at its end, and the track has its own line. Hint rows keep P2-07's caption line, and the coarse and 390 ramps keep the stack. No hue or glass recipe changed. **Measured** (`f7x-probe.json`, both themes): at 1440, Low and High are 36 px one-line rows (before about 80), with the field at x 48 and the track at x 132 (510 px) in both. The Harmonic Levels card is 303 px (before about 510). At 1024, the three Duration rows and Low/High are 36 px one-line rows. At 390 every row is the stack (82 px). **Residual, stated:** at 1440 the three phase cards' Duration rows stay stacked (68 px), because the card's content is 178 px, under label + field + unit + the 8 rem floor; PRE-DOCK's cards were wider (no stage column). Six whole tiles still show at 1440, because the strip's tile count is set by its width, not by the card's height. If the owner wants Duration one-line inside the 3-up cards at 1440, that needs a narrower field rung or a different card grid, which is an owner layout ruling. |
+| f-w14-control-row | Restated per row kind, as the finding asks. The track lies beneath line 1 **or** on it after the field (`inline`). The height gate is grouped by hint × inline. A new assertion: a hint row never goes one-line. Run A at 1440 logged `morph Low/High … inline=1 … h=36`. |
+
+**Glass-owned, cited, not overridden.** fourier adds no `backdrop-filter` anywhere (grep of `web/src`: 0 declarations).
+- **DS-F7X-G1** (`.glass-opaque` keeps the tier's frost). Re-measured at fourier `5fbe1cf` (`f7x-probe.json`): the /equation `.configurator-stage` and `aside.configurator-aside` still read `blur(20px) saturate(1.5)` at 1440 (the aside also at 390), and so does the /visualize stage. The cause is glass 10.1.0's `ladder-undershadow.css`, which sets only `.glass-opaque{--glass-level:0}`, while the tier tokens `--glass-blur-*` resolve `var(--glass-level)` at the theme scope and inherit as finished values. This is a new witness on **O-87 FLAT-LIGHTING**: glass makes `.glass-opaque` honour `glass-system.md:13` ("solid --card + blur(0)"), either by re-declaring the three blur tokens (or `backdrop-filter: none`) on `.glass-opaque` and the tier classes, or by aliasing the class to `[data-surface="opaque"]`. Held honest-RED and re-judged at the 10.2.0 repin. The Configurator plates keep the class (the comments at `VisualizationView.vue:433/444` and `EquationView.vue:413` rely on glass's documented contract), and no local override was added. Frames: `equation-*-1440`, `equation-*-390`, `visualize-*-1440`.
+
+**Census** (`scripts/ds-census.mjs` on `:3100`; `f7x/census-after.json`). Still RED on the glass rows.
+- Static: 7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations (unchanged).
+- Computed sums: 378 shadow elements, 950 layers, 284 multi-layer stacks, 284 inset highlights, **208 backdrop blur (from 212: the two ToC plates × light/dark, C1)**, 0 control gradients, 0 looping animations.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run --maxWorkers=2`: 116/116 (20 files), twice (under `guarded --light`).
+- **e2e: GREEN ×2.** The ten specs that read the changed files (`e2e-specs.txt`: `f-w14-control-row`, `f-w14u-paper`, `f-w14u-misc`, `f-w14v-au3`, `f-w14-uia-r2`, `f-w14v-au0`, `f-w14v-au1`, `f-w14u-vstage`, `f-w14v-x7`, `paper-performance`) ran headless with `--project=chromium --project=mobile-chromium`, 1 worker, against `:3100`. Run A: 124/124 passed. Run B: 124/124 passed.
+- **No visual golden was re-baselined** (`visual-checkpoint` frames neither /morph nor the ToC plates). The `e2e/screenshots/f-w14/after-*` frames that the control-row spec rewrites were restored to HEAD after the runs, so `web/e2e/` holds only other seats' hunks.
+
+**Frames** (`pass-07/f7x/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei; 390 with touch), `f7x-probe.mjs` against `:3100`:
+- `morph-*` at 1440, 1024 and 390;
+- `paper-*` at 1440 and 390;
+- `equation-*` at 1440 and 390, and `visualize-*-1440`;
+- each in light and dark.
