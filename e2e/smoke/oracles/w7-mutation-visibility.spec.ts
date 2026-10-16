@@ -42,12 +42,16 @@ adminPopulatedTest.describe("G13 · admin rows", () => {
 
     adminPopulatedTest("delete-all (a user's palettes) — confirmed, then announced", async ({ page }) => {
         await page.goto("/#/admin/users");
-        const row = page
-            .getByText("azure-fox-01", { exact: true })
-            .first()
-            .locator('xpath=ancestor::div[contains(@class,"cursor-pointer")][1]');
-        // X.W7.e (G15): the control is named for what it destroys.
-        await row.getByRole("button", { name: "Delete all palettes of azure-fox-01", exact: true }).click();
+        // X.W7.e (G15): the control is named for what it destroys — and for
+        // the user it acts on, so its exact name IS the row. Re-baselined
+        // X-W12U .q2: since .k2's one disclosure (A2-VA-L1-12, `cc38595c1`)
+        // the row's `cursor-pointer` element is the Collapsible's trigger
+        // BUTTON and the action cluster is its sibling, so the old
+        // `ancestor::div[contains(@class,"cursor-pointer")]` row resolved to
+        // no element (q1: 30 s timeout).
+        await page
+            .getByRole("button", { name: "Delete all palettes of azure-fox-01", exact: true })
+            .click();
         await page.getByRole("dialog").getByRole("button", { name: "Delete all palettes" }).click();
         await expect(verdict(page, "users")).toContainText("Deleted 1 palette of azure-fox-01");
     });
