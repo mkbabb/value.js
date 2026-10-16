@@ -3978,3 +3978,17 @@ X-W12U ended NOT-CONFORMANT after 2 repairs (Check 6). Every HIGH waited on a ru
 10. **ESC-W12Uh-1, the degraded :9000, is ROUTED and CURED by the orchestrator.** Vite on :9000 had been up 1 d 9 h at 3.7 GB RSS. Beside it were 3 stale `build:watch` trees (one 2 d 6 h old), a stale :9273 vite, and two surviving `dev.sh up` supervisors. All were stopped, and the stack was restarted. Docker had died under them.
 11. **The LEDGER cell** (C6-7) is refreshed by the next close seat.
 12. **Order:** `.q2 → .k3 → .m3 → close → check`. W12U.md ADDENDUM (g) carries this ruling.
+
+## §0fi — 2026-10-15: the 21:37 kernel PANIC assayed (zone map exhausted, `data.kalloc.1024` ~20.8M elements, ~6 days of uptime); a zone watchdog in the guard
+The Mac panicked at 21:37: `zalloc[3]: zone map exhausted while allocating from zone [data.kalloc.1024], likely due to memory leak in zone [data.kalloc.1024] (19G, 20,811,024 elements)`. The boot was 2026-10-09 18:57, so the zone grew over about 6 days, roughly 2,400 elements a minute on average. This is the same signature as the 2026-10-10 panic.
+- **Live measurement after reboot** (`zprint data.kalloc.1024`, in-use column): 15–200 elements a minute at near-idle.
+- **Isolation tests, each against that counter:**
+  - 2,000 process execs, 5,000 localhost TCP connections, and 5,000 file write/unlink cycles;
+  - 30 headless Chromium and 30 headless WebKit page loads with WebGL and screenshots, through `guarded --exclusive webkit`;
+  - Docker Desktop boot and idle, 3,000 port-forwarded connections, 300 MB of in-VM I/O, and 300 MB over virtiofs.
+  - **None of these leak.** fourier's ONNX runs CPU-only (`ml.py:157`).
+- The leading remaining suspect is the CrowdStrike Falcon agent, running at 180–260 % CPU. It is an Endpoint Security client, so a backlog under heavy load would hold kernel message buffers. It cannot be proven without root, so it is recorded as a suspect, not a finding.
+- **The cure, which works whatever the cause:**
+  - `reap-orphans`, every 10 min, samples the zone into `~/.claude/guard/zone-kalloc1024` and `log/zone.log`, with the top CPU users, so the leaking workload shows up by correlation.
+  - At ≥ 8M elements it notifies the owner to reboot.
+  - At ≥ 13M, `guarded` refuses heavy runs.
