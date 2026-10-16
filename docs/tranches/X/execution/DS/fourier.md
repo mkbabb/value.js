@@ -1550,3 +1550,35 @@ This is the cure seat for critic **F13X** (the redeploy's pass-13 critic, 2026-1
 **Frames** (`pass-13/f13x/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f13x-probe.mjs` against the final tree:
 - `morph-*-{1440,1024,390}-{levels,levels-card}`, in light and dark;
 - `f13x-probe.json`, which records the resting and active edges and the ring, the ring's contrast on `--card` before and after, and the Select-vs-field tones.
+
+### pass 14
+This is the cure seat for critic **F14X** (the redeploy's pass-14 critic, 2026-10-16). The AFTER frames are in `evidence/DS/fourier/pass-14/f14x/`.
+- fourier `fd853a2`, on `m/w1-bump-migration`, two files (`MorphShapePreview.vue` and `HarmonicLevelGrid.vue`), committed by pathspec and pushed fast-forward `020a77f..fd853a2`.
+- value.js `58452073c` holds the AFTER frames, the stroke probe and its JSON, the census, and the gate and e2e logs.
+  - That commit also swept in another seat's untracked `pass-14/critic-f16/` by mistake.
+  - `e7ade4135` untracks those files again. They are still on disk, untouched, for their owner to commit.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F14X-P1 | **The morph line now has one weight in screen space.** Both the stage plate's path and the levels tiles' paths use `vector-effect: non-scaling-stroke`. The plate is 3 px, which is PRE-DOCK's rendered weight. The tiles are 1.5 px.<br>**Before:** the stroke was a fixed number of user units, so it grew and shrank with the box. The plate's 4.5 units rendered at about 8.4 px at 1440 and 1024 (a 374 px svg) and about 2.3 px at 390. The tiles' 4 units rendered at 1.3, 1.0 and 0.65 px.<br>**After:** the plate is 3 px and the tiles are 1.5 px in every cell (1440, 1024 and 390, both themes). That is one ratio, 2:1, where before the two weights were about 6x apart (`f14x-probe.json`).<br>**How:** the plate gets one `.morph-button :deep(path)` rule beside its existing `:deep(svg)` rule. The tiles get one attribute. There is no new component, and the `FourierMorphSvg` leaf is unchanged, so the dark-mode toggle's 14-unit glyph is untouched. The accent hues and the morph motion are unchanged (§0dm).<br>Frames: `morph-*-{1440,1024,390}-{stage,levels}`. |
+| DS-F14X-T1 | The FR-MSP-11 "ONE RING VOCABULARY" comment in `MorphShapePreview.vue` now records that HarmonicLevelGrid's selected ring was a 2 px ring at a 15% mix and has been one solid accent pixel since DS-F13X-T1. The vocabulary itself, a flat ring meaning "selected", is unchanged. This is a comment change only. |
+
+**Glass-owned:** this critic named none. The rows held from earlier passes stay honest-RED on **O-87 FLAT-LIGHTING** and **O-88**, to be re-judged at the glass 10.2.0 repin. There is no local override.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3134`; `f14x/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 13. They are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- `vector-effect` is not a lighting site. The census is still RED, on the glass rows only.
+
+**Gates** (`f14x/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** the same 14 specs as passes 12 and 13 (`e2e-specs.txt`). They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8014` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018`, `BLOB_DIR` under `~/.cache`) behind vite on `:3134`. Both were stopped at the end.
+  - Runs A and B passed 142/142 each.
+  - A first launch never reached the tests: the seed got ECONNREFUSED because the guard reaped servers whose launching shell had exited. The servers were relaunched as background tasks, and that run's log was overwritten by run A.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD.
+
+**Frames** (`pass-14/f14x/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f14x-probe.mjs` against the final tree:
+- `morph-*-{1440,1024,390}-{stage,levels}`, in light and dark;
+- `f14x-probe.json`, which records each cell's svg size, stroke width, `vector-effect`, rendered px for the plate and a tile, and their ratio.
