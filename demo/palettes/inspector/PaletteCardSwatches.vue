@@ -35,29 +35,38 @@
                 @update:open="(v: boolean) => $emit('popoverOpen', v, i)"
             >
                 <template #actions>
-                    <!-- W5-a11y: icon-only buttons need explicit aria-label -->
-                    <button
+                    <!-- W5-a11y: icon-only buttons need explicit aria-label.
+                         X-DS pass 14 (V14-T2): the actions speak the card's ONE
+                         quiet-icon grammar (glass Button, as the slug copy above),
+                         with no local hover / press / ring classes. -->
+                    <Button
                         v-if="!isLocal"
+                        icon-only
+                        emphasis="quiet"
+                        size="sm"
                         :aria-label="`Add ${formatCssCaption(color.css)} to current palette`"
-                        class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                         @click="$emit('popoverAdd', color.css)"
                     >
                         <Plus class="w-4 h-4" aria-hidden="true" />
-                    </button>
-                    <button
+                    </Button>
+                    <Button
+                        icon-only
+                        emphasis="quiet"
+                        size="sm"
                         :aria-label="`Edit color ${formatCssCaption(color.css)}`"
-                        class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                         @click="$emit('popoverEdit', color, i)"
                     >
                         <Pencil class="w-4 h-4" aria-hidden="true" />
-                    </button>
-                    <button
+                    </Button>
+                    <Button
+                        icon-only
+                        emphasis="quiet"
+                        size="sm"
                         :aria-label="`Copy color ${formatCssCaption(color.css)}`"
-                        class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                         @click="$emit('popoverCopy', color.css)"
                     >
                         <Copy class="w-4 h-4" aria-hidden="true" />
-                    </button>
+                    </Button>
                 </template>
             </SwatchHoverMenu>
         </div>

@@ -463,6 +463,9 @@ const OVERLAY_CELLS = [
 
 // GET /palettes has no server on a bare host: answered in-page (a fetch shim,
 // not page.route, which disables the HTTP cache) in the API's keyset shape.
+// X-DS value pass 14 (V14-02): the first row is FEATURED, so the featured
+// badge (the one tier-gated chrome on a card) is mounted and counted, and the
+// route cells install the same shim, so /#/browse is read on real cards.
 const BROWSE_FIXTURE = JSON.stringify({
     data: [
         ["Harbor at Dusk", ["#0f172a", "#1e3a8a", "#f59e0b", "#fde68a"]],
@@ -479,7 +482,7 @@ const BROWSE_FIXTURE = JSON.stringify({
         isLocal: false,
         voteCount: i,
         visibility: "public",
-        tier: "standard",
+        tier: i === 0 ? "featured" : "standard",
         published: true,
     })),
     nextCursor: null,
@@ -630,6 +633,7 @@ async function computedCensus() {
                     } catch {}
                 }, theme);
                 const page = await ctx.newPage();
+                await page.addInitScript(browseShim, BROWSE_FIXTURE);
                 for (const route of ROUTES) {
                     const rec = { route, theme, width };
                     try {

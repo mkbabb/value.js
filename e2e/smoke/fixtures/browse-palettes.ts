@@ -39,7 +39,10 @@ function makePalette(i: number, page: 1 | 2): Palette {
         isLocal: false,
         voteCount: n,
         visibility: "public",
-        tier: "standard",
+        // X-DS value pass 14 (V14-02): the wall's first row is FEATURED, so
+        // every browse spec, frame and census mounts the featured badge (the
+        // one tier-gated chrome on a card); the rest stay standard.
+        tier: n === 1 ? "featured" : "standard",
         published: true,
     };
 }

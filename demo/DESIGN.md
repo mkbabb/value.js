@@ -101,7 +101,7 @@ rung routes to ratification; off-ladder material mints are prohibited
 | Rung | Material | Deployments |
 |---|---|---|
 | **1 · PLATE** | ONE card species — the picker's exact register: `<Card tier="resting">` with its defaults (cartoon stamp via `--shadow-card`, grain ON) | the picker card AND all 9 pane cards (About, Palettes, Browse, Extract, Mix, Generate, Gradient, Admin, ConfigSlider) |
-| **2 · WELL** | an **opaque tone-step of the plate, NO backdrop-blur** (nothing live sits behind an in-plate fixture; blurring the aurora through the host is the mud generator) — the ONE `--well-bg` token: `color-mix(in oklab, var(--card) 92%, var(--foreground) 8%)` (the D1 bracket [6%, 10%], default 8%), consumed as `bg-well`/`var(--well-bg)`; dashed edge / `--shadow-cartoon-sm` where the affordance calls for it | `.dashed-well` · PaletteCard (+skeleton — one shared shell) · the gradient perceived-space plate + stop chip · VersionHistoryDrawer rows · the mix result plate · markdown interiors (`bg-muted`, the pattern's origin cite) |
+| **2 · WELL** | an **opaque tone-step of the plate, NO backdrop-blur** (nothing live sits behind an in-plate fixture; blurring the aurora through the host is the mud generator) — the ONE `--well-bg` token: `color-mix(in oklab, var(--card) 92%, var(--foreground) 8%)` (the D1 bracket [6%, 10%], default 8%), consumed as `bg-well`/`var(--well-bg)`; a dashed edge where the affordance calls for it | `.dashed-well` · PaletteCard (+skeleton — one shared shell) · the gradient perceived-space plate + stop chip · VersionHistoryDrawer rows · the mix result plate · markdown interiors (`bg-muted`, the pattern's origin cite) |
 | **3 · CHROME** | true floating glass — the producer rungs as shipped (`glass-dock`, capsules, `glass-floating`/`overlay`) | dock, login capsule, Mix CTA, popovers/dialogs/drawers, the swatch-edit overlay, the eyedropper overlay (Q4-defaulted: a TRUE overlay — floating is correct *there*) |
 | **4 · STAGE** | the named near-black pair `--stage`/`--on-stage-chrome` (warm stone, **scheme-invariant** — a photograph's ground never flips) | the extract camera/image stage, its caption veil, on-stage chrome chips |
 
@@ -150,7 +150,7 @@ hairline, and rounding — never ad-hoc per component.
 | **Z0** | The page: aurora + graticule substrate | atmosphere (no surface) | none | none |
 | **Z1** | Plates: pane shells, the picker card | glass `resting` — rung-1 PLATE (T.W3-1; the wash arm retired) | the cartoon rung (`--shadow-card`), plates only | the glass tier's built-in `--glass-border-accent` |
 | **Z1v** | Veils: config/overlay panes that read *through* | glass veil tier | none | glass border |
-| **Z2** | In-plate cards: palette cards, swatch tiles, chips | the rung-2 WELL (`--well-bg` opaque tone-step — § Surfaces) | `--shadow-cartoon-sm/md` (chip scale) or none | `--card-edge` |
+| **Z2** | In-plate cards: palette cards, swatch tiles, chips | the rung-2 WELL (`--well-bg` opaque tone-step — § Surfaces) | none | `--card-edge` |
 | **Z3** | Protagonists: ≤ 1 per pane (the hero blob, a featured card) | material hero | the full cartoon rung | per material |
 | **Z4** | Floating chrome: popovers, dialogs, dock, toolbars | glass `floating`/`overlay` | the glass tier's own shadow | glass border |
 
@@ -161,8 +161,7 @@ hairline, and rounding — never ad-hoc per component.
    a soft/inset ring (the U24 "extreme" = stacking both).
 2. **The cartoon budget.** Per pane at rest: plates (Z1) + at most ONE
    protagonist (Z3) cast the full cartoon rung. Dual views ≤ 3 full-rung casters
-   total. Chip-scale rungs (`--shadow-cartoon-sm/md`) don't count against the
-   budget but obey law 1.
+   total.
 3. **Hover lifts never lurch.** A plate's shadow does not change on hover
    (the hover rung was deleted, X-DS V11-T1); a hover never changes shadow
    voice, rounding, or layout size.
@@ -191,7 +190,7 @@ One cartoon language. The demo overrides `--shadow-cartoon` to a heavier rung (s
 - No hover rung: the 10px `--shadow-cartoon-hover` override and its `--shadow-card-hover` alias were dead and are deleted (X-DS V11-T1).
 - `--shadow-card` is routed through `--shadow-cartoon`. One language for `shadow-card`, `shadow-[var(--shadow-card)]`, and `shadow-cartoon` consumers — no fourth ad-hoc recipe.
 
-Dark mode lightens the cartoon rung (style.css:146-147) by dropping the shadow-color mix to 50% so the offset stays legible against the dark substrate. Glass-ui's `--shadow-cartoon-sm/md/lg` rungs (MiniColorPicker, SearchFilterBar) are consumed unchanged for chip-scale shadows where the heavier 8px rung would dominate.
+Dark mode lightens the cartoon rung (style.css:146-147) by dropping the shadow-color mix to 50% so the offset stays legible against the dark substrate.
 
 ## § Radii
 
@@ -271,13 +270,12 @@ reveal/dock/tabs registers, the atmosphere arrival fade, and the PRM guard chain
 | `ImageEyedropper.vue:286` | `swatch-pop 0.65s` | bespoke pop curve (overshoot → rest in 4 frames); no canon between `--duration-panel` (0.55 s) and `--duration-xl` (1 s) |
 | `ActionButton.vue:117,120,121` | `action-pulse / action-spin 0.4s` | bespoke flash + spin; sits between `--duration-normal` (0.3 s) and `--duration-slow` (0.45 s) |
 | `PointerDebugOverlay.vue:266` | `blink 0.5s infinite` | bespoke; dev-only debug overlay |
-| `PaletteCard.vue:388` | `golden-text-shimmer 4s` | bespoke; sits between `--duration-shimmer-fast` (3 s) and `--duration-shimmer` (5 s) — paired with the 4-stop gradient's visual rhythm |
 
 **§ Reduced-motion carve-out** (animations.css:184-193 — the global guard; the `no-preference` arm at :43, B.W1 Lane B; line numbers re-measured at X.W5.a, where the former `:32-60` cite pointed at the stagger utility instead): the global `prefers-reduced-motion` guard neutralises all CSS animation + transition durations; a secondary block re-enables 150 ms opacity fades on `[data-state="open"|"closed"]` so reka-ui Dialog/Sheet/Popover state changes still communicate. WebGL RAF loops (GooBlob, aurora) fence on `prefers-reduced-motion` in their composables (see `useMetaballRenderer`); the global CSS guard does not reach them.
 
 Custom keyframes live in `demo/@/styles/animations.css` (`edit-drawer-in`, with a mobile media-query restate at ≤ 639 px — see comment at animations.css:12-16 for the intentional inheritance break) + colocated `<style scoped>` blocks (per-component animations). Shared keyframes (dialog, floating-panel, card-menu, shimmer) come from `@mkbabb/glass-ui/styles/animations.css`.
 
-**§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-present`, `--spring-panel`, …) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
+**§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-present`, `--spring-panel`, …) are reserved for transforms that read physically; ActionBarLayer.vue demonstrates the duration-fast path.
 
 **§ Pane-swap transition mode — NOT `out-in` (dev-vs-build divergence).** The
 per-slot `<Transition>` in `demo/shell/PaneSlot.vue` (re-pointed at X.W5.a — the
