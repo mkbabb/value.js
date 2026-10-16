@@ -303,9 +303,9 @@ watch(() => imageUrl, () => { loadAndFit(); });
     transition: opacity var(--duration-fast) var(--ease-standard);
 }
 
+/* X-DS pass 6: the pin speaks in the ring alone; the loupe keeps its one shadow. */
 .loupe-pinned {
     border-color: var(--primary);
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 20%, transparent);
 }
 
 /* Action button hover → sampled color */
