@@ -124,7 +124,16 @@ test("w12-drag — 2 s drag on the surface and each slider holds frame budget", 
         `[w12-drag] renderer=${renderer} origin=${ORIGIN ?? "dev"} T=${budget.T.toFixed(2)} budget p50<=${budget.p50Ms.toFixed(2)} p95<=${budget.p95Ms.toFixed(2)}`,
     );
     for (const r of results) {
-        expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(10);
+        // The collector-liveness floor. On the real-GPU cell a 2 s drag paints
+        // ~120 frames, so > 10 proves the collector live. Under SwiftShader
+        // (the `smoke` project, playwright.config.ts:74-77) the 1440 page
+        // paints at 1.5-5 fps and frames track the input pacing (r1: 4-25
+        // frames per drag), so > 10 there tests the rasteriser, not the
+        // collector — the reading this spec's own header holds only to the
+        // freeze ceiling (W12U.md addendum (e), §0en/§0ei: the real-GPU cell
+        // is the gate of record). Re-baselined X-W12U .q2: on software GL the
+        // collector is live when it reads at least two frame intervals.
+        expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(soft ? 1 : 10);
         if (soft) {
             expect(r.maxTask, `${r.name}: in-drag freeze`).toBeLessThanOrEqual(SOFT_MAX_TASK_MS);
         } else {
