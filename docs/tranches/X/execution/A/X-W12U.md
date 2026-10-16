@@ -1594,3 +1594,55 @@ At open, the 3 heavy slots were held by other sessions' runs with `--timeout 44`
 
 ### Verdict
 Cured: **C4-3** (the served falsifiers re-read ×2, two probe defects cured at their roots) and **C4-6** (the routing done, `npm test` re-read ×2; its RED is the standing 7 plus X.P.W8's 2). **C4-2**'s relay limb is cured (A2-VA-L2-4 is now honest-RED under O-74e L24-1); its owner limb (R-m-2, X-13-RUN) is escalated. Escalated: C4-1, C4-4, C4-5, C4-7 and C4-2's owner limb. The §3 bar is still unmet (smoke RED, WebKit 3×), so the row stays **PARTIAL**. IMPLEMENTED is not stamped.
+
+## Check 5 (L-20 fresh adversarial pass 2 on Close 2, after Repair 3, 2026-10-15)
+
+SERVED MODEL: claude-opus-5-5. VERIFY-ONLY, Track A, HEAD `59a98f1c1` (Repair 3's commit). The task calls this "Check 2"; the record already holds Check 1–4, so this takes the next free number, following Check 4 / Repair 3. Spec `W12U.md` read whole (96 lines, addenda (a)–(f)). Record read: header → Unit plan, RESUME 2 open/plan/baseline, Close 2, Check 4, Repair 3; `.h` Act 4 and `.q` escalations by grep. Crash recovery ⟨`git status --porcelain -- <record> LEDGER.md`⟩ → empty. Host: ⟨`uptime`⟩ load 16–38 across the sitting; ⟨`memory_pressure`⟩ free 66–68 %; swap 86 % (guard log). Outputs of this seat: `W12U-evidence/c5/`.
+
+**Host, for the owner's question.** ⟨`ls -t /Library/Logs/DiagnosticReports | head`; `ls -t ~/Library/Logs/DiagnosticReports | head`; `last -3`⟩ → no panic, no WindowServer report and no new WebContent report since Repair 3's read; the newest user crash reports are Firefox `plugin-container` at 10-15 19:25 (other sessions' automation); console login 10-15 11:42 still live. Repair 3's diagnosis stands unchanged: the 10-14 13:24 session loss was the WindowServer `abort()` after the Playwright WebKit WebContent crash storm (ESC-W12Uq-4), not a kernel panic or OOM. This seat ran no WebKit and no whole smoke.
+
+### Gates re-run by this seat
+- typecheck, 4 programs ⟨`guarded --light -- sh W12U-evidence/close2/tc.sh`⟩ ×2 → `lib 0 demo 0 test 0 e2e 0` (load 15.5) · the same (load 16.0) (`c5/tc-r{1,2}.txt`). **GREEN ×2, reproduces.**
+- lint ⟨`guarded --light --timeout 10 -- npx eslint . --max-warnings=0`⟩ ×2 → `rc=0` (load 27) · `rc=0` (load 17) (`c5/lint-r{1,2}.txt`). **GREEN ×2, reproduces.** (A first pair under an outer `timeout 115` read 124: that was this seat's wrapper cutting eslint at load 25+, not a lint failure; discarded.)
+- `.k2` static ⟨`sh W12U-evidence/k2/check-k2-static.sh | tail -1`⟩ ×2 → `GREEN 30/30` · `GREEN 30/30`. **Reproduces.**
+- L1-18 rename ⟨`test -e demo/color-picker; test -e demo/app`⟩ → `cp-absent · app-present`. **Reproduces.**
+- served falsifiers (§3; Repair 3's C4-3 cure) ⟨`guarded --light --timeout 12 -- sh c5/served.sh {a,b}`⟩ (r3/served.sh with outputs under `c5/`) → a: k2 `GREEN 38/38`, x2 `GREEN 3/3` (`/`, `/palettes`, `/admin/users` maxSW 390, F1–F5 true; load 16.7→15.3) · b: k2 `GREEN 38/38`, x2 `GREEN 3/3` (load 14.5→15.4). **GREEN ×2, reproduces.** :9000 was degraded during the read: ⟨`curl --max-time 30 localhost:9000/`⟩ → `000` (timeout), then `200` in 20.0 s; vite pid 69510 up 1 d 8 h at 3.5 GB RSS, 66 % CPU (ESC-W12Uh-1, unrouted). It was not restarted (shared with other sessions).
+- `npm test` (§3) ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ r1 → `Test Files 3 failed | 86 passed (89)` · `Tests 7 failed | 1205 passed (1212)` (load 38.8 at end; `c5/vt1.txt`). The 7 ⟨`grep -E '^ *FAIL ' vt1.txt | sort -u`⟩ are exactly the standing set: `test/ink.test.ts` D6 ×2 + T-35 ×3 (INK-VEIL-MIDBAND → O-62 (a)), `test/spectrum-luma.test.ts` C-5, `demo/test/shell/reka-binding-idiom.test.ts` NG-6 (→ X-W8 `.i`), all relieved at X-W7L CHECK 1. The 2 `v4-css-emerging` `if()` failures of Check 4 / Repair 3 are gone: X.P.W8.ifsemi `4eaf27fbe` cured them upstream (Track D), as C4-6 routed. **RED by relief only; 0 W12U-attributable.**
+- Bounds ⟨`git show --stat 59a98f1c1 b9390c2ce`⟩ → record · `W12U-evidence/k2/probe-k2-rows.mjs` · `W12U-evidence/r3/**` · INBOX (2 lines) · `relay/X-ALL-BK-AUDIT-2-ADDENDUM-2026-10-15-W12U-L24.md` (the spec's own route for "new glass asks … as a dated O-74 addendum", §1). ⟨`git log --format=%h 1f1a12552..HEAD -- demo e2e/smoke`⟩ → `01aaf6a9c` `b623b3737`, both X-DS pass 6 (not this wave); `src/**` → `4eaf27fbe` (X.P.W8). dev.sh ⟨`git log 7f5808564..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → 0. **HELD.**
+- Masking ⟨`git diff 1f1a12552..HEAD -- demo e2e test src | grep '^+' | grep -cE 'skip|fixme|force: ?true|catch|allowlist|eslint-disable|ts-ignore|ts-expect-error|retries'`⟩ → 0. The probe diff of `59a98f1c1` read whole: the census settle (two walks 1.5 s apart, ≤ 20 tries) waits for agreement and never accepts an empty census (a component that never mounts still reads RED); the L1-2 pane arm is re-aimed, not deleted (37 → 38 checks). **HELD** (one MINOR below).
+- Families ⟨`git show --stat`⟩: Repair 3 is two commits, one per meaning (relay + INBOX; evidence + probe + record). **HELD.**
+- E-3 ⟨`git diff --stat 7f5808564..HEAD -- W12U.md registry/adjudicated/ AUDIT-2-value.md`⟩ → `W12U.md | 18 +` only (the orchestrator's dated addenda (e) `2f1b095e1` and (f) `00aeacdea`). **HELD.**
+- E13 ⟨`grep -cE "^\|.*\| *UNREAD *\|" INBOX.md`⟩ → 0. O-74e is outbound, `WRITTEN — AWAITING DELIVERY`; ⟨`grep -rln 'L24-1\|O-74e' ../glass-ui/docs/tranches/B*/`⟩ → 0 (not yet in glass's tree). **GREEN** (inbound).
+- Rulings ⟨`grep -n 'ESC-W12Uq\|ESC-W12Um2\|X-13-RUN\|R-m-2' COHESION.md`⟩ → 0 lines. Newest COHESION commits are §0fe/§0ff/§0fg (X.P.W8, F.REL). ESC-W12Uq-1..4, R-m-2 and X-13-RUN are still unruled. (§0ex, 10-13, governs only orphans with an mtime before 10-13 14:45; `.q`'s seven ESC-W12Uq-2 paths read 10-13 16:28–17:08 ⟨`stat -f %Sm`⟩ and lie outside §1, so §0ex does not grant them.)
+- `npm test` r2: queued 20:38 behind three other sessions' heavy holders (`lsof +D ~/.claude/guard/slots` → 3 slots held 24–28 min), still unadmitted at 20:59; this seat stopped its own waiter (no vitest child had started) and removed the empty output. ×2 is therefore r1 here plus Repair 3's ×2 (`r3/vt{1,2}.txt`, 9 failed = the same 7 + the 2 now-cured X.P.W8 rows). ESC-W12Uq-4 / C4-7 reproduced a third time.
+- Not run, by the machine-resource law and the host's measured crash signature (swap 86 %, load ≥ 14 throughout, :9000 degraded): the whole smoke `--workers=1` and the addendum (e) WebKit 3× re-read.
+
+### Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C5-1 | HIGH | (C4-1 carried, not cured) §3 "smoke GREEN `--workers=1`" is RED and no spec relief covers it: ≈30 stale oracles wait on ESC-W12Uq-1, the product/producer rows on ESC-W12Uq-3; both unruled, no owners named. Not producer-owned by the spec's words, not routed to a later wave, not an honest-RED id the spec names | Close 2 gate table (`.q` s2 `smoke` 229 ✓ / 62 ✘, `oracles-safari` 111 ✓ / 55 ✘); COHESION grep → 0 | orchestrator rules ESC-W12Uq-1 (re-baseline unit or grant for the listed oracle files) and names an owner per ESC-W12Uq-3 row; then whole smoke `--workers=1` in a quiet window under the guard |
+| C5-2 | HIGH | (C4-2 owner limb carried) Goal criterion unmet for A2-VA-X-13 (HIGH): its residual X-13-RUN (360 coarse Tools face 346 px of seats in a 304 px run) is a CONSUMER row with neither a cure nor an O-74 glass half; R-m-2 (the H1 band behind L2-4) is likewise unruled. A2-VA-L2-4's relay limb IS cured (honest-RED under O-74e L24-1, `b9390c2ce`) | record `.m2` residuals; Repair 3 C4-2; COHESION grep → 0 | owner rules X-13-RUN (which seats a 360 phone shows) and R-m-2; the next `.m` sitting cures X-13-RUN at its root under that ruling |
+| C5-3 | MEDIUM | (C4-4 carried) addendum (e) WebKit 3× re-read owed (1 of 3 at load 44–60) | `.q` verdict; Repair 3 | ESC-W12Uq-4 protocol: `guarded --exclusive webkit` 3× in the owner's quiet window |
+| C5-4 | MEDIUM | (C4-5 carried) `.q`'s seven ESC-W12Uq-2 orphans still dirty outside §1 (mtimes 10-13 16:28–17:08); `.q`'s s2 GREENs for smoke-admin/mobile/safari were read over them | ⟨`git status --porcelain -- demo e2e/smoke`⟩ | decided by the ESC-W12Uq-1 ruling (commit under a grant, or correct forward by the owning seat) |
+| C5-5 | MINOR | The L1-2 overlying-pane arm moved from /mix (room 1076 over 619 at 1440) to /admin/users, which reads room 0 at both widths, so the served probe no longer exercises an overlying pane's condense-with-room branch (only the no-room arm and the picker's limb). Disclosed by Repair 3, not silent; the seated re-aim is correct at the bytes (X-DS `5f3275ac9`) | `59a98f1c1` probe diff; Repair 3 C4-3 | at the next `.k`-class sitting, aim the overlying arm at an overlying pane that has room at 1440 (or seed /admin/users rows), keeping both arms |
+| C5-6 | MINOR | O-74e is `WRITTEN — AWAITING DELIVERY`: the named O-74 row exists in value's relay but is not yet in glass's tree | INBOX :613; glass grep → 0 | deliver O-74e to glass's live inbox (E13 outbound) |
+| C5-7 | INFO | Guard admission starvation (ESC-W12Uq-4) reproduced; :9000 degraded (20 s first byte; vite 3.5 GB RSS, 1 d 8 h; ESC-W12Uh-1 unrouted) | guard log; curl | owner (user-level guard); orchestrator routes ESC-W12Uh-1 |
+
+### Honest-RED set (relieved by the spec's own words, owner named)
+- DOCK-CAP-ELLIPSE: addendum (d), glass O-83 / O-83a; owner glass.
+- A2-VA-L3-6 / X-8: HELD for glass §11 (spec §2 `.h`.2); owner glass.
+- A2-VA-L2-1: O-74 / O-59 (overlay block cap absent at 10.1.0); owner glass.
+- A2-VA-L2-4: O-74e L24-1 DOCK-PILL-SHORT-HEIGHT (`b9390c2ce`; new at Repair 3); owner glass (delivery owed, C5-6).
+- X-3 / X-5 glass halves: O-74c G-1 / G-2; owner glass.
+- L3-2 pane limb / L3-3: O-74 L3-2 / L3-3, absent at 10.1.0; owner glass.
+- `npm test` standing 7: INK-VEIL-MIDBAND → O-62 (a); C-5 / NG-6 → X-W8 `.i` (X-W7L CHECK 1).
+
+**Not relieved:** smoke `--workers=1` (C5-1), X-13-RUN / R-m-2 (C5-2), WebKit 3× (C5-3).
+
+### Successors
+W12U.md :4 "Blocks: X-W8"; LEDGER :42 X-W8 `planned` (W8.md :6 names X-W5/W6/W7; the block is W12U's own line, and X-W12 / X-W7L carry the same). The conjunct "X-W12U CLOSED" is NOT GREEN, so X-W8 stays lawfully blocked. No other wave spec names X-W12U in an "Opens after" ⟨`grep -ln X-W12U waves/*.md`⟩ → W12, W12U, W7L only (their mints/blocks, not opens-after).
+
+### Four-verb line
+IMPLEMENTED is not stamped (Close 2 did not stamp it; Repair 3 did not); the row stays **PARTIAL**, moved lawfully (PARTIAL → RESUME 2 → PARTIAL at Close 2 → Check 4 → Repair 3 → this check).
+
+**Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 2 HIGH · 2 MEDIUM · 2 MINOR · 1 INFO). Repair 3 holds where it acted: C4-3 cured (served GREEN ×2 reproduced here), C4-6 cured (routing landed upstream: `npm test` now reads only the standing 7), C4-2's relay limb cured. Gates reproduced by this seat: 11 (typecheck ×2 · lint ×2 · `.k2` static ×2 · L1-18 · served k2+x2 ×2 · `npm test` r1 = standing 7 · bounds · masking 0 · families · E-3 · E13). Failed or unmet: smoke `--workers=1` (banked RED, unrelieved), WebKit 3× (owed), `npm test` r2 (not admitted; RED by relief only).
