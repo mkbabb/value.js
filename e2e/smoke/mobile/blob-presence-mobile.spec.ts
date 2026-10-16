@@ -136,7 +136,14 @@ test("hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live
         .locator(".hero-blob-anchor")
         .last()
         .boundingBox();
-    const card = await page.locator(".pane-shell > *").last().boundingBox();
+    // The card of the shell the hero sits IN. Since A2-VA-L1 (X-W12U .k2) the
+    // About pane composes PaneShell too, so a positional `.pane-shell > *`
+    // (last) read the SECOND pane's card (y 680 at 390) against the picker's
+    // hero (X-W12U .q: `W12U-evidence/q/probes/probe-blob-seat.mjs`).
+    const card = await page
+        .locator(".pane-shell:has(> .hero-blob-anchor) > .card")
+        .first()
+        .boundingBox();
     if (!wrapper || !card) throw new Error("seat geometry not laid out");
     expect(wrapper.x, "wrapper left inside card").toBeGreaterThanOrEqual(card.x - 1);
     expect(wrapper.y, "wrapper top inside card").toBeGreaterThanOrEqual(card.y - 1);
