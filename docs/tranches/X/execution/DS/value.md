@@ -740,3 +740,41 @@ None of these was touched.
 - Judge the pinned loupe at 390 on a coarse pointer. The ring is now the pin's only signal, and it is 2 px.
 - The open owner rulings are unchanged: P5C-02 (P5-B1), VC6-04 (P6-B1), VC5-01 and VC4-09.
 - The glass rows wait on O-87 / O-88.
+
+### pass 7 (re-dispatch, 2026-10-16): critic V7R — the floaters, opened for the first time; a menu buried under the stage
+
+The relaunched workflow dispatched this seat as "pass 7" with critic V7R's 4 rows. `pass-07/` already holds the first pass 7 and the V7C re-dispatch, so this seat's evidence is in `pass-07/p7-2026-10-16/`.
+
+**Commits.** value.js `4ac3da33f` (the cure, the oracle, the census overlay cells, the O-87 relay addendum) and `4bac97f33` (frames, probe, census, gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-07/p7-2026-10-16/`) |
+|---|---|---|---|
+| V7R-01 (high) | **Cured on the consumer side (interim); root relayed to glass.** | glass 10.1.0's `DropdownMenuContent` computes `z-index: auto`, while its Select and Popover take `z-popover`. Reka's fixed popper wrapper therefore sat at `auto`, and `.pane-wrapper--stage { z-index: 1 }` outranked it. The 6 call sites (`PaletteCardMenu`, `MobileMenuDropdown`, `ProfileSection` ×3, `UserSortMenu`) now carry glass's own `z-popover` utility, a layer token rather than a lighting override. The `shell.css` comment that called portaled overlays "unaffected" is corrected. Root: an addendum to `relay/X-ALL-BK-FLAT-LIGHTING.md` (O-87, with O-80's layering family) asks for `DropdownMenuContent` to take `z-popover`; the utility comes off at the repin. New oracle: `e2e/smoke/oracles/v7r-overlay-layer.spec.ts`. It reads **paint** order with pointer-events forced on, because reka's modal layer makes a plain hit test "find" a buried item. | `before/overlays.json`: card menu (1440) and overflow menu (390), both schemes, wrapper z `auto`, paint-top **0/5**. `overlays.json` after: all 8 cells z `130`, paint-top **5/5**. Frames: `card-menu-1440-*`, `overflow-menu-390-*` (before and after). |
+| V7R-02 (low) | **Glass-owned: cited, not overridden.** | `select-content` stacks rims, under-shadow, floating halo and `--shadow-cartoon-lg` on a gradient fill. Cited in the O-87 addendum. Honest-RED until the 10.2.0 repin. | Census overlay row: `floaterMaxLayers` 8 (glass `select-content`); the menu plate has 5. |
+| V7R-03 (low) | **Cured.** | `scripts/ds-census.mjs` opens 4 overlay cells per theme: the dock view menu, a Browse card menu at 1440 on an in-page fixture, the 390 overflow menu and a Mix select. It records `floaterMaxLayers`, `floaterGradients` and `paintTopFailures` apart from the route totals. `floaterMaxLayers ≤ 1` and `paintTopFailures = 0` join the allowance. The pass capture gains the same cells (`overlays.mjs`, sharing `harness.mjs`). | `census-after.json` `computed.overlays`: 8 cells, 0 errors, paint-top failures **0**, floater max layers 8 (glass), floater gradients 6 (glass). |
+| V7R-04 (trivial) | **Glass-owned: cited.** | When a card menu opens, the dock folds to its seal. Cited under O-88 DOCK-COLLAPSE-MOTION in the addendum. No shim. | Visible in `card-menu-1440-*.png`. |
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`, guarded).
+- **Verdict RED, on glass rows only (O-87).** Routes: max 6 layers, inset highlights 364, drop-shadow 8, gradient fills on controls 22. Overlays: floater max layers 8.
+- **Consumer:** unchanged from pass 6. Static box-shadow declarations 17, no inset highlights, drop-shadows or control gradients, looping 0.
+- Overlay paint-top failures: **0**. This is the new gate, and before the cure it read 4 of the 8 cells.
+
+**Frames.** Headless real Chrome (§0ei), on :9000 (the working tree, so other seats' uncommitted hunks show).
+- 36/36 route frames: 9 routes × light/dark × 1440/390.
+- 8 opened-overlay frames: `{view-menu-1440, card-menu-1440, overflow-menu-390, mix-select-1440}-{light,dark}`.
+- The BEFORE overlay set is in `before/`.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1212/1219 ×2, with the **same 7** standing failures (ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6).
+- **e2e** (smoke + smoke-admin, headless, workers 1, own server :9183). The specs are every one that opens one of the 6 menus, plus the new oracle: 82 tests.
+  - **76/82 ×2**, with the **same 6** o18 contrast-ink rows as pass 6 (F-3, T-35, A-1 ×2, N-3 ×2).
+  - N-3 reads the profile menu rows' ink, not their layer, and failed identically before this diff.
+  - `v7r-overlay-layer` passed 2/2 ×2.
+
+  Not a strict ×2 GREEN; nothing in this diff. No visual golden was re-baselined.
+
+**For the next critic.**
+- Judge the now-visible menus' material. In the census they are glass's 5-layer `menu-content` and 8-layer `select-content` (O-87).
+- Check that no other portaled glass surface (tooltip, hover card, toast) lands under the stage. The overlay cells now make that a census read.
+- The open owner rulings are unchanged: P5C-02 (P5-B1), VC6-04 (P6-B1), VC5-01 and VC4-09.
