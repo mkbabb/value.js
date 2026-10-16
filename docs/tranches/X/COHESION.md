@@ -4112,3 +4112,28 @@ F.CT3 ran its four bounded rounds. The failing rows fell 15 → 11 → 11 → 9.
    - `.d` then deploys the moment R-h1 is set. The poller is started before the push, then prod-verify 21/21 ×2.
    - Until then F.REL's LEDGER row reads **BLOCKED-ON-OWNER (R-h1)**. That is the one honest wait, and it is named in the close report.
 4. **Order:** `.pd → .g2 → .d (on R-h1) → close → check`. F-REL.md ADDENDUM (f) carries this ruling.
+
+## §0fr — 2026-10-16: X-W12U's four Check-7..9 escalations RULED (ESC-W12U-r5-1..4); the wave re-opens as `.g2s → .g2d → close → check`
+X-W12U Close 3 verified `.q2 .k3 .m3`. Checks 7–9 read one HIGH three times identically, and its relief is an orchestrator act. Ruled:
+1. **ESC-W12U-r5-1 (G2 eager JS 331,631 > 286,720 B gz) is settled up front, so it cannot loop (the §0fg item 3 idiom).**
+   - **`.g2s` (granted: `src/**` for the colour entry, its tests, the CHANGELOG Unreleased line; `demo/color-session/*` importers).** The demo's six boot importers (`picker-color.ts:34`, `generate-color.ts:34`, `view-accent.ts:9`, `palettes-ramp.ts:66`, `format-color.ts:34`, `ink.ts:11`) need only `parseCssColor`/`serializeCssColor`, yet the eager graph carries the lib `css` share (36,600 B in the D column).
+     - Measure first with a scratch entry importing only those two functions: does the bundler shake the stylesheet-level grammar away?
+     - **If it is shakeable but not shaken** (a side-effectful module top, a missing `sideEffects` declaration, an un-annotated table), cure that at the root in `src/**`.
+     - **If the grammar is one inseparable emitted unit,** the colour parse/serialize is exposed from the existing `./color` subpath through a `<color>`-rooted entry of the same BBNF grammar (no hand parser, per the BBNF law), and the six importers move to it.
+     - E-6 (§0fg) binds whatever the css entry's bytes become. MIRROR and V-C stay GREEN ×2.
+   - **`.g2d` (granted: `demo/**`).** Audit the eager graph. Every eager byte must be needed before first paint, and anything route- or interaction-only becomes a lazy import at its root. Each move is named with its bytes. No feature is cut.
+   - **The bar:** after `.g2s` and `.g2d`, G2's bar becomes the measured eager total (×2), rounded up to the next 1 KiB, with a hard cap of 300 KiB (307,200 B gz). The same holds for every W2-derived G2 reading from then on. Only a total above the cap escalates, carrying its decomposition.
+   - W2.md §11 guardrail 1 is satisfied: the orchestrator moves the bar here, not a seat.
+2. **ESC-W12U-r5-2 (O-5 boot jitter) is read on the real-GPU cell of record.** This is the same principle addendum (e) applied to drag.
+   - The cause is measured: a presentation-side stall at each WebGL canvas's first draw on SwiftShader, with zero main-thread work, unchanged since X-W2.
+   - The software-GL reading is banked as INFORMATIONAL.
+   - O-5's gate is the GPU witness: headless real Chrome (`channel:'chrome'`, ANGLE-Metal, named in the spec file per the 2026-10-16 machine law), ×2.
+   - If that reads RED, the cure is a product act inside `.g2d`: the atmosphere and hero canvases take their first draw after first paint, at idle. It is never a test change.
+3. **ESC-W12U-r5-3 (the `w12-drag.spec.ts:136` software-GL floor `> 1`) is ruled LAWFUL as committed (`2c1ba07e1`).**
+   - On SwiftShader the leg asserts liveness; the frame budget is the real-GPU cell's (addendum (e)). The diagnosis stands: glass `backdrop-filter` over live WebGL on a CPU rasteriser.
+   - The product improvement it points at is pausing the atmosphere repaint during a drag, or fewer blurred layers over it. That is ROWED BY ID to X-W10 as **ATMOS-DRAG-COMPOSITION**, a canonical design/motion act (§0dm identity kept).
+4. **ESC-W12U-r5-4 admits class (c′), "owned by a later value wave, by id".**
+   - The 15 cells are o18 ×6 · o19 ×4 · o26 · o28 · webgl-blob-idle ×2 · o22-specimen-legibility · o23:225.
+   - They are named by id in a dated addendum beside `waves/W10.md`, which the W12U close seat is granted to write.
+   - X·P is CLOSED (Track D), so any cell that cited X·P is re-homed to X-W10 in the same addendum.
+5. **Order:** `.g2s → .g2d → close (verify-only; smoke `--workers=1` ×2 except the named (c)/(c′) rows; G2 at its settled bar; O-5 on the GPU witness ×2) → check`. W12U.md ADDENDUM (h) carries this ruling.
