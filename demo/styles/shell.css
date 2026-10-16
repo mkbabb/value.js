@@ -291,9 +291,12 @@
  * token is re-seated on the app's glass hosts (the panes and the floating
  * plate) to the same rung-2 `--well-bg` tone step the seated search wears.
  * glass's field edge (`--field-control-ink`, declared on `.field-control`
- * itself) has no host-level seam, so the edge half is cited on O-87. */
+ * itself) has no host-level seam, so the edge half is cited on O-87.
+ * Pass 13 (V13-01): the dock is a glass host too; its login layer's slug
+ * field fell back to the paper ground, so the dock joins the seat. */
 .pane-wrapper,
-.glass-floating {
+.glass-floating,
+.glass-dock {
     --input-on-glass: var(--well-bg);
 }
 

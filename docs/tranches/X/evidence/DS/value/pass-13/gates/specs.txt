@@ -1,0 +1,16 @@
+e2e/smoke/oracles/p9r-card-detail-row.spec.ts
+e2e/smoke/oracles/w7-inspector-rows.spec.ts
+e2e/smoke/oracles/w7-mutation-visibility.spec.ts
+e2e/smoke/oracles/v7r-overlay-layer.spec.ts
+e2e/smoke/oracles/o7-card-census.spec.ts
+e2e/smoke/views/gradient.spec.ts
+e2e/smoke/views/browse-pagination.spec.ts
+e2e/smoke/a11y-gradient-stop-grammar.spec.ts
+e2e/smoke/flows/palette-save.spec.ts
+e2e/smoke/flows/palette-edit.spec.ts
+e2e/smoke/flows/palette-fork.spec.ts
+e2e/smoke/flows/vote-toggle.spec.ts
+e2e/smoke/views/mix.spec.ts
+e2e/smoke/scene-action-contract.spec.ts
+e2e/smoke/w12-dock.spec.ts
+e2e/smoke/flows/login-register.spec.ts
