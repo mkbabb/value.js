@@ -91,6 +91,16 @@ async function resolveRungTokens(page: import("@playwright/test").Page) {
 async function censusView(page: import("@playwright/test").Page) {
     return page.evaluate(() => {
         const main = document.querySelector("main");
+        // Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`;
+        // X-W7L C-CARD-STAMP): glass 8.0.0 retired the `data-tier` stamp — the
+        // rung is the `glass-<tier>` class — and struck the `grain` prop with
+        // its `data-grain` stamp; a card arms grain with glass's
+        // `paper-grain-overlay`, whose `::after` paints the paper relief.
+        const tierOf = (el: Element) =>
+            /\bglass-(resting|quiet|floating|overlay)\b/.exec(el.className.toString())?.[1] ??
+            "(none)";
+        const grainOf = (el: Element) =>
+            String(getComputedStyle(el, "::after").backgroundImage.includes("data:image/svg+xml"));
         const cards = Array.from(
             main?.querySelectorAll<HTMLElement>('[data-slot="card"]') ?? [],
         )
@@ -100,8 +110,8 @@ async function censusView(page: import("@playwright/test").Page) {
             // is REQUIRED to sit inside a resting plate by that row).
             .filter((el) => el.dataset.surface !== "veil")
             .map((el) => ({
-                tier: el.dataset.tier ?? "(none)",
-                grain: el.dataset.grain ?? "(none)",
+                tier: tierOf(el),
+                grain: grainOf(el),
                 shadow: getComputedStyle(el).boxShadow !== "none",
             }));
         // T.W6.5-P (T-34) — the VEIL fixture census: every mounted veil card
@@ -117,12 +127,12 @@ async function censusView(page: import("@playwright/test").Page) {
                 '[data-slot="card"]',
             );
             return {
-                tier: el.dataset.tier ?? "(none)",
+                tier: tierOf(el),
                 bg: cs.backgroundColor,
                 backdrop: cs.backdropFilter || "none",
                 shadow: cs.boxShadow,
                 borderWidth: Number.parseFloat(cs.borderTopWidth) || 0,
-                hostTier: host?.dataset.tier ?? "(none)",
+                hostTier: host ? tierOf(host) : "(none)",
             };
         });
         const fixture = (sel: string) => {

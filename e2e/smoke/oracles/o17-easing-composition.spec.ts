@@ -63,7 +63,12 @@ async function discloseAuthoring(row: Locator): Promise<Locator> {
     // binds the node that EXISTS and states the broken contract on its own
     // line; glass-ui is READ-ONLY (BH relay) and `demo/` is this wave's
     // Triumvirate trigger, so the cure is routed, not hacked in here.
-    const svg = row.locator("#easing-authoring-0 svg");
+    // X-W12U .q2 re-baseline to glass 10.1.0 (X.W7L.m `c8a4959dd`): the
+    // EasingPicker canvas now ships `role: "img"` + `aria-label`
+    // (`glass-ui/dist/easing.js:77-78`), and the stage also mounts a second
+    // svg (an icon), so a bare `svg` is a strict-mode violation. The canvas is
+    // the node the seat's Law-3 override keys on.
+    const svg = row.locator('#easing-authoring-0 svg[role="img"]');
     await expect(svg).toBeVisible();
     await expect(
         svg,

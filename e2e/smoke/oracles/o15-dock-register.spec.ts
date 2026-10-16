@@ -107,17 +107,30 @@ test.describe("O-15b · the Tools clip release + register pass (W6-8)", () => {
         // clip is RELEASED, so nothing amputates them (the pre-cure clip box
         // fit the rest box exactly — 100% of any blur fell outside it).
         // Keyboard focus (Tab) gives honest :focus-visible modality.
+        // Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`): the
+        // shared dock focus ring is now an OUTLINE drawn `--dock-ring-offset`
+        // outside the box (`.dock-icon-button:focus-visible { outline:
+        // var(--dock-ring-width) solid …; outline-offset: … }`), no longer a
+        // box-shadow — the paint a released clip must not amputate.
         const tools = page.locator(".dock-tools-btn");
-        let shadow = "none";
+        let ring = { style: "none", width: 0, offset: 0 };
         for (let i = 0; i < 20; i++) {
             await page.keyboard.press("Tab");
             const isTools = await tools.evaluate((el) => el === document.activeElement);
             if (isTools) {
-                shadow = await tools.evaluate((el) => getComputedStyle(el).boxShadow);
+                ring = await tools.evaluate((el) => {
+                    const cs = getComputedStyle(el);
+                    return {
+                        style: cs.outlineStyle,
+                        width: Number.parseFloat(cs.outlineWidth),
+                        offset: Number.parseFloat(cs.outlineOffset),
+                    };
+                });
                 break;
             }
         }
-        expect(shadow).not.toBe("none");
+        expect(ring.style, "the Tools trigger paints no focus ring").not.toBe("none");
+        expect(ring.width, "the focus ring has no width").toBeGreaterThan(0);
         // …and the shadow's canvas is unclipped (asserted above: the inner
         // computes overflow visible at settled rest).
     });
