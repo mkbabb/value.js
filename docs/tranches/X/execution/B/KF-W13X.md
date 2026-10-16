@@ -4502,3 +4502,45 @@ No cure in this repair moves a product byte. The correction is documentation onl
 
 - **Cured: 1** (C2r2-2). **Escalated: 1** (C2r2-1 = ESC-W13X-r3res-1). The row stays **PARTIAL** until the orchestrator rules the six rows.
 - **Self-count:** ⟨`sed -n '/^## RESUME 2 — Repair 2/,$p' KF-W13X.md | grep -c '^\*\*C2r2-'`⟩ → **3** defect paragraphs (1 escalated · 1 cured · 1 INFO); 0 kf commits; 1 value.js commit (this record + the LEDGER line).
+
+## RESUME 2 — Check 3
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, fresh adversarial check (L-20 pass 3 of the RESUME 2 close, on Repair 2), 2026-10-16. VERIFY-ONLY: 0 keyframes.js bytes, 0 glass-ui bytes. Read: KF-W13.md whole (once; addenda (a)–(h)), this record's RESUME 2 Open/Baseline/Unit plan (`:3829-3905`), Close (`:4219-4323`), Check 2 (`:4439-4481`) and Repair 2 (`:4483-4504`); `git show --stat` on Repair 2's `0cdfe37ff`.
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/`⟩ → empty. Nothing inherited. kf tree: `M demo/components/instrument/timeline/KeyframeTimeline.vue` (X-DS's live lane; never touched) + 2 old untracked letters.
+- **Bytes:** kf `fa09924b` (⟨`git rev-parse --short HEAD`⟩ = ⟨`… origin/master`⟩ = `fa09924b`) — **unmoved since Check 2**; Repair 2 wrote 0 kf bytes. Logs: `keyframes/evidence/W13X/check-r2c3/`. Every run via `~/.claude/guard/guarded --light`, load in each log (21–26).
+- **Verdict: NOT-CONFORMANT.** Nothing changed at the product bytes or in the governing rulings since Check 2. The one HIGH stands unrelieved: ESC-W13X-r3res-1 (six R-3 rows OPEN) still has no orchestrator ruling — ⟨`grep -c 'r3res-1' docs/tranches/X/COHESION.md`⟩ → **0**; newest section still `§0fi` (⟨`git log -1 --format=%h -- COHESION.md`⟩ → `ba5f1ac7a`). Repair 2 lawfully returned it (a repair seat cannot grant itself sites outside §0fa's grants, and §0bt does not reach a different concern). **The repair loop is dry on this row: no further repair can move it; only the orchestrator's dated ruling can.**
+
+### Axes
+
+- **(1) GREENs reproduce** (kf `fa09924b`, main tree; `check-r2c3/`): ⟨`npm run check`⟩ ×2 → `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` `EXIT=0` ×2 (00:56–00:57, load 24.8 / 25.2); ⟨`npm run lint`⟩ ×2 → `✔ no dependency violations found (457 modules, 1660 dependencies cruised)` `EXIT=0` ×2 (load 26.4 / 21.0); ⟨`npx vitest run --project demo --maxWorkers=2`⟩ ×2 → `Test Files 151 passed (151)` · `Tests 928 passed (928)` `EXIT=0` ×2 (load 21.4 / 30.1). The e2e roster (within the honest-RED set ×2) and the served probes are cited from Repair 1's banked logs, as Check 2 audited them; the bytes they read are unmoved and C3r-5 forbids a fourth read of the same bytes.
+- **(2) Bounds:** Repair 2 `0cdfe37ff` → `execution/B/KF-W13X.md` +23 · `execution/LEDGER.md` +1, nothing else; 0 kf commits since Check 2 (⟨`git log --oneline fa09924b..HEAD`⟩ → empty). `scripts/dev/dev.sh` untouched. In bounds.
+- **(3) Masking:** no new diff since Check 2; Check 2's masking audit of the 4 repair shas stands. None.
+- **(4) Families:** no new commit family; unsplit.
+- **(5) E-3:** ⟨`git diff --stat 540b85f81^..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/keyframes/waves/ scripts/dev/dev.sh`⟩ → empty; KF-W13.md's last commit `e826a027c`. Repair 2's C2r2-2 correction is a dated line beside Repair 1, which is left as written. Held.
+- **(6) Mail:** ⟨`grep -c '^|.*| *\**UNREAD\** *|' INBOX.md`⟩ → **0**. Clean.
+- **(7) Four-verb line:** unmoved (IMPLEMENTED stays NO). Lawful.
+- **(8) Goal criterion:** NOT MET. Addendum (h): "Every row is cured, re-homed by id, or relayed; none is left OPEN". Six R-3 rows stay OPEN under ESC-W13X-r3res-1.
+- **(9) Figures:** 151/928 ×2 · 457/1660 ×2 · 0 UNREAD · Repair 2's "4 kf commits" (⟨`git log --oneline 8963ea28..71480d85 | wc -l`⟩ → 4) reproduce.
+
+### (10) Honest-RED adjudication
+
+| RED gate | relief at the spec's bytes? | owner named? | ruling |
+|---|---|---|---|
+| e2e B7 SPECULAR-REST (×2, banked) | YES — glass producer; the standing honest-RED set (RESUME 1 R-5) | glass, on its O-row | **honest-RED** |
+| e2e M1 SHEET-POSITION (×2, banked) | YES — glass Drawer producer; the standing honest-RED set | glass | **honest-RED** |
+| **ESC-W13X-r3res-1** — six R-3 rows OPEN (easing `reset` dispatch order · Sweep ball under Reverse · square axis readout · 844×390 Matrix heading · KFA-31/85 `useCubeRelit` consumer halves · UIA-KF-177) | **NO** — not producer-owned, not routed to a later wave, not named honest-RED; no COHESION ruling (`grep -c` → 0) | "the orchestrator" — a pending act, not a ruling | **unrelieved — HIGH** |
+
+**Honest-RED set (relieved):** B7 SPECULAR-REST · SHEET-POSITION.
+
+**Successor "Opens after" conjuncts.** ⟨`grep -rn 'Opens after' --include='*.md' docs/tranches/X | grep -i W13X`⟩ → only KF.W13X's own line (`KF-W13.md:522`, conjunct KF.W13W: CLOSED, GREEN). No wave opens after KF.W13X; no successor is blocked.
+
+### Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C3r2-1 | HIGH | ESC-W13X-r3res-1 stays unruled; six R-3 rows OPEN against addendum (h) "none is left OPEN" (C1r2-4 → C2r2-1, standing a third pass). The repair loop is dry on it | ⟨`grep -c 'r3res-1' docs/tranches/X/COHESION.md`⟩ → 0; Repair 2 "ESCALATED again" | the orchestrator issues a dated COHESION ruling per row (a grant of its cure site, or a re-home by id to a named wave); then one repair seat cures or re-homes the six |
+| C3r2-2 | INFO | C2r2-2's dated count correction verified (4 kf commits); all GREENs reproduce at `fa09924b` | axes (1), (9) | none |
+
+- **Gates:** reproduced 7 (check ×2 · lint ×2 · test:demo ×2 · mail 0 UNREAD); failed 0 of the claimed GREENs. RED without relief: ESC-W13X-r3res-1.
+- **LEDGER:** the KF.W13X row stays PARTIAL (NOT-CONFORMANT); one event line appended.
+- **Self-count:** ⟨`sed -n '/^## RESUME 2 — Check 3/,$p' KF-W13X.md | grep -c '^| C3r2-'`⟩ → **2** rows: 1 HIGH · 1 INFO.
