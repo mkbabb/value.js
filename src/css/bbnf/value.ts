@@ -107,6 +107,64 @@ function callValue([name, body]: readonly [string, ValueNode | undefined]): Valu
     return keepsSignature(call) && keepsImageSignature(call) && keepsPaletteSignature(call) ? call : refused("css_syntax", `<${name.toLowerCase()}()>`);
 }
 
+//  A separator is its text, or `undefined` where `termSep` matched empty (`red:` stands against its `:`).
+type IfBranch = readonly [ValueNode, readonly (readonly [string | undefined, ValueNode])[]];
+const SEMI = keyword(";");
+
+/** One level of a value list: the item alone, or the frozen list of its items under `separator`. */
+const level = (separator: "comma" | "slash" | "space", items: CssValue[]): CssValue => {
+    const [only] = items;
+    return items.length === 1 && only !== undefined ? only : Object.freeze({ kind: "list", separator, items: Object.freeze(items) as readonly CssValue[] });
+};
+
+/** A keyword token's text, or `undefined` for any other node. */
+const word = (v: CssValue): string | undefined => (v.kind === "scalar" && v.payload.type === "keyword" ? v.payload.value : undefined);
+/** The identifiers an `<if-condition>` holds besides its calls (css-values-5 §5.1 `else`; §3.1 `<boolean-expr>`). */
+const CONDITION_WORD = /^(?:else|not|and|or)$/i;
+
+/**
+ * css-values-5 §5.1 `if()` (`value.bbnf` `ifCall`, X.P.W8 `.ifsemi`). Each branch arrives flat, its terms
+ * with the separators between them, and must be `<if-condition> : <declaration-value>?`: one or more calls
+ * (`supports()`, `media()`, `style()`) and the words `else`/`not`/`and`/`or`, space-separated, then the `:`
+ * keyword. The branches fold into the call a generic reader makes of the same text (comma, then slash,
+ * then space), the `:` and `;` keyword tokens standing in the space list, as the serializer spells them
+ * (`src/css/serialize.ts`). The first refused term wins; a malformed branch refuses the call.
+ */
+function ifValue([name, first, rest, last]: readonly [string, IfBranch, readonly IfBranch[], string | undefined]): ValueNode {
+    //  The comma groups, each a list of slash groups, each a list of space-separated terms; `space` is the open one.
+    let space: CssValue[] = [];
+    let slashes: CssValue[][] = [space];
+    const commas: CssValue[][][] = [slashes];
+    for (const [i, [head, tail]] of [first, ...rest].entries()) {
+        if (i > 0) space.push(SEMI);
+        let conditions = 0;
+        for (const [separator, term] of [["", head] as const, ...tail]) {
+            if (isRefused(term)) return term;
+            const mark = (separator ?? "").replace(/\/\*[\s\S]*?\*\//g, "").trim();
+            if (conditions >= 0) {
+                //  The condition: space-separated words and calls, ended by the `:` (never a comma or slash).
+                const text = word(term);
+                if (mark === "," || mark === "/") return refused("css_syntax", "<if()>");
+                if (text === ":" && conditions > 0) conditions = -1;
+                else if (term.kind === "call" || (text !== undefined && CONDITION_WORD.test(text))) conditions++;
+                else return refused("css_syntax", "<if()>");
+            } else if (mark === ",") {
+                space = [];
+                slashes = [space];
+                commas.push(slashes);
+            } else if (mark === "/") {
+                space = [];
+                slashes.push(space);
+            }
+            space.push(term);
+        }
+        if (conditions >= 0) return refused("css_syntax", "<if()>");
+    }
+    if (last !== undefined) space.push(SEMI);
+    const args = commas.map((group) => level("slash", group.map((spaces) => level("space", spaces))));
+    return callValue([name, level("comma", args)]);
+}
+
 /**
  * `color-mix()` in a value list (`value.bbnf` `mixCall`, css-color-5 §3): the call as a generic call reads
  * the same text — the method a space list of its keywords as authored, then the items — once each item is one colour
@@ -292,6 +350,7 @@ export const valueActions = {
     scalarTerm: { kind: "map", fn: (v: ValueNode | ColorNode) =>
         (v.kind === "color" || v.kind === "context" || v.kind === "invalid" ? colorScalar(v) : v) },
     call: { kind: "map", fn: callValue },
+    ifCall: { kind: "map", fn: ifValue },
     mixCall: { kind: "map", fn: mixValue },
     varCall: { kind: "map", fn: callValue },
     urlCall: { kind: "map", fn: urlValue },

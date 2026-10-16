@@ -37,7 +37,20 @@ spaceList  = valueTerm , ( termSep >> valueTerm ) * ;
 // `[top]auto[stage]1fr[bottom]auto` (css-grid-2 §7.2 `<track-list>`; X.P.W8 `.g`).
 termSep    = /(?:\s|\/\*[\s\S]*?\*\/)+|(?=[:;])|(?<=[:;])|(?<=\))(?=[a-zA-Z_-][\w-]*\()|(?<=\])(?=[^\s,\/()\]:;])|(?<=[^\s,\/(\[:;])(?=\[)/ ;
 
-valueTerm  = colorCall | mixCall | varCall | urlCall | urlString | typeCall | mathCall | call | numeric | string | lineNames | operator | identTerm | badTerm ;
+valueTerm  = colorCall | mixCall | varCall | urlCall | urlString | typeCall | mathCall | ifCall | call | numeric | string | lineNames | operator | identTerm | badTerm ;
+// css-values-5 §5.1 `if()`: `if( [ <if-branch> ; ]* <if-branch> ;? )`. Here alone a `;` is a separator:
+// it stands only between branches (or ends the last), and a branch is read as a value list whose terms are
+// never a `;` (`ifTerm`), so a `;` inside a branch's own blocks (`f(a;b)`) and one before any branch stay
+// refused by `badTerm` through the generic `call` (X.P.W8 `.semi` stands). A branch arrives flat, its terms
+// with the separators between them; the action holds it to `<if-branch> = <if-condition> :
+// <declaration-value>?` (the condition `else` or a `<boolean-expr[ <if-test> ]>`: identifiers and calls
+// before the branch's first `:`) and folds the branches into the call a generic reader makes, the `:` and
+// `;` its keyword tokens (`src/css/bbnf/value.ts` `ifValue`). The condition read as its own rules measured
+// 15,810 B gzip against §0fg's 15,700 cap, this 15,644 (X.P.W8 `.ifsemi`, COHESION §0fg).
+ifCall     = /if(?=\()/i , /\((?:\s|\/\*[\s\S]*?\*\/)*/ >> ifBranch , ( ifSemi >> ifBranch ) * , ( ifSemi ? ) << close ;
+ifBranch   = ifTerm , ( ( comma | slash | termSep ) , ifTerm ) * ;
+ifTerm     = valueTerm - ";" ;
+ifSemi     = /(?:\s|\/\*[\s\S]*?\*\/)*;(?:\s|\/\*[\s\S]*?\*\/)*/ ;
 // A component no production above reads (`@` in `calc(1px @ 2px)`). It is matched only to be
 // REFUSED — its action answers `css_syntax` expecting a scalar, with the diagnostic spanning exactly
 // this run — so a malformed value names its offending component rather than the whole input.
