@@ -30,9 +30,16 @@ export function colorSceneActions(
         target?.isEditing.value === true
             ? "finish the open color edit first"
             : undefined;
+    // X.W12U.m3 (§0fh.4, X-13-RUN): the face's priority, DECLARED. The listed
+    // order is the run's display order and stays; the priority says which
+    // seats a narrow coarse run keeps. Commit first: Copy is the act that takes
+    // the colour out of the picker. Then the most-used: Palettes (where a colour
+    // is kept, and the seat that carries the palette-open indicator, AB-32),
+    // Random, Extract; Reset last (the one undo-to-default verb).
     return [
         {
             token: "color.reset",
+            priority: 5,
             icon: RotateCcw,
             title: "Reset color",
             description: "Reset to the default color.",
@@ -42,6 +49,7 @@ export function colorSceneActions(
         },
         {
             token: "color.copy",
+            priority: 1,
             icon: Copy,
             title: "Copy color",
             description: "Copy the current color.",
@@ -49,6 +57,7 @@ export function colorSceneActions(
         },
         {
             token: "color.random",
+            priority: 3,
             icon: Dices,
             title: "Random color",
             description: "Pick a random color.",
@@ -56,6 +65,7 @@ export function colorSceneActions(
         },
         {
             token: "color.palettes",
+            priority: 2,
             icon: Palette,
             title: "Palettes",
             description: "Save, browse, and publish color palettes.",
@@ -65,6 +75,7 @@ export function colorSceneActions(
         },
         {
             token: "color.extract",
+            priority: 4,
             icon: Camera,
             title: "Extract palette",
             description: "Open image palette extraction from a photo or camera.",

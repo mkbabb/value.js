@@ -14,7 +14,8 @@
  * carries neither the sub-layer nor its toggle, and the layer needs no scene
  * test of its own.
  */
-import { computed, inject, ref, watch } from "vue";
+import { computed, inject, nextTick, onMounted, ref, useTemplateRef, watch } from "vue";
+import { useEventListener, useResizeObserver } from "@vueuse/core";
 import { EllipsisVertical, Type, Tag } from "@lucide/vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { SceneActionSet } from "../../../color-session/keys";
@@ -98,16 +99,127 @@ watch(toolbarMode, (mode) => {
     if (mode !== "actions") proposedMessage.value = "";
 });
 
+// ── X.W12U.m3 (COHESION §0fh.4, X-13-RUN): the run keeps the priority prefix ──
+// At a coarse pointer every seat holds glass's 44 px floor, and a narrow phone's
+// dock run cannot hold them all (360: 346 px of seats in a 304 px run). The
+// face therefore keeps the priority-ranked PREFIX of seats that fits the run;
+// the rest go to the face's menu (`GenericActionBar`). No seat shrinks.
+//
+// The measure lives here, above the crossfade, because glass's
+// `<DockCrossfade reserve="inline">` latches the PEAK face width it has ever
+// measured (it only grows): a face that drops seats keeps its old reserve. The
+// crossfade is therefore keyed on the kept count, so each fit is measured from
+// a fresh reserve. When glass O-85 DOCK-PRIORITY-OVERFLOW lands, this measure
+// is retired for it.
+const rootRef = useTemplateRef<HTMLElement>("root");
+const kept = ref(actionSet.actions.length);
+
+/** The dock run: the nearest ancestor that scrolls inline (glass's overflow contract). */
+function scrollPort(el: HTMLElement): HTMLElement | null {
+    for (let node = el.parentElement; node !== null; node = node.parentElement) {
+        const overflow = getComputedStyle(node).overflowX;
+        if (overflow === "auto" || overflow === "scroll") return node;
+    }
+    return null;
+}
+
+/**
+ * Whether the run's content overflows it, read from LAYOUT boxes: the run's
+ * children's extent against its content box. `scrollWidth` is not used — it
+ * counts transforms, so a hover-scaled end seat (44 → 48 px) reads as overflow
+ * and would cost a seat that fits.
+ */
+function overflows(run: HTMLElement): boolean {
+    const box = run.getBoundingClientRect();
+    const end =
+        box.left +
+        run.clientLeft +
+        run.clientWidth -
+        parseFloat(getComputedStyle(run).paddingInlineEnd);
+    let right = -Infinity;
+    for (const child of run.children) {
+        right = Math.max(right, child.getBoundingClientRect().right);
+    }
+    return right + run.scrollLeft - end > 0.5;
+}
+
+/** The run's inline size the last fit settled on: a resize to it is our own. */
+let settledWidth = -1;
+let fitting = false;
+/** A fit asked for while the input arm is open waits for the seats' return. */
+let pending = false;
+
+/**
+ * Every seat back in the run, then the lowest-priority seat out while the run
+ * overflows. Only the ACTIVE face measures: an inactive layer sits under an
+ * `inert` ancestor and shares the run with the face on show. A fit never runs
+ * while the colour input is open: re-keying the crossfade would remount the
+ * field under the user's typing, so it waits for the seats to return.
+ */
+async function fit(): Promise<void> {
+    const root = rootRef.value;
+    if (root === null || fitting || root.closest("[inert]") !== null) return;
+    if (toolbarMode.value !== "actions") {
+        pending = true;
+        return;
+    }
+    pending = false;
+    const run = scrollPort(root);
+    if (run === null) return;
+    fitting = true;
+    kept.value = actionSet.actions.length;
+    await nextTick();
+    while (kept.value > 0 && overflows(run)) {
+        kept.value -= 1;
+        await nextTick();
+    }
+    settledWidth = run.clientWidth;
+    fitting = false;
+}
+
+onMounted(() => {
+    const root = rootRef.value;
+    const run = root === null ? null : scrollPort(root);
+    // The run changes size when this face becomes the active layer.
+    if (run !== null) {
+        useResizeObserver(run, () => {
+            if (run.clientWidth !== settledWidth) void fit();
+        });
+    }
+    void fit();
+});
+// Only an INLINE resize is a new constraint: a soft keyboard changes the
+// viewport's block size, and must not re-key the face under the field.
+let viewportWidth = window.innerWidth;
+useEventListener(window, "resize", () => {
+    if (window.innerWidth === viewportWidth) return;
+    viewportWidth = window.innerWidth;
+    void fit();
+});
+watch(
+    () => actionSet.actions.map((action) => action.token).join(" "),
+    () => void fit(),
+);
+watch(toolbarMode, (mode) => {
+    if (mode === "actions" && pending) void fit();
+});
+
 defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
 
 <template>
-    <div class="flex items-center gap-0 min-w-0">
-        <DockCrossfade :active="activeSubLayer" reserve="inline" class="dock-layer-grid flex-1">
+    <div ref="root" class="flex items-center gap-0 min-w-0">
+        <DockCrossfade
+            :key="kept"
+            :active="activeSubLayer"
+            reserve="inline"
+            class="dock-layer-grid flex-1"
+        >
             <DockLayer id="actions">
                 <GenericActionBar
                     :actions="actionSet.actions"
                     :accent-color="safeAccent"
+                    :kept="kept"
                 />
             </DockLayer>
             <DockLayer v-if="inputArm" id="input">

@@ -30,14 +30,24 @@
  * expressed entirely through props it already publishes — `disabled`, `title`,
  * `description`, `activeStyle` — plus the wrapper's own data stamps.
  */
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import { Ellipsis } from "@lucide/vue";
+import { DockControl } from "@mkbabb/glass-ui/dock";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@mkbabb/glass-ui/menu";
 import ActionButton from "../ActionButton.vue";
 import { usePopupMutex } from "../../../shared/usePopupMutex";
 import type { SceneAction, SceneActionState } from "../../../color-session/keys";
 
-const { actions, accentColor } = defineProps<{
+const { actions, accentColor, kept } = defineProps<{
     actions: readonly SceneAction[];
     accentColor?: string;
+    /** X.W12U.m3: how many priority-ranked seats the run holds (default: all). */
+    kept?: number;
 }>();
 
 // A2-VA-L1-16: the seats' hints are one keyed mutex (the app's one), keyed by
@@ -106,6 +116,34 @@ const unavailableMessage = computed(() => {
     return `${unavailable.value.length} of ${actions.length} actions are unavailable (${names}) — ${first.state.reason}.`;
 });
 
+// ── X.W12U.m3 (COHESION §0fh.4, X-13-RUN): the run holds the priority prefix ──
+// `kept` (measured by the layer, `ActionBarLayer.vue`) is how many seats the
+// dock run holds at their floor. The row renders the priority-ranked prefix of
+// that length, in the listed (display) order, and the remainder in the face's
+// menu: the glass DropdownMenu every dock menu rides, opened by a dock seat.
+
+/** Tokens in priority order: the declared priority, else the listed order. */
+const ranked = computed(() =>
+    actions
+        .map((action, index) => ({
+            token: action.token,
+            rank: action.priority ?? actions.length + index,
+            index,
+        }))
+        .sort((a, b) => a.rank - b.rank || a.index - b.index)
+        .map((entry) => entry.token),
+);
+const keptTokens = computed(
+    () => new Set(ranked.value.slice(0, kept ?? actions.length)),
+);
+const runSeats = computed(() =>
+    actions.filter((action) => keptTokens.value.has(action.token)),
+);
+const menuSeats = computed(() =>
+    actions.filter((action) => !keptTokens.value.has(action.token)),
+);
+const menuOpen = ref(false);
+
 const failedMessage = computed(() =>
     failed.value
         .map((action) =>
@@ -120,7 +158,7 @@ const failedMessage = computed(() =>
 <template>
     <div class="flex items-center justify-around flex-1" data-testid="scene-action-row">
         <div
-            v-for="action in actions"
+            v-for="action in runSeats"
             :key="action.token"
             class="scene-action-seat"
             :data-scene-action="action.token"
@@ -141,6 +179,35 @@ const failedMessage = computed(() =>
                 @update:open="(v) => hints.setOpen(action.token, v)"
             />
         </div>
+
+        <!-- X.W12U.m3 (X-13-RUN): the seats the run cannot hold, in the face's
+             menu — the same names, states and dispatch as their seats. -->
+        <DropdownMenu v-if="menuSeats.length > 0" v-model:open="menuOpen">
+            <DropdownMenuTrigger as-child>
+                <DockControl class="shrink-0" aria-label="More actions">
+                    <Ellipsis class="w-6 h-6" />
+                </DockControl>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" class="z-popover min-w-menu font-display">
+                <DropdownMenuItem
+                    v-for="action in menuSeats"
+                    :key="action.token"
+                    class="text-small gap-2 cursor-pointer"
+                    :data-scene-action-menu="action.token"
+                    :data-action-state="action.state.kind"
+                    :disabled="!operable(action.state)"
+                    @select="run(action.state)"
+                >
+                    <component
+                        :is="action.icon"
+                        class="w-3.5 h-3.5"
+                        :style="seatStyle(action)"
+                        aria-hidden="true"
+                    />
+                    {{ seatName(action) }}
+                </DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
 
         <!-- The two announced regions. They are visually hidden because the dock
              pill has no room for a text line and the SIGHTED signal is already

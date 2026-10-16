@@ -235,6 +235,15 @@ export interface SceneAction {
      * this field regresses the only palette-open indicator under a green gate.
      */
     readonly active?: boolean;
+    /**
+     * X.W12U.m3 (COHESION §0fh.4, X-13-RUN): the seat's DECLARED priority in
+     * its face, 1 = the primary (the commit act), then the most-used. When the
+     * dock run cannot hold every seat at its 44 px coarse floor, the run keeps
+     * the priority-ranked prefix that fits and the rest move to the face's
+     * menu. Undeclared, the listed order is the priority (the first listed seat
+     * is the primary), so a builder that lists commit-first declares nothing.
+     */
+    readonly priority?: number;
     readonly state: SceneActionState;
 }
 
