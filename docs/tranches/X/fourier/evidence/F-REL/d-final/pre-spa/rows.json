@@ -1,0 +1,186 @@
+{
+  "spa": "https://fourier.babb.dev",
+  "api": "https://api.fourier.babb.dev",
+  "at": "2026-10-16T18:36:22.222Z",
+  "rows": [
+    {
+      "row": "session",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "user": "burnt-gliding-graphite-sloth"
+      }
+    },
+    {
+      "row": "upload daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "slug": "faded-darting-onyx-yak"
+      }
+    },
+    {
+      "row": "upright daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "w": 768,
+        "h": 1024
+      }
+    },
+    {
+      "row": "extract daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "ms": 25074,
+        "source": "extract",
+        "points": 1024
+      }
+    },
+    {
+      "row": "epicycles daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "row": "create daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "slug": "ember-pouring-ebony-raccoon",
+        "etag": "\"05a88c66749d1d794310d0f8c0f0a69d48a896b865b7a3948e3ff38be19d7e44\""
+      }
+    },
+    {
+      "row": "upload daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "slug": "twilit-cresting-prism-kestrel"
+      }
+    },
+    {
+      "row": "upright daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "w": 768,
+        "h": 1024
+      }
+    },
+    {
+      "row": "extract daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "ms": 22762,
+        "source": "extract",
+        "points": 1024
+      }
+    },
+    {
+      "row": "epicycles daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "row": "create daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "slug": "zen-etching-onyx-jackal",
+        "etag": "\"0db868be9bddceee0340a48a9368fe9e6a7db210957590a7846326b7c5c08cca\""
+      }
+    },
+    {
+      "row": "preview /v/<slug>",
+      "ok": true,
+      "detail": {
+        "slug": "ember-pouring-ebony-raccoon"
+      }
+    },
+    {
+      "row": "publish",
+      "ok": false,
+      "detail": {
+        "status": 428
+      }
+    },
+    {
+      "row": "remix",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "child": "frozen-skating-copper-crow"
+      }
+    },
+    {
+      "row": "diff",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "keys": [
+          "from_hash",
+          "to_hash",
+          "ops",
+          "identical"
+        ]
+      }
+    },
+    {
+      "row": "gallery",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "listed": false,
+        "items": 0
+      }
+    },
+    {
+      "row": "edit (PATCH, If-Match)",
+      "ok": false,
+      "detail": {
+        "etagExposed": true,
+        "status": 412
+      }
+    },
+    {
+      "row": "delete frozen-skating-copper-crow",
+      "ok": false,
+      "detail": {
+        "status": 412,
+        "text": "{\"detail\":\"{\\\"type\\\":\\\"urn:contract:etag-mismatch\\\",\\\"title\\\":\\\"ETag precondition failed\\\",\\\"status\\\":412,\\\"detail\\\":\\\"If-Match does not equal the current ETag\\\"}\"}"
+      }
+    },
+    {
+      "row": "delete zen-etching-onyx-jackal",
+      "ok": false,
+      "detail": {
+        "status": 412,
+        "text": "{\"detail\":\"{\\\"type\\\":\\\"urn:contract:etag-mismatch\\\",\\\"title\\\":\\\"ETag precondition failed\\\",\\\"status\\\":412,\\\"detail\\\":\\\"If-Match does not equal the current ETag\\\"}\"}"
+      }
+    },
+    {
+      "row": "delete ember-pouring-ebony-raccoon",
+      "ok": false,
+      "detail": {
+        "status": 0,
+        "text": "TypeError: Failed to fetch"
+      }
+    },
+    {
+      "row": "no CORS console errors",
+      "ok": false,
+      "detail": {
+        "cors": [
+          "Access to fetch at 'https://api.fourier.babb.dev/api/visualizations/ember-pouring-ebony-raccoon' from origin 'https://fourier.babb.dev' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+        ]
+      }
+    }
+  ]
+}

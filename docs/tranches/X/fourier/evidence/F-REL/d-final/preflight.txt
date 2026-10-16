@@ -1,0 +1,42 @@
+⟨curl -X OPTIONS /api/visualizations/x PATCH if-match,idempotency-key,content-type⟩ 2026-10-16T18:23:16Z
+HTTP/1.1 200 OK
+Date: Fri, 16 Oct 2026 18:23:16 GMT
+Server: nginx/1.29.5
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: text/plain; charset=utf-8
+Content-Length: 2
+vary: Origin
+access-control-allow-methods: GET, POST, PUT, PATCH, DELETE
+access-control-max-age: 600
+access-control-allow-headers: Accept, Accept-Language, Authorization, Content-Language, Content-Type, Idempotency-Key, If-Match, X-Session-Token
+access-control-allow-credentials: true
+access-control-allow-origin: https://fourier.babb.dev
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+⟨DELETE preflight⟩
+HTTP/1.1 200 OK
+Date: Fri, 16 Oct 2026 18:23:16 GMT
+Server: nginx/1.29.5
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: text/plain; charset=utf-8
+Content-Length: 2
+vary: Origin
+access-control-allow-methods: GET, POST, PUT, PATCH, DELETE
+access-control-max-age: 600
+access-control-allow-headers: Accept, Accept-Language, Authorization, Content-Language, Content-Type, Idempotency-Key, If-Match, X-Session-Token
+access-control-allow-credentials: true
+access-control-allow-origin: https://fourier.babb.dev
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+

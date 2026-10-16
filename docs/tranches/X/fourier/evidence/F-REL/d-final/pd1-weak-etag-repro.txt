@@ -1,0 +1,7 @@
+PD-1 repro 2026-10-16T19:29:37Z: one owner draft, GET identity vs gzip, then If-Match with each
+slug rustic-cresting-wine-lobster
+GET Accept-Encoding:identity -> ETag "917455283f1138f6c352d52d6292dfbdb06ead2809694e0355e06e59cc3cb05e"
+  PATCH If-Match "917455283f1138f6c352d52d6292dfbdb06ead2809694e0355e06e59cc3cb05e" -> 200
+GET Accept-Encoding:gzip -> ETag W/"ab57c5e2f0d504b54f8306a8cd927d8f5d9ce9d953dcf9cffe9a80177ce70c08"
+  PATCH If-Match W/"ab57c5e2f0d504b54f8306a8cd927d8f5d9ce9d953dcf9cffe9a80177ce70c08" -> 412
+cleanup DELETE (strong ETag) -> 204

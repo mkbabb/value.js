@@ -2324,3 +2324,58 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~18:15Z–. Spec read whole (`fou
 **E13.** ⟨`grep -E '^\| I-' V/coordination/INBOX.md | grep -c '| UNREAD'`⟩ → read at the RESUME (e) open as `0`; no new letter in scope this seat.
 
 **Status: PARTIAL** — merged and pushed; master CI ×2 in flight at seat close.
+
+### F-REL.d — sitting (RESUME 2026-10-16 (e); after `.g` sitting 7)
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~18:21Z–19:35Z. Spec read whole (`fourier/waves/F-REL.md`, 76 L; §Units `.d` L32-38, §Gates L39-40, addenda (a)–(e)); record: RESUME (e) header + Unit plan (L2143-2198), `.g` sitting 7 (L2297-2326), the prior `.d` receipts (L251-294, L2037-2066); COHESION to file end (⟨`wc -l`⟩ → `4091`; §0fo.4 last).
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain | grep ' scripts/'`⟩ → empty; value.js `fourier/evidence/F-REL/` + `execution/C/F-REL.md` clean. Nothing inherited. fourier's dirty `web/src/App.vue`, `HarmonicLevelGrid.vue` (X-DS lane) never touched.
+
+**Acts, in order.**
+1. **The lock: MET (ESC-FREL-d-2 dissolves, §0fo.4).** ⟨`git rev-parse --short origin/master`⟩ → `79f1a43`. ⟨`gh run view 38946507416` / `38946553889` `--json conclusion,jobs`⟩ (19:19:28Z) → both `success`: production compose boot + health · e2e · api/tests · web (vue-tsc + vite build) · inv-27, all `success`. **Master CI GREEN ×2** (R-g7-1 discharged).
+2. **API deploy, read off the host (read-only ssh `-p 1022 mbabb@34.197.214.67`; nothing written).** ⟨`journalctl -u webhook --since "2026-10-16 18:19"`⟩ → push webhook 18:19:55Z → host's own `f2fe447` hook (R-h2, in-place) · `advancing f2fe447… -> 79f1a43…` · build to 18:21:09 · `up -d` 18:21:09 · nginx `Started` 18:21:19 · `health gate GREEN on :8100 (attempt 1/30)` 18:21:31 · `migrations OK` · `DEPLOY OK … (recorded green)` 18:21:39. ⟨`cat /opt/deploy/fourier-last-green`; `git rev-parse --short HEAD`; `docker ps`⟩ → `79f1a43…` · `79f1a43` · backend/frontend/nginx `healthy` created 18:21:09/19, mongo unmoved (4 months).
+3. **Health polled.** ⟨`guarded --light -- health-poll.sh`⟩ (curl `/health` every ~2 s) 18:22:07→19:23:03Z → `1760 polls, non-200: 0`, spanning the SPA deploy. **The R-h2 recreate window 18:21:09→18:21:31 (≤ 22 s) was NOT polled off-host**: the master push (`.g`, 18:19:45Z) fired the webhook before this seat opened; only the host's own gate (attempt 1/30 GREEN) reads it.
+4. **SPA deploy (standing workflow).** ⟨`gh run list --workflow deploy-pages.yml`⟩ → `38952830238 success` (workflow_run of the push CI, head `79f1a43`; jobs gate + build+ship both `success`; `Deployed: https://905bf5b4.fourier-682.pages.dev (custom domain fourier.babb.dev)`, in-workflow pages-smoke ran); the dispatched run's deploy `38954038388 skipped` (event ≠ push, as designed).
+5. **Production reads.** ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ → `bundle /assets/index-BSzuH9o_.js` (NEW; before `index-BYSiPuAh.js`) · health `200 application/json` · ACAO `https://fourier.babb.dev` · `PASS`, rc 0. ⟨`openssl s_client … -enddate`⟩ → SPA `Dec 22 20:13:07 2026 GMT` · api `Jan  4 15:19:06 2027 GMT`. ⟨`curl …/openapi.json` + paths filter⟩ → `42 0.2.0 ['/api/visualizations/{slug}/diff', '…/publish', '…/remix', '…/unpublish']` (before `34 … []`). ⟨`curl -X OPTIONS …/api/visualizations/x` PATCH + `if-match,idempotency-key,content-type`⟩ → `HTTP/1.1 200 OK`, allow-methods `… PATCH, DELETE`, allow-headers `… Idempotency-Key, If-Match, X-Session-Token`; DELETE preflight → `200`.
+6. **prod-verify, headless (Chrome headless, `guarded --light`).**
+   - Pre-read at `08a236a` (new API, old SPA): `14/21`. RED: publish `428` (a probe defect: publish is ETag-guarded and the probe sent no If-Match) · gallery (follows publish) · PATCH `412` · delete ×2 `412` · delete `0` + CORS console error. ⟨host `docker logs fourier-analysis-nginx-1`⟩ → that DELETE was **`429`**, carrying no ACAO (PD-2 below). The run left 3 private drafts behind (the token died with the probe).
+   - fourier **`e7066b6`** (`scripts/prod-verify.mjs`): publish now sends `If-Match` from the browser's GET. A post-grading cleanup (never a graded row) deletes leftovers as owner with `If-Match: *`, honouring Retry-After.
+   - On the new SPA at `e7066b6`: `13/21`. A new RED is preview: the SPA, now correct, shows "Could not open this visualization" for an owner-only draft opened without its session. The old SPA's "canvas visible" had been a false GREEN. ⟨`verify-1-unpaced/preview-1440.png`⟩.
+   - fourier **`06c2d92`**: the preview opens as owner, through `sessionStorage['fourier-session-token']`, which `web/src/stores/auth.ts:10,27,40` restores at boot. It fails on the not-found text. Every call waits for room in the API's budgets (`api/services/rate_limiter.py`: write 10 and compute 5 per 60 s, mirrored by bucket; the page's two preview computes are reserved).
+   - ⟨`node scripts/prod-verify.mjs https://fourier.babb.dev https://api.fourier.babb.dev ~/.dev-logs/frel/d-final/verify-{3,4} assets/portraits/daraksha.jpg ~/.fourier-samples/daraksha.jpeg`⟩ → **`15/21 GREEN` ×2**, rc 1 both.
+     - GREEN: session · upload ×2 · upright ×2 (`w 768 h 1024`, EXIF-6 included) · extract ×2 (`points 1024`, `source extract`) · epicycles ×2 · create ×2 · preview `/v/<slug>` (`canvas true, failed 0`) · remix `201` · diff `200` · no CORS console errors.
+     - RED ×6, one cause (PD-1): publish `412` · gallery `listed:false` (unpublished) · PATCH `412` (`etagExposed:true`) · delete ×3 `412 urn:contract:etag-mismatch`. Cleanup `204` ×3: no row left behind.
+7. **PD-1 isolated.** ⟨`pd1-weak-etag-repro.txt`⟩ creates one owner draft and GETs it twice. With `Accept-Encoding: identity`: ETag `"9174…"` and PATCH `200`. With `gzip`: ETag `W/"ab57…"` and PATCH `412`. Cleanup DELETE returns `204`. Root: the edge `nginx/fourier.conf:75-76` (`gzip on`, `gzip_types … application/json`) weakens the API's strong ETag when it compresses, while `api/lib/crud/etag.py:41` compares strongly (`header != expected_etag`). Every browser, the production SPA's `workspace.ts`/`gallery.ts` stores included, therefore gets 412 on every publish, edit and delete it replays from a GET.
+8. **PD-2 named.** `api/main.py:115` registers `RateLimitHeaderMiddleware` last, so it is outermost (`add_middleware` prepends). Its 429 short-circuit (`rate_limiter.py:240-245`) never passes through `CORSMiddleware`, and the browser misreports a rate limit as CORS. This is §Why 3's class (an error without CORS headers).
+
+**Gates (BEFORE → AFTER).**
+
+| Gate | BEFORE (RESUME (e) open) | AFTER | State |
+|---|---|---|---|
+| pages-smoke GREEN on the new SPA | PASS on the old hotfix SPA | PASS on `index-BSzuH9o_.js` (deploy-pages `38952830238` @ `79f1a43`) | **GREEN** |
+| cert > 14 d | Dec 22 2026 / Jan 4 2027 | same | **GREEN** |
+| health polled through the deploy (no outage) | unread | SPA deploy: 1760 polls, 0 non-200. API deploy = R-h2 old in-place hook, recreate 18:21:09→18:21:31 **not polled off-host** (fired at `.g`'s push before this seat) | **RED** (unread for the API deploy) |
+| `scripts/prod-verify.mjs` 20/20 | 10/20 (old API) | **15/21 ×2** (21 rows: the remix child adds a delete row); 6 RED = PD-1 | **RED** |
+| openapi has publish/remix/diff | `34 0.2.0 []` | `42 0.2.0` with diff/publish/remix/unpublish | **GREEN** |
+| PATCH preflight 2xx | `400` | `200` (DELETE `200`) | **GREEN** |
+
+**Commits.** fourier `e7066b6`, `06c2d92` (`scripts/prod-verify.mjs` only; on `m/w1-bump-migration`, pushed without force; master untouched, so the webhook did not fire). value.js: evidence `docs/tranches/X/fourier/evidence/F-REL/d-final/` (README with SERVED MODEL line 1) + this receipt (one commit).
+**Adjacent edits.** None.
+**Teardown.** The health poller and every probe ran under `guarded` and have exited. Each probe closed its browser in a `finally`. No server, container or watcher is left running; a repro draft (`rustic-cresting-wine-lobster`) was deleted (`204`). One heavy-guard admission was withdrawn while it was still queued (procs 1611 > 1400) and re-run `--light` (a single headless browser).
+
+**Residuals.**
+- **R-d-1 (owner, R-6 class).** Five private drafts remain in production; their sessions died with the probes: `mighty-drawing-umber-zebra`, `rich-pouring-mango-salmon` (2026-10-09), `ember-pouring-ebony-raccoon`, `zen-etching-onyx-jackal`, `frozen-skating-copper-crow` (this seat's pre-read at `08a236a`, before the cleanup pass existed). Removal: admin `DELETE /api/admin/visualizations/<slug>?hard=true`. Since `e7066b6` the probe leaves nothing behind (cleanup `204` ×3 on every run).
+- **R-h1 / R-4 (owner).** ⟨`cut -d= -f1 /opt/deploy/.env`⟩ → `WEBHOOK_SECRET` only. The host now runs `79f1a43`'s hook, which refuses every deploy without `FOURIER_DEPLOY_ALERT_WEBHOOK` (inv-31, fail-closed). So no further API deploy (a PD-1/PD-2 cure, or the first health-gated switch whose no-outage poll this gate wants) can land until the owner sets it.
+- CI flakies carried (R-x5-1).
+
+**Escalation — ESC-FREL-d-3.** Every lawful act inside `.d`'s bounds is done. The deploys fired via the standing paths, and 4 of 6 gates are GREEN. Two gates cannot turn from inside `scripts/**`:
+1. **prod-verify 15/21 ×2 ← PD-1.** The edge gzip weakens the strong ETag (`nginx/fourier.conf:75-76`), and the API compares strongly (`api/lib/crud/etag.py:41`). So publish, edit and delete are 412 for every browser in production. The cure lies in `nginx/` or `api/`, outside `.d`'s writable set and outside the adjacent-line rule (another concern, `.c`/`.h`'s files). It needs a ruling on its shape. Candidates, measured not chosen:
+   - (a) the edge does not gzip the API's JSON, or the API compresses its own responses, so the strong validator survives;
+   - (b) `require_if_match` compares opaque-tags. RFC 9110 §13.1.1 calls for strong comparison, so this one is a contract deviation.
+
+   PD-2 (`api/main.py:115`, 429 outside CORS) rides the same ruling. Its falsifier is a browser burst past the write budget, which must read `429` with ACAO.
+2. **health polled through the deploy ← R-h2 + R-h1.** The one API deploy was the old in-place hook, fired by `.g`'s push before `.d` opened. Its ≤ 22 s recreate window has only the host's own gate reading. A no-outage reading needs the next deploy to run the health-gated switch, and that needs R-h1 (owner) and a master push carrying the PD-1 cure.
+
+   Order to close: the PD-1/PD-2 ruling → cure + tests on m/w1 → owner sets R-h1 → master merge (CI GREEN ×2) → webhook health-gated switch, polled from before the push → `prod-verify` 21/21 ×2 → close.
+
+**Status: ESCALATED** (ESC-FREL-d-3: PD-1/PD-2 product defects outside `.d`'s set + R-h1 owner act).
