@@ -591,3 +591,9 @@ Re-open order: `.pc2 → .r4ribbon → .r4init → .r4fade → .r4press → .r4s
 
 ## ADDENDUM 2026-10-16 (i) — ESC-W13X-r3res-1 ruled; six units by id (COHESION §0fj)
 RESUME 2 Check 3 is NOT-CONFORMANT on one HIGH: the six R-3 rows of ESC-W13X-r3res-1. §0fj grants each as its own unit, strictly serial: `.r3res2a` (easing reset order, `useEasingDemo.ts`) → `.r3res2b` (Sweep Reverse ball, spring/** + playback/**; read first) → `.r3res2c` (square readout, `SquareScene.vue`) → `.r3res2d` (844×390 Matrix heading, pane/** + matrix-editor/**; read first) → `.r3res2e` (KFA-31/85, cube/** consumes the group `onRender`) → `.r3res2f` (UIA-KF-177: value.js `src/css` authored unit + the kf consumer; E-6 under §0fg item 3). Each has a falsifier RED → GREEN ×2, or a CLOSED-BY-READING ×2 receipt where §0fj allows one. Then the close (verify-only, §0ev.2) with honest-RED exactly B7 SPECULAR-REST · SHEET-POSITION, then the check. Addendum (h)'s close line stands: every row cured, re-homed by id, or relayed; none OPEN.
+
+## ADDENDUM 2026-10-16 (j): RESUME 3's HIGHs ruled (COHESION §0fl)
+- `.r3res2e`: KILLED-BY-DELETION by id. The re-light was deleted by owner-directed X-DS KF-P1-02 at `e8144b0c`, and the 0-read measurement at `099a1627` is the receipt.
+- The `.r3res2f` kf half is RE-HOMED BY ID to the X-W11 release repin, after the value.js 4.1.x publish (an owner act). The pin bump and `AnimationOptions` unit plumbing are granted there, with a falsifier ×2.
+- New unit `.a3` cures the mobile `#/sequence` ghost rail introduced at X-DS `fa09924b`, at root under §0ev.3. X-DS's desktop intent is kept. A3 must go RED → GREEN ×2.
+- Then the close (honest-RED exactly B7 · SHEET-POSITION), then the check.
