@@ -2064,3 +2064,78 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 local. Spec read whole (`fourier/
 **Escalation — ESC-FREL-d-2 (restates d-1 at `ad62881`/`be5ede6`).** `.d` is locked behind a green master CI (§0fk.4), which needs `.g` to merge. `.g` is ESCALATED as ESC-FREL-g-7 on the unruled ESC-FREL-vb2-1 (au1 X-5 @390 RED, `/equation` dock scrollWidth 348 > clientWidth 346 in `playwright:v1.61.0-noble`). Once vb2-1 is ruled and cured, a fresh m/w1 CI reads GREEN, `.g` merges and master CI reads GREEN ×2, `.d` re-sits: health polled through the Pages workflow and the webhook deploy, then `prod-verify.mjs` headless (daraksha + EXIF-6, contours, preview, publish/remix/diff, edit/delete, gallery), evidence banked under `fourier/evidence/F-REL/`.
 
 **Status: ESCALATED** (ESC-FREL-d-2 ← ESC-FREL-g-7 ← ESC-FREL-vb2-1).
+
+## RESUME 2026-10-16 (d) — Close
+
+Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~13:10Z–, VERIFY-ONLY (cures nothing). Spec read whole (`fourier/waves/F-REL.md`, 69 lines). Record read: RESUME (d) Open → Unit plan (L1810-1872), the four RESUME (d) receipts (`.w2` L1874, `.vb2` L1937, `.g` sitting 6 L2005, `.d` re-sit L2037) and the RESUME (c) Close (L1733). **Wave verdict: BLOCKED-ON ESC-FREL-vb2-1** (ESC-FREL-g-7 and ESC-FREL-d-2 stand behind it). Of the four owed units, `.w2` is DONE; `.vb2` landed its three granted cures and is ESCALATED on one remaining RED (au1 X-5 @390 in the renderer of record); `.g` and `.d` are ESCALATED behind it.
+
+**Crash recovery.** ⟨`git status --porcelain -- execution/C/F-REL.md execution/LEDGER.md`⟩ → empty. Nothing inherited. fourier (read only by this seat): ` M web/e2e/f-w14u-misc.spec.ts` · 18 × ` M web/e2e/screenshots/f-w14/after-*.png` · ` M …/HarmonicLevelGrid.vue` · ` M …/VisualizationView.vue` · `?? .worktrees/`. These are the live X-DS lane's files, not touched. So that they could not leak into a reading, every gate below ran in the track's own clean instrument worktree `~/.fourier-frel/g-wt`, detached at `origin/m/w1-bump-migration` = `be5ede6` (⟨`git status --porcelain`⟩ → empty before ⟨`git checkout --detach be5ede6`⟩).
+
+**E13.** Paths: value `V/` and `V/coordination`; glass `BK/coordination`, `BL` and `BL/coordination` (⟨`ls glass-ui/docs/tranches | grep -E '^B[K-Z]'`⟩ → `BK` `BL`) and `P/coordination`; keyframes `V/coordination`; keyframes-v-exec `V/coordination`; atlas `P/coordination`. ⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ → nothing in any path except `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md`, which is glass's formation log and not a letter. ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. No glass reply to O-97 has arrived (⟨`find glass BK BL -newer <the O-97 letter>`⟩ → the mirrored O-97 letter and BL design/driver files, none addressed to value.js). **0 unrowed · 0 UNREAD in scope.**
+
+**Act 1: commits exist and stay inside their sets** (⟨`git show --stat`⟩; ⟨`git branch -r --contains`⟩ → each fourier commit is on `origin/m/w1-bump-migration`).
+- fourier `b9bfdaa` (`.w2`): `web/e2e/contrast-floor.spec.ts` (+42 −2, the declared §0bt adjacent read of the pair-level key) · `web/e2e/contrast-pairs.ts` · `web/e2e/producer-held.json`. ⟨`git show b9bfdaa -- web/e2e/contrast-floor.spec.ts | grep -c '^[-+].*expect'`⟩ → `0`: no assertion removed or changed. In set.
+- fourier `dfdf0fd` (`.w2` R-10): `web/e2e/f-w14-uia.spec.ts` +9 −0. R-10 (UIA-F-42) is a `.w2` gate (Unit plan) and the edit is declared as an adjacent edit in the receipt; it adds a wait and removes nothing. In set (declared).
+- fourier `c14d73f` (`.vb2`): `web/e2e/fixtures/gallery.ts` and the item-5 goldens `checkpoint-card-modal-chromium-{darwin,linux}.png`. In set.
+- fourier `386397e` (`.vb2`): `.github/workflows/ci.yml` +20 −6. Its hunks are at L284, L313 and L389, all inside `e2e-tests:` (L284–L445; the next job, `prod-compose:`, is at L446). In set.
+- value.js: `d7f19f6c2` (`.w2`) touches `V/coordination/INBOX.md`, the O-97 outbound letter and `fourier/waves/F-W4.addendum-2026-10-16-contrast-pairs.md`, which are the granted three. `c8ada8848` (`.w2`), `fa39fa43c` (`.vb2`), `a82eb3477` (`.g`) and `f47cded13` (`.d`) each touch only `execution/C/F-REL.md`.
+- **landedWrong: none.**
+
+**Resource law.** ⟨`uptime`⟩ → load 30.82 / 22.55 / 21.45 at the open. Every heavy run used the track's instrument `~/.fourier-frel/close-d/{outer,all,darwin,pytest,e2e}.sh`: it takes `.worktrees/heavy.lock` with noclobber, waits while F.CT3 r4 holds it, and runs under `~/.claude/guard/guarded --rss-gb 20 --timeout 90`. Inside: Playwright `--workers=1` and the API at `COMPUTE_CONCURRENCY=1`. `e2e.sh` is `vb/r6.sh` with its logs renamed to `cd-*`. Its API runs from the main tree (`3168b89`; the X-DS dirty paths are all under `web/`), and its web runs from the instrument worktree at `be5ede6`. Logs are in `~/.dev-logs/frel/close-d-*` and `cd-*`.
+
+Two instrument faults were found and voided, and neither counts as a reading. (i) `all.sh`'s second `e2e.sh` call restarted the private mongod while the first one was still shutting down, so the API never came up. That run was stopped and its log was kept as `cd-darwin-D1-void.log`. (ii) Under zsh, `$SPEC` did not word-split, so the first darwin rerun reported "No tests found" (`cd-darwin-D{1,2}-notests.log`). The fix was `${=SPEC}`, and the run was repeated.
+
+**Act 2: gates, BEFORE (the RESUME (d) baseline) → AFTER (this close; quoted by command).**
+
+| Gate (spec §Gates · addendum (d)) | BEFORE | AFTER | Reading |
+|---|---|---|---|
+| pytest tests/ ×2 (R-9) | banked 176 ×2 at `e89b032` | ⟨`guarded -- pytest tests/ -q`, `PYTHONPATH=g-wt/src:g-wt`, ×2 at `be5ede6`⟩ → `187 passed in 342.32s` rc 0 · `187 passed in 344.41s` rc 0. The count grew from 176 because F.CT3 r1–r3 merged tests | GREEN ×2 |
+| api tests ×2 | banked 344 ×2 | ⟨`gh run view 38899400446 --json jobs`⟩ → `api/tests (with live Mongo) success`, plus `production compose boot + health success`, at `386397e` | GREEN (CI ×1 at `386397e` + banked ×2) |
+| web vue-tsc ×2 | rc 0 ×2 (banked) | ⟨`guarded --light -- npx vue-tsc -b --force`⟩ ×2 at `be5ede6` → rc 0 · rc 0 (logs 0 bytes) | GREEN |
+| web vitest ×2 | 116 ×2 (banked) | ⟨`guarded --light -- npx vitest run --maxWorkers=2`⟩ ×2 → `Test Files 20 passed (20)` · `Tests 116 passed (116)` each, rc 0 | GREEN |
+| `.w2`: contrast-floor ×3 GREEN ×2 outside the pair-level manifest | RED (light 18/36, dark 10/36, 6 awaiting) | ⟨`e2e.sh D1 D2` with `contrast-floor.spec.ts`⟩ → light arm ✓ · dark arm ✓ · re-derivable expression ✓, run twice (`4 passed (19.5s)` · `4 passed (17.2s)` together with UIA-F-42) | GREEN ×2 |
+| `.w2`: pair-level key in the manifest | absent | ⟨`node -e '…producer-held.json…'`⟩ → keys `servedModel,about,rows,pairsAbout,pairs`; rows 8, pairs 4 | GREEN |
+| `.w2`: F-W4 §4 addendum + O-97 BK relay | absent | in `d7f19f6c2` (the addendum, the outbound letter and the INBOX O-97 row) | GREEN |
+| R-10: UIA-F-42 | RED (flake, retry #1) | `f-w14-uia.spec.ts:457` ✓ ×2 locally; ✓ on CI 38899400446 (per `.vb2`) | GREEN ×2 |
+| `.vb2`: deterministic detail-route stub | absent | in `c14d73f` (`fixtures/gallery.ts`) | GREEN |
+| `.vb2`: visual-checkpoint GREEN ×2 locally in `playwright:v1.61.0-noble` | RED (CI items 3/5) | ⟨`e2e.sh L1 L2`, in the `frel-vb` v1.61.0-noble container⟩ → visual-checkpoint 5/5 ✓ in L1 and 5/5 ✓ in L2 (items 1·6·7, 2, 5, 8, 3); goldens 6 darwin and 6 linux | GREEN ×2 |
+| `.vb2`: CI e2e in the container + report on failure | RED / present | `386397e`; 38899400446: containers initialised, `playwright-report` artefact uploaded (per `.vb2`) | GREEN |
+| **e2e GREEN outside the manifest (fresh m/w1 CI)** | RED | ⟨`gh run list --branch m/w1-bump-migration --limit 3`⟩ → `38899400446 failure` (newest; no newer run). Jobs: web ✓ · api ✓ · prod-compose ✓ · e2e ✗. In the container locally ⟨`e2e.sh L1 L2` with `f-w14v-au1.spec.ts`⟩ → `1 failed · 19 passed` each time: `f-w14v-au1.spec.ts:397` au1 X-5 (390 logged in), `"dock-layer dock-layer--full dock-run is- 348/346"`; X-5 at 360 ✓ | **RED** (ESC-FREL-vb2-1, deterministic ×2) |
+| master merged + master CI GREEN ×2 | `ad62881`, `1 448` | ⟨`git rev-parse --short origin/master origin/m/w1-bump-migration`⟩ → `ad62881` · `be5ede6`; ⟨`rev-list --left-right --count`⟩ → `1 462`; ⟨`gh run list --branch master --limit 2`⟩ → `deploy-pages skipped` ×2 | **RED** (not reached) |
+| production smoke GREEN (new SPA) | PASS on the hotfix SPA | ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ → health 200 `{"status":"ok"}` · ACAO `https://fourier.babb.dev` · cert > 14 d · `PASS`, but on the same hotfix SPA | **RED as specified** (passes as a non-regression check only) |
+| cert > 14 d | Jan 4 / Dec 22 | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ → SPA `Dec 22 20:13:07 2026 GMT` · API `Jan  4 15:19:06 2027 GMT` | GREEN |
+| openapi has publish/remix/diff | `34 0.2.0 []` | ⟨`curl …/openapi.json` + path filter⟩ → `34 0.2.0 []` | **RED** |
+| PATCH preflight 2xx | 400 | ⟨`curl -X OPTIONS …/api/visualizations/x` PATCH + `if-match,idempotency-key,content-type`⟩ → `400` | **RED** |
+| end-to-end production check 20/20 | 10/20 (banked) | not run: there was no deploy, and the probe writes to production | **RED** |
+| no API outage during deploy | not read | not read (no deploy) | **RED** (unread) |
+
+**Act 3: §Verification Artefacts.** The spec has no section by that name, so its falsifiers are the gates above. `scripts/prod-verify.mjs` belongs to `.d` and was not run, because there was no deploy.
+
+**Commit roster (RESUME (d)).**
+- fourier: `b9bfdaa` and `dfdf0fd` (`.w2`); `c14d73f` and `386397e` (`.vb2`). `.g` and `.d` made no fourier commit. All four are on `origin/m/w1-bump-migration` (`be5ede6`).
+- value.js: `d7f19f6c2` and `c8ada8848` (`.w2`); `fa39fa43c` (`.vb2`); `a82eb3477` (`.g` sitting 6); `f47cded13` (`.d` re-sit); and this close.
+
+**Escalations (unruled).** ⟨`grep -n 'vb2-1\|g-7\|FREL-d-2' COHESION.md`⟩ → 0 lines (⟨`wc -l`⟩ → `4074`).
+- **ESC-FREL-vb2-1 (root).** au1 X-5 @390 (logged in) fails in the renderer of record. On `/equation`, the `dock-layer--full dock-run` has scrollWidth 348 against clientWidth 346. This close re-read it as deterministic: ×2 in v1.61.0-noble at `be5ede6`, while 360 passes. The cure lies outside every granted F.REL set: either the `/equation` app-dock content in `web/src` at 390, or glass `dock-layer` sizing. Rulings asked, per the `.vb2` receipt: (a) a unit for the `/equation` dock content at 390, read in the image; or (b) a pair-level hold in `producer-held.json` with an O-id and a BK relay, if the run width belongs to glass.
+- **ESC-FREL-g-7.** The merge lock is unmet behind vb2-1. `.gitignore` remains the sole merge conflict (resolved to m/w1's side whole, R-3).
+- **ESC-FREL-d-2.** `.d` is locked behind a green master CI (§0fk.4).
+
+Order of discharge: vb2-1 ruling → its cure on m/w1 → a fresh m/w1 CI GREEN outside the manifest → `.g` (merge, push without force, master CI ×2) → `.d` (deploy, health polled, prod-verify 20/20).
+
+**Residuals (named owners).**
+- R-1. au1 X-5 @390 RED in the container (ESC-FREL-vb2-1). Owner: the unit the vb2-1 ruling grants (the `/equation` dock in `web/src`), or glass BK if it is ruled to the producer.
+- R-2. The merge to master, master CI ×2, and the `.gitignore` conflict. Owner: `.g` re-sit.
+- R-3. Deploy, health through the deploy, prod-verify 20/20, openapi publish/remix/diff, and PATCH preflight 2xx on production. Owner: `.d` re-sit.
+- R-4. R-h1: hooks.json alert webhook and token. Owner: the owner.
+- R-5. R-h2: the first post-merge deploy runs the old in-place hook, and any master push fires it. Owner: `.d`.
+- R-6. The two 10-09 private draft rows on production. Owner: the owner (admin token).
+- R-7. O-97 (GAB-1 `--tier-*` and HLG-37 `[grid-cell-fill]`, held by pair id) awaits glass. Owner: glass BK, and the `producer-held.json` expiry.
+- R-8. ECD D-6 light has thin headroom (3.032 against a 3:1 floor), as noted by `.w2`. Owner: F.W4 contrast oracle / the next contrast sitting.
+- R-9. CI flakies `equation-interaction.spec.ts:77` and `f-w14v-eq2.spec.ts:39` (passed on retry on 38899400446). Owner: `.g` re-sit (read on the fresh CI).
+- R-10. The local au1 runs used the main-tree API at `3168b89`, not `be5ede6`; `a6a9c6b` (contours) is not under it. X-5 is a dock-layout reading with no API dependence. Owner: record only.
+
+**Four-verb line.** Not moved. F.REL stays OPEN, and its LEDGER status becomes `BLOCKED-ON ESC-FREL-vb2-1`.
+
+**Push.** fourier: the main tree's `HEAD` is `3168b89`, an ancestor of `origin/m/w1-bump-migration` = `be5ede6` (⟨`git rev-list --count origin/m/w1..HEAD`⟩ → `0`), so there is nothing to push, and master is not this seat's to push (R-h2). value.js: this close is pushed with `git push origin HEAD`, without force.
+
+**Teardown.** The private mongod, API :8191, vite :3192, Playwright's :4190 preview and the `frel-vb` container were all stopped (⟨`ps`⟩ shows none of them left; ⟨`docker ps --filter name=frel-vb`⟩ → not running), and `heavy.lock` was released (absent). The instrument worktree `~/.fourier-frel/g-wt` is left detached at `be5ede6`.
