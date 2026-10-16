@@ -2139,3 +2139,60 @@ Order of discharge: vb2-1 ruling → its cure on m/w1 → a fresh m/w1 CI GREEN 
 **Push.** fourier: the main tree's `HEAD` is `3168b89`, an ancestor of `origin/m/w1-bump-migration` = `be5ede6` (⟨`git rev-list --count origin/m/w1..HEAD`⟩ → `0`), so there is nothing to push, and master is not this seat's to push (R-h2). value.js: this close is pushed with `git push origin HEAD`, without force.
 
 **Teardown.** The private mongod, API :8191, vite :3192, Playwright's :4190 preview and the `frel-vb` container were all stopped (⟨`ps`⟩ shows none of them left; ⟨`docker ps --filter name=frel-vb`⟩ → not running), and `heavy.lock` was released (absent). The instrument worktree `~/.fourier-frel/g-wt` is left detached at `be5ede6`.
+
+## RESUME 2026-10-16 (e) (§0fo + F-REL.md ADDENDUM (e)) — Open
+
+Seat 0, `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~09:55 local. LEDGER read first: F.REL = **BLOCKED-ON ESC-FREL-vb2-1** (not CLOSED), and this record exists, so this is RESUME MODE. The block is lifted by COHESION §0fo (L4076-4091; ⟨`wc -l COHESION.md`⟩ → `4091`, §0fo is the last addendum) and by spec addendum (e) at `fourier/waves/F-REL.md:71-76` (⟨`wc -l`⟩ → `76`). Orchestrator chassis commit `d6c418520` (`chassis/x-track-C.js` only).
+
+### Preconditions (bytes and ledger)
+- F.W14V CLOSED and F.CT phase 2 CLOSED honest-RED (§0eu): banked at the 2026-10-08 Open, unchanged.
+- ESC-FREL-vb2-1 RULED (§0fo.1-3) → unit `.x5` (diagnose in the container, then arm (a) consumer or arm (b) producer hold). ESC-FREL-g-7 dissolves on a fresh m/w1 CI GREEN outside the manifest (§0fo.4); ESC-FREL-d-2 on a green master CI. Order `.x5 → .g → .d → close → check` (§0fo.5).
+- fourier: ⟨`git fetch`; `git rev-parse --short HEAD origin/m/w1-bump-migration origin/master`⟩ → `6b98e22` · `6b98e22` · `ad62881`; ⟨`git rev-list --left-right --count origin/master...origin/m/w1-bump-migration`⟩ → `1 464`. Every landed unit's commit is on m/w1 (`.w2` `b9bfdaa` `dfdf0fd`; `.vb2` `c14d73f` `386397e`, read at the RESUME (d) close). ⟨`git log --oneline origin/m/w1-bump-migration | grep -c 'x5'`⟩ → no `.x5` commit. Since the close's `be5ede6`, X-DS pass 9 landed `c313ea8` + merge `6b98e22` (⟨`git diff --stat be5ede6 6b98e22 -- web/src`⟩ → `HarmonicLevelGrid.vue`, `VisualizationView.vue`; neither is dock content).
+- ⟨`gh run list --branch m/w1-bump-migration --limit 3`⟩ → `38899400446 failure` (newest) · `38868934803 failure` · `38824079821 failure`.
+
+### Crash recovery
+- value.js: ⟨`git status --porcelain -- execution/C/F-REL.md execution/LEDGER.md V/coordination/INBOX.md`⟩ → empty. Nothing inherited.
+- fourier: ⟨`git status --porcelain`⟩ → `?? .worktrees/` only (the X-DS dirty paths read at the (d) close have landed). Nothing inherited in `.x5`'s set.
+- ⟨`cat .worktrees/heavy.lock`⟩ → `f-ct3 r4 harness …`: the heavy slot is held by F.CT3; no heavy gate is re-run at this open. `.worktrees/f-ct3` is never touched.
+
+### E13 mail sweep
+- Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` + `BL/coordination` + `P/coordination` (⟨`ls glass-ui/docs/tranches | grep -E '^B[K-Z]'`⟩ → `BK` `BL`: BL is the newest; BK still carries the relay idiom §0fo.3 names) · keyframes `V/coordination` · keyframes-v-exec `V/coordination` · atlas `P/coordination`.
+- ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ → nothing, except `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (glass's formation log, not a letter).
+- ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. Highest O-row: O-97.
+- **0 unrowed · 0 UNREAD.** A sweep line is appended to INBOX.
+
+## RESUME 2026-10-16 (e) — Baseline (BEFORE, read-only)
+
+⟨`uptime`⟩ → load `29.98 24.69 21.82`. The heavy slot is held by F.CT3 r4 (above), so the container and darwin e2e cells cite the RESUME (d) close table (`be5ede6`; the dock content is unchanged to `6b98e22`); static and network reads are taken now.
+
+| Gate (§0fo · addendum (e) · §Gates) | BEFORE (this open) | State |
+|---|---|---|
+| `.x5` diagnosis: item boxes + min-content, run padding/gap, consumer vs glass `dock-layer` sizing | absent (no reading in the record or evidence) | RED (absent) |
+| `.x5` au1 X-5 @390 ×2 in `playwright:v1.61.0-noble` | banked RED ×2 at `be5ede6`: `f-w14v-au1.spec.ts:397` `"dock-layer dock-layer--full dock-run is- 348/346"`; X-5 @360 ✓ | RED |
+| `.x5` darwin X-5 GREEN | banked GREEN (§0fo preamble; RESUME (d) `.vb2`) | GREEN (non-regression) |
+| `.x5` arm (b) hold: X-5 @390 test id in `producer-held.json` | ⟨`grep -c 'X-5' web/e2e/producer-held.json`⟩ → `0` | absent (arm-dependent) |
+| fresh m/w1 CI e2e GREEN outside the manifest | ⟨`gh run list`⟩ → `38899400446 failure` (e2e ✗) | RED |
+| `.g` master merged + master CI GREEN ×2 | `origin/master` `ad62881`, `1 464` | RED |
+| `.d` openapi publish/remix/diff | ⟨`curl …/openapi.json` + path filter⟩ → `34 0.2.0 []` | RED |
+| `.d` PATCH preflight 2xx | ⟨`curl -X OPTIONS …/api/visualizations/x` PATCH + `if-match,idempotency-key,content-type`⟩ → `400` | RED |
+| `.d` prod-verify 20/20 · no outage · smoke on new SPA | banked 10/20 · unread · PASS on the hotfix SPA | RED |
+| host health · cert > 14 d | ⟨`curl …/health`⟩ → `{"status":"ok"}` · banked Dec 22 2026 / Jan 4 2027 | GREEN (non-regression) |
+| pytest ×2 · vue-tsc ×2 · vitest ×2 | banked 187 ×2 · rc 0 ×2 · 116 ×2 at `be5ede6` (RESUME (d) close) | GREEN (banked) |
+
+**Green before cure (R.2):** none.
+
+## RESUME 2026-10-16 (e) — Unit plan
+
+- **alreadyDone** (their commits exist; never re-dispatched): `F-REL.m`, `F-REL.c`, `F-REL.h`, `F-REL.mem`, `F-REL.mem2`, `F-REL.mem3`, `F-REL.w`, `F-REL.vb`, `F-REL.w2`, `F-REL.vb2`.
+- **Owed, strictly serial,** one unit at a time, every seat Opus 5.5: `.x5 → .g → .d`, then close, then check (§0fo.5).
+- **Binding on every unit:** branch `m/w1-bump-migration` until `.g`; `git fetch` + `git pull --ff-only` before every commit and push (X-DS also commits `web/` on m/w1); never force; pathspec commits only. Headless only (§0ei). Nothing durable in /tmp (§0eo): logs `~/.dev-logs/frel/`, work `~/.fourier-frel/`. Every heavy run via `~/.claude/guard/guarded` and the repo's `.worktrees/heavy.lock`, one at a time; Playwright `--workers=1`; API `COMPUTE_CONCURRENCY=1`; WebKit via `guarded --exclusive webkit`. Readings in the track's clean instrument worktree `~/.fourier-frel/g-wt` (detached at the HEAD under test). glass READ-ONLY (installed 10.1.0 `dist` read only; relays ride mail). **`.worktrees/f-ct3` is never touched.** ESCALATED units do not halt the wave.
+
+Groups: `[[F-REL.x5], [F-REL.g], [F-REL.d]]`.
+
+| Unit | Spec section | Writable | Gates | Locks |
+|---|---|---|---|---|
+| F-REL.x5 | COHESION §0fo.1-4 (L4083-4091); addendum (e) (F-REL.md:71-76); idiom §0fh item 4 (L3967-3969) | fourier arm (a): the `/equation` app-dock content in `web/src` (`web/src/components/layout/AppDock.vue`, `web/src/components/auth/UserSlugBar.vue`, and the dock's nav/menu items they mount); arm (b): `web/e2e/producer-held.json` (one row, X-5 @390 test id, new O-id, expiry "at glass 10.2.0 repin"); value.js: outbound `V/coordination/valuejs-outbound-2026-10-16-frel-x5-bk-relay.md` + INBOX O-98 row (arm (b)); the diagnosis readings in this record (and `docs/tranches/X/fourier/evidence/F-REL/x5/`) | the diagnosis table (each child box + min-content, run padding/gap, attribution) in the container; X-5 @390 ×2 in `playwright:v1.61.0-noble` (GREEN in arm (a); held + read in arm (b)); darwin X-5 GREEN; a fresh m/w1 CI e2e GREEN outside the manifest; vue-tsc/vitest ×2 if `web/src` changes | the oracle stays (§0fo preamble); arm (a): every seat ≥ 44 px, priority-ranked prefix, remainder to the existing menu, no `overflow:hidden`, no font swap, no fixed/fitted width; arm (b): hold by test id only, ADOPT-AT-LANDING, `X-F-BK-*` letter idiom with measured boxes |
+| F-REL.g | §Units `.g` (F-REL.md:31) + §0fo.4 | the merge `m/w1-bump-migration → master` (no force); `.gitignore` (conflict → m/w1's side whole, R-3); `web/playwright.config.ts`, `web/e2e/**`, `.github/workflows/**` only if the merge needs them | merge lock: fresh m/w1 CI e2e GREEN outside the manifest (dissolves ESC-FREL-g-7); master CI GREEN ×2 | fetch before the merge; never force; merge after `.x5` only |
+| F-REL.d | §Units `.d` (F-REL.md:32-38) + §0fo.4 | fourier `scripts/**` (prod-verify); value.js `docs/tranches/X/fourier/evidence/F-REL/` | smoke GREEN on the new SPA; cert > 14 d; health polled through the deploy (no outage); `scripts/prod-verify.mjs` 20/20; openapi has publish/remix/diff; PATCH preflight 2xx | fail-closed deploy via the standing workflow + webhook only (green master CI dissolves ESC-FREL-d-2); host never hand-edited; R-4/R-6 owner items, non-blocking; R-h2 named |
+
+## RESUME 2026-10-16 (e) — Unit receipts
