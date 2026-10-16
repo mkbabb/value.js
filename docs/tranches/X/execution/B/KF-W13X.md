@@ -4173,3 +4173,45 @@ READ-ONLY at kf `ca0b1a0b` (shared tree, X-DS's 10 dirty paths in place). Host �
 - **Disposition:** C3r-4's R-3 consumer residue — vite strings **CURED** (`4a29c504`); the transport's reach into the app **CURED** (`0fb24566`); KFA-69's machine record **CURED** (`b94dead6`, falsifier RED ×1 at the pre-cure bytes → GREEN ×2); the other six items **ESCALATED** (ESC-W13X-r3res-1).
 - **Commits:** kf `3fc38e74` (falsifier) · `4a29c504` (vite) · `0fb24566` (dockEdge + importers, one sha) · `b94dead6` (KFA-69) — unpushed, as the wave's earlier units; value.js: this receipt + `keyframes/evidence/W13X/r3res/**` (one commit).
 - **Self-count:** ⟨`sed -n '/^### KF.W13X.r3res/,$p' KF-W13X.md | grep -c '^- \*\*'`⟩ → **15** ×2 (the receipt's top-level bullets, this line included): 3 R-3 residue rows cured (vite strings, dockEdge, KFA-69), 6 items escalated under 1 id, 4 kf commits, 2 adjacent edits, 0 inherited paths.
+
+### KF.W13X.rel2
+**Seat:** `claude-opus-5-5` · 2026-10-15 · RESUME 2 plan row S8 · COHESION §0fa item 8 · KF-W13.md ADDENDUM (h) `:589-590` · RESUME 1 Close R-4 (`:3476`). Documents only: no keyframes byte, no glass byte.
+
+**Crash-recovery.** ⟨`git status --porcelain -- docs/tranches/X/relay/ docs/tranches/V/coordination/INBOX.md docs/tranches/X/execution/B/KF-W13X.md`⟩ → empty. Nothing inherited.
+
+**Anchors at true bytes (one drifted; INTENT taken at the true bytes).**
+- **The O-numbers.** ⟨`grep -o '^| O-[0-9]*' INBOX.md | sort -t- -k2 -n | tail -1`⟩ → `| O-94`, read at open and again immediately before rowing. (`O-74e` from 2026-10-15 is a lettered sub-row and takes no number.) So the asks are **O-95, O-96**, as planned.
+- **The consumer paths drifted (`.r4shared`/`.esc2` moves).** The R-4 row names `SharePopover.vue` under `instrument/shell/`. At kf `c761d639`: ⟨`git ls-files demo | grep -E 'SharePopover|MbabbMenu|EasingField'`⟩ → `demo/app/dock/menu/{MbabbMenu,SharePopover}.vue` and `demo/components/instrument/pane/channel-controls/EasingField.vue`. The letters cite these paths.
+- **O-95 site.** The consumer, at ⟨`grep -n 'PopoverAnchor\|glass-ui/popover' SharePopover.vue`⟩, imports `PopoverAnchor` from `reka-ui` at `:133` and uses it at `:19`. On the producer side, glass `./popover` exports only `Popover`, `PopoverContent` and `PopoverTrigger`: ⟨`grep -o 'export {[^}]*}' node_modules/@mkbabb/glass-ui/dist/popover.js`⟩ (installed `10.1.0`) agrees with glass source `src/components/popover/index.ts` at `b06cacc35`. ⟨`git grep -n PopoverAnchor -- src/components/popover`⟩ → 0.
+- **O-96 site.** The consumer is `EasingField.vue:45-56`, a hand-drawn `.curve-glyph` svg. The producer is `dist/easing.js:74-80` (`aspect-square w-full`, `role: "img"`, frame `rect`). `EasingCurve.vue.d.ts` declares the props `strokes progress travel clipped drawn label class`, so there is no glyph form. This is unchanged from `.r4pane`'s reading (`:2910`).
+
+**Acts.**
+1. Two letters under `docs/tranches/X/relay/`, in the O-92..O-94 idiom (the site at true bytes, the ask, the consumer posture), each with `SERVED MODEL` on line 1 and each naming the BK mirror glass should land:
+   - `X-KF-BK-POPOVER-ANCHOR.md` (O-95) asks for a `PopoverAnchor` export from `./popover` or an `anchor` prop on `Popover`. The mirror is `valuejs-outbound-2026-10-15-popover-anchor.md`.
+   - `X-KF-BK-EASING-CURVE-GLYPH.md` (O-96) asks for an `EasingCurve` glyph form: stroke only, sized to 1em, `aria-hidden` without a label, the same `strokes` contract, and the dot on the curve. The mirror is `valuejs-outbound-2026-10-15-easing-curve-glyph.md`.
+2. ⟨`ListAgents`⟩ → 5 peers, of which one is a glass session, `glass-ui-2c [4a043f]` (interactive, busy). The `glass-ui-15` that `.rel` messaged is gone.
+3. ⟨`SendMessage to=glass-ui-2c`⟩: one message carrying both asks, the letter paths and the mirror names → `success: true`, msg `ef648a01-af20-4f1d-b121-341eb7a54338`, "in that session's inbox, not yet read by its Claude". No delivery notice reached this seat.
+4. INBOX: rows O-95 and O-96 inserted after O-94, plus one dated outbound line at the file end. The file was clean against HEAD before the edit (⟨`git diff --quiet HEAD -- INBOX.md`⟩ → clean). It was staged by index blob (⟨`git hash-object -w`⟩ + ⟨`git update-index --cacheinfo`⟩). ⟨`git diff --stat 075cb1422~1 075cb1422 -- INBOX.md`⟩ → `3 insertions(+)`, and 0 prior lines were removed. ⟨`wc -l`⟩ 615 → 618. This avoids `.rel`'s one-line truncation class.
+5. **The glass session landed the BK mirror itself.** Glass commit `dbdce7247` reads "docs(BL): inbound O-96 popover anchor, O-97 easing-curve glyph rowed and mirrored". ⟨`ls glass-ui/docs/tranches/BK/coordination | grep 2026-10-15`⟩ → both mirror files, mtime 20:08. Glass rows them under its own inbound numbers (O-96, O-97), one off from ours. The id of record on our side stays O-95/O-96, and the mirror filenames match the letters.
+
+**Commits (value.js).**
+- `075cb1422`: the two letters and the INBOX edit (3 files, +62).
+- This receipt: next commit, pathspec `KF-W13X.md` only.
+
+**Gates, BEFORE → AFTER.**
+| Gate | Before | After |
+|---|---|---|
+| O-95 and O-96 rowed in INBOX | ⟨`grep -c '^\| O-9[56] ' INBOX.md`⟩ → 0 | → **2**, run twice |
+| one live SendMessage after ListAgents to the glass session, result recorded | none | sent to `glass-ui-2c`, `success: true`, msg `ef648a01`; recorded in both rows' status cells and in the dated line |
+| 0 glass-ui bytes | ⟨`git -C glass-ui status --porcelain \| wc -l`⟩ → 40 (the glass session's own paths) | → 40 unchanged; ⟨`… status --porcelain \| grep -c '2026-10-15-\(popover-anchor\|easing-curve-glyph\)'`⟩ → 0. The two mirrors exist only as glass's own commit `dbdce7247`, not as this seat's bytes |
+
+**Adjacent edits.** None.
+
+**Residuals.**
+- Both asks are ADOPT-AT-LANDING. At the repin, `SharePopover.vue` drops its `reka-ui` import and `EasingField.vue` swaps its hand-drawn glyph. Until then, A2-KE-L1-6's trigger-glyph limb is honest-RED under O-96. KFA-114, UIA-KF-056 and UIA-KF-140 stay CURED (`a36b1b01`); only the import's home is owed, under O-95.
+- No glass reply yet beyond the mirror commit. The close seat's E13 sweep rows any I-row.
+- The KF-ET-10 reading (§0ez) belongs to the close, not this unit.
+
+**Escalations.** None.
+
+- **Self-count:** ⟨`sed -n '/^### KF.W13X.rel2/,$p' KF-W13X.md | grep -c '^[0-9]\. '`⟩ → **5** acts; gate rows 3; commits 1 + this receipt.
