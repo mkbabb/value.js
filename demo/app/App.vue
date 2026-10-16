@@ -214,7 +214,7 @@ import { useColorPipeline } from "../color-session/useColorPipeline";
 import { usePaneRouter, PANE_CACHE_MAX } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
-import { useClipboard } from "@mkbabb/glass-ui";
+import { useClipboard } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
 import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";

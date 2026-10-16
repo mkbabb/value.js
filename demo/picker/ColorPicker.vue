@@ -151,7 +151,7 @@ import { usePointerDebug, POINTER_DEBUG_KEY } from "./debug/usePointerDebug";
 import "./seat.css";
 import "./header.css";
 
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders/ComponentSliders.vue";
 const PointerDebugOverlay = defineAsyncComponent(

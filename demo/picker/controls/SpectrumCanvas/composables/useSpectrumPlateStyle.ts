@@ -9,7 +9,7 @@ import { computed, type ComputedRef } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
 import { channelNumber, type PickerColorIn } from "../../../../color-session/picker-color";
 import { spectrumFieldIsLight } from "../../spectrumLuma";
-import type { useTouchGate } from "@mkbabb/glass-ui";
+import type { useTouchGate } from "@mkbabb/glass-ui/dom";
 
 export function useSpectrumPlateStyle(opts: {
     HSVCurrentColor: ComputedRef<PickerColorIn<"hsv">>;

@@ -38,7 +38,7 @@
 import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
-import { useTouchGate } from "@mkbabb/glass-ui";
+import { useTouchGate } from "@mkbabb/glass-ui/dom";
 import { channelNumber, withChannel } from "../../../color-session/picker-color";
 import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSpectrumPlateStyle } from "./composables/useSpectrumPlateStyle";

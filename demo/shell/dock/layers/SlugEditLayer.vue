@@ -3,7 +3,7 @@ import { ref, nextTick, inject, useTemplateRef } from "vue";
 import { LogIn, ArrowRight, X as XIcon, Loader2 } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import { Input } from "@mkbabb/glass-ui/input";
 
 const pm = inject(SESSION_PORT_KEY)!;
