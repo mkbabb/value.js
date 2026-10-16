@@ -93,8 +93,15 @@ userTest.describe("G13 · the six inspector rows — a failure is rendered where
         );
         await wallFailing(page, "PATCH", "owned-one");
         await menu(page, /Edit Tags/);
-        // The editor's own box (the browse filter bar lists the same catalog).
-        await page.getByRole("dialog").getByRole("checkbox").first().click();
+        // The editor's own chooser (the browse filter bar lists the same
+        // catalog). Re-baselined X-W12U .q2 to X.W12U.s2 (`b9cc52737`, "one
+        // tag chooser"): the checkbox list became glass selectable chips
+        // (buttons) in the group "Tags of <palette>".
+        await page
+            .getByRole("dialog")
+            .getByRole("group", { name: "Tags of Owned One" })
+            .getByRole("button", { name: "warm", exact: true })
+            .click();
         await expect(verdict(page, /The tags were not saved: Server exploded/)).toBeVisible();
     });
 
@@ -136,8 +143,9 @@ userTest.describe("the selected entity on X-W4's typed SceneActionSet", () => {
         await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, { timeout: 8000 });
         await expect
             .poll(() => seats.evaluateAll((els) => els.map((el) => el.getAttribute("data-scene-action"))))
+            // Re-baselined X-W12U .q2 to X.W12U.s1 UIA-V-110 (`d5d93a5bb`):
+            // an OWNED remote palette is not offered Save (the menu's gate).
             .toEqual([
-                "palette.save",
                 "palette.rename",
                 "palette.tags",
                 "palette.versions",
