@@ -1,0 +1,2 @@
+10-16 07:39:26 w10 smoke-safari rev=bd9e828e0 exit=0 load1=29.71
+10-16 07:39:37 w10 oracles-safari rev=bd9e828e0 exit=0 load1=31.01
