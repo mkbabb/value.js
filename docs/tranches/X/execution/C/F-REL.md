@@ -2001,3 +2001,35 @@ Teardown: ⟨`lsof -iTCP:8191 -iTCP:3192 -iTCP:27118 -sTCP:LISTEN | wc -l`⟩ �
 **E13.** ⟨`grep -E '^\| I-' V/coordination/INBOX.md | grep -c '| UNREAD'`⟩ → `0`; ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 1 · 0; the one is `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (glass's own formation log, not a letter to value.js). 0 UNREAD in scope.
 
 **Status: ESCALATED** (every `.vb2` cure landed and its gates GREEN; the fresh m/w1 CI is RED on one test outside this unit's set, ESC-FREL-vb2-1).
+
+### F-REL.g — sitting 6 (RESUME 2026-10-16 (d); the merge lock read at the bytes after `.vb2`)
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~09:05– local. Spec read whole (`fourier/waves/F-REL.md`, 69 lines; §Units `.g` L31, addendum (d) L56-69); COHESION §0ew last bullet (L3789), §0fk (L4007-4027) and the later addenda to the file end (L4074: §0fl–§0fn rule KF.W13X only). ⟨`grep -c 'vb2-1' COHESION.md fourier/waves/F-REL.md execution/LEDGER.md`⟩ → `0 · 0 · 0`: ESC-FREL-vb2-1 is unruled. **Status: ESCALATED. No merge, no push to master, no fourier commit.**
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → ` M web/e2e/f-w14u-misc.spec.ts` · 18 × ` M web/e2e/screenshots/f-w14/after-*.png` · ` M web/src/components/morph/HarmonicLevelGrid.vue` · ` M …/visualization/VisualizationView.vue` · `?? .worktrees/`. The `web/e2e/**` paths lie inside this unit's bound only "if the merge requires"; they are the live X-DS fourier lane's pass-8 work (same files as its `3168b89`, moving with the two `web/src` paths), not a predecessor `.g` seat's. Not touched. value.js `execution/C/F-REL.md`: clean. Nothing inherited.
+
+**Seat-0 brief, act by act.**
+1. **Fetch.** ⟨`git fetch -q origin`; `git rev-parse --short HEAD`; `… origin/m/w1-bump-migration`; `… origin/master`⟩ → `3168b89` · `be5ede6` · `ad62881`; ⟨`git rev-list --left-right --count origin/master...origin/m/w1-bump-migration`⟩ → `1 462`.
+2. **Merge lock — fresh m/w1 CI e2e GREEN outside the manifest: UNMET.** ⟨`gh run list --branch m/w1-bump-migration --limit 5`⟩ → `38899400446 failure` (newest, `.vb2`'s fresh run at `386397e`) · `38868934803 failure` · `38824079821 failure` · `38452213569 failure` · `37876128973 failure`. No run since `.vb2`. 38899400446 is `1 failed · 2 flaky · 3 skipped · 524 passed`: the one failure is `f-w14v-au1.spec.ts:397` au1 X-5 (390 logged in), `/equation` dock run scrollWidth 348 > clientWidth 346 in `mcr.microsoft.com/playwright:v1.61.0-noble` (ESC-FREL-vb2-1; reproduced ×2 locally in the image by `.vb2`).
+3. **Would a re-dispatch differ? No (measured).** ⟨`git log --oneline 386397e..origin/m/w1-bump-migration`⟩ → `be5ede6` (F.CT3 r3 merge) · `a6a9c6b` (contours) · `3168b89` (X-DS pass 8); ⟨`git diff --stat 386397e origin/m/w1-bump-migration -- web .github`⟩ → `f-w14u-misc.spec.ts` · `HarmonicLevelGrid.vue` · `VisualizationView.vue` (3 files, +58/-4): no dock byte and no CI byte moved, and X-5 is deterministic in the renderer of record. A dispatch would re-read the same RED, so none is spent.
+4. **Merge dry-run (not performed).** ⟨`git merge-tree --write-tree --name-only origin/master origin/m/w1-bump-migration | grep -i conflict`⟩ → `CONFLICT (content): Merge conflict in .gitignore`: still the sole conflict; its resolution (m/w1's side whole, R-3) waits for the merge.
+
+**Why the merge is withheld, and no cure taken here (no substitute).** The lock (§0fk.3: g-6 dissolves "when the fresh m/w1 CI reads e2e GREEN outside the manifest") is unmet. The one RED's cure is in the `/equation` app dock's paint at 390 (`web/src` dock content, or glass `dock-layer` if the run's width is the producer's), a different concern from the merge; `web/e2e/**` in this bound is granted only if the merge requires it, and adding au1 X-5 to `producer-held.json` would be a manifest hold no ruling grants (§0ew: every other e2e failure blocks). The seat-0 stop rule binds. A master push would also fire the host webhook deploy (R-h2) ahead of `.d`.
+
+**Gates (BEFORE → AFTER).** No heavy run: HEAD carries no dock or CI byte change since the banked readings, and the main tree holds the live X-DS pass-8 edits.
+
+| Gate | BEFORE (sitting 5, `e89b032`) | AFTER (this sitting, `be5ede6`) | Reading |
+|---|---|---|---|
+| merge lock: fresh m/w1 CI e2e GREEN outside the manifest | RED (38868934803: contrast-floor ×3 + visual-checkpoint 3/5) | **RED** (38899400446: au1 X-5 @390 only; contrast-floor ✓, visual-checkpoint 6/6 ✓) | **RED** (ESC-FREL-vb2-1) |
+| master CI GREEN ×2 with the honest-RED set + manifest explicit | not reached | not reached (unmerged; `origin/master` `ad62881`) | **RED** (not reached) |
+
+**Commits.** fourier: none. value.js: this record only.
+**Adjacent edits.** None.
+
+**Escalation — ESC-FREL-g-7 (restates g-6 at `be5ede6`; w-1 and vb-1 are discharged).** `.g` cannot merge until a fresh m/w1 CI reads e2e GREEN outside the manifest, which now needs, in order: (1) a ruling on **ESC-FREL-vb2-1** (au1 X-5 @390 RED in the renderer of record: grant a unit the `/equation` app-dock content at 390 in `web/src`, read in the image, to cure the 2 px overrun at the root, or route it to glass by O-id if the run's width is the producer's); (2) that cure landed on m/w1 and a fresh m/w1 CI dispatch read GREEN outside the manifest; then (3) `.g` re-sits: fetch, merge (`.gitignore` → m/w1's side whole), push without force, master CI ×2. `.d` stays blocked behind `.g`.
+
+**Residuals.** Merge, master push, master CI ×2 and the `.d` hand-off not reached. CI flakies named by `.vb2` (`equation-interaction.spec.ts:77`, `f-w14v-eq2.spec.ts:39`) carry.
+**Teardown.** No server, browser, container or CI run started.
+**E13.** ⟨`grep -E '^\| I-' V/coordination/INBOX.md | grep -c '| UNREAD'`⟩ → `0`; ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 1 · 0; the one is `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (glass's formation log, not a letter). 0 UNREAD in scope.
+
+**Status: ESCALATED** (ESC-FREL-g-7 ← ESC-FREL-vb2-1).
