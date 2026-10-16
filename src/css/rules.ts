@@ -22,6 +22,7 @@ import type {
     AnimationTriggerValue,
     CSSAnimationOptions,
     CssLinearStop,
+    CssTimeUnit,
     CssTimingFunction,
     Declaration,
     ParseResult,
@@ -107,6 +108,12 @@ function scalarNumberValue(value: CssValue, units: readonly string[] = [""]): nu
     const unit = value.payload.unit.toLowerCase();
     if (!units.includes(unit)) return undefined;
     return unit === "ms" ? value.payload.value / 1000 : value.payload.value;
+}
+
+function timeUnit(value: CssValue): CssTimeUnit | undefined {
+    if (value.kind !== "scalar" || value.payload.type !== "number") return undefined;
+    const unit = value.payload.unit.toLowerCase();
+    return unit === "s" || unit === "ms" ? unit : undefined;
 }
 
 function timingFunctionValue(value: CssValue): CssTimingFunction | undefined {
@@ -467,6 +474,8 @@ export function collectAnimationOptions(declarations: readonly Declaration[]): r
     const names = components(selected, "animation-name", animationNameValue);
     const durations = components(selected, "animation-duration", (value) => scalarNumberValue(value, ["s", "ms"]));
     const delays = components(selected, "animation-delay", (value) => scalarNumberValue(value, ["s", "ms"]));
+    const durationUnits = components(selected, "animation-duration", timeUnit);
+    const delayUnits = components(selected, "animation-delay", timeUnit);
     const iterations = components(selected, "animation-iteration-count", iterationValue);
     const directions = components(selected, "animation-direction", (value) => {
         const direction = scalarKeyword(value)?.toLowerCase();
@@ -488,7 +497,9 @@ export function collectAnimationOptions(declarations: readonly Declaration[]): r
     const rows = Array.from({ length: names?.length ?? 1 }, (_, index) => {
         const name = repeated(names, index);
         const duration = repeated(durations, index);
+        const durationUnit = repeated(durationUnits, index);
         const delay = repeated(delays, index);
+        const delayUnit = repeated(delayUnits, index);
         const iterationCount = repeated(iterations, index);
         const direction = repeated(directions, index);
         const fillMode = repeated(fills, index);
@@ -497,7 +508,9 @@ export function collectAnimationOptions(declarations: readonly Declaration[]): r
         return Object.freeze({
             ...(name === undefined ? {} : { name }),
             ...(duration === undefined ? {} : { duration }),
+            ...(durationUnit === undefined ? {} : { durationUnit }),
             ...(delay === undefined ? {} : { delay }),
+            ...(delayUnit === undefined ? {} : { delayUnit }),
             ...(iterationCount === undefined ? {} : { iterationCount }),
             ...(direction === undefined ? {} : { direction }),
             ...(fillMode === undefined ? {} : { fillMode }),

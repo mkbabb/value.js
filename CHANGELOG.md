@@ -2,6 +2,10 @@
 
 ## [Unreleased] — 2026-09-24
 
+### Added
+
+- `./css`: `collectAnimationOptions` keeps the author's time unit: each `CSSAnimationOptions` row gains `durationUnit` / `delayUnit` (`CssTimeUnit`, `"s" | "ms"`, lowercased; css-values-4 §7.3) beside a `duration` / `delay` read from a number, so a consumer can write `250ms` and `0.25s` back as authored (X.KF.W13X `.r3res2f`, UIA-KF-177). `duration` and `delay` are unchanged, still in seconds.
+
 ### Fixed
 
 - `./css`: custom property names keep their authored case (css-variables-1 §2: `--MyVar` and `--myvar` are distinct declarations). `parseStylesheet`, `collectKeyframes`, `collectStyleRules` and `collectDeclarations` used to lowercase every declaration name, which merged differently-cased custom properties. Standard property names are still ASCII-lowercased. (X.P.W7.cp)

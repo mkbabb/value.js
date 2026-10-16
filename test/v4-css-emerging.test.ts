@@ -170,7 +170,9 @@ describe("Value 4 emerging CSS value grammar", () => {
         expect(options).toEqual([{
             name: "none",
             duration: 2,
+            durationUnit: "s",
             delay: 0,
+            delayUnit: "s",
             iterationCount: Infinity,
             direction: "alternate",
             fillMode: "none",
@@ -208,8 +210,8 @@ describe("Value 4 emerging CSS value grammar", () => {
         ]);
 
         expect(animationOptions("animation-name: fade, spin; animation-duration: 1s;")).toEqual([
-            { name: "fade", duration: 1 },
-            { name: "spin", duration: 1 },
+            { name: "fade", duration: 1, durationUnit: "s" },
+            { name: "spin", duration: 1, durationUnit: "s" },
         ]);
     });
 

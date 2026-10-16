@@ -23,6 +23,7 @@ export type {
     CssColor,
     CssColorSpace,
     CssLinearStop,
+    CssTimeUnit,
     CssTimingFunction,
     CustomFunctionDescriptor,
     CustomFunctionParameter,
