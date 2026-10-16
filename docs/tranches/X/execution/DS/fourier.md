@@ -1511,3 +1511,42 @@ This is the cure seat for critic **F12X** (the redeploy's pass-12 critic, 2026-1
 **Frames** (`pass-12/f12x/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f12x-probe.mjs` against the final tree:
 - `morph-*-{1440,1024,390}-{levels,levels-card}`, in light and dark;
 - `f12x-probe.json`, which records the resting edge, the active edge and ring, and the card's edge for each cell, plus the contrast of the three candidate inks on `--card`.
+
+### pass 13
+This is the cure seat for critic **F13X** (the redeploy's pass-13 critic, 2026-10-16). The AFTER frames are in `evidence/DS/fourier/pass-13/f13x/`. The earlier pass-13 set at the root of `pass-13/` is left as it was.
+- fourier `020a77f`, on `m/w1-bump-migration`, one file (`HarmonicLevelGrid.vue`), committed by pathspec and pushed fast-forward `d9ebf2a..020a77f`.
+- value.js `33a33b06a` holds the AFTER frames, the probe and its JSON, the census, the gate and e2e logs, and the DS-F3C-G4 relay note.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F13X-T1 | The selected tile's ring is now one solid accent pixel (`box-shadow: 0 0 0 1px var(--accent-red)`), so the selection is a crisp 2 px accent edge in both themes. Before, it was a 2 px ring at a 15% accent mix. That ring lost its edge on the dark `--card` and read as a soft halo. The ring is still spread-only (no blur, no offset), so it is the same flat "selected" ring vocabulary (FR-MSP-11). There is no dark-only counter-style. It is one declaration in the same rule. **Measured** (`f13x-probe.json`, every cell): the ring is `<accent> 0 0 0 1px`. On `--card` it grades 4.53:1 in light and 3.89:1 in dark, where the 15% mix graded 1.26 and 1.19. The resting 1 px hairline (DS-F12X-C1), the HLG-37 ink and the accent shapes are unchanged (§0dm). Frames: `morph-*-{1440,1024,390}-levels-card`. |
+
+**Glass-owned, cited, not overridden.**
+- **DS-F13X-G0** has no new glass witness. Every item falls within a held row:
+  - the 6-layer card ring is on DS-F8X-G1, F2R-G1 and F6X-G1;
+  - the cream capsule cast in dark is on F8X-G1 and F6X-G1;
+  - the doubled slider well is on DS-F5-G2;
+  - the dark thumb frame is glass's own (SliderControl.vue:332 cites O-87);
+  - the coarse ramp inversion is on DS-F3C-G1 and F9X-G1;
+  - the /equation aside offset is on DS-F-G3.
+
+  These rows are held honest-RED on **O-87 FLAT-LIGHTING** and **O-88**, and re-judged at the glass 10.2.0 repin. There is no local override.
+- **DS-F3C-G4** gains its light-theme twin. The Easing `SelectTrigger` is a tan control tone beside the cream numeric field in the same card. The trigger's own `background-color` computes transparent, so the tone is glass's material. The field is `rgb(243, 236, 226)` light and `rgb(63, 55, 49)` dark. This is added as an addendum to `relay/X-ALL-BK-FLAT-LIGHTING.md` (one control tone for a resting trigger and field, in both themes).
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3133`; `f13x/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 12. They are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- The cure keeps the one spread-only ring, so it adds no lighting site. The census is still RED, on the glass rows only.
+
+**Gates** (`f13x/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** the same 14 specs as pass 12 (`e2e-specs.txt`): every spec that reaches /morph or the levels card, plus `contrast-floor`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8013` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018`, `BLOB_DIR` under `~/.cache`) behind vite on `:3133`. Both were stopped at the end.
+  - Runs A and B passed 142/142 each.
+  - A first launch found no tests, because zsh did not word-split the spec list. No test ran; the launch was corrected.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD.
+
+**Frames** (`pass-13/f13x/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f13x-probe.mjs` against the final tree:
+- `morph-*-{1440,1024,390}-{levels,levels-card}`, in light and dark;
+- `f13x-probe.json`, which records the resting and active edges and the ring, the ring's contrast on `--card` before and after, and the Select-vs-field tones.
