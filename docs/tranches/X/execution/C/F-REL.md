@@ -1701,3 +1701,31 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~04:35– local. Spec read whole 
 **E13.** ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 0 · 0; ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
 
 **Status: ESCALATED** (ESC-FREL-g-6 ← ESC-FREL-w-1 + ESC-FREL-vb-1).
+
+### F-REL.d — re-sit (RESUME 2026-10-15 (c); after `.g` sitting 5; the deploy precondition read at the bytes)
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 local. Spec read whole (`fourier/waves/F-REL.md`, 54 lines; §Units `.d` L32-38, §Gates L39, addenda (a)–(c)); record read: the RESUME (c) Open → Unit plan (L1404-1484) and `.g` sitting 5 (L1664-1703). COHESION to the file end (⟨`wc -l COHESION.md`⟩ → `4005`): ⟨`grep -n 'ESC-FREL-g-[56]\|ESC-FREL-d-1\|ESC-FREL-w-1\|ESC-FREL-vb-1' COHESION.md`⟩ → no hit; the addenda after §0ff (§0fg · §0fh · §0fi · §0fj) rule other waves. **Status: ESCALATED (ESC-FREL-d-1). No deploy, no push, no fourier commit.**
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain -- scripts`⟩ → empty; ⟨`git status --porcelain -- fourier/evidence/F-REL execution/C/F-REL.md`⟩ → empty. Nothing inherited.
+
+**Act 1 — the lock (`.g` merged + master CI GREEN): UNMET.**
+- ⟨`git fetch -q origin; git rev-parse --short origin/master origin/m/w1-bump-migration`⟩ → `ad62881` · `e89b032`; ⟨`git rev-list --left-right --count origin/master...origin/m/w1-bump-migration`⟩ → `1 448`. ⟨`git log -1 --format='%h %ci' origin/master`⟩ → `ad62881 2026-10-06 12:45:21 -0400`. The merge has not happened.
+- ⟨`gh run list --branch master --limit 2`⟩ → `deploy-pages skipped 38873269746` · `deploy-pages skipped 38824392708`: the CI-gated SPA deploy keeps skipping, so no new SPA has shipped.
+- `.g` sitting 5 is ESCALATED (ESC-FREL-g-6 ← ESC-FREL-w-1 + ESC-FREL-vb-1), none of them ruled.
+
+**Act 2 — read-only production readings (non-regression; no probe against the old API).**
+| Gate | Reading | State |
+|---|---|---|
+| pages-smoke GREEN on the new SPA | ⟨`guarded --light -- bash scripts/pages-smoke.sh`⟩ → bundle `index-BYSiPuAh.js` carries the API base · health 200 · ACAO `https://fourier.babb.dev` · cert > 14 d · `PASS`. This is the OLD (June + hotfix) SPA | GREEN non-regression; **NOT READ** on a new SPA |
+| cert > 14 d | ⟨`openssl s_client … \| openssl x509 -noout -enddate`⟩ → api `Jan  4 15:19:06 2027 GMT` · SPA `Dec 22 20:13:07 2026 GMT` | GREEN |
+| no outage (health polled through the deploy) | ⟨`curl …/health`⟩ → `{"status":"ok"}`; no deploy fired | NOT READ |
+| `scripts/prod-verify.mjs` 20/20 | the probe exists (⟨`ls scripts/prod-verify.mjs`⟩); not run, the host API is still `f2fe447`-era (banked 10/20) | RED / NOT READ |
+| openapi has publish/remix/diff | ⟨`curl …/openapi.json` + path filter⟩ → `34 0.2.0 []` | RED |
+| PATCH preflight 2xx | ⟨`curl -X OPTIONS …/api/visualizations/x` with PATCH + `if-match,idempotency-key,content-type`⟩ → `400` | RED |
+
+**Commits.** fourier: none. value.js: this record only. **Adjacent edits.** None. **Evidence.** Nothing banked under `fourier/evidence/F-REL/` (no deploy to evidence).
+**Teardown.** No server, browser or watcher started.
+
+**Escalation — ESC-FREL-d-1 (restated at `ad62881`/`e89b032`).** `.d` is locked behind `.g` (merged + master CI GREEN), which is ESCALATED as ESC-FREL-g-6 on the unruled ESC-FREL-w-1 (contrast-floor ×3, the frozen oracle) and ESC-FREL-vb-1 (visual-checkpoint items 3/5 on CI's renderer). Once both are ruled, `.w`/`.vb` re-sit, `.g` merges and master CI reads GREEN, `.d` re-sits: health polled through the Pages workflow and the webhook deploy, then `prod-verify.mjs` headless (daraksha + EXIF-6, contours, preview, publish/remix/diff, edit/delete, gallery), evidence banked under `fourier/evidence/F-REL/`. R-h1/R-h2 and R-7 (the two 10-09 draft rows) carry unchanged.
+
+**Status: ESCALATED** (ESC-FREL-d-1 ← ESC-FREL-g-6).
