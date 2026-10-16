@@ -1,0 +1,18 @@
+load { 16.24 20.26 20.74 }
+1440x900 dark L1-1 / RED {"panes":[],"cardScrollers":0}
+1440x900 dark L1-2 headers / RED []
+1440x900 dark L1-1 /palettes RED {"panes":[],"cardScrollers":0}
+1440x900 dark L1-2 headers /palettes RED []
+1440x900 dark L1-1 /browse RED {"panes":[],"cardScrollers":0}
+1440x900 dark L1-2 headers /browse RED []
+1440x900 dark L1-1 /extract RED {"panes":[],"cardScrollers":0}
+1440x900 dark L1-2 headers /extract RED []
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForTimeout: Target page, context or browser has been closed
+    at go (/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U-evidence/k2/probe-k2-rows.mjs:44:17)
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U-evidence/k2/probe-k2-rows.mjs:131:5
+
+Node.js v26.0.0

@@ -1,0 +1,5 @@
+{"W":1440,"H":900,"theme":"dark","hits":{"admin":1,"browse":0},"arm":"overlying","head":true,"title":"Users 47","host":true,"port":true,"hostSH":3177,"hostCH":778,"rows":0,"scrollers":[{"cls":"card-scroll-host pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden","sh":3177,"ch":778}],"docSH":900,"innerH":900,"before":"false","restTitlePx":41.888,"after":"true","titlePx":25.888,"headTop":0,"back":"false"}
+1440x900 dark A2-VA-X-14 overlying-with-room /admin/users GREEN {"hostSH":3177,"hostCH":778,"docSH":900,"before":"false","after":"true","back":"false"}
+{"W":1440,"H":900,"theme":"dark","arm":"seated","head":true,"title":"Mix","host":false,"port":true,"rows":0,"scrollers":[{"cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","sh":787,"ch":361}],"docSH":900,"innerH":900,"before":"false","restTitlePx":41.888,"after":"false","titlePx":41.888,"headTop":-113,"back":"false"}
+1440x900 dark A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+GREEN 2/2
