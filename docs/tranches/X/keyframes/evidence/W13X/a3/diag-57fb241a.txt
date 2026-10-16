@@ -1,0 +1,365 @@
+{
+ "skipped": false,
+ "value": [
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    175,
+    51,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    175,
+    56,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    175,
+    60,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    175,
+    65,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    175,
+    69,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    186,
+    51,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    186,
+    56,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    186,
+    60,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    186,
+    65,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "span",
+   "cls": "rail",
+   "rect": [
+    186,
+    69,
+    18,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    88,
+    241,
+    210,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    117,
+    339,
+    182,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    145,
+    436,
+    154,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    173,
+    534,
+    125,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    201,
+    631,
+    97,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": true,
+   "tag": "div",
+   "cls": "rail-fill w-full",
+   "rect": [
+    13,
+    781,
+    364,
+    349
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px",
+   "chain": [
+    "div.controls-surface 364x349 disp=block",
+    "div.pane-frame 364x85 disp=flex",
+    "div.controls-content h-full flex flex-col 364x85 disp=flex",
+    "div.fading-scroll fading-scroll--y controls-pane group/controls  364x85 disp=block",
+    "div. 364x101 disp=grid",
+    "div.border-t glass-floating controls-drawer-content 390x171 disp=grid"
+   ]
+  },
+  {
+   "trip": true,
+   "tag": "div",
+   "cls": "rail-fill panel-content p-0",
+   "rect": [
+    13,
+    781,
+    364,
+    349
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px",
+   "chain": [
+    "div.rail-fill w-full 364x349 disp=block",
+    "div.controls-surface 364x349 disp=block",
+    "div.pane-frame 364x85 disp=flex",
+    "div.controls-content h-full flex flex-col 364x85 disp=flex",
+    "div.fading-scroll fading-scroll--y controls-pane group/controls  364x85 disp=block",
+    "div. 364x101 disp=grid"
+   ]
+  },
+  {
+   "trip": true,
+   "tag": "div",
+   "cls": "configurator-layer rail-fill",
+   "rect": [
+    13,
+    781,
+    364,
+    349
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px",
+   "chain": [
+    "div.rail-fill panel-content p-0 364x349 disp=block",
+    "div.rail-fill w-full 364x349 disp=block",
+    "div.controls-surface 364x349 disp=block",
+    "div.pane-frame 364x85 disp=flex",
+    "div.controls-content h-full flex flex-col 364x85 disp=flex",
+    "div.fading-scroll fading-scroll--y controls-pane group/controls  364x85 disp=block"
+   ]
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    112,
+    910,
+    244,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    112,
+    948,
+    244,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    112,
+    984,
+    244,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    112,
+    1020,
+    244,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    112,
+    1056,
+    244,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  },
+  {
+   "trip": false,
+   "tag": "div",
+   "cls": "progress-rail",
+   "rect": [
+    112,
+    1092,
+    244,
+    2
+   ],
+   "flex": "0 1 auto",
+   "display": "block",
+   "minH": "0px"
+  }
+ ]
+}

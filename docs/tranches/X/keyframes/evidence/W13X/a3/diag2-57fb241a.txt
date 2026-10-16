@@ -1,0 +1,42 @@
+{
+ "skipped": false,
+ "value": {
+  "vw": 390,
+  "sheetRect": null,
+  "before": [
+   {
+    "cls": "rail-fill w-full",
+    "rect": "13,781,364,349",
+    "lanes": 6,
+    "text": "Stagger Reel 5 items · 1940 ms clock1 @0ms 2 @260ms 3 @520ms"
+   },
+   {
+    "cls": "rail-fill panel-content p-0",
+    "rect": "13,781,364,349",
+    "lanes": 6,
+    "text": "Stagger Reel 5 items · 1940 ms clock1 @0ms 2 @260ms 3 @520ms"
+   },
+   {
+    "cls": "configurator-layer rail-fill",
+    "rect": "13,781,364,349",
+    "lanes": 6,
+    "text": "Stagger Reel 5 items · 1940 ms clock1 @0ms 2 @260ms 3 @520ms"
+   }
+  ],
+  "after": [
+   {
+    "cls": "w-full",
+    "rect": "13,781,364,349"
+   },
+   {
+    "cls": "panel-content p-0",
+    "rect": "13,781,364,349"
+   },
+   {
+    "cls": "configurator-layer",
+    "rect": "13,781,364,349"
+   }
+  ],
+  "oracleAfterStrip": 0
+ }
+}
