@@ -2559,3 +2559,47 @@ SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~20:40Z–. Spec read whole (`fou
 **Commits.** fourier `67e503b` (merge). value.js: this record only. **Adjacent edits.** None. **Residuals.** (R-g2-1) master CI ×2 reading owed. R-h1 owner act (hook refused 20:43:21Z, fail-closed). **Teardown.** worktree removed; no server, browser or container started.
 
 **Status: PARTIAL** — merged and pushed; master CI ×2 in flight at seat return.
+
+### F-REL.d
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 20:44Z–. Spec read whole (`fourier/waves/F-REL.md`, 83 L; §Units `.d` L32-38, addendum (f) L83); COHESION §0fq.3 (L4109-4112; §0fq is the file end, ⟨`wc -l COHESION.md`⟩ → `4114`). Evidence `evidence/F-REL/d-blocked/`.
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain -- scripts/`⟩ → empty; ⟨`git status --porcelain -- evidence/F-REL/ execution/C/F-REL.md`⟩ → empty. Nothing inherited.
+
+**Acts.**
+1. **R-h1 read from the hook's own output (read-only ssh `-p 1022`, nothing written).** ⟨`journalctl -u webhook --since "2026-10-16 20:43"`⟩ → `[16716b] … command output: [deploy-hook 2026-10-16T20:43:21Z] REFUSE — inv-31: FOURIER_DEPLOY_ALERT_WEBHOOK is unset.` · `error occurred: exit status 1` (the `.g2` push of `67e503b`); ⟨`grep -c FOURIER_DEPLOY_ALERT_WEBHOOK /opt/deploy/hooks.json`⟩ → `0`; ⟨`cut -d= -f1 /opt/deploy/.env`⟩ → `WEBHOOK_SECRET`; host tree ⟨`git rev-parse --short HEAD`⟩ → `79f1a43`. **R-h1 UNSET** (`d-blocked/r-h1-hook-journal.txt`).
+2. **No deploy (§0fq.3 lock).** No trigger, no webhook invented, the host untouched; therefore no health poller was started (no switch exists to poll through), and prod-verify 21/21 ×2 and the prod PD-1 curl pair ×2 are NOT run — they are measured only on the deployed `.pd` edge, which is not deployed (prod still serves `79f1a43` with `application/json` gzipped, the banked `d-final/pd1-weak-etag-repro.txt` state).
+3. **Every other gate read ×2** (`d-blocked/gates-read-2026-10-16.txt`):
+   - ⟨`bash scripts/pages-smoke.sh`⟩ ×2 (20:45:33Z) → `bundle /assets/index-BSzuH9o_.js carries the API base` · `health: 200` · `CORS: Access-Control-Allow-Origin https://fourier.babb.dev` · `PASS`; exit status ⟨`…; echo $?`⟩ → `0` · `0`.
+   - ⟨`openssl s_client … | openssl x509 -noout -enddate`⟩ → `fourier.babb.dev` `Dec 22 20:13:07 2026 GMT` · `api.fourier.babb.dev` `Jan  4 15:19:06 2027 GMT` (both > 14 d).
+   - ⟨`curl …/openapi.json` → paths, version, J verbs⟩ ×2 → `42 0.2.0 ['diff', 'publish', 'remix', 'unpublish']`.
+   - ⟨`curl -X OPTIONS` PATCH + `if-match,idempotency-key,content-type`⟩ ×2 → `HTTP/1.1 200 OK` · `allow-methods: GET, POST, PUT, PATCH, DELETE` · `allow-headers: …Idempotency-Key, If-Match, X-Session-Token` · `allow-origin: https://fourier.babb.dev`.
+   - ⟨`curl …/health`⟩ ×2 → `{"status":"ok"} 200`.
+4. **Master CI ×2 on the `.g2` merge `67e503b` (R-g2-1 discharged)** (`d-blocked/master-ci-67e503b.txt`): ⟨`gh run view 38964281712`⟩ → `push completed success 67e503b` (20:43:22Z→21:41:36Z), and ⟨`gh run view 38964317279`⟩ → `workflow_dispatch completed success 67e503b` (→21:35:27Z). In each run all five jobs passed: web (vue-tsc and vite build), api/tests (live Mongo), e2e (Playwright), production compose boot and health, and inv-27 evidence. Each e2e job printed the `Producer-held manifest (excluded from the gate below)` step, and its `Producer-held set … still RED as declared` step passed, so the honest-RED set was explicit.
+5. **The SPA shipped through the standing workflow.** No seat triggered it: CI success fired `deploy-pages` run 38971075205 (`workflow_run`, `67e503b`) → `gate (green CI + web/** changed)=success`, `build + ship SPA → Cloudflare Pages=success`. Pages-smoke was re-read ×2 at 21:43:01Z: bundle `/assets/index-Cze8HIRf.js` (it was `index-BSzuH9o_.js` before), with the API base, health 200, ACAO and cert > 14 d all reported, giving `PASS`; rc `0` · `0`. The API host stays at `79f1a43`, because only the webhook moves it, and the webhook is held on R-h1.
+
+**Gates (BEFORE → AFTER).**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| R-h1 set (`FOURIER_DEPLOY_ALERT_WEBHOOK` on the host) | banked unset | **unset** (hook REFUSE inv-31 20:43:21Z; hooks.json count 0) → **BLOCKED-ON-OWNER (R-h1)** |
+| health poller started before the push; no non-200 through the switch | not run | not run: no deploy (lock) |
+| prod-verify 21/21 ×2 | banked 15/21 ×2 | not run: no deploy (lock) |
+| PD-1 curl on prod ×2 (gzip GET → If-Match 200, stale 412) | RED (banked weak-tag 412) | not run: `.pd` edge not deployed (lock) |
+| pages-smoke PASS | banked PASS | PASS ×2 (`BSzuH9o_`), then PASS ×2 on the new SPA `Cze8HIRf` |
+| cert > 14 d | banked | SPA Dec 22 2026 · API Jan 4 2027 |
+| openapi publish/remix/diff | GREEN | ×2 `42 0.2.0 [diff, publish, remix, unpublish]` |
+| PATCH preflight 200 | GREEN | ×2 `200`, with PATCH, If-Match and Idempotency-Key allowed |
+| health | GREEN | ×2 `200 {"status":"ok"}` |
+| master CI GREEN ×2 (`.g2` owed reading) | PENDING | **GREEN ×2** (38964281712, 38964317279) |
+
+**Commits.** fourier: none, because `scripts/**` was not changed (prod-verify was not run). value.js: evidence `evidence/F-REL/d-blocked/` and this record (one commit). **Adjacent edits.** None. **LEDGER.** Not in this unit's writable set. The close seat sets F.REL's row to **BLOCKED-ON-OWNER (R-h1)** (§0fq.3). **Residuals.** (R-d-h1) The OWNER sets `FOURIER_DEPLOY_ALERT_WEBHOOK` in `/opt/deploy/hooks.json`'s environment for the fourier hook. A `.d` re-run then does the following, in order:
+1. Starts the off-host poller (`d-final/health-poll.sh` idiom).
+2. Re-triggers the hook through the standing path, a master push or a redelivery.
+3. Reads the health-gated switch.
+4. Runs prod-verify 21/21 ×2.
+5. Runs the PD-1 prod curl pair ×2.
+
+ESC-FREL-pd-1 (the `RateLimit-*` exposure) stays with the orchestrator. R-4 and R-6 are owner items and do not block. **Teardown.** No server, browser, container or poller was started, and the background CI waiters ended.
+
+**Status: ESCALATED: BLOCKED-ON-OWNER (R-h1).** Every gate that does not need a deploy reads GREEN ×2. The deploy-dependent gates are owed on R-h1.

@@ -1,0 +1,57 @@
+SERVED MODEL: claude-opus-5-5
+F-REL.d seat — read-only gate readings while R-h1 is unset (no deploy).
+== pages-smoke read 1 2026-10-16T20:45:33Z
+[pages-smoke] bundle /assets/index-BSzuH9o_.js carries the API base https://api.fourier.babb.dev
+[pages-smoke] health: 200 application/json {"status":"ok"}
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+rc=
+== pages-smoke read 2 2026-10-16T20:45:33Z
+[pages-smoke] bundle /assets/index-BSzuH9o_.js carries the API base https://api.fourier.babb.dev
+[pages-smoke] health: 200 application/json {"status":"ok"}
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+rc=
+== cert fourier.babb.dev
+notAfter=Dec 22 20:13:07 2026 GMT
+== cert api.fourier.babb.dev
+notAfter=Jan  4 15:19:06 2027 GMT
+== openapi read 1
+42 0.2.0 ['diff', 'publish', 'remix', 'unpublish']
+== PATCH preflight read 1
+HTTP/1.1 200 OK
+access-control-allow-methods: GET, POST, PUT, PATCH, DELETE
+access-control-allow-headers: Accept, Accept-Language, Authorization, Content-Language, Content-Type, Idempotency-Key, If-Match, X-Session-Token
+access-control-allow-origin: https://fourier.babb.dev
+== health read 1
+{"status":"ok"} 200
+== openapi read 2
+42 0.2.0 ['diff', 'publish', 'remix', 'unpublish']
+== PATCH preflight read 2
+HTTP/1.1 200 OK
+access-control-allow-methods: GET, POST, PUT, PATCH, DELETE
+access-control-allow-headers: Accept, Accept-Language, Authorization, Content-Language, Content-Type, Idempotency-Key, If-Match, X-Session-Token
+access-control-allow-origin: https://fourier.babb.dev
+== health read 2
+{"status":"ok"} 200
+== pages-smoke exit-status reading (the rc= lines above are empty: zsh has no PIPESTATUS)
+pages-smoke rc read 1 2026-10-16T20:45:39Z = 0
+pages-smoke rc read 2 2026-10-16T20:45:40Z = 0
+
+== deploy-pages 38971075205 (workflow_run on CI success, 67e503b): success — the standing SPA workflow, not a seat act
+== pages-smoke after SPA ship, read 1 2026-10-16T21:43:01Z
+[pages-smoke] bundle /assets/index-Cze8HIRf.js carries the API base https://api.fourier.babb.dev
+[pages-smoke] health: 200 application/json {"status":"ok"}
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+rc=0
+== pages-smoke after SPA ship, read 2 2026-10-16T21:43:03Z
+[pages-smoke] bundle /assets/index-Cze8HIRf.js carries the API base https://api.fourier.babb.dev
+[pages-smoke] health: 200 application/json {"status":"ok"}
+[pages-smoke] CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[pages-smoke] cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[pages-smoke] PASS
+rc=0

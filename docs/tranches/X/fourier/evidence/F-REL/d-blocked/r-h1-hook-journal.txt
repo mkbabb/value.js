@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5-5
+R-h1 reading (read-only ssh -p 1022; nothing written on the host)
+Fri Oct 16 20:45:45 UTC 2026
+/opt/deploy/.env keys:
+WEBHOOK_SECRET
+/opt/deploy/hooks.json FOURIER_DEPLOY_ALERT_WEBHOOK count=0
+host tree HEAD 79f1a43
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]: [webhook] 2026/10/16 20:43:21 [16716b] incoming HTTP POST request from 127.0.0.1:36748
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]: [webhook] 2026/10/16 20:43:21 [16716b] fourier-analysis got matched
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]: [webhook] 2026/10/16 20:43:21 [16716b] fourier-analysis hook triggered successfully
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]: [webhook] 2026/10/16 20:43:21 [16716b] 200 | 0 B | 601.729µs | deploy.babb.dev | POST /hooks/fourier-analysis
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]: [webhook] 2026/10/16 20:43:21 [16716b] executing /var/www/fourier-analysis/scripts/deploy-hook.sh (/var/www/fourier-analysis/scripts/deploy-hook.sh) with arguments ["/var/www/fourier-analysis/scripts/deploy-hook.sh" "mkbabb/fourier-analysis"] and environment [] using /var/www/fourier-analysis as cwd
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]: [webhook] 2026/10/16 20:43:21 [16716b] command output: [deploy-hook 2026-10-16T20:43:21Z] REFUSE — inv-31: FOURIER_DEPLOY_ALERT_WEBHOOK is unset.
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]:   A deploy that cannot report its own failure in a watched channel does not run.
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]:   Set FOURIER_DEPLOY_ALERT_WEBHOOK in the host hooks.json environment for this arm.
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]: [webhook] 2026/10/16 20:43:21 [16716b] error occurred: exit status 1
+Oct 16 20:43:21 ip-10-0-2-253 webhook[1649311]: [webhook] 2026/10/16 20:43:21 [16716b] finished handling fourier-analysis
