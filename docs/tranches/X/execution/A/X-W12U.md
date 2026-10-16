@@ -2511,3 +2511,116 @@ The other demo `./css` importers (gradient, extract, markdown, palettes export/s
 - `scripts/dev/dev.sh` was never touched. No X-DS path was touched.
 - Commits: evidence + this receipt only (below).
 - Evidence commit: `eba7f2ff8` (`W12U-evidence/g2s/**`); receipt commit: this one.
+
+### X.W12U.g2d
+
+SERVED MODEL: claude-opus-5-5 · 2026-10-16 · HEAD at open `5c00616a1` (the `.g2s` receipt; ⟨`git diff --stat 34abc09b3 5c00616a1 -- src demo package.json vite.config.ts`⟩ → empty: `.g2s` landed no product byte, ESC-W12U-g2s-1 unruled ⟨`grep -c 'g2s-1' COHESION.md`⟩ → 0) · **status ESCALATED (ESC-W12U-g2d-1 G2, ESC-W12U-g2d-2 O-5)**. Three lawful lazy/re-point moves landed (−2,000 B gz). The 300 KiB cap cannot be reached inside `demo/**` at these bytes, and the §0fr.2 O-5 cure is already the shipped state. Both decompositions are below.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩, own set only (`demo/**` minus X-DS paths, `W12U-evidence/g2d/**`, this record) → nothing inherited. The dirty `demo/**` paths are X-DS's: the eleven named at RESUME 4 Open, plus `demo/styles/shell.css` (an X-DS "Pass 13 (V13-01)" hunk, dirty since this seat opened). None was touched, staged or read into a commit. `scripts/dev/dev.sh` was never touched.
+
+**Instrument.** Every G2 reading comes from COMMITTED bytes: a detached worktree under `~/.dev-logs/w12u-g2d/<tag>/tree` (APFS-cloned `node_modules`; `npm run build`, then `vite build --mode gh-pages --sourcemap hidden`), via `g2d/build-tree.sh`. Each tree was read ×2 with ⟨`node scripts/perf/eager-bytes.mjs`⟩ and ⟨`node g2d/eager-files.mjs dist/gh-pages`⟩. The second command is `r1c7/eager-attrib.mjs` with a per-source-file owner key. r1 ≡ r2 (`cmp`) for every tree. Readings are in `g2d/readings/`. Browsers are headless only, through `guarded` (the browser pool); every server is stopped by a trap.
+
+**Act 1: the baseline, read on committed bytes (×2).** Tree `base` = `5c00616a1`. ⟨`eager-bytes.mjs`⟩ ×2 → `count=9 raw=1095664 gz=331628` both runs. This equals RESUME 4 Baseline's 331,628, which is expected because `.g2s` landed no product byte. Per-file attribution is in `readings/base-files-r{1,2}.txt` (r1 ≡ r2).
+
+**Act 2: the moves, each at its root import (no wrapper module), one commit per meaning, each tree read ×2.**
+
+| # | commit | move | G2 tree reading ×2 | gz | left the eager set |
+|---|---|---|---|---|---|
+| 1 | `410e9ea60` | `demo/app/App.vue`: `MigratePalettesDialog` becomes `defineAsyncComponent(() => import("../palettes/browser/dialog").then(m => m.MigratePalettesDialog))`. The import still goes through the `dialog/` barrel (U-F47); the dialog opens only on a login that has local palettes to move | 331,628 → **330,872** | **−756** | `MigratePalettesDialog.vue` 1,510, two lucide icons; the rest re-chunked |
+| 2 | `ec470afa4` | `demo/shell/dock/layers/ActionBarLayer.vue`: `ColorInput` becomes `defineAsyncComponent(() => import("../ColorInput.vue"))`. The sub-layer shows only after the mode toggle (`toolbarMode` starts at `"actions"`) | 330,872 → **329,595** | **−1,277** | `ColorInput.vue` 2,344, `ParseEchoReadout.vue` 214, the crown icon 151; `picker-color`/`color-names` move to a shared chunk (count 9 → 11) |
+| 3 | `3fd1ba884` | Six eager importers (`App.vue`, `ColorPicker.vue`, `useSliderTouchGates.ts`, `SpectrumCanvas.vue`, `useSpectrumPlateStyle.ts` (type), `SlugEditLayer.vue`) take `useClipboard`/`writeClipboard`/`useTouchGate` from glass `/dom` (glass `dist/dom.js` exports all three) instead of the root barrel | 329,595 → **329,628** | **+33 alone** | nothing by itself. This is the consumer half of the R2 pin below: with the root unreachable, arm C measures **−19,474** |
+
+Landed total: **331,628 → 329,628 = −2,000 B gz** (×2, `readings/final-eager-r{1,2}.json`). Each commit's two files were type-checked and linted before it landed. Commit 3's message names its own reach.
+
+**Act 3: the audit of what stays eager.** ⟨`node g2d/audit-classify.mjs readings/final-files-r{1,2}.txt`⟩ ×2 gives identical output. The full table, with rules and owners, is in `g2d/eager-audit.txt`. 487 sources are classed in order, first match wins:
+
+| class | gz | why it is eager, and why this unit does not move it |
+|---|---|---|
+| P: needed before first paint | 257,400 | Vue runtime and router, shell, PaneSlot and its plates, picker, colour session, dock face (glass dock), atmosphere ground and ink (glass aurora/color), boot hydration |
+| R1: lib `./css` | 33,221 | Pinned by the six `demo/color-session` boot importers **and** by glass `value-*.js`. This is ESC-W12U-g2s-1, which is unruled |
+| R2: glass families pinned by root-barrel reachability | 21,555 | Glass exports `Skeleton` and `Avatar` from **no subpath**. Eager `PaneLoadingPlate` (Skeleton) and the dock menus (Avatar) therefore reach `glass-ui.js`. Once that root module is eager, every family any lazy chunk takes rides the eager `glass-ui-*.js` chunk: Dialog/Sheet, NumberField + `@internationalized`, Collapsible/Accordion, RadioGroup, Switch, ToggleGroup, HoverCard, Configurator. The barrel itself shakes in isolation (`exp/root-barrel-rolldown.mjs`: 1,512 gz, no families), so the pin comes from the app's reachability. **Arm C (measurement only; the two names stubbed): 310,154 = −19,474** |
+| R3: Dock.vue-rooted | 6,810 | `ProfileSection` and `MobileMenuDropdown` (the trigger paints; the menu bodies are interaction-only) and `SlugEditLayer` (interaction-only) are all imported at `demo/shell/dock/Dock.vue`. That is an X-DS dirty path, so §0ev.3 applies: not touchable here |
+| R4: route-only admin and migration state | 7,977 | `providePalettePorts` composes the admin roster, names, tags, flagged and audit, slug migration, and version/tag edit **synchronously** into injected ports at boot. Making them lazy is a port redesign (an async admin port), not a root-import move |
+| R5: vue-router devtools chunk | 2,673 | A bundler define in `vite.config.ts`, which is outside this unit's bounds |
+
+**Experiment arms** (scratch worktrees of `ec470afa4`, never committed; `exp/arm{A,B,C}.sh`, `readings/exp-arm*`):
+- arm A = move 3 → 329,628;
+- arm B = arm A + nine lazy root importers re-pointed → **340,516** (chunking fans out to 22 files; worse, not landed);
+- arm C = arm A + Skeleton/Avatar stubbed → **310,154** (the R2 weight; a measurement, never a product act).
+
+**Act 4: G2, gate reading.** The final tree `3fd1ba884` reads `eager JS count=11 raw=1087578 gz=329628` ×2 (r1 ≡ r2). The cap is 307,200, so the gate is **RED ×2, +22,428 over the cap.** Measured arithmetic:
+- R2's glass cure alone (arm C, built) gives 310,154, still +2,954 over the cap.
+- R2 + R5 gives ≈307,481 (attributed, not built), still over.
+- Closing the remainder needs R3 (after X-DS commits), R4 (a port redesign), or the R1 arm of ESC-W12U-g2s-1.
+
+None of these is a `demo/**` root-import act at these bytes. The bar constant was not edited; the close seat writes the settled bar.
+
+**Act 5: the O-5 GPU witness, authored and read ×2.**
+- **Probe.** `g2d/o5-gpu-witness.mjs` uses headless `channel:'chrome'` with `--use-angle=metal`. Its sittings assert `UNMASKED_RENDERER` ~ `/ANGLE.*Metal/` and nothing software; any other reading is an INSTRUMENT FAULT, exit 2.
+- **Gate legs.** It runs the spec's own collector, window and legs unchanged (`o5-boot-pacing.spec.ts`): frames > 10 · max ≤ 3× median · dropped ≤ 10 %, at 1280×720. It also records diagnostics: the gap, longtask and LoAF entries inside it, and canvas mounts.
+- **Runner.** `g2d/o5-run.sh` serves the tree's `dist/gh-pages` on :8197; a trap stops the server.
+
+Results on the final tree (`readings/o5-final-r{1,2}.txt`; load 9.8 / 12.3):
+
+| read | renderer | sittings | median | max (×median) | dropped | legs |
+|---|---|---|---|---|---|---|
+| r1 | ANGLE Metal, Apple M5 Max | 3 | 16.7 | 133.3 (8.0×) · 116.7 (7.0×) · 116.7 (7.0×) | 0.4–0.8 % | frames ✓ · drop ✓ · **spike ✗** |
+| r2 | ANGLE Metal, Apple M5 Max | 3 | 16.7 | 133.3 (8.0×) · 116.6 (7.0×) · 116.6 (7.0×) | 0.4–0.8 % | frames ✓ · drop ✓ · **spike ✗** |
+
+**O-5 RED ×2 on the GPU cell.**
+
+**Where the RED sits, measured.** In all six sittings the max gap is `[18–33, 145–165] ms`. That is **before** the main pane is visible (212–247 ms), and it holds exactly one longtask (115–131 ms). The LoAF attributes it to ONE script: the `index-*.js` entry, at 115–130 ms. So the gap is the boot module task, the eager graph's evaluate plus the Vue mount.
+
+A CDP CPU profile of that window on the same cell (`g2d/boot-profile.mjs`, sourcemapped; `readings/profile-m2{,b}.txt`, 3 sittings) bills the busy time as follows:
+- `@vue/runtime-core` 30–37 ms;
+- glass `dock.js` 30 ms;
+- glass `color.wgsl-*` (the colour derive) 22 ms;
+- glass `scrollReader` 14 ms;
+- `anchors-*` 15–18 ms;
+- `useContrastSafeColor` 13–15 ms;
+- `useAtmosphere.ts` **0.8 ms**.
+
+**Why the §0fr.2 product cure cannot turn this gate.** The cure is that the atmosphere and hero canvases "take their first draw after first paint, at idle". That is already the shipped state, read at the bytes:
+- glass `useAurora` (`dist/aurora.js` :2466–2545) builds its engine with `initStrategy: "deferred"` and arms WebGL through `requestIdleCallback(…, {timeout: 2e3})` once the canvas intersects;
+- `ColorPicker.vue:175-176` mounts `HeroBlob` through `defineAsyncComponent` behind `useIdleReady()` (glass `scheduleAfterFirstPaint`), and `goo-blob-canvas` mounts at 1,073–1,098 ms.
+
+Neither canvas contributes to the boot gap. The SwiftShader-era cause (a zero-script presentation stall at first draw) shows on the GPU cell only once, in one cold sitting of the m2 diagnostic round (`readings/o5-m2-r2.txt` s1: a 200 ms gap at 1,119–1,319 ms, 0 longtasks, LoAF `scripts []`, right after `goo-blob-canvas` mounted). That stall is already at idle after first paint. Moving it later inside the 4 s window would not remove it. No test was changed, and no product cure was landed for O-5, because the specified one is the shipped state → **ESC-W12U-g2d-2**.
+
+**Act 6: no feature cut (×2).** `g2d/no-cut-probe.mjs` (headless `channel:'chrome'`, 1440×900) runs over the final tree (`readings/nocut-final-r{1,2}.txt`):
+- All 10 routes render their H1-named main: `/`, `/palettes`, `/browse`, `/extract`, `/mix`, `/generate`, `/gradient`, `/atmosphere`, `/blob`, and the catch-all "Not Found".
+- The dock colour-input layer opens from its toggle, and its "Enter a CSS color" field takes a value.
+- The lazy chunks `ColorInput-*.js` and the `dialog-*.js` barrel arrive.
+- `pageErrors=[]`.
+- `VERDICT GREEN` ×2.
+
+**Floors (final bytes, ×2).** ⟨`guarded -- npm run -s typecheck`⟩ ×2 → rc=0 ×2 across 4 programs, with `error TS` 0 / 0. ⟨`npm run -s lint`⟩ ×2 → rc=0 ×2 (`readings/floors.txt`). These were read on the working tree, which also carries X-DS's dirty `demo/**` hunks; those hunks are not this unit's.
+
+**Gates: BEFORE → AFTER**
+
+| gate | before | after | state |
+|---|---|---|---|
+| eager-graph audit table (each move named with its gz bytes, ×2 from settled builds) | — | 3 moves (−756 · −1,277 · +33 alone / −19,474 with the glass row); every remaining eager source is classed P or R1–R5 with its owner (`eager-audit.txt`, ×2 identical) | GREEN |
+| G2 eager JS gz ×2 ≤ 307,200 | 331,628 ×2 | **329,628 ×2** | **RED** (+22,428) → ESC-W12U-g2d-1 |
+| O-5 on the GPU witness ×2 | not authored | authored; **RED ×2** (spike leg 7–8×; frames and drop legs green); cause = boot module task | **RED** → ESC-W12U-g2d-2 |
+| no feature cut | — | 10/10 routes, colour-input layer works, lazy chunks arrive, 0 page errors, ×2 | GREEN |
+| typecheck 4 programs 0 ×2 · lint 0 ×2 | 0 · 0 (Check 9, cited) | 0 ×2 · 0 ×2 | GREEN |
+
+**Escalations (orchestrator)**
+
+| id | measured reason | asks |
+|---|---|---|
+| **ESC-W12U-g2d-1** (HIGH, G2) | Final 329,628 > cap 307,200 (+22,428). The remainder breaks down as: R1 `./css` 33,221 (ESC-W12U-g2s-1, unruled); R2 21,555, pinned because glass exports `Skeleton`/`Avatar` from no subpath (arm C −19,474, built); R3 6,810 rooted in X-DS-dirty `Dock.vue`; R4 7,977 held by the synchronous port contract; R5 2,673 vite define. Even the R2 cure alone leaves 310,154. Per §0fr.1 "only a total above the cap escalates, carrying its decomposition" — this is that decomposition | (i) a glass O-row: `Skeleton` and `Avatar` on their own subpaths (or the root as a pure re-export facade), after which the consumer re-points 3 imports (`PaneLoadingPlate.vue`, `ProfileSection.vue`, `MobileMenuDropdown.vue`); (ii) rule ESC-W12U-g2s-1 (R1); (iii) R3's three lazy moves, owed once X-DS commits `Dock.vue` (or granted to X-DS); (iv) R4/R5 ruled in-scope (an async admin port; the vite devtools define) or out |
+| **ESC-W12U-g2d-2** (HIGH, O-5) | The GPU witness reads RED ×2 (6/6 sittings). The max gap is the boot module task (`index-*.js` evaluate + Vue mount, 115–131 ms, before the main pane is visible), which no canvas is in. The ruled cure (canvases' first draw at idle after first paint) is already the shipped behaviour: glass `useAurora` `initStrategy:"deferred"` arms via `requestIdleCallback`; `HeroBlob` loads async behind `useIdleReady`. Landing it again would change nothing, so nothing was substituted | rule the O-5 spike leg on the GPU cell: the boot task is ~7–8× a 60 Hz median by construction of the leg (first rAF delta from document start), or name the owner of cutting the boot task to ≤ 3 frames (the eager evaluate: glass dock 30 ms, glass colour derive 22 ms, Vue mount ~35 ms), which is X-W10 or a glass row |
+
+**Residuals.** None owned by this unit is left unmeasured. The R1–R5 owners are named above. ESC-W12U-g2s-1 stands.
+
+**Commits.**
+- Product (each one meaning, pathspec): `410e9ea60` (MigratePalettesDialog lazy) · `ec470afa4` (ColorInput lazy) · `3fd1ba884` (eager glass imports → `/dom`).
+- Evidence: `a60500aee` (`W12U-evidence/g2d/**`).
+- Receipt: this commit.
+- Adjacent edits (§0bt): none.
+
+**Teardown.**
+- Worktrees: ⟨`git worktree list | grep -c w12u-g2d`⟩ → 0 (base, m1, m2, armA–C, final all removed). Scratch outputs stay under `~/.dev-logs/w12u-g2d/` (not /tmp).
+- Every server was stopped by its trap. ⟨`lsof -ti :8197 -ti :8198 -ti :8199`⟩ → none.
+- No X-DS path was staged or touched; `scripts/dev/dev.sh` was never touched.
