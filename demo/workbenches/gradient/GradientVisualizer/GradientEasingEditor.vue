@@ -189,17 +189,26 @@ async function copyLiteral(index: number, css: string) {
                      to the certified ink-on-well ratio (the condition chip's
                      precedent) AND visually unifies the rail with the canvas
                      plate below it. -->
+                <!-- X-W12U .q2 (one-literal law at glass 10.1.0, X.W7L.m
+                     `c8a4959dd`): the producer EasingPicker now prints the
+                     literal itself, as its own "Copy curve literal" readout.
+                     While the authoring stage is disclosed THAT readout is the
+                     row's one literal + copy; the rail keeps only the
+                     disclosure toggle, so the row never prints it twice. -->
                 <div class="readout-rail flex items-center gap-1.5 rounded-md bg-well px-2 py-1">
-                    <code class="font-mono text-mono-small text-muted-foreground truncate flex-1 min-w-0" :title="row.css">{{ row.css }}</code>
-                    <button
-                        type="button"
-                        class="rail-btn shrink-0"
-                        :aria-label="copiedRow === row.index ? 'Copied' : `Copy ${row.css}`"
-                        @click="copyLiteral(row.index, row.css)"
-                    >
-                        <Check v-if="copiedRow === row.index" class="w-3.5 h-3.5 rail-tick" />
-                        <Copy v-else class="w-3.5 h-3.5" />
-                    </button>
+                    <template v-if="!tuneOpen[row.index]">
+                        <code class="font-mono text-mono-small text-muted-foreground truncate flex-1 min-w-0" :title="row.css">{{ row.css }}</code>
+                        <button
+                            type="button"
+                            class="rail-btn shrink-0"
+                            :aria-label="copiedRow === row.index ? 'Copied' : `Copy ${row.css}`"
+                            @click="copyLiteral(row.index, row.css)"
+                        >
+                            <Check v-if="copiedRow === row.index" class="w-3.5 h-3.5 rail-tick" />
+                            <Copy v-else class="w-3.5 h-3.5" />
+                        </button>
+                    </template>
+                    <span v-else class="flex-1" aria-hidden="true" />
                     <button
                         type="button"
                         class="rail-btn shrink-0"
