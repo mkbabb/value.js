@@ -134,6 +134,18 @@ test("gradient scene — the Gradient stage owns its authoring stage, its select
     const box = (await rail.boundingBox())!;
     await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
     await expect(handles).toHaveCount(before + 1);
+    // Re-baselined X-W12U .q2 to X.W12.u2 UIA-V-373 (`5ccc0e3e7`): the MINTED
+    // stop already is the inspector's subject, and a press on the selected
+    // handle is a re-tap that deselects (GradientStopRail `endDrag`), so the
+    // old single press on the minted handle cleared the subject. The leg now
+    // reads the mint's own selection, then selects AWAY and BACK by press.
+    await expect(stage.getByTestId("gradient-stop-inspector")).toContainText(
+        `Stop 2 of ${before + 1}`,
+    );
+    await handles.nth(0).click();
+    await expect(stage.getByTestId("gradient-stop-inspector")).toContainText(
+        `Stop 1 of ${before + 1}`,
+    );
     await handles.nth(1).click();
     await expect(page.getByTestId("gradient-stop-inspector")).toHaveCount(1);
     await expect(stage.getByTestId("gradient-stop-inspector")).toContainText(
