@@ -622,3 +622,42 @@ The relaunched workflow dispatched this seat as "pass 6" with critic VC6's rows 
 **For the next critic.**
 - Judge the bands at the widths that switch rows (29.9rem vs 30rem): the cluster drops from 2 chips on its own row to 1 in the head row by design.
 - VC6-04 waits on the owner (P6-B1), alongside VC5-01 and VC4-09.
+
+### pass 4 (re-dispatch, 2026-10-15/16): critic P4R — the Palettes rainbow, the body voice's word space, the title field's rim, Extract's dark ghost, the verb row
+
+The relaunched workflow dispatched this seat as "pass 4" with critic P4R's rows **P4R-01..05** (evidence `critic-p4r-2026-10-15/`). `pass-04/` already holds pass 4's own evidence and the VC4 re-dispatch's, so this cure's evidence sits in `pass-04/p4r-2026-10-15/`.
+
+**Commits.** value.js `f7a21f95a` (P4R-01 + P4R-04 + the test row; utils.css staged as HEAD plus this seat's hunks only, another seat's V9C-05 comment hunk left in the tree) and `af5fe4f46` (AFTER frames, crops, probe, census, gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-04/p4r-2026-10-15/`) |
+|---|---|---|---|
+| P4R-01 (medium) | **Cured, in the one resolver.** | `palettes-ramp.ts`: the max-chroma solve. The pick gives its **hue only**. Each stop starts at the surface's lightness with a chroma past the sRGB cusp, and the house certify (`certifyAccentInk`: floor + headroom where reachable, else the best ratio ≥ floor) walks L away from the plate, gamut-mapping at each step. The stop lands as near the plate as the guard allows and holds its hue's maximum chroma there. The fan widens from ±40° to **±60°** (three stops kept; one resolver for both sites). The recipe (`utils.css .palettes-ramp-text`) now interpolates **in OKLCh**, with the sRGB declaration kept as the fallback line. A first cut at a ×1.1 margin measured **2.36–2.8:1 on real plate pixels**, because the composited plate is lighter than its model, so the house headroom stands. | `probe-p4r-cure.json`, contrast against the sampled plate pixels under the title. **Light:** L 0.40/0.39/0.37, C **0.20/0.16/0.08**, h 310/10/70, **3.62–3.87:1** (was L 0.305, C 0.12/0.12/0.08). **Dark:** L 0.66/0.66/0.64, C **0.24/0.23/0.14**, **3.04–3.30:1** (was L 0.958, C 0.02–0.03). `crops/palettes-title-*`: violet to rose to orange in dark. Light reads purple to crimson to brown: amber at L 0.37 has no more sRGB chroma (C 0.08 is the gamut maximum), so the light end stays warm-dark. If the owner wants a cooler light end, that is a register call (T-56 bracket). |
+| P4R-02 (low) | **Held, glass-owned (O-87).** | The face corpus and the body-voice token are glass's. The relay asks glass to check the embedded Plus Jakarta Sans woff2's space advance against upstream. If the face is faithful, glass would set a small word-spacing (about 0.04–0.06 em) at the body/small rung token. Probe numbers: a space of 2.44 px on 14.38 px (0.169 em), letter-spacing normal, word-spacing 0. No local word-spacing. | `critic-p4r-2026-10-15/probe-p4r.json`. |
+| P4R-03 (low) | **Held, glass-owned (O-87 single-edge refinement).** | glass Input has no quiet-rest (title) register, and the consumer already zeroes the fill. The ask to glass: an inline/title field register with no edge at rest and the single quiet edge on hover and focus-visible. PaletteNameInput's live mode adopts it then. No hand-rolled borderless input (A2-VA-L1-14). Honest-RED. | — |
+| P4R-04 (low) | **Cured, at the one token + the one span.** | `utils.css`: `.skeleton-ink-register` keeps its 15 % step toward `--skeleton-ink-pole`, which is `--foreground` and, under `.dark`, `--background`. The ghost now recedes below the plate in dark instead of lifting toward cream. `ImageDropZone.vue`: the "Upload image" span takes `text-foreground` at its font-display small rung, and only the ImagePlus glyph keeps `plate-ink`. | Dark (1440 and 390): ghost cell **L 0.925 → 0.389** (the same α 0.218 wash, now darker than the plate); verb **L 0.713 → 0.925**, now level with the "Colors" label (0.925); glyph unchanged at 0.713. Light is unchanged for the cell and the verb goes 0.289 → 0.216 (the foreground). `crops/extract-card-{before,after}-*`: in dark the strip sits as a quiet well under the sliders. **Trade-off for the next critic:** the 1 px cell seams (the well ground) are fainter in dark. |
+| P4R-05 (trivial) | **Not cured: optional judgement, held.** | The critic marks this "not a canon violation". Regenerate is the plate's primary verb, labelled at width and with save/copy as named glyph buttons. Another seat (pass 9, V9C-07) has uncommitted hunks in `GenerateControls.vue` now. Left for the owner or a later critic. | — |
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`).
+- **Verdict RED, on glass rows only (O-87):** max 6 layers, inset highlights 364, drop-shadow 8, gradient fills on controls 22.
+- **Consumer:** box-shadow layers 116 (single-layer), backdrop blur 18, looping 0, with no inset highlights, drop-shadows or control gradients.
+- The glass tallies sit at pass 5's (364 / 22), up from pass 6's read (318 / 13), with no glass change from this seat. The served state varies between runs (the dock register, lazy panes).
+
+**Frames.** 36/36 route frames (9 routes × light/dark × 1440/390), headless real Chrome (§0ei), through `harness.mjs`.
+- 32 were shot on this seat's own server (:9178).
+- The 4 Browse frames were re-shot on :9000. That server has a `VITE_API_URL`, so the in-page fixture shim answers; the plain server never reached it. The manifest says so.
+- Also: `crops/palettes-title-{1440,390}-{light,dark}` and `crops/extract-card-{before,after}-{1440,390}-{light,dark}`.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1208/1215 ×2, with the **same 7** failures both runs, all standing from the pass-4 set: ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6. view-accents (the ramp rows) passes ×2.
+- **e2e** (smoke, headless, workers 1, Playwright's own server :9177): o14-preview-truth, o9-shadow-palette, browse-loading, crash-battery, walk.
+  - Run 1: **29/29**.
+  - Run 2: **28/29**. o14's title-ramp test did not find the title within 8 s at a 1-minute load of 108.
+  - That spec re-run alone: **7/7**.
+
+  Not a strict ×2 GREEN; the one miss was load timing, not this diff. An earlier e2e pair that reused a plain `vite` server (no `VITE_API_URL`) was discarded. No visual golden was re-baselined.
+
+**For the next critic.**
+- Judge the light ramp's warm end (h 70 at L 0.37) against T-56's "pleasing pastel". A cooler light end needs the owner's register call.
+- Judge the dark ghost's 1 px seams at 390.
+- P4R-02 and P4R-03 wait on glass (O-87). P4R-05 is open as a judgement call.
