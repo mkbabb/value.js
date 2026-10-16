@@ -4479,3 +4479,26 @@ Not moved. KF-W13.md §State holds IMPLEMENTED at NO "until the gates green"; R-
 - **Gates:** reproduced 6 (check ×2 · lint ×2 · test:demo ×2 · the byte clauses · mail 0 UNREAD · the banked e2e ×2 within the honest-RED set); failed 0 of the claimed GREENs. RED without relief: ESC-W13X-r3res-1.
 - **LEDGER:** the KF.W13X row stays PARTIAL (NOT-CONFORMANT); one event line appended.
 - **Self-count:** ⟨`sed -n '/^## RESUME 2 — Check 2/,$p' KF-W13X.md | grep -c '^| C2r2-'`⟩ → **3** rows: 1 HIGH · 1 MINOR · 1 INFO.
+
+## RESUME 2 — Repair 2
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, repair seat (round 2) on `## RESUME 2 — Check 2` (NOT-CONFORMANT, register C2r2-1..C2r2-3), 2026-10-16. Read: KF-W13.md whole (once), this record's RESUME 2 Repair 1 (`:4380-4437`) and Check 2 (`:4439-`).
+- **Crash recovery:** ⟨`git -C keyframes.js status --porcelain`⟩ → `M demo/components/instrument/timeline/KeyframeTimeline.vue` (X-DS's live lane, outside this seat's set; never touched) + the 2 old untracked letters. ⟨`git status --porcelain -- docs/tranches/X/execution/B/KF-W13X.md docs/tranches/X/execution/LEDGER.md`⟩ → empty. Nothing inherited.
+- **Bytes:** kf `fa09924b` (unmoved since Check 2). This repair writes **0 keyframes.js bytes and 0 glass-ui bytes**.
+
+### Defect → cure → commit
+
+**C2r2-1 (HIGH) — ESC-W13X-r3res-1: ESCALATED again, not cured here.** ⟨`grep -c 'r3res-1' docs/tranches/X/COHESION.md`⟩ → **0**; the newest section is still `§0fi`. Check 2's cure reads "the orchestrator rules each row (a grant of its cure site or a dated re-home by id); then a repair seat cures or re-homes it". The six rows' cure sites are easing `reset` dispatch order, the Sweep ribbon ball under Reverse, the square axis readout, the 844×390 Matrix pane heading, the KFA-31/85 `useCubeRelit` consumer halves, and UIA-KF-177 (value.js X·P). Each lies outside the wave's §File Bounds writable set as granted by §0fa. A repair seat cannot grant itself those sites, and it cannot re-home a row by id without a ruling. Neither act is an adjacent-line edit (§0bt): each is a different concern or another unit's file. It is returned to the orchestrator unchanged.
+
+**C2r2-2 (MINOR) — dated correction (E-3), 2026-10-16.** Repair 1's "kf repair commits (5)" and "5 kf commits" are misstated. They should read **4**. ⟨`git -C keyframes.js log --oneline 8963ea28..71480d85 | wc -l`⟩ → **4**: `893cddef` `f0ed4cc6` `dba6b10e` `71480d85`. Repair 1's text is left as written (E-3), and this line is the correction beside it. No product act.
+
+**C2r2-3 (INFO)** — none needed.
+
+### Gate re-readings
+
+No cure in this repair moves a product byte. The correction is documentation only, and the escalation writes nothing. So no gate can move, and none is re-run. The readings banked in Check 2 at kf `fa09924b` stand: check ×2 EXIT 0 · lint ×2 457 modules/1660 deps · test:demo 151/928 ×2 · roster ×2 within the honest-RED set (B7 SPECULAR-REST · SHEET-POSITION).
+
+### Verdict
+
+- **Cured: 1** (C2r2-2). **Escalated: 1** (C2r2-1 = ESC-W13X-r3res-1). The row stays **PARTIAL** until the orchestrator rules the six rows.
+- **Self-count:** ⟨`sed -n '/^## RESUME 2 — Repair 2/,$p' KF-W13X.md | grep -c '^\*\*C2r2-'`⟩ → **3** defect paragraphs (1 escalated · 1 cured · 1 INFO); 0 kf commits; 1 value.js commit (this record + the LEDGER line).
