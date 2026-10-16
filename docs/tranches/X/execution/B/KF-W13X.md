@@ -4943,3 +4943,51 @@ kf (8, pushed by the units; ⟨`git rev-parse --short origin/master`⟩ at this 
 - **Hygiene:** no server or browser was started, and every run went through `guarded`.
 - **LEDGER:** the row stays PARTIAL (NOT-CONFORMANT). One event line was appended.
 - **Self-count:** ⟨`sed -n '/^## RESUME 3 — Check 3/,$p' KF-W13X.md | grep -c '^| C3r3-'`⟩ → 3 (2 HIGH, 1 INFO).
+
+## RESUME 4 — Open (re-open on addendum (j), COHESION §0fl)
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, seat 0, 2026-10-16 (execution under the owner's begin-word of 2026-09-17). RESUME mode: the LEDGER cell read **PARTIAL** (⟨`grep -n '^| KF.W13X' LEDGER.md`⟩ → `:65`, "PARTIAL — RESUME 3 CLOSE …"), and this record exists.
+- **Authority:** COHESION §0fl items 1–5 (`:4029-4041`; the three HIGHs of RESUME 3 RULED) · KF-W13.md ADDENDUM (j) `:595-599` (binding) · §0ev.2 (close reads now, 3× re-read, load recorded) · §0ev.3 (a seat never edits, stashes, reverts or commits a path another writer holds dirty; own hunks by index blob) · §0fb/§0fd/§0fi (guard + reaper + zone watchdog; WebKit via `guarded --exclusive webkit`) · X-DS canon §0ek · headless §0ei · no durable /tmp §0eo. Read of this record: `## RESUME 3 — Open/Baseline/Unit plan` (`:4548-4610`) and `## RESUME 3 — Check 3` (`:4898-4945`).
+- **Rulings applied (never re-opened):** §0fl.1 `.r3res2e` **KILLED-BY-DELETION by id** (receipt: the 0-read at `099a1627`, 0 `onRender`/`GROUP_PAINTS_KEY` in `demo/scenes/cube`) · §0fl.2 the `.r3res2f` kf half **RE-HOMED BY ID to the X-W11 release repin** (value.js 4.1.x publish = owner act; `npm whoami` E401) · §0fl.3 A3 ghost rail **GRANTED as `.a3`** · §0fl.4 `--light` with the reason disclosed counts as read · §0fl.5 order `.a3 → close → check`, honest-RED exactly B7 SPECULAR-REST · SHEET-POSITION.
+- **Bytes:** ⟨`git -C keyframes.js rev-parse --short HEAD origin/HEAD`⟩ → `57fb241a` `57fb241a` (unchanged since Check 3). value.js HEAD `aafc8e6d8` (the §0fl chassis).
+- **Live writer in the kf tree (X-DS).** ⟨`git -C keyframes.js status --porcelain`⟩ → ` M demo/components/instrument/timeline/KeyframeTimeline.vue` + 2 untracked old letters (rowed). `KeyframeTimeline.vue` is a `fa09924b` file but is **not** in §0fl.3's grant (ControlsPaneWrapper.css · the ChannelControls host · the rail FadingScroll seat); `.a3` never touches it.
+- **Crash recovery:** ⟨`git -C value.js status --porcelain -- docs/tranches/X/execution/ docs/tranches/V/coordination/INBOX.md`⟩ → only ` M docs/tranches/X/execution/A/X-W12U.md` (Track A's; untouched). kf: no dirty path inside `.a3`'s grant (`pane/ControlsPaneWrapper.css`, `pane/ControlsPaneWrapper.vue`, `pane/channel-controls/ChannelControls.vue` clean). No inherited partial work.
+- **alreadyDone (commits exist; never re-dispatched):** first sitting `.g0 .x .r .mobile .dock .spring .springd .sequence .timeline .keyframes .easing .cube .matrix .amiga .square .controls .overlays .transport .home .scene .lib .sections .sq+dh`; RESUME 1 `.pc .dh2 .esc1 .esc2 .esc3 .cube2 .r4lib .r4state .r4pane .r4transport .r4shell .r4dock .r4panes .r4cube .r4shared .r4prose .rel`; RESUME 2 `.pc2 .r4ribbon .r4init .r4fade .r4press .r4shared2 .r3res .rel2`; RESUME 3 `.r3res2a .r3res2b .r3res2c .r3res2d .r3res2e .r3res2f` (`.r3res2e` dispositioned by §0fl.1, the `.r3res2f` kf half by §0fl.2; both relieved at the close). ⟨`git -C keyframes.js log --oneline --grep='W13X.a3'`⟩ → empty (the `X.KF.W13.a3` hits `220bd93a` `55ebe2ea` `89bf55b2` are wave KF.W13's dock unit, not this one). **Owed: `.a3` only.**
+- **"Opens after":** KF.W13W — ⟨`grep -n '^| KF.W13W' LEDGER.md`⟩ → `:64` CLOSED 2026-09-17 (unchanged). §0fl in COHESION (`:4029`), addendum (j) in the spec (`:595`). **MET.**
+
+### E13 mail sweep (Step-0)
+⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ` (BL newest; BK still carries the mirrors). ⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ (reference: INBOX mtime 05:10, commit `4321dea54` 2026-10-16 05:11):
+- value `V/` 0 · glass `BK/coordination` 0 · glass `BL/coordination` 0 · keyframes `V/coordination` 0 · atlas `P/coordination` 0
+- glass `BL/`: `FORMATION-PROGRESS.md` — glass's own formation file, not a letter (as every sweep since 10-07 records).
+- value `V/coordination`: `valuejs-outbound-2026-10-16-frel-w2-bk-relay.md` (untracked) — **O-97, value.js X·F → glass BK, Track C F.REL `.w2`'s in-flight outbound letter**; addressed to glass, not to value.js; Track C rows it with its own unit (not this seat's path).
+
+⟨`git show HEAD:docs/tranches/V/coordination/INBOX.md | grep -c '^|.*| *\**UNREAD\** *|'`⟩ → 0. **0 unrowed inbound, 0 UNREAD in scope.** A dated sweep line is appended to INBOX.
+
+
+## RESUME 4 — Baseline
+
+READ-ONLY at kf `57fb241a` in a clean detached worktree `/Users/mkbabb/Programming/keyframes-wt-W13X-open4` (node_modules symlinked to the main tree; X-DS's dirty `KeyframeTimeline.vue` excluded), value.js `aafc8e6d8`. A RESUME open re-runs only what the owed unit turns: `check` ×2 EXIT 0 · `lint` ×2 (457/1661) · `test:demo` 155/941 ×2 · value.js css 487 ×2 · E-6 15,644 ×2 are cited from RESUME 3 Check 3 at this same kf head (`57fb241a`, unmoved).
+
+| gate | command | reading | result |
+|---|---|---|---|
+| `.a3` A3 ghost rail (live-session-mobile) | ⟨`evidence/W13X/open-r4/run-a3.sh <n>`⟩ = `guarded --light --timeout 10 -- npm run gh-pages` then `guarded --light --timeout 15 -- env KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1 --only=live-session-mobile` | r1 06:00:58–06:02:27 (load 27.5) · r2 06:02:27–06:03:54 (load 20.5): `✗ A3 appearance — a ghost rail SURVIVES … (home: railless=true ghostCol=false; sequence: railless=false ghostCol=true)` · `passed: 0/1` · `EXIT=1` ×2 (`open-r4/a3-57fb241a-r{1,2}.log.txt`). The same run's M1 OPEN/SCROLL/RE-OPEN ✗ = SHEET-POSITION (honest-RED, glass Drawer) | **RED ×2** (`--light`: one chromium, one dist; reason disclosed per §0fl.4) |
+| X-DS pass-5 desktop readings | `docs/tranches/X/evidence/DS/keyframes/pass-38/c5-probe.mjs` | banked GREEN by X-DS at `fa09924b` (0 fails); the unit re-reads it after its cure | must stay GREEN |
+| close readings | test:demo ×2 · kf e2e `--workers=1` ×2 · gh-pages | banked at RESUME 3 Close/Checks (roster RED only on A3 outside B7 · SHEET-POSITION) | the close re-reads NOW under §0ev.2 |
+
+**greenBeforeCure (R.2):** none. A3 reads RED ×2 at the bytes.
+
+## RESUME 4 — Unit plan
+
+**Order (§0fl.5, addendum (j); strictly serial, at most 1 concurrent):** `.a3` → close (verify-only, §0ev.2: up to 3 re-reads with load recorded; check · lint · `test:demo` ×2 (`--light` with the reason disclosed counts as read, §0fl.4) · kf e2e `--workers=1` ×2 over a clean gh-pages dist (WebKit only via `guarded --exclusive webkit`) · `gh-pages`; honest-RED exactly B7 SPECULAR-REST · SHEET-POSITION; relieves `.r3res2e` by §0fl.1 and the `.r3res2f` kf half by §0fl.2) → check (an audit). **1 unit, Opus** (§0fl names no Fable seat; owner Opus-only 2026-09-23).
+
+**Binding on `.a3` (RESUME 3's block stands):** every build, probe or roster run through `~/.claude/guard/guarded`; playwright `--workers=1`; headless only; browsers closed in a `finally`; servers stopped at unit end; read ⟨`git -C keyframes.js status --porcelain`⟩ first — X-DS may write any `fa09924b` file at any moment: on an X-DS-dirty granted path land only the own hunk by index blob (`git hash-object -w` · `git update-index --cacheinfo` · read `git diff --cached` · pathspec commit); never stash, restore, revert or commit an X-DS hunk; never edit a path X-DS holds dirty that is outside the grant (`KeyframeTimeline.vue` today). Common writable: own receipt under `## RESUME 4 — Unit receipts`; `docs/tranches/X/keyframes/evidence/W13X/a3/**`; one appended line in `docs/tranches/X/execution/DS/keyframes.md` (§0fl.3 "a line in X-DS's keyframes pass record naming the cure"). Nothing durable in /tmp.
+
+| # | unit | ruling / row | writable (kf) | gate |
+|---|---|---|---|---|
+| S1 | `.a3` | §0fl.3 · the mobile `#/sequence` A3 ghost rail (bisect ✓ `71480d85` → ✗ `fa09924b`, KF-C5-01 `.rail-fill` · KF-C5-02 one-scroller host) | `demo/components/instrument/pane/ControlsPaneWrapper.css` · `demo/components/instrument/pane/channel-controls/ChannelControls.vue` (the host) · `demo/components/instrument/pane/ControlsPaneWrapper.vue` (the rail `FadingScroll` seat, `:53/:104/:158`) | live-session-mobile A3 RED → GREEN ×2 (gh-pages dist, `--only=live-session-mobile`); X-DS pass-5 desktop readings (lane fill, one scroller; `pass-38/c5-probe.mjs`) stay GREEN; check · lint 0; test:demo green |
+
+### Brief
+
+- **`.a3`** — (1) Diagnose first, read-only: on the gh-pages dist at 390×844 + hasTouch, `#/sequence`, enumerate the element(s) the A3 oracle trips (`[class*=rail], .controls-pane-wrapper` with width > 200, < vw − 8, height > 300; log class + rect), and attribute each to a `fa09924b` hunk (`.rail-fill` chain `flex: 1 0 auto` / `.pane-frame > .ribbon-bar` / ChannelControls `min-h-full shrink-0`) — the commit says "lg only", so check which rules escape the `@media (min-width:1024px)` block (`ControlsPaneWrapper.css:93`). (2) Cure at the root in the three granted files so the `lg`-only fill is truly `lg`-only and no hollow rail-width column renders at mobile, keeping KF-C5-01/-02's desktop intent whole (owner-canon §0dm/§0ek): no oracle edit (the observation script is not granted; weakening it is masking), no class rename to dodge `[class*=rail]`, no fallback. If the root lies in an ungranted file (`SequenceTimeline.vue`, `SequenceLanes.vue`, X-DS-dirty `KeyframeTimeline.vue`), stop and ESCALATE with the diagnosis. (3) Falsifier: A3 RED at `57fb241a` (banked below) → GREEN ×2; re-run `pass-38/c5-probe.mjs` at 1440×900 (0 fails, lanes end at the foot, one scroller) ×2. (4) check · lint 0; test:demo green; one pathspec commit (own hunks by index blob); one line appended to `execution/DS/keyframes.md` naming the cure so X-DS's next pass inherits it; receipt.
+
+## RESUME 4 — Unit receipts
