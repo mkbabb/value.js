@@ -171,7 +171,24 @@ export function formatSpecimen(color: PickerColor, space: DisplayColorSpace): Sp
     }
 
     const resolved = resolveColorSpace(space);
-    const budgeted = budgetDigits(convertPickerColor(color, resolved));
+    const converted = convertPickerColor(color, resolved);
+    const budgeted = budgetDigits(converted);
+
+    // An sRGB colour outside rgb()'s 0..255 range is spelled `color(srgb …)` on
+    // the 0..1 scale, so the policy is applied THERE, in the serialized domain:
+    // budgeting 385.3 and letting the serializer divide by 255 brought back full
+    // float precision (`color(srgb 1.510980392157 …)`, 66 characters, past the
+    // budget and cut before its alpha — V8C-01).
+    if (resolved === "rgb" && converted.channels.some(
+        (channel) => typeof channel === "number" && (channel < 0 || channel > 255),
+    )) {
+        const channels = converted.channels.map((channel) =>
+            typeof channel === "number" ? String(budgetDigitsOf(channel / 255)) : channel);
+        const alpha = budgeted.alpha === 1
+            ? ""
+            : ` / ${budgeted.alpha === "none" ? "none" : `${budgetDigitsOf(budgeted.alpha * 100)}%`}`;
+        return { text: `color(srgb ${channels.join(" ")}${alpha})`, form: "css", outOfGamut };
+    }
 
     if (CSS_PICKER_SPACES.has(resolved)) {
         return { text: serializePickerColor(budgeted), form: "css", outOfGamut };

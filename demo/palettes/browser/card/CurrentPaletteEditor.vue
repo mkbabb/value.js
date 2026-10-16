@@ -9,8 +9,12 @@
         <div
             class="flex items-center justify-between gap-2"
         >
+            <!-- X-DS V8C-02: the well's label is the pane's action, so it speaks
+                 the body rung in foreground ink at 600 — one step over
+                 EmptyState's statement (body, 500) on every host, rather than
+                 ranking under it as a muted small caption. -->
             <span
-                class="text-small font-display font-semibold text-muted-foreground"
+                class="text-body font-display font-semibold text-foreground"
             >
                 {{
                     savedColorStrings.length > 0
