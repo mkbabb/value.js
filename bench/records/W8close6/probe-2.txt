@@ -1,0 +1,14 @@
+(node:96974) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+"a{width:if(supports(color: red): red; else: blue)}" ACCEPTED
+"a{width:if(style(--x: 1): red; else: blue;)}" ACCEPTED
+"a{width:if(foo)}" refused css_syntax
+"a{transform:rotate(0;1deg)}" refused css_syntax
+"@keyframes k{0%{transform:translate(0;1px)}}" refused css_syntax
+"a{--x:f(a;b)}" ACCEPTED
+"a{--x:[a;[b]]}" ACCEPTED
+"a{--x:{a;b}}" ACCEPTED
+"a{--x:\"a;b\"}" ACCEPTED
+"a{--x:a;b}" refused css_syntax
+"a{--x:[a;b}" refused css_syntax
+"a{--x: ;}" ACCEPTED
