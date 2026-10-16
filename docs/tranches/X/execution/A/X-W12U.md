@@ -2279,3 +2279,37 @@ W12U.md :4 "Blocks: X-W8"; LEDGER X-W8 `planned` (opens after W4·W5·W6·W7, an
 
 ### Verdict
 **NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 2 MINOR). Every GREEN this seat re-ran reproduces (typecheck ×2 · lint ×2 · `.k2` static ×2 · Repair 5's G2 figures · bounds · masking · families · E-3 · E13). The HIGH waits on an orchestrator ruling (ESC-W12U-r5-1/-2), not on a seat act. The row stays **IMPLEMENTED**.
+
+## Repair 6 (repair round 2 on Check 8, 2026-10-16)
+
+SERVED MODEL: claude-opus-5-5. Track A, HEAD `7a6e1f339` at open. The task calls this "Repair 2". The record already holds Repairs 1–5, so this takes the next free number. Spec `W12U.md` read whole (110 lines, addenda (a)–(g)). From the record this seat read the header through the Unit plan, plus Repair 5 and Check 8.
+
+Crash recovery: ⟨`git status --porcelain`⟩ lists the same dirty `demo/**` set that Repair 5 named (X-DS's in-flight extract/specimen pass) and `s/results/final/probe-share-dark.txt`. Neither is this wave's partial work, and neither was touched. The record and LEDGER are clean.
+
+**No product, test or evidence byte landed.** Every C8 defect's cure is an orchestrator ruling or relay. Check 8 itself states that the HIGH "waits on an orchestrator ruling … not on a seat act".
+
+### Rulings: still absent (read ×2)
+- ⟨`grep -c 'ESC-W12U-r5' COHESION.md`⟩ ×2 → `0` / `0`.
+- ⟨`grep -c 'ESC-W12U-r5' waves/W12U.md`⟩ → `0`.
+- No §0 entry and no W12U addendum has been minted since Check 8.
+
+### Defect → cure → commit → gate
+| # | sev | cure act | commit | gate re-reading |
+|---|---|---|---|---|
+| C8-1 | HIGH | **ESCALATED.** Needs the ESC-W12U-r5-1 ruling (a dated owner for G2) and the ESC-W12U-r5-2 ruling (a dated owner for O-5). Both are orchestrator acts. Relief is a dated addendum, and spec addenda are E-3 immutable to a seat. | — | G2 331,631 B gz > 286,720 (Repair 5 `r1c7/g2-instrument-x2.txt`, r1 ≡ r2) · O-5 RED, as banked; no byte moved them |
+| C8-2 | MEDIUM | **ESCALATED.** Needs the ESC-W12U-r5-4 class ruling plus addenda beside `W10.md` and the X·P spec. Both files are outside §1. | — | unchanged |
+| C8-3 | MEDIUM | **ESCALATED.** Needs the ESC-W12U-r5-3 ruling on the software-GL floor, or routing to X-W10. The cause is a design act on glass-over-live-WebGL composition. | — | unchanged (`2c1ba07e1` floor `> 1`; real-GPU budget gate untouched) |
+| C8-4 | MINOR | **ESCALATED (folds into C8-1's owner).** See the C8-4 lever note below. Not a one-command cure. | — | unchanged |
+| C8-5 | MINOR | **ESCALATED.** C7-4 (the O-85 addendum relay) and C7-5 (the :9000 `server.watch.ignored` root cure) are the orchestrator's relay and routing. `dev.sh` is never touched. | — | unchanged |
+
+**The C8-4 lever.** ⟨`grep -rnE "value.js/css" demo/color-session`⟩ → 6 importers: `picker-color.ts:34` · `generate-color.ts:34` · `view-accent.ts:9` · `palettes-ramp.ts:66` · `format-color.ts:34` · `ink.ts:11`.
+- They import `parseCssColor` / `serializeCssColor`, which are the boot colour's parse and serialize. A lighter boot path therefore means a split `src/**` subpath, which is outside §1, not a demo re-wiring.
+- Even with the lib share at 0, the total is 295,031 > 286,720 (Check 8's own arithmetic).
+- Routing is unchanged: this lever belongs to whoever is named by the ESC-W12U-r5-1 ruling.
+
+### Gate re-reading
+- Nothing landed, so no gate a cure could move was moved.
+- Check 8's reproductions stand on the same product bytes: typecheck ×2 · lint ×2 · `.k2` static ×2 · G2 figures.
+- Host load at this read: 19.3.
+
+Cured: 0. Escalated: 5 (C8-1 … C8-5, routed to ESC-W12U-r5-1..4 plus the C7-4/C7-5 relays). The row stays **IMPLEMENTED**.
