@@ -12,11 +12,16 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { Page } from "@playwright/test";
 import { openHarness, type HarnessSeat } from "./n-fixtures/browser";
 
-const CARD_DIR = path.resolve(import.meta.dirname, "../../palettes/browser/card");
+// The plate lives beside the specimen it stands for, under `demo/shared/ui/`
+// (re-homed by owner at X-W12U .k2, A2-VA-L1-17 `785e522c5`). The mount below
+// is a string path, so no typechecker follows a move: with the old
+// `palettes/browser/card` directory every case died on
+// "Failed to fetch dynamically imported module" (X-W12U .q).
+const PLATE_DIR = path.resolve(import.meta.dirname, "../../shared/ui");
 
 /** Mount `file` (a card-family SFC) with `props` in a host `width` wide; return its box height. */
 function plateHeight(page: Page, file: string, props: Record<string, unknown>): Promise<number> {
-    const url = `/@fs${path.join(CARD_DIR, file)}`;
+    const url = `/@fs${path.join(PLATE_DIR, file)}`;
     // Shipped to the page as source text: the test runner rewrites a literal
     // dynamic `import()` in this module for its own loader, never the page's.
     return page.evaluate(`(async () => {
