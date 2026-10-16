@@ -1,0 +1,226 @@
+{
+ "morph-light-1440": {
+  "levelsCardH": 420,
+  "stripW": 642,
+  "tiles": 10,
+  "tilesWhole": 10,
+  "rows": 2,
+  "tileW": 100,
+  "tileH": 109,
+  "bound": [
+   {
+    "label": "n=5",
+    "inView": true
+   },
+   {
+    "label": "n=50",
+    "inView": true
+   }
+  ],
+  "display": "grid",
+  "mask": "none",
+  "gridCols": "100.328px 100.328px 100.344px 100.328px 100.328px 100.344px"
+ },
+ "morph-light-1024": {
+  "levelsCardH": 418,
+  "stripW": 514,
+  "tiles": 10,
+  "tilesWhole": 10,
+  "rows": 2,
+  "tileW": 96,
+  "tileH": 108,
+  "bound": [
+   {
+    "label": "n=5",
+    "inView": true
+   },
+   {
+    "label": "n=50",
+    "inView": true
+   }
+  ],
+  "display": "grid",
+  "mask": "none",
+  "gridCols": "96.3906px 96.4062px 96.3906px 96.4062px 96.4062px"
+ },
+ "morph-light-390": {
+  "levelsCardH": 372,
+  "stripW": 332,
+  "tiles": 10,
+  "tilesWhole": 2,
+  "rows": 1,
+  "tileW": 118,
+  "tileH": 118,
+  "bound": [
+   {
+    "label": "n=5",
+    "inView": false
+   },
+   {
+    "label": "n=50",
+    "inView": false
+   }
+  ],
+  "display": "flex",
+  "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 8px))",
+  "gridCols": "none"
+ },
+ "visualize-light-1440": {
+  "stage": [
+   16,
+   88,
+   1408,
+   800
+  ],
+  "dropTarget": [
+   17,
+   89,
+   1406,
+   798
+  ],
+  "bgImage": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1",
+  "bgAttach": "fixed, fixed, fixed, fixed",
+  "bgBlend": "multiply, multiply, multiply, multiply",
+  "capsules": [
+   {
+    "text": "Choose an image",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"
+   }
+  ]
+ },
+ "visualize-light-390": {
+  "stage": [
+   16,
+   80,
+   358,
+   760
+  ],
+  "dropTarget": [
+   17,
+   81,
+   356,
+   758
+  ],
+  "bgImage": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.1",
+  "bgAttach": "fixed, fixed, fixed, fixed",
+  "bgBlend": "multiply, multiply, multiply, multiply",
+  "capsules": [
+   {
+    "text": "Choose an image",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px"
+   }
+  ]
+ },
+ "morph-dark-1440": {
+  "levelsCardH": 420,
+  "stripW": 642,
+  "tiles": 10,
+  "tilesWhole": 10,
+  "rows": 2,
+  "tileW": 100,
+  "tileH": 109,
+  "bound": [
+   {
+    "label": "n=5",
+    "inView": true
+   },
+   {
+    "label": "n=50",
+    "inView": true
+   }
+  ],
+  "display": "grid",
+  "mask": "none",
+  "gridCols": "100.328px 100.328px 100.344px 100.328px 100.328px 100.344px"
+ },
+ "morph-dark-1024": {
+  "levelsCardH": 418,
+  "stripW": 514,
+  "tiles": 10,
+  "tilesWhole": 10,
+  "rows": 2,
+  "tileW": 96,
+  "tileH": 108,
+  "bound": [
+   {
+    "label": "n=5",
+    "inView": true
+   },
+   {
+    "label": "n=50",
+    "inView": true
+   }
+  ],
+  "display": "grid",
+  "mask": "none",
+  "gridCols": "96.3906px 96.4062px 96.3906px 96.4062px 96.4062px"
+ },
+ "morph-dark-390": {
+  "levelsCardH": 372,
+  "stripW": 332,
+  "tiles": 10,
+  "tilesWhole": 2,
+  "rows": 1,
+  "tileW": 118,
+  "tileH": 118,
+  "bound": [
+   {
+    "label": "n=5",
+    "inView": false
+   },
+   {
+    "label": "n=50",
+    "inView": false
+   }
+  ],
+  "display": "flex",
+  "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 8px))",
+  "gridCols": "none"
+ },
+ "visualize-dark-1440": {
+  "stage": [
+   16,
+   88,
+   1408,
+   800
+  ],
+  "dropTarget": [
+   17,
+   89,
+   1406,
+   798
+  ],
+  "bgImage": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9",
+  "bgAttach": "fixed, fixed, fixed, fixed",
+  "bgBlend": "screen, screen, screen, screen",
+  "capsules": [
+   {
+    "text": "Choose an image",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px"
+   }
+  ]
+ },
+ "visualize-dark-390": {
+  "stage": [
+   16,
+   80,
+   358,
+   760
+  ],
+  "dropTarget": [
+   17,
+   81,
+   356,
+   758
+  ],
+  "bgImage": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.9",
+  "bgAttach": "fixed, fixed, fixed, fixed",
+  "bgBlend": "screen, screen, screen, screen",
+  "capsules": [
+   {
+    "text": "Choose an image",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px"
+   }
+  ]
+ }
+}

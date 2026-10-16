@@ -1335,3 +1335,38 @@ This is the cure seat for critic **F7X** (the redeploy's pass-7 critic, 2026-10-
 - `paper-*` at 1440 and 390;
 - `equation-*` at 1440 and 390, and `visualize-*-1440`;
 - each in light and dark.
+
+### pass 8
+This is the cure seat for critic **F8X** (the redeploy's pass-8 critic, 2026-10-16). The BEFORE is the critic's cells (/morph at 1440 and 1024 from `pass-07/f7x/morph-*`, whose `tilesWhole` read 6 and 4; /visualize empty at 1440 from `pass-07/f7x/visualize-*-1440`), with `pass-00/ref-65c1565/visualize-light-1440` (ORIGIN) as the reference. The other sets under `pass-08/` (the loose F10 files) are left as they were.
+- fourier `3168b89`, on `m/w1-bump-migration`, three files (`web/src/components/morph/HarmonicLevelGrid.vue`, `web/src/components/visualization/VisualizationView.vue`, `web/e2e/f-w14u-misc.spec.ts`), committed by pathspec and pushed fast-forward `386397e..3168b89`. Other seats' uncommitted files (`.github/workflows/ci.yml`, `web/e2e/fixtures/gallery.ts`) were left alone.
+- value.js (this commit) holds the AFTER frames, the probe and its JSON, the census and the gate logs, all in `pass-08/f8x/`.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F8X-C1 | At `(min-width: 1024px) and (pointer: fine)`, the Harmonic Levels strip is a wrapping grid, `repeat(auto-fill, minmax(5.5rem, 1fr))`, with `overflow: visible`, `mask-image: none` and no snap. Coarse pointers and 390 keep the scroller and its fade. **Measured** (`f8x-probe.json`, both themes): at 1440, 10 of 10 tiles are whole in 2 rows (6 + 4, 100 px tiles), the bound tiles n=5 and n=50 are in view, the mask is `none`, and the card is 420 px (303 before, 510 before pass 7). At 1024, 10 of 10 tiles are whole in 2 rows (5 + 5, 96 px), and the card is 418 px. At 390 the strip is unchanged: flex, a 48 px fade, 2 whole tiles. **Spec:** `f-w14u-misc` m210f, at 1440 and 1024, checks that the bound High tile is in view, that every tile is whole, and that the mask is `none`. It skips on a coarse pointer, where m210 keeps the strip. |
+| DS-F8X-C2 | Of the finding's two options, this cure takes the first. The empty stage's `.drop-target` (already `inset: 0` in the stage) takes glass's `.paper-grid` class (identity, §0dm), with `background-attachment: fixed`, so its lines register with the page ground's grid round the plate. This is the `.band-grid` idiom on /morph. There is no new wrapper and no local colour or token, and the one drop ring (DS-F4R-C1) is unchanged. **Measured:** the drop target is 1406×798 inside the 1408×800 stage at 1440, and 356×758 at 390. It paints glass's four grid layers, `fixed` and `multiply` (the dark arm uses glass's `screen` blend). The plate now reads as ORIGIN's empty drawing surface (`visualize-*-1440`), and the census counts it as no control gradient. |
+| DS-F8X-T1 | The template comment ("F1-17: the drop zone is drawn (the origin's dashed hairline)") is rewritten to say that the zone draws no frame (DS-F4R-C1): the stage's hairline is the frame and the stage's ring is the one drop signal. A comment above the drop target names the C2 grid. |
+
+**Glass-owned, cited, not overridden.**
+- **DS-F8X-G1** (the glass Button capsule at rest: an inset bevel stack, `0 8px 24px` at 14% and a 0.5 px ring; in dark the cast is `--foreground` cream; glass Card `surface="opaque"` keeps its bevel and three casts). This is a fresh witness, folded into **DS-F2R-G1** (the resting and capsule recipe) and **DS-F6X-G1** (the dark cream cast) on **O-87 FLAT-LIGHTING**. Re-measured on /visualize's "Choose an image" (`f8x-probe.json`): `rgba(255,255,255,.1) 0 1px inset, … / .06 0 -1px inset, … / .04 1px 0 inset, … / .14 0 8px 24px, … / .05 0 0 0 .5px`. fourier adds no shadow, and none was added. Held honest-RED and re-judged at the glass 10.2.0 repin, whose band 0 should drop the resting capsule cast and make `surface=opaque` solid `--card` with one quiet edge.
+
+**Census** (`scripts/ds-census.mjs` on `:3100`; `f8x/census-after.json`). The numbers are unchanged from pass 7 F7X, and it is still RED on the glass rows.
+- Static: 7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations.
+- Computed sums: 378 shadow elements, 950 layers, 284 multi-layer stacks, 284 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations.
+- Neither cure is a lighting site (one is a grid layout, the other glass's identity grid on a non-control).
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run --maxWorkers=2`: 116/116, twice (under `guarded --light`).
+- e2e: the 21 specs that reach /morph's levels card or the /visualize empty stage (`e2e-specs.txt`). They ran on chromium plus mobile-chromium, headless, 1 worker, with BASE_URL `:3100`.
+  - A first attempt ran without BASE_URL and hit `:3000`, so the global seed got a 404 (`e2e-runA0-wrong-base.txt`).
+  - Run A: 193 passed, 1 failed. Run B: identical.
+  - The one red is `f-w14u-d` d2 (1440 light): the canvas dock never reports `collapsed` after the View-options menu closes. It is not this cure. On a clean `dfdf0fd` HEAD worktree served fresh on `:3121`, the same d2 failed 2 of 3 runs (`e2e-head-baseline-d*.txt`: the first passed 6/6, the next two failed d2 1440 light). With the cure applied on `:3121` it failed d2 once in light and once in dark (`e2e-cure-fresh-3121-d-*.txt`). It is a timing-sensitive collapse on the loaded stage, where the cure changes nothing (the drop target is `v-if` on an empty stage, and /v has no levels card).
+  - The new m210f passed in both runs, on chromium at 1440 and 1024. It skipped on mobile-chromium, which has a coarse pointer.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD.
+
+**Frames** (`pass-08/f8x/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei; 390 with touch), `f8x-probe.mjs` against `:3100`:
+- `morph-*` at 1440, 1024 and 390, scrolled to the levels card;
+- `visualize-*` (the empty stage) at 1440 and 390;
+- each in light and dark.
