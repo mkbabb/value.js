@@ -1370,3 +1370,41 @@ This is the cure seat for critic **F8X** (the redeploy's pass-8 critic, 2026-10-
 - `morph-*` at 1440, 1024 and 390, scrolled to the levels card;
 - `visualize-*` (the empty stage) at 1440 and 390;
 - each in light and dark.
+
+### pass 9
+This is the cure seat for critic **F9X** (the redeploy's pass-9 critic, 2026-10-16). The BEFORE is the critic's cells, `pass-08/f8x/visualize-*` (390 and 1440) and `pass-08/f8x/morph-*` (1440, 1024 and 390, with `f8x-probe.json`). The reference is `pass-00/ref-65c1565/visualize-light-1440` (ORIGIN). The other sets under `pass-09/` (`critic-f11` and the loose F11 files) are left as they were.
+- fourier `c313ea8`, on `m/w1-bump-migration`, three files (`web/src/components/visualization/VisualizationView.vue`, `web/src/components/morph/HarmonicLevelGrid.vue`, `web/e2e/f-w14u-misc.spec.ts`), committed by pathspec. Origin had moved on (F.CT3 r3, `be5ede6`), so it was merged in (`6b98e22`, no file overlap) and pushed fast-forward `be5ede6..6b98e22`.
+- value.js (this commit) holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs, all in `pass-09/f9x/`.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F9X-C1 | Glass's `.paper-grid` leaves `.drop-target` for a layer of its own inside it (`.drop-target-grid paper-grid`, `aria-hidden`, `z-index: -1` inside the target's stacking context). This is the `.band-grid` idiom on /morph and `.floating-toc-grid` on /paper. The layer keeps `background-attachment: fixed`, so the lines still register with the ground. **Why a layer rather than the token alone:** glass declares `--paper-grid-line`, `--paper-grid-line-major` and `--paper-grid-texture` at `:root` (`tokens/scale-paper.css`), so they inherit as finished values. Re-setting `--paper-grid-opacity` on `.drop-target` therefore changes nothing (an inert knob, a glass note below). The layer's opacity is the ratio `calc(0.035 / var(--paper-grid-opacity))`, so the plate reads at an effective token of 0.035 and follows glass's token if it moves. It adds no local colour, gradient or mask, and touches no glass file. **Measured** (`f9x-probe.json`): the layer reads opacity 0.4375 over the 0.08 token, with 4 layers, `fixed`, `multiply` in light and `screen` in dark, at 1440 and 390. That puts the majors at about 5.6 % and the minors at 3.5 %, against 12.8 % and 8 % before. `.drop-target` itself now paints no background. In the frames, the lines no longer cross the title, the lede or the caption at 390. |
+| DS-F9X-C2 | The column count follows the level count, not the strip's width. The strip sets `--levels-per-row: ceil(levels / 2)`, and the grid is `repeat(var(--levels-per-row), minmax(0, 1fr))`. **Measured:** at 1440 the levels sit 5 + 5 in 122 px tiles, and the card is 434 px (420 before). At 1024 they sit 5 + 5 in 96 px tiles. Both bound tiles are in view, and the mask is `none`. |
+| DS-F9X-C3 | The finding's second option, at every width and pointer. HarmonicLevelGrid is now **one** grid: the phone and coarse scroller is deleted, along with its fading edges (UIA-F-210), its snap, `measureStrip` with its resize observer, and the scroll-into-view. Nothing is hidden, so nothing needs to say it continues. The tile takes the atom pad inline as well as on its block axis (the coarse recipe's 26 px inline pad is what held it at 118 px). Its shape fills the track up to 64 px. **Measured** at 390 (coarse, touch; both themes): 5 + 5 tiles of 60 × 80 px, 10 of 10 whole, n=5 and n=50 in view, and the card is 410 px. Identity is unchanged: the accent-red shapes, the mono labels, the bound and active edges, and the press scale. |
+| f-w14u-misc m210 / m210f | **Restated.** m210 (390) keeps "a preview never rewrites the range" and "the chosen tile is in view", and drops the fade assertion (no scroller). m210f now runs at 1440, 1024 **and 390**. It asserts that both bound tiles are in view, that every tile is whole, two rows that differ by at most one tile, and mask `none`. Note: `mobile-chromium` runs only `@coarse`-tagged tests, so m210 and m210f run on chromium. The coarse 390 cell is witnessed by the probe (`isMobile`, `hasTouch`). |
+
+**Glass-owned, cited, not overridden.**
+- **DS-F9X-G1** (the glass Metric's label outweighs its value on a coarse pointer). Re-measured (`f9x-probe.json`): at 390 the label is 18.62 px and the value 14 px (phase, n, shape, total). At 1440 the label is 14.54 px and the value 16.4 px; at 1024 they are 13.62 and 15.36. This is a new witness folded into **DS-F3C-G1** (the coarse type-ramp inversion) beside **O-87 FLAT-LIGHTING**. The ask: glass keys `.metric__label` to a caption rung that never exceeds the value rung at any pointer. It is re-judged at the glass 10.2.0 repin. fourier adds no override.
+- **Note to glass (with C1):** `--paper-grid-opacity` is documented as the grid's strength knob, but it is inert on any scope below `:root`, because the derived line and texture tokens are declared only at `:root`. If glass re-declares the three derived tokens on `.paper-grid` itself, the knob works per surface, and this consumer's ratio stays correct either way.
+
+**Census** (fourier `scripts/ds-census.mjs` on `:3100`; `f9x/census-after.json`). Unchanged from pass 8 F8X, and still RED on the glass rows.
+- Static: 7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations.
+- Computed sums: 378 shadow elements, 950 layers, 284 multi-layer stacks, 284 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations.
+
+**Gates** (`f9x/gates.txt`).
+- `vue-tsc -b`: 0, twice. `vitest run --maxWorkers=2`: 116/116 (20 files), twice (under `guarded --light`).
+- **e2e:** pass 8's 21 specs (`e2e-specs.txt`) ran headless with `--project=chromium --project=mobile-chromium`, 1 worker, BASE_URL `:3100`.
+  - Run A: 194 passed, 1 failed.
+  - Run B: 193 passed, 2 failed.
+  - Every red is `f-w14u-d` d2 at 1440 (the canvas dock's view dot on a loaded /v stage). This is the pre-existing intermittent red that pass 8 recorded.
+  - **Baseline:** on a clean `3168b89` HEAD worktree served fresh on `:3123`, `--repeat-each=3` failed d2 3 of 6 at 1440 (`e2e-head-baseline-3123-d.txt`). The cure tree on `:3100` failed it 4 of 6 (`e2e-cure-3100-d.txt`). Neither cure reaches a loaded /v stage: the drop target is `v-if` on an empty stage, and /v has no levels card.
+  - m210 and m210f (1440, 1024 and 390) passed in both runs.
+  - The worktree and its server were removed afterwards.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD.
+
+**Frames** (`pass-09/f9x/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei; 390 with touch), `f9x-probe.mjs` against `:3100`:
+- `morph-*` at 1440, 1024 and 390, scrolled to the levels card;
+- `visualize-*` (the empty stage) at 1440 and 390;
+- each in light and dark.
