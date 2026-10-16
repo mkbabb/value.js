@@ -1870,3 +1870,66 @@ Groups: `[[F-REL.w2], [F-REL.vb2], [F-REL.g], [F-REL.d]]`.
 | F-REL.d | §Units `.d` (F-REL.md:32-38) + §0fk.4 | fourier `scripts/**` (prod-verify); value.js `docs/tranches/X/fourier/evidence/F-REL/` | smoke GREEN on the new SPA; cert > 14 d; health polled through the deploy (no outage); `scripts/prod-verify.mjs` 20/20; openapi has publish/remix/diff; PATCH preflight 2xx | fail-closed deploy via the standing workflow + webhook only; host never hand-edited; R-4/R-6 named as owner items, non-blocking; R-h2 named |
 
 ## RESUME 2026-10-16 (d) — Unit receipts
+
+### F-REL.w2
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~04:50–07:00 local. Spec read whole: COHESION §0fk (L4007-4027), `fourier/waves/F-REL.md` ADDENDUM (d) (L56-69); this record's RESUME (d) header, baseline and plan; the `.w` receipt's ESC-FREL-w-1 table (L514-532). **Status: DONE.** Every re-pointed and authored pair reads GREEN at its unchanged floor, so no `web/src` cure was owed.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ in fourier: ` M web/e2e/f-w14-control-row.spec.ts`, ` M …/PaperTocBar.vue`, ` M …/PaperTocDrawer.vue`, ` M …/SliderControl.vue`, `?? .worktrees/` (the X-DS lane; none in this unit's set). value.js writable paths: clean. Nothing inherited.
+
+**Bytes moved under the seat.** X-DS landed `5fbe1cf` (the ToC plates become glass `data-surface="opaque"`) and the F.CT3 r1 merge `9338e26` on m/w1 at 05:35 local. Every reading below is at `9338e26` (+ this unit's edits), and PV D/M-8 was re-read at the new bytes (both readout hosts are now solid `--card`: glass `surface-axis.css` `[data-surface="opaque"]{… background: color-mix(in srgb,var(--card),transparent 0%) …}`).
+
+**Heavy slot.** `.worktrees/heavy.lock` held by F.CT3 (pid 31152) until 09:27Z; then taken by this seat (keeper pid, `F-REL.w2 … 2026-10-16T09:27:36Z`) for every heavy run below, all through `guarded`, Playwright `--workers=1`, API `COMPUTE_CONCURRENCY=1`.
+
+**Act 1 — every anchor read at the bytes (INTENT recorded where drifted).**
+- FR-MSP-7: `morph/MorphShapePreview.vue` has no `.info-chip` (FMD-12; DS-F3-C13 made the phase a `Metric` too). Four glass `Metric posture="inline"`, no plate; glass `metric/styles.css` `.metric__label`/`.metric__unit` ink `--muted-foreground`; the row's backdrop is `.stage-column { background-color: var(--background) }` (`FourierMorphDemo.vue:254-267`). The ruling's "Metric/Chip" reads at the bytes as Metric only (no `Chip` left), so the row grades the Metric's weakest ink, and two rows grade the one consumer ink, `.phase-value` `color-mix(in oklab, <tone> 75%, var(--foreground))` for settle (`--accent-red`) and morph (`--accent-pink`).
+- PSM-4: `paper/search/PaperSearchModal.vue:198` `.search-palette-hint { color: var(--muted-foreground-strong) }`.
+- FR-EQR-7[instance]: `equation/EquationResult.vue:224` `.copy-ok { color: var(--section-color-4) }`.
+- AA-3: `admin/AdminAuditLog.vue:254-262`: a destructive verb renders `<Badge variant="secondary" tone="destructive">` (glass `badge-BO6BC4G5.js`: `bg-destructive text-destructive-foreground`), every other action `variant="outline" tone="neutral"` (`badge-atom--outline text-foreground`, no fill).
+- GAB-1: `gallery/GalleryAdminBanner.vue:260-262` `.admin-banner { border-color: var(--viz-amber); background: color-mix(in srgb, var(--viz-amber) 10%, transparent) }`.
+- FR-USB-5: `auth/UserSlugBar.vue:5,230` glass `<Input>`, class `w-full fira-code` only, so no consumer paint is left (R-e-2).
+- Awaiting six: FR-CP-D1 `ConvergencePlot.vue:236` `ink = getComputedStyle(canvas).color` on a `text-muted-foreground` canvas, axes at `lib/equation/grid.ts` `AXIS_ALPHA = 0.8`, over the stage card `--card`; ECD D-5 glass `Metric .dock-count` (`EditorControlsDock.vue:124`), D-6 `.is-save.saved { color: var(--success) }` on `.is-save`'s `color-mix(in srgb, var(--foreground) 6%, transparent)` plate (`:380-394`), over the page (the registry's recorded bound); EV D·D-B3 `EquationView.vue:117,479-484` glass `<Badge :tone>` (success/warning/info) + energy `Metric` on `PopoverContent`; PS D-B2 `PaperTocDrawer.vue:343` `.sidebar-label { color: var(--muted-foreground) }` on the opaque `--card` rail; PV D/M-8 `PaperPageReadout.vue:31` `--muted-foreground-strong` on the opaque `--card` hosts.
+
+**Act 2 — the oracle (fourier `b9bfdaa`, one commit, the family the header law binds).** `web/e2e/contrast-pairs.ts`: the rows above re-pointed with dated `F.REL .w2` lines, ids kept for life; FR-USB-5 ×3 retired by a dated line; the six authored into `CONTRAST_PAIRS`; `PAIRS_AWAITING_THEIR_OWNER` emptied and kept asserted. `web/e2e/producer-held.json`: additive `pairsAbout` + `pairs` (4 rows; `rows` untouched, ⟨`git diff --stat`⟩ → `31 insertions(+)`, 0 deletions). §0bt adjacent edit `web/e2e/contrast-floor.spec.ts`: reads `pairs` via `readFileSync` (the config's idiom), reports each held pair as `⊘ … HELD` in the attachment and an annotation, keeps every other pair a failure, and fails the arm if a held pair passes in its banked arm or names no registry row. Floors untouched (`scripts/contrast.ts` not edited); no skip, no test-id hold.
+
+**Act 3 — graded live (instrument `~/.fourier-frel/w2-run.sh`: backend :8192 + `vite preview` :4190 proxied to it, `BASE_URL=http://localhost:4190`, `--workers=1`, torn down on exit; logs `~/.dev-logs/frel/w2-contrast-{1,2}.log`, readings `w2-contrast-{light,dark}.txt`).** A first attempt (`--reporter=line`, the config's default `BASE_URL` `:3000`) died in `global-seed.ts:94` (`POST /api/sessions → 404` from an unrelated server), not a gate reading; the instrument fixes the origin. ⟨`guarded -- w2-run.sh contrast-1 e2e/contrast-floor.spec.ts --project=chromium`⟩ → `3 passed (10.0s)` rc 0 (10:23Z, load 14.3); ⟨… `contrast-2` …⟩ → `3 passed (2.1s)` rc 0 (10:36Z, load 31.5). 44 pairs per arm (13 ramp stops + 31); held as RED: light 4, dark 2 (the other two pass dark and are not banked dark).
+
+| Pair (floor unchanged) | Light | Dark |
+|---|---|---|
+| FR-MSP-7 (non-text 3) / `[phase-value settle]` / `[… morph]` (text 4.5) | 5.197 / 6.662 / 5.921 | 7.716 / 7.398 / 8.316 |
+| PSM-4 ×3 (text 4.5) | 7.882 ×3 | 10.295 ×3 |
+| FR-EQR-7[instance] (non-text 3) · `[--success rung]` | 4.487 · 3.309 | 7.187 · 8.131 |
+| GAB-1[border] (non-text 3) | 4.675 | 10.919 |
+| AA-3[delete] · the four neutral (text 4.5) | 4.693 · 16.196 ×4 | 6.089 · 11.212 ×4 |
+| FR-CP-D1 (non-text 3) | 3.369 | 4.026 |
+| ECD D-5 (text 4.5) · D-6 (non-text 3) | 5.197 · **3.032** | 7.716 · 10.443 |
+| EV D·D-B3 symbolic · identified · spline · energy (text 4.5) | 4.895 · 4.936 · 4.805 · 5.021 | 10.195 · 9.484 · 6.807 · 5.440 |
+| PS D-B2 (text 4.5) | 5.021 | 5.440 |
+| PV D/M-8 (text 4.5) | 7.615 | 7.258 |
+| ramp worst stop (text 4.5) | 4.645 | 6.760 |
+| **held** HLG-37[grid-cell-fill] · GAB-1[plate/page] · `--tier-featured` · `--tier-saved` | 1.035 · 1.145 · 1.384 · 2.461 | 1.418 · 1.159 · 11.322 · 7.683 |
+
+No re-pointed row read RED, so there is no consumer regression to cure in `web/src`. Disclosed: FR-MSP-7's re-pointed ink is text, graded at its kept non-text floor; it reads 5.197 / 7.716, which also clears 4.5. ECD D-6 light has 0.032 of headroom.
+
+**Act 4 — R-10, UIA-F-42 (fourier `dfdf0fd`; §0bt adjacent edit `web/e2e/f-w14-uia.spec.ts:463-471`).** Root read at the producer bytes: glass 10.1.0 `dist/data-table-Ba_uTfPc.js` sets `isCard = responsive && containerWidth > 0 && containerWidth < cardBreakpoint`, with `containerWidth` starting at 0 and set by `useResizeObserver`'s first callback. So at 390 the first frame is the table projection (and its loading skeleton while `status` is `loading`). The test's `rows.first()` (`tbody > tr, .data-table-card`) was satisfied by that transient table, and the read raced the swap (CI 38868934803: `✘ 92 … :457` then `✓ 93` on retry #1; the run uploaded no artefact, ⟨`gh api …/runs/38868934803/artifacts`⟩ → none). Cure: the test waits for the projection it measures, a `.data-table-card` carrying its `[data-slot="badge"]`, before measuring. Every assertion is kept. The producer half (seed `containerWidth` at mount) is relayed as O-97 R-4. ⟨`guarded -- w2-run.sh uia42 e2e/f-w14-uia.spec.ts --project=chromium -g UIA-F-42 --repeat-each=15`⟩ → `15 passed (1.6m)`, 0 ✘. Not reproduced RED locally (the old bytes were not re-run); the mechanism is read from the bytes and the CI trace.
+
+**Act 5 — relay and addendum (value.js `d7f19f6c2`).** `fourier/waves/F-W4.addendum-2026-10-16-contrast-pairs.md` (new, beside F-W4 §4); BK letter `V/coordination/valuejs-outbound-2026-10-16-frel-w2-bk-relay.md` = **O-97** (R-1 tier registers · R-2 card/page · R-3 FR-USB-5 field-control readings, record only, narrowest 3.036:1 · R-4 DataTable first frame), read by `~/.fourier-frel/w2-producer-probe.mjs` (log `w2-producer-probe.log`); INBOX row O-97 after O-94a plus a log line. Sent live to `glass-ui-1a` (`ListAgents` → one glass session; msg `046e4812`). E13: 0 UNREAD in scope (the RESUME (d) open sweep; no inbound since).
+
+**Gates (BEFORE → AFTER).**
+
+| Gate | BEFORE (RESUME (d) baseline) | AFTER | State |
+|---|---|---|---|
+| contrast-floor ×3 GREEN ×2 outside the pair-level manifest | CI 38868934803: light 18/36, dark 10/36, 6 awaiting | `3 passed` ×2 (contrast-1, contrast-2), 0 consumer failures, 4 light / 2 dark held by pair id | **GREEN** |
+| every re-pointed row graded live at its unchanged floor | stale stacks | table above, both arms; `scripts/contrast.ts` FLOOR untouched | **GREEN** |
+| pair-level key in the manifest | absent | `producer-held.json` `pairs` = 4, read by the spec | **GREEN** |
+| FR-USB-5 ×3 retired | graded | retired by dated line; producer reading in O-97 R-3 | **GREEN** |
+| six awaiting pairs authored | 6 in the roster | roster `[]`; test 3 `✓` ×2 | **GREEN** |
+| R-9 `pytest tests/` ×2 | banked 176 ×2 at `e89b032` | ⟨`guarded -- uv run --no-sync pytest tests/ -q -p no:cacheprovider`⟩ → `176 passed in 353.94s` (before the F.CT3 merge), then at `9338e26`/`dfdf0fd`: `183 passed in 419.08s` · `183 passed in 374.75s` | **GREEN ×2** (at one set of bytes: 183 ×2) |
+| R-10 UIA-F-42 read and cured at root | flaky (retry #1) | cause read; `dfdf0fd`; 15/15 | **GREEN** (local) |
+| web vue-tsc rc 0 ×2 + vitest 116 ×2 | banked | at the final bytes: vue-tsc rc 0 ×2 (`w2-vuetsc-3/4.log`); vitest `116 passed` ×2 (`w2-vitest-3/4.log`) | **GREEN** |
+
+**Commits.** fourier m/w1: `b9bfdaa` (oracle family), `dfdf0fd` (R-10), both after `git fetch` + `pull --ff-only`, pushed ff (origin `dfdf0fd`, no force). value.js: `d7f19f6c2` (addendum + O-97 + INBOX), and this receipt.
+
+**Adjacent edits (§0bt).** `web/e2e/contrast-floor.spec.ts` (manifest `pairs` read and the held branch; granted in the plan). `web/e2e/f-w14-uia.spec.ts:463-471`: R-10's cure site is the test's read, same concern, no assertion removed.
+
+**Residuals.** (1) UIA-F-42's flake is cured locally; the fresh m/w1 CI that `.vb2` dispatches is its CI witness. (2) The O-97 rows lift at the glass 10.2.0 repin; until then they are held by pair id. (3) ECD D-6 (3.032) and FR-EQR-7[instance] (4.487 vs 3) are GREEN; D-6's headroom is thin, recorded. (4) PSM-4 and PV D/M-8 grade the hosts' opaque plate; the dialog's translucent composite stays SS-13's. **Escalations: none.**
