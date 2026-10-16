@@ -2062,3 +2062,42 @@ The verdict stays **RED**, held by the glass-owned rows and the named Skeleton l
 - Every run went through `~/.claude/guard/guarded`, one after the other: probes and the census `--light`, the suites `--light --rss-gb 4`.
 - Each probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 9 (the seventh redeploy's pass 9; critic C9r; evidence in `pass-42/`)
+
+**Cure commit:** none in keyframes.js. Every C9r row is glass-owned, held by an owner ruling, or a design note kept on its stated rationale. keyframes.js stays at `547d188c`, nothing new to push. **Evidence:** value.js `d8cccc27c` (`evidence/DS/keyframes/pass-42/`):
+- `c9r-probe.mjs`, `c9r-probe.json` (a reading, not a falsifier: no consumer change to falsify);
+- `after/`: `square`, `spring`, `sequence` and `easing` at 1440 and 390, each in light and dark;
+- `census.json`, `census.log`;
+- the gate logs `check-*`, `lint-*` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). `pass-09/` already holds the first workflow's pass-9 evidence, so the frames go to `pass-42/`, following the pass-23..41 precedent.
+
+**Cited (glass, not overridden)**
+- **KF-C9r-G1, the resting-plate blur that lets the grid through as murky blocks.** Served reading: `.square-stage`, `.spring-target` and `.seq-target` each carry `backdrop-filter: blur(16px) saturate(1.5)` and 5 box-shadow layers in every cell. Both come from the `glass-resting` class in glass's `dist/styles/glass/material.css`, and keyframes.js has no `.glass-resting` rule of its own. Cited against **O-87 FLAT-LIGHTING** (resting card = a tone step with no backdrop blur, and one quiet edge: the 10.2.0 band-0 token wave). Re-judge at the repin. Frames: `after/{square,spring,sequence}-*-dark.png`.
+- **KF-C9r-G2:** the cream Input fills beside grey or transparent Selects, the closed Select's up caret, the pill field radius, the control-surface gradients and `glass-control-edge` insets, the Apply CSS capsule stack, the dock plate halo, the asymmetric collapsed dock tile with the play-bubble halo, and the EasingPicker ghost staircase. Cited against **O-87 FLAT-LIGHTING** (with its proportion and affordance riders) and **O-88 DOCK-COLLAPSE-MOTION**. Re-judge at the 10.2.0 repin. No local override.
+
+**Stands (named)**
+- **KF-C9r-01, the dashed violet outline on the selected Spring preset:** read as `outline-style: dashed`, violet at 0.65. This is **U-K17**, already raised for owner re-ruling at pass 7 (KF-C7-03). The critic's cure is conditioned on O-59 adding a tile axis to glass's ToggleGroupItem, and its text says "do not change it now without the owner". It is unchanged.
+- **KF-C9r-02, the Sampled curve's fixed ceiling:** kept on its stated intent. The domain is not arbitrary. `PLOT_CEILING` (1.5556) is coupled to the ζ slider floor (0.2, crest 1.517) under `SpringTrace.vue` L-14 and pinned by a unit test, and `PLOT_HEADROOM_TICK` 1.5 names the top of the heatmap's value axis. A fixed domain is what lets the presets be compared (Bouncy's overshoot reads against Smooth's). A peak-relative domain would rescale per preset and break that comparison, so this stays a design note and is not a defect.
+- **KF-C9r-03, the phone Square plate:** an owner layout DESIGN-RULING, already routed at pass 8 (KF-C8r-03). Frames only: `after/square-390-*`.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): **identical to pass 41 on all 49 tallies.**
+- Static: 5 box-shadow declarations, 1 looping animation.
+- Chrome: the same as pass 41 (310 shadow elements, 938 layers, max 6).
+
+The verdict stays **RED**, held by the glass-owned rows and the named Skeleton loop row.
+
+**Gates** (the live tree at `547d188c`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **936/936 (154 files), twice.**
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- No consumer file changed, so there is no keyframes.js commit or push. The critic's own words put each consumer row with the owner (-01, -03) or as a note (-02). Changing them would break §0dm or U-K17.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light`, the suites `--light --rss-gb 4`.
+- The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
