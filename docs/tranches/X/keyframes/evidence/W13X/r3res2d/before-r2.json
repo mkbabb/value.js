@@ -1,0 +1,652 @@
+[
+ {
+  "vp": "844x390",
+  "theme": "light",
+  "load1": "22.96",
+  "surfaceItems": [
+   "Controls",
+   "Keyframes",
+   "Timeline",
+   "Matrix"
+  ],
+  "rest": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     21,
+     546,
+     346,
+     326
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     42,
+     559,
+     304,
+     55
+    ],
+    "grid": [
+     62,
+     676,
+     264,
+     371
+    ],
+    "param": [
+     62,
+     1067,
+     264,
+     60
+    ]
+   },
+   "titleVis": false,
+   "titleBox": [
+    567,
+    606
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 602,
+     "ch": 326,
+     "st": 0
+    }
+   ]
+  },
+  "end": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     21,
+     -166,
+     346,
+     326
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     42,
+     -153,
+     304,
+     55
+    ],
+    "grid": [
+     62,
+     -36,
+     264,
+     371
+    ],
+    "param": [
+     62,
+     355,
+     264,
+     60
+    ]
+   },
+   "titleVis": false,
+   "titleBox": [
+    -145,
+    -106
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 602,
+     "ch": 326,
+     "st": 276
+    }
+   ]
+  },
+  "verdict": "SCROLLED-OUT",
+  "pageerrors": []
+ },
+ {
+  "vp": "1440x900",
+  "theme": "light",
+  "load1": "21.83",
+  "surfaceItems": [
+   "Controls",
+   "Keyframes",
+   "Timeline",
+   "Matrix"
+  ],
+  "rest": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     71,
+     127,
+     407,
+     623
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     93,
+     141,
+     363,
+     55
+    ],
+    "grid": [
+     113,
+     261,
+     323,
+     297
+    ],
+    "param": [
+     113,
+     578,
+     323,
+     48
+    ]
+   },
+   "titleVis": true,
+   "titleBox": [
+    149,
+    188
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": []
+  },
+  "end": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     71,
+     127,
+     407,
+     623
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     93,
+     141,
+     363,
+     55
+    ],
+    "grid": [
+     113,
+     261,
+     323,
+     297
+    ],
+    "param": [
+     113,
+     578,
+     323,
+     48
+    ]
+   },
+   "titleVis": true,
+   "titleBox": [
+    149,
+    188
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": []
+  },
+  "verdict": "IN-VIEW",
+  "pageerrors": []
+ },
+ {
+  "vp": "390x844",
+  "theme": "light",
+  "load1": "20.23",
+  "surfaceItems": [
+   "Controls",
+   "Keyframes",
+   "Timeline",
+   "Matrix"
+  ],
+  "rest": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     13,
+     781,
+     364,
+     218
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     34,
+     794,
+     322,
+     55
+    ],
+    "grid": [
+     54,
+     909,
+     282,
+     342
+    ],
+    "param": [
+     54,
+     1271,
+     282,
+     54
+    ]
+   },
+   "titleVis": true,
+   "titleBox": [
+    802,
+    841
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 565,
+     "ch": 218,
+     "st": 0
+    }
+   ]
+  },
+  "end": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     13,
+     130,
+     364,
+     218
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     34,
+     143,
+     322,
+     55
+    ],
+    "grid": [
+     54,
+     258,
+     282,
+     342
+    ],
+    "param": [
+     54,
+     620,
+     282,
+     54
+    ]
+   },
+   "titleVis": false,
+   "titleBox": [
+    151,
+    190
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 565,
+     "ch": 218,
+     "st": 347
+    }
+   ]
+  },
+  "verdict": "SCROLLED-OUT",
+  "pageerrors": []
+ },
+ {
+  "vp": "844x390",
+  "theme": "dark",
+  "load1": "20.77",
+  "surfaceItems": [
+   "Controls",
+   "Keyframes",
+   "Timeline",
+   "Matrix"
+  ],
+  "rest": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     21,
+     546,
+     346,
+     326
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     42,
+     559,
+     304,
+     55
+    ],
+    "grid": [
+     62,
+     676,
+     264,
+     371
+    ],
+    "param": [
+     62,
+     1067,
+     264,
+     60
+    ]
+   },
+   "titleVis": false,
+   "titleBox": [
+    567,
+    606
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 602,
+     "ch": 326,
+     "st": 0
+    }
+   ]
+  },
+  "end": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     21,
+     -166,
+     346,
+     326
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     42,
+     -153,
+     304,
+     55
+    ],
+    "grid": [
+     62,
+     -36,
+     264,
+     371
+    ],
+    "param": [
+     62,
+     355,
+     264,
+     60
+    ]
+   },
+   "titleVis": false,
+   "titleBox": [
+    -145,
+    -106
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 602,
+     "ch": 326,
+     "st": 276
+    }
+   ]
+  },
+  "verdict": "SCROLLED-OUT",
+  "pageerrors": []
+ },
+ {
+  "vp": "1440x900",
+  "theme": "dark",
+  "load1": "19.87",
+  "surfaceItems": [
+   "Controls",
+   "Keyframes",
+   "Timeline",
+   "Matrix"
+  ],
+  "rest": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     71,
+     127,
+     407,
+     623
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     93,
+     141,
+     363,
+     55
+    ],
+    "grid": [
+     113,
+     261,
+     323,
+     297
+    ],
+    "param": [
+     113,
+     578,
+     323,
+     48
+    ]
+   },
+   "titleVis": true,
+   "titleBox": [
+    149,
+    188
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": []
+  },
+  "end": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     71,
+     127,
+     407,
+     623
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     93,
+     141,
+     363,
+     55
+    ],
+    "grid": [
+     113,
+     261,
+     323,
+     297
+    ],
+    "param": [
+     113,
+     578,
+     323,
+     48
+    ]
+   },
+   "titleVis": true,
+   "titleBox": [
+    149,
+    188
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": []
+  },
+  "verdict": "IN-VIEW",
+  "pageerrors": []
+ },
+ {
+  "vp": "390x844",
+  "theme": "dark",
+  "load1": "19.34",
+  "surfaceItems": [
+   "Controls",
+   "Keyframes",
+   "Timeline",
+   "Matrix"
+  ],
+  "rest": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     13,
+     781,
+     364,
+     218
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     34,
+     794,
+     322,
+     55
+    ],
+    "grid": [
+     54,
+     909,
+     282,
+     342
+    ],
+    "param": [
+     54,
+     1271,
+     282,
+     54
+    ]
+   },
+   "titleVis": true,
+   "titleBox": [
+    802,
+    841
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 565,
+     "ch": 218,
+     "st": 0
+    }
+   ]
+  },
+  "end": {
+   "open": true,
+   "boxes": {
+    "frame": [
+     13,
+     130,
+     364,
+     218
+    ],
+    "ribbon": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "header": [
+     34,
+     143,
+     322,
+     55
+    ],
+    "grid": [
+     54,
+     258,
+     282,
+     342
+    ],
+    "param": [
+     54,
+     620,
+     282,
+     54
+    ]
+   },
+   "titleVis": false,
+   "titleBox": [
+    151,
+    190
+   ],
+   "headVis": false,
+   "headText": null,
+   "hosts": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 565,
+     "ch": 218,
+     "st": 347
+    }
+   ]
+  },
+  "verdict": "SCROLLED-OUT",
+  "pageerrors": []
+ }
+]
