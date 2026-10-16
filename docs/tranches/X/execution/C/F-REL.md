@@ -2293,3 +2293,34 @@ At 390 the name now drops on darwin too: darwin's run was already 0.69 px over, 
 - `.worktrees/f-ct3` was untouched.
 
 **Status: DONE.** Commits: fourier `2a519c9`; value.js: this record plus `evidence/F-REL/x5/` (one commit).
+
+### F-REL.g — sitting 7 (RESUME 2026-10-16 (e); the merge lock read at the bytes after `.x5`)
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~18:15Z–. Spec read whole (`fourier/waves/F-REL.md`, 76 L; §Units `.g` L31, addendum (e) L71-76); COHESION §0fo (L4076-4091 = file end; ⟨`wc -l COHESION.md`⟩ → `4091`).
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → ` M web/src/App.vue` · ` M web/src/components/morph/HarmonicLevelGrid.vue` · `?? .worktrees/`. Both `web/src` paths are outside `.g`'s set (the live X-DS lane's), so they were never touched, staged or read into a commit. value.js `execution/C/F-REL.md`: clean. Nothing inherited. Because the main tree is dirty and on `m/w1`, the merge was made in a private detached worktree `~/.fourier-frel/g-merge` (its own index, so no sibling's staged path can be swept in), which was removed after the push.
+
+**Acts.**
+1. **Fetch.** ⟨`git fetch -q origin`; `git rev-parse --short HEAD origin/m/w1-bump-migration origin/master`⟩ → `2a519c9` · `2a519c9` · `ad62881`; ⟨`git rev-list --left-right --count origin/master...origin/m/w1-bump-migration`⟩ → `1 469`.
+2. **Merge lock: MET.** ⟨`gh run list --branch m/w1-bump-migration --limit 4`⟩ → `38938542799 success` (newest, 17:17:28Z) · `38899400446 failure` · `38868934803 failure` · `38824079821 failure`. ⟨`gh run view 38938542799 --json headSha,conclusion,jobs`⟩ → head `2a519c9d71…` (= `origin/m/w1` = `.x5`'s commit), `success`; jobs e2e · production compose boot + health · api/tests · web (vue-tsc + vite build) · inv-27 evidence, all `success` (e2e `525 passed · 5 flaky · 3 skipped · 0 failed`, the honest-red project = the manifest's 8 rows, read by `.x5`). **ESC-FREL-g-7 dissolves (§0fo.4).**
+3. **Merge.** ⟨`git worktree add --detach ~/.fourier-frel/g-merge origin/master`; `git merge --no-ff --no-commit origin/m/w1-bump-migration`⟩ → `CONFLICT (content): Merge conflict in .gitignore` (the sole conflict; `deploy-pages.yml`, `scripts/pages-deploy.sh` auto-merged). ⟨`git checkout --theirs .gitignore && git add .gitignore`; `git diff --quiet origin/m/w1-bump-migration -- .gitignore`⟩ → `gitignore=m/w1-whole` (R-3). ⟨`git diff --stat origin/m/w1-bump-migration HEAD | wc -l`⟩ (after commit) → `0`: the merged tree is m/w1's tree byte for byte (master's one commit `ad62881` was already carried on m/w1 by the deploy-file cherry-pick), so the merge needs no `web/playwright.config.ts`, `web/e2e/**` or `.github/workflows/**` edit.
+   - Commit **fourier `79f1a43`** (merge commit, parents `ad62881` · `2a519c9`; repo practice = merge commits, ⟨`git log origin/master --merges`⟩ → `f9fe195`, `66d3494`). A merge commit takes no pathspec; the private worktree index is the containment.
+4. **Push, no force.** ⟨`git merge-base --is-ancestor origin/m/w1-bump-migration HEAD`⟩ → `m/w1-contained`; ⟨`git push origin HEAD:master`⟩ → `ad62881..79f1a43  HEAD -> master` (fast-forward, 18:19:45Z). The local `master` branch (`02c5d24`, 17 commits all on m/w1: ⟨`git rev-list master ^origin/m/w1 ^origin/master | wc -l`⟩ → `0`) was not moved.
+   - **R-h2 named:** this master push fires the host webhook, which runs the host tree's old `f2fe447` in-place hook (recreate window, fused gate). That first deploy and its outage window are `.d`'s to read; this seat did not supervise or touch the host. ⟨`curl -s https://api.fourier.babb.dev/health`⟩ (~18:21Z) → `{"status":"ok"}`.
+5. **Master CI ×2.** The push fired **run 38946507416** (`push`, 18:19:56Z); a second run was dispatched in parallel, ⟨`gh workflow run ci.yml --ref master`⟩ → **run 38946553889** (`workflow_dispatch`, 18:20:17Z). `deploy-pages` is gated on `event == 'push'` (`deploy-pages.yml` L29-30), so the dispatched run cannot double-deploy the SPA.
+   - **Reading at seat close (the seat was ordered to return before CI ends):** ⟨`gh run view <id> --json status,jobs`⟩ → both `in_progress`; `web (vue-tsc + vite build)` `success` on both; e2e, api/tests and production compose boot still running. **Master CI ×2 is NOT yet read GREEN.** It is owed to the next reader (`.d`'s precondition, or a `.g` re-read): ⟨`gh run view 38946507416` / `38946553889`⟩ must both read `success`, e2e GREEN outside the manifest.
+
+**Gates (BEFORE → AFTER).**
+
+| Gate | BEFORE | AFTER | State |
+|---|---|---|---|
+| merge lock: fresh m/w1 CI e2e GREEN outside the manifest | RED (38899400446) | 38938542799 `success` at `2a519c9` | **GREEN** |
+| master CI GREEN ×2 | not reached (`origin/master` `ad62881`) | merged `79f1a43`, pushed; runs 38946507416 + 38946553889 in progress | **PENDING** (unread) |
+
+**Commits.** fourier `79f1a43` (merge). value.js: this record only.
+**Adjacent edits.** None (`.gitignore` resolution is inside the set).
+**Residuals.** (R-g7-1) master CI ×2 reading owed (above). (R-h2) the push fired the host's old in-place hook; its recreate window is `.d`'s to read. CI flakies carried from `.x5` (R-x5-1).
+**Teardown.** `~/.fourier-frel/g-merge` removed (⟨`git worktree remove`⟩ → `wt-removed`); no local server, browser or container started.
+**E13.** ⟨`grep -E '^\| I-' V/coordination/INBOX.md | grep -c '| UNREAD'`⟩ → read at the RESUME (e) open as `0`; no new letter in scope this seat.
+
+**Status: PARTIAL** — merged and pushed; master CI ×2 in flight at seat close.
