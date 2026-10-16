@@ -67,3 +67,10 @@ pytest and the api tests GREEN ×2; web vue-tsc, vitest and e2e GREEN ×2 (the n
   - Gate: visual-checkpoint GREEN ×2 locally and on a fresh m/w1 CI.
 - **Then:** `.g` (merge, as ruled), then `.d` (deploy), then close, then check. g-6 and d-1 dissolve in that order.
 - R-4 and R-6 are owner items and do not block. R-8 is cured by the orchestrator.
+
+## ADDENDUM 2026-10-16 (e): ESC-FREL-vb2-1 RULED (COHESION §0fo)
+- `.x5`: first diagnose the 2 px `/equation` dock-run overflow at 390 in `playwright:v1.61.0-noble`, separating consumer content from glass `dock-layer` sizing.
+  - **(a) Consumer cause:** cure `/equation` dock content in `web/src`. Use the priority-prefix with the overflow going to the existing menu; seats stay ≥ 44 px. No clipping and no fitted widths.
+  - **(b) Glass cause:** hold X-5 @390 by test id in `producer-held.json` with a new O-id, expiring at the 10.2.0 repin, and relay it to BK.
+- In either arm: X-5 ×2 in the container, darwin stays GREEN, and a fresh m/w1 CI is GREEN outside the manifest.
+- Then `.g` (merge), `.d` (deploy), the close and the check.

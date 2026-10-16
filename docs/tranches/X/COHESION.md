@@ -4072,3 +4072,20 @@ D-1 (MEDIUM) is the smoke check `heavy chunks requested at first paint: vendor-t
 - Arm (b) is not taken, because the KFA-76 warm is a lawful product act.
 - **Falsifier:** at a kf ref where three loads eagerly (a scratch import of `three` into the home boot path, never committed), the snapshot must trip. It must pass at HEAD ×2.
 - The unit commits to kf, pushes, and writes a receipt under KF.W13X's record.
+
+## §0fo — 2026-10-16: ESC-FREL-vb2-1 RULED. A unit diagnoses the cause first, then takes one of two arms; F.REL re-opens as `.x5 → .g → .d`
+`.w2` and `.vb2` landed: contrast-floor GREEN ×2 outside the pair-level manifest, and visual-checkpoint 5/5 ×2 in the container. Moving CI onto the renderer of record (§0fk.2 (b)) exposed one deterministic RED:
+- The test is au1 X-5 @390, logged in, on `/equation`. The `dock-layer dock-layer--full dock-run` has `scrollWidth` 348 against `clientWidth` 346. It fails ×3 on CI 38899400446 and ×2 locally in the container.
+- It is GREEN on darwin, so this is a real 2 px overflow under linux font metrics, not a flake.
+- The oracle stays as it is. An overflow is a product defect wherever it renders.
+
+**Ruled: GRANTED as unit `.x5`, which diagnoses first and then takes one arm.**
+1. **Diagnose in the container.** Take the reading under `guarded`, headless, in `mcr.microsoft.com/playwright:v1.61.0-noble`. Read the run's children: each item's box and its intrinsic min-content width, the run's padding and gap, and which of those come from fourier's `/equation` dock content and which from glass `dock-layer` sizing. The installed glass 10.1.0 `dist` is read only.
+2. **Arm (a), the consumer root, if the overflowing width is fourier's.** That covers an item's label, an icon set, a fixed width, or a count of seats beyond the run. Grant: the `/equation` app-dock content in `web/src`. Cure at the root by §0fh item 4's idiom: every seat keeps ≥ 44 px; the seats are the priority-ranked prefix that fits the run, and the rest go to the dock's existing menu surface. No `overflow:hidden`, no font swap, no fixed width to fit linux metrics.
+3. **Arm (b), the producer root, if the run's own sizing is glass's.** That covers padding, gap, or a `fit-content` computation that does not budget min-content. Hold X-5 @390 BY TEST ID in `producer-held.json` with a new O-id and an expiry ("at glass 10.2.0 repin"). Relay it to glass BK under the `X-F-BK-*` letter idiom, with the measured boxes. It is ADOPT-AT-LANDING.
+4. **Either arm:**
+   - The X-5 reading is ×2 in the container.
+   - darwin X-5 stays GREEN.
+   - A fresh m/w1 CI must read e2e GREEN outside the manifest. That dissolves ESC-FREL-g-7, and `.g` merges as ruled.
+   - A green master CI then dissolves ESC-FREL-d-2, and `.d` deploys.
+5. **Order:** `.x5 → .g → .d → close → check`. F-REL.md ADDENDUM (e) carries this ruling.
