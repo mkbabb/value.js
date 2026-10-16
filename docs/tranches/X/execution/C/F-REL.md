@@ -2196,3 +2196,100 @@ Groups: `[[F-REL.x5], [F-REL.g], [F-REL.d]]`.
 | F-REL.d | §Units `.d` (F-REL.md:32-38) + §0fo.4 | fourier `scripts/**` (prod-verify); value.js `docs/tranches/X/fourier/evidence/F-REL/` | smoke GREEN on the new SPA; cert > 14 d; health polled through the deploy (no outage); `scripts/prod-verify.mjs` 20/20; openapi has publish/remix/diff; PATCH preflight 2xx | fail-closed deploy via the standing workflow + webhook only (green master CI dissolves ESC-FREL-d-2); host never hand-edited; R-4/R-6 owner items, non-blocking; R-h2 named |
 
 ## RESUME 2026-10-16 (e) — Unit receipts
+
+### F-REL.x5
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~09:55–, unit of RESUME (e). Spec read whole (`F-REL.md`, 76 L); §0fo (L4076-4091), §0fh item 4 (L3967-3969).
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier, 09:56) → `?? .worktrees/` only, so nothing was inherited in `.x5`'s set. Later in the sitting the live X-DS lane dirtied `web/src/{App.vue, components/gallery/*, components/morph/HarmonicLevelGrid.vue, style.css}` and `web/e2e/screenshots/f-w14/*`. Those paths are outside this unit's set; they were never touched, staged or read into a commit. ⟨`git diff web/src/components/layout/AppDock.vue`⟩ → only this unit's hunks.
+
+**Instrument.** `~/.fourier-frel/x5/{outer.sh, run.sh, x5-probe.spec.ts}`, adapted from `close-d/{outer,e2e}.sh`:
+- `outer.sh` takes `.worktrees/heavy.lock` with noclobber and waits while another seat holds it. Then it runs `run.sh` under `~/.claude/guard/guarded --rss-gb 20 --timeout 90`.
+- `run.sh` starts a private mongod :27118 and the API :8191 at `COMPUTE_CONCURRENCY=1`, plus vite :3192 from the clean worktree `~/.fourier-frel/g-wt`, which is detached at `6b98e22`. ⟨`git status --porcelain | wc -l`⟩ → `0`.
+- The container `frel-vb` (`mcr.microsoft.com/playwright:v1.61.0-noble`) is synced from that worktree: ⟨`sha256sum` of `package-lock.json`, src vs repo⟩ → `62eef004…` on both sides, and ⟨`diff -rq` of src and e2e⟩ → `synced`.
+- Playwright runs with `--workers=1`, chromium, headless.
+- The probe is copied into `e2e/_x5-probe.spec.ts` for the run only and is removed on exit. It is never committed; the evidence copy is `x5/x5-probe.spec.ts`.
+- `.worktrees/f-ct3` was never touched.
+
+**Act 1 — diagnosis in the container (BEFORE, fourier `6b98e22`, glass 10.1.0 `dist` read-only).**
+- Command: ⟨`outer.sh run.sh LP DP`⟩. The guard admitted the run at 14:13:41Z after a FIFO slot wait. Results: `LP` (linux) `2 passed` rc=0; `DP` (darwin) `2 passed` rc=0.
+- The reading is the probe at `/equation`, logged in, `hasTouch`, with P insets. Evidence: `docs/tranches/X/fourier/evidence/F-REL/x5/diag-before-{linux-LP,darwin-DP}.json`.
+
+| @390 `/equation` | linux (v1.61.0-noble) | darwin |
+|---|---|---|
+| run `.dock-layer.dock-layer--full.dock-run` scrollW / clientW | **348 / 346** | 347 / 346 (within the oracle's +1) |
+| run padding-inline · column-gap · box-sizing (glass) | 0 / 0 · 8 px · content-box | 0 / 0 · 8 px · content-box |
+| `.app-dock` (glass) width · padding | 370 · 12 / 12 (390 − header 2×10) | 370 · 12 / 12 |
+| seat 1 `.logo-trigger` (About) box · min-content | **46.41** · 46.41 (ℱ glyph 30.41: the fallback face) | 44 · 44 (ℱ 20.84) |
+| `.dock-separator` ×3 (glass) | 1 px + margin 6 / 6 each = 39 | 39 |
+| seat 2 `.nav-trigger` (Sections) box · min-content | **127** · 127 = 8 + sigma 24 + 4 + **label "Equation" 63** + 4 + chevron 16 + 8 | 127.69 (label 63.69) |
+| seat 3 `.account-trigger` (Account, via `display:contents` group) | 44 | 44 |
+| seat 4 `.dark-mode-toggle` box · min-content | 44 · 32.78 (floored 44) | 44 · 32.78 |
+| gaps (6 × 8, glass) | 48 | 48 |
+| sum = content end vs run end | 22 + 348.41 = 370.41 vs 368 → **2.41 px over** | 368.69 vs 368 → 0.69 px over |
+
+At 360 the label is already hidden, so the run fits: linux 281 / 281, darwin 279 / 279.
+
+**Attribution.**
+- glass's sizing is the same on both renderers: run padding 0, an 8 px gap, 6 px separator margins, and a content-box run equal to the dock minus its 12 px padding. Nothing there fails to budget min-content: the run is glass's lawful scroller, and it overflows only when its children exceed it.
+- The bytes that differ, and that exceed the run, are fourier's own content: the Sections seat's visible label (63 px) and the wordmark glyph's linux fallback (+2.41 px over the 44 px floor).
+- The seats at their floor all fit: 46.41 + 60 + 44 + 44 + 39 + 48 = 281.41 ≤ 346. So the whole seat set is the priority-ranked prefix that fits. The overflow is the label, the run's lowest-priority content, and it already has a menu home.
+- The `max-width: 24rem` breakpoint that dropped the label was a width guessed from darwin metrics, and it was 2 px short on linux.
+- **Arm (a), the consumer root, is taken.** Arm (b) is not: no producer row and no relay letter. No O-98 is minted.
+
+**Act 2 — the cure (arm (a), §0fh.4 idiom), `web/src/components/layout/AppDock.vue` only.**
+- **Seats whole.** All four seats (About, Sections, Account, Dark mode) keep glass's 44 px floor and fit every phone run, so the seat set is the full priority prefix and no seat moves.
+- **The label goes to its menu home.** The remainder is the Sections seat's visible section name, the run's lowest-priority content. It already lives in the existing section menu (the `aria-current` row) and in the trigger's accessible name ("Navigate — current section …").
+- **Measured fit.** `fitNavLabel()` shows the name, then hides it (`v-show`) if the run's children extend past its content box. The read uses layout boxes, the same idiom as value.js `.m3` `8c9d1cd8a`. The fit runs on:
+  - a `.app-header` inline resize (the header is viewport-sized, so the fit cannot oscillate);
+  - a section change;
+  - `document.fonts` `loadingdone`.
+- **Retired:** the `@media (max-width: 24rem)` guess.
+- **Not used:** no `overflow:hidden`, no font swap, no fixed or fitted width, no new component. When glass O-85 lands, this measure is retired for it.
+- Inherited bytes: none. Adjacent edits: none.
+
+**Act 3 — gates on the cured bytes.** The instrument worktree is `6b98e22` with the cure applied (⟨`git apply appdock.patch`⟩). ⟨`diff <(git diff AppDock.vue) appdock.patch`⟩ → `same-as-tested` at commit time.
+- **Heavy slot.** `heavy.lock` was held by F.CT3 close (`pytest1 → api1 → harness1`, 14:14–16:29Z). This seat took it at 16:29:30Z. guarded then waited for headroom: ~1,550–1,630 processes, mostly the owner's `vitest-vscode` ×250 and R ×112, which this seat left alone. It admitted at 17:13:52Z, and the lock was released at 17:15:42Z.
+- A seat mistake in that wait: this seat's own timed-out wait loops (~20 shells plus their `sleep`s) were still running in the background. They were found and killed at ~17:11Z (⟨`ps … | grep -c until`⟩ → `0`); the guard admitted two minutes later.
+
+| Gate | BEFORE | AFTER (⟨cmd⟩ → reading) | State |
+|---|---|---|---|
+| diagnosis table in `v1.61.0-noble` | absent | the Act 1 table; ⟨`run.sh LP`⟩ → `2 passed` rc=0 | **GREEN** |
+| au1 X-5 @390 (`f-w14v-au1.spec.ts:397`) ×2 in the container | RED ×2 at `be5ede6` (348/346) | ⟨`run.sh L1 L2`, `-g "au1 X-5"`⟩ → L1 `✓ X-5 (360)` `✓ X-5 (390)` `2 passed (23.3s)` rc=0 · L2 `2 passed (22.1s)` rc=0 | **GREEN ×2** |
+| darwin X-5 | GREEN (347/346, inside the +1) | ⟨`run.sh D1`⟩ → `2 passed (22.2s)` rc=0 | **GREEN** |
+| AFTER run box @390 | linux 348/346 · darwin 347/346 | ⟨`run.sh LAP DAP`⟩ → linux **281/281**, darwin **279/279**, the name hidden on both, nav seat 60, logo 46.41 / 44, every seat ≥ 44 | fits |
+| vue-tsc ×2 | rc 0 (banked) | ⟨`guarded --light -- npx vue-tsc -b --noEmit`⟩ → rc 0 · rc 0 | **GREEN ×2** |
+| vitest ×2 | 116 (banked) | ⟨`guarded --light -- npx vitest run --maxWorkers=2`⟩ → `20 passed` · `116 passed` ×2 | **GREEN ×2** |
+
+At 390 the name now drops on darwin too: darwin's run was already 0.69 px over, and the oracle's +1 slack had masked that.
+
+**Act 4 — commit, push, fresh m/w1 CI.**
+- Before committing: ⟨`git fetch` + `git pull --ff-only`⟩ moved HEAD `6b98e22 → dfc0a34`. ⟨`git diff --stat 6b98e22 dfc0a34 -- web`⟩ → only `web/playwright.config.ts`, a default-worker change; no `web/src` byte moved, so the readings above stand for the committed bytes.
+- Commit **fourier `2a519c9`**: `fix(web · F.REL .x5, COHESION §0fo.2 arm (a)): …`, pathspec `web/src/components/layout/AppDock.vue` only, `1 file changed, 67 insertions(+), 12 deletions(-)`.
+- Push: ⟨`git push origin m/w1-bump-migration`⟩ → `origin/m/w1-bump-migration = 2a519c9`, no force.
+- CI runs on m/w1 only by `workflow_dispatch` (⟨`grep -A5 '^on:' ci.yml`⟩ → push/PR on master only; the prior runs' event was `workflow_dispatch`). ⟨`gh workflow run ci.yml --ref m/w1-bump-migration`⟩ → **run 38938542799**, head `2a519c9`, `completed success`.
+  - Jobs: e2e success · production compose boot + health success · api/tests success · web (vue-tsc + vite build) success · inv-27 evidence success.
+  - e2e gating cell: `525 passed (53.1m)` · `5 flaky` · `3 skipped` · 0 failed. `✓ 337 au1 X-5 (360 logged in)` and `✓ 338 au1 X-5 (390 logged in)`.
+  - The honest-red project ran exactly the manifest's tests, RED as declared, and the job passed. ⟨`node -e '…producer-held.json…rows.length'`⟩ → `8` rows, matching 13 tests: L1-12, c3m, c3g, pd ×6, admin-a11y ×4.
+  - Excerpt: `evidence/F-REL/x5/ci-38938542799-e2e.txt`.
+- **The fresh m/w1 CI e2e is GREEN outside the manifest, which dissolves ESC-FREL-g-7 (§0fo.4).** `.g` may merge as ruled.
+
+**Gate summary (BEFORE → AFTER).**
+- Diagnosis table: absent → GREEN.
+- X-5 @390 ×2 in the container: RED ×2 → GREEN ×2.
+- darwin X-5: GREEN → GREEN.
+- Fresh m/w1 CI e2e outside the manifest: RED (38899400446) → GREEN (38938542799).
+- vue-tsc: rc 0 ×2. vitest: 116 ×2.
+
+**Residuals.**
+- (R-x5-1) The 5 CI flakies passed on CI's standing `retries: 2` and are not this unit's: `equation-interaction S2`, `f-w13-image-controls G-b`, `f-w14u-paper paper-mobile 390`, `f-w14v-au0 d1440-dark`, `f-w14v-eq2 q1`. Named for `.g`'s master ×2 reading.
+- (R-x5-2) The measured fit is a consumer stand-in for glass O-85 DOCK-PRIORITY-OVERFLOW. It is retired when O-85 lands, as `.m3`'s is.
+- No arm (b): no `producer-held.json` row, no BK letter, and no O-98 is minted.
+
+**Teardown.**
+- The private mongod :27118, API :8191, vite :3192 and the `frel-vb` container were stopped by `run.sh`'s trap (⟨drive log⟩ → `cleanup 2026-10-16T17:15:37Z`; `guarded … rc=0`).
+- `heavy.lock` is released (absent).
+- The probe was removed and the instrument copy of the cure was restored (⟨`git checkout -- AppDock.vue`⟩), so the worktree is clean and detached at `6b98e22` (⟨`git status --porcelain | wc -l`⟩ → `0`).
+- `.worktrees/f-ct3` was untouched.
+
+**Status: DONE.** Commits: fourier `2a519c9`; value.js: this record plus `evidence/F-REL/x5/` (one commit).
