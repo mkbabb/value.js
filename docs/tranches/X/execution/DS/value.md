@@ -817,3 +817,47 @@ The relaunched workflow dispatched this seat as "pass 8" with critic V8C's 5 row
 - `docs/tranches/X/gates/gate-specimen-grammar.mjs` is stale: it still reads `demo/color-session/ColorSpaceSelector.vue`, which moved to `shared/ui/` at `785e522c5`. Its 52-char sweep therefore never saw this row.
 - Judge the well label at 390, where it now sits at the body rung beside the add slot.
 - The glass rows wait on O-87 / O-88.
+
+### pass 9 (2026-10-16): critic P9R — the expanded card's collision, the in-card rule tone, the strip remnant, the attribution chip, the well's promise, the zone badge's noun
+
+The relaunched workflow dispatched this seat as "pass 9" with critic P9R's 9 rows. `pass-09/` already holds an earlier pass-9 critic's material (`critic/`, `critic-p9r/`, V9C probes), so this seat's evidence is in `pass-09/p9-2026-10-16/`.
+
+**Commits.** value.js `a86622b18` (the cure and the new oracle) and `0df03cd19` (frames, probe, census, gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-09/p9-2026-10-16/`) |
+|---|---|---|---|
+| P9R-01 (medium) | **Cured at the root.** | `PaletteInspector.vue`: the narrow-card rule's detail selector is now a **descendant** (`.palette-card:not([data-layout="aside"]) .palette-card__detail`). The band sits inside the Collapsible's `display: contents` root, so the child selector never matched and the band kept the `detail` area, row 3, under the meta row. New oracle `e2e/smoke/oracles/p9r-card-detail-row.spec.ts`: on an expanded Browse card at 1440 and at 390, the meta row's box and the detail band's box do not intersect, and the band sits below the meta row. | `probe-p9r.json`: 1440 (card 462 px) meta y 324–359, detail y 359–473; 390 (card 324 px) meta y 326–357, detail y 357–470; `metaDetailIntersect` false in all 4 cells. Frames `browse-expanded-{1440,390}-{light,dark}.png`, `exp-crop-*.png`. |
+| P9R-02 (low) | **Cured, by token.** | Every in-card rule now uses the minted hairline `border-card-edge` (`--card-edge` = foreground 12 %): Gradient's three `<hr>`s (`GradientVisualizer.vue`), Mix's footer rule (`MixPane.vue`, was `border-border/35`), and both of `PaletteCardSwatches.vue`'s rules (were `border-border/15`). | `gradient-rule-*`: all 3 rules compute `oklab(0.216 … / 0.12)` light and `oklab(0.925 … / 0.12)` dark, which is the ink hairline and not the opaque khaki `--border`. The card's slug-row rule reads the same. |
+| P9R-03 (low) | **Cured, by deletion.** | Expanded (non-aside), the specimen strip collapses to `block-size: 0`, so the fold still transitions. The 0.25rem remnant could not take its 1rem start radii. The swatch row is now the colours. The Extract result card (pinned expanded) follows. No ornament added. | `stripBlockSize` `0px` in all 4 expanded cells. `exp-crop-*.png`, `extract-loaded-*.png`. |
+| P9R-04 (low) | **Cured.** | Attribution speaks at the meta rung: `text-small`, muted ink, regular weight, no ring, reading "by \<author\>" (the bare slug when the palette has no `userSlug`). The first-colour ink and ring are gone, along with `safeFirstColor` and its plumbing in the inspector. The copy verb is glass's `Button icon-only emphasis="quiet" size="sm"`, anchored to the slug, and keeps its `Copy slug …` aria-label (`copy-verdict.test.ts` passes unchanged). | `slugText` "by gallery", weight 400, border 0, colour = muted ink; `copyIsGlassButton` true. |
+| P9R-05 (low) | **Cured: the row keeps the label's promise.** | `CurrentPaletteEditor.vue`: when the well is empty, its label row (`data-well-label-row`) is a pointer target for the same `addCurrentColor` the trailing add slot runs. The slot stays the keyboard stop and the accessible name, so there is no duplicate control and no new wrapper. V8C-02's rung is kept. | `palettes-editor-*`: a click on "Start a new palette" turns the well from empty to "Current Palette · 1 color" in both themes (`wellEmptyBefore` true → `wellEmptyAfter` false). |
+| P9R-06 (trivial) | **Cured.** | `ImageDropZone.vue`: the badge now shows the verb and its glyph: Pipette + "Pick a color". The click opens the eyedropper. The zone's aria-label is unchanged. | `extract-loaded-{1440,390}-*`: badge text "Pick a color", glyph present. |
+| P9R-G1 (medium) | **Glass-owned: cited, not overridden.** | Floater material (`select-content`/`menu-content` stack, gradient fill, blur). O-87 FLAT-LIGHTING (V7R-02, already relayed). Honest-RED until the 10.2.0 repin. | Census overlay `floaterMaxLayers` 8, `floaterGradients` 6 (glass). |
+| P9R-G2 (low) | **Glass-owned: cited.** | The dock folds to its seal on non-scroll interactions, and its fill is misshapen at 390. O-88 DOCK-COLLAPSE-MOTION. No local shim. | Visible in `extract-loaded-*`, `palettes-editor-*`. |
+| P9R-G3 (low) | **Glass-owned: cited.** | Hero bead, rim stacks and control plates. O-87. Honest-RED until 10.2.0. | Census below. |
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`, guarded).
+- **Verdict RED, on glass rows only (O-87).**
+  - Routes: max 6 layers, inset highlights 339, drop-shadow 8, gradient fills on controls 17. Pass 8 read 367 and 22; these are glass rows and the counts move with route state, so this pass claims nothing about them.
+  - Overlays: floater max layers 8.
+- **Consumer:**
+  - Computed: 0 multi-layer, 0 inset highlights, 0 drop-shadows, 0 control gradients, looping 0.
+  - Static: 17 box-shadow declarations, unchanged.
+- Overlay paint-top failures: 0.
+
+**Frames.** Headless real Chrome (§0ei), on :9000. That server serves the working tree, so other seats' uncommitted hunks show in the frames.
+- 36/36 route frames.
+- 8 opened-overlay frames.
+- 16 P9R interaction cells: `browse-expanded-{1440,390}`, `gradient-rule`, `palettes-editor`, `extract-loaded-{1440,390}`, each in light and dark, plus `exp-crop-*`.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1214/1221 ×2, with the **same 7** standing failures (diffed: ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6). None is in this diff.
+- **e2e** (smoke, headless, workers 1, own server :9186): the new oracle plus every spec that drives the Browse card or inspector, Gradient, the well or the card menus, 54 tests. **54/54 ×2, a strict ×2 GREEN.**
+- The oracle's first draft read the band mid-morph at 1440 (`oracle-first.txt`), so it now polls the band open before the geometry read. No assertion was weakened.
+- No visual golden was re-baselined.
+
+**For the next critic.**
+- `PaletteInspector`'s `cssColor` prop is now read by nothing (it fed only the slug's first-colour ink). Hosts still pass it, and two of them, `ExtractWorkbench.vue` among them, carry other seats' hunks. Retiring it is a small host sweep for the seat that owns those files.
+- Judge the empty well's row-as-command at 390. Judge the "by \<author\>" line against the tag chips' register.
+- The glass rows wait on O-87 / O-88. The open owner rulings are unchanged.
